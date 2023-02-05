@@ -1,10 +1,12 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Button from './Components/FancyButton/FancyButton';
 
 function App() {
   return (
     <div className="App">
+      <Button size='small'></Button>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -24,3 +26,4 @@ function App() {
 }
 
 export default App;
+
