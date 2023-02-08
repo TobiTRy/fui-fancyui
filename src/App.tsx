@@ -6,7 +6,7 @@ import Button from './Components/FancyButton/FancyButton';
 function App() {
   return (
     <div className="App">
-      <Button size='small'></Button>
+
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
