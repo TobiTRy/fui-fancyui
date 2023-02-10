@@ -63,6 +63,8 @@ const radius = {
 //TODO: ICONS
 
 
+
+
 const StyledButton = styled.button`
   display: flex;
   justify-content: center;
@@ -71,8 +73,6 @@ const StyledButton = styled.button`
   font-size: ${({ size }: IFancyButton) => fontSize[size]};
 
   border: none;
-  box-sizing: border-box;
-
   ${({ outlined }:IFancyButton) => outlined && css`
     background-color: transparent;
     padding: ${({ size }: IFancyButton) => padding[size]};
@@ -85,8 +85,8 @@ const StyledButton = styled.button`
   
 
     
-  background-color: ${({ backgroundColor, outlined }: IFancyButton) => 
-    outlined ? 'transparent' : bgColor[backgroundColor]
+  background-color: ${({ backgroundColor}: IFancyButton) => 
+    bgColor[backgroundColor]
   };
 
   //Handles the FontColor with no Background colord background and light and dark backgrounds 
@@ -110,6 +110,15 @@ const StyledButton = styled.button`
   }
 
 `;
+
+const StyledButtonOutlined = styled(StyledButton)`
+  color: ${({ backgroundColor }:IFancyButton) => bgColor[backgroundColor]};
+  border: 3px solid ${({ backgroundColor }:IFancyButton) => bgColor[backgroundColor]};
+  background-color: transparent;
+
+  
+`
+
 
 const Icon = (
   <span>
@@ -138,8 +147,13 @@ export default function FancyButton({
   ...props
 }: IFancyButton) {
   return (
-    <StyledButton type="button" {...props}>
-      {label}
-    </StyledButton>
+    <>
+      <StyledButtonOutlined type="button" {...props}>
+        {label}
+      </StyledButtonOutlined>
+      <StyledButton type="button" {...props}>
+        {label}
+      </StyledButton>
+    </>
   );
 }
