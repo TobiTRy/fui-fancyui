@@ -13,6 +13,8 @@ const Template: ComponentStory<typeof FancyButton> = (args) => <FancyButton {...
 export const Primary = Template.bind({});
 Primary.args = {
   label: 'Button',
+  backgroundColor: 'primary',
+  size: 'small'
 };
 
 export const Secondary = Template.bind({});

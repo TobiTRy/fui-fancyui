@@ -14,6 +14,12 @@ interface IFancyButton {
 }
 
 
+// INPUT TYPE
+// PRIMARY
+// SECONDARY 
+// ACCENT^
+// TRANSPARENT
+
 
 
 const padding = {
@@ -31,10 +37,10 @@ const fontSize = {
 }
 
 
-const bgColor: { [key: string]: string } = {
-  accent: 'var(--orange)',
-  accent_hover: 'var(--orange-dark)',
-  secondary: 'var(--lightgreen)',
+const bgColor: { [key: string]: string[] } = {
+  accent: ['var(--orange)', 'bright'],
+  accent_hover: ['var(--orange-dark)', 'bright'],
+  secondary: ['var(--lightgreen)'],
   secondary_hover: 'var(--lightgreen-dark)',
   primary: 'var(--darkblue)',
   primary_hover: 'var(--darkblue-dark)',
@@ -65,58 +71,34 @@ const radius = {
 
 
 
-const StyledButton = styled.button`
+const StyledButtonBlank = styled.button`
   display: flex;
   justify-content: center;
   width: ${({ size }: IFancyButton) => width[size]};
   padding: ${({ size }: IFancyButton) => padding[size]};
   font-size: ${({ size }: IFancyButton) => fontSize[size]};
-
   border: none;
-  ${({ outlined }:IFancyButton) => outlined && css`
-    background-color: transparent;
-    padding: ${({ size }: IFancyButton) => padding[size]};
-    border: 2px solid ${({ backgroundColor }: IFancyButton) => bgColor[backgroundColor]};
-
-    &:hover {
-      border-color: ${({ outlined, backgroundColor }: IFancyButton) => outlined ? bgColor[backgroundColor + '_hover'] : 'initial'};
-    }
-  `}
-  
-
-    
-  background-color: ${({ backgroundColor}: IFancyButton) => 
-    bgColor[backgroundColor]
-  };
-
-  //Handles the FontColor with no Background colord background and light and dark backgrounds 
-  color: ${({ backgroundColor, color ,outlined }: IFancyButton) => 
-    //When outlined is true than set the textcolor to the same color als the outlined else standard text is white
-    outlined ? bgColor[backgroundColor] : undefined || 
-    //When the backgroundColor is transparent,
-    backgroundColor === 'transparent' ?
-    //check if the color is bright and set them, else is dark
-    (color === 'bright' ? 'var(--white)' : 'var(--dark)')
-    //When nothing fits standard is white
-    : 'var(--white)'
-  };
-
-
   border-radius: ${({size}: IFancyButton) => radius[size]};
+`;
+
+const StyledButtonNormal = styled(StyledButtonBlank)`
+  color: ${({ color }:IFancyButton) => (color === 'bright' ? 'var(--white)' : 'var(--dark)')};
+  background-color: ${({ backgroundColor}: IFancyButton) => bgColor[backgroundColor]};
+
 
   &:hover {
     border-color: ${({ outlined, backgroundColor }: IFancyButton) => outlined ? bgColor[backgroundColor + '_hover'] : 'initial'};
     background-color: ${({ backgroundColor }: IFancyButton) => bgColor[backgroundColor + '_hover']  };
   }
 
-`;
 
-const StyledButtonOutlined = styled(StyledButton)`
+`
+
+
+const StyledButtonOutlined = styled(StyledButtonBlank)`
   color: ${({ backgroundColor }:IFancyButton) => bgColor[backgroundColor]};
   border: 3px solid ${({ backgroundColor }:IFancyButton) => bgColor[backgroundColor]};
   background-color: transparent;
-
-  
 `
 
 
