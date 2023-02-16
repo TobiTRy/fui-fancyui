@@ -1,6 +1,11 @@
 import React from 'react';
-import '../../Design.ts/colorVariables.css';
-import { color, uiColorCompilation, fontSize, borderRadius, spacing } from '../../../Design/design';
+import {
+  colorPalet,
+  uiColors,
+  fontSize,
+  borderRadius,
+  spacing,
+} from '../../../Design/design';
 
 import styled, { css } from 'styled-components';
 
@@ -8,69 +13,12 @@ interface IFancyButton {
   size: 'small' | 'medium' | 'large' | 'wide';
   label?: string;
   outlined?: boolean;
-  color: 'bright' | 'dark';
-  backgroundColor:
-    | 'primary'
-    | 'secondary'
-    | 'accent'
-    | 'transparent'
+  color?: 'light' | 'dark';
+  icon?: React.ReactNode;
+  align?: 'left' | 'right' | 'center';
+  design: 'primary' | 'secondary' | 'accent' | 'transparent';
   onClick?: () => void;
 }
-
-
-const sizeCalculator = () => {
-  
-} 
-// INPUT TYPE
-// PRIMARY
-// SECONDARY
-// ACCENT^
-// TRANSPARENT
-
-const padding = {
-  small: `${spacing.sm} ${spacing.md}`,
-  medium: `${spacing.sm} ${spacing.md}`,
-  large: `${spacing.md} ${spacing.xl}`,
-  wide: `${spacing.lg}`,
-};
-
-
-
-//TODO: Check for optional Values
-//TODO: EFFECTS HOVER ETC
-//TODO: Alignment
-//TODO: ICONS
-
-const StyledButtonBlank = styled.button`
-  display: flex;
-  justify-content: center;
-  width: ${({ size }: IFancyButton) => (size === 'wide') && '100%'};
-  padding: ${({ size }: IFancyButton) => padding[size]};
-  font-size: ${({ size }: IFancyButton) => (size === 'wide') ? fontSize.medium : fontSize[size]};
-  border: none;
-  border-radius: ${({ size }: IFancyButton) => borderRadius[size]};
-`;
-
-const StyledButtonNormal = styled(StyledButtonBlank)`
-
-
-`
-
-const Icon = (
-  <span>
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="16"
-      height="16"
-      fill="currentColor"
-      viewBox="0 0 16 16"
-    >
-      <path d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516.024.034 1.52.087 2.475-1.258.955-1.345.762-2.391.728-2.43Zm3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422.212-2.189 1.675-2.789 1.698-2.854.023-.065-.597-.79-1.254-1.157a3.692 3.692 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56.244.729.625 1.924 1.273 2.796.576.984 1.34 1.667 1.659 1.899.319.232 1.219.386 1.843.067.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758.347-.79.505-1.217.473-1.282Z" />
-      <path d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516.024.034 1.52.087 2.475-1.258.955-1.345.762-2.391.728-2.43Zm3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422.212-2.189 1.675-2.789 1.698-2.854.023-.065-.597-.79-1.254-1.157a3.692 3.692 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56.244.729.625 1.924 1.273 2.796.576.984 1.34 1.667 1.659 1.899.319.232 1.219.386 1.843.067.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758.347-.79.505-1.217.473-1.282Z" />
-    </svg>
-  </span>
-);
-
 //rounded
 //outlined
 //disabled / hoverd
@@ -78,12 +26,201 @@ const Icon = (
 //only text button
 //passiv warn secondary
 
+const alignment = {
+  left: 'flex-start',
+  right: 'flex-end',
+  center: 'center',
+};
+
+const padding = {
+  small: `${spacing.xs} ${spacing.sm}`,
+  medium: `${spacing.sm} ${spacing.lg}`,
+  large: `${spacing.md} ${spacing.xl}`,
+  wide: `${spacing.md}`,
+};
+
+//TODO: Check for optional Values
+//TODO: EFFECTS HOVER ETC
+//TODO: Alignment
+//TODO: ICONS
+
+const BlankButton = styled.button<IFancyButton>`
+  display: flex;
+  justify-content: center;
+  font-family: 'Lato', sans-serif;
+  width: ${({ size }) => (size === 'wide' ? '100%' : 'initial')};
+  padding: ${({ size }) => padding[size]};
+  font-size: ${({ size }) =>
+    size === 'wide' ? fontSize.medium : fontSize[size]};
+  border-radius: ${({ size }) =>
+    size === 'wide' ? borderRadius.large : borderRadius[size]};
+  border: none;
+  cursor: pointer;
+`;
+
+const generateOutlined = (props: IFancyButton) => {
+  const { design, color} = props
+
+  return css`
+    position: relative;
+    background-color: transparent;
+    border: 2px solid ${uiColors[design].main};
+    color: ${color ? colorPalet[color] : uiColors[design].main};
+
+    &:hover {
+      border-color: ${uiColors[design].hover};
+      color: ${color ? colorPalet[color] : uiColors[design].hover};
+    }
+  `;
+};
+
+const generateButton = (props: IFancyButton) => {
+  const { design, outlined } = props;
+
+  const outlinedStyled = generateOutlined(props)
+
+  return css`
+    background-color: ${uiColors[design].main};
+    ${outlinedStyled}
+  `;
+};
+
+const Button = styled.button`
+  display: flex;
+  justify-content: center;
+  font-family: 'Lato', sans-serif;
+  width: ${({ size }) => (size === 'wide' ? '100%' : 'initial')};
+  padding: ${({ size }) => padding[size]};
+  font-size: ${({ size }) =>
+    size === 'wide' ? fontSize.medium : fontSize[size]};
+  border-radius: ${({ size }) =>
+    size === 'wide' ? borderRadius.large : borderRadius[size]};
+  border: none;
+  cursor: pointer;
+
+  ${(props: IFancyButton) => generateButton(props)}
+`;
+
+const NormalButton = styled(BlankButton)`
+  background-color: ${({ design }: IFancyButton) => uiColors[design].main};
+  color: ${({ design }: IFancyButton) => uiColors[design].contrast};
+
+  &:hover {
+    background-color: ${({ design }: IFancyButton) => uiColors[design].hover};
+  }
+`;
+
+const OutlinedButton = styled(BlankButton)`
+  position: relative;
+  background-color: transparent;
+  border: 2px solid ${({ design }: IFancyButton) => uiColors[design].main};
+  color: ${({ design, color }: IFancyButton) =>
+    color ? colorPalet[color] : uiColors[design].main};
+
+  &:hover {
+    border-color: ${({ design }: IFancyButton) => uiColors[design].hover};
+    color: ${({ design, color }: IFancyButton) =>
+      color ? colorPalet[color] : uiColors[design].hover};
+  }
+`;
+
+const paddingFromIcon = {
+  small: `${spacing.xs} `,
+  medium: `${spacing.sm}`,
+  large: `${spacing.sm}`,
+  wide: `${spacing.sm}`,
+};
+
+function calcPixel(pxInput: string, changeValue: number) {
+  return parseInt(pxInput) + changeValue + 'px';
+}
+
+const paddingIconButon = {
+  small: `${calcPixel(spacing.sm, -4)}`,
+  medium: `${calcPixel(spacing.lg, -2)}`,
+  large: `${calcPixel(spacing.xl, -5)}`,
+  wide: `${calcPixel(spacing.md, -4)}`,
+};
+
+const calcIconPaddingAndAlign = ({
+  align,
+  size,
+}: Pick<IFancyButton, 'align' | 'size'>) => {
+  if (align === 'right') {
+    return {
+      'padding-left': paddingFromIcon[size],
+      order: 1,
+    };
+  } else {
+    return {
+      'padding-right': paddingFromIcon[size],
+    };
+  }
+};
+
+const calcIconButtoonPadding = ({
+  align,
+  size,
+}: Pick<IFancyButton, 'align' | 'size'>) => {
+  if (align === 'right') {
+    return { 'padding-right': paddingIconButon[size] };
+  } else {
+    return { 'padding-left': paddingIconButon[size] };
+  }
+};
+
+const IconButton = styled(BlankButton)`
+  ${NormalButton}
+  align-items: center;
+  justify-content: ${({ align }: IFancyButton) => align && alignment[align]};
+  ${({ align, size }: IFancyButton) => calcIconButtoonPadding({ align, size })};
+
+  & i {
+    display: flex;
+    align-items: center;
+    ${({ align, size }: IFancyButton) =>
+      calcIconPaddingAndAlign({ align, size })};
+  }
+`;
+
+const NormalIconButton = styled(NormalButton)`
+  ${IconButton}
+`;
+
+const OutlinedIconButton = styled(IconButton)`
+  ${OutlinedButton}
+`;
+
 export default function FancyButton({ label, ...props }: IFancyButton) {
+  const outlined = props.outlined;
+  const icon = props.icon;
   return (
     <>
-      <StyledButtonNormal type="button" {...props}>
-        {label}
-      </StyledButtonNormal>
+      {!outlined && !icon && (
+        <NormalButton type="button" {...props}>
+          {label}
+        </NormalButton>
+      )}
+      {outlined && !icon && (
+        <OutlinedButton type="button" {...props}>
+          {label}
+        </OutlinedButton>
+      )}
+      {!outlined && icon && (
+        <IconButton type="button" {...props}>
+          <i>{icon}</i>
+          <span>{label}</span>
+        </IconButton>
+      )}
+      {outlined && icon && (
+        <OutlinedIconButton type="button" {...props}>
+          <i>{icon}</i>
+          <span>{label}</span>
+        </OutlinedIconButton>
+      )}
+      <Button type="button" {...props}>
+        ddd
+      </Button>
     </>
   );
 }

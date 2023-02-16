@@ -1,4 +1,4 @@
-export const color = {
+export const colorPalet = {
   white: '#E8E7E4',
   white_light: '#F2F1EE',
   withe_dark: '#D7D6D2',
@@ -16,6 +16,8 @@ export const color = {
   darkblue_dark: '#001929',
 
 	transparent: 'transparent',
+
+	light: '#f1f1f1',
   dark: '#252525',
 };
 
@@ -23,7 +25,7 @@ export const spacing = {
   xs: '4px',
   sm: '8px',
   md: '12px',
-  lg: '18px',
+  lg: '16px',
   xl: '24px',
   xxl: '48px',
 };
@@ -42,25 +44,25 @@ export const borderRadius = {
 	extraLarge: '18px'
 }
 
-export const uiColorCompilation = {
+export const uiColors = {
 	accent: {
-		main: color.orange,
-		contrast: color.white,
-		hover: color.orange_dark
+		main: colorPalet.orange,
+		contrast: colorPalet.white_light,
+		hover: colorPalet.orange_dark
 	},
 	secondary : {
-		main: color.lightgreen,
-		contrast: color.white,
-		hover: color.lightgreen_light,
+		main: colorPalet.lightgreen,
+		contrast: colorPalet.white_light,
+		hover: colorPalet.lightgreen_dark,
 	},
 	primary: {
-		main: color.darkblue,
-		contrast: color.white,
-		hover: color.darkblue_dark
+		main: colorPalet.darkblue,
+		contrast: colorPalet.white_light,
+		hover: colorPalet.darkblue_dark
 	},
 	transparent: {
-		main: color.transparent,
-		contrast: color.white,
-		hover: color.transparent
+		main: colorPalet.transparent,
+		contrast: colorPalet.dark,
+		hover: colorPalet.transparent
 	}
 };
