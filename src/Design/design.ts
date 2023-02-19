@@ -1,3 +1,4 @@
+
 export const colorPalet = {
   white: '#E8E7E4',
   white_light: '#F2F1EE',
@@ -15,20 +16,33 @@ export const colorPalet = {
   darkblue_light: '#4C5C6E',
   darkblue_dark: '#001929',
 
-	transparent: 'transparent',
+  get primary() { return this.darkblue},
+  get secondary() { return this.lightgreen},
+  get accent() { return this.orange},
 
-	light: '#f1f1f1',
+  transparent: 'transparent',
+  light: '#f1f1f1',
   dark: '#252525',
 };
 
 export const spacing = {
-  xs: '4px',
-  sm: '8px',
-  md: '12px',
-  lg: '16px',
-  xl: '24px',
-  xxl: '48px',
+  xs: 4,
+  sm: 8,
+  md: 12,
+  lg: 16,
+  xl: 24,
+  xxl: 32,
 };
+
+export const spacingPx = {
+  xs: spacing.xs + 'px',
+  sm: spacing.sm + 'px',
+  md: spacing.md + 'px',
+  lg: spacing.lg + 'px',
+  xl: spacing.xl + 'px',
+  xxl: spacing.xxl + 'px',
+};
+
 
 
 export const fontSize = {

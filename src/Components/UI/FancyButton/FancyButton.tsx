@@ -1,225 +1,256 @@
-import React from 'react';
+import React from "react";
 import {
   colorPalet,
   uiColors,
   fontSize,
   borderRadius,
   spacing,
-} from '../../../Design/design';
+} from "../../../Design/design";
 
-import styled, { css } from 'styled-components';
+import styled, { css } from "styled-components";
+import { hexToTransparent } from "../../../Design/designFunctions";
 
 interface IFancyButton {
-  size: 'small' | 'medium' | 'large' | 'wide';
+  size: "small" | "medium" | "large";
+  wide?: boolean; 
+  design: "primary" | "secondary" | "accent" | "transparent";
+  align?: "left" | "right" | "center";
+  color?: "light" | "dark" | "primary" | "secondary" | "accent";
+  hoverColor?: "primary" | "secondary" | "accent";
   label?: string;
   outlined?: boolean;
-  color?: 'light' | 'dark';
-  icon?: React.ReactNode;
-  align?: 'left' | 'right' | 'center';
-  design: 'primary' | 'secondary' | 'accent' | 'transparent';
+  icon?: JSX.Element;
+  disabled?: boolean;
   onClick?: () => void;
 }
-//rounded
-//outlined
-//disabled / hoverd
-//icon / only icon / icon left or right side
-//only text button
-//passiv warn secondary
 
+// --------------------------------------------------------------------------- //
+// ---------- Here are the design variants for sizing and alignment ---------- //
+// --------------------------------------------------------------------------- //
+
+//a shortcut to align the (icon) ond text
 const alignment = {
-  left: 'flex-start',
-  right: 'flex-end',
-  center: 'center',
+  left: "flex-start",
+  right: "flex-end",
+  center: "center",
 };
 
-const padding = {
-  small: `${spacing.xs} ${spacing.sm}`,
-  medium: `${spacing.sm} ${spacing.lg}`,
-  large: `${spacing.md} ${spacing.xl}`,
-  wide: `${spacing.md}`,
+//this are the values between the text and icon
+const paddingFromIcon = {
+  small:  spacing.xs + 'px',
+  medium: spacing.xs + 'px',
+  large:  spacing.xs + 'px',
 };
 
-//TODO: Check for optional Values
-//TODO: EFFECTS HOVER ETC
-//TODO: Alignment
-//TODO: ICONS
+//this are the values between the icon and the edge of the button
+const paddingIconButton = {
+  small:  spacing.md + 'px',
+  medium: spacing.xl - 4 + 'px',
+  large:  spacing.xl  + 'px',
+};
 
-const BlankButton = styled.button<IFancyButton>`
-  display: flex;
-  justify-content: center;
-  font-family: 'Lato', sans-serif;
-  width: ${({ size }) => (size === 'wide' ? '100%' : 'initial')};
-  padding: ${({ size }) => padding[size]};
-  font-size: ${({ size }) =>
-    size === 'wide' ? fontSize.medium : fontSize[size]};
-  border-radius: ${({ size }) =>
-    size === 'wide' ? borderRadius.large : borderRadius[size]};
-  border: none;
-  cursor: pointer;
-`;
 
+// ------------------------------------------------------------------ //
+// ---------- Here are the helper functions for the design ---------- //
+// ------------------------------------------------------------------ //
+
+
+//this hanles the padding of the button deppend on the size and if needs a second value
+function generatePadding(offset: number = 0, secondValue: boolean = true) {
+  const { sm , md, lg } = spacing;
+
+  const small  = `${sm + offset}px` + (secondValue ? ` ${sm * 2 + offset}px` : '');
+  const medium = `${md + offset}px` + (secondValue ? ` ${md * 2 + offset}px` : '');
+  const large  = `${lg + offset}px` + (secondValue ? ` ${lg * 2 + offset}px` : '');
+
+  return { small, medium, large };
+};
+
+
+const calcTextColor = ({ color, design, outlined }: IFancyButton) => {
+  if(color) {
+    return colorPalet[color];
+  } else if(outlined) {
+    return uiColors[design].main;
+  } else {
+    return uiColors[design].contrast;
+  }
+}
+
+const disabledStyle = () => {
+  return css`
+    opacity: 0.6;
+    filter: brightness(0.9);
+    cursor: not-allowed;
+  `
+}
+
+
+// -------------------------------------------------------------------------- //
+// ---------- Here are the functions to generate the button styles ---------- //
+// -------------------------------------------------------------------------- //
+
+//-----this funktion adds to the normal/oulined button a icon if its needed-----//
+const generateIcon = (props: IFancyButton) => {
+  const { size, align, label } = props;
+
+  //this funktion handles the spacing between the icon and the text deepends on the alignment 
+  const calcIconButtoonPadding = ({ align, size, }: Pick<IFancyButton, "align" | "size">) => {
+    if (align === "right") {
+      return css `padding-right: ${paddingIconButton[size]}`;
+    } else if(align === "left") {
+      return css `padding-left: ${paddingIconButton[size]}`;
+    }
+  };
+
+  //this funktion reduces the padding to the edge && makes it look centered
+  const calcIconPaddingAndAlign = ({ align, size }: Pick<IFancyButton, "align" | "size">) => {
+    if (align === "right") {
+      return css`
+        padding-left: ${paddingFromIcon[size]};
+        order: 1;
+      `
+    } else {
+      return css`
+        padding-right: ${paddingFromIcon[size]};
+      `
+    }
+  };
+
+  //this function generates the addons for a icon button
+  return css`
+    align-items: center;
+    justify-content: ${align && alignment[align]};
+    ${label && calcIconButtoonPadding({ align, size })};
+
+    i {
+      display: flex;
+      align-items: center;
+      ${label && calcIconPaddingAndAlign({ align, size })};
+    }
+
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  `;
+}
+
+
+//-----this funktion generates a button that looks like a outlined button-----//
 const generateOutlined = (props: IFancyButton) => {
-  const { design, color} = props
+  const { design, color, size, label } = props;
+
+  //reduce the padding with the border size
+  const paddings = generatePadding(-2, Boolean(label))
+
+  //this calculates the textcolor depend on design and color
+  const textColor = calcTextColor(props)
+
+  //this makes the color, no matther which one transparent
+  const backgroundColor = hexToTransparent(uiColors[design].main, 90)
 
   return css`
     position: relative;
     background-color: transparent;
+    padding: ${paddings[size]};
     border: 2px solid ${uiColors[design].main};
-    color: ${color ? colorPalet[color] : uiColors[design].main};
+    color: ${ textColor };
 
-    &:hover {
-      border-color: ${uiColors[design].hover};
-      color: ${color ? colorPalet[color] : uiColors[design].hover};
+    &:hover:enabled {
+      background-color: ${backgroundColor};
+      color: ${ color ? colorPalet[color] : "initinal" };
+      box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.15);
+    }
+
+    &:disabled {
+      ${disabledStyle}
+    }
+
+  `;
+};
+
+//-----this funktion generates a button that looks like a normal button-----//
+const generateNormal = (props: IFancyButton) => {
+  const { design, size, label, hoverColor} = props
+  
+  //reduce the padding with the border size 
+  const paddings = generatePadding(0, !label ? false : true)
+
+  //this calculates the textcolor depend on design and color
+  const textColor = calcTextColor(props)
+
+
+  const hoverColorStyle = (design === "transparent" && hoverColor) ? uiColors[hoverColor].main : uiColors[design].hover;
+
+  return css`
+    background-color: ${uiColors[design].main};
+    color: ${textColor};
+    padding: ${paddings[size]};
+
+    &:hover:enabled {
+      background-color: ${hoverColorStyle};
+      box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.15);
+    }
+
+    &:disabled {
+      ${disabledStyle}
     }
   `;
 };
 
-const generateButton = (props: IFancyButton) => {
-  const { design, outlined } = props;
 
-  const outlinedStyled = generateOutlined(props)
+//-----this funktion handles the button style on his conditions-----//
+const generateButton = (props: IFancyButton) => {
+  const { outlined, icon, size, label, wide } = props;
+  let buttonStyle;
+  let buttonIcon;
+  let generateBorderRadius;
+
+  //if the button a outlined generate this, it his a normal generate an normal 
+  buttonStyle = outlined ? generateOutlined(props) : generateNormal(props);
+
+  //this claculates the borderradius depeend on if its a wide button or not
+  generateBorderRadius = wide ? borderRadius!.large : borderRadius[size];
+
+  //gets the style of a button with a icon
+  if(icon) buttonIcon = generateIcon(props)
+
+  //check if the button has no label if its true make it completely round
+  if(Boolean(!label) && !wide) {
+    generateBorderRadius = "50%"
+  }
 
   return css`
-    background-color: ${uiColors[design].main};
-    ${outlinedStyled}
+    display: flex;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+
+    width: ${ wide ? "100%" : "initial"};
+    font-size: ${fontSize[size]};
+    border-radius: ${generateBorderRadius};
+
+    ${buttonStyle}
+    ${buttonIcon}
   `;
 };
 
-const Button = styled.button`
-  display: flex;
-  justify-content: center;
-  font-family: 'Lato', sans-serif;
-  width: ${({ size }) => (size === 'wide' ? '100%' : 'initial')};
-  padding: ${({ size }) => padding[size]};
-  font-size: ${({ size }) =>
-    size === 'wide' ? fontSize.medium : fontSize[size]};
-  border-radius: ${({ size }) =>
-    size === 'wide' ? borderRadius.large : borderRadius[size]};
-  border: none;
-  cursor: pointer;
 
+//this creates the button component and hanles the style via generateButton
+const Button = styled.button`
   ${(props: IFancyButton) => generateButton(props)}
 `;
 
-const NormalButton = styled(BlankButton)`
-  background-color: ${({ design }: IFancyButton) => uiColors[design].main};
-  color: ${({ design }: IFancyButton) => uiColors[design].contrast};
+//the main react component to generate the fancyButton
+export default function FancyButton({ ...props }: IFancyButton) {
+  const { icon, label } = props;
 
-  &:hover {
-    background-color: ${({ design }: IFancyButton) => uiColors[design].hover};
-  }
-`;
-
-const OutlinedButton = styled(BlankButton)`
-  position: relative;
-  background-color: transparent;
-  border: 2px solid ${({ design }: IFancyButton) => uiColors[design].main};
-  color: ${({ design, color }: IFancyButton) =>
-    color ? colorPalet[color] : uiColors[design].main};
-
-  &:hover {
-    border-color: ${({ design }: IFancyButton) => uiColors[design].hover};
-    color: ${({ design, color }: IFancyButton) =>
-      color ? colorPalet[color] : uiColors[design].hover};
-  }
-`;
-
-const paddingFromIcon = {
-  small: `${spacing.xs} `,
-  medium: `${spacing.sm}`,
-  large: `${spacing.sm}`,
-  wide: `${spacing.sm}`,
-};
-
-function calcPixel(pxInput: string, changeValue: number) {
-  return parseInt(pxInput) + changeValue + 'px';
-}
-
-const paddingIconButon = {
-  small: `${calcPixel(spacing.sm, -4)}`,
-  medium: `${calcPixel(spacing.lg, -2)}`,
-  large: `${calcPixel(spacing.xl, -5)}`,
-  wide: `${calcPixel(spacing.md, -4)}`,
-};
-
-const calcIconPaddingAndAlign = ({
-  align,
-  size,
-}: Pick<IFancyButton, 'align' | 'size'>) => {
-  if (align === 'right') {
-    return {
-      'padding-left': paddingFromIcon[size],
-      order: 1,
-    };
-  } else {
-    return {
-      'padding-right': paddingFromIcon[size],
-    };
-  }
-};
-
-const calcIconButtoonPadding = ({
-  align,
-  size,
-}: Pick<IFancyButton, 'align' | 'size'>) => {
-  if (align === 'right') {
-    return { 'padding-right': paddingIconButon[size] };
-  } else {
-    return { 'padding-left': paddingIconButon[size] };
-  }
-};
-
-const IconButton = styled(BlankButton)`
-  ${NormalButton}
-  align-items: center;
-  justify-content: ${({ align }: IFancyButton) => align && alignment[align]};
-  ${({ align, size }: IFancyButton) => calcIconButtoonPadding({ align, size })};
-
-  & i {
-    display: flex;
-    align-items: center;
-    ${({ align, size }: IFancyButton) =>
-      calcIconPaddingAndAlign({ align, size })};
-  }
-`;
-
-const NormalIconButton = styled(NormalButton)`
-  ${IconButton}
-`;
-
-const OutlinedIconButton = styled(IconButton)`
-  ${OutlinedButton}
-`;
-
-export default function FancyButton({ label, ...props }: IFancyButton) {
-  const outlined = props.outlined;
-  const icon = props.icon;
   return (
     <>
-      {!outlined && !icon && (
-        <NormalButton type="button" {...props}>
-          {label}
-        </NormalButton>
-      )}
-      {outlined && !icon && (
-        <OutlinedButton type="button" {...props}>
-          {label}
-        </OutlinedButton>
-      )}
-      {!outlined && icon && (
-        <IconButton type="button" {...props}>
-          <i>{icon}</i>
-          <span>{label}</span>
-        </IconButton>
-      )}
-      {outlined && icon && (
-        <OutlinedIconButton type="button" {...props}>
-          <i>{icon}</i>
-          <span>{label}</span>
-        </OutlinedIconButton>
-      )}
       <Button type="button" {...props}>
-        ddd
+        { icon && <i>{icon}</i> }
+        { label && <span>{label}</span>}
       </Button>
     </>
   );
