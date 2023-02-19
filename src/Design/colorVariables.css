@@ -1,4 +1,5 @@
 :root {
+    /* COLOR VARIABLES */
     --white: #E8E7E4;
     --white-light: #F2F1EE;
     --white-dark: #D7D6D2;
@@ -14,4 +15,14 @@
     --darkblue: #002436;
     --darkblue-light: #4C5C6E;
     --darkblue-dark: #001929;
+
+    --dark: #252525;
+    
+    --spacing-xs: 4px; 
+    --spacing-sm: 8px;
+    --spacing-md: 12px;
+    --spacing-lg: 18px;
+    --spacing-xl: 24px;
+    --spacing-xxl: 48px;
+
 }
