@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 
 import FancyButton from './Components/UI/FancyButton/FancyButton';
+import FancyTabSwitch from './Components/UI/FancyTabSwitch/FancyTabSwitch';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -11,9 +12,14 @@ const Icon = (
   );
 
 function App() {
+
+  const handler = (data:string) => {
+   console.log(data) 
+  }
+
   return (
     <div className="App">
-      <FancyButton design='accent' size='medium' icon={Icon} outlined={true} wide={true}label="test"/>
+      <FancyTabSwitch switchValues={['Test1', 'Test2']} currentSelect="Test1" parentCompUpdater={handler} />
     </div>
   );
 }
