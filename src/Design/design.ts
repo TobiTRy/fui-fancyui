@@ -13,7 +13,7 @@ export const colorPalet = {
   orange_dark: '#CC6C0A',
 
   darkblue: '#002436',
-  darkblue_light: '#4C5C6E',
+  darkblue_light: '#1a3947',
   darkblue_dark: '#001929',
 
   get primary() { return this.darkblue},

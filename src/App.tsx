@@ -1,5 +1,3 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 import FancyButton from './Components/UI/FancyButton/FancyButton';
@@ -19,7 +17,7 @@ function App() {
 
   return (
     <div className="App">
-      <FancyTabSwitch switchValues={['Test1', 'Test2']} currentSelect="Test1" parentCompUpdater={handler} />
+      <FancyTabSwitch switchValues={['Test1', 'Test2', 'Test3', 'Test4']} transparent={false} textColor="dark"  currentSelect="Test1" parentCompUpdater={handler} />
     </div>
   );
 }
