@@ -1,8 +1,8 @@
-import React from 'react';
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
 
 import FancyButton from './Components/UI/FancyButton/FancyButton';
+import FancyTabSwitch from './Components/UI/FancyTabSwitch/FancyTabSwitch';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -10,10 +10,39 @@ const Icon = (
   </svg>
   );
 
+
+
+
+const switchValues = [
+  {
+    label: 'Test1',
+    key: '1',
+    icon: Icon,
+  },
+  {
+    label: 'test2',
+    key: '2',
+    icon: Icon,
+  },
+  {
+    label: 'test3',
+    key: '3',
+    icon: Icon,
+  },
+
+]
+
 function App() {
+  const [activated, setActivated] = useState(false)
+
+  const buttonSwitch = () => {
+    setActivated(!activated)
+  }
+
   return (
     <div className="App">
-      <FancyButton design='accent' size='medium' icon={Icon} outlined={true} wide={true}label="test"/>
+      <FancyTabSwitch switchValues={switchValues} textColor="dark" currentSelect="2" rounded={'complete'}  handler={() => {console.log(true)}} />
+      <button onClick={buttonSwitch}>Click</button>
     </div>
   );
 }

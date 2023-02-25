@@ -12,9 +12,9 @@ export const colorPalet = {
   orange_light: '#FFA42A',
   orange_dark: '#CC6C0A',
 
-  darkblue: '#002436',
-  darkblue_light: '#4C5C6E',
-  darkblue_dark: '#001929',
+  darkblue: '#083448',
+  darkblue_light: '#1a3947',
+  darkblue_dark: '#0C2430',
 
   get primary() { return this.darkblue},
   get secondary() { return this.lightgreen},
@@ -26,6 +26,7 @@ export const colorPalet = {
 };
 
 export const spacing = {
+  xxs: 2,
   xs: 4,
   sm: 8,
   md: 12,
@@ -35,6 +36,7 @@ export const spacing = {
 };
 
 export const spacingPx = {
+  xxs: spacing.xxs + 'px',
   xs: spacing.xs + 'px',
   sm: spacing.sm + 'px',
   md: spacing.md + 'px',
@@ -51,30 +53,36 @@ export const fontSize = {
 	large: '1.125rem',
 }
 
+
 export const borderRadius = {
 	small: '4px',
 	medium: '8px',
 	large: '12px',
-	extraLarge: '18px'
+	extraLarge: '18px',
+  complete: '50px'
 }
 
 export const uiColors = {
 	accent: {
 		main: colorPalet.orange,
+    main_light: colorPalet.orange_light,
 		contrast: colorPalet.white_light,
 		hover: colorPalet.orange_dark
 	},
 	secondary : {
 		main: colorPalet.lightgreen,
+    main_light: colorPalet.lightgreen_light,
 		contrast: colorPalet.white_light,
 		hover: colorPalet.lightgreen_dark,
 	},
 	primary: {
 		main: colorPalet.darkblue,
+    main_light: colorPalet.darkblue_light,
 		contrast: colorPalet.white_light,
 		hover: colorPalet.darkblue_dark
 	},
 	transparent: {
+    main_light: colorPalet.transparent,
 		main: colorPalet.transparent,
 		contrast: colorPalet.dark,
 		hover: colorPalet.transparent

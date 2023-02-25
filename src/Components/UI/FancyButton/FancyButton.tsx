@@ -8,7 +8,10 @@ import {
 } from "../../../Design/design";
 
 import styled, { css } from "styled-components";
-import { hexToTransparent } from "../../../Design/designFunctions";
+import { hexToTransparent } from "../HelperFunctions/hexToTransparent";
+import { generatePadding } from "../HelperFunctions/generatePadding";
+import { disabledStyle } from "../HelperFunctions/disableStyle";
+
 
 interface IFancyButton {
   size: "small" | "medium" | "large";
@@ -56,15 +59,6 @@ const paddingIconButton = {
 
 
 //this hanles the padding of the button deppend on the size and if needs a second value
-function generatePadding(offset: number = 0, secondValue: boolean = true) {
-  const { sm , md, lg } = spacing;
-
-  const small  = `${sm + offset}px` + (secondValue ? ` ${sm * 2 + offset}px` : '');
-  const medium = `${md + offset}px` + (secondValue ? ` ${md * 2 + offset}px` : '');
-  const large  = `${lg + offset}px` + (secondValue ? ` ${lg * 2 + offset}px` : '');
-
-  return { small, medium, large };
-};
 
 
 const calcTextColor = ({ color, design, outlined }: IFancyButton) => {
@@ -76,15 +70,6 @@ const calcTextColor = ({ color, design, outlined }: IFancyButton) => {
     return uiColors[design].contrast;
   }
 }
-
-const disabledStyle = () => {
-  return css`
-    opacity: 0.6;
-    filter: brightness(0.9);
-    cursor: not-allowed;
-  `
-}
-
 
 // -------------------------------------------------------------------------- //
 // ---------- Here are the functions to generate the button styles ---------- //
