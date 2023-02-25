@@ -1,12 +1,12 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import FancyButton from './FancyButton';
+import FancyTabSwitch from './FancyTabSwitch';
 
 export default {
-  title: 'Example/FancyButton',
-  component: FancyButton,
-} as ComponentMeta<typeof FancyButton>;
+  title: 'Example/FancyTabSwitch',
+  component: FancyTabSwitch,
+} as ComponentMeta<typeof FancyTabSwitch>;
 
 const Icon = (
 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -14,13 +14,31 @@ const Icon = (
 </svg>
 );
 
-const Template: ComponentStory<typeof FancyButton> = (args) => <FancyButton {...args} />;
+const Template: ComponentStory<typeof FancyTabSwitch> = (args) => <FancyTabSwitch {...args} />;
+
+const switchValues = [
+  {
+    label: 'test1',
+    key: '1',
+    icon: Icon,
+  },
+  {
+    label: 'test2',
+    key: '2',
+    icon: Icon,
+  },
+  {
+    label: 'test3',
+    key: '3',
+    icon: Icon,
+  },
+
+]
+
 
 export const Primary = Template.bind({});
 Primary.args = {
-  label: 'Button',
-  outlined: true,
-  design: 'primary',
-  size: 'small',
+  switchValues: switchValues,
   icon: Icon,
+  handler: () => {console.log('')},
 };
