@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import './App.css';
 
 import FancyButton from './Components/UI/FancyButton/FancyButton';
@@ -9,15 +10,39 @@ const Icon = (
   </svg>
   );
 
-function App() {
 
-  const handler = (data:string) => {
-   console.log(data) 
+
+
+const switchValues = [
+  {
+    label: 'Test1',
+    key: '1',
+    icon: Icon,
+  },
+  {
+    label: 'test2',
+    key: '2',
+    icon: Icon,
+  },
+  {
+    label: 'test3',
+    key: '3',
+    icon: Icon,
+  },
+
+]
+
+function App() {
+  const [activated, setActivated] = useState(false)
+
+  const buttonSwitch = () => {
+    setActivated(!activated)
   }
 
   return (
     <div className="App">
-      <FancyTabSwitch switchValues={['Test1', 'Test2', 'Test3', 'Test4']} transparent={false} textColor="dark"  currentSelect="Test1" parentCompUpdater={handler} />
+      <FancyTabSwitch switchValues={switchValues} textColor="dark" currentSelect="2" rounded={'complete'}  handler={() => {console.log(true)}} />
+      <button onClick={buttonSwitch}>Click</button>
     </div>
   );
 }
