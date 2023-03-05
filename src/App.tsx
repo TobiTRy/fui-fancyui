@@ -3,6 +3,9 @@ import './App.css';
 
 import FancyButton from './Components/UI/FancyButton/FancyButton';
 import FancyTabSwitch from './Components/UI/FancyTabSwitch/FancyTabSwitch';
+import FancyInput from './Components/UI/FancyInput/FancyInput';
+import FancyInputV2 from './Components/UI/FancyInputV2/FancyInputV2';
+import FancyAdvancedInput from './Components/UI/FancyAdvancedInput/FancyAdvancedInput';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -41,8 +44,7 @@ function App() {
 
   return (
     <div className="App">
-      <FancyTabSwitch switchValues={switchValues} textColor="dark" currentSelect="2" rounded={'complete'}  handler={() => {console.log(true)}} />
-      <button onClick={buttonSwitch}>Click</button>
+      <FancyInputV2 textColor='dark' align='left'  label='Test'/>
     </div>
   );
 }

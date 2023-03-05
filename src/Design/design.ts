@@ -88,3 +88,4 @@ export const uiColors = {
 		hover: colorPalet.transparent
 	}
 };
+//#282c34 Background blue?
