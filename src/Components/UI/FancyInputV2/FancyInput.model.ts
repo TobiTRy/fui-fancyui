@@ -6,6 +6,8 @@ export default interface IFancyInput {
     type?: 'number' | 'email' | 'text' | 'password';
     calculatedType?: 'number' | 'email' | 'text' | 'password';
     defaultValue?: 'string' | 'number';
+    icon?: JSX.Element;
+    errorMessage?: string;
     onChange?: () => void;
   }
   

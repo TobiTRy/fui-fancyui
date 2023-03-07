@@ -16,6 +16,17 @@ export const colorPalet = {
   darkblue_light: '#1a3947',
   darkblue_dark: '#0C2430',
 
+  green_dark: '#007F4F',
+  green_light: '#4CAF50',
+
+  red_dark: '#C62828',
+  red_light:'#FF5252',
+
+  yellow_dark: '#FFD600',
+  yello_light: ' #FFEB3B',
+
+
+
   get primary() { return this.darkblue},
   get secondary() { return this.lightgreen},
   get accent() { return this.orange},
@@ -48,6 +59,7 @@ export const spacingPx = {
 
 
 export const fontSize = {
+  extraSmall: '0.7rem',
 	small: '0.875rem',
 	medium: '1rem',
 	large: '1.125rem',
