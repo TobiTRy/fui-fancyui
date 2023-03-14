@@ -17,6 +17,11 @@
   height: 100vh;
 }
 
+.App > div {
+  padding: 1rem;
+
+}
+
 .App-link {
   color: #61dafb;
 }

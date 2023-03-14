@@ -1,8 +1,39 @@
+@font-face {
+  font-family: "JakartaSans";
+  src: url(./Components/UI/Design/JakartaSans.ttf) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'DMSans';
+  src: url(./Components/UI/Design/DMSans-Regular.ttf) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url(./Components/UI/Design/Inter.ttf) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Poopins';
+  src: url(./Components/UI/Design/Poppins-Regular.ttf) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 * {
-  font-family: "Lato", sans-serif;
+  font-family: 'DMSans', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+
+
 }
 
 body {
+  
 
   margin: 0;
   /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

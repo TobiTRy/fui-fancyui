@@ -1,5 +1,5 @@
-import { borderRadius } from "../../../Design/design";
-import { spacingPx } from "../../../Design/design";
+import { borderRadius } from "../Design/design";
+import { spacingPx } from "../Design/design";
 
 //this type accepts a value or Icon (or booth) and needed a key
 export interface IinputValues {

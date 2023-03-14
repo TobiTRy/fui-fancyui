@@ -2,7 +2,12 @@
 export const colorPalet = {
   white: '#E8E7E4',
   white_light: '#F2F1EE',
-  withe_dark: '#D7D6D2',
+  white_dark: '#D7D6D2',
+
+  white_high: 'rgba(255 255 255 / 87%)',
+  white_medium: 'rgba(255 255 255 / 60%)',
+  white_disabled: 'rgba(255 255 255 / 38%)',
+
 
   lightgreen: '#0A7273',
   lightgreen_light: '#3C9E9E',
@@ -23,7 +28,7 @@ export const colorPalet = {
   red_light:'#FF5252',
 
   yellow_dark: '#FFD600',
-  yello_light: ' #FFEB3B',
+  yello_light: '#FFEB3B',
 
 
 
@@ -100,4 +105,3 @@ export const uiColors = {
 		hover: colorPalet.transparent
 	}
 };
-//#282c34 Background blue?
