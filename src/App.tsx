@@ -3,7 +3,7 @@ import './App.css';
 
 import FancyButton from './Components/UI/FancyButton/FancyButton';
 import FancyTabSwitch from './Components/UI/FancyTabSwitch/FancyTabSwitch';
-import FancyInputV2 from './Components/UI/FancyInputV2/FancyInputV2';
+import FancyInputV2 from './Components/UI/FancyInput/FancyInput';
 import FancyDropDownSelect from './Components/UI/FancyDropDownSelect/FancyDropDownSelect';
 
 const Icon = (

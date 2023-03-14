@@ -7,53 +7,15 @@ import IFancyInput from './FancyInput.model';
 import styled, { css } from 'styled-components';
 
 //this function handles some alignment of the elements
-const alignHandler = (align: string, element: string) => {
-  switch (element) {
-    case 'InputStyle':
-      if (align !== 'center') {
-        return css`
-          width: 100%;
-          left: 0;
-        `;
-      } else {
-        return css`
-          width: 100%;
-          left: 50%;
-          transform: translate(-50%);
-        `;
-      }
-    case 'UnderLinedStyle':
-      if (align !== 'center') {
-        return css`
-          left: -100%;
-        `;
-      } else {
-        return css`
-          left: 50%;
-          transform: translate(-50%);
-          width: 0%;
-        `;
-      }
-    case 'LabelInput':
-      if (align !== 'center') {
-        return css`
-          left: 0;
-        `;
-      } else {
-        return css`
-          left: 50%;
-          transform: translate(-50%);
-        `;
-      }
-  }
-};
+import { alignHandler } from '../HelperFunctions/alignmentHandler';
 
-//the input icon displayed on the left 
+//the input icon displayed on the left
+
+// color: ${({errorMessage}) => errorMessage && 'red'}; */
 const StyledIcon = styled.i<{ active: boolean; errorMessage?: string }>`
-  bottom: 2px;
-  color: ${({ active, errorMessage }) => (errorMessage ? colorPalet.red_dark : active ? uiColors.accent.main : 'rgba(255, 255, 255, 0.5)')};
+  color: ${({ active, errorMessage }) => (!errorMessage ? (active ? uiColors.accent.main : 'gray') : colorPalet.red_dark)};
   margin-right: 8px;
-  margin-bottom: 1px;
+  margin-bottom: 2px;
   transition: 0.5s;
   display: flex;
   align-items: flex-end;
@@ -69,24 +31,27 @@ const UnderLinedStyle = styled.i<IFancyInput>`
   position: absolute;
   left: 0;
   bottom: 0;
-  width: 100%;
   height: 2px;
   border-radius: 5px;
-  background: rgba(255, 255, 255, 0.5);
+  background: gray;
   overflow: hidden;
+  width: 100%;
 
   &::before {
     content: '';
+    width: 100%;
     border-radius: 5px;
     position: absolute;
-    ${({ align }) => alignHandler(align!, 'UnderLinedStyle')};
+    left: 0;
+    bottom: 0;
+    opacity: 0;
     height: 100%;
     background: ${({ errorMessage }) =>
       !errorMessage
         ? css`linear-gradient(90deg, ${uiColors.accent.main}, ${uiColors.accent.main_light})`
         : css`linear-gradient(90deg, ${colorPalet.red_dark}, ${colorPalet.red_light})`};
     transition: 0.25s;
-    transition-timing-function: ease-in-out;
+    transition-timing-function: cubic-bezier(0.46, 0.03, 0.52, 0.96);
   }
 `;
 
@@ -95,43 +60,47 @@ const LabelInput = styled.label<IFancyInput>`
   position: absolute;
   ${({ align }) => alignHandler(align!, 'LabelInput')};
   padding: 12px 0 5px;
-  color: rgba(255, 255, 255, 0.5);
+  font-weight: bold;
+  color: gray;
   pointer-events: none;
-  letter-spacing: 0.1rem;
-  transition: 0.25s;
+  transition: 0.3s;
   user-select: none;
+  transition-timing-function: cubic-bezier(0.46, 0.03, 0.52, 0.96);
 `;
 
 //the input/label/underline are all wrapped in thid container
 const InputContainer = styled.div`
   width: 100%;
+  grid-column: 2/3;
   padding-top: 10px;
   position: relative;
 `;
 
 //only the input field
 const InputStyle = styled.input<IFancyInput>`
+  font-weight: 500;
   box-sizing: border-box;
   caret-color: ${uiColors.accent.main};
   width: 100%;
+  appearance: none;
   background-color: transparent;
   color: ${colorPalet.light};
   text-align: ${({ align }) => (align !== 'center' ? 'left' : 'center')};
   border: none;
+  height: 40px;
   outline: none;
   box-shadow: none;
   font-size: ${fontSize.medium};
-  letter-spacing: 0.1rem;
   padding: ${({ calculatedType, align }) =>
     calculatedType !== 'password'
       ? //if type is not password
         align === 'center'
-        ? `10px 10px 6px`
-        : `10px 0px 6px`
+        ? `12px 10px 4px`
+        : `12px 0px 4px`
       : //if type is password
       align === 'center'
-      ? `10px 20px 6px 20px`
-      : `10px 20px 6px 0px`};
+      ? `12px 20px 4px 20px`
+      : `12px 20px 4px 0px`};
 
   //this disables the MS Edge password eye
   ${({ type }) =>
@@ -142,17 +111,16 @@ const InputStyle = styled.input<IFancyInput>`
         display: none;
       }
     `}
-  
+
   //the focus animation for the Label
   &:focus ~ ${LabelInput}, &:valid ~ ${LabelInput} {
     color: ${({ errorMessage }) => (errorMessage ? colorPalet.red_dark : uiColors.accent.main)};
-    font-weight: 600;
     transform: ${({ align }) => (align !== 'center' ? 'translateY(-20px)' : 'translateY(-20px) translate(-50%)')};
-    font-size: ${fontSize.small};
+    font-weight: 600;
   }
   //the focus animation for the underline
-  &:focus ~ ${UnderLinedStyle}::before, &:valid ~ ${UnderLinedStyle}::before {
-    ${({ align }) => alignHandler(align!, 'InputStyle')};
+  &:focus ~ ${UnderLinedStyle}::before {
+    opacity: 1;
   }
 `;
 
@@ -173,7 +141,7 @@ const PasswordIcon = styled.i`
   right: 4px;
 
   svg {
-    color: ${colorPalet.white_medium};
+    color: ${colorPalet.white_dark};
   }
 `;
 
@@ -192,7 +160,7 @@ export default function FancyInput(props: IFancyInput) {
   const [showPassword, setShowPassword] = useState(false);
 
   //this state switches when the input is focused
-  const [isActiv, setIsActive] = useState(false);
+  const [isActive, setIsActive] = useState(false);
 
   const id = useId();
 
@@ -203,7 +171,7 @@ export default function FancyInput(props: IFancyInput) {
     <InputWrapper>
       {/* // --------- the icon for the input field ------------- // */}
       {icon && (
-        <StyledIcon active={isActiv} errorMessage={errorMessage}>
+        <StyledIcon active={isActive} errorMessage={errorMessage}>
           {icon}
         </StyledIcon>
       )}
@@ -221,6 +189,7 @@ export default function FancyInput(props: IFancyInput) {
           {...inputProps}
           onFocus={() => setIsActive(true)}
           onBlur={() => setIsActive(false)}
+          autoComplete={'off'}
         />
 
         {/* the label for the input field it shows when a label prop exists*/}

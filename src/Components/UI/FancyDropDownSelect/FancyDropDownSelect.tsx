@@ -57,6 +57,7 @@ const Option = styled.option<{ align?: string }>`
 
 const SelectContainer = styled.div`
   width: 100%;
+  grid-column: 2/3;
   padding-top: 10px;
   position: relative;
 `;
@@ -84,7 +85,6 @@ const SelectField = styled.select<{ align?: string; labelAlign?: string }>`
     outline: none;
   }
 
-  
   &:focus ${Option}:checked {
     background: ${uiColors.accent.hover};
   }
@@ -116,8 +116,7 @@ const Icon = styled.i<{active: boolean}>`
   transition: 0.5s;
   display: flex;
   align-items: flex-end;
-  color: ${({ active }) => (active ? uiColors.accent.main : 'gray') };
-
+  color: ${({ active }) => (active ? uiColors.accent.main : 'gray')};
 
   svg {
     height: 20px;
@@ -135,8 +134,6 @@ export default function FancyDropDownSelect(props: IFancyDropDownSelect) {
 
   //this state switches when the input is focused
   const [isActive, setIsActive] = useState(false);
-  
-
   
   return (<>
     <Wrapper align={labelAlign}>
