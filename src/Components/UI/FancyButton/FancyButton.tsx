@@ -5,7 +5,7 @@ import {
   fontSize,
   borderRadius,
   spacing,
-} from "../../../Design/design";
+} from "../Design/design";
 
 import styled, { css } from "styled-components";
 import { hexToTransparent } from "../HelperFunctions/hexToTransparent";
