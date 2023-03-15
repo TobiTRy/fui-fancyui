@@ -5,6 +5,7 @@ import FancyButton from './Components/UI/FancyButton/FancyButton';
 import FancyTabSwitch from './Components/UI/FancyTabSwitch/FancyTabSwitch';
 import FancyInputV2 from './Components/UI/FancyInput/FancyInput';
 import FancyDropDownSelect from './Components/UI/FancyDropDownSelect/FancyDropDownSelect';
+import FancyRangeSlider from './Components/UI/FancyRangeSlider/FancyRangeSlider';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -49,6 +50,7 @@ function App() {
 
   return (
     <div className="App">
+      <FancyRangeSlider displayNumber={true}/>
       <FancyInputV2 label='Username' icon={svg} align={'center'} />
       <FancyDropDownSelect icon={svg}
         label="Test Done Other"
