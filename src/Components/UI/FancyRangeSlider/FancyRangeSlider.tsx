@@ -8,7 +8,7 @@ import { Icon, Label, NumberInput, RangeSlider, RangeSliderContainer, Wrapper } 
 // --------------------------------------------------------------------------- //
 export default function FancyRangeSlider(props: IFancyRangeSlider) {
   //the destructured values from the props
-  const { label, labelAlign, icon, displayNumber, currentValue, minValue, maxValue, handler } = props;
+  const { label, labelAlign, icon, displayNumber, currentValue, minValue, maxValue, handler, disabled } = props;
 
   const [isActive, setIsActive] = useState(false);
   const [sliderProgress, setSliderProgress] = useState<number>(currentValue ? currentValue : 0);
@@ -61,7 +61,7 @@ export default function FancyRangeSlider(props: IFancyRangeSlider) {
   }, []);
 
   return (
-    <Wrapper>
+    <Wrapper disabled={disabled}>
       {/* Icon for the left side of the slider */}
       {icon && <Icon active={isActive}>{icon}</Icon>}
 
@@ -73,6 +73,7 @@ export default function FancyRangeSlider(props: IFancyRangeSlider) {
       )}
       <RangeSliderContainer>
         <RangeSlider
+          disabled={true}
           ref={inputSlider}
           onFocus={() => setIsActive(true)}
           onBlur={() => setIsActive(false)}
@@ -87,7 +88,7 @@ export default function FancyRangeSlider(props: IFancyRangeSlider) {
         />
       </RangeSliderContainer>
       {/* Number input for typing the number */}
-      {displayNumber && <NumberInput type="number" active={isActive} value={calcNumberInput} min={minVal} max={maxVal} onChange={inputHandler} />}
+      {displayNumber && <NumberInput disabled={disabled} type="number" active={isActive} value={calcNumberInput} min={minVal} max={maxVal} onChange={inputHandler} />}
     </Wrapper>
   );
 }

@@ -1,14 +1,18 @@
 import styled from 'styled-components';
 
 import { uiColors, spacingPx } from '../Design/design';
+import { disabledStyle } from '../HelperFunctions/disableStyle';
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<{disabled?: boolean}>`
   box-sizing: border-box;
   display: grid;
   grid-template-columns: auto 1fr auto;
   grid-template-rows: 1fr auto;
   width: 100%;
   margin: 0 0 0.2rem 0;
+  ${({disabled}) => disabled ? disabledStyle : ''}
+
+  
 `;
 
 export const RangeSliderContainer = styled.div`
