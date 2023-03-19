@@ -1,13 +1,13 @@
 import React, { useId, useState } from 'react';
 
-import { uiColors, fontSize, colorPalet, spacingPx } from '../Design/design';
 
 import IFancyInput from './FancyInput.model';
-import { ErrorMessage, Icon, Input, InputContainer, Label, PasswordIcon, UnderLine, Wrapper } from './FancyInput.style';
-
+import { ErrorMessage, Icon, Input, InputContainer, PasswordIcon, Wrapper } from './FancyInput.style';
+import UnderLine from '../Atoms/InputUnderline';
+import { AnimatedLabel } from '../Atoms/InputLabel';
 
 export default function FancyInput(props: IFancyInput) {
-  const { label, type, align, icon, errorMessage, ...inputProps } = props;
+  const { label, type, align, icon, errorMessage, disabled, handler, value, ...inputProps } = props;
 
   //this state toggled the clen text input and the censored one
   const [showPassword, setShowPassword] = useState(false);
@@ -21,7 +21,7 @@ export default function FancyInput(props: IFancyInput) {
   const calculatedType = type !== 'password' ? type : showPassword ? 'text' : 'password';
 
   return (
-    <Wrapper>
+    <Wrapper disabled={disabled}>
       {/* // --------- the icon for the input field ------------- // */}
       {icon && (
         <Icon active={isActive} errorMessage={errorMessage}>
@@ -40,16 +40,19 @@ export default function FancyInput(props: IFancyInput) {
           required
           align={align}
           {...inputProps}
+          defaultValue={value}
           onFocus={() => setIsActive(true)}
           onBlur={() => setIsActive(false)}
           autoComplete={'off'}
+          onChange={handler}
+          disabled={disabled}
         />
 
         {/* the label for the input field it shows when a label prop exists*/}
         {label && (
-          <Label htmlFor={id} align={align}>
+          <AnimatedLabel htmlFor={id} align={align} disabledAndSelected={Boolean(disabled) && Boolean(props.value)}> 
             {label}
-          </Label>
+          </AnimatedLabel>
         )}
 
         {/*  icons for the password field to show and hide the password */}
@@ -72,7 +75,7 @@ export default function FancyInput(props: IFancyInput) {
           </PasswordIcon>
         )}
         {/* // --------- the underline form the input field------------- // */}
-        <UnderLine errorMessage={errorMessage} align={align}></UnderLine>
+        <UnderLine errorMessage={errorMessage}></UnderLine>
       </InputContainer>
 
       {/* // ---------if a errorMessage prop exists this message will shown------------- // */}

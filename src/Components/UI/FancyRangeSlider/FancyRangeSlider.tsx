@@ -73,7 +73,7 @@ export default function FancyRangeSlider(props: IFancyRangeSlider) {
       )}
       <RangeSliderContainer>
         <RangeSlider
-          disabled={true}
+          disabled={disabled}
           ref={inputSlider}
           onFocus={() => setIsActive(true)}
           onBlur={() => setIsActive(false)}

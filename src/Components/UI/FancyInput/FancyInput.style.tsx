@@ -3,8 +3,12 @@ import { uiColors, fontSize, colorPalet, spacingPx } from '../Design/design';
 import styled, { css } from 'styled-components';
 
 //this function handles some alignment of the elements
-import { alignHandler } from '../HelperFunctions/alignmentHandler';
 import IFancyInput from './FancyInput.model';
+
+
+import { UnderLineFocusStyle } from '../Atoms/InputUnderline';
+import { AnimatedLabel, AnimatedLabelFocusStyle } from '../Atoms/InputLabel';
+import { disabledStyle } from '../HelperFunctions/disableStyle';
 
 //the input icon displayed on the left
 export const Icon = styled.i<{ active: boolean; errorMessage?: string }>`
@@ -21,48 +25,6 @@ export const Icon = styled.i<{ active: boolean; errorMessage?: string }>`
   }
 `;
 
-//the underline for the input field
-export const UnderLine = styled.i<IFancyInput>`
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  height: 2px;
-  border-radius: 5px;
-  background: gray;
-  overflow: hidden;
-  width: 100%;
-
-  &::before {
-    content: '';
-    width: 100%;
-    border-radius: 5px;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    opacity: 0;
-    height: 100%;
-    background: ${({ errorMessage }) =>
-      !errorMessage
-        ? css`linear-gradient(90deg, ${uiColors.accent.main}, ${uiColors.accent.main_light})`
-        : css`linear-gradient(90deg, ${colorPalet.red_dark}, ${colorPalet.red_light})`};
-    transition: 0.25s;
-    transition-timing-function: cubic-bezier(0.46, 0.03, 0.52, 0.96);
-  }
-`;
-
-//the label for the input field
-export const Label = styled.label<IFancyInput>`
-  position: absolute;
-  ${({ align }) => alignHandler(align!, 'LabelInput')};
-  padding: 12px 0 5px;
-  font-weight: bold;
-  color: gray;
-  pointer-events: none;
-  transition: 0.3s;
-  user-select: none;
-  transition-timing-function: cubic-bezier(0.46, 0.03, 0.52, 0.96);
-`;
-
 //the input/label/underline are all wrapped in thid container
 export const InputContainer = styled.div`
   width: 100%;
@@ -75,11 +37,10 @@ export const InputContainer = styled.div`
 export const Input = styled.input<IFancyInput>`
   font-weight: 500;
   box-sizing: border-box;
-  caret-color: ${uiColors.accent.main};
   width: 100%;
   appearance: none;
   background-color: transparent;
-  color: ${colorPalet.light};
+  color: ${colorPalet.white_high};
   text-align: ${({ align }) => (align !== 'center' ? 'left' : 'center')};
   border: none;
   height: 40px;
@@ -107,16 +68,11 @@ export const Input = styled.input<IFancyInput>`
       }
     `}
 
-  //the focus animation for the Label
-  &:focus ~ ${Label}, &:valid ~ ${Label} {
-    color: ${({ errorMessage }) => (errorMessage ? colorPalet.red_dark : uiColors.accent.main)};
-    transform: ${({ align }) => (align !== 'center' ? 'translateY(-20px)' : 'translateY(-20px) translate(-50%)')};
-    font-weight: 600;
-  }
+  ${({align, errorMessage}) => AnimatedLabelFocusStyle(align, errorMessage)}
   //the focus animation for the underline
-  &:focus ~ ${UnderLine}::before {
-    opacity: 1;
-  }
+  ${({align}) => UnderLineFocusStyle(AnimatedLabel, align)}
+
+
 `;
 
 //the style for the error message
@@ -141,9 +97,11 @@ export const PasswordIcon = styled.i`
 `;
 
 //the complete formation for the input field
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<{disabled?: boolean}>`
   position: relative;
   display: grid;
   grid-template-columns: auto 1fr;
   grid-template-rows: 1fr auto;
+
+  ${({ disabled }) => (disabled ? disabledStyle : '')}
 `;

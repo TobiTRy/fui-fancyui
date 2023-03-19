@@ -5,5 +5,6 @@ export interface IFancyDropDownSelect {
   inputTextAlign?: 'left' | 'center';
   selected?: string;
   options?: string[];
+  disabled?: boolean;
   onChange?: () => void;
 }

@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 import { uiColors, spacingPx } from '../Design/design';
 import { disabledStyle } from '../HelperFunctions/disableStyle';
+import { AlignedLabel } from '../Atoms/InputLabel';
 
 export const Wrapper = styled.div<{disabled?: boolean}>`
   box-sizing: border-box;
@@ -9,11 +10,10 @@ export const Wrapper = styled.div<{disabled?: boolean}>`
   grid-template-columns: auto 1fr auto;
   grid-template-rows: 1fr auto;
   width: 100%;
-  margin: 0 0 0.2rem 0;
   ${({disabled}) => disabled ? disabledStyle : ''}
-
-  
 `;
+
+
 
 export const RangeSliderContainer = styled.div`
   grid-row: 2/3;
@@ -48,7 +48,7 @@ export const NumberInput = styled.input<{active: boolean}>`
 `;
 
 export const RangeSlider = styled.input`
-  grid-template-columns: 1/2;
+  grid-column: 1/2;
   grid-row: 2/3;
   -webkit-appearance: none;
   width: 100%;
@@ -98,19 +98,24 @@ export const Icon = styled.i<{ active?: boolean }>`
   }
 `;
 
-export const Label = styled.label<{ align?: string; active?: boolean }>`
-  grid-row: 0/1;
+// export const Label = styled.label<{ align?: string; active?: boolean }>`
+
+//   display: flex;
+//   align-items: flex-end;
+//   justify-content: ${({align}) => align !== 'center' ? 'flex-start' : 'center' };
+//   width: 100%;
+//   color: gray;
+//   font-weight: bold;
+//   pointer-events: none;
+//   transition: 0.3s;
+//   user-select: none;
+//   color: ${({ active }) => (active ? uiColors.accent.main : 'gray')};
+//   transition-timing-function: cubic-bezier(0.46, 0.03, 0.52, 0.96);
+//   margin-bottom: ${spacingPx.xxs};
+// `;
+
+export const Label = styled(AlignedLabel)`
+  grid-row: 1/2;
   grid-column: 2/3;
-  display: flex;
-  align-items: flex-end;
-  justify-content: ${({align}) => align !== 'center' ? 'flex-start' : 'center' };
-  width: 100%;
-  color: gray;
-  font-weight: bold;
-  pointer-events: none;
-  transition: 0.3s;
-  user-select: none;
-  color: ${({ active }) => (active ? uiColors.accent.main : 'gray')};
-  transition-timing-function: cubic-bezier(0.46, 0.03, 0.52, 0.96);
-  margin-bottom: ${spacingPx.xxs};
-`;
+
+`
