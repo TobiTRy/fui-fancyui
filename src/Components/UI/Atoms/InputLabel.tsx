@@ -19,7 +19,9 @@ const LabelTemplate = css`
 // --------------------------------------------------------------------------- //
 // ----------- The diferent label designes for animation and static  --------- //
 // --------------------------------------------------------------------------- //
-export const AnimatedLabel = styled.label<{align?: string; disabledAndSelected?: boolean }>`
+
+//the animated label is for the inputs where the Placholder is the label
+export const AnimatedInputLabel = styled.label<{align?: string; disabledAndSelected?: boolean }>`
   ${LabelTemplate}
   position: absolute;
   padding: 12px 0 5px;
@@ -32,16 +34,16 @@ export const AnimatedLabelFocusStyle = (align?: 'center' | 'left', errorMessage?
 
   //the focus animation for the Label
   return css`
-    &:focus ~ ${AnimatedLabel}, &:valid ~ ${AnimatedLabel} {
+    &:focus ~ ${AnimatedInputLabel}, &:valid ~ ${AnimatedInputLabel} {
     color: ${isErrorMessage};
     transform: ${alignStyle};
     font-weight: 600;
   }
-
   `
 }
 
-export const AlignedLabel = styled.label<{align?: string; active?: boolean}>`
+//the aligned label is only with align left or centerd 
+export const AlignedInputLabel = styled.label<{align?: string; active?: boolean}>`
   ${LabelTemplate}
   display: flex;
   align-items: flex-end;

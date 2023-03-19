@@ -7,7 +7,7 @@ import IFancyInput from './FancyInput.model';
 
 
 import { UnderLineFocusStyle } from '../Atoms/InputUnderline';
-import { AnimatedLabel, AnimatedLabelFocusStyle } from '../Atoms/InputLabel';
+import { AnimatedInputLabel, AnimatedLabelFocusStyle } from '../Atoms/InputLabel';
 import { disabledStyle } from '../HelperFunctions/disableStyle';
 
 //the input icon displayed on the left
@@ -70,7 +70,7 @@ export const Input = styled.input<IFancyInput>`
 
   ${({align, errorMessage}) => AnimatedLabelFocusStyle(align, errorMessage)}
   //the focus animation for the underline
-  ${({align}) => UnderLineFocusStyle(AnimatedLabel, align)}
+  ${({align}) => UnderLineFocusStyle(AnimatedInputLabel, align)}
 
 
 `;
@@ -96,12 +96,3 @@ export const PasswordIcon = styled.i`
   }
 `;
 
-//the complete formation for the input field
-export const Wrapper = styled.div<{disabled?: boolean}>`
-  position: relative;
-  display: grid;
-  grid-template-columns: auto 1fr;
-  grid-template-rows: 1fr auto;
-
-  ${({ disabled }) => (disabled ? disabledStyle : '')}
-`;

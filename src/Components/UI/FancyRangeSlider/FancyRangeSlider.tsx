@@ -1,7 +1,8 @@
 import React, { useEffect, useId, useRef, useState } from 'react';
 import { IFancyRangeSlider } from './FancyRangeSlider.model';
-import { Icon, Label, NumberInput, RangeSlider, RangeSliderContainer, Wrapper } from './FancyRangeSlider.style';
+import { Icon, Label, NumberInput, RangeSlider, RangeSliderContainer } from './FancyRangeSlider.style';
 
+import { InputWarapper } from '../Atoms/InputWrapper';
 
 // --------------------------------------------------------------------------- //
 // -------------------- The main component for the slider--------------------- //
@@ -12,10 +13,10 @@ export default function FancyRangeSlider(props: IFancyRangeSlider) {
 
   const [isActive, setIsActive] = useState(false);
   const [sliderProgress, setSliderProgress] = useState<number>(currentValue ? currentValue : 0);
-  const [toutched, setToutched] = useState(false)
+  const [toutched, setToutched] = useState(false);
+  
   const inputSlider = useRef<HTMLInputElement | null>(null);
   const id = useId();
-
 
   //initialize the min an max value when get it or not
   const minVal = minValue ? minValue : 0;
@@ -61,7 +62,7 @@ export default function FancyRangeSlider(props: IFancyRangeSlider) {
   }, []);
 
   return (
-    <Wrapper disabled={disabled}>
+    <InputWarapper disabled={disabled}>
       {/* Icon for the left side of the slider */}
       {icon && <Icon active={isActive}>{icon}</Icon>}
 
@@ -89,6 +90,6 @@ export default function FancyRangeSlider(props: IFancyRangeSlider) {
       </RangeSliderContainer>
       {/* Number input for typing the number */}
       {displayNumber && <NumberInput disabled={disabled} type="number" active={isActive} value={calcNumberInput} min={minVal} max={maxVal} onChange={inputHandler} />}
-    </Wrapper>
+    </InputWarapper>
   );
 }

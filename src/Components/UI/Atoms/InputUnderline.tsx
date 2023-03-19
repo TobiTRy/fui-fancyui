@@ -31,7 +31,7 @@ const UnderLine = styled.i<{ errorMessage?: string }>`
   }
 `;
 
-
+//this function generates the state behavior for the underline
 export const UnderLineFocusStyle = (Label:any, labelAlign?: 'center' | 'left')=> {
   const calcTransform = labelAlign !== 'center' ? 'translateY(-20px)' : 'translateY(-20px) translate(-50%)';
 

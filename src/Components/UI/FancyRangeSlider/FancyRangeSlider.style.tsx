@@ -1,19 +1,7 @@
 import styled from 'styled-components';
 
 import { uiColors, spacingPx } from '../Design/design';
-import { disabledStyle } from '../HelperFunctions/disableStyle';
-import { AlignedLabel } from '../Atoms/InputLabel';
-
-export const Wrapper = styled.div<{disabled?: boolean}>`
-  box-sizing: border-box;
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  grid-template-rows: 1fr auto;
-  width: 100%;
-  ${({disabled}) => disabled ? disabledStyle : ''}
-`;
-
-
+import { AlignedInputLabel } from '../Atoms/InputLabel';
 
 export const RangeSliderContainer = styled.div`
   grid-row: 2/3;
@@ -78,8 +66,6 @@ export const RangeSlider = styled.input`
     border: none;
     background: transparent;
   }
-
-
 `;
 
 export const Icon = styled.i<{ active?: boolean }>`
@@ -98,24 +84,8 @@ export const Icon = styled.i<{ active?: boolean }>`
   }
 `;
 
-// export const Label = styled.label<{ align?: string; active?: boolean }>`
-
-//   display: flex;
-//   align-items: flex-end;
-//   justify-content: ${({align}) => align !== 'center' ? 'flex-start' : 'center' };
-//   width: 100%;
-//   color: gray;
-//   font-weight: bold;
-//   pointer-events: none;
-//   transition: 0.3s;
-//   user-select: none;
-//   color: ${({ active }) => (active ? uiColors.accent.main : 'gray')};
-//   transition-timing-function: cubic-bezier(0.46, 0.03, 0.52, 0.96);
-//   margin-bottom: ${spacingPx.xxs};
-// `;
-
-export const Label = styled(AlignedLabel)`
+//the label inhert the style from the AlignedInputLabel
+export const Label = styled(AlignedInputLabel)`
   grid-row: 1/2;
   grid-column: 2/3;
-
 `

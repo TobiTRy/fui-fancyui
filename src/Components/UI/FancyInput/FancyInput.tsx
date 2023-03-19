@@ -1,10 +1,11 @@
 import React, { useId, useState } from 'react';
 
-
 import IFancyInput from './FancyInput.model';
-import { ErrorMessage, Icon, Input, InputContainer, PasswordIcon, Wrapper } from './FancyInput.style';
+import { ErrorMessage, Icon, Input, InputContainer, PasswordIcon } from './FancyInput.style';
 import UnderLine from '../Atoms/InputUnderline';
-import { AnimatedLabel } from '../Atoms/InputLabel';
+import { InputWarapper } from '../Atoms/InputWrapper';
+
+import { AnimatedInputLabel } from '../Atoms/InputLabel';
 
 export default function FancyInput(props: IFancyInput) {
   const { label, type, align, icon, errorMessage, disabled, handler, value, ...inputProps } = props;
@@ -21,7 +22,7 @@ export default function FancyInput(props: IFancyInput) {
   const calculatedType = type !== 'password' ? type : showPassword ? 'text' : 'password';
 
   return (
-    <Wrapper disabled={disabled}>
+    <InputWarapper disabled={disabled}>
       {/* // --------- the icon for the input field ------------- // */}
       {icon && (
         <Icon active={isActive} errorMessage={errorMessage}>
@@ -50,9 +51,9 @@ export default function FancyInput(props: IFancyInput) {
 
         {/* the label for the input field it shows when a label prop exists*/}
         {label && (
-          <AnimatedLabel htmlFor={id} align={align} disabledAndSelected={Boolean(disabled) && Boolean(props.value)}> 
+          <AnimatedInputLabel htmlFor={id} align={align} disabledAndSelected={Boolean(disabled) && Boolean(props.value)}> 
             {label}
-          </AnimatedLabel>
+          </AnimatedInputLabel>
         )}
 
         {/*  icons for the password field to show and hide the password */}
@@ -81,6 +82,6 @@ export default function FancyInput(props: IFancyInput) {
       {/* // ---------if a errorMessage prop exists this message will shown------------- // */}
       {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
       {/* // --------------------------------------------------------------------------- // */}
-    </Wrapper>
+    </InputWarapper>
   );
 }

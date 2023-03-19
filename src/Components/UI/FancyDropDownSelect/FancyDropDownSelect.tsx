@@ -1,8 +1,9 @@
 import React, { useId, useState } from 'react';
-import { Icon, SelectContainer, SelectField, Wrapper, Option } from './FancyDropDownSelect.style';
-import { AnimatedLabel } from '../Atoms/InputLabel';
+import { Icon, SelectContainer, SelectField, Option} from './FancyDropDownSelect.style';
+import { AnimatedInputLabel } from '../Atoms/InputLabel';
 import UnderLine from '../Atoms/InputUnderline';
 
+import { InputWarapper } from '../Atoms/InputWrapper';
 import { IFancyDropDownSelect } from './IFancyDropDownSelect.model';
 
 // ------------------------------------------------------------------ //
@@ -18,7 +19,7 @@ export default function FancyDropDownSelect(props: IFancyDropDownSelect) {
 
   return (
     <>
-      <Wrapper disabled={disabled}>
+      <InputWarapper disabled={disabled}>
         {icon && <Icon active={isActive}>{icon}</Icon>}
         <SelectContainer>
           <SelectField
@@ -45,14 +46,14 @@ export default function FancyDropDownSelect(props: IFancyDropDownSelect) {
           </SelectField>
 
           {label && (
-            <AnimatedLabel htmlFor={id} disabledAndSelected={Boolean(disabled) && Boolean(selected)} align={labelAlign}>
+            <AnimatedInputLabel htmlFor={id} disabledAndSelected={Boolean(disabled) && Boolean(selected)} align={labelAlign}>
               {label}
-            </AnimatedLabel>
+            </AnimatedInputLabel>
           )}
           {/* the underline for the select field */}
           <UnderLine />
         </SelectContainer>
-      </Wrapper>
+      </InputWarapper>
     </>
   );
 }

@@ -4,7 +4,7 @@ import { uiColors, fontSize, spacingPx, colorPalet } from '../Design/design';
 
 import { disabledStyle } from '../HelperFunctions/disableStyle';
 import { UnderLineFocusStyle } from '../Atoms/InputUnderline';
-import { AnimatedLabel } from '../Atoms/InputLabel';
+import { AnimatedInputLabel } from '../Atoms/InputLabel';
 
 //the styling for each option item
 export const Option = styled.option<{ align?: string }>`
@@ -56,7 +56,7 @@ export const SelectField = styled.select<{ align?: string; labelAlign?: 'center'
     background: ${uiColors.accent.hover};
   }
 
-  ${({labelAlign}) => UnderLineFocusStyle(AnimatedLabel, labelAlign)}
+  ${({labelAlign}) => UnderLineFocusStyle(AnimatedInputLabel, labelAlign)}
 `;
 
 export const Icon = styled.i<{ active: boolean }>`
@@ -73,12 +73,4 @@ export const Icon = styled.i<{ active: boolean }>`
   }
 `;
 
-//the wrapper for the complete component
-export const Wrapper = styled.div<{ disabled?: boolean }>`
-  position: relative;
-  display: grid;
-  grid-template-columns: auto 1fr;
-  grid-template-rows: 1fr auto;
 
-  ${({ disabled }) => (disabled ? disabledStyle : '')}
-`;
