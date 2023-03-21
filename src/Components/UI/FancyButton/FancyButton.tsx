@@ -57,10 +57,7 @@ const paddingIconButton = {
 // ---------- Here are the helper functions for the design ---------- //
 // ------------------------------------------------------------------ //
 
-
 //this hanles the padding of the button deppend on the size and if needs a second value
-
-
 const calcTextColor = ({ color, design, outlined }: IFancyButton) => {
   if(color) {
     return colorPalet[color];

@@ -3,8 +3,9 @@ import './App.css';
 
 import FancyButton from './Components/UI/FancyButton/FancyButton';
 import FancyTabSwitch from './Components/UI/FancyTabSwitch/FancyTabSwitch';
-import FancyInputV2 from './Components/UI/FancyInput/FancyInput';
+import FancyInput from './Components/UI/FancyInput/FancyInput';
 import FancyDropDownSelect from './Components/UI/FancyDropDownSelect/FancyDropDownSelect';
+import FancyRangeSlider from './Components/UI/FancyRangeSlider/FancyRangeSlider';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -45,11 +46,10 @@ function App() {
   };
 
 
-  //TODO: CHECK IF THE FONTS FLICKERING BEACUSE THE FONTS IN STYLED COMPONENTS
-
   return (
     <div className="App">
-      <FancyInputV2 label='Username' icon={svg} align={'center'} />
+      <FancyRangeSlider displayNumber={true} labelAlign={'left'} icon={svg} maxValue={50} minValue={-50} label={'Im tobi tester'}/>
+      <FancyInput label='Username'  value={'tes'} icon={svg} align={'left'} />
       <FancyDropDownSelect icon={svg}
         label="Test Done Other"
         options={[
@@ -61,7 +61,7 @@ function App() {
           'Test3',
         ]}
         labelAlign="left"
-        inputTextAlign='center'
+        inputTextAlign='left'
       />
     </div>
   );
