@@ -48,7 +48,7 @@ function App() {
 
   return (
     <div className="App">
-      <FancyRangeSlider displayNumber={true} labelAlign={'left'} icon={svg} label={'Im tobi tester'}/>
+      <FancyRangeSlider displayNumber={true} labelAlign={'left'} icon={svg} maxValue={50} minValue={-50} label={'Im tobi tester'}/>
       <FancyInput label='Username'  value={'tes'} icon={svg} align={'left'} />
       <FancyDropDownSelect icon={svg}
         label="Test Done Other"

@@ -8,7 +8,7 @@ import IFancyInput from './FancyInput.model';
 
 import { UnderLineFocusStyle } from '../Atoms/InputUnderline';
 import { AnimatedInputLabel, AnimatedLabelFocusStyle } from '../Atoms/InputLabel';
-import { disabledStyle } from '../HelperFunctions/disableStyle';
+
 
 //the input icon displayed on the left
 export const Icon = styled.i<{ active: boolean; errorMessage?: string }>`
@@ -71,8 +71,6 @@ export const Input = styled.input<IFancyInput>`
   ${({align, errorMessage}) => AnimatedLabelFocusStyle(align, errorMessage)}
   //the focus animation for the underline
   ${({align}) => UnderLineFocusStyle(AnimatedInputLabel, align)}
-
-
 `;
 
 //the style for the error message

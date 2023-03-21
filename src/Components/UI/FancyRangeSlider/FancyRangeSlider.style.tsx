@@ -1,38 +1,15 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { uiColors, spacingPx } from '../Design/design';
 import { AlignedInputLabel } from '../Atoms/InputLabel';
+
+import UnderLine from '../Atoms/InputUnderline';
 
 export const RangeSliderContainer = styled.div`
   grid-row: 2/3;
   grid-column: 2/3;
   position: relative;
   width: 100%;
-`;
-
-export const NumberInput = styled.input<{active: boolean}>`
-  grid-row: 2 / 3;
-  grid-column: 3 / 4;
-  border-radius: 0;
-  font-size: 16px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 40px;
-  background-color: transparent;
-  color: white;
-  border: none;
-  margin-left: 10px;
-  transition: 0.3s;
-  transition-timing-function: cubic-bezier(0.46, 0.03, 0.52, 0.96);
-  border-bottom:  solid ${({active}) => active ? uiColors.accent.main : 'gray' }  2px;
-  outline: none;
-
-  &::-webkit-outer-spin-button,
-  &::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
 `;
 
 export const RangeSlider = styled.input`
@@ -84,8 +61,46 @@ export const Icon = styled.i<{ active?: boolean }>`
   }
 `;
 
+export const NumberContainer = styled.div`
+  position: relative;
+  box-sizing: border-box;
+  grid-row: 2 / 3;
+  grid-column: 3 / 4;
+  margin-left: 10px;
+`;
+
+
+//TODO: FIX PADDING ON MOBILE
+export const NumberInput = styled.input<{ active: boolean, width: string }>`
+  box-sizing: border-box;
+  border-radius: 0;
+  font-size: 16px;
+  width: ${({width}) => width ? width : '2ch' };
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  color: white;
+  border: none;
+  text-align: center;
+  padding: 0 0 ${spacingPx.xs} 0;
+  transition: 0.3s;
+  transition-timing-function: cubic-bezier(0.46, 0.03, 0.52, 0.96);
+  outline: none;
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  };
+
+  &:focus ~ ${UnderLine}::before {
+    opacity: 1;
+  };
+`;
+
 //the label inhert the style from the AlignedInputLabel
 export const Label = styled(AlignedInputLabel)`
   grid-row: 1/2;
   grid-column: 2/3;
-`
+`;

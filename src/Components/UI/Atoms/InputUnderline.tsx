@@ -3,7 +3,7 @@ import { colorPalet, uiColors } from '../Design/design';
 
 
 //the underline for the input fields
-const UnderLine = styled.i<{ errorMessage?: string }>`
+const UnderLine = styled.i<{ errorMessage?: string; active?: boolean; }>`
   position: absolute;
   left: 0;
   bottom: 0;
@@ -12,7 +12,7 @@ const UnderLine = styled.i<{ errorMessage?: string }>`
   background: gray;
   overflow: hidden;
   width: 100%;
-
+  
   &::before {
     content: '';
     width: 100%;
@@ -20,7 +20,7 @@ const UnderLine = styled.i<{ errorMessage?: string }>`
     position: absolute;
     left: 0;
     bottom: 0;
-    opacity: 0;
+    opacity: ${({active}) => active ? '1' : '0'};
     height: 100%;
     background: ${({ errorMessage }) =>
       !errorMessage

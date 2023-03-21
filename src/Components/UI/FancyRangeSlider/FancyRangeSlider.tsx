@@ -1,8 +1,9 @@
 import React, { useEffect, useId, useRef, useState } from 'react';
 import { IFancyRangeSlider } from './FancyRangeSlider.model';
-import { Icon, Label, NumberInput, RangeSlider, RangeSliderContainer } from './FancyRangeSlider.style';
+import { Icon, Label, NumberInput, NumberContainer, RangeSlider, RangeSliderContainer } from './FancyRangeSlider.style';
 
 import { InputWarapper } from '../Atoms/InputWrapper';
+import UnderLine from '../Atoms/InputUnderline';
 
 // --------------------------------------------------------------------------- //
 // -------------------- The main component for the slider--------------------- //
@@ -14,7 +15,7 @@ export default function FancyRangeSlider(props: IFancyRangeSlider) {
   const [isActive, setIsActive] = useState(false);
   const [sliderProgress, setSliderProgress] = useState<number>(currentValue ? currentValue : 0);
   const [toutched, setToutched] = useState(false);
-  
+
   const inputSlider = useRef<HTMLInputElement | null>(null);
   const id = useId();
 
@@ -24,8 +25,8 @@ export default function FancyRangeSlider(props: IFancyRangeSlider) {
 
   //calc the the progress
   const calcBackgorundSize = !isNaN(sliderProgress) ? ((sliderProgress - minVal) * 100) / (maxVal - minVal) + '% 100%' : '0% 100%';
-  const calcNumberInput = !isNaN(sliderProgress) ? sliderProgress : '';
   const calcSliderProgress = !isNaN(sliderProgress) ? sliderProgress : 0;
+
 
   const inputHandler = (e: React.ChangeEvent<HTMLInputElement> | { target?: HTMLInputElement | null }) => {
     //if handler become no valid traget, skip the function
@@ -34,18 +35,20 @@ export default function FancyRangeSlider(props: IFancyRangeSlider) {
 
     //calc sting to vale
     let newVal = parseInt(target.value);
+
     //limit the value to the max value
     if (newVal > maxVal) newVal = maxVal;
-
+    
     //save value in state
     setSliderProgress(newVal);
-    
+    //prevent the numberinput has a zero in front of the number
+    target.value = newVal.toString()
     //if event change than give the value back to the parent
     if ('type' in e && e.type === 'change') {
       const calcValueForHanlder = !isNaN(newVal) ? newVal : 0;
       if (handler) handler(calcValueForHanlder);
 
-      setToutched(true)
+      setToutched(true);
     }
   };
 
@@ -60,6 +63,7 @@ export default function FancyRangeSlider(props: IFancyRangeSlider) {
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
 
   return (
     <InputWarapper disabled={disabled}>
@@ -89,7 +93,23 @@ export default function FancyRangeSlider(props: IFancyRangeSlider) {
         />
       </RangeSliderContainer>
       {/* Number input for typing the number */}
-      {displayNumber && <NumberInput disabled={disabled} type="number" active={isActive} value={calcNumberInput} min={minVal} max={maxVal} onChange={inputHandler} />}
+      {displayNumber && (
+        <NumberContainer>
+          <NumberInput
+            disabled={disabled}
+            type="number"
+            width={calcSliderProgress.toString().length + 1 + 'ch'}
+            active={isActive}
+            value={!isNaN(sliderProgress) ? sliderProgress : ''}
+            min={minVal}
+            max={maxVal}
+            onChange={inputHandler}
+            onFocus={() => setIsActive(true)}
+            onBlur={() => setIsActive(false)}
+          />
+          <UnderLine active={isActive} />
+        </NumberContainer>
+      )}
     </InputWarapper>
   );
 }
