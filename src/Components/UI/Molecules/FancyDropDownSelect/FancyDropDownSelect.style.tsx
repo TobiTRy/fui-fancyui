@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-import { uiColors, fontSize, spacingPx, colorPalet } from '../Design/design';
+import { uiColors, fontSize, spacingPx, colorPalet } from '../../Design/design';
 
-import { disabledStyle } from '../HelperFunctions/disableStyle';
-import { UnderLineFocusStyle } from '../Atoms/InputUnderline';
-import { AnimatedInputLabel } from '../Atoms/InputLabel';
+import { disabledStyle } from '../../HelperFunctions/disableStyle';
+import { UnderLineFocusStyle } from '../../Atoms/InputUnderline';
+import { AnimatedInputLabel } from '../../Atoms/InputLabel';
 
 //the styling for each option item
 export const Option = styled.option<{ align?: string }>`

@@ -2,8 +2,8 @@ import React, { useEffect, useId, useRef, useState } from 'react';
 import { IFancyRangeSlider } from './FancyRangeSlider.model';
 import { Icon, Label, NumberInput, NumberContainer, RangeSlider, RangeSliderContainer } from './FancyRangeSlider.style';
 
-import { InputWarapper } from '../Atoms/InputWrapper';
-import UnderLine from '../Atoms/InputUnderline';
+import { InputWarapper } from '../../Atoms/InputWrapper';
+import UnderLine from '../../Atoms/InputUnderline';
 
 // --------------------------------------------------------------------------- //
 // -------------------- The main component for the slider--------------------- //

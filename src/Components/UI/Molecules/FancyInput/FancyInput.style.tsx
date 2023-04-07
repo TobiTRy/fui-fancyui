@@ -1,4 +1,4 @@
-import { uiColors, fontSize, colorPalet, spacingPx } from '../Design/design';
+import { uiColors, fontSize, colorPalet, spacingPx } from '../../Design/design';
 
 import styled, { css } from 'styled-components';
 
@@ -6,8 +6,8 @@ import styled, { css } from 'styled-components';
 import IFancyInput from './FancyInput.model';
 
 
-import { UnderLineFocusStyle } from '../Atoms/InputUnderline';
-import { AnimatedInputLabel, AnimatedLabelFocusStyle } from '../Atoms/InputLabel';
+import { UnderLineFocusStyle } from '../../Atoms/InputUnderline';
+import { AnimatedInputLabel, AnimatedLabelFocusStyle } from '../../Atoms/InputLabel';
 
 
 //the input icon displayed on the left

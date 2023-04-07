@@ -2,10 +2,10 @@ import React, { useId, useState } from 'react';
 
 import IFancyInput from './FancyInput.model';
 import { ErrorMessage, Icon, Input, InputContainer, PasswordIcon } from './FancyInput.style';
-import UnderLine from '../Atoms/InputUnderline';
-import { InputWarapper } from '../Atoms/InputWrapper';
+import UnderLine from '../../Atoms/InputUnderline';
+import { InputWarapper } from '../../Atoms/InputWrapper';
 
-import { AnimatedInputLabel } from '../Atoms/InputLabel';
+import { AnimatedInputLabel } from '../../Atoms/InputLabel';
 
 export default function FancyInput(props: IFancyInput) {
   const { label, type, align, icon, errorMessage, disabled, handler, value, ...inputProps } = props;

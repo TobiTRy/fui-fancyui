@@ -9,10 +9,6 @@ export const colorPalet = {
   white_disabled: 'rgba(255 255 255 / 38%)',
 
 
-  lightgreen: '#0A7273',
-  lightgreen_light: '#3C9E9E',
-  lightgreen_dark: '#005858',
-
   orange: '#F17C12',
   orange_light: '#FFA42A',
   orange_dark: '#CC6C0A',
@@ -33,7 +29,7 @@ export const colorPalet = {
 
 
   get primary() { return this.darkblue},
-  get secondary() { return this.lightgreen},
+  get secondary() { return this.white},
   get accent() { return this.orange},
 
   transparent: 'transparent',
@@ -87,10 +83,10 @@ export const uiColors = {
 		hover: colorPalet.orange_dark
 	},
 	secondary : {
-		main: colorPalet.lightgreen,
-    main_light: colorPalet.lightgreen_light,
-		contrast: colorPalet.white_light,
-		hover: colorPalet.lightgreen_dark,
+		main: colorPalet.white,
+    main_light: colorPalet.white_light,
+		contrast: colorPalet.darkblue_dark,
+		hover: colorPalet.white_dark,
 	},
 	primary: {
 		main: colorPalet.darkblue,

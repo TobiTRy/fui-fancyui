@@ -1,0 +1,6 @@
+//TODO: Editbar that adapts to the input evtl a Editbar handler before the editbar
+
+- You need Activate Buttons
+- The Editbar (Scrolable)
+- Nach box vorgehen heißt settings aufbauen nach Background --> Color / Image / Overlay
+                                                  Header --> Text / Color / Font / background

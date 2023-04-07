@@ -5,12 +5,12 @@ import {
   fontSize,
   borderRadius,
   spacing,
-} from "../Design/design";
+} from "../../Design/design";
 
 import styled, { css } from "styled-components";
-import { hexToTransparent } from "../HelperFunctions/hexToTransparent";
-import { generatePadding } from "../HelperFunctions/generatePadding";
-import { disabledStyle } from "../HelperFunctions/disableStyle";
+import { hexToTransparent } from "../../HelperFunctions/hexToTransparent";
+import { generatePadding } from "../../HelperFunctions/generatePadding";
+import { disabledStyle } from "../../HelperFunctions/disableStyle";
 
 
 interface IFancyButton {

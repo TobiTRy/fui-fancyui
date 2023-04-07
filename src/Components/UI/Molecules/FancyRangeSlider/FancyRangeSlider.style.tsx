@@ -1,9 +1,9 @@
 import styled, { css } from 'styled-components';
 
-import { uiColors, spacingPx } from '../Design/design';
-import { AlignedInputLabel } from '../Atoms/InputLabel';
+import { uiColors, spacingPx } from '../../Design/design';
+import { AlignedInputLabel } from '../../Atoms/InputLabel';
 
-import UnderLine from '../Atoms/InputUnderline';
+import UnderLine from '../../Atoms/InputUnderline';
 
 export const RangeSliderContainer = styled.div`
   grid-row: 2/3;

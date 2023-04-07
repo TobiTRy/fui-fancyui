@@ -1,7 +1,7 @@
 import React, { useId } from 'react';
 import styled, { css } from 'styled-components';
 
-import { spacingPx, uiColors } from '../Design/design';
+import { spacingPx, uiColors } from '../../Design/design';
 import { IFancyTabButtonStyle, IFancyTabStyle } from './IFancyTab.model';
 
 // ------------------------------------------------------------------ //

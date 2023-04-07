@@ -19,11 +19,13 @@ export default {
 } as ComponentMeta<typeof FancyInput>;
 
 
+;
+
 
 const Template: ComponentStory<typeof FancyInput> = (args) => <FancyInput {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  label: 'Button',
+    label: 'Button',
 };
 
