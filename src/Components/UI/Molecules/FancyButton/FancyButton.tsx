@@ -11,21 +11,10 @@ import styled, { css } from "styled-components";
 import { hexToTransparent } from "../../HelperFunctions/hexToTransparent";
 import { generatePadding } from "../../HelperFunctions/generatePadding";
 import { disabledStyle } from "../../HelperFunctions/disableStyle";
+import { IFancyButton } from "./IFancyButton.model";
 
 
-interface IFancyButton {
-  size: "small" | "medium" | "large";
-  wide?: boolean; 
-  design: "primary" | "secondary" | "accent" | "transparent";
-  align?: "left" | "right" | "center";
-  color?: "light" | "dark" | "primary" | "secondary" | "accent";
-  hoverColor?: "primary" | "secondary" | "accent";
-  label?: string;
-  outlined?: boolean;
-  icon?: JSX.Element;
-  disabled?: boolean;
-  onClick?: () => void;
-}
+
 
 // --------------------------------------------------------------------------- //
 // ---------- Here are the design variants for sizing and alignment ---------- //

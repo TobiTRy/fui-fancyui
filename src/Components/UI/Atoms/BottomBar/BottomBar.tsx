@@ -8,10 +8,11 @@ interface IBottomBar {
   bottomFixed?: boolean;
   secondBar?: boolean;
   width?: string;
+  spacingLeftRight?: string;
 }
 
 export default function BottomBar(props: IBottomBar) {
-  const { children, scrollable, bottomFixed = true, width, secondBar } = props;
+  const { children, scrollable, bottomFixed = true, width, secondBar, spacingLeftRight } = props;
   const scrollAbleBar = useRef<HTMLDivElement>(null);
   const activateScrollbar = scrollable || (children?.length! > 4) ? true : false;
 
@@ -31,7 +32,7 @@ export default function BottomBar(props: IBottomBar) {
 
 
   return (
-    <Wrapper bottomFixed={bottomFixed} width={width} secondBar={secondBar}>
+    <Wrapper bottomFixed={bottomFixed} width={width} secondBar={secondBar} spacingLeftRight={spacingLeftRight}>
       <Bar>
         {!activateScrollbar ? (
           children && children.map((item, i) => <ItemWrapper key={i} secondBar={secondBar}>{item}</ItemWrapper>)

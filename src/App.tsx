@@ -8,8 +8,8 @@ import FancyDropDownSelect from './Components/UI/Molecules/FancyDropDownSelect/F
 import FancyRangeSlider from './Components/UI/Molecules/FancyRangeSlider/FancyRangeSlider';
 import EditBarIconButton from './Components/UI/Atoms/EditBarIcon/EditBarIcon';
 import EditBar from './Components/UI/Molecules/EditBar/EditBar';
-import SpeedDialButton from './Components/UI/Molecules/SpeedDailButton/SpeedDailButton';
-import EditBarModule from './Components/UI/Organisms/EditBarModule';
+import SpeedDialButton from './Components/UI/Molecules/SpeedDailButton/SpeedDail';
+import EditBarModule from './Components/UI/Organisms/EditBarModule/EditBarModule';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">

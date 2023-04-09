@@ -1,4 +1,4 @@
-export interface IFancyRangeSlider {
+export default interface IFancyRangeSlider {
   label?: string;
   labelAlign?: 'left' | 'center';
   icon?: JSX.Element;

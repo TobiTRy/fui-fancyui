@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 
 import { Button, Label, MenueItemContainer, MenueItemWrapper, MenuItem, Ring, SpeedDialContainer, Wrapper } from './SpeedDailButton.style';
+import { ISpeedail } from './ISpeedDail';
 
-interface ISpeedail {
-  items?: Array<{ label: string; value: string | number | JSX.Element }>;
-}
+
 
 const SpeedDialButton = ({items}: ISpeedail) => {
   const [isOpen, setIsOpen] = useState(false);

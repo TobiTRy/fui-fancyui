@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 //TODO: Settings: Border needs ==> Color / Borderstyle / BorderWidth / Radius
@@ -16,6 +16,7 @@ import BottomBar from '../../Atoms/BottomBar/BottomBar';
 import EditBarIconButton from '../../Atoms/EditBarIcon/EditBarIcon';
 import { IEditBarIconButton } from '../../Atoms/EditBarIcon/IEditBarIcon';
 import { useEditBarStore } from './EditBar.state';
+import { spacingPx, spacing } from '../../Design/design';
 
 import EditBarModal from '../../Atoms/EditBarModal/EditBarModal';
 
@@ -52,6 +53,8 @@ export default function EditBar(props: IEditBar) {
   const activeSecondEditbarItem = useEditBarStore((state) => state.activeSecondEditbarItem);
   const setActiveSecondBarItem = useEditBarStore((state) => state.setActiveSecondEditbarItem);
 
+
+
   const clickHandler = (section: 'section' | 'subSection', item: IEditBarIconButton, buttonFunction?: () => void) => {
     if (section === 'subSection') setActiveSecondBarItem(item.id!);
     if (section === 'section') setActiveBarItem(item.id!);
@@ -64,7 +67,7 @@ export default function EditBar(props: IEditBar) {
     <Wrapper>
       {/* //TODO: Add the edit bar */}
       {settings && (
-        <EditBarModal bottomFixed={false} width={'95%'} secondBar={true}>
+        <EditBarModal spacingLeftRight={spacing.xl + spacing.xl + 'px' }>
           {(settings as React.ReactElement[]).map((item, index) => (
             <React.Fragment key={index}>{item}</React.Fragment>
           ))}
@@ -72,7 +75,7 @@ export default function EditBar(props: IEditBar) {
       )}
       {/* The second Bar that adapts to the activated button from the man bar */}
       {subSectionItems && (
-        <BottomBar scrollable={scrollable} bottomFixed={false} width={'95%'} secondBar={true}>
+        <BottomBar scrollable={scrollable} bottomFixed={false} spacingLeftRight={spacingPx.xl} secondBar={true}>
           {subSectionItems.map((item, index) => (
             <EditBarIconButton
               key={index}

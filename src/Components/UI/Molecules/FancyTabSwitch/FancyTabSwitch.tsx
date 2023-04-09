@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 
 import FancyTabSwitchButton from './FancyTabSwitchItem';
-import { IFancyTab, IFancyTabSwitchStyle } from './IFancyTab.model';
+import IFancyTab, { IFancyTabSwitchStyle } from './IFancyTab.model';
 
 import { borderRadius, spacingPx, uiColors } from '../../Design/design';
 import { disabledStyle } from '../../HelperFunctions/disableStyle';

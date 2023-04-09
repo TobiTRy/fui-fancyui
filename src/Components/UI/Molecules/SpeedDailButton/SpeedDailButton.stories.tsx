@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import SpeedDialButton from './SpeedDailButton';
+import SpeedDialButton from './SpeedDail';
 
 
 export default {

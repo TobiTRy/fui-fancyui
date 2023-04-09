@@ -4,7 +4,7 @@ import { AnimatedInputLabel } from '../../Atoms/InputLabel';
 import UnderLine from '../../Atoms/InputUnderline';
 
 import { InputWarapper } from '../../Atoms/InputWrapper';
-import { IFancyDropDownSelect } from './IFancyDropDownSelect.model';
+import IFancyDropDownSelect from './IFancyDropDownSelect.model';
 
 // ------------------------------------------------------------------ //
 // ------------- main component for the drop down ------------------- //

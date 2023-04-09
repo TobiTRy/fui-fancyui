@@ -37,4 +37,6 @@ export type IFancyTabSwitchStyle = Pick<IFancyTabStyle, 'wide' | 'rounded' | 'tr
 //only props for the TabStyle
 export type IFancyTabButtonStyle = Omit<IFancyTabStyle, 'itemObject' | 'handler'>;
 //for all incomming props from the component
-export type IFancyTab = IFancyTabSwitchComponent & IFancyTabButtonStyle;
+type IFancyTab = IFancyTabSwitchComponent & IFancyTabButtonStyle;
+
+export default IFancyTab;

@@ -1,4 +1,4 @@
-export interface IFancyDropDownSelect {
+export default interface IFancyDropDownSelect {
   icon?: JSX.Element;
   label?: string;
   labelAlign?: 'left' | 'center';
