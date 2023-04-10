@@ -7,6 +7,8 @@ import { useEditBarStore } from '../../Molecules/EditBar/EditBar.state';
 import { loopJSXMapper } from './EditBarSettings';
 import { ISection } from './settings/EditBarItemsStructure/IEditbarObjectSturcture.model';
 import { ISectionItem } from './settings/EditBarItemsStructure/IEditbarObjectSturcture.model';
+import { useEditBarModuleStore } from './EditBarModule.state';
+
 // Get settings based on activeEditbarCategory and activeSubSectionItem
 const getObjectMapper = (activeEditbarCategory: ISectionItem | null, activeSubSectionItem: string | null): React.ReactNode[] | null => {
   if (!activeEditbarCategory || !activeSubSectionItem) return null;
@@ -22,15 +24,15 @@ const getSubSectionItems = (activeEditbarCategory: ISectionItem | null): IEditBa
 
 export default function EditBarModule({ active, sectionType }: { active: boolean; sectionType: 'header' | 'sectionBox' | 'background' }) {
   // Hooks to get and set state values from the edit bar store
-  const currentEditBarItems = useEditBarStore((state) => state.currentItems);
-  const setCurrentEditBarItems = useEditBarStore((state) => state.setCurrentItems);
+  const currentEditBarItems = useEditBarModuleStore((state) => state.currentItems);
+  const setCurrentEditBarItems = useEditBarModuleStore((state) => state.setCurrentItems);
 
   const activeEditbarItem = useEditBarStore((state) => state.activeEditbarItem);
   const setActiveEditbarItem = useEditBarStore((state) => state.setActiveEditbarItem);
   const activeSecondEditbarItem = useEditBarStore((state) => state.activeSecondEditbarItem);
 
-  const activeEditbarCategory = useEditBarStore((state) => state.activeEditbarCategory);
-  const setActiveEditbarCategory = useEditBarStore((state) => state.setActiveEditbarCategory);
+  const activeEditbarCategory = useEditBarModuleStore((state) => state.activeEditbarCategory);
+  const setActiveEditbarCategory = useEditBarModuleStore((state) => state.setActiveEditbarCategory);
 
   const [editBar, setEditBar] = useState<ISection>();
 
