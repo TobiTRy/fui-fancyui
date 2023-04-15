@@ -57,4 +57,5 @@ export const WrapperMarker = styled.div`
   transform: translate(-50%, -50%);
   height: 4%;
   aspect-ratio: 1/1;
+
 `;
