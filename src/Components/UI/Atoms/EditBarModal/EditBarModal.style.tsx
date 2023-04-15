@@ -46,25 +46,3 @@ export const WrapperContent = styled.div`
   gap: ${spacingPx.md};
 
 `
-
-export const TitleArea = styled.div<{ width?: string; spacingLeftRight?: string }>`
-  color: ${uiColors.primary.contrast};
-  text-align: center;
-  width: 100%;
-
-  i {
-    position: absolute;
-    left: ${({spacingLeftRight}) => spacingLeftRight ? (parseInt(spacingLeftRight) - spacing.md )  + 'px' : 0};
-    ${({ width, spacingLeftRight }) => calcBarWidthandSpacing(width, spacingLeftRight)};
-    height: 1px;
-    border: 50%;
-    background-color: ${uiColors.accent.main};
-    box-shadow: 0 0 5px ${uiColors.accent.main};
-  }
-
-  p {
-    margin: 0;
-
-  }
-
-`

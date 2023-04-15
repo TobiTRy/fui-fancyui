@@ -19,6 +19,7 @@ import { useEditBarStore } from './EditBar.state';
 import { spacingPx, spacing } from '../../Design/design';
 
 import EditBarModal from '../../Atoms/EditBarModal/EditBarModal';
+import ModalTitleArea from '../../Atoms/ModalTitleArea/ModalTitleArea';
 
 const Wrapper = styled.div`
   position: fixed;
@@ -67,7 +68,7 @@ export default function EditBar(props: IEditBar) {
     <Wrapper>
       {/* //TODO: Add the edit bar */}
       {settings && (
-        <EditBarModal spacingLeftRight={spacing.xl + spacing.xl + 'px' }>
+        <EditBarModal title='Test' spacingLeftRight={spacing.xl + spacing.xl + 'px' }>
           {(settings as React.ReactElement[]).map((item, index) => (
             <React.Fragment key={index}>{item}</React.Fragment>
           ))}

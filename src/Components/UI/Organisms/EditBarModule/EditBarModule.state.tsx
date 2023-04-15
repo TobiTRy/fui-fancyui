@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { IEditBarIconButton } from '../../Atoms/EditBarIcon/IEditBarIcon';
-import { ISectionItem } from '../../Organisms/EditBarModule/settings/EditBarItemsStructure/IEditbarObjectSturcture.model';
+import { ICategory, ICategoryItem } from './EditBarItemsStructure/IEditbarObjectSturcture.model';
 
 // --------------------------------------------------------------------------- //
 // ------------- The Interface structure for the useEditBarStore ------------- //
@@ -11,8 +11,8 @@ interface EditBarModuleStore {
   setCurrentItems: (items: IEditBarIconButton[]) => void;
 
   //the active setting for the editbar
-  activeEditbarCategory: ISectionItem | null;
-  setActiveEditbarCategory: (setting: ISectionItem | null) => void;
+  activeEditbarCategory: ICategoryItem | null;
+  setActiveEditbarCategory: (setting: ICategoryItem | null) => void;
 
   //the current items for the second bar
   secondCurrentItems: IEditBarIconButton[] | null;
