@@ -30,7 +30,7 @@ export const Marker = styled.div`
 
 export const WrapperColorIndicator = styled.div`
   position: absolute;
-  top: ${(props) => props.isActive ? '-100px' : '-25px'};
+  top: ${(props) => props.isActive ? '-105px' : '-25px'};
   width: 70px;
   height: 70px;
   left: 50%;
@@ -54,7 +54,7 @@ export const ColorIndicator = styled.div.attrs((props) => ({
 
 export const WrapperMarker = styled.div`
   position: absolute;
-  transform: translate(-12px, -11px);
+  transform: translate(-50%, -50%);
   height: 4%;
   aspect-ratio: 1/1;
 `;

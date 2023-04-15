@@ -25,9 +25,10 @@ export const SliderContainer = styled.div.attrs((props) => ({
   },
 }))`
   position: relative;
-  height: 25px;
+  height: 20px;
   border-radius: 4px;
   cursor: pointer;
   touch-action: none;
+  user-select: none;
 `;
 

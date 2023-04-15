@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const SliderContainer = styled.div`
   position: relative;
   overflow: hidden;
-  height: 25px;
+  height: 20px;
   background: linear-gradient(
     to right,
     red 0%,
@@ -15,6 +15,7 @@ export const SliderContainer = styled.div`
     red 100%
   );
   cursor: pointer;
+  user-select: none;
 `;
 
 export const Marker = styled.div`

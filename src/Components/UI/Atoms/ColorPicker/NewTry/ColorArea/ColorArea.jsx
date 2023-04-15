@@ -1,17 +1,15 @@
 import React, { useState, useRef, useEffect } from "react";
-
 import Color from "color";
-
 import {
   ColorAreaContainer,
   LightnessGradient,
   Marker,
   ColorIndicator,
   WrapperMarker,
-  WrapperColorIndicator
+  WrapperColorIndicator,
 } from "./ColorArea.style";
 
-const ColorArea = ({color, hue, onColorChange }) => {
+const ColorArea = ({ color, hue, onColorChange }) => {
   const [markerPosition, setMarkerPosition] = useState({ x: 0, y: 0 });
   const [isInteracting, setIsInteracting] = useState(false);
   const colorAreaRef = useRef();
@@ -21,13 +19,48 @@ const ColorArea = ({color, hue, onColorChange }) => {
       setIsInteracting(false);
     };
 
+    const handleGlobalInteractionMove = (event) => {
+      if (!isInteracting) return;
+      const clientX = event.clientX ?? event.touches[0].clientX;
+      const clientY = event.clientY ?? event.touches[0].clientY;
+      pickColor(clientX, clientY);
+    };
+
     window.addEventListener("mouseup", handleGlobalInteractionEnd);
     window.addEventListener("touchend", handleGlobalInteractionEnd);
+    window.addEventListener("mousemove", handleGlobalInteractionMove);
+    window.addEventListener("touchmove", handleGlobalInteractionMove);
+
     return () => {
       window.removeEventListener("mouseup", handleGlobalInteractionEnd);
       window.removeEventListener("touchend", handleGlobalInteractionEnd);
+      window.removeEventListener("mousemove", handleGlobalInteractionMove);
+      window.removeEventListener("touchmove", handleGlobalInteractionMove);
     };
-  }, []);
+  }, [isInteracting]);
+
+  useEffect(() => {
+    const handleWindowResize = () => {
+      updateMarkerPosition(color);
+    };
+
+    window.addEventListener("resize", handleWindowResize);
+
+    return () => {
+      window.removeEventListener("resize", handleWindowResize);
+    };
+  }, [color]);
+
+  const updateMarkerPosition = (color) => {
+    const rect = colorAreaRef.current.getBoundingClientRect();
+    const hslColor = Color(color).hsl();
+    const saturation = hslColor.color[1];
+    const lightness = hslColor.color[2];
+    const x = (saturation / 100) * rect.width;
+    const y = rect.height - (lightness / 100) * rect.height;
+
+    setMarkerPosition({ x, y });
+  };
 
   const pickColor = (clientX, clientY) => {
     const rect = colorAreaRef.current.getBoundingClientRect();
@@ -50,32 +83,17 @@ const ColorArea = ({color, hue, onColorChange }) => {
     pickColor(clientX, clientY);
   };
 
-  const handleInteractionMove = (event) => {
-    if (!isInteracting) return;
-    event.preventDefault();
-    const clientX = event.clientX ?? event.touches[0].clientX;
-    const clientY = event.clientY ?? event.touches[0].clientY;
-    pickColor(clientX, clientY);
-  };
-
-  const handleDragStart = (event) => {
-    event.preventDefault();
-  };
-
   return (
     <ColorAreaContainer
       hue={hue}
       ref={colorAreaRef}
       onMouseDown={handleInteractionStart}
       onTouchStart={handleInteractionStart}
-      onMouseMove={handleInteractionMove}
-      onTouchMove={handleInteractionMove}
-      onDragStart={handleDragStart}
     >
       <LightnessGradient />
       <WrapperMarker style={{ left: markerPosition.x, top: markerPosition.y }}>
         <Marker>
-          <WrapperColorIndicator isActive={isInteracting}>
+        <WrapperColorIndicator isActive={isInteracting}>
             <ColorIndicator color={Color(color).hex()} />
           </WrapperColorIndicator>
         </Marker>
