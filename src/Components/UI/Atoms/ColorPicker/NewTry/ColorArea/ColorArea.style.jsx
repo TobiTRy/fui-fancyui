@@ -1,11 +1,20 @@
 import styled from 'styled-components';
 import { css } from 'styled-components';
 
+
+export const WrapperColorArea = styled.div`
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+
+`;
+
 export const ColorAreaContainer = styled.div.attrs((props) => ({
   style: {
     background: `linear-gradient(to right, hsl(${props.hue}, 0%, 100%), hsl(${props.hue}, 100%, 50%))`,
   },
 }))`
+  overflow: hidden;
   position: relative;
   width: 100%;
   aspect-ratio: 16/9;
@@ -31,27 +40,29 @@ export const Marker = styled.div`
 
 export const WrapperColorIndicator = styled.div`
   position: absolute;
-  overflow: visible;
-  top: ${(props) => props.isActive ? '-105px' : '-25px'};
   width: 70px;
   height: 70px;
-  left: 50%;
-  transform: ${(props) => props.isActive ? css`translate(-50%) scale(1)` : css`translate(-50%) scale(0)`};
-  transition: transform  0.1s ease-in-out, top 0.1s ease-in-out;
-  user-select: none;
-`;
+  z-index: 1;
+  transform: translate(-50%);
+  pointer-events: none
+`
 
 export const ColorIndicator = styled.div.attrs((props) => ({
   style: {
     backgroundColor: props.color.toString(),
   },
 }))`
-  height: 100%;
-  width: 100%;
   background-color: white;
   border-radius: 50% 50% 50% 0;
-  transform: rotate(-45deg); 
   box-shadow: 0 0 0 1px rgb(255, 255, 255);
+  position: absolute;
+  top: ${(props) => props.isActive ? '-105px' : '-25px'};
+  width: 100%;
+  height: 100%;
+  left: 50%;
+  transform: ${(props) => props.isActive ? css`translate(-50%) scale(1)  rotate(-45deg)` : css`translate(-50%) scale(0)  rotate(-45deg)`};
+  user-select: none;
+  
 `;
 
 export const WrapperMarker = styled.div`
@@ -60,5 +71,4 @@ export const WrapperMarker = styled.div`
   transform: translate(-50%, -50%);
   height: 4%;
   aspect-ratio: 1/1;
-
 `;
