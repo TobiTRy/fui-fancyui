@@ -1,80 +1,85 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
+import Color from 'color';
 
-const useSlider = ({ initialValue, colorToPosition, positionToColor, onValueChange }) => {
+const useSlider = ({ color, hue, onColorChange }) => {
   const [markerPosition, setMarkerPosition] = useState({ x: 0, y: 0 });
   const [isInteracting, setIsInteracting] = useState(false);
   const sliderRef = useRef();
 
-  const handleInteractionEnd = useCallback(() => {
-    setIsInteracting(false);
+  const positionToColor = useCallback((clientX, clientY, rect) => {
+    const x = Math.max(0, Math.min(clientX - rect.left, rect.width));
+    const y = Math.max(0, Math.min(clientY - rect.top, rect.height));
+  
+    const saturation = (x / rect.width) * 100;
+    const lightness = (1 - y / rect.height) * (100 - (x / rect.width) * 50);
+    return { h: hue, s: saturation, l: lightness };
+  }, [hue]);
+
+  const colorToPosition = useCallback((color, rect) => {
+    const hslColor = Color(color).hsl();
+  
+    const saturation = hslColor.color[1];
+    const lightness = hslColor.color[2];
+  
+    const x = parseInt((saturation / 100) * rect.width);
+    const y = parseInt(rect.height * (1 - lightness / Math.max(1, (100 - 50 * (x / rect.width)))));
+    return { x, y };
   }, []);
-
-  const handleInteractionMove = useCallback((event) => {
-    if (!isInteracting) return;
-    const clientX = event.clientX ?? event.touches[0].clientX;
-    const clientY = event.clientY ?? event.touches[0].clientY;
-    updateValue(clientX, clientY);
-  }, [isInteracting]);
-
-  useEffect(() => {
-    window.addEventListener('mouseup', handleInteractionEnd);
-    window.addEventListener('touchend', handleInteractionEnd);
-    window.addEventListener('mousemove', handleInteractionMove);
-    window.addEventListener('touchmove', handleInteractionMove);
-
-    return () => {
-      window.removeEventListener('mouseup', handleInteractionEnd);
-      window.removeEventListener('touchend', handleInteractionEnd);
-      window.removeEventListener('mousemove', handleInteractionMove);
-      window.removeEventListener('touchmove', handleInteractionMove);
-    };
-  }, [handleInteractionEnd, handleInteractionMove]);
-
-  useEffect(() => {
-    if (sliderRef.current) {
-      const rect = sliderRef.current.getBoundingClientRect();
-      const initialPosition = initialValue(rect);
-      updateMarkerPosition(initialPosition);
-      onValueChange(positionToColor(initialPosition.x, initialPosition.y, rect));
-    }
-    // Add window as a dependency so the effect is triggered on window resize
-  }, [sliderRef.current]);
-
-
-  useEffect(() => {
-    if (sliderRef.current) {
-      const rect = sliderRef.current.getBoundingClientRect();
-      const initialPosition = initialValue(rect);
-      updateMarkerPosition(initialPosition);
-      onValueChange(positionToColor(initialPosition.x, initialPosition.y, rect));
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [sliderRef.current])
-
-  const updateMarkerPosition = (value) => {
+  
+  const updateMarkerPosition = useCallback((color) => {
     const rect = sliderRef.current.getBoundingClientRect();
-    const newPosition = colorToPosition(value, rect);
-    console.log('updateMarkerPosition newPosition:', newPosition);
+    const newPosition = colorToPosition(color, rect);
     setMarkerPosition(newPosition);
-  };
+  }, [colorToPosition]);
+  
 
-  const updateValue = (clientX, clientY) => {
-    if (!sliderRef.current) return;
-  
+  const handleInteraction = useCallback((clientX, clientY) => {
     const rect = sliderRef.current.getBoundingClientRect();
-    const newValue = positionToColor(clientX, clientY, rect);
-    onValueChange(newValue);
-    updateMarkerPosition(newValue);
-  };
-  
-  
+    const newColor = positionToColor(clientX, clientY, rect);
+    onColorChange(newColor);
+    updateMarkerPosition(newColor);
+  }, [onColorChange, updateMarkerPosition, positionToColor]);
+
   const handleInteractionStart = (event) => {
     event.preventDefault();
     setIsInteracting(true);
     const clientX = event.clientX ?? event.touches[0].clientX;
     const clientY = event.clientY ?? event.touches[0].clientY;
-    updateValue(clientX, clientY);
+    handleInteraction(clientX, clientY);
   };
+
+  const handleInteractionMove = useCallback((event) => {
+    if (!isInteracting) return;
+    const clientX = event.clientX ?? event.touches[0].clientX;
+    const clientY = event.clientY ?? event.touches[0].clientY;
+    handleInteraction(clientX, clientY);
+  }, [isInteracting, handleInteraction]);
+
+  const handleInteractionEnd = useCallback(() => {
+    setIsInteracting(false);
+  }, []);
+
+  useEffect(() => {
+    const rect = sliderRef.current?.getBoundingClientRect();
+    if (rect) {
+      const initialPosition = colorToPosition(color, rect);
+      setMarkerPosition(initialPosition);
+    }
+  }, [color, sliderRef.current, window]);
+
+  useEffect(() => {
+    window.addEventListener('mousemove', handleInteractionMove);
+    window.addEventListener('touchmove', handleInteractionMove);
+    window.addEventListener('mouseup', handleInteractionEnd);
+    window.addEventListener('touchend', handleInteractionEnd);
+
+    return () => {
+      window.removeEventListener('mousemove', handleInteractionMove);
+      window.removeEventListener('touchmove', handleInteractionMove);
+      window.removeEventListener('mouseup', handleInteractionEnd);
+      window.removeEventListener('touchend', handleInteractionEnd);
+    };
+  }, [handleInteractionMove, handleInteractionEnd]);
 
   return { sliderRef, markerPosition, handleInteractionStart, isInteracting };
 };
