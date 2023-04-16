@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 
-const useSlider = ({ initialValue, valueToPosition, positionToValue, onValueChange }) => {
+const useSlider = ({ initialValue, colorToPosition, positionToColor, onValueChange }) => {
   const [markerPosition, setMarkerPosition] = useState({ x: 0, y: 0 });
   const [isInteracting, setIsInteracting] = useState(false);
   const sliderRef = useRef();
@@ -30,45 +30,44 @@ const useSlider = ({ initialValue, valueToPosition, positionToValue, onValueChan
     };
   }, [handleInteractionEnd, handleInteractionMove]);
 
-  const handleWindowResize = useCallback(() => {
-    if (!sliderRef.current) return;
-    const rect = sliderRef.current.getBoundingClientRect();
-    updateMarkerPosition(initialValue(rect));
-  }, [initialValue]);
-
   useEffect(() => {
-    window.addEventListener("resize", handleWindowResize);
+    if (sliderRef.current) {
+      const rect = sliderRef.current.getBoundingClientRect();
+      const initialPosition = initialValue(rect);
+      updateMarkerPosition(initialPosition);
+      onValueChange(positionToColor(initialPosition.x, initialPosition.y, rect));
+    }
+    // Add window as a dependency so the effect is triggered on window resize
+  }, [sliderRef.current]);
 
-    return () => {
-      window.removeEventListener("resize", handleWindowResize);
-    };
-  }, [handleWindowResize]);
 
   useEffect(() => {
     if (sliderRef.current) {
       const rect = sliderRef.current.getBoundingClientRect();
       const initialPosition = initialValue(rect);
       updateMarkerPosition(initialPosition);
-      onValueChange(positionToValue(initialPosition.x, initialPosition.y, rect));
+      onValueChange(positionToColor(initialPosition.x, initialPosition.y, rect));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sliderRef.current])
 
   const updateMarkerPosition = (value) => {
     const rect = sliderRef.current.getBoundingClientRect();
-    const newPosition = valueToPosition(value, rect);
+    const newPosition = colorToPosition(value, rect);
+    console.log('updateMarkerPosition newPosition:', newPosition);
     setMarkerPosition(newPosition);
   };
 
   const updateValue = (clientX, clientY) => {
     if (!sliderRef.current) return;
-
+  
     const rect = sliderRef.current.getBoundingClientRect();
-    const newValue = positionToValue(clientX, clientY, rect);
+    const newValue = positionToColor(clientX, clientY, rect);
     onValueChange(newValue);
     updateMarkerPosition(newValue);
   };
-
+  
+  
   const handleInteractionStart = (event) => {
     event.preventDefault();
     setIsInteracting(true);
