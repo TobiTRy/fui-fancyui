@@ -21,6 +21,7 @@ export const LightnessGradient = styled.div`
 
 export const Marker = styled.div`
   position: relative;
+  box-sizing: border-box;
   width: 100%;
   height: 100%;
   border: 1px solid #ffffff;
@@ -30,6 +31,7 @@ export const Marker = styled.div`
 
 export const WrapperColorIndicator = styled.div`
   position: absolute;
+  overflow: visible;
   top: ${(props) => props.isActive ? '-105px' : '-25px'};
   width: 70px;
   height: 70px;
@@ -54,6 +56,7 @@ export const ColorIndicator = styled.div.attrs((props) => ({
 
 export const WrapperMarker = styled.div`
   position: absolute;
+  box-sizing: border-box;
   transform: translate(-50%, -50%);
   height: 4%;
   aspect-ratio: 1/1;

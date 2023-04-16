@@ -5,45 +5,44 @@ const useSlider = ({ initialValue, valueToPosition, positionToValue, onValueChan
   const [isInteracting, setIsInteracting] = useState(false);
   const sliderRef = useRef();
 
+  const handleInteractionEnd = useCallback(() => {
+    setIsInteracting(false);
+  }, []);
 
-  useEffect(() => {
-    const handleGlobalInteractionEnd = () => {
-      setIsInteracting(false);
-    };
-
-    const handleGlobalInteractionMove = (event) => {
-      if (!isInteracting) return;
-      const clientX = event.clientX ?? event.touches[0].clientX;
-      const clientY = event.clientY ?? event.touches[0].clientY;
-      updateValue(clientX, clientY);
-    };
-
-    window.addEventListener('mouseup', handleGlobalInteractionEnd);
-    window.addEventListener('touchend', handleGlobalInteractionEnd);
-    window.addEventListener('mousemove', handleGlobalInteractionMove);
-    window.addEventListener('touchmove', handleGlobalInteractionMove);
-
-    return () => {
-      window.removeEventListener('mouseup', handleGlobalInteractionEnd);
-      window.removeEventListener('touchend', handleGlobalInteractionEnd);
-      window.removeEventListener('mousemove', handleGlobalInteractionMove);
-      window.removeEventListener('touchmove', handleGlobalInteractionMove);
-    };
+  const handleInteractionMove = useCallback((event) => {
+    if (!isInteracting) return;
+    const clientX = event.clientX ?? event.touches[0].clientX;
+    const clientY = event.clientY ?? event.touches[0].clientY;
+    updateValue(clientX, clientY);
   }, [isInteracting]);
 
   useEffect(() => {
-    const handleWindowResize = () => {
-      if (!sliderRef.current) return;
-      const rect = sliderRef.current.getBoundingClientRect();
-      updateMarkerPosition(initialValue(rect));
-    };
+    window.addEventListener('mouseup', handleInteractionEnd);
+    window.addEventListener('touchend', handleInteractionEnd);
+    window.addEventListener('mousemove', handleInteractionMove);
+    window.addEventListener('touchmove', handleInteractionMove);
 
+    return () => {
+      window.removeEventListener('mouseup', handleInteractionEnd);
+      window.removeEventListener('touchend', handleInteractionEnd);
+      window.removeEventListener('mousemove', handleInteractionMove);
+      window.removeEventListener('touchmove', handleInteractionMove);
+    };
+  }, [handleInteractionEnd, handleInteractionMove]);
+
+  const handleWindowResize = useCallback(() => {
+    if (!sliderRef.current) return;
+    const rect = sliderRef.current.getBoundingClientRect();
+    updateMarkerPosition(initialValue(rect));
+  }, [initialValue]);
+
+  useEffect(() => {
     window.addEventListener("resize", handleWindowResize);
 
     return () => {
       window.removeEventListener("resize", handleWindowResize);
     };
-  }, [initialValue]);
+  }, [handleWindowResize]);
 
   useEffect(() => {
     if (sliderRef.current) {
@@ -54,7 +53,6 @@ const useSlider = ({ initialValue, valueToPosition, positionToValue, onValueChan
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sliderRef.current])
-
 
   const updateMarkerPosition = (value) => {
     const rect = sliderRef.current.getBoundingClientRect();
