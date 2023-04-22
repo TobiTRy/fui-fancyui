@@ -1,4 +1,4 @@
-import { uiColors, fontSize, colorPalet, spacingPx } from '../../Design/design';
+import { uiColors, fontSize, colorPalet, spacingPx, spacing } from '../../Design/design';
 
 import styled, { css } from 'styled-components';
 
@@ -26,10 +26,10 @@ export const Icon = styled.i<{ active: boolean; errorMessage?: string }>`
 `;
 
 //the input/label/underline are all wrapped in thid container
-export const InputContainer = styled.div`
+export const InputContainer = styled.div<{givePadding: boolean}>`
   width: 100%;
   grid-column: 2/3;
-  padding-top: 10px;
+  ${({givePadding}) => givePadding && css`padding-top: ${spacing.lg + 'px'}` };
   position: relative;
 `;
 
@@ -43,16 +43,13 @@ export const Input = styled.input<IFancyInput>`
   color: ${colorPalet.white_high};
   text-align: ${({ align }) => (align !== 'center' ? 'left' : 'center')};
   border: none;
-  height: 40px;
   outline: none;
   box-shadow: none;
   font-size: ${fontSize.medium};
   padding: ${({ calculatedType, align }) =>
     calculatedType !== 'password'
       ? //if type is not password
-        align === 'center'
-        ? `12px 10px 4px`
-        : `12px 0px 4px`
+        `0px 0px ${spacing.xs + 2 + 'px'}`
       : //if type is password
       align === 'center'
       ? `12px 20px 4px 20px`

@@ -31,7 +31,7 @@ export default function FancyInput(props: IFancyInput) {
       )}
 
       {/* // ------------------------ the input field  ----------------------- // */}
-      <InputContainer>
+      <InputContainer givePadding={Boolean(label)}>
         {/* the input field  */}
         <Input
           id={id}

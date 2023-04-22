@@ -21,7 +21,7 @@ export default function FancyDropDownSelect(props: IFancyDropDownSelect) {
     <>
       <InputWarapper disabled={disabled}>
         {icon && <Icon active={isActive}>{icon}</Icon>}
-        <SelectContainer>
+        <SelectContainer givePadding={Boolean(label)}>
           <SelectField
             id={id}
             disabled={disabled}

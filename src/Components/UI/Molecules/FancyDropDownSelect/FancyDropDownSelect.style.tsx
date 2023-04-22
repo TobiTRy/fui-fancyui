@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import { uiColors, fontSize, spacingPx, colorPalet } from '../../Design/design';
+import { uiColors, fontSize, spacingPx, colorPalet, spacing } from '../../Design/design';
 
 import { disabledStyle } from '../../HelperFunctions/disableStyle';
 import { UnderLineFocusStyle } from '../../Atoms/InputUnderline';
@@ -17,10 +17,10 @@ export const Option = styled.option<{ align?: string }>`
   }
 `;
 
-export const SelectContainer = styled.div`
+export const SelectContainer = styled.div<{givePadding: boolean}>`
   width: 100%;
   grid-column: 2/3;
-  padding-top: 10px;
+  ${({givePadding}) => givePadding && css`padding-top: ${spacing.lg + 'px'}` };
   position: relative;
 `;
 
@@ -33,13 +33,12 @@ export const SelectField = styled.select<{ align?: string; labelAlign?: 'center'
   background-position: right ${spacingPx.sm} top 60%;
   text-align-last: ${({ align }) => (align !== 'center' ? 'left' : 'center')};
   border: none;
-  height: 40px;
   width: 100%;
   font-weight: 500;
   user-select: none;
   color: ${colorPalet.white_high};
   appearance: none;
-  padding: 12px 0 4px;
+  padding: 0px 0px ${spacing.xs + 2 + 'px'};
   font-size: ${fontSize.medium};
   background-color: transparent;
 
