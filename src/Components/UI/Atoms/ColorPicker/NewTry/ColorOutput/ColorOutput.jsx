@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import InputFields from "./InputFields";
-import { Container, InputsContainer, SwitchButton, TypeLabel } from "./ColorOutput.style";
+import InputFields from "./InputFields/InputFields";
+import { Container,  SwitchButton, TypeLabel } from "./ColorOutput.style";
 import Color from "color";
 import { emitSelectedColorChange } from "../colorPickerUtils";
 
@@ -66,11 +66,9 @@ const ColorOutput = ({ pickedColor, opacity }) => {
 
   return (
     <Container>
-      <InputsContainer>
         <TypeLabel>{colorFormats[colorFormatIndex].toUpperCase()}</TypeLabel>
         {renderInputFields()}
-      </InputsContainer>
-      <SwitchButton onClick={switchColorFormat} title="Switch color format">
+      <SwitchButton onClick={switchColorFormat}>
         ↕
       </SwitchButton>
     </Container>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import ColorArea from './ColorArea/ColorArea';
-import HueSlider from './HueSlider/HueSlider';
-import OpacitySlider from './OpacitySlider/OpacitySlider';
+import ColorArea from '../../../Molecules/ColorArea/ColorArea';
+import HueSlider from '../../../Molecules/HueSlider';
+import OpacitySlider from '../../../Molecules/OpacitySlider';
 import Color from 'color';
 import ColorOutput from './ColorOutput/ColorOutput';
 import { emitSelectedColorChange } from './colorPickerUtils';
@@ -14,6 +14,9 @@ import styled from 'styled-components';
 const Wrapper = styled.div`
   width: 100%;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 `
 
 const roundValue = (value) => Math.round(value * 100) / 100;

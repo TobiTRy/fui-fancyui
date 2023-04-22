@@ -77,7 +77,7 @@ function App() {
         <FancyInput label="Username" value={'tes'} icon={svg} align={'left'} />
         <FancyInput label="Username" value={'tes'} icon={svg} align={'left'} />
         <FancyInput label="Username" value={'tes'} icon={svg} align={'left'} />
-        <FancyInput label="Username" value={'tes'} icon={svg} align={'left'} />
+        <FancyInput value={'tes'} icon={svg} align={'left'} />
         <button onClick={buttonSwitch}>Test</button>
         <FancyDropDownSelect
           icon={svg}

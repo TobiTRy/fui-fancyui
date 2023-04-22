@@ -1,6 +1,9 @@
 import React from "react";
-import { Input, InputLabel } from "./ColorOutput.style";
-import Color from "color";
+import { Input, InputLabel, Wrapper, WrapperInput } from "./InputFields.style";
+
+import UnderLine from "../../../../InputUnderline";
+
+import FancyInput from "../../../../../Molecules/FancyInput/FancyInput";
 
 const InputFields = ({ colorFormat, colorObj, handleInputChange }) => {
   if (!colorObj || !colorFormat) return null;
@@ -27,10 +30,10 @@ const InputFields = ({ colorFormat, colorObj, handleInputChange }) => {
   const colorObject = colorObj.object();
 
   return (
-    <>
+    <Wrapper>
       {fields.map((field, index) => (
-        <div key={index}>
-          <Input
+        <WrapperInput key={index}>
+          <FancyInput align="center"
             type="text"
             value={
               field === "hex"
@@ -44,9 +47,9 @@ const InputFields = ({ colorFormat, colorObj, handleInputChange }) => {
             onChange={(e) => handleInputChange(field, e.target.value)}
           />
           <InputLabel>{field.toUpperCase()}</InputLabel>
-        </div>
+        </WrapperInput>
       ))}
-    </>
+    </Wrapper>
   );
 };
 
