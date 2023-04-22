@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-import useSlider from "../Atoms/ColorPicker/NewTry/functions/useSilder";
+import useSlider from "../Organisms/ColorPicker/functions/useSilder";
 import SliderMarker from "../Atoms/SliderMarker";
 import styled from "styled-components";
 

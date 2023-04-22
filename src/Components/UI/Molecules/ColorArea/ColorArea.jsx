@@ -1,5 +1,5 @@
 import React from 'react';
-import useSlider from '../../Atoms/ColorPicker/NewTry/functions/useSilder';
+import useSlider from '../../Organisms/ColorPicker/functions/useSilder';
 import {
   WrapperColorArea,
   WrapperColorIndicator,

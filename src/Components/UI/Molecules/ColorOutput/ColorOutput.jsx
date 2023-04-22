@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import InputFields from "./InputFields/InputFields";
 import { Container,  SwitchButton, TypeLabel } from "./ColorOutput.style";
 import Color from "color";
-import { emitSelectedColorChange } from "../colorPickerUtils";
+import { emitSelectedColorChange } from "../../Organisms/ColorPicker/colorPickerUtils";
 
 const colorFormats = ["rgb", "rgba", "hsl", "hex", "hexa"];
 

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import ColorArea from '../../../Molecules/ColorArea/ColorArea';
-import HueSlider from '../../../Molecules/HueSlider';
-import OpacitySlider from '../../../Molecules/OpacitySlider';
+import ColorArea from '../../Molecules/ColorArea/ColorArea';
+import HueSlider from '../../Molecules/HueSlider';
+import OpacitySlider from '../../Molecules/OpacitySlider';
 import Color from 'color';
-import ColorOutput from './ColorOutput/ColorOutput';
+import ColorOutput from '../../Molecules/ColorOutput/ColorOutput';
 import { emitSelectedColorChange } from './colorPickerUtils';
 import styled from 'styled-components';
 

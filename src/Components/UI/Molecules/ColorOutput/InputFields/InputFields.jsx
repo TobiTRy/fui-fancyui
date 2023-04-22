@@ -1,9 +1,9 @@
 import React from "react";
 import { Input, InputLabel, Wrapper, WrapperInput } from "./InputFields.style";
 
-import UnderLine from "../../../../InputUnderline";
+import UnderLine from "../../../Atoms/InputUnderline";
 
-import FancyInput from "../../../../../Molecules/FancyInput/FancyInput";
+import FancyInput from "../../FancyInput/FancyInput";
 
 const InputFields = ({ colorFormat, colorObj, handleInputChange }) => {
   if (!colorObj || !colorFormat) return null;

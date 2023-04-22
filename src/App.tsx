@@ -11,7 +11,7 @@ import EditBar from './Components/UI/Molecules/EditBar/EditBar';
 import SpeedDialButton from './Components/UI/Molecules/SpeedDailButton/SpeedDail';
 import EditBarModule from './Components/UI/Organisms/EditBarModule/EditBarModule';
 
-import ColorPicker from './Components/UI/Atoms/ColorPicker/NewTry/ColorPicker';
+import ColorPicker from './Components/UI/Organisms/ColorPicker/ColorPicker';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">

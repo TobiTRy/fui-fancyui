@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 
-import useSlider from '../Atoms/ColorPicker/NewTry/functions/useSilder';
+import useSlider from '../Organisms/ColorPicker/functions/useSilder';
 import SliderMarker from '../Atoms/SliderMarker';
 
 const SliderContainer = styled.div.attrs(props => {
