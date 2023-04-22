@@ -1,45 +1,44 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import Color from 'color';
+import { colorToPositionFunc, positionToColorFunc } from './silderUtils';
 
-const useSlider = ({ color, hue, onColorChange }) => {
+const useSlider = ({ color, hue, opacity, onColorChange, type }) => {
   const [markerPosition, setMarkerPosition] = useState({ x: 0, y: 0 });
   const [isInteracting, setIsInteracting] = useState(false);
   const sliderRef = useRef();
 
-  const positionToColor = useCallback((clientX, clientY, rect) => {
-    const x = Math.max(0, Math.min(clientX - rect.left, rect.width));
-    const y = Math.max(0, Math.min(clientY - rect.top, rect.height));
+  const positionToColor = useCallback(
+    (clientX, clientY, rect) => positionToColorFunc(type, hue, clientX, clientY, rect),
+    [type, hue, opacity]
+  );
   
-    const saturation = (x / rect.width) * 100;
-    const lightness = (1 - y / rect.height) * (100 - (x / rect.width) * 50);
-    return { h: hue, s: saturation, l: lightness };
-  }, [hue]);
+  const colorToPosition= useCallback(
+    (color, rect) => colorToPositionFunc(type, color, rect),
+    [type, hue, opacity]
+  );
+  
+  //update the position of the marker
+  const updateMarkerPosition = useCallback(
+    (color) => {
+      const rect = sliderRef.current.getBoundingClientRect();
+      const newPosition = colorToPosition(color, rect);
+      setMarkerPosition(newPosition);
+    },
+    [colorToPosition]
+  );
 
-  const colorToPosition = useCallback((color, rect) => {
-    const hslColor = Color(color).hsl();
+  //handle the interaction with the slider
+  const handleInteraction = useCallback(
+    (clientX, clientY) => {
+      const rect = sliderRef.current.getBoundingClientRect();
+      const newColor = positionToColor(clientX, clientY, rect);
+      onColorChange(newColor);
+      updateMarkerPosition(newColor);
+    },
+    [onColorChange, updateMarkerPosition, positionToColor]
+  );
   
-    const saturation = hslColor.color[1];
-    const lightness = hslColor.color[2];
-  
-    const x = parseInt((saturation / 100) * rect.width);
-    const y = parseInt(rect.height * (1 - lightness / Math.max(1, (100 - 50 * (x / rect.width)))));
-    return { x, y };
-  }, []);
-  
-  const updateMarkerPosition = useCallback((color) => {
-    const rect = sliderRef.current.getBoundingClientRect();
-    const newPosition = colorToPosition(color, rect);
-    setMarkerPosition(newPosition);
-  }, [colorToPosition]);
-  
-
-  const handleInteraction = useCallback((clientX, clientY) => {
-    const rect = sliderRef.current.getBoundingClientRect();
-    const newColor = positionToColor(clientX, clientY, rect);
-    onColorChange(newColor);
-    updateMarkerPosition(newColor);
-  }, [onColorChange, updateMarkerPosition, positionToColor]);
-
+  //handle the start of the interaction with the slider
   const handleInteractionStart = (event) => {
     event.preventDefault();
     setIsInteracting(true);
@@ -48,17 +47,22 @@ const useSlider = ({ color, hue, onColorChange }) => {
     handleInteraction(clientX, clientY);
   };
 
-  const handleInteractionMove = useCallback((event) => {
-    if (!isInteracting) return;
-    const clientX = event.clientX ?? event.touches[0].clientX;
-    const clientY = event.clientY ?? event.touches[0].clientY;
-    handleInteraction(clientX, clientY);
-  }, [isInteracting, handleInteraction]);
-
+  //handle the interaction with the slider
+  const handleInteractionMove = useCallback(
+    (event) => {
+      if (!isInteracting) return;
+      const clientX = event.clientX ?? event.touches[0].clientX;
+      const clientY = event.clientY ?? event.touches[0].clientY;
+      handleInteraction(clientX, clientY);
+    },
+    [isInteracting, handleInteraction]
+  );
+  
   const handleInteractionEnd = useCallback(() => {
     setIsInteracting(false);
   }, []);
 
+  //set the initial position of the marker
   useEffect(() => {
     const rect = sliderRef.current?.getBoundingClientRect();
     if (rect) {
@@ -67,6 +71,7 @@ const useSlider = ({ color, hue, onColorChange }) => {
     }
   }, [color, sliderRef.current, window]);
 
+  //set the event listeners for the inputs
   useEffect(() => {
     window.addEventListener('mousemove', handleInteractionMove);
     window.addEventListener('touchmove', handleInteractionMove);
@@ -81,7 +86,7 @@ const useSlider = ({ color, hue, onColorChange }) => {
     };
   }, [handleInteractionMove, handleInteractionEnd]);
 
-  return { sliderRef, markerPosition, handleInteractionStart, isInteracting };
+  return { sliderRef, markerPosition, handleInteractionStart, isInteracting, positionToColor, colorToPosition };
 };
 
 export default useSlider;
