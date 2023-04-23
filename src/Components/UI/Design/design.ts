@@ -25,7 +25,7 @@ export const colorPalet = {
 
   yellow_dark: '#FFD600',
   yello_light: '#FFEB3B',
-
+//#00050d
 
 
   get primary() { return this.darkblue},

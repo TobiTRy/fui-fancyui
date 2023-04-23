@@ -1,8 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, MouseEventHandler } from "react";
 
 import useSlider from "../Organisms/ColorPicker/functions/useSilder";
 import SliderMarker from "../Atoms/SliderMarker";
 import styled from "styled-components";
+import { borderRadius } from "../Design/design";
+import Color from "color";
 
 const SliderContainer = styled.div`
   position: relative;
@@ -19,24 +21,30 @@ const SliderContainer = styled.div`
     red 100%
   );
   cursor: pointer;
+  border-radius: ${borderRadius.small};
   user-select: none;
 `;
 
-const HueSlider = ({ onHueChange }) => {
+interface IHueSlider {
+  handler: (hue: number) => void;
+  hue: number;
+}
+
+const HueSlider = ({ hue, handler }: IHueSlider) => {
   const {
     sliderRef,
     markerPosition,
     handleInteractionStart,
     isInteracting,
     positionToColor,
-  } = useSlider({ color: null, hue: 0, onColorChange: () => {}, type: 'hue' });
+  } = useSlider({ color: null, hue, onColorChange: () => {}, type: 'hue' });
 
   useEffect(() => {
     if (isInteracting) {
-      const newHue = positionToColor(markerPosition.x, 0, sliderRef.current.getBoundingClientRect());
-      onHueChange(newHue);
+      const newHue = positionToColor(markerPosition.x, 0, sliderRef.current.getBoundingClientRect()) as number;
+      handler(newHue);
     }
-  }, [isInteracting, markerPosition.x, positionToColor, onHueChange, sliderRef]);
+  }, [isInteracting, markerPosition.x, positionToColor, handler, sliderRef]);
 
 
   return (

@@ -10,32 +10,33 @@ const ColorOutput = ({ pickedColor, opacity }) => {
   const [colorFormatIndex, setColorFormatIndex] = useState(0);
   const [displayedColor, setDisplayedColor] = useState("");
 
-  useEffect(() => {
-    if (pickedColor) {
-      const colorObj = Color(pickedColor);
-      const colorString = emitSelectedColorChange(colorObj, opacity, colorFormats[colorFormatIndex]);
-      setDisplayedColor(colorString);
-    }
-  }, [pickedColor, colorFormatIndex]);
 
-  const switchColorFormat = () => {
-    setColorFormatIndex((prevIndex) => (prevIndex + 1) % colorFormats.length);
-  };
+  // useEffect(() => {
+  //   if (pickedColor) {
+  //     const colorObj = Color(pickedColor);
+  //     const colorString = emitSelectedColorChange(colorObj, opacity, colorFormats[colorFormatIndex]);
+  //     setDisplayedColor(colorString);
+  //   }
+  // }, [pickedColor, colorFormatIndex]);
 
-  const renderInputFields = () => {
-    if (!displayedColor) return null;
+  // const switchColorFormat = () => {
+  //   setColorFormatIndex((prevIndex) => (prevIndex + 1) % colorFormats.length);
+  // };
 
-    const colorObj = Color(displayedColor);
-    const colorFormat = colorFormats[colorFormatIndex];
+  // const renderInputFields = () => {
+  //   if (!displayedColor) return null;
 
-    return (
-      <InputFields
-        colorFormat={colorFormat}
-        colorObj={colorObj}
-        handleInputChange={handleInputChange}
-      />
-    );
-  };
+  //   const colorObj = Color(displayedColor);
+  //   const colorFormat = colorFormats[colorFormatIndex];
+
+  //   return (
+  //     <InputFields
+  //       colorFormat={colorFormat}
+  //       colorObj={colorObj}
+  //       handleInputChange={handleInputChange}
+  //     />
+  //   );
+  // };
 
   const handleInputChange = (field, value) => {
     const colorObj = Color(displayedColor);
@@ -66,11 +67,11 @@ const ColorOutput = ({ pickedColor, opacity }) => {
 
   return (
     <Container>
-        <TypeLabel>{colorFormats[colorFormatIndex].toUpperCase()}</TypeLabel>
+        {/* <TypeLabel>{colorFormats[colorFormatIndex].toUpperCase()}</TypeLabel>
         {renderInputFields()}
       <SwitchButton onClick={switchColorFormat}>
         ↕
-      </SwitchButton>
+      </SwitchButton> */}
     </Container>
   );
 };

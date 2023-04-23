@@ -36,6 +36,7 @@ export const Marker = styled.div`
   border: 1px solid #ffffff;
   border-radius: 50%;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
+  pointer-events: none;
 `;
 
 export const WrapperColorIndicator = styled.div`
