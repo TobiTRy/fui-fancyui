@@ -11,11 +11,11 @@ interface IColorToPositionFunc {
 }
 
 export const positionToColorFunc: IPositionToColorFunc = (type, hue, clientX, clientY, rect) => {
-  //console.log(type, hue, clientX, clientY, rect);
   if (type === 'hue') {
     // color for the hue slider
     const x = Math.max(0, Math.min(clientX - rect.left, rect.width));
-    return (x / rect.width) * 359;
+
+    return (x / rect.width) * 360;
   } else if (type === 'opacity') {
     // transparency color for the opacity slider
     const x = Math.max(0, Math.min(clientX - rect.left, rect.width));
@@ -34,7 +34,8 @@ export const positionToColorFunc: IPositionToColorFunc = (type, hue, clientX, cl
 export const colorToPositionFunc: IColorToPositionFunc = (type, color, rect) => {
   if (type === 'hue') {
     // color to position for the hue slider
-    const x = (color.hsl().object().h / 360) * rect.width;
+    const createColor = Color(color);
+    const x = (createColor.hsl().object().h / 360) * rect.width;
     return { x, y: 0 };
   } else if (type === 'opacity') {
     // color to position for the opacity slider

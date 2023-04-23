@@ -42,7 +42,6 @@ const useSlider = ({ color, hue, opacity, onColorChange, type }: IUseSlider): IU
       if (!sliderRef.current) return;
       const rect = sliderRef.current.getBoundingClientRect();
       const newPosition = colorToPosition(color, rect);
-      console.log(newPosition);
       setMarkerPosition(newPosition);
     },
     [colorToPosition]
@@ -117,7 +116,7 @@ const useSlider = ({ color, hue, opacity, onColorChange, type }: IUseSlider): IU
   useEffect(() => {
     const handleInteractionMoveFunc = (event: MouseEvent | TouchEvent) => handleInteractionMove(event);
     const handleInteractionEndFunc = () => handleInteractionEnd();
-
+    
     if (isInteracting) {
       window.addEventListener('mousemove', handleInteractionMoveFunc);
       window.addEventListener('touchmove', handleInteractionMoveFunc);

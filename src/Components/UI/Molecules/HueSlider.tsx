@@ -28,16 +28,19 @@ const SliderContainer = styled.div`
 interface IHueSlider {
   handler: (hue: number) => void;
   hue: number;
+  color: Color;
 }
 
-const HueSlider = ({ hue, handler }: IHueSlider) => {
+const HueSlider = ({ color, hue, handler }: IHueSlider) => {
   const {
     sliderRef,
     markerPosition,
     handleInteractionStart,
     isInteracting,
     positionToColor,
-  } = useSlider({ color: null, hue, onColorChange: () => {}, type: 'hue' });
+  } = useSlider({ color: color, hue, onColorChange: () => {}, type: 'hue' });
+
+
 
   useEffect(() => {
     if (isInteracting) {
