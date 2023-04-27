@@ -9,7 +9,7 @@ const SliderMarker = styled.div`
   height: 12px;
   background: white;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
-  transform: translateY(-50%);
+  transform: translate(-2px ,-50%);
   border-radius: ${borderRadius.small};
 `;
 

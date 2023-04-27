@@ -64,9 +64,9 @@ const ColorPicker = ({ outputFormat = 'hsl', handler }) => {
   return (
     <Wrapper>
       <ColorArea hue={hue} color={color} handler={handleColorChange} />
-      <HueSlider handler={handleHueChange} color={color}/>
+      <HueSlider handler={handleHueChange} color={color} />
       <OpacitySlider color={colorObj} opacity={opacity} handler={handleOpacityChange} />
-      <ColorOutput pickedColor={color} opacity={opacity}/> 
+      {/* <ColorOutput pickedColor={color} opacity={opacity}/>  */}
     </Wrapper>
   );
 };

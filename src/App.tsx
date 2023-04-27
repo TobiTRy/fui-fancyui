@@ -72,7 +72,7 @@ function App() {
   return (
     <>
       <div className="App">
-        <EditBarIconButton label="Test" icon={svg} active={activated} handler={() => setActivated(!activated)} />
+        {/* <EditBarIconButton label="Test" icon={svg} active={activated} handler={() => setActivated(!activated)} />
         <FancyRangeSlider displayNumber={true} labelAlign={'left'} icon={svg} maxValue={50} minValue={-50} label={'Im tobi tester'} />
         <FancyInput label="Username" value={'tes'} icon={svg} align={'left'} />
         <FancyInput label="Username" value={'tes'} icon={svg} align={'left'} />
@@ -87,7 +87,7 @@ function App() {
           inputTextAlign="left"
         />
         <SpeedDialButton items={menuItems} />
-        <EditBarModule active={activated} sectionType={'sectionBox'}/>
+        <EditBarModule active={activated} sectionType={'sectionBox'}/> */}
         {/* <CanvasColorPicker /> */}
         <ColorPicker outputFormat={"rgba"} handler={(color: any) => console.log('')} />
       </div>

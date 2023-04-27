@@ -3,7 +3,9 @@ import Color from 'color';
 type SliderType = 'hue' | 'opacity';
 
 interface IPositionToColorFunc {
-  (type: SliderType, hue: number | undefined, clientX: number, clientY: number, rect: DOMRect): { h: number; s: number; l: number } | number;
+  (type: SliderType, hue: number | undefined, clientX: number, clientY: number, rect: DOMRect):
+    | { h: number; s: number; l: number }
+    | number;
 }
 
 interface IColorToPositionFunc {
@@ -12,16 +14,14 @@ interface IColorToPositionFunc {
 
 export const positionToColorFunc: IPositionToColorFunc = (type, hue, clientX, clientY, rect) => {
   if (type === 'hue') {
-    // color for the hue slider
     const x = Math.max(0, Math.min(clientX - rect.left, rect.width));
 
     return (x / rect.width) * 360;
   } else if (type === 'opacity') {
-    // transparency color for the opacity slider
-    const x = Math.max(0, Math.min(clientX - rect.left, rect.width));
-    return x / rect.width;
-  } else {
-    // position to color for the color area
+    const x = Math.min(clientX - rect.left, rect.width - 5);
+    const adjustedWidth = rect.width - 5;
+    return Math.max(0, x / adjustedWidth);
+  }   else {
     const x = Math.max(0, Math.min(clientX - rect.left, rect.width));
     const y = Math.max(0, Math.min(clientY - rect.top, rect.height));
 
@@ -33,17 +33,14 @@ export const positionToColorFunc: IPositionToColorFunc = (type, hue, clientX, cl
 
 export const colorToPositionFunc: IColorToPositionFunc = (type, color, rect) => {
   if (type === 'hue') {
-    // color to position for the hue slider
     const createColor = Color(color);
     const x = (createColor.hsl().object().h / 360) * rect.width;
     return { x, y: 0 };
   } else if (type === 'opacity') {
-    // color to position for the opacity slider
     const alpha = color.alpha();
-    const x = alpha * rect.width;
+    const x = (alpha * (rect.width - 5));
     return { x, y: 0 };
-  } else {
-    // color to position for the color area
+  }else {
     const transformedColor = Color(color);
     const hslColor = transformedColor.hsl().object();
     const saturation = hslColor.s;

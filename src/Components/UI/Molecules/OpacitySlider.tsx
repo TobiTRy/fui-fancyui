@@ -18,6 +18,7 @@ const SliderContainer = styled.div.attrs<{color: Color}>(({color}) => {
     },
   };
 })<{color: string}>`
+  overflow: hidden;
   position: relative;
   height: 20px;
   border-radius: 4px;
@@ -30,26 +31,47 @@ interface IOpacitySlider {
   color: Color;
   opacity: number;
   handler: (opacity: number) => void;
-}
+};
+
+
+const minHue = 0;
+const maxHue = 1;
+
+const positionToColorOpacity = (clientX: number, rect: DOMRect) => {
+  const x = clientX - rect.left;
+  const hue = (x / rect.width) * (maxHue - minHue);
+  console.log(Math.min(Math.max(hue, minHue), maxHue));
+  return Math.min(Math.max(hue, minHue), maxHue);
+
+};
+
+
+const colorToPositionOpacity = (color: Color, rect: DOMRect) => {
+  const alpha = color.alpha();
+  const x = alpha * rect.width;
+  return { x, y: 0 };
+};
+
 
 const OpacitySlider = ({ color, opacity, handler }: IOpacitySlider) => {
-  const { sliderRef, markerPosition, handleInteractionStart, isInteracting, positionToColor } = useSlider({
+  const handleOpacityChange = (newHue:number) => handler(newHue);
+  const { sliderRef, markerPosition, handleInteractionStart, isInteracting } = useSlider<number>({
     color: color,
     opacity, 
-    onColorChange: () => {},
+    sliderPositionToColorFunc: positionToColorOpacity,
+    colorToPositionFunc: colorToPositionOpacity,
+    handler: handleOpacityChange,
     type: 'opacity', 
   });
 
   useEffect(() => {
     if(isInteracting) {
-      const newOpacity = positionToColor(markerPosition.x, 0, sliderRef.current.getBoundingClientRect()) as number;
-      handler(newOpacity);
+      // const newOpacity = positionToColorOpacity(markerPosition.x, sliderRef.current.getBoundingClientRect());
+      // console.log(newOpacity);
+      // handler(newOpacity);
     }
-  }, [isInteracting, markerPosition.x, positionToColor, handler, sliderRef]);
+  }, [isInteracting, markerPosition.x, handler, sliderRef]);
 
-  
-  
-  
   return (
     <SliderContainer
       ref={sliderRef}

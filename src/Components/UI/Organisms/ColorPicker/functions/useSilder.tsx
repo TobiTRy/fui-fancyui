@@ -1,13 +1,15 @@
 import { useState, useRef, useEffect, useCallback, MouseEventHandler, TouchEventHandler } from 'react';
 import Color from 'color';
-import { colorToPositionFunc, positionToColorFunc } from './sliderUtils';
 
-interface IUseSlider {
+interface IUseSlider<T> {
   color: Color | null;
   hue?: number;
   opacity?: number;
-  onColorChange: (color: Color) => void;
   type: 'hue' | 'opacity';
+  handler: (value: T) => void;
+  sliderPositionToColorFunc?: (clientX: number, rect: DOMRect) => number;
+  positionToColorFunc?: (hue: number | undefined, clientX: number, clientY: number, rect: DOMRect) => { h: number; s: number; l: number } | number;
+  colorToPositionFunc: (color: Color, rect: DOMRect) => { x: number; y: number };
 }
 
 interface IMarkerPosition {
@@ -20,31 +22,22 @@ interface IUseSliderReturn {
   markerPosition: IMarkerPosition;
   handleInteractionStart: (event: React.MouseEvent<HTMLDivElement, MouseEvent> | React.TouchEvent<HTMLDivElement>) => void;
   isInteracting: boolean;
-  positionToColor: (clientX: number, clientY: number, rect: DOMRect) => { h: number; s: number; l: number } | number;
-  colorToPosition: (color: Color, rect: DOMRect) => IMarkerPosition;
 }
 
-const useSlider = ({ color, hue, opacity, onColorChange, type }: IUseSlider): IUseSliderReturn => {
+const useSlider = <T extends number | Color>({ color, hue,  type, sliderPositionToColorFunc ,positionToColorFunc, colorToPositionFunc, handler }: IUseSlider<T>): IUseSliderReturn => {
   const [markerPosition, setMarkerPosition] = useState<IMarkerPosition>({ x: 0, y: 0 });
   const [isInteracting, setIsInteracting] = useState<boolean>(false);
   const sliderRef = useRef<HTMLDivElement>();
-
-  const positionToColor = useCallback(
-    (clientX: number, clientY: number, rect: DOMRect) => positionToColorFunc(type, hue, clientX, clientY, rect),
-    [type, hue]
-  );
-  
-  const colorToPosition = useCallback((color: Color, rect: DOMRect) => colorToPositionFunc(type, color, rect), [type]);
 
   // update the position of the marker
   const updateMarkerPosition = useCallback(
     (color: Color) => {
       if (!sliderRef.current) return;
       const rect = sliderRef.current.getBoundingClientRect();
-      const newPosition = colorToPosition(color, rect);
+      const newPosition = colorToPositionFunc(color, rect);
       setMarkerPosition(newPosition);
     },
-    [colorToPosition]
+    [colorToPositionFunc]
   );
 
   // handle the interaction with the slider
@@ -52,25 +45,25 @@ const useSlider = ({ color, hue, opacity, onColorChange, type }: IUseSlider): IU
     (clientX: number, clientY: number) => {
       if (!sliderRef.current) return;
       const rect = sliderRef.current.getBoundingClientRect();
-      const newColor = positionToColor(clientX, clientY, rect);
       if (type === 'hue') {
+        const newColor = sliderPositionToColorFunc && sliderPositionToColorFunc(clientX,  rect);
         const createColor = Color({ h: newColor, s: 100, l: 50 });
-        onColorChange(createColor);
         updateMarkerPosition(createColor);
       } else if (type === 'opacity') {
         if(!color) return;
-        const alpha = newColor as number;
+        const newColor = sliderPositionToColorFunc && sliderPositionToColorFunc(clientX, rect);
+        const alpha = Math.max(0, Math.min(newColor as number, 1)); // Ensure alpha is within [0, 1]
         const createColor = Color(color).alpha(alpha);
-        onColorChange(createColor);
         updateMarkerPosition(createColor);
       } else {
+        const newColor = positionToColorFunc && positionToColorFunc(hue, clientX, clientY, rect);
         const createColor = Color(newColor);
-        onColorChange(createColor);
         updateMarkerPosition(createColor);
       }
     },
-    [onColorChange, updateMarkerPosition, positionToColor, type, color]
+    [ updateMarkerPosition, positionToColorFunc, type, color, hue, sliderPositionToColorFunc]
   );
+  
   
   // handle the start of the interaction with the slider
   const handleInteractionStart = (event: React.MouseEvent<HTMLDivElement, MouseEvent> | React.TouchEvent<HTMLDivElement>) => {
@@ -88,7 +81,6 @@ const useSlider = ({ color, hue, opacity, onColorChange, type }: IUseSlider): IU
   const handleInteractionMove = useCallback(
     (event: MouseEvent | TouchEvent) => {
       if (!isInteracting) return;
-
       if (event instanceof MouseEvent) {
         event.preventDefault();
         handleInteraction(event.clientX, event.clientY);
@@ -108,7 +100,7 @@ const useSlider = ({ color, hue, opacity, onColorChange, type }: IUseSlider): IU
   useEffect(() => {
     if (!sliderRef.current || !color) return;
     const rect = sliderRef.current.getBoundingClientRect();
-    const initialPosition = colorToPosition(color, rect);
+    const initialPosition = colorToPositionFunc(color, rect);
     setMarkerPosition(initialPosition);
   }, []);
 
@@ -132,7 +124,7 @@ const useSlider = ({ color, hue, opacity, onColorChange, type }: IUseSlider): IU
     };
   }, [handleInteractionMove, handleInteractionEnd, isInteracting]);
 
-  return { sliderRef, markerPosition, handleInteractionStart, isInteracting, positionToColor, colorToPosition };
+  return { sliderRef, markerPosition, handleInteractionStart, isInteracting };
 };
 
 export default useSlider;
