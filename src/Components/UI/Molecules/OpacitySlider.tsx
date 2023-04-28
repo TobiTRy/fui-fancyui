@@ -40,7 +40,6 @@ const maxHue = 1;
 const positionToColorOpacity = (clientX: number, rect: DOMRect) => {
   const x = clientX - rect.left;
   const hue = (x / rect.width) * (maxHue - minHue);
-  console.log(Math.min(Math.max(hue, minHue), maxHue));
   return Math.min(Math.max(hue, minHue), maxHue);
 
 };
@@ -54,23 +53,16 @@ const colorToPositionOpacity = (color: Color, rect: DOMRect) => {
 
 
 const OpacitySlider = ({ color, opacity, handler }: IOpacitySlider) => {
-  const handleOpacityChange = (newHue:number) => handler(newHue);
-  const { sliderRef, markerPosition, handleInteractionStart, isInteracting } = useSlider<number>({
+  const handleOpacityChange = (newHue:number) => handler(parseFloat(newHue.toFixed(1)));
+  const { sliderRef, markerPosition, handleInteractionStart } = useSlider({
     color: color,
     opacity, 
     sliderPositionToColorFunc: positionToColorOpacity,
     colorToPositionFunc: colorToPositionOpacity,
-    handler: handleOpacityChange,
+    handlerSlider: handleOpacityChange,
     type: 'opacity', 
   });
 
-  useEffect(() => {
-    if(isInteracting) {
-      // const newOpacity = positionToColorOpacity(markerPosition.x, sliderRef.current.getBoundingClientRect());
-      // console.log(newOpacity);
-      // handler(newOpacity);
-    }
-  }, [isInteracting, markerPosition.x, handler, sliderRef]);
 
   return (
     <SliderContainer

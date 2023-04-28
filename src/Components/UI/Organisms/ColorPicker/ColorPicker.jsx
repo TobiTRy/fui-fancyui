@@ -40,20 +40,19 @@ const ColorPicker = ({ outputFormat = 'hsl', handler }) => {
     setColor(newColor);
   };
 
+  //this function is handle the hue change in the child component
   const handleHueChange = (newHue) => {
     const roundHue = roundValue(newHue)
     setHue(roundHue);
-    const currentColor = Color(color);
-    const newColor = currentColor.hsl().object();
-    newColor.h = roundValue(newHue);
-    setColor(Color(newColor).string());
   };
 
+  //this function is handle the opacity change in the child component
   const handleOpacityChange = (newOpacity) => {
     const roundedOpacity = roundValue(newOpacity)
     setOpacity(roundedOpacity);
   };
 
+  //this function recalculate the main color when the color or the opacity or color change
   useEffect(() => {
     calculateMainColor(color, opacity);
   }, [color, opacity, outputFormat]);
@@ -64,7 +63,7 @@ const ColorPicker = ({ outputFormat = 'hsl', handler }) => {
   return (
     <Wrapper>
       <ColorArea hue={hue} color={color} handler={handleColorChange} />
-      <HueSlider handler={handleHueChange} color={color} />
+      <HueSlider handler={handleHueChange} hue={color} />
       <OpacitySlider color={colorObj} opacity={opacity} handler={handleOpacityChange} />
       {/* <ColorOutput pickedColor={color} opacity={opacity}/>  */}
     </Wrapper>

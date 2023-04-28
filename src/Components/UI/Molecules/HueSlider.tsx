@@ -17,7 +17,7 @@ const SliderContainer = styled.div`
 `;
 
 interface IHueSlider {
-  handler: (hue: number) => void;
+  handler: (hue: number | Color) => void;
   hue: number;
   color: Color;
 }
@@ -28,31 +28,25 @@ const maxHue = 359.9;
 const positionToColorHue = (clientX: number, rect: DOMRect) => {
   const x = clientX - rect.left;
   const hue = (x / rect.width) * (maxHue - minHue);
-  console.log(Math.min(Math.max(hue, minHue), maxHue));
   return Math.min(Math.max(hue, minHue), maxHue);
-
 };
 
 const colorToPositionHue = (color: Color, rect: DOMRect) => {
-  if(!color) return { x: 0, y: 0 };
+  if (!color) return { x: 0, y: 0 };
   const trueColor = Color(color);
   const hue = trueColor.hsl().object().h;
   const x = ((hue - minHue) / (maxHue - minHue)) * rect.width;
   return { x, y: 0 };
 };
 
-
-
-
-const HueSlider = ({ color, hue, handler }: IHueSlider) => {
-  const handleHueChange = (newHue:number) => console.log(newHue);
-  const { sliderRef, markerPosition, handleInteractionStart, isInteracting } = useSlider<number>({
-    color: color,
+const HueSlider = ({ hue, handler }: IHueSlider) => {
+  const handleHueChange = (newHue: number) => handler(parseFloat(newHue.toFixed(1)));
+  const { sliderRef, markerPosition, handleInteractionStart } = useSlider({
     hue,
     sliderPositionToColorFunc: positionToColorHue,
     colorToPositionFunc: colorToPositionHue,
     type: 'hue',
-    handler: handleHueChange,
+    handlerSlider: handleHueChange,
   });
 
 

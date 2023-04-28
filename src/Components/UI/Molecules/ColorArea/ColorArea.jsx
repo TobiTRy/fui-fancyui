@@ -37,14 +37,12 @@ const colorToPosition = (color, rect) => {
 const ColorArea = ({ color, hue, handler }) => {
   const currentHue = hue ?? 0;
   const { sliderRef, markerPosition, handleInteractionStart, isInteracting } = useSlider({
-    color,
     currentHue,
     positionToColorFunc: positionToColor,
     colorToPositionFunc: colorToPosition,
   });
 
   useEffect(() => {
-    console.log('colorArea', color);
     const newColor = positionToColor(currentHue, markerPosition.x, markerPosition.y, sliderRef.current.getBoundingClientRect());
     handler(newColor)
   }, [color, currentHue, markerPosition, sliderRef, handler]);
