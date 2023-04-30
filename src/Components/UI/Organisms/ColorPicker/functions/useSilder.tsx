@@ -1,14 +1,15 @@
-import { useState, useRef, useEffect, useCallback, MouseEventHandler, TouchEventHandler } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 import Color from 'color';
 
 interface IUseSlider {
   color?: Color | null;
   hue?: number;
   opacity?: number;
-  type: 'hue' | 'opacity';
-  handlerSlider: (value: number) => void;
+  type: 'hue' | 'opacity' | 'color';
+  handlerSlider?: (value: number) => void;
+  handlerColor?: (color: Color) => void;
   sliderPositionToColorFunc?: (clientX: number, rect: DOMRect) => number;
-  positionToColorFunc?: (hue: number | undefined, clientX: number, clientY: number, rect: DOMRect) => { h: number; s: number; l: number } | number;
+  positionToColorFunc?: (hue: number , clientX: number, clientY: number, rect: DOMRect) => { h: number; s: number; l: number } | number;
   colorToPositionFunc: (color: Color, rect: DOMRect) => { x: number; y: number };
 }
 
@@ -24,6 +25,7 @@ interface IUseSliderReturn {
   isInteracting: boolean;
 }
 
+// throttle the interaction with the slider
 const throttle = (func: (...args: any[]) => void): ((...args: any[]) => void) => {
   let isThrottled = false;
   
@@ -39,7 +41,7 @@ const throttle = (func: (...args: any[]) => void): ((...args: any[]) => void) =>
 };
 
 
-const useSlider = ({ color, hue,  type, sliderPositionToColorFunc ,positionToColorFunc, colorToPositionFunc, handlerSlider }: IUseSlider): IUseSliderReturn => {
+const useSlider = ({ color, hue,  type, sliderPositionToColorFunc ,positionToColorFunc, colorToPositionFunc, handlerSlider, opacity }: IUseSlider): IUseSliderReturn => {
   const [markerPosition, setMarkerPosition] = useState<IMarkerPosition>({ x: 0, y: 0 });
   const [isInteracting, setIsInteracting] = useState<boolean>(false);
   const sliderRef = useRef<HTMLDivElement>();
@@ -66,18 +68,19 @@ const useSlider = ({ color, hue,  type, sliderPositionToColorFunc ,positionToCol
         const createColor = Color({ h: newColor, s: 100, l: 50 });
         updateMarkerPosition(createColor);
       } else if (type === 'opacity') {
-        if(!color) return;
         const newColor = sliderPositionToColorFunc && sliderPositionToColorFunc(clientX, rect);
-        const alpha = Math.max(0, Math.min(newColor as number, 1)); // Ensure alpha is within [0, 1]
-        const createColor = Color(color).alpha(alpha);
+        const alpha = Math.max(0, Math.min(newColor as number, 1)); 
+        handlerSlider && handlerSlider(alpha ?? 1);
+        const createColor = Color({r: 255, g: 255, b: 255}).alpha(alpha);
         updateMarkerPosition(createColor);
       } else {
-        const newColor = positionToColorFunc && positionToColorFunc(hue, clientX, clientY, rect);
+        const newColor = positionToColorFunc && positionToColorFunc(hue ?? 0, clientX, clientY, rect);
         const createColor = Color(newColor);
+
         updateMarkerPosition(createColor);
       }
     },
-    [ updateMarkerPosition, positionToColorFunc, type, color, hue, sliderPositionToColorFunc]
+    [ updateMarkerPosition, positionToColorFunc, type, color, hue, sliderPositionToColorFunc, opacity]
   );
   const throttledHandleInteraction = useCallback(throttle(handleInteraction), [handleInteraction]);
   
@@ -108,13 +111,18 @@ const useSlider = ({ color, hue,  type, sliderPositionToColorFunc ,positionToCol
     [isInteracting, handleInteraction]
   );
 
+  // handle the end of the interaction with the slider
   const handleInteractionEnd = useCallback(() => {
     setIsInteracting(false);
   }, []);
 
   // set the initial position of the marker
   useEffect(() => {
-    if (!sliderRef.current || !color) return;
+    if (!sliderRef.current) return;
+
+    //fallback for opacitySlider and hueSlider
+    if(!color) type === 'hue' ? color = Color({ h: hue, s: 100, l: 50 }) : color = Color({r: 255, g: 255, b: 255}).alpha(1);
+    
     const rect = sliderRef.current.getBoundingClientRect();
     const initialPosition = colorToPositionFunc(color, rect);
     setMarkerPosition(initialPosition);

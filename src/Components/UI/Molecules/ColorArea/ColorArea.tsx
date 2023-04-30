@@ -1,18 +1,24 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import useSlider from '../../Organisms/ColorPicker/functions/useSilder';
 import {
   WrapperColorArea,
-  WrapperColorIndicator,
   ColorAreaContainer,
   Marker,
   LightnessGradient,
-  ColorIndicator,
   WrapperMarker,
 } from './ColorArea.style';
 import Color from 'color';
+import ColorIndicator from '../../Atoms/ColorIndicator/ColorIndicator';
 
 
-const positionToColor = (hue ,clientX, clientY, rect) => {
+interface IColorArea {
+  color: Color;
+  hue: number;
+  handler: (color: Color) => void;
+}
+
+
+const positionToColor = (hue: number ,clientX: number, clientY: number, rect: DOMRect) => {
   const x = Math.max(0, Math.min(clientX - rect.left, rect.width));
   const y = Math.max(0, Math.min(clientY - rect.top, rect.height));
 
@@ -22,7 +28,7 @@ const positionToColor = (hue ,clientX, clientY, rect) => {
 };
 
 
-const colorToPosition = (color, rect) => {
+const colorToPosition = (color: Color, rect: DOMRect) => {
   const transformedColor = Color(color);
   const hslColor = transformedColor.hsl().object();
   const saturation = hslColor.s;
@@ -34,24 +40,23 @@ const colorToPosition = (color, rect) => {
 };
 
 
-const ColorArea = ({ color, hue, handler }) => {
+const ColorArea = ({ color, hue, handler }:IColorArea) => {
+  const handleColorChange = (newColor: Color) => handler(newColor);
+
   const currentHue = hue ?? 0;
   const { sliderRef, markerPosition, handleInteractionStart, isInteracting } = useSlider({
-    currentHue,
+    color,
+    hue: currentHue,
     positionToColorFunc: positionToColor,
     colorToPositionFunc: colorToPosition,
+    handlerColor:handleColorChange,
+    type: 'color',
   });
 
-  useEffect(() => {
-    const newColor = positionToColor(currentHue, markerPosition.x, markerPosition.y, sliderRef.current.getBoundingClientRect());
-    handler(newColor)
-  }, [color, currentHue, markerPosition, sliderRef, handler]);
 
   return (
     <WrapperColorArea>
-      <WrapperColorIndicator style={{ top: markerPosition.y, left: markerPosition.x }}>
-        <ColorIndicator color={Color(color).hex()} isActive={isInteracting} />
-      </WrapperColorIndicator>
+      <ColorIndicator position={{x: markerPosition.x, y: markerPosition.y}} color={Color(color).toString()} isActive={isInteracting}/>
       <ColorAreaContainer hue={hue} ref={sliderRef} onMouseDown={handleInteractionStart} onTouchStart={handleInteractionStart}>
         <LightnessGradient />
         <WrapperMarker style={{ top: markerPosition.y, left: markerPosition.x }}>

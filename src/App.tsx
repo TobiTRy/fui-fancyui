@@ -89,7 +89,7 @@ function App() {
         <SpeedDialButton items={menuItems} />
         <EditBarModule active={activated} sectionType={'sectionBox'}/> */}
         {/* <CanvasColorPicker /> */}
-        <ColorPicker outputFormat={"rgba"} handler={(color: any) => console.log('')} />
+        <ColorPicker outputFormat={"rgba"} handler={(color: any) => console.log(color)} />
       </div>
     
 

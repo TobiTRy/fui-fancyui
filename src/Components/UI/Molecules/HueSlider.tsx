@@ -1,14 +1,15 @@
-import React, { useEffect, MouseEventHandler } from 'react';
+import React from 'react';
 
 import useSlider from '../Organisms/ColorPicker/functions/useSilder';
-import SliderMarker from '../Atoms/SliderMarker';
+import SliderMarker from '../Atoms/SliderMarker/SliderMarker';
 import styled from 'styled-components';
 import { borderRadius } from '../Design/design';
 import Color from 'color';
 
+import ColorIndicator from '../Atoms/ColorIndicator/ColorIndicator';
+
 const SliderContainer = styled.div`
   position: relative;
-  overflow: hidden;
   height: 20px;
   background: linear-gradient(to right, red 0%, yellow 17%, lime 33%, cyan 50%, blue 67%, magenta 83%, red 100%);
   cursor: pointer;
@@ -31,17 +32,18 @@ const positionToColorHue = (clientX: number, rect: DOMRect) => {
   return Math.min(Math.max(hue, minHue), maxHue);
 };
 
-const colorToPositionHue = (color: Color, rect: DOMRect) => {
+const colorToPositionHue = (color: Color) => {
   if (!color) return { x: 0, y: 0 };
   const trueColor = Color(color);
   const hue = trueColor.hsl().object().h;
-  const x = ((hue - minHue) / (maxHue - minHue)) * rect.width;
-  return { x, y: 0 };
+  const huePercentage = ((hue - minHue) / (maxHue - minHue)) * 100;
+
+  return { x: huePercentage , y: 0 };
 };
 
 const HueSlider = ({ hue, handler }: IHueSlider) => {
   const handleHueChange = (newHue: number) => handler(parseFloat(newHue.toFixed(1)));
-  const { sliderRef, markerPosition, handleInteractionStart } = useSlider({
+  const { sliderRef, markerPosition, handleInteractionStart, isInteracting } = useSlider({
     hue,
     sliderPositionToColorFunc: positionToColorHue,
     colorToPositionFunc: colorToPositionHue,
@@ -52,7 +54,9 @@ const HueSlider = ({ hue, handler }: IHueSlider) => {
 
   return (
     <SliderContainer ref={sliderRef} onMouseDown={handleInteractionStart} onTouchStart={handleInteractionStart}>
-      <SliderMarker style={{ left: markerPosition.x }} />
+      <SliderMarker position={ markerPosition.x + '%'}>
+        <ColorIndicator color={`hsl(${hue}, 100%, 50% )`} isActive={isInteracting} />
+      </SliderMarker>
     </SliderContainer>
   );
 };
