@@ -1,15 +1,11 @@
-import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import React, { useState, useMemo, useCallback } from 'react';
 import ColorArea from '../../Molecules/ColorArea/ColorArea';
 import HueSlider from '../../Molecules/HueSlider';
 import OpacitySlider from '../../Molecules/OpacitySlider/OpacitySlider';
+import ColorOutput from '../../Molecules/ColorOutput/ColorOutput';
 import Color from 'color';
 import { emitSelectedColorChange } from './colorPickerUtils';
 import styled from 'styled-components';
-
-
-//TODO: Handle color wgen the hue slider change
-
-
 
 const Wrapper = styled.div`
   width: 100%;
@@ -34,11 +30,10 @@ const ColorPicker = ({ outputFormat = 'hsl', handler }) => {
 
     handler(calculateGiveBackColor);
     return calculatedMainColor;
-  }, [rawColor, opacity, outputFormat])
+  }, [rawColor, opacity, outputFormat, hue])
 
   //this function is handle the color change in the child ColorArea component
   const handleColorChange = (newColor) => {
-    console.log('newColor', newColor)
     setRawColor(newColor);
   };
 
@@ -57,14 +52,14 @@ const ColorPicker = ({ outputFormat = 'hsl', handler }) => {
 
 
 
-  const colorObj = Color(rawColor).alpha(opacity);
+
 
   return (
     <Wrapper>
       <ColorArea hue={hue} color={rawColor} handler={handleColorChange} />
       <HueSlider handler={handleHueChange} hue={hue} />
-      <OpacitySlider color={colorObj} opacity={opacity} handler={handleOpacityChange} />
-      {/* <ColorOutput pickedColor={color} opacity={opacity}/>  */}
+      <OpacitySlider color={Color(rawColor).alpha(opacity)} opacity={opacity} handler={handleOpacityChange} />
+      <ColorOutput pickedColor={rawColor} opacity={opacity}/> 
     </Wrapper>
   );
 };

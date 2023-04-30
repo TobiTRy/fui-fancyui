@@ -57,11 +57,14 @@ const ColorArea = ({ color, hue, handler }:IColorArea) => {
     <WrapperColorArea>
       <ColorAreaContainer hue={hue} ref={sliderRef} onMouseDown={handleInteractionStart} onTouchStart={handleInteractionStart}>
         <LightnessGradient />
+
+        {/* the sliders marker with the color indicator that displays the current picked color */}
         <WrapperMarker style={{ top: markerPosition.y, left: markerPosition.x }}>
           <Marker>
             <ColorIndicator color={Color(color).toString()} isActive={isInteracting}/>
           </Marker>
         </WrapperMarker>
+        
       </ColorAreaContainer>
     </WrapperColorArea>
   );

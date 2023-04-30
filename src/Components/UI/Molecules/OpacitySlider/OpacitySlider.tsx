@@ -30,6 +30,7 @@ const colorToPositionOpacity = (color: Color) => {
 
 const OpacitySlider = ({ color, opacity, handler }: IOpacitySlider) => {
   const handleOpacityChange = (newHue: number) => handler(parseFloat(newHue.toFixed(2)));
+
   const { sliderRef, markerPosition, handleInteractionStart, isInteracting} = useSlider({
     opacity,
     sliderPositionToColorFunc: positionToColorOpacity,
@@ -41,11 +42,14 @@ const OpacitySlider = ({ color, opacity, handler }: IOpacitySlider) => {
 
   return (
     <SliderContainer ref={sliderRef} onMouseDown={handleInteractionStart} onTouchStart={handleInteractionStart}>
+      {/* the sliders marker with the color indicator that displays the opacity of the current color */}
       <SliderMarker position={ markerPosition.x + '%' }>
         <ColorIndicator color={Color(color).alpha(opacity).string()} isActive={isInteracting}/>
       </SliderMarker>
+      {/* the gradients of the slider */}
       <SliderGradient color={color.toString()} />
       <CheckerboardPattern />
+
     </SliderContainer>
   );
 };

@@ -1,6 +1,8 @@
 import Color from "color";
 import styled from "styled-components";
 
+
+// the chekcboard pattern that is displayed in the background of the slider
 export const CheckerboardPattern = styled.div`
   position: absolute;
   height: 20px;
@@ -13,9 +15,7 @@ export const CheckerboardPattern = styled.div`
   opacity: 0.05;
   `;
 
-
-
-// Style for the Slider
+// the container of the slider
 export const SliderContainer = styled.div`
   position: relative;
   height: 20px;
@@ -25,6 +25,7 @@ export const SliderContainer = styled.div`
   user-select: none;
 `;
 
+// the opacity gradient of the slider wich displays the opacity of the current color
 export const SliderGradient = styled.div.attrs<{ color: Color }>(({ color }) => {
   const transformedToColor = Color(color).hsl();
   const gradientStart = transformedToColor.alpha(0).toString();
@@ -32,7 +33,7 @@ export const SliderGradient = styled.div.attrs<{ color: Color }>(({ color }) => 
 
   return {
     style: {
-      background: `linear-gradient(to right, ${gradientStart} -5%, ${gradientEnd} 90%)`,
+      background: `linear-gradient(to right, ${gradientStart} 0%, ${gradientEnd} 90%)`,
     },
   };
 })<{ color: string }>`

@@ -30,10 +30,12 @@ interface ISliderMarker {
   children?: React.ReactNode;
 }
 
+// the marker for the hue and opacity slider 
 export default function SliderMarker({position, children}: ISliderMarker) {
   return (
     <WrapperMarker style={{ left: position  }}>
       <Marker>
+        {/* the children can use to display something in the marker like the color indicator that moves with the marker */}
         {children && children}
       </Marker>
     </WrapperMarker>
