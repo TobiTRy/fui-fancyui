@@ -41,7 +41,7 @@ const throttle = (func: (...args: any[]) => void): ((...args: any[]) => void) =>
 };
 
 
-const useSlider = ({ color, hue,  type, sliderPositionToColorFunc ,positionToColorFunc, colorToPositionFunc, handlerSlider, opacity }: IUseSlider): IUseSliderReturn => {
+const useSlider = ({ color, hue,  type, sliderPositionToColorFunc ,positionToColorFunc, colorToPositionFunc, handlerSlider, opacity, handlerColor}: IUseSlider): IUseSliderReturn => {
   const [markerPosition, setMarkerPosition] = useState<IMarkerPosition>({ x: 0, y: 0 });
   const [isInteracting, setIsInteracting] = useState<boolean>(false);
   const sliderRef = useRef<HTMLDivElement>();
@@ -76,7 +76,7 @@ const useSlider = ({ color, hue,  type, sliderPositionToColorFunc ,positionToCol
       } else {
         const newColor = positionToColorFunc && positionToColorFunc(hue ?? 0, clientX, clientY, rect);
         const createColor = Color(newColor);
-
+        handlerColor && handlerColor(createColor);
         updateMarkerPosition(createColor);
       }
     },

@@ -37,9 +37,10 @@ const ColorPicker = ({ outputFormat = 'hsl', handler }) => {
   }, [rawColor, opacity, outputFormat])
 
   //this function is handle the color change in the child ColorArea component
-  const handleColorChange = useCallback((newColor) => {
+  const handleColorChange = (newColor) => {
+    console.log('newColor', newColor)
     setRawColor(newColor);
-  }, []);
+  };
 
   //this function is handle the hue change in the child component
   const handleHueChange = (newHue) => {
