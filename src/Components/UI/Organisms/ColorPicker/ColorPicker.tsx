@@ -15,42 +15,50 @@ const Wrapper = styled.div`
   gap: 16px;
 `
 
-const roundValue = (value) => Math.round(value * 100) / 100;
+const roundValue = (value: number) => Math.round(value * 100) / 100;
 
-const ColorPicker = ({ outputFormat = 'hsl', handler }) => {
-  const [rawColor, setRawColor] = useState('hsl(0, 100%, 50%)');
+
+interface IColorPicker {
+  outputFormat?: 'hsl' | 'hex' | 'rgb' | 'rgba' | 'hsla' | 'hexa';
+  handler: (color: string) => void;
+}
+
+const ColorPicker = ({ outputFormat = 'hsl', handler }: IColorPicker) => {
+  const [rawColor, setRawColor] = useState<Color>(Color('hsl(0, 100%, 50%)'));
   const [hue, setHue] = useState(0);
   const [opacity, setOpacity] = useState(1);
-//create a calculated main color and use the normal only for the show (flicker on the color area)
-
+  //create a calculated main color and use the normal only for the show (flicker on the color area)
   //this sets the main color that will be used in the app
   useMemo(() => {
     const calculatedMainColor = emitSelectedColorChange(rawColor, opacity, 'hsl');
     const calculateGiveBackColor = emitSelectedColorChange(rawColor, opacity, outputFormat);  
-
-    handler(calculateGiveBackColor);
+    
+    handler(Color(calculateGiveBackColor).string());
     return calculatedMainColor;
   }, [rawColor, opacity, outputFormat, hue])
 
   //this function is handle the color change in the child ColorArea component
-  const handleColorChange = (newColor) => {
+  const handleColorChange = (newColor: Color) => {
     setRawColor(newColor);
   };
 
   //this function is handle the hue change in the child component
-  const handleHueChange = (newHue) => {
+  const handleHueChange = (newHue: number) => {
     const roundHue = roundValue(newHue)
+    const transformedColor = rawColor.hue(roundHue);
+    setRawColor(transformedColor)
     setHue(roundHue);
   };
 
+  const handleColorOutputChange = (newColor:Color) => {
+    setRawColor(newColor);
+  }
   //this function is handle the opacity change in the child component
-  const handleOpacityChange = useCallback((newOpacity) => {
+  const handleOpacityChange = useCallback((newOpacity: number) => {
 
     const roundedOpacity = roundValue(newOpacity)
     setOpacity(roundedOpacity);
   }, [])
-
-
 
 
 
@@ -59,7 +67,7 @@ const ColorPicker = ({ outputFormat = 'hsl', handler }) => {
       <ColorArea hue={hue} color={rawColor} handler={handleColorChange} />
       <HueSlider handler={handleHueChange} hue={hue} />
       <OpacitySlider color={Color(rawColor).alpha(opacity)} opacity={opacity} handler={handleOpacityChange} />
-      <ColorOutput pickedColor={rawColor} opacity={opacity}/> 
+      <ColorOutput pickedColor={rawColor} opacity={opacity} handler={handleColorOutputChange}/> 
     </Wrapper>
   );
 };

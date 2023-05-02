@@ -18,9 +18,8 @@ const SliderContainer = styled.div`
 `;
 
 interface IHueSlider {
-  handler: (hue: number | Color) => void;
+  handler: (hue: number ) => void;
   hue: number;
-  color: Color;
 }
 
 const minHue = 0;

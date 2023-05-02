@@ -1,3 +1,5 @@
+import { ChangeEvent } from "react";
+
 export default interface IFancyInput {
   label?: string;
   required?: boolean;
@@ -5,9 +7,13 @@ export default interface IFancyInput {
   textColor?: 'bright' | 'dark';
   type?: 'number' | 'email' | 'text' | 'password';
   calculatedType?: 'number' | 'email' | 'text' | 'password';
+  min?: number | string;
+  max?: number | string;
+  step?: number | string;
   value?: string | number;
+  name?: string;
   disabled?: boolean;
   icon?: JSX.Element;
   errorMessage?: string;
-  handler?: () => void;
+  handler?: (e?: ChangeEvent<HTMLInputElement>) => void;
 }
