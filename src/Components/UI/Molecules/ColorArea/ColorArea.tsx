@@ -34,8 +34,11 @@ const colorToPosition = (color: Color, rect: DOMRect) => {
   const saturation = hslColor.s;
   const lightness = hslColor.l;
 
-  const x = (saturation / 100) * rect.width;
-  const y = rect.height * (1 - lightness / Math.max(1, 100 - 50 * (x / rect.width)));
+  const calcX = (saturation / 100) * rect.width;
+  const x = saturation;
+
+  const calcYpos = rect.height * (1 - lightness / Math.max(1, 100 - 50 * (calcX / rect.width)));
+  const y = (calcYpos / rect.height) * 100;
   return { x, y };
 };
 
@@ -59,7 +62,7 @@ const ColorArea = ({ color, hue, handler }:IColorArea) => {
         <LightnessGradient />
 
         {/* the sliders marker with the color indicator that displays the current picked color */}
-        <WrapperMarker style={{ top: markerPosition.y, left: markerPosition.x }}>
+        <WrapperMarker style={{ top: markerPosition.y + '%', left: markerPosition.x + '%'}}>
           <Marker>
             <ColorIndicator color={Color(color).toString()} isActive={isInteracting}/>
           </Marker>
