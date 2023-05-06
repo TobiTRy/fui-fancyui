@@ -130,7 +130,7 @@ const generateOutlined = (props: IFancyButton) => {
 
     &:hover:enabled {
       background-color: ${backgroundColor};
-      color: ${ color ? colorPalet[color] : "initinal" };
+      color: ${ color ? colorPalet[color] : "initial" };
       box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.15);
     }
 
@@ -150,7 +150,6 @@ const generateNormal = (props: IFancyButton) => {
 
   //this calculates the textcolor depend on design and color
   const textColor = calcTextColor(props)
-
 
   const hoverColorStyle = (design === "transparent" && hoverColor) ? uiColors[hoverColor].main : uiColors[design].hover;
 
@@ -195,6 +194,7 @@ const generateButton = (props: IFancyButton) => {
   return css`
     display: flex;
     justify-content: center;
+    align-items: center;
     border: none;
     cursor: pointer;
 

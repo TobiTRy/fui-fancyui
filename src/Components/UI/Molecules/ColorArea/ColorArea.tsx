@@ -29,15 +29,18 @@ const positionToColor = (hue: number ,clientX: number, clientY: number, rect: DO
 
 
 const colorToPosition = (color: Color, rect: DOMRect) => {
-  const transformedColor = Color(color);
-  const hslColor = transformedColor.hsl().object();
+  console.log('colorToPosition', color);
+  const hslColor = color.hsl().object();
   const saturation = hslColor.s;
   const lightness = hslColor.l;
+
+  console.log(hslColor, 'hslColor')
 
   const calcX = (saturation / 100) * rect.width;
   const x = saturation;
 
   const calcYpos = rect.height * (1 - lightness / Math.max(1, 100 - 50 * (calcX / rect.width)));
+  console.log(calcYpos, 'calcYpos')
   const y = (calcYpos / rect.height) * 100;
   return { x, y };
 };
@@ -45,7 +48,6 @@ const colorToPosition = (color: Color, rect: DOMRect) => {
 
 const ColorArea = ({ color, hue, handler }:IColorArea) => {
   const handleColorChange = (newColor: Color) => handler(newColor);
-
   const currentHue = hue ?? 0;
   const { sliderRef, markerPosition, handleInteractionStart, isInteracting } = useSlider({
     color,

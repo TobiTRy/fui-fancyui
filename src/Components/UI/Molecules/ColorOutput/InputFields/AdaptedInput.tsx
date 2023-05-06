@@ -63,6 +63,7 @@ export default function AdaptedInput(props: IAdapedInput) {
     <>
       {colorObject && (
         <FancyInput
+          align='center'
           type="number"
           name={inputLetter}
           min={colorObject.min}

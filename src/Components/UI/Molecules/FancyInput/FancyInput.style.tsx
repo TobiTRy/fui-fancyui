@@ -68,6 +68,16 @@ export const Input = styled.input<IFancyInput>`
   ${({align, errorMessage}) => AnimatedLabelFocusStyle(align, errorMessage)}
   //the focus animation for the underline
   ${({align}) => UnderLineFocusStyle(AnimatedInputLabel, align)}
+
+  //removes the arrows from the number input
+  ${({ type }) => type === 'number' && css`
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  `}
+
 `;
 
 //the style for the error message

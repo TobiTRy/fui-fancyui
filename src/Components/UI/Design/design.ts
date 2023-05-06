@@ -8,7 +8,7 @@ export const colorPalet = {
   white_medium: 'rgba(255 255 255 / 60%)',
   white_disabled: 'rgba(255 255 255 / 38%)',
 
-
+  //#e75400
   orange: '#F17C12',
   orange_light: '#FFA42A',
   orange_dark: '#CC6C0A',
@@ -16,6 +16,8 @@ export const colorPalet = {
   darkblue: '#083448',
   darkblue_light: '#1a3947',
   darkblue_dark: '#0C2430',
+  // #110E18 // #17131e // #00050d
+
 
   green_dark: '#007F4F',
   green_light: '#4CAF50',
@@ -25,7 +27,7 @@ export const colorPalet = {
 
   yellow_dark: '#FFD600',
   yello_light: '#FFEB3B',
-//#00050d
+
 
 
   get primary() { return this.darkblue},

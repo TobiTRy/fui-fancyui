@@ -54,7 +54,6 @@ const useSlider = ({
   positionToColorFunc,
   colorToPositionFunc,
   handlerSlider,
-  opacity,
   handlerColor,
 }: IUseSlider): IUseSliderReturn => {
   const [markerPosition, setMarkerPosition] = useState<IMarkerPosition>({ x: 0, y: 0 });
@@ -79,7 +78,7 @@ const useSlider = ({
       const rect = sliderRef.current.getBoundingClientRect();
       if (type === 'hue') {
         const newColor = sliderPositionToColorFunc && sliderPositionToColorFunc(clientX, rect);
-        handlerSlider && handlerSlider(newColor ?? 0);
+        handlerSlider && handlerSlider(Math.floor(newColor!) ?? 0);
         const createColor = Color({ h: newColor, s: 100, l: 50 });
         updateMarkerPosition(createColor);
       } else if (type === 'opacity') {
@@ -95,7 +94,7 @@ const useSlider = ({
         updateMarkerPosition(createColor);
       }
     },
-    [updateMarkerPosition, positionToColorFunc, type, color, hue, sliderPositionToColorFunc, opacity]
+    [updateMarkerPosition, positionToColorFunc, type,  hue, sliderPositionToColorFunc, handlerSlider, handlerColor]
   );
 
   const throttledHandleInteraction = useCallback(throttle(handleInteraction), [handleInteraction]);
@@ -104,33 +103,65 @@ const useSlider = ({
   const handleInteractionStart = (event: React.MouseEvent<HTMLDivElement, MouseEvent> | React.TouchEvent<HTMLDivElement>) => {
     setIsInteracting(true);
     if (event.nativeEvent instanceof MouseEvent) {
-      event.preventDefault();
       throttledHandleInteraction(event.nativeEvent.clientX, event.nativeEvent.clientY);
     } else if (event.nativeEvent instanceof TouchEvent) {
-      event.preventDefault();
       throttledHandleInteraction(event.nativeEvent.touches[0].clientX, event.nativeEvent.touches[0].clientY);
     }
   };
+  
+  // this useEffect is used to prevent the body from scrolling when the user is interacting with the slider
+  useEffect(() => {
+    if (isInteracting) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [isInteracting]);
+  
+
 
   //handle the interaction with the slider and the color area
   const handleInteractionMove = useCallback(
     (event: MouseEvent | TouchEvent) => {
       if (!isInteracting) return;
+      
       if (event instanceof MouseEvent) {
         event.preventDefault();
         throttledHandleInteraction(event.clientX, event.clientY);
       } else if (event instanceof TouchEvent) {
-        event.preventDefault();
+        if (event.cancelable) event.preventDefault();
         throttledHandleInteraction(event.touches[0].clientX, event.touches[0].clientY);
       }
     },
-    [isInteracting, handleInteraction]
+    [isInteracting, throttledHandleInteraction]
   );
 
   //handle the interaction end with the slider and the color area
   const handleInteractionEnd = useCallback(() => {
     setIsInteracting(false);
   }, []);
+
+  
+  //update the marker position when the color changes
+  useEffect(() => {
+    if (!color) return;
+    updateMarkerPosition(color);
+  }, [color, updateMarkerPosition]);
+
+
+  //update the marker position when the hue changes
+  useEffect(() => {
+    if (!hue) return;
+    if(type === 'color' && color)  {
+      updateMarkerPosition(color.hue(hue));
+    } else {
+      updateMarkerPosition(Color({ h: hue, s: 50, l: 50 }));
+    };
+  }, [hue, updateMarkerPosition, color, type]);
+
 
   //set the initial position of the marker
   useEffect(() => {
@@ -149,9 +180,9 @@ const useSlider = ({
     const handleInteractionEndFunc = () => handleInteractionEnd();
     if (isInteracting) {
       window.addEventListener('mousemove', handleInteractionMoveFunc);
-      window.addEventListener('touchmove', handleInteractionMoveFunc);
+      window.addEventListener('touchmove', handleInteractionMoveFunc,  { passive: false });
       window.addEventListener('mouseup', handleInteractionEndFunc);
-      window.addEventListener('touchend', handleInteractionEndFunc);
+      window.addEventListener('touchend', handleInteractionEndFunc,  { passive: false });
     }
 
     return () => {

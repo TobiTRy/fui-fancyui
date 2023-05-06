@@ -11,6 +11,7 @@ export default interface IFancyInput {
   max?: number | string;
   step?: number | string;
   value?: string | number;
+  defaultValue?: string | number;
   name?: string;
   disabled?: boolean;
   icon?: JSX.Element;

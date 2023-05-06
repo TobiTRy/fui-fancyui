@@ -8,7 +8,7 @@ import { InputWarapper } from '../../Atoms/InputWrapper';
 import { AnimatedInputLabel } from '../../Atoms/InputLabel';
 
 export default function FancyInput(props: IFancyInput) {
-  const { label, type, align, icon, errorMessage, disabled, handler, value, ...inputProps } = props;
+  const { label, type, align, icon, errorMessage, disabled, handler, value, defaultValue, ...inputProps } = props;
 
   //this state toggled the clen text input and the censored one
   const [showPassword, setShowPassword] = useState(false);
@@ -41,7 +41,7 @@ export default function FancyInput(props: IFancyInput) {
           required
           align={align}
           {...inputProps}
-          defaultValue={value}
+          value={value}
           onFocus={() => setIsActive(true)}
           onBlur={() => setIsActive(false)}
           autoComplete={'off'}

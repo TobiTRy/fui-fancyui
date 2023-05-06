@@ -20,29 +20,38 @@ const SliderContainer = styled.div`
 interface IHueSlider {
   handler: (hue: number ) => void;
   hue: number;
+  color?: Color;
 }
 
+//define the min and max hue value for the slider
 const minHue = 0;
 const maxHue = 359.9;
 
+//calculate the hue from the position of the slider hue is max value of 359.9
 const positionToColorHue = (clientX: number, rect: DOMRect) => {
   const x = clientX - rect.left;
   const hue = (x / rect.width) * (maxHue - minHue);
   return Math.min(Math.max(hue, minHue), maxHue);
 };
 
+
+//calculate the position of the slider from the hue value 
 const colorToPositionHue = (color: Color) => {
   if (!color) return { x: 0, y: 0 };
-  const trueColor = Color(color);
-  const hue = trueColor.hsl().object().h;
+  const hue = Color(color).hsl().object().h;
   const huePercentage = ((hue - minHue) / (maxHue - minHue)) * 100;
 
   return { x: huePercentage , y: 0 };
 };
 
-const HueSlider = ({ hue, handler }: IHueSlider) => {
+
+// --------------------------------------------------------------------------- //
+// ---------------------- Define the Hue Slider Component -------------------- //
+// --------------------------------------------------------------------------- //
+const HueSlider = ({ hue, handler, color }: IHueSlider) => {
   const handleHueChange = (newHue: number) => handler(parseFloat(newHue.toFixed(1)));
   const { sliderRef, markerPosition, handleInteractionStart, isInteracting } = useSlider({
+    color,
     hue,
     sliderPositionToColorFunc: positionToColorHue,
     colorToPositionFunc: colorToPositionHue,

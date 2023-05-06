@@ -1,8 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { ColorTypes } from '../ColorOutput.model';
 
 import FancyInput from '../../FancyInput/FancyInput';
 import AdaptedInputs from './AdaptedInput';
+import { ContainerInputs, WrapperInputs } from './InputFields.style';
+
 
 
 interface IInputFields {
@@ -15,25 +17,29 @@ export default function InputFields({currentColorObject, handler }:IInputFields)
 
   const handleInputChange = (e?: React.ChangeEvent<HTMLInputElement>) => {
     if(!e) return;
+    // oder the values and keys and send the changed input to the parent component
     const getChangedInput = { inputLetter: e.target.name, value: e.target.value ? e.target.value : '0' };
-    
     handler(getChangedInput);
   };
 
+
   return (
-    <div>
+    <WrapperInputs>
       {typeof currentColorObject?.color === 'string' ? (
-        <FancyInput type="number" value={currentColorObject.color} handler={(e) => handleInputChange(e)}/>
+        <ContainerInputs>
+          <FancyInput type="text" name='color' value={currentColorObject.color} align='center' handler={(e) => handleInputChange(e)}/>
+          <p>{currentColorObject.type}</p>
+        </ContainerInputs>
       ) : (
         Object.entries(currentColorObject.color).map(([key, value]) => {
           return (
-            <div key={key} >
+            <ContainerInputs key={key} >
               <AdaptedInputs inputLetter={key} value={value} handler={handleInputChange}/>
               <p>{key}</p>
-            </div>
+            </ContainerInputs>
           );
         })
       )}
-    </div>
+    </WrapperInputs>
   );
 }

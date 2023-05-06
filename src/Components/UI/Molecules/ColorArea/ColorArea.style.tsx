@@ -1,11 +1,10 @@
 import styled from 'styled-components';
-
+import { borderRadius } from '../../Design/design';
 
 export const WrapperColorArea = styled.div`
   position: relative;
   width: 100%;
   aspect-ratio: 16/9;
-
 `;
 
 const dynamicGradient = ({hue}:{hue: number}) => ({
@@ -21,6 +20,7 @@ export const ColorAreaContainer = styled.div.attrs(dynamicGradient)<{ hue: numbe
   aspect-ratio: 16/9;
   cursor: crosshair;
   user-select: none;
+  border-radius: ${borderRadius.small};
 `;
 
 export const LightnessGradient = styled.div`
@@ -41,12 +41,11 @@ export const Marker = styled.div`
   pointer-events: none;
 `;
 
-
-
 export const WrapperMarker = styled.div`
   position: absolute;
   box-sizing: border-box;
   transform: translate(-50%, -50%);
-  height: 4%;
+  height: 12px;
   aspect-ratio: 1/1;
+  border-radius: ${borderRadius.small};
 `;
