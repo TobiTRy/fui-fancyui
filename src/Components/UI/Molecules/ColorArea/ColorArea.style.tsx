@@ -7,12 +7,14 @@ export const WrapperColorArea = styled.div`
   aspect-ratio: 16/9;
 `;
 
+
+
+
 const dynamicGradient = ({hue}:{hue: number}) => ({
   style: {
-    background: `linear-gradient(to right, hsl(${hue}, 0%, 100%), hsl(${hue}, 100%, 50%))`,
+    backgroundColor: `hsl(${hue}, 100%, 50%)`,
   },
 })
-
 export const ColorAreaContainer = styled.div.attrs(dynamicGradient)<{ hue: number }>`
   overflow: hidden;
   position: relative;
@@ -23,11 +25,29 @@ export const ColorAreaContainer = styled.div.attrs(dynamicGradient)<{ hue: numbe
   border-radius: ${borderRadius.small};
 `;
 
-export const LightnessGradient = styled.div`
+const dynamicGradientLightness = ({hue}:{hue: number}) => ({
+  style: {
+    backgroundImage: `linear-gradient(to right, hsl(${hue}, 100%, 100%), transparent)`,
+  },
+})
+export const LightnessGradient = styled.div.attrs(dynamicGradientLightness)<{ hue: number }>`
   position: absolute;
   width: 100%;
   height: 100%;
   background: linear-gradient(to top, #000, transparent);
+`;
+
+
+const dynamicGradientSaturation = ({hue}:{hue: number}) => ({
+  style: {
+    backgroundImage: `linear-gradient(to bottom, transparent, hsl(${hue}, 0%, 0%))`,
+  },
+})
+export const SaturationGradient = styled.div.attrs(dynamicGradientSaturation)<{ hue: number }>`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  
 `;
 
 export const Marker = styled.div`

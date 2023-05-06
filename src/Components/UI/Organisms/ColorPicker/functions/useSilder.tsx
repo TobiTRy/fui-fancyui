@@ -12,7 +12,7 @@ interface IUseSlider {
   handlerSlider?: (value: number) => void;
   handlerColor?: (color: Color) => void;
   sliderPositionToColorFunc?: (clientX: number, rect: DOMRect) => number;
-  positionToColorFunc?: (hue: number, clientX: number, clientY: number, rect: DOMRect) => { h: number; s: number; l: number } | number;
+  positionToColorFunc?: (hue: number, clientX: number, clientY: number, rect: DOMRect) => { h: number; s: number; v: number } | number;
   colorToPositionFunc: (color: Color, rect: DOMRect) => { x: number; y: number };
 }
 

@@ -6,6 +6,7 @@ import {
   Marker,
   LightnessGradient,
   WrapperMarker,
+  SaturationGradient
 } from './ColorArea.style';
 import Color from 'color';
 import ColorIndicator from '../../Atoms/ColorIndicator/ColorIndicator';
@@ -17,32 +18,33 @@ interface IColorArea {
   handler: (color: Color) => void;
 }
 
-
-const positionToColor = (hue: number ,clientX: number, clientY: number, rect: DOMRect) => {
+const positionToColor = (hue: number, clientX: number, clientY: number, rect: DOMRect) => {
   const x = Math.max(0, Math.min(clientX - rect.left, rect.width));
   const y = Math.max(0, Math.min(clientY - rect.top, rect.height));
 
   const saturation = (x / rect.width) * 100;
-  const lightness = (1 - y / rect.height) * (100 - (x / rect.width) * 50);
-  return { h: hue ?? 0, s: saturation, l: lightness };
+  const value = 100 - (y / rect.height) * 100;
+
+  return {
+    h: hue ?? 0,
+    s: saturation,
+    v: value
+  };
 };
 
 
 const colorToPosition = (color: Color, rect: DOMRect) => {
-  console.log('colorToPosition', color);
-  const hslColor = color.hsl().object();
-  const saturation = hslColor.s;
-  const lightness = hslColor.l;
+  const hsvColor = color.hsv().object();
+  const saturation = hsvColor.s;
+  const value = hsvColor.v;
 
-  console.log(hslColor, 'hslColor')
+  const x = (saturation * rect.width) / 100;
+  const y = (1 - value / 100) * rect.height;
 
-  const calcX = (saturation / 100) * rect.width;
-  const x = saturation;
+  const xPercent = (x / rect.width) * 100;
+  const yPercent = (y / rect.height) * 100;
 
-  const calcYpos = rect.height * (1 - lightness / Math.max(1, 100 - 50 * (calcX / rect.width)));
-  console.log(calcYpos, 'calcYpos')
-  const y = (calcYpos / rect.height) * 100;
-  return { x, y };
+  return { x: Math.max(0, xPercent), y: Math.max(0, yPercent) };
 };
 
 
@@ -61,7 +63,8 @@ const ColorArea = ({ color, hue, handler }:IColorArea) => {
   return (
     <WrapperColorArea>
       <ColorAreaContainer hue={hue} ref={sliderRef} onMouseDown={handleInteractionStart} onTouchStart={handleInteractionStart}>
-        <LightnessGradient />
+        <LightnessGradient hue={hue}/>
+        <SaturationGradient hue={hue}/>
 
         {/* the sliders marker with the color indicator that displays the current picked color */}
         <WrapperMarker style={{ top: markerPosition.y + '%', left: markerPosition.x + '%'}}>
