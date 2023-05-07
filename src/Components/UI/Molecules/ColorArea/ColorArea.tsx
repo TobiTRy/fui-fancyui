@@ -1,4 +1,6 @@
 import React from 'react';
+import Color from 'color';
+
 import useSlider from '../../Atoms/Hooks/useSilder';
 import {
   WrapperColorArea,
@@ -9,7 +11,6 @@ import {
   SaturationGradient,
   CurrentColorArea
 } from './ColorArea.style';
-import Color from 'color';
 import ColorIndicator from '../../Atoms/ColorIndicator/ColorIndicator';
 
 
@@ -19,10 +20,14 @@ interface IColorArea {
   handler: (color: Color) => void;
 }
 
+//this function calculates the current color to a position using the HSV Color Type
+//HSV can be better used for merging Lightness and Saturation (L: 100 and S:100) = Full Color
 const positionToColor = (hue: number, clientX: number, clientY: number, rect: DOMRect) => {
+  //calculate the position of the mouse in the color area(rect)
   const x = Math.max(0, Math.min(clientX - rect.left, rect.width));
   const y = Math.max(0, Math.min(clientY - rect.top, rect.height));
 
+  //calculate the saturation and lightness(value) from the position
   const saturation = (x / rect.width) * 100;
   const value = 100 - (y / rect.height) * 100;
 
@@ -33,25 +38,35 @@ const positionToColor = (hue: number, clientX: number, clientY: number, rect: DO
   };
 };
 
-
+//this function calculates the color to the position on the area using the HSV Color Type
 const colorToPosition = (color: Color, rect: DOMRect) => {
+  //get the saturation and lightness(value) from the color
   const hsvColor = color.hsv().object();
   const saturation = hsvColor.s;
   const value = hsvColor.v;
 
+  //calculate the x and y position from the saturation and lightness(value)
   const x = (saturation * rect.width) / 100;
   const y = (1 - value / 100) * rect.height;
 
+  //calculate the percentage of the position
   const xPercent = (x / rect.width) * 100;
   const yPercent = (y / rect.height) * 100;
 
   return { x: Math.max(0, xPercent), y: Math.max(0, yPercent) };
 };
 
-
+// --------------------------------------------------------------------------- //
+// ----------- The main ColorArea Componet to pick a simple color ------------ //
+// --------------------------------------------------------------------------- //
 const ColorArea = ({ color, hue, handler }:IColorArea) => {
+  //give back the pickt color to the parent component
   const handleColorChange = (newColor: Color) => handler(newColor);
+
+  //use the hue from the parent component or set it to 0
   const currentHue = hue ?? 0;
+
+  //use the useSlider hook handles all the interaction with the color area
   const { sliderRef, markerPosition, handleInteractionStart, isInteracting } = useSlider({
     color,
     hue: currentHue,
@@ -63,15 +78,16 @@ const ColorArea = ({ color, hue, handler }:IColorArea) => {
 
   return (
     <WrapperColorArea>
+      {/* the color indicator that displays the current picked color (Moves with the marker)*/}
       <ColorIndicator position={{y: markerPosition.y + '%', x: markerPosition.x + '%' }} color={Color(color).toString()} isActive={isInteracting}/>
+      {/* the color area with the gradients (PickedColor / Lightness / Saturation) */}
       <ColorAreaContainer ref={sliderRef} onMouseDown={handleInteractionStart} onTouchStart={handleInteractionStart}>
         <CurrentColorArea hue={hue}/>
-        <LightnessGradient hue={hue}/>
-        <SaturationGradient hue={hue}/>
-        {/* the sliders marker with the color indicator that displays the current picked color */}
+        <LightnessGradient/>
+        <SaturationGradient/>
+        {/* the marker to display there current picked color on the area */}
         <WrapperMarker style={{ top: markerPosition.y + '%', left: markerPosition.x + '%'}}>
-          <Marker>
-          </Marker>
+          <Marker />
         </WrapperMarker>
         
       </ColorAreaContainer>

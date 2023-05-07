@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 import { borderRadius } from '../../Design/design';
 
+//the wrapper of the color area (it wraps the color area and the color indicator)
 export const WrapperColorArea = styled.div`
   position: relative;
   width: 100%;
   aspect-ratio: 16/9;
 `;
 
-
-
+// the color area container (it wraps all gradients and the marker)
 export const ColorAreaContainer = styled.div`
   overflow: hidden;
   position: relative;
@@ -19,42 +19,38 @@ export const ColorAreaContainer = styled.div`
 `;
 
 
-const dynamicGradient = ({hue}:{hue: number}) => ({
+// ---------- The ColorArea Gradients ------- //
+
+//the color gradient it shows the current color via the hue
+const dynamicColorGradient = ({hue}:{hue: number}) => ({
   style: {
     background: `hsl(${hue}, 100%, 50%)`,
   },
 })
-export const CurrentColorArea = styled.div.attrs(dynamicGradient)<{ hue: number }>`
+export const CurrentColorArea = styled.div.attrs(dynamicColorGradient)<{ hue: number }>`
   position: absolute;
   width: 100%;
   height: 100%;
   border-radius: ${borderRadius.small};
 `
 
-const dynamicGradientLightness = ({hue}:{hue: number}) => ({
-  style: {
-    background: `linear-gradient(to right, hsl(${hue}, 100%, 100%), transparent)`,
-  },
-})
-export const LightnessGradient = styled.div.attrs(dynamicGradientLightness)<{ hue: number }>`
-  position: absolute;
-  width: 100%;
-  height: 100%;;
-`;
-
-
-const dynamicGradientSaturation = ({hue}:{hue: number}) => ({
-  style: {
-    background: `linear-gradient(to bottom, transparent, hsl(${hue}, 0%, 0%))`,
-  },
-})
-export const SaturationGradient = styled.div.attrs(dynamicGradientSaturation)<{ hue: number }>`
+export const LightnessGradient = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;
+  background: linear-gradient(to right, hsl(0, 100%, 100%), transparent);
+`;
+
+export const SaturationGradient = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent, hsl(0, 0%, 0%)) ;
   
 `;
 
+
+// ---------- The Marker ------- //
 export const Marker = styled.div`
   position: relative;
   box-sizing: border-box;

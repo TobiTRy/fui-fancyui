@@ -1,8 +1,8 @@
 import React from 'react';
-
-import { borderRadius, uiColors } from '../Design/design';
 import Color from 'color';
 import styled from 'styled-components';
+
+import { borderRadius } from '../Design/design';
 import { CheckerboardPattern } from './CheckBoardPattern';
 
 interface IColorDisplay {
@@ -20,7 +20,6 @@ const Wrapper = styled.div<{fullHeight?: boolean}>`
 const colorDisplayColor = ({ color, opacity }: { color: string; opacity?: number }) => {
   const checkOpacity = opacity === undefined ? 1 : opacity;
   const transformedColor = Color(color).rgb().alpha(checkOpacity);
-
   return {
     style: {
       background: `${transformedColor.toString()}`,
@@ -36,6 +35,9 @@ const ColorDisplayContainer = styled.div.attrs(colorDisplayColor)<{ color: strin
   z-index: 1;
 `;
 
+// --------------------------------------------------------------------------- //
+// ----- The main ColorDisplay Component for display the color in a box ----- //
+// --------------------------------------------------------------------------- //
 export default function ColorDisplay({ color, opacity, fullHeight }: IColorDisplay) {
   return (
     <Wrapper fullHeight={fullHeight}>
