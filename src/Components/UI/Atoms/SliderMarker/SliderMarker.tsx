@@ -1,7 +1,7 @@
+import React from 'react';
 
 import styled from 'styled-components';
 import { borderRadius } from '../../Design/design';
-
 
 export const WrapperMarker = styled.div`
   position: absolute;
@@ -25,15 +25,16 @@ const Marker = styled.div`
   border-radius: ${borderRadius.small};
 `;
 
+// --------------------------------------------------------------------------- //
+// --- The main Marker Component to display the position on the slider ------ //
+// --------------------------------------------------------------------------- //
 interface ISliderMarker {
   position: string;
   children?: React.ReactNode;
 }
-
-// the marker for the hue and opacity slider 
 export default function SliderMarker({position, children}: ISliderMarker) {
   return (
-    <WrapperMarker style={{ left: position  }}>
+    <WrapperMarker style={{ left: position }}>
       <Marker>
         {/* the children can use to display something in the marker like the color indicator that moves with the marker */}
         {children && children}
