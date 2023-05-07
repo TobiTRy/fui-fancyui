@@ -14,12 +14,6 @@ import {
 import ColorIndicator from '../../Atoms/ColorIndicator/ColorIndicator';
 
 
-interface IColorArea {
-  color: Color;
-  hue: number;
-  handler: (color: Color) => void;
-}
-
 //this function calculates the current color to a position using the HSV Color Type
 //HSV can be better used for merging Lightness and Saturation (L: 100 and S:100) = Full Color
 const positionToColor = (hue: number, clientX: number, clientY: number, rect: DOMRect) => {
@@ -59,6 +53,11 @@ const colorToPosition = (color: Color, rect: DOMRect) => {
 // --------------------------------------------------------------------------- //
 // ----------- The main ColorArea Componet to pick a simple color ------------ //
 // --------------------------------------------------------------------------- //
+interface IColorArea {
+  color: Color;
+  hue: number;
+  handler: (color: Color) => void;
+}
 const ColorArea = ({ color, hue, handler }:IColorArea) => {
   //give back the pickt color to the parent component
   const handleColorChange = (newColor: Color) => handler(newColor);

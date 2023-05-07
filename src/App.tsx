@@ -89,7 +89,7 @@ function App() {
         <SpeedDialButton items={menuItems} />
         <EditBarModule active={activated} sectionType={'sectionBox'}/> */}
         {/* <CanvasColorPicker /> */}
-        <ColorPicker outputFormat={"hsla"} colorArea={true} hueSlider={true} opacitySlider={true} displayColor={true} colorOutput={true} handler={(color: any) => console.log(color)} />
+        <ColorPicker outputFormat={"rgba"} colorArea={true} hueSlider={true} opacitySlider={true} displayColor={true} colorOutput={true} handler={(color: any) => console.log(color)} />
       </div>
     </>
   );

@@ -21,6 +21,10 @@ const Wrapper = styled.div`
 
 const roundValue = (value: number) => Math.round(value * 100) / 100;
 
+
+// --------------------------------------------------------------------------- //
+// ------------------- The main ColorPicker Component ------------------------ //
+// --------------------------------------------------------------------------- //
 interface IColorPicker {
   outputFormat?: 'hsl' | 'hex' | 'rgb' | 'rgba' | 'hsla' | 'hexa';
   colorArea?: boolean;
@@ -30,10 +34,6 @@ interface IColorPicker {
   displayColor?: boolean;
   handler: (color: string) => void;
 };
-
-// --------------------------------------------------------------------------- //
-// ------------------- The main ColorPicker Component ------------------------ //
-// --------------------------------------------------------------------------- //
 const ColorPicker = (props : IColorPicker) => {
   const { colorArea, hueSlider, opacitySlider, colorOutput, outputFormat, displayColor, handler } = props;
   const [rawColor, setRawColor] = useState<Color>(Color('hsl(0, 100%, 50%)'));
@@ -43,12 +43,8 @@ const ColorPicker = (props : IColorPicker) => {
   //create a calculated main color and use the normal only for display (flicker on the color area)
   //this sets the main color that will be used in the parent component
   useMemo(() => {
-    const calculatedMainColor = emitSelectedColorChange({color: rawColor, opacity, outputFormat: 'hsl'});
     const calculateGiveBackColor = emitSelectedColorChange({color:rawColor, opacity, outputFormat});  
-
-    handler(Color(calculateGiveBackColor).string());
-    
-    return calculatedMainColor;
+    handler(calculateGiveBackColor);
   }, [rawColor, opacity, outputFormat, handler])
 
   //this function is handle the color change in the child ColorArea component
