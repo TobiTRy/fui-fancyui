@@ -1,12 +1,8 @@
 import React from 'react';
 import FancyInput from '../../FancyInput/FancyInput';
 
-interface IAdapedInput {
-  inputLetter: string;
-  handler: () => void;
-  value: number;
-}
 
+//the attribiutes for each color input
 const colorLettersObject = [
   {
     colorLetter: 'a',
@@ -52,9 +48,18 @@ const colorLettersObject = [
   },
 ];
 
-export default function AdaptedInput(props: IAdapedInput) {
+// --------------------------------------------------------------------------- //
+// --- The AdaptInputs Component creates for each color a specific input ----- //
+// --------------------------------------------------------------------------- //
+interface IAdapedInput {
+  inputLetter: string;
+  value: number;
+  handler: () => void;
+}
+export default function AdaptInputs(props: IAdapedInput) {
   const { inputLetter, handler, value } = props;
 
+  //find the specific color object for the input (like: r)
   const colorObject = colorLettersObject.find(
     (obj) => obj.colorLetter === inputLetter
   );

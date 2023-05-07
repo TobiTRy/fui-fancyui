@@ -2,12 +2,12 @@ import styled from "styled-components";
 import {  spacingPx } from "../../Design/design";
 
 export const Container = styled.div`
+  box-sizing: border-box;
   display: grid;
   grid-template-columns: 9fr 1fr;
-  gap: ${spacingPx.sm};
   align-items: stretch;
   width: 100%;
-  box-sizing: border-box;
+  gap: ${spacingPx.sm};
 `;
 
 export const WrapperSVG = styled.div`
