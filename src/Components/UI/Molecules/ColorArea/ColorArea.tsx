@@ -6,7 +6,8 @@ import {
   Marker,
   LightnessGradient,
   WrapperMarker,
-  SaturationGradient
+  SaturationGradient,
+  CurrentColorArea
 } from './ColorArea.style';
 import Color from 'color';
 import ColorIndicator from '../../Atoms/ColorIndicator/ColorIndicator';
@@ -62,14 +63,14 @@ const ColorArea = ({ color, hue, handler }:IColorArea) => {
 
   return (
     <WrapperColorArea>
-      <ColorAreaContainer hue={hue} ref={sliderRef} onMouseDown={handleInteractionStart} onTouchStart={handleInteractionStart}>
+      <ColorIndicator position={{y: markerPosition.y + '%', x: markerPosition.x + '%' }} color={Color(color).toString()} isActive={isInteracting}/>
+      <ColorAreaContainer ref={sliderRef} onMouseDown={handleInteractionStart} onTouchStart={handleInteractionStart}>
+        <CurrentColorArea hue={hue}/>
         <LightnessGradient hue={hue}/>
         <SaturationGradient hue={hue}/>
-
         {/* the sliders marker with the color indicator that displays the current picked color */}
         <WrapperMarker style={{ top: markerPosition.y + '%', left: markerPosition.x + '%'}}>
           <Marker>
-            <ColorIndicator color={Color(color).toString()} isActive={isInteracting}/>
           </Marker>
         </WrapperMarker>
         

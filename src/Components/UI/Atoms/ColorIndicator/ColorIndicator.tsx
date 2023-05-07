@@ -4,7 +4,7 @@ import { Indicator, WrapperIndicator } from './ColorIndicator.style';
 import Color from 'color';
 
 interface IColorIndicator {
-  position?: { x: number, y: number };
+  position?: { x: number | string, y: number | string };
   color: string;
   isActive: boolean;
 };

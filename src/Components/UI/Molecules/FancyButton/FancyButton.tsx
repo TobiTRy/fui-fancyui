@@ -125,7 +125,7 @@ const generateOutlined = (props: IFancyButton) => {
     position: relative;
     background-color: transparent;
     padding: ${paddings[size]};
-    border: 2px solid ${uiColors[design].main};
+    border: 1.5px solid ${uiColors[design].main};
     color: ${ textColor };
 
     &:hover:enabled {

@@ -41,7 +41,7 @@ const ColorOutput = ({ pickedColor, opacity, handler, handlerOpacity }: IColorOu
   const [currentPicketColor, setCurrentPickedColor] = useState<Color>(pickedColor);
 
   //memoized color object
-  const currentColorObject = useMemo(
+  const transformedColorObject = useMemo(
     () => colorTransformator(currentPicketColor, opacity, colorFormatIndex),
     [colorFormatIndex, currentPicketColor, opacity]
   );
@@ -52,23 +52,22 @@ const ColorOutput = ({ pickedColor, opacity, handler, handlerOpacity }: IColorOu
     setColorFormatIndex(nextIndex);
   };
 
-  //this function handles the input change
+  //this function handles the input change and give back the color or alpha value 
   const handleInputChange = ({ inputLetter, value }: { inputLetter: string; value: string }) => {
-    if(!currentColorObject) return;
-    const { color } = currentColorObject
+    if(!transformedColorObject) return;
+    const { color } = transformedColorObject //e.g. {type: 'rgb', color: {…}}
 
-    //give back the color or alpha value 
     //strings are HEX and HEXA codes
     if (typeof color !== 'string') {
-      let colorObj = color as ColorTypeLetters;
+      let colorObj = color as ColorTypeLetters; //e.g. {r: 255, g: 255, b: 255, a: 1, h: 0, …}
+      const { a , ...colorWhitoutAlpha } = colorObj; //split out the alpha value
 
       if(inputLetter !== 'a') {
         console.log(inputLetter, value)
-        colorObj[inputLetter] = parseInt(value);
-        console.log(colorObj)
-        handler(Color(colorObj).hsl());
+        colorWhitoutAlpha[inputLetter] = parseInt(value);
+        handler(Color(colorWhitoutAlpha).hsl());
       } else {
-        handler(Color(colorObj).hsl());
+        handler(Color(colorWhitoutAlpha).hsl());
         handlerOpacity(parseFloat(value))
       }
     } else {
@@ -83,7 +82,7 @@ const ColorOutput = ({ pickedColor, opacity, handler, handlerOpacity }: IColorOu
 
   return (
     <Container>
-      <InputFields currentColorObject={currentColorObject} handler={handleInputChange} />
+      <InputFields currentColorObject={transformedColorObject} handler={handleInputChange} />
       <FancyButton onClick={handleFormatChange} outlined={true} icon={Svg} wide={true} size='small' design='accent'></FancyButton>
     </Container>
   );

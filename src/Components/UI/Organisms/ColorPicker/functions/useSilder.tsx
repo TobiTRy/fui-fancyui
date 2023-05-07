@@ -122,7 +122,6 @@ const useSlider = ({
   }, [isInteracting]);
   
 
-
   //handle the interaction with the slider and the color area
   const handleInteractionMove = useCallback(
     (event: MouseEvent | TouchEvent) => {

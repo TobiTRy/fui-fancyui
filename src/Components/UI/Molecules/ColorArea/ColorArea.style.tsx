@@ -9,38 +9,43 @@ export const WrapperColorArea = styled.div`
 
 
 
-
-const dynamicGradient = ({hue}:{hue: number}) => ({
-  style: {
-    backgroundColor: `hsl(${hue}, 100%, 50%)`,
-  },
-})
-export const ColorAreaContainer = styled.div.attrs(dynamicGradient)<{ hue: number }>`
+export const ColorAreaContainer = styled.div`
   overflow: hidden;
   position: relative;
-  width: 100%;
-  aspect-ratio: 16/9;
+  height: 100%;
   cursor: crosshair;
   user-select: none;
   border-radius: ${borderRadius.small};
 `;
 
+
+const dynamicGradient = ({hue}:{hue: number}) => ({
+  style: {
+    background: `hsl(${hue}, 100%, 50%)`,
+  },
+})
+export const CurrentColorArea = styled.div.attrs(dynamicGradient)<{ hue: number }>`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: ${borderRadius.small};
+`
+
 const dynamicGradientLightness = ({hue}:{hue: number}) => ({
   style: {
-    backgroundImage: `linear-gradient(to right, hsl(${hue}, 100%, 100%), transparent)`,
+    background: `linear-gradient(to right, hsl(${hue}, 100%, 100%), transparent)`,
   },
 })
 export const LightnessGradient = styled.div.attrs(dynamicGradientLightness)<{ hue: number }>`
   position: absolute;
   width: 100%;
-  height: 100%;
-  background: linear-gradient(to top, #000, transparent);
+  height: 100%;;
 `;
 
 
 const dynamicGradientSaturation = ({hue}:{hue: number}) => ({
   style: {
-    backgroundImage: `linear-gradient(to bottom, transparent, hsl(${hue}, 0%, 0%))`,
+    background: `linear-gradient(to bottom, transparent, hsl(${hue}, 0%, 0%))`,
   },
 })
 export const SaturationGradient = styled.div.attrs(dynamicGradientSaturation)<{ hue: number }>`

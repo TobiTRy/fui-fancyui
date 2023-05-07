@@ -1,11 +1,14 @@
 import React, { useState, useMemo, useCallback } from 'react';
+
+import Color from 'color';
+import styled from 'styled-components';
+
+import ColorDisplay from '../../Atoms/ColorDisplay';
 import ColorArea from '../../Molecules/ColorArea/ColorArea';
 import HueSlider from '../../Molecules/HueSlider';
 import OpacitySlider from '../../Molecules/OpacitySlider/OpacitySlider';
 import ColorOutput from '../../Molecules/ColorOutput/ColorOutput';
-import Color from 'color';
 import { emitSelectedColorChange } from './colorPickerUtils';
-import styled from 'styled-components';
 
 const Wrapper = styled.div`
   width: 100%;
@@ -17,18 +20,18 @@ const Wrapper = styled.div`
 
 const roundValue = (value: number) => Math.round(value * 100) / 100;
 
-
 interface IColorPicker {
   outputFormat?: 'hsl' | 'hex' | 'rgb' | 'rgba' | 'hsla' | 'hexa';
   colorArea?: boolean;
   opacitySlider?: boolean;
   hueSlider?: boolean;
   colorOutput?: boolean;
+  displayColor?: boolean;
   handler: (color: string) => void;
 }
 
 const ColorPicker = (props : IColorPicker) => {
-  const { colorArea, hueSlider, opacitySlider, colorOutput, outputFormat, handler } = props;
+  const { colorArea, hueSlider, opacitySlider, colorOutput, outputFormat, displayColor ,handler } = props;
   const [rawColor, setRawColor] = useState<Color>(Color('hsl(0, 100%, 50%)'));
   const [hue, setHue] = useState(0);
   const [opacity, setOpacity] = useState(1);
@@ -38,8 +41,9 @@ const ColorPicker = (props : IColorPicker) => {
   useMemo(() => {
     const calculatedMainColor = emitSelectedColorChange(rawColor, opacity, 'hsl');
     const calculateGiveBackColor = emitSelectedColorChange(rawColor, opacity, outputFormat);  
-    
+
     handler(Color(calculateGiveBackColor).string());
+    
     return calculatedMainColor;
   }, [rawColor, opacity, outputFormat, handler])
 
@@ -55,11 +59,12 @@ const ColorPicker = (props : IColorPicker) => {
     setHue(newHue);
   };
 
+  //this function is handle the color change in the child component
   const handleColorOutputChange = (newColor:Color) => {
     setHue(newColor.hue());
-
     setRawColor(newColor);
   }
+
   //this function is handle the opacity change in the child component
   const handleOpacityChange = useCallback((newOpacity: number) => {
     const roundedOpacity = roundValue(newOpacity)
@@ -68,6 +73,7 @@ const ColorPicker = (props : IColorPicker) => {
 
   return (
     <Wrapper>
+      { displayColor && <ColorDisplay color={rawColor} opacity={opacity} /> }
       { colorArea && <ColorArea hue={hue} color={rawColor} handler={handleColorChange} />}
       { hueSlider && <HueSlider handler={handleHueChange} color={rawColor} hue={hue} />}
       { opacitySlider && <OpacitySlider color={Color(rawColor).alpha(opacity)} opacity={opacity} handler={handleOpacityChange} />}

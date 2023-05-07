@@ -31,6 +31,7 @@ const maxHue = 359.9;
 const positionToColorHue = (clientX: number, rect: DOMRect) => {
   const x = clientX - rect.left;
   const hue = (x / rect.width) * (maxHue - minHue);
+
   return Math.min(Math.max(hue, minHue), maxHue);
 };
 
