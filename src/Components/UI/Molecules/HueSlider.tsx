@@ -1,6 +1,6 @@
 import React from 'react';
 
-import useSlider from '../Organisms/ColorPicker/functions/useSilder';
+import useSlider from '../Atoms/Hooks/useSilder';
 import SliderMarker from '../Atoms/SliderMarker/SliderMarker';
 import styled from 'styled-components';
 import { borderRadius } from '../Design/design';

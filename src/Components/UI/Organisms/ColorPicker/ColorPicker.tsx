@@ -30,6 +30,10 @@ interface IColorPicker {
   handler: (color: string) => void;
 }
 
+
+// --------------------------------------------------------------------------- //
+// ---------- Here are the design variants for sizing and alignment ---------- //
+// --------------------------------------------------------------------------- //
 const ColorPicker = (props : IColorPicker) => {
   const { colorArea, hueSlider, opacitySlider, colorOutput, outputFormat, displayColor ,handler } = props;
   const [rawColor, setRawColor] = useState<Color>(Color('hsl(0, 100%, 50%)'));
@@ -39,8 +43,8 @@ const ColorPicker = (props : IColorPicker) => {
   //create a calculated main color and use the normal only for the show (flicker on the color area)
   //this sets the main color that will be used in the app
   useMemo(() => {
-    const calculatedMainColor = emitSelectedColorChange(rawColor, opacity, 'hsl');
-    const calculateGiveBackColor = emitSelectedColorChange(rawColor, opacity, outputFormat);  
+    const calculatedMainColor = emitSelectedColorChange({color: rawColor, opacity, outputFormat: 'hsl'});
+    const calculateGiveBackColor = emitSelectedColorChange({color:rawColor, opacity, outputFormat});  
 
     handler(Color(calculateGiveBackColor).string());
     

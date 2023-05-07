@@ -1,5 +1,5 @@
 import React from 'react';
-import useSlider from '../../Organisms/ColorPicker/functions/useSilder';
+import useSlider from '../../Atoms/Hooks/useSilder';
 import {
   WrapperColorArea,
   ColorAreaContainer,

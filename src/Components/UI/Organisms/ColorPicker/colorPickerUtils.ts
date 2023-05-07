@@ -1,6 +1,13 @@
 import Color from 'color';
 
-export const emitSelectedColorChange = (color, opacity, outputFormat) => {
+interface IColorPickerUtils {
+  color: Color;
+  opacity: number;
+  outputFormat?: 'hex' | 'hexa' | 'rgb' | 'rgba' | 'hsl' | 'hsla';
+}
+
+
+export const emitSelectedColorChange = ({color, opacity, outputFormat}: IColorPickerUtils) => {
   const colorObj = Color(color).alpha(opacity);
   let outputColor;
 
