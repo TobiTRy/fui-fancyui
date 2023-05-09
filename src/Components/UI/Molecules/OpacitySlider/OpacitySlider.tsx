@@ -1,9 +1,9 @@
 import React from 'react';
 import Color from 'color';
 
-import useSlider from '../../Atoms/Hooks/useSilder';
+import useSlider from '../../Atoms/functions/hooks/useSilder';
 import SliderMarker from '../../Atoms/SliderMarker/SliderMarker';
-import { SliderContainer, OpacityGradient } from './OpacitySlider.style';
+import { Wrapper, SliderContainer, OpacityGradient } from './OpacitySlider.style';
 import { CheckerboardPattern } from '../../Atoms/CheckBoardPattern';
 import ColorIndicator from '../../Atoms/ColorIndicator/ColorIndicator';
 
@@ -42,7 +42,7 @@ const OpacitySlider = ({ color, opacity, handler }: IOpacitySlider) => {
 
   //use the useSlider hook handles all the interaction with the opacity slider
   const { sliderRef, markerPosition, handleInteractionStart, isInteracting } = useSlider({
-    opacity,
+    opacity: opacity ?? 1,
     sliderPositionToColorFunc: positionToColorOpacity,
     colorToPositionFunc: colorToPositionOpacity,
     handlerSlider: handleOpacityChange,
@@ -50,18 +50,21 @@ const OpacitySlider = ({ color, opacity, handler }: IOpacitySlider) => {
   });
 
   return (
-    <SliderContainer ref={sliderRef} onMouseDown={handleInteractionStart} onTouchStart={handleInteractionStart}>
-      {/* the sliders marker with the color indicator which displays the opacity of the current color */}
-      <SliderMarker position={markerPosition.x + '%'}>
-        <ColorIndicator color={Color(color).alpha(opacity).string()} isActive={isInteracting} />
-      </SliderMarker>
+    <Wrapper>
 
-      {/* the opacity gradient for the slider*/}
-      <OpacityGradient color={color.toString()} />
+      <SliderContainer ref={sliderRef} onMouseDown={handleInteractionStart} onTouchStart={handleInteractionStart}>
+        {/* the sliders marker with the color indicator which displays the opacity of the current color */}
+        <SliderMarker position={markerPosition.x + '%'}>
+          <ColorIndicator color={Color(color).alpha(opacity).string()} isActive={isInteracting} />
+        </SliderMarker>
 
-      {/* the checkerboard pattern to display the transperancy*/}
-      <CheckerboardPattern />
-    </SliderContainer>
+        {/* the opacity gradient for the slider*/}
+        <OpacityGradient color={color.toString()} />
+
+        {/* the checkerboard pattern to display the transperancy*/}
+        <CheckerboardPattern />
+      </SliderContainer>
+    </Wrapper>
   );
 };
 

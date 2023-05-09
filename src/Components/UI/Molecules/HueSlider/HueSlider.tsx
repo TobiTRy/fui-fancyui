@@ -1,21 +1,10 @@
 import React from 'react';
 import Color from 'color';
-import styled from 'styled-components';
 
-import useSlider from '../Atoms/Hooks/useSilder';
-import SliderMarker from '../Atoms/SliderMarker/SliderMarker';
-import ColorIndicator from '../Atoms/ColorIndicator/ColorIndicator';
-import { borderRadius } from '../Design/design';
-
-//the slider with the hue gradient
-const SliderContainer = styled.div`
-  position: relative;
-  height: 20px;
-  background: linear-gradient(to right, red 0%, yellow 17%, lime 33%, cyan 50%, blue 67%, magenta 83%, red 100%);
-  cursor: pointer;
-  border-radius: ${borderRadius.small};
-  user-select: none;
-`;
+import useSlider from '../../Atoms/functions/hooks/useSilder';
+import SliderMarker from '../../Atoms/SliderMarker/SliderMarker';
+import ColorIndicator from '../../Atoms/ColorIndicator/ColorIndicator';
+import { SliderContainer, SliderWrapper } from './HueSlider.style';
 
 //define the min and max hue value for the slider
 const minHue = 0;
@@ -64,12 +53,14 @@ const HueSlider = ({ hue, handler, color }: IHueSlider) => {
 
 
   return (
-    <SliderContainer ref={sliderRef} onMouseDown={handleInteractionStart} onTouchStart={handleInteractionStart}>
-      {/* the marker for the with the ColorIndicator to displays the current picked hue */}
-      <SliderMarker position={ markerPosition.x + '%'}>
-        <ColorIndicator color={`hsl(${hue}, 100%, 50% )`} isActive={isInteracting} />
-      </SliderMarker>
-    </SliderContainer>
+    <SliderWrapper>
+      <SliderContainer ref={sliderRef} onMouseDown={handleInteractionStart} onTouchStart={handleInteractionStart}>
+        {/* the marker for the with the ColorIndicator to displays the current picked hue */}
+        <SliderMarker position={ markerPosition.x + '%'}>
+          <ColorIndicator color={`hsl(${hue}, 100%, 50% )`} isActive={isInteracting} />
+        </SliderMarker>
+      </SliderContainer>
+    </SliderWrapper>
   );
 };
 

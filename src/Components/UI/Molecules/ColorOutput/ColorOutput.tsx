@@ -2,9 +2,11 @@ import React, { useState, useEffect, useMemo } from 'react';
 import Color from 'color';
 
 import FancyButton from '../FancyButton/FancyButton';
-import colorTransformator, {colorFormats} from './ColorTransformator';
+import colorTransformator from './ColorTransformator';
 import { Container, WrapperSVG } from './ColorOutput.style';
 import InputFields from './InputFields/InputFields';
+import colorFormats from '../../Atoms/functions/variables/colorFormats';
+import { IColorFormat } from '../../Atoms/functions/variables/colorFormats';
 
 
 //Icon for the Switch Button
@@ -33,10 +35,12 @@ interface ColorTypeLetters {
 interface IColorOutput {
   pickedColor: Color;
   opacity: number;
+  currentColorType?: IColorFormat;
   handler: (color: Color) => void;
+  colorTypeHandler?: (type: IColorFormat) => void;
   handlerOpacity: (color: number) => void;
 }
-const ColorOutput = ({ pickedColor, opacity, handler, handlerOpacity }: IColorOutput) => {
+const ColorOutput = ({ pickedColor, opacity, handler, handlerOpacity, currentColorType, colorTypeHandler }: IColorOutput) => {
   const [colorFormatIndex, setColorFormatIndex] = useState(0);
   const [currentPicketColor, setCurrentPickedColor] = useState<Color>(pickedColor);
 
@@ -49,6 +53,7 @@ const ColorOutput = ({ pickedColor, opacity, handler, handlerOpacity }: IColorOu
   //this function changes the input type (colorFormats) to the next one in the array [rgb, rgba, hsl, hsla, hex, hexa]
   const handleFormatChange = () => {
     const nextIndex = (colorFormatIndex + 1) % colorFormats.length;
+    if(colorTypeHandler) colorTypeHandler(colorFormats[nextIndex])
     setColorFormatIndex(nextIndex);
   };
 

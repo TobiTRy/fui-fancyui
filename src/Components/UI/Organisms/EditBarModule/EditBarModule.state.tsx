@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { IEditBarIconButton } from '../../Atoms/EditBarIcon/IEditBarIcon';
-import { ICategory, ICategoryItem } from './EditBarItemsStructure/IEditbarObjectSturcture.model';
+import { ICategoryItem } from './EditBarItemsStructure/IEditbarObjectSturcture.model';
 
 // --------------------------------------------------------------------------- //
 // ------------- The Interface structure for the useEditBarStore ------------- //

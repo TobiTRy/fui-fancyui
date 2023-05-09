@@ -51,22 +51,26 @@ export const SaturationGradient = styled.div`
 
 
 // ---------- The Marker ------- //
-export const Marker = styled.div`
-  position: relative;
-  box-sizing: border-box;
-  width: 100%;
-  height: 100%;
-  border: 1px solid #ffffff;
-  border-radius: 50%;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
-  pointer-events: none;
-`;
-
 export const WrapperMarker = styled.div`
   position: absolute;
   box-sizing: border-box;
   transform: translate(-50%, -50%);
-  height: 12px;
+  width: 100%;
+  height: 100%;
   aspect-ratio: 1/1;
   border-radius: ${borderRadius.small};
 `;
+
+
+export const Marker = styled.div`
+  position: relative;
+  box-sizing: border-box;
+  width: 12px;
+  height: 12px;
+  border: 1px solid #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+`;
+

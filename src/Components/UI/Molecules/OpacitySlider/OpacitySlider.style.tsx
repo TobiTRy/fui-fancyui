@@ -1,6 +1,10 @@
 import Color from "color";
 import styled from "styled-components";
 
+export const Wrapper = styled.div`
+  padding: 3px;
+  box-sizing: border-box;
+`;
 
 // the chekcboard pattern that is displayed in the background of the slider
 export const CheckerboardPattern = styled.div`
@@ -14,6 +18,11 @@ export const CheckerboardPattern = styled.div`
   background-position: 0 0, 0 7px, 7px -7px, -7px 0px;
   opacity: 0.05;
   `;
+
+export const SliderWrapper = styled.div`
+  padding: 3px;
+  overflow: hidden;
+`;
 
 // the container of the slider
 export const SliderContainer = styled.div`

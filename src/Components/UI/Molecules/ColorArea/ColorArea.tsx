@@ -1,7 +1,7 @@
 import React from 'react';
 import Color from 'color';
 
-import useSlider from '../../Atoms/Hooks/useSilder';
+import useSlider from '../../Atoms/functions/hooks/useSilder';
 import {
   WrapperColorArea,
   ColorAreaContainer,
@@ -59,9 +59,6 @@ interface IColorArea {
   handler: (color: Color) => void;
 }
 const ColorArea = ({ color, hue, handler }:IColorArea) => {
-  //give back the pickt color to the parent component
-  const handleColorChange = (newColor: Color) => handler(newColor);
-
   //use the hue from the parent component or set it to 0
   const currentHue = hue ?? 0;
 
@@ -71,7 +68,7 @@ const ColorArea = ({ color, hue, handler }:IColorArea) => {
     hue: currentHue,
     positionToColorFunc: positionToColor,
     colorToPositionFunc: colorToPosition,
-    handlerColor:handleColorChange,
+    handlerColor: handler,
     type: 'color',
   });
 
@@ -85,7 +82,7 @@ const ColorArea = ({ color, hue, handler }:IColorArea) => {
         <LightnessGradient/>
         <SaturationGradient/>
         {/* the marker to display there current picked color on the area */}
-        <WrapperMarker style={{ top: markerPosition.y + '%', left: markerPosition.x + '%'}}>
+        <WrapperMarker style={{ transform: `translate(${markerPosition.x + '%'}, ${markerPosition.y + '%'})`}}>
           <Marker />
         </WrapperMarker>
         

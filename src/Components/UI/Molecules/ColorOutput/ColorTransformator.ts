@@ -1,7 +1,8 @@
 import Color from "color";
 import { ColorTypes, HSLAColor, HSLColor, RGBAColor, RGBColor } from "./ColorOutput.model";
+import colorFormats from "../../Atoms/functions/variables/colorFormats";
 
- export const colorFormats = ['rgb', 'rgba', 'hsl', 'hsla', 'hex', 'hexa'];
+
 
 
 //this function transforms a color to the desired format of the color output switch

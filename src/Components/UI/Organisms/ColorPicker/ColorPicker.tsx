@@ -1,15 +1,17 @@
-import React, { useState, useMemo, useCallback } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Color from 'color';
 import styled from 'styled-components';
 
-import ColorDisplay from '../../Atoms/ColorDisplay';
+import ColorDisplay from '../../Atoms/ColorDisplay/ColorDisplay';
 import ColorArea from '../../Molecules/ColorArea/ColorArea';
-import HueSlider from '../../Molecules/HueSlider';
+import HueSlider from '../../Molecules/HueSlider/HueSlider';
 import OpacitySlider from '../../Molecules/OpacitySlider/OpacitySlider';
 import ColorOutput from '../../Molecules/ColorOutput/ColorOutput';
 import { emitSelectedColorChange } from './colorPickerUtils';
 import { spacingPx } from '../../Design/design';
+
+import { useColorPickerStore } from './ColorPicker.state';
 
 const Wrapper = styled.div`
   width: 100%;
@@ -32,52 +34,61 @@ interface IColorPicker {
   hueSlider?: boolean;
   colorOutput?: boolean;
   displayColor?: boolean;
+  inputColor?: string;
   handler: (color: string) => void;
 };
 const ColorPicker = (props : IColorPicker) => {
-  const { colorArea, hueSlider, opacitySlider, colorOutput, outputFormat, displayColor, handler } = props;
-  const [rawColor, setRawColor] = useState<Color>(Color('hsl(0, 100%, 50%)'));
-  const [hue, setHue] = useState(0);
-  const [opacity, setOpacity] = useState(1);
+  const { colorArea, hueSlider, opacitySlider, colorOutput, outputFormat, displayColor, inputColor, handler } = props;
+
+  const displayColorValue = useColorPickerStore(state => state.displayColorValue);
+  const setDisplayColorValue = useColorPickerStore(state => state.setDisplayColorValue);
+
+  const rawColor = useColorPickerStore(state => state.currentRAWColor);
+  const setRawColor = useColorPickerStore(state => state.setCurrentRAWColor);
+  
+  const opacity = useColorPickerStore(state => state.currentOpacity);
+  const setOpacity = useColorPickerStore(state => state.setCurrentOpacity);
+
+  const hue = useColorPickerStore(state => state.currentHue);
+  const setHue = useColorPickerStore(state => state.setCurrentHue);
+
+  const colorType  = useColorPickerStore(state => state.currentColorType);
+  const setColorType = useColorPickerStore(state => state.setCurrentColorType);
+
 
   //create a calculated main color and use the normal only for display (flicker on the color area)
-  //this sets the main color that will be used in the parent component
-  useMemo(() => {
-    const calculateGiveBackColor = emitSelectedColorChange({color:rawColor, opacity, outputFormat});  
-    handler(calculateGiveBackColor);
-  }, [rawColor, opacity, outputFormat, handler])
+  //this sets the main color that will be used in the parent component=> {
+  const calculateGiveBackColor = emitSelectedColorChange({color:rawColor, opacity, outputFormat});  
+  handler(calculateGiveBackColor);
 
-  //this function is handle the color change in the child ColorArea component
-  const handleColorChange = (newColor: Color) => {
-    setRawColor(newColor);
-  };
-
-  //this function is handle the hue change in the child HueSlider component
-  const handleHueChange = (newHue: number) => {
-    const transformedColor = rawColor.hue(newHue);
-    setRawColor(transformedColor)
-    setHue(newHue);
-  };
+  
 
   //this function is handle the color change in the child ColorOutput component
-  const handleColorOutputChange = (newColor:Color) => {
-    setHue(newColor.hue());
-    setRawColor(newColor);
-  }
+  useEffect(() => {
+    const calcDisplayColor = emitSelectedColorChange({color:rawColor, opacity, outputFormat: colorType});
+    setDisplayColorValue(calcDisplayColor);
+  }, [colorType, hue ,rawColor, opacity, setDisplayColorValue]);
 
-  //this function is handle the opacity change in the child OpacitySlider component
-  const handleOpacityChange = (newOpacity: number) => {
-    const roundedOpacity = roundValue(newOpacity)
-    setOpacity(roundedOpacity);
-  }
+  useEffect(() => {
+    setRawColor(Color(rawColor).hue(hue));
+  }, [hue]);
+
+
+  useEffect(() => {
+    if(inputColor) {
+      setRawColor(Color(inputColor));
+      setOpacity(Color(inputColor).alpha());
+    }
+  }, []);
+
 
   return (
     <Wrapper>
-      { displayColor && <ColorDisplay color={rawColor} opacity={opacity} /> }
-      { colorArea && <ColorArea hue={hue} color={rawColor} handler={handleColorChange} />}
-      { hueSlider && <HueSlider handler={handleHueChange} color={rawColor} hue={hue} />}
-      { opacitySlider && <OpacitySlider color={Color(rawColor).alpha(opacity)} opacity={opacity} handler={handleOpacityChange} />}
-      { colorOutput && <ColorOutput pickedColor={rawColor} opacity={opacity} handler={handleColorOutputChange} handlerOpacity={handleOpacityChange}/>} 
+      { displayColor && <ColorDisplay color={displayColorValue} opacity={opacity} showText={true} /> }
+      { colorArea && <ColorArea hue={hue} color={rawColor} handler={setRawColor} />}
+      { hueSlider && <HueSlider handler={setHue} color={rawColor} hue={hue} />}
+      { opacitySlider && <OpacitySlider color={rawColor} opacity={opacity} handler={setOpacity} />}
+      { colorOutput && <ColorOutput pickedColor={rawColor} colorTypeHandler={setColorType} opacity={opacity} handler={setRawColor} handlerOpacity={setOpacity}/>} 
     </Wrapper>
   );
 };
