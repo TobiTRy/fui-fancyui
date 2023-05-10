@@ -19,13 +19,16 @@ export const emitSelectedColorChange = ({color, opacity, outputFormat}: IColorPi
       const { r, g, b } = colorObj.rgb().object();
       outputColor = `rgba(${Math.round(r)}, ${Math.round(g)}, ${Math.round(b)}, ${opacity})`;
       break;
-    case 'hsl':
-      outputColor = colorObj.hsl().string();
+    case 'hsl': {
+      const { h, s, l } = colorObj.hsl().object();
+      outputColor = `hsl(${Math.round(h)}, ${Math.round(s)}%, ${Math.round(l)}%)`;
       break;
-    case 'hsla':
+    }
+    case 'hsla': {
       const { h, s, l } = colorObj.hsl().object();
       outputColor = `hsla(${Math.round(h)}, ${Math.round(s)}%, ${Math.round(l)}%, ${opacity})`;
       break;
+    }
     case 'hex':
       outputColor = colorObj.hex();
       break;

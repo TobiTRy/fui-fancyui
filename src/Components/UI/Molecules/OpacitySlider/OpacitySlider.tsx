@@ -51,7 +51,6 @@ const OpacitySlider = ({ color, opacity, handler }: IOpacitySlider) => {
 
   return (
     <Wrapper>
-
       <SliderContainer ref={sliderRef} onMouseDown={handleInteractionStart} onTouchStart={handleInteractionStart}>
         {/* the sliders marker with the color indicator which displays the opacity of the current color */}
         <SliderMarker position={markerPosition.x + '%'}>

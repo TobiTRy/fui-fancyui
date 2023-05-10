@@ -10,15 +10,15 @@ export const WrapperMarker = styled.div`
   bottom: 2px;
   margin-left: 0;
   margin-right: 0;
-  width: 100%;
+  width: 5px;
   z-index: 2;
-`;
+  `;
 
 const Marker = styled.div`
   box-sizing: border-box;
   position: relative;
   border: 1px solid white;
-  width: 5px;
+  width: 100%;
   height: 100%;
   box-shadow: 0 0 0 1px rgba(39, 39, 39, 0.5);
   border-radius: ${borderRadius.small};
@@ -34,7 +34,7 @@ interface ISliderMarker {
 }
 export default function SliderMarker({position, children}: ISliderMarker) {
   return (
-    <WrapperMarker style={{ transform: `translateX(${position})` }}>
+    <WrapperMarker style={{ left: `${position}` }}>
       <Marker>
         {/* the children can use to display something in the marker like the color indicator that moves with the marker */}
         {children && children}

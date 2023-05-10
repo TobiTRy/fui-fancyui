@@ -15,7 +15,7 @@ export const colorPalet = {
 
   darkblue: '#083448',
   darkblue_light: '#1a3947',
-  darkblue_dark: '#0C2430',
+  darkblue_dark: '#110E18',
   // #110E18 // #17131e // #00050d
 
 
@@ -28,8 +28,7 @@ export const colorPalet = {
   yellow_dark: '#FFD600',
   yello_light: '#FFEB3B',
 
-
-
+  
   get primary() { return this.darkblue},
   get secondary() { return this.white},
   get accent() { return this.orange},
@@ -68,7 +67,6 @@ export const fontSize = {
 	large: '1.125rem',
 }
 
-
 export const borderRadius = {
 	small: '4px',
 	medium: '8px',
@@ -85,7 +83,7 @@ export const uiColors = {
 		hover: colorPalet.orange_dark
 	},
 	secondary : {
-		main: colorPalet.white,
+    main: colorPalet.white,
     main_light: colorPalet.white_light,
 		contrast: colorPalet.darkblue_dark,
 		hover: colorPalet.white_dark,

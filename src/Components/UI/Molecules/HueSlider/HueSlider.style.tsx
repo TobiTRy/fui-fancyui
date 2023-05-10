@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import { borderRadius } from '../../Design/design';
 
+
 export const SliderWrapper = styled.div`
   padding: 3px;
-  position: relative;
 `;
 
 //the slider with the hue gradient

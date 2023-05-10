@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 
 import Color from 'color';
 import styled from 'styled-components';
@@ -19,9 +19,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: ${spacingPx.md};
-`
-
-const roundValue = (value: number) => Math.round(value * 100) / 100;
+`;  
 
 
 // --------------------------------------------------------------------------- //
@@ -58,7 +56,7 @@ const ColorPicker = (props : IColorPicker) => {
 
   //create a calculated main color and use the normal only for display (flicker on the color area)
   //this sets the main color that will be used in the parent component=> {
-  const calculateGiveBackColor = emitSelectedColorChange({color:rawColor, opacity, outputFormat});  
+  const calculateGiveBackColor = emitSelectedColorChange({color: rawColor, opacity, outputFormat});  
   handler(calculateGiveBackColor);
 
   

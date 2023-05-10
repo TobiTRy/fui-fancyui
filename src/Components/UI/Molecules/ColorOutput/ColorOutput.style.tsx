@@ -18,6 +18,5 @@ export const WrapperSVG = styled.div`
   svg {
     width: 24px;
     height: 24px;
-    transform: rotate(90deg);
   }
 `;
