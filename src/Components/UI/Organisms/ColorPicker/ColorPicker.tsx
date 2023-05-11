@@ -59,19 +59,26 @@ const ColorPicker = (props : IColorPicker) => {
   const calculateGiveBackColor = emitSelectedColorChange({color: rawColor, opacity, outputFormat});  
   handler(calculateGiveBackColor);
 
-  
-
-  //this function is handle the color change in the child ColorOutput component
+  //this function generates a value that could displayed to the user
   useEffect(() => {
     const calcDisplayColor = emitSelectedColorChange({color:rawColor, opacity, outputFormat: colorType});
     setDisplayColorValue(calcDisplayColor);
   }, [colorType, hue ,rawColor, opacity, setDisplayColorValue]);
 
+
+  //this sets the raw color when the hue changes
   useEffect(() => {
     setRawColor(Color(rawColor).hue(hue));
   }, [hue]);
 
 
+  //this updates the hue when the rawColor changes
+  useEffect(() => {
+    setHue(Color(rawColor).hue())
+  }, [rawColor, setHue])
+
+
+  //this sets the initial values
   useEffect(() => {
     if(inputColor) {
       setRawColor(Color(inputColor));
