@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {  spacingPx } from "../../Design/design";
+import {  spacingPx, uiColors } from "../../Design/design";
 
 export const Container = styled.div`
   box-sizing: border-box;
@@ -18,5 +18,6 @@ export const WrapperSVG = styled.div`
   svg {
     width: 24px;
     height: 24px;
+    fill: ${uiColors.secondary.main};
   }
 `;

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect } from 'react';
 
 import Color from 'color';
 import styled from 'styled-components';
@@ -19,8 +19,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: ${spacingPx.md};
-`;  
-
+`;
 
 // --------------------------------------------------------------------------- //
 // ------------------- The main ColorPicker Component ------------------------ //
@@ -34,61 +33,78 @@ interface IColorPicker {
   displayColor?: boolean;
   inputColor?: string;
   handler: (color: string) => void;
-};
-const ColorPicker = (props : IColorPicker) => {
+}
+const ColorPicker = (props: IColorPicker) => {
   const { colorArea, hueSlider, opacitySlider, colorOutput, outputFormat, displayColor, inputColor, handler } = props;
 
-  const displayColorValue = useColorPickerStore(state => state.displayColorValue);
-  const setDisplayColorValue = useColorPickerStore(state => state.setDisplayColorValue);
+  const displayColorValue = useColorPickerStore((state) => state.displayColorValue);
+  const setDisplayColorValue = useColorPickerStore((state) => state.setDisplayColorValue);
 
-  const rawColor = useColorPickerStore(state => state.currentRAWColor);
-  const setRawColor = useColorPickerStore(state => state.setCurrentRAWColor);
-  
-  const opacity = useColorPickerStore(state => state.currentOpacity);
-  const setOpacity = useColorPickerStore(state => state.setCurrentOpacity);
+  const rawColor = useColorPickerStore((state) => state.currentRAWColor);
+  const setRawColor = useColorPickerStore((state) => state.setCurrentRAWColor);
 
-  const hue = useColorPickerStore(state => state.currentHue);
-  const setHue = useColorPickerStore(state => state.setCurrentHue);
+  const opacity = useColorPickerStore((state) => state.currentOpacity);
+  const setOpacity = useColorPickerStore((state) => state.setCurrentOpacity);
 
-  const colorType  = useColorPickerStore(state => state.currentColorType);
-  const setColorType = useColorPickerStore(state => state.setCurrentColorType);
+  const hue = useColorPickerStore((state) => state.currentHue);
+  const setHue = useColorPickerStore((state) => state.setCurrentHue);
 
+  const colorType = useColorPickerStore((state) => state.currentColorType);
+  const setColorType = useColorPickerStore((state) => state.setCurrentColorType);
 
   //create a calculated main color and use the normal only for display (flicker on the color area)
   //this sets the main color that will be used in the parent component=> {
-  const calculateGiveBackColor = emitSelectedColorChange({color: rawColor, opacity, outputFormat});  
-  handler(calculateGiveBackColor);
+  const calculateGiveBackColor = useCallback(() => {
+    return emitSelectedColorChange({ color: rawColor, opacity, outputFormat });
+  }, [rawColor, opacity, outputFormat]);
 
-  
+  handler(calculateGiveBackColor());
 
   //this function is handle the color change in the child ColorOutput component
   useEffect(() => {
-    const calcDisplayColor = emitSelectedColorChange({color:rawColor, opacity, outputFormat: colorType});
+    const calcDisplayColor = emitSelectedColorChange({ color: rawColor, opacity, outputFormat: colorType });
     setDisplayColorValue(calcDisplayColor);
-  }, [colorType, hue ,rawColor, opacity, setDisplayColorValue]);
+  }, [colorType, hue, rawColor, opacity, setDisplayColorValue]);
 
   useEffect(() => {
     setRawColor(Color(rawColor).hue(hue));
   }, [hue]);
 
-
   useEffect(() => {
-    if(inputColor) {
+    if (inputColor) {
       setRawColor(Color(inputColor));
       setOpacity(Color(inputColor).alpha());
     }
   }, []);
 
-
   return (
     <Wrapper>
-      { displayColor && <ColorDisplay color={displayColorValue} opacity={opacity} showText={true} /> }
-      { colorArea && <ColorArea hue={hue} color={rawColor} handler={setRawColor} />}
-      { hueSlider && <HueSlider handler={setHue} color={rawColor} hue={hue} />}
-      { opacitySlider && <OpacitySlider color={rawColor} opacity={opacity} handler={setOpacity} />}
-      { colorOutput && <ColorOutput pickedColor={rawColor} colorTypeHandler={setColorType} opacity={opacity} handler={setRawColor} handlerOpacity={setOpacity}/>} 
+      {displayColor && <ColorDisplay color={displayColorValue} opacity={opacity} showText={true} />}
+      {colorArea && <ColorArea hue={hue} color={rawColor} handler={setRawColor} />}
+      {hueSlider && <HueSlider handler={setHue} color={rawColor} hue={hue} />}
+      {opacitySlider && <OpacitySlider color={rawColor} opacity={opacity} handler={setOpacity} />}
+      {colorOutput && (
+        <ColorOutput
+          pickedColor={rawColor}
+          colorTypeHandler={setColorType}
+          opacity={opacity}
+          handler={setRawColor}
+          handlerOpacity={setOpacity}
+        />
+      )}
     </Wrapper>
   );
+};
+
+// Define defaultProps for ColorPicker
+ColorPicker.defaultProps = {
+  outputFormat: 'hex',
+  colorArea: true,
+  opacitySlider: true,
+  hueSlider: true,
+  colorOutput: true,
+  displayColor: true,
+  inputColor: '#000',
 };
 
 export default ColorPicker;

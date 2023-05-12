@@ -27,7 +27,7 @@ interface ColorTypeLetters {
   h: number;
   s: number;
   l: number;
-}
+};
 
 // --------------------------------------------------------------------------- //
 // ----- The main ColorOutput Component to displays and change the values ---- //

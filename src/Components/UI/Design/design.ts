@@ -29,9 +29,9 @@ export const colorPalet = {
   yello_light: '#FFEB3B',
 
   
-  get primary() { return this.darkblue},
-  get secondary() { return this.white},
-  get accent() { return this.orange},
+  get primary() { return this.darkblue },
+  get secondary() { return this.white },
+  get accent() { return this.orange },
 
   transparent: 'transparent',
   light: '#f1f1f1',
