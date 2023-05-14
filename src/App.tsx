@@ -13,12 +13,15 @@ import EditBarModule from './Components/UI/Organisms/EditBarModule/EditBarModule
 
 import ColorPicker from './Components/UI/Organisms/ColorPicker/ColorPicker';
 
+import ToastMessage from './Components/UI/Organisms/ToastMessage/ToastMessage';
+
+import { useToastMessageStore } from './Components/UI/Organisms/ToastMessage/ToastMessage.state';
+
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
     <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm11.666 1.89c.682 0 1.139.47 1.187 1.107H14v-.11c-.053-1.187-1.024-2-2.342-2-1.604 0-2.518 1.05-2.518 2.751v.747c0 1.7.905 2.73 2.518 2.73 1.314 0 2.285-.792 2.342-1.939v-.114h-1.147c-.048.615-.497 1.05-1.187 1.05-.839 0-1.318-.62-1.318-1.727v-.742c0-1.112.488-1.754 1.318-1.754zm-6.188.926h.044L6.542 11h1.006L9 5.001H7.818l-.82 4.355h-.056L5.97 5.001h-.94l-.972 4.355h-.053l-.827-4.355H2L3.452 11h1.005l1.02-4.184z" />
   </svg>
 );
-
 
 const svg = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -45,8 +48,6 @@ const switchValues = [
   },
 ];
 
-
-
 const menuItems = [
   {
     label: 'Item 1',
@@ -61,35 +62,64 @@ const menuItems = [
 ];
 
 function App() {
+  const addToast = useToastMessageStore((state) => state.addToast);
 
   const [activated, setActivated] = useState(false);
 
-  const buttonSwitch = () => {
-    setActivated(!activated);
+  const handleClick = () => {
+    addToast({
+      title: 'My Title',
+      message: 'This is my toast message.',
+      time: 5500,
+      type: 'error',
+    });
   };
-
 
   return (
     <>
       <div className="App">
-        {/* <EditBarIconButton label="Test" icon={svg} active={activated} handler={() => setActivated(!activated)} />
-        <FancyRangeSlider displayNumber={true} labelAlign={'left'} icon={svg} maxValue={50} minValue={-50} label={'Im tobi tester'} />
-        <FancyInput label="Username" value={'tes'} icon={svg} align={'left'} />
-        <FancyInput label="Username" value={'tes'} icon={svg} align={'left'} />
-        <FancyInput label="Username" value={'tes'} icon={svg} align={'left'} />
-        <FancyInput value={'tes'} icon={svg} align={'left'} />
-        <button onClick={buttonSwitch}>Test</button>
-        <FancyDropDownSelect
-          icon={svg}
-          label="Test Done Other"
-          options={['Test', 'Test2', 'Test3', 'Test3', 'Test3', 'Test3']}
-          labelAlign="left"
-          inputTextAlign="left"
-        />
-        <SpeedDialButton items={menuItems} />
-        <EditBarModule active={activated} sectionType={'sectionBox'}/> */}
-        {/* <CanvasColorPicker /> */}
-        <ColorPicker outputFormat={"rgba"} colorArea={true} hueSlider={true} opacitySlider={true} displayColor={true} colorOutput={true} handler={(color: any) => console.log(color)} />
+
+          <ToastMessage />
+        <section>
+          <FancyButton size="small" wide={true} design="accent" onClick={handleClick} label="test"></FancyButton>
+        </section>
+        <section>
+          <EditBarIconButton label="Test" icon={svg} active={activated} handler={() => setActivated(!activated)} />
+        </section>
+        <section>
+          <FancyRangeSlider displayNumber={true} labelAlign={'left'} icon={svg} maxValue={50} minValue={-50} label={'Im tobi tester'} />
+        </section>
+        <section>
+          <FancyInput label="Username" value={'tes'} icon={svg} align={'left'} />
+        </section>
+        <section>
+          <FancyInput value={'tes'} icon={svg} align={'left'} />
+        </section>
+        <section>
+          <FancyDropDownSelect
+            icon={svg}
+            label="Test Done Other"
+            options={['Test', 'Test2', 'Test3', 'Test3', 'Test3', 'Test3']}
+            labelAlign="left"
+            inputTextAlign="left"
+          />
+        </section>
+        <section>
+          <SpeedDialButton items={menuItems} />
+        </section>
+        <EditBarModule active={activated} sectionType={'sectionBox'} />
+
+        <section>
+          <ColorPicker
+            outputFormat={'rgba'}
+            colorArea={true}
+            hueSlider={true}
+            opacitySlider={true}
+            displayColor={true}
+            colorOutput={true}
+            handler={(color: any) => console.log(color)}
+          />
+        </section>
       </div>
     </>
   );

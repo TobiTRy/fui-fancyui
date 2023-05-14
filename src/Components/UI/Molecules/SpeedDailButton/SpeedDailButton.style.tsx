@@ -19,7 +19,7 @@ export const SpeedDialContainer = styled.div`
 
 export const Button = styled.button<{ isOpen: boolean }>`
   position: relative;
-  background-color: ${uiColors.accent.main_light};
+  background-color: ${uiColors.accent.main};
   color: ${uiColors.accent.contrast};
   border: none;
   border-radius: 50%;
@@ -51,7 +51,7 @@ export const Ring = styled.div<{ isOpen: boolean }>`
   position: absolute;
   height: ${SpeedDailButtonSize + 'px'};
   width: ${SpeedDailButtonSize + 'px'};
-  border: 1.5px solid  ${uiColors.accent.main_light};
+  border: 1.5px solid  ${uiColors.accent.main};
   border-radius: 50%;
   z-index: 4;
   top: 50%;
