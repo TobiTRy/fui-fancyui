@@ -70,7 +70,7 @@ function App() {
     addToast({
       title: 'My Title',
       message: 'This is my toast message.',
-      time: 5500,
+      time: 50500,
       type: 'error',
     });
   };
