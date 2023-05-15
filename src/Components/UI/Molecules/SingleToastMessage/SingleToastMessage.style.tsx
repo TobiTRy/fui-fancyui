@@ -42,6 +42,7 @@ export const Container = styled.div<IToastMessage>`
   padding: ${spacingPx.lg};
   background-color: ${({ messageType }) => typeColors[messageType].dark};
   border-left: 4px solid ${({ messageType }) => typeColors[messageType].light};
+  box-sizing: content-box;
 `;
 
 

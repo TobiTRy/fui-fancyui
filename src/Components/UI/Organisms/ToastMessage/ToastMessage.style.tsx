@@ -10,5 +10,4 @@ export const ToastsWrapper = styled.div`
   max-width: 350px;
   display: flex;
   flex-direction: column;
-  gap: ${spacingPx.md};
 `;

@@ -8,28 +8,28 @@ import IToastMessage from '../../Molecules/SingleToastMessage/IToastMessage.mode
 export default function ToastMessage() {
   const toastQueue = useToastMessageStore((state) => state.toastQueue);
   const removeToast = useToastMessageStore((state) => state.removeToast);
-  
-  // react-spring transition to animate toast messages remove and add
+
+
   const transitions = useTransition(toastQueue, {
-    from: { opacity: 0, transform: 'translateX(100%)', maxHeight: 0 },
-    enter: { opacity: 1, transform: 'translateX(0)', maxHeight: 80},
-    leave: (item) => async (next) => {
-      await next({ maxHeight: 0, opacity: 0,  });
-      removeToast(item.id);
-    },
-    config: { tension: 300, friction: 26, },
+    from: { opacity: 0, maxHeight: '0px', transform: 'translateX(100%)', marginBottom: '16px' },
+    enter: { opacity: 1, maxHeight: '80px', transform: 'translateX(0)', marginBottom: '16px' },
+    leave: [
+      { opacity: 0, transform: 'translateX(100%)', config: { duration: 300 } },
+      { maxHeight: '0px', marginBottom: '0px', delay: 300 },
+    ],
+    onDestroyed: (item: IToastMessage) => removeToast(item.id),
     keys: (item: IToastMessage) => item.id,
     trail: 50,
   });
 
-
   return (
     <ToastsWrapper>
-      {transitions((style, item) => (
+      {transitions((style, item: IToastMessage) => (
         <animated.div key={item.id} style={style}>
           <SingleToastMessage toast={item} remove={removeToast} />
         </animated.div>
       ))}
     </ToastsWrapper>
   );
+  // In your return statement, use both transitions:
 }
