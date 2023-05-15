@@ -9,13 +9,12 @@ export default function ToastMessage() {
   const toastQueue = useToastMessageStore((state) => state.toastQueue);
   const removeToast = useToastMessageStore((state) => state.removeToast);
 
-
   const transitions = useTransition(toastQueue, {
     from: { opacity: 0, maxHeight: '0px', transform: 'translateX(100%)', marginBottom: '16px' },
     enter: { opacity: 1, maxHeight: '80px', transform: 'translateX(0)', marginBottom: '16px' },
     leave: [
-      { opacity: 0, transform: 'translateX(100%)', config: { duration: 300 } },
-      { maxHeight: '0px', marginBottom: '0px', delay: 300 },
+      { maxHeight: '0px', marginBottom: '0px', opacity: 0 },
+      { transform: 'translateX(100%)', config: { duration: 300 } },
     ],
     onDestroyed: (item: IToastMessage) => removeToast(item.id),
     keys: (item: IToastMessage) => item.id,
@@ -31,5 +30,4 @@ export default function ToastMessage() {
       ))}
     </ToastsWrapper>
   );
-  // In your return statement, use both transitions:
 }
