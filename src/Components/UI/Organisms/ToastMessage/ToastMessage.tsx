@@ -9,23 +9,27 @@ export default function ToastMessage() {
   const toastQueue = useToastMessageStore((state) => state.toastQueue);
   const removeToast = useToastMessageStore((state) => state.removeToast);
 
+  const containerRef = React.useRef<HTMLDivElement>(null);
+
   const transitions = useTransition(toastQueue, {
-    from: { opacity: 0, maxHeight: '0px', transform: 'translateX(100%)', marginBottom: '16px' },
-    enter: { opacity: 1, maxHeight: '80px', transform: 'translateX(0)', marginBottom: '16px' },
+    from: { opacity: 0, maxHeight: '0px', transform: 'translateX(200%)', marginBottom: '16px' },
+    enter: { opacity: 1, maxHeight: '80px', transform: 'translateX(0%)', marginBottom: '16px' },
     leave: [
-      { maxHeight: '0px', marginBottom: '0px', opacity: 0 },
-      { transform: 'translateX(100%)', config: { duration: 300 } },
+      { opacity: 0, transform: 'translateX(60%)', config: { duration: 300 } },
+      { maxHeight: '0px', marginBottom: '0px', config: { delay: 300 } },
     ],
     onDestroyed: (item: IToastMessage) => removeToast(item.id),
     keys: (item: IToastMessage) => item.id,
     trail: 50,
   });
 
+  console.log('containerRef', containerRef?.current?.offsetHeight);
+  
   return (
     <ToastsWrapper>
       {transitions((style, item: IToastMessage) => (
         <animated.div key={item.id} style={style}>
-          <SingleToastMessage toast={item} remove={removeToast} />
+          <SingleToastMessage ref={containerRef} toast={item} remove={removeToast} />
         </animated.div>
       ))}
     </ToastsWrapper>

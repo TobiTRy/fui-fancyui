@@ -9,7 +9,6 @@ type ToastMessageStore = {
   addToast: (toast: IToastMessageOmitId) => void;
   removeToast: (id: number) => void;
 };
-
 //the toastQueue with the add and remove functions
 export const useToastMessageStore = create<ToastMessageStore>((set) => ({
   toastQueue: [],

@@ -85,7 +85,7 @@ export const CloseButton = styled.button<IToastMessage>`
   color: ${({ messageType }) => typeColors[messageType].light};
   background: none;
   border: none;
-  font-size: ${fontSize.extraLarge};
+  font-size: ${fontSize.large};
   font-weight: bolder;
   cursor: pointer;
   outline: none;
