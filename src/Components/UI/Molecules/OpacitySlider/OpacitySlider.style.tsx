@@ -29,7 +29,6 @@ export const SliderContainer = styled.div`
   height: 20px;
   border-radius: 4px;
   cursor: pointer;
-  touch-action: none;
   user-select: none;
 `;
 
