@@ -3,7 +3,6 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
   padding: 3px;
-  box-sizing: border-box;
 `;
 
 // the chekcboard pattern that is displayed in the background of the slider
