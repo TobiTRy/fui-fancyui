@@ -68,8 +68,8 @@ function App() {
 
   const handleClick = () => {
     addToast({
-      title: 'My Title',
-      message: 'This is my toast message.',
+      title: 'My Title of the titel ',
+      message: 'This is my toast message hjsadhjgdshjagkkk kklasdjkljsklajklds kklajklasd jsakld klnsjklkljdsa jkljsa lkaklkls klaklkls klaklsk alkasl klkklskda kllkas.',
       time: 50500,
       type: 'error',
     });

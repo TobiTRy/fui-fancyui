@@ -42,7 +42,18 @@ export const Container = styled.div<IToastMessage>`
   padding: ${spacingPx.lg};
   background-color: ${({ messageType }) => typeColors[messageType].dark};
   border-left: 4px solid ${({ messageType }) => typeColors[messageType].light};
-  box-sizing: content-box;
+  box-sizing: border-box;
+`;
+
+export const Headline = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  button {
+    align-self: flex-start;
+    line-height: ${fontSize.large};
+  }
 `;
 
 
@@ -78,10 +89,7 @@ export const Message = styled.p`
 `;
 
 export const CloseButton = styled.button<IToastMessage>`
-  position: absolute;
-  padding: 0;
-  top: 8px;
-  right: 14px;
+  padding: 0  ${spacingPx.sm} 2px;
   color: ${({ messageType }) => typeColors[messageType].light};
   background: none;
   border: none;

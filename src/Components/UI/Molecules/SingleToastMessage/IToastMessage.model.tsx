@@ -2,7 +2,7 @@ type IToastMessage = {
   id: number;
   title: string;
   message: string;
-  time: number;
+  time?: number;
   type: 'success' | 'warning' | 'error';
 };
 
