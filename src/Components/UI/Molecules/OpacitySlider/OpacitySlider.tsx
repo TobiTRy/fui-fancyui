@@ -49,6 +49,7 @@ const OpacitySlider = ({ color, opacity, handler }: IOpacitySlider) => {
     type: 'opacity',
   });
 
+
   return (
     <Wrapper>
       <SliderContainer ref={sliderRef} onMouseDown={handleInteractionStart} onTouchStart={handleInteractionStart}>

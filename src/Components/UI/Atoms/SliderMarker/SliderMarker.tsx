@@ -12,6 +12,7 @@ export const WrapperMarker = styled.div`
   margin-right: 0;
   width: 5px;
   z-index: 2;
+    transform: translate(-2.5px);
   `;
 
 const Marker = styled.div`
@@ -22,7 +23,6 @@ const Marker = styled.div`
   height: 100%;
   box-shadow: 0 0 0 1px rgba(39, 39, 39, 0.5);
   border-radius: ${borderRadius.small};
-  transform: translate(-2.5px);
 `;
 
 // --------------------------------------------------------------------------- //

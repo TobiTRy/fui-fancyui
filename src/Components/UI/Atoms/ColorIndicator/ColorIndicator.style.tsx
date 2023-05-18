@@ -1,10 +1,10 @@
 import Color from "color";
 import styled, { css } from "styled-components";
 
-export const WrapperIndicator = styled.div`
+export const WrapperIndicator = styled.div<{isActive: boolean}>`
   position: absolute;
-  width: 70px;
-  height: 70px;
+  width: ${({isActive}) => isActive ? '70px' : '0px'};
+  height: ${({isActive}) => isActive ? '70px' : '0px'};
   z-index: 10;
   left: 50%;
   transform: translate(-50%);
@@ -12,7 +12,6 @@ export const WrapperIndicator = styled.div`
 `
 
 export const Indicator = styled.div.attrs<{color: Color}>(({color}) => ({
-
   style: {
     backgroundColor: color,
   },
@@ -25,7 +24,7 @@ export const Indicator = styled.div.attrs<{color: Color}>(({color}) => ({
   width: 100%;
   height: 100%;
   left: 50%;
-  transform: ${(props) => props.isActive ? css`translate(-50%) scale(1) rotate(-45deg)` : css`translate(-50%) scale(0)  rotate(-45deg)`};
+  transform: ${(props) => props.isActive ? css`translate(-50%) scale(1) rotate(-45deg)` : css`translate(-50%) scale(0) rotate(-45deg)`};
   user-select: none;
   transition: transform 0.15s ease-in-out, top 0.15s ease-in-out;
 `;

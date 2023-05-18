@@ -18,15 +18,14 @@ export const colorPalet = {
   darkblue_dark: '#110E18',
   // #110E18 // #17131e // #00050d
 
+  green_dark: '#161c22f2',
+  green_light: '#1ea97c',//'#e4f8f0',
 
-  green_dark: '#007F4F',
-  green_light: '#4CAF50',
+  red_dark: '#170c0cf2',
+  red_light:'#ce2222',
 
-  red_dark: '#C62828',
-  red_light:'#FF5252',
-
-  yellow_dark: '#FFD600',
-  yello_light: '#FFEB3B',
+  yellow_dark: '#131312f2',
+  yellow_light: '#f67911',
 
   
   get primary() { return this.darkblue },
@@ -58,13 +57,13 @@ export const spacingPx = {
   xxl: spacing.xxl + 'px',
 };
 
-
-
 export const fontSize = {
   extraSmall: '0.7rem',
 	small: '0.875rem',
 	medium: '1rem',
 	large: '1.125rem',
+  extraLarge: '1.25rem',
+
 }
 
 export const borderRadius = {
