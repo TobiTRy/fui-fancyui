@@ -11,6 +11,8 @@ import EditBar from './Components/UI/Molecules/EditBar/EditBar';
 import SpeedDialButton from './Components/UI/Molecules/SpeedDailButton/SpeedDail';
 import EditBarModule from './Components/UI/Organisms/EditBarModule/EditBarModule';
 
+import FancyPortal from './Components/UI/Atoms/functions/FancyPortal';
+
 import ColorPicker from './Components/UI/Organisms/ColorPicker/ColorPicker';
 
 import ToastMessage from './Components/UI/Organisms/ToastMessage/ToastMessage';
@@ -78,7 +80,9 @@ function App() {
   return (
     <>
       <div className="App">
-
+        <FancyPortal appendToID='root'>
+          <div>MOOOINN MIII</div>
+        </FancyPortal>
           <ToastMessage />
         <section>
           <FancyButton size="small" wide={true} design="accent" onClick={handleClick} label="test"></FancyButton>

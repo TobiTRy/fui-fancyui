@@ -1,8 +1,8 @@
-const copyToClipboard = (color: string ) => {
+const copyToClipboard = (value: string ) => {
   // Create a textarea element
   const textarea = document.createElement("textarea");
   // Set the value of the textarea to the text you want to copy
-  textarea.value = color.toString();
+  textarea.value = value.toString();
   // Set the styles for the textarea to be hidden
   textarea.style.position = "absolute";
   textarea.style.left = "-9999px";
