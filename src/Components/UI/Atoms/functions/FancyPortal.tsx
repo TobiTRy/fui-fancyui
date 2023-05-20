@@ -1,39 +1,40 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, createElement, useState } from 'react';
 import ReactDOM from 'react-dom';
 
-interface PortalProps {
-  children: React.ReactNode;  // children to be rendered in the portal
-  appendToID?: string;  // optional ID of the element to append the portal to
-}
 
-const FancyPortal: React.FC<PortalProps> = ({children, appendToID}) => {
-  // Create a div to render the portal into
-  const el = useRef(document.createElement('div'));
+
+// --------------------------------------------------------------------------- //
+// ------ The Portal is use to append Components to other HTML ELements ------ //
+// --------------------------------------------------------------------------- //
+interface IFancyPortal {
+  children: React.ReactNode;
+  appendToID?: string;
+  WrapperComponent?: React.ElementType;
+}
+export function FancyPortal({ children, appendToID, WrapperComponent }: IFancyPortal) {
+  const [targetContainer, setTargetContainer] = useState<Element | null>(null);
 
   useEffect(() => {
-    // Get the target container - with ID `appendToID`, if provided,
-    // or the document body if not
-    const targetContainer = appendToID ? document.getElementById(appendToID) : document.body;
+    // appendToID is optional, if not provided, append to body when id is provided, append it to the element with the id
+    const newTargetContainer = appendToID ? document.getElementById(appendToID) : document.body;
 
-    // If we didn't find a target container, throw an error
-    if (!targetContainer) {
+    // If no container was found, throw an error
+    if (!newTargetContainer) {
       throw new Error(`Could not find container with ID: "${appendToID}"`);
     }
 
-    // Append the div to the target container
-    targetContainer.appendChild(el.current);
+    setTargetContainer(newTargetContainer);
 
-    // Cleanup function to be run when component unmounts - remove the div from the target container
     return () => {
-      targetContainer.removeChild(el.current);
-    }
-  }, [appendToID]);
+      setTargetContainer(null);
+    };
+  }, [appendToID, children]);
 
-  // Create a portal that renders the children into `el.current`
-  return ReactDOM.createPortal(
-    children,
-    el.current
-  );
-};
+  // If a WrapperComponent is provided, wrap the children
+  const content = WrapperComponent ? createElement(WrapperComponent, {}, children) : children;
+
+  // Create a portal that renders the content into the target container
+  return targetContainer ? ReactDOM.createPortal(content, targetContainer) : null;
+}
 
 export default FancyPortal;
