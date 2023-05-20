@@ -230,6 +230,6 @@ export default function FancyButton({ ...props }: IFancyButton) {
 
 FancyButton.defaultProps = {
   design: "accent",
-  size: "small",
+  size: "medium",
   wide: true,
 }
