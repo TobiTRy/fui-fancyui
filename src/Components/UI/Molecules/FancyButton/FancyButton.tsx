@@ -130,7 +130,7 @@ const generateOutlined = (props: IFancyButton) => {
 
     &:hover:enabled {
       background-color: ${backgroundColor};
-      color: ${ color ? colorPalet[color] : "initial" };
+      color: ${ color ? colorPalet[color] : uiColors[design].main };
       box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.15);
     }
 
@@ -225,4 +225,11 @@ export default function FancyButton({ ...props }: IFancyButton) {
       </Button>
     </>
   );
+}
+
+
+FancyButton.defaultProps = {
+  design: "accent",
+  size: "small",
+  wide: true,
 }
