@@ -11,13 +11,19 @@ import EditBar from './Components/UI/Molecules/EditBar/EditBar';
 import SpeedDialButton from './Components/UI/Molecules/SpeedDailButton/SpeedDail';
 import EditBarModule from './Components/UI/Organisms/EditBarModule/EditBarModule';
 
-import FancyPortal from './Components/UI/Atoms/functions/FancyPortal';
-
 import ColorPicker from './Components/UI/Organisms/ColorPicker/ColorPicker';
 
 import ToastMessage from './Components/UI/Organisms/ToastMessage/ToastMessage';
-
+import { useModalModuleStore } from './Components/UI/Organisms/ModalModule/ModalModule.state';
 import { useToastMessageStore } from './Components/UI/Organisms/ToastMessage/ToastMessage.state';
+import ModalModule from './Components/UI/Organisms/ModalModule/ModalModule';
+import SimpleDialog from './Components/UI/Atoms/SimpleDialog/SimpleDialog';
+import Modal from './Components/UI/Molecules/Modal/Modal';
+
+import { useModalStore } from './Components/UI/Molecules/Modal/useModal.state';
+import BackDrop from './Components/UI/Atoms/BackDrop/BackDrop';
+import FancyXButton from './Components/UI/Atoms/FancyXButton';
+import { Content } from './Components/UI/Atoms/ColorDisplay/ColorDisplay.style';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -63,29 +69,67 @@ const menuItems = [
   { label: 'Item 3', value: 3 },
 ];
 
+const array = [
+  {
+    title: 'Submit',
+    onClick: () => {
+      useModalStore.getState().closeModal();
+    },
+    secondaryButton: true,
+    disabled: false,
+  },
+  {
+    title: 'discard',
+    onClick: () => {
+      useModalStore.getState().closeModal();
+    },
+    secondaryButton: false,
+    disabled: false,
+  },
+  {
+    title: 'cancel',
+    onClick: () => {
+      useModalStore.getState().closeModal();
+    },
+    secondaryButton: false,
+    disabled: false,
+  },
+];
+
 function App() {
   const addToast = useToastMessageStore((state) => state.addToast);
+  const createModal = useModalModuleStore((state) => state.openModal);
+
+  const openModal = useModalStore((state) => state.openModal);
+  const isModalOpen = useModalStore((state) => state.isOpen);
 
   const [activated, setActivated] = useState(false);
 
   const handleClick = () => {
     addToast({
       title: 'My Title of the titel ',
-      message: 'This is my toast message hjsadhjgdshjagkkk kklasdjkljsklajklds kklajklasd jsakld klnsjklkljdsa jkljsa lkaklkls klaklkls klaklsk alkasl klkklskda kllkas.',
+      message:
+        'This is my toast message hjsadhjgdshjagkkk kklasdjkljsklajklds kklajklasd jsakld klnsjklkljdsa jkljsa lkaklkls klaklkls klaklsk alkasl klkklskda kllkas.',
       time: 50500,
-      type: 'error',
+      type: 'success',
     });
+  };
+
+  const handleModalCreation = () => {
+    createModal('test',  { headline:{ title: 'test', subTitle: 'test' }, bottomLine: { buttons: array }});
   };
 
   return (
     <>
       <div className="App">
-        <FancyPortal appendToID='root'>
-          <div>MOOOINN MIII</div>
-        </FancyPortal>
-          <ToastMessage />
+        <FancyXButton design="accent" />
+        <ModalModule />
+        <ToastMessage />
         <section>
-          <FancyButton size="small" wide={true} design="accent" onClick={handleClick} label="test"></FancyButton>
+          <FancyButton size="small" wide={true} design="accent" onClick={() => handleModalCreation()} label="Modal"></FancyButton>
+        </section>
+        <section>
+          <FancyButton size="small" wide={true} design="accent" onClick={handleClick} label="Toaster"></FancyButton>
         </section>
         <section>
           <EditBarIconButton label="Test" icon={svg} active={activated} handler={() => setActivated(!activated)} />
