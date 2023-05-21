@@ -28,9 +28,10 @@ const StyledModalBottomLine = styled.div`
 export default function ModalBottomLine({ buttons, component }: IModalBottomLine) {
   return buttons ? (
     <StyledModalBottomLine>
-      {buttons.map((button: IBottomLineButton) => {
+      {buttons.map((button: IBottomLineButton, index) => {
         return (
           <FancyButton
+            key={index}
             label={button.title}
             outlined={!button.secondaryButton ? true : false}
             wide={false}

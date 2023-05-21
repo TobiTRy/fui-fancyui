@@ -116,7 +116,7 @@ function App() {
   };
 
   const handleModalCreation = () => {
-    createModal('test',  { headline:{ title: 'test', subTitle: 'test' }, bottomLine: { buttons: array }});
+    createModal(Math.random().toString(),  { headline:{ title: 'test', subTitle: 'test' }, bottomLine: { buttons: array }});
   };
 
   return (

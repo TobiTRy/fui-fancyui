@@ -9,7 +9,7 @@ interface IModalStore {
   closeModal: () => void;
 }
 export const useModalStore = create<IModalStore>((set) => ({
-  isOpen: true,
+  isOpen: false,
   openModal: () => set({ isOpen: true }),
   closeModal: () => set({ isOpen: false }),
 }));
