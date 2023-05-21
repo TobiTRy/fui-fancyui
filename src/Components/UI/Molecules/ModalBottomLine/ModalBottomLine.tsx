@@ -7,13 +7,24 @@ import FancyButton from '../FancyButton/FancyButton';
 import  IModalBottomLine, { IBottomLineButton } from './ModalBottomLine.model';
 
 
+// a example for the buttons array for the ModalBottomLine
+// const array = [
+//   {
+//     title: 'Submit',
+//     onClick: () => {
+//       useModalStore.getState().closeModal();
+//     },
+//     secondaryButton: true,
+//     disabled: false,
+//   },
+// ];
+
 
 const StyledModalBottomLine = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 1rem;
-
 
   // for the Desktop view align the buttons next to each other
   @media (min-width: ${brakePoints.lg + 'px'}) {
