@@ -20,7 +20,7 @@ const StyledFancyXButton = styled.button<{colorValue?: string }>`
   background: none;
   color: ${({ colorValue }) => colorValue ? colorValue : uiColors.accent.main};
   border: none;
-  font-size: ${fontSize.large};
+  font-size: ${fontSize.extraLarge};
   font-weight: bolder;
   cursor: pointer;
   outline: none;
