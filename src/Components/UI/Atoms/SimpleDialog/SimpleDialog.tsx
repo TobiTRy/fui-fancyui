@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import { animated, useSpring } from 'react-spring';
@@ -22,7 +22,9 @@ const StyledDialog = styled(animated.div)`
   backdrop-filter: blur(4px);
 `;
 
-
+// --------------------------------------------------------------------------- //
+// ---------- The SimpleDialog that displays the Box and the Animation ------- //
+// --------------------------------------------------------------------------- //
 interface ISimpleDialog {
   isOpen: boolean;
   children: React.ReactNode;

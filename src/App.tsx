@@ -20,10 +20,10 @@ import ModalModule from './Components/UI/Organisms/ModalModule/ModalModule';
 import SimpleDialog from './Components/UI/Atoms/SimpleDialog/SimpleDialog';
 import Modal from './Components/UI/Molecules/Modal/Modal';
 
-
 import BackDrop from './Components/UI/Atoms/BackDrop/BackDrop';
 import FancyXButton from './Components/UI/Atoms/FancyXButton';
 import { Content } from './Components/UI/Atoms/ColorDisplay/ColorDisplay.style';
+import styled from 'styled-components';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -73,7 +73,9 @@ const array = [
   {
     title: 'Submit',
     onClick: () => {
-      useModalModuleStore.getState().openModal({ headline:{ title: 'test', subTitle: 'test' }, content: <div>hi</div>, bottomLine: { buttons: array }});
+      useModalModuleStore
+        .getState()
+        .openModal({ headline: { title: 'test', subTitle: 'test' }, content: <div>hi</div>, bottomLine: { buttons: array } });
     },
     secondaryButton: true,
     disabled: false,
@@ -96,9 +98,16 @@ const array = [
   },
 ];
 
+const StyledTestDiv = styled.div`
+  background-color: red;
+  width: 100%;
+  height: 100px;
+`;
+
 function App() {
   const addToast = useToastMessageStore((state) => state.addToast);
   const createModal = useModalModuleStore((state) => state.openModal);
+  const closeModal = useModalModuleStore((state) => state.closeModal);
 
   const [activated, setActivated] = useState(false);
 
@@ -113,7 +122,25 @@ function App() {
   };
 
   const handleModalCreation = () => {
-    createModal({ headline:{ title: 'test', subTitle: 'test' }, content: <div>hi</div>, bottomLine: { buttons: array }});
+    createModal(
+      {
+        headline: { title: 'test', subTitle: 'test' },
+        content: <StyledTestDiv>hi</StyledTestDiv>,
+        bottomLine: {
+          buttons: [
+            {
+              title: 'submit me',
+              onClick: () => {
+                closeModal('test111');
+              },
+              secondaryButton: false,
+            },
+          ],
+        },
+      },
+      'test111'
+    );
+    //console.log(getModal('test'));
   };
 
   return (

@@ -12,7 +12,7 @@ import  IModalBottomLine, { IBottomLineButton } from './ModalBottomLine.model';
 //   {
 //     title: 'Submit',
 //     onClick: () => {
-//       useModalStore.getState().closeModal();
+//       useModalStore.closeModal(ID);
 //     },
 //     secondaryButton: true,
 //     disabled: false,
@@ -34,7 +34,7 @@ const StyledModalBottomLine = styled.div`
 `;
 
 // --------------------------------------------------------------------------- //
-// ----------------- The main Bottomline for the Modal ----------------------- //
+// --------- The main Bottomline for the Modal to displays buttons ----------- //
 // --------------------------------------------------------------------------- //
 export default function ModalBottomLine({ buttons, component }: IModalBottomLine) {
   return buttons ? (

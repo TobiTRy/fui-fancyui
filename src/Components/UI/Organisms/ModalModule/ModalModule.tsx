@@ -1,5 +1,7 @@
 import React from 'react';
 
+import styled from 'styled-components';
+
 import { useModalModuleStore } from './ModalModule.state';
 
 import Modal from '../../Molecules/Modal/Modal';
@@ -10,17 +12,26 @@ import FancyHR from '../../Atoms/FancyHR';
 import ModalBottomLine from '../../Molecules/ModalBottomLine/ModalBottomLine';
 import FancyPortal from '../../Atoms/functions/FancyPortal';
 
+import { borderRadius } from '../../Design/design';
+
+
 // ---------- How to use the Module ------- //
+//--- use it
 // Append this module to the root of the app you dont need to pass any props
 // just use the useModalModuleStore to open a modal
-// useModalModuleStore.openModal('id', { headline: { title: 'title' }, content: () => <div>content</div>, bottomLine: { buttons: [{ title: 'title', onClick: () => {} }] } })
+//--- open modal
+// useModalModuleStore.openModal( { headline: { title: 'title' }, content: () => <div>content</div>, bottomLine: { buttons: [{ title: 'title', onClick: () => {} }] } }, 'ID')
+//--- close modal
+// when you want to close the modal with a custom button just use the closeModal function with the "ID" of the modal
 // useModalModuleStore.closeModal('id')
 
-
-// TODO: Remove content.content from the content
-// TODO: Add a close button to the modal
-
-
+const WrapperContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin: 0.5em 0 1em 0;
+  overflow: hidden;
+  border-radius: ${borderRadius.medium};
+`;
 
 // --------------------------------------------------------------------------- //
 // ----------------- The modalModule to build up a Moadal  ------------------- //
@@ -28,26 +39,26 @@ import FancyPortal from '../../Atoms/functions/FancyPortal';
 export default function ModalModule() {
   const modals = useModalModuleStore((state) => state.modals);
   const closeModal = useModalModuleStore((state) => state.closeModal);
-  const closingModal = useModalModuleStore((state) => state.closingModal)
+  const removeModal = useModalModuleStore((state) => state.removeModal);
 
   const closeModalHandler = (id: string) => {
     // closing the modal is a two step process
-    // first we set the status to "closing" with the closingModal function 
+    // first we set the status to "closing" with the closeModal function
     // this will trigger the animation in the modal component
-    closingModal(id)
+    closeModal(id);
 
     //wait for the animation and remove the modal from the store
     setTimeout(() => {
-      closeModal(id)
-    }, 300)
+      removeModal(id);
+    }, 300);
   };
-  
+
   return (
     <>
       {/* ----- The FancModal Ports the Modal out of the root div in the spearte "modal" div ----- */}
-      <FancyPortal appendToID='modal'>
-        {modals.map((modal) => ( 
-          <Modal key={modal.id} status={modal.status} id={modal.id} closeModal={() => closeModalHandler(modal.id)}>
+      <FancyPortal appendToID="modal">
+        {modals.map((modal, key) => (
+          <Modal key={key} status={modal.status} id={modal.id} closeModal={() => closeModalHandler(modal.id)}>
             {/* ----- The Headline of the Modal  ----- */}
             <HeadLine>
               {/* ----- The Content of the headline when its provided ----- */}
@@ -58,10 +69,12 @@ export default function ModalModule() {
               <FancyHR />
             </HeadLine>
             {/* ----- The Content of the Modal ----- */}
-            {modal.content.content && <>{ modal.content.content }</>}
-
+            <WrapperContent>{modal.content.content && <>{modal.content.content}</>}</WrapperContent>
+            
             {/* ----- The BottomLine of the Modal whem its provided ----- */}
-            {modal.content.bottomLine && <ModalBottomLine buttons={modal.content.bottomLine?.buttons} component={modal.content.bottomLine?.component} />}
+            {modal.content.bottomLine && (
+              <ModalBottomLine buttons={modal.content.bottomLine?.buttons} component={modal.content.bottomLine?.component} />
+            )}
           </Modal>
         ))}
       </FancyPortal>
