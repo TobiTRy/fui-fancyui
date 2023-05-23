@@ -17,8 +17,10 @@ import FancyPortal from '../../Atoms/functions/FancyPortal';
 // useModalModuleStore.closeModal('id')
 
 
-// TODO: Automatic id for the geneartion
-// TODO: Remove content.content from the content  
+// TODO: Remove content.content from the content
+// TODO: Add a close button to the modal
+
+
 
 // --------------------------------------------------------------------------- //
 // ----------------- The modalModule to build up a Moadal  ------------------- //
@@ -38,8 +40,8 @@ export default function ModalModule() {
     setTimeout(() => {
       closeModal(id)
     }, 300)
-  }
-
+  };
+  
   return (
     <>
       {/* ----- The FancModal Ports the Modal out of the root div in the spearte "modal" div ----- */}

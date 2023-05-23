@@ -20,7 +20,7 @@ import ModalModule from './Components/UI/Organisms/ModalModule/ModalModule';
 import SimpleDialog from './Components/UI/Atoms/SimpleDialog/SimpleDialog';
 import Modal from './Components/UI/Molecules/Modal/Modal';
 
-import { useModalStore } from './Components/UI/Molecules/Modal/useModal.state';
+
 import BackDrop from './Components/UI/Atoms/BackDrop/BackDrop';
 import FancyXButton from './Components/UI/Atoms/FancyXButton';
 import { Content } from './Components/UI/Atoms/ColorDisplay/ColorDisplay.style';
@@ -73,7 +73,7 @@ const array = [
   {
     title: 'Submit',
     onClick: () => {
-      useModalStore.getState().closeModal();
+      useModalModuleStore.getState().openModal({ headline:{ title: 'test', subTitle: 'test' }, content: <div>hi</div>, bottomLine: { buttons: array }});
     },
     secondaryButton: true,
     disabled: false,
@@ -81,7 +81,7 @@ const array = [
   {
     title: 'discard',
     onClick: () => {
-      useModalStore.getState().closeModal();
+      console.log('discard');
     },
     secondaryButton: false,
     disabled: false,
@@ -89,7 +89,7 @@ const array = [
   {
     title: 'cancel',
     onClick: () => {
-      useModalStore.getState().closeModal();
+      console.log('cancel');
     },
     secondaryButton: false,
     disabled: false,
@@ -99,9 +99,6 @@ const array = [
 function App() {
   const addToast = useToastMessageStore((state) => state.addToast);
   const createModal = useModalModuleStore((state) => state.openModal);
-
-  const openModal = useModalStore((state) => state.openModal);
-  const isModalOpen = useModalStore((state) => state.isOpen);
 
   const [activated, setActivated] = useState(false);
 
@@ -116,7 +113,7 @@ function App() {
   };
 
   const handleModalCreation = () => {
-    createModal(Math.random().toString(),  { headline:{ title: 'test', subTitle: 'test' }, content: <div>hi</div> ,bottomLine: { buttons: array }});
+    createModal({ headline:{ title: 'test', subTitle: 'test' }, content: <div>hi</div>, bottomLine: { buttons: array }});
   };
 
   return (

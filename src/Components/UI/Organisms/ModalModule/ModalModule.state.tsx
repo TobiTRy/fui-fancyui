@@ -17,21 +17,26 @@ type IModal = {
   content: ModalContent;
   status: ModalStatus;
 };
-
+// test 
 // --------------------------------------------------------------------------- //
 // --------------------- The state for the ModalModuel ----------------------- //
 // --------------------------------------------------------------------------- //
 interface IModalModule {
   modals: IModal[];
-  openModal: (id: string, content: ModalContent) => void;
+  openModal: (content: ModalContent, id?: string ) => void;
   closingModal: (id: string) => void;
   closeModal: (id: string) => void;
+  getModal: (id: string) => IModal | undefined;	
 };
 export const useModalModuleStore = create<IModalModule>((set) => ({
   // the state array for the modals
   modals: [],
+
+  // function get modal with the id
+  getModal: (id) => set((state) => state.modals.find((modal) => modal.id === id)),
+
   // add a new modal to the state array
-  openModal: (id, content) =>
+  openModal: (content, id = Math.random().toFixed(4).toString(),) =>
     set((state) => ({
       modals: [...state.modals, { id, content, status: ModalStatus.Open }],
     })),
