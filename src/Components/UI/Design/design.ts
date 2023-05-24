@@ -28,7 +28,7 @@ export const colorPalet = {
   yellow_light: '#f67911',
 
   
-  get primary() { return this.darkblue },
+  get primary() { return this.darkblue_dark },
   get secondary() { return this.white },
   get accent() { return this.orange },
 
@@ -74,6 +74,9 @@ export const borderRadius = {
   complete: '50px'
 }
 
+
+export type IUiColorsTypes = 'primary' | 'secondary' | 'accent' | 'transparent';
+
 export const uiColors = {
 	accent: {
 		main: colorPalet.orange,
@@ -99,4 +102,22 @@ export const uiColors = {
 		contrast: colorPalet.dark,
 		hover: colorPalet.transparent
 	}
+};
+
+
+export type IUiColorsSystemMessageTypes = 'success' | 'warning' | 'error';
+// colors for different types of (success, warning, error)
+export const systemMessages = {
+  success: {
+    dark: colorPalet.green_dark,
+    light: colorPalet.green_light,
+  },
+  warning: {
+    dark: colorPalet.yellow_dark,
+    light: colorPalet.yellow_light,
+  },
+  error: {
+    dark: colorPalet.red_dark,
+    light: colorPalet.red_light,
+  },
 };

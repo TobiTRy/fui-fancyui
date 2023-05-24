@@ -1,6 +1,9 @@
 import React, { forwardRef, useEffect } from 'react';
 import IToastMessage from './IToastMessage.model';
-import { CloseButton, Container, Message, TimerLine, Title, Headline } from './SingleToastMessage.style';
+import { Container, Message, TimerLine, Title, Headline } from './SingleToastMessage.style';
+
+import FancyXButton from '../../Atoms/FancyXButton';
+
 
 interface ISingleToastMessage {
   toast: IToastMessage;
@@ -24,9 +27,7 @@ const SingleToastMessage = forwardRef<HTMLDivElement, ISingleToastMessage>((prop
     <Container ref={ref} messageType={type}>
       <Headline>
         <Title>{title}</Title>
-        <CloseButton onClick={() => remove(id)} messageType={type}>
-          x
-        </CloseButton>
+        <FancyXButton onClick={() => remove(id)} design={type}/>
       </Headline>
       <Message>{message}</Message>
       <TimerLine time={time!} messageType={type} />
