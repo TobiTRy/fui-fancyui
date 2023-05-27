@@ -13,6 +13,8 @@ import EditBarModule from './Components/UI/Organisms/EditBarModule/EditBarModule
 
 import ColorPicker from './Components/UI/Organisms/ColorPicker/ColorPicker';
 
+import FancyLI from './Components/UI/Atoms/FancyLI/FancyLI';
+
 import ToastMessage from './Components/UI/Organisms/ToastMessage/ToastMessage';
 import { useModalModuleStore } from './Components/UI/Organisms/ModalModule/ModalModule.state';
 import { useToastMessageStore } from './Components/UI/Organisms/ToastMessage/ToastMessage.state';
@@ -24,6 +26,8 @@ import BackDrop from './Components/UI/Atoms/BackDrop/BackDrop';
 import FancyXButton from './Components/UI/Atoms/FancyXButton';
 import { Content } from './Components/UI/Atoms/ColorDisplay/ColorDisplay.style';
 import styled from 'styled-components';
+import ButtomAtom from './Components/UI/Atoms/ButtonAtom/ButtomAtom';
+import ButtonMolecule from './Components/UI/Molecules/ButtonMolecule/ButtonMolecule';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -146,9 +150,14 @@ function App() {
   return (
     <>
       <div className="App">
+        <ButtonMolecule icon={svg} />
+        <FancyLI icon={Icon} label='Test'/>
         <FancyXButton design="accent" />
         <ModalModule />
         <ToastMessage />
+        <section>
+          <FancyButton icon={svg} label='Test'/>
+         </section> 
         <section>
           <FancyButton size="small" wide={true} design="accent" onClick={() => handleModalCreation()} label="Modal"></FancyButton>
         </section>
@@ -179,6 +188,7 @@ function App() {
         <section>
           <SpeedDialButton items={menuItems} />
         </section>
+
         <EditBarModule active={activated} sectionType={'sectionBox'} />
 
         <section>

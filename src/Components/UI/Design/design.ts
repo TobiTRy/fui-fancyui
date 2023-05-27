@@ -99,7 +99,7 @@ export const uiColors = {
 	transparent: {
     main_light: colorPalet.transparent,
 		main: colorPalet.transparent,
-		contrast: colorPalet.dark,
+		contrast: colorPalet.light,
 		hover: colorPalet.transparent
 	}
 };

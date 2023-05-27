@@ -9,9 +9,11 @@ import {
 
 import styled, { css } from "styled-components";
 import { hexToTransparent } from "../../HelperFunctions/hexToTransparent";
-import { generatePadding } from "../../HelperFunctions/generatePadding";
 import { disabledStyle } from "../../HelperFunctions/disableStyle";
 import { IFancyButton } from "./IFancyButton.model";
+
+import { calcIconPaddingAndAlign } from "../../HelperFunctions/generateIconPadding";
+import { generatePadding } from "../../HelperFunctions/generatePadding";
 
 
 
@@ -27,12 +29,6 @@ const alignment = {
   center: "center",
 };
 
-//this are the values between the text and icon
-const paddingFromIcon = {
-  small:  spacing.xs + 'px',
-  medium: spacing.xs + 'px',
-  large:  spacing.xs + 'px',
-};
 
 //this are the values between the icon and the edge of the button
 const paddingIconButton = {
@@ -73,20 +69,8 @@ const generateIcon = (props: IFancyButton) => {
       return css `padding-left: ${paddingIconButton[size]}`;
     }
   };
-
   //this funktion reduces the padding to the edge && makes it look centered
-  const calcIconPaddingAndAlign = ({ align, size }: Pick<IFancyButton, "align" | "size">) => {
-    if (align === "right") {
-      return css`
-        padding-left: ${paddingFromIcon[size]};
-        order: 1;
-      `
-    } else {
-      return css`
-        padding-right: ${paddingFromIcon[size]};
-      `
-    }
-  };
+
 
   //this function generates the addons for a icon button
   return css`
@@ -97,7 +81,7 @@ const generateIcon = (props: IFancyButton) => {
     i {
       display: flex;
       align-items: center;
-      ${label && calcIconPaddingAndAlign({ align, size })};
+      ${label && calcIconPaddingAndAlign({ aligned: align, size })};
     }
 
     svg {
@@ -134,9 +118,6 @@ const generateOutlined = (props: IFancyButton) => {
       box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.15);
     }
 
-    &:disabled {
-      ${disabledStyle}
-    }
 
   `;
 };
@@ -173,9 +154,8 @@ const generateNormal = (props: IFancyButton) => {
 //-----this funktion handles the button style on his conditions-----//
 const generateButton = (props: IFancyButton) => {
   const { outlined, icon, size, label, wide } = props;
-  let buttonStyle;
-  let buttonIcon;
-  let generateBorderRadius;
+
+  let buttonStyle, buttonIcon, generateBorderRadius;
 
   //if the button a outlined generate this, it his a normal generate an normal 
   buttonStyle = outlined ? generateOutlined(props) : generateNormal(props);
@@ -208,7 +188,7 @@ const generateButton = (props: IFancyButton) => {
 };
 
 
-//this creates the button component and hanles the style via generateButton
+//this creates the button component and handles the style via generateButton
 const Button = styled.button`
   ${(props: IFancyButton) => generateButton(props)}
 `;

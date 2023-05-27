@@ -1,7 +1,7 @@
 import { spacing } from "../Design/design";
 
-export function generatePadding(offsetValue?: number, secondValue: boolean = true) {
-    const {xs, sm , md, lg } = spacing;
+export function generatePadding(offsetValue?: number, secondValue?: boolean) {
+    const { xs, sm, md } = spacing;
     const offset = offsetValue ? offsetValue : 0;
   
     const small  = `${xs * 1.75 + offset}px` + (secondValue ? ` ${xs * 2 + offset}px` : '');
