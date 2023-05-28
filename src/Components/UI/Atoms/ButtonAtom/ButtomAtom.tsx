@@ -3,13 +3,18 @@ import styled, { css } from 'styled-components';
 import { fontSize } from '../../Design/design';
 import { disabledStyle } from '../../HelperFunctions/disableStyle';
 import IButtonAtom from './IButtonAtom.model';
+import { themeHandler } from '../../HelperFunctions/themeHandler';
 
 
 
 
 const generateButtonStyles = (props: IButtonAtom) => {
   const { wide, size, externalStyle } = props;
+  const { design: theme, themeTextColor, customTextColor, customBackgroundColor } = props;
 
+
+  const pickedtheme = themeHandler({ theme, themeTextColor, customTextColor, customBackgroundColor });
+  
   return css`
     display: flex;
     justify-content: center;
@@ -33,7 +38,7 @@ const StyledButton = styled.button<IButtonAtom>`
 `;
 
 export default function ButtonAtom(props: IButtonAtom) {
-  const { icon, label, disabled, children,...buttonProps } = props;
+  const { icon, label, disabled, children, ...buttonProps } = props;
 
   return (
     <StyledButton type="button" disabled={disabled} {...buttonProps}>
@@ -45,6 +50,8 @@ export default function ButtonAtom(props: IButtonAtom) {
 ButtonAtom.defaultProps = {
   label: 'Button',
   disabled: false,
+  size: 'medium',
+  design: 'accent',
   wide: true,
   onClick: () => {},
 };

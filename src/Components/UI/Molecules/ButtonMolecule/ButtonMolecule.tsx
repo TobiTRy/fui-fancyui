@@ -1,62 +1,62 @@
 import React from 'react';
 
-import styled, { css } from 'styled-components';
+import { css } from 'styled-components';
 
 import { generatePadding } from '../../HelperFunctions/generatePadding';
 import { themeHandler } from '../../HelperFunctions/themeHandler';
 
 import ButtomAtom from '../../Atoms/ButtonAtom/ButtomAtom';
 import IButtonAtom from '../../Atoms/ButtonAtom/IButtonAtom.model';
-import { IUiColorsTypes, borderRadius } from '../../Design/design';
+import { IUiColorsTypes, borderRadius, uiColors } from '../../Design/design';
 import SVGAtom from '../../Atoms/SVGAtom/SVGAtom';
 
 import { calcIconPaddingAndAlign } from '../../HelperFunctions/generateIconPadding';
 
+
 interface INormalButton extends IButtonAtom {
   hoverColor?: string;
-  design: IUiColorsTypes;
-  themeTextColor?: IUiColorsTypes;
-  customTextColor?: string;
-  customBackgroundColor?: string;
-}
+  aligned?: 'left' | 'right' | 'center';
+  iconAligned?: 'left' | 'right' | 'center';
 
-const StyledSVGAtom = styled(SVGAtom)`
-  fill: red;
-`;
+};
+
+const alignment = {
+  left: "flex-start",
+  right: "flex-end",
+  center: "center",
+};
 
 
 const generateNormal = (props: INormalButton) => {
-  const { design: theme, wide, size, label, themeTextColor, customBackgroundColor, customTextColor } = props;
-  //reduce the padding with the border size
+  const { design: theme, wide, size, label, themeTextColor, customBackgroundColor, customTextColor, aligned, iconAligned } = props;
+
   const paddings = generatePadding(0, !label ? false : true);
 
-  const pickedtheme = themeHandler({ theme, themeTextColor, customTextColor, customBackgroundColor });
+
 
   const generateBorderRadius = wide ? borderRadius!.large : borderRadius[size!];
 
+  const calculateIconAlign = iconAligned ? iconAligned : aligned;
+
   return css`
     padding: ${paddings[size!]};
-    ${pickedtheme};
     border-radius: ${generateBorderRadius};
-
-    & ${StyledSVGAtom} {
-      ${calcIconPaddingAndAlign({ aligned: 'left', size })}
-      fill: red;
-    }
-
-    &:hover:enabled {
-      box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.15);
+    justify-content: ${aligned && alignment[aligned]};
+    
+    & i {
+      ${calcIconPaddingAndAlign({ aligned: calculateIconAlign, size })}
     }
   `;
 };
 
 export default function ButtonMolecule(props: INormalButton) {
-  const { icon, label } = props;
-  const genreateStyle = generateNormal(props);
+  const { icon, label, disabled } = props;
 
+  const generateStyle = generateNormal(props);
+  //TODO: OVERGIVE THEME STYLESD THE ATOM
   return (
-    <ButtomAtom externalStyle={genreateStyle}>
-      {icon && <StyledSVGAtom aligned="left">{icon}</StyledSVGAtom>}
+    <ButtomAtom disabled={disabled} size={props.size} externalStyle={generateStyle}>
+      {icon && <SVGAtom size={props.size}>{icon}</SVGAtom>}
       {label && <span>{label}</span>}
     </ButtomAtom>
   );
@@ -64,8 +64,9 @@ export default function ButtonMolecule(props: INormalButton) {
 
 ButtonMolecule.defaultProps = {
   label: 'Button',
-  size: 'medium',
-  aligned: 'right',
+  size: 'large',
+  aligned: 'left',
+  iconAligned: 'left',
   disabled: false,
   wide: true,
   design: 'accent',
