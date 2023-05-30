@@ -1,7 +1,9 @@
-
+html {
+  background-color: black;
+}
 
 .App {
-  background-color: #1b1a22;
+  background-color: #131525f0;
   position: relative;
   height: 100vh;
   width: 100%;
@@ -10,6 +12,7 @@
 
 section {
   padding: 1rem;
+  position: relative;
 }
 
 

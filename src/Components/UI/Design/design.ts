@@ -13,9 +13,14 @@ export const colorPalet = {
   orange_light: '#FFA42A',
   orange_dark: '#CC6C0A',
 
-  darkblue: '#083448',
-  darkblue_light: '#1a3947',
-  darkblue_dark: '#110E18',
+  darkblue: '#111626',
+  darkblue_light: '#161c2c',
+  darkblue_dark: '#131525f0',
+  //darkblue_dark: '#14131e',
+
+  // darkblue: '#083448',
+  // darkblue_light: '#1a3947',
+  // darkblue_dark: '#17131e',
   // #110E18 // #17131e // #00050d
 
   green_dark: '#161c22f2',
@@ -94,12 +99,12 @@ export const uiColors = {
 		main: colorPalet.darkblue,
     main_light: colorPalet.darkblue_light,
 		contrast: colorPalet.white_light,
-		hover: colorPalet.darkblue_dark
+		hover: colorPalet.darkblue_light
 	},
 	transparent: {
     main_light: colorPalet.transparent,
 		main: colorPalet.transparent,
-		contrast: colorPalet.dark,
+		contrast: colorPalet.light,
 		hover: colorPalet.transparent
 	}
 };

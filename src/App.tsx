@@ -2,28 +2,27 @@ import { useState } from 'react';
 import './App.css';
 
 import FancyButton from './Components/UI/Molecules/FancyButton/FancyButton';
-import FancyTabSwitch from './Components/UI/Molecules/FancyTabSwitch/FancyTabSwitch';
 import FancyInput from './Components/UI/Molecules/FancyInput/FancyInput';
 import FancyDropDownSelect from './Components/UI/Molecules/FancyDropDownSelect/FancyDropDownSelect';
 import FancyRangeSlider from './Components/UI/Molecules/FancyRangeSlider/FancyRangeSlider';
 import EditBarIconButton from './Components/UI/Atoms/EditBarIcon/EditBarIcon';
-import EditBar from './Components/UI/Molecules/EditBar/EditBar';
 import SpeedDialButton from './Components/UI/Molecules/SpeedDailButton/SpeedDail';
 import EditBarModule from './Components/UI/Organisms/EditBarModule/EditBarModule';
 
 import ColorPicker from './Components/UI/Organisms/ColorPicker/ColorPicker';
 
+
 import ToastMessage from './Components/UI/Organisms/ToastMessage/ToastMessage';
 import { useModalModuleStore } from './Components/UI/Organisms/ModalModule/ModalModule.state';
 import { useToastMessageStore } from './Components/UI/Organisms/ToastMessage/ToastMessage.state';
 import ModalModule from './Components/UI/Organisms/ModalModule/ModalModule';
-import SimpleDialog from './Components/UI/Atoms/SimpleDialog/SimpleDialog';
-import Modal from './Components/UI/Molecules/Modal/Modal';
-
-import BackDrop from './Components/UI/Atoms/BackDrop/BackDrop';
 import FancyXButton from './Components/UI/Atoms/FancyXButton';
-import { Content } from './Components/UI/Atoms/ColorDisplay/ColorDisplay.style';
 import styled from 'styled-components';
+import FancyA from './Components/UI/Molecules/FancyA/FancyA';
+import DropDownMenueModule from './Components/UI/Organisms/DropDownMenueModule/DropDownMenueModule';
+import { useDropDownMenueModuleStore } from './Components/UI/Organisms/DropDownMenueModule/DropDownMenueModule.state';
+import FancyHR from './Components/UI/Atoms/FancyHR';
+
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -95,8 +94,19 @@ const array = [
     },
     secondaryButton: false,
     disabled: false,
-  },
+  },  
 ];
+
+
+const dropDownArray = [
+  <FancyA icon={svg} label="Test" design="transparent" hoverColor={'primary'} />,
+  <FancyHR />,
+  <FancyA icon={svg} label="Test" design="transparent" hoverColor={'primary'} />,
+  <FancyA icon={svg} label="Test" design="transparent" hoverColor={'primary'} />,
+  <FancyA icon={svg} label="Test" design="transparent" hoverColor={'primary'} onClick={() => useDropDownMenueModuleStore.getState().close()}/>,
+  <FancyHR />,
+];
+
 
 const StyledTestDiv = styled.div`
   background-color: red;
@@ -108,6 +118,7 @@ function App() {
   const addToast = useToastMessageStore((state) => state.addToast);
   const createModal = useModalModuleStore((state) => state.openModal);
   const closeModal = useModalModuleStore((state) => state.closeModal);
+  const toggleDropDown = useDropDownMenueModuleStore((state) => state.toggle);
 
   const [activated, setActivated] = useState(false);
 
@@ -146,9 +157,17 @@ function App() {
   return (
     <>
       <div className="App">
-        <FancyXButton design="accent" />
+        <section>
+          <DropDownMenueModule items={dropDownArray}/>
+        </section>
+        <FancyA icon={Icon}/>
+        <FancyA icon={Icon} label='Test'/>
+        <FancyXButton design="accent" onClick={() => toggleDropDown()} />
         <ModalModule />
         <ToastMessage />
+        <section>
+          <FancyButton icon={svg} label='Test'/>
+         </section> 
         <section>
           <FancyButton size="small" wide={true} design="accent" onClick={() => handleModalCreation()} label="Modal"></FancyButton>
         </section>
@@ -179,6 +198,7 @@ function App() {
         <section>
           <SpeedDialButton items={menuItems} />
         </section>
+
         <EditBarModule active={activated} sectionType={'sectionBox'} />
 
         <section>
