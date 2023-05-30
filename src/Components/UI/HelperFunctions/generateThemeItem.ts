@@ -1,11 +1,11 @@
 import { css } from 'styled-components';
-import { hexToTransparent } from './hexToTransparent';
 import { disabledStyle } from './disableStyle';
 
 import { calcIconPaddingAndAlign } from './generateIconPadding';
 import { generatePadding } from './generatePadding';
 import { borderRadius, colorPalet, fontSize, spacing, uiColors } from '../Design/design';
 import { IUiColorsTypes } from '../Design/design';
+import Color from 'color';
 
 export interface IGenerateThemeItem {
   outlined?: boolean;
@@ -20,7 +20,6 @@ export interface IGenerateThemeItem {
   disabled?: boolean;
   onClick?: () => void;
 };
-
 
 // --------------------------------------------------------------------------- //
 // ---------- Here are the design variants for sizing and alignment ---------- //
@@ -104,7 +103,7 @@ const generateOutlined = (props: IGenerateOutlinedItem) => {
   const textColor = calcTextColor({color, design, outlined});
 
   //this makes the color, no matther which one transparent
-  const backgroundColor = hexToTransparent(uiColors[design].main, 90);
+  const backgroundColor = Color(uiColors[design].main).alpha(0.1).hexa();
 
   return css`
     position: relative;

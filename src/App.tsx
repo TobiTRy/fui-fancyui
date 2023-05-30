@@ -169,7 +169,7 @@ function App() {
           <FancyButton icon={svg} label='Test'/>
          </section> 
         <section>
-          <FancyButton size="small" wide={true} design="accent" onClick={() => handleModalCreation()} label="Modal"></FancyButton>
+          <FancyButton size="small" wide={true} design="accent" outlined={true} onClick={() => handleModalCreation()} label="Modal"></FancyButton>
         </section>
         <section>
           <FancyButton size="small" wide={true} design="accent" onClick={handleClick} label="Toaster"></FancyButton>
