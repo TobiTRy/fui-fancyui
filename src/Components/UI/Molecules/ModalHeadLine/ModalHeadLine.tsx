@@ -11,8 +11,8 @@ const StyledHeadLine = styled.div<{alignCenter?: boolean}>`
   flex-direction: column;
   justify-content: center;
   width: 100%;
-  gap: ${spacingPx.xs};
-  align-items: ${({ alignCenter }) => alignCenter ? 'center' : 'flex-start'};
+  gap: ${spacingPx.sm};
+  align-items: ${({ alignCenter }) => alignCenter ? 'center' : 'flex-start'}; 
 
   h2 {
     margin: 0;

@@ -76,6 +76,8 @@ export const borderRadius = {
 	medium: '8px',
 	large: '12px',
 	extraLarge: '18px',
+  xxl: '24px',
+  xxxl: '48px',
   complete: '50px'
 }
 

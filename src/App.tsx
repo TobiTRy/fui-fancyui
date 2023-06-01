@@ -8,9 +8,9 @@ import FancyRangeSlider from './Components/UI/Molecules/FancyRangeSlider/FancyRa
 import EditBarIconButton from './Components/UI/Atoms/EditBarIcon/EditBarIcon';
 import SpeedDialButton from './Components/UI/Molecules/SpeedDailButton/SpeedDail';
 import EditBarModule from './Components/UI/Organisms/EditBarModule/EditBarModule';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
 import ColorPicker from './Components/UI/Organisms/ColorPicker/ColorPicker';
-
 
 import ToastMessage from './Components/UI/Organisms/ToastMessage/ToastMessage';
 import { useModalModuleStore } from './Components/UI/Organisms/ModalModule/ModalModule.state';
@@ -22,7 +22,9 @@ import FancyA from './Components/UI/Molecules/FancyA/FancyA';
 import DropDownMenueModule from './Components/UI/Organisms/DropDownMenueModule/DropDownMenueModule';
 import { useDropDownMenueModuleStore } from './Components/UI/Organisms/DropDownMenueModule/DropDownMenueModule.state';
 import FancyHR from './Components/UI/Atoms/FancyHR';
-
+import FancySwipeUpModal from './Components/UI/Molecules/SwipeUpModal/SwipeUpModal';
+import { useFancySwipeUpModalStore } from './Components/UI/Organisms/FancySwipeUpModal/FancySwipeUpModal.state';
+import SwipeUpModal from './Routes/SwipeUpModal/SwipeUpModal';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -94,19 +96,23 @@ const array = [
     },
     secondaryButton: false,
     disabled: false,
-  },  
+  },
 ];
-
 
 const dropDownArray = [
   <FancyA icon={svg} label="Test" design="transparent" hoverColor={'primary'} />,
   <FancyHR />,
   <FancyA icon={svg} label="Test" design="transparent" hoverColor={'primary'} />,
   <FancyA icon={svg} label="Test" design="transparent" hoverColor={'primary'} />,
-  <FancyA icon={svg} label="Test" design="transparent" hoverColor={'primary'} onClick={() => useDropDownMenueModuleStore.getState().close()}/>,
+  <FancyA
+    icon={svg}
+    label="Test"
+    design="transparent"
+    hoverColor={'primary'}
+    onClick={() => useDropDownMenueModuleStore.getState().close()}
+  />,
   <FancyHR />,
 ];
-
 
 const StyledTestDiv = styled.div`
   background-color: red;
@@ -151,69 +157,94 @@ function App() {
       },
       'test111'
     );
-    //console.log(getModal('test'));
   };
 
   return (
-    <>
-      <div className="App">
-        <section>
-          <DropDownMenueModule items={dropDownArray}/>
-        </section>
-        <FancyA icon={Icon}/>
-        <FancyA icon={Icon} label='Test'/>
-        <FancyXButton design="accent" onClick={() => toggleDropDown()} />
-        <ModalModule />
-        <ToastMessage />
-        <section>
-          <FancyButton icon={svg} label='Test'/>
-         </section> 
-        <section>
-          <FancyButton size="small" wide={true} design="accent" outlined={true} onClick={() => handleModalCreation()} label="Modal"></FancyButton>
-        </section>
-        <section>
-          <FancyButton size="small" wide={true} design="accent" onClick={handleClick} label="Toaster"></FancyButton>
-        </section>
-        <section>
-          <EditBarIconButton label="Test" icon={svg} active={activated} handler={() => setActivated(!activated)} />
-        </section>
-        <section>
-          <FancyRangeSlider displayNumber={true} labelAlign={'left'} icon={svg} maxValue={50} minValue={-50} label={'Im tobi tester'} />
-        </section>
-        <section>
-          <FancyInput label="Username" value={'tes'} icon={svg} align={'left'} />
-        </section>
-        <section>
-          <FancyInput value={'tes'} icon={svg} align={'left'} />
-        </section>
-        <section>
-          <FancyDropDownSelect
-            icon={svg}
-            label="Test Done Other"
-            options={['Test', 'Test2', 'Test3', 'Test3', 'Test3', 'Test3']}
-            labelAlign="left"
-            inputTextAlign="left"
-          />
-        </section>
-        <section>
-          <SpeedDialButton items={menuItems} />
-        </section>
+    <div className="App">
+      <Router>
+        <div>
+          <nav>
+            <ul style={{display: 'flex', listStyle:'none', gap: '12px'}}>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/swipeupmodal">SwipeUpModal</Link>
+              </li>
+            </ul>
+          </nav>
 
-        <EditBarModule active={activated} sectionType={'sectionBox'} />
+          {/* A <Routes> looks through its children <Route>s and
+          renders the first one that matches the current URL. */}
+          <Routes>
+            <Route path="/swipeupmodal" element={<SwipeUpModal />} />
+            <Route path="/" element={<SwipeUpModal />} />
+          </Routes>
+        </div>
+      </Router>
+    </div>
+    // <>
+    //   <div className="App">
+    //     <FancySwipeUpModal />
+    //     <section>
+    //     </section>
+    //     <section>
+    //       <DropDownMenueModule items={dropDownArray}/>
+    //     </section>
+    //     <FancyA icon={Icon}/>
+    //     <FancyA icon={Icon} label='Open SwipeUp'/>
+    //     <FancyXButton design="accent" onClick={() => toggleDropDown()} />
+    //     <ModalModule />
+    //     <ToastMessage />
+    //     <section>
+    //       <FancyButton icon={svg} label='Open SwipeUp' onClick={() => openModal(true)}/>
+    //      </section>
+    //     <section>
+    //       <FancyButton size="small" wide={true} design="accent" outlined={true} onClick={() => handleModalCreation()} label="Modal"></FancyButton>
+    //     </section>
+    //     <section>
+    //       <FancyButton size="small" wide={true} design="accent" onClick={handleClick} label="Toaster"></FancyButton>
+    //     </section>
+    //     <section>
+    //       <EditBarIconButton label="Test" icon={svg} active={activated} handler={() => setActivated(!activated)} />
+    //     </section>
+    //     <section>
+    //       <FancyRangeSlider displayNumber={true} labelAlign={'left'} icon={svg} maxValue={50} minValue={-50} label={'Im tobi tester'} />
+    //     </section>
+    //     <section>
+    //       <FancyInput label="Username" value={'tes'} icon={svg} align={'left'} />
+    //     </section>
+    //     <section>
+    //       <FancyInput value={'tes'} icon={svg} align={'left'} />
+    //     </section>
+    //     <section>
+    //       <FancyDropDownSelect
+    //         icon={svg}
+    //         label="Test Done Other"
+    //         options={['Test', 'Test2', 'Test3', 'Test3', 'Test3', 'Test3']}
+    //         labelAlign="left"
+    //         inputTextAlign="left"
+    //       />
+    //     </section>
+    //     <section>
+    //       <SpeedDialButton items={menuItems} />
+    //     </section>
 
-        <section>
-          <ColorPicker
-            outputFormat={'rgba'}
-            colorArea={true}
-            hueSlider={true}
-            opacitySlider={true}
-            displayColor={true}
-            colorOutput={true}
-            handler={(color: any) => console.log(color)}
-          />
-        </section>
-      </div>
-    </>
+    //     <EditBarModule active={activated} sectionType={'sectionBox'} />
+
+    //     <section>
+    //       <ColorPicker
+    //         outputFormat={'rgba'}
+    //         colorArea={true}
+    //         hueSlider={true}
+    //         opacitySlider={true}
+    //         displayColor={true}
+    //         colorOutput={true}
+    //         handler={(color: any) => console.log(color)}
+    //       />
+    //     </section>
+    //   </div>
+    // </>
   );
 }
 
