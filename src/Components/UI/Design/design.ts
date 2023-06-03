@@ -68,7 +68,7 @@ export const fontSize = {
 	medium: '1rem',
 	large: '1.125rem',
   extraLarge: '1.25rem',
-
+  xxl: '1.5rem',
 }
 
 export const borderRadius = {
