@@ -25,6 +25,7 @@ import FancyHR from './Components/UI/Atoms/FancyHR';
 import FancySwipeUpModal from './Components/UI/Molecules/SwipeUpModal/SwipeUpModal';
 import { useFancySwipeUpModalStore } from './Components/UI/Organisms/FancySwipeUpModal/FancySwipeUpModal.state';
 import SwipeUpModal from './Routes/SwipeUpModal/SwipeUpModal';
+import SingleNumberInputRoute from './Routes/SingleNumberInputRoute/SingleNumberInputRoute';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -171,6 +172,9 @@ function App() {
               <li>
                 <Link to="/swipeupmodal">SwipeUpModal</Link>
               </li>
+              <li>
+                <Link to="/singleNumberInput">SingleNumberInput</Link>
+              </li>
             </ul>
           </nav>
 
@@ -178,6 +182,7 @@ function App() {
           renders the first one that matches the current URL. */}
           <Routes>
             <Route path="/swipeupmodal" element={<SwipeUpModal />} />
+            <Route path="/singleNumberInput" element={<SingleNumberInputRoute />} />
             <Route path="/" element={<SwipeUpModal />} />
           </Routes>
         </div>
