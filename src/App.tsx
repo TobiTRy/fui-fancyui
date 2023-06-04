@@ -26,6 +26,7 @@ import FancySwipeUpModal from './Components/UI/Molecules/SwipeUpModal/SwipeUpMod
 import { useFancySwipeUpModalStore } from './Components/UI/Organisms/FancySwipeUpModal/FancySwipeUpModal.state';
 import SwipeUpModal from './Routes/SwipeUpModal/SwipeUpModal';
 import SingleNumberInputRoute from './Routes/SingleNumberInputRoute/SingleNumberInputRoute';
+import DatePickerRoute from './Routes/DatePickerRoute/DatePickerRoute';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -175,6 +176,9 @@ function App() {
               <li>
                 <Link to="/singleNumberInput">SingleNumberInput</Link>
               </li>
+              <li>
+                <Link to="/datePicker">datePicker</Link>
+              </li>
             </ul>
           </nav>
 
@@ -183,6 +187,7 @@ function App() {
           <Routes>
             <Route path="/swipeupmodal" element={<SwipeUpModal />} />
             <Route path="/singleNumberInput" element={<SingleNumberInputRoute />} />
+            <Route path="/datePicker" element={<DatePickerRoute />} />
             <Route path="/" element={<SwipeUpModal />} />
           </Routes>
         </div>
