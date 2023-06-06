@@ -5,8 +5,9 @@ import AvilableDot, {IAvilableDot} from '../../Atoms/AvilableDot'
 import styled from 'styled-components';
 import { spacingPx } from '../../Design/design';
 
+import { IRange } from '../../Atoms/DateNumberAtom/DateNumberAtom';
 
-const StyledDateNumberWithStatud = styled.div`
+const StyledDateNumberWithStatus = styled.div`
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -21,16 +22,19 @@ interface IDateNumberWithStatus  {
   isWeekend?: boolean;
   disabled?: boolean;
   dateNumber: number;
+  isSelected?: boolean;
+  range?: IRange;
+  onClick?: () => void;
 };
 
-export default function DateNumberWithStatus(porps:IDateNumberWithStatus) {
-  const { isAvailable, disabled, dateNumber, isWeekend} = porps;
+export default function DateNumberWithStatus(props: IDateNumberWithStatus) {
+  const { isAvailable, disabled, dateNumber, isWeekend, isSelected, onClick, range } = props;
 
   return (
-    <StyledDateNumberWithStatud>
-      <DateNumberAtom dateNumber={dateNumber} disabled={isWeekend || disabled}/>
-      <AvilableDot avilable={disabled || isWeekend ? 'transparent' : isAvailable!} />
-    </StyledDateNumberWithStatud>
+    <StyledDateNumberWithStatus onClick={onClick}>
+      <DateNumberAtom dateNumber={dateNumber} disabled={isWeekend || disabled} selected={isSelected} range={range} />
+      <AvilableDot avilable={disabled || isWeekend ? 'transparent' : isAvailable!}/>
+    </StyledDateNumberWithStatus>
   )
 }
 

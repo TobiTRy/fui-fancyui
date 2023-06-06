@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { borderRadius, uiColors } from '../../Design/design';
 
 import { disabledStyle } from '../../HelperFunctions/disableStyle';
 
 
-const StyledDay = styled.button`
+export type IRange = { start?: boolean, end?: boolean, inRange?: boolean}
+
+const StyledDay = styled.button<{range?: IRange}>`
   cursor: pointer;
   box-sizing: border-box;
   justify-content: center;
@@ -32,23 +34,45 @@ const StyledDay = styled.button`
     border: 1px solid ${uiColors.accent.main};
   }
 
+  &:active {
+    border: 1px solid ${uiColors.accent.main};
+  }
+
+  ${({range}) => range?.start && `
+    border-radius: 50% 0 0 50%;
+    background-image: linear-gradient(to right, red, transparent);
+  `}
+
+  ${({range}) => range?.end && `
+    border-radius: 0 50% 50% 0;
+    background-image: linear-gradient(to left, red, transparent);
+  `}
+
+  ${({range}) => range?.inRange && `
+    background-color: red;
+  `}
+
+
+
   &:disabled {
     ${disabledStyle}
   }
 `;
 
-
 interface IDay {
   dateNumber: number;
   isWeekend?: boolean;
+  selected?: boolean;
   disabled?: boolean;
   handler?: () => void;
+  range?: IRange;
 };
-export default function DateNumberAtom({ dateNumber ,isWeekend, disabled, handler }: IDay) {
+export default function DateNumberAtom({ dateNumber ,isWeekend, disabled, handler, selected, range }: IDay) {
   const isDisabled = disabled ? disabled : isWeekend ? isWeekend : false
 
+
   return (
-    <StyledDay disabled={isDisabled} onClick={handler}>
+    <StyledDay disabled={isDisabled} onClick={handler} range={range}>
       {dateNumber}
     </StyledDay>
   );

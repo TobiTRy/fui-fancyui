@@ -1,43 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import styled from 'styled-components';
-import DateNumberWithStatus from '../../Molecules/DateNumberWithStatus/DateNumberWithStatus';
+import DateNumberWithStatus from '../DateNumberWithStatus/DateNumberWithStatus';
 import { spacingPx, uiColors } from '../../Design/design';
-
-
-const MonthContainer = styled.div`
-  margin-top: ${spacingPx.md};
-
-  h2 {
-    margin: ${spacingPx.sm};
-    margin-left: ${spacingPx.sm};
-    color: ${uiColors.secondary.main};
-  }
-`;
-
-const StyledCalendar = styled.div`
-  width: 100%;
-  height: 300px;
-  overflow-y: auto;
-`;
-
-const DateContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-`;
-
-
-
-const DateNumber = styled.span`
-  width: 14.28%; /* 100 / 7 days */
-  text-align: right;
-  cursor: pointer;
-  box-sizing: border-box;
-`;
+import { DateContainer, DateNumber, MonthContainer, StyledCalendar } from './Calendar.style';
 
 interface Day {
   number: number;
   isWeekend: boolean;
-  // Add more attributes as needed
 }
 
 interface Month {
@@ -66,20 +35,21 @@ export default function Calendar({ selectedYear }: ICalendar) {
     return {
       number: dayNumber,
       isWeekend: date.getDay() === 0 || date.getDay() === 6,
-      // Initialize other attributes here
     };
   };
 
-  const months: Month[] = Array.from({ length: 12 }, (_, i) => ({
-    name: new Date(0, i + 1, 0).toLocaleString('default', { month: 'long' }),
-    days: Array.from({ length: getDaysInMonth(i + 1, currentYear) }, (_, j) => createDay(j + 1, i, currentYear)),
-  }));
+  const months = useMemo(() => (
+    Array.from({ length: 12 }, (_, i) => ({
+      name: new Date(0, i + 1, 0).toLocaleString('default', { month: 'long' }),
+      days: Array.from({ length: getDaysInMonth(i + 1, currentYear) }, (_, j) => createDay(j + 1, i, currentYear)),
+    }))
+  ), [currentYear]);
 
   useEffect(() => {
     if (selectedYear) {
       setCurrentYear(selectedYear);
     }
-  }, [selectedYear])
+  }, [selectedYear]);
 
   return (
     <StyledCalendar>
@@ -92,7 +62,6 @@ export default function Calendar({ selectedYear }: ICalendar) {
             ))}
             {month.days.map((day) => (
               <DateNumberWithStatus key={day.number} dateNumber={day.number} isWeekend={day.isWeekend} isAvailable='completly' />
-
             ))}
           </DateContainer>
         </MonthContainer>
