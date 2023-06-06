@@ -3,7 +3,7 @@ export interface IFancyButton {
   wide?: boolean; 
   design: "primary" | "secondary" | "accent" | "transparent";
   align?: "left" | "right" | "center";
-  color?: "light" | "dark" | "primary" | "secondary" | "accent";
+  color?: "primary" | "secondary" | "accent";
   hoverColor?: "primary" | "secondary" | "accent";
   label?: string;
   outlined?: boolean;

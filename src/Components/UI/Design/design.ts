@@ -141,7 +141,7 @@ const uiColorsV2 = {
   primary: {
     lighter: colorSteps.primary[70],
     light: colorSteps.primary[60],
-    default: mainColors.primary,
+    main: mainColors.primary,
     dark: colorSteps.primary[40],
     darker: colorSteps.primary[30],
     contrast: colorSteps.secondary[60],
@@ -149,7 +149,7 @@ const uiColorsV2 = {
   accent: {
     lightest: colorSteps.accent[70],
     lighter: colorSteps.accent[60],
-    default: mainColors.accent,
+    main: mainColors.accent,
     darker: colorSteps.accent[40],
     darkest: colorSteps.accent[30],
     contrast: colorSteps.secondary[60],
@@ -157,7 +157,7 @@ const uiColorsV2 = {
   secondary: {
     lightest: colorSteps.secondary[70],
     lighter:  colorSteps.secondary[60],
-    default: mainColors.secondary,
+    main: mainColors.secondary,
     darker: colorSteps.secondary[40],
     darkest: colorSteps.secondary[30],
     contrast: colorSteps.primary[60],
@@ -165,7 +165,7 @@ const uiColorsV2 = {
   transparent: {
     lightest: 'tarnsparent',
     lighter: 'tarnsparent',
-    default: 'tarnsparent',
+    main: 'tarnsparent',
     darker: 'tarnsparent',
     darkest: 'tarnsparent',
     contrast: colorSteps.secondary[60],
@@ -192,7 +192,7 @@ export const uiColors = {
     hover: colorPalet.darkblue_light,
   },
   transparent: {
-    main_light: ,
+    main_light: colorPalet.transparent,
     main: colorPalet.transparent,
     contrast: colorPalet.light,
     hover: colorPalet.transparent,

@@ -15,7 +15,7 @@ export interface IGenerateThemeItem {
   wide?: boolean;
   design: IUiColorsTypes;
   align?: "left" | "right" | "center";
-  color?: "light" | "dark" | "primary" | "secondary" | "accent";
+  color?: "primary" | "secondary" | "accent";
   hoverColor?: "primary" | "secondary" | "accent";
   disabled?: boolean;
   onClick?: () => void;
@@ -46,7 +46,7 @@ const paddingIconButton = {
 type IcalcTextColor = Pick<IGenerateThemeItem, 'color' | 'design' | 'outlined'>;
 const calcTextColor = ({ color, design, outlined }: IcalcTextColor) => {
   if (color) {
-    return colorPalet[color];
+    return uiColors[color].main
   } else if (outlined) {
     return uiColors[design].main;
   } else {
@@ -114,7 +114,7 @@ const generateOutlined = (props: IGenerateOutlinedItem) => {
 
     &:hover:enabled {
       background-color: ${backgroundColor};
-      color: ${color ? colorPalet[color] : uiColors[design].main};
+      color: ${color ? uiColors[color].main : uiColors[design].main};
       box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.15);
     }
   `;
