@@ -21,7 +21,7 @@ export const RangeSlider = styled.input`
   height: 6px;
   background: gray;
   border-radius: 5px;
-  background-image: linear-gradient(90deg, ${uiColors.accent.main}, ${uiColors.accent.main_light});
+  background-image: linear-gradient(90deg, ${uiColors.accent.main}, ${uiColors.accent.light});
   background-size: 70% 100%;
   background-repeat: no-repeat;
   outline: none;

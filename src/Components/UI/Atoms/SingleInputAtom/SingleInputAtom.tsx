@@ -20,7 +20,7 @@ const StyledSingleInput = styled.input<StyledSingleInputProps>`
   background-color: transparent;
   appearance: none;
   outline: none;
-  box-shadow: ${(props) => (props.isFocused ? `0 0 2px 1px${uiColors.accent.main_light}` : 'none')};
+  box-shadow: ${(props) => (props.isFocused ? `0 0 2px 1px${uiColors.accent.light}` : 'none')};
 `;
 
 // --------------------------------------------------------------------------- //

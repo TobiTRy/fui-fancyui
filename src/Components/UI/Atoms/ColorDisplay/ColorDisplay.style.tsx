@@ -22,11 +22,11 @@ export const Content = styled.div<{ isBright: boolean }>`
   }
 
   &:active {
-    color: ${({isBright}) => isBright ? uiColors.primary.hover : uiColors.secondary.hover};
+    color: ${({isBright}) => isBright ? uiColors.primary.dark : uiColors.secondary.dark};
   }
 
   &:hover {
-    color: ${({isBright}) => isBright ? uiColors.primary.hover : uiColors.secondary.hover};
+    color: ${({isBright}) => isBright ? uiColors.primary.dark : uiColors.secondary.dark};
   }
 `;
 

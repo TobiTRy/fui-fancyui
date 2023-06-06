@@ -5,7 +5,7 @@ export const DatePickerContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: ${uiColors.primary.hover};
+  background-color: ${uiColors.primary.dark};
   border-radius: ${borderRadius.extraLarge};
   padding: 20px;
   width: 100%;
@@ -20,6 +20,6 @@ export const WrapperYearSelector = styled.div`
 
 export const WrapperWeekdays = styled.div`
   width: 100%;
-  border-bottom: solid 1px ${uiColors.secondary.hover};
+  border-bottom: solid 1px ${uiColors.secondary.dark};
   padding-bottom: ${spacingPx.xxs};
 `;

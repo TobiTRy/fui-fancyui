@@ -24,7 +24,7 @@ const UnderLine = styled.i<{ errorMessage?: string; active?: boolean; }>`
     height: 100%;
     background: ${({ errorMessage }) =>
       !errorMessage
-        ? css`linear-gradient(90deg, ${uiColors.accent.main}, ${uiColors.accent.main_light})`
+        ? css`linear-gradient(90deg, ${uiColors.accent.main}, ${uiColors.accent.light})`
         : css`linear-gradient(90deg, ${colorPalet.red_dark}, ${colorPalet.red_light})`};
     transition: 0.25s;
     transition-timing-function: cubic-bezier(0.46, 0.03, 0.52, 0.96);

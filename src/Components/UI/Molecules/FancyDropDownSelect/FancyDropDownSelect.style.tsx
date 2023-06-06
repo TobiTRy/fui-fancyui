@@ -8,12 +8,12 @@ import { AnimatedInputLabel } from '../../Atoms/InputLabel';
 
 //the styling for each option item
 export const Option = styled.option<{ align?: string }>`
-  background-color: ${uiColors.primary.hover};
+  background-color: ${uiColors.primary.dark};
   text-align: ${({ align }) => (align !== 'left' ? 'center' : 'left')};
   color: ${colorPalet.white_high};
 
   &:disabled {
-    background: ${uiColors.primary.main_light};
+    background: ${uiColors.primary.light};
   }
 `;
 
@@ -52,7 +52,7 @@ export const SelectField = styled.select<{ align?: string; labelAlign?: 'center'
 
   /* When a item is checked in the dropdown */
   &:focus ${Option}:checked {
-    background: ${uiColors.accent.hover};
+    background: ${uiColors.accent.dark};
   }
 
   ${({labelAlign}) => UnderLineFocusStyle(AnimatedInputLabel, labelAlign)}

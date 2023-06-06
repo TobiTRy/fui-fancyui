@@ -15,7 +15,7 @@ const generateDynamicTabStyle = (props: IFancyTabButtonStyle) => {
   //if the background not transparent give him a background/text color
   if (!transparent) {
     return css`
-      background-color: ${uiColors.primary.main_light};
+      background-color: ${uiColors.primary.light};
       color: ${uiColors.primary.contrast};
     `;
   } else {

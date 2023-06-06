@@ -27,7 +27,7 @@ const StyledFancyXButton = styled.button<{colorValue?: string }>`
   transition: color 0.2s ease-in-out;
 
   &:hover {
-    color: ${({ colorValue }) => colorValue ? Color(colorValue).darken(0.3).hex() : uiColors.accent.hover};
+    color: ${({ colorValue }) => colorValue ? Color(colorValue).darken(0.3).hex() : uiColors.accent.dark};
   } 
 `;
 

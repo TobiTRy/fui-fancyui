@@ -24,7 +24,7 @@ const ULButtonSwitchList = styled.ul<IFancyTabSwitchStyle>`
   ${({ transparent, rounded, roundedTabs, tabSpacing }) =>
     !transparent &&
     css`
-      background-color: ${!tabSpacing ? uiColors.primary.main_light : 'transparent'};
+      background-color: ${!tabSpacing ? uiColors.primary.light : 'transparent'};
 
       ${rounded &&
       css`

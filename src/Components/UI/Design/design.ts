@@ -137,7 +137,7 @@ const colorSteps = {
 
 
 
-const uiColorsV2 = {
+export const uiColors = {
   primary: {
     lighter: colorSteps.primary[70],
     light: colorSteps.primary[60],
@@ -147,57 +147,57 @@ const uiColorsV2 = {
     contrast: colorSteps.secondary[60],
   },
   accent: {
-    lightest: colorSteps.accent[70],
-    lighter: colorSteps.accent[60],
+    lighter: colorSteps.accent[70],
+    light: colorSteps.accent[60],
     main: mainColors.accent,
-    darker: colorSteps.accent[40],
-    darkest: colorSteps.accent[30],
+    dark: colorSteps.accent[40],
+    darker: colorSteps.accent[30],
     contrast: colorSteps.secondary[60],
   },
   secondary: {
-    lightest: colorSteps.secondary[70],
-    lighter:  colorSteps.secondary[60],
+    lighter: colorSteps.secondary[70],
+    light:  colorSteps.secondary[60],
     main: mainColors.secondary,
-    darker: colorSteps.secondary[40],
-    darkest: colorSteps.secondary[30],
+    dark: colorSteps.secondary[40],
+    darker: colorSteps.secondary[30],
     contrast: colorSteps.primary[60],
   },
   transparent: {
-    lightest: 'tarnsparent',
     lighter: 'tarnsparent',
+    light: 'tarnsparent',
     main: 'tarnsparent',
+    dark: 'tarnsparent',
     darker: 'tarnsparent',
-    darkest: 'tarnsparent',
     contrast: colorSteps.secondary[60],
 	}
 };
 
-export const uiColors = {
-  accent: {
-    main: colorPalet.orange,
-    main_light: colorPalet.orange_light,
-    contrast: colorPalet.white_light,
-    hover: colorPalet.orange_dark,
-  },
-  secondary: {
-    main: colorPalet.white,
-    main_light: colorPalet.white_light,
-    contrast: colorPalet.darkblue_dark,
-    hover: colorPalet.white_dark,
-  },
-  primary: {
-    main: colorPalet.darkblue,
-    main_light: colorPalet.darkblue_light,
-    contrast: colorPalet.white_light,
-    hover: colorPalet.darkblue_light,
-  },
-  transparent: {
-    main_light: colorPalet.transparent,
-    main: colorPalet.transparent,
-    contrast: colorPalet.light,
-    hover: colorPalet.transparent,
-  },
-};
+// export const uiColors = {
+//   accent: {
+//     main: colorPalet.orange,
+//     main_light: colorPalet.orange_light,
+//     contrast: colorPalet.white_light,
+//     hover: colorPalet.orange_dark,
+//   },
+//   secondary: {
+//     main: colorPalet.white,
+//     main_light: colorPalet.white_light,
+//     contrast: colorPalet.darkblue_dark,
+//     hover: colorPalet.white_dark,
+//   },
+//   primary: {
+//     main: colorPalet.darkblue,
+//     main_light: colorPalet.darkblue_light,
+//     contrast: colorPalet.white_light,
+//     hover: colorPalet.darkblue_light,
+//   },
+//   transparent: {
+//     main_light: colorPalet.transparent,
+//     main: colorPalet.transparent,
+//     contrast: colorPalet.light,
+//     hover: colorPalet.transparent,
+//   },
+// };
 
 export type IUiColorsSystemMessageTypes = 'success' | 'warning' | 'error';
 // colors for different types of (success, warning, error)

@@ -11,7 +11,7 @@ const StyledDialog = styled(animated.div)`
   left: 50%;
   transform: translate(-50%, -50%);
   padding: ${spacingPx.xl};
-  background-color: ${uiColors.primary.hover};
+  background-color: ${uiColors.primary.dark};
   border-radius: ${borderRadius.large};
   border: none;
   width: 70%;

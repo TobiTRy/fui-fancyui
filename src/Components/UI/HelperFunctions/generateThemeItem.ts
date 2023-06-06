@@ -131,7 +131,7 @@ const generateNormal = (props: IGenerateNormalitem) => {
   //this calculates the textcolor depend on design and color
   const textColor = calcTextColor({color, design, outlined});
 
-  const hoverColorStyle = design === 'transparent' && hoverColor ? uiColors[hoverColor].hover : uiColors[design].hover;
+  const hoverColorStyle = design === 'transparent' && hoverColor ? uiColors[hoverColor].dark : uiColors[design].dark;
 
 
   return css`
