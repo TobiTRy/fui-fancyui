@@ -10,32 +10,49 @@ import DateOutput from '../../Atoms/DateOutput/DateOutput';
 import { DatePickerContainer, WrapperWeekdays, WrapperYearSelector } from './FancyDatePicker.style';
 
 import DateOutputFromTo from '../../Molecules/DateOutputFromTo/DateOutputFromTo';
+import { useDateOutputFromToState } from '../../Molecules/DateOutputFromTo/DateOutputFromTo.state';
+
+import { useFancyDatePickerState } from './FancyDatePicker.state';
+import { useYearSelectorState } from '../../Atoms/YearSelector/YearSelector.state';
+
+
 
 
 export default function FancyDatePicker() {
-  const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
+  const selectedDate = useFancyDatePickerState((state) => state.selectedDate);
+  const setSelectedDate = useFancyDatePickerState((state) => state.setSelectedDate);
+
+  const currentlySelectedFromOrTo = useDateOutputFromToState(state => state.currentlySelected);
+  const setCurrentlySelectedFromOrTo = useDateOutputFromToState(state => state.setCurrentlySelected);
+
+  const currentlySelectedYear = useYearSelectorState(state => state.selectedYear);
+  
+
+
   const pickedDate = useState<Date>();
   const [pickedRange, setPickedRange] = useState<Date[]>([]);
 
-  const handleYearChange = (changedYear: number) => {
-    setCurrentYear(changedYear);
-  };
 
-  const handleDateChange = (changedDate: Date | Date[]) => {
+  const handleDateChange = (changedDate: Date | (Date | undefined)[]) => {
     console.log(changedDate);
     setPickedRange(changedDate as Date[]);
+  }
+
+  const handleSwitchFromTo = (change: 'from' | 'to') => {
+    console.log(change);
+    setCurrentlySelectedFromOrTo(change);
   }
 
   return (
     <DatePickerContainer>
       <WrapperYearSelector>
-        <YearSelector selectedYear={currentYear} handler={handleYearChange} />
+        <YearSelector selectedYear={currentlySelectedYear} />
       </WrapperYearSelector>
       <WrapperWeekdays>
         <WeekDays />
       </WrapperWeekdays>
-      <RangeCalendar selectedYear={currentYear} handler={handleDateChange} />
-      {/* <Calendar selectedYear={currentYear} /> */}
+      <RangeCalendar selectedYear={currentlySelectedYear} handler={handleDateChange} selectFromTo={currentlySelectedFromOrTo ?? 'from'} handleSwitchFromTo={handleSwitchFromTo} />
+      {/* <Calendar selectedYear={currentlySelectedYear} /> */}
       <DateOutputFromTo dateFrom={pickedRange[0]} dateTo={pickedRange[1]} />
     </DatePickerContainer>
   );

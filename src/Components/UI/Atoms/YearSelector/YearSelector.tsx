@@ -1,6 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { fontSize, uiColors } from '../../Design/design';
+import SVGChevronLeft from '../../SVGIcons/SVGChevronLeft';
+import SVGChevronRight from '../../SVGIcons/SVGChevronRight';
+
+import { useYearSelectorState } from './YearSelector.state';
 
 const StyledYearSelector = styled.div`
   display: flex;
@@ -26,46 +30,36 @@ const StyledButton = styled.button`
   cursor: pointer;
 `;
 
-const SVGArrowLeft = (
-  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-    <path
-      stroke={uiColors.secondary.main}
-      strokeWidth="1"
-      fillRule="evenodd"
-      d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"
-    />
-  </svg>
-);
 
-const SVGArrowRight = (
-  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-    <path
-      stroke={uiColors.secondary.main}
-      strokeWidth="1"
-      fillRule="evenodd"
-      d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
-    />
-  </svg>
-);
+
 
 interface IYearSelector {
   selectedYear?: number;
   handler?: (change: number) => void;
 }
 export default function YearSelector({ selectedYear, handler }: IYearSelector) {
-  const [currentYear, setCurrentYear] = useState(selectedYear || new Date().getFullYear());
+  const pickedYear = useYearSelectorState(state => state.selectedYear);
+  const setPickedYear = useYearSelectorState(state => state.setSelectedYear);
+
 
   const handleYearChange = (change: number) => {
-    const calcCurrentYear = currentYear + change;
-    setCurrentYear(calcCurrentYear);
+    const calcCurrentYear = pickedYear + change;
+    setPickedYear(calcCurrentYear);
     handler && handler(calcCurrentYear);
   };
 
+  // update the year if the selected year changes and its present
+  useEffect(() => {
+    if (selectedYear) {
+      setPickedYear(selectedYear);
+    }
+  }, [selectedYear])
+
   return (
     <StyledYearSelector>
-      <StyledButton onClick={() => handleYearChange(-1)}>{SVGArrowLeft}</StyledButton>
-      <span>{currentYear}</span>
-      <StyledButton onClick={() => handleYearChange(1)}>{SVGArrowRight}</StyledButton>
+      <StyledButton onClick={() => handleYearChange(-1)}>{SVGChevronLeft}</StyledButton>
+      <span>{pickedYear}</span>
+      <StyledButton onClick={() => handleYearChange(1)}>{SVGChevronRight}</StyledButton>
     </StyledYearSelector>
   );
 }

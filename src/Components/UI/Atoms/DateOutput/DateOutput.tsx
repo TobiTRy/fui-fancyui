@@ -1,53 +1,61 @@
-import React from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import styled from 'styled-components';
 import { uiColors } from '../../Design/design';
 import Color from 'color';
 
-interface DateOutputProps {
-  date?: Date;
-  onDateSelect?: (date: Date) => void;
-}
-
-const Container = styled.button`
+//uiColors.primary.light
+const DateOutputButton = styled.button<{ active?: boolean }>`
   text-align: center;
   width: 100%;
-  background-color: transparent;
+  background-color: ${({ active }) => (active ? uiColors.primary.lighter : uiColors.primary.light)};
   border: none;
-`;  
+  cursor: pointer;
 
-export default function DateOutput ({ date, onDateSelect }: DateOutputProps) {
-  const [selectedDate, setSelectedDate] = React.useState<Date | undefined>(date);
+  &:hover {
+    background-color: ${uiColors.primary.lighter};
+  }
+`;
+
+interface IDateOutput {
+  date?: Date;
+  isActive?: boolean;
+  onDateSelect?: (date: Date) => void;
+  handler?: () => void;
+}
+export default function DateOutput({ date, isActive, onDateSelect, handler }: IDateOutput) {
+  const [active, setActive] = useState(false);
+  const [selectedDate, setSelectedDate] = useState<Date | undefined>(date);
 
   // Format the date to display as "6. Juni"
-  const formattedDate = React.useMemo(() => {
+  const formattedDate = useMemo(() => {
     if (!selectedDate) return '';
-    const options = { day: 'numeric', month: 'short' } as const; // Define as const
-    return selectedDate.toLocaleDateString('de-DE', options);
+    const userLang = navigator.language;
+    const options = { day: 'numeric', month: 'short' } as const;
+    return selectedDate.toLocaleDateString(userLang, options);
   }, [selectedDate]);
-  
 
-  // We need to know how your custom Calendar component works.
-  // Assuming it takes 'selectedDate' and 'onDateSelect' as props.
   const handleOpenCalendar = () => {
-    // Open your custom Calendar component here
-    // Pass the current 'selectedDate' and 'onDateSelect' to it
+    setActive(true);
+    handler && handler();
   };
 
-  // Update the selected date when receiving new props.
-  // 'date' prop could change outside this component.
-  React.useEffect(() => {
+  useEffect(() => {
     setSelectedDate(date);
   }, [date]);
 
-  return (
-    <Container onClick={handleOpenCalendar}>
-      {formattedDate || 'Select a date'}
-      {/* Render your custom Calendar component here */}
-    </Container>
-  );
-};
+  useEffect(() => {
+    setActive(isActive ?? false);
+  }, [isActive]);
 
+
+
+  return (
+    <DateOutputButton onClick={handleOpenCalendar} active={active && isActive}>
+      {formattedDate || 'Select a date'}
+    </DateOutputButton>
+  );
+}
 
 DateOutput.defaultProps = {
   date: new Date(),
-}
+};
