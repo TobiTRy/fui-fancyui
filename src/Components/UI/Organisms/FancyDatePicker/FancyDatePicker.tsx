@@ -28,18 +28,18 @@ export default function FancyDatePicker() {
   const currentlySelectedYear = useYearSelectorState(state => state.selectedYear);
   
 
-
+  //TODO: Build in a Varriant to disable dates in the past
+  //TODO: Load only a few dates not all in a year
+  //TODO: Build in RangePicker / normal Picker Adjust DateOutput accordingly
   const pickedDate = useState<Date>();
   const [pickedRange, setPickedRange] = useState<Date[]>([]);
 
 
   const handleDateChange = (changedDate: Date | (Date | undefined)[]) => {
-    console.log(changedDate);
     setPickedRange(changedDate as Date[]);
   }
 
   const handleSwitchFromTo = (change: 'from' | 'to') => {
-    console.log(change);
     setCurrentlySelectedFromOrTo(change);
   }
 

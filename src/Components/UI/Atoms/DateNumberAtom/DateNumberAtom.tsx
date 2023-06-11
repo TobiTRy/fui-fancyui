@@ -7,14 +7,14 @@ import { disabledStyle } from '../../HelperFunctions/disableStyle';
 
 export type IRange = { start?: boolean, end?: boolean, inRange?: boolean}
 
-const StyledDay = styled.button<{range?: IRange}>`
+const StyledDay = styled.button<{range?: IRange, isCurrentDay?: boolean, selected?: boolean}>`
   cursor: pointer;
   box-sizing: border-box;
   justify-content: center;
   align-items: center;
   border-radius: ${borderRadius.complete};
-  color: ${uiColors.secondary.main};
-  border: none;
+  color: ${({isCurrentDay}) => isCurrentDay ? uiColors.accent.main : uiColors.secondary.main };
+  border: ${({selected}) => selected ? `1px solid ${uiColors.accent.main}` : `none`};
   background-color: transparent;
   padding: 0;
   width: 80%;
@@ -66,13 +66,13 @@ interface IDay {
   disabled?: boolean;
   handler?: () => void;
   range?: IRange;
+  isCurrentDay?: boolean;
 };
-export default function DateNumberAtom({ dateNumber ,isWeekend, disabled, handler, selected, range }: IDay) {
+export default function DateNumberAtom({ dateNumber ,isWeekend, disabled, handler, selected, range, isCurrentDay }: IDay) {
   const isDisabled = disabled ? disabled : isWeekend ? isWeekend : false
 
-
   return (
-    <StyledDay disabled={isDisabled} onClick={handler} range={range}>
+    <StyledDay disabled={isDisabled} onClick={handler} range={range} selected={selected} isCurrentDay={isCurrentDay}>
       {dateNumber}
     </StyledDay>
   );
