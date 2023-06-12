@@ -39,17 +39,20 @@ const StyledDay = styled.button<{range?: IRange, isCurrentDay?: boolean, selecte
   }
 
   ${({range}) => range?.start && `
-    border-radius: 50% 0 0 50%;
-    background-image: linear-gradient(to right, red, transparent);
+    border-radius: 50% 5px 5px 50%;
+    background-image: linear-gradient(to right, ${uiColors.accent.main}, transparent);
+    color: white;
   `}
 
   ${({range}) => range?.end && `
-    border-radius: 0 50% 50% 0;
-    background-image: linear-gradient(to left, red, transparent);
+    border-radius: 5px 50% 50% 5px;
+    background-image: linear-gradient(to left, ${uiColors.accent.main}, transparent);
+    color: white;
   `}
 
   ${({range}) => range?.inRange && `
-    background-color: red;
+    background-color: ${uiColors.accent.main};
+    color: white;
   `}
 
 
