@@ -130,7 +130,8 @@ const colorSteps = {
     60: Color(mainColors.secondary).lighten(0.15).hex(),
     50: mainColors.secondary,
     40: Color(mainColors.secondary).darken(0.05).hex(),
-    30: Color(mainColors.secondary).darken(0.1).hex(),
+    30: Color(mainColors.secondary).darken(0.2).hex(),
+    20: Color(mainColors.secondary).darken(0.40).hex(),
   },
 }
 
@@ -160,6 +161,7 @@ export const uiColors = {
     main: mainColors.secondary,
     dark: colorSteps.secondary[40],
     darker: colorSteps.secondary[30],
+    darkest: 'gray',  // is used for passiv elements to make them more passive
     contrast: colorSteps.primary[60],
   },
   transparent: {

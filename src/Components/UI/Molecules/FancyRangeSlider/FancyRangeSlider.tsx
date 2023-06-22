@@ -2,7 +2,7 @@ import React, { useEffect, useId, useRef, useState } from 'react';
 import IFancyRangeSlider from './FancyRangeSlider.model';
 import { Icon, Label, NumberInput, NumberContainer, RangeSlider, RangeSliderContainer } from './FancyRangeSlider.style';
 
-import { InputWarapper } from '../../Atoms/InputWrapper';
+import InputWrapper from '../../Atoms/InputWrapper/InputWrapper';
 import UnderLine from '../../Atoms/InputUnderline';
 
 // --------------------------------------------------------------------------- //
@@ -66,7 +66,7 @@ export default function FancyRangeSlider(props: IFancyRangeSlider) {
 
 
   return (
-    <InputWarapper disabled={disabled}>
+    <InputWrapper disabled={disabled}>
       {/* Icon for the left side of the slider */}
       {icon && <Icon active={isActive}>{icon}</Icon>}
 
@@ -110,6 +110,6 @@ export default function FancyRangeSlider(props: IFancyRangeSlider) {
           <UnderLine active={isActive} />
         </NumberContainer>
       )}
-    </InputWarapper>
+    </InputWrapper>
   );
 }

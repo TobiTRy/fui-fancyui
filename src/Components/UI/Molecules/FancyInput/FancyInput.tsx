@@ -3,7 +3,7 @@ import React, { useId, useState } from 'react';
 import IFancyInput from './FancyInput.model';
 import { ErrorMessage, Icon, Input, InputContainer, PasswordIcon } from './FancyInput.style';
 import UnderLine from '../../Atoms/InputUnderline';
-import { InputWarapper } from '../../Atoms/InputWrapper';
+import InputWrapper from '../../Atoms/InputWrapper/InputWrapper';
 
 import { AnimatedInputLabel } from '../../Atoms/InputLabel';
 import SVGEyeOpen from '../../SVGIcons/SVGEyeOpen';
@@ -24,7 +24,7 @@ export default function FancyInput(props: IFancyInput) {
   const calculatedType = type !== 'password' ? type : showPassword ? 'text' : 'password';
 
   return (
-    <InputWarapper disabled={disabled}>
+    <InputWrapper disabled={disabled}>
       {/* // --------- the icon for the input field ------------- // */}
       {icon && (
         <Icon active={isActive} errorMessage={errorMessage}>
@@ -37,8 +37,8 @@ export default function FancyInput(props: IFancyInput) {
         {/* the input field  */}
         <Input
           id={id}
-          calculatedType={type}
           errorMessage={errorMessage}
+          placeholder=""
           type={calculatedType}
           required
           align={align}
@@ -53,7 +53,7 @@ export default function FancyInput(props: IFancyInput) {
 
         {/* the label for the input field it shows when a label prop exists*/}
         {label && (
-          <AnimatedInputLabel htmlFor={id} align={align} disabledAndSelected={Boolean(disabled) && Boolean(props.value)}> 
+          <AnimatedInputLabel htmlFor={id} align={align} disabledAndSelected={Boolean(disabled) && Boolean(props.value)}>
             {label}
           </AnimatedInputLabel>
         )}
@@ -61,13 +61,11 @@ export default function FancyInput(props: IFancyInput) {
         {/*  icons for the password field to show and hide the password */}
         {type === 'password' && (
           <PasswordIcon onClick={() => setShowPassword(!showPassword)}>
-            {!showPassword ? (
-              // the eye icon for the password type toggle
-              SVGEyeOpen
-            ) : (
-              // the crossed out eye icon for the password type toggle
-              SVGEyeCrossed
-            )}
+            {!showPassword
+              ? // the eye icon for the password type toggle
+                SVGEyeOpen
+              : // the crossed out eye icon for the password type toggle
+                SVGEyeCrossed}
           </PasswordIcon>
         )}
         {/* // --------- the underline form the input field------------- // */}
@@ -77,6 +75,6 @@ export default function FancyInput(props: IFancyInput) {
       {/* // ---------if a errorMessage prop exists this message will shown------------- // */}
       {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
       {/* // --------------------------------------------------------------------------- // */}
-    </InputWarapper>
+    </InputWrapper>
   );
 }

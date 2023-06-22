@@ -3,7 +3,7 @@ import { Icon, SelectContainer, SelectField, Option} from './FancyDropDownSelect
 import { AnimatedInputLabel } from '../../Atoms/InputLabel';
 import UnderLine from '../../Atoms/InputUnderline';
 
-import { InputWarapper } from '../../Atoms/InputWrapper';
+import InputWarapper from '../../Atoms/InputWrapper/InputWrapper';
 import IFancyDropDownSelect from './IFancyDropDownSelect.model';
 
 // ------------------------------------------------------------------ //
@@ -39,7 +39,7 @@ export default function FancyDropDownSelect(props: IFancyDropDownSelect) {
 
             {/* placeholder for costome text like "Please Select a item" */}
             {options?.map((item, i) => (
-              <Option key={i} value={item.toLowerCase()} align={inputTextAlign}>
+              <Option key={i} value={item.toString().toLowerCase()} align={inputTextAlign}>
                 {item}
               </Option>
             ))}

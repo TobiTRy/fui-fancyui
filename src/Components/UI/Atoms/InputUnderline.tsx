@@ -9,7 +9,7 @@ const UnderLine = styled.i<{ errorMessage?: string; active?: boolean; }>`
   bottom: 0;
   height: 2px;
   border-radius: 5px;
-  background: gray;
+  background: ${uiColors.secondary.darkest};
   overflow: hidden;
   width: 100%;
   

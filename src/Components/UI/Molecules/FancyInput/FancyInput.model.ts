@@ -5,7 +5,7 @@ export default interface IFancyInput {
   required?: boolean;
   align?: 'left' | 'center';
   textColor?: 'bright' | 'dark';
-  type?: 'number' | 'email' | 'text' | 'password';
+  type?: 'number' | 'email' | 'text' | 'password' | 'date';
   calculatedType?: 'number' | 'email' | 'text' | 'password';
   min?: number | string;
   max?: number | string;

@@ -59,12 +59,10 @@ export default function RangeCalendar(props: ICalendar) {
 
   const handleDateClick = useCallback(
     (day: Day, monthIndex: number) => {
-      console.log('day', day, monthIndex, rangeCalendar);
       if (rangeCalendar) {
         const selectedDays = selectDayFunction({ day, monthIndex, selectedDates, selectedYear, selectFromTo });
         if (selectFromTo === 'from') handleSwitchFromTo && handleSwitchFromTo('to');
         if (selectFromTo === 'to') handleSwitchFromTo && handleSwitchFromTo('from');
-        console.log('selectedDays', selectedDays);
         setSelectedDates(selectedDays);
         handler && handler(selectedDays);
       } else {
@@ -107,7 +105,6 @@ export default function RangeCalendar(props: ICalendar) {
 
   useEffect(() => {
     setTimeout(() => {
-
     const currentMonth = new Date().getMonth();
     monthRefs.current[currentMonth]?.scrollIntoView();
     }, 300);
