@@ -5,7 +5,7 @@ import TextInput from '../../Molecules/TextInput/TextInput';
 import NumberInput from '../../Molecules/NumberInput/NumberInput';
 import InputWrapper from '../../Atoms/InputWrapper/InputWrapper';
 import DropDownSelect from '../../Atoms/DropDownSelect/DropDownSelect';
-import FancyDateInput from '../../Organisms/FancyDateInput';
+import DateInput from '../DateInput/DatePicker';
 
 type InputOrSelectEvent = ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>;
 
@@ -13,7 +13,7 @@ export type IInputCreatorHandler = (value?: string, e?: ChangeEvent<HTMLInputEle
 export type IInputCreatorActiveHandler = (value: boolean) => void;
 
 interface IInputCreator {
-  InputComponent: typeof PasswortInput | typeof TextInput | typeof NumberInput | typeof DropDownSelect | typeof FancyDateInput;
+  InputComponent: typeof PasswortInput | typeof TextInput | typeof NumberInput | typeof DropDownSelect | typeof DateInput;
   label?: string;
   icon?: JSX.Element;
   value?: string;
