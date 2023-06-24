@@ -1,26 +1,27 @@
 import React, { ChangeEvent } from 'react';
-import styled from 'styled-components';
 
 import RawInput, { IRawInput } from '../../Atoms/RawInput';
-import { UnderLineFocusStyle } from '../../Atoms/InputUnderline';
+import styled from 'styled-components';
 import { AnimatedInputLabel, AnimatedLabelFocusStyle } from '../../Atoms/AnimatedLabel';
+import { UnderLineFocusStyle } from '../../Atoms/InputUnderline';
 
-export interface ITextInput extends IRawInput {
+export interface IDateInput extends IRawInput {
   id?: string;
   disabled?: boolean;
-  value?: string | number;
+  value?: string;
   errorMessage?: string;
   handler?: (e: ChangeEvent<HTMLInputElement>) => void;
   activeHandler?: (value: boolean) => void;
-};
+}
 
-const StyledTextInput = styled(RawInput)<ITextInput>`
+const StyledDatePicker = styled(RawInput)<IDateInput>`
   ${({ align, errorMessage }) => AnimatedLabelFocusStyle(align, errorMessage)}
   //the focus animation for the underline
   ${({ align }) => UnderLineFocusStyle(AnimatedInputLabel, align)}
 `;
 
-export default function TextInput(props: ITextInput) {
+
+export default function DateInput(props: IDateInput) {
   const { value, handler, activeHandler, disabled, errorMessage, align, id } = props;
 
   //this function is used to toggle the active state of the input
@@ -29,13 +30,13 @@ export default function TextInput(props: ITextInput) {
   };
 
   return (
-    <StyledTextInput
+    <StyledDatePicker
       id={id}
-      type="text"
+      type="date"
       placeholder=""
       errorMessage={errorMessage}
-      value={value}
       align={align}
+      value={value}
       autoComplete={'off'}
       onChange={handler}
       disabled={disabled}

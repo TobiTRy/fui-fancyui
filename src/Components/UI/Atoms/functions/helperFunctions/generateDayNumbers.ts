@@ -1,4 +1,4 @@
-const generateDayNumbers = (start?: number, end?: number):number[] => {
+const generateDayNumbers = (start?: number, end?: number) => {
   let startDay = start || 1;
   let endDay = end || 31;
 
@@ -12,7 +12,7 @@ const generateDayNumbers = (start?: number, end?: number):number[] => {
   // generate the array with the days
   const days = [];
   for (let i = startDay; i <= endDay; i++) {
-    days.push(i);
+    days.push(i.toString());
   };
 
 

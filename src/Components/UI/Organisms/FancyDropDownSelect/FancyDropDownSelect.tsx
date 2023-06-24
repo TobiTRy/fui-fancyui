@@ -1,6 +1,6 @@
 import React from 'react';
 
-import InputCreator from '../InputCreator/InputCreator';
+import InputCreator from '../../Molecules/InputCreator/InputCreator';
 import DropDownSelect from '../../Atoms/DropDownSelect/DropDownSelect';
 import IFancyDropDownSelect from './FancyDropDownSelect.model';
 

@@ -4,7 +4,7 @@ export default interface IDropDownSelect {
   id?: string;
   align?: 'left' | 'center';
   selected?: string;
-  values?: string[] | number[];
+  values?: string[] ;
   disabled?: boolean;
   handler?: (e: ChangeEvent<HTMLSelectElement>) => void;
   activeHandler?: (value: boolean) => void;

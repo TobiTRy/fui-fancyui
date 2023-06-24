@@ -1,5 +1,5 @@
 import React from 'react'
-import InputCreator, { IInputCreatorHandler, IInputCreatorActiveHandler } from './InputCreator/InputCreator';
+import InputCreator, { IInputCreatorHandler, IInputCreatorActiveHandler } from '../Molecules/InputCreator/InputCreator';
 import NumberInput from '../Molecules/NumberInput/NumberInput';
 
 

@@ -179,7 +179,7 @@ function App() {
                 <Link to="/datePicker">datePicker</Link>
               </li>
               <li>
-                <Link to="/inputsRoute">datePicker</Link>
+                <Link to="/inputsRoute">Inputs</Link>
               </li>
             </ul>
           </nav>

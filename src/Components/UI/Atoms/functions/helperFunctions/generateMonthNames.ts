@@ -1,5 +1,5 @@
 // ---------- generate the array with the months names  ------- //
-const generateMonthArray = (start?: number, end?: number):number[] => {
+const generateMonthArray = (start?: number, end?: number) => {
   let monthStart = start || 0;
   let monthEnd = end || 11;
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { ChangeEvent, useState } from 'react'
 
 import RawInput, { IRawInput } from '../../Atoms/RawInput';
 import styled from 'styled-components';
@@ -9,13 +9,11 @@ import { AnimatedInputLabel, AnimatedLabelFocusStyle } from '../../Atoms/Animate
 interface IPasswortInput extends IRawInput {
   id?: string;
   disabled?: boolean;
-  value?: string | number;
+  value?: string;
   errorMessage?: string;
-  handler?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handler?: (e: ChangeEvent<HTMLInputElement>) => void;
   activeHandler?: (value: boolean) => void;
 };
-
-
 const StyledPasswortInput = styled(RawInput)<IPasswortInput>`
   ${({ align, errorMessage }) => AnimatedLabelFocusStyle(align, errorMessage)}
   //the focus animation for the underline

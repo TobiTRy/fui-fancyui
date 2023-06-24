@@ -5,6 +5,7 @@ import TextInput from '../../Molecules/TextInput/TextInput';
 import NumberInput from '../../Molecules/NumberInput/NumberInput';
 import InputWrapper from '../../Atoms/InputWrapper/InputWrapper';
 import DropDownSelect from '../../Atoms/DropDownSelect/DropDownSelect';
+import FancyDateInput from '../../Organisms/FancyDateInput';
 
 type InputOrSelectEvent = ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>;
 
@@ -12,11 +13,11 @@ export type IInputCreatorHandler = (value?: string, e?: ChangeEvent<HTMLInputEle
 export type IInputCreatorActiveHandler = (value: boolean) => void;
 
 interface IInputCreator {
-  InputComponent: typeof PasswortInput | typeof TextInput | typeof NumberInput | typeof DropDownSelect;
+  InputComponent: typeof PasswortInput | typeof TextInput | typeof NumberInput | typeof DropDownSelect | typeof FancyDateInput;
   label?: string;
   icon?: JSX.Element;
-  value?: string | number;
-  values?: string[] | number[];
+  value?: string;
+  values?: string[];
   errorMessage?: string;
   disabled?: boolean;
   align?: 'left' | 'center';
@@ -44,7 +45,7 @@ export default function InputCreator(props: IInputCreator) {
     activeHandler && activeHandler(value);
   };
   
-  const inputValueHandler = (e: InputOrSelectEvent) => {
+  const inputValueHandler = (e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>) => {
     handler && handler(e.target.value, e as ChangeEvent<HTMLInputElement>);
   };
 

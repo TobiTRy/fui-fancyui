@@ -1,7 +1,7 @@
-import { IInputCreatorActiveHandler, IInputCreatorHandler } from "../InputCreator/InputCreator";
+import { IInputCreatorActiveHandler, IInputCreatorHandler } from "../../Molecules/InputCreator/InputCreator";
 
 export default interface IFancyDropDownSelect {
-  values?: string[] | number[];
+  values?: string[];
   disabled?: boolean;
   align?: 'left' | 'center';
   handler?: IInputCreatorHandler;

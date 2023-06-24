@@ -1,9 +1,9 @@
 import React from 'react'
 import InputCreator, { IInputCreatorHandler, IInputCreatorActiveHandler } from '../Molecules/InputCreator/InputCreator';
-import TextInput from '../Molecules/TextInput/TextInput';
+import DateInput from '../Molecules/DateInput/DatePicker';
 
 
-interface FancyTextInputProps {
+interface IFancyDateInput {
   value?: string;
   errorMessage?: string;
   disabled?: boolean;
@@ -16,6 +16,6 @@ interface FancyTextInputProps {
 // --------------------------------------------------------------------------- //
 // ----The TextInput Comonent with surrounding icon, label and underline ----- //
 // --------------------------------------------------------------------------- //
-export default function FancyTextInput(props: FancyTextInputProps) {
-  return <InputCreator {...props} InputComponent={TextInput} />;
+export default function FancyDateInput(props: IFancyDateInput) {
+  return <InputCreator {...props} InputComponent={DateInput} />;
 }
