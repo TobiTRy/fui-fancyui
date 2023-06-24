@@ -2,9 +2,8 @@ import { useState } from 'react';
 import './App.css';
 
 import FancyButton from './Components/UI/Molecules/FancyButton/FancyButton';
-import FancyInput from './Components/UI/Molecules/FancyInput/FancyInput';
+import FancyInput from './Components/UI/Molecules/FancyInput/FancyInputOld';
 import FancyDropDownSelect from './Components/UI/Molecules/FancyDropDownSelect/FancyDropDownSelect';
-import FancyRangeSlider from './Components/UI/Molecules/FancyRangeSlider/FancyRangeSlider';
 import EditBarIconButton from './Components/UI/Atoms/EditBarIcon/EditBarIcon';
 import SpeedDialButton from './Components/UI/Molecules/SpeedDailButton/SpeedDail';
 import EditBarModule from './Components/UI/Organisms/EditBarModule/EditBarModule';
@@ -27,6 +26,7 @@ import { useFancySwipeUpModalStore } from './Components/UI/Organisms/FancySwipeU
 import SwipeUpModal from './Routes/SwipeUpModal/SwipeUpModal';
 import SingleNumberInputRoute from './Routes/SingleNumberInputRoute/SingleNumberInputRoute';
 import DatePickerRoute from './Routes/DatePickerRoute/DatePickerRoute';
+import InputsRoute from './Routes/InputsRoute/InputsRoute';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -179,6 +179,9 @@ function App() {
               <li>
                 <Link to="/datePicker">datePicker</Link>
               </li>
+              <li>
+                <Link to="/inputsRoute">datePicker</Link>
+              </li>
             </ul>
           </nav>
 
@@ -188,6 +191,7 @@ function App() {
             <Route path="/swipeupmodal" element={<SwipeUpModal />} />
             <Route path="/singleNumberInput" element={<SingleNumberInputRoute />} />
             <Route path="/datePicker" element={<DatePickerRoute />} />
+            <Route path="/inputsRoute" element={<InputsRoute />} />
             <Route path="/" element={<SwipeUpModal />} />
           </Routes>
         </div>

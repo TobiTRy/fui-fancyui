@@ -1,10 +1,11 @@
 import React, { useId, useState } from 'react';
 import { Icon, SelectContainer, SelectField, Option} from './FancyDropDownSelect.style';
-import { AnimatedInputLabel } from '../../Atoms/InputLabel';
+
 import UnderLine from '../../Atoms/InputUnderline';
 
 import InputWarapper from '../../Atoms/InputWrapper/InputWrapper';
 import IFancyDropDownSelect from './IFancyDropDownSelect.model';
+import { AnimatedInputLabel } from '../../Atoms/AnimatedLabel';
 
 // ------------------------------------------------------------------ //
 // ------------- main component for the drop down ------------------- //

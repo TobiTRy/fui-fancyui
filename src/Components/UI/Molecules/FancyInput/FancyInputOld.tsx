@@ -5,11 +5,12 @@ import { ErrorMessage, Icon, Input, InputContainer, PasswordIcon } from './Fancy
 import UnderLine from '../../Atoms/InputUnderline';
 import InputWrapper from '../../Atoms/InputWrapper/InputWrapper';
 
-import { AnimatedInputLabel } from '../../Atoms/InputLabel';
+
 import SVGEyeOpen from '../../SVGIcons/SVGEyeOpen';
 import SVGEyeCrossed from '../../SVGIcons/SVGEyeCrossed';
+import { AnimatedInputLabel } from '../../Atoms/AnimatedLabel';
 
-export default function FancyInput(props: IFancyInput) {
+export default function FancyInputOld(props: IFancyInput) {
   const { label, type, align, icon, errorMessage, disabled, handler, value, defaultValue, ...inputProps } = props;
 
   //this state toggled the clean text input and the censored one
@@ -72,7 +73,7 @@ export default function FancyInput(props: IFancyInput) {
         <UnderLine errorMessage={errorMessage}></UnderLine>
       </InputContainer>
 
-      {/* // ---------if a errorMessage prop exists this message will shown------------- // */}
+      {/* // --------- if a errorMessage prop exists this message will shown ------------- // */}
       {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
       {/* // --------------------------------------------------------------------------- // */}
     </InputWrapper>

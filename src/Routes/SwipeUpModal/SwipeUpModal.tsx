@@ -4,7 +4,7 @@ import FancySwipeUpModal from '../../Components/UI/Organisms/FancySwipeUpModal/F
 import { useFancySwipeUpModalStore } from '../../Components/UI/Organisms/FancySwipeUpModal/FancySwipeUpModal.state';
 import FancyButton from '../../Components/UI/Molecules/FancyButton/FancyButton';
 
-import FancyInput from '../../Components/UI/Molecules/FancyInput/FancyInput';
+import FancyInput from '../../Components/UI/Molecules/FancyInput/FancyInputOld';
 import ModalHeadLine from '../../Components/UI/Molecules/ModalHeadLine/ModalHeadLine';
 
 

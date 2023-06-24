@@ -2,13 +2,13 @@ import styled, { css } from "styled-components";
 import { disabledStyle } from "../../HelperFunctions/disableStyle";
 import { spacingPx, fontSize, colorPalet, spacing } from "../../Design/design";
 
-export const StyledInputWrapper = styled.div<{disabled?: boolean}>`
+export const StyledInputWrapper = styled.div<{disabled?: boolean, autoWidth?: boolean}>`
   box-sizing: border-box;
   position: relative;
   display: grid;
   grid-template-columns: auto 1fr auto;
   grid-template-rows: 1fr auto;
-  width: 100%;
+  width: ${({autoWidth}) => autoWidth ? 'auto' : '100%'};
   
   ${({disabled}) => disabled ? disabledStyle : ''};
 `;

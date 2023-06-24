@@ -3,9 +3,10 @@ import { css } from 'styled-components';
 
 import { ErrorMessage, StyledInputWrapper, InputContainer } from './InputWrapper.style';
 import UnderLine from '../InputUnderline';
-import { AnimatedInputLabel } from '../InputLabel';
+
 import SVGAtom from '../SVGAtom/SVGAtom';
 import { spacing, spacingPx } from '../../Design/design';
+import { AnimatedInputLabel } from '../AnimatedLabel';
 
 const iconStyle = css`
   margin-right: ${spacing.xs + 2 + 'px'};
@@ -24,12 +25,14 @@ export interface IInputWrapper {
   icon?: JSX.Element;
   value?: string | number;
   align?: 'left' | 'center';
+  autoWidth?: boolean;
+  underline?: boolean;
 };
 export default function InputWrapper(props: IInputWrapper) {
-  const { id, isActiv, disabled, children, errorMessage, icon, label, align } = props;
+  const { id, isActiv, disabled, children, errorMessage, icon, label, align, underline, autoWidth } = props;
 
   return (
-    <StyledInputWrapper disabled={disabled}>
+    <StyledInputWrapper disabled={disabled} autoWidth={autoWidth}>
       {icon && <SVGAtom externalStyle={iconStyle} size="large" isActive={isActiv}>{icon}</SVGAtom>}
       <InputContainer givePadding={Boolean(label)}>
         {children}
@@ -39,7 +42,7 @@ export default function InputWrapper(props: IInputWrapper) {
             {label}
           </AnimatedInputLabel>
         )}
-        <UnderLine errorMessage={errorMessage} active={isActiv}/>
+        {underline && <UnderLine errorMessage={errorMessage} active={isActiv}/> }
       </InputContainer>
       {/* // ---------if a errorMessage prop exists this message will shown------------- // */}
       {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
@@ -47,3 +50,7 @@ export default function InputWrapper(props: IInputWrapper) {
     </StyledInputWrapper>
   );
 };
+
+InputWrapper.defaultProps = {
+  underline: true,
+}

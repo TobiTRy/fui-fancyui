@@ -1,9 +1,9 @@
 import { IEditBarIconButton } from "../../../Atoms/EditBarIcon/IEditBarIcon";
 import { ICategoryItem, InputSettings } from "../EditBarItemsStructure/IEditbarObjectSturcture.model";
 
-import FancyInput from "../../../Molecules/FancyInput/FancyInput";
+import FancyInput from "../../../Molecules/FancyInput/FancyInputOld";
 import FancyDropDownSelect from "../../../Molecules/FancyDropDownSelect/FancyDropDownSelect";
-import FancyRangeSlider from "../../../Molecules/FancyRangeSlider/FancyRangeSlider";
+import FancyRangeSlider from "../../../Templates/Inputs/FancyRangeSlider/FancyRangeSlider";
 import FancyTabSwitch from "../../../Molecules/FancyTabSwitch/FancyTabSwitch";
 
 
@@ -37,7 +37,7 @@ export const getObjectMapper = ({ activeEditbarCategory, activeSubSectionItem }:
   //get the values and check if they there
   if (!activeEditbarCategory || !activeSubSectionItem) return null;
 
-   //get the JSX SETTINGS from the currently ACTIVE CATEGORY ---> ACTIVE SUBSECTION  ---> and get the SETTINGS 
+  //get the JSX SETTINGS from the currently ACTIVE CATEGORY ---> ACTIVE SUBSECTION  ---> and get the SETTINGS 
   const currentActiveSettings = activeEditbarCategory.subsectionSettingItems[activeSubSectionItem].settings
 
   //map the settings to JSX

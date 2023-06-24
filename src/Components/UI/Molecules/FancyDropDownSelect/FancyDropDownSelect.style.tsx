@@ -4,7 +4,7 @@ import { uiColors, fontSize, spacingPx, colorPalet, spacing } from '../../Design
 
 import { disabledStyle } from '../../HelperFunctions/disableStyle';
 import { UnderLineFocusStyle } from '../../Atoms/InputUnderline';
-import { AnimatedInputLabel } from '../../Atoms/InputLabel';
+import { AnimatedInputLabel } from '../../Atoms/AnimatedLabel';
 
 //the styling for each option item
 export const Option = styled.option<{ align?: string }>`

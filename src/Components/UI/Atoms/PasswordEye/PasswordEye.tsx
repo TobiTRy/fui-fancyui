@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import styled from 'styled-components';
 import { colorPalet } from '../../Design/design';
+import SVGEyeCrossed from '../../SVGIcons/SVGEyeCrossed';
+import SVGEyeOpen from '../../SVGIcons/SVGEyeOpen';
 
 export const PasswordIcon = styled.i`
   position: absolute;
@@ -13,25 +15,18 @@ export const PasswordIcon = styled.i`
 `;
 
 interface IPasswordEye {
-  showPassword?: boolean;
+  isShow?: boolean;
   handler?: () => void;
-}
-
-
-export default function PasswordEye({showPassword, handler}:IPasswordEye) {
-  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
-
+};
+export default function PasswordEye({isShow, handler}:IPasswordEye) {
 
   const clickHandler = () => {
-    setIsPasswordVisible(!isPasswordVisible);
     handler && handler();
-
   };  
-
 
   return (
     <PasswordIcon onClick={clickHandler}>
-    {!showPassword
+    {!isShow
       ? // the eye icon for the password type toggle
         SVGEyeOpen
       : // the crossed out eye icon for the password type toggle

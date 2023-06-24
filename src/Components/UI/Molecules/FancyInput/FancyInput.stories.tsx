@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import FancyInput from './FancyInput';
+import FancyInput from './FancyInputOld';
 
 
 export default {

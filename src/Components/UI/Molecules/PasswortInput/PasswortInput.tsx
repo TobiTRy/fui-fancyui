@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import RawInput, { IRawInput } from '../../Atoms/RawInput';
 import styled from 'styled-components';
-import { AnimatedInputLabel, AnimatedLabelFocusStyle } from '../../Atoms/InputLabel';
 import { UnderLineFocusStyle } from '../../Atoms/InputUnderline';
+import PasswordEye from '../../Atoms/PasswordEye/PasswordEye';
+import { AnimatedInputLabel, AnimatedLabelFocusStyle } from '../../Atoms/AnimatedLabel';
 
 interface IPasswortInput extends IRawInput {
   id?: string;
@@ -20,23 +21,25 @@ const StyledPasswortInput = styled(RawInput)<IPasswortInput>`
   //the focus animation for the underline
   ${({ align }) => UnderLineFocusStyle(AnimatedInputLabel, align)}
 `;
-
-
-
 export default function PasswortInput(props: IPasswortInput) {
   const { value, handler, activeHandler, disabled, errorMessage, align, id } = props;
+  const [ isShowPassword, setIsShowPassword ] = useState(false)
+
 
   const focusHandler = (value: boolean) => {
     activeHandler && activeHandler(value);
   };
-  
 
-  
-  
+  const showPasswordHandler = () => {
+    setIsShowPassword(!isShowPassword)
+  }; 
+
   return (
-    <>    
-      <StyledPasswortInput  
-        type="password"
+    <>
+      <PasswordEye isShow={isShowPassword} handler={showPasswordHandler}/>    
+      <StyledPasswortInput
+        id={id}
+        type={isShowPassword ? 'text' : 'password'}
         placeholder=""
         errorMessage={errorMessage}
         value={value}

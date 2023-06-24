@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 import RawInput, { IRawInput } from '../../Atoms/RawInput';
-import { AnimatedInputLabel, AnimatedLabelFocusStyle } from '../../Atoms/InputLabel';
 import { UnderLineFocusStyle } from '../../Atoms/InputUnderline';
+import { AnimatedInputLabel, AnimatedLabelFocusStyle } from '../../Atoms/AnimatedLabel';
 
 export interface ITextInput extends IRawInput {
   id?: string;

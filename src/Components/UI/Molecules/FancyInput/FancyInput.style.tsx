@@ -4,9 +4,8 @@ import styled, { css } from 'styled-components';
 
 //this function handles some alignment of the elements
 import IFancyInput from './FancyInput.model';
-
 import { UnderLineFocusStyle } from '../../Atoms/InputUnderline';
-import { AnimatedInputLabel, AnimatedLabelFocusStyle } from '../../Atoms/InputLabel';
+import { AnimatedInputLabel, AnimatedLabelFocusStyle } from '../../Atoms/AnimatedLabel';
 
 type ITypeStyle = IFancyInput['type'];
 const generateInputTypeStyle =  (type: ITypeStyle, placeholder?: string) => {
