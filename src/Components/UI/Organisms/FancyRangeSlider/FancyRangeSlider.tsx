@@ -1,18 +1,16 @@
 import React, { ChangeEvent, useId, useState } from 'react';
 
-import RawSlider from '../../../Atoms/RawSlider/RawSlider';
+import RawSlider from '../../Atoms/RawSlider/RawSlider';
 import FancyNumberInput from '../FancyNumberInput';
-import { StyledInputWrapper } from '../../../Atoms/InputWrapper/InputWrapper.style';
-
-import SVGAtom from '../../../Atoms/SVGAtom/SVGAtom';
+import { StyledInputWrapper } from '../../Atoms/InputWrapper/InputWrapper.style';
+import SVGAtom from '../../Atoms/SVGAtom/SVGAtom';
 import { Label, NumberContainer, RangeSliderContainer, Icon } from './FancyRangeSlider.style';
 import IFancyRangeSlider from './FancyRangeSlider.model';
 
 
 // --------------------------------------------------------------------------- //
-// -------------------- The main FancySlider Component --------------------- //
+// -------------------- The main FancySlider Component ----------------------- //
 // --------------------------------------------------------------------------- //
-
 export default function FancyRangeSlider(props: IFancyRangeSlider) {
   const { label, labelAlign, icon, value, minValue, maxValue, displayNumber, handler, disabled } = props;
 
@@ -22,6 +20,7 @@ export default function FancyRangeSlider(props: IFancyRangeSlider) {
 
   const id = useId();
 
+  // this function is called when the slider is moved
   const changeHandler = (value?: string, e?: ChangeEvent<HTMLInputElement>) => {
     if (!value) return;
     setToutched(true);
@@ -29,6 +28,7 @@ export default function FancyRangeSlider(props: IFancyRangeSlider) {
     handler && handler(parseFloat(value), e);
   };
 
+  // this function is called when the slider is clicked
   const activeHandler = (value: boolean) => {
     setIsActive(value);
   };

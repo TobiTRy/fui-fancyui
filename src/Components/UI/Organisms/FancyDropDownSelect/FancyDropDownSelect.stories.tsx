@@ -25,7 +25,7 @@ const Template: ComponentStory<typeof FancyDropDownSelect> = (args) => <FancyDro
 export const Primary = Template.bind({});
 Primary.args = {
   label: 'Button',
-  options: ['test', 'test1', 'test2'],
+  values: ['test', 'test1', 'test2'],
 
 };
 

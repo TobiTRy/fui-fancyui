@@ -1,18 +1,22 @@
-import React, { useId, useState } from 'react';
+import React, { ChangeEvent, useId, useState } from 'react';
 
 import PasswortInput from '../../Molecules/PasswortInput/PasswortInput';
 import TextInput from '../../Molecules/TextInput/TextInput';
 import NumberInput from '../../Molecules/NumberInput/NumberInput';
 import InputWrapper from '../../Atoms/InputWrapper/InputWrapper';
+import DropDownSelect from '../../Atoms/DropDownSelect/DropDownSelect';
 
-export type IInputCreatorHandler = (value?: string, e?: React.ChangeEvent<HTMLInputElement>) => void;
+type InputOrSelectEvent = ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>;
+
+export type IInputCreatorHandler = (value?: string, e?: ChangeEvent<HTMLInputElement>) => void;
 export type IInputCreatorActiveHandler = (value: boolean) => void;
 
 interface IInputCreator {
-  InputComponent: typeof PasswortInput | typeof TextInput | typeof NumberInput;
+  InputComponent: typeof PasswortInput | typeof TextInput | typeof NumberInput | typeof DropDownSelect;
   label?: string;
   icon?: JSX.Element;
   value?: string | number;
+  values?: string[] | number[];
   errorMessage?: string;
   disabled?: boolean;
   align?: 'left' | 'center';
@@ -24,20 +28,24 @@ interface IInputCreator {
   step?: number;
   autoWidth?: boolean;
 }
-
+// --------------------------------------------------------------------------- //
+// -- The InputCreator is used for each input to get same design stucture ---- //
+// --------------------------------------------------------------------------- //
 export default function InputCreator(props: IInputCreator) {
-  const { InputComponent, label, value, handler, activeHandler, disabled, errorMessage, align, icon, underline, autoWidth } = props;
+  const { InputComponent, label, value, values, handler, activeHandler, disabled, errorMessage, align, icon, underline, autoWidth } = props;
   const [isActive, setIsActive] = useState(false);
 
+  // the id is used to link the label and the input
   const id = useId();
 
+  // this function is used for the design to color wehen its active between  surrounding components get deiifernt colors (e.g. Label, Icon)
   const activeFocusHandler = (value: boolean) => {
     setIsActive(value);
     activeHandler && activeHandler(value);
   };
-
-  const inputValueHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    handler && handler(e.target.value, e);
+  
+  const inputValueHandler = (e: InputOrSelectEvent) => {
+    handler && handler(e.target.value, e as ChangeEvent<HTMLInputElement>);
   };
 
   return (
@@ -56,6 +64,7 @@ export default function InputCreator(props: IInputCreator) {
         id={id}
         align={align}
         value={value}
+        values={values}
         handler={inputValueHandler}
         activeHandler={activeFocusHandler}
         disabled={disabled}

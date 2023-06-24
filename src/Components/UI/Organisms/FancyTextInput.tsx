@@ -1,10 +1,9 @@
 import React from 'react'
-import InputCreator, { IInputCreatorHandler, IInputCreatorActiveHandler } from '../../Organisms/InputCreator/InputCreator';
-import TextInput from '../../Molecules/TextInput/TextInput';
+import InputCreator, { IInputCreatorHandler, IInputCreatorActiveHandler } from './InputCreator/InputCreator';
+import TextInput from '../Molecules/TextInput/TextInput';
 
 
 interface FancyTextInputProps {
-  id?: string;
   value?: string | number;
   errorMessage?: string;
   disabled?: boolean;
@@ -14,6 +13,9 @@ interface FancyTextInputProps {
   icon?: JSX.Element;
   label?: string;
 };
+// --------------------------------------------------------------------------- //
+// ----The TextInput Comonent with surrounding icon, label and underline ----- //
+// --------------------------------------------------------------------------- //
 export default function FancyTextInput(props: FancyTextInputProps) {
   return <InputCreator {...props} InputComponent={TextInput} />;
 }

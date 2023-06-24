@@ -17,7 +17,7 @@ export default function DatePickerRoute() {
   return (
     <section>
       <div style={{display: 'flex', padding: '1rem', gap: '1rem'}}>
-        <FancyDateDropDown type="day" inputTextAlign='center' />
+        <FancyDateDropDown type="day" align='center' />
         <FancyDateDropDown type="month" />
         <FancyDateDropDown type="year" />
       </div>

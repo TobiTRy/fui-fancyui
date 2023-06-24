@@ -1,7 +1,7 @@
 import { IEditBarIconButton } from "../../../Atoms/EditBarIcon/IEditBarIcon";
-import IFancyDropDownSelect from "../../../Molecules/FancyDropDownSelect/IFancyDropDownSelect.model";
+import IFancyDropDownSelect from "../../FancyDropDownSelect/FancyDropDownSelect.model";
 import IFancyInput from "../../../Molecules/FancyInput/FancyInput.model";
-import IFancyRangeSlider from "../../../Templates/Inputs/FancyRangeSlider/FancyRangeSlider.model";
+import IFancyRangeSlider from "../../FancyRangeSlider/FancyRangeSlider.model";
 import IFancyTab from "../../../Molecules/FancyTabSwitch/IFancyTab.model";
 
 

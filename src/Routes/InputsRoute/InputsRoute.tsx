@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { ChangeEvent } from 'react';
 
-import FancyPasswordInput from '../../Components/UI/Templates/Inputs/FancyPasswordInput';
-import FancyTextInput from '../../Components/UI/Templates/Inputs/FancyTextInput';
+import FancyPasswordInput from '../../Components/UI/Organisms/FancyPasswordInput';
+import FancyTextInput from '../../Components/UI/Organisms/FancyTextInput';
 import NumberInput from '../../Components/UI/Molecules/NumberInput/NumberInput';
-import FancyRangeSlider from '../../Components/UI/Templates/Inputs/FancyRangeSlider/FancyRangeSlider';
-import FancyNumberInput from '../../Components/UI/Templates/Inputs/FancyNumberInput';
+import FancyRangeSlider from '../../Components/UI/Organisms/FancyRangeSlider/FancyRangeSlider';
+import FancyNumberInput from '../../Components/UI/Organisms/FancyNumberInput';
+import DropDownSelect from '../../Components/UI/Atoms/DropDownSelect/DropDownSelect';
+import FancyDropDownSelect from '../../Components/UI/Organisms/FancyDropDownSelect/FancyDropDownSelect';
 
 const svg = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -13,17 +15,27 @@ const svg = (
   </svg>
 );
 
-
 export default function InputsRoute() {
   const testHandler = (value?: number | string) => {
     console.log(value, 'main');
   };
+
+  const selectHandler = (e: ChangeEvent<HTMLSelectElement>) => {
+    console.log('select', e.target.value);
+  };
+
   return (
     <section>
-      <FancyPasswordInput icon={svg} label='Test' handler={testHandler} align='center' />
-      <FancyTextInput icon={svg} label='Test' handler={testHandler} />
-      <FancyNumberInput icon={svg} label='Test' handler={testHandler} />
-      <FancyRangeSlider icon={svg} label='Test' handler={testHandler} />
+      <FancyPasswordInput icon={svg} label="Test" handler={testHandler} align="center" />
+      <FancyTextInput icon={svg} label="Test" handler={testHandler} />
+      <FancyNumberInput icon={svg} label="Test" handler={testHandler} />
+      <FancyRangeSlider icon={svg} label="Test" handler={testHandler} />
+      <FancyDropDownSelect
+        icon={svg}
+        label="Test"
+        handler={testHandler}
+        values={['Test', 'Test2', 'Test3', 'Test3', 'Test3', 'Test3']}
+      />
     </section>
-  )
+  );
 }

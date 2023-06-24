@@ -2,8 +2,8 @@ import { IEditBarIconButton } from "../../../Atoms/EditBarIcon/IEditBarIcon";
 import { ICategoryItem, InputSettings } from "../EditBarItemsStructure/IEditbarObjectSturcture.model";
 
 import FancyInput from "../../../Molecules/FancyInput/FancyInputOld";
-import FancyDropDownSelect from "../../../Molecules/FancyDropDownSelect/FancyDropDownSelect";
-import FancyRangeSlider from "../../../Templates/Inputs/FancyRangeSlider/FancyRangeSlider";
+import FancyDropDownSelect from "../../FancyDropDownSelect/FancyDropDownSelect";
+import FancyRangeSlider from "../../FancyRangeSlider/FancyRangeSlider";
 import FancyTabSwitch from "../../../Molecules/FancyTabSwitch/FancyTabSwitch";
 
 

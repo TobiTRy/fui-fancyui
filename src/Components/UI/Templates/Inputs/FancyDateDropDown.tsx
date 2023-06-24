@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from 'react';
 
-import FancyDropDownSelect from '../../Molecules/FancyDropDownSelect/FancyDropDownSelect';
-import IFancyDropDownSelect from '../../Molecules/FancyDropDownSelect/IFancyDropDownSelect.model';
+import FancyDropDownSelect from '../../Organisms/FancyDropDownSelect/FancyDropDownSelect';
+import IFancyDropDownSelect from '../../Organisms/FancyDropDownSelect/FancyDropDownSelect.model';
 import generateYearZone from '../../Atoms/functions/helperFunctions/generateYearZone';
 import generateMonthNames from '../../Atoms/functions/helperFunctions/generateMonthNames';
 import generateDayNumbers from '../../Atoms/functions/helperFunctions/generateDayNumbers';
 
-
+// this function creates the options for the dropdown day month and year
 const generateOptions = (type: DateType, limitStart?: number, limitEnd?: number) => {
   //default limits for year
   const currentYear = new Date().getFullYear();
 
+  // define the limits for the dropdowns
   const startYear = limitStart ? limitStart : currentYear - 120;
   const endYear = limitEnd ? limitEnd : new Date().getFullYear();
 
@@ -27,7 +28,7 @@ const generateOptions = (type: DateType, limitStart?: number, limitEnd?: number)
       return generateMonthNames(startMonth, endMonth);
     case 'day':
       return generateDayNumbers(startDay, endDay);
-  };
+  }
 };
 
 type DateType = 'year' | 'month' | 'day';
@@ -36,21 +37,21 @@ interface IFancyDateDropDown extends IFancyDropDownSelect {
   yearLimits?: [number, number];
   monthLimits?: [number, number];
   dayLimits?: [number, number];
-};
+}
+// --------------------------------------------------------------------------- //
+// -------------- Fancy Date DropDown to Pick a day/month/year --------------- //
+// --------------------------------------------------------------------------- //
 export default function FancyDateDropDown(props: IFancyDateDropDown) {
   const { type, yearLimits, monthLimits, ...inputProps } = props;
   const [inputOptions, setInputOptions] = useState<string[] | number[]>([]);
 
+  // this useEffect is used to generate the options for the dropdown
   useEffect(() => {
     const generatedOptions = generateOptions(type);
     setInputOptions(generatedOptions);
   }, []);
 
-  return (
-    <>
-      <FancyDropDownSelect {...inputProps} options={inputOptions} />
-    </>
-  );
+  return <FancyDropDownSelect {...inputProps} values={inputOptions} />;
 }
 
 FancyDateDropDown.defaultProps = {

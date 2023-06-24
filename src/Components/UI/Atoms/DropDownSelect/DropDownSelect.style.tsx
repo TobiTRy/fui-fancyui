@@ -1,10 +1,7 @@
-import styled, { css } from 'styled-components';
-
-import { uiColors, fontSize, spacingPx, colorPalet, spacing } from '../../Design/design';
-
-import { disabledStyle } from '../../HelperFunctions/disableStyle';
-import { UnderLineFocusStyle } from '../../Atoms/InputUnderline';
-import { AnimatedInputLabel } from '../../Atoms/AnimatedLabel';
+import styled from "styled-components";
+import { colorPalet, fontSize, spacing, spacingPx, uiColors } from "../../Design/design";
+import { UnderLineFocusStyle } from "../InputUnderline";
+import { AnimatedInputLabel } from "../AnimatedLabel";
 
 //the styling for each option item
 export const Option = styled.option<{ align?: string }>`
@@ -15,13 +12,6 @@ export const Option = styled.option<{ align?: string }>`
   &:disabled {
     background: ${uiColors.primary.light};
   }
-`;
-
-export const SelectContainer = styled.div<{givePadding: boolean}>`
-  width: 100%;
-  grid-column: 2/3;
-  ${({givePadding}) => givePadding && css`padding-top: ${spacing.lg + 'px'}` };
-  position: relative;
 `;
 
 //the selectfield for the options
@@ -57,19 +47,3 @@ export const SelectField = styled.select<{ align?: string; labelAlign?: 'center'
 
   ${({labelAlign}) => UnderLineFocusStyle(AnimatedInputLabel, labelAlign)}
 `;
-
-export const Icon = styled.i<{ active: boolean }>`
-  margin-right: 8px;
-  margin-bottom: 2px;
-  transition: 0.5s;
-  display: flex;
-  align-items: flex-end;
-  color: ${({ active }) => (active ? uiColors.accent.main : 'gray')};
-
-  svg {
-    height: 20px;
-    width: 20px;
-  }
-`;
-
-

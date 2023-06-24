@@ -1,10 +1,9 @@
 import React from 'react'
-import InputCreator, { IInputCreatorHandler, IInputCreatorActiveHandler } from '../../Organisms/InputCreator/InputCreator';
-import PasswortInput from '../../Molecules/PasswortInput/PasswortInput';
+import InputCreator, { IInputCreatorHandler, IInputCreatorActiveHandler } from './InputCreator/InputCreator';
+import PasswortInput from '../Molecules/PasswortInput/PasswortInput';
 
 
 interface FancyTextInputProps {
-  id?: string;
   value?: string;
   errorMessage?: string;
   disabled?: boolean;

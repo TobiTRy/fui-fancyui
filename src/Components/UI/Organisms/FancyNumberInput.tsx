@@ -1,6 +1,6 @@
 import React from 'react'
-import InputCreator, { IInputCreatorHandler, IInputCreatorActiveHandler } from '../../Organisms/InputCreator/InputCreator';
-import NumberInput from '../../Molecules/NumberInput/NumberInput';
+import InputCreator, { IInputCreatorHandler, IInputCreatorActiveHandler } from './InputCreator/InputCreator';
+import NumberInput from '../Molecules/NumberInput/NumberInput';
 
 
 interface IFancyNumberInput {
@@ -18,6 +18,9 @@ interface IFancyNumberInput {
   minValue?: number;
   maxValue?: number;
 };
+// --------------------------------------------------------------------------- //
+// ----The NumberInput Comonent with surrounding icon, label and underline --- //
+// --------------------------------------------------------------------------- //
 export default function FancyNumberInput(props: IFancyNumberInput) {
   return <InputCreator {...props} InputComponent={NumberInput} />;
 }
