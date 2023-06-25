@@ -7,6 +7,7 @@ export default interface IDropDownSelect {
   values?: string[] ;
   value?: string;
   disabled?: boolean;
+  emptySelect?: boolean;
   handler?: (e: ChangeEvent<HTMLSelectElement>) => void;
   activeHandler?: (value: boolean) => void;
 };

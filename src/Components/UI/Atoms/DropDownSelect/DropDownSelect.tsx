@@ -6,13 +6,11 @@ import IDropDownSelect from './DropDownSelect.model';
 // ---------------- the blank drop down select ---------------------- //
 // ------------------------------------------------------------------ //
 export default function DropDownSelect(props: IDropDownSelect) {
-  const { id, value, values, align, handler, disabled, activeHandler } = props;
+  const { id, value, values, align, handler, disabled, activeHandler, emptySelect } = props;
 
   const focusHandler = (value: boolean) => {
     activeHandler && activeHandler(value);
   };
-
-  console.log('DropDownSelect', value)
 
   return (
     <SelectField
@@ -20,20 +18,23 @@ export default function DropDownSelect(props: IDropDownSelect) {
       disabled={disabled}
       align={align}
       labelAlign={align}
-      defaultValue={value ? value : ''}
+      value={value ? value : ''}
       required
       onChange={handler}
       onFocus={() => focusHandler(true)}
       onBlur={() => focusHandler(false)}
     >
-      {/* Empty Select Option */}
+      
       <Option value="" hidden className="disabled" align={align} disabled>
         {' '}
       </Option>
       
-      <Option value="" align={align}>
-        {' '}
-      </Option>
+      {/* Empty Select Option  */}
+      {emptySelect && (
+        <Option value="" align={align}>
+          {''}
+        </Option>
+      )}
 
       {/* placeholder for custom text like "Please Select a item" */}
       {values?.map((item, i) => (
@@ -44,3 +45,7 @@ export default function DropDownSelect(props: IDropDownSelect) {
     </SelectField>
   );
 }
+
+DropDownSelect.defaultProps = {
+  emptySelect: true,
+};
