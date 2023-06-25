@@ -28,7 +28,7 @@ interface IInputCreator {
   max?: number;
   step?: number;
   autoWidth?: boolean;
-}
+};
 // --------------------------------------------------------------------------- //
 // -- The InputCreator is used for each input to get same design stucture ---- //
 // --------------------------------------------------------------------------- //
@@ -45,7 +45,7 @@ export default function InputCreator(props: IInputCreator) {
     activeHandler && activeHandler(value);
   };
   
-  const inputValueHandler = (e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>) => {
+  const inputValueHandler = (e: InputOrSelectEvent) => {
     handler && handler(e.target.value, e as ChangeEvent<HTMLInputElement>);
   };
 
