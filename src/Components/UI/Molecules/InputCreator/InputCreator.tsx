@@ -44,7 +44,8 @@ export default function InputCreator(props: IInputCreator) {
     setIsActive(value);
     activeHandler && activeHandler(value);
   };
-  
+
+  //sends the value to the parent component
   const inputValueHandler = (e: InputOrSelectEvent) => {
     handler && handler(e.target.value, e as ChangeEvent<HTMLInputElement>);
   };

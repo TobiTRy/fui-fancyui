@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ChangeEvent, useEffect, useState } from 'react'
 import InputCreator, { IInputCreatorHandler, IInputCreatorActiveHandler } from '../Molecules/InputCreator/InputCreator';
 import PasswortInput from '../Molecules/PasswortInput/PasswortInput';
 
@@ -13,6 +13,24 @@ interface FancyTextInputProps {
   icon?: JSX.Element;
   label?: string;
 };
+// --------------------------------------------------------------------------- //
+// ----The PasswordInput Comonent with surrounding icon, label and underline-- //
+// --------------------------------------------------------------------------- //
 export default function FancyPasswordInput(props: FancyTextInputProps) {
-  return <InputCreator {...props} InputComponent={PasswortInput} />;
+  const [value, setValue] = useState('');
+
+  // handles the input value change and calls the handler from the parent
+  const changeHandler: IInputCreatorHandler = (value?: string, e?: ChangeEvent<HTMLInputElement>) => {
+    setValue(value ? value : '');
+    props.handler && props.handler(value, e);
+  };
+  
+  // sets the value from the parent if it is passed
+  useEffect(() => {
+    if (props.value) {
+      setValue(props.value);
+    }
+  }, []);
+
+  return <InputCreator {...props} value={value} handler={changeHandler} InputComponent={PasswortInput} />;
 }

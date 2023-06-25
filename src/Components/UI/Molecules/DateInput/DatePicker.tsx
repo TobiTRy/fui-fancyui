@@ -4,6 +4,7 @@ import RawInput, { IRawInput } from '../../Atoms/RawInput';
 import styled from 'styled-components';
 import { AnimatedInputLabel, AnimatedLabelFocusStyle } from '../../Atoms/AnimatedLabel';
 import { UnderLineFocusStyle } from '../../Atoms/InputUnderline';
+import { uiColors } from '../../Design/design';
 
 export interface IDateInput extends IRawInput {
   id?: string;
@@ -15,11 +16,22 @@ export interface IDateInput extends IRawInput {
 }
 
 const StyledDatePicker = styled(RawInput)<IDateInput>`
+  color: ${({value}) => value ?  '' : 'transparent'};
+
+  &:focus {
+    color: ${uiColors.secondary.main};
+  }
+
+  &::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+  }
+
+  transition: color 0.2s ease-in-out;
+
   ${({ align, errorMessage }) => AnimatedLabelFocusStyle(align, errorMessage)}
   //the focus animation for the underline
   ${({ align }) => UnderLineFocusStyle(AnimatedInputLabel, align)}
 `;
-
 
 export default function DateInput(props: IDateInput) {
   const { value, handler, activeHandler, disabled, errorMessage, align, id } = props;

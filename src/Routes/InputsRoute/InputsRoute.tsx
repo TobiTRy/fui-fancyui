@@ -7,6 +7,7 @@ import FancyRangeSlider from '../../Components/UI/Organisms/FancyRangeSlider/Fan
 import FancyNumberInput from '../../Components/UI/Organisms/FancyNumberInput';
 import DropDownSelect from '../../Components/UI/Atoms/DropDownSelect/DropDownSelect';
 import FancyDropDownSelect from '../../Components/UI/Organisms/FancyDropDownSelect/FancyDropDownSelect';
+import FancyDateInput from '../../Components/UI/Organisms/FancyDateInput';
 
 const svg = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -36,6 +37,7 @@ export default function InputsRoute() {
         handler={testHandler}
         values={['Test', 'Test2', 'Test3', 'Test3', 'Test3', 'Test3']}
       />
+      <FancyDateInput icon={svg} label="Test" handler={testHandler} />
     </section>
   );
 }

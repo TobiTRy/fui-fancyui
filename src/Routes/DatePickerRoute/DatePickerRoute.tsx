@@ -11,9 +11,6 @@ import TextInput from '../../Components/UI/Molecules/TextInput/TextInput';
 
 
 export default function DatePickerRoute() {
-
-
-
   return (
     <section>
       <div style={{display: 'flex', padding: '1rem', gap: '1rem'}}>
@@ -24,7 +21,6 @@ export default function DatePickerRoute() {
       <FancyDatePicker />
       <FancyInput label={'Test'} type="date" />
       <p>Test</p>
-
     </section>
   );
 }
