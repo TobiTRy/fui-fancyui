@@ -98,6 +98,7 @@ export const fontSize = {
   xxl: '1.5rem',
 };
 
+
 export const borderRadius = {
   small: '4px',
   medium: '8px',
@@ -107,6 +108,8 @@ export const borderRadius = {
   xxxl: '48px',
   complete: '50px',
 };
+export type IBorderRadiusNames = keyof typeof borderRadius;
+export type IBorderRadius = typeof borderRadius;
 
 export type IUiColorsTypes = 'primary' | 'secondary' | 'accent' | 'transparent';
 
