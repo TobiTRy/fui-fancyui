@@ -1,5 +1,5 @@
 import React from 'react';
-import FancyInput from '../../FancyInput/FancyInput';
+import FancyInput from '../../FancyInput/FancyInputOld';
 
 
 //the attribiutes for each color input

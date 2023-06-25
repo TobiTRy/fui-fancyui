@@ -4,10 +4,57 @@ import styled, { css } from 'styled-components';
 
 //this function handles some alignment of the elements
 import IFancyInput from './FancyInput.model';
-
-
 import { UnderLineFocusStyle } from '../../Atoms/InputUnderline';
-import { AnimatedInputLabel, AnimatedLabelFocusStyle } from '../../Atoms/InputLabel';
+import { AnimatedInputLabel, AnimatedLabelFocusStyle } from '../../Atoms/AnimatedLabel';
+
+type ITypeStyle = IFancyInput['type'];
+const generateInputTypeStyle =  (type: ITypeStyle, placeholder?: string) => {
+  switch (type) {
+    case 'number':
+      return css`
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
+      `;
+    case 'date':
+      //thi style makes the placeholder when its not focused transparent
+      return css`
+        color: transparent;
+        font-weight: 500;
+        transition: color 0.4s ease-in-out;
+
+        &::before {
+          content: attr(${placeholder});
+          position: absolute;
+        }
+
+        &:focus,
+        &:valid {
+          color: ${colorPalet.white_high};
+        }
+
+        &:focus::before,
+        &:valid::before {
+          content: '';
+        }
+
+        &::-webkit-calendar-picker-indicator {
+          filter: invert(1);
+          position: absolute;
+          right: ${spacing.xs + 2 + 'px'} ;
+        }
+      `;
+    case 'password':
+      //this disables the MS Edge password eye
+      css`
+      &::-ms-reveal,
+      &::-ms-clear {
+        display: none;
+      }`
+  }
+};
 
 
 //the input icon displayed on the left
@@ -26,10 +73,14 @@ export const Icon = styled.i<{ active: boolean; errorMessage?: string }>`
 `;
 
 //the input/label/underline are all wrapped in thid container
-export const InputContainer = styled.div<{givePadding: boolean}>`
+export const InputContainer = styled.div<{ givePadding: boolean }>`
   width: 100%;
   grid-column: 2/3;
-  ${({givePadding}) => givePadding && css`padding-top: ${spacing.lg + 'px'}` };
+  ${({ givePadding }) =>
+    givePadding &&
+    css`
+      padding-top: ${spacing.lg + 2 + 'px'};
+    `};
   position: relative;
 `;
 
@@ -55,29 +106,12 @@ export const Input = styled.input<IFancyInput>`
       ? `12px 20px 4px 20px`
       : `12px 20px 4px 0px`};
 
-  //this disables the MS Edge password eye
-  ${({ type }) =>
-    type === 'password' &&
-    css`
-      &::-ms-reveal,
-      &::-ms-clear {
-        display: none;
-      }
-    `}
-
-  ${({align, errorMessage}) => AnimatedLabelFocusStyle(align, errorMessage)}
+  //the focus animation for the label
+  ${({ align, errorMessage }) => AnimatedLabelFocusStyle(align, errorMessage)}
   //the focus animation for the underline
-  ${({align}) => UnderLineFocusStyle(AnimatedInputLabel, align)}
-
+  ${({ align }) => UnderLineFocusStyle(AnimatedInputLabel, align)}
   //removes the arrows from the number input
-  ${({ type }) => type === 'number' && css`
-    &::-webkit-outer-spin-button,
-    &::-webkit-inner-spin-button {
-      -webkit-appearance: none;
-      margin: 0;
-    }
-  `}
-
+  ${({ type, placeholder }) => generateInputTypeStyle(type, placeholder)}
 `;
 
 //the style for the error message
@@ -100,4 +134,3 @@ export const PasswordIcon = styled.i`
     color: ${colorPalet.white_dark};
   }
 `;
-

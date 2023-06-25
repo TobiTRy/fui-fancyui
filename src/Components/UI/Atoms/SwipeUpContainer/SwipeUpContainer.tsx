@@ -15,7 +15,7 @@ const StyledSwipeUpContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: ${uiColors.primary.hover};
+  background-color: ${uiColors.primary.dark};
   z-index: 101;
   box-shadow: 1px 0px 23px #000000e3;
   backdrop-filter: blur(4px);
