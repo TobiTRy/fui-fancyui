@@ -17,8 +17,8 @@ const StyledDialog = styled(animated.div)`
   width: 70%;
   max-height: 85%;
   color: ${uiColors.primary.contrast};
-  z-index: 1000;
   box-shadow: 1px 0px 23px #000000e3;
+  z-index: 1000;
   backdrop-filter: blur(4px);
 `;
 
