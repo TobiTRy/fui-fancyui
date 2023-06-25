@@ -166,7 +166,7 @@ function App() {
       <Router>
         <div>
           <nav>
-            <ul style={{display: 'flex', flexWrap: 'wrap', listStyle:'none', gap: '12px'}}>
+            <ul style={{display: 'flex', flexWrap: 'wrap', listStyle:'none', gap: '12px', padding: '0px'}}>
               <li>
                 <Link to="/">Home</Link>
               </li>
