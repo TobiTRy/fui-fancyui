@@ -35,6 +35,8 @@ export default function RangeCalendar(props: ICalendar) {
     return Array.from({ length: endMonth - startMonth + 1 }, (_, i) => i + startMonth);
   });
 
+  console.log("hello?", visibleMonths)
+
   const getDaysInMonth = (month: number, year: number): number => {
     return new Date(year, month, 0).getDate();
   };
@@ -48,14 +50,16 @@ export default function RangeCalendar(props: ICalendar) {
       const month = {
         name: new Date(0, monthIdx + 1, 0).toLocaleString('default', { month: 'long' }),
         days: Array.from({ length: getDaysInMonth(monthIdx + 1, selectedYear) }, (_, j) =>
-          createDay({ dayNumber: j + 1, month: monthIdx, year: selectedYear, selectedDates, rangeCalendar })
+        createDay({ dayNumber: j + 1, month: monthIdx, year: selectedYear, selectedDates, rangeCalendar })
         ),
       };
       return month;
     });
-    setIsScrolled(true);
+
     return monthArry;
   }, [selectedYear, selectedDates, visibleMonths]);
+
+  console.log("MONTHS", months)
 
   const handleDateClick = useCallback(
     (day: Day, monthIndex: number) => {
@@ -80,12 +84,14 @@ export default function RangeCalendar(props: ICalendar) {
 
   // When the last visible month enters the viewport, add the next two months
   useEffect(() => {
+    console.log("here")
     if (isFirstInView && isScrolled) {
       setVisibleMonths((prevMonths) => {
         const nextMonth1 = prevMonths[0] - 1;
         const nextMonth2 = prevMonths[0] - 2;
         if (nextMonth1 >= 0) prevMonths.unshift(nextMonth1);
         if (nextMonth2 >= 0) prevMonths.unshift(nextMonth2);
+        console.log("LOADING", prevMonths)
         return [...prevMonths];
       });
     }
@@ -104,16 +110,19 @@ export default function RangeCalendar(props: ICalendar) {
   }, [isInView]);
 
   useEffect(() => {
-    setTimeout(() => {
-    const currentMonth = new Date().getMonth();
-    monthRefs.current[currentMonth]?.scrollIntoView();
-    }, 300);
-  }, [isScrolled]);
+    // setTimeout(() => {
+      const currentMonth = new Date().getMonth();
+      monthRefs.current[currentMonth]?.scrollIntoView();
+      setTimeout(() => {
+        setIsScrolled(true)
+      }, 300)
+    // }, 300);
+  }, []);
 
   return (
     <StyledCalendar>
       {visibleMonths.map((MonthIdx, idx) => {
-        const month = months[MonthIdx];
+        const month = months[idx];
         return month ? (
           <MonthContainer
             key={month.name}

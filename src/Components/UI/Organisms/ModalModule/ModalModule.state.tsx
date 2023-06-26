@@ -17,6 +17,25 @@ type IModal = {
   content: ModalContent;
   status: ModalStatus;
 };
+  
+  //   openModal(
+  //     {
+  //       headline: { title: 'test', subTitle: 'test' },
+  //       content: <div>hi</div>,
+  //       bottomLine: {
+  //         buttons: [
+  //           {
+  //             title: 'submit me',
+  //             onClick: () => {
+  //               closeModal('test111');
+  //             },
+  //             secondaryButton: false,
+  //           },
+  //         ],
+  //       },
+  //     },
+  //     'test111'   // this is the id
+  //   );
 
 // --------------------------------------------------------------------------- //
 // --------------------- The state for the ModalModuel ----------------------- //
