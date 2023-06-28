@@ -1,4 +1,4 @@
-import Day from "./day.model";
+import Day from "../MonthWithDays/day.model";
 
 type DateArray = Date[] | (Date | undefined)[];
 

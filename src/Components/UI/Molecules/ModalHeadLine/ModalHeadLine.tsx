@@ -27,12 +27,13 @@ const StyledHeadLine = styled.div<{alignCenter?: boolean}>`
 // -------- The main HeadLineComponent for the heading for the modals -------- //
 // --------------------------------------------------------------------------- //
 export default function ModalHeadLine({ title, subTitle, alignCenter, hr }: IHeadLine) {
+  
 
   return (
     <StyledHeadLine alignCenter={alignCenter}>
       { title && <h2>{ title }</h2> }
       { subTitle && <p>{ subTitle }</p> }
-      { hr && <FancyHR />}
+      { (hr && (title || subTitle))  && <FancyHR />}
     </StyledHeadLine>
   )
 }

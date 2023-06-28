@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 import YearSelector from '../../Atoms/YearSelector/YearSelector';
 import WeekDays from '../../Atoms/WeekDays/WeekDays';
-import Calendar from '../../Molecules/Calendar/Calendar';
 import { borderRadius, spacingPx, uiColors } from '../../Design/design';
 import RangeCalendar from '../../Molecules/RangeCalendar/RangeCalendar';
 import DateOutput from '../../Atoms/DateOutput/DateOutput';
@@ -31,7 +30,6 @@ export default function FancyDatePicker() {
   //TODO: Build in a Varriant to disable dates in the past
   //TODO: Load only a few dates not all in a year
   //TODO: Build in RangePicker / normal Picker Adjust DateOutput accordingly
-  const pickedDate = useState<Date>();
   const [pickedRange, setPickedRange] = useState<Date[]>([]);
 
 
@@ -52,7 +50,6 @@ export default function FancyDatePicker() {
         <WeekDays />
       </WrapperWeekdays>
       <RangeCalendar selectedYear={currentlySelectedYear} handler={handleDateChange} selectFromTo={currentlySelectedFromOrTo ?? 'from'} handleSwitchFromTo={handleSwitchFromTo} />
-      {/* <Calendar selectedYear={currentlySelectedYear} /> */}
       <DateOutputFromTo dateFrom={pickedRange[0]} dateTo={pickedRange[1]} />
     </DatePickerContainer>
   );
