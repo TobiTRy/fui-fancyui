@@ -1,5 +1,6 @@
 
 import { IDisabledDateSettings, IWeekDays } from './IDisableDateSettings.model';
+import { IDateWithExternalState } from './IExternalMonthWithDays.model';
 import Day from './day.model';
 
 export type IDateArray = Date[] | (Date | undefined)[];
@@ -8,12 +9,12 @@ export type IDateArray = Date[] | (Date | undefined)[];
 
 // 0 - Sunday, 1 - Monday, 2 - Tuesday, 3 - Wednesday, 4 - Thursday, 5 - Friday, 6 - Saturday
 // this function disables dates based on the following parameters:
-const disableDates = (date: Date, disabledDateSetting: IDisabledDateSettings): boolean => {
-  const { disablePastDates, disableWeekends, disabledWeekdays } = disabledDateSetting;
+const disableDates = (date: Date, disabledDateSetting?: IDisabledDateSettings): boolean => {
+  const { disablePastDates = false , disableWeekends = false, disabledWeekdays = [] } = disabledDateSetting || {};
 
   const dateDay = date.getDay() as IWeekDays;
 
-  const isWeekend = disableWeekends ? (date.getDay() === 0 || date.getDay() === 6) : false;
+  const isWeekend = (date.getDay() === 0 || date.getDay() === 6) ;
   const isPast = date.getTime() < Date.now();
   const isDisabledDay = disabledWeekdays?.includes(dateDay);
   const disableSpecificDates = (disablePastDates ? isPast : false) || (disableWeekends ? isWeekend : false) || (disabledWeekdays ? !!isDisabledDay : false);
@@ -31,10 +32,11 @@ interface ICreateDay {
   year: number;
   isRangePicking?: boolean; 
   selectedDates: IDateArray;
-  disabledDateSetting: IDisabledDateSettings;
+  disabledDateSetting?: IDisabledDateSettings;
+  externalDate?: IDateWithExternalState;
 }
 const createDay = (props: ICreateDay): Day => {
-  const { dayNumber, month, year, selectedDates, disabledDateSetting, isRangePicking } = props;
+  const { dayNumber, month, year, selectedDates, disabledDateSetting, isRangePicking, externalDate } = props;
 
   const date = new Date(year, month, dayNumber);
 
@@ -51,12 +53,13 @@ const createDay = (props: ICreateDay): Day => {
     isEnd = isRangeEnd && selectedDates[1]!.getTime() === date.getTime();
   }
 
-  // this function disables the dates 
+  // this function disables the date 
   const isDateDisabled = disableDates(date, disabledDateSetting);
 
   return {
     number: dayNumber,
     disabled: isDateDisabled,
+    isAvilable: externalDate?.isAvilable,
     isSelected: selectedDates.some((selectedDate) => selectedDate && selectedDate!.getTime() === date.getTime()),
     range: { start: isStart, end: isEnd, inRange: isInRange },
   };

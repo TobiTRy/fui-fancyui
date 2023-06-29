@@ -5,7 +5,23 @@ import MonthWithDays from '../MonthWithDays/MonthWithDays';
 import useSelectedDates from './useSelectedDates';
 import useVisibleMonths from './useVisibleMonths';
 
+import { IDisabledDateSettings } from '../MonthWithDays/IDisableDateSettings.model';
+import IExternalMonthWithDays from '../MonthWithDays/IExternalMonthWithDays.model';
 
+
+
+const externalMonth: IExternalMonthWithDays[] = [
+  {
+    monthIdx: 7,
+    year: 2023,
+    dates: [
+      {
+        date: 1,
+        isAvilable: 'not',
+      },
+    ],
+  },
+];
 
 // --------------------------------------------------------------------------- //
 // -------- The main calenader wich can select a date, or date range ---------- //
@@ -15,18 +31,25 @@ interface ICalendar {
   handler?: (date: Date[] | (Date | undefined)[] | Date) => void;
   selectFromTo?: 'from' | 'to' | undefined;
   handleSwitchFromTo?: (change: 'from' | 'to') => void;
-  disablePastDates?: boolean;
-  disableWeekends?: boolean;
-};
+  disabledDateSetting?: IDisabledDateSettings;
+  externalMonthWithDays?: IExternalMonthWithDays[];
+}
 export default function RangeCalendar(props: ICalendar) {
   const rangeCalendar = true;
-  const { selectedYear = new Date().getFullYear(), handler, selectFromTo, handleSwitchFromTo, disablePastDates, disableWeekends } = props;
+  const {
+    selectedYear = new Date().getFullYear(),
+    handler,
+    selectFromTo,
+    handleSwitchFromTo,
+    disabledDateSetting,
+    externalMonthWithDays,
+  } = props;
   const monthRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [isScrolled, setIsScrolled] = useState(false);
-
+  const [externalMonthsData, setExternalMonthsData] = useState<IExternalMonthWithDays[]>([]);
   // hooks for selected dates and visible months
-  const { selectedDates, handleDateClick } = useSelectedDates(selectedYear, selectFromTo, handleSwitchFromTo, handler, rangeCalendar);
   const { visibleMonths, firstMonthRef, lastMonthRef } = useVisibleMonths(isScrolled);
+  const { selectedDates, handleDateClick } = useSelectedDates(selectedYear, selectFromTo, handleSwitchFromTo, handler, rangeCalendar);
 
   // Scroll to current month on mount and set isScrolled to true
   useEffect(() => {
@@ -36,6 +59,20 @@ export default function RangeCalendar(props: ICalendar) {
       setIsScrolled(true);
     }, 300);
   }, []);
+
+  useEffect(() => {
+    if (externalMonthWithDays) {
+      // create a array for each month of a year and fill it with the external state
+      const monthsOfYearExternal = new Array(12).fill({});
+      externalMonthWithDays.forEach((month) => {
+        monthsOfYearExternal[month.monthIdx] = month as IExternalMonthWithDays; 
+      });;
+      setExternalMonthsData(monthsOfYearExternal);
+    }
+  }, []);
+
+
+
 
   return (
     <StyledCalendar>
@@ -54,8 +91,9 @@ export default function RangeCalendar(props: ICalendar) {
             }}
           >
             <MonthWithDays
-              disablePastDates={disablePastDates}
+              disabledDateSetting={disabledDateSetting}
               monthIdx={MonthIdx}
+              externalMonthWithDays={externalMonthsData[MonthIdx]}
               year={selectedYear}
               handleDateClick={handleDateClick}
               isRangePicking={rangeCalendar}
@@ -66,4 +104,9 @@ export default function RangeCalendar(props: ICalendar) {
       })}
     </StyledCalendar>
   );
+}
+
+
+RangeCalendar.defaultProps = {
+  externalMonthWithDays: externalMonth,
 }
