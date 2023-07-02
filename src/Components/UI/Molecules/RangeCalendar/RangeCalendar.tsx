@@ -7,6 +7,7 @@ import useVisibleMonths from './useVisibleMonths';
 
 import { IDisabledDateSettings } from '../MonthWithDays/IDisableDateSettings.model';
 import IExternalMonthWithDays from '../MonthWithDays/IExternalMonthWithDays.model';
+import { IDateArray } from './IDateArray.model';
 
 
 
@@ -21,6 +22,25 @@ const externalMonth: IExternalMonthWithDays[] = [
       },
     ],
   },
+  {
+    monthIdx: 5,
+    year: 2023,
+    dates: [
+      {
+        date: 1,
+        isAvilable: 'not',
+      },
+      {
+        date: 2,
+        isAvilable: 'not',
+      },
+      {
+        date: 3,
+        isAvilable: 'partially',
+      },
+      
+    ],
+  },
 ];
 
 // --------------------------------------------------------------------------- //
@@ -28,14 +48,14 @@ const externalMonth: IExternalMonthWithDays[] = [
 // --------------------------------------------------------------------------- //
 interface ICalendar {
   selectedYear?: number;
-  handler?: (date: Date[] | (Date | undefined)[] | Date) => void;
+  rangeCalendar: boolean;
+  handler?: (date: IDateArray) => void;
   selectFromTo?: 'from' | 'to' | undefined;
   handleSwitchFromTo?: (change: 'from' | 'to') => void;
   disabledDateSetting?: IDisabledDateSettings;
   externalMonthWithDays?: IExternalMonthWithDays[];
 }
 export default function RangeCalendar(props: ICalendar) {
-  const rangeCalendar = true;
   const {
     selectedYear = new Date().getFullYear(),
     handler,
@@ -43,6 +63,7 @@ export default function RangeCalendar(props: ICalendar) {
     handleSwitchFromTo,
     disabledDateSetting,
     externalMonthWithDays,
+    rangeCalendar
   } = props;
   const monthRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -70,9 +91,6 @@ export default function RangeCalendar(props: ICalendar) {
       setExternalMonthsData(monthsOfYearExternal);
     }
   }, []);
-
-
-
 
   return (
     <StyledCalendar>
@@ -106,7 +124,7 @@ export default function RangeCalendar(props: ICalendar) {
   );
 }
 
-
 RangeCalendar.defaultProps = {
   externalMonthWithDays: externalMonth,
+  rangeCalendar: false,
 }

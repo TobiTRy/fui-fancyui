@@ -1,6 +1,6 @@
 import createDay from './createDayFunction';
 import Day from './day.model';
-import { IDateArray } from './createDayFunction';
+import { IDateArray } from '../RangeCalendar/IDateArray.model';
 import { IDisabledDateSettings } from './IDisableDateSettings.model';
 import { IDateWithExternalState } from './IExternalMonthWithDays.model';
 

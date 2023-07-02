@@ -1,11 +1,14 @@
 import { create } from "zustand";
+import { IDateArray } from "../../Molecules/RangeCalendar/IDateArray.model";
+
+
 
 interface IFancyDatePickerState {
   selectedDate: Date;
   setSelectedDate: (date: Date) => void;
 
-  selectedDateRange: [Date, Date];
-  setSelectedDateRange: (dateRange: [Date, Date]) => void;
+  selectedDateRange: IDateArray;
+  setSelectedDateRange: (dateRange: IDateArray) => void;
 
   selectedYear: number;
   setSelectedYear: (year: number) => void;
@@ -22,7 +25,7 @@ export const useFancyDatePickerState = create<IFancyDatePickerState>((set) => ({
   setSelectedDate: (date: Date) => set({ selectedDate: date }),
 
   selectedDateRange: [new Date(), new Date()],
-  setSelectedDateRange: (dateRange: [Date, Date]) => set({ selectedDateRange: dateRange }),
+  setSelectedDateRange: (dateRange: IDateArray) => set({ selectedDateRange: dateRange }),
 
   selectedYear: new Date().getFullYear(),
   setSelectedYear: (year: number) => set({ selectedYear: year }),

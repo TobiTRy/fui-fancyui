@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import DateNumberWithStatus from '../DateNumberWithStatus/DateNumberWithStatus';
 import { DateNumber, DaysContainer } from './MonthWithDays.style';
-import { IDateArray } from './createDayFunction';
+import { IDateArray } from '../RangeCalendar/IDateArray.model';
 import { IDisabledDateSettings } from './IDisableDateSettings.model';
 
 import Day from './day.model';
