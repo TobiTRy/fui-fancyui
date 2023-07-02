@@ -20,6 +20,8 @@
     "noEmit": false,
     "jsx": "react-jsx",
     "outDir": "dist",
+    "declaration": true,
+    "declarationDir": "./dist/types"
   },
   "include": [
     "src"

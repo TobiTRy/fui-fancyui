@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:3001",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -28,6 +30,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "buildts": "tsc",
+    "buildUI": "rollup -c",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s ./src",
@@ -62,6 +65,9 @@
     ]
   },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^25.0.2",
+    "@rollup/plugin-node-resolve": "^15.1.0",
+    "@rollup/plugin-typescript": "^11.1.2",
     "@storybook/addon-actions": "^6.5.16",
     "@storybook/addon-essentials": "^6.5.16",
     "@storybook/addon-interactions": "^6.5.16",
@@ -75,6 +81,10 @@
     "@types/styled-components": "^5.1.26",
     "babel-plugin-named-exports-order": "^0.0.2",
     "prop-types": "^15.8.1",
+    "rollup": "^3.26.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-terser": "^7.0.2",
     "webpack": "^5.75.0"
   }
 }
