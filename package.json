@@ -1,8 +1,7 @@
 {
-  "name": "@MrTRyy/FollowMeDumbComps",
+  "name": "@mrtryy/followmedumbcomps",
   "description": "FancyUI Libary",
   "version": "0.1.0",
-  "private": true,
   "proxy": "http://localhost:3001",
   "type":"module",
   "dependencies": {
@@ -95,6 +94,6 @@
   ],
   "types": "dist/index.d.ts",
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/MrTRyy"
+    "registry": "https://npm.pkg.github.com/mrtryy"
   }
 }
