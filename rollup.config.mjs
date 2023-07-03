@@ -1,4 +1,4 @@
-import resolve from "@rollup/plugin-node-resolve"
+import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import typescript from '@rollup/plugin-typescript';
 import { terser } from 'rollup-plugin-terser';
@@ -7,39 +7,39 @@ import postcss from 'rollup-plugin-postcss';
 import dts from 'rollup-plugin-dts';
 import packageJson from './package.json' assert { type: 'json' };
 
-
-
-const options = [{
+const options = [
+  {
     input: 'src/index.ts',
     output: [
-        {
-            file: packageJson.main,
-            format: 'cjs',
-            sourcemap: true,
-            name: 'react-lib'
-        },
-        {
-            file: packageJson.module,
-            format: 'esm',
-            sourcemap: true
-        }
+      {
+        file: packageJson.main,
+        format: 'cjs',
+        sourcemap: true,
+        name: 'react-lib',
+      },
+      {
+        file: packageJson.module,
+        format: 'esm',
+        sourcemap: true,
+      },
     ],
     plugins: [
-        external({
-            includeDependencies: true,
-          }),
-        resolve(),
-        commonjs(),
-        typescript({ tsconfig: './tsconfig.json' }),
-        postcss(),
-        terser()
+      external({
+        includeDependencies: true,
+      }),
+      resolve(),
+      commonjs(),
+      typescript({ tsconfig: './tsconfig.json' }),
+      postcss(),
+      terser(),
     ],
-},
-{
+  },
+  {
     input: 'dist/esm/types/index.d.ts',
-    output: [{ file: 'dist/index.d.ts', format: "esm" }],
+    output: [{ file: 'dist/index.d.ts', format: 'esm' }],
     external: [/\.css$/],
     plugins: [dts()],
-},]
+  },
+];
 
 export default options;
