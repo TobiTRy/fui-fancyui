@@ -25,7 +25,9 @@ const options = [{
         }
     ],
     plugins: [
-        external(),
+        external({
+            includeDependencies: true,
+          }),
         resolve(),
         commonjs(),
         typescript({ tsconfig: './tsconfig.json' }),
