@@ -9,7 +9,7 @@ import packageJson from './package.json' assert { type: 'json' };
 
 const options = [
   {
-    input: 'src/index.ts',
+    input: 'src/indexUI.ts',
     output: [
       {
         file: packageJson.main,
