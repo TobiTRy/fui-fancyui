@@ -1,12 +1,8 @@
 import React from 'react';
-import styled, { FlattenSimpleInterpolation, css } from 'styled-components';
-import { calcIconPaddingAndAlign } from '../../HelperFunctions/generateIconPadding';
+import styled, { FlattenSimpleInterpolation } from 'styled-components';
 import { colorPalet, uiColors } from '../../Design/design';
 
-
 type ISizes = 'small' | 'medium' | 'large';
-
-
 
 const sizes = {
   small: '16px',
@@ -21,7 +17,6 @@ const calcIconColor = (active?: boolean, errorMessage?: string | undefined) => {
     return colorPalet.red_dark;
   }
 }
-
 
 
 const StyledSVG = styled.i<{ size: ISizes, active?: boolean, errorMessage?: string, externalStyle?: FlattenSimpleInterpolation }>`

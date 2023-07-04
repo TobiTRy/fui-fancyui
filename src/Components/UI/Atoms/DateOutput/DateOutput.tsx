@@ -1,7 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import styled from 'styled-components';
 import { uiColors } from '../../Design/design';
-import Color from 'color';
 
 //uiColors.primary.light
 const DateOutputButton = styled.button<{ active?: boolean }>`

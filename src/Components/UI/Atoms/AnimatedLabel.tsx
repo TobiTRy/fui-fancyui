@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { colorPalet, spacingPx, uiColors } from '../Design/design';
+import { colorPalet, uiColors } from '../Design/design';
 import { alignHandler } from '../HelperFunctions/alignmentHandler';
 
 import InputLabel from './InputLabel1';

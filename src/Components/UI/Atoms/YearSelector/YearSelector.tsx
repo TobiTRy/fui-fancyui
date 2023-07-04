@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { fontSize, uiColors } from '../../Design/design';
 import SVGChevronLeft from '../../SVGIcons/SVGChevronLeft';
@@ -53,6 +53,7 @@ export default function YearSelector({ selectedYear, handler }: IYearSelector) {
     if (selectedYear) {
       setPickedYear(selectedYear);
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedYear])
 
   return (

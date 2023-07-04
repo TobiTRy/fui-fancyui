@@ -1,9 +1,6 @@
-import React, { useEffect, useState, useMemo, useCallback, useRef, useLayoutEffect } from 'react';
+import React, { useEffect, useState, useMemo, useCallback, useRef } from 'react';
 import DateNumberWithStatus from '../DateNumberWithStatus/DateNumberWithStatus';
 import { DateContainer, DateNumber, MonthContainer, StyledCalendar } from '../Calendar/Calendar.style';
-import { IRange } from '../../Atoms/DateNumberAtom/DateNumberAtom';
-
-import { useYearSelectorState } from '../../Atoms/YearSelector/YearSelector.state';
 import createDay from './createDayFunction';
 import selectDayFunction from './selectDayFunction';
 import Day from './day.model';
@@ -75,6 +72,7 @@ export default function RangeCalendar(props: ICalendar) {
         handler && handler(newDate);
       }
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [selectedDates, selectedYear, selectFromTo]
   );
 
@@ -95,6 +93,7 @@ export default function RangeCalendar(props: ICalendar) {
         return [...prevMonths];
       });
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isFirstInView]);
 
   useEffect(() => {

@@ -52,6 +52,7 @@ export default function FancySingleInputs({ length, api, handler }: IFancySingle
       }
       debounceTimeoutRef.current = setTimeout(validateValue, 700);
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [inputValue]);
 
   const valueHandler = (value: string) => {

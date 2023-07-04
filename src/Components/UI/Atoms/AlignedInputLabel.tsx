@@ -1,4 +1,3 @@
-import React from 'react'
 import styled from 'styled-components'
 import InputLabel from './InputLabel1';
 import { spacingPx, uiColors } from '../Design/design';

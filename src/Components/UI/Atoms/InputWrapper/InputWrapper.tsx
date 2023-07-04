@@ -1,11 +1,11 @@
-import React, { useId } from 'react';
+import React from 'react';
 import { css } from 'styled-components';
 
 import { ErrorMessage, StyledInputWrapper, InputContainer } from './InputWrapper.style';
 import UnderLine from '../InputUnderline';
 
 import SVGAtom from '../SVGAtom/SVGAtom';
-import { spacing, spacingPx } from '../../Design/design';
+import { spacing } from '../../Design/design';
 import { AnimatedInputLabel } from '../AnimatedLabel';
 
 const iconStyle = css`

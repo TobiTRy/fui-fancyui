@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import RawInput, { IRawInput } from '../../Atoms/RawInput';
 import styled from 'styled-components';
 import { spacingPx } from '../../Design/design';

@@ -2,10 +2,8 @@ import React, { ChangeEvent } from 'react';
 
 import FancyPasswordInput from '../../Components/UI/Organisms/FancyPasswordInput';
 import FancyTextInput from '../../Components/UI/Organisms/FancyTextInput';
-import NumberInput from '../../Components/UI/Molecules/NumberInput/NumberInput';
 import FancyRangeSlider from '../../Components/UI/Organisms/FancyRangeSlider/FancyRangeSlider';
 import FancyNumberInput from '../../Components/UI/Organisms/FancyNumberInput';
-import DropDownSelect from '../../Components/UI/Atoms/DropDownSelect/DropDownSelect';
 import FancyDropDownSelect from '../../Components/UI/Organisms/FancyDropDownSelect/FancyDropDownSelect';
 import FancyDateInput from '../../Components/UI/Organisms/FancyDateInput';
 import CustomDropdown from '../../Components/UI/Atoms/CustomeDropDown';

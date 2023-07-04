@@ -1,6 +1,4 @@
-import React, { ChangeEvent, useEffect, useRef, useState } from 'react';
-import { uiColors } from '../../Design/design';
-import styled from 'styled-components';
+import React, { useEffect, useRef, useState } from 'react';
 import { StyledRawSlider } from './RawSlider.style';
 
 

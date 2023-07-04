@@ -30,6 +30,7 @@ export default function FancyPasswordInput(props: FancyTextInputProps) {
     if (props.value) {
       setValue(props.value);
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return <InputCreator {...props} value={value} handler={changeHandler} InputComponent={PasswortInput} />;

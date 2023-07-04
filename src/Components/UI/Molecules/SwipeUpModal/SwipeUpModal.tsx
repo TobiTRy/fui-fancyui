@@ -79,6 +79,7 @@ export default function SwipeUpModal({ children, isOpen, closeHandler }: ISwipeU
     } else {
       closeModal()
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isOpen]);
 
   return (

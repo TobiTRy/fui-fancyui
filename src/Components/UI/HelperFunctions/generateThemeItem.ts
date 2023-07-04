@@ -3,7 +3,7 @@ import { disabledStyle } from './disableStyle';
 
 import { calcIconPaddingAndAlign } from './generateIconPadding';
 import { generatePadding } from './generatePadding';
-import { borderRadius, colorPalet, fontSize, spacing, uiColors } from '../Design/design';
+import { borderRadius, fontSize, spacing, uiColors } from '../Design/design';
 import { IUiColorsTypes } from '../Design/design';
 import Color from 'color';
 

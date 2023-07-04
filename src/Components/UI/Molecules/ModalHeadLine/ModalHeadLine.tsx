@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import IHeadLine from './ModalHeadLine.model';
 
 import { spacingPx } from '../../Design/design';

@@ -4,7 +4,6 @@ import ModalModule from '../../Components/UI/Organisms/ModalModule/ModalModule';
 import { useModalModuleStore } from '../../Components/UI/Organisms/ModalModule/ModalModule.state';
 import FancyButton from '../../Components/UI/Molecules/FancyButton/FancyButton';
 
-const Test = () => <div>Hi</div>
 
 export default function ModalRoute() {
   const createModal = useModalModuleStore((state) => state.openModal);

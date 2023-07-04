@@ -35,7 +35,7 @@ export default function FancyNumberInput(props: IFancyNumberInput) {
     if (props.value) {
       setValue(props.value);
     }
-  }, [])
+  }, [props.value])
 
 
   return <InputCreator {...props} value={value} handler={changeHandler}  InputComponent={NumberInput} />;

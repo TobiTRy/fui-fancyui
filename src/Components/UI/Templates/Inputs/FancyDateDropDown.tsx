@@ -49,6 +49,7 @@ export default function FancyDateDropDown(props: IFancyDateDropDown) {
   useEffect(() => {
     const generatedOptions = generateOptions(type);
     setInputOptions(generatedOptions);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return <FancyDropDownSelect {...inputProps} values={inputOptions} />;
