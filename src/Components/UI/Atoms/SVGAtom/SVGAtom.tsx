@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { FlattenSimpleInterpolation } from 'styled-components';
+import styled, { CSSProp } from 'styled-components';
 import { colorPalet, uiColors } from '../../Design/design';
 
 type ISizes = 'small' | 'medium' | 'large';
@@ -19,7 +19,7 @@ const calcIconColor = (active?: boolean, errorMessage?: string | undefined) => {
 }
 
 
-const StyledSVG = styled.i<{ size: ISizes, active?: boolean, errorMessage?: string, externalStyle?: FlattenSimpleInterpolation }>`
+const StyledSVG = styled.i<{ size: ISizes, active?: boolean, errorMessage?: string, externalStyle?: CSSProp }>`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -41,7 +41,7 @@ interface ISVGAtom {
   isActive?: boolean;
   passivElement?: boolean;
   errorMessage?: string;
-  externalStyle?: FlattenSimpleInterpolation;
+  externalStyle?: CSSProp;
 }
 export default function SVGAtom(props: ISVGAtom) {
   const { children, size, isActive, errorMessage, externalStyle } = props;

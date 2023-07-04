@@ -48,7 +48,7 @@ export default function ColorDisplay({ color, opacity, showText, fullHeight }: I
         {showText && <p>{color.toString()}</p>}
         <WrapperSVG>{copyd ? <ClipBoardIconCheck /> : <ClipBoardIcon />}</WrapperSVG>
       </Content>
-      <ColorDisplayContainer color={color.toString()} opacity={opacity} fullHeight={fullHeight} />
+      <ColorDisplayContainer color={color.toString()} opacity={opacity} />
       <CheckerboardPattern />
     </Wrapper>
   );

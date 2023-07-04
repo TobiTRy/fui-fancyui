@@ -47,7 +47,12 @@ export const Wrapper = styled.div<{ fullHeight?: boolean }>`
   touch-action: manipulation;
 `;
 
-const colorDisplayColor = ({ color, opacity }: { color: string; opacity?: number }) => {
+interface IColorDisplayColor {
+  color?: string;
+  opacity?: number;
+};
+
+const colorDisplayColor = ({ color, opacity }: IColorDisplayColor) => {
   const checkOpacity = opacity === undefined ? 1 : opacity;
   const transformedColor = Color(color).rgb().alpha(checkOpacity);
   return {
@@ -57,7 +62,7 @@ const colorDisplayColor = ({ color, opacity }: { color: string; opacity?: number
   };
 };
 
-export const ColorDisplayContainer = styled.div.attrs(colorDisplayColor)<{ color: string; opacity?: number; fullHeight?: boolean }>`
+export const ColorDisplayContainer = styled.div.attrs(colorDisplayColor)<IColorDisplayColor>`
   position: absolute;
   width: 100%;
   height: 100%;

@@ -125,7 +125,7 @@ export default function RangeCalendar(props: ICalendar) {
         return month ? (
           <MonthContainer
             key={month.name}
-            ref={(ref) => {
+            ref={(ref:HTMLDivElement) => {
               monthRefs.current[MonthIdx] = ref;
               if (idx === 0) {
                 firstMonthRef.current = ref;

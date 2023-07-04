@@ -84,9 +84,11 @@ const generateLabelChilds = (props: IFancyTabStyle) => {
 // ------------ the main style generator for the li item ------------ //
 // ------------------------------------------------------------------ //
 const generateButtonStyle = (props: IFancyTabStyle) => {
+  const { wide } = props;
+
   return css`
     list-style: none;
-    width: ${({ wide }) => wide && `100%`};
+    width: ${ wide && `100%` };
 
     label {
       display: flex;
@@ -99,21 +101,21 @@ const generateButtonStyle = (props: IFancyTabStyle) => {
       width: 100%;
       user-select: none;
 
-      padding: ${({ wide }) => (wide ? `${spacingPx.md} 0px` : `${spacingPx.md}`)};
+      padding: ${(wide ? `${spacingPx.md} 0px` : `${spacingPx.md}`)};
       //handles the dynamic values
-      ${(props) => generateDynamicTabStyle(props)}
+      ${generateDynamicTabStyle(props)}
       // generates underlying childs in this element
-      ${(props) => generateLabelChilds(props)}
+      ${generateLabelChilds(props)}
     }
 
     input {
       display: none;
-      ${(props: IFancyTabStyle) => generateCheckedStyle(props)}
+      ${generateCheckedStyle(props)}
     }
   `;
 };
 
-const LISwitchButtonStyle = styled.li`
+const LISwitchButtonStyle = styled.li<IFancyTabStyle>`
   ${generateButtonStyle}
 `;
 

@@ -8,7 +8,7 @@ import SVGAtom from '../../Atoms/SVGAtom/SVGAtom';
 
 
 //this creates the button component and handles the style via generateButton
-const Button = styled.button`
+const Button = styled.button<IFancyButton>`
   ${(props: IFancyButton) => generateThemeItem(props)}
 `;
 

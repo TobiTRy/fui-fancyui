@@ -57,11 +57,11 @@ interface IColorArea {
   color: Color;
   hue: number;
   handler: (color: Color) => void;
-}
+};
 const ColorArea = ({ color, hue, handler }:IColorArea) => {
   //use the hue from the parent component or set it to 0
   const currentHue = hue ?? 0;
-
+  
   //use the useSlider hook handles all the interaction with the color area
   const { sliderRef, markerPosition, handleInteractionStart, isInteracting } = useSlider({
     color,

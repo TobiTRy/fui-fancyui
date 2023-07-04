@@ -36,7 +36,7 @@ const genreateFantyLi = (props: FancyLi) => {
   `;
 };
 
-const FancyLiItem = styled.li`
+const FancyLiItem = styled.li<FancyLi>`
   ${(props: FancyLi) => genreateFantyLi(props)}
 `;
 
