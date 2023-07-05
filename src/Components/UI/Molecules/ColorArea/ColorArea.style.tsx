@@ -25,17 +25,18 @@ interface IColorGradient {
 }
 
 //the color gradient it shows the current color via the hue
-const dynamicColorGradient = (props: IColorGradient) => ({
+export const CurrentColorArea  = styled.div.attrs<IColorGradient>(({ hue }) => ({
   style: {
-    background: `hsl(${props.hue}, 100%, 50%)`,
+    background: `hsl(${hue}, 100%, 50%)`,
   },
-})
-export const CurrentColorArea = styled.div.attrs((props: IColorGradient)  => ({}))<IColorGradient>`
+}))<IColorGradient>`
   position: absolute;
   width: 100%;
   height: 100%;
   border-radius: ${borderRadius.small};
-`
+`;
+
+
 
 export const LightnessGradient = styled.div`
   position: absolute;
