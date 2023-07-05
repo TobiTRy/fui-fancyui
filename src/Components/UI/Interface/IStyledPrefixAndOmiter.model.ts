@@ -9,9 +9,12 @@
 //   };
 
 
+// type IStyledPrefixAndOmiter<T extends Record<string, any>, U extends keyof any = never> = {
+//     [P in keyof T & string as `${'$'}${P}` extends U ? never : `${'$'}${P}`]: T[P];
+// };
 type IStyledPrefixAndOmiter<T extends Record<string, any>, U extends keyof any = never> = {
-    [P in keyof T & string as `${'$'}${P}` extends U ? never : `${'$'}${P}`]: T[P];
-};
+    [P in Exclude<keyof T, U> & string as `$${P}`]: T[P];
+  };
 
 export default IStyledPrefixAndOmiter;
 

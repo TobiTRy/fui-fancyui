@@ -5,14 +5,16 @@ import styled, { css } from 'styled-components';
 import { generatePadding } from '../../HelperFunctions/generatePadding';
 import { calcIconPaddingAndAlign, IcalcIconPadding } from '../../HelperFunctions/generateIconPadding';
 import { borderRadius } from '../../Design/design';
+import IStyledPrefixAndOmiter from '../../Interface/IStyledPrefixAndOmiter.model';
 
 interface IFancyLI {
   icon?: React.ReactNode;
   label?: string;
   wide?: boolean;
 }
-type FancyLi = IFancyLI & IcalcIconPadding;
+type FancyLi =  IFancyLI & IcalcIconPadding;
 
+type StyledFancyLi = IStyledPrefixAndOmiter<FancyLi, 'label' | 'icon'>;
 const genreateFantyLi = (props: FancyLi) => {
   const { size, aligned, wide } = props;
 

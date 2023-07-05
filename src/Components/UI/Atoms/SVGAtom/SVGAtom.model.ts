@@ -1,5 +1,5 @@
 import { CSSProp } from 'styled-components';
-import IStyledPrefixAndOmiter from '../../Interface/StyledPrefixer.model';
+import IStyledPrefixAndOmiter from '../../Interface/IStyledPrefixAndOmiter.model';
 
 export const sizes = {
   small: '16px',
