@@ -17,4 +17,4 @@ export interface ISVGAtom {
   externalStyle?: CSSProp;
 }
 
-export type IStyledSVGAtom = IStyledPrefixAndOmiter<ISVGAtom, '$children'>;
+export type IStyledSVGAtom = IStyledPrefixAndOmiter<ISVGAtom, 'children'>;

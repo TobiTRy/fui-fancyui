@@ -1,52 +1,22 @@
 import React from 'react';
+import { IcalcIconPadding } from '../../HelperFunctions/generateIconPadding';
+import FancyLiItem from './FancyLI.style';
 
-import styled, { css } from 'styled-components';
-
-import { generatePadding } from '../../HelperFunctions/generatePadding';
-import { calcIconPaddingAndAlign, IcalcIconPadding } from '../../HelperFunctions/generateIconPadding';
-import { borderRadius } from '../../Design/design';
-import IStyledPrefixAndOmiter from '../../Interface/IStyledPrefixAndOmiter.model';
-
-interface IFancyLI {
+interface FancyLI {
   icon?: React.ReactNode;
   label?: string;
   wide?: boolean;
 }
-type FancyLi =  IFancyLI & IcalcIconPadding;
 
-type StyledFancyLi = IStyledPrefixAndOmiter<FancyLi, 'label' | 'icon'>;
-const genreateFantyLi = (props: FancyLi) => {
-  const { size, aligned, wide } = props;
-
-  const generateBorderRadius = wide ? borderRadius!.large : borderRadius[size!];
-
-  return css`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    padding: ${generatePadding(0.5)[size!]};
-    width: ${wide ? '100%' : 'initial'};
-    
-    border-radius: ${generateBorderRadius};
-
-    & i {
-      display: flex;
-      ${calcIconPaddingAndAlign({ aligned, size })}
-      align-items: center;
-    }
-  `;
-};
-
-const FancyLiItem = styled.li<FancyLi>`
-  ${(props: FancyLi) => genreateFantyLi(props)}
-`;
-
-export default function FancyLI(props: FancyLi) {
-  const { icon, label, size, aligned } = props;
+export type IFancyLi = FancyLI & IcalcIconPadding;
+// --------------------------------------------------------------------------- //
+// ------------- The fancy LI Item that can dynamicly adjusted --------------- //
+// --------------------------------------------------------------------------- //
+export default function FancyLI(props: IFancyLi) {
+  const { icon, label, size, aligned, wide } = props;
 
   return (
-    <FancyLiItem size={size} aligned={aligned}>
+    <FancyLiItem $size={size} $aligned={aligned} $wide={wide}>
       {icon && <i>{icon}</i>}
       <p>{label}</p>
     </FancyLiItem>
