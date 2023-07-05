@@ -8,7 +8,7 @@ interface IModalTitleArea {
 }
 
 export default function ModalTitleArea(props: IModalTitleArea) {
-  const { width, title } = props;
+  const { title } = props;
 
   return (
     <TitleArea>

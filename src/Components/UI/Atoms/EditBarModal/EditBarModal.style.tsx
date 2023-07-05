@@ -26,13 +26,17 @@ const calcBarWidthandSpacing = (width?: string, spacingLeftRight?: string) => {
   }
 };
 
-
-export const Wrapper = styled.div<{ width?: string; secondBar?: boolean; spacingLeftRight?: string }>`
+interface IWrapper {
+  $width?: string;
+  $secondBar?: boolean;
+  $spacingLeftRight?: string;
+}
+export const Wrapper = styled.div<IWrapper>`
   box-sizing: border-box;
   position: relative;
   padding: ${spacingPx.md};
   z-index: 99;
-  ${({ width, spacingLeftRight }) => calcBarWidthandSpacing(width, spacingLeftRight)};
+  ${({ $width, $spacingLeftRight }) => calcBarWidthandSpacing($width, $spacingLeftRight)};
   background-color: ${uiColors.primary.dark};
   border-radius: 12px 12px 0px 0px;
   box-shadow: 0 0 12px black;
