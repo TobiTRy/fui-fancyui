@@ -43,8 +43,8 @@ export default function ColorDisplay({ color, opacity, showText, fullHeight }: I
   };
 
   return (
-    <Wrapper fullHeight={fullHeight} onClick={copyValue}>
-      <Content isBright={isBright} >
+    <Wrapper $fullHeight={fullHeight} onClick={copyValue}>
+      <Content $isBright={isBright} >
         {showText && <p>{color.toString()}</p>}
         <WrapperSVG>{copyd ? <ClipBoardIconCheck /> : <ClipBoardIcon />}</WrapperSVG>
       </Content>
