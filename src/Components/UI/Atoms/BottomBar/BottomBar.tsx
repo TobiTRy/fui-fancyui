@@ -1,15 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 
 import { Bar, ItemWrapper, ScollAbleBar, Wrapper } from './BottomBar.style';
+import IBottomBar from './ButtomBar.model';
 
-interface IBottomBar {
-  children?: JSX.Element[];
-  scrollable?: boolean;
-  bottomFixed?: boolean;
-  secondBar?: boolean;
-  width?: string;
-  spacingLeftRight?: string;
-}
 
 export default function BottomBar(props: IBottomBar) {
   const { children, scrollable, bottomFixed = true, width, secondBar, spacingLeftRight } = props;
@@ -23,22 +16,23 @@ export default function BottomBar(props: IBottomBar) {
   };
 
 
+  //this prevent the body from scrolling when the scrollbar is scrolling
   useEffect(() => {
-    //this prevent the body from scrolling when the scrollbar is scrolling
     if (activateScrollbar) {
       document.body.style.overflow = 'auto';
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
 
   return (
-    <Wrapper bottomFixed={bottomFixed} width={width} secondBar={secondBar} spacingLeftRight={spacingLeftRight}>
+    <Wrapper $bottomFixed={bottomFixed} $width={width} $secondBar={secondBar} $spacingLeftRight={spacingLeftRight}>
       <Bar>
         {!activateScrollbar ? (
-          children && children.map((item, i) => <ItemWrapper key={i} secondBar={secondBar}>{item}</ItemWrapper>)
+          children && children.map((item, i) => <ItemWrapper key={i} $secondBar={secondBar}>{item}</ItemWrapper>)
         ) : (
           <ScollAbleBar onWheel={horizontalScrollingHandler} ref={scrollAbleBar}>
-            {children && children.map((item, i) => <ItemWrapper secondBar={secondBar} key={i}>{item}</ItemWrapper>)}
+            {children && children.map((item, i) => <ItemWrapper $secondBar={secondBar} key={i}>{item}</ItemWrapper>)}
           </ScollAbleBar>
         )}
       </Bar>
