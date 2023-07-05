@@ -14,7 +14,7 @@ export default function DatePickerRoute() {
         <FancyDateDropDown type="month" />
         <FancyDateDropDown type="year" />
       </div>
-      <FancyDatePicker />
+      <FancyDatePicker disabledDateSetting={{disableWeekends: true}} />
       <FancyInput label={'Test'} type="date" />
       <p>Test</p>
     </section>

@@ -39,8 +39,8 @@ const VRWrapper = styled.div`
 `;
 
 interface IDateOutputFromTo {
-  dateFrom: Date;
-  dateTo: Date;
+  dateFrom?: Date;
+  dateTo?: Date;
   whichIsSelecting?: 'from' | 'to';
 };
 export default function DateOutputFromTo({dateFrom, dateTo, whichIsSelecting}: IDateOutputFromTo) {
@@ -63,7 +63,6 @@ export default function DateOutputFromTo({dateFrom, dateTo, whichIsSelecting}: I
     <StyledDateOutputFromTo>
       <DateOutput date={dateFrom} isActive={currentlySelected === 'from' || currentlySelected === undefined} handler={() => handleClickOnDateOutput('from')}/>
       <VRWrapper>
-
         <FancyVR design="secondary" />
       </VRWrapper>
       <DateOutput date={dateTo ?? dateFrom } isActive={currentlySelected === 'to'} handler={() => handleClickOnDateOutput('to')}/>

@@ -62,11 +62,11 @@ export default function ModalModule() {
             {/* ----- The Headline of the Modal  ----- */}
             <HeadLine>
               {/* ----- The Content of the headline when its provided ----- */}
-              {modal.content.headline && <ModalHeadLine {...modal.content.headline} hr={false} />}
+              {modal.content.headline && <ModalHeadLine {...modal.content.headline} hr={true} />}
               <CloseButtonWrapper>
                 <FancyXButton onClick={() => closeModalHandler(modal.id)} />
               </CloseButtonWrapper>
-              <FancyHR />
+
             </HeadLine>
             {/* ----- The Content of the Modal ----- */}
             <WrapperContent>{modal.content.content && <>{modal.content.content}</>}</WrapperContent>

@@ -23,8 +23,6 @@ export const DateContainer = styled.div`
 
 `;
 
-
-
 export const DateNumber = styled.span`
   width: 14.28%; /* 100 / 7 days */
   text-align: right;
