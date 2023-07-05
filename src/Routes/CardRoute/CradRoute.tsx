@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Card from '../../Components/UI/Atoms/Card'
+import Card from '../../Components/UI/Atoms/Card/Card'
 
 export default function CradRoute() {
   return (

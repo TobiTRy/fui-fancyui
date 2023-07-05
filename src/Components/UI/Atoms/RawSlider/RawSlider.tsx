@@ -2,7 +2,9 @@ import React, { useEffect, useRef, useState } from 'react';
 import { StyledRawSlider } from './RawSlider.style';
 
 
-
+// --------------------------------------------------------------------------- //
+// ------------ Here is createt the Slider Atom (Range Slider) --------------- //
+// --------------------------------------------------------------------------- //
 interface IRawSlider {
   disabled?: boolean;
   id?: string;
@@ -13,7 +15,6 @@ interface IRawSlider {
   activeHandler?: (value: boolean) => void;
   ref?: React.RefObject<HTMLInputElement>;
 }
-
 export default function RawSlider(props: IRawSlider) {
   const { disabled, id, maxValue, minValue, value, handler, ref, activeHandler } = props;
   const [sliderProgress, setSliderProgress] = useState<number>(0);

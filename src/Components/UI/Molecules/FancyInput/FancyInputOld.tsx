@@ -3,7 +3,7 @@ import React, { useId, useState } from 'react';
 import IFancyInput from './FancyInput.model';
 import { ErrorMessage, Icon, Input, InputContainer, PasswordIcon } from './FancyInput.style';
 import UnderLine from '../../Atoms/InputUnderline';
-import InputWrapper from '../../Atoms/InputWrapper/InputWrapper';
+import InputWrapper from '../InputWrapper/InputWrapper';
 
 
 import SVGEyeOpen from '../../SVGIcons/SVGEyeOpen';

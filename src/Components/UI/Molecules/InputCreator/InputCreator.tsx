@@ -3,7 +3,7 @@ import React, { ChangeEvent, useId, useState } from 'react';
 import PasswortInput from '../../Molecules/PasswortInput/PasswortInput';
 import TextInput from '../../Molecules/TextInput/TextInput';
 import NumberInput from '../../Molecules/NumberInput/NumberInput';
-import InputWrapper from '../../Atoms/InputWrapper/InputWrapper';
+import InputWrapper from '../InputWrapper/InputWrapper';
 import DropDownSelect from '../../Atoms/DropDownSelect/DropDownSelect';
 import DateInput from '../DateInput/DatePicker';
 

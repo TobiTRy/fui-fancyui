@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { fontSize, spacing, uiColors } from '../Design/design';
+import { fontSize, spacing, uiColors } from '../../Design/design';
 
 const { primary, accent, secondary } = uiColors;
 
@@ -22,8 +22,8 @@ const DropDownTrigger = styled.div`
 `;
 
 // Styled dropdown menu
-const DropDownMenu = styled.div<{isOpen: boolean}>`
-  display: ${props => (props.isOpen ? "block" : "none")};
+const DropDownMenu = styled.div<{$isOpen: boolean}>`
+  display: ${props => (props.$isOpen ? "block" : "none")};
   position: absolute;
   background-color: ${primary.dark};
   min-width: 160px;
@@ -64,7 +64,7 @@ const CustomDropdown: React.FC<CustomDropdownProps> = ({ values, onSelect }) => 
       <DropDownTrigger onClick={() => setIsOpen(!isOpen)}>
         {selectedValue || "Select an item"}
       </DropDownTrigger>
-      <DropDownMenu isOpen={isOpen}>
+      <DropDownMenu $isOpen={isOpen}>
         {values!.map((value, index) => (
           <DropDownItem key={index} onClick={() => handleSelect(value)}>
             {value}

@@ -3,7 +3,7 @@ import { colorPalet, fontSize, spacing } from '../Design/design'
 
 
 export interface IRawInput {
-  align?: 'left' | 'center';
+  $align?: 'left' | 'center';
 }
 
 const RawInput = styled.input<IRawInput>`
@@ -13,7 +13,7 @@ const RawInput = styled.input<IRawInput>`
   appearance: none;
   background-color: transparent;
   color: ${colorPalet.white_high};
-  text-align: ${({ align }) => (align !== 'center' ? 'left' : 'center')};
+  text-align: ${({ $align }) => ($align !== 'center' ? 'left' : 'center')};
   border: none;
   outline: none;
   box-shadow: none;
