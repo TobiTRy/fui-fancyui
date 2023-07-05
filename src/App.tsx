@@ -12,6 +12,7 @@ import DatePickerRoute from './Routes/DatePickerRoute/DatePickerRoute';
 import InputsRoute from './Routes/InputsRoute/InputsRoute';
 import CradRoute from './Routes/CardRoute/CradRoute';
 import ModalRoute from './Routes/ModalRoute/ModalRoute';
+import ColorPickerRoute from './Routes/ColorPickerRoute/ColorPickerRoute';
 
 // const Icon = (
 //   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -86,6 +87,9 @@ function App() {
               <li>
                 <Link to="/card">Card</Link>
               </li>
+              <li>
+                <Link to="/colorPicker">colorPicker</Link>
+              </li>
             </ul>
           </nav>
 
@@ -98,6 +102,7 @@ function App() {
             <Route path="/datePicker" element={<DatePickerRoute />} />
             <Route path="/inputsRoute" element={<InputsRoute />} />
             <Route path="/card" element={<CradRoute />} />
+            <Route path="/colorPicker" element={<ColorPickerRoute />} />
             <Route path="/" element={<SwipeUpModal />} />
           </Routes>
         </div>
