@@ -1,11 +1,11 @@
 import { css } from 'styled-components';
-import { disabledStyle } from './disableStyle';
+import Color from 'color';
 
+import { disabledStyle } from './disableStyle';
 import { calcIconPaddingAndAlign } from './generateIconPadding';
 import { generatePadding } from './generatePadding';
 import { borderRadius, fontSize, spacing, uiColors } from '../Design/design';
 import { IUiColorsTypes } from '../Design/design';
-import Color from 'color';
 
 export interface IGenerateThemeItem {
   outlined?: boolean;
@@ -24,7 +24,6 @@ export interface IGenerateThemeItem {
 // --------------------------------------------------------------------------- //
 // ---------- Here are the design variants for sizing and alignment ---------- //
 // --------------------------------------------------------------------------- //
-
 //a shortcut to align the (icon) ond text
 const alignment = {
   left: 'flex-start',
@@ -132,7 +131,6 @@ const generateNormal = (props: IGenerateNormalitem) => {
   const textColor = calcTextColor({color, design, outlined});
 
   const hoverColorStyle = design === 'transparent' && hoverColor ? uiColors[hoverColor].dark : uiColors[design].dark;
-
 
   return css`
     background-color: ${uiColors[design].main};

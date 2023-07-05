@@ -38,32 +38,33 @@ const VRWrapper = styled.div`
   align-items: center; // this should center the FancyVR vertically
 `;
 
+// --------------------------------------------------------------------------- //
+// --- The date output where the Date is displayed and can select from / to -- //
+// --------------------------------------------------------------------------- //
 interface IDateOutputFromTo {
   dateFrom?: Date;
   dateTo?: Date;
   whichIsSelecting?: 'from' | 'to';
 };
+//TODO: whichIsSelecting is not set build in useEffect
 export default function DateOutputFromTo({dateFrom, dateTo, whichIsSelecting}: IDateOutputFromTo) {
   const currentlySelected = useDateOutputFromToState(state => state.currentlySelected);
   const setCurrentlySelected = useDateOutputFromToState(state => state.setCurrentlySelected);
-
 
   // useEffect(() => {
   //   setCurrentlySelected(whichIsSelecting)
   // }, [whichIsSelecting])
   
-
+  
   const handleClickOnDateOutput = (which: 'from' | 'to') => {
     setCurrentlySelected(which);
   }
-
-  
 
   return (
     <StyledDateOutputFromTo>
       <DateOutput date={dateFrom} isActive={currentlySelected === 'from' || currentlySelected === undefined} handler={() => handleClickOnDateOutput('from')}/>
       <VRWrapper>
-        <FancyVR design="secondary" />
+        <FancyVR $design="secondary" />
       </VRWrapper>
       <DateOutput date={dateTo ?? dateFrom } isActive={currentlySelected === 'to'} handler={() => handleClickOnDateOutput('to')}/>
     </StyledDateOutputFromTo>

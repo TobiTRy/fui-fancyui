@@ -8,12 +8,13 @@
 //     $externalStyle?: CSSProp;
 //   };
 
+// type IStyledPrefixAndPicker<T extends Record<string, any>, U extends keyof T = never> = {
+//   [P in Extract<U, string> as `$${P}`]: T[P];
+// };
 
+type IStyledPrefixAndPicker<T extends Record<string, any>, U extends keyof T = keyof T> = {
+  [P in Extract<U, string> as `$${P}`]?: T[P];
+};
 
-type IStyledPrefixAndOmiter<T extends Record<string, any>, U extends keyof any = never> = {
-    [P in Exclude<keyof T, U> & string as `$${P}`]: T[P];
-  };
-
-export default IStyledPrefixAndOmiter;
-
+export default IStyledPrefixAndPicker;
 //type IStyledSVGAtom = PrefixKeys<ISVGAtom, '$children'>;

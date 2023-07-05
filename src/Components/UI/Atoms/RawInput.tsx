@@ -2,8 +2,9 @@ import styled  from 'styled-components'
 import { colorPalet, fontSize, spacing } from '../Design/design'
 
 
+export type TRawInputAlign = 'left' | 'center';
 export interface IRawInput {
-  $align?: 'left' | 'center';
+  $align?: TRawInputAlign;
 }
 
 const RawInput = styled.input<IRawInput>`

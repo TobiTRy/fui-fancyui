@@ -21,13 +21,13 @@ export const ColorAreaContainer = styled.div`
 
 // ---------- The ColorArea Gradients ------- //
 interface IColorGradient {
-  hue: number;
+  $hue: number;
 }
 
 //the color gradient it shows the current color via the hue
-export const CurrentColorArea  = styled.div.attrs<IColorGradient>(({ hue }) => ({
+export const CurrentColorArea  = styled.div.attrs<IColorGradient>(({ $hue }) => ({
   style: {
-    background: `hsl(${hue}, 100%, 50%)`,
+    background: `hsl(${$hue}, 100%, 50%)`,
   },
 }))<IColorGradient>`
   position: absolute;

@@ -78,7 +78,7 @@ const ColorArea = ({ color, hue, handler }:IColorArea) => {
       <ColorIndicator position={{y: markerPosition.y + '%', x: markerPosition.x + '%' }} color={Color(color).toString()} isActive={isInteracting}/>
       {/* the color area with the gradients (PickedColor / Lightness / Saturation) */}
       <ColorAreaContainer ref={sliderRef} onMouseDown={handleInteractionStart} onTouchStart={handleInteractionStart}>
-        <CurrentColorArea hue={hue}/>
+        <CurrentColorArea $hue={hue}/>
         <LightnessGradient/>
         <SaturationGradient/>
         {/* the marker to display there current picked color on the area */}
