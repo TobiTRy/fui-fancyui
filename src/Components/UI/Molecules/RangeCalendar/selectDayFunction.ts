@@ -1,5 +1,6 @@
-import Day from "./day.model";
+import Day from "../MonthWithDays/day.model";
 
+import { IDateArray, IDateOnlyArray } from "./IDateArray.model";
 type DateArray = Date[] | (Date | undefined)[];
 
 const checkForValidDatesEnterd = (dates: DateArray) => {
@@ -15,7 +16,7 @@ interface ISelectDayFunction {
   day: Day;
   monthIndex: number;
   selectedYear: number;
-  selectedDates: DateArray;
+  selectedDates: IDateOnlyArray;
   selectFromTo: 'from' | 'to' | undefined;
 }
 
@@ -58,7 +59,7 @@ const selectDayFunction = (props: ISelectDayFunction) => {
   }
 
 
-    return newSelectedDates;
+    return newSelectedDates as IDateOnlyArray;
   
 };
 
