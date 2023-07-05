@@ -9,7 +9,7 @@ import { IEditBarIconButton } from './IEditBarIcon';
 
 
 
-const IconTextButton = styled.button<{ color?: string; active?: boolean; disabled?: boolean }>`
+const IconTextButton = styled.button<{ $color?: string; $isActive?: boolean; $disabled?: boolean }>`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -20,7 +20,7 @@ const IconTextButton = styled.button<{ color?: string; active?: boolean; disable
   border: none;
   cursor: pointer;
   margin: 0 auto;
-  color: ${({ active }) => (active ? uiColors.accent.main : uiColors.secondary.main)};
+  color: ${({ $isActive }) => ($isActive ? uiColors.accent.main : uiColors.secondary.main)};
   transition: all 0.3s ease-in-out;
   ${({ disabled }) => disabled && disabledStyle}
   padding-bottom: ${spacing.xs + 2 + 'px'};
@@ -33,7 +33,7 @@ const IconTextButton = styled.button<{ color?: string; active?: boolean; disable
   }
 `;
 
-const Underline = styled.i<{ active?: boolean }>`
+const Underline = styled.i<{ $isActive?: boolean }>`
   position: absolute;
   bottom: 0;
   left: 50%;
@@ -42,7 +42,7 @@ const Underline = styled.i<{ active?: boolean }>`
   height: 1.5px;
   margin-top: 12px;
   border-radius: 10px;
-  background-color: ${({ active }) => (active ? uiColors.accent.main : 'transparent')};
+  background-color: ${({ $isActive }) => ($isActive ? uiColors.accent.main : 'transparent')};
   transition: all 0.1s ease-in-out;
 `;
 
@@ -67,10 +67,10 @@ export default function EditBarIconButton(props: IEditBarIconButton) {
   const { icon, label, color, active, handler, disabled } = props;
 
   return (
-    <IconTextButton disabled={disabled} color={color} onClick={handler} active={active}>
+    <IconTextButton $color={color} $isActive={active} disabled={disabled} onClick={handler}>
       <Icon>{icon}</Icon>
       <Label>{label}</Label>
-      <Underline active={active} />
+      <Underline $isActive={active} />
     </IconTextButton>
   );
 }
