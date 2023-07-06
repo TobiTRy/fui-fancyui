@@ -1,14 +1,14 @@
 import React from 'react';
-import { IcalcIconPadding } from '../../HelperFunctions/generateIconPadding';
+import { IcalcIconPaddingAsProps } from '../../HelperFunctions/generateIconPadding';
 import FancyLiItem from './FancyLI.style';
 
-interface FancyLI {
+interface FancyLIProps {
   icon?: React.ReactNode;
   label?: string;
   wide?: boolean;
 }
 
-export type IFancyLi = FancyLI & IcalcIconPadding;
+export type IFancyLi = FancyLIProps & IcalcIconPaddingAsProps;
 // --------------------------------------------------------------------------- //
 // ------------- The fancy LI Item that can dynamicly adjusted --------------- //
 // --------------------------------------------------------------------------- //

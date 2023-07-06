@@ -53,8 +53,8 @@ export default function InputCreator(props: IInputCreator) {
   return (
     <InputWrapper
       id={id}
-      icon={icon}
       disabled={disabled}
+      icon={icon}
       align={align}
       isActiv={isActive}
       label={label}
@@ -64,12 +64,12 @@ export default function InputCreator(props: IInputCreator) {
     >
       <InputComponent
         id={id}
-        align={align}
+        handler={inputValueHandler}
+        disabled={disabled}
         value={value}
         values={values}
-        handler={inputValueHandler}
+        align={align}
         activeHandler={activeFocusHandler}
-        disabled={disabled}
         errorMessage={errorMessage}
         autoWidth={autoWidth}
       />

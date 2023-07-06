@@ -1,19 +1,20 @@
-import React, { useId } from 'react';
 import styled, { css } from 'styled-components';
 
+import IStyledPrefixAndPicker from '../../Interface/IStyledPrefixAndPicker.model';
+import { IFancyTabStyle } from '../../Molecules/FancyTabSwitch/IFancyTab.model';
 import { spacingPx, uiColors } from '../../Design/design';
-import { IFancyTabButtonStyle, IFancyTabStyle } from './IFancyTab.model';
 
 // ------------------------------------------------------------------ //
 // ----------- the helperfunctions for the style generate ----------- //
 // ------------------------------------------------------------------ //
-
 //generates the style from the dynamic values of the tab
-const generateDynamicTabStyle = (props: IFancyTabButtonStyle) => {
-  const { transparent, textColor } = props;
+type ILIStyledButton = IStyledPrefixAndPicker<IFancyTabStyle, 'transparent' | 'textColor' | 'iconAlign' | 'wide'>;
+
+const generateDynamicTabStyle = (props: Pick<ILIStyledButton, '$transparent' | '$textColor'>) => {
+  const { $transparent, $textColor } = props;
 
   //if the background not transparent give him a background/text color
-  if (!transparent) {
+  if (!$transparent) {
     return css`
       background-color: ${uiColors.primary.light};
       color: ${uiColors.primary.contrast};
@@ -22,7 +23,7 @@ const generateDynamicTabStyle = (props: IFancyTabButtonStyle) => {
     //when the it is transparent style it with underline
     return css`
       font-weight: 600;
-      color: ${textColor === 'dark' ? uiColors.primary.main : uiColors.primary.contrast};
+      color: ${$textColor === 'dark' ? uiColors.primary.main : uiColors.primary.contrast};
       background-color: transparent;
       border-bottom: 1.5px solid transparent;
     `;
@@ -30,10 +31,10 @@ const generateDynamicTabStyle = (props: IFancyTabButtonStyle) => {
 };
 
 //when the item is aktiv(clicked) this style is used
-const generateCheckedStyle = (props: IFancyTabStyle) => {
-  const { transparent } = props;
+const generateCheckedStyle = (props: IStyledPrefixAndPicker<IFancyTabStyle, 'transparent'>) => {
+  const { $transparent } = props;
   return css`
-    ${!transparent
+    ${!$transparent
       ? css`
           &:checked + label {
             text-shadow: 1px 1px 1px black;
@@ -49,17 +50,16 @@ const generateCheckedStyle = (props: IFancyTabStyle) => {
   `;
 };
 
-
 //this functions hold little childs for the label
-const generateLabelChilds = (props: IFancyTabStyle) => {
-  const { iconAlign } = props;
+const generateLabelChilds = (props: Pick<ILIStyledButton, '$iconAlign'>) => {
+  const { $iconAlign } = props;
 
   return css`
     i {
       display: flex;
       justify-content: center;
 
-      ${iconAlign === 'right'
+      ${$iconAlign === 'right'
         ? css`
             padding-left: ${spacingPx.xs};
             order: 1;
@@ -83,12 +83,12 @@ const generateLabelChilds = (props: IFancyTabStyle) => {
 // ------------------------------------------------------------------ //
 // ------------ the main style generator for the li item ------------ //
 // ------------------------------------------------------------------ //
-const generateButtonStyle = (props: IFancyTabStyle) => {
-  const { wide } = props;
+const generateButtonStyle = (props: ILIStyledButton) => {
+  const { $wide } = props;
 
   return css`
     list-style: none;
-    width: ${ wide && `100%` };
+    width: ${$wide && `100%`};
 
     label {
       display: flex;
@@ -101,9 +101,9 @@ const generateButtonStyle = (props: IFancyTabStyle) => {
       width: 100%;
       user-select: none;
 
-      padding: ${(wide ? `${spacingPx.md} 0px` : `${spacingPx.md}`)};
+      padding: ${$wide ? `${spacingPx.md} 0px` : `${spacingPx.md}`};
       //handles the dynamic values
-      ${generateDynamicTabStyle(props)}
+      ${generateDynamicTabStyle({ $transparent: props.$transparent, $textColor: props.$textColor })}
       // generates underlying childs in this element
       ${generateLabelChilds(props)}
     }
@@ -115,33 +115,6 @@ const generateButtonStyle = (props: IFancyTabStyle) => {
   `;
 };
 
-const LISwitchButtonStyle = styled.li<IFancyTabStyle>`
+export const LISwitchButtonStyle = styled.li<ILIStyledButton>`
   ${generateButtonStyle}
 `;
-
-// ------------------------------------------------------------------ //
-// ------------- main component for the tab (li item) --------------- //
-// ------------------------------------------------------------------ //
-export default function FancyTabSwitchButton(props: IFancyTabStyle) {
-  const { disabled, itemObject, selected, handler } = props;
-
-  const id = useId();
-
-  return (
-    <LISwitchButtonStyle {...props}>
-      <input
-        id={id + '_' + itemObject.key}
-        disabled={disabled}
-        name="FancyButtonSwitcher"
-        type="radio"
-        checked={selected}
-        onChange={() => handler(itemObject.key)}
-      />
-
-      <label htmlFor={id + '_' + itemObject.key}>
-        {itemObject.icon && <i>{itemObject.icon}</i>}
-        {itemObject.label && <span>{itemObject.label}</span>}
-      </label>
-    </LISwitchButtonStyle>
-  );
-}

@@ -4,10 +4,12 @@ import styled, { css } from 'styled-components';
 
 //this function handles some alignment of the elements
 import IFancyInput from './FancyInput.model';
+import IStyledPrefixAndPicker from '../../Interface/IStyledPrefixAndPicker.model';
 import { UnderLineFocusStyle } from '../../Atoms/InputUnderline';
 import { AnimatedInputLabel, AnimatedLabelFocusStyle } from '../../Atoms/AnimatedLabel';
 
 type ITypeStyle = IFancyInput['type'];
+// this generates the style for the specific input field depending on the type of the input
 const generateInputTypeStyle =  (type: ITypeStyle, placeholder?: string) => {
   switch (type) {
     case 'number':
@@ -58,8 +60,8 @@ const generateInputTypeStyle =  (type: ITypeStyle, placeholder?: string) => {
 
 
 //the input icon displayed on the left
-export const Icon = styled.i<{ active: boolean; errorMessage?: string }>`
-  color: ${({ active, errorMessage }) => (!errorMessage ? (active ? uiColors.accent.main : 'gray') : colorPalet.red_dark)};
+export const Icon = styled.i<{ $isActive: boolean; $errorMessage?: string }>`
+  color: ${({ $isActive, $errorMessage }) => (!$errorMessage ? ($isActive ? uiColors.accent.main : 'gray') : colorPalet.red_dark)};
   margin-right: 8px;
   margin-bottom: 2px;
   transition: 0.5s;
@@ -73,43 +75,46 @@ export const Icon = styled.i<{ active: boolean; errorMessage?: string }>`
 `;
 
 //the input/label/underline are all wrapped in thid container
-export const InputContainer = styled.div<{ givePadding: boolean }>`
+export const InputContainer = styled.div<{ $givePadding: boolean }>`
   width: 100%;
   grid-column: 2/3;
-  ${({ givePadding }) =>
-    givePadding &&
+  ${({ $givePadding }) =>
+    $givePadding &&
     css`
       padding-top: ${spacing.lg + 2 + 'px'};
     `};
   position: relative;
 `;
 
+//generate type with the prefix and the pick the needed style props
+type FancyInputStyle = IStyledPrefixAndPicker<IFancyInput, 'align' | 'calculatedType' | 'errorMessage'>;
+type IFancyInputStyle = FancyInputStyle & Pick<IFancyInput, 'type'>;
 //only the input field
-export const Input = styled.input<IFancyInput>`
+export const Input = styled.input<IFancyInputStyle>`
   font-weight: 500;
   box-sizing: border-box;
   width: 100%;
   appearance: none;
   background-color: transparent;
   color: ${colorPalet.white_high};
-  text-align: ${({ align }) => (align !== 'center' ? 'left' : 'center')};
+  text-align: ${({ $align }) => ($align !== 'center' ? 'left' : 'center')};
   border: none;
   outline: none;
   box-shadow: none;
   font-size: ${fontSize.medium};
-  padding: ${({ calculatedType, align }) =>
-    calculatedType !== 'password'
+  padding: ${({ $calculatedType, $align }) =>
+    $calculatedType !== 'password'
       ? //if type is not password
         `0px 0px ${spacing.xs + 2 + 'px'}`
       : //if type is password
-      align === 'center'
+      $align === 'center'
       ? `12px 20px 4px 20px`
       : `12px 20px 4px 0px`};
 
   //the focus animation for the label
-  ${({ align, errorMessage }) => AnimatedLabelFocusStyle(align, errorMessage)}
+  ${({ $align, $errorMessage }) => AnimatedLabelFocusStyle($align, $errorMessage)}
   //the focus animation for the underline
-  ${({ align }) => UnderLineFocusStyle(AnimatedInputLabel, align)}
+  ${({ $align }) => UnderLineFocusStyle(AnimatedInputLabel, $align)}
   //removes the arrows from the number input
   ${({ type, placeholder }) => generateInputTypeStyle(type, placeholder)}
 `;
