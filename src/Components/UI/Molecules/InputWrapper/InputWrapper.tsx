@@ -34,7 +34,7 @@ export default function InputWrapper(props: IInputWrapper) {
   return (
     <StyledInputWrapper disabled={disabled} autoWidth={autoWidth}>
       {icon && <SVGAtom externalStyle={iconStyle} size="large" isActive={isActiv}>{icon}</SVGAtom>}
-      <InputContainer givePadding={Boolean(label)}>
+      <InputContainer $givePadding={Boolean(label)}>
         {children}
         {/* the label for the input field it shows when a label prop exists*/}
         {label && (

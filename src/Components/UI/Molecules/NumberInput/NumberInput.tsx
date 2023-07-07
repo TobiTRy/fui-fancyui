@@ -25,7 +25,7 @@ type IStyledNumberInput = IStyledPrefixAndPicker<INumberInput, 'align' | 'errorM
 const StyledNumberInput = styled(RawInput)<IStyledNumberInput & { $width: string }>`
   box-sizing: border-box;
   border-radius: 0;
-  width: ${({ width }) => (width ? width : '2ch')};
+  width: ${({ $width }) => ($width ? $width : '2ch')};
   background-color: transparent;
   border: none;
   padding: 0 0 ${spacingPx.xs} 0;
@@ -48,6 +48,8 @@ const StyledNumberInput = styled(RawInput)<IStyledNumberInput & { $width: string
 
 export default function NumberInput(props: INumberInput) {
   const { value, handler, activeHandler, disabled, errorMessage, align, id, autoWidth, minValue, maxValue } = props;
+
+  console.log(autoWidth)
 
   const focusHandler = (value: boolean) => {
     activeHandler && activeHandler(value);

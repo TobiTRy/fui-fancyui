@@ -3,10 +3,10 @@ import styled from 'styled-components';
 import { uiColors } from '../../Design/design';
 
 //uiColors.primary.light
-const DateOutputButton = styled.button<{ active?: boolean }>`
+const DateOutputButton = styled.button<{ $isActive?: boolean }>`
   text-align: center;
   width: 100%;
-  background-color: ${({ active }) => (active ? uiColors.primary.lighter : uiColors.primary.light)};
+  background-color: ${({ $isActive }) => ($isActive ? uiColors.primary.lighter : uiColors.primary.light)};
   border: none;
   cursor: pointer;
 
@@ -49,7 +49,7 @@ export default function DateOutput({ date, isActive, onDateSelect, handler }: ID
 
 
   return (
-    <DateOutputButton onClick={handleOpenCalendar} active={active && isActive}>
+    <DateOutputButton onClick={handleOpenCalendar} $isActive={active && isActive}>
       {formattedDate || 'Select a date'}
     </DateOutputButton>
   );

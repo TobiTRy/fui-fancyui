@@ -26,11 +26,11 @@ export const ErrorMessage = styled.p`
 
 
 //the input/label/underline are all wrapped in thid container
-export const InputContainer = styled.div<{ givePadding: boolean }>`
+export const InputContainer = styled.div<{ $givePadding: boolean }>`
   width: 100%;
   grid-column: 2/3;
-  ${({ givePadding }) =>
-    givePadding &&
+  ${({ $givePadding }) =>
+    $givePadding &&
     css`
       padding-top: ${spacing.lg + 2 + 'px'};
     `};

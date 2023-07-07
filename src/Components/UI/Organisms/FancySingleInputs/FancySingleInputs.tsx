@@ -61,11 +61,11 @@ export default function FancySingleInputs({ length, api, handler }: IFancySingle
 
   return (
     <WarpperComponent>
-      <Container status={status}>
+      <Container $status={status}>
         <SingleInputs length={length} handler={valueHandler} status={status} />
         <MessageContainer>
-          <Message status={status.isSucceed}>Value is valid!</Message>
-          <Message status={status.isError}>An error occurred, please try again.</Message>
+          <Message $status={status.isSucceed}>Value is valid!</Message>
+          <Message $status={status.isError}>An error occurred, please try again.</Message>
         </MessageContainer>
       </Container>
     </WarpperComponent>
