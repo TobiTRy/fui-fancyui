@@ -6,18 +6,22 @@ import { calcIconPaddingAndAlign } from './generateIconPadding';
 import { generatePadding } from './generatePadding';
 import { borderRadius, fontSize, spacing, uiColors } from '../Design/design';
 import { IUiColorsTypes } from '../Design/design';
+import IStyledPrefixAndPicker from '../Interface/IStyledPrefixAndPicker.model';
+import IStyledPrefixAndOmiter from '../Interface/IStyledPrefixAndOmiter.model';
 
-export interface IGenerateThemeItem {
-  $outlined?: boolean;
-  $icon?: JSX.Element;
-  $size: 'small' | 'medium' | 'large';
-  $label?: string;
-  $wide?: boolean;
-  $design: IUiColorsTypes;
-  $align?: "left" | "right" | "center";
-  $color?: "primary" | "secondary" | "accent";
-  $hoverColor?: "primary" | "secondary" | "accent";
+
+export interface IGenerateThemeItemProps {
+  outlined?: boolean;
+  icon?: JSX.Element;
+  size: 'small' | 'medium' | 'large';
+  label?: string;
+  wide?: boolean;
+  design: IUiColorsTypes;
+  align?: "left" | "right" | "center";
+  color?: "primary" | "secondary" | "accent";
+  hoverColor?: "primary" | "secondary" | "accent";
 };
+export type IGenerateThemeItem = IStyledPrefixAndOmiter<IGenerateThemeItemProps>
 
 // --------------------------------------------------------------------------- //
 // ---------- Here are the $design variants for sizing and alignment ---------- //

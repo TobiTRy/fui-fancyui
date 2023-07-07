@@ -25,7 +25,7 @@ const genreateFantyLi = (props: StyledFancyLi) => {
 
     & i {
       display: flex;
-      ${calcIconPaddingAndAlign({aligned: $aligned, size: $size })}
+      ${calcIconPaddingAndAlign({ $aligned, $size })}
       align-items: center;
     }
   `;

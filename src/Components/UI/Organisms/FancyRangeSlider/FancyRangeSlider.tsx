@@ -46,7 +46,7 @@ export default function FancyRangeSlider(props: IFancyRangeSlider) {
 
       {/* label for the top side of the slider */}
       {label && (
-        <Label htmlFor={id} align={labelAlign} active={isActive || toutched}>
+        <Label htmlFor={id} $align={labelAlign} $isActive={isActive || toutched}>
           {label}
         </Label>
       )}

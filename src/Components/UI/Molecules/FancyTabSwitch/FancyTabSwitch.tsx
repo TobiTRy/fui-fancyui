@@ -8,7 +8,8 @@ import { ULButtonSwitchList } from './FancyTabSwitch.style';
 // ------ the main react component to generate the TabSwitch -------- //
 // ------------------------------------------------------------------ //
 export default function FancyTabSwitch(props: IFancyTab) {
-  const { switchValues, currentSelect, handler, rounded, tabSpacing, ...childValues } = props;
+  const { switchValues, currentSelect, handler, rounded, tabSpacing, ...styleProps } = props;
+  const { wide, disabled, transparent, roundedTabs, icon, iconAlign, textColor, selected } = styleProps;
 
   //the props for the listcomponent
   const listProps = {
@@ -33,11 +34,21 @@ export default function FancyTabSwitch(props: IFancyTab) {
   return (
     <div>
       {/* the ul wich is generated on the top of this file  */}
-      <ULButtonSwitchList {...listProps}>
+      <ULButtonSwitchList $tabSpacing={tabSpacing} $roundedTabs={roundedTabs} $rounded={rounded} $transparent={transparent} $wide={wide}>
         {/* this map generates for each switchvalue a new List item */}
         {switchValues.map((item, i) => (
           <React.Fragment key={i}>
-            <FancyTabSwitchButton {...childValues} itemObject={item} selected={item.key === currentSelected} handler={radioChangeHandler} />
+            {/* const { disabled, itemObject, selected, handler, transparent, wide, textColor, iconAlign } = props; */}
+            <FancyTabSwitchButton
+              disabled={disabled}
+              wide={wide}
+              transparent={transparent}
+              textColor={textColor}
+              iconAlign={iconAlign}
+              itemObject={item}
+              selected={item.key === currentSelected}
+              handler={radioChangeHandler}
+            />
           </React.Fragment>
         ))}
       </ULButtonSwitchList>

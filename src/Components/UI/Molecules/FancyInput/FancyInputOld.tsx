@@ -41,6 +41,7 @@ export default function FancyInputOld(props: IFancyInput) {
           $errorMessage={errorMessage}
           placeholder=""
           type={calculatedType}
+          $calculatedType={calculatedType}
           required
           $align={align}
           {...inputProps}
