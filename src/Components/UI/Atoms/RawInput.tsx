@@ -3,6 +3,7 @@ import { colorPalet, fontSize, spacing } from '../Design/design'
 
 
 export type TRawInputAlign = 'left' | 'center';
+
 export interface IRawInput {
   $align?: TRawInputAlign;
 }

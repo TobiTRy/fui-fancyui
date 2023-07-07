@@ -1,12 +1,13 @@
 import React from 'react';
-import RawInput, { IRawInput } from '../../Atoms/RawInput';
+import RawInput, { TRawInputAlign } from '../../Atoms/RawInput';
 import styled from 'styled-components';
 import { spacingPx } from '../../Design/design';
 
 import { UnderLineFocusStyle } from '../../Atoms/InputUnderline';
 import { AnimatedInputLabel, AnimatedLabelFocusStyle } from '../../Atoms/AnimatedLabel';
+import IStyledPrefixAndPicker from '../../Interface/IStyledPrefixAndPicker.model';
 
-interface INumberInput extends IRawInput {
+interface INumberInput {
   id?: string;
   disabled?: boolean;
   value?: string | number;
@@ -15,11 +16,13 @@ interface INumberInput extends IRawInput {
   active?: boolean;
   minValue?: number;
   maxValue?: number;
+  align?: TRawInputAlign;
   handler?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   activeHandler?: (value: boolean) => void;
 }
 
-const StyledNumberInput = styled(RawInput)<INumberInput & { width: string }>`
+type IStyledNumberInput = IStyledPrefixAndPicker<INumberInput, 'align' | 'errorMessage'>
+const StyledNumberInput = styled(RawInput)<IStyledNumberInput & { $width: string }>`
   box-sizing: border-box;
   border-radius: 0;
   width: ${({ width }) => (width ? width : '2ch')};
@@ -30,9 +33,9 @@ const StyledNumberInput = styled(RawInput)<INumberInput & { width: string }>`
   transition-timing-function: cubic-bezier(0.46, 0.03, 0.52, 0.96);
   outline: none;
   
-  ${({ align, errorMessage }) => AnimatedLabelFocusStyle(align, errorMessage)}
+  ${({ $align, $errorMessage }) => AnimatedLabelFocusStyle($align, $errorMessage)}
   //the focus animation for the underline
-  ${({ align }) => UnderLineFocusStyle(AnimatedInputLabel, align)}
+  ${({ $align }) => UnderLineFocusStyle(AnimatedInputLabel, $align)}
   
   &::-webkit-outer-spin-button,
   &::-webkit-inner-spin-button {
@@ -55,10 +58,7 @@ export default function NumberInput(props: INumberInput) {
       id={id}
       type="number"
       placeholder=""
-      width={autoWidth ? (value ? value.toString().length + 1 + 'ch' : '2ch') : '100%'}
-      errorMessage={errorMessage}
       value={value}
-      align={align}
       autoComplete={'off'}
       onChange={handler}
       disabled={disabled}
@@ -67,6 +67,9 @@ export default function NumberInput(props: INumberInput) {
       required
       onFocus={() => focusHandler(true)}
       onBlur={() => focusHandler(false)}
+      $width={autoWidth ? (value ? value.toString().length + 1 + 'ch' : '2ch') : '100%'}
+      $align={align}
+      $errorMessage={errorMessage}
     />
   );
 }

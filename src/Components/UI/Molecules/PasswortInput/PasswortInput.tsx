@@ -1,25 +1,30 @@
 import React, { ChangeEvent, useState } from 'react'
 
-import RawInput, { IRawInput } from '../../Atoms/RawInput';
+import RawInput, { TRawInputAlign } from '../../Atoms/RawInput';
 import styled from 'styled-components';
 import { UnderLineFocusStyle } from '../../Atoms/InputUnderline';
 import PasswordEye from '../../Atoms/PasswordEye/PasswordEye';
 import { AnimatedInputLabel, AnimatedLabelFocusStyle } from '../../Atoms/AnimatedLabel';
+import IStyledPrefixAndPicker from '../../Interface/IStyledPrefixAndPicker.model';
 
-interface IPasswortInput extends IRawInput {
+interface IPasswortInputProps {
   id?: string;
   disabled?: boolean;
   value?: string;
   errorMessage?: string;
+  align?: TRawInputAlign;
   handler?: (e: ChangeEvent<HTMLInputElement>) => void;
   activeHandler?: (value: boolean) => void;
 };
-const StyledPasswortInput = styled(RawInput)<IPasswortInput>`
-  ${({ align, errorMessage }) => AnimatedLabelFocusStyle(align, errorMessage)}
+
+
+type IStyledPasswortInput = IStyledPrefixAndPicker<IPasswortInputProps, 'align' | 'errorMessage'>
+const StyledPasswortInput = styled(RawInput)<IStyledPasswortInput>`
+  ${({ $align, $errorMessage }) => AnimatedLabelFocusStyle($align, $errorMessage)}
   //the focus animation for the underline
-  ${({ align }) => UnderLineFocusStyle(AnimatedInputLabel, align)}
+  ${({ $align }) => UnderLineFocusStyle(AnimatedInputLabel, $align)}
 `;
-export default function PasswortInput(props: IPasswortInput) {
+export default function PasswortInput(props: IPasswortInputProps) {
   const { value, handler, activeHandler, disabled, errorMessage, align, id } = props;
   const [ isShowPassword, setIsShowPassword ] = useState(false)
 
@@ -39,15 +44,15 @@ export default function PasswortInput(props: IPasswortInput) {
         id={id}
         type={isShowPassword ? 'text' : 'password'}
         placeholder=""
-        errorMessage={errorMessage}
         value={value}
-        align={align}
         autoComplete={'off'}
         onChange={handler}
         disabled={disabled}
         required
         onFocus={() => focusHandler(true)}
         onBlur={() => focusHandler(false)}
+        $errorMessage={errorMessage}
+        $align={align}
       />
     </>
   )

@@ -38,11 +38,11 @@ export default function InputWrapper(props: IInputWrapper) {
         {children}
         {/* the label for the input field it shows when a label prop exists*/}
         {label && (
-          <AnimatedInputLabel htmlFor={id} align={align} disabledAndSelected={Boolean(disabled) && Boolean(props.value)}>
+          <AnimatedInputLabel htmlFor={id} $align={align} $disabledAndSelected={Boolean(disabled) && Boolean(props.value)}>
             {label}
           </AnimatedInputLabel>
         )}
-        {underline && <UnderLine errorMessage={errorMessage} active={isActiv}/> }
+        {underline && <UnderLine $errorMessage={errorMessage} $isActive={isActiv}/> }
       </InputContainer>
       {/* // ---------if a errorMessage prop exists this message will shown------------- // */}
       {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
