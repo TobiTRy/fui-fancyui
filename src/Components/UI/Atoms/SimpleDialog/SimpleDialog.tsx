@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-import { animated, useSpring } from 'react-spring';
+import { animated, useSpring } from '@react-spring/web';
 
 import { uiColors, borderRadius, spacingPx } from '../../Design/design';
 

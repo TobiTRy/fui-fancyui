@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { animated, useSpring } from 'react-spring';
+import { animated, useSpring } from '@react-spring/web';
 import styled from 'styled-components';
 
 

@@ -1,10 +1,11 @@
-import React from 'react'
 import styled  from 'styled-components'
 import { colorPalet, fontSize, spacing } from '../Design/design'
 
 
+export type TRawInputAlign = 'left' | 'center';
+
 export interface IRawInput {
-  align?: 'left' | 'center';
+  $align?: TRawInputAlign;
 }
 
 const RawInput = styled.input<IRawInput>`
@@ -14,7 +15,7 @@ const RawInput = styled.input<IRawInput>`
   appearance: none;
   background-color: transparent;
   color: ${colorPalet.white_high};
-  text-align: ${({ align }) => (align !== 'center' ? 'left' : 'center')};
+  text-align: ${({ $align }) => ($align !== 'center' ? 'left' : 'center')};
   border: none;
   outline: none;
   box-shadow: none;

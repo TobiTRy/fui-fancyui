@@ -14,10 +14,10 @@ export default function DropDownSelect(props: IDropDownSelect) {
 
   return (
     <SelectField
+      $align={align}
+      $labelAlign={align}
       id={id}
       disabled={disabled}
-      align={align}
-      labelAlign={align}
       value={value ? value : ''}
       required
       onChange={handler}
@@ -25,27 +25,23 @@ export default function DropDownSelect(props: IDropDownSelect) {
       onBlur={() => focusHandler(false)}
     >
       
-      <Option value="" hidden className="disabled" align={align} disabled>
+      <Option value="" hidden className="disabled" $align={align} disabled>
         {' '}
       </Option>
       
       {/* Empty Select Option  */}
       {emptySelect && (
-        <Option value="" align={align}>
+        <Option value="" $align={align}>
           {''}
         </Option>
       )}
 
       {/* placeholder for custom text like "Please Select a item" */}
       {values?.map((item, i) => (
-        <Option key={i} value={item.toString().toLowerCase()} align={align}>
+        <Option key={i} value={item.toString().toLowerCase()} $align={align}>
           {item}
         </Option>
       ))}
     </SelectField>
   );
 }
-
-DropDownSelect.defaultProps = {
-  emptySelect: true,
-};

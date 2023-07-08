@@ -1,18 +1,18 @@
-import React from 'react';
 import styled from 'styled-components';
 
 import { systemMessages } from '../Design/design';
 import { borderRadius } from '../Design/design';
 
-
+// --------------------------------------------------------------------------- //
+// ---------- A little Circle that indicates if something is avilable -------- //
+// --------------------------------------------------------------------------- //
 export type IAvilableDot = 'completly' | 'partially' | 'not' | 'transparent';
-
-const AvilableDot = styled.div<{ avilable: IAvilableDot }>`
+const AvilableDot = styled.div<{ $avilable: IAvilableDot }>`
   width: 4px;
   height: 4px;
   border-radius: ${borderRadius.complete};
-  background-color: ${({ avilable }) => {
-    switch (avilable) {
+  background-color: ${({ $avilable }) => {
+    switch ($avilable) {
       case 'completly':
         return  systemMessages.success.light;
       case 'partially':

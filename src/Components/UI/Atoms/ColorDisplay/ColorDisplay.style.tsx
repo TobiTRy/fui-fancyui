@@ -2,7 +2,7 @@ import Color from 'color';
 import styled from 'styled-components';
 import { borderRadius, fontSize, uiColors } from '../../Design/design';
 
-export const Content = styled.div<{ isBright: boolean }>`
+export const Content = styled.div<{ $isBright: boolean }>`
   position: absolute;
   width: 100%;
   height: 100%;
@@ -14,7 +14,7 @@ export const Content = styled.div<{ isBright: boolean }>`
   z-index: 2;
   gap: 3px;
   font-size: ${fontSize.small};
-  color: ${({ isBright }) => (!isBright ? uiColors.secondary.main : uiColors.primary.main)};
+  color: ${({ $isBright }) => (!$isBright ? uiColors.secondary.main : uiColors.primary.main)};
   transition: color 0.2s ease-in-out;
 
   p {
@@ -22,11 +22,11 @@ export const Content = styled.div<{ isBright: boolean }>`
   }
 
   &:active {
-    color: ${({isBright}) => isBright ? uiColors.primary.dark : uiColors.secondary.dark};
+    color: ${({$isBright}) => $isBright ? uiColors.primary.dark : uiColors.secondary.dark};
   }
 
   &:hover {
-    color: ${({isBright}) => isBright ? uiColors.primary.dark : uiColors.secondary.dark};
+    color: ${({$isBright}) => $isBright ? uiColors.primary.dark : uiColors.secondary.dark};
   }
 `;
 
@@ -39,15 +39,20 @@ export const WrapperSVG = styled.div`
   margin-bottom: 1px;
 `;
 
-export const Wrapper = styled.div<{ fullHeight?: boolean }>`
+export const Wrapper = styled.div<{ $fullHeight?: boolean }>`
   position: relative;
   cursor: pointer;
   width: 100%;
-  height: ${({ fullHeight }) => (fullHeight ? '100%' : '20px')};
+  height: ${({ $fullHeight }) => ($fullHeight ? '100%' : '20px')};
   touch-action: manipulation;
 `;
 
-const colorDisplayColor = ({ color, opacity }: { color: string; opacity?: number }) => {
+interface IColorDisplayColor {
+  color?: string;
+  opacity?: number;
+};
+
+const colorDisplayColor = ({ color, opacity }: IColorDisplayColor) => {
   const checkOpacity = opacity === undefined ? 1 : opacity;
   const transformedColor = Color(color).rgb().alpha(checkOpacity);
   return {
@@ -57,7 +62,7 @@ const colorDisplayColor = ({ color, opacity }: { color: string; opacity?: number
   };
 };
 
-export const ColorDisplayContainer = styled.div.attrs(colorDisplayColor)<{ color: string; opacity?: number; fullHeight?: boolean }>`
+export const ColorDisplayContainer = styled.div.attrs(colorDisplayColor)<IColorDisplayColor>`
   position: absolute;
   width: 100%;
   height: 100%;

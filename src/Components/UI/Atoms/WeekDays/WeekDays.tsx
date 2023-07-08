@@ -16,7 +16,9 @@ const WeekdaysConatiner = styled.div`
     align-items: center;
   }
 `;
-
+// --------------------------------------------------------------------------- //
+// ---------- This Atom creates a List of all Weekdas from Mo - Su ----------- //
+// --------------------------------------------------------------------------- //
 export default function WeekDays() {
   const [weekdays, setWeekdays] = useState<string[]>([]);
 

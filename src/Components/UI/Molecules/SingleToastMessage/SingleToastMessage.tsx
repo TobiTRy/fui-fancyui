@@ -24,13 +24,13 @@ const SingleToastMessage = forwardRef<HTMLDivElement, ISingleToastMessage>((prop
   }, [id, time, remove]);
 
   return (
-    <Container ref={ref} messageType={type}>
+    <Container ref={ref} $messageType={type}>
       <Headline>
         <Title>{title}</Title>
         <FancyXButton onClick={() => remove(id)} design={type}/>
       </Headline>
       <Message>{message}</Message>
-      <TimerLine time={time!} messageType={type} />
+      <TimerLine $time={time!} $messageType={type} />
     </Container>
   );
 });

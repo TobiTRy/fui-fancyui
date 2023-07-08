@@ -57,11 +57,11 @@ interface IColorArea {
   color: Color;
   hue: number;
   handler: (color: Color) => void;
-}
+};
 const ColorArea = ({ color, hue, handler }:IColorArea) => {
   //use the hue from the parent component or set it to 0
   const currentHue = hue ?? 0;
-
+  
   //use the useSlider hook handles all the interaction with the color area
   const { sliderRef, markerPosition, handleInteractionStart, isInteracting } = useSlider({
     color,
@@ -78,7 +78,7 @@ const ColorArea = ({ color, hue, handler }:IColorArea) => {
       <ColorIndicator position={{y: markerPosition.y + '%', x: markerPosition.x + '%' }} color={Color(color).toString()} isActive={isInteracting}/>
       {/* the color area with the gradients (PickedColor / Lightness / Saturation) */}
       <ColorAreaContainer ref={sliderRef} onMouseDown={handleInteractionStart} onTouchStart={handleInteractionStart}>
-        <CurrentColorArea hue={hue}/>
+        <CurrentColorArea $hue={hue}/>
         <LightnessGradient/>
         <SaturationGradient/>
         {/* the marker to display there current picked color on the area */}

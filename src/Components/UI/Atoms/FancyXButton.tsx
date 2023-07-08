@@ -15,10 +15,10 @@ const pickColorObject = (design: FancyXButtonDesign | undefined | null) => {
   }
 };
 
-const StyledFancyXButton = styled.button<{colorValue?: string }>`
+const StyledFancyXButton = styled.button<{$colorValue?: string }>`
   padding: 0 ${spacingPx.sm} 2px;
   background: none;
-  color: ${({ colorValue }) => colorValue ? colorValue : uiColors.accent.main};
+  color: ${({ $colorValue }) => $colorValue ? $colorValue : uiColors.accent.main};
   border: none;
   font-size: ${fontSize.extraLarge};
   font-weight: bolder;
@@ -27,7 +27,7 @@ const StyledFancyXButton = styled.button<{colorValue?: string }>`
   transition: color 0.2s ease-in-out;
 
   &:hover {
-    color: ${({ colorValue }) => colorValue ? Color(colorValue).darken(0.3).hex() : uiColors.accent.dark};
+    color: ${({ $colorValue }) => $colorValue ? Color($colorValue).darken(0.3).hex() : uiColors.accent.dark};
   } 
 `;
 
@@ -42,5 +42,5 @@ export default function FancyXButton({ onClick, design }: IFancyXButton) {
   //check wich design comes in and add the right color object uiColor or systemMessages  to the button 
   const colorValue = pickColorObject(design);
 
-  return <StyledFancyXButton onClick={onClick} colorValue={colorValue}>x</StyledFancyXButton>;
+  return <StyledFancyXButton onClick={onClick} $colorValue={colorValue}>x</StyledFancyXButton>;
 }

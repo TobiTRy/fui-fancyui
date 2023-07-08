@@ -17,7 +17,7 @@ export const SpeedDialContainer = styled.div`
   width: ${SpeedDailButtonSize + 'px'};
 `;
 
-export const Button = styled.button<{ isOpen: boolean }>`
+export const Button = styled.button<{ $isOpen: boolean }>`
   position: relative;
   background-color: ${uiColors.accent.main};
   color: ${uiColors.accent.contrast};
@@ -42,12 +42,12 @@ export const Button = styled.button<{ isOpen: boolean }>`
     height: 60%;
     font-size: 24px;
     transform-origin: 50% 50%;
-    transform: ${({ isOpen }) => (isOpen ? 'translate(-50%, -50%) rotate(45deg)' : 'translate(-50%, -50%) rotate(0)')};
+    transform: ${({ $isOpen }) => ($isOpen ? 'translate(-50%, -50%) rotate(45deg)' : 'translate(-50%, -50%) rotate(0)')};
     transition: transform 0.3s ease;
   }
 `;
 
-export const Ring = styled.div<{ isOpen: boolean }>`
+export const Ring = styled.div<{ $isOpen: boolean }>`
   position: absolute;
   height: ${SpeedDailButtonSize + 'px'};
   width: ${SpeedDailButtonSize + 'px'};
@@ -56,22 +56,22 @@ export const Ring = styled.div<{ isOpen: boolean }>`
   z-index: 4;
   top: 50%;
   right: 50%;
-  transform: ${({ isOpen }) => (isOpen ? 'translate(50%, -50%) scale(1.12)' : 'translate(50%, -50%) scale(0.9)')};
-  opacity:  ${({ isOpen }) => (isOpen ? 1 : 0)} ;
+  transform: ${({ $isOpen }) => ($isOpen ? 'translate(50%, -50%) scale(1.12)' : 'translate(50%, -50%) scale(0.9)')};
+  opacity:  ${({ $isOpen }) => ($isOpen ? 1 : 0)} ;
   transition: opacity 0.5s ease-in-out, transform 0.3s ease;
   pointer-events: none;
 `;
 
 
-export const Label = styled.span<{ isOpen: boolean }>`
+export const Label = styled.span<{ $isOpen: boolean }>`
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   left: -50px;
   font-size: ${fontSize.small};
   color: ${uiColors.secondary.main};
-  display: ${({ isOpen }) => (isOpen ? 'inline' : 'none')};
-  opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
+  display: ${({ $isOpen }) => ($isOpen ? 'inline' : 'none')};
+  opacity: ${({ $isOpen }) => ($isOpen ? 1 : 0)};
   transition: opacity .5s ease-in-out;
   text-shadow:  #19191980 0 0 15px;;
 `;
@@ -84,16 +84,16 @@ export const MenueItemWrapper = styled.div`
 
 `
 
-export const MenueItemContainer = styled.div<{ isOpen: boolean; index: number }>`
+export const MenueItemContainer = styled.div<{ $isOpen: boolean; $index: number }>`
   position: absolute;
   left: 50%;
   border-radius: 50%;
-  bottom: ${({ index }) => `calc(${(index + 1) * 60}px)`};
-  opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
-  transform: ${({ isOpen }) => (isOpen ? 'translateY(0) scale(1) translateX(-50%)' : `translateY(50px) scale(0) translateX(-50%)`)};
+  bottom: ${({ $index }) => `calc(${($index + 1) * 60}px)`};
+  opacity: ${({ $isOpen }) => ($isOpen ? 1 : 0)};
+  transform: ${({ $isOpen }) => ($isOpen ? 'translateY(0) scale(1) translateX(-50%)' : `translateY(50px) scale(0) translateX(-50%)`)};
   transition: transform 0.25s ease-in-out, opacity 0.25s ease-in-out;
-  transition-delay: ${({ isOpen, index }) => (isOpen ? 0.1 * index : 0.1 * (2 - index))}s;
-  pointer-events: ${({ isOpen }) => (isOpen ? 'auto' : 'none')};
+  transition-delay: ${({ $isOpen, $index }) => ($isOpen ? 0.1 * $index : 0.1 * (2 - $index))}s;
+  pointer-events: ${({ $isOpen }) => ($isOpen ? 'auto' : 'none')};
   transform: translate(-50%);
   height: 40px;
   width: 40px;

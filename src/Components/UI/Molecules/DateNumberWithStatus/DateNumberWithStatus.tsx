@@ -1,10 +1,9 @@
 import React from 'react';
+import styled from 'styled-components';
 
 import DateNumberAtom from '../../Atoms/DateNumberAtom/DateNumberAtom';
 import AvilableDot, { IAvilableDot } from '../../Atoms/AvilableDot';
-import styled from 'styled-components';
 import { spacingPx } from '../../Design/design';
-
 import { IRange } from '../../Atoms/DateNumberAtom/DateNumberAtom';
 
 const StyledDateNumberWithStatus = styled.div`
@@ -25,8 +24,7 @@ interface IDateNumberWithStatus {
   isCurrentDay?: boolean;
   range?: IRange;
   onClick?: () => void;
-}
-
+};
 export default function DateNumberWithStatus(props: IDateNumberWithStatus) {
   const { isAvailable, disabled, dateNumber, isSelected, onClick, range, isCurrentDay } = props;
 
@@ -39,7 +37,7 @@ export default function DateNumberWithStatus(props: IDateNumberWithStatus) {
         isCurrentDay={isCurrentDay}
         range={range}
       />
-      <AvilableDot avilable={disabled ? 'transparent' : isAvailable!} />
+      <AvilableDot $avilable={disabled ? 'transparent' : isAvailable!} />
     </StyledDateNumberWithStatus>
   );
 }

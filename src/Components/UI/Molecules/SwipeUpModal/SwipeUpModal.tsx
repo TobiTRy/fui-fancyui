@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { animated, useTransition } from 'react-spring';
+import { animated, useTransition } from '@react-spring/web';
 import useWindowDimensions from '../../Atoms/functions/hooks/useWindowDimensions';
 
 import SwipeUpContainer from '../../Atoms/SwipeUpContainer/SwipeUpContainer';
@@ -17,7 +17,7 @@ interface ISwipeUpModal {
   isOpen: boolean;
   closeHandler?: () => void;
 }
-export default function SwipeUpModal({ children, isOpen, closeHandler }: ISwipeUpModal) {
+export default function SwipeUpModal({ children, isOpen = false, closeHandler }: ISwipeUpModal) {
   const [modalMobileVisible, setmodalMobileVisible] = useState(false);
   const [modalPosition, setModalPosition] = useState({ height: '100%' });
   const [backdropVisible, setBackdropVisible] = useState(false);
@@ -79,6 +79,7 @@ export default function SwipeUpModal({ children, isOpen, closeHandler }: ISwipeU
     } else {
       closeModal()
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isOpen]);
 
   return (
@@ -113,8 +114,3 @@ export default function SwipeUpModal({ children, isOpen, closeHandler }: ISwipeU
     </UseDelay>
   ) ;
 }
-
-// the default props for the modal
-SwipeUpModal.defaultProps = {
-  isOpen: false,
-};

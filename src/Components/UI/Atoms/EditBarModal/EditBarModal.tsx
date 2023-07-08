@@ -6,10 +6,10 @@ import ModalTitleArea from '../ModalTitleArea/ModalTitleArea';
 
 
 export default function EditBarModal(props: IEditBarModal) {
-  const { children, scrollable, width, spacingLeftRight, title } = props;
+  const { children, width, spacingLeftRight, title } = props;
 
   return (
-    <Wrapper spacingLeftRight={spacingLeftRight} width={width}>
+    <Wrapper $spacingLeftRight={spacingLeftRight} $width={width}>
       {title && <ModalTitleArea title={title} />}
       <WrapperContent>
         {children}

@@ -5,8 +5,8 @@ import { uiColors, spacingPx, fontSize } from '../../Design/design';
 
 // the style for a single input
 interface StyledSingleInputProps {
-  hasValue: boolean;
-  isFocused: boolean;
+  $hasValue: boolean;
+  $isFocused: boolean;
 }
 const StyledSingleInput = styled.input<StyledSingleInputProps>`
   aspect-ratio: 4/5;
@@ -14,13 +14,13 @@ const StyledSingleInput = styled.input<StyledSingleInputProps>`
   font-size: ${fontSize.xxl};
   text-align: center;
   color: ${uiColors.secondary.main};
-  border: 1.5px solid ${(props) => (props.hasValue ? uiColors.accent.main : uiColors.secondary.main)};
+  border: 1.5px solid ${(props) => (props.$hasValue ? uiColors.accent.main : uiColors.secondary.main)};
   border-radius: 5px;
   padding: ${spacingPx.xs};
   background-color: transparent;
   appearance: none;
   outline: none;
-  box-shadow: ${(props) => (props.isFocused ? `0 0 2px 1px${uiColors.accent.light}` : 'none')};
+  box-shadow: ${(props) => (props.$isFocused ? `0 0 2px 1px${uiColors.accent.light}` : 'none')};
 `;
 
 // --------------------------------------------------------------------------- //
@@ -40,11 +40,11 @@ const SingleInputAtom = forwardRef<HTMLInputElement, ISingleInputAtomProps>(({ v
       value={value}
       onKeyDown={onKeyDown}
       ref={ref}
-      hasValue={value.length > 0}
       onChange={() => {}}
       onFocus={() => setIsFocused(true)}
       onBlur={() => setIsFocused(false)}
-      isFocused={isFocused}
+      $hasValue={value.length > 0}
+      $isFocused={isFocused}
     />
   );
 });

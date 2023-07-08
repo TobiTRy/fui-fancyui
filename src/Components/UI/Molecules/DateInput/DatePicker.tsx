@@ -5,18 +5,25 @@ import styled from 'styled-components';
 import { AnimatedInputLabel, AnimatedLabelFocusStyle } from '../../Atoms/AnimatedLabel';
 import { UnderLineFocusStyle } from '../../Atoms/InputUnderline';
 import { uiColors } from '../../Design/design';
+import { TRawInputAlign } from '../../Atoms/RawInput';
 
-export interface IDateInput extends IRawInput {
+export interface IDateInputProps extends IRawInput {
   id?: string;
   disabled?: boolean;
   value?: string;
   errorMessage?: string;
   handler?: (e: ChangeEvent<HTMLInputElement>) => void;
   activeHandler?: (value: boolean) => void;
+  align?: TRawInputAlign;
 }
 
-const StyledDatePicker = styled(RawInput)<IDateInput>`
-  color: ${({value}) => value ?  '' : 'transparent'};
+interface IStyledDatePicker {
+  $errorMessage?: string;
+  $align?: TRawInputAlign;
+  $value?: string;
+}
+const StyledDatePicker = styled(RawInput)<IStyledDatePicker>`
+  color: ${({$value}) => $value ?  '' : 'transparent'};
 
   &:focus {
     color: ${uiColors.secondary.main};
@@ -25,15 +32,18 @@ const StyledDatePicker = styled(RawInput)<IDateInput>`
   &::-webkit-calendar-picker-indicator {
     filter: invert(1);
   }
-
+  
   transition: color 0.2s ease-in-out;
 
-  ${({ align, errorMessage }) => AnimatedLabelFocusStyle(align, errorMessage)}
+  ${({ $align, $errorMessage }) => AnimatedLabelFocusStyle($align, $errorMessage)}
   //the focus animation for the underline
-  ${({ align }) => UnderLineFocusStyle(AnimatedInputLabel, align)}
+  ${({ $align }) => UnderLineFocusStyle(AnimatedInputLabel, $align)}
 `;
 
-export default function DateInput(props: IDateInput) {
+// --------------------------------------------------------------------------- //
+// ---------- Here are the design variants for sizing and alignment ---------- //
+// --------------------------------------------------------------------------- //
+export default function DateInput(props: IDateInputProps) {
   const { value, handler, activeHandler, disabled, errorMessage, align, id } = props;
 
   //this function is used to toggle the active state of the input
@@ -43,11 +53,11 @@ export default function DateInput(props: IDateInput) {
 
   return (
     <StyledDatePicker
+      $errorMessage={errorMessage}
+      $align={align}
       id={id}
       type="date"
       placeholder=""
-      errorMessage={errorMessage}
-      align={align}
       value={value}
       autoComplete={'off'}
       onChange={handler}

@@ -1,7 +1,8 @@
 import { css } from 'styled-components';
 import { spacing } from '../Design/design';
+import IStyledPrefixAndPicker from '../Interface/IStyledPrefixAndPicker.model';
 
-export interface IcalcIconPadding {
+export interface IcalcIconPaddingAsProps {
   aligned?: 'left' | 'right' | 'center';
   size?: 'small' | 'medium' | 'large';
 }
@@ -14,15 +15,16 @@ const paddingFromIcon = {
 };
 
 //this funktion handles the spacing between the icon and the text deepends on the alignment
-export function calcIconPaddingAndAlign({ aligned = 'left', size = 'medium' }: IcalcIconPadding) {
-  if (aligned === 'right') {
+export type IcalcIconPadding = IStyledPrefixAndPicker<IcalcIconPaddingAsProps>;
+export function calcIconPaddingAndAlign({ $aligned = 'left', $size = 'medium' }: IcalcIconPadding) {
+  if ($aligned === 'right') {
     return css`
-      padding-left: ${paddingFromIcon[size]};
+      padding-left: ${paddingFromIcon[$size]};
       order: 1;
     `;
-  } else if (aligned === 'left') {
+  } else if ($aligned === 'left') {
     return css`
-      padding-right: ${paddingFromIcon[size]};
+      padding-right: ${paddingFromIcon[$size]};
     `;
   }
 }

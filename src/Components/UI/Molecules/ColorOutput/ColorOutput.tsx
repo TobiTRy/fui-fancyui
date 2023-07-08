@@ -29,6 +29,7 @@ interface ColorTypeLetters {
   l: number;
 };
 
+// TODO: BUILD UP THE currentColorType OR REMOVE IT
 // --------------------------------------------------------------------------- //
 // ----- The main ColorOutput Component to displays and change the values ---- //
 // --------------------------------------------------------------------------- //

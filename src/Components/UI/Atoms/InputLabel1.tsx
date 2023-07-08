@@ -1,6 +1,4 @@
-import React from 'react';
 import styled from 'styled-components';
-
 
 // --------------------------------------------------------------------------- //
 // --------------- The main label design for the input elements -------------- //

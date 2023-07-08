@@ -10,7 +10,8 @@ interface IFancySingleInputs {
   api?: string;
   handler?: (value: string) => void;
 }
-export default function FancySingleInputs({ length, api, handler }: IFancySingleInputs) {
+export default function FancySingleInputs(props: IFancySingleInputs) {
+  const { length, api, handler } = {...defaultProps, ...props};
   const [status, setStatus] = useState({ isError: false, isSucceed: false, isLoading: false });
   const [inputValue, setInputValue] = useState('');
   const debounceTimeoutRef = useRef<NodeJS.Timeout>();
@@ -52,6 +53,7 @@ export default function FancySingleInputs({ length, api, handler }: IFancySingle
       }
       debounceTimeoutRef.current = setTimeout(validateValue, 700);
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [inputValue]);
 
   const valueHandler = (value: string) => {
@@ -60,18 +62,18 @@ export default function FancySingleInputs({ length, api, handler }: IFancySingle
 
   return (
     <WarpperComponent>
-      <Container status={status}>
+      <Container $status={status}>
         <SingleInputs length={length} handler={valueHandler} status={status} />
         <MessageContainer>
-          <Message status={status.isSucceed}>Value is valid!</Message>
-          <Message status={status.isError}>An error occurred, please try again.</Message>
+          <Message $status={status.isSucceed}>Value is valid!</Message>
+          <Message $status={status.isError}>An error occurred, please try again.</Message>
         </MessageContainer>
       </Container>
     </WarpperComponent>
   );
 }
 
-FancySingleInputs.defaultProps = {
+const defaultProps:IFancySingleInputs = {
   length: 6,
   api: '/validate',
 };
