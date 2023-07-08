@@ -32,10 +32,10 @@ interface IColorPicker {
   colorOutput?: boolean;
   displayColor?: boolean;
   inputColor?: string;
-  handler: (color: string) => void;
+  handler?: (color: string) => void;
 }
 const ColorPicker = (props: IColorPicker) => {
-  const { colorArea, hueSlider, opacitySlider, colorOutput, outputFormat, displayColor, inputColor, handler } = props;
+  const { colorArea, hueSlider, opacitySlider, colorOutput, outputFormat, displayColor, inputColor, handler } = {...defaultProps, ...props};
 
   const displayColorValue = useColorPickerStore((state) => state.displayColorValue);
   const setDisplayColorValue = useColorPickerStore((state) => state.setDisplayColorValue);
@@ -58,7 +58,7 @@ const ColorPicker = (props: IColorPicker) => {
     return emitSelectedColorChange({ color: rawColor, opacity, outputFormat });
   }, [rawColor, opacity, outputFormat]);
 
-  handler(calculateGiveBackColor());
+  handler && handler(calculateGiveBackColor());
 
   //this function is handle the color change in the child ColorOutput component
   useEffect(() => {
@@ -97,7 +97,7 @@ const ColorPicker = (props: IColorPicker) => {
 };
 
 // Define defaultProps for ColorPicker
-ColorPicker.defaultProps = {
+const defaultProps: IColorPicker = {
   outputFormat: 'hex',
   colorArea: true,
   opacitySlider: true,

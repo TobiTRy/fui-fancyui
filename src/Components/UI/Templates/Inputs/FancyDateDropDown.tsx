@@ -42,18 +42,15 @@ interface IFancyDateDropDown extends IFancyDropDownSelect {
 // -------------- Fancy Date DropDown to Pick a day/month/year --------------- //
 // --------------------------------------------------------------------------- //
 export default function FancyDateDropDown(props: IFancyDateDropDown) {
-  const { type, yearLimits, monthLimits, ...inputProps } = props;
+  const { type = 'year', yearLimits, monthLimits, ...inputProps } = props;
   const [inputOptions, setInputOptions] = useState<string[]>([]);
 
   // this useEffect is used to generate the options for the dropdown
   useEffect(() => {
     const generatedOptions = generateOptions(type);
     setInputOptions(generatedOptions);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return <FancyDropDownSelect {...inputProps} values={inputOptions} />;
 }
-
-FancyDateDropDown.defaultProps = {
-  type: 'month',
-};

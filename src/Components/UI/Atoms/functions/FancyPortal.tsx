@@ -1,7 +1,5 @@
-import React, { useEffect, useRef, createElement, useState } from 'react';
+import React, { useEffect, createElement, useState } from 'react';
 import ReactDOM from 'react-dom';
-
-
 
 // --------------------------------------------------------------------------- //
 // ------ The Portal is use to append Components to other HTML ELements ------ //

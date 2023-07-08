@@ -26,17 +26,23 @@ export const BottomCenterdFixed = css`
 
 
 //the main bar for alignment
-export const Wrapper = styled.div<{bottomFixed?: boolean, width?: string, secondBar?: boolean; spacingLeftRight?: string}>`
-  ${({bottomFixed}) => (bottomFixed ? BottomCenterdFixed : null)}
+interface IBottomBarWrapper {
+  $bottomFixed?: boolean;
+  $width?: string;
+  $secondBar?: boolean;
+  $spacingLeftRight?: string;
+}
+export const Wrapper = styled.div<IBottomBarWrapper>`
+  ${({$bottomFixed}) => ($bottomFixed ? BottomCenterdFixed : null)}
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
   z-index: 99;
-  ${({ width, spacingLeftRight }) => calcBarWidthandSpacing(width, spacingLeftRight)};
+  ${({ $width, $spacingLeftRight }) => calcBarWidthandSpacing($width, $spacingLeftRight)};
   background-color: ${uiColors.primary.main};
   border-radius: 12px 12px 0px 0px;
-  box-shadow: 0 0 ${({secondBar}) => secondBar ? '24px' : '12px' }  black;
+  box-shadow: 0 0 ${({$secondBar}) => $secondBar ? '24px' : '12px' }  black;
     padding: ${spacingPx.sm} ${spacingPx.sm} 0 ${spacingPx.sm};
 `;
 
@@ -61,7 +67,7 @@ export const ScollAbleBar = styled.div`
 `;
 
 //is needed to make the items not shrink
-export const ItemWrapper = styled.div<{secondBar?: boolean}>`
+export const ItemWrapper = styled.div<{$secondBar?: boolean}>`
   flex: 1 0 64px;
-  ${({secondBar}) => secondBar ? css`padding-bottom: ${0  + 'px'}; margin-bottom: 4px` : null};
+  ${({$secondBar}) => $secondBar ? css`padding-bottom: ${0  + 'px'}; margin-bottom: 4px` : null};
 `;

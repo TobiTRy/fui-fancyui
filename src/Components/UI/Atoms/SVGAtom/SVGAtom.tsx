@@ -1,38 +1,25 @@
 import React from 'react';
-import styled, { FlattenSimpleInterpolation, css } from 'styled-components';
-import { calcIconPaddingAndAlign } from '../../HelperFunctions/generateIconPadding';
+import styled from 'styled-components';
 import { colorPalet, uiColors } from '../../Design/design';
+import { ISVGAtom, IStyledSVGAtom, sizes } from './SVGAtom.model';
 
-
-type ISizes = 'small' | 'medium' | 'large';
-
-
-
-const sizes = {
-  small: '16px',
-  medium: '18px',
-  large: '20px',
-};
-
-const calcIconColor = (active?: boolean, errorMessage?: string | undefined) => {
+const calcIconColor = ($isActive?: boolean, errorMessage?: string | undefined) => {
   if (!errorMessage) {
-    return active ? uiColors.accent.main : uiColors.secondary.darkest;
+    return $isActive ? uiColors.accent.main : uiColors.secondary.darkest;
   } else {
     return colorPalet.red_dark;
   }
-}
+};
 
-
-
-const StyledSVG = styled.i<{ size: ISizes, active?: boolean, errorMessage?: string, externalStyle?: FlattenSimpleInterpolation }>`
+const StyledSVG = styled.i<IStyledSVGAtom>`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: ${({size}) => sizes[size]}; 
+  width: ${({ $size }) => sizes[$size]};
   aspect-ratio: 1/1;
-  color: ${({ active, errorMessage }) => calcIconColor(active!, errorMessage!)};
+  color: ${({ $isActive, $errorMessage }) => calcIconColor($isActive!, $errorMessage!)};
   transition: color 0.3s ease-in-out;
-  ${({ externalStyle }) => externalStyle};
+  ${({ $externalStyle }) => $externalStyle};
 
   svg {
     width: 100%;
@@ -40,20 +27,12 @@ const StyledSVG = styled.i<{ size: ISizes, active?: boolean, errorMessage?: stri
   }
 `;
 
-interface ISVGAtom {
-  children: React.ReactNode;
-  size: ISizes;
-  isActive?: boolean;
-  passivElement?: boolean;
-  errorMessage?: string;
-  externalStyle?: FlattenSimpleInterpolation;
-}
 export default function SVGAtom(props: ISVGAtom) {
-  const { children, size, isActive, errorMessage, externalStyle } = props;
+  const { children, size = 'medium', isActive, errorMessage, externalStyle } = props;
 
-  return <StyledSVG size={size} active={isActive} errorMessage={errorMessage} externalStyle={externalStyle}>{children}</StyledSVG>;
+  return (
+    <StyledSVG $size={size} $isActive={isActive} $errorMessage={errorMessage} $externalStyle={externalStyle}>
+      {children}
+    </StyledSVG>
+  );
 }
-
-SVGAtom.defaultProps = {
-  size: 'medium',
-};

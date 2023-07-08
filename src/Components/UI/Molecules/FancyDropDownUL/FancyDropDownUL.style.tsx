@@ -2,20 +2,21 @@ import styled, { css } from 'styled-components';
 import CalculateBorderRadiusOnAlignment from '../../HelperFunctions/CalculateBorderRadiusOnAlignment';
 import { IFancyUL } from './FancyDropDownUL';
 import { spacingPx, uiColors } from '../../Design/design';
+import IStyledPrefixAndPicker from '../../Interface/IStyledPrefixAndPicker.model';
 
 
 // --------------------------------------------------------------------------- //
 // ------- the generator function for the Wrapper of the UL ------------------ //
 // --------------------------------------------------------------------------- //
-type IStyledUL = Pick<IFancyUL, 'width' | 'alignHorizontal' | 'alignVertical'>;
+type IStyledUL = IStyledPrefixAndPicker<IFancyUL, 'width' | 'alignHorizontal' | 'alignVertical'>;
 const generateWrapperUL = (props: IStyledUL) => {
-  const { width, alignHorizontal, alignVertical } = props;
-  const setBorderRadius = CalculateBorderRadiusOnAlignment({ alignHorizontal, alignVertical });
+  const { $width, $alignHorizontal, $alignVertical } = props;
+  const setBorderRadius = CalculateBorderRadiusOnAlignment({ $alignHorizontal, $alignVertical });
 
   return css`
     position: absolute;
     overflow: hidden;
-    width: ${width};
+    width: ${$width};
     ${setBorderRadius};
     z-index: 100;
   `;
@@ -29,7 +30,7 @@ export const WrapperUL = styled.div<IStyledUL>`
 // --------------------------------------------------------------------------- //
 // ------------------- the UL for the items and the style -------------------- //
 // --------------------------------------------------------------------------- //
-export const StyledUL = styled.ul<IStyledUL>`
+export const StyledUL = styled.ul`
   display: flex;
   flex-direction: column;
   box-sizing: border-box;

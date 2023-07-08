@@ -24,6 +24,7 @@ const useIntersectionObserver = (): [MutableRefObject<HTMLDivElement | null>, bo
         observer.current.disconnect();
       }
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ref.current]);
 
   return [ref, isInView];

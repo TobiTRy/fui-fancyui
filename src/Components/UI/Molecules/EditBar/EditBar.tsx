@@ -17,9 +17,8 @@ import EditBarIconButton from '../../Atoms/EditBarIcon/EditBarIcon';
 import { IEditBarIconButton } from '../../Atoms/EditBarIcon/IEditBarIcon';
 import { useEditBarStore } from './EditBar.state';
 import { spacingPx, spacing } from '../../Design/design';
-
 import EditBarModal from '../../Atoms/EditBarModal/EditBarModal';
-import ModalTitleArea from '../../Atoms/ModalTitleArea/ModalTitleArea';
+
 
 const Wrapper = styled.div`
   position: fixed;
@@ -54,15 +53,12 @@ export default function EditBar(props: IEditBar) {
   const activeSecondEditbarItem = useEditBarStore((state) => state.activeSecondEditbarItem);
   const setActiveSecondBarItem = useEditBarStore((state) => state.setActiveSecondEditbarItem);
 
-
-
+  
   const clickHandler = (section: 'section' | 'subSection', item: IEditBarIconButton, buttonFunction?: () => void) => {
     if (section === 'subSection') setActiveSecondBarItem(item.id!);
     if (section === 'section') setActiveBarItem(item.id!);
     if (buttonFunction) buttonFunction();
   };
-
-
 
   return (
     <Wrapper>

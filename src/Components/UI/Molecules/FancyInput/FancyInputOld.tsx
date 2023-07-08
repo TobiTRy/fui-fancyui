@@ -3,7 +3,7 @@ import React, { useId, useState } from 'react';
 import IFancyInput from './FancyInput.model';
 import { ErrorMessage, Icon, Input, InputContainer, PasswordIcon } from './FancyInput.style';
 import UnderLine from '../../Atoms/InputUnderline';
-import InputWrapper from '../../Atoms/InputWrapper/InputWrapper';
+import InputWrapper from '../InputWrapper/InputWrapper';
 
 
 import SVGEyeOpen from '../../SVGIcons/SVGEyeOpen';
@@ -28,21 +28,22 @@ export default function FancyInputOld(props: IFancyInput) {
     <InputWrapper disabled={disabled}>
       {/* // --------- the icon for the input field ------------- // */}
       {icon && (
-        <Icon active={isActive} errorMessage={errorMessage}>
+        <Icon $isActive={isActive} $errorMessage={errorMessage}>
           {icon}
         </Icon>
       )}
 
       {/* // ------------------------ the input field  ----------------------- // */}
-      <InputContainer givePadding={Boolean(label)}>
+      <InputContainer $givePadding={Boolean(label)}>
         {/* the input field  */}
         <Input
           id={id}
-          errorMessage={errorMessage}
+          $errorMessage={errorMessage}
           placeholder=""
           type={calculatedType}
+          $calculatedType={calculatedType}
           required
-          align={align}
+          $align={align}
           {...inputProps}
           value={value}
           onFocus={() => setIsActive(true)}
@@ -54,7 +55,7 @@ export default function FancyInputOld(props: IFancyInput) {
 
         {/* the label for the input field it shows when a label prop exists*/}
         {label && (
-          <AnimatedInputLabel htmlFor={id} align={align} disabledAndSelected={Boolean(disabled) && Boolean(props.value)}>
+          <AnimatedInputLabel htmlFor={id} $align={align} $disabledAndSelected={Boolean(disabled) && Boolean(props.value)}>
             {label}
           </AnimatedInputLabel>
         )}
@@ -70,7 +71,7 @@ export default function FancyInputOld(props: IFancyInput) {
           </PasswordIcon>
         )}
         {/* // --------- the underline form the input field------------- // */}
-        <UnderLine errorMessage={errorMessage}></UnderLine>
+        <UnderLine $errorMessage={errorMessage}></UnderLine>
       </InputContainer>
 
       {/* // --------- if a errorMessage prop exists this message will shown ------------- // */}

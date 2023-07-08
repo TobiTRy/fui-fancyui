@@ -33,8 +33,8 @@ export const SliderContainer = styled.div`
 `;
 
 // the opacity gradient of the slider wich displays the opacity of the current color
-export const OpacityGradient = styled.div.attrs<{ color: Color }>(({ color }) => {
-  const transformedToColor = Color(color).hsl();
+export const OpacityGradient = styled.div.attrs<{ $color: Color }>(({ $color }) => {
+  const transformedToColor = Color($color).hsl();
   const gradientStart = transformedToColor.alpha(0).toString();
   const gradientEnd = transformedToColor.alpha(1).toString();
 
@@ -43,7 +43,7 @@ export const OpacityGradient = styled.div.attrs<{ color: Color }>(({ color }) =>
       background: `linear-gradient(to right, ${gradientStart} 0%, ${gradientEnd} 90%)`,
     },
   };
-})<{ color: string }>`
+})<{ $color: string }>`
   position: absolute;
   width: 100%;
   height: 100%;

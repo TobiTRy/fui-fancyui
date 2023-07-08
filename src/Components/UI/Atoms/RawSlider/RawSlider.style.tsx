@@ -12,7 +12,6 @@ const DragableThumb = css`
     border: none;
 `;
 
-
 export const StyledRawSlider = styled.input`
   -webkit-appearance: none;
   width: 100%;

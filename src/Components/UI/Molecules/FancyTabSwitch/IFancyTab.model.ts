@@ -1,5 +1,6 @@
 import { borderRadius } from "../../Design/design";
 import { spacingPx } from "../../Design/design";
+import IStyledPrefixAndPicker from "../../Interface/IStyledPrefixAndPicker.model";
 
 //this type accepts a value or Icon (or booth) and needed a key
 export interface IinputValues {
@@ -17,23 +18,25 @@ export interface IFancyTabSwitchComponent {
 
 //this interface hold the complete style propertys  
 export interface IFancyTabStyle  {
-  disabled?: boolean;
   icon?: JSX.Element;
   iconAlign?: 'left' | 'right';
   rounded?: keyof typeof borderRadius; 
   roundedTabs?: boolean;
   tabSpacing?: keyof typeof spacingPx;
-  selected?: boolean;
-  handler: (position: string) => void;
   itemObject: IinputValues;
   textColor?: 'bright' | 'dark';
   wide?: boolean;
   transparent?: boolean;
+  disabled?: boolean;
+  selected?: boolean;
+  handler: (position: string) => void;
 }
 
 //----------this are some specified types from the interfaces above----------//
-//the props for the list component
-export type IFancyTabSwitchStyle = Pick<IFancyTabStyle, 'wide' | 'rounded' | 'transparent' | 'disabled' | 'roundedTabs' | 'tabSpacing'>
+//Gernerate the styled types for the component
+type FancyTabSwitchStyle = IStyledPrefixAndPicker<IFancyTabStyle, 'wide' | 'rounded' | 'transparent' | 'roundedTabs' | 'tabSpacing'>
+export type IFancyTabSwitchStyle = FancyTabSwitchStyle & Pick<IFancyTabStyle, 'disabled'>
+
 //only props for the TabStyle
 export type IFancyTabButtonStyle = Omit<IFancyTabStyle, 'itemObject' | 'handler'>;
 //for all incomming props from the component

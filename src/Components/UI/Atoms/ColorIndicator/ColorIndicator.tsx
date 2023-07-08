@@ -13,8 +13,8 @@ export default function ColorIndicator({ position, color, isActive }: IColorIndi
   const positionLeft = position?.x ?? '50%';
 
   return (
-    <WrapperIndicator isActive={isActive} style={{ top: positionTop, left: positionLeft }}>
-      <Indicator color={Color(color).hexa()} isActive={isActive} />
+    <WrapperIndicator $isActive={isActive} style={{ top: positionTop, left: positionLeft }}>
+      <Indicator $color={Color(color).hexa()} $isActive={isActive} />
     </WrapperIndicator>
   );
 }

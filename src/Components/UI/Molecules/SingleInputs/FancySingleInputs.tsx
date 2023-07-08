@@ -5,7 +5,7 @@ import { spacingPx } from '../../Design/design';
 import { colorPalet } from '../../Design/design';
 import InputStatus from '../../Design/Interfaces/IStatus';
 
-const InputWrapper = styled.div<{status?: InputStatus}>`
+const InputWrapper = styled.div<{$status?: InputStatus}>`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -13,7 +13,7 @@ const InputWrapper = styled.div<{status?: InputStatus}>`
   gap: ${spacingPx.md};
   
   input {
-    ${({ status }) => status?.isError ? `border-color: ${colorPalet.red_light}` : status?.isSucceed ? `border-color: ${colorPalet.green_light};` : ''};
+    ${({ $status }) => $status?.isError ? `border-color: ${colorPalet.red_light}` : $status?.isSucceed ? `border-color: ${colorPalet.green_light};` : ''};
     transition: border-color 0.3s ease-in-out;
   };
 
@@ -22,11 +22,12 @@ const InputWrapper = styled.div<{status?: InputStatus}>`
 
 
 interface IFancySingleInputsProps {
-  length: number;
+  length?: number;
   handler?: (value: string) => void;
   status?: InputStatus;
 };
-export default function SingleInputs({ length, status ,handler }: IFancySingleInputsProps) {
+export default function SingleInputs(props: IFancySingleInputsProps) {
+  const { length = 6, handler, status } = props;
   const [values, setValues] = useState<string[]>(Array(length).fill(''));
   const refs = Array.from({ length }, () => createRef<HTMLInputElement>());
 
@@ -119,7 +120,7 @@ export default function SingleInputs({ length, status ,handler }: IFancySingleIn
   };
 
   return (
-    <InputWrapper onPaste={handlePaste} status={status}>
+    <InputWrapper onPaste={handlePaste} $status={status}>
       {values.map((value, index) => (
         <SingleInputAtom
           key={index}
@@ -131,7 +132,3 @@ export default function SingleInputs({ length, status ,handler }: IFancySingleIn
     </InputWrapper>
   );
 }
-
-SingleInputs.defaultProps = {
-  length: 6,
-};

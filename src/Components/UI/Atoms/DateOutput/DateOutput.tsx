@@ -1,13 +1,12 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import styled from 'styled-components';
 import { uiColors } from '../../Design/design';
-import Color from 'color';
 
 //uiColors.primary.light
-const DateOutputButton = styled.button<{ active?: boolean }>`
+const DateOutputButton = styled.button<{ $isActive?: boolean }>`
   text-align: center;
   width: 100%;
-  background-color: ${({ active }) => (active ? uiColors.primary.lighter : uiColors.primary.light)};
+  background-color: ${({ $isActive }) => ($isActive ? uiColors.primary.lighter : uiColors.primary.light)};
   border: none;
   cursor: pointer;
 
@@ -22,7 +21,7 @@ interface IDateOutput {
   onDateSelect?: (date: Date) => void;
   handler?: () => void;
 }
-export default function DateOutput({ date, isActive, onDateSelect, handler }: IDateOutput) {
+export default function DateOutput({ date = new Date(), isActive, onDateSelect, handler }: IDateOutput) {
   const [active, setActive] = useState(false);
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(date);
 
@@ -50,12 +49,8 @@ export default function DateOutput({ date, isActive, onDateSelect, handler }: ID
 
 
   return (
-    <DateOutputButton onClick={handleOpenCalendar} active={active && isActive}>
+    <DateOutputButton onClick={handleOpenCalendar} $isActive={active && isActive}>
       {formattedDate || 'Select a date'}
     </DateOutputButton>
   );
-}
-
-DateOutput.defaultProps = {
-  date: new Date(),
 };

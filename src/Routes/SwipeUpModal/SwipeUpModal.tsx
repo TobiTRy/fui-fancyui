@@ -5,7 +5,6 @@ import { useFancySwipeUpModalStore } from '../../Components/UI/Organisms/FancySw
 import FancyButton from '../../Components/UI/Molecules/FancyButton/FancyButton';
 
 import FancyInput from '../../Components/UI/Molecules/FancyInput/FancyInputOld';
-import ModalHeadLine from '../../Components/UI/Molecules/ModalHeadLine/ModalHeadLine';
 
 
 export default function SwipeUpModal() {

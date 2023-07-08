@@ -59,7 +59,7 @@ const OpacitySlider = ({ color, opacity, handler }: IOpacitySlider) => {
         </SliderMarker>
 
         {/* the opacity gradient for the slider*/}
-        <OpacityGradient color={color.toString()} />
+        <OpacityGradient $color={color.toString()} />
 
         {/* the checkerboard pattern to display the transperancy*/}
         <CheckerboardPattern />

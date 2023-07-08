@@ -1,26 +1,29 @@
 import React, { ChangeEvent } from 'react';
 import styled from 'styled-components';
 
-import RawInput, { IRawInput } from '../../Atoms/RawInput';
+import RawInput, { IRawInput, TRawInputAlign } from '../../Atoms/RawInput';
 import { UnderLineFocusStyle } from '../../Atoms/InputUnderline';
 import { AnimatedInputLabel, AnimatedLabelFocusStyle } from '../../Atoms/AnimatedLabel';
+import IStyledPrefixAndPicker from '../../Interface/IStyledPrefixAndPicker.model';
 
-export interface ITextInput extends IRawInput {
+export interface ITextInputProps {
   id?: string;
   disabled?: boolean;
   value?: string | number;
   errorMessage?: string;
+  align?: TRawInputAlign;
   handler?: (e: ChangeEvent<HTMLInputElement>) => void;
   activeHandler?: (value: boolean) => void;
 };
 
-const StyledTextInput = styled(RawInput)<ITextInput>`
-  ${({ align, errorMessage }) => AnimatedLabelFocusStyle(align, errorMessage)}
+type IStyledTextInput = IStyledPrefixAndPicker<ITextInputProps, 'align' | 'errorMessage'>
+const StyledTextInput = styled(RawInput)<IStyledTextInput>`
+  ${({ $align, $errorMessage }) => AnimatedLabelFocusStyle($align, $errorMessage)}
   //the focus animation for the underline
-  ${({ align }) => UnderLineFocusStyle(AnimatedInputLabel, align)}
+  ${({ $align }) => UnderLineFocusStyle(AnimatedInputLabel, $align)}
 `;
 
-export default function TextInput(props: ITextInput) {
+export default function TextInput(props: ITextInputProps) {
   const { value, handler, activeHandler, disabled, errorMessage, align, id } = props;
 
   //this function is used to toggle the active state of the input
@@ -33,15 +36,15 @@ export default function TextInput(props: ITextInput) {
       id={id}
       type="text"
       placeholder=""
-      errorMessage={errorMessage}
       value={value}
-      align={align}
       autoComplete={'off'}
       onChange={handler}
       disabled={disabled}
       required
       onFocus={() => focusHandler(true)}
       onBlur={() => focusHandler(false)}
+      $align={align}
+      $errorMessage={errorMessage}
     />
   );
 }

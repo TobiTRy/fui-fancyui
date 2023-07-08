@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 
-import { animated, useSpring } from 'react-spring';
+import { animated, useSpring } from '@react-spring/web';
 import { StyledUL, WrapperUL } from './FancyDropDownUL.style';
 
 
@@ -16,6 +16,7 @@ export interface IFancyUL {
 // ---------- Here are the design variants for sizing and alignment ---------- //
 // --------------------------------------------------------------------------- //
 export default function FancyUL({ items, isOpen, ...styledProps }: IFancyUL) {
+  const { width = '50%', alignHorizontal = 'center', alignVertical = 'top' } = styledProps;
   const ulRef = useRef<HTMLUListElement>(null);
   const [style, animate] = useSpring(() => ({ height: '0px' }), []);
 
@@ -30,7 +31,9 @@ export default function FancyUL({ items, isOpen, ...styledProps }: IFancyUL) {
   return (
       <WrapperUL
         as={animated.div}
-        {...styledProps}
+        $width={width}
+        $alignHorizontal={alignHorizontal}
+        $alignVertical={alignVertical} 
         style={{
           width: '100%',
           ...style,
@@ -45,8 +48,3 @@ export default function FancyUL({ items, isOpen, ...styledProps }: IFancyUL) {
   )
 }
 
-FancyUL.defaultProps = {
-  width: '50%',
-  alignHorizontal: 'center',
-  alignVertical: 'top',
-};

@@ -2,9 +2,6 @@ import Color from "color";
 import { ColorTypes, HSLAColor, HSLColor, RGBAColor, RGBColor } from "./ColorOutput.model";
 import colorFormats from "../../Atoms/functions/variables/colorFormats";
 
-
-
-
 //this function transforms a color to the desired format of the color output switch
 const colorTransformator = (color: Color, opacity: number, formatIdx: number): ColorTypes => {
   const colorObject = Color(color);

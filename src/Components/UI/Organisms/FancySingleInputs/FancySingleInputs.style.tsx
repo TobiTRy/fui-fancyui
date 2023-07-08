@@ -15,7 +15,7 @@ export const MessageContainer = styled.div`
   margin-top: ${spacingPx.sm};
 `
 
-export const Message = styled.p<{ status?: boolean }>`
+export const Message = styled.p<{ $status?: boolean }>`
   color: ${uiColors.secondary.main};
   font-size: ${fontSize.small};
   max-height: 0;
@@ -25,8 +25,8 @@ export const Message = styled.p<{ status?: boolean }>`
 
   transition: opacity 0.3s ease-in-out, max-height 0.3s ease-in-out, visibility 0.3s ease-in-out;
 
-  ${({ status }) =>
-    status &&
+  ${({ $status }) =>
+    $status &&
     css`
       max-height: 100px; /* you may need to adjust this depending on your needs */
       visibility: visible;
@@ -35,18 +35,18 @@ export const Message = styled.p<{ status?: boolean }>`
 `;
 
 
-export const Container = styled.div<{ status?: IStatus }>`
+export const Container = styled.div<{ $status?: IStatus }>`
   display: flex;
   flex-direction: column;
   align-items: center;
 
   ${Message} {
-    ${({ status }) =>
-      status?.isError
+    ${({ $status }) =>
+      $status?.isError
         ? css`
             color: ${colorPalet.red_light};
           `
-        : status?.isSucceed
+        : $status?.isSucceed
         ? css`
             color: ${colorPalet.green_light};
           `

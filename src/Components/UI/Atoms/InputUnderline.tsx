@@ -3,7 +3,7 @@ import { colorPalet, uiColors } from '../Design/design';
 
 
 //the underline for the input fields
-const UnderLine = styled.i<{ errorMessage?: string; active?: boolean; }>`
+const UnderLine = styled.i<{ $errorMessage?: string; $isActive?: boolean; }>`
   position: absolute;
   left: 0;
   bottom: 0;
@@ -20,10 +20,10 @@ const UnderLine = styled.i<{ errorMessage?: string; active?: boolean; }>`
     position: absolute;
     left: 0;
     bottom: 0;
-    opacity: ${({active}) => active ? '1' : '0'};
+    opacity: ${({$isActive}) => $isActive ? '1' : '0'};
     height: 100%;
-    background: ${({ errorMessage }) =>
-      !errorMessage
+    background: ${({ $errorMessage }) =>
+      !$errorMessage
         ? css`linear-gradient(90deg, ${uiColors.accent.main}, ${uiColors.accent.light})`
         : css`linear-gradient(90deg, ${colorPalet.red_dark}, ${colorPalet.red_light})`};
     transition: 0.25s;
@@ -32,7 +32,7 @@ const UnderLine = styled.i<{ errorMessage?: string; active?: boolean; }>`
 `;
 
 //this function generates the state behavior for the underline
-export const UnderLineFocusStyle = (Label:any, labelAlign?: 'center' | 'left')=> {
+export const UnderLineFocusStyle = (Label: any, labelAlign?: 'center' | 'left')=> {
   const calcTransform = labelAlign !== 'center' ? 'translateY(-20px)' : 'translateY(-20px) translate(-50%)';
 
   return css`

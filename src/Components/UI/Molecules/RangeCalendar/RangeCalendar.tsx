@@ -62,8 +62,8 @@ export default function RangeCalendar(props: ICalendar) {
     selectFromTo,
     handleSwitchFromTo,
     disabledDateSetting,
-    externalMonthWithDays,
-    rangeCalendar
+    externalMonthWithDays = externalMonth,
+    rangeCalendar = false,
   } = props;
   const monthRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -98,7 +98,7 @@ export default function RangeCalendar(props: ICalendar) {
         return (
           <MonthContainer
             key={MonthIdx}
-            ref={(ref) => {
+            ref={(ref: HTMLDivElement) => {
               monthRefs.current[MonthIdx] = ref;
               if (idx === 0) {
                 firstMonthRef.current = ref;
