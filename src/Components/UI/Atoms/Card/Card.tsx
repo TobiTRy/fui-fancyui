@@ -1,18 +1,9 @@
 import React from 'react'
 
-import { IBorderRadiusNames } from '../../Design/design'
-import { IRoundedEdges } from '../../HelperFunctions/edgeCaluculation';
 import { InnerCard, StyledCard } from './Card.style';
+import { StyledCardProps } from './Card.model';
 
-type IScaling = '100%' | 'auto';
 
-// the raw styling props for the card
-export interface StyledCardProps {
-  height?: IScaling;
-  width?: IScaling;
-  radius?: IBorderRadiusNames;
-  rounedEdges?: IRoundedEdges;
-}
 // --------------------------------------------------------------------------- //
 // ---------- The card is there to wrapp some content or components ---------- //
 // --------------------------------------------------------------------------- //
@@ -20,10 +11,10 @@ interface ICard extends StyledCardProps {
   children?: React.ReactNode;
 }
 export default function Card(props: ICard) {
-  const { children, height, width, radius, rounedEdges } = props;
+  const { children, height, width, radius, roundedEdges } = {...defaultProps, ...props};
 
   return (
-    <StyledCard $height={height} $width={width} $radius={radius} $rounedEdges={rounedEdges}>
+    <StyledCard $height={height} $width={width} $radius={radius} $rounedEdges={roundedEdges}>
       <InnerCard>
         {children}
       </InnerCard>
@@ -31,7 +22,7 @@ export default function Card(props: ICard) {
   )
 }
 
-Card.defaultProps = {
+const defaultProps: ICard = {
   height: 'auto',
   width: '100%',
   radius: 'xxxl',

@@ -26,8 +26,8 @@ const StyledHeadLine = styled.div<{$alignCenter?: boolean}>`
 // --------------------------------------------------------------------------- //
 // -------- The main HeadLineComponent for the heading for the modals -------- //
 // --------------------------------------------------------------------------- //
-export default function ModalHeadLine({ title, subTitle, alignCenter, hr }: IHeadLine) {
-  
+export default function ModalHeadLine(props: IHeadLine) {
+  const { title, subTitle, alignCenter = true, hr = true } = props;
 
   return (
     <StyledHeadLine $alignCenter={alignCenter}>
@@ -37,9 +37,3 @@ export default function ModalHeadLine({ title, subTitle, alignCenter, hr }: IHea
     </StyledHeadLine>
   )
 }
-
-// Default Props for the component
-ModalHeadLine.defaultProps = {
-  alignCenter: true,
-  hr: true
-};

@@ -9,7 +9,7 @@ export default function CradRoute() {
 
       <div style={{height: '200px', width: '300px'}}>
 
-        <Card height='auto'>
+        <Card height='auto' radius='small'>
           <h1>Hello</h1>
           <h1>World</h1>
           <h1>World</h1>

@@ -12,8 +12,8 @@ const Button = styled.button<IGenerateThemeItem>`
 `;
 
 //the main react component to generate the fancyButton
-export default function FancyButton({ ...props }: IFancyButton) {
-  const { icon, label, size, onClick, disabled, wide, design, align, color, hoverColor, outlined } = props;
+export default function FancyButton(props: IFancyButton) {
+  const { icon, label, size, onClick, disabled, wide, design, align, color, hoverColor, outlined } = {...defaultProps, ...props};
 
   return (
     <Button
@@ -36,7 +36,7 @@ export default function FancyButton({ ...props }: IFancyButton) {
   );
 }
 
-FancyButton.defaultProps = {
+const defaultProps: IFancyButton = {
   design: 'accent',
   size: 'large',
   wide: true,

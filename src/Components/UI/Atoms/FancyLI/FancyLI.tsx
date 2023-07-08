@@ -13,7 +13,7 @@ export type IFancyLi = FancyLIProps & IcalcIconPaddingAsProps;
 // ------------- The fancy LI Item that can dynamicly adjusted --------------- //
 // --------------------------------------------------------------------------- //
 export default function FancyLI(props: IFancyLi) {
-  const { icon, label, size, aligned, wide } = props;
+  const { icon, label, size, aligned, wide } = {...defaultProps, ...props};
 
   return (
     <FancyLiItem $size={size} $aligned={aligned} $wide={wide}>
@@ -23,7 +23,7 @@ export default function FancyLI(props: IFancyLi) {
   );
 }
 
-FancyLI.defaultProps = {
+const defaultProps:IFancyLi = {
   size: 'medium',
   aligned: 'left',
   label: 'Label',

@@ -17,7 +17,7 @@ interface ISwipeUpModal {
   isOpen: boolean;
   closeHandler?: () => void;
 }
-export default function SwipeUpModal({ children, isOpen, closeHandler }: ISwipeUpModal) {
+export default function SwipeUpModal({ children, isOpen = false, closeHandler }: ISwipeUpModal) {
   const [modalMobileVisible, setmodalMobileVisible] = useState(false);
   const [modalPosition, setModalPosition] = useState({ height: '100%' });
   const [backdropVisible, setBackdropVisible] = useState(false);
@@ -114,8 +114,3 @@ export default function SwipeUpModal({ children, isOpen, closeHandler }: ISwipeU
     </UseDelay>
   ) ;
 }
-
-// the default props for the modal
-SwipeUpModal.defaultProps = {
-  isOpen: false,
-};

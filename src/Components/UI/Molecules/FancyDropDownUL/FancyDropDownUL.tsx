@@ -16,7 +16,7 @@ export interface IFancyUL {
 // ---------- Here are the design variants for sizing and alignment ---------- //
 // --------------------------------------------------------------------------- //
 export default function FancyUL({ items, isOpen, ...styledProps }: IFancyUL) {
-  const { width, alignHorizontal, alignVertical } = styledProps;
+  const { width = '50%', alignHorizontal = 'center', alignVertical = 'top' } = styledProps;
   const ulRef = useRef<HTMLUListElement>(null);
   const [style, animate] = useSpring(() => ({ height: '0px' }), []);
 
@@ -48,8 +48,3 @@ export default function FancyUL({ items, isOpen, ...styledProps }: IFancyUL) {
   )
 }
 
-FancyUL.defaultProps = {
-  width: '50%',
-  alignHorizontal: 'center',
-  alignVertical: 'top',
-};

@@ -21,7 +21,7 @@ interface IDateOutput {
   onDateSelect?: (date: Date) => void;
   handler?: () => void;
 }
-export default function DateOutput({ date, isActive, onDateSelect, handler }: IDateOutput) {
+export default function DateOutput({ date = new Date(), isActive, onDateSelect, handler }: IDateOutput) {
   const [active, setActive] = useState(false);
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(date);
 
@@ -53,8 +53,4 @@ export default function DateOutput({ date, isActive, onDateSelect, handler }: ID
       {formattedDate || 'Select a date'}
     </DateOutputButton>
   );
-}
-
-DateOutput.defaultProps = {
-  date: new Date(),
 };

@@ -47,9 +47,12 @@ interface CustomDropdownProps {
   onSelect?: (value: string) => void;
 }
 
-//This is not a Finished component ist for later replacinge the HTML Select with a custom Dropdown (Searchselect, checkboxselect, etc.)
 
-const CustomDropdown: React.FC<CustomDropdownProps> = ({ values, onSelect }) => {
+
+
+//This is not a Finished component ist for later replacinge the HTML Select with a custom Dropdown (Searchselect, checkboxselect, etc.)
+const CustomDropdown: React.FC<CustomDropdownProps> = (props) => {
+  const { values, onSelect } = {...defaultProps, ...props};
   const [isOpen, setIsOpen] = useState(false);
   const [selectedValue, setSelectedValue] = useState<string | null>(null);
 
@@ -75,8 +78,9 @@ const CustomDropdown: React.FC<CustomDropdownProps> = ({ values, onSelect }) => 
   );
 };
 
-CustomDropdown.defaultProps = {
+export default CustomDropdown;
+
+
+const defaultProps: CustomDropdownProps = {
   values: ['test', 'test2', 'test3' ],
 }
-
-export default CustomDropdown;

@@ -22,11 +22,12 @@ const InputWrapper = styled.div<{$status?: InputStatus}>`
 
 
 interface IFancySingleInputsProps {
-  length: number;
+  length?: number;
   handler?: (value: string) => void;
   status?: InputStatus;
 };
-export default function SingleInputs({ length, status ,handler }: IFancySingleInputsProps) {
+export default function SingleInputs(props: IFancySingleInputsProps) {
+  const { length = 6, handler, status } = props;
   const [values, setValues] = useState<string[]>(Array(length).fill(''));
   const refs = Array.from({ length }, () => createRef<HTMLInputElement>());
 
@@ -131,7 +132,3 @@ export default function SingleInputs({ length, status ,handler }: IFancySingleIn
     </InputWrapper>
   );
 }
-
-SingleInputs.defaultProps = {
-  length: 6,
-};

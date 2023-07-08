@@ -28,7 +28,7 @@ const StyledSVG = styled.i<IStyledSVGAtom>`
 `;
 
 export default function SVGAtom(props: ISVGAtom) {
-  const { children, size, isActive, errorMessage, externalStyle } = props;
+  const { children, size = 'medium', isActive, errorMessage, externalStyle } = props;
 
   return (
     <StyledSVG $size={size} $isActive={isActive} $errorMessage={errorMessage} $externalStyle={externalStyle}>
@@ -36,7 +36,3 @@ export default function SVGAtom(props: ISVGAtom) {
     </StyledSVG>
   );
 }
-
-SVGAtom.defaultProps = {
-  size: 'medium',
-};

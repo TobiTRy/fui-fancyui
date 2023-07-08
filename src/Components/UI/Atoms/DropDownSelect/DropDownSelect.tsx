@@ -45,7 +45,3 @@ export default function DropDownSelect(props: IDropDownSelect) {
     </SelectField>
   );
 }
-
-DropDownSelect.defaultProps = {
-  emptySelect: true,
-};

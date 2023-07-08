@@ -29,7 +29,7 @@ export interface IInputWrapper {
   underline?: boolean;
 };
 export default function InputWrapper(props: IInputWrapper) {
-  const { id, isActiv, disabled, children, errorMessage, icon, label, align, underline, autoWidth } = props;
+  const { id, isActiv, disabled, children, errorMessage, icon, label, align, underline = true, autoWidth } = props;
 
   return (
     <StyledInputWrapper disabled={disabled} autoWidth={autoWidth}>
@@ -50,7 +50,3 @@ export default function InputWrapper(props: IInputWrapper) {
     </StyledInputWrapper>
   );
 };
-
-InputWrapper.defaultProps = {
-  underline: true,
-}

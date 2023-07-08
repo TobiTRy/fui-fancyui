@@ -22,7 +22,7 @@ interface IFancyDatePicker {
 }
 
 export default function FancyDatePicker(props: IFancyDatePicker) {
-  const { rangeCalendar, handler, selectedYear, disabledDateSetting } = props;
+  const { rangeCalendar, handler, selectedYear, disabledDateSetting } = {...defaultProps, ...props};
   const selectedDate = useFancyDatePickerState((state) => state.selectedDateRange);
   const setSelectedDate = useFancyDatePickerState((state) => state.setSelectedDateRange);
 
@@ -62,7 +62,7 @@ export default function FancyDatePicker(props: IFancyDatePicker) {
   );
 }
 
-FancyDatePicker.defaultProps = {
+const defaultProps: IFancyDatePicker = {
   rangeCalendar: true,
   selectedYear: new Date().getFullYear(),
 }

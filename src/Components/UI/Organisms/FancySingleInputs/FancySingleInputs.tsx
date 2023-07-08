@@ -10,7 +10,8 @@ interface IFancySingleInputs {
   api?: string;
   handler?: (value: string) => void;
 }
-export default function FancySingleInputs({ length, api, handler }: IFancySingleInputs) {
+export default function FancySingleInputs(props: IFancySingleInputs) {
+  const { length, api, handler } = {...defaultProps, ...props};
   const [status, setStatus] = useState({ isError: false, isSucceed: false, isLoading: false });
   const [inputValue, setInputValue] = useState('');
   const debounceTimeoutRef = useRef<NodeJS.Timeout>();
@@ -72,7 +73,7 @@ export default function FancySingleInputs({ length, api, handler }: IFancySingle
   );
 }
 
-FancySingleInputs.defaultProps = {
+const defaultProps:IFancySingleInputs = {
   length: 6,
   api: '/validate',
 };
