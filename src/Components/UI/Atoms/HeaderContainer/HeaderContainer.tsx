@@ -1,47 +1,32 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const HeaderWrapper = styled.div`
+import { uiColors } from '../../Design/design';
+
+// the slotsInFR is an array of strings which will be used to genera dynamicly the grid-template-columns 
+const HeaderWrapper = styled.div<{$slotsInFR?: string[], $height: string}>`
+  background-color: ${uiColors.primary.lighter};
+  color:  ${uiColors.secondary.main};
+  display: grid;
+  grid-template-columns: ${({$slotsInFR}) => $slotsInFR ? $slotsInFR.join(' '): '1fr'};
   width: 100%;
-  background-color: #282c34;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px;
+  height: 44px;
   box-sizing: border-box;
-  color: white;
 `;
 
-const Logo = styled.div`
-  font-size: 1.5em;
-`;
-
-const Navigation = styled.div`
-  display: flex;
-  flex-direction: row;
-
-  & > * {
-    margin-right: 15px;
-  }
-`;
-
-interface Props {
-  title: string;
-  links: string[];
+// --------------------------------------------------------------------------- //
+// ----The HeaderContainer wich is only the container for the components ----- //
+// --------------------------------------------------------------------------- //
+interface IHeaderContainer {
+  children?: React.ReactNode;
+  slotsInFR?: string[];
+  height?: string;
 }
-
-const HeaderContainer: React.FC<Props> = ({ title, links }) => {
+export default function HeaderContainer({ children, slotsInFR, height }: IHeaderContainer) {
   return (
-    <HeaderWrapper>
-      <Logo>{title}</Logo>
-      <Navigation>
-        {links.map((link, index) => (
-          <div key={index}>{link}</div>
-        ))}
-      </Navigation>
+    <HeaderWrapper $slotsInFR={slotsInFR} $height={height || '3rem'}>
+      { children }
     </HeaderWrapper>
   );
 };
 
-export default HeaderContainer;

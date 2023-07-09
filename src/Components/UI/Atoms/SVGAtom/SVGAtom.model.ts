@@ -11,7 +11,7 @@ export type ISizes = keyof typeof sizes;
 
 export interface ISVGAtom {
   children: React.ReactNode;
-  size: ISizes;
+  size?: ISizes;
   isActive?: boolean;
   errorMessage?: string;
   externalStyle?: CSSProp;
