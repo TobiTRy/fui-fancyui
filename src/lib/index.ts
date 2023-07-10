@@ -1,1 +1,1 @@
-export { default as FancyButton } from '../Components/UI/Molecules/FancyButton/FancyButton';
+export { default as Card } from '../Components/UI/Atoms/Card/Card';
