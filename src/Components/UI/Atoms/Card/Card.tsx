@@ -14,7 +14,7 @@ export default function Card(props: ICard) {
   const { children, height, width, radius, roundedEdges } = {...defaultProps, ...props};
 
   return (
-    <StyledCard $height={height} $width={width} $radius={radius} $rounedEdges={roundedEdges}>
+    <StyledCard $height={height} $width={width} $radius={radius} $roundedEdges={roundedEdges}>
       <InnerCard>
         {children}
       </InnerCard>

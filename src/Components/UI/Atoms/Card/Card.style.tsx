@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 
-import { StyledCardProps } from "./Card";
+import { StyledCardProps } from './Card.model';
 import IStyledPrefixAndOmiter from "../../Interface/IStyledPrefixAndOmiter.model";
 import { spacingPx, uiColors } from "../../Design/design";
 import edgeCalculation from "../../HelperFunctions/edgeCaluculation";
@@ -14,7 +14,7 @@ export const StyledCard = styled.div<IStyledCard>`
   box-sizing: border-box;
   background-color: ${uiColors.primary.light};
   padding: ${spacingPx.xl};
-  border-radius:  ${({$rounedEdges, $radius}) => edgeCalculation($rounedEdges!,$radius)};
+  border-radius:  ${({$roundedEdges, $radius}) => edgeCalculation($roundedEdges, $radius)};
 `
 
 //the innercard makes it better to align the content with absolute position

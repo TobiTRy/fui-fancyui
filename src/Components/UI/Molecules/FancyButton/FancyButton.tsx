@@ -17,8 +17,8 @@ export default function FancyButton(props: IFancyButton) {
 
   return (
     <Button
-      $size={size}
-      $design={design}
+      $size={size!}
+      $design={design!}
       $align={align}
       $color={color}
       $wide={wide}

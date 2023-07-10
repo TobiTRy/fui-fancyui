@@ -1,7 +1,7 @@
 export interface IFancyButton {
-  size: "small" | "medium" | "large";
+  size?: "small" | "medium" | "large";
   wide?: boolean; 
-  design: "primary" | "secondary" | "accent" | "transparent";
+  design?: "primary" | "secondary" | "accent" | "transparent";
   align?: "left" | "right" | "center";
   color?: "primary" | "secondary" | "accent";
   hoverColor?: "primary" | "secondary" | "accent";
