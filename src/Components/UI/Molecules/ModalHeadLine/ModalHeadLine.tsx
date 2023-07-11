@@ -4,7 +4,7 @@ import IHeadLine from './ModalHeadLine.model';
 import { spacingPx } from '../../Design/design';
 
 import styled from 'styled-components'
-import FancyHR from '../../Atoms/FancyHR';
+import FancyHR from '../../Atoms/FancyHR/FancyHR';
 
 const StyledHeadLine = styled.div<{$alignCenter?: boolean}>`
   display: flex;

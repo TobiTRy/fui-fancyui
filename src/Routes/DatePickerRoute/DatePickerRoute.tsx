@@ -3,7 +3,7 @@ import React from 'react';
 import FancyDatePicker from '../../Components/UI/Organisms/FancyDatePicker/FancyDatePicker';
 
 import FancyInput from '../../Components/UI/Molecules/FancyInput/FancyInputOld';
-import FancyDateDropDown from '../../Components/UI/Templates/Inputs/FancyDateDropDown';
+import FancyDateDropDown from '../../Components/UI/Templates/Inputs/FancyDateDropDown/FancyDateDropDown';
 
 
 export default function DatePickerRoute() {

@@ -4,7 +4,7 @@ import './App.css';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
 
-import { useModalModuleStore } from './Components/UI/Organisms/ModalModule/ModalModule.state';
+import { useFancyModalStore } from './Components/UI/Organisms/FancyModal/FancyModal.state';
 
 import SwipeUpModal from './Routes/SwipeUpModal/SwipeUpModal';
 import SingleNumberInputRoute from './Routes/SingleNumberInputRoute/SingleNumberInputRoute';
@@ -34,7 +34,7 @@ const array = [
   {
     title: 'Submit',
     onClick: () => {
-      useModalModuleStore
+      useFancyModalStore
         .getState()
         .openModal({ headline: { title: 'test', subTitle: 'test' }, content: <div>hi</div>, bottomLine: { buttons: array } });
     },

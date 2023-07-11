@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import FancyHR from '../../Atoms/FancyHR';
+import FancyHR from '../../Atoms/FancyHR/FancyHR';
 
 import LoadingSpinner from '../../Atoms/LoadingSpinner';
 

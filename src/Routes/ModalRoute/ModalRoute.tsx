@@ -1,13 +1,13 @@
 import React from 'react';
 
-import ModalModule from '../../Components/UI/Organisms/ModalModule/ModalModule';
-import { useModalModuleStore } from '../../Components/UI/Organisms/ModalModule/ModalModule.state';
+import FancyModal from '../../Components/UI/Organisms/FancyModal/FancyModal';
+import { useFancyModalStore } from '../../Components/UI/Organisms/FancyModal/FancyModal.state';
 import FancyButton from '../../Components/UI/Molecules/FancyButton/FancyButton';
 
 
 export default function ModalRoute() {
-  const createModal = useModalModuleStore((state) => state.openModal);
-  const closeModal = useModalModuleStore((state) => state.closeModal);
+  const createModal = useFancyModalStore((state) => state.openModal);
+  const closeModal = useFancyModalStore((state) => state.closeModal);
 
   const handleModalCreation = () => {
     createModal(
@@ -31,7 +31,7 @@ export default function ModalRoute() {
   };
   return (
     <section>
-      <ModalModule />
+      <FancyModal />
       <FancyButton onClick={handleModalCreation} label='open modal'></FancyButton>
     </section>
   );
