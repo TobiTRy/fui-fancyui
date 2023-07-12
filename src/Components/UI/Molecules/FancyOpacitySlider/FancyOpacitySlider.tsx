@@ -3,7 +3,7 @@ import Color from 'color';
 
 import useSlider from '../../Atoms/functions/hooks/useSilder';
 import SliderMarker from '../../Atoms/SliderMarker/SliderMarker';
-import { Wrapper, SliderContainer, OpacityGradient } from './OpacitySlider.style';
+import { Wrapper, SliderContainer, OpacityGradient } from './FancyOpacitySlider.style';
 import { CheckerboardPattern } from '../../Atoms/CheckBoardPattern';
 import ColorIndicator from '../../Atoms/ColorIndicator/ColorIndicator';
 
@@ -29,14 +29,14 @@ const colorToPositionOpacity = (color: Color) => {
 };
 
 // --------------------------------------------------------------------------- //
-// ------- The main OpacitySlider Component to calclulates the opacity ------- //
+// ------- The main FancyOpacitySlider Component to calclulates the opacity ------- //
 // --------------------------------------------------------------------------- //
 interface IOpacitySlider {
   color: Color;
   opacity: number;
   handler: (opacity: number) => void;
 }
-const OpacitySlider = ({ color, opacity, handler }: IOpacitySlider) => {
+const FancyOpacitySlider = ({ color, opacity, handler }: IOpacitySlider) => {
   //give the opacity back to the parent component
   const handleOpacityChange = (newHue: number) => handler(parseFloat(newHue.toFixed(2)));
 
@@ -68,4 +68,4 @@ const OpacitySlider = ({ color, opacity, handler }: IOpacitySlider) => {
   );
 };
 
-export default OpacitySlider;
+export default FancyOpacitySlider;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ColorTypes } from '../ColorOutput.model';
+import { ColorTypes } from '../FancyColorOutput.model';
 
 import FancyInput from '../../FancyInput/FancyInputOld';
 import AdaptInputs from './AdaptInputs';

@@ -3,7 +3,7 @@ import Color from 'color';
 
 import FancyButton from '../FancyButton/FancyButton';
 import colorTransformator from './ColorTransformator';
-import { Container, WrapperSVG } from './ColorOutput.style';
+import { Container, WrapperSVG } from './FancyColorOutput.style';
 import InputFields from './InputFields/InputFields';
 import colorFormats from '../../Atoms/functions/variables/colorFormats';
 import { IColorFormat } from '../../Atoms/functions/variables/colorFormats';
@@ -31,9 +31,9 @@ interface ColorTypeLetters {
 
 // TODO: BUILD UP THE currentColorType OR REMOVE IT
 // --------------------------------------------------------------------------- //
-// ----- The main ColorOutput Component to displays and change the values ---- //
+// ----- The main FancyColorOutput Component to displays and change the values ---- //
 // --------------------------------------------------------------------------- //
-interface IColorOutput {
+interface IFancyColorOutput {
   pickedColor: Color;
   opacity: number;
   currentColorType?: IColorFormat;
@@ -41,7 +41,7 @@ interface IColorOutput {
   colorTypeHandler?: (type: IColorFormat) => void;
   handlerOpacity: (color: number) => void;
 }
-const ColorOutput = ({ pickedColor, opacity, handler, handlerOpacity, currentColorType, colorTypeHandler }: IColorOutput) => {
+const FancyColorOutput = ({ pickedColor, opacity, handler, handlerOpacity, currentColorType, colorTypeHandler }: IColorOutput) => {
   const [colorFormatIndex, setColorFormatIndex] = useState(0);
   const [currentPicketColor, setCurrentPickedColor] = useState<Color>(pickedColor);
 
@@ -99,4 +99,4 @@ const ColorOutput = ({ pickedColor, opacity, handler, handlerOpacity, currentCol
   );
 };
 
-export default ColorOutput;
+export default FancyColorOutput;

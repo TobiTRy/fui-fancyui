@@ -6,8 +6,8 @@ import styled from 'styled-components';
 import ColorDisplay from '../../Atoms/ColorDisplay/ColorDisplay';
 import ColorArea from '../../Molecules/FancyColorArea/FancyColorArea';
 import HueSlider from '../../Molecules/HueSlider/HueSlider';
-import OpacitySlider from '../../Molecules/OpacitySlider/OpacitySlider';
-import ColorOutput from '../../Molecules/ColorOutput/ColorOutput';
+import FancyOpacitySlider from '../../Molecules/FancyOpacitySlider/FancyOpacitySlider';
+import FancyColorOutput from '../../Molecules/FancyColorOutput/FancyColorOutput';
 import { emitSelectedColorChange } from './colorPickerUtils';
 import { spacingPx } from '../../Design/design';
 
@@ -34,7 +34,7 @@ interface IColorPicker {
   inputColor?: string;
   handler?: (color: string) => void;
 }
-export default function FanColorPicker(props: IColorPicker)  {
+export default function FanyColorPicker(props: IColorPicker)  {
   const { colorArea, hueSlider, opacitySlider, colorOutput, outputFormat, displayColor, inputColor, handler } = {...defaultProps, ...props};
 
   const displayColorValue = useColorPickerStore((state) => state.displayColorValue);
@@ -60,7 +60,7 @@ export default function FanColorPicker(props: IColorPicker)  {
 
   handler && handler(calculateGiveBackColor());
 
-  //this function is handle the color change in the child ColorOutput component
+  //this function is handle the color change in the child FancyColorOutput component
   useEffect(() => {
     const calcDisplayColor = emitSelectedColorChange({ color: rawColor, opacity, outputFormat: colorType });
     setDisplayColorValue(calcDisplayColor);
@@ -82,9 +82,9 @@ export default function FanColorPicker(props: IColorPicker)  {
       {displayColor && <ColorDisplay color={displayColorValue} opacity={opacity} showText={true} />}
       {colorArea && <ColorArea hue={hue} color={rawColor} handler={setRawColor} />}
       {hueSlider && <HueSlider handler={setHue} color={rawColor} hue={hue} />}
-      {opacitySlider && <OpacitySlider color={rawColor} opacity={opacity} handler={setOpacity} />}
+      {opacitySlider && <FancyOpacitySlider color={rawColor} opacity={opacity} handler={setOpacity} />}
       {colorOutput && (
-        <ColorOutput
+        <FancyColorOutput
           pickedColor={rawColor}
           colorTypeHandler={setColorType}
           opacity={opacity}
