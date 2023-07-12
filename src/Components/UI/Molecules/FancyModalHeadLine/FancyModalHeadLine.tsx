@@ -1,5 +1,5 @@
 import React from 'react'
-import IHeadLine from './ModalHeadLine.model';
+import IHeadLine from './FancyModalHeadLine.model';
 
 import { spacingPx } from '../../Design/design';
 
@@ -26,7 +26,7 @@ const StyledHeadLine = styled.div<{$alignCenter?: boolean}>`
 // --------------------------------------------------------------------------- //
 // -------- The main HeadLineComponent for the heading for the modals -------- //
 // --------------------------------------------------------------------------- //
-export default function ModalHeadLine(props: IHeadLine) {
+export default function FancyModalHeadLine(props: IHeadLine) {
   const { title, subTitle, alignCenter = true, hr = true } = props;
 
   return (

@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 
 
-import IModalHeadLine from '../../Molecules/ModalHeadLine/ModalHeadLine.model';
+import IModalHeadLine from '../../Molecules/FancyModalHeadLine/FancyModalHeadLine.model';
 import IModalBottomLine from '../../Molecules/ModalBottomLine/ModalBottomLine.model';
 
 import { ModalStatus } from '../../Molecules/Modal/ModalStatus';

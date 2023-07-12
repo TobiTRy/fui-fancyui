@@ -1,7 +1,7 @@
 import React, { useId } from 'react';
 
 import { IFancyTabStyle } from '../../Molecules/FancyTabSwitch/IFancyTab.model';
-import { LISwitchButtonStyle } from './TabSwitchItem.style';
+import { LISwitchButtonStyle } from './FancyTabSwitchButton.style';
 
 // ------------------------------------------------------------------ //
 // ------------- main component for the tab (li item) --------------- //

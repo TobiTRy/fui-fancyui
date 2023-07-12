@@ -6,7 +6,7 @@ import { useFancyModalStore } from './FancyModal.state';
 
 import Modal from '../../Molecules/Modal/Modal';
 import { CloseButtonWrapper, HeadLine } from '../../Molecules/Modal/Modal.style';
-import ModalHeadLine from '../../Molecules/ModalHeadLine/ModalHeadLine';
+import ModalHeadLine from '../../Molecules/FancyModalHeadLine/FancyModalHeadLine';
 import FancyXButton from '../../Atoms/FancyXButton';
 import ModalBottomLine from '../../Molecules/ModalBottomLine/ModalBottomLine';
 import FancyPortal from '../../Atoms/functions/FancyPortal';

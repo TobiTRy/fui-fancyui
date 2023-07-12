@@ -4,7 +4,7 @@ import { useFancySwipeUpModalStore } from './FancySwipeUpModal.state';
 
 import SwipeUpModal from '../../Molecules/SwipeUpModal/SwipeUpModal';
 import FancyPortal from '../../Atoms/functions/FancyPortal';
-import ModalHeadLine from '../../Molecules/ModalHeadLine/ModalHeadLine';
+import ModalHeadLine from '../../Molecules/FancyModalHeadLine/FancyModalHeadLine';
 
 // --------------------------------------------------------------------------- //
 // ----------- The main FancySwipeUpModal to handle all everything ----------- //

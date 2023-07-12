@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import FancyHR from '../../Atoms/FancyHR/FancyHR';
 
-import LoadingSpinner from '../../Atoms/LoadingSpinner';
+import LoadingSpinner from '../../Atoms/FancyLoadingSpinner/FancyLoadingSpinner';
 
 import { borderRadius, uiColors, spacingPx } from '../../Design/design';
 

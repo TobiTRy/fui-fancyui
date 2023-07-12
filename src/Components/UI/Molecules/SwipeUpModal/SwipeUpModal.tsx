@@ -31,7 +31,6 @@ export default function SwipeUpModal({ children, isOpen = false, closeHandler }:
     setModalPosition({ height: 'auto' });
   };
 
-
   //Close the modal and set the overflow  back
   const closeModal = () => {
     setmodalMobileVisible(false);
@@ -39,8 +38,8 @@ export default function SwipeUpModal({ children, isOpen = false, closeHandler }:
 
     //close the gobal modal state
     closeHandler && closeHandler();
-    
-    setTimeout(() =>  setModalPosition({ height: '100%' }), 300);
+
+    setTimeout(() => setModalPosition({ height: '100%' }), 300);
     document.body.style.overflow = 'overlay';
   };
 
@@ -75,11 +74,11 @@ export default function SwipeUpModal({ children, isOpen = false, closeHandler }:
 
   useEffect(() => {
     if (isOpen) {
-      openModal()
+      openModal();
     } else {
-      closeModal()
+      closeModal();
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isOpen]);
 
   return (
@@ -98,7 +97,7 @@ export default function SwipeUpModal({ children, isOpen = false, closeHandler }:
                     }}
                     click={closeModal}
                   />
-                    {/*// ---------- Content Area ---------- //*/}
+                  {/*// ---------- Content Area ---------- //*/}
                   <ContentBox>
                     {/*// ---------- Header ---------- //*/}
                     <WrapperContent>
@@ -112,5 +111,5 @@ export default function SwipeUpModal({ children, isOpen = false, closeHandler }:
         <BackDrop isOpen={backdropVisible} onClick={closeModal} />
       </WrapperModal>
     </UseDelay>
-  ) ;
+  );
 }

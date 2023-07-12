@@ -1,12 +1,12 @@
 import styled, { keyframes } from 'styled-components';
-import { uiColors } from '../Design/design';
+import { uiColors } from '../../Design/design';
 
 const spinner = keyframes`
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 `;
 
-const LoadingSpinner = styled.div`
+const FancyLoadingSpinner = styled.div`
   font-size: 10px;
   position: relative;
   text-indent: -9999em;
@@ -25,4 +25,4 @@ const LoadingSpinner = styled.div`
   }
 `;
 
-export default LoadingSpinner
+export default FancyLoadingSpinner

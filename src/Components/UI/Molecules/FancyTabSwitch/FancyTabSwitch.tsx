@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import FancyTabSwitchButton from '../../Atoms/TabSwitchItem/TabSwitchItem';
+import FancyTabSwitchButton from '../../Atoms/TabSwitchItem/FancyTabSwitchButton';
 import IFancyTab from './IFancyTab.model';
 import { ULButtonSwitchList } from './FancyTabSwitch.style';
 
