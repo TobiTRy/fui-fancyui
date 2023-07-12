@@ -31,7 +31,7 @@ interface ColorTypeLetters {
 
 // TODO: BUILD UP THE currentColorType OR REMOVE IT
 // --------------------------------------------------------------------------- //
-// ----- The main FancyColorOutput Component to displays and change the values ---- //
+// -- The main FancyColorOutput Component to displays and change the values -- //
 // --------------------------------------------------------------------------- //
 interface IFancyColorOutput {
   pickedColor: Color;
