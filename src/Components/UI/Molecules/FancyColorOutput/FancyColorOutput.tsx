@@ -41,7 +41,7 @@ interface IFancyColorOutput {
   colorTypeHandler?: (type: IColorFormat) => void;
   handlerOpacity: (color: number) => void;
 }
-const FancyColorOutput = ({ pickedColor, opacity, handler, handlerOpacity, currentColorType, colorTypeHandler }: IColorOutput) => {
+const FancyColorOutput = ({ pickedColor, opacity, handler, handlerOpacity, currentColorType, colorTypeHandler }: IFancyColorOutput) => {
   const [colorFormatIndex, setColorFormatIndex] = useState(0);
   const [currentPicketColor, setCurrentPickedColor] = useState<Color>(pickedColor);
 
