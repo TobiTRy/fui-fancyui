@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { IFancyButton } from './IFancyButton.model';
 
 import generateThemeItem, { IGenerateThemeItem } from '../../HelperFunctions/generateThemeItem';
-import SVGAtom from '../../Atoms/SVGAtom/SVGAtom';
+import FancySVGAtom from '../../Atoms/FancySVGAtom/FancySVGAtom';
 
 //this creates the button component and handles the style via generateButton
 const Button = styled.button<IGenerateThemeItem>`
@@ -30,7 +30,7 @@ export default function FancyButton(props: IFancyButton) {
       onClick={onClick}
       disabled={disabled}
     >
-      {icon && <SVGAtom size={size}>{icon}</SVGAtom>}
+      {icon && <FancySVGAtom size={size}>{icon}</FancySVGAtom>}
       {label && <span>{label}</span>}
     </Button>
   );

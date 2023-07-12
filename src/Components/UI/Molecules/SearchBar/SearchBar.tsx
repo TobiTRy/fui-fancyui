@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components';
 
 import { spacingPx, uiColors, borderRadius } from '../../Design/design';
 import SVGSearch from '../../SVGIcons/SVGSearch';
-import SVGAtom from '../../Atoms/SVGAtom/SVGAtom';
+import FancySVGAtom from '../../Atoms/FancySVGAtom/FancySVGAtom';
 
 const StyledSearchBar = styled.div<{$isActive?: boolean}>`
   display: flex;
@@ -38,14 +38,14 @@ export default function SearchBar(props: ISearchBar) {
 
   return (
     <StyledSearchBar $isActive={isActive}>
-      <SVGAtom
+      <FancySVGAtom
         externalStyle={
         css`
           color: ${uiColors.secondary.main};
         `}
       >
         {SVGSearch}
-      </SVGAtom>
+      </FancySVGAtom>
       <RawInput type="text" onFocus={() => focusHandler(true)} onBlur={() => focusHandler(false)} onChange={onChangeValueHandler}/>
     </StyledSearchBar>
   );

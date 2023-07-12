@@ -3,7 +3,7 @@ import React from 'react'
 import styled from 'styled-components';
 
 import DateOutput from '../../Atoms/DateOutput/DateOutput';
-import FancyVR from '../../Atoms/FancyVR';
+import FancyVR from '../../Atoms/FancyVR/FancyVR';
 import { uiColors, spacingPx } from '../../Design/design';
 
 import { useDateOutputFromToState } from './DateOutputFromTo.state';

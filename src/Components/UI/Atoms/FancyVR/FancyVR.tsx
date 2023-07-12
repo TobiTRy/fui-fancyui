@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { IUiColorsTypes, uiColors } from '../Design/design';
+import { IUiColorsTypes, uiColors } from '../../Design/design';
 
 
 // --------------------------------------------------------------------------- //

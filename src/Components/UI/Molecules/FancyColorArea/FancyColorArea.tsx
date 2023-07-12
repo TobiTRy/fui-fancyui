@@ -10,7 +10,7 @@ import {
   WrapperMarker,
   SaturationGradient,
   CurrentColorArea
-} from './ColorArea.style';
+} from './FancyColorArea.style';
 import ColorIndicator from '../../Atoms/ColorIndicator/ColorIndicator';
 
 

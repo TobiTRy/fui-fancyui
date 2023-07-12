@@ -2,6 +2,9 @@
 // ---------- Atoms ------- //
 export { default as FancyCard } from '../Components/UI/Atoms/FancyCard/FancyCard';
 export { default as FancyHR } from '../Components/UI/Atoms/FancyHR/FancyHR';
+export { default as FancyLI } from '../Components/UI/Atoms/FancyLI/FancyLI';
+export { default as FancySVGAtom } from '../Components/UI/Atoms/FancySVGAtom/FancySVGAtom';
+export { default as FancyVR } from '../Components/UI/Atoms/FancyVR/FancyVR';
 
 
 
@@ -11,7 +14,7 @@ export { default as FancyButton } from '../Components/UI/Molecules/FancyButton/F
 export { default as FancyA } from '../Components/UI/Molecules/FancyA/FancyA';
 export { default as FancyHueSlider } from '../Components/UI/Molecules/HueSlider/HueSlider';
 export { default as FancyTabSwitch } from '../Components/UI/Molecules/FancyTabSwitch/FancyTabSwitch';
-export { default as FancyColorArea } from '../Components/UI/Molecules/ColorArea/ColorArea';
+export { default as FancyColorArea } from '../Components/UI/Molecules/FancyColorArea/FancyColorArea';
 export { default as FancyColorOutput } from '../Components/UI/Molecules/ColorOutput/ColorOutput';
 
 // ---------- Organisms ------- //

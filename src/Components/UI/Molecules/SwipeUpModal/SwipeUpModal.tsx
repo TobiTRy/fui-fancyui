@@ -90,7 +90,7 @@ export default function SwipeUpModal({ children, isOpen = false, closeHandler }:
             item && (
               <WrapperAnimated as={animated.div} style={styles}>
                 <SwipeUpContainer style={modalPosition}>
-                  {/*// ---------- The top of the modal is used for the scalint´g ---------- //*/}
+                  {/*// ---------- The top of the modal is used for the scaling ---------- //*/}
                   <ScalingSection
                     touchStart={openMobileModal}
                     touchMove={(e) => {

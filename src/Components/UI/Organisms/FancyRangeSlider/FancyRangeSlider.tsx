@@ -3,7 +3,7 @@ import React, { ChangeEvent, useId, useState } from 'react';
 import RawSlider from '../../Atoms/RawSlider/RawSlider';
 import FancyNumberInput from '../FancyNumberInput/FancyNumberInput';
 import { StyledInputWrapper } from '../../Molecules/InputWrapper/InputWrapper.style';
-import SVGAtom from '../../Atoms/SVGAtom/SVGAtom';
+import FancySVGAtom from '../../Atoms/FancySVGAtom/FancySVGAtom';
 import { Label, NumberContainer, RangeSliderContainer, Icon } from './FancyRangeSlider.style';
 import IFancyRangeSlider from './FancyRangeSlider.model';
 
@@ -38,9 +38,9 @@ export default function FancyRangeSlider(props: IFancyRangeSlider) {
       {/* Icon for the left side of the slider */}
       {icon && (
         <Icon>
-          <SVGAtom isActive={isActive} size="large">
+          <FancySVGAtom isActive={isActive} size="large">
             {icon}
-          </SVGAtom>
+          </FancySVGAtom>
         </Icon>
       )}
 

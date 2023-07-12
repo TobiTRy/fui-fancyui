@@ -4,7 +4,7 @@ import Color from 'color';
 import styled from 'styled-components';
 
 import ColorDisplay from '../../Atoms/ColorDisplay/ColorDisplay';
-import ColorArea from '../../Molecules/ColorArea/ColorArea';
+import ColorArea from '../../Molecules/FancyColorArea/FancyColorArea';
 import HueSlider from '../../Molecules/HueSlider/HueSlider';
 import OpacitySlider from '../../Molecules/OpacitySlider/OpacitySlider';
 import ColorOutput from '../../Molecules/ColorOutput/ColorOutput';
