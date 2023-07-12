@@ -1,6 +1,6 @@
 
 // ---------- Atoms ------- //
-export { default as FancyCard } from '../Components/UI/Atoms/Card/FancyCard';
+export { default as FancyCard } from '../Components/UI/Atoms/FancyCard/FancyCard';
 export { default as FancyHR } from '../Components/UI/Atoms/FancyHR/FancyHR';
 
 
@@ -27,3 +27,5 @@ export { default as FancySingleInputs } from '../Components/UI/Organisms/FancySi
 export { default as FancySwipeUpModal } from '../Components/UI/Organisms/FancySwipeUpModal/FancySwipeUpModal';
 export { default as FancyDateInput } from '../Components/UI/Organisms/FancyDateInput/FancyDateInput';
 export { default as FancyDateDropDown } from '../Components/UI/Templates/Inputs/FancyDateDropDown/FancyDateDropDown';
+export { default as FancyToastMessage } from '../Components/UI/Organisms/FancyToastMessage/FancyToastMessage';
+export { default as FancyEditBar } from '../Components/UI/Organisms/FancyEditBar/FancyEditBar';
