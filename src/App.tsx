@@ -136,7 +136,7 @@ function App() {
     //       <FancyButton size="small" wide={true} design="accent" onClick={handleClick} label="Toaster"></FancyButton>
     //     </section>
     //     <section>
-    //       <EditBarIconButton label="Test" icon={svg} active={activated} handler={() => setActivated(!activated)} />
+    //       <FancyBottomBarIcon label="Test" icon={svg} active={activated} handler={() => setActivated(!activated)} />
     //     </section>
     //     <section>
     //       <FancyRangeSlider displayNumber={true} labelAlign={'left'} icon={svg} maxValue={50} minValue={-50} label={'Im tobi tester'} />

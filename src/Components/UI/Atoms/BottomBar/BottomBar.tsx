@@ -11,7 +11,7 @@ export default function BottomBar(props: IBottomBar) {
 
   //this function handles the horizontal scrooling with the mouse wheel
   const horizontalScrollingHandler = (e: React.WheelEvent) => {
-    let box = scrollAbleBar.current;
+    const box = scrollAbleBar.current;
     box!.scrollLeft += e.deltaY < 0 ? -30 : 30;
   };
 

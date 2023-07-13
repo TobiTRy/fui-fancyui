@@ -4,7 +4,7 @@ import Color from 'color';
 import useSlider from '../../Atoms/functions/hooks/useSilder';
 import SliderMarker from '../../Atoms/SliderMarker/SliderMarker';
 import ColorIndicator from '../../Atoms/ColorIndicator/ColorIndicator';
-import {  SliderContainer, SliderWrapper } from './HueSlider.style';
+import { SliderContainer, SliderWrapper } from './HueSlider.style';
 
 //define the min and max hue value for the slider
 const minHue = 0;
@@ -56,7 +56,7 @@ const HueSlider = ({ hue, handler, color }: IHueSlider) => {
       <SliderContainer ref={sliderRef} onMouseDown={handleInteractionStart} onTouchStart={handleInteractionStart}>
         {/* the marker for the with the ColorIndicator to displays the current picked hue */}
         <SliderMarker position={markerPosition.x + '%'}>
-          <ColorIndicator  color={`hsl(${hue}, 100%, 50% )`} isActive={isInteracting} />
+          <ColorIndicator color={`hsl(${hue}, 100%, 50% )`} isActive={isInteracting} />
         </SliderMarker>
       </SliderContainer>
     </SliderWrapper>

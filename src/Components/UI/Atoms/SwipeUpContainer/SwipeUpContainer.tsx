@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import { uiColors } from '../../Design/design';
 import { borderRadius } from '../../Design/design';
 
-
 const StyledSwipeUpContainer = styled.div`
   width: 100%;
   max-height: 90%;
@@ -26,8 +25,8 @@ const StyledSwipeUpContainer = styled.div`
 // --------------------------------------------------------------------------- //
 interface ISwipeUpContainer {
   children: React.ReactNode;
-  style?: {height: string};
-};
+  style?: { height: string };
+}
 export default function SwipeUpContainer({ children, style }: ISwipeUpContainer) {
   return <StyledSwipeUpContainer style={style}>{children}</StyledSwipeUpContainer>;
-};
+}

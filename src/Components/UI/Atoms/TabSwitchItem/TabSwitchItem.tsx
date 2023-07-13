@@ -6,7 +6,7 @@ import { LISwitchButtonStyle } from './TabSwitchItem.style';
 // ------------------------------------------------------------------ //
 // ------------- main component for the tab (li item) --------------- //
 // ------------------------------------------------------------------ //
-export default function FancyTabSwitchButton(props: IFancyTabStyle) {
+export default function FancyTabSwitchItem(props: IFancyTabStyle) {
   const { disabled, itemObject, selected, handler, transparent, wide, textColor, iconAlign } = props;
 
   const id = useId();

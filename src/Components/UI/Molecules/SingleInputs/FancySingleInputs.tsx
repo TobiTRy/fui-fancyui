@@ -5,48 +5,45 @@ import { spacingPx } from '../../Design/design';
 import { colorPalet } from '../../Design/design';
 import InputStatus from '../../Design/Interfaces/IStatus';
 
-const InputWrapper = styled.div<{$status?: InputStatus}>`
+const InputWrapper = styled.div<{ $status?: InputStatus }>`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   width: 100%;
   gap: ${spacingPx.md};
-  
-  input {
-    ${({ $status }) => $status?.isError ? `border-color: ${colorPalet.red_light}` : $status?.isSucceed ? `border-color: ${colorPalet.green_light};` : ''};
-    transition: border-color 0.3s ease-in-out;
-  };
 
+  input {
+    ${({ $status }) =>
+      $status?.isError ? `border-color: ${colorPalet.red_light}` : $status?.isSucceed ? `border-color: ${colorPalet.green_light};` : ''};
+    transition: border-color 0.3s ease-in-out;
+  }
 `;
 
-
-
+//TODO: Clean Up this file
 interface IFancySingleInputsProps {
   length?: number;
   handler?: (value: string) => void;
   status?: InputStatus;
-};
+}
 export default function SingleInputs(props: IFancySingleInputsProps) {
   const { length = 6, handler, status } = props;
   const [values, setValues] = useState<string[]>(Array(length).fill(''));
   const refs = Array.from({ length }, () => createRef<HTMLInputElement>());
 
-
   // Add this useEffect hook
   useEffect(() => {
-    if (values.every(value => value !== '')) {
+    if (values.every((value) => value !== '')) {
       handler && handler(values.join(''));
     }
   }, [values, handler]);
 
-  
   // this function is to handle the paste event
   const handlePaste = (event: React.ClipboardEvent) => {
     event.preventDefault();
     const paste = event.clipboardData.getData('text');
     const newValues = paste.split('').slice(0, length);
 
-    setValues(prev => {
+    setValues((prev) => {
       const copy = [...prev];
       for (let i = 0; i < newValues.length; i++) {
         copy[i] = newValues[i];
@@ -59,7 +56,7 @@ export default function SingleInputs(props: IFancySingleInputsProps) {
   const handleCharacterInput = (event: React.KeyboardEvent<HTMLInputElement>, index: number) => {
     event.preventDefault();
 
-    setValues(prev => {
+    setValues((prev) => {
       const copy = [...prev];
       copy[index] = event.key;
       return copy;
@@ -78,7 +75,7 @@ export default function SingleInputs(props: IFancySingleInputsProps) {
     if (values[index] === '' && refs[index - 1]) {
       refs[index - 1].current?.focus();
     } else {
-      setValues(prev => {
+      setValues((prev) => {
         const copy = [...prev];
         copy[index] = '';
         return copy;
@@ -115,19 +112,12 @@ export default function SingleInputs(props: IFancySingleInputsProps) {
     } else if (event.key === 'ArrowLeft') {
       handleArrowLeftKey(index);
     }
-
-
   };
 
   return (
     <InputWrapper onPaste={handlePaste} $status={status}>
       {values.map((value, index) => (
-        <SingleInputAtom
-          key={index}
-          ref={refs[index]}
-          value={value}
-          onKeyDown={(e) => handleKeyDown(e, index)}
-        />
+        <SingleInputAtom key={index} ref={refs[index]} value={value} onKeyDown={(e) => handleKeyDown(e, index)} />
       ))}
     </InputWrapper>
   );

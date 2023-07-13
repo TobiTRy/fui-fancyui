@@ -11,7 +11,7 @@ interface IColorPickerStore {
   currentHue: number;
   setCurrentHue: (hue: number) => void;
 
-  currentOpacity: number ;
+  currentOpacity: number;
   setCurrentOpacity: (opacity: number) => void;
 
   currentRAWColor: Color;
@@ -27,7 +27,7 @@ interface IColorPickerStore {
 // --------------------------------------------------------------------------- //
 // ----------- This is the global state for the colorPicker ------------------ //
 // --------------------------------------------------------------------------- //
-export const useColorPickerStore= create<IColorPickerStore>((set) => ({
+export const useColorPickerStore = create<IColorPickerStore>((set) => ({
   currentHue: 0,
   setCurrentHue: (hue) => set(() => ({ currentHue: hue })),
 
@@ -42,5 +42,4 @@ export const useColorPickerStore= create<IColorPickerStore>((set) => ({
 
   displayColorValue: Color('hsl(0, 100%, 50%)'),
   setDisplayColorValue: (displayColorValue) => set(() => ({ displayColorValue })),
-
 }));

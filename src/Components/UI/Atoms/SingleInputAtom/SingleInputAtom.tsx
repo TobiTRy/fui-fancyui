@@ -2,7 +2,6 @@ import React, { forwardRef, useState } from 'react';
 import styled from 'styled-components';
 import { uiColors, spacingPx, fontSize } from '../../Design/design';
 
-
 // the style for a single input
 interface StyledSingleInputProps {
   $hasValue: boolean;
@@ -40,7 +39,6 @@ const SingleInputAtom = forwardRef<HTMLInputElement, ISingleInputAtomProps>(({ v
       value={value}
       onKeyDown={onKeyDown}
       ref={ref}
-      onChange={() => {}}
       onFocus={() => setIsFocused(true)}
       onBlur={() => setIsFocused(false)}
       $hasValue={value.length > 0}

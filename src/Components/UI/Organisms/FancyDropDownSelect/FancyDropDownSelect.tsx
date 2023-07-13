@@ -11,7 +11,6 @@ export default function FancyDropDownSelect(props: IFancyDropDownSelect) {
   const [values, setValues] = useState<string[]>([]);
   const [value, setValue] = useState<string>('');
   
-  // 
   const changeHandler: IInputCreatorHandler = (value?: string, e?: ChangeEvent<HTMLInputElement>) => {
     setValue(value ? value : '');
     props.handler && props.handler(value, e);

@@ -34,8 +34,11 @@ interface IColorPicker {
   inputColor?: string;
   handler?: (color: string) => void;
 }
-export default function FanColorPicker(props: IColorPicker)  {
-  const { colorArea, hueSlider, opacitySlider, colorOutput, outputFormat, displayColor, inputColor, handler } = {...defaultProps, ...props};
+export default function FanColorPicker(props: IColorPicker) {
+  const { colorArea, hueSlider, opacitySlider, colorOutput, outputFormat, displayColor, inputColor, handler } = {
+    ...defaultProps,
+    ...props,
+  };
 
   const displayColorValue = useColorPickerStore((state) => state.displayColorValue);
   const setDisplayColorValue = useColorPickerStore((state) => state.setDisplayColorValue);
@@ -94,7 +97,7 @@ export default function FanColorPicker(props: IColorPicker)  {
       )}
     </Wrapper>
   );
-};
+}
 
 // Define defaultProps for ColorPicker
 const defaultProps: IColorPicker = {

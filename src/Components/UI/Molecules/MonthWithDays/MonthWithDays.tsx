@@ -47,6 +47,7 @@ export default function MonthWithDays(props: IMonthWithDays) {
       }),
     };
     return month;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [monthIdx, selectedDates, isRangePicking, monthDays]);
 
   useEffect(() => {
@@ -59,6 +60,7 @@ export default function MonthWithDays(props: IMonthWithDays) {
 
       setMonthDays(daysOfMonth as IDateWithExternalState[]);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [externalMonthWithDays]);
 
 

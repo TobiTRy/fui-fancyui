@@ -28,5 +28,4 @@ export const useEditBarStore = create<EditBarStore>((set) => ({
     set((state) => ({
       activeSecondEditbarItem: state.activeSecondEditbarItem === index ? null : index,
     })),
-
 }));

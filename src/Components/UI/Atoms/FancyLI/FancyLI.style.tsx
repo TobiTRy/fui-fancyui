@@ -11,7 +11,7 @@ type StyledFancyLi = IStyledPrefixAndOmiter<IFancyLi, 'label' | 'icon'>;
 const genreateFantyLi = (props: StyledFancyLi) => {
   const { $size, $aligned, $wide } = props;
 
-  const generateBorderRadius = $wide ? borderRadius!.large : borderRadius[$size!];
+  const generateBorderRadius = $wide ? borderRadius.large : borderRadius[$size!];
   
   return css`
     display: flex;

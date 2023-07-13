@@ -1,13 +1,12 @@
 import React from 'react';
-import RawInput, { TRawInputAlign } from '../../Atoms/RawInput';
-import styled from 'styled-components';
-import { spacingPx } from '../../Design/design';
+import { TRawInputAlign } from '../../Atoms/RawInput';
+import StyledNumberInput from './NumberInput.styled';
 
-import { UnderLineFocusStyle } from '../../Atoms/InputUnderline';
-import { AnimatedInputLabel, AnimatedLabelFocusStyle } from '../../Atoms/AnimatedLabel';
-import IStyledPrefixAndPicker from '../../Interface/IStyledPrefixAndPicker.model';
 
-interface INumberInput {
+// --------------------------------------------------------------------------- //
+// --------------- The NumberInputcomponent for only the input --------------- //
+// --------------------------------------------------------------------------- //
+export interface INumberInput {
   id?: string;
   disabled?: boolean;
   value?: string | number;
@@ -20,36 +19,8 @@ interface INumberInput {
   handler?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   activeHandler?: (value: boolean) => void;
 }
-
-type IStyledNumberInput = IStyledPrefixAndPicker<INumberInput, 'align' | 'errorMessage'>
-const StyledNumberInput = styled(RawInput)<IStyledNumberInput & { $width: string }>`
-  box-sizing: border-box;
-  border-radius: 0;
-  width: ${({ $width }) => ($width ? $width : '2ch')};
-  background-color: transparent;
-  border: none;
-  padding: 0 0 ${spacingPx.xs} 0;
-  transition: 0.3s;
-  transition-timing-function: cubic-bezier(0.46, 0.03, 0.52, 0.96);
-  outline: none;
-  
-  ${({ $align, $errorMessage }) => AnimatedLabelFocusStyle($align, $errorMessage)}
-  //the focus animation for the underline
-  ${({ $align }) => UnderLineFocusStyle(AnimatedInputLabel, $align)}
-  
-  &::-webkit-outer-spin-button,
-  &::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  };
-  // hide the arrows on the input for firefox
-  -moz-appearance: textfield;
-`;
-
 export default function NumberInput(props: INumberInput) {
   const { value, handler, activeHandler, disabled, errorMessage, align, id, autoWidth, minValue, maxValue } = props;
-
-  console.log(autoWidth)
 
   const focusHandler = (value: boolean) => {
     activeHandler && activeHandler(value);
