@@ -12,15 +12,15 @@ interface IModal {
   children?: ReactNode;
   status: ModalStatus;
   closeModal?: (id: string) => void;
-};
+}
 function Modal({ children, closeModal, id, status }: IModal) {
-  const [isOpen, setOpen] = useState(false)
+  const [isOpen, setOpen] = useState(false);
 
   const closeModalHanlder = () => {
-    setOpen(false)
+    setOpen(false);
     //if a components needs controle from outside
-    if (closeModal && id) closeModal(id)   
-  }
+    if (closeModal && id) closeModal(id);
+  };
 
   useEffect(() => {
     switch (status) {
@@ -31,14 +31,12 @@ function Modal({ children, closeModal, id, status }: IModal) {
         setOpen(false);
         break;
     }
-  }, [status])
+  }, [status]);
 
   return (
     <>
-      <SimpleDialog isOpen={ isOpen }>
-        {children}
-      </SimpleDialog>
-      <BackDrop isOpen={ isOpen } onClick={closeModalHanlder} />
+      <SimpleDialog isOpen={isOpen}>{children}</SimpleDialog>
+      <BackDrop isOpen={isOpen} onClick={closeModalHanlder} />
     </>
   );
 }

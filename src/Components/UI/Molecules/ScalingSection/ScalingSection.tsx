@@ -19,11 +19,12 @@ export const SytledScalingSection = styled.div`
 interface IScalingSection {
   touchStart: (e: React.TouchEvent<HTMLDivElement>) => void;
   touchMove: (e: React.TouchEvent<HTMLDivElement>) => void;
+  touchEnd: (e: React.TouchEvent<HTMLDivElement>) => void;
   click: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
 }
-export default function ScalingSection({ touchStart, touchMove, click }: IScalingSection) {
+export default function ScalingSection({ touchStart, touchMove, touchEnd, click }: IScalingSection) {
   return (
-    <SytledScalingSection onTouchStart={touchStart} onTouchMove={touchMove} onClick={click}>
+    <SytledScalingSection onTouchStart={touchStart} onTouchMove={touchMove} onTouchEnd={touchEnd} onClick={click}>
       <SwipeUpDash />
     </SytledScalingSection>
   )

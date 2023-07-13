@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { IEditBarIconButton } from '../../Atoms/EditBarIcon/IEditBarIcon';
+import { IFancyBottomBarIcon } from '../../Atoms/FancyBottomBarIcon/FancyBottomBarIcon';
 import { ICategoryItem } from './EditBarItemsStructure/IEditbarObjectSturcture.model';
 
 // --------------------------------------------------------------------------- //
@@ -7,16 +7,16 @@ import { ICategoryItem } from './EditBarItemsStructure/IEditbarObjectSturcture.m
 // --------------------------------------------------------------------------- //
 interface EditBarModuleStore {
   //the current items for the main bar
-  currentItems: IEditBarIconButton[] | null;
-  setCurrentItems: (items: IEditBarIconButton[]) => void;
+  currentItems: IFancyBottomBarIcon[] | null;
+  setCurrentItems: (items: IFancyBottomBarIcon[]) => void;
 
   //the active setting for the editbar
   activeEditbarCategory: ICategoryItem | null;
   setActiveEditbarCategory: (setting: ICategoryItem | null) => void;
 
   //the current items for the second bar
-  secondCurrentItems: IEditBarIconButton[] | null;
-  setSecondCurrentItems: (items: IEditBarIconButton[]) => void;
+  secondCurrentItems: IFancyBottomBarIcon[] | null;
+  setSecondCurrentItems: (items: IFancyBottomBarIcon[]) => void;
 
   //the active setting for the editbar
   activeSetting: string | null;

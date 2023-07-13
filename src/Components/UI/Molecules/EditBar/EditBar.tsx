@@ -13,8 +13,8 @@ import styled from 'styled-components';
 //the first bar is getting settings for the grouped bar
 //the second is for the settings
 import BottomBar from '../../Atoms/BottomBar/BottomBar';
-import EditBarIconButton from '../../Atoms/EditBarIcon/EditBarIcon';
-import { IEditBarIconButton } from '../../Atoms/EditBarIcon/IEditBarIcon';
+import FancyBottomBarIcon from '../../Atoms/FancyBottomBarIcon/FancyBottomBarIcon';
+import { IFancyBottomBarIcon } from '../../Atoms/FancyBottomBarIcon/FancyBottomBarIcon.model';
 import { useEditBarStore } from './EditBar.state';
 import { spacingPx, spacing } from '../../Design/design';
 import EditBarModal from '../../Atoms/EditBarModal/EditBarModal';
@@ -36,8 +36,8 @@ interface IEditBar {
   scrollable?: boolean;
   children?: React.ReactNode[];
   currentlyEdited?: 'text' | 'image' | 'sectionBox';
-  sectionItems?: IEditBarIconButton[] | null;
-  subSectionItems?: IEditBarIconButton[] | null;
+  sectionItems?: IFancyBottomBarIcon[] | null;
+  subSectionItems?: IFancyBottomBarIcon[] | null;
   settings?: React.ReactNode[] | null;
 }
 
@@ -54,7 +54,7 @@ export default function EditBar(props: IEditBar) {
   const setActiveSecondBarItem = useEditBarStore((state) => state.setActiveSecondEditbarItem);
 
   
-  const clickHandler = (section: 'section' | 'subSection', item: IEditBarIconButton, buttonFunction?: () => void) => {
+  const clickHandler = (section: 'section' | 'subSection', item: IFancyBottomBarIcon, buttonFunction?: () => void) => {
     if (section === 'subSection') setActiveSecondBarItem(item.id!);
     if (section === 'section') setActiveBarItem(item.id!);
     if (buttonFunction) buttonFunction();
@@ -74,7 +74,7 @@ export default function EditBar(props: IEditBar) {
       {subSectionItems && (
         <BottomBar scrollable={scrollable} bottomFixed={false} spacingLeftRight={spacingPx.xl} secondBar={true}>
           {subSectionItems.map((item, index) => (
-            <EditBarIconButton
+            <FancyBottomBarIcon
               key={index}
               icon={item.icon}
               label={item.label}
@@ -88,7 +88,7 @@ export default function EditBar(props: IEditBar) {
       {sectionItems && (
         <BottomBar bottomFixed={false} scrollable={scrollable}>
           {sectionItems.map((item, index) => (
-            <EditBarIconButton
+            <FancyBottomBarIcon
               key={index}
               icon={item.icon}
               label={item.label}

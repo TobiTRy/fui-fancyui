@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import YearSelector from '../../Atoms/YearSelector/YearSelector';
 import WeekDays from '../../Atoms/WeekDays/WeekDays';

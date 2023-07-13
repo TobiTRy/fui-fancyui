@@ -17,7 +17,7 @@ const StyledSVG = styled.i<IStyledSVGAtom>`
   align-items: center;
   width: ${({ $size }) => sizes[$size!]};
   aspect-ratio: 1/1;
-  color: ${({ $isActive, $errorMessage }) => calcIconColor($isActive!, $errorMessage!)};
+  color: ${({ $isActive, $errorMessage }) => calcIconColor($isActive, $errorMessage)};
   transition: color 0.3s ease-in-out;
   ${({ $externalStyle }) => $externalStyle};
 

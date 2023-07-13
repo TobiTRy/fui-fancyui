@@ -18,10 +18,9 @@ const DateOutputButton = styled.button<{ $isActive?: boolean }>`
 interface IDateOutput {
   date?: Date;
   isActive?: boolean;
-  onDateSelect?: (date: Date) => void;
   handler?: () => void;
 }
-export default function DateOutput({ date = new Date(), isActive, onDateSelect, handler }: IDateOutput) {
+export default function DateOutput({ date = new Date(), isActive, handler }: IDateOutput) {
   const [active, setActive] = useState(false);
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(date);
 

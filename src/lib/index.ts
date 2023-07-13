@@ -1,6 +1,7 @@
 
 // ---------- Atoms ------- //
 export { default as FancyCard } from '../Components/UI/Atoms/FancyCard/FancyCard';
+export { default as FancyVR } from '../Components/UI/Atoms/FancyVR/FancyVR';
 export { default as FancyHR } from '../Components/UI/Atoms/FancyHR/FancyHR';
 export { default as FancyLI } from '../Components/UI/Atoms/FancyLI/FancyLI';
 export { default as FancySVGAtom } from '../Components/UI/Atoms/FancySVGAtom/FancySVGAtom';

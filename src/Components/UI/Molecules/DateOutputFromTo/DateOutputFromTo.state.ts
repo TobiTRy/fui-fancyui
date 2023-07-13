@@ -1,9 +1,9 @@
-import { create } from "zustand";
+import { create } from 'zustand';
 
 interface IDateOutputFromToState {
   currentlySelected: 'from' | 'to' | undefined;
   setCurrentlySelected: (currentlySelected: 'from' | 'to' | undefined) => void;
-};
+}
 
 // --------------------------------------------------------------------------- //
 // --------- The global state store for theDateOutputFromTo ------------------ //

@@ -1,6 +1,4 @@
 import React, { useEffect } from 'react';
-import styled from 'styled-components';
-import { fontSize, uiColors } from '../../Design/design';
 import SVGChevronLeft from '../../SVGIcons/SVGChevronLeft';
 import SVGChevronRight from '../../SVGIcons/SVGChevronRight';
 

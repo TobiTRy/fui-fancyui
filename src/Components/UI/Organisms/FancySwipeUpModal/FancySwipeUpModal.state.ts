@@ -1,11 +1,10 @@
-import { create } from "zustand";
-
+import { create } from 'zustand';
 
 export interface IFancySwipeUpModalStore {
   isOpen: boolean;
   open: () => void;
   close: () => void;
-};
+}
 
 // --------------------------------------------------------------------------- //
 // ------------- The globale State to open and close ------------------------- //

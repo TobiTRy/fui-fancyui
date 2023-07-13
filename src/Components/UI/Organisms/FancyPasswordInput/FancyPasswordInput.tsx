@@ -1,7 +1,6 @@
-import React, { ChangeEvent, useEffect, useState } from 'react'
+import React, { ChangeEvent, useEffect, useState } from 'react';
 import InputCreator, { IInputCreatorHandler, IInputCreatorActiveHandler } from '../../Molecules/InputCreator/InputCreator';
-import PasswortInput from '../../Molecules/PasswortInput/PasswortInput';
-
+import PasswordInput from '../../Molecules/PasswordInput/PasswordInput';
 
 interface FancyTextInputProps {
   value?: string;
@@ -12,7 +11,7 @@ interface FancyTextInputProps {
   activeHandler?: IInputCreatorActiveHandler;
   icon?: JSX.Element;
   label?: string;
-};
+}
 // --------------------------------------------------------------------------- //
 // ----The PasswordInput Comonent with surrounding icon, label and underline-- //
 // --------------------------------------------------------------------------- //
@@ -24,14 +23,14 @@ export default function FancyPasswordInput(props: FancyTextInputProps) {
     setValue(value ? value : '');
     props.handler && props.handler(value, e);
   };
-  
+
   // sets the value from the parent if it is passed
   useEffect(() => {
     if (props.value) {
       setValue(props.value);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return <InputCreator {...props} value={value} handler={changeHandler} InputComponent={PasswortInput} />;
+  return <InputCreator {...props} value={value} handler={changeHandler} InputComponent={PasswordInput} />;
 }

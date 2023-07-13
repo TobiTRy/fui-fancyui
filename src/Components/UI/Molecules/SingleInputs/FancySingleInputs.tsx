@@ -1,52 +1,33 @@
 import React, { useState, createRef, useEffect } from 'react';
-import styled from 'styled-components';
 import SingleInputAtom from '../../Atoms/SingleInputAtom/SingleInputAtom';
-import { spacingPx } from '../../Design/design';
-import { colorPalet } from '../../Design/design';
 import InputStatus from '../../Design/Interfaces/IStatus';
-
-const InputWrapper = styled.div<{$status?: InputStatus}>`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  width: 100%;
-  gap: ${spacingPx.md};
-  
-  input {
-    ${({ $status }) => $status?.isError ? `border-color: ${colorPalet.red_light}` : $status?.isSucceed ? `border-color: ${colorPalet.green_light};` : ''};
-    transition: border-color 0.3s ease-in-out;
-  };
-
-`;
-
+import { InputWrapper } from './FancySingleInputs.style';
 
 
 interface IFancySingleInputsProps {
   length?: number;
   handler?: (value: string) => void;
   status?: InputStatus;
-};
+}
 export default function SingleInputs(props: IFancySingleInputsProps) {
   const { length = 6, handler, status } = props;
   const [values, setValues] = useState<string[]>(Array(length).fill(''));
   const refs = Array.from({ length }, () => createRef<HTMLInputElement>());
 
-
-  // Add this useEffect hook
+  //when the values are filled, call the handler
   useEffect(() => {
-    if (values.every(value => value !== '')) {
+    if (values.every((value) => value !== '')) {
       handler && handler(values.join(''));
     }
   }, [values, handler]);
 
-  
   // this function is to handle the paste event
   const handlePaste = (event: React.ClipboardEvent) => {
     event.preventDefault();
     const paste = event.clipboardData.getData('text');
     const newValues = paste.split('').slice(0, length);
 
-    setValues(prev => {
+    setValues((prev) => {
       const copy = [...prev];
       for (let i = 0; i < newValues.length; i++) {
         copy[i] = newValues[i];
@@ -59,14 +40,14 @@ export default function SingleInputs(props: IFancySingleInputsProps) {
   const handleCharacterInput = (event: React.KeyboardEvent<HTMLInputElement>, index: number) => {
     event.preventDefault();
 
-    setValues(prev => {
+    setValues((prev) => {
       const copy = [...prev];
       copy[index] = event.key;
       return copy;
     });
 
     if (refs[index + 1]) {
-      refs[index + 1].current?.focus();
+      moveRightToTheNextInputRef(index)
     } else {
       // if there is no next input, blur the current input
       event.currentTarget.blur();
@@ -75,10 +56,10 @@ export default function SingleInputs(props: IFancySingleInputsProps) {
 
   // this function is to handle the backspace key
   const handleBackspaceKey = (index: number) => {
-    if (values[index] === '' && refs[index - 1]) {
-      refs[index - 1].current?.focus();
+    if (values[index] === '') {
+      moveLeftToTheNextInputRef(index)
     } else {
-      setValues(prev => {
+      setValues((prev) => {
         const copy = [...prev];
         copy[index] = '';
         return copy;
@@ -87,14 +68,16 @@ export default function SingleInputs(props: IFancySingleInputsProps) {
   };
 
   // this function is to jump to the next input
-  const handleArrowRightKey = (index: number) => {
+  const moveRightToTheNextInputRef = (index: number) => {
+    // if the next input exists, focus it
     if (refs[index + 1]) {
       refs[index + 1].current?.focus();
     }
   };
 
   // this function is to jumpback to the previous input
-  const handleArrowLeftKey = (index: number) => {
+  const moveLeftToTheNextInputRef = (index: number) => {
+    // if the previous input exists, focus it
     if (refs[index - 1]) {
       refs[index - 1].current?.focus();
     }
@@ -111,23 +94,16 @@ export default function SingleInputs(props: IFancySingleInputsProps) {
     }
     // Handle arrow keys
     else if (event.key === 'ArrowRight') {
-      handleArrowRightKey(index);
+      moveRightToTheNextInputRef(index);
     } else if (event.key === 'ArrowLeft') {
-      handleArrowLeftKey(index);
+      moveLeftToTheNextInputRef(index);
     }
-
-
   };
 
   return (
     <InputWrapper onPaste={handlePaste} $status={status}>
       {values.map((value, index) => (
-        <SingleInputAtom
-          key={index}
-          ref={refs[index]}
-          value={value}
-          onKeyDown={(e) => handleKeyDown(e, index)}
-        />
+        <SingleInputAtom key={index} ref={refs[index]} value={value} onKeyDown={(e) => handleKeyDown(e, index)} />
       ))}
     </InputWrapper>
   );

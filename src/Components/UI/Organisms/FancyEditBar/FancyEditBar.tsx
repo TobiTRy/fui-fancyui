@@ -32,6 +32,7 @@ export default function FancyEditBar({ active, sectionType }: { active: boolean;
     const getEditBarSetting = editBar?.find((item) => item.id === activeEditbarItem);
 
     setActiveEditbarCategory(getEditBarSetting || null);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeEditbarItem]);
 
   // Reset activeEditbarItem when the active prop changes to false
@@ -39,12 +40,14 @@ export default function FancyEditBar({ active, sectionType }: { active: boolean;
     if (!active) {
       setActiveEditbarItem(null);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [active]);
 
   // Update currentEditBarItems when the editBar state changes (when the sectionType changes)
   useEffect(() => {
     const currentEditBarItems = editBar?.map((item) => item.sectionItem);
     setCurrentEditBarItems(currentEditBarItems!);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [editBar]);
 
   // Initialize editBar and currentEditBarItems based on sectionType

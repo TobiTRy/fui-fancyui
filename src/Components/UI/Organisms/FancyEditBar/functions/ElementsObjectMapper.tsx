@@ -1,4 +1,4 @@
-import { IEditBarIconButton } from "../../../Atoms/EditBarIcon/IEditBarIcon";
+import { IFancyBottomBarIcon } from "../../../Atoms/FancyBottomBarIcon/FancyBottomBarIcon";
 import { ICategoryItem, InputSettings } from "../EditBarItemsStructure/IEditbarObjectSturcture.model";
 
 import FancyInput from "../../../Molecules/FancyInput/FancyInputOld";
@@ -54,7 +54,7 @@ interface ICategoryItems {
 }
 
 // Get the current sub-section items from the activeEditbarCategory
-export const getSubSectionItems = ({activeEditbarCategory}: ICategoryItems): IEditBarIconButton[] | null => {
+export const getSubSectionItems = ({activeEditbarCategory}: ICategoryItems): IFancyBottomBarIcon[] | null => {
   if (!activeEditbarCategory) return null;
   const getSubsetionItems = activeEditbarCategory.subsectionSettingItems;
 

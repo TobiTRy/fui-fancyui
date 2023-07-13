@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from 'react'
+import React, { ChangeEvent, useState } from 'react';
 
 import RawInput, { TRawInputAlign } from '../../Atoms/RawInput';
 import styled from 'styled-components';
@@ -7,7 +7,7 @@ import PasswordEye from '../../Atoms/PasswordEye/PasswordEye';
 import { AnimatedInputLabel, AnimatedLabelFocusStyle } from '../../Atoms/AnimatedLabel';
 import IStyledPrefixAndPicker from '../../Interface/IStyledPrefixAndPicker.model';
 
-interface IPasswortInputProps {
+interface IPasswordInputProps {
   id?: string;
   disabled?: boolean;
   value?: string;
@@ -15,32 +15,34 @@ interface IPasswortInputProps {
   align?: TRawInputAlign;
   handler?: (e: ChangeEvent<HTMLInputElement>) => void;
   activeHandler?: (value: boolean) => void;
-};
+}
 
-
-type IStyledPasswortInput = IStyledPrefixAndPicker<IPasswortInputProps, 'align' | 'errorMessage'>
-const StyledPasswortInput = styled(RawInput)<IStyledPasswortInput>`
+type IStyledPasswordInput = IStyledPrefixAndPicker<IPasswordInputProps, 'align' | 'errorMessage'>;
+const StyledPasswordInput = styled(RawInput)<IStyledPasswordInput>`
   ${({ $align, $errorMessage }) => AnimatedLabelFocusStyle($align, $errorMessage)}
   //the focus animation for the underline
   ${({ $align }) => UnderLineFocusStyle(AnimatedInputLabel, $align)}
 `;
-export default function PasswortInput(props: IPasswortInputProps) {
-  const { value, handler, activeHandler, disabled, errorMessage, align, id } = props;
-  const [ isShowPassword, setIsShowPassword ] = useState(false)
 
+// --------------------------------------------------------------------------- //
+// --------------- The passwordInputcomponent for only the input ------------- //
+// --------------------------------------------------------------------------- //
+export default function PasswordInput(props: IPasswordInputProps) {
+  const { value, handler, activeHandler, disabled, errorMessage, align, id } = props;
+  const [isShowPassword, setIsShowPassword] = useState(false);
 
   const focusHandler = (value: boolean) => {
     activeHandler && activeHandler(value);
   };
 
   const showPasswordHandler = () => {
-    setIsShowPassword(!isShowPassword)
-  }; 
+    setIsShowPassword(!isShowPassword);
+  };
 
   return (
     <>
-      <PasswordEye isShow={isShowPassword} handler={showPasswordHandler}/>    
-      <StyledPasswortInput
+      <PasswordEye isShow={isShowPassword} handler={showPasswordHandler} />
+      <StyledPasswordInput
         id={id}
         type={isShowPassword ? 'text' : 'password'}
         placeholder=""
@@ -55,5 +57,5 @@ export default function PasswortInput(props: IPasswortInputProps) {
         $align={align}
       />
     </>
-  )
+  );
 }

@@ -1,7 +1,7 @@
 import React, { ChangeEvent } from 'react';
 import styled from 'styled-components';
 
-import RawInput, { IRawInput, TRawInputAlign } from '../../Atoms/RawInput';
+import RawInput, { TRawInputAlign } from '../../Atoms/RawInput';
 import { UnderLineFocusStyle } from '../../Atoms/InputUnderline';
 import { AnimatedInputLabel, AnimatedLabelFocusStyle } from '../../Atoms/AnimatedLabel';
 import IStyledPrefixAndPicker from '../../Interface/IStyledPrefixAndPicker.model';
@@ -14,9 +14,9 @@ export interface ITextInputProps {
   align?: TRawInputAlign;
   handler?: (e: ChangeEvent<HTMLInputElement>) => void;
   activeHandler?: (value: boolean) => void;
-};
+}
 
-type IStyledTextInput = IStyledPrefixAndPicker<ITextInputProps, 'align' | 'errorMessage'>
+type IStyledTextInput = IStyledPrefixAndPicker<ITextInputProps, 'align' | 'errorMessage'>;
 const StyledTextInput = styled(RawInput)<IStyledTextInput>`
   ${({ $align, $errorMessage }) => AnimatedLabelFocusStyle($align, $errorMessage)}
   //the focus animation for the underline

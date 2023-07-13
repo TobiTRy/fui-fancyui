@@ -4,6 +4,8 @@ import FancyTabSwitchButton from '../../Atoms/TabSwitchItem/FancyTabSwitchButton
 import IFancyTab from './IFancyTab.model';
 import { ULButtonSwitchList } from './FancyTabSwitch.style';
 
+//TODO: Finish the TabSwitch
+
 // ------------------------------------------------------------------ //
 // ------ the main react component to generate the TabSwitch -------- //
 // ------------------------------------------------------------------ //
@@ -26,7 +28,7 @@ export default function FancyTabSwitch(props: IFancyTab) {
 
   //this function handles the current selected tab and sends it to the parent
   const radioChangeHandler = (position: string) => {
-    let currentItem = switchValues.find((item) => item.key === position);
+    const currentItem = switchValues.find((item) => item.key === position);
     setCurrentSelect(position);
     handler(currentItem?.key!);
   };

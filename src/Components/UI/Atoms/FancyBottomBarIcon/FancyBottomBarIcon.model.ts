@@ -1,4 +1,4 @@
-export interface IEditBarIconButton {
+export interface IFancyBottomBarIcon {
   id?: string;
   icon: JSX.Element;
   label: string;

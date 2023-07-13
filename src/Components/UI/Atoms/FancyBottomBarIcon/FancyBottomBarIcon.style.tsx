@@ -1,15 +1,8 @@
-import React from 'react';
+import styled from "styled-components";
+import { fontSize, spacing, spacingPx, uiColors } from "../../Design/design";
+import { disabledStyle } from "../../HelperFunctions/disableStyle";
 
-import styled from 'styled-components';
-
-import { disabledStyle } from '../../HelperFunctions/disableStyle';
-
-import { fontSize, spacing, spacingPx, uiColors } from '../../Design/design';
-import { IEditBarIconButton } from './IEditBarIcon';
-
-
-
-const IconTextButton = styled.button<{ $color?: string; $isActive?: boolean; $disabled?: boolean }>`
+export const IconTextButton = styled.button<{ $color?: string; $isActive?: boolean; $disabled?: boolean }>`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -33,7 +26,7 @@ const IconTextButton = styled.button<{ $color?: string; $isActive?: boolean; $di
   }
 `;
 
-const Underline = styled.i<{ $isActive?: boolean }>`
+export const Underline = styled.i<{ $isActive?: boolean }>`
   position: absolute;
   bottom: 0;
   left: 50%;
@@ -46,7 +39,7 @@ const Underline = styled.i<{ $isActive?: boolean }>`
   transition: all 0.1s ease-in-out;
 `;
 
-const Icon = styled.div`
+export const Icon = styled.div`
   height: 18px;
   width: 18px;
 
@@ -56,21 +49,9 @@ const Icon = styled.div`
   }
 `;
 
-const Label = styled.p`
+export const Label = styled.p`
   margin: 0;
   margin-top: ${spacingPx.xs};
   line-height: ${fontSize.small};
   font-size: ${fontSize.small};
 `;
-
-export default function EditBarIconButton(props: IEditBarIconButton) {
-  const { icon, label, color, active, handler, disabled } = props;
-
-  return (
-    <IconTextButton $color={color} $isActive={active} disabled={disabled} onClick={handler}>
-      <Icon>{icon}</Icon>
-      <Label>{label}</Label>
-      <Underline $isActive={active} />
-    </IconTextButton>
-  );
-}

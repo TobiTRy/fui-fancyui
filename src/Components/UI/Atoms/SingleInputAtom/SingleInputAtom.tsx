@@ -2,7 +2,6 @@ import React, { forwardRef, useState } from 'react';
 import styled from 'styled-components';
 import { uiColors, spacingPx, fontSize } from '../../Design/design';
 
-
 // the style for a single input
 interface StyledSingleInputProps {
   $hasValue: boolean;
@@ -40,6 +39,7 @@ const SingleInputAtom = forwardRef<HTMLInputElement, ISingleInputAtomProps>(({ v
       value={value}
       onKeyDown={onKeyDown}
       ref={ref}
+      // eslint-disable-next-line @typescript-eslint/no-empty-function
       onChange={() => {}}
       onFocus={() => setIsFocused(true)}
       onBlur={() => setIsFocused(false)}

@@ -94,7 +94,7 @@ export default function FanyColorPicker(props: IColorPicker)  {
       )}
     </Wrapper>
   );
-};
+}
 
 // Define defaultProps for ColorPicker
 const defaultProps: IColorPicker = {

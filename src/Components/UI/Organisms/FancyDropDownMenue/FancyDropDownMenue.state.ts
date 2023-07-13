@@ -1,5 +1,4 @@
-import { create } from "zustand";
-
+import { create } from 'zustand';
 
 // --------------------------------------------------------------------------- //
 // -------- The Interface structure for the useDropDownMenueModuleStore ------ //
@@ -9,8 +8,7 @@ export interface DropDownMenueModuleStore {
   toggle: () => void;
   close: () => void;
   open: () => void;
-};
-
+}
 
 // --------------------------------------------------------------------------- //
 // ----------- This is the global state for the DropDownMenue ---------------- //

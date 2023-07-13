@@ -1,6 +1,6 @@
-import Day from "../MonthWithDays/day.model";
+import Day from '../MonthWithDays/day.model';
 
-import { IDateArray, IDateOnlyArray } from "./IDateArray.model";
+import { IDateOnlyArray } from './IDateArray.model';
 type DateArray = Date[] | (Date | undefined)[];
 
 const checkForValidDatesEnterd = (dates: DateArray) => {
@@ -46,7 +46,7 @@ const selectDayFunction = (props: ISelectDayFunction) => {
   }
 
   //When Valid dates are entered
-  if (checkForValidDatesEnterd(newSelectedDates!)) {
+  if (checkForValidDatesEnterd(newSelectedDates)) {
     if (checkDateIsSame(newSelectedDates as Date[])) {
       const identifySecondAsDate = newSelectedDates[1] as Date;
       identifySecondAsDate.setDate(identifySecondAsDate.getDate() + 1);
@@ -58,9 +58,7 @@ const selectDayFunction = (props: ISelectDayFunction) => {
     }
   }
 
-
-    return newSelectedDates as IDateOnlyArray;
-  
+  return newSelectedDates as IDateOnlyArray;
 };
 
 export default selectDayFunction;

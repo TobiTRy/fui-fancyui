@@ -9,8 +9,6 @@ import { IDisabledDateSettings } from '../MonthWithDays/IDisableDateSettings.mod
 import IExternalMonthWithDays from '../MonthWithDays/IExternalMonthWithDays.model';
 import { IDateArray } from './IDateArray.model';
 
-
-
 const externalMonth: IExternalMonthWithDays[] = [
   {
     monthIdx: 7,
@@ -38,7 +36,6 @@ const externalMonth: IExternalMonthWithDays[] = [
         date: 3,
         isAvilable: 'partially',
       },
-      
     ],
   },
 ];
@@ -86,10 +83,11 @@ export default function RangeCalendar(props: ICalendar) {
       // create a array for each month of a year and fill it with the external state
       const monthsOfYearExternal = new Array(12).fill({});
       externalMonthWithDays.forEach((month) => {
-        monthsOfYearExternal[month.monthIdx] = month as IExternalMonthWithDays; 
-      });;
+        monthsOfYearExternal[month.monthIdx] = month;
+      });
       setExternalMonthsData(monthsOfYearExternal);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -127,4 +125,4 @@ export default function RangeCalendar(props: ICalendar) {
 RangeCalendar.defaultProps = {
   externalMonthWithDays: externalMonth,
   rangeCalendar: false,
-}
+};

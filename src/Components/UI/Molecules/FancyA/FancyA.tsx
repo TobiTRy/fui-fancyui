@@ -55,5 +55,4 @@ const defaultProps: IFancyA = {
   hoverColor: 'accent',
   outlined: false,
   disabled: false,
-  onClick: () => {},
 };
