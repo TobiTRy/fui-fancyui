@@ -15,9 +15,12 @@ interface ISwipeUpModal {
   children?: React.ReactNode;
   isOpen: boolean;
   isCloseAble?: boolean;
+  isScalable?: boolean;
   closeHandler?: () => void;
 }
-export default function SwipeUpModal({ children, isOpen = false, isCloseAble = true, closeHandler,  }: ISwipeUpModal) {
+export default function SwipeUpModal( props : ISwipeUpModal) {
+  const { children, isOpen, isCloseAble, isScalable, closeHandler } =  {...defaultProps, ...props};
+
   const [modalMobileVisible, setmodalMobileVisible] = useState(false);
   const [modalPosition, setModalPosition] = useState({ height: '100%' });
   const [backdropVisible, setBackdropVisible] = useState(false);
@@ -96,16 +99,16 @@ export default function SwipeUpModal({ children, isOpen = false, isCloseAble = t
         {openTransition(
           (styles, item) =>
             item && (
-              <WrapperAnimated as={animated.div} style={styles} >
-                <SwipeUpContainer style={modalPosition}>
+              <WrapperAnimated as={animated.div} style={styles}>
+                <SwipeUpContainer style={modalPosition} isScalable={isScalable}>
                   {/*// ---------- The top of the modal is used for the scaling ---------- //*/}
-                  <ScalingSection
+                  { isScalable && <ScalingSection
                     touchMove={(e) => {
                       mobileMoveModal(e);
                     }}
                     touchEnd={toutchEnd}
                     click={closeModal}
-                  />
+                  />}
                   {/*// ---------- Content Area ---------- //*/}
                   <ContentBox>
                     {/*// ---------- Header ---------- //*/}
@@ -121,4 +124,10 @@ export default function SwipeUpModal({ children, isOpen = false, isCloseAble = t
       </WrapperModal>
     </UseDelay>
   );
+}
+
+const defaultProps: ISwipeUpModal = {
+  isOpen: false,
+  isCloseAble: true,
+  isScalable: false,
 }
