@@ -19,7 +19,7 @@ import IToastMessage from '../../Molecules/SingleToastMessage/IToastMessage.mode
 // --------------------------------------------------------------------------- //
 // ------- The Main Toast Message Module to displayed multible messages ------ //
 // --------------------------------------------------------------------------- //
-export default function ToastMessage() {
+export default function FancyToastMessage() {
   const toastQueue = useFancyToastMessageStore((state) => state.toastQueue);
   const removeToast = useFancyToastMessageStore((state) => state.removeToast);
 
@@ -31,12 +31,13 @@ export default function ToastMessage() {
     from: { opacity: 0, height: '0px', transform: 'translateX(200%)', marginBottom: '0px' },
     keys: (item: IToastMessage) => item.id,
     enter: (item: IToastMessage) => async (next) => {
+      const getItem = refMap.get(item) as HTMLDivElement;
       await next({
         opacity: 1,
         transform: 'translateX(0%)',
         marginBottom: '16px',
-        height: refMap.get(item).offsetHeight + 'px',
-        config: { duration: refMap.get(item).time },
+        height: getItem.offsetHeight + 'px',
+        //config: { duration: refMap.get(item).time },
       });
     },
     leave: [
