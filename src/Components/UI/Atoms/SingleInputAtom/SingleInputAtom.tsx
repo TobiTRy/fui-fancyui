@@ -39,6 +39,8 @@ const SingleInputAtom = forwardRef<HTMLInputElement, ISingleInputAtomProps>(({ v
       value={value}
       onKeyDown={onKeyDown}
       ref={ref}
+      // eslint-disable-next-line @typescript-eslint/no-empty-function
+      onChange={() => {}}
       onFocus={() => setIsFocused(true)}
       onBlur={() => setIsFocused(false)}
       $hasValue={value.length > 0}

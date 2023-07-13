@@ -30,7 +30,6 @@ interface ColorTypeLetters {
   l: number;
 }
 
-// TODO: BUILD UP THE currentColorType OR REMOVE IT
 // --------------------------------------------------------------------------- //
 // ----- The main ColorOutput Component to displays and change the values ---- //
 // --------------------------------------------------------------------------- //
@@ -68,7 +67,7 @@ const ColorOutput = ({ pickedColor, opacity, handler, handlerOpacity, currentCol
 
     //string is HEX code
     if (typeof color !== 'string') {
-      const colorObj = color as ColorTypeLetters; //e.g. {r: 255, g: 255, b: 255, a: 1, h: 0, …}
+      const colorObj = color as ColorTypeLetters; //e.g. {r: 255, g: 255, b: 255, a: 1, h: 0,…}
       const { a, ...colorWhitoutAlpha } = colorObj; //split out the alpha value
 
       //indentify the inputletter is a color or alpha value
@@ -89,6 +88,15 @@ const ColorOutput = ({ pickedColor, opacity, handler, handlerOpacity, currentCol
   useEffect(() => {
     setCurrentPickedColor(pickedColor);
   }, [pickedColor]);
+
+  // sets a color format if the currentColorType is present
+  useEffect(() => {
+    if (currentColorType) {
+      const index = colorFormats.findIndex((type) => type === currentColorType);
+      setColorFormatIndex(index);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return (
     <Container>

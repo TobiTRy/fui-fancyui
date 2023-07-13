@@ -21,6 +21,7 @@ export default function FancySingleInputs(props: IFancySingleInputs) {
     setStatus({ ...status, isLoading: true });
     
     //TODO: Clean this up
+    if(!api) return console.error('No api provided')
     fetch(`${api}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },

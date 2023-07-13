@@ -46,14 +46,10 @@ interface IDateOutputFromTo {
   dateTo?: Date;
   whichIsSelecting?: 'from' | 'to';
 }
-//TODO: whichIsSelecting is not set build in useEffect
-export default function DateOutputFromTo({ dateFrom, dateTo, whichIsSelecting }: IDateOutputFromTo) {
+export default function DateOutputFromTo({ dateFrom, dateTo }: IDateOutputFromTo) {
   const currentlySelected = useDateOutputFromToState((state) => state.currentlySelected);
   const setCurrentlySelected = useDateOutputFromToState((state) => state.setCurrentlySelected);
 
-  // useEffect(() => {
-  //   setCurrentlySelected(whichIsSelecting)
-  // }, [whichIsSelecting])
 
   const handleClickOnDateOutput = (which: 'from' | 'to') => {
     setCurrentlySelected(which);

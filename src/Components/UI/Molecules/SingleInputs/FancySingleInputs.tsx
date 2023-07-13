@@ -1,25 +1,9 @@
 import React, { useState, createRef, useEffect } from 'react';
-import styled from 'styled-components';
 import SingleInputAtom from '../../Atoms/SingleInputAtom/SingleInputAtom';
-import { spacingPx } from '../../Design/design';
-import { colorPalet } from '../../Design/design';
 import InputStatus from '../../Design/Interfaces/IStatus';
+import { InputWrapper } from './FancySingleInputs.style';
 
-const InputWrapper = styled.div<{ $status?: InputStatus }>`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  width: 100%;
-  gap: ${spacingPx.md};
 
-  input {
-    ${({ $status }) =>
-      $status?.isError ? `border-color: ${colorPalet.red_light}` : $status?.isSucceed ? `border-color: ${colorPalet.green_light};` : ''};
-    transition: border-color 0.3s ease-in-out;
-  }
-`;
-
-//TODO: Clean Up this file
 interface IFancySingleInputsProps {
   length?: number;
   handler?: (value: string) => void;
@@ -30,7 +14,7 @@ export default function SingleInputs(props: IFancySingleInputsProps) {
   const [values, setValues] = useState<string[]>(Array(length).fill(''));
   const refs = Array.from({ length }, () => createRef<HTMLInputElement>());
 
-  // Add this useEffect hook
+  //when the values are filled, call the handler
   useEffect(() => {
     if (values.every((value) => value !== '')) {
       handler && handler(values.join(''));
@@ -63,7 +47,7 @@ export default function SingleInputs(props: IFancySingleInputsProps) {
     });
 
     if (refs[index + 1]) {
-      refs[index + 1].current?.focus();
+      moveRightToTheNextInputRef(index)
     } else {
       // if there is no next input, blur the current input
       event.currentTarget.blur();
@@ -72,8 +56,8 @@ export default function SingleInputs(props: IFancySingleInputsProps) {
 
   // this function is to handle the backspace key
   const handleBackspaceKey = (index: number) => {
-    if (values[index] === '' && refs[index - 1]) {
-      refs[index - 1].current?.focus();
+    if (values[index] === '') {
+      moveLeftToTheNextInputRef(index)
     } else {
       setValues((prev) => {
         const copy = [...prev];
@@ -84,14 +68,16 @@ export default function SingleInputs(props: IFancySingleInputsProps) {
   };
 
   // this function is to jump to the next input
-  const handleArrowRightKey = (index: number) => {
+  const moveRightToTheNextInputRef = (index: number) => {
+    // if the next input exists, focus it
     if (refs[index + 1]) {
       refs[index + 1].current?.focus();
     }
   };
 
   // this function is to jumpback to the previous input
-  const handleArrowLeftKey = (index: number) => {
+  const moveLeftToTheNextInputRef = (index: number) => {
+    // if the previous input exists, focus it
     if (refs[index - 1]) {
       refs[index - 1].current?.focus();
     }
@@ -108,9 +94,9 @@ export default function SingleInputs(props: IFancySingleInputsProps) {
     }
     // Handle arrow keys
     else if (event.key === 'ArrowRight') {
-      handleArrowRightKey(index);
+      moveRightToTheNextInputRef(index);
     } else if (event.key === 'ArrowLeft') {
-      handleArrowLeftKey(index);
+      moveLeftToTheNextInputRef(index);
     }
   };
 
