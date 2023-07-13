@@ -17,7 +17,7 @@ export const SytledScalingSection = styled.div`
 //the ScalingSection is for conroling events on the swipe up dash for better UX //
 // --------------------------------------------------------------------------- //
 interface IScalingSection {
-  touchStart: (e: React.TouchEvent<HTMLDivElement>) => void;
+  touchStart?: (e: React.TouchEvent<HTMLDivElement>) => void;
   touchMove: (e: React.TouchEvent<HTMLDivElement>) => void;
   touchEnd: (e: React.TouchEvent<HTMLDivElement>) => void;
   click: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
