@@ -25,7 +25,7 @@ export default function InputsRoute() {
   };
 
   return (
-    <section>
+    <section style={{display: 'flex', flexDirection: 'column', gap: '6px'}}>
       <FancyPasswordInput icon={svg} label="Test" handler={testHandler} align="center" />
       <FancyTextInput icon={svg} label="Test" handler={testHandler} />
       <FancyNumberInput icon={svg} label="Test" handler={testHandler} />

@@ -6,7 +6,7 @@ interface IFancyDateInput {
   value?: string;
   errorMessage?: string;
   disabled?: boolean;
-  name: string;
+  name?: string;
   align?: 'left' | 'center';
   handler?: IInputCreatorHandler;
   activeHandler?: IInputCreatorActiveHandler;
