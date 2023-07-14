@@ -21,10 +21,10 @@ export interface IDateInputProps {
 interface IStyledDatePicker {
   $errorMessage?: string;
   $align?: TRawInputAlign;
-  $value?: string;
+  value?: string;
 }
 const StyledDatePicker = styled(RawInput)<IStyledDatePicker>`
-  color: ${({$value}) => $value ?  '' : 'transparent'};
+  color: ${({value}) => value ?  '' : 'transparent'};
 
   &:focus {
     color: ${uiColors.secondary.main};
