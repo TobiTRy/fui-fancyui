@@ -17,6 +17,7 @@ export const StyledRawSlider = styled.input`
   width: 100%;
   margin: 0;
   height: 6px;
+  margin: 10px 0 12px 0;
   background: gray;
   border-radius: 5px;
   background-image: linear-gradient(90deg, ${uiColors.accent.main}, ${uiColors.accent.light});
