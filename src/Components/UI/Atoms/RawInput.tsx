@@ -1,5 +1,5 @@
 import styled  from 'styled-components'
-import { colorPalet, fontSize, spacing } from '../Design/design'
+import { colorPalet, fontSize } from '../Design/design'
 
 
 export type TRawInputAlign = 'left' | 'center';
@@ -20,7 +20,7 @@ const RawInput = styled.input<IRawInput>`
   outline: none;
   box-shadow: none;
   font-size: ${fontSize.medium};
-  padding: 0px 0px ${spacing.xs + 2 + 'px'};
+  padding: 0;
 `;
 
 export default RawInput;

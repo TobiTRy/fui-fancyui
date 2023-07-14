@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import RawInput from '../../Atoms/RawInput';
 import IStyledPrefixAndPicker from '../../Interface/IStyledPrefixAndPicker.model';
-import { spacingPx } from '../../Design/design';
 import { AnimatedInputLabel, AnimatedLabelFocusStyle } from '../../Atoms/AnimatedLabel';
 import { UnderLineFocusStyle } from '../../Atoms/InputUnderline';
 import { INumberInput } from './NumberInput';
@@ -15,7 +14,6 @@ const StyledNumberInput = styled(RawInput)<IStyledNumberInput & { $width: string
   width: ${({ $width }) => ($width ? $width : '2ch')};
   background-color: transparent;
   border: none;
-  padding: 0 0 ${spacingPx.xs} 0;
   transition: 0.3s;
   transition-timing-function: cubic-bezier(0.46, 0.03, 0.52, 0.96);
   outline: none;
