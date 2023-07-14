@@ -1,6 +1,5 @@
 import React from 'react';
-import FancyInput from '../../FancyInput/FancyInputOld';
-
+import { FancyNumberInput } from '../../../Organisms/FancyNumberInput';
 
 //the attribiutes for each color input
 const colorLettersObject = [
@@ -60,21 +59,18 @@ export default function AdaptInputs(props: IAdapedInput) {
   const { inputLetter, handler, value } = props;
 
   //find the specific color object for the input (like: r)
-  const colorObject = colorLettersObject.find(
-    (obj) => obj.colorLetter === inputLetter
-  );
+  const colorObject = colorLettersObject.find((obj) => obj.colorLetter === inputLetter);
 
   return (
     <>
       {colorObject && (
-        <FancyInput
-          align='center'
-          type="number"
+        <FancyNumberInput
+          align="center"
           name={inputLetter}
-          min={colorObject.min}
-          max={colorObject.max}
+          minValue={colorObject.min}
+          maxValue={colorObject.max}
           step={colorObject.step}
-          value={value}
+          value={value.toString()}
           handler={handler}
         />
       )}

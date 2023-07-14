@@ -7,6 +7,7 @@ interface IFancyNumberInput {
   value?: string;
   errorMessage?: string;
   name?: string;
+  step?: number;
   disabled?: boolean;
   align?: 'left' | 'center';
   handler?: IInputCreatorHandler;
