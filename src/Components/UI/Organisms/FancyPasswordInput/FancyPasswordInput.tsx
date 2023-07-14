@@ -5,6 +5,7 @@ import PasswordInput from '../../Molecules/PasswordInput/PasswordInput';
 interface FancyTextInputProps {
   value?: string;
   errorMessage?: string;
+  name?: string;
   disabled?: boolean;
   align?: 'left' | 'center';
   handler?: IInputCreatorHandler;

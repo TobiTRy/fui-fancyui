@@ -1,12 +1,12 @@
-import React, { ChangeEvent, useEffect, useState } from 'react'
+import React, { ChangeEvent, useEffect, useState } from 'react';
 import InputCreator, { IInputCreatorHandler, IInputCreatorActiveHandler } from '../../Molecules/InputCreator/InputCreator';
 import NumberInput from '../../Molecules/NumberInput/NumberInput';
-
 
 interface IFancyNumberInput {
   id?: string;
   value?: string;
   errorMessage?: string;
+  name?: string;
   disabled?: boolean;
   align?: 'left' | 'center';
   handler?: IInputCreatorHandler;
@@ -17,13 +17,13 @@ interface IFancyNumberInput {
   label?: string;
   minValue?: number;
   maxValue?: number;
-};
+}
 // --------------------------------------------------------------------------- //
 // ----The NumberInput Comonent with surrounding icon, label and underline --- //
 // --------------------------------------------------------------------------- //
 export default function FancyNumberInput(props: IFancyNumberInput) {
   const [value, setValue] = useState('');
-  
+
   // handles the input value change and calls the handler from the parent
   const changeHandler: IInputCreatorHandler = (value?: string, e?: ChangeEvent<HTMLInputElement>) => {
     setValue(value ? value : '');
@@ -35,8 +35,7 @@ export default function FancyNumberInput(props: IFancyNumberInput) {
     if (props.value) {
       setValue(props.value);
     }
-  }, [props.value])
-
+  }, [props.value]);
 
   return <InputCreator {...props} value={value} handler={changeHandler} InputComponent={NumberInput} />;
 }

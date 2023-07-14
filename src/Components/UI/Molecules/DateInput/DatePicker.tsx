@@ -1,16 +1,17 @@
 import React, { ChangeEvent } from 'react';
 
-import RawInput, { IRawInput } from '../../Atoms/RawInput';
+import RawInput from '../../Atoms/RawInput';
 import styled from 'styled-components';
 import { AnimatedInputLabel, AnimatedLabelFocusStyle } from '../../Atoms/AnimatedLabel';
 import { UnderLineFocusStyle } from '../../Atoms/InputUnderline';
 import { uiColors } from '../../Design/design';
 import { TRawInputAlign } from '../../Atoms/RawInput';
 
-export interface IDateInputProps extends IRawInput {
+export interface IDateInputProps {
   id?: string;
   disabled?: boolean;
   value?: string;
+  name?: string;
   errorMessage?: string;
   handler?: (e: ChangeEvent<HTMLInputElement>) => void;
   activeHandler?: (value: boolean) => void;
@@ -44,7 +45,7 @@ const StyledDatePicker = styled(RawInput)<IStyledDatePicker>`
 // ---------- Here are the design variants for sizing and alignment ---------- //
 // --------------------------------------------------------------------------- //
 export default function DateInput(props: IDateInputProps) {
-  const { value, handler, activeHandler, disabled, errorMessage, align, id } = props;
+  const { value, handler, activeHandler, name, disabled, errorMessage, align, id } = props;
 
   //this function is used to toggle the active state of the input
   const focusHandler = (value: boolean) => {
@@ -55,6 +56,7 @@ export default function DateInput(props: IDateInputProps) {
     <StyledDatePicker
       $errorMessage={errorMessage}
       $align={align}
+      name={name}
       id={id}
       type="date"
       placeholder=""

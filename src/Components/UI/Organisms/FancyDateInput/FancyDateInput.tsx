@@ -1,18 +1,18 @@
-import React, { ChangeEvent, useEffect, useState } from 'react'
+import React, { ChangeEvent, useEffect, useState } from 'react';
 import InputCreator, { IInputCreatorHandler, IInputCreatorActiveHandler } from '../../Molecules/InputCreator/InputCreator';
 import DateInput from '../../Molecules/DateInput/DatePicker';
-
 
 interface IFancyDateInput {
   value?: string;
   errorMessage?: string;
   disabled?: boolean;
+  name: string;
   align?: 'left' | 'center';
   handler?: IInputCreatorHandler;
   activeHandler?: IInputCreatorActiveHandler;
   icon?: JSX.Element;
   label?: string;
-};
+}
 // --------------------------------------------------------------------------- //
 // ----The TextInput Comonent with surrounding icon, label and underline ----- //
 // --------------------------------------------------------------------------- //
@@ -30,7 +30,7 @@ export default function FancyDateInput(props: IFancyDateInput) {
     if (props.value) {
       setValue(props.value);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return <InputCreator {...props} value={value} handler={changeHandler} InputComponent={DateInput} />;

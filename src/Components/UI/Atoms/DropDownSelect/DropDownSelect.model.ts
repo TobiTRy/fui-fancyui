@@ -4,6 +4,7 @@ export default interface IDropDownSelect {
   id?: string;
   align?: 'left' | 'center';
   selected?: string;
+  name?: string;
   values?: string[];
   value?: string;
   disabled?: boolean;

@@ -18,6 +18,7 @@ interface IInputCreator {
   icon?: JSX.Element;
   value?: string;
   values?: string[];
+  name?: string;
   errorMessage?: string;
   disabled?: boolean;
   align?: 'left' | 'center';
@@ -33,7 +34,7 @@ interface IInputCreator {
 // -- The InputCreator is used for each input to get same design stucture ---- //
 // --------------------------------------------------------------------------- //
 export default function InputCreator(props: IInputCreator) {
-  const { InputComponent, label, value, values, handler, activeHandler, disabled, errorMessage, align, icon, underline, autoWidth } = props;
+  const { InputComponent, label, value, values, name, handler, activeHandler, disabled, errorMessage, align, icon, underline, autoWidth } = props;
   const [isActive, setIsActive] = useState(false);
 
   // the id is used to link the label and the input
@@ -64,6 +65,7 @@ export default function InputCreator(props: IInputCreator) {
     >
       <InputComponent
         id={id}
+        name={name}
         handler={inputValueHandler}
         disabled={disabled}
         value={value}

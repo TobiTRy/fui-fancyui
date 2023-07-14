@@ -10,6 +10,7 @@ export interface INumberInput {
   id?: string;
   disabled?: boolean;
   value?: string | number;
+  name?: string;
   errorMessage?: string;
   autoWidth?: boolean;
   active?: boolean;
@@ -20,7 +21,7 @@ export interface INumberInput {
   activeHandler?: (value: boolean) => void;
 }
 export default function NumberInput(props: INumberInput) {
-  const { value, handler, activeHandler, disabled, errorMessage, align, id, autoWidth, minValue, maxValue } = props;
+  const { value, handler, name, activeHandler, disabled, errorMessage, align, id, autoWidth, minValue, maxValue } = props;
 
   const focusHandler = (value: boolean) => {
     activeHandler && activeHandler(value);
@@ -31,6 +32,7 @@ export default function NumberInput(props: INumberInput) {
       id={id}
       type="number"
       placeholder=""
+      name={name}
       value={value}
       autoComplete={'off'}
       onChange={handler}

@@ -10,6 +10,7 @@ import IStyledPrefixAndPicker from '../../Interface/IStyledPrefixAndPicker.model
 interface IPasswordInputProps {
   id?: string;
   disabled?: boolean;
+  name?: string;
   value?: string;
   errorMessage?: string;
   align?: TRawInputAlign;
@@ -28,7 +29,7 @@ const StyledPasswordInput = styled(RawInput)<IStyledPasswordInput>`
 // --------------- The passwordInputcomponent for only the input ------------- //
 // --------------------------------------------------------------------------- //
 export default function PasswordInput(props: IPasswordInputProps) {
-  const { value, handler, activeHandler, disabled, errorMessage, align, id } = props;
+  const { value, handler, activeHandler, disabled, errorMessage, name, align, id } = props;
   const [isShowPassword, setIsShowPassword] = useState(false);
 
   const focusHandler = (value: boolean) => {
@@ -45,6 +46,7 @@ export default function PasswordInput(props: IPasswordInputProps) {
       <StyledPasswordInput
         id={id}
         type={isShowPassword ? 'text' : 'password'}
+        name={name}
         placeholder=""
         value={value}
         autoComplete={'off'}

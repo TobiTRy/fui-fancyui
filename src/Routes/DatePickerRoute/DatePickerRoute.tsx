@@ -2,7 +2,6 @@ import React from 'react';
 
 import FancyDatePicker from '../../Components/UI/Organisms/FancyDatePicker/FancyDatePicker';
 
-import FancyInput from '../../Components/UI/Molecules/FancyInput/FancyInputOld';
 import FancyDateDropDown from '../../Components/UI/Templates/Inputs/FancyDateDropDown/FancyDateDropDown';
 
 
@@ -15,7 +14,6 @@ export default function DatePickerRoute() {
         <FancyDateDropDown type="year" />
       </div>
       <FancyDatePicker disabledDateSetting={{disableWeekends: true}} />
-      <FancyInput label={'Test'} type="date" />
       <p>Test</p>
     </section>
   );

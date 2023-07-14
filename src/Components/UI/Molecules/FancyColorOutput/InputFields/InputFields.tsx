@@ -1,7 +1,7 @@
 import React from 'react';
 import { ColorTypes } from '../FancyColorOutput.model';
 
-import FancyInput from '../../FancyInput/FancyInputOld';
+import { FancyTextInput } from '../../../Organisms/FancyTextInput';
 import AdaptInputs from './AdaptInputs';
 import { ContainerInputs, WrapperInputs } from './InputFields.style';
 
@@ -33,7 +33,7 @@ export default function InputFields({currentColorObject, handler }:IInputFields)
       {/* if the color is a string render a input field for the HEX Colors */}
       {typeof currentColorObject?.color === 'string' ? (
         <ContainerInputs>
-          <FancyInput type="text" name='color' value={currentColorObject.color} align='center' handler={(e) => handleInputChange(e)}/>
+          <FancyTextInput name='color' value={currentColorObject.color} align='center' handler={(e) => handleInputChange(e)}/>
           <p>{currentColorObject.type}</p>
         </ContainerInputs>
       ) : (

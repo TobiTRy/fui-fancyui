@@ -10,6 +10,7 @@ export interface ITextInputProps {
   id?: string;
   disabled?: boolean;
   value?: string | number;
+  name?: string;
   errorMessage?: string;
   align?: TRawInputAlign;
   handler?: (e: ChangeEvent<HTMLInputElement>) => void;
@@ -24,7 +25,7 @@ const StyledTextInput = styled(RawInput)<IStyledTextInput>`
 `;
 
 export default function TextInput(props: ITextInputProps) {
-  const { value, handler, activeHandler, disabled, errorMessage, align, id } = props;
+  const { value, handler, name, activeHandler, disabled, errorMessage, align, id } = props;
 
   //this function is used to toggle the active state of the input
   const focusHandler = (value: boolean) => {
@@ -37,6 +38,7 @@ export default function TextInput(props: ITextInputProps) {
       type="text"
       placeholder=""
       value={value}
+      name={name}
       autoComplete={'off'}
       onChange={handler}
       disabled={disabled}

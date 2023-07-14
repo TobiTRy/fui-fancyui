@@ -4,7 +4,7 @@ import FancySwipeUpModal from '../../Components/UI/Organisms/FancySwipeUpModal/F
 import { useFancySwipeUpModalStore } from '../../Components/UI/Organisms/FancySwipeUpModal/FancySwipeUpModal.state';
 import FancyButton from '../../Components/UI/Molecules/FancyButton/FancyButton';
 
-import FancyInput from '../../Components/UI/Molecules/FancyInput/FancyInputOld';
+import { FancyTextInput } from '../../Components/UI/Organisms/FancyTextInput';
 
 
 export default function SwipeUpModal() {
@@ -16,9 +16,9 @@ export default function SwipeUpModal() {
       <FancyButton onClick={openModal} label="Open Modal"></FancyButton>
       <FancySwipeUpModal headline={{title: 'test', subTitle: 'test'}}>
 
-        <FancyInput label="Email" />
-        <FancyInput label="Email" />
-        <FancyInput label="Email" />
+        <FancyTextInput label="Email" />
+        <FancyTextInput label="Email" />
+        <FancyTextInput label="Email" />
         <FancyButton onClick={closeModal} label="Close Modal"></FancyButton>
       </FancySwipeUpModal>
     </section>

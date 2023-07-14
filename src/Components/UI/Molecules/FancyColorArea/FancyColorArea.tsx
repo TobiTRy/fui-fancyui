@@ -9,10 +9,9 @@ import {
   LightnessGradient,
   WrapperMarker,
   SaturationGradient,
-  CurrentColorArea
+  CurrentColorArea,
 } from './FancyColorArea.style';
 import ColorIndicator from '../../Atoms/ColorIndicator/ColorIndicator';
-
 
 //this function calculates the current color to a position using the HSV Color Type
 //HSV can be better used for merging Lightness and Saturation (L: 100 and S:100) = Full Color
@@ -28,7 +27,7 @@ const positionToColor = (hue: number, clientX: number, clientY: number, rect: DO
   return {
     h: hue ?? 0,
     s: saturation,
-    v: value
+    v: value,
   };
 };
 
@@ -57,11 +56,11 @@ interface IColorArea {
   color: Color;
   hue: number;
   handler: (color: Color) => void;
-};
-const ColorArea = ({ color, hue, handler }:IColorArea) => {
+}
+const ColorArea = ({ color, hue, handler }: IColorArea) => {
   //use the hue from the parent component or set it to 0
   const currentHue = hue ?? 0;
-  
+
   //use the useSlider hook handles all the interaction with the color area
   const { sliderRef, markerPosition, handleInteractionStart, isInteracting } = useSlider({
     color,
@@ -75,17 +74,20 @@ const ColorArea = ({ color, hue, handler }:IColorArea) => {
   return (
     <WrapperColorArea>
       {/* the color indicator that displays the current picked color (Moves with the marker)*/}
-      <ColorIndicator position={{y: markerPosition.y + '%', x: markerPosition.x + '%' }} color={Color(color).toString()} isActive={isInteracting}/>
+      <ColorIndicator
+        position={{ y: markerPosition.y + '%', x: markerPosition.x + '%' }}
+        color={Color(color).toString()}
+        isActive={isInteracting}
+      />
       {/* the color area with the gradients (PickedColor / Lightness / Saturation) */}
       <ColorAreaContainer ref={sliderRef} onMouseDown={handleInteractionStart} onTouchStart={handleInteractionStart}>
-        <CurrentColorArea $hue={hue}/>
-        <LightnessGradient/>
-        <SaturationGradient/>
+        <CurrentColorArea $hue={hue} />
+        <LightnessGradient />
+        <SaturationGradient />
         {/* the marker to display there current picked color on the area */}
-        <WrapperMarker style={{ transform: `translate(${markerPosition.x + '%'}, ${markerPosition.y + '%'})`}}>
+        <WrapperMarker style={{ transform: `translate(${markerPosition.x + '%'}, ${markerPosition.y + '%'})` }}>
           <Marker />
         </WrapperMarker>
-        
       </ColorAreaContainer>
     </WrapperColorArea>
   );
