@@ -6,7 +6,7 @@ import { IDisabledDateSettings } from './IDisableDateSettings.model';
 
 import Day from './day.model';
 import createDaysOfMonth from './createDaysOfMonth';
-import IExternalMonthWithDays, { IDateWithExternalState } from './IExternalMonthWithDays.model';
+import  { IDateWithExternalState, IExternalMonthWithDays } from './IExternalMonthWithDays.model';
 
 const getFirstDayOfMonth = (month: number, year: number): number => {
   return new Date(year, month - 1, 1).getDay() || 7;
@@ -47,8 +47,7 @@ export default function MonthWithDays(props: IMonthWithDays) {
       }),
     };
     return month;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [monthIdx, selectedDates, isRangePicking, monthDays]);
+  }, [monthIdx, selectedDates, isRangePicking, monthDays, year, disabledDateSetting]);
 
   useEffect(() => {
     if (externalMonthWithDays) {
@@ -60,14 +59,14 @@ export default function MonthWithDays(props: IMonthWithDays) {
 
       setMonthDays(daysOfMonth as IDateWithExternalState[]);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [externalMonthWithDays]);
+
+  }, [externalMonthWithDays, year, monthIdx]);
 
 
 
   return (
     <div>
-      <h2>{month.name}</h2>
+      <h2 tabIndex={0} aria-label={`${month.name} ${year}`}>{month.name}</h2>
       <DaysContainer>
         {/* Generate the empty spaces for the start of the month  */}
         {Array.from({ length: getFirstDayOfMonth(monthIdx + 1, year) - 1 }, (_, i) => (
@@ -79,7 +78,7 @@ export default function MonthWithDays(props: IMonthWithDays) {
             key={day.number}
             disabled={day.disabled}
             dateNumber={day.number}
-            isCurrentDay={day.number === new Date().getDate() && monthIdx === new Date().getMonth()}
+            isCurrentDay={day.number === new Date().getDate() && monthIdx === new Date().getMonth() && year === new Date().getFullYear()}
             isSelected={day.isSelected}
             range={day.range}
             isAvailable={day.isAvilable || 'completly'}

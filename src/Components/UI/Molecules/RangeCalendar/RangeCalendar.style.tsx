@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { spacingPx, uiColors } from "../../Design/design";
+import styled from 'styled-components';
+import { spacingPx, uiColors } from '../../Design/design';
 
 export const MonthContainer = styled.div`
   margin-top: ${spacingPx.md};
@@ -15,12 +15,16 @@ export const StyledCalendar = styled.div`
   width: 100%;
   height: 300px;
   overflow-y: auto;
+  &::-webkit-scrollbar {
+    display: none;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 `;
 
 export const DateContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-
 `;
 
 // this span is for the empty days

@@ -6,39 +6,9 @@ import useSelectedDates from './useSelectedDates';
 import useVisibleMonths from './useVisibleMonths';
 
 import { IDisabledDateSettings } from '../MonthWithDays/IDisableDateSettings.model';
-import IExternalMonthWithDays from '../MonthWithDays/IExternalMonthWithDays.model';
+import {IExternalMonthWithDays} from '../MonthWithDays/IExternalMonthWithDays.model';
 import { IDateArray } from './IDateArray.model';
 
-const externalMonth: IExternalMonthWithDays[] = [
-  {
-    monthIdx: 7,
-    year: 2023,
-    dates: [
-      {
-        date: 1,
-        isAvilable: 'not',
-      },
-    ],
-  },
-  {
-    monthIdx: 5,
-    year: 2023,
-    dates: [
-      {
-        date: 1,
-        isAvilable: 'not',
-      },
-      {
-        date: 2,
-        isAvilable: 'not',
-      },
-      {
-        date: 3,
-        isAvilable: 'partially',
-      },
-    ],
-  },
-];
 
 // --------------------------------------------------------------------------- //
 // -------- The main calenader wich can select a date, or date range ---------- //
@@ -50,7 +20,7 @@ interface ICalendar {
   selectFromTo?: 'from' | 'to' | undefined;
   handleSwitchFromTo?: (change: 'from' | 'to') => void;
   disabledDateSetting?: IDisabledDateSettings;
-  externalMonthWithDays?: IExternalMonthWithDays[];
+  externalMonthsWithDays?: IExternalMonthWithDays[];
 }
 export default function RangeCalendar(props: ICalendar) {
   const {
@@ -59,7 +29,7 @@ export default function RangeCalendar(props: ICalendar) {
     selectFromTo,
     handleSwitchFromTo,
     disabledDateSetting,
-    externalMonthWithDays = externalMonth,
+    externalMonthsWithDays,
     rangeCalendar = false,
   } = props;
   const monthRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -79,16 +49,19 @@ export default function RangeCalendar(props: ICalendar) {
   }, []);
 
   useEffect(() => {
-    if (externalMonthWithDays) {
+    // compare the year of the external state with the selected year
+    if (externalMonthsWithDays) {
       // create a array for each month of a year and fill it with the external state
       const monthsOfYearExternal = new Array(12).fill({});
-      externalMonthWithDays.forEach((month) => {
+      externalMonthsWithDays.forEach((month) => {
         monthsOfYearExternal[month.monthIdx] = month;
       });
       setExternalMonthsData(monthsOfYearExternal);
+    } else {
+      setExternalMonthsData([]);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [selectedYear, externalMonthsWithDays]);
 
   return (
     <StyledCalendar>
@@ -123,6 +96,5 @@ export default function RangeCalendar(props: ICalendar) {
 }
 
 RangeCalendar.defaultProps = {
-  externalMonthWithDays: externalMonth,
   rangeCalendar: false,
 };
