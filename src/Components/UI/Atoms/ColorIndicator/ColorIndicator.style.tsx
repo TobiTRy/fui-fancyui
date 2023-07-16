@@ -10,9 +10,9 @@ export const WrapperIndicator = styled.div<{$isActive: boolean}>`
   pointer-events: none
 `
 
-export const Indicator = styled.div.attrs<{$color: string}>(({color}) => ({
+export const Indicator = styled.div.attrs<{$color: string}>(({$color}) => ({
   style: {
-    backgroundColor: color,
+    backgroundColor: $color,
   },
 }))<{$isActive: boolean}>`
   background-color: white;

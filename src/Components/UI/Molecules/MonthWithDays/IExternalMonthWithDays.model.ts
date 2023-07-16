@@ -5,10 +5,13 @@ export type IDateWithExternalState = {
   isAvilable: IAvilableDot;
 };
 
-interface IExternalMonthWithDays {
+export interface IExternalMonthWithDays {
   monthIdx: number;
-  year: number;
   dates?: IDateWithExternalState[];
 }
 
-export default IExternalMonthWithDays;
+interface IExternalYearWithMonths {
+  [key: number]: IExternalMonthWithDays[];
+}
+
+export default IExternalYearWithMonths;

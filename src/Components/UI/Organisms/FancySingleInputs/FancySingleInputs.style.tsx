@@ -28,7 +28,7 @@ export const Message = styled.p<{ $status?: boolean }>`
   ${({ $status }) =>
     $status &&
     css`
-      max-height: 100px; /* you may need to adjust this depending on your needs */
+      max-height: 100px;
       visibility: visible;
       opacity: 1;
     `}

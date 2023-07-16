@@ -24,19 +24,13 @@ interface IDateNumberWithStatus {
   isCurrentDay?: boolean;
   range?: IRange;
   onClick?: () => void;
-};
+}
 export default function DateNumberWithStatus(props: IDateNumberWithStatus) {
   const { isAvailable, disabled, dateNumber, isSelected, onClick, range, isCurrentDay } = props;
 
   return (
     <StyledDateNumberWithStatus onClick={onClick}>
-      <DateNumberAtom
-        dateNumber={dateNumber}
-        disabled={disabled}
-        selected={isSelected}
-        isCurrentDay={isCurrentDay}
-        range={range}
-      />
+      <DateNumberAtom dateNumber={dateNumber} disabled={disabled} selected={isSelected} isCurrentDay={isCurrentDay} range={range} />
       <AvilableDot $avilable={disabled ? 'transparent' : isAvailable!} />
     </StyledDateNumberWithStatus>
   );

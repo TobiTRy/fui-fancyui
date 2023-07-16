@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import InputLabel from './InputLabel1';
+import InputLabel from './InputLabel';
 import { spacingPx, uiColors } from '../Design/design';
 
 //the aligned label is only with align left or centerd {align?: string; active?: boolean}

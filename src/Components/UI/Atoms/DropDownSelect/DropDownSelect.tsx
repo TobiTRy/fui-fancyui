@@ -6,7 +6,7 @@ import IDropDownSelect from './DropDownSelect.model';
 // ---------------- the blank drop down select ---------------------- //
 // ------------------------------------------------------------------ //
 export default function DropDownSelect(props: IDropDownSelect) {
-  const { id, value, values, align, handler, disabled, activeHandler, emptySelect } = props;
+  const { id, value, values, name, align, handler, disabled, activeHandler, emptySelect } = props;
 
   const focusHandler = (value: boolean) => {
     activeHandler && activeHandler(value);
@@ -17,6 +17,7 @@ export default function DropDownSelect(props: IDropDownSelect) {
       $align={align}
       $labelAlign={align}
       id={id}
+      name={name}
       disabled={disabled}
       value={value ? value : ''}
       required

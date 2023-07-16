@@ -2,7 +2,7 @@
   "name": "@mrtryy/fancyuilibary",
   "description": "FancyUI Libary",
   "private": false,
-  "version": "0.1.12111",
+  "version": "0.1.12114",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -16,10 +16,7 @@
     "@types/color": "^3.0.3",
     "@types/react-router-dom": "^5.3.3",
     "color": "^4.2.3",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
     "react-router-dom": "^6.14.1",
-    "styled-components": "^6.0.3",
     "vite-plugin-dts": "^3.1.1",
     "zustand": "^4.3.9"
   },
@@ -35,6 +32,11 @@
     "json": "^11.0.0",
     "typescript": "^5.0.2",
     "vite": "^4.4.0"
+  },
+  "peerDependencies": {
+    "styled-components": "^6.0.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "files": [
     "dist"

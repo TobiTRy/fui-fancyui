@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import YearSelector from '../../Atoms/YearSelector/YearSelector';
 import WeekDays from '../../Atoms/WeekDays/WeekDays';
 import RangeCalendar from '../../Molecules/RangeCalendar/RangeCalendar';
 import { DatePickerContainer, WrapperWeekdays, WrapperYearSelector } from './FancyDatePicker.style';
+import IExternalYearWithMonths, { IExternalMonthWithDays } from '../../Molecules/MonthWithDays/IExternalMonthWithDays.model';
 
 
 import DateOutputFromTo from '../../Molecules/DateOutputFromTo/DateOutputFromTo';
@@ -19,10 +20,11 @@ interface IFancyDatePicker {
   handler?: (date: IDateArray) => void;
   selectedYear?: number;
   disabledDateSetting?: IDisabledDateSettings;
+  externalData?: IExternalYearWithMonths;
 }
 
 export default function FancyDatePicker(props: IFancyDatePicker) {
-  const { rangeCalendar, handler, selectedYear, disabledDateSetting } = {...defaultProps, ...props};
+  const { rangeCalendar, handler, selectedYear, disabledDateSetting, externalData } = {...defaultProps, ...props};
   const selectedDate = useFancyDatePickerState((state) => state.selectedDateRange);
   const setSelectedDate = useFancyDatePickerState((state) => state.setSelectedDateRange);
 
@@ -51,6 +53,7 @@ export default function FancyDatePicker(props: IFancyDatePicker) {
       </WrapperWeekdays>
       <RangeCalendar
         rangeCalendar={rangeCalendar}
+        externalMonthsWithDays={externalData ? externalData[`${currentlySelectedYear}`] : undefined}
         selectedYear={currentlySelectedYear}
         handler={handleDateChange}
         selectFromTo={currentlySelectedFromOrTo ?? 'from'}

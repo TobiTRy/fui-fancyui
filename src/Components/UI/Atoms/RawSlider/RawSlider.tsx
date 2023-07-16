@@ -34,7 +34,7 @@ export default function RawSlider(props: IRawSlider) {
 
   const inputHandler = (e: React.ChangeEvent<HTMLInputElement> | { target?: HTMLInputElement | null }) => {
     //if handler become no valid traget, skip the function
-    let target = e.target;
+    const target = e.target;
     if (!target) return;
 
     //calc sting to vale
@@ -61,7 +61,7 @@ export default function RawSlider(props: IRawSlider) {
     setSliderProgress(currVal);
 
     //fake event
-    let e = { target: inputSlider.current };
+    const e = { target: inputSlider.current };
     inputHandler(e);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

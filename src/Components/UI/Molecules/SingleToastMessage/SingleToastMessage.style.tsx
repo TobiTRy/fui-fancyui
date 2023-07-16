@@ -13,8 +13,6 @@ interface TimerLineProps {
   $time: number;
 }
 
-
-
 // styles for single toast message
 export const Container = styled.div<IToastMessage>`
   z-index: 99;

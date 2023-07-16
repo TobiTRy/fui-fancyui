@@ -1,18 +1,17 @@
-import styled, { css } from "styled-components";
-import { disabledStyle } from "../../HelperFunctions/disableStyle";
-import { spacingPx, fontSize, colorPalet, spacing } from "../../Design/design";
+import styled, { css } from 'styled-components';
+import { disabledStyle } from '../../HelperFunctions/disableStyle';
+import { spacingPx, fontSize, colorPalet, spacing } from '../../Design/design';
 
-export const StyledInputWrapper = styled.div<{disabled?: boolean, autoWidth?: boolean}>`
+export const StyledInputWrapper = styled.div<{ disabled?: boolean; autoWidth?: boolean }>`
   box-sizing: border-box;
   position: relative;
   display: grid;
   grid-template-columns: auto 1fr auto;
   grid-template-rows: 1fr auto;
-  width: ${({autoWidth}) => autoWidth ? 'auto' : '100%'};
-  
-  ${({disabled}) => disabled ? disabledStyle : ''};
-`;
+  width: ${({ autoWidth }) => (autoWidth ? 'auto' : '100%')};
 
+  ${({ disabled }) => (disabled ? disabledStyle : '')};
+`;
 
 //the style for the error message
 export const ErrorMessage = styled.p`
@@ -24,7 +23,6 @@ export const ErrorMessage = styled.p`
   color: ${colorPalet.red_dark};
 `;
 
-
 //the input/label/underline are all wrapped in thid container
 export const InputContainer = styled.div<{ $givePadding: boolean }>`
   width: 100%;
@@ -35,4 +33,8 @@ export const InputContainer = styled.div<{ $givePadding: boolean }>`
       padding-top: ${spacing.lg + 2 + 'px'};
     `};
   position: relative;
+
+  input {
+    padding: 0px 0px ${spacing.xs + 2 + 'px'};
+  }
 `;

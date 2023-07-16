@@ -1,6 +1,6 @@
 import React, { ChangeEvent, useId, useState } from 'react';
 
-import PasswortInput from '../../Molecules/PasswortInput/PasswortInput';
+import PasswordInput from '../PasswordInput/PasswordInput';
 import TextInput from '../../Molecules/TextInput/TextInput';
 import NumberInput from '../../Molecules/NumberInput/NumberInput';
 import InputWrapper from '../InputWrapper/InputWrapper';
@@ -13,11 +13,12 @@ export type IInputCreatorHandler = (value?: string, e?: ChangeEvent<HTMLInputEle
 export type IInputCreatorActiveHandler = (value: boolean) => void;
 
 interface IInputCreator {
-  InputComponent: typeof PasswortInput | typeof TextInput | typeof NumberInput | typeof DropDownSelect | typeof DateInput;
+  InputComponent: typeof PasswordInput | typeof TextInput | typeof NumberInput | typeof DropDownSelect | typeof DateInput;
   label?: string;
   icon?: JSX.Element;
   value?: string;
   values?: string[];
+  name?: string;
   errorMessage?: string;
   disabled?: boolean;
   align?: 'left' | 'center';
@@ -28,12 +29,12 @@ interface IInputCreator {
   max?: number;
   step?: number;
   autoWidth?: boolean;
-};
+}
 // --------------------------------------------------------------------------- //
 // -- The InputCreator is used for each input to get same design stucture ---- //
 // --------------------------------------------------------------------------- //
 export default function InputCreator(props: IInputCreator) {
-  const { InputComponent, label, value, values, handler, activeHandler, disabled, errorMessage, align, icon, underline, autoWidth } = props;
+  const { InputComponent, label, value, values, name, handler, activeHandler, disabled, errorMessage, align, icon, underline, autoWidth } = props;
   const [isActive, setIsActive] = useState(false);
 
   // the id is used to link the label and the input
@@ -64,6 +65,7 @@ export default function InputCreator(props: IInputCreator) {
     >
       <InputComponent
         id={id}
+        name={name}
         handler={inputValueHandler}
         disabled={disabled}
         value={value}

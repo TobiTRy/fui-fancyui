@@ -19,7 +19,9 @@ export default function FancySingleInputs(props: IFancySingleInputs) {
   // this function validates the input key with the api
   const validateValue = () => {
     setStatus({ ...status, isLoading: true });
-
+    
+    //TODO: Clean this up
+    if(!api) return console.error('No api provided')
     fetch(`${api}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },

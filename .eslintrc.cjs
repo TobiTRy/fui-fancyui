@@ -1,5 +1,4 @@
 /* eslint-env node */
-
 module.exports = {
   root: true,
   env: { browser: true, es2020: true },
@@ -18,10 +17,9 @@ module.exports = {
   },
   plugins: ['react-refresh'],
   rules: {
-    'react-refresh/only-export-components': [
-      'warn',
-      { allowConstantExport: true },
-    ],
+    'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
     '@typescript-eslint/no-non-null-assertion': 'off',
+    '@typescript-eslint/restrict-plus-operands': 'off',
+    "@typescript-eslint/no-non-null-asserted-optional-chain": "off"
   },
-}
+};

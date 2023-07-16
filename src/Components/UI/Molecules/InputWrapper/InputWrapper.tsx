@@ -4,7 +4,7 @@ import { css } from 'styled-components';
 import { ErrorMessage, StyledInputWrapper, InputContainer } from './InputWrapper.style';
 import UnderLine from '../../Atoms/InputUnderline';
 
-import SVGAtom from '../../Atoms/SVGAtom/SVGAtom';
+import FancySVGAtom from '../../Atoms/FancySVGAtom/FancySVGAtom';
 import { spacing } from '../../Design/design';
 import { AnimatedInputLabel } from '../../Atoms/AnimatedLabel';
 
@@ -27,13 +27,17 @@ export interface IInputWrapper {
   align?: 'left' | 'center';
   autoWidth?: boolean;
   underline?: boolean;
-};
+}
 export default function InputWrapper(props: IInputWrapper) {
   const { id, isActiv, disabled, children, errorMessage, icon, label, align, underline = true, autoWidth } = props;
 
   return (
     <StyledInputWrapper disabled={disabled} autoWidth={autoWidth}>
-      {icon && <SVGAtom externalStyle={iconStyle} size="large" isActive={isActiv}>{icon}</SVGAtom>}
+      {icon && (
+        <FancySVGAtom externalStyle={iconStyle} size="large" isActive={isActiv}>
+          {icon}
+        </FancySVGAtom>
+      )}
       <InputContainer $givePadding={Boolean(label)}>
         {children}
         {/* the label for the input field it shows when a label prop exists*/}
@@ -42,11 +46,11 @@ export default function InputWrapper(props: IInputWrapper) {
             {label}
           </AnimatedInputLabel>
         )}
-        {underline && <UnderLine $errorMessage={errorMessage} $isActive={isActiv}/> }
+        {underline && <UnderLine $errorMessage={errorMessage} $isActive={isActiv} />}
       </InputContainer>
       {/* // ---------if a errorMessage prop exists this message will shown------------- // */}
       {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
       {/* // --------------------------------------------------------------------------- // */}
     </StyledInputWrapper>
   );
-};
+}

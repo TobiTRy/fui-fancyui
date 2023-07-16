@@ -6,9 +6,7 @@ import { calcIconPaddingAndAlign } from './generateIconPadding';
 import { generatePadding } from './generatePadding';
 import { borderRadius, fontSize, spacing, uiColors } from '../Design/design';
 import { IUiColorsTypes } from '../Design/design';
-import IStyledPrefixAndPicker from '../Interface/IStyledPrefixAndPicker.model';
 import IStyledPrefixAndOmiter from '../Interface/IStyledPrefixAndOmiter.model';
-
 
 export interface IGenerateThemeItemProps {
   outlined?: boolean;
@@ -17,11 +15,11 @@ export interface IGenerateThemeItemProps {
   label?: string;
   wide?: boolean;
   design: IUiColorsTypes;
-  align?: "left" | "right" | "center";
-  color?: "primary" | "secondary" | "accent";
-  hoverColor?: "primary" | "secondary" | "accent";
-};
-export type IGenerateThemeItem = IStyledPrefixAndOmiter<IGenerateThemeItemProps>
+  align?: 'left' | 'right' | 'center';
+  color?: 'primary' | 'secondary' | 'accent';
+  hoverColor?: 'primary' | 'secondary' | 'accent';
+}
+export type IGenerateThemeItem = IStyledPrefixAndOmiter<IGenerateThemeItemProps>;
 
 // --------------------------------------------------------------------------- //
 // ---------- Here are the $design variants for sizing and alignment ---------- //
@@ -47,7 +45,7 @@ const paddingIconButton = {
 type IcalcTextColor = Pick<IGenerateThemeItem, '$color' | '$design' | '$outlined'>;
 const calcTextColor = ({ $color, $design, $outlined }: IcalcTextColor) => {
   if ($color) {
-    return uiColors[$color].main
+    return uiColors[$color].main;
   } else if ($outlined) {
     return uiColors[$design].main;
   } else {
@@ -101,7 +99,7 @@ const generateOutlined = (props: IGenerateOutlinedItem) => {
   const paddings = generatePadding(-2, Boolean($label));
 
   //this calculates the textcolor depend on $design and $color
-  const textColor = calcTextColor({$color, $design, $outlined});
+  const textColor = calcTextColor({ $color, $design, $outlined });
 
   //this makes the color, no matther which one transparent
   const backgroundColor = Color(uiColors[$design].main).alpha(0.1).hexa();
@@ -124,13 +122,13 @@ const generateOutlined = (props: IGenerateOutlinedItem) => {
 //-----this funktion generates a button that looks like a normal button-----//
 type IGenerateNormalitem = Pick<IGenerateThemeItem, '$design' | '$size' | '$label' | '$hoverColor' | '$color' | '$outlined'>;
 const generateNormal = (props: IGenerateNormalitem) => {
-  const { $design, $size, $label, $hoverColor, $color,  $outlined } = props;
+  const { $design, $size, $label, $hoverColor, $color, $outlined } = props;
 
   //reduce the padding with the border $size
   const paddings = generatePadding(0, !$label ? false : true);
 
   //this calculates the textcolor depend on $design and $color
-  const textColor = calcTextColor({$color, $design, $outlined});
+  const textColor = calcTextColor({ $color, $design, $outlined });
 
   const hoverColorStyle = $design === 'transparent' && $hoverColor ? uiColors[$hoverColor].dark : uiColors[$design].dark;
 
@@ -154,13 +152,13 @@ const generateNormal = (props: IGenerateNormalitem) => {
 const generateThemeItem = (props: IGenerateThemeItem) => {
   const { $outlined, $icon, $size, $label, $wide } = props;
 
-  let itemStyle, iconStyle, generateBorderRadius;
+  let iconStyle, generateBorderRadius;
 
   //if the button a $outlined generate this, it his a normal generate an normal
-  itemStyle = $outlined ? generateOutlined(props) : generateNormal(props);
+  const itemStyle = $outlined ? generateOutlined(props) : generateNormal(props);
 
   //this claculates the borderradius depeend on if its a $wide button or not
-  generateBorderRadius = $wide ? borderRadius!.large : borderRadius[$size];
+  generateBorderRadius = $wide ? borderRadius.large : borderRadius[$size];
 
   //gets the style of a button with a $icon
   if ($icon) iconStyle = generateIcon(props);
@@ -169,7 +167,6 @@ const generateThemeItem = (props: IGenerateThemeItem) => {
   if (Boolean(!$label) && !$wide) {
     generateBorderRadius = '50%';
   }
-
 
   return css`
     display: flex;
@@ -188,6 +185,5 @@ const generateThemeItem = (props: IGenerateThemeItem) => {
     ${iconStyle}
   `;
 };
-
 
 export default generateThemeItem;

@@ -1,6 +1,4 @@
 import React, { useEffect } from 'react';
-import styled from 'styled-components';
-import { fontSize, uiColors } from '../../Design/design';
 import SVGChevronLeft from '../../SVGIcons/SVGChevronLeft';
 import SVGChevronRight from '../../SVGIcons/SVGChevronRight';
 
@@ -35,9 +33,9 @@ export default function YearSelector({ selectedYear, handler }: IYearSelector) {
 
   return (
     <StyledYearSelector>
-      <StyledButton onClick={() => handleYearChange(-1)}>{SVGChevronLeft}</StyledButton>
-      <span>{pickedYear}</span>
-      <StyledButton onClick={() => handleYearChange(1)}>{SVGChevronRight}</StyledButton>
+      <StyledButton aria-label="a year back" onClick={() => handleYearChange(-1)}>{SVGChevronLeft}</StyledButton>
+      <span tabIndex={0}>{pickedYear}</span>
+      <StyledButton aria-label="one year forward" onClick={() => handleYearChange(1)}>{SVGChevronRight}</StyledButton>
     </StyledYearSelector>
   );
 }

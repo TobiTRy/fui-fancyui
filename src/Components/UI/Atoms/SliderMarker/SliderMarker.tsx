@@ -12,8 +12,8 @@ export const WrapperMarker = styled.div`
   margin-right: 0;
   width: 5px;
   z-index: 2;
-    transform: translate(-2.5px);
-  `;
+  transform: translate(-2.5px);
+`;
 
 const Marker = styled.div`
   box-sizing: border-box;
@@ -32,7 +32,7 @@ interface ISliderMarker {
   position: string;
   children?: React.ReactNode;
 }
-export default function SliderMarker({position, children}: ISliderMarker) {
+export default function SliderMarker({ position, children }: ISliderMarker) {
   return (
     <WrapperMarker style={{ left: `${position}` }}>
       <Marker>
@@ -40,5 +40,5 @@ export default function SliderMarker({position, children}: ISliderMarker) {
         {children && children}
       </Marker>
     </WrapperMarker>
-  )
+  );
 }

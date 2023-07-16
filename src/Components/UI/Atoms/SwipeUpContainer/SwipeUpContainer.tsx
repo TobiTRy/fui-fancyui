@@ -1,16 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { uiColors } from '../../Design/design';
-import { borderRadius } from '../../Design/design';
+import { uiColors, borderRadius, spacingPx } from '../../Design/design';
 
-
-const StyledSwipeUpContainer = styled.div`
+const StyledSwipeUpContainer = styled.div<{$giveSpace: boolean}>`
   width: 100%;
   max-height: 90%;
   border-radius: ${borderRadius.xxxl} ${borderRadius.xxxl} 0 0;
   position: sticky;
   top: 0;
+  padding-top: ${({ $giveSpace }) => $giveSpace ? spacingPx.lg : '0'};
   box-shadow: unset;
   display: flex;
   flex-direction: column;
@@ -26,8 +25,9 @@ const StyledSwipeUpContainer = styled.div`
 // --------------------------------------------------------------------------- //
 interface ISwipeUpContainer {
   children: React.ReactNode;
-  style?: {height: string};
-};
-export default function SwipeUpContainer({ children, style }: ISwipeUpContainer) {
-  return <StyledSwipeUpContainer style={style}>{children}</StyledSwipeUpContainer>;
-};
+  style?: { height: string };
+  isScalable?: boolean;
+}
+export default function SwipeUpContainer({ children, isScalable = true, style }: ISwipeUpContainer) {
+  return <StyledSwipeUpContainer style={isScalable ? style : { height: 'auto' }} $giveSpace={!isScalable}>{children}</StyledSwipeUpContainer>;
+}

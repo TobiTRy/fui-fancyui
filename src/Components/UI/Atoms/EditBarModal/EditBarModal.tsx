@@ -1,5 +1,5 @@
 import React from 'react';
-import { IEditBarModal } from './IEditbarModa.model';
+import { IEditBarModal } from './IEditbarModal.model';
 import { Wrapper,  WrapperContent } from './EditBarModal.style';
 
 import ModalTitleArea from '../ModalTitleArea/ModalTitleArea';

@@ -4,7 +4,7 @@ import './App.css';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
 
-import { useModalModuleStore } from './Components/UI/Organisms/ModalModule/ModalModule.state';
+import { useFancyModalStore } from './Components/UI/Organisms/FancyModal/FancyModal.state';
 
 import SwipeUpModal from './Routes/SwipeUpModal/SwipeUpModal';
 import SingleNumberInputRoute from './Routes/SingleNumberInputRoute/SingleNumberInputRoute';
@@ -13,6 +13,9 @@ import InputsRoute from './Routes/InputsRoute/InputsRoute';
 import CradRoute from './Routes/CardRoute/CradRoute';
 import ModalRoute from './Routes/ModalRoute/ModalRoute';
 import ColorPickerRoute from './Routes/ColorPickerRoute/ColorPickerRoute';
+import HeaderRoute from './Routes/HeaderRoute/HeaderRoute';
+import ToastMessageRoute from './Routes/ToastMessageRoute/ToastMessageRoute';
+import Typogrphy from './Routes/Typography/Typogrphy';
 
 // const Icon = (
 //   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -33,7 +36,7 @@ const array = [
   {
     title: 'Submit',
     onClick: () => {
-      useModalModuleStore
+      useFancyModalStore
         .getState()
         .openModal({ headline: { title: 'test', subTitle: 'test' }, content: <div>hi</div>, bottomLine: { buttons: array } });
     },
@@ -90,6 +93,15 @@ function App() {
               <li>
                 <Link to="/colorPicker">colorPicker</Link>
               </li>
+              <li>
+                <Link to="/header">Header</Link>
+              </li>
+              <li>
+                <Link to="/toastMessage">ToastMessage</Link>
+              </li>
+              <li>
+                <Link to="/typography">Typography</Link>
+              </li>
             </ul>
           </nav>
 
@@ -102,7 +114,10 @@ function App() {
             <Route path="/datePicker" element={<DatePickerRoute />} />
             <Route path="/inputsRoute" element={<InputsRoute />} />
             <Route path="/card" element={<CradRoute />} />
+            <Route path="/header" element={<HeaderRoute />} />
             <Route path="/colorPicker" element={<ColorPickerRoute />} />
+            <Route path="/toastMessage" element={<ToastMessageRoute />} />
+            <Route path="/typography" element={<Typogrphy />} />
             <Route path="/" element={<SwipeUpModal />} />
           </Routes>
         </div>
@@ -131,7 +146,7 @@ function App() {
     //       <FancyButton size="small" wide={true} design="accent" onClick={handleClick} label="Toaster"></FancyButton>
     //     </section>
     //     <section>
-    //       <EditBarIconButton label="Test" icon={svg} active={activated} handler={() => setActivated(!activated)} />
+    //       <FancyBottomBarIcon label="Test" icon={svg} active={activated} handler={() => setActivated(!activated)} />
     //     </section>
     //     <section>
     //       <FancyRangeSlider displayNumber={true} labelAlign={'left'} icon={svg} maxValue={50} minValue={-50} label={'Im tobi tester'} />

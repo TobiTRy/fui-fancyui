@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import { colorPalet, uiColors } from '../Design/design';
 import { alignHandler } from '../HelperFunctions/alignmentHandler';
 
-import InputLabel from './InputLabel1';
+import InputLabel from './InputLabel';
 
 //the animated label is for the inputs where the Placholder is the label
 export const AnimatedInputLabel = styled(InputLabel)<{ $align?: string; $disabledAndSelected?: boolean }>`
