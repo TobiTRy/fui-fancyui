@@ -12,7 +12,7 @@ import ModalHeadLine from '../../Molecules/FancyModalHeadLine/FancyModalHeadLine
 interface IFancySwipeUpModal {
   appendToDomID?: string;
 }
-export default function FancySwipeUpModal({appendToDomID }: IFancySwipeUpModal) {
+export default function FancySwipeUpModal({ appendToDomID }: IFancySwipeUpModal) {
   // get the global states and actions from the store to handle the modal
   const modals = useFancySwipeUpModalStore((state) => state.modals);
   const removeSwipeUpModal = useFancySwipeUpModalStore((state) => state.removeSwipeUpModal);
@@ -30,12 +30,18 @@ export default function FancySwipeUpModal({appendToDomID }: IFancySwipeUpModal) 
     }, 250);
   };
 
-
   return (
     <FancyPortal appendToID={appendToDomID}>
       {/* The Mobile Modal Component  */}
       {modals.map((modal, key) => (
-        <SwipeUpModal key={key} status={modal.status} id={modal.id} closeHandler={() => closeModalHandler(modal.id)}>
+        <SwipeUpModal
+          key={key}
+          status={modal.status}
+          id={modal.id}
+          isCloseAble={modal.content.settings?.isCloseAble}
+          isScalable={modal.content.settings?.isScalable}
+          closeHandler={() => closeModalHandler(modal.id)}
+        >
           {/* if there is a headline, render it */}
           {modal.content.headline && <ModalHeadLine {...modal.content.headline} />}
           {/* render the children of the modal  */}
