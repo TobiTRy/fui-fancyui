@@ -1,6 +1,6 @@
 import { IFancyBottomBarIcon } from '../../../Atoms/FancyBottomBarIcon/FancyBottomBarIcon.model';
 import IFancyDropDownSelect from '../../FancyDropDownSelect/FancyDropDownSelect.model';
-import IFancyInput from '../../../Molecules/FancyInput/FancyInput.model';
+import { FancyTextInputProps } from '../../FancyTextInput/FancyTextInput';
 import IFancyRangeSlider from '../../FancyRangeSlider/FancyRangeSlider.model';
 import IFancyTab from '../../../Molecules/FancyTabSwitch/IFancyTab.model';
 
@@ -18,7 +18,7 @@ interface IDropDown extends ISettingsItem, IFancyDropDownSelect {
   settingsType: 'dropDown';
 }
 
-interface ITextInput extends ISettingsItem, IFancyInput {
+interface ITextInput extends ISettingsItem, FancyTextInputProps {
   settingsType: 'textInput';
 }
 

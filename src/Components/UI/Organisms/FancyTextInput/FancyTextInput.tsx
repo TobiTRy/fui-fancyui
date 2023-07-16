@@ -2,7 +2,7 @@ import React, { ChangeEvent, useEffect, useState } from 'react';
 import InputCreator, { IInputCreatorHandler, IInputCreatorActiveHandler } from '../../Molecules/InputCreator/InputCreator';
 import TextInput from '../../Molecules/TextInput/TextInput';
 
-interface FancyTextInputProps {
+export interface FancyTextInputProps {
   value?: string;
   name?: string;
   errorMessage?: string;

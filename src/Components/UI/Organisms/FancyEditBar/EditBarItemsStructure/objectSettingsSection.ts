@@ -45,13 +45,11 @@ const sectionSectionBox: ICategory = [
         settings: [
           {
             settingsType: 'textInput',
-            type: 'text',
             label: 'Test1',
             align: 'center',
           },
           {
             settingsType: 'textInput',
-            type: 'text',
             label: 'Test1',
             align: 'center',
           },
@@ -62,13 +60,11 @@ const sectionSectionBox: ICategory = [
         settings: [
           {
             settingsType: 'textInput',
-            type: 'text',
             label: 'Test',
             align: 'center',
           },
           {
             settingsType: 'textInput',
-            type: 'text',
             label: 'Test',
             align: 'center',
           },
@@ -79,13 +75,11 @@ const sectionSectionBox: ICategory = [
         settings: [
           {
             settingsType: 'textInput',
-            type: 'text',
             label: 'Test',
             align: 'center',
           },
           {
             settingsType: 'textInput',
-            type: 'text',
             label: 'Test',
             align: 'center',
           },
@@ -96,7 +90,6 @@ const sectionSectionBox: ICategory = [
         settings: [
           {
             settingsType: 'textInput',
-            type: 'text',
             label: 'Test',
             align: 'center',
           },
@@ -117,13 +110,11 @@ const sectionSectionBox: ICategory = [
         settings: [
           {
             settingsType: 'textInput',
-            type: 'text',
             label: 'Test',
             align: 'center',
           },
           {
             settingsType: 'textInput',
-            type: 'text',
             label: 'Test',
             align: 'center',
           },
@@ -134,13 +125,11 @@ const sectionSectionBox: ICategory = [
         settings: [
           {
             settingsType: 'textInput',
-            type: 'text',
             label: 'Test',
             align: 'center',
           },
           {
             settingsType: 'textInput',
-            type: 'text',
             label: 'Test',
             align: 'center',
           },
@@ -151,13 +140,11 @@ const sectionSectionBox: ICategory = [
         settings: [
           {
             settingsType: 'textInput',
-            type: 'text',
             label: 'Test',
             align: 'center',
           },
           {
             settingsType: 'textInput',
-            type: 'text',
             label: 'Test',
             align: 'center',
           },

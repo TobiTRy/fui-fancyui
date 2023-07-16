@@ -33,10 +33,10 @@ export default function ButtonRoute() {
         <FancyButton label="Button" design="transparent" />
       </DesignArea>
       <DesignArea title="Button Types in wide" style={backgroundColor}>
-        <FancyButton icon={Icon}  label="Button" design="primary" />
-        <FancyButton icon={Icon}  label="Button" design="secondary" />
+        <FancyButton icon={Icon}  label="Button" design="primary" align='left' />
+        <FancyButton icon={Icon}  label="Button" design="secondary" align='right' />
         <FancyButton icon={Icon} label="Button" design="accent" />
-        <FancyButton icon={Icon} label="Button" design="transparent" />
+        <FancyButton icon={Icon} label="Button" design="transparent"align='left' />
       </DesignArea>
       <DesignArea title="Outlined Buttons" style={backgroundColor}>
         <FancyButton label="Button" design="primary" outlined />

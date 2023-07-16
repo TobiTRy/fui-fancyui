@@ -18,6 +18,7 @@ import ToastMessageRoute from './Routes/ToastMessageRoute/ToastMessageRoute';
 import Typogrphy from './Routes/Typography/Typogrphy';
 import ButtonRoute from './Routes/BottonRoute/ButtonRoute';
 import FancyDropDownMenueRoute from './Routes/FancyDropDownMenueRoute/FancyDropDownMenueRoute';
+import EditBarRoute from './Routes/EditBarRoute/EditBarRoute';
 
 // const Icon = (
 //   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -110,6 +111,9 @@ function App() {
               <li>
                 <Link to="/button">button</Link>
               </li>
+              <li>
+                <Link to="/editbar">Editbar</Link>
+              </li>
             </ul>
           </nav>
 
@@ -128,6 +132,7 @@ function App() {
             <Route path="/typography" element={<Typogrphy />} />
             <Route path="/button" element={<ButtonRoute />} />
             <Route path="/dropdownmenue" element={<FancyDropDownMenueRoute />} />
+            <Route path="/editbar" element={<EditBarRoute />} />
             <Route path="/" element={<SwipeUpModal />} />
           </Routes>
         </div>

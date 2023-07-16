@@ -113,7 +113,7 @@ export default function SwipeUpModal(props: ISwipeUpModal) {
                       touchEnd={toutchEnd}
                       click={closeModal}
                     />
-                  )}
+                  ) }
                   {/*// ---------- Content Area ---------- //*/}
                   <ContentBox>
                     {/*// ---------- Header ---------- //*/}

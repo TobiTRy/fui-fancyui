@@ -14,7 +14,7 @@ export default function SwipeUpModal() {
     openSwipeUpModal(
       {
         content: 
-          <div>
+          <div style={{display: 'flex', flexDirection: 'column', gap: '18px'}}>
           <FancyTextInput label="Email" />
           <FancyTextInput label="Email" />
           <FancyTextInput label="Email" />
@@ -22,6 +22,7 @@ export default function SwipeUpModal() {
         </div>
       ,
       headline: { title: 'test', subTitle: 'test' },
+      settings: { isCloseAble: true, isScalable: false}
     },
     'test'
     
@@ -31,7 +32,7 @@ export default function SwipeUpModal() {
   return (
     <section>
       <FancyButton onClick={openModalHandler} label="Open Modal" ></FancyButton>
-      <FancySwipeUpModal  appendToDomID="modal"></FancySwipeUpModal>
+      <FancySwipeUpModal appendToDomID="modal"></FancySwipeUpModal>
     </section>
   );
 }
