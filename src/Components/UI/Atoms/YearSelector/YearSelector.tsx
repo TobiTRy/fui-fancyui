@@ -1,8 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import SVGChevronLeft from '../../SVGIcons/SVGChevronLeft';
 import SVGChevronRight from '../../SVGIcons/SVGChevronRight';
 
-import { useYearSelectorState } from './YearSelector.state';
 import { StyledButton, StyledYearSelector } from './YearSelector.style';
 
 // --------------------------------------------------------------------------- //
@@ -13,8 +12,7 @@ interface IYearSelector {
   handler?: (change: number) => void;
 }
 export default function YearSelector({ selectedYear, handler }: IYearSelector) {
-  const pickedYear = useYearSelectorState((state) => state.selectedYear);
-  const setPickedYear = useYearSelectorState((state) => state.setSelectedYear);
+  const [pickedYear, setPickedYear] = useState<number>(new Date().getFullYear());
 
   // update the year and call the handler if the year changes
   const handleYearChange = (change: number) => {

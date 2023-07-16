@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import styled from 'styled-components';
 
@@ -44,16 +44,24 @@ const VRWrapper = styled.div`
 interface IDateOutputFromTo {
   dateFrom?: Date;
   dateTo?: Date;
+  handler?: (wich: 'from' | 'to') => void;
   whichIsSelecting?: 'from' | 'to';
 }
-export default function DateOutputFromTo({ dateFrom, dateTo }: IDateOutputFromTo) {
-  const currentlySelected = useDateOutputFromToState((state) => state.currentlySelected);
-  const setCurrentlySelected = useDateOutputFromToState((state) => state.setCurrentlySelected);
+export default function DateOutputFromTo({ whichIsSelecting ,dateFrom, dateTo, handler }: IDateOutputFromTo) {
+  const [currentlySelected, setCurrentlySelected] = useState<'from' | 'to'>('from');
 
 
   const handleClickOnDateOutput = (which: 'from' | 'to') => {
     setCurrentlySelected(which);
+    handler && handler(which);
   };
+
+  useEffect(() => {
+    if(whichIsSelecting) {
+      setCurrentlySelected(whichIsSelecting);
+    }
+  }, [whichIsSelecting])
+
 
   return (
     <StyledDateOutputFromTo>

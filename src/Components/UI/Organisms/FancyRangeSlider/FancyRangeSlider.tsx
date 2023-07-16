@@ -12,7 +12,7 @@ import IFancyRangeSlider from './FancyRangeSlider.model';
 // -------------------- The main FancySlider Component ----------------------- //
 // --------------------------------------------------------------------------- //
 export default function FancyRangeSlider(props: IFancyRangeSlider) {
-  const { label, labelAlign, icon, value, minValue, maxValue, displayNumber, handler, disabled } = props;
+  const { label, align, icon, value, minValue, maxValue, displayNumber, handler, disabled } = props;
 
   const [sliderProgress, setSliderProgress] = useState(value ? value : 0);
   const [isActive, setIsActive] = useState(false);
@@ -46,7 +46,7 @@ export default function FancyRangeSlider(props: IFancyRangeSlider) {
 
       {/* label for the top side of the slider */}
       {label && (
-        <Label htmlFor={id} $align={labelAlign} $isActive={isActive || toutched}>
+        <Label htmlFor={id} $align={align} $isActive={isActive || toutched}>
           {label}
         </Label>
       )}

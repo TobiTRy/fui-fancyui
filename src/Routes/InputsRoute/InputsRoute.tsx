@@ -6,7 +6,9 @@ import FancyRangeSlider from '../../Components/UI/Organisms/FancyRangeSlider/Fan
 import FancyNumberInput from '../../Components/UI/Organisms/FancyNumberInput/FancyNumberInput';
 import FancyDropDownSelect from '../../Components/UI/Organisms/FancyDropDownSelect/FancyDropDownSelect';
 import FancyDateInput from '../../Components/UI/Organisms/FancyDateInput/FancyDateInput';
-import CustomDropdown from '../../Components/UI/Atoms/CustomeDropDownNOTINUSE/CustomeDropDown';
+
+import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';
+import FancyDateDropDown from '../../Components/UI/Templates/Inputs/FancyDateDropDown/FancyDateDropDown';
 
 const svg = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -20,24 +22,43 @@ export default function InputsRoute() {
     console.log(value, 'main');
   };
 
-  const selectHandler = (e: ChangeEvent<HTMLSelectElement>) => {
-    console.log('select', e.target.value);
-  };
-
   return (
-    <section style={{display: 'flex', flexDirection: 'column', gap: '6px'}}>
-      <FancyPasswordInput icon={svg} label="Test" handler={testHandler} align="center" />
-      <FancyTextInput icon={svg} label="Test" handler={testHandler} />
-      <FancyNumberInput icon={svg} label="Test" handler={testHandler} />
-      <FancyRangeSlider icon={svg} label="Test" handler={testHandler} />
-      <FancyDropDownSelect
-        icon={svg}
-        label="Test"
-        handler={testHandler}
-        values={['Test', 'Test2', 'Test3', 'Test3', 'Test3', 'Test3']}
-      />
-      <FancyDateInput icon={svg} label="Test" handler={testHandler} />
-      <CustomDropdown />
-    </section>
+    <DesignWrapper>
+      <DesignArea title="Password Input">
+        <FancyPasswordInput label="Test" handler={testHandler} align="left" />
+        <FancyPasswordInput icon={svg} label="Test" handler={testHandler} align="center" />
+      </DesignArea>
+      <DesignArea title="Text Input">
+        <FancyTextInput label="Test" handler={testHandler} />
+        <FancyTextInput icon={svg} label="Test" handler={testHandler} align="center" />
+      </DesignArea>
+      <DesignArea title="Number Input AutoWidth">
+        <FancyNumberInput label="Test" handler={testHandler} autoWidth={true} value="1" />
+        <FancyNumberInput icon={svg} label="Test" handler={testHandler} align="center" autoWidth={true} value="1" />
+      </DesignArea>
+      <DesignArea title="DropDown Input">
+        <FancyDropDownSelect label="Test" handler={testHandler} values={['Test', 'Test2', 'Test3', 'Test3', 'Test3', 'Test3']} />
+        <FancyDropDownSelect
+          icon={svg}
+          label="Test"
+          handler={testHandler}
+          values={['Test', 'Test2', 'Test3', 'Test3', 'Test3', 'Test3']}
+          align="center"
+        />
+      </DesignArea>
+      <DesignArea title="Date Input">
+        <FancyDateInput label="Test" handler={testHandler} />
+        <FancyDateInput icon={svg} label="Test" handler={testHandler} align="center" />
+      </DesignArea>
+      <DesignArea title="DateDropDown Input">
+        <FancyDateDropDown type="day" label="Test" handler={testHandler} />
+        <FancyDateDropDown type="month" label="Test" handler={testHandler} />
+        <FancyDateDropDown type="year" label="Test" handler={testHandler} />
+      </DesignArea>
+      <DesignArea title="Range Slider">
+        <FancyRangeSlider label="Test" handler={testHandler} />
+        <FancyRangeSlider icon={svg} label="Test" handler={testHandler} align="center" displayNumber={true} />
+      </DesignArea>
+    </DesignWrapper>
   );
 }

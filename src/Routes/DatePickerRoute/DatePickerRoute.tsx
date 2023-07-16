@@ -4,8 +4,7 @@ import FancyDatePicker from '../../Components/UI/Organisms/FancyDatePicker/Fancy
 
 import FancyDateDropDown from '../../Components/UI/Templates/Inputs/FancyDateDropDown/FancyDateDropDown';
 import IExternalYearWithMonths from '../../Components/UI/Molecules/MonthWithDays/IExternalMonthWithDays.model';
-
-
+import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
 
 const externalYears: IExternalYearWithMonths = {
   2023: [
@@ -66,17 +65,15 @@ const externalYears: IExternalYearWithMonths = {
   ],
 };
 
-
 export default function DatePickerRoute() {
   return (
-    <section>
-      <div style={{display: 'flex', padding: '1rem', gap: '1rem'}}>
-        <FancyDateDropDown type="day"  />
-        <FancyDateDropDown type="month" />
-        <FancyDateDropDown type="year" />
-      </div>
-      <FancyDatePicker disabledDateSetting={{disableWeekends: true}} externalData={externalYears}/>
-      <p>Test</p>
-    </section>
+    <DesignWrapper>
+      <DesignArea title="FancyDatePicker Range">
+        <FancyDatePicker rangeCalendar={true} disabledDateSetting={{ disableWeekends: true }} externalData={externalYears} />
+      </DesignArea>
+      <DesignArea title="FancyDatePicker Single Date">
+        <FancyDatePicker  disabledDateSetting={{ disableWeekends: true }} externalData={externalYears} />
+      </DesignArea>
+    </DesignWrapper>
   );
 }
