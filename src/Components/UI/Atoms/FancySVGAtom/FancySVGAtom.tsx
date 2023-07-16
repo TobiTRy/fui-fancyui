@@ -3,13 +3,13 @@ import styled from 'styled-components';
 import { colorPalet, uiColors } from '../../Design/design';
 import { ISVGAtom, IStyledSVGAtom, sizes } from './FancySVGAtom.model';
 
-const calcIconColor = ($isActive?: boolean, errorMessage?: string | undefined) => {
-  if (!errorMessage) {
-    return $isActive ? uiColors.accent.main : uiColors.secondary.darkest;
-  } else {
-    return colorPalet.red_dark;
-  }
-};
+// const calcIconColor = ($isActive?: boolean, errorMessage?: string | undefined) => {
+//   if (!errorMessage) {
+//     return $isActive ? uiColors.accent.main : uiColors.secondary.darkest;
+//   } else {
+//     return colorPalet.red_dark;
+//   }
+// };
 
 const StyledSVG = styled.i<IStyledSVGAtom>`
   display: flex;
@@ -17,7 +17,6 @@ const StyledSVG = styled.i<IStyledSVGAtom>`
   align-items: center;
   width: ${({ $size }) => sizes[$size!]};
   aspect-ratio: 1/1;
-  color: ${({ $isActive, $errorMessage }) => calcIconColor($isActive, $errorMessage)};
   transition: color 0.3s ease-in-out;
   ${({ $externalStyle }) => $externalStyle};
 
@@ -31,11 +30,17 @@ const StyledSVG = styled.i<IStyledSVGAtom>`
 // --------- This is a wrapper for SVGs to wrap them and style them ---------- //
 // --------------------------------------------------------------------------- //
 export default function FancySVGAtom(props: ISVGAtom) {
-  const { children, size = 'medium', isActive, errorMessage, externalStyle } = props;
+  const { children, size, isActive, errorMessage, externalStyle } = {...defaultProps,...props};
 
   return (
     <StyledSVG $size={size} $isActive={isActive} $errorMessage={errorMessage} $externalStyle={externalStyle}>
       {children}
     </StyledSVG>
   );
+}
+
+const defaultProps: ISVGAtom = {
+  size: 'medium',
+  isActive: true,
+
 }

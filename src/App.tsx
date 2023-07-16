@@ -16,6 +16,8 @@ import ColorPickerRoute from './Routes/ColorPickerRoute/ColorPickerRoute';
 import HeaderRoute from './Routes/HeaderRoute/HeaderRoute';
 import ToastMessageRoute from './Routes/ToastMessageRoute/ToastMessageRoute';
 import Typogrphy from './Routes/Typography/Typogrphy';
+import ButtonRoute from './Routes/BottonRoute/ButtonRoute';
+import FancyDropDownMenueRoute from './Routes/FancyDropDownMenueRoute/FancyDropDownMenueRoute';
 
 // const Icon = (
 //   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -102,6 +104,12 @@ function App() {
               <li>
                 <Link to="/typography">Typography</Link>
               </li>
+              <li>
+                <Link to="/dropdownmenue">DropDownmenue</Link>
+              </li>
+              <li>
+                <Link to="/button">button</Link>
+              </li>
             </ul>
           </nav>
 
@@ -118,6 +126,8 @@ function App() {
             <Route path="/colorPicker" element={<ColorPickerRoute />} />
             <Route path="/toastMessage" element={<ToastMessageRoute />} />
             <Route path="/typography" element={<Typogrphy />} />
+            <Route path="/button" element={<ButtonRoute />} />
+            <Route path="/dropdownmenue" element={<FancyDropDownMenueRoute />} />
             <Route path="/" element={<SwipeUpModal />} />
           </Routes>
         </div>

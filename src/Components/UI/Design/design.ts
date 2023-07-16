@@ -168,11 +168,11 @@ export const uiColors = {
     contrast: colorSteps.primary[60],
   },
   transparent: {
-    lighter: 'tarnsparent',
-    light: 'tarnsparent',
-    main: 'tarnsparent',
-    dark: 'tarnsparent',
-    darker: 'tarnsparent',
+    lighter: 'transparent',
+    light: 'transparent',
+    main: 'transparent',
+    dark: 'transparent',
+    darker: 'transparent',
     contrast: colorSteps.secondary[60],
 	}
 };

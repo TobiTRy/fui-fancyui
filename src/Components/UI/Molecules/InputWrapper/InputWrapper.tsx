@@ -32,7 +32,7 @@ export default function InputWrapper(props: IInputWrapper) {
   const { id, isActiv, disabled, children, errorMessage, icon, label, align, underline = true, autoWidth } = props;
 
   return (
-    <StyledInputWrapper disabled={disabled} autoWidth={autoWidth}>
+    <StyledInputWrapper disabled={disabled} $autoWidth={autoWidth}>
       {icon && (
         <FancySVGAtom externalStyle={iconStyle} size="large" isActive={isActiv}>
           {icon}

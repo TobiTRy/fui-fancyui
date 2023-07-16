@@ -30,7 +30,7 @@ export const WrapperUL = styled.div<IStyledUL>`
 // --------------------------------------------------------------------------- //
 // ------------------- the UL for the items and the style -------------------- //
 // --------------------------------------------------------------------------- //
-export const StyledUL = styled.ul`
+export const StyledUL = styled.div`
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
@@ -38,7 +38,7 @@ export const StyledUL = styled.ul`
   margin: 0;
   width: 100%;
   padding: ${spacingPx.lg};
-  background-color: ${uiColors.primary.main};
+  background-color: ${uiColors.primary.lighter};
   box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.15);
   gap: ${spacingPx.xs};
   overflow: hidden;

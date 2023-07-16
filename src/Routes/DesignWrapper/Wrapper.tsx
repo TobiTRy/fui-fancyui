@@ -22,6 +22,7 @@ const Area = styled.div<{$style: CSSProp}>`
   }
   
   & > div {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
