@@ -9,12 +9,19 @@ export const sizes = {
 
 export type ISizes = keyof typeof sizes;
 
-export interface ISVGAtom {
+interface SVGAtom {
   children: React.ReactNode;
   size?: ISizes;
+  externalStyle?: CSSProp;
+  isPassive?: true;
+}
+
+interface SVGDynamicAtom {
+  isPassive?: false;
   isActive?: boolean;
   errorMessage?: string;
-  externalStyle?: CSSProp;
 }
+
+export type ISVGAtom = SVGAtom & SVGDynamicAtom;
 
 export type IStyledSVGAtom = IStyledPrefixAndOmiter<ISVGAtom, 'children'>;
