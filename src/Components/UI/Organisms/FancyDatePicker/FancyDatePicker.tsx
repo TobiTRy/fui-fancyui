@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import YearSelector from '../../Atoms/YearSelector/YearSelector';
 import WeekDays from '../../Atoms/WeekDays/WeekDays';
 import RangeCalendar from '../../Molecules/RangeCalendar/RangeCalendar';
 import { DatePickerContainer, WrapperWeekdays, WrapperYearSelector } from './FancyDatePicker.style';
-import IExternalYearWithMonths, { IExternalMonthWithDays } from '../../Molecules/MonthWithDays/IExternalMonthWithDays.model';
+import IExternalYearWithMonths from '../../Molecules/MonthWithDays/IExternalMonthWithDays.model';
 
 
 import DateOutputFromTo from '../../Molecules/DateOutputFromTo/DateOutputFromTo';
@@ -32,6 +32,7 @@ export default function FancyDatePicker(props: IFancyDatePicker) {
   const setCurrentlySelectedFromOrTo = useDateOutputFromToState((state) => state.setCurrentlySelected);
 
   const currentlySelectedYear = useYearSelectorState((state) => state.selectedYear);
+  const setCurrentlySelectedYear = useYearSelectorState((state) => state.setSelectedYear);
 
 
   const handleDateChange = (changedDate: IDateArray) => {
@@ -42,6 +43,13 @@ export default function FancyDatePicker(props: IFancyDatePicker) {
   const handleSwitchFromTo = (change: 'from' | 'to') => {
     setCurrentlySelectedFromOrTo(change);
   };
+
+  useEffect(() => {
+    if (selectedYear) {
+      setCurrentlySelectedYear(selectedYear)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedYear]);
 
   return (
     <DatePickerContainer>
@@ -67,5 +75,4 @@ export default function FancyDatePicker(props: IFancyDatePicker) {
 
 const defaultProps: IFancyDatePicker = {
   rangeCalendar: true,
-  selectedYear: new Date().getFullYear(),
 }
