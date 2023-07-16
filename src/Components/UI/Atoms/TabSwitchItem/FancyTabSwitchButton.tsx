@@ -16,7 +16,7 @@ export default function FancyTabSwitchItem(props: IFancyTabStyle) {
       <input
         id={id + '_' + itemObject.key}
         disabled={disabled}
-        name="FancyButtonSwitcher"
+        name={'FancyButtonSwitcher' + id}
         type="radio"
         checked={selected}
         onChange={() => handler(itemObject.key)}

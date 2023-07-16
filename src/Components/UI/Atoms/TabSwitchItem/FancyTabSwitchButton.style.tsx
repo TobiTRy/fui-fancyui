@@ -88,7 +88,7 @@ const generateButtonStyle = (props: ILIStyledButton) => {
 
   return css`
     list-style: none;
-    width: ${$wide && `100%`};
+    width: ${$wide ? `100%`: `auto`};
 
     label {
       display: flex;
@@ -107,6 +107,7 @@ const generateButtonStyle = (props: ILIStyledButton) => {
       // generates underlying childs in this element
       ${generateLabelChilds(props)}
     }
+
 
     input {
       display: none;

@@ -13,7 +13,7 @@ export interface IinputValues {
 export interface IFancyTabSwitchComponent {
   switchValues: IinputValues[];
   currentSelect?: string;
-  handler: (value: string) => void;
+  handler?: (value: string) => void;
 }
 
 //this interface hold the complete style propertys  
