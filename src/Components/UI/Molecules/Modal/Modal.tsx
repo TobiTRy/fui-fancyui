@@ -2,7 +2,7 @@ import React, { ReactNode, useEffect, useState } from 'react';
 
 import SimpleDialog from '../../Atoms/SimpleDialog/SimpleDialog';
 import BackDrop from '../../Atoms/BackDrop/BackDrop';
-import { ModalStatus } from './ModalStatus';
+import { ModalStatus } from '../../Interface/ModalStatus';
 
 // --------------------------------------------------------------------------- //
 // ------  The main Modal Component to comstomize the Head/Bottomline  ------- //

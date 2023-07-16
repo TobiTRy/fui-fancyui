@@ -18,7 +18,7 @@ export function FancyPortal({ children, appendToID, WrapperComponent }: IFancyPo
 
     // If no container was found, throw an error
     if (!newTargetContainer) {
-      throw new Error(`Could not find container with ID: "${appendToID}"`);
+      throw new Error(`Could not find container with ID: "${appendToID || 'undefined'}"}"`);
     }
 
     setTargetContainer(newTargetContainer);

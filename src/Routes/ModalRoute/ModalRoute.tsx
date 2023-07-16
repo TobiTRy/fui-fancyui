@@ -31,7 +31,7 @@ export default function ModalRoute() {
   };
   return (
     <section>
-      <FancyModal />
+      <FancyModal appendToDomID='modal' />
       <FancyButton onClick={handleModalCreation} label='open modal'></FancyButton>
     </section>
   );

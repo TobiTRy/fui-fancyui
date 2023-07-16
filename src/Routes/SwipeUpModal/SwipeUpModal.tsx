@@ -6,21 +6,32 @@ import FancyButton from '../../Components/UI/Molecules/FancyButton/FancyButton';
 
 import { FancyTextInput } from '../../Components/UI/Organisms/FancyTextInput';
 
-
 export default function SwipeUpModal() {
-  const openModal = useFancySwipeUpModalStore((state) => state.open);
-  const closeModal = useFancySwipeUpModalStore((state) => state.close);
+  const closeSwipeUpModal = useFancySwipeUpModalStore((state) => state.closeSwipeUpModal);
+  const openSwipeUpModal = useFancySwipeUpModalStore((state) => state.openSwipeUpModal);
+
+  const openModalHandler = () => {
+    openSwipeUpModal(
+      {
+        content: 
+          <div>
+          <FancyTextInput label="Email" />
+          <FancyTextInput label="Email" />
+          <FancyTextInput label="Email" />
+          <FancyButton onClick={() => closeSwipeUpModal('test')} label="Close Modal"></FancyButton>
+        </div>
+      ,
+      headline: { title: 'test', subTitle: 'test' },
+    },
+    'test'
+    
+    )
+  };
 
   return (
     <section>
-      <FancyButton onClick={openModal} label="Open Modal"></FancyButton>
-      <FancySwipeUpModal headline={{title: 'test', subTitle: 'test'}}>
-
-        <FancyTextInput label="Email" />
-        <FancyTextInput label="Email" />
-        <FancyTextInput label="Email" />
-        <FancyButton onClick={closeModal} label="Close Modal"></FancyButton>
-      </FancySwipeUpModal>
+      <FancyButton onClick={openModalHandler} label="Open Modal" ></FancyButton>
+      <FancySwipeUpModal  appendToDomID="modal"></FancySwipeUpModal>
     </section>
   );
 }
