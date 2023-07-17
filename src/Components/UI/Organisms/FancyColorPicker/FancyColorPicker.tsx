@@ -1,15 +1,16 @@
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 
 import Color from 'color';
 import styled from 'styled-components';
 
 import ColorDisplay from '../../Atoms/ColorDisplay/ColorDisplay';
 import ColorArea from '../../Molecules/FancyColorArea/FancyColorArea';
-import HueSlider from '../../Molecules/HueSlider/HueSlider';
+import FancyHueSlider from '../../Molecules/FancyHueSlider/FancyHueSlider';
 import FancyOpacitySlider from '../../Molecules/FancyOpacitySlider/FancyOpacitySlider';
 import FancyColorOutput from '../../Molecules/FancyColorOutput/FancyColorOutput';
 import { emitSelectedColorChange } from './colorPickerUtils';
 import { spacingPx } from '../../Design/design';
+import { IColorFormat } from '../../Atoms/functions/variables/colorFormats';
 
 import { useColorPickerStore } from './FancyColorPicker.state';
 
@@ -25,7 +26,7 @@ const Wrapper = styled.div`
 // ------------------- The main ColorPicker Component ------------------------ //
 // --------------------------------------------------------------------------- //
 interface IColorPicker {
-  outputFormat?: 'hsl' | 'hex' | 'rgb' | 'rgba' | 'hsla' | 'hexa';
+  outputFormat?: IColorFormat;
   colorArea?: boolean;
   opacitySlider?: boolean;
   hueSlider?: boolean;
@@ -37,20 +38,11 @@ interface IColorPicker {
 export default function FanyColorPicker(props: IColorPicker)  {
   const { colorArea, hueSlider, opacitySlider, colorOutput, outputFormat, displayColor, inputColor, handler } = {...defaultProps, ...props};
 
-  const displayColorValue = useColorPickerStore((state) => state.displayColorValue);
-  const setDisplayColorValue = useColorPickerStore((state) => state.setDisplayColorValue);
-
-  const rawColor = useColorPickerStore((state) => state.currentRAWColor);
-  const setRawColor = useColorPickerStore((state) => state.setCurrentRAWColor);
-
-  const opacity = useColorPickerStore((state) => state.currentOpacity);
-  const setOpacity = useColorPickerStore((state) => state.setCurrentOpacity);
-
-  const hue = useColorPickerStore((state) => state.currentHue);
-  const setHue = useColorPickerStore((state) => state.setCurrentHue);
-
-  const colorType = useColorPickerStore((state) => state.currentColorType);
-  const setColorType = useColorPickerStore((state) => state.setCurrentColorType);
+  const [displayColorValue, setDisplayColorValue] = useState<Color | string>(Color(inputColor ? inputColor : 'hsl(0, 100%, 50%)'));
+  const [rawColor, setRawColor] = useState(Color('hsl(0, 100%, 50%)'))
+  const [opacity, setOpacity] = useState(1);
+  const [hue, setHue] = useState(0);
+  const [colorType, setColorType] = useState<IColorFormat>('hsl');
 
   //create a calculated main color and use the normal only for display (flicker on the color area)
   //this sets the main color that will be used in the parent component=> {
@@ -81,7 +73,7 @@ export default function FanyColorPicker(props: IColorPicker)  {
     <Wrapper>
       {displayColor && <ColorDisplay color={displayColorValue} opacity={opacity} showText={true} />}
       {colorArea && <ColorArea hue={hue} color={rawColor} handler={setRawColor} />}
-      {hueSlider && <HueSlider handler={setHue} color={rawColor} hue={hue} />}
+      {hueSlider && <FancyHueSlider handler={setHue} color={rawColor} hue={hue} />}
       {opacitySlider && <FancyOpacitySlider color={rawColor} opacity={opacity} handler={setOpacity} />}
       {colorOutput && (
         <FancyColorOutput

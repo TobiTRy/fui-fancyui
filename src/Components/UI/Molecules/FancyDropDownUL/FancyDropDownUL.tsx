@@ -24,7 +24,7 @@ export default function FancyUL({ items, children, isOpen, ...styledProps }: IFa
   // This useEffect hook animates the height of the UL element
   useEffect(() => {
     if (!listRef.current) return;
-    animate({
+    animate.start({
       height: (isOpen ? listRef?.current.offsetHeight : 0) + 'px',
     })
   }, [animate, listRef, isOpen]);

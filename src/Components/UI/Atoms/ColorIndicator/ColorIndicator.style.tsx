@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import { uiColors } from "../../Design/design";
 
 export const WrapperIndicator = styled.div<{$isActive: boolean}>`
   position: absolute;
@@ -17,7 +18,7 @@ export const Indicator = styled.div.attrs<{$color: string}>(({$color}) => ({
 }))<{$isActive: boolean}>`
   background-color: white;
   border-radius: 50% 50% 50% 0;
-  box-shadow: 0 0 0 1px rgb(255, 255, 255);
+  box-shadow: 0 0 0 1px ${uiColors.secondary.lighter};
   position: absolute;
   top: ${({$isActive}) => $isActive ? '-105px' : '-40px'};
   width: 100%;

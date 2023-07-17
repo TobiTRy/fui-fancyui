@@ -4,7 +4,7 @@ import Color from 'color';
 import useSlider from '../../Atoms/functions/hooks/useSilder';
 import SliderMarker from '../../Atoms/SliderMarker/SliderMarker';
 import ColorIndicator from '../../Atoms/ColorIndicator/ColorIndicator';
-import { SliderContainer, SliderWrapper } from './HueSlider.style';
+import { SliderContainer, SliderWrapper } from './FancyHueSlider.style';
 
 //define the min and max hue value for the slider
 const minHue = 0;
@@ -33,13 +33,14 @@ const colorToPositionHue = (color: Color) => {
 // --------  The main HueSlider Component to calulates the hue --------------- //
 // --------------------------------------------------------------------------- //
 interface IHueSlider {
-  handler: (hue: number) => void;
-  hue: number;
+  handler?: (hue: number) => void;
+  hue?: number;
   color?: Color;
 }
-const HueSlider = ({ hue, handler, color }: IHueSlider) => {
+export default function FancyHueSlider(props: IHueSlider) {
+  const { handler, hue, color } = { ...defaultProps, ...props };
   //give back the new hue value to the parent component
-  const handleHueChange = (newHue: number) => handler(parseFloat(newHue.toFixed(1)));
+  const handleHueChange = (newHue: number) => handler && handler(parseFloat(newHue.toFixed(1)));
 
   //use the useSlider hook handles all the interaction with the slider
   const { sliderRef, markerPosition, handleInteractionStart, isInteracting } = useSlider({
@@ -56,11 +57,13 @@ const HueSlider = ({ hue, handler, color }: IHueSlider) => {
       <SliderContainer ref={sliderRef} onMouseDown={handleInteractionStart} onTouchStart={handleInteractionStart}>
         {/* the marker for the with the ColorIndicator to displays the current picked hue */}
         <SliderMarker position={markerPosition.x + '%'}>
-          <ColorIndicator color={`hsl(${hue}, 100%, 50% )`} isActive={isInteracting} />
+          <ColorIndicator color={`hsl(${hue!}, 100%, 50% )`} isActive={isInteracting} />
         </SliderMarker>
       </SliderContainer>
     </SliderWrapper>
   );
-};
+}
 
-export default HueSlider;
+const defaultProps:IHueSlider = {
+  hue: 0,
+}
