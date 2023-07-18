@@ -3,7 +3,7 @@ import { colorPalet, uiColors } from '../Design/design';
 
 
 //the underline for the input fields
-const UnderLine = styled.i<{ $errorMessage?: string; $isActive?: boolean; }>`
+const UnderLine = styled.i<{ $errorMessage?: string; $isActive?: boolean; $autoWidth?: boolean  }>`
   position: absolute;
   left: 0;
   bottom: 0;

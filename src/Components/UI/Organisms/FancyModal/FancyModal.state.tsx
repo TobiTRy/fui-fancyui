@@ -4,7 +4,7 @@ import { create } from 'zustand';
 import IModalHeadLine from '../../Molecules/FancyModalHeadLine/FancyModalHeadLine.model';
 import IModalBottomLine from '../../Molecules/ModalBottomLine/ModalBottomLine.model';
 
-import { ModalStatus } from '../../Molecules/Modal/ModalStatus';
+import { ModalStatus } from '../../Interface/ModalStatus';
 
 type ModalContent = {
   headline?: IModalHeadLine;
@@ -46,7 +46,7 @@ interface IModalModule {
   removeModal: (id: string) => void;
   closeModal: (id: string) => void;
 }
-export const useFancyModalStore = create<IModalModule>((set, get) => ({
+export const useFancyModalStore = create<IModalModule>((set) => ({
   // the state array for the modals
   modals: [],
   // add a new modal to the state array

@@ -1,6 +1,8 @@
+import React from "react";
+
 export interface IFancyBottomBarIcon {
   id?: string;
-  icon: JSX.Element;
+  icon: React.ReactNode;
   label: string;
   color?: string;
   active?: boolean;

@@ -10,23 +10,44 @@ import ModalHeadLine from '../../Molecules/FancyModalHeadLine/FancyModalHeadLine
 // ----------- The main FancySwipeUpModal to handle all everything ----------- //
 // --------------------------------------------------------------------------- //
 interface IFancySwipeUpModal {
-  children?: React.ReactNode;
-  headline?: { title: string; subTitle: string };
+  appendToDomID?: string;
 }
-export default function FancySwipeUpModal({ children, headline }: IFancySwipeUpModal) {
+export default function FancySwipeUpModal({ appendToDomID }: IFancySwipeUpModal) {
   // get the global states and actions from the store to handle the modal
-  const isOpen = useFancySwipeUpModalStore((state) => state.isOpen);
-  const closeModal = useFancySwipeUpModalStore((state) => state.close);
+  const modals = useFancySwipeUpModalStore((state) => state.modals);
+  const removeSwipeUpModal = useFancySwipeUpModalStore((state) => state.removeSwipeUpModal);
+  const closeSwipeUpModal = useFancySwipeUpModalStore((state) => state.closeSwipeUpModal);
+
+  const closeModalHandler = (id: string) => {
+    // closing the modal is a two step process
+    // first we set the status to "closing" with the closeModal function
+    // this will trigger the animation in the modal component
+    closeSwipeUpModal(id);
+
+    //wait for the animation and remove the modal from the store
+    setTimeout(() => {
+      removeSwipeUpModal(id);
+    }, 250);
+  };
 
   return (
-    <FancyPortal appendToID="modal">
+    <FancyPortal appendToID={appendToDomID}>
       {/* The Mobile Modal Component  */}
-      <SwipeUpModal isOpen={isOpen} closeHandler={closeModal}>
-        {/* if there is a headline, render it */}
-        {headline && <ModalHeadLine {...headline} />}
-        {/* render the children of the modal  */}
-        {children}
-      </SwipeUpModal>
+      {modals.map((modal, key) => (
+        <SwipeUpModal
+          key={key}
+          status={modal.status}
+          id={modal.id}
+          isCloseAble={modal.content.settings?.isCloseAble}
+          isScalable={modal.content.settings?.isScalable}
+          closeHandler={() => closeModalHandler(modal.id)}
+        >
+          {/* if there is a headline, render it */}
+          {modal.content.headline && <ModalHeadLine {...modal.content.headline} />}
+          {/* render the children of the modal  */}
+          {modal.content.content}
+        </SwipeUpModal>
+      ))}
     </FancyPortal>
   );
 }

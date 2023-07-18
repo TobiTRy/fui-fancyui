@@ -7,31 +7,31 @@ import BackDrop from '../../Atoms/BackDrop/BackDrop';
 import UseDelay from '../../Atoms/functions/hooks/UseDelay';
 import ScalingSection from '../ScalingSection/ScalingSection';
 import { Content, ContentBox, WrapperAnimated, WrapperContent, WrapperModal } from './SwipeUpModal.style';
+import { ModalStatus } from '../../Interface/ModalStatus';
 
 // --------------------------------------------------------------------------- //
 // ----------- The Modal Molecule the displays the complete modal - ---------- //
 // --------------------------------------------------------------------------- //
 interface ISwipeUpModal {
+  id?: string;
+  status: ModalStatus; 
   children?: React.ReactNode;
-  isOpen: boolean;
-  isCloseAble?: boolean;
-  isScalable?: boolean;
-  closeHandler?: () => void;
+  isCloseAble?: boolean; // if a error occurs and the modal should be closeable
+  isScalable?: boolean; // if the modal should be static or scalable
+  closeHandler?: (id: string) => void;
 }
 export default function SwipeUpModal(props: ISwipeUpModal) {
-  const { children, isOpen, isCloseAble, isScalable, closeHandler } = { ...defaultProps, ...props };
-
-  const [modalMobileVisible, setmodalMobileVisible] = useState(false);
+  const { children, status, isCloseAble, isScalable, closeHandler, id } = { ...defaultProps, ...props };
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalPosition, setModalPosition] = useState({ height: '100%' });
-  const [backdropVisible, setBackdropVisible] = useState(false);
   const [initialHeight, setInitialHeight] = useState<number | undefined>();
   const { height } = useWindowDimensions();
+
 
   //Opens the modal and set the overfolw to hidden
   const openModal = () => {
     document.body.style.overflow = 'hidden';
-    setBackdropVisible(true);
-    setmodalMobileVisible(true);
+    setIsModalOpen(true);
     setModalPosition({ height: 'auto' });
   };
 
@@ -39,8 +39,8 @@ export default function SwipeUpModal(props: ISwipeUpModal) {
     document.body.style.overflowY = 'hidden';
     const getToutch = e.changedTouches[0].clientY;
 
-    // sets the initial height of the modal on the auto height 
-    // this is used for the close calculation 
+    // sets the initial height of the modal on the auto height
+    // this is used for the close calculation
     if (!initialHeight) setInitialHeight(height - getToutch);
 
     //from the to 100% = 0px to the buttom 0% 844px
@@ -59,11 +59,10 @@ export default function SwipeUpModal(props: ISwipeUpModal) {
       setModalPosition({ height: 'auto' });
       return;
     }
-    setmodalMobileVisible(false);
-    setBackdropVisible(false);
+    setIsModalOpen(false);
 
     //close the gobal modal state
-    closeHandler && closeHandler();
+    if (closeHandler && id) closeHandler(id);
 
     setTimeout(() => setModalPosition({ height: '100%' }), 300);
     document.body.style.overflow = 'overlay';
@@ -80,22 +79,25 @@ export default function SwipeUpModal(props: ISwipeUpModal) {
 
   // if the modal is open, open the modal else close it
   useEffect(() => {
-    if (isOpen) {
-      openModal();
-    } else {
-      closeModal();
+    switch (status) {
+      case ModalStatus.Open:
+        openModal();
+        break;
+      case ModalStatus.Closing:
+        closeModal();
+        break;
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isOpen]);
+  }, [status]);
 
-  const openTransition = useTransition(modalMobileVisible, {
+  const openTransition = useTransition(isModalOpen, {
     from: { height: '0%' },
     enter: { height: '100%' },
     leave: { height: '0%' },
   });
 
   return (
-    <UseDelay externalStateBool={isOpen}>
+    <UseDelay externalStateBool={status === ModalStatus.Open}>
       <WrapperModal>
         {openTransition(
           (styles, item) =>
@@ -111,7 +113,7 @@ export default function SwipeUpModal(props: ISwipeUpModal) {
                       touchEnd={toutchEnd}
                       click={closeModal}
                     />
-                  )}
+                  ) }
                   {/*// ---------- Content Area ---------- //*/}
                   <ContentBox>
                     {/*// ---------- Header ---------- //*/}
@@ -123,14 +125,14 @@ export default function SwipeUpModal(props: ISwipeUpModal) {
               </WrapperAnimated>
             )
         )}
-        <BackDrop isOpen={backdropVisible} onClick={closeModal} />
+        <BackDrop isOpen={isModalOpen} onClick={closeModal} />
       </WrapperModal>
     </UseDelay>
   );
 }
 
 const defaultProps: ISwipeUpModal = {
-  isOpen: false,
+  status: ModalStatus.Open,
   isCloseAble: true,
-  isScalable: false,
+  isScalable: true,
 };

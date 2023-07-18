@@ -62,7 +62,6 @@ export default function EditBar(props: IEditBar) {
 
   return (
     <Wrapper>
-      {/* //TODO: Add the edit bar */}
       {settings && (
         <EditBarModal title='Test' spacingLeftRight={spacing.xl + spacing.xl + 'px' }>
           {(settings as React.ReactElement[]).map((item, index) => (

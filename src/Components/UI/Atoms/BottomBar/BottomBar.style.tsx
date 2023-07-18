@@ -42,8 +42,8 @@ export const Wrapper = styled.div<IBottomBarWrapper>`
   ${({ $width, $spacingLeftRight }) => calcBarWidthandSpacing($width, $spacingLeftRight)};
   background-color: ${uiColors.primary.main};
   border-radius: 12px 12px 0px 0px;
-  box-shadow: 0 0 ${({$secondBar}) => $secondBar ? '24px' : '12px' }  black;
-    padding: ${spacingPx.sm} ${spacingPx.sm} 0 ${spacingPx.sm};
+  box-shadow: 0 0 12px black;
+  padding: ${spacingPx.sm} ${spacingPx.sm} 0 ${spacingPx.sm};
 `;
 
 //the bar for the items and the style

@@ -35,7 +35,10 @@ const WrapperContent = styled.div`
 // --------------------------------------------------------------------------- //
 // ----------------- The modalModule to build up a Moadal  ------------------- //
 // --------------------------------------------------------------------------- //
-export default function FancyModal() {
+interface IFancyModal {
+  appendToDomID: string;
+}
+export default function FancyModal({appendToDomID}: IFancyModal) {
   const modals = useFancyModalStore((state) => state.modals);
   const closeModal = useFancyModalStore((state) => state.closeModal);
   const removeModal = useFancyModalStore((state) => state.removeModal);
@@ -55,7 +58,7 @@ export default function FancyModal() {
   return (
     <>
       {/* ----- The FancModal Ports the Modal out of the root div in the spearte "modal" div ----- */}
-      <FancyPortal appendToID="modal">
+      <FancyPortal appendToID={appendToDomID}>
         {modals.map((modal, key) => (
           <Modal key={key} status={modal.status} id={modal.id} closeModal={() => closeModalHandler(modal.id)}>
             {/* ----- The Headline of the Modal  ----- */}

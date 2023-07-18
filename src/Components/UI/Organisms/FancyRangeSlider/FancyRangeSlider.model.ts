@@ -2,7 +2,7 @@ import { ChangeEvent } from "react";
 
 interface IFancyRangeSlider {
   label?: string;
-  labelAlign?: 'left' | 'center';
+  align?: 'left' | 'center';
   icon?: JSX.Element;
   value?: number;
   minValue?: number;

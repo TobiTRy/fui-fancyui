@@ -4,9 +4,7 @@ import { Button, Label, MenueItemContainer, MenueItemWrapper, MenuItem, Ring, Sp
 import { ISpeedail } from './IFancySpeedDialButton';
 import SVGPlus from '../../SVGIcons/SVGPlus';
 
-
-
-const FancySpeedDialButton = ({items}: ISpeedail) => {
+export default function FancySpeedDialButton({ items }: ISpeedail) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -24,10 +22,7 @@ const FancySpeedDialButton = ({items}: ISpeedail) => {
             </MenueItemContainer>
           ))}
         </MenueItemWrapper>
-        </SpeedDialContainer>
+      </SpeedDialContainer>
     </Wrapper>
   );
-};
-
-export default FancySpeedDialButton;
-
+}

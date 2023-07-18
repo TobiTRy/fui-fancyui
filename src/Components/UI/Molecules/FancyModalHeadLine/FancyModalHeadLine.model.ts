@@ -1,8 +1,8 @@
-interface IModalHeadLine {
+interface IFancyModalHeadLine {
   title?: string;
   subTitle?: string;
   alignCenter?: boolean 
   hr?: boolean;
 }
 
-export default IModalHeadLine;
+export default IFancyModalHeadLine;

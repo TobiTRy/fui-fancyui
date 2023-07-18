@@ -5,7 +5,7 @@ import { StyledUL, WrapperUL } from './FancyDropDownUL.style';
 
 
 export interface IFancyUL {
-  items: React.ReactNode[];
+  children: React.ReactNode;
   width?: string;
   isOpen?: boolean;
   alignHorizontal?: 'left' | 'center' | 'right';
@@ -15,18 +15,18 @@ export interface IFancyUL {
 // --------------------------------------------------------------------------- //
 // ---------- Here are the design variants for sizing and alignment ---------- //
 // --------------------------------------------------------------------------- //
-export default function FancyUL({ items, isOpen, ...styledProps }: IFancyUL) {
+export default function FancyUL({ children, isOpen, ...styledProps }: IFancyUL) {
   const { width = '50%', alignHorizontal = 'center', alignVertical = 'top' } = styledProps;
-  const ulRef = useRef<HTMLUListElement>(null);
+  const listRef = useRef<HTMLDivElement>(null);
   const [style, animate] = useSpring(() => ({ height: '0px' }), []);
 
   // This useEffect hook animates the height of the UL element
   useEffect(() => {
-    if (!ulRef.current) return;
-    animate({
-      height: (isOpen ? ulRef?.current.offsetHeight : 0) + 'px',
+    if (!listRef.current) return;
+    animate.start({
+      height: (isOpen ? listRef?.current.offsetHeight : 0) + 'px',
     })
-  }, [animate, ulRef, isOpen]);
+  }, [animate, listRef, isOpen]);
 
   return (
       <WrapperUL
@@ -35,14 +35,11 @@ export default function FancyUL({ items, isOpen, ...styledProps }: IFancyUL) {
         $alignHorizontal={alignHorizontal}
         $alignVertical={alignVertical} 
         style={{
-          width: '100%',
           ...style,
         }}
       >
-        <StyledUL ref={ulRef}>
-          {items.map((item, index) => (
-            <li key={index}>{item}</li>
-          ))}
+        <StyledUL ref={listRef}>
+          {children}
         </StyledUL>
       </WrapperUL>
   )
