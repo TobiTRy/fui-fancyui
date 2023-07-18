@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import BottomBar from '../../Atoms/BottomBar/BottomBar';
 import ScollAbleBar from '../../Atoms/ScrollableBar/ScrollableBar';
@@ -8,15 +8,20 @@ import IBottomBar from '../../Atoms/BottomBar/IBottomBar.model';
 
 type TBottomBarProps = Omit<IBottomBar, 'children'>;
 type TDynamicScrollBarProps = {
-  srollAble?: boolean;
+  scrollable?: boolean;
   buttons?: IFancyBottomBarIcon[];
   secondBar?: boolean;
 };
 
 type IBottomScrollbar = TBottomBarProps & TDynamicScrollBarProps;
 export default function DynamicBottomScrollBar(props: IBottomScrollbar) {
-  const { buttons, secondBar, srollAble, ...bottomBarProps} = props;
+  const { buttons, secondBar, scrollable, ...bottomBarProps } = props;
   const activateScrollbar = buttons?.length! > 4 ? true : false;
+  const [activeButton, setActiveButton] = useState('');
+
+  const activeHandler = (id: string) => {
+    setActiveButton(id);
+  };
 
   //this prevent the body from scrolling when the scrollbar is scrolling
   useEffect(() => {
@@ -26,14 +31,28 @@ export default function DynamicBottomScrollBar(props: IBottomScrollbar) {
 
   return (
     <BottomBar {...bottomBarProps}>
-      {srollAble && activateScrollbar ? (
+      {scrollable && activateScrollbar ? (
         <ScollAbleBar>
           {buttons?.map((item, i) => (
-            <FancyBottomBarIcon key={i} {...item} secondBar={secondBar} />
+            <FancyBottomBarIcon
+              key={i}
+              {...item}
+              secondBar={secondBar}
+              active={item.id === activeButton}
+              handler={() => activeHandler(item.id!)}
+            />
           ))}
         </ScollAbleBar>
       ) : (
-        buttons?.map((item, i) => <FancyBottomBarIcon key={i} {...item} secondBar={secondBar} />)
+        buttons?.map((item, i) => (
+          <FancyBottomBarIcon
+            key={i}
+            {...item}
+            secondBar={secondBar}
+            active={item.id === activeButton}
+            handler={() => activeHandler(item.id!)}
+          />
+        ))
       )}
     </BottomBar>
   );

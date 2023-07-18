@@ -19,6 +19,8 @@ import { useEditBarStore } from './EditBar.state';
 import { spacingPx, spacing } from '../../Design/design';
 import EditBarModal from '../../Atoms/EditBarModal/EditBarModal';
 
+import DynamicBottomScrollBar from '../DynamicBottomScrollBar/DynamicBottomScrollBar';
+
 
 const Wrapper = styled.div`
   position: fixed;
@@ -60,6 +62,8 @@ export default function EditBar(props: IEditBar) {
     if (buttonFunction) buttonFunction();
   };
 
+
+  //TODO: GIVE BACK FROM THE DYANMIC BOTTOM BAR THE BUTTON WHICH IS ACTIVE
   return (
     <Wrapper>
       {settings && (
@@ -71,7 +75,7 @@ export default function EditBar(props: IEditBar) {
       )}
       {/* The second Bar that adapts to the activated button from the man bar */}
       {subSectionItems && (
-        <BottomBar scrollable={scrollable} bottomFixed={false} spacingLeftRight={spacingPx.xl} secondBar={true}>
+        <DynamicBottomScrollBar buttons={subSectionItems} scrollable={scrollable} bottomFixed={false} spacingLeftRight={spacingPx.xl} secondBar={true}>
           {subSectionItems.map((item, index) => (
             <FancyBottomBarIcon
               key={index}
@@ -81,11 +85,11 @@ export default function EditBar(props: IEditBar) {
               handler={() => clickHandler('subSection', item, item.handler)}
             />
           ))}
-        </BottomBar>
+        </DynamicBottomScrollBar>
       )}
       {/* The Main Bar which always shown with the main settings */}
       {sectionItems && (
-        <BottomBar bottomFixed={false} scrollable={scrollable}>
+        <DynamicBottomScrollBar bottomFixed={false} scrollable={scrollable}>
           {sectionItems.map((item, index) => (
             <FancyBottomBarIcon
               key={index}
@@ -95,7 +99,7 @@ export default function EditBar(props: IEditBar) {
               handler={() => setActiveBarItem(item.id!)}
             />
           ))}
-        </BottomBar>
+        </DynamicBottomScrollBar>
       )}
     </Wrapper>
   );

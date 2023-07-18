@@ -17,7 +17,7 @@ export default function ExperimentalRoute() {
   return (
     <DesignWrapper>
       <DesignArea title='Experimental'>
-        <DynamicBottomScrollBar  buttons={defaultProps.buttons} />
+        <DynamicBottomScrollBar  buttons={defaultProps.buttons} scrollable />
         <FancyHueSlider />
       </DesignArea>
     </DesignWrapper>
@@ -27,9 +27,10 @@ export default function ExperimentalRoute() {
 
 const defaultProps = {
   buttons: [
-    { label: 'hi', icon: svg },
-    { label: 'hi', icon: svg },
-    { label: 'hi', icon: svg },
-    { label: 'hi', icon: svg },
+    { label: 'hi', icon: svg, id: '1' },
+    { label: 'hi', icon: svg, id: '2' },
+    { label: 'hi', icon: svg, id: '3'},
+    { label: 'hi', icon: svg, id: '4'},
+    { label: 'hi', icon: svg, id: '4'},
   ],
 };
