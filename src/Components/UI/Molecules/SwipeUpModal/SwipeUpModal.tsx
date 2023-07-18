@@ -14,7 +14,7 @@ import { ModalStatus } from '../../Interface/ModalStatus';
 // --------------------------------------------------------------------------- //
 interface ISwipeUpModal {
   id?: string;
-  status: ModalStatus; 
+  status: ModalStatus;
   children?: React.ReactNode;
   isCloseAble?: boolean; // if a error occurs and the modal should be closeable
   isScalable?: boolean; // if the modal should be static or scalable
@@ -26,7 +26,6 @@ export default function SwipeUpModal(props: ISwipeUpModal) {
   const [modalPosition, setModalPosition] = useState({ height: '100%' });
   const [initialHeight, setInitialHeight] = useState<number | undefined>();
   const { height } = useWindowDimensions();
-
 
   //Opens the modal and set the overfolw to hidden
   const openModal = () => {
@@ -53,12 +52,13 @@ export default function SwipeUpModal(props: ISwipeUpModal) {
     setModalPosition({ height: turnValue + '%' });
   };
 
-  //Close the modal and set the overflow  back
-  const closeModal = () => {
-    if (!isCloseAble) {
-      setModalPosition({ height: 'auto' });
-      return;
-    }
+  //Close the modal via the specific event and set the overflow  back
+  //the closedBy is needed is needed to prevent the modal from closing -->
+  //when the user is interacting with the modal and the modal is not closeable
+  const closeModal = (cloesedBy: 'status' | 'intercation') => {
+    if (cloesedBy === 'intercation' && !isCloseAble) return;
+
+    setModalPosition({ height: 'auto' });
     setIsModalOpen(false);
 
     //close the gobal modal state
@@ -73,7 +73,7 @@ export default function SwipeUpModal(props: ISwipeUpModal) {
     const getToutch = e.changedTouches[0].clientY;
     // this calulation is for good user experience
     if (initialHeight !== undefined && height - getToutch < initialHeight * 0.85) {
-      closeModal();
+      closeModal('intercation');
     }
   };
 
@@ -84,7 +84,7 @@ export default function SwipeUpModal(props: ISwipeUpModal) {
         openModal();
         break;
       case ModalStatus.Closing:
-        closeModal();
+        closeModal('status');
         break;
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -111,9 +111,9 @@ export default function SwipeUpModal(props: ISwipeUpModal) {
                         moveModalHandler(e);
                       }}
                       touchEnd={toutchEnd}
-                      click={closeModal}
+                      click={() => closeModal('intercation')}
                     />
-                  ) }
+                  )}
                   {/*// ---------- Content Area ---------- //*/}
                   <ContentBox>
                     {/*// ---------- Header ---------- //*/}
@@ -125,7 +125,7 @@ export default function SwipeUpModal(props: ISwipeUpModal) {
               </WrapperAnimated>
             )
         )}
-        <BackDrop isOpen={isModalOpen} onClick={closeModal} />
+        <BackDrop isOpen={isModalOpen} onClick={() => closeModal('intercation')} />
       </WrapperModal>
     </UseDelay>
   );

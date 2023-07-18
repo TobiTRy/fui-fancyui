@@ -24,7 +24,7 @@ export default function SwipeUpModal() {
         </div>
       ,
       headline: { title: 'test', subTitle: 'test' },
-      settings: { isCloseAble: true, isScalable: true}
+      settings: { isCloseAble: false, isScalable: false}
     },
     'test'
     )
