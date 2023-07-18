@@ -5,7 +5,6 @@ import { StyledUL, WrapperUL } from './FancyDropDownUL.style';
 
 
 export interface IFancyUL {
-  items: React.ReactNode[];
   children: React.ReactNode;
   width?: string;
   isOpen?: boolean;
@@ -16,7 +15,7 @@ export interface IFancyUL {
 // --------------------------------------------------------------------------- //
 // ---------- Here are the design variants for sizing and alignment ---------- //
 // --------------------------------------------------------------------------- //
-export default function FancyUL({ items, children, isOpen, ...styledProps }: IFancyUL) {
+export default function FancyUL({ children, isOpen, ...styledProps }: IFancyUL) {
   const { width = '50%', alignHorizontal = 'center', alignVertical = 'top' } = styledProps;
   const listRef = useRef<HTMLDivElement>(null);
   const [style, animate] = useSpring(() => ({ height: '0px' }), []);
