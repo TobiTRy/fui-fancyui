@@ -86,6 +86,9 @@ export default function SingleInputs(props: IFancySingleInputsProps) {
   };
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>, index: number) => {
+    if(event.key === 'V' && (event.ctrlKey || event.metaKey)) {
+      handlePaste(event);
+    }
     // Handle character keys
     if (event.key.length === 1) {
       handleCharacterInput(event, index);
