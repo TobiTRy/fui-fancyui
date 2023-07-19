@@ -3,6 +3,7 @@ import { borderRadius } from '../../Design/design';
 
 
 export const SliderWrapper = styled.div`
+  width: 100%;
   padding: 3px;
 `;
 

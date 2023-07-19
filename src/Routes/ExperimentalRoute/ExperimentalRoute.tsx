@@ -14,14 +14,15 @@ const svg = (
 );
 
 export default function ExperimentalRoute() {
-  return (
+  return (<>
+  
     <DesignWrapper>
       <DesignArea title='Experimental'>
+      <FancyHueSlider />
         <DynamicBottomScrollBar  buttons={defaultProps.buttons} scrollable />
-        <FancyHueSlider />
       </DesignArea>
     </DesignWrapper>
-  )
+  </>)
 }
 
 
