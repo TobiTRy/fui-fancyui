@@ -84,7 +84,11 @@ export default function RawSlider(props: IRawSlider) {
       value={calcSliderProgress}
       min={minVal}
       max={maxVal}
-      onTouchStart={() => inputSlider.current?.focus()}
+      onTouchStart={() => {
+        focusHandler(true);
+        inputSlider.current?.focus()
+        }}
+      onTouchEnd={() => setTimeout(() => focusHandler(false), 500)}
       onChange={inputHandler}
     />
   );
