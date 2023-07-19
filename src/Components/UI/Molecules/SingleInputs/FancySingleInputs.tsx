@@ -24,11 +24,9 @@ export default function SingleInputs(props: IFancySingleInputsProps) {
   }, [values, handler]);
 
   // this function is to handle the paste event
-  const handlePaste = (event: React.ClipboardEvent) => {
-    event.preventDefault();
-    const paste = event.clipboardData.getData('text');
+  const processClipboardData = (paste: string) => {
     const newValues = paste.split('').slice(0, length);
-
+    
     setValues((prev) => {
       const copy = [...prev];
       for (let i = 0; i < newValues.length; i++) {
@@ -36,6 +34,13 @@ export default function SingleInputs(props: IFancySingleInputsProps) {
       }
       return copy;
     });
+  };
+
+
+  const handlePaste = (event: React.ClipboardEvent) => {
+    event.preventDefault();
+    const paste = event.clipboardData.getData('text');
+    processClipboardData(paste);
   };
 
   // this function is to handle the character keys
@@ -74,7 +79,7 @@ export default function SingleInputs(props: IFancySingleInputsProps) {
     // if the next input exists, focus it
     if (refs[index + 1]) {
       refs[index + 1].current?.focus();
-    }
+    } 
   };
 
   // this function is to jumpback to the previous input
@@ -85,12 +90,18 @@ export default function SingleInputs(props: IFancySingleInputsProps) {
     }
   };
 
+  const handleKeyDownPaste = async () => {
+      const clipText = await navigator.clipboard.readText();
+      moveRightToTheNextInputRef(clipText.length )
+      processClipboardData(clipText);
+  };
+
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>, index: number) => {
-    if(event.key === 'V' && (event.ctrlKey || event.metaKey)) {
-      handlePaste(event);
-    }
+    if(event.key === 'v' && (event.ctrlKey || event.metaKey)) {
+      void handleKeyDownPaste()
+    } 
     // Handle character keys
-    if (event.key.length === 1) {
+    else if (event.key.length === 1) {
       handleCharacterInput(event, index);
     }
     // Handle backspace key
