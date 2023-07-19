@@ -58,13 +58,11 @@ export default function SwipeUpModal(props: ISwipeUpModal) {
   const closeModal = (cloesedBy: 'status' | 'intercation') => {
     if (cloesedBy === 'intercation' && !isCloseAble) return;
 
-    setModalPosition({ height: 'auto' });
     setIsModalOpen(false);
 
     //close the gobal modal state
     if (closeHandler && id) closeHandler(id);
-
-    setTimeout(() => setModalPosition({ height: '100%' }), 300);
+    
     document.body.style.overflow = 'overlay';
   };
 
