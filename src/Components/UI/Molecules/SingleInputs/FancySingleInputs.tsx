@@ -7,7 +7,7 @@ import { InputWrapper } from './FancySingleInputs.style';
 interface IFancySingleInputsProps {
   length?: number;
   handler?: (value: string) => void;
-  status?: InputStatus;
+  status?: Omit<InputStatus, 'isLoading'>;
 }
 export default function SingleInputs(props: IFancySingleInputsProps) {
   const { length = 6, handler, status } = props;
@@ -37,10 +37,11 @@ export default function SingleInputs(props: IFancySingleInputsProps) {
   };
 
 
-  const handlePaste = (event: React.ClipboardEvent) => {
+  const handlePaste = (event: React.ClipboardEvent<HTMLInputElement>) => {
     event.preventDefault();
     const paste = event.clipboardData.getData('text');
     processClipboardData(paste);
+    (event.target as HTMLInputElement).blur()
   };
 
   // this function is to handle the character keys
@@ -99,6 +100,7 @@ export default function SingleInputs(props: IFancySingleInputsProps) {
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>, index: number) => {
     if(event.key === 'v' && (event.ctrlKey || event.metaKey)) {
       void handleKeyDownPaste()
+      event.currentTarget.blur();
     } 
     // Handle character keys
     else if (event.key.length === 1) {

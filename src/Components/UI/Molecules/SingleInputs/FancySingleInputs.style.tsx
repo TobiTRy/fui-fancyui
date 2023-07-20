@@ -2,7 +2,7 @@ import styled from "styled-components";
 import InputStatus from "../../Design/Interfaces/IStatus";
 import { colorPalet, spacingPx } from "../../Design/design";
 
-export const InputWrapper = styled.div<{ $status?: InputStatus }>`
+export const InputWrapper = styled.div<{ $status?: Omit<InputStatus, 'isLoading'> }>`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
