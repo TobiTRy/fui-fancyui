@@ -1,4 +1,4 @@
-import buttonSettings from './ButtonSettings';
+import buttonSettings, {groupButtons} from './ButtonSettings';
 import { ICategory } from './IEditbarObjectSturcture.model';
 
 //Dummy Category Box for demonstration
@@ -38,7 +38,7 @@ const dummyItem = [
 const sectionSectionBox: ICategory = [
   {
     id: 'distance',
-    sectionItem: buttonSettings.distance,
+    sectionItem: groupButtons.distance,
     subsectionSettingItems: {
       distanceVertical: {
         subsectionItem: buttonSettings.distanceVertical,
@@ -103,7 +103,7 @@ const sectionSectionBox: ICategory = [
   },
   {
     id: 'shadow',
-    sectionItem: buttonSettings.shadow,
+    sectionItem: groupButtons.shadow,
     subsectionSettingItems: {
       shadowPosition: {
         subsectionItem: buttonSettings.shadow,

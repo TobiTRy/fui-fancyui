@@ -39,7 +39,10 @@ export default function DynamicBottomScrollBar(props: IBottomScrollbar) {
               {...item}
               secondBar={secondBar}
               active={item.id === activeButton}
-              handler={() => activeHandler(item.id!)}
+              handler={() => {
+                item.handler && item.handler();
+                activeHandler(item.id!)
+              }}
             />
           ))}
         </ScollAbleBar>
@@ -50,7 +53,10 @@ export default function DynamicBottomScrollBar(props: IBottomScrollbar) {
             {...item}
             secondBar={secondBar}
             active={item.id === activeButton}
-            handler={() => activeHandler(item.id!)}
+            handler={() => {
+              item.handler && item.handler();
+              activeHandler(item.id!)
+            }}
           />
         ))
       )}

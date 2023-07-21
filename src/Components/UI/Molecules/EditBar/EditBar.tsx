@@ -75,32 +75,34 @@ export default function EditBar(props: IEditBar) {
       )}
       {/* The second Bar that adapts to the activated button from the man bar */}
       {subSectionItems && (
-        <DynamicBottomScrollBar buttons={subSectionItems} scrollable={scrollable} bottomFixed={false} spacingLeftRight={spacingPx.xl} secondBar={true}>
-          {subSectionItems.map((item, index) => (
-            <FancyBottomBarIcon
-              key={index}
-              icon={item.icon}
-              label={item.label}
-              active={activeSecondEditbarItem === item.id}
-              handler={() => clickHandler('subSection', item, item.handler)}
-            />
-          ))}
-        </DynamicBottomScrollBar>
+        <DynamicBottomScrollBar buttons={subSectionItems} scrollable={scrollable} bottomFixed={false} spacingLeftRight={spacingPx.xl} roundedness='medium' secondBar={true}/>
       )}
       {/* The Main Bar which always shown with the main settings */}
       {sectionItems && (
-        <DynamicBottomScrollBar bottomFixed={false} scrollable={scrollable}>
-          {sectionItems.map((item, index) => (
-            <FancyBottomBarIcon
-              key={index}
-              icon={item.icon}
-              label={item.label}
-              active={activeEditbarItem === item.id}
-              handler={() => setActiveBarItem(item.id!)}
-            />
-          ))}
-        </DynamicBottomScrollBar>
+        <DynamicBottomScrollBar buttons={sectionItems} bottomFixed={false} scrollable={scrollable} roundedness='medium'  />
       )}
     </Wrapper>
   );
 }
+
+
+// {subSectionItems.map((item, index) => (
+//   <FancyBottomBarIcon
+//     key={index}
+//     icon={item.icon}
+//     label={item.label}
+//     active={activeSecondEditbarItem === item.id}
+//     handler={() => clickHandler('subSection', item, item.handler)}
+//   />
+// ))}
+
+
+// {sectionItems.map((item, index) => (
+//   <FancyBottomBarIcon
+//     key={index}
+//     icon={item.icon}
+//     label={item.label}
+//     active={activeEditbarItem === item.id}
+//     handler={() => setActiveBarItem(item.id!)}
+//   />
+// ))}
