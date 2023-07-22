@@ -3,6 +3,9 @@ import React from 'react';
 import { Bar, Wrapper } from './BottomBar.style';
 import IBottomBar from './IBottomBar.model';
 
+// --------------------------------------------------------------------------- //
+// ------------ A Dummy Bar for some types of navigtaion or more ------------- //
+// --------------------------------------------------------------------------- //
 export default function BottomBar(props: IBottomBar) {
   const { children, bottomFixed, width, spacingLeftRight, roundedness } = {...defaultProps, ...props};
 

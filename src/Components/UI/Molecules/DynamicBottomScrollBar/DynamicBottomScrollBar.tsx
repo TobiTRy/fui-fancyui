@@ -19,9 +19,6 @@ export default function DynamicBottomScrollBar(props: IBottomScrollbar) {
   const activateScrollbar = buttons?.length! > 4 ? true : false;
   const [activeButton, setActiveButton] = useState('');
 
-  const activeHandler = (id: string) => {
-    setActiveButton(id);
-  };
 
   //this prevent the body from scrolling when the scrollbar is scrolling
   useEffect(() => {
@@ -41,7 +38,7 @@ export default function DynamicBottomScrollBar(props: IBottomScrollbar) {
               active={item.id === activeButton}
               handler={() => {
                 item.handler && item.handler();
-                activeHandler(item.id!)
+                setActiveButton(item.id!)
               }}
             />
           ))}
@@ -55,7 +52,7 @@ export default function DynamicBottomScrollBar(props: IBottomScrollbar) {
             active={item.id === activeButton}
             handler={() => {
               item.handler && item.handler();
-              activeHandler(item.id!)
+              setActiveButton(item.id!)
             }}
           />
         ))
