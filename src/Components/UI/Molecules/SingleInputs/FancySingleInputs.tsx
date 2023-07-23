@@ -7,12 +7,14 @@ import { InputWrapper } from './FancySingleInputs.style';
 interface IFancySingleInputsProps {
   length?: number;
   handler?: (value: string) => void;
-  status?: InputStatus;
+  status?: Omit<InputStatus, 'isLoading'>;
 }
 export default function SingleInputs(props: IFancySingleInputsProps) {
   const { length = 6, handler, status } = props;
   const [values, setValues] = useState<string[]>(Array(length).fill(''));
   const refs = Array.from({ length }, () => createRef<HTMLInputElement>());
+
+//TODO: BUILD IN STRG +V
 
   //when the values are filled, call the handler
   useEffect(() => {
@@ -22,11 +24,9 @@ export default function SingleInputs(props: IFancySingleInputsProps) {
   }, [values, handler]);
 
   // this function is to handle the paste event
-  const handlePaste = (event: React.ClipboardEvent) => {
-    event.preventDefault();
-    const paste = event.clipboardData.getData('text');
+  const processClipboardData = (paste: string) => {
     const newValues = paste.split('').slice(0, length);
-
+    
     setValues((prev) => {
       const copy = [...prev];
       for (let i = 0; i < newValues.length; i++) {
@@ -34,6 +34,14 @@ export default function SingleInputs(props: IFancySingleInputsProps) {
       }
       return copy;
     });
+  };
+
+
+  const handlePaste = (event: React.ClipboardEvent<HTMLInputElement>) => {
+    event.preventDefault();
+    const paste = event.clipboardData.getData('text');
+    processClipboardData(paste);
+    (event.target as HTMLInputElement).blur()
   };
 
   // this function is to handle the character keys
@@ -72,7 +80,7 @@ export default function SingleInputs(props: IFancySingleInputsProps) {
     // if the next input exists, focus it
     if (refs[index + 1]) {
       refs[index + 1].current?.focus();
-    }
+    } 
   };
 
   // this function is to jumpback to the previous input
@@ -83,9 +91,19 @@ export default function SingleInputs(props: IFancySingleInputsProps) {
     }
   };
 
+  const handleKeyDownPaste = async () => {
+      const clipText = await navigator.clipboard.readText();
+      moveRightToTheNextInputRef(clipText.length )
+      processClipboardData(clipText);
+  };
+
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>, index: number) => {
+    if(event.key === 'v' && (event.ctrlKey || event.metaKey)) {
+      void handleKeyDownPaste()
+      event.currentTarget.blur();
+    } 
     // Handle character keys
-    if (event.key.length === 1) {
+    else if (event.key.length === 1) {
       handleCharacterInput(event, index);
     }
     // Handle backspace key

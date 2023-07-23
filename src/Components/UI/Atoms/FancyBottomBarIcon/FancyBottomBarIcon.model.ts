@@ -7,5 +7,6 @@ export interface IFancyBottomBarIcon {
   color?: string;
   active?: boolean;
   disabled?: boolean;
+  secondBar?: boolean;
   handler?: () => void;
 }

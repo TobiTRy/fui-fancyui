@@ -35,7 +35,7 @@ export const Message = styled.p<{ $status?: boolean }>`
 `;
 
 
-export const Container = styled.div<{ $status?: IStatus }>`
+export const Container = styled.div<{ $status?: Omit<IStatus, 'isLoading'>}>`
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -8,6 +8,7 @@ export const WrapperIndicator = styled.div<{$isActive: boolean}>`
   z-index: 10;
   left: 50%;
   transform: translate(-50%);
+  transition: width 0.15s ease-in-out, height 0.15s ease-in-out;
   pointer-events: none
 `
 
@@ -20,7 +21,7 @@ export const Indicator = styled.div.attrs<{$color: string}>(({$color}) => ({
   border-radius: 50% 50% 50% 0;
   box-shadow: 0 0 0 1px ${uiColors.secondary.lighter};
   position: absolute;
-  top: ${({$isActive}) => $isActive ? '-105px' : '-40px'};
+  top: ${({$isActive}) => $isActive ? '-105px' : '-5px'};
   width: 100%;
   height: 100%;
   left: 50%;

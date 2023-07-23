@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { spacingPx, uiColors } from "../../Design/design";
+import { borderRadius, spacingPx, uiColors } from "../../Design/design";
 
 const calcBarWidthandSpacing = (width?: string, spacingLeftRight?: string) => { 
   if(width) {
@@ -29,8 +29,8 @@ export const BottomCenterdFixed = css`
 interface IBottomBarWrapper {
   $bottomFixed?: boolean;
   $width?: string;
-  $secondBar?: boolean;
   $spacingLeftRight?: string;
+  $roundedness?: keyof typeof borderRadius;
 }
 export const Wrapper = styled.div<IBottomBarWrapper>`
   ${({$bottomFixed}) => ($bottomFixed ? BottomCenterdFixed : null)}
@@ -41,7 +41,7 @@ export const Wrapper = styled.div<IBottomBarWrapper>`
   z-index: 99;
   ${({ $width, $spacingLeftRight }) => calcBarWidthandSpacing($width, $spacingLeftRight)};
   background-color: ${uiColors.primary.main};
-  border-radius: 12px 12px 0px 0px;
+  border-radius: ${({$roundedness}) => $roundedness ? `${borderRadius[$roundedness]} ${borderRadius[$roundedness]} 0px 0px` : ''} ;
   box-shadow: 0 0 12px black;
   padding: ${spacingPx.sm} ${spacingPx.sm} 0 ${spacingPx.sm};
 `;
@@ -52,7 +52,6 @@ export const Bar = styled.div`
   display: flex;
   justify-content: space-evenly;
   width: 100%;
-
 `;
 
 

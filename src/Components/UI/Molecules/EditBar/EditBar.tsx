@@ -19,6 +19,8 @@ import { useEditBarStore } from './EditBar.state';
 import { spacingPx, spacing } from '../../Design/design';
 import EditBarModal from '../../Atoms/EditBarModal/EditBarModal';
 
+import DynamicBottomScrollBar from '../DynamicBottomScrollBar/DynamicBottomScrollBar';
+
 
 const Wrapper = styled.div`
   position: fixed;
@@ -60,6 +62,8 @@ export default function EditBar(props: IEditBar) {
     if (buttonFunction) buttonFunction();
   };
 
+
+  //TODO: GIVE BACK FROM THE DYANMIC BOTTOM BAR THE BUTTON WHICH IS ACTIVE
   return (
     <Wrapper>
       {settings && (
@@ -71,32 +75,34 @@ export default function EditBar(props: IEditBar) {
       )}
       {/* The second Bar that adapts to the activated button from the man bar */}
       {subSectionItems && (
-        <BottomBar scrollable={scrollable} bottomFixed={false} spacingLeftRight={spacingPx.xl} secondBar={true}>
-          {subSectionItems.map((item, index) => (
-            <FancyBottomBarIcon
-              key={index}
-              icon={item.icon}
-              label={item.label}
-              active={activeSecondEditbarItem === item.id}
-              handler={() => clickHandler('subSection', item, item.handler)}
-            />
-          ))}
-        </BottomBar>
+        <DynamicBottomScrollBar buttons={subSectionItems} scrollable={scrollable} bottomFixed={false} spacingLeftRight={spacingPx.xl} roundedness='medium' secondBar={true}/>
       )}
       {/* The Main Bar which always shown with the main settings */}
       {sectionItems && (
-        <BottomBar bottomFixed={false} scrollable={scrollable}>
-          {sectionItems.map((item, index) => (
-            <FancyBottomBarIcon
-              key={index}
-              icon={item.icon}
-              label={item.label}
-              active={activeEditbarItem === item.id}
-              handler={() => setActiveBarItem(item.id!)}
-            />
-          ))}
-        </BottomBar>
+        <DynamicBottomScrollBar buttons={sectionItems} bottomFixed={false} scrollable={scrollable} roundedness='medium'  />
       )}
     </Wrapper>
   );
 }
+
+
+// {subSectionItems.map((item, index) => (
+//   <FancyBottomBarIcon
+//     key={index}
+//     icon={item.icon}
+//     label={item.label}
+//     active={activeSecondEditbarItem === item.id}
+//     handler={() => clickHandler('subSection', item, item.handler)}
+//   />
+// ))}
+
+
+// {sectionItems.map((item, index) => (
+//   <FancyBottomBarIcon
+//     key={index}
+//     icon={item.icon}
+//     label={item.label}
+//     active={activeEditbarItem === item.id}
+//     handler={() => setActiveBarItem(item.id!)}
+//   />
+// ))}

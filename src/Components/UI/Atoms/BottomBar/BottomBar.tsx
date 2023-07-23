@@ -1,20 +1,22 @@
 import React from 'react';
 
 import { Bar, Wrapper } from './BottomBar.style';
+import IBottomBar from './IBottomBar.model';
 
-interface IBottomBar {
-  children?: JSX.Element[];
-  scrollable?: boolean;
-  bottomFixed?: boolean;
-  width?: string;
-  spacingLeftRight?: string;
-}
+// --------------------------------------------------------------------------- //
+// ------------ A Dummy Bar for some types of navigtaion or more ------------- //
+// --------------------------------------------------------------------------- //
 export default function BottomBar(props: IBottomBar) {
-  const { children, bottomFixed = true, width, spacingLeftRight } = props;
+  const { children, bottomFixed, width, spacingLeftRight, roundedness } = {...defaultProps, ...props};
 
   return (
-    <Wrapper $bottomFixed={bottomFixed} $width={width} $spacingLeftRight={spacingLeftRight}>
+    <Wrapper $bottomFixed={bottomFixed} $width={width} $roundedness={roundedness} $spacingLeftRight={spacingLeftRight}>
       <Bar>{children}</Bar>
     </Wrapper>
   );
+}
+
+
+const defaultProps: IBottomBar = {
+  bottomFixed: true,
 }

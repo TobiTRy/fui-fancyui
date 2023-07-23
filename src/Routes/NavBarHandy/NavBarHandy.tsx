@@ -1,10 +1,7 @@
-import React from 'react'
+import React from 'react';
 
-import FancyHueSlider from '../../Components/UI/Molecules/FancyHueSlider/FancyHueSlider';
-import ScrollableBar from '../../Components/UI/Atoms/ScrollableBar/ScrollableBar';
 import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';
-import BottomScrollbar from '../../Components/UI/Molecules/DynamicBottomScrollBar/DynamicBottomScrollBar';
-import DynamicBottomScrollBar from '../../Components/UI/Molecules/DynamicBottomScrollBar/DynamicBottomScrollBar';
+import StaticBottomBar from '../../Components/UI/Molecules/FancyBottomBarStatic/FancyBottomBarStatic';
 
 const svg = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -13,25 +10,24 @@ const svg = (
   </svg>
 );
 
-export default function ExperimentalRoute() {
-  return (<>
-  
+export default function NavBarHandy() {
+
+
+  return (
     <DesignWrapper>
-      <DesignArea title='Experimental'>
-      <FancyHueSlider />
-        <DynamicBottomScrollBar  buttons={defaultProps.buttons} scrollable />
+      <DesignArea title="NavBarHandy">
+        <StaticBottomBar buttons={defaultProps.buttons}/>
       </DesignArea>
     </DesignWrapper>
-  </>)
+  );
 }
-
 
 const defaultProps = {
   buttons: [
     { label: 'hi', icon: svg, id: '1' },
     { label: 'hi', icon: svg, id: '2' },
-    { label: 'hi', icon: svg, id: '3'},
-    { label: 'hi', icon: svg, id: '4'},
-    { label: 'hi', icon: svg, id: '4'},
+    { label: 'hi', icon: svg, id: '3' },
+    { label: 'hi', icon: svg, id: '4' },
+    { label: 'hi', icon: svg, id: '4' },
   ],
 };
