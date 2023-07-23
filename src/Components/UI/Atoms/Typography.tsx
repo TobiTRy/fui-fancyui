@@ -47,8 +47,30 @@ const variants = {
   `,
 };
 
+interface IComponentVariants {
+  type: keyof typeof Components;
+  variant?: keyof typeof variants;
+  style?: CSSProp;
+}
+const componentCreator = ({type, variant, style}:IComponentVariants) => {
+  const Component = Components[type];
+
+
+
+  return css`
+    
+
+  `
+
+
+}
+
+
 const Components = {
-  h1: styled.h1,
+  h1: styled.h1<IComponentVariants>`
+
+
+  `,
   h2: styled.h2,
   h3: styled.h3,
   h4: styled.h4,
@@ -58,8 +80,14 @@ const Components = {
   subtitle2: styled.p,
   button: styled.p,
   caption: styled.p,
-}
+};
 
+const typoCreator = (type: keyof typeof Components, variant?: keyof typeof variants) => {
+  return styled(Components[type])`
+    ${variants[type]}
+    ${variant ? variants[variant] : ''}
+  `;
+};
 
 interface ITypographyProps {
   type: keyof typeof Components;
@@ -67,13 +95,11 @@ interface ITypographyProps {
   children: React.ReactNode;
   style?: CSSProp;
 }
-const Typography = ({ type, variant = 'subtitle2', children, style }: ITypographyProps) => {
-  const Component = Components[type]`
-    ${variants[variant]}
-    ${style}
-  `;
+export default function Typography({ type, variant = 'subtitle2', children, style }: ITypographyProps) {
+  console.log('type', type, 'variant', variant);
+  const Component = typoCreator(type, variant);
 
-  return <Component>{children}</Component>;
+  return <Component style={style}>{children}</Component>;
 };
 
-export default Typography;
+
