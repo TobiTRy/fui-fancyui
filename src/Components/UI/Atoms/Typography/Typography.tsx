@@ -1,7 +1,7 @@
 import React from 'react';
-import styled, { css, CSSProp } from 'styled-components';
-import { fontSizes } from '../../Design/design';
-import brakePoints from '../../Design/brakePoints';
+import styled, { CSSProp, css } from 'styled-components';
+
+import { fontSizeVariants } from './TypographyStyleVariants';
 
 
 
@@ -35,14 +35,6 @@ const ComponentObj = {
     ${(props) => props.$variant};
     ${(props) => props.$style};
   `,
-  subtitle1: styled.h6<IComponentProps>`
-    ${(props) => props.$variant};
-    ${(props) => props.$style};
-  `,
-  subtitle2: styled.h6<IComponentProps>`
-    ${(props) => props.$variant};
-    ${(props) => props.$style};
-  `,
   button: styled.h6<IComponentProps>`
     ${(props) => props.$variant};
     ${(props) => props.$style};
@@ -57,11 +49,19 @@ const ComponentObj = {
   `,
 };
 
+const generateStyle = (externalStyle: CSSProp, fontWeight: 'bold' | undefined) => {
+  return css`
+    ${externalStyle};
+    font-weight: ${fontWeight};
+  `;
+
+
+};
 
 
 interface ITypographyProps {
-  type: keyof typeof variants;
-  variant?: keyof typeof variants;
+  type: keyof typeof fontSizeVariants;
+  variant?: keyof typeof fontSizeVariants;
   children: React.ReactNode;
   style?: CSSProp;
 }
@@ -70,7 +70,7 @@ export default function Typography({ type, variant, children, style }: ITypograp
   const Component = ComponentObj[type];
 
   // get the variant style based on the variant prop or the type prop;
-  const variantStyle = variant ? variants[variant] : variants[type];
+  const variantStyle = variant ? fontSizeVariants[variant] : fontSizeVariants[type];
 
   return (
     <>

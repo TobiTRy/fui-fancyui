@@ -6,7 +6,7 @@ const nullifyStyle = css`
   margin: 0;
 `;
 
-const variants = {
+export const fontSizeVariants = {
   h1: css`
     ${nullifyStyle};
     font-size: ${fontSizes.mobile.headings.h1};
@@ -64,6 +64,7 @@ const variants = {
       font-size: ${fontSizes.desktop.textElements.button};
     }
   `,
+  
   caption: css`
     ${nullifyStyle};
     font-size: ${fontSizes.desktop.textElements.caption};
