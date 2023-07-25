@@ -3,6 +3,7 @@ import React from 'react';
 import FancyTabSwitch from '../../Components/UI/Molecules/FancyTabSwitch/FancyTabSwitch';
 
 import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';
+import { css } from 'styled-components';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -38,15 +39,15 @@ export default function TabSwitchRoute() {
 
   return (
     <DesignWrapper>
-      <DesignArea title='TabSwitch'>
+      <DesignArea title='TabSwitch' style={css`flex-direction: column;`}>
         <FancyTabSwitch switchValues={switchValues} rounded={'complete'} currentSelect={selected} handler={selecttHandler}  wide={true}/>
       </DesignArea>
-      <DesignArea title='TabSwitch'>
+      <DesignArea title='TabSwitch' style={css`flex-direction: column;`}>
         <FancyTabSwitch transparent={true} switchValues={switchValues} rounded={'complete'} currentSelect={selected} handler={selecttHandler} />
         <FancyTabSwitch transparent={true} switchValues={switchValues2} rounded={'complete'} wide={true}  currentSelect={selected} handler={selecttHandler} />
         <FancyTabSwitch transparent={true} switchValues={switchValues2} rounded={'complete'} wide={true} iconAlign={'right'} currentSelect={selected} handler={selecttHandler} />
       </DesignArea>
-      <DesignArea title='TabSwitch'>
+      <DesignArea title='TabSwitch' style={css`flex-direction: column;`}>
         <FancyTabSwitch switchValues={switchValues2} currentSelect={selected2} handler={selecttHandler2}  wide={true} />
       </DesignArea>
     </DesignWrapper>

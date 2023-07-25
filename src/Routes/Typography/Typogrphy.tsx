@@ -1,5 +1,5 @@
 import React from 'react'
-import Typography from '../../Components/UI/Atoms/Typography'
+import Typography from '../../Components/UI/Atoms/Typography/Typography'
 
 import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper'
 

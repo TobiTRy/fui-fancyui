@@ -48,7 +48,7 @@ export function DesignArea({ children, title, style }: { title: string; children
 
   return (
     <Area $style={style}>
-      <h1>{title}</h1>
+      <h2>{title}</h2>
       <div>{children}</div>
     </Area>
   );

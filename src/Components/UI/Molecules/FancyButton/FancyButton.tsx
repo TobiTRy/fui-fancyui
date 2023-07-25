@@ -30,7 +30,7 @@ export default function FancyButton(props: IFancyButton) {
       onClick={onClick}
       disabled={disabled}
     >
-      {icon && <FancySVGAtom size={size}>{icon}</FancySVGAtom>}
+      {icon && <FancySVGAtom size={size} isPassive>{icon}</FancySVGAtom>}
       {label && <span>{label}</span>}
     </Button>
   );
