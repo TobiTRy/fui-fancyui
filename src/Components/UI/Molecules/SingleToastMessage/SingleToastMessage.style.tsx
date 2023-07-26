@@ -59,18 +59,6 @@ export const TimerLine = styled.div<TimerLineProps>`
   animation: ${() => timerAnimation} ${({ $time }) => $time - 300}ms linear forwards;
 `;
 
-export const Title = styled.h4`
-  font-size: ${fontSize.large};
-  font-weight: bold;
-  margin-top: 0;
-  margin-bottom: 8px;
-`;
-
-export const Message = styled.p`
-  font-size: ${fontSize.medium};
-  margin: 0;
-`;
-
 export const CloseButton = styled.button<IToastMessage>`
   padding: 0  ${spacingPx.sm} 2px;
   color: ${({ $messageType }) => systemMessages[$messageType].light};
