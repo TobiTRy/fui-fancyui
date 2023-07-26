@@ -1,88 +1,77 @@
-import { css } from "styled-components";
-import { fontSizes } from "../../Design/design";
-import brakePoints from "../../Design/brakePoints";
+import { css } from 'styled-components';
+import { fontSizes } from '../../Design/design';
+import brakePoints from '../../Design/brakePoints';
 
 const nullifyStyle = css`
   margin: 0;
 `;
 
+// Hilfsfunktion für den Medien-Query
+const responsiveFontSize = (mobileSize: string, desktopSize: string) => css`
+  font-size: ${mobileSize};
+
+  @media (min-width: ${brakePoints.md + 'px'}) {
+    font-size: ${desktopSize};
+  }
+`;
+
 export const fontSizeVariants = {
   h1: css`
     ${nullifyStyle};
-    font-size: ${fontSizes.mobile.headings.h1};
-
-    @media (min-width: ${brakePoints.md + 'px'}) {
-      font-size: ${fontSizes.desktop.headings.h1};
-    }
+    ${responsiveFontSize(fontSizes.mobile.headings.h1, fontSizes.desktop.headings.h1)}
+    line-height: 1.2;
   `,
   h2: css`
     ${nullifyStyle};
-    font-size: ${fontSizes.mobile.headings.h2};
-
-    @media (min-width: ${brakePoints.md + 'px'}) {
-      font-size: ${fontSizes.desktop.headings.h2};
-    }
+    ${responsiveFontSize(fontSizes.mobile.headings.h2, fontSizes.desktop.headings.h2)}
+    line-height: 1.2;
   `,
   h3: css`
     ${nullifyStyle};
-    font-size: ${fontSizes.mobile.headings.h3};
-
-    @media (min-width: ${brakePoints.md + 'px'}) {
-      font-size: ${fontSizes.desktop.headings.h3};
-    }
+    ${responsiveFontSize(fontSizes.mobile.headings.h3, fontSizes.desktop.headings.h3)}
+    line-height: 1.2;
   `,
   h4: css`
     ${nullifyStyle};
-    font-size: ${fontSizes.mobile.headings.h4};
-
-    @media (min-width: ${brakePoints.md + 'px'}) {
-      font-size: ${fontSizes.desktop.headings.h4};
-    }
+    ${responsiveFontSize(fontSizes.mobile.headings.h4, fontSizes.desktop.headings.h4)}
+    line-height: 1.2;
   `,
   h5: css`
     ${nullifyStyle};
-    font-size: ${fontSizes.mobile.headings.h5};
-
-    @media (min-width: ${brakePoints.md + 'px'}) {
-      font-size: ${fontSizes.desktop.headings.h5};
-    }
+    ${responsiveFontSize(fontSizes.mobile.headings.h5, fontSizes.desktop.headings.h5)}
+    line-height: 1.2;
   `,
   h6: css`
     ${nullifyStyle};
-    font-size: ${fontSizes.mobile.headings.h6};
-
-    @media (min-width: ${brakePoints.md + 'px'}) {
-      font-size: ${fontSizes.desktop.headings.h6};
-    }
+    ${responsiveFontSize(fontSizes.mobile.headings.h6, fontSizes.desktop.headings.h6)}
+    line-height: 1.2;
   `,
-
   button: css`
     ${nullifyStyle};
-    font-size: ${fontSizes.mobile.textElements.button};
-
-    @media (min-width: ${brakePoints.md + 'px'}) {
-      font-size: ${fontSizes.desktop.textElements.button};
-    }
+    ${responsiveFontSize(fontSizes.mobile.textElements.button, fontSizes.desktop.textElements.button)}
+    font-weight: bold;
   `,
-  
+  label: css`
+    ${nullifyStyle};
+    ${responsiveFontSize(fontSizes.mobile.textElements.label, fontSizes.desktop.textElements.label)}
+    font-weight: 400;
+  `,
   caption: css`
     ${nullifyStyle};
-    font-size: ${fontSizes.desktop.textElements.caption};
+    ${responsiveFontSize(fontSizes.mobile.textElements.caption, fontSizes.desktop.textElements.caption)}
     font-weight: 400;
-
-    @media (min-width: ${brakePoints.md + 'px'}) {
-      font-size: ${fontSizes.desktop.textElements.caption};
-    }
   `,
-
   content: css`
     ${nullifyStyle};
-    line-height: 1.25;
-    font-size: ${fontSizes.mobile.textElements.caption};
+    ${responsiveFontSize(fontSizes.mobile.textElements.caption, fontSizes.desktop.textElements.caption)}
+    line-height: 1.4;
     font-weight: 400;
 
-    @media (min-width: ${brakePoints.md + 'px'}) {
-      font-size: ${fontSizes.desktop.textElements.caption};
-    }
+  `,
+  smallText: css`
+    line-height: 1.2;
+    ${nullifyStyle};
+    ${responsiveFontSize(fontSizes.mobile.textElements.smallText, fontSizes.desktop.textElements.smallText)}
+    font-weight: 400;
   `,
 };

@@ -131,9 +131,9 @@ export const fontSizes = {
       smallText: '14px',
       input: '16px',
       button: '16px',
-}
-}
-}
+    },
+  },
+};
 export const borderRadius = {
   small: '4px',
   medium: '8px',

@@ -35,11 +35,15 @@ const ComponentObj = {
     ${(props) => props.$variant};
     ${(props) => props.$style};
   `,
-  button: styled.h6<IComponentProps>`
+  label: styled.label<IComponentProps>`
     ${(props) => props.$variant};
     ${(props) => props.$style};
   `,
-  caption: styled.h6<IComponentProps>`
+  button: styled.span<IComponentProps>`
+    ${(props) => props.$variant};
+    ${(props) => props.$style};
+  `,
+  caption: styled.p<IComponentProps>`
     ${(props) => props.$variant};
     ${(props) => props.$style};
   `,
@@ -47,15 +51,17 @@ const ComponentObj = {
     ${(props) => props.$variant};
     ${(props) => props.$style};
   `,
+  smallText: styled.p<IComponentProps>`
+    ${(props) => props.$variant};
+    ${(props) => props.$style};
+  `,
 };
 
-const generateStyle = (externalStyle: CSSProp, fontWeight: 'bold' | undefined) => {
+const generateStyle = (externalStyle: CSSProp, fontWeight: 'normal' | 'bold' | undefined):CSSProp => {
   return css`
     ${externalStyle};
     font-weight: ${fontWeight};
   `;
-
-
 };
 
 
@@ -63,18 +69,20 @@ interface ITypographyProps {
   type: keyof typeof fontSizeVariants;
   variant?: keyof typeof fontSizeVariants;
   children: React.ReactNode;
+  weight?: 'normal' | 'bold';
   style?: CSSProp;
 }
-export default function Typography({ type, variant, children, style }: ITypographyProps) {
+export default function Typography({ type, variant, children, style, weight }: ITypographyProps) {
   // generate the Typography component based on the type prop;
   const Component = ComponentObj[type];
 
+  const mixedStyle = generateStyle(style, weight);
   // get the variant style based on the variant prop or the type prop;
   const variantStyle = variant ? fontSizeVariants[variant] : fontSizeVariants[type];
 
   return (
     <>
-      <Component $variant={variantStyle} $style={style}>
+      <Component $variant={variantStyle} $style={mixedStyle}>
         {children}
       </Component>
     </>

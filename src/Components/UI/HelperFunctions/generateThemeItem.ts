@@ -81,7 +81,7 @@ const generateIcon = (props: IGenerateIconItem) => {
 
   //this function generates the addons for a $icon button
   return css`
-    $align-items: center;
+    align-items: center;
     justify-content: ${$align && alignment[$align]};
     ${$label && calcIconButtoonPadding({ $align, $size })};
 
