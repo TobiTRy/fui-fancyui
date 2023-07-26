@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Color from 'color';
 
+import Typography from '../Typography/Typography';
 import copyToClipboard from '../functions/copyToClipBoard';
 import { CheckerboardPattern } from '../CheckBoardPattern';
 import { ColorDisplayContainer, Wrapper, Content, WrapperSVG } from './ColorDisplay.style';
@@ -31,7 +32,7 @@ export default function ColorDisplay({ color, opacity, showText, fullHeight }: I
   return (
     <Wrapper $fullHeight={fullHeight} onClick={copyValue}>
       <Content $isBright={isBright} >
-        {showText && <p>{color.toString()}</p>}
+        {showText && <Typography type='content'>{color.toString()}</Typography>}
         <WrapperSVG>{copyd ? <ClipBoardIconCheck /> : <ClipBoardIcon />}</WrapperSVG>
       </Content>
       <ColorDisplayContainer color={color.toString()} opacity={opacity} />

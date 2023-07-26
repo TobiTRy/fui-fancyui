@@ -3,6 +3,7 @@ import SVGChevronLeft from '../../SVGIcons/SVGChevronLeft';
 import SVGChevronRight from '../../SVGIcons/SVGChevronRight';
 
 import { StyledButton, StyledYearSelector } from './YearSelector.style';
+import Typography from '../Typography/Typography';
 
 // --------------------------------------------------------------------------- //
 // ---------- Here are the design variants for sizing and alignment ---------- //
@@ -32,7 +33,7 @@ export default function YearSelector({ selectedYear, handler }: IYearSelector) {
   return (
     <StyledYearSelector>
       <StyledButton aria-label="a year back" onClick={() => handleYearChange(-1)}>{SVGChevronLeft}</StyledButton>
-      <span tabIndex={0}>{pickedYear}</span>
+      <Typography type='content' variant='h3' tabIndex={0}>{pickedYear}</Typography>
       <StyledButton aria-label="one year forward" onClick={() => handleYearChange(1)}>{SVGChevronRight}</StyledButton>
     </StyledYearSelector>
   );

@@ -43,7 +43,7 @@ const ComponentObj = {
     ${(props) => props.$variant};
     ${(props) => props.$style};
   `,
-  caption: styled.p<IComponentProps>`
+  inlineElement: styled.span<IComponentProps>`
     ${(props) => props.$variant};
     ${(props) => props.$style};
   `,

@@ -56,7 +56,7 @@ export const fontSizeVariants = {
     ${responsiveFontSize(fontSizes.mobile.textElements.label, fontSizes.desktop.textElements.label)}
     font-weight: 400;
   `,
-  caption: css`
+  inlineElement: css`
     ${nullifyStyle};
     ${responsiveFontSize(fontSizes.mobile.textElements.caption, fontSizes.desktop.textElements.caption)}
     font-weight: 400;

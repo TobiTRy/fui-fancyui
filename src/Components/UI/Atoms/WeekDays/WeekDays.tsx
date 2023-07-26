@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+
 import { spacingPx, uiColors } from '../../Design/design';
+import Typography from '../Typography/Typography';
 
 
 const WeekdaysConatiner = styled.div`
@@ -10,7 +12,7 @@ const WeekdaysConatiner = styled.div`
   margin-bottom: ${spacingPx.xs};
   color: ${uiColors.secondary.main};
 
-  div {
+  & > * {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -34,7 +36,7 @@ export default function WeekDays() {
   return (
     <WeekdaysConatiner>
       {weekdays.map((day) => (
-        <div key={day}>{day}</div>
+        <Typography type='label' key={day}>{day}</Typography>
       ))}
     </WeekdaysConatiner>
   );

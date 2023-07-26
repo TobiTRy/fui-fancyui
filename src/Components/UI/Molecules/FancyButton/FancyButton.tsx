@@ -1,10 +1,10 @@
 import React from 'react';
-
 import styled from 'styled-components';
 import { IFancyButton } from './IFancyButton.model';
 
 import generateThemeItem, { IGenerateThemeItem } from '../../HelperFunctions/generateThemeItem';
 import FancySVGAtom from '../../Atoms/FancySVGAtom/FancySVGAtom';
+import Typography from '../../Atoms/Typography/Typography';
 
 //this creates the button component and handles the style via generateButton
 const Button = styled.button<IGenerateThemeItem>`
@@ -31,7 +31,7 @@ export default function FancyButton(props: IFancyButton) {
       disabled={disabled}
     >
       {icon && <FancySVGAtom size={size} isPassive>{icon}</FancySVGAtom>}
-      {label && <span>{label}</span>}
+      {label && <Typography type='button'>{label}</Typography>}
     </Button>
   );
 }

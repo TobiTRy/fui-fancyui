@@ -1,9 +1,9 @@
 import React from 'react';
+import styled, { css } from 'styled-components';
 
 import { IFancyBottomBarIcon } from './FancyBottomBarIcon.model';
-
-import { IconTextButton, Icon, Label, Underline } from './FancyBottomBarIcon.style';
-import styled, { css } from 'styled-components';
+import { IconTextButton, Icon, Underline } from './FancyBottomBarIcon.style';
+import Typography from '../Typography/Typography';
 
 export const ItemWrapper = styled.div<{ $secondBar?: boolean }>`
   flex: 1 0 64px;
@@ -23,7 +23,7 @@ export default function FancyBottomBarIcon(props: IFancyBottomBarIcon) {
     <ItemWrapper $secondBar={secondBar}>
       <IconTextButton $color={color} $isActive={active} disabled={disabled} onClick={handler}>
         <Icon>{icon}</Icon>
-        <Label>{label}</Label>
+        <Typography type='smallText'>{label}</Typography>
         <Underline $isActive={active} />
       </IconTextButton>
     </ItemWrapper>
