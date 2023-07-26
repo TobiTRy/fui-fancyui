@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { fontSize, spacingPx, uiColors } from "../../Design/design";
 
 const SpeedDailButtonSize = 60
@@ -63,12 +63,11 @@ export const Ring = styled.div<{ $isOpen: boolean }>`
 `;
 
 
-export const Label = styled.span<{ $isOpen: boolean }>`
+export const Label = css<{ $isOpen: boolean }>`
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   left: -50px;
-  font-size: ${fontSize.small};
   color: ${uiColors.secondary.main};
   display: ${({ $isOpen }) => ($isOpen ? 'inline' : 'none')};
   opacity: ${({ $isOpen }) => ($isOpen ? 1 : 0)};

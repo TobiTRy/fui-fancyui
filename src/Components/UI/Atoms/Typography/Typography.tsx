@@ -57,7 +57,7 @@ const ComponentObj = {
   `,
 };
 
-const generateStyle = (externalStyle: CSSProp, fontWeight: 'normal' | 'bold' | undefined):CSSProp => {
+const generateStyle = (externalStyle: CSSProp, fontWeight: 'normal' | 'bold' | undefined) => {
   return css`
     ${externalStyle};
     font-weight: ${fontWeight};
@@ -75,7 +75,7 @@ interface ITypographyProps {
 }
 export default function Typography({ type, variant, children, style, weight, ...htmlProps }: ITypographyProps) {
   // generate the Typography component based on the type prop;
-  const Component = ComponentObj[type];
+  const Component = ComponentObj[type] || ComponentObj.content;
 
   const mixedStyle = generateStyle(style, weight);
   // get the variant style based on the variant prop or the type prop;
