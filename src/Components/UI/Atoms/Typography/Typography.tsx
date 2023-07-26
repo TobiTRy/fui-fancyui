@@ -68,11 +68,12 @@ const generateStyle = (externalStyle: CSSProp, fontWeight: 'normal' | 'bold' | u
 interface ITypographyProps {
   type: keyof typeof fontSizeVariants;
   variant?: keyof typeof fontSizeVariants;
-  children: React.ReactNode;
+  children?: React.ReactNode;
   weight?: 'normal' | 'bold';
   style?: CSSProp;
+  [x: string]: any;
 }
-export default function Typography({ type, variant, children, style, weight }: ITypographyProps) {
+export default function Typography({ type, variant, children, style, weight, ...htmlProps }: ITypographyProps) {
   // generate the Typography component based on the type prop;
   const Component = ComponentObj[type];
 
@@ -82,7 +83,7 @@ export default function Typography({ type, variant, children, style, weight }: I
 
   return (
     <>
-      <Component $variant={variantStyle} $style={mixedStyle}>
+      <Component $variant={variantStyle} $style={mixedStyle} {...htmlProps}>
         {children}
       </Component>
     </>

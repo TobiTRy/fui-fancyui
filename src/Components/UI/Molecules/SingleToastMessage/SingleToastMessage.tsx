@@ -1,8 +1,8 @@
 import React, { forwardRef, useEffect } from 'react';
+
 import IToastMessage from './IToastMessage.model';
 import { Container, TimerLine, Headline } from './SingleToastMessage.style';
 import Typography from '../../Atoms/Typography/Typography';
-
 import FancyXButton from '../../Atoms/FancyXButton';
 
 
