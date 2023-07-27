@@ -1,1 +1,1 @@
-export { default as FancySpeedDialButton } from './FancySpeedDialButton';
+export { default as FancySpeedDailButton } from './FancySpeedDailButton';

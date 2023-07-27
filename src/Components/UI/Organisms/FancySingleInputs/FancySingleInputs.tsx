@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import SingleInputs from '../../Molecules/SingleInputs/FancySingleInputs';
+import SingleInputs from '../../Molecules/SingleInputs/SingleInputs';
 import { Container, WarpperComponent, Message, MessageContainer } from './FancySingleInputs.style';
 
 // --------------------------------------------------------------------------- //

@@ -1,6 +1,6 @@
 import React, { ChangeEvent, useEffect, useState } from 'react';
 import InputCreator, { IInputCreatorHandler, IInputCreatorActiveHandler } from '../../Molecules/InputCreator/InputCreator';
-import DateInput from '../../Molecules/DateInput/DatePicker';
+import DateInput from '../../Molecules/DateInput/DateInput';
 
 interface IFancyDateInput {
   value?: string;
