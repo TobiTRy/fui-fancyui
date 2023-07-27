@@ -68,6 +68,7 @@ const FancyColorOutput = ({ pickedColor, opacity, handler, handlerOpacity, curre
     //string is HEX code
     if (typeof color !== 'string') {
       const colorObj = color as ColorTypeLetters; //e.g. {r: 255, g: 255, b: 255, a: 1, h: 0,…}
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const { a, ...colorWhitoutAlpha } = colorObj; //split out the alpha value
 
       //indentify the inputletter is a color or alpha value
