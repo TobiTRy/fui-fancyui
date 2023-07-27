@@ -4,6 +4,7 @@ import { ColorTypes } from '../FancyColorOutput.model';
 import { FancyTextInput } from '../../../Organisms/FancyTextInput';
 import AdaptInputs from './AdaptInputs';
 import { ContainerInputs, WrapperInputs } from './InputFields.style';
+import Typography from '../../../Atoms/Typography/Typography';
 
 
 // --------------------------------------------------------------------------- //
@@ -34,7 +35,7 @@ export default function InputFields({currentColorObject, handler }:IInputFields)
       {typeof currentColorObject?.color === 'string' ? (
         <ContainerInputs>
           <FancyTextInput name='color' value={currentColorObject.color} align='center' handler={(value, e) => handleInputChange(e)}/>
-          <p>{currentColorObject.type}</p>
+          <Typography type='inlineElement' variant='smallText'>{currentColorObject.type}</Typography>
         </ContainerInputs>
       ) : (
         // if the color is a object render a input field for each color value
@@ -43,7 +44,7 @@ export default function InputFields({currentColorObject, handler }:IInputFields)
             <ContainerInputs key={key} >
               {/* the AdaptInputs component creates the input for the specific color (like: r, b, g ...) */}
               <AdaptInputs inputLetter={key} value={value as number} handler={handleInputChange}/>
-              <p>{key}</p>
+              <Typography type='inlineElement' variant='smallText'>{key}</Typography>
             </ContainerInputs>
           );
         })

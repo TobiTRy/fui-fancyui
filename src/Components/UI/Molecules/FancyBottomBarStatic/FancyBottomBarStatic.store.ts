@@ -6,7 +6,7 @@ interface IFancyBottomBarStaticStore {
 
   whichIsActive: string;
   setWhichIsActive: (whichIsActive: string) => void;
-};
+}
 
 const useFancyBottomBarStaticStore = create<IFancyBottomBarStaticStore>((set, get) => ({
   isVisible: true,

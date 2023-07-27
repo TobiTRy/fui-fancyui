@@ -6,8 +6,6 @@ import DateOutput from '../../Atoms/DateOutput/DateOutput';
 import FancyVR from '../../Atoms/FancyVR/FancyVR';
 import { uiColors, spacingPx } from '../../Design/design';
 
-import { useDateOutputFromToState } from './DateOutputFromTo.state';
-
 const StyledDateOutputFromTo = styled.div`
   position: relative;
   display: flex;

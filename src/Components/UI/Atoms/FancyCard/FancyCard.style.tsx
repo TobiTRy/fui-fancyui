@@ -9,11 +9,12 @@ import edgeCalculation from "../../HelperFunctions/edgeCaluculation";
 type IStyledCard = IStyledPrefixAndOmiter<StyledCardProps>;
 //the main design of the card
 export const StyledCard = styled.div<IStyledCard>`
+  overflow: hidden;
   width: ${({$width}) => $width};
   height: ${({$height}) => $height};
   box-sizing: border-box;
   background-color: ${uiColors.primary.light};
-  padding: ${spacingPx.xl};
+  padding: ${({$padding}) => $padding ?  spacingPx[$padding] : ''};
   border-radius:  ${({$roundedEdges, $radius}) => edgeCalculation($roundedEdges, $radius)};
 `
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import { StyledDay } from './DateNumberAtom.style';
+import Typography from '../Typography/Typography';
 
-
-export type IRange = { start?: boolean, end?: boolean, inRange?: boolean}
+export type IRange = { start?: boolean; end?: boolean; inRange?: boolean };
 
 interface IDay {
   dateNumber: number;
@@ -12,13 +12,15 @@ interface IDay {
   handler?: () => void;
   range?: IRange;
   isCurrentDay?: boolean;
-};
-export default function DateNumberAtom({ dateNumber ,isWeekend, disabled, handler, selected, range, isCurrentDay }: IDay) {
-  const isDisabled = disabled ? disabled : isWeekend ? isWeekend : false
+}
+export default function DateNumberAtom({ dateNumber, isWeekend, disabled, handler, selected, range, isCurrentDay }: IDay) {
+  const isDisabled = disabled ? disabled : isWeekend ? isWeekend : false;
 
   return (
     <StyledDay $range={range} $selected={selected} $isCurrentDay={isCurrentDay} disabled={isDisabled} onClick={handler}>
-      {dateNumber}
+      <Typography type="content" variant='label'>
+        {dateNumber}
+      </Typography>
     </StyledDay>
   );
-};
+}

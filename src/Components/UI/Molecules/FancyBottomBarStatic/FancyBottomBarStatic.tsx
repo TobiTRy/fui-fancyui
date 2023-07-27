@@ -24,6 +24,7 @@ export default function FancyBottomBarStatic(props: IStaticBottomBar & TBoottomB
 
   useEffect(() => {
     setIsVisible(isVisible ? isVisible : true);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

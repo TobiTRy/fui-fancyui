@@ -4,7 +4,7 @@ import Color from 'color';
 import { disabledStyle } from './disableStyle';
 import { calcIconPaddingAndAlign } from './generateIconPadding';
 import { generatePadding } from './generatePadding';
-import { borderRadius, fontSize, spacing, uiColors } from '../Design/design';
+import { borderRadius, spacing, uiColors } from '../Design/design';
 import { IUiColorsTypes } from '../Design/design';
 import IStyledPrefixAndOmiter from '../Interface/IStyledPrefixAndOmiter.model';
 
@@ -81,7 +81,7 @@ const generateIcon = (props: IGenerateIconItem) => {
 
   //this function generates the addons for a $icon button
   return css`
-    $align-items: center;
+    align-items: center;
     justify-content: ${$align && alignment[$align]};
     ${$label && calcIconButtoonPadding({ $align, $size })};
 
@@ -155,7 +155,7 @@ const generateNormal = (props: IGenerateNormalitem) => {
 
     &:hover {
       background-color: ${hoverColorStyle};
-      box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.15);
+      box-shadow: ${$design !== 'transparent' ?  '0 0 10px 1px rgba(0, 0, 0, 0.15)' : ''};
     }
 
     &:disabled {
@@ -193,7 +193,6 @@ const generateThemeItem = (props: IGenerateThemeItem) => {
     box-sizing: border-box;
 
     width: ${$wide ? '100%' : 'initial'};
-    font-size: ${fontSize[$size]};
     border-radius: ${generateBorderRadius};
     transition: background-color 0.2s ease-in-out;
 

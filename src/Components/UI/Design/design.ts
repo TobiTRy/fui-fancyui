@@ -98,7 +98,42 @@ export const fontSize = {
   xxl: '1.5rem',
 };
 
-
+export const fontSizes = {
+  desktop: {
+    headings: {
+      h1: '40px',
+      h2: '32px',
+      h3: '24px',
+      h4: '20px',
+      h5: '18px',
+      h6: '16px',
+    },
+    textElements: {
+      label: '16px',
+      caption: '16px',
+      smallText: '14px',
+      input: '16px',
+      button: '16px',
+    },
+  },
+  mobile: {
+    headings: {
+      h1: '32px',
+      h2: '24px',
+      h3: '20px',
+      h4: '18px',
+      h5: '16px',
+      h6: '14px',
+    },
+    textElements: {
+      label: '16px',
+      caption: '14px',
+      smallText: '14px',
+      input: '16px',
+      button: '16px',
+    },
+  },
+};
 export const borderRadius = {
   small: '4px',
   medium: '8px',
@@ -134,12 +169,9 @@ const colorSteps = {
     50: mainColors.secondary,
     40: Color(mainColors.secondary).darken(0.05).hex(),
     30: Color(mainColors.secondary).darken(0.2).hex(),
-    20: Color(mainColors.secondary).darken(0.40).hex(),
+    20: Color(mainColors.secondary).darken(0.4).hex(),
   },
-}
-
-
-
+};
 
 export const uiColors = {
   primary: {
@@ -160,11 +192,11 @@ export const uiColors = {
   },
   secondary: {
     lighter: colorSteps.secondary[70],
-    light:  colorSteps.secondary[60],
+    light: colorSteps.secondary[60],
     main: mainColors.secondary,
     dark: colorSteps.secondary[40],
     darker: colorSteps.secondary[30],
-    darkest: 'gray',  // is used for passiv elements to make them more passive
+    darkest: 'gray', // is used for passiv elements to make them more passive
     contrast: colorSteps.primary[60],
   },
   transparent: {
@@ -174,7 +206,7 @@ export const uiColors = {
     dark: 'transparent',
     darker: 'transparent',
     contrast: colorSteps.secondary[60],
-	}
+  },
 };
 
 // export const uiColors = {

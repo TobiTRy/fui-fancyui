@@ -22,7 +22,6 @@ const generateDynamicTabStyle = (props: Pick<ILIStyledButton, '$transparent' | '
   } else {
     //when the it is transparent style it with underline
     return css`
-      font-weight: 600;
       color: ${$textColor === 'dark' ? uiColors.primary.main : uiColors.primary.contrast};
       background-color: transparent;
       border-bottom: 1.5px solid transparent;
@@ -74,9 +73,6 @@ const generateLabelChilds = (props: Pick<ILIStyledButton, '$iconAlign'>) => {
       height: 24px;
     }
 
-    span {
-      margin-bottom: 1px;
-    }
   `;
 };
 

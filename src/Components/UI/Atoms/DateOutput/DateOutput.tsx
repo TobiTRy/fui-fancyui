@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import styled from 'styled-components';
 import { uiColors } from '../../Design/design';
+import Typography from '../Typography/Typography';
 
 //uiColors.primary.light
 const DateOutputButton = styled.button<{ $isActive?: boolean }>`
@@ -45,11 +46,9 @@ export default function DateOutput({ date = new Date(), isActive, handler }: IDa
     setActive(isActive ?? false);
   }, [isActive]);
 
-
-
   return (
     <DateOutputButton onClick={handleOpenCalendar} $isActive={active && isActive}>
-      {formattedDate || 'Select a date'}
+      <Typography type='button'>{formattedDate || 'Select a date'}</Typography>
     </DateOutputButton>
   );
-};
+}

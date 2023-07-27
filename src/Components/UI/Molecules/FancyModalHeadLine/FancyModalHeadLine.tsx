@@ -1,9 +1,9 @@
 import React from 'react'
-import IHeadLine from './FancyModalHeadLine.model';
-
-import { spacingPx } from '../../Design/design';
-
 import styled from 'styled-components'
+
+import IHeadLine from './FancyModalHeadLine.model';
+import Typography from '../../Atoms/Typography/Typography';
+import { spacingPx } from '../../Design/design';
 import FancyHR from '../../Atoms/FancyHR/FancyHR';
 
 const StyledHeadLine = styled.div<{$alignCenter?: boolean}>`
@@ -11,14 +11,11 @@ const StyledHeadLine = styled.div<{$alignCenter?: boolean}>`
   flex-direction: column;
   justify-content: center;
   width: 100%;
-  gap: ${spacingPx.sm};
+  gap: ${spacingPx.xxs};
   align-items: ${({ $alignCenter }) => $alignCenter ? 'center' : 'flex-start'}; 
 
-  h2 {
-    margin: 0;
-  }
-
   hr {
+    margin-top: ${spacingPx.xs};
     width: 100%;
   }
 `;
@@ -31,8 +28,8 @@ export default function FancyModalHeadLine(props: IHeadLine) {
 
   return (
     <StyledHeadLine $alignCenter={alignCenter}>
-      { title && <h2>{ title }</h2> }
-      { subTitle && <p>{ subTitle }</p> }
+      { title && <Typography type='h2'>{ title }</Typography> }
+      { subTitle && <Typography type='h3' variant='h4' weight='normal'>{ subTitle }</Typography> }
       { (hr && (title || subTitle))  && <FancyHR />}
     </StyledHeadLine>
   )

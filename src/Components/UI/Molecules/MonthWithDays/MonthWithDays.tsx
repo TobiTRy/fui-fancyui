@@ -3,6 +3,7 @@ import DateNumberWithStatus from '../DateNumberWithStatus/DateNumberWithStatus';
 import { DateNumber, DaysContainer } from './MonthWithDays.style';
 import { IDateArray } from '../RangeCalendar/IDateArray.model';
 import { IDisabledDateSettings } from './IDisableDateSettings.model';
+import Typography from '../../Atoms/Typography/Typography';
 
 import Day from './day.model';
 import createDaysOfMonth from './createDaysOfMonth';
@@ -66,7 +67,7 @@ export default function MonthWithDays(props: IMonthWithDays) {
 
   return (
     <div>
-      <h2 tabIndex={0} aria-label={`${month.name} ${year}`}>{month.name}</h2>
+      <Typography type='h2' tabIndex={0} aria-label={`${month.name} ${year}`}>{month.name}</Typography>
       <DaysContainer>
         {/* Generate the empty spaces for the start of the month  */}
         {Array.from({ length: getFirstDayOfMonth(monthIdx + 1, year) - 1 }, (_, i) => (

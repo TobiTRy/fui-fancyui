@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { fontSize, spacing, spacingPx, uiColors } from "../../Design/design";
+import {  spacing, uiColors } from "../../Design/design";
 import { disabledStyle } from "../../HelperFunctions/disableStyle";
 
 export const IconTextButton = styled.button<{ $color?: string; $isActive?: boolean; $disabled?: boolean }>`
@@ -47,11 +47,4 @@ export const Icon = styled.div`
     height: 100%;
     width: 100%;
   }
-`;
-
-export const Label = styled.p`
-  margin: 0;
-  margin-top: ${spacingPx.xs};
-  line-height: ${fontSize.small};
-  font-size: ${fontSize.small};
 `;

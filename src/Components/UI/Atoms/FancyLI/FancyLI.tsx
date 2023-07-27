@@ -1,6 +1,7 @@
 import React from 'react';
 import { IcalcIconPaddingAsProps } from '../../HelperFunctions/generateIconPadding';
 import FancyLiItem from './FancyLI.style';
+import Typography from '../Typography/Typography';
 
 interface FancyLIProps {
   icon?: React.ReactNode;
@@ -18,7 +19,7 @@ export default function FancyLI(props: IFancyLi) {
   return (
     <FancyLiItem $size={size} $aligned={aligned} $wide={wide}>
       {icon && <i>{icon}</i>}
-      <p>{label}</p>
+      <Typography type='content' variant='label'>{label}</Typography>
     </FancyLiItem>
   );
 }

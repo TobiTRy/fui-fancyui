@@ -1,7 +1,8 @@
 import React, { forwardRef, useEffect } from 'react';
-import IToastMessage from './IToastMessage.model';
-import { Container, Message, TimerLine, Title, Headline } from './SingleToastMessage.style';
 
+import IToastMessage from './IToastMessage.model';
+import { Container, TimerLine, Headline } from './SingleToastMessage.style';
+import Typography from '../../Atoms/Typography/Typography';
 import FancyXButton from '../../Atoms/FancyXButton';
 
 
@@ -26,10 +27,10 @@ const SingleToastMessage = forwardRef<HTMLDivElement, ISingleToastMessage>((prop
   return (
     <Container ref={ref} $messageType={type}>
       <Headline>
-        <Title>{title}</Title>
+        <Typography type='content' variant='h5'>{title}</Typography>
         <FancyXButton onClick={() => remove(id)} design={type}/>
       </Headline>
-      <Message>{message}</Message>
+      <Typography type='content'>{message}</Typography>
       <TimerLine $time={time!} $messageType={type} />
     </Container>
   );

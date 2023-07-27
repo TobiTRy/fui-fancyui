@@ -12,10 +12,8 @@ import styled from 'styled-components';
 //speeddialbutton is getting the main function for the categorys
 //the first bar is getting settings for the grouped bar
 //the second is for the settings
-import BottomBar from '../../Atoms/BottomBar/BottomBar';
-import FancyBottomBarIcon from '../../Atoms/FancyBottomBarIcon/FancyBottomBarIcon';
+
 import { IFancyBottomBarIcon } from '../../Atoms/FancyBottomBarIcon/FancyBottomBarIcon.model';
-import { useEditBarStore } from './EditBar.state';
 import { spacingPx, spacing } from '../../Design/design';
 import EditBarModal from '../../Atoms/EditBarModal/EditBarModal';
 
@@ -48,20 +46,6 @@ interface IEditBar {
 // --------------------------------------------------------------------------- //
 export default function EditBar(props: IEditBar) {
   const { scrollable, subSectionItems, sectionItems, settings } = props;
-  //the state for the first edit bar(bottom bar)
-  const activeEditbarItem = useEditBarStore((state) => state.activeEditbarItem);
-  const setActiveBarItem = useEditBarStore((state) => state.setActiveEditbarItem);
-  //the state for the second edit bar(on the top of the bottom bar)
-  const activeSecondEditbarItem = useEditBarStore((state) => state.activeSecondEditbarItem);
-  const setActiveSecondBarItem = useEditBarStore((state) => state.setActiveSecondEditbarItem);
-
-  
-  const clickHandler = (section: 'section' | 'subSection', item: IFancyBottomBarIcon, buttonFunction?: () => void) => {
-    if (section === 'subSection') setActiveSecondBarItem(item.id!);
-    if (section === 'section') setActiveBarItem(item.id!);
-    if (buttonFunction) buttonFunction();
-  };
-
 
   //TODO: GIVE BACK FROM THE DYANMIC BOTTOM BAR THE BUTTON WHICH IS ACTIVE
   return (
@@ -84,25 +68,3 @@ export default function EditBar(props: IEditBar) {
     </Wrapper>
   );
 }
-
-
-// {subSectionItems.map((item, index) => (
-//   <FancyBottomBarIcon
-//     key={index}
-//     icon={item.icon}
-//     label={item.label}
-//     active={activeSecondEditbarItem === item.id}
-//     handler={() => clickHandler('subSection', item, item.handler)}
-//   />
-// ))}
-
-
-// {sectionItems.map((item, index) => (
-//   <FancyBottomBarIcon
-//     key={index}
-//     icon={item.icon}
-//     label={item.label}
-//     active={activeEditbarItem === item.id}
-//     handler={() => setActiveBarItem(item.id!)}
-//   />
-// ))}
