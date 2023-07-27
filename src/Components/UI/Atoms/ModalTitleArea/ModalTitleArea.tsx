@@ -1,5 +1,6 @@
 import React from 'react';
 import { TitleArea } from './ModalTitleArea.style';
+import Typography from '../Typography/Typography';
 
 
 // --------------------------------------------------------------------------- //
@@ -15,7 +16,7 @@ export default function ModalTitleArea(props: IModalTitleArea) {
 
   return (
     <TitleArea>
-      {title && <h4>{title}</h4>}
+      {title && <Typography type='h4' variant='h4'>{title}</Typography>}
       <i></i>
     </TitleArea>
   );
