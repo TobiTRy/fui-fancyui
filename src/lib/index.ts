@@ -33,6 +33,7 @@ export { default as InputLabel } from '../Components/UI/Atoms/InputLabel/InputLa
 export { default as InputUnderline } from '../Components/UI/Atoms/InputUnderline/InputUnderline';
 export { default as RawInput } from '../Components/UI/Atoms/RawInput/RawInput';
 
+
 // ---------- Molecules ------- //
 export { default as DateInput } from '../Components/UI/Molecules/DateInput/DateInput';
 export { default as DateNumberWithStatus } from '../Components/UI/Molecules/DateNumberWithStatus/DateNumberWithStatus';
@@ -68,6 +69,8 @@ export { default as FancyTabSwitch } from '../Components/UI/Molecules/FancyTabSw
 export { default as FancyColorArea } from '../Components/UI/Molecules/FancyColorArea/FancyColorArea';
 export { default as FancyColorOutput } from '../Components/UI/Molecules/FancyColorOutput/FancyColorOutput';
 export { default as FancyModalHeadLine } from '../Components/UI/Molecules/FancyModalHeadLine/FancyModalHeadLine';
+export { default as InputFields } from '../Components/UI/Molecules/FancyColorOutput/InputFields/InputFields';
+export { default as AdaptInputs } from '../Components/UI/Molecules/FancyColorOutput/InputFields/AdaptInput/AdaptInputs';
 
 // ---------- Organisms ------- //
 export { default as FancyColorPicker } from '../Components/UI/Organisms/FancyColorPicker/FancyColorPicker';
