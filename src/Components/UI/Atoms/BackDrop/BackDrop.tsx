@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { animated, useSpring } from '@react-spring/web';
 import styled from 'styled-components';
 
-
 const BackdropConatiner = styled.div`
   position: fixed;
   top: 0;
@@ -16,7 +15,10 @@ const BackdropConatiner = styled.div`
 interface IBackDrop {
   isOpen: boolean;
   onClick?: () => void;
-};
+}
+// --------------------------------------------------------------------------- //
+// ------- Only a backdrop for some components with a onclick listener ------- //
+// --------------------------------------------------------------------------- //
 export default function BackDrop({ isOpen, onClick }: IBackDrop) {
   const [shouldRender, setRender] = useState(isOpen);
 
@@ -29,7 +31,5 @@ export default function BackDrop({ isOpen, onClick }: IBackDrop) {
     if (isOpen) setRender(true);
   }, [isOpen]);
 
-  return shouldRender ? (
-    <BackdropConatiner as={animated.div} style={fade} onClick={onClick}/>
-  ) : null;
+  return shouldRender ? <BackdropConatiner as={animated.div} style={fade} onClick={onClick} /> : null;
 }

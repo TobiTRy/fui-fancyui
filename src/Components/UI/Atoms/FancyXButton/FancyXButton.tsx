@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { uiColors, IUiColorsTypes, IUiColorsSystemMessageTypes, spacingPx, fontSize, systemMessages } from '../Design/design';
+import { uiColors, IUiColorsTypes, IUiColorsSystemMessageTypes, spacingPx, fontSize, systemMessages } from '../../Design/design';
 import Color from 'color';
 
 type FancyXButtonDesign = IUiColorsTypes | IUiColorsSystemMessageTypes;

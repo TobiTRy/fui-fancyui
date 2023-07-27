@@ -1,4 +1,4 @@
-import { IAvilableDot } from "../../Atoms/AvilableDot";
+import { IAvilableDot } from "../../Atoms/AvilableDot/AvilableDot";
 
 export type IDateWithExternalState = {
   date: number;

@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { colorPalet, uiColors } from '../Design/design';
+import { colorPalet, uiColors } from '../../Design/design';
 
 
 //the underline for the input fields

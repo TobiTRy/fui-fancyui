@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import DateNumberAtom from '../../Atoms/DateNumberAtom/DateNumberAtom';
-import AvilableDot, { IAvilableDot } from '../../Atoms/AvilableDot';
+import AvilableDot, { IAvilableDot } from '../../Atoms/AvilableDot/AvilableDot';
 import { spacingPx } from '../../Design/design';
 import { IRange } from '../../Atoms/DateNumberAtom/DateNumberAtom';
 

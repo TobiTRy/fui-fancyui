@@ -1,11 +1,11 @@
 import React, { ChangeEvent } from 'react';
 
-import RawInput from '../../Atoms/RawInput';
+import RawInput from '../../Atoms/RawInput/RawInput';
 import styled from 'styled-components';
-import { AnimatedInputLabel, AnimatedLabelFocusStyle } from '../../Atoms/AnimatedLabel';
-import { UnderLineFocusStyle } from '../../Atoms/InputUnderline';
+import { AnimatedInputLabel, AnimatedLabelFocusStyle } from '../../Atoms/AnimatedLabel/AnimatedLabel.style';
+import { UnderLineFocusStyle } from '../../Atoms/InputUnderline/InputUnderline';
 import { uiColors } from '../../Design/design';
-import { TRawInputAlign } from '../../Atoms/RawInput';
+import { TRawInputAlign } from '../../Atoms/RawInput/RawInput';
 
 export interface IDateInputProps {
   id?: string;
