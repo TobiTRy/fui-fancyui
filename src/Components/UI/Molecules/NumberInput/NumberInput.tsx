@@ -1,5 +1,5 @@
 import React from 'react';
-import { TRawInputAlign } from '../../Atoms/RawInput';
+import { TRawInputAlign } from '../../Atoms/RawInput/RawInput';
 import StyledNumberInput from './NumberInput.styled';
 
 

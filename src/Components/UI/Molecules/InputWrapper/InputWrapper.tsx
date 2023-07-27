@@ -2,11 +2,11 @@ import React from 'react';
 import { css } from 'styled-components';
 
 import { ErrorMessage, StyledInputWrapper, InputContainer } from './InputWrapper.style';
-import UnderLine from '../../Atoms/InputUnderline';
+import UnderLine from '../../Atoms/InputUnderline/InputUnderline';
 
 import FancySVGAtom from '../../Atoms/FancySVGAtom/FancySVGAtom';
 import { spacing } from '../../Design/design';
-import { AnimatedInputLabel } from '../../Atoms/AnimatedLabel';
+import { AnimatedInputLabel } from '../../Atoms/AnimatedLabel/AnimatedLabel.style';
 
 const iconStyle = css`
   margin-right: ${spacing.xs + 2 + 'px'};

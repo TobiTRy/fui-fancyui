@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-import { systemMessages } from '../Design/design';
-import { borderRadius } from '../Design/design';
+import { systemMessages } from '../../Design/design';
+import { borderRadius } from '../../Design/design';
 
 // --------------------------------------------------------------------------- //
 // ---------- A little Circle that indicates if something is avilable -------- //

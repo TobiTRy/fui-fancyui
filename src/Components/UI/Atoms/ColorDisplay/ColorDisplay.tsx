@@ -3,7 +3,7 @@ import Color from 'color';
 
 import Typography from '../Typography/Typography';
 import copyToClipboard from '../functions/copyToClipBoard';
-import { CheckerboardPattern } from '../CheckBoardPattern';
+import { CheckerboardPattern } from '../CheckBoardPattern/CheckeBoardPattern';
 import { ColorDisplayContainer, Wrapper, Content, WrapperSVG } from './ColorDisplay.style';
 import ClipBoardIcon from '../../SVGIcons/SVGClipBoardIcon';
 import ClipBoardIconCheck from '../../SVGIcons/SVGClipBoardIconChecked';

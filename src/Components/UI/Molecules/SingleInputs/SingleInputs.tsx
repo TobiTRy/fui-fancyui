@@ -1,7 +1,7 @@
 import React, { useState, createRef, useEffect } from 'react';
 import SingleInputAtom from '../../Atoms/SingleInputAtom/SingleInputAtom';
 import InputStatus from '../../Design/Interfaces/IStatus';
-import { InputWrapper } from './FancySingleInputs.style';
+import { InputWrapper } from './SingleInputs.style';
 
 
 interface IFancySingleInputsProps {

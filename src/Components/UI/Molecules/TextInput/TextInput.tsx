@@ -1,9 +1,9 @@
 import React, { ChangeEvent } from 'react';
 import styled from 'styled-components';
 
-import RawInput, { TRawInputAlign } from '../../Atoms/RawInput';
-import { UnderLineFocusStyle } from '../../Atoms/InputUnderline';
-import { AnimatedInputLabel, AnimatedLabelFocusStyle } from '../../Atoms/AnimatedLabel';
+import RawInput, { TRawInputAlign } from '../../Atoms/RawInput/RawInput';
+import { UnderLineFocusStyle } from '../../Atoms/InputUnderline/InputUnderline';
+import { AnimatedInputLabel, AnimatedLabelFocusStyle } from '../../Atoms/AnimatedLabel/AnimatedLabel.style';
 import IStyledPrefixAndPicker from '../../Interface/IStyledPrefixAndPicker.model';
 
 export interface ITextInputProps {

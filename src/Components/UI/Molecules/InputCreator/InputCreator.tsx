@@ -5,7 +5,7 @@ import TextInput from '../../Molecules/TextInput/TextInput';
 import NumberInput from '../../Molecules/NumberInput/NumberInput';
 import InputWrapper from '../InputWrapper/InputWrapper';
 import DropDownSelect from '../../Atoms/DropDownSelect/DropDownSelect';
-import DateInput from '../DateInput/DatePicker';
+import DateInput from '../DateInput/DateInput';
 
 type InputOrSelectEvent = ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>;
 

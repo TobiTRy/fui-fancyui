@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import InputLabel from './InputLabel';
-import { spacingPx, uiColors } from '../Design/design';
+import InputLabel from '../InputLabel/InputLabel';
+import { spacingPx, uiColors } from '../../Design/design';
 
 //the aligned label is only with align left or centerd {align?: string; active?: boolean}
 const AlignedInputLabel = styled(InputLabel)<{$align?: string; $isActive?: boolean;}>`

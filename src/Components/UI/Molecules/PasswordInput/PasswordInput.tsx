@@ -1,10 +1,10 @@
 import React, { ChangeEvent, useState } from 'react';
 
-import RawInput, { TRawInputAlign } from '../../Atoms/RawInput';
+import RawInput, { TRawInputAlign } from '../../Atoms/RawInput/RawInput';
 import styled from 'styled-components';
-import { UnderLineFocusStyle } from '../../Atoms/InputUnderline';
+import { UnderLineFocusStyle } from '../../Atoms/InputUnderline/InputUnderline';
 import PasswordEye from '../../Atoms/PasswordEye/PasswordEye';
-import { AnimatedInputLabel, AnimatedLabelFocusStyle } from '../../Atoms/AnimatedLabel';
+import { AnimatedInputLabel, AnimatedLabelFocusStyle } from '../../Atoms/AnimatedLabel/AnimatedLabel.style';
 import IStyledPrefixAndPicker from '../../Interface/IStyledPrefixAndPicker.model';
 
 interface IPasswordInputProps {

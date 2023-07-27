@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import RawInput from '../../Atoms/RawInput';
+import RawInput from '../../Atoms/RawInput/RawInput';
 import IStyledPrefixAndPicker from '../../Interface/IStyledPrefixAndPicker.model';
-import { AnimatedInputLabel, AnimatedLabelFocusStyle } from '../../Atoms/AnimatedLabel';
-import { UnderLineFocusStyle } from '../../Atoms/InputUnderline';
+import { AnimatedInputLabel, AnimatedLabelFocusStyle } from '../../Atoms/AnimatedLabel/AnimatedLabel.style';
+import { UnderLineFocusStyle } from '../../Atoms/InputUnderline/InputUnderline';
 import { INumberInput } from './NumberInput';
 
 

@@ -1,5 +1,5 @@
 import React, { ChangeEvent } from 'react';
-import RawInput from '../../Atoms/RawInput';
+import RawInput from '../../Atoms/RawInput/RawInput';
 import styled, { css } from 'styled-components';
 
 import { spacingPx, uiColors, borderRadius } from '../../Design/design';
