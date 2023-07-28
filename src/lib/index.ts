@@ -32,6 +32,7 @@ export { default as FancyXButton } from '../Components/UI/Atoms/FancyXButton/Fan
 export { default as InputLabel } from '../Components/UI/Atoms/InputLabel/InputLabel';
 export { default as InputUnderline } from '../Components/UI/Atoms/InputUnderline/InputUnderline';
 export { default as RawInput } from '../Components/UI/Atoms/RawInput/RawInput';
+export { default as CheckerBoardPattern } from '../Components/UI/Atoms/CheckerBoardPattern/CheckerBoardPattern';
 
 
 // ---------- Molecules ------- //

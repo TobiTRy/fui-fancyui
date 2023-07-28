@@ -13,12 +13,13 @@ const Button = styled.button<IGenerateThemeItem>`
 
 //the main react component to generate the fancyButton
 export default function FancyButton(props: IFancyButton) {
-  const { icon, label, size, onClick, disabled, wide, design, align, color, hoverColor, outlined } = {...defaultProps, ...props};
+  const { icon, label, size, onClick, disabled, wide, design, align, color, hoverColor, outlined, roundedCompletly } = {...defaultProps, ...props};
 
   return (
     <Button
       $size={size!}
       $design={design!}
+      $roundedCompletly={roundedCompletly}
       $align={align}
       $color={color}
       $wide={wide}

@@ -25,8 +25,10 @@ export default function ButtonRoute() {
         <FancyButton label="Button" design="secondary" size="medium" wide={false} />
         <FancyButton label="Button" design="accent" size="large" wide={false} />
         <FancyButton label="Button" design="transparent" wide={false} />
+        <FancyButton label="Button" design="primary" size="small" wide={false} roundedCompletly={true} />
       </DesignArea>
       <DesignArea title="Button Types in wide" style={backgroundColor}>
+        <FancyButton label="Button" design="primary" roundedCompletly={true} />
         <FancyButton label="Button" design="primary" />
         <FancyButton label="Button" design="secondary" />
         <FancyButton label="Button" design="accent" />

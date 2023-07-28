@@ -15,6 +15,7 @@ export interface IGenerateThemeItemProps {
   label?: string;
   wide?: boolean;
   design: IUiColorsTypes;
+  roundedCompletly?: boolean;
   align?: 'left' | 'right' | 'center';
   color?: 'primary' | 'secondary' | 'accent';
   hoverColor?: 'primary' | 'secondary' | 'accent';
@@ -164,24 +165,35 @@ const generateNormal = (props: IGenerateNormalitem) => {
   `;
 };
 
+const generateBorderRadius = (props: Pick<IGenerateThemeItem, '$wide' | '$roundedCompletly' | '$size'>) => {
+  const { $wide, $roundedCompletly, $size } = props;
+  if ($roundedCompletly) {
+    return borderRadius.xxxl;
+  } else if ($wide) {
+    return borderRadius.large;
+  } else {
+    return borderRadius[$size];
+  }
+};
+
 //-----this funktion handles the button style on his conditions-----//
 const generateThemeItem = (props: IGenerateThemeItem) => {
-  const { $outlined, $icon, $size, $label, $wide } = props;
+  const { $outlined, $icon, $size, $label, $wide, $roundedCompletly } = props;
 
-  let iconStyle, generateBorderRadius;
+  let iconStyle, borderRadius;
 
   //if the button a $outlined generate this, it his a normal generate an normal
   const itemStyle = $outlined ? generateOutlined(props) : generateNormal(props);
 
   //this claculates the borderradius depeend on if its a $wide button or not
-  generateBorderRadius = $wide ? borderRadius.large : borderRadius[$size];
+  borderRadius = generateBorderRadius({$wide , $roundedCompletly, $size});
 
   //gets the style of a button with a $icon
   if ($icon) iconStyle = generateIcon(props);
 
   //check if the button has no $label if its true make it completely round
-  if (Boolean(!$label) && !$wide) {
-    generateBorderRadius = '50%';
+  if(Boolean(!$label) && !$wide) {
+    borderRadius = '50%';
   }
 
   return css`
@@ -193,7 +205,7 @@ const generateThemeItem = (props: IGenerateThemeItem) => {
     box-sizing: border-box;
 
     width: ${$wide ? '100%' : 'initial'};
-    border-radius: ${generateBorderRadius};
+    border-radius: ${borderRadius};
     transition: background-color 0.2s ease-in-out;
 
     ${itemStyle}

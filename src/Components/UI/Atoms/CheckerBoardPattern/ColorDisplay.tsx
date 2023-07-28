@@ -3,7 +3,7 @@ import Color from 'color';
 
 import Typography from '../Typography/Typography';
 import copyToClipboard from '../functions/copyToClipBoard';
-import CheckerBoardPattern from '../CheckerBoardPattern/CheckerBoardPattern';
+import CheckBoardPattern from './CheckBoardPattern';
 import { ColorDisplayContainer, Wrapper, Content, WrapperSVG } from './ColorDisplay.style';
 import ClipBoardIcon from '../../SVGIcons/SVGClipBoardIcon';
 import ClipBoardIconCheck from '../../SVGIcons/SVGClipBoardIconChecked';
@@ -36,7 +36,7 @@ export default function ColorDisplay({ color, opacity, showText, fullHeight }: I
         <WrapperSVG>{copyd ? <ClipBoardIconCheck /> : <ClipBoardIcon />}</WrapperSVG>
       </Content>
       <ColorDisplayContainer color={color.toString()} opacity={opacity} />
-      <CheckerBoardPattern />
+      <CheckerboardPattern />
     </Wrapper>
   );
 }
