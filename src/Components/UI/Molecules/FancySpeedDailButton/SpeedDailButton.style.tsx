@@ -67,11 +67,13 @@ export const Label = css<{ $isOpen: boolean }>`
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  left: -50px;
+  right: 100%;
+  margin-right: 10px; 
+  white-space: nowrap; 
   color: ${uiColors.secondary.main};
   display: ${({ $isOpen }) => ($isOpen ? 'inline' : 'none')};
   opacity: ${({ $isOpen }) => ($isOpen ? 1 : 0)};
-  transition: opacity .5s ease-in-out;
+  transition: opacity .5s ease-in-out, right 0.3s ease; 
   text-shadow:  #19191980 0 0 15px;;
 `;
 
