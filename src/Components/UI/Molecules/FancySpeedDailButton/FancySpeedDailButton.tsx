@@ -1,21 +1,15 @@
 import React, { useState } from 'react';
 
-import {
-  Button,
-  Label,
-  MenueItemContainer,
-  MenueItemWrapper,
-  MenuItem,
-  Ring,
-  SpeedDialContainer,
-  
-  Wrapper,
-} from './SpeedDailButton.style';
-import { ISpeedail } from './IFancySpeedDialButton';
+import { Button, Label, MenueItemContainer, MenueItemWrapper, MenuItem, Ring, SpeedDialContainer, Wrapper } from './SpeedDailButton.style';
 import SVGPlus from '../../SVGIcons/SVGPlus';
 import Typography from '../../Atoms/Typography/Typography';
 
-export default function FancySpeedDialButton({ items }: ISpeedail) {
+export interface ISpeedail {
+  items?: Array<{ label?: string; value: string | number | JSX.Element }>;
+  labelAlign?: 'left' | 'right';
+}
+export default function FancySpeedDialButton(props: ISpeedail) {
+  const { items, labelAlign } = { ...defaultProps, ...props };
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -28,11 +22,12 @@ export default function FancySpeedDialButton({ items }: ISpeedail) {
         <MenueItemWrapper>
           {items?.map((item, index) => (
             <MenueItemContainer key={index} $index={index} $isOpen={isOpen}>
-              <MenuItem>{item.value}
-              </MenuItem>
-              <Typography type="inlineElement" variant="label" $isOpen={isOpen} style={Label}>
-                {item.label}
-              </Typography>
+              <MenuItem>{item.value}</MenuItem>
+              {item.label && (
+                <Typography type="inlineElement" variant="label" $labelAlign={labelAlign} $isOpen={isOpen} style={Label}>
+                  {item.label}
+                </Typography>
+              )}
             </MenueItemContainer>
           ))}
         </MenueItemWrapper>
@@ -40,3 +35,7 @@ export default function FancySpeedDialButton({ items }: ISpeedail) {
     </Wrapper>
   );
 }
+
+const defaultProps: ISpeedail = {
+  labelAlign: 'right',
+};
