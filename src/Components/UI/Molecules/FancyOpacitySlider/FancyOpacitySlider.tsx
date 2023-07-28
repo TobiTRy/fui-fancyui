@@ -4,7 +4,7 @@ import Color from 'color';
 import useSlider from '../../Atoms/functions/hooks/useSilder';
 import SliderMarker from '../../Atoms/SliderMarker/SliderMarker';
 import { Wrapper, SliderContainer, OpacityGradient } from './FancyOpacitySlider.style';
-import { CheckerboardPattern } from '../../Atoms/CheckBoardPattern/CheckeBoardPattern';
+import CheckerboardPattern from '../../Atoms/CheckerBoardPattern/CheckerBoardPattern';
 import ColorIndicator from '../../Atoms/ColorIndicator/ColorIndicator';
 
 //define the min and max value for the opacity
