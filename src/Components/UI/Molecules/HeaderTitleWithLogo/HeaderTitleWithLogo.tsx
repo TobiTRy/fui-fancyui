@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import Typography from '../Atoms/Typography/Typography';
-import { spacingPx } from '../Design/design';
+
+import Typography from '../../Atoms/Typography/Typography';
+import { spacingPx } from '../../Design/design';
 
 const Wrapper = styled.div`
   position: relative;

@@ -1,7 +1,7 @@
 import React from 'react';
 import SimpleHeader from '../../Components/UI/Molecules/SimpleHeader/SimpleHeader';
 import FancyHeader from '../../Components/UI/Organisms/FancyHeader/FancyHeader';
-import HeaderTitleWithLogo from '../../Components/UI/Atoms/HeaderTitleWithLogo';
+import HeaderTitleWithLogo from '../../Components/UI/Molecules/HeaderTitleWithLogo/HeaderTitleWithLogo';
 
 import FancySearchBar from '../../Components/UI/Organisms/FancySearchBar/FancySearchBar';
 
