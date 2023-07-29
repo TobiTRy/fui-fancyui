@@ -50,6 +50,7 @@ export const fontSizeVariants = {
     ${nullifyStyle};
     ${responsiveFontSize(fontSizes.mobile.textElements.button, fontSizes.desktop.textElements.button)}
     font-weight: bold;
+    letter-spacing: 0.4px;
   `,
   label: css`
     ${nullifyStyle};
@@ -66,7 +67,6 @@ export const fontSizeVariants = {
     ${responsiveFontSize(fontSizes.mobile.textElements.caption, fontSizes.desktop.textElements.caption)}
     line-height: 1.4;
     font-weight: 400;
-
   `,
   smallText: css`
     line-height: 1.2;

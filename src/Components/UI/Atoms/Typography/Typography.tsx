@@ -3,8 +3,6 @@ import styled, { CSSProp, css } from 'styled-components';
 
 import { fontSizeVariants } from './TypographyStyleVariants';
 
-
-
 interface IComponentProps {
   $variant?: CSSProp;
   $style?: CSSProp;
@@ -64,7 +62,6 @@ const generateStyle = (externalStyle: CSSProp, fontWeight: 'normal' | 'bold' | u
   `;
 };
 
-
 interface ITypographyProps {
   type: keyof typeof fontSizeVariants;
   variant?: keyof typeof fontSizeVariants;
@@ -82,10 +79,8 @@ export default function Typography({ type, variant, children, style, weight, ...
   const variantStyle = variant ? fontSizeVariants[variant] : fontSizeVariants[type];
 
   return (
-    <>
-      <Component $variant={variantStyle} $style={mixedStyle} {...htmlProps}>
-        {children}
-      </Component>
-    </>
+    <Component $variant={variantStyle} $style={mixedStyle} {...htmlProps}>
+      {children}
+    </Component>
   );
 }

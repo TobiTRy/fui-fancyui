@@ -20,6 +20,7 @@ export interface IGenerateThemeItemProps {
   color?: 'primary' | 'secondary' | 'accent';
   hoverColor?: 'primary' | 'secondary' | 'accent';
 }
+
 export type IGenerateThemeItem = IStyledPrefixAndOmiter<IGenerateThemeItemProps>;
 
 // --------------------------------------------------------------------------- //
@@ -40,7 +41,7 @@ const paddingIconButton = {
 };
 
 // ------------------------------------------------------------------ //
-// ---------- Here are the helper functions for the $design ---------- //
+// ---------- Here are the helper functions for the $design --------- //
 // ------------------------------------------------------------------ //
 //this hanles the padding of the button deppend on the $size and if needs a second value
 type IcalcTextColor = Pick<IGenerateThemeItem, '$color' | '$design' | '$outlined'>;
