@@ -150,6 +150,7 @@ export type IUiColorsTypes = 'primary' | 'secondary' | 'accent' | 'transparent';
 
 const colorSteps = {
   primary: {
+    80: Color(mainColors.primary).lighten(0.5).hex(),
     70: Color(mainColors.primary).lighten(0.25).hex(),
     60: Color(mainColors.primary).lighten(0.15).hex(),
     50: mainColors.primary,
@@ -175,6 +176,7 @@ const colorSteps = {
 
 export const uiColors = {
   primary: {
+    lightest: colorSteps.primary[80],
     lighter: colorSteps.primary[70],
     light: colorSteps.primary[60],
     main: mainColors.primary,

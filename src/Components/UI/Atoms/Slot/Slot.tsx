@@ -6,6 +6,7 @@ type TAlign = 'center' | 'left' | 'right';
 const StyledSlot = styled.div<{$align?: TAlign, $grow?: number, $extenalStyle?: CSSProp}>`
   display: flex;
   position: relative;
+  height: 100%;
   box-sizing: border-box;
   justify-content: ${({$align}) => {
     if ($align === 'center') return 'center';
