@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Typography from '../../Atoms/Typography/Typography';
-import { spacingPx } from '../../Design/design';
+import { spacingPx, uiColors } from '../../Design/design';
 
 const Wrapper = styled.div`
   position: relative;
@@ -25,6 +25,8 @@ const StyledHeading = styled.a`
   gap: ${spacingPx.sm};
   align-items: center;
   word-break: keep-all;
+  text-decoration: none;
+  color: ${uiColors.secondary.main};
 `;
 
 interface IHeaderTitleWithLogo {
@@ -41,7 +43,7 @@ export default function HeaderTitleWithLogo(props: IHeaderTitleWithLogo) {
       <StyledHeading href={linkTo}>
         {logo && <LogoWrapper>{logo}</LogoWrapper>}
         {title && (
-          <Typography type="inlineElement" variant="h3">
+          <Typography type="inlineElement" variant="h3" weight='bold'>
             {title}
           </Typography>
         )}

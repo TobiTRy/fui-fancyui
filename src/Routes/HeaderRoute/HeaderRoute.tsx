@@ -30,7 +30,7 @@ const MoreContent = (props: More) => {
 };
 
 const headerTitele = {
-  component: <HeaderTitleWithLogo />,
+  component: <HeaderTitleWithLogo title='Let´sTryIt'/>,
 };
 
 export default function HeaderRoute() {
