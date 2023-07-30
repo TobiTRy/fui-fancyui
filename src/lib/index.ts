@@ -72,6 +72,7 @@ export { default as FancyColorOutput } from '../Components/UI/Molecules/FancyCol
 export { default as FancyModalHeadLine } from '../Components/UI/Molecules/FancyModalHeadLine/FancyModalHeadLine';
 export { default as InputFields } from '../Components/UI/Molecules/FancyColorOutput/InputFields/InputFields';
 export { default as AdaptInputs } from '../Components/UI/Molecules/FancyColorOutput/InputFields/AdaptInput/AdaptInputs';
+export { default as HeaderTitleWithLogo } from '../Components/UI/Molecules/HeaderTitleWithLogo/HeaderTitleWithLogo';
 
 // ---------- Organisms ------- //
 export { default as FancyColorPicker } from '../Components/UI/Organisms/FancyColorPicker/FancyColorPicker';

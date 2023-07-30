@@ -13,7 +13,7 @@ export const StyledCard = styled.div<IStyledCard>`
   width: ${({$width}) => $width};
   height: ${({$height}) => $height};
   box-sizing: border-box;
-  background-color: ${uiColors.primary.light};
+  background-color: ${({$backgroundColor}) => $backgroundColor ? uiColors.primary[$backgroundColor] : uiColors.primary.light};
   padding: ${({$padding}) => $padding ?  spacingPx[$padding] : ''};
   border-radius:  ${({$roundedEdges, $radius}) => edgeCalculation($roundedEdges, $radius)};
 `

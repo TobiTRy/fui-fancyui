@@ -40,5 +40,6 @@ export default function FancyButton(props: IFancyButton) {
 const defaultProps: IFancyButton = {
   design: 'accent',
   size: 'large',
+  align: 'center',
   wide: true,
 };

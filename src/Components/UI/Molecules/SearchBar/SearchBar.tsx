@@ -1,52 +1,57 @@
 import React, { ChangeEvent } from 'react';
-import RawInput from '../../Atoms/RawInput/RawInput';
 import styled, { css } from 'styled-components';
+import FancyTextInput from '../../Organisms/FancyTextInput/FancyTextInput';
 
 import { spacingPx, uiColors, borderRadius } from '../../Design/design';
 import SVGSearch from '../../SVGIcons/SVGSearch';
 import FancySVGAtom from '../../Atoms/FancySVGAtom/FancySVGAtom';
 
-const StyledSearchBar = styled.div<{$isActive?: boolean}>`
+// Styled component for the search bar
+const StyledSearchBar = styled.div<{ $isActive?: boolean }>`
   display: flex;
   align-items: center;
-  background-color: ${uiColors.primary.lighter};
-  padding: ${spacingPx.md} ${spacingPx.xl} ${spacingPx.md};
-  border-radius: ${({ $isActive }) => ($isActive ? `${borderRadius.extraLarge} ${borderRadius.extraLarge} 0px 0px` : borderRadius.extraLarge)};
+  border-radius: ${({ $isActive }) => ($isActive ? `${borderRadius.large} ${borderRadius.large} 0px 0px` : borderRadius.large)}; // Set the border radius based on whether the search bar list is active
   gap: ${spacingPx.sm};
   z-index: 1;
-  
+
   input {
-    padding: 0;
+    padding: 0 0 4px;
   }
 `;
 
+// Props for the SearchBar component
 interface ISearchBar {
-  isActive?: boolean;
-  activeHandler?: (isActive: boolean) => void;
-  searchValueHandler?: (value: string) => void;
+  isActive?: boolean; // Whether the search bar list is active
+  activeHandler?: (isActive: boolean) => void; // Function to handle changes to the isActive state
+  handler?: (value: string) => void; // Function to handle changes to the search value
 }
+
+// The SearchBar component
 export default function SearchBar(props: ISearchBar) {
-  const { activeHandler, searchValueHandler, isActive } = props;
-  
+  const { activeHandler, handler, isActive } = props;
+
+  // Function to handle changes to the isActive state
   const focusHandler = (isFocused: boolean) => {
     activeHandler && activeHandler(isFocused);
   };
-  
-  const onChangeValueHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    searchValueHandler && searchValueHandler(e.target.value);
+
+  // Function to handle changes to the search value
+  const onChangeValueHandler = (e?: ChangeEvent<HTMLInputElement>) => {
+    handler && handler(e!.target.value);
   };
 
   return (
     <StyledSearchBar $isActive={isActive}>
+      {/* The search icon */}
       <FancySVGAtom
-        externalStyle={
-        css`
+        externalStyle={css`
           color: ${uiColors.secondary.main};
         `}
       >
         {SVGSearch}
       </FancySVGAtom>
-      <RawInput type="text" onFocus={() => focusHandler(true)} onBlur={() => focusHandler(false)} onChange={onChangeValueHandler}/>
+      {/* The search input */}
+      <FancyTextInput activeHandler={focusHandler} handler={(value, e) => onChangeValueHandler(e)} />
     </StyledSearchBar>
   );
 }

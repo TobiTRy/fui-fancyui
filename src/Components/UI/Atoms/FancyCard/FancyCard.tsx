@@ -1,8 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 import { InnerCard, StyledCard } from './FancyCard.style';
 import { StyledCardProps } from './Card.model';
-
 
 // --------------------------------------------------------------------------- //
 // ---------- The card is there to wrapp some content or components ---------- //
@@ -11,15 +10,20 @@ interface ICard extends StyledCardProps {
   children?: React.ReactNode;
 }
 export default function Card(props: ICard) {
-  const { children, height, width, radius, padding, roundedEdges } = {...defaultProps, ...props};
+  const { children, height, width, radius, padding, roundedEdges, backgroundColor } = { ...defaultProps, ...props };
 
   return (
-    <StyledCard $height={height} $width={width} $padding={padding} $radius={radius} $roundedEdges={roundedEdges}>
-      <InnerCard>
-        {children}
-      </InnerCard>
+    <StyledCard
+      $height={height}
+      $width={width}
+      $padding={padding}
+      $radius={radius}
+      $roundedEdges={roundedEdges}
+      $backgroundColor={backgroundColor}
+    >
+      <InnerCard>{children}</InnerCard>
     </StyledCard>
-  )
+  );
 }
 
 const defaultProps: ICard = {
@@ -33,4 +37,4 @@ const defaultProps: ICard = {
     bottomRight: true,
     bottomLeft: true,
   },
-}
+};

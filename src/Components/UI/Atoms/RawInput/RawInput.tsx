@@ -10,6 +10,7 @@ export interface IRawInput {
 
 const RawInput = styled.input<IRawInput>`
   font-weight: 500;
+  font-size: 16px;
   box-sizing: border-box;
   width: 100%;
   appearance: none;

@@ -1,43 +1,56 @@
 import React from 'react';
 import styled from 'styled-components';
-
-import FancyHR from '../../Atoms/FancyHR/FancyHR';
+import FancyCard from '../../Atoms/FancyCard/FancyCard';
 
 import LoadingSpinner from '../../Atoms/FancyLoadingSpinner/FancyLoadingSpinner';
 
-import { borderRadius, uiColors, spacingPx } from '../../Design/design';
+import { borderRadius, spacingPx } from '../../Design/design';
 
+// Styled component for the search bar list
 const StyledSearchBarList = styled.div`
-  background-color: ${uiColors.primary.lighter};
-  border-radius: 0 0 ${borderRadius.extraLarge} ${borderRadius.extraLarge};
+  border-radius: ${borderRadius.extraLarge};
+  z-index: 100;
 `;
 
-const WrapperList = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 0px ${spacingPx.xl} ${spacingPx.md};
-`
-
+// Styled component for the content of the search bar list
 const SearchBarContent = styled.div`
   padding: ${spacingPx.md} 0;
-` 
+`;
 
+// Styled component for the inner card of the search bar list
+const InnerCard = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+`;
+
+// Props for the SearchBarList component
 interface ISearchBarList {
-  isActive?: boolean;
+  isActive?: boolean; // Whether the search bar list is active
+  children?: React.ReactNode; // List of items to display in the search bar list
+  alignTop?: string;
 }
+
+// The SearchBarList component
 export default function SearchBarList(props: ISearchBarList) {
-  const { isActive } = props;
+  const { isActive, children } = props;
 
   return (
     <StyledSearchBarList>
+      {/* If the search bar list is active, display the list */}
       {isActive && (
-        <WrapperList>
-          <FancyHR $design='secondary' />
-          <SearchBarContent>SearchBarList</SearchBarContent>
-          <LoadingSpinner />
-        </WrapperList>
+        <FancyCard backgroundColor="lightest" radius="xxl">
+          <InnerCard>
+            {/* If there are items to display, display them */}
+            {children && <SearchBarContent>{children}</SearchBarContent>}
+            {/* Display a loading spinner */}
+            {!children && <LoadingSpinner />}
+          </InnerCard>
+        </FancyCard>
       )}
     </StyledSearchBarList>
   );

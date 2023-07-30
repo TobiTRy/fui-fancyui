@@ -1,12 +1,12 @@
-import React from 'react'
+import React from 'react';
 
-import Slot, { ISlot } from '../../Atoms/Slot/Slot'
+import Slot, { ISlot } from '../../Atoms/Slot/Slot';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
   position: relative;
   display: flex;
-`
+`;
 
 const StyledHeaderSlot = styled.div`
   position: relative;
@@ -20,7 +20,8 @@ const StyledHeaderSlot = styled.div`
 const StyledOutOfHeaderSlot = styled.div`
   position: absolute;
   width: 100%;
-`
+  top: 100%;
+`;
 
 interface IHeaderSlot {
   headerSlot: ISlot;
@@ -32,11 +33,9 @@ export default function HeaderSlot(props: IHeaderSlot) {
   return (
     <Wrapper>
       <StyledHeaderSlot>
-        <Slot {...headerSlot}/>
+        <Slot {...headerSlot} />
       </StyledHeaderSlot>
-      <StyledOutOfHeaderSlot>
-        {outOfHeaderSlot}
-      </StyledOutOfHeaderSlot>
+      <StyledOutOfHeaderSlot>{outOfHeaderSlot}</StyledOutOfHeaderSlot>
     </Wrapper>
-  )
+  );
 }
