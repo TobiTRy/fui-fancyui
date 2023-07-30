@@ -1,9 +1,12 @@
 import React from 'react';
-import SimpleHeader from '../../Components/UI/Molecules/SimpleHeader/SimpleHeader';
 import FancyHeader from '../../Components/UI/Organisms/FancyHeader/FancyHeader';
 import HeaderTitleWithLogo from '../../Components/UI/Molecules/HeaderTitleWithLogo/HeaderTitleWithLogo';
+import FancyDropDownMenue from '../../Components/UI/Organisms/FancyDropDownMenue/FancyDropDownMenue';
 
 import FancySearchBar from '../../Components/UI/Organisms/FancySearchBar/FancySearchBar';
+import FancyLiItem from '../../Components/UI/Atoms/FancyLI/FancyLI';
+
+import SVGChevronLeft from '../../Components/UI/SVGIcons/SVGChevronLeft';
 
 const RightSlot = ({ onClick }: { onClick?: () => void }) => {
   return <div onClick={onClick}>Right Slot</div>;
@@ -33,7 +36,13 @@ export default function HeaderRoute() {
   const [isOpen, setIsOpen] = React.useState(false);
 
   const Slot2 = {
-    toOpenComponent: <MoreContent title={isOpen ? 'isIOpen' : 'CLosed'} />,
+    toOpenComponent: 
+    
+    <FancyDropDownMenue isOpen={isOpen} alignHorizontal='right' alignVertical='top' width='80%'> 
+      <FancyLiItem size='large'  />
+      <FancyLiItem size='large' />
+      <FancyLiItem size='large' />
+    </FancyDropDownMenue>,
     component: <RightSlot onClick={() => setIsOpen(!isOpen)} />,
     scale: 1,
   };
@@ -43,7 +52,6 @@ export default function HeaderRoute() {
       <section>
         <FancyHeader rightSlot={Slot2} leftSlot={headerTitele} middeSlot={Slot} />
       </section>
-      <section></section>
     </>
   );
 }

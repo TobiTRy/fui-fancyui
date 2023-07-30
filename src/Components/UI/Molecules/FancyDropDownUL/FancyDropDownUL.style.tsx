@@ -45,6 +45,5 @@ export const StyledUL = styled.div`
 
   li {
     list-style: none;
-    padding: 0;
   }
 `;
