@@ -9,7 +9,7 @@ type StyledFancyLi = IStyledPrefixAndOmiter<IFancyLi, 'children'>;
 const FancyLiItem = styled.li<StyledFancyLi>`
   list-style: none;
   display: flex;
-  align-items: center;
+  align-items: self-start;
   width: 100%;
 `;
 

@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import FancyHeader from '../../Components/UI/Organisms/FancyHeader/FancyHeader';
 import HeaderTitleWithLogo from '../../Components/UI/Molecules/HeaderTitleWithLogo/HeaderTitleWithLogo';
 import FancyDropDownMenue from '../../Components/UI/Organisms/FancyDropDownMenue/FancyDropDownMenue';
 
 import FancySearchBar from '../../Components/UI/Organisms/FancySearchBar/FancySearchBar';
 import FancyLiItem from '../../Components/UI/Atoms/FancyLI/FancyLI';
+import { FancyA, FancySVGAtom } from '../../lib';
 
 import SVGChevronLeft from '../../Components/UI/SVGIcons/SVGChevronLeft';
 
@@ -33,15 +34,22 @@ const headerTitele = {
 };
 
 export default function HeaderRoute() {
-  const [isOpen, setIsOpen] = React.useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   const Slot2 = {
     toOpenComponent: 
     
-    <FancyDropDownMenue isOpen={isOpen} alignHorizontal='right' alignVertical='top' width='80%'> 
-      <FancyLiItem size='large'  />
-      <FancyLiItem size='large' />
-      <FancyLiItem size='large' />
+    <FancyDropDownMenue isOpen={isOpen} alignHorizontal='right' alignVertical='top' width='auto'> 
+
+      <FancyLiItem size='large'>
+        <FancyA wide={true} align='left' icon={<FancySVGAtom>{SVGChevronLeft}</FancySVGAtom> } design='transparent' hoverColor='primary' roundedCompletly={false} label='test' size='small'/>
+      </FancyLiItem>
+      <FancyLiItem size='large'>
+        <FancyA wide={true} align='left' icon={<FancySVGAtom>{SVGChevronLeft}</FancySVGAtom> } design='transparent' hoverColor='primary' roundedCompletly={false} label='testsasadefsddfdfsdsf ' size='small'/>
+      </FancyLiItem>
+      <FancyLiItem size='large'>
+        <FancyA wide={true} align='left' icon={<FancySVGAtom>{SVGChevronLeft}</FancySVGAtom> } design='transparent' hoverColor='primary' roundedCompletly={false} label='test' size='small'/>
+      </FancyLiItem>
     </FancyDropDownMenue>,
     component: <RightSlot onClick={() => setIsOpen(!isOpen)} />,
     scale: 1,

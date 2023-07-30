@@ -84,7 +84,6 @@ const generateIcon = (props: IGenerateIconItem) => {
   //this function generates the addons for a $icon button
   return css`
     align-items: center;
-    justify-content: ${$align && alignment[$align]};
     ${$label && calcIconButtoonPadding({ $align, $size })};
 
     i {
@@ -179,7 +178,7 @@ const generateBorderRadius = (props: Pick<IGenerateThemeItem, '$wide' | '$rounde
 
 //-----this funktion handles the button style on his conditions-----//
 const generateThemeItem = (props: IGenerateThemeItem) => {
-  const { $outlined, $icon, $size, $label, $wide, $roundedCompletly } = props;
+  const { $outlined, $icon, $size, $label, $wide, $roundedCompletly, $align } = props;
 
   let iconStyle, borderRadius;
 
@@ -199,7 +198,7 @@ const generateThemeItem = (props: IGenerateThemeItem) => {
 
   return css`
     display: flex;
-    justify-content: center;
+    justify-content: ${$align && alignment[$align]};
     align-items: center;
     border: none;
     cursor: pointer;

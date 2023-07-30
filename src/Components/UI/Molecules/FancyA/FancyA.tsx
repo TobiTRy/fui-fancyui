@@ -11,19 +11,19 @@ import { disabledStyle } from '../../HelperFunctions/disableStyle';
 const A = styled.a<IGenerateThemeItem & {disabled?: boolean}>`
   ${(props: IGenerateThemeItem) => generateThemeItem(props)}
   ${({disabled}) => disabled ? disabledStyle : ''}
-
 `;
 
 // --------------------------------------------------------------------------- //
 // --------------- The Main Component for the Fancy A Tag -------------------- //
 // --------------------------------------------------------------------------- //
 export interface IFancyA {
-  size: "small" | "medium" | "large";
+  size?: "small" | "medium" | "large";
   wide?: boolean; 
-  design: "primary" | "secondary" | "accent" | "transparent";
+  design?: "primary" | "secondary" | "accent" | "transparent";
   align?: "left" | "right" | "center";
   color?: "primary" | "secondary" | "accent";
   hoverColor?: "primary" | "secondary" | "accent";
+  roundedCompletly?: boolean;
   label?: string;
   outlined?: boolean;
   icon?: JSX.Element;
@@ -31,16 +31,17 @@ export interface IFancyA {
   onClick?: () => void;
 }
 export default function FancyA(props: IFancyA) {
-  const { icon, label, outlined, size, design, align, color, wide, hoverColor, disabled, onClick  } = {...defaultProps, ...props};
+  const { icon, label, outlined, size, design, align, color, wide, hoverColor, disabled, onClick, roundedCompletly  } = {...defaultProps, ...props};
 
   return (
     <A
-      $size={size}
-      $design={design}
+      $size={size!}
+      $design={design!}
       $align={align}
       $color={color}
       $wide={wide}
       $icon={icon}
+      $roundedCompletly={roundedCompletly}
       $hoverColor={hoverColor}
       $label={label}
       $outlined={outlined}
@@ -58,6 +59,7 @@ const defaultProps: IFancyA = {
   design: 'transparent',
   align: 'left',
   hoverColor: 'accent',
+  roundedCompletly: false,
   outlined: false,
   disabled: false,
 };

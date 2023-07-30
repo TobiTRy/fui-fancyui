@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 import SearchBar from '../../Molecules/SearchBar/SearchBar';
 import SearchBarList from '../../Molecules/SearchBarList/SearchBarList';
-import { FancyHR } from '../../Atoms/FancyHR';
 
 // Styled component for the entire search bar
 const StyledFancySearchBar = styled.div`
@@ -25,7 +24,6 @@ const WrapperListInput = styled.div`
 const WrapperList = styled.div<{ $width?: string }>`
   position: absolute;
   top: calc(100% + 4px);
-
   width: ${({ $width }) => $width || '100%'}; // Set the width of the search bar list
   left: 50%;
   transform: translateX(-50%);
@@ -42,7 +40,7 @@ interface IFancySearchBar {
 // The FancySearchBar component
 export default function FancySearchBar(props: IFancySearchBar) {
   const { handlerSearchValue, items, searchListWidth } = props;
-  const [isActive, setIsActive] = useState(true); // State for whether the search bar list is active
+  const [isActive, setIsActive] = useState(false); // State for whether the search bar list is active
 
   // Function to handle changes to the isActive state
   const activeHandler = (isActive: boolean) => {
