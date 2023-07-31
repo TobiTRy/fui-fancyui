@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components';
-import Typography, { ITypography } from '../../Atoms/Typography/Typography';
 import FancyImage, { IFancyImage } from '../../Atoms/FancyImage/FancyImage';
 
 
@@ -42,17 +41,15 @@ const TextWrapper = styled.div<{ position: string }>`
 `;
 
 interface IImageWithTextProps extends IFancyImage {
-  title: ITypography;
-  subtitle: ITypography;
+  children?: React.ReactNode;
   position: 'top-left' | 'top-right' | 'center' | 'bottom-left' | 'bottom-right';
 }
 export default function FancyImageText(props: IImageWithTextProps) {
-  const { title, subtitle, position, ...restProps } = props;
+  const { children, position, ...restProps } = props;
   return (
     <FancyImage {...restProps}>
       <TextWrapper position={position}>
-        <Typography >{title}</Typography>
-        <Subtitle>{subtitle}</Subtitle>
+        {children}
       </TextWrapper>
     </FancyImage>
   );
