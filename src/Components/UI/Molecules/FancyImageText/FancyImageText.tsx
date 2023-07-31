@@ -42,15 +42,21 @@ const TextWrapper = styled.div<{ position: string }>`
 
 interface IImageWithTextProps extends IFancyImage {
   children?: React.ReactNode;
-  position: 'top-left' | 'top-right' | 'center' | 'bottom-left' | 'bottom-right';
+  position?: 'top-left' | 'top-right' | 'center' | 'bottom-left' | 'bottom-right';
 }
 export default function FancyImageText(props: IImageWithTextProps) {
-  const { children, position, ...restProps } = props;
+  const { children, position, ...restProps } = {...defaultProps, ...props};
   return (
+    
     <FancyImage {...restProps}>
       <TextWrapper position={position}>
+        <p>Hiiiii</p>
         {children}
       </TextWrapper>
     </FancyImage>
   );
+}
+
+const defaultProps = {
+  position: 'top-left',
 }
