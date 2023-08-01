@@ -28,7 +28,7 @@ const Overlay = styled.div<{ position: string }>`
         `;
       case 'center':
         return css`
-          background: radial-gradient(ellipse 75% 50% at center, rgba(0, 0, 0, 0.25) 30%, rgba(0, 0, 0, 0) 4           0%);
+          background: radial-gradient(ellipse 75% 50% at center, rgba(0, 0, 0, 0.25) 30%, rgba(0, 0, 0, 0) 40%);
         `;
       case 'bottom-left':
         return css`
