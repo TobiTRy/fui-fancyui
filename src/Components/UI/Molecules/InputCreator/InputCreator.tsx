@@ -29,12 +29,13 @@ interface IInputCreator {
   max?: number;
   step?: number;
   autoWidth?: boolean;
+  ariaLabel?: string;
 }
 // --------------------------------------------------------------------------- //
 // -- The InputCreator is used for each input to get same design stucture ---- //
 // --------------------------------------------------------------------------- //
 export default function InputCreator(props: IInputCreator) {
-  const { InputComponent, label, value, values, name, handler, activeHandler, disabled, errorMessage, align, icon, underline, autoWidth } = props;
+  const { InputComponent, label, value, values, name, handler, activeHandler, disabled, errorMessage, align, icon, underline, autoWidth, ariaLabel } = props;
   const [isActive, setIsActive] = useState(false);
 
   // the id is used to link the label and the input
@@ -74,6 +75,7 @@ export default function InputCreator(props: IInputCreator) {
         activeHandler={activeFocusHandler}
         errorMessage={errorMessage}
         autoWidth={autoWidth}
+        ariaLabel={label ? label : ariaLabel}
       />
     </InputWrapper>
   );

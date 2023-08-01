@@ -10,6 +10,11 @@ html {
   overflow-y: auto;
 }
 
+li {
+  color: white;
+  list-style: none;
+}
+
 section {
   padding: 1rem;
   position: relative;

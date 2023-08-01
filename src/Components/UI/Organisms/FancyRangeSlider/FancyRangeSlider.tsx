@@ -67,6 +67,7 @@ export default function FancyRangeSlider(props: IFancyRangeSlider) {
       {displayNumber && (
         <NumberContainer>
           <FancyNumberInput
+            ariaLabel={label}
             autoWidth={true}
             align="center"
             value={sliderProgress.toString()}

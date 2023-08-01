@@ -25,6 +25,7 @@ interface IPasswordInputProps {
   value?: string;
   errorMessage?: string;
   align?: TRawInputAlign;
+  ariaLabel?: string;
   handler?: (e: ChangeEvent<HTMLInputElement>) => void;
   activeHandler?: (value: boolean) => void;
 }
@@ -40,7 +41,7 @@ const StyledPasswordInput = styled(RawInput)<IStyledPasswordInput>`
 // --------------- The passwordInputcomponent for only the input ------------- //
 // --------------------------------------------------------------------------- //
 export default function PasswordInput(props: IPasswordInputProps) {
-  const { value, handler, activeHandler, disabled, errorMessage, name, align, id } = props;
+  const { value, handler, activeHandler, disabled, errorMessage, name, align, id, ariaLabel } = props;
   const [isShowPassword, setIsShowPassword] = useState(false);
 
   const focusHandler = (value: boolean) => {
@@ -70,6 +71,7 @@ export default function PasswordInput(props: IPasswordInputProps) {
         onBlur={() => focusHandler(false)}
         $errorMessage={errorMessage}
         $align={align}
+        aria-label={ariaLabel}
       />
     </>
   );

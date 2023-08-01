@@ -13,6 +13,7 @@ export interface ITextInputProps {
   name?: string;
   errorMessage?: string;
   align?: TRawInputAlign;
+  ariaLabel?: string;
   handler?: (e: ChangeEvent<HTMLInputElement>) => void;
   activeHandler?: (value: boolean) => void;
 }
@@ -25,7 +26,7 @@ const StyledTextInput = styled(RawInput)<IStyledTextInput>`
 `;
 
 export default function TextInput(props: ITextInputProps) {
-  const { value, handler, name, activeHandler, disabled, errorMessage, align, id } = props;
+  const { value, handler, name, activeHandler, disabled, errorMessage, align, id, ariaLabel } = props;
 
   //this function is used to toggle the active state of the input
   const focusHandler = (value: boolean) => {
@@ -43,6 +44,7 @@ export default function TextInput(props: ITextInputProps) {
       onChange={handler}
       disabled={disabled}
       required
+      aria-label={ariaLabel}
       onFocus={() => focusHandler(true)}
       onBlur={() => focusHandler(false)}
       $align={align}

@@ -9,6 +9,7 @@ export interface FancyTextInputProps {
   disabled?: boolean;
   align?: 'left' | 'center';
   handler?: IInputCreatorHandler;
+  ariaLabel?: string;
   activeHandler?: IInputCreatorActiveHandler;
   icon?: JSX.Element;
   label?: string;

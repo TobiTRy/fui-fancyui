@@ -10,6 +10,7 @@ interface IFancyDateInput {
   align?: 'left' | 'center';
   handler?: IInputCreatorHandler;
   activeHandler?: IInputCreatorActiveHandler;
+  ariaLabel?: string;
   icon?: JSX.Element;
   label?: string;
 }

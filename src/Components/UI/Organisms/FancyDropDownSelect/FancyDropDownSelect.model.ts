@@ -8,6 +8,7 @@ export default interface IFancyDropDownSelect {
   align?: 'left' | 'center';
   handler?: IInputCreatorHandler;
   activeHandler?: IInputCreatorActiveHandler;
+  ariaLabel?: string;
   icon?: JSX.Element;
   label?: string;
 }

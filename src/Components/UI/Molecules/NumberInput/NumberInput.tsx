@@ -17,11 +17,12 @@ export interface INumberInput {
   minValue?: number;
   maxValue?: number;
   align?: TRawInputAlign;
+  ariaLabel?: string;
   handler?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   activeHandler?: (value: boolean) => void;
 }
 export default function NumberInput(props: INumberInput) {
-  const { value, handler, name, activeHandler, disabled, errorMessage, align, id, autoWidth, minValue, maxValue } = props;
+  const { value, handler, name, activeHandler, disabled, errorMessage, align, id, autoWidth, minValue, maxValue, ariaLabel } = props;
 
   const focusHandler = (value: boolean) => {
     activeHandler && activeHandler(value);
@@ -39,6 +40,7 @@ export default function NumberInput(props: INumberInput) {
       disabled={disabled}
       min={minValue}
       max={maxValue}
+      aria-label={ariaLabel}
       required
       onFocus={() => focusHandler(true)}
       onBlur={() => focusHandler(false)}
