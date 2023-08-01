@@ -33,7 +33,7 @@ export { default as InputLabel } from '../Components/UI/Atoms/InputLabel/InputLa
 export { default as InputUnderline } from '../Components/UI/Atoms/InputUnderline/InputUnderline';
 export { default as RawInput } from '../Components/UI/Atoms/RawInput/RawInput';
 export { default as CheckerBoardPattern } from '../Components/UI/Atoms/CheckerBoardPattern/CheckerBoardPattern';
-
+export { default as ImageVideoOverlay } from '../Components/UI/Atoms/ImageVideoOverlay/ImageVideoOverlay';
 
 // ---------- Molecules ------- //
 export { default as DateInput } from '../Components/UI/Molecules/DateInput/DateInput';
