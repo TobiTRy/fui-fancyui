@@ -43,7 +43,7 @@ export default function InputFields({currentColorObject, handler }:IInputFields)
           return (
             <ContainerInputs key={key} >
               {/* the AdaptInputs component creates the input for the specific color (like: r, b, g ...) */}
-              <AdaptInputs inputLetter={key} value={value as number} handler={handleInputChange}/>
+              <AdaptInputs inputLetter={key} value={value as number} handler={handleInputChange} ariaLabel={key}/>
               <Typography type='inlineElement' variant='smallText'>{key}</Typography>
             </ContainerInputs>
           );

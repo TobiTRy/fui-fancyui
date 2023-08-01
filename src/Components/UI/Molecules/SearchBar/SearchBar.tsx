@@ -51,7 +51,7 @@ export default function SearchBar(props: ISearchBar) {
         {SVGSearch}
       </FancySVGAtom>
       {/* The search input */}
-      <FancyTextInput activeHandler={focusHandler} handler={(value, e) => onChangeValueHandler(e)} />
+      <FancyTextInput ariaLabel="Searchbar" activeHandler={focusHandler} handler={(value, e) => onChangeValueHandler(e)} />
     </StyledSearchBar>
   );
 }

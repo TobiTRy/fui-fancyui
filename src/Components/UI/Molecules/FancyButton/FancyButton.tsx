@@ -30,6 +30,7 @@ export default function FancyButton(props: IFancyButton) {
       type="button"
       onClick={onClick}
       disabled={disabled}
+      aria-label={label ? label : 'Switch'}
     >
       {icon && <FancySVGAtom size={size} isPassive>{icon}</FancySVGAtom>}
       {label && <Typography type='button'>{label}</Typography>}
