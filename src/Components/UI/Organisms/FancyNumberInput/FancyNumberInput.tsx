@@ -11,6 +11,7 @@ interface IFancyNumberInput {
   disabled?: boolean;
   align?: 'left' | 'center';
   handler?: IInputCreatorHandler;
+  ariaLabel?: string;
   active?: boolean;
   activeHandler?: IInputCreatorActiveHandler;
   autoWidth?: boolean;

@@ -16,9 +16,10 @@ export interface ISVGAtom {
   externalStyle?: CSSProp;
   isPassive?: boolean;
   isActive?: boolean;
+  ariaLabel?: string;
   errorMessage?: string;
 }
 
 
 
-export type IStyledSVGAtom = IStyledPrefixAndOmiter<ISVGAtom, 'children'>;
+export type IStyledSVGAtom = IStyledPrefixAndOmiter<ISVGAtom, 'children' | 'ariaLabel'>;

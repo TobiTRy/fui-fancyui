@@ -6,6 +6,8 @@ import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';
 import BottomScrollbar from '../../Components/UI/Molecules/DynamicBottomScrollBar/DynamicBottomScrollBar';
 import DynamicBottomScrollBar from '../../Components/UI/Molecules/DynamicBottomScrollBar/DynamicBottomScrollBar';
 
+import FancyButton from '../../Components/UI/Molecules/FancyButton/FancyButton';
+
 const svg = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
     <path d="M11.5 6.027a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm-1.5 1.5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zm2.5-.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm-1.5 1.5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zm-6.5-3h1v1h1v1h-1v1h-1v-1h-1v-1h1v-1z" />
@@ -20,6 +22,7 @@ export default function ExperimentalRoute() {
       <DesignArea title='Experimental'>
       <FancyHueSlider />
         <DynamicBottomScrollBar  buttons={defaultProps.buttons} scrollable />
+        <FancyButton icon={svg} label='TEST'  design='transparent'/>
       </DesignArea>
     </DesignWrapper>
   </>)

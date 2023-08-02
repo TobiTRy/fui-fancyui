@@ -7,23 +7,24 @@ import Typography from '../../Atoms/Typography/Typography';
 export interface ISpeedail {
   items?: Array<{ label?: string; value: string | number | JSX.Element }>;
   labelAlign?: 'left' | 'right';
+  hideLabel?: boolean;
 }
 export default function FancySpeedDialButton(props: ISpeedail) {
-  const { items, labelAlign } = { ...defaultProps, ...props };
+  const { items, labelAlign, hideLabel } = { ...defaultProps, ...props };
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <Wrapper>
       <SpeedDialContainer>
-        <Button $isOpen={isOpen} onClick={() => setIsOpen(!isOpen)}>
+        <Button $isOpen={isOpen} aria-label={'Open Menue'} onClick={() => setIsOpen(!isOpen)}>
           {SVGPlus}
         </Button>
         <Ring $isOpen={isOpen} />
         <MenueItemWrapper>
           {items?.map((item, index) => (
             <MenueItemContainer key={index} $index={index} $isOpen={isOpen}>
-              <MenuItem>{item.value}</MenuItem>
-              {item.label && (
+              <MenuItem aria-label={item.label} >{item.value}</MenuItem>
+              {(item.label && !hideLabel) && (
                 <Typography type="inlineElement" variant="label" $labelAlign={labelAlign} $isOpen={isOpen} style={Label}>
                   {item.label}
                 </Typography>

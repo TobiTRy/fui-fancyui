@@ -10,5 +10,6 @@ export interface IFancyButton {
   outlined?: boolean;
   icon?: JSX.Element;
   disabled?: boolean;
+  ariaLabel?: string;
   onClick?: () => void;
 }

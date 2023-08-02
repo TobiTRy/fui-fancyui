@@ -62,7 +62,7 @@ const generateStyle = (externalStyle: CSSProp, fontWeight: 'normal' | 'bold' | u
   `;
 };
 
-interface ITypographyProps {
+export interface ITypography {
   type: keyof typeof fontSizeVariants;
   variant?: keyof typeof fontSizeVariants;
   children?: React.ReactNode;
@@ -70,7 +70,7 @@ interface ITypographyProps {
   style?: CSSProp;
   [x: string]: any;
 }
-export default function Typography({ type, variant, children, style, weight, ...htmlProps }: ITypographyProps) {
+export default function Typography({ type, variant, children, style, weight, ...htmlProps }: ITypography) {
   // generate the Typography component based on the type prop;
   const Component = ComponentObj[type] || ComponentObj.content;
 

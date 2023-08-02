@@ -13,6 +13,7 @@ export interface IDateInputProps {
   value?: string;
   name?: string;
   errorMessage?: string;
+  ariaLabel?: string;
   handler?: (e: ChangeEvent<HTMLInputElement>) => void;
   activeHandler?: (value: boolean) => void;
   align?: TRawInputAlign;
@@ -45,7 +46,7 @@ const StyledDatePicker = styled(RawInput)<IStyledDatePicker>`
 // ---------- Here are the design variants for sizing and alignment ---------- //
 // --------------------------------------------------------------------------- //
 export default function DateInput(props: IDateInputProps) {
-  const { value, handler, activeHandler, name, disabled, errorMessage, align, id } = props;
+  const { value, handler, activeHandler, name, disabled, errorMessage, align, id, ariaLabel } = props;
 
   //this function is used to toggle the active state of the input
   const focusHandler = (value: boolean) => {
@@ -60,6 +61,7 @@ export default function DateInput(props: IDateInputProps) {
       id={id}
       type="date"
       placeholder=""
+      aria-label={ariaLabel}
       value={value}
       autoComplete={'off'}
       onChange={handler}

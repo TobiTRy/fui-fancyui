@@ -27,9 +27,10 @@ const StyledSingleInput = styled.input<StyledSingleInputProps>`
 // --------------------------------------------------------------------------- //
 interface ISingleInputAtomProps {
   value: string;
+  ariaLabel?: string;
   onKeyDown: (e: React.KeyboardEvent<HTMLInputElement>) => void;
 }
-const SingleInputAtom = forwardRef<HTMLInputElement, ISingleInputAtomProps>(({ value, onKeyDown }, ref) => {
+const SingleInputAtom = forwardRef<HTMLInputElement, ISingleInputAtomProps>(({ value, onKeyDown, ariaLabel }, ref) => {
   const [isFocused, setIsFocused] = useState(false);
 
   return (
@@ -39,6 +40,7 @@ const SingleInputAtom = forwardRef<HTMLInputElement, ISingleInputAtomProps>(({ v
       value={value}
       onKeyDown={onKeyDown}
       ref={ref}
+      aria-label={ariaLabel}
       // eslint-disable-next-line @typescript-eslint/no-empty-function
       onChange={() => {}}
       onFocus={() => setIsFocused(true)}

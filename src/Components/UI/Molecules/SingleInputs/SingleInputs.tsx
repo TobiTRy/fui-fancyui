@@ -121,7 +121,7 @@ export default function SingleInputs(props: IFancySingleInputsProps) {
   return (
     <InputWrapper onPaste={handlePaste} $status={status}>
       {values.map((value, index) => (
-        <SingleInputAtom key={index} ref={refs[index]} value={value} onKeyDown={(e) => handleKeyDown(e, index)} />
+        <SingleInputAtom key={index} ref={refs[index]} value={value} ariaLabel={`Input ${index}`} onKeyDown={(e) => handleKeyDown(e, index)} />
       ))}
     </InputWrapper>
   );

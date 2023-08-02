@@ -53,10 +53,11 @@ const colorLettersObject = [
 interface IAdapedInput {
   inputLetter: string;
   value: number;
+  ariaLabel?: string;
   handler: () => void;
 }
 export default function AdaptInputs(props: IAdapedInput) {
-  const { inputLetter, handler, value } = props;
+  const { inputLetter, handler, value, ariaLabel } = props;
 
   //find the specific color object for the input (like: r)
   const colorObject = colorLettersObject.find((obj) => obj.colorLetter === inputLetter);
@@ -66,6 +67,7 @@ export default function AdaptInputs(props: IAdapedInput) {
       {colorObject && (
         <FancyNumberInput
           align="center"
+          ariaLabel={ariaLabel}
           name={inputLetter}
           minValue={colorObject.min}
           maxValue={colorObject.max}

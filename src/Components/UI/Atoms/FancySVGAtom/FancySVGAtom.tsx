@@ -31,10 +31,10 @@ const StyledSVG = styled.i<IStyledSVGAtom>`
 // --------- This is a wrapper for SVGs to wrap them and style them ---------- //
 // --------------------------------------------------------------------------- //
 export default function FancySVGAtom(props: ISVGAtom) {
-  const { children, isPassive, size, isActive, errorMessage, externalStyle } = {...defaultProps,...props};
+  const { children, isPassive, size, isActive, errorMessage, externalStyle, ariaLabel } = {...defaultProps,...props};
 
   return (
-    <StyledSVG $size={size} $isPassive={isPassive} $isActive={isActive} $errorMessage={errorMessage} $externalStyle={externalStyle}>
+    <StyledSVG $size={size} $isPassive={isPassive} $isActive={isActive} $errorMessage={errorMessage} $externalStyle={externalStyle} aria-label={ariaLabel}>
       {children}
     </StyledSVG>
   );
