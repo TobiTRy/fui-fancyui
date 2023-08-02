@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-
 import aspectRatioValidation from '../../HelperFunctions/aspectRatioValidation';
 
+// Define a styled image component using styled-components
 const StyledImage = styled.img<{ $darken?: boolean, $aspectRatio?: string }>`
   width: 100%;
   object-fit: cover;
@@ -12,6 +12,8 @@ const StyledImage = styled.img<{ $darken?: boolean, $aspectRatio?: string }>`
   filter: ${({ $darken }) => ($darken ? 'brightness(0.5)' : 'none')};
 `;
 
+// Define the props for the FancyImage component
+
 export interface IFancyImage {
   imageUrl: string;
   aspectRatio?: string; // e.g. "16/9"
@@ -19,13 +21,18 @@ export interface IFancyImage {
   link?: string;
   alt?: string;
 }
+// --------------------------------------------------------------------------- //
+// -------------- The Definition for the FancyImage Component ---------------- //
+// --------------------------------------------------------------------------- //
 export default function FancyImage(props: IFancyImage) {
   const { imageUrl, aspectRatio, darken, link, alt } = props;
 
+  // Validate the aspect ratio if it is provided
   if(aspectRatio && !aspectRatioValidation(aspectRatio)) {
     throw new Error('The aspect ratio is not valid. Please use the format "16/9"');
   }
 
+  // Render the image with or without a link depending on whether a link is provided
   return (
     <>
       {link ? (
@@ -36,6 +43,5 @@ export default function FancyImage(props: IFancyImage) {
         <StyledImage src={imageUrl} $darken={darken} alt={alt}/>
       )}
     </>
-
   );
 }

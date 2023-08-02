@@ -3,15 +3,19 @@ import React from 'react'
 import styled, { css } from 'styled-components';
 import { spacingPx } from '../../Design/design';
 
+// Define the gradient options for the overlay
 const gradientOptions = {
   start: 'rgba(0,0,0,0.4) 0%',
   end: 'rgba(0,0,0,0) 40%',
 };
 
+// Define a styled wrapper component using styled-components
 const Wrapper = styled.div`
   position: relative;
   overflow: hidden;
 `;
+
+// Define a styled overlay component using styled-components
 const Overlay = styled.div<{ $position: string }>`
   position: absolute;
   width: 100%;
@@ -42,14 +46,16 @@ const Overlay = styled.div<{ $position: string }>`
       default:
         return '';
     }
-  }};
+  }}; 
 `;
 
+// Define a styled text wrapper component using styled-components
 const TextWrapper = styled.div<{ $position: string }>`
   position: absolute;
   z-index: 1;
   padding: ${spacingPx.md};
   text-shadow: 0 0 20px black;
+
   ${({ $position }) => {
     switch ($position) {
       case 'top-left':
@@ -86,16 +92,22 @@ const TextWrapper = styled.div<{ $position: string }>`
       default:
         return '';
     }
-  }};
+  }}; 
 `;
 
+// Define the possible positions for the overlay
 export type TPositions = 'top-left' | 'top-right' | 'center' | 'bottom-left' | 'bottom-right';
 
+// Define the props for the ImageVideoOverlay component
 interface IImageVideoOverlay {
   children?: React.ReactNode;
   textChildren?: React.ReactNode;
   position?: TPositions;
 }
+
+// --------------------------------------------------------------------------- //
+// ----------- The Definition for the ImageVideoOverlay Component ------------ //
+// --------------------------------------------------------------------------- //
 export default function ImageVideoOverlay(props: IImageVideoOverlay) {
   const { children, position, textChildren } = { ...defaultProps, ...props };
 
@@ -108,6 +120,7 @@ export default function ImageVideoOverlay(props: IImageVideoOverlay) {
   );
 }
 
+// Define the default props for the ImageVideoOverlay component
 const defaultProps = {
   position: 'top-right',
 };
