@@ -2,14 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 
 
-
+import aspectRatioValidation from '../../HelperFunctions/aspectRatioValidation';
 
 const StyledImage = styled.img<{ $darken?: boolean, $aspectRatio?: string }>`
   width: 100%;
   object-fit: cover;
   transition: filter 0.3s;
   ${({ $aspectRatio }) => ($aspectRatio ? `aspect-ratio: ${$aspectRatio};` : '')}
-  aspect-ratio: 1 / 1;
   filter: ${({ $darken }) => ($darken ? 'brightness(0.5)' : 'none')};
 `;
 
@@ -22,6 +21,10 @@ export interface IFancyImage {
 }
 export default function FancyImage(props: IFancyImage) {
   const { imageUrl, aspectRatio, darken, link, alt } = props;
+
+  if(aspectRatio && !aspectRatioValidation(aspectRatio)) {
+    throw new Error('The aspect ratio is not valid. Please use the format "16/9"');
+  }
 
   return (
     <>

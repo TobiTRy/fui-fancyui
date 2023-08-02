@@ -34,6 +34,9 @@ export { default as InputUnderline } from '../Components/UI/Atoms/InputUnderline
 export { default as RawInput } from '../Components/UI/Atoms/RawInput/RawInput';
 export { default as CheckerBoardPattern } from '../Components/UI/Atoms/CheckerBoardPattern/CheckerBoardPattern';
 export { default as ImageVideoOverlay } from '../Components/UI/Atoms/ImageVideoOverlay/ImageVideoOverlay';
+export { default as FancyImage } from '../Components/UI/Atoms/FancyImage/FancyImage';
+export { default as FancyVideo } from '../Components/UI/Atoms/FancyVideo/FancyVideo';
+
 
 // ---------- Molecules ------- //
 export { default as DateInput } from '../Components/UI/Molecules/DateInput/DateInput';
@@ -73,6 +76,8 @@ export { default as FancyModalHeadLine } from '../Components/UI/Molecules/FancyM
 export { default as InputFields } from '../Components/UI/Molecules/FancyColorOutput/InputFields/InputFields';
 export { default as AdaptInputs } from '../Components/UI/Molecules/FancyColorOutput/InputFields/AdaptInput/AdaptInputs';
 export { default as HeaderTitleWithLogo } from '../Components/UI/Molecules/HeaderTitleWithLogo/HeaderTitleWithLogo';
+export { default as FancyImageText } from '../Components/UI/Molecules/FancyImageText/FancyImageText';
+export { default as FancyVideoText } from '../Components/UI/Molecules/FancyVideoText/FancyVideoText';
 
 // ---------- Organisms ------- //
 export { default as FancyColorPicker } from '../Components/UI/Organisms/FancyColorPicker/FancyColorPicker';

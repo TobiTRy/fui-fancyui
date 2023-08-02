@@ -5,14 +5,18 @@ import ImageVideoOverlay, { TPositions } from '../../Atoms/ImageVideoOverlay/Ima
 
 
 interface IImageWithTextProps extends IFancyImage {
-  position: TPositions;
+  children?: React.ReactNode;
+  position?: TPositions;
 }
 export default function FancyImageText(props: IImageWithTextProps) {
-  const { position, ...restProps } = props;
+  const { position, ...restProps } = { ...defaultProps, ...props};
 
   return (
-    <ImageVideoOverlay position={position}>
+    <ImageVideoOverlay position={position} textChildren={props.children}>
       <FancyImage {...restProps}></FancyImage>
     </ImageVideoOverlay>
   );
 }
+const defaultProps = {
+  position: 'top-right' as TPositions,
+};

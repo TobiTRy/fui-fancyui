@@ -4,12 +4,13 @@ import styled, { css } from 'styled-components';
 import { spacingPx } from '../../Design/design';
 
 const gradientOptions = {
-  start: 'rgba(0,0,0,0.4) 25%',
+  start: 'rgba(0,0,0,0.4) 0%',
   end: 'rgba(0,0,0,0) 40%',
 };
 
 const Wrapper = styled.div`
   position: relative;
+  overflow: hidden;
 `;
 const Overlay = styled.div<{ $position: string }>`
   position: absolute;
@@ -46,7 +47,8 @@ const Overlay = styled.div<{ $position: string }>`
 
 const TextWrapper = styled.div<{ $position: string }>`
   position: absolute;
-  padding: ${spacingPx.xxl};
+  z-index: 1;
+  padding: ${spacingPx.md};
   text-shadow: 0 0 20px black;
   ${({ $position }) => {
     switch ($position) {
@@ -91,18 +93,21 @@ export type TPositions = 'top-left' | 'top-right' | 'center' | 'bottom-left' | '
 
 interface IImageVideoOverlay {
   children?: React.ReactNode;
+  textChildren?: React.ReactNode;
   position?: TPositions;
 }
 export default function ImageVideoOverlay(props: IImageVideoOverlay) {
-  const { children, position } = { ...defaultProps, ...props };
+  const { children, position, textChildren } = { ...defaultProps, ...props };
+
   return (
     <Wrapper>
       <Overlay $position={position} />
-      <TextWrapper $position={position}>{children}</TextWrapper>
+      <TextWrapper $position={position}>{textChildren}</TextWrapper>
+      {children}
     </Wrapper>
   );
 }
 
 const defaultProps = {
-  position: 'bottom-right',
+  position: 'top-right',
 };
