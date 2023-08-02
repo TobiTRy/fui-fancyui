@@ -77,7 +77,7 @@ const generateIcon = (props: IGenerateIconItem) => {
       return css`
         padding-left: ${paddingIconButton[$size]};
       `;
-    }
+    } 
   };
   //this funktion reduces the padding to the edge && makes it look centered
 
@@ -146,8 +146,7 @@ const generateNormal = (props: IGenerateNormalitem) => {
   const textColor = calcTextColor({ $color, $design, $outlined });
 
 // generates the hover style for the button
-  const hoverColorStyle = $design === 'transparent' && $hoverColor ? uiColors[$hoverColor].dark : uiColors[$design].dark;
-
+  const hoverBackgroundColorStyle = (($design === 'transparent') && $hoverColor) ? uiColors[$hoverColor].dark : uiColors[$design].dark;
 
   return css`
     background-color: ${uiColors[$design].main};
@@ -155,7 +154,8 @@ const generateNormal = (props: IGenerateNormalitem) => {
     padding: ${paddings[$size]};
 
     &:hover {
-      background-color: ${hoverColorStyle};
+      ${$design === 'transparent' ?  'color: ' + uiColors.secondary.dark : ''};
+      background-color: ${hoverBackgroundColorStyle};
       box-shadow: ${$design !== 'transparent' ?  '0 0 10px 1px rgba(0, 0, 0, 0.15)' : ''};
     }
 
@@ -206,7 +206,7 @@ const generateThemeItem = (props: IGenerateThemeItem) => {
 
     width: ${$wide ? '100%' : 'initial'};
     border-radius: ${borderRadius};
-    transition: background-color 0.2s ease-in-out;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 
     ${itemStyle}
     ${iconStyle}

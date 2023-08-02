@@ -22,7 +22,7 @@ export function calcIconPaddingAndAlign({ $aligned = 'left', $size = 'medium' }:
       padding-left: ${paddingFromIcon[$size]};
       order: 1;
     `;
-  } else if ($aligned === 'left') {
+  } else if ($aligned === 'left' || $aligned === 'center') {
     return css`
       padding-right: ${paddingFromIcon[$size]};
     `;
