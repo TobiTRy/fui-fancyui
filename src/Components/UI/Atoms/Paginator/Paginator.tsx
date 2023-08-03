@@ -5,6 +5,17 @@ import SVGChevronLeft from '../../SVGIcons/SVGChevronLeft';
 import SVGChevronRight from '../../SVGIcons/SVGChevronRight';
 
 import FancyButton from '../../Molecules/FancyButton/FancyButton';
+import { uiColors } from '../../Design/design';
+import { Typography } from '../Typography';
+
+const NumberButton = styled.button`
+  border: none;
+  background-color: transparent;
+  color: ${uiColors.secondary.main};
+  &:hover {
+    color: ${uiColors.secondary.light};
+  }
+`;
 
 const StyledPaginator = styled.div`
   display: flex;
@@ -25,7 +36,9 @@ const createPageList = (totalPages: number, currentPage: number) => {
   return (
     <>
       {Array.from({ length: totalPages }).map((_, index) => (
-        <FancyButton key={index} design={index + 1  === currentPage ? 'accent' : 'transparent'} hoverColor='accent' outlined roundedCompletly  label={`${index + 1}`} />
+        <NumberButton key={index}>
+          <Typography type="button">{`${index + 1}`}</Typography>
+        </NumberButton>
       ))}
     </>
   );
@@ -41,17 +54,12 @@ export default function Paginator(props: IPaginator) {
 
   const PageList = useMemo(() => createPageList(totalPages, currentPage), [totalPages, currentPage, onPageChange]);
 
-
   return (
     <StyledPaginator>
-      <FancyButton design="transparent" icon={SVGChevronLeft} onClick={() => onPageChange(currentPage - 1)} disabled={currentPage === 1} />
-      <NumberList>
-        {PageList}
-      </NumberList>
-      <span>
-        {currentPage} / {totalPages}
-      </span>
+      <FancyButton design="transparent" wide={false} icon={SVGChevronLeft} onClick={() => onPageChange(currentPage - 1)} disabled={currentPage === 1} />
+      <NumberList>{PageList}</NumberList>
       <FancyButton
+        wide={false}
         design="transparent"
         icon={SVGChevronRight}
         onClick={() => onPageChange(currentPage + 1)}
