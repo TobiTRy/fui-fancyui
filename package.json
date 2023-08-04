@@ -2,7 +2,7 @@
   "name": "@mrtryy/fancyuilibary",
   "description": "FancyUI Libary",
   "private": false,
-  "version": "0.1.12115",
+  "version": "0.1.12117",
   "type": "module",
   "scripts": {
     "dev": "vite",
