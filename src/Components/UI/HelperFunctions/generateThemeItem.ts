@@ -159,9 +159,7 @@ const generateNormal = (props: IGenerateNormalitem) => {
       box-shadow: ${$design !== 'transparent' ?  '0 0 10px 1px rgba(0, 0, 0, 0.15)' : ''};
     }
 
-    &:disabled {
-      ${disabledStyle}
-    }
+
   `;
 };
 
@@ -206,10 +204,14 @@ const generateThemeItem = (props: IGenerateThemeItem) => {
 
     width: ${$wide ? '100%' : 'initial'};
     border-radius: ${borderRadius};
-    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
 
     ${itemStyle}
     ${iconStyle}
+
+    &:disabled {
+      ${disabledStyle}
+    }
   `;
 };
 
