@@ -1,3 +1,5 @@
+import React from 'react'
+
 import styled, { keyframes } from 'styled-components';
 import { uiColors } from '../../Design/design';
 
@@ -6,7 +8,7 @@ const spinner = keyframes`
   100% { transform: rotate(360deg); }
 `;
 
-const FancyLoadingSpinner = styled.div`
+const StyledFancyLoadingSpinner = styled.div`
   font-size: 10px;
   position: relative;
   text-indent: -9999em;
@@ -25,4 +27,12 @@ const FancyLoadingSpinner = styled.div`
   }
 `;
 
-export default FancyLoadingSpinner
+
+
+export default function FancyLoadingSpinner() {
+  return (
+    <div>
+      <StyledFancyLoadingSpinner />
+    </div>
+  )
+}
