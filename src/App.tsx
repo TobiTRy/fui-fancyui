@@ -26,7 +26,7 @@ import NavBarHandy from './Routes/NavBarHandy/NavBarHandy';
 import FancySearchBarRoute from './Routes/FancySearchBarRoute/FancySearchBarRoute';
 import FancyImageRoute from './Routes/FancyImageRoute/FancyImageRoute';
 import { styled } from 'styled-components';
-import FancyPageList from './Components/UI/Molecules/FancyPageList/FancyPageList';
+import PageSwitchRoute from './Routes/PageSwitchRoute/PageSwitchRoute';
 
 // const Icon = (
 //   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -186,7 +186,7 @@ function App() {
             <Route path="/experimental" element={<ExperimentalRoute />} />
             <Route path="/searchBar" element={<FancySearchBarRoute />} />
             <Route path="/image" element={<FancyImageRoute />} />
-            <Route path="/fancypagelist" element={<FancyPageList />} />
+            <Route path="/fancypagelist" element={<PageSwitchRoute />} />
             <Route path="/" element={<SwipeUpModal />} />
           </Routes>
         </div>

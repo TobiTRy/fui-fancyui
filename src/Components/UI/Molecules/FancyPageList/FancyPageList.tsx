@@ -1,47 +1,70 @@
 import React, { useState } from 'react';
+import styled from 'styled-components';
 
 import Paginator from '../../Atoms/Paginator/Paginator';
+import { spacingPx } from '../../Design/design';
 
-type Item = {
-  id: number;
-  name: string;
-};
+// The List with dymaic spacing between items
+const StyledList = styled.div<{ $spacing?: string }>`
+  display: flex;
+  flex-direction: column; 
+  gap: ${({ $spacing }) => $spacing ? $spacing : '0px'};
+`
 
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: ${spacingPx.xl};
+`
+
+
+// Define the props for the FancyPageList component
 interface IFancyPageList {
   itemsPerPage?: number;
+  elements: React.ReactNode[];
+  spacingBetweenItems?: string;
+  buttonDesign: 'accent' | 'primary' | 'transparent';
+  outlinedButton?: boolean;
 }
 
+// --------------------------------------------------------------------------- //
+// ------- This Component renders a Paginator with the specific list --------- //
+// --------------------------------------------------------------------------- //
 export default function FancyPageList(props: IFancyPageList) {
-  const { itemsPerPage } = {...defaultProps ,...props};
+  const { itemsPerPage, elements, spacingBetweenItems, buttonDesign, outlinedButton } = {...defaultProps, ...props};
 
   const [currentPage, setCurrentPage] = useState(1);
 
-  const items: Item[] = Array.from({ length: 100 }).map((_, index) => ({ id: index, name: `Item ${index}` }));
-
-  const totalPageCount  = Math.ceil(items.length / itemsPerPage);
-
+  // Calculate the total number of pages and the current items to display
+  const totalPageCount  = Math.ceil(elements?.length / itemsPerPage);
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = items.slice(indexOfFirstItem, indexOfLastItem);
+  
+  const currentItems = elements?.slice(indexOfFirstItem, indexOfLastItem);
 
   return (
-    <div>
-      <div className="content">
-        {currentItems.map((item) => (
-          <div key={item.id}>{item.name}</div>
+    <Wrapper>
+      {/* The List with the items to display */}
+      <StyledList $spacing={spacingBetweenItems}>
+        {currentItems?.map((item, i) => (
+          <React.Fragment key={i}>
+            {item}
+          </React.Fragment>
         ))}
-      </div>
-
+      </StyledList>
+      {/* The Paginator for the Page switches*/}
       <Paginator
         currentPage={currentPage}
         totalPages={totalPageCount}
         onPageChange={(page) => setCurrentPage(page)}
+        design={buttonDesign}
+        outlinedButton={outlinedButton || true}
       />
-    </div>
+    </Wrapper>
   );
 }
 
-
+// Define the default props for the FancyPageList component
 const defaultProps = {
   itemsPerPage: 20,
 }
