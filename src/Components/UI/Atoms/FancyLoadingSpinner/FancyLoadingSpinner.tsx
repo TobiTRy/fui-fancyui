@@ -8,22 +8,18 @@ const spinner = keyframes`
   100% { transform: rotate(360deg); }
 `;
 
-const StyledFancyLoadingSpinner = styled.div`
-  font-size: 10px;
-  position: relative;
-  text-indent: -9999em;
-  border-top: 0.6em solid ${uiColors.secondary.darkest};
-  border-right: 0.6em solid ${uiColors.secondary.darkest};
-  border-bottom: 0.6em solid ${uiColors.secondary.darkest};
-  border-left: 0.6em solid ${uiColors.accent.main};
-  transform: translateZ(0);
+const StyledFancyLoadingSpinner = styled.div<{$size?: string, $thickness?: string}>`
+  border-top:  ${({$thickness}) => $thickness || '0.6em'} solid ${uiColors.secondary.darkest};
+  border-right: ${({$thickness}) => $thickness || '0.6em'} solid ${uiColors.secondary.darkest};
+  border-bottom: ${({$thickness}) => $thickness || '0.6em'} solid ${uiColors.secondary.darkest};
+  border-left: ${({$thickness}) => $thickness || '0.6em'} solid ${uiColors.accent.main};
   animation: ${spinner} 1.1s infinite linear;
 
   &,
   &:after {
     border-radius: 50%;
-    width: 3em;
-    height: 3em;
+    width: ${({$size}) => $size || '3em' };
+    aspect-ratio: 1/1;
   }
 `;
 
@@ -32,7 +28,7 @@ const StyledFancyLoadingSpinner = styled.div`
 export default function FancyLoadingSpinner() {
   return (
     <div>
-      <StyledFancyLoadingSpinner />
+      <StyledFancyLoadingSpinner $thickness='2px' $size='3rem'/>
     </div>
   )
 }
