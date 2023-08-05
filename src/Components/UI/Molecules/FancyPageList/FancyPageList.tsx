@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-import Paginator from '../../Atoms/Paginator/Paginator';
+import Paginator from '../Paginator/Paginator';
 import { spacingPx } from '../../Design/design';
 
 // The List with dymaic spacing between items
@@ -23,7 +23,7 @@ interface IFancyPageList {
   itemsPerPage?: number;
   elements: React.ReactNode[];
   spacingBetweenItems?: string;
-  buttonDesign: 'accent' | 'primary' | 'transparent';
+  buttonDesign?: 'accent' | 'primary' | 'transparent';
   outlinedButton?: boolean;
 }
 
@@ -39,7 +39,7 @@ export default function FancyPageList(props: IFancyPageList) {
   const totalPageCount  = Math.ceil(elements?.length / itemsPerPage);
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  
+
   const currentItems = elements?.slice(indexOfFirstItem, indexOfLastItem);
 
   return (
@@ -58,7 +58,7 @@ export default function FancyPageList(props: IFancyPageList) {
         totalPages={totalPageCount}
         onPageChange={(page) => setCurrentPage(page)}
         design={buttonDesign}
-        outlinedButton={outlinedButton || true}
+        outlinedButton={outlinedButton}
       />
     </Wrapper>
   );

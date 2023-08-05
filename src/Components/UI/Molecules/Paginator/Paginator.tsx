@@ -3,9 +3,9 @@ import React, { useMemo } from 'react';
 import SVGChevronLeft from '../../SVGIcons/SVGChevronLeft';
 import SVGChevronRight from '../../SVGIcons/SVGChevronRight';
 
-import FancyButton from '../../Molecules/FancyButton/FancyButton';
+import FancyButton from '../FancyButton/FancyButton';
 import { IconWrapper, NumberList, StyledPaginator } from './Paginator.style';
-import PageNumberList from '../PageNumberList/PageNumberList';
+import PageNumberList from '../../Atoms/PageNumberList/PageNumberList';
 
 // Define the props for the Paginator component
 interface IPaginator {

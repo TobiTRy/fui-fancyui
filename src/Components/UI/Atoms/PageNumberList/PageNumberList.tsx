@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { FancyButton } from '../../Molecules/FancyButton';
 import { uiColors, spacingPx } from '../../Design/design';
 
-// The Button Wrapper gives the botton a simpler style 
+// Define a styled component for the button wrapper
 export const ButtonWrapper = styled.div<{ $isActive: boolean }>`
   button {
     color: ${(props) => props.$isActive && uiColors.accent.light};
@@ -16,13 +16,7 @@ export const ButtonWrapper = styled.div<{ $isActive: boolean }>`
   }
 `;
 
-// Define the props for the CreatePageNumberList component
-interface ICreatePageNumberList {
-  totalPages: number;
-  currentPage: number;
-  onClick?: (page: number) => void;
-}
-
+// Define a function to generate an array of page numbers to display
 const generateNumbers = (totalPages: number, currentPage: number, pageLimit = 3) => {
   const numbers: (number | string)[] = [];
 
@@ -61,14 +55,23 @@ const generateNumbers = (totalPages: number, currentPage: number, pageLimit = 3)
   return numbers;
 };
 
+// Define the props for the PageNumberList component
+interface IPageNumberList {
+  totalPages: number;
+  currentPage: number;
+  onClick?: (page: number) => void;
+}
+
 // --------------------------------------------------------------------------- //
-// -------------- Create a Page Number List that can controled  -------------- //
+// ------- This compoennt generate the Page Numbers and the Spacings --------- //
 // --------------------------------------------------------------------------- //
-export default function PageNumberList(props: ICreatePageNumberList) {
+export default function PageNumberList(props: IPageNumberList) {
   const { totalPages, currentPage, onClick } = props;
 
+  // Generate an array of page numbers to display
   const NumberArray = generateNumbers(totalPages, currentPage)
 
+  // Render the PageNumberList component with the appropriate props
   return (
     <>
       {/* Map over the total number of pages and render a FancyButton for each page */}
