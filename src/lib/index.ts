@@ -78,6 +78,8 @@ export { default as AdaptInputs } from '../Components/UI/Molecules/FancyColorOut
 export { default as HeaderTitleWithLogo } from '../Components/UI/Molecules/HeaderTitleWithLogo/HeaderTitleWithLogo';
 export { default as FancyImageText } from '../Components/UI/Molecules/FancyImageText/FancyImageText';
 export { default as FancyVideoText } from '../Components/UI/Molecules/FancyVideoText/FancyVideoText';
+export { default as FancyPageList } from '../Components/UI/Molecules/FancyPageList/FancyPageList';
+export { default as Paginator } from '../Components/UI/Molecules/Paginator/Paginator';
 
 // ---------- Organisms ------- //
 export { default as FancyColorPicker } from '../Components/UI/Organisms/FancyColorPicker/FancyColorPicker';
