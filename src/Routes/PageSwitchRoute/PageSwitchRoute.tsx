@@ -23,7 +23,7 @@ export default function PageSwitchRoute() {
   return (
     <DesignWrapper>
       <DesignArea title='Paginator'>
-        <FancyPageList itemsPerPage={20} elements={JSXArry} spacingBetweenItems='20px' />
+        <FancyPageList itemsPerPage={10} elements={JSXArry} spacingBetweenItems='20px' />
       </DesignArea>
     </DesignWrapper>
   );
