@@ -13,7 +13,7 @@ const StyledFancyLoadingSpinner = styled.div<{$size?: string, $thickness?: strin
   border-right: ${({$thickness}) => $thickness || '0.6em'} solid ${uiColors.secondary.darkest};
   border-bottom: ${({$thickness}) => $thickness || '0.6em'} solid ${uiColors.secondary.darkest};
   border-left: ${({$thickness}) => $thickness || '0.6em'} solid ${uiColors.accent.main};
-  animation: ${spinner} 1.1s infinite linear;
+  animation: ${spinner} 1.25s infinite linear;
 
   &,
   &:after {

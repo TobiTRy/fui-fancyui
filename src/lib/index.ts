@@ -36,6 +36,7 @@ export { default as CheckerBoardPattern } from '../Components/UI/Atoms/CheckerBo
 export { default as ImageVideoOverlay } from '../Components/UI/Atoms/ImageVideoOverlay/ImageVideoOverlay';
 export { default as FancyImage } from '../Components/UI/Atoms/FancyImage/FancyImage';
 export { default as FancyVideo } from '../Components/UI/Atoms/FancyVideo/FancyVideo';
+export { default as FancyLoadingBar } from '../Components/UI/Atoms/FancyLoadingBar/FancyLoadingBar';
 
 
 // ---------- Molecules ------- //
