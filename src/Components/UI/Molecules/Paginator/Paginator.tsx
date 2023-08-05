@@ -14,13 +14,14 @@ interface IPaginator {
   design?: 'accent' | 'primary' | 'transparent';
   outlinedButton?: boolean;
   onPageChange: (page: number) => void;
+  pageLimits?: number;
 }
 
 // --------------------------------------------------------------------------- //
 // ---------------- The Paginator for a List to siwtch pages ----------------- //
 // --------------------------------------------------------------------------- //
 export default function Paginator(props: IPaginator) {
-  const { currentPage, totalPages, onPageChange, outlinedButton, design } = { ...defaultProps, ...props };
+  const { currentPage, totalPages, onPageChange, outlinedButton, design, pageLimits } = { ...defaultProps, ...props };
 
   // Define a function to handle page changes
   const pageHandler = (page: number) => {
@@ -29,7 +30,7 @@ export default function Paginator(props: IPaginator) {
 
   // Memoize the PageNumberList component to avoid unnecessary re-renders
   const PageList = useMemo(
-    () => PageNumberList({ totalPages, currentPage, onClick: pageHandler }),
+    () => PageNumberList({ totalPages, currentPage, onClick: pageHandler, pageLimits }),
     [totalPages, currentPage, onPageChange]
   );
 
