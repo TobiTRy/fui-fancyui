@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
-import { spacing } from '../Design/design';
-import IStyledPrefixAndPicker from '../Interface/IStyledPrefixAndPicker.model';
+import { spacing } from '../../Design/design';
+import IStyledPrefixAndPicker from '../../Interface/IStyledPrefixAndPicker.model';
 
 export interface IcalcIconPaddingAsProps {
   aligned?: 'left' | 'right' | 'center';

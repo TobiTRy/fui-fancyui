@@ -4,9 +4,9 @@ import Color from 'color';
 import { disabledStyle } from './disableStyle';
 import { calcIconPaddingAndAlign } from './generateIconPadding';
 import { generatePadding } from './generatePadding';
-import { borderRadius, spacing, uiColors } from '../Design/design';
-import { IUiColorsTypes } from '../Design/design';
-import IStyledPrefixAndOmiter from '../Interface/IStyledPrefixAndOmiter.model';
+import { borderRadius, spacing, uiColors } from '../../Design/design';
+import { IUiColorsTypes } from '../../Design/design';
+import IStyledPrefixAndOmiter from '../../Interface/IStyledPrefixAndOmiter.model';
 
 export interface IGenerateThemeItemProps {
   outlined?: boolean;

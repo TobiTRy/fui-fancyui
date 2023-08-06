@@ -1,7 +1,7 @@
 import React from 'react';
 import Color from 'color';
 
-import useSlider from '../../Atoms/functions/hooks/useSilder';
+import useSlider from '../../HelperFunctions/hooks/useSilder';
 import {
   WrapperColorArea,
   ColorAreaContainer,

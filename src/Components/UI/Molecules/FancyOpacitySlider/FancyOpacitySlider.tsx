@@ -1,7 +1,7 @@
 import React from 'react';
 import Color from 'color';
 
-import useSlider from '../../Atoms/functions/hooks/useSilder';
+import useSlider from '../../HelperFunctions/hooks/useSilder';
 import SliderMarker from '../../Atoms/SliderMarker/SliderMarker';
 import { Wrapper, SliderContainer, OpacityGradient } from './FancyOpacitySlider.style';
 import CheckerboardPattern from '../../Atoms/CheckerBoardPattern/CheckerBoardPattern';

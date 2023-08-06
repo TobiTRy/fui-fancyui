@@ -9,7 +9,7 @@ import { CloseButtonWrapper, HeadLine } from '../../Molecules/Modal/Modal.style'
 import ModalHeadLine from '../../Molecules/FancyModalHeadLine/FancyModalHeadLine';
 import FancyXButton from '../../Atoms/FancyXButton/FancyXButton';
 import ModalBottomLine from '../../Molecules/ModalBottomLine/ModalBottomLine';
-import FancyPortal from '../../Atoms/functions/FancyPortal';
+import FancyPortal from '../../HelperFunctions/FancyPortal';
 
 import { borderRadius } from '../../Design/design';
 

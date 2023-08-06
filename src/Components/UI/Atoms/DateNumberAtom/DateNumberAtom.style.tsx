@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
 import { IRange } from "./DateNumberAtom";
 import { borderRadius, uiColors } from "../../Design/design";
-import { disabledStyle } from "../../HelperFunctions/disableStyle";
+import { disabledStyle } from "../../HelperFunctions/designFunctions/disableStyle";
 
 
 

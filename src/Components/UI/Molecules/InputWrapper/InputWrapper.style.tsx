@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { disabledStyle } from '../../HelperFunctions/disableStyle';
+import { disabledStyle } from '../../HelperFunctions/designFunctions/disableStyle';
 import { spacingPx, fontSize, colorPalet, spacing } from '../../Design/design';
 
 export const StyledInputWrapper = styled.div<{ disabled?: boolean; $autoWidth?: boolean }>`

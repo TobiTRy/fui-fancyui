@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import {  spacing, uiColors } from "../../Design/design";
-import { disabledStyle } from "../../HelperFunctions/disableStyle";
+import { disabledStyle } from "../../HelperFunctions/designFunctions/disableStyle";
 
 export const IconTextButton = styled.button<{ $color?: string; $isActive?: boolean; $disabled?: boolean }>`
   position: relative;

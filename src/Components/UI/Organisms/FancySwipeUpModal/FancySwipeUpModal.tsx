@@ -3,7 +3,7 @@ import React from 'react';
 import { useFancySwipeUpModalStore } from './FancySwipeUpModal.state';
 
 import SwipeUpModal from '../../Molecules/SwipeUpModal/SwipeUpModal';
-import FancyPortal from '../../Atoms/functions/FancyPortal';
+import FancyPortal from '../../HelperFunctions/FancyPortal';
 import ModalHeadLine from '../../Molecules/FancyModalHeadLine/FancyModalHeadLine';
 
 // --------------------------------------------------------------------------- //

@@ -1,4 +1,4 @@
-import { IBorderRadiusNames, borderRadius } from "../Design/design";
+import { IBorderRadiusNames, borderRadius } from "../../Design/design";
 
 export interface IRoundedEdges {
   topRight?: boolean;

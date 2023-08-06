@@ -2,7 +2,7 @@
 import { css, styled } from "styled-components";
 import { IFancyTabSwitchStyle } from "./IFancyTab.model";
 import { borderRadius, spacingPx, uiColors } from "../../Design/design";
-import { disabledStyle } from "../../HelperFunctions/disableStyle";
+import { disabledStyle } from "../../HelperFunctions/designFunctions/disableStyle";
 
 // ------------------------------------------------------------------ //
 // --------- this genreates the UL List with conditions ------------- //

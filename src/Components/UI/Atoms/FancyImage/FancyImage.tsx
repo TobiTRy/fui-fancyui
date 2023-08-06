@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import aspectRatioValidation from '../../HelperFunctions/aspectRatioValidation';
+import aspectRatioValidation from '../../HelperFunctions/validations/aspectRatioValidation';
 
 // Define a styled image component using styled-components
 const StyledImage = styled.img<{ $darken?: boolean, $aspectRatio?: string }>`
