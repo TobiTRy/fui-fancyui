@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+
+import InputLabel  from '../InputLabel/InputLabel';
 import { uiColors } from '../../Design/design';
 
 const StyledProgressBar = styled.progress`
@@ -29,6 +31,13 @@ const StyledProgressBar = styled.progress`
   }
 `;
 
+const Wrapper = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  
+`
+
 interface IProgressBar {
   progress?: number;
   maxValue?: number;
@@ -39,9 +48,9 @@ export default function ProgressBar(props: IProgressBar) {
   const { progress, maxValue, id } = props;
 
   return (
-    <>
-      
+    <Wrapper>
+
       <StyledProgressBar id={id} value={progress} max={maxValue || 100} />
-    </>
+    </Wrapper>
   );
 }
