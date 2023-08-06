@@ -14,19 +14,19 @@ const reverseSpinner = keyframes`
 
 const sizes = {
   small: {
-    width: '12px',
-    thickness: '2px',
-    thickness1: '1.5px',
+    width: '16px',
+    thickness: '1px',
+    thicknessInner: '0.5px',
   },
   medium: {
-    width: '24px',
-    thickness: '2px',
-    thickness1: '1.5px',
+    width: '32px',
+    thickness: '1.5px',
+    thicknessInner: '1px',
   },
   large: {
     width: '48px',
-    thickness: '2px',
-    thickness1: '1.5px',
+    thickness: '1.5px',
+    thicknessInner: '1px',
   },
 };
 
@@ -34,20 +34,20 @@ const SpinnerContainer = styled.div<{ $size?: keyof typeof sizes }>`
   position: relative;
   width: ${({ $size }) => ($size ? sizes[$size].width : sizes.medium.width)};
   height: ${({ $size }) => ($size ? sizes[$size].width : sizes.medium.width)};
-  display: flex; // Added Flexbox
-  align-items: center; // Center vertically
-  justify-content: center; // Center horizontally
+  display: flex;
+  align-items: center;
+  justify-content: center; 
 `;
 
 const StyledInnerSpinner = styled.div<{ $size?: keyof typeof sizes }>`
-  border-top: ${({ $size }) => ($size ? sizes[$size].thickness1 : sizes.medium.thickness1)} solid transparent;
-  border-right: ${({ $size }) => ($size ? sizes[$size].thickness1 : sizes.medium.thickness1)} solid ${uiColors.accent.main};
-  border-bottom: ${({ $size }) => ($size ? sizes[$size].thickness1 : sizes.medium.thickness1)} solid transparent;
-  border-left: ${({ $size }) => ($size ? sizes[$size].thickness1 : sizes.medium.thickness1)} solid ${uiColors.accent.main};
-  animation: ${reverseSpinner} 1.4s infinite ease-in-out;
+  border-top: ${({ $size }) => ($size ? sizes[$size].thicknessInner : sizes.medium.thicknessInner)} solid transparent;
+  border-right: ${({ $size }) => ($size ? sizes[$size].thicknessInner : sizes.medium.thicknessInner)} solid ${uiColors.accent.main};
+  border-bottom: ${({ $size }) => ($size ? sizes[$size].thicknessInner : sizes.medium.thicknessInner)} solid transparent;
+  border-left: ${({ $size }) => ($size ? sizes[$size].thicknessInner : sizes.medium.thicknessInner)} solid ${uiColors.accent.main};
+  animation: ${reverseSpinner} 2s infinite ease-in-out;
   border-radius: 50%;
-  width: 66%; // Reduced to 66%
-  height: 66%; // Reduced to 66%
+  width: 80%;
+  height: 80%;
 `;
 
 const StyledFancyLoadingSpinner = styled.div<{ $size?: keyof typeof sizes; $thickness?: string }>`
@@ -56,7 +56,7 @@ const StyledFancyLoadingSpinner = styled.div<{ $size?: keyof typeof sizes; $thic
   border-right: ${({ $size }) => ($size ? sizes[$size].thickness : sizes.medium.thickness)} solid ${uiColors.accent.main};
   border-bottom: ${({ $size }) => ($size ? sizes[$size].thickness : sizes.medium.thickness)} solid transparent;
   border-left: ${({ $size }) => ($size ? sizes[$size].thickness : sizes.medium.thickness)} solid ${uiColors.accent.main};
-  animation: ${spinner} 1.4s infinite ease-in-out;
+  animation: ${spinner} 2s infinite ease-in-out;
   border-radius: 50%;
   width: 100%;
   height: 100%;
