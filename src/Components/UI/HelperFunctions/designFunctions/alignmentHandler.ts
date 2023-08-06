@@ -1,5 +1,5 @@
 import { css } from 'styled-components';
-import { uiColors } from '../Design/design';
+import { uiColors } from '../../Design/design';
 
 const itenIsDeaktivatedAndCenterd = () => {
   return css`

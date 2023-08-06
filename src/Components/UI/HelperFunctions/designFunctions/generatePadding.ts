@@ -1,4 +1,4 @@
-import { spacing } from "../Design/design";
+import { spacing } from "../../Design/design";
 
 export function generatePadding(offsetValue?: number, secondValue?: boolean) {
     const { xs, sm, md } = spacing;

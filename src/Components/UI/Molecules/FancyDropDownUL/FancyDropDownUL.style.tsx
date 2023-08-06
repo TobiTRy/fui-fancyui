@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import CalculateBorderRadiusOnAlignment from '../../HelperFunctions/CalculateBorderRadiusOnAlignment';
+import CalculateBorderRadiusOnAlignment from '../../HelperFunctions/designFunctions/CalculateBorderRadiusOnAlignment';
 import { IFancyUL } from './FancyDropDownUL';
 import { spacingPx, uiColors } from '../../Design/design';
 import IStyledPrefixAndPicker from '../../Interface/IStyledPrefixAndPicker.model';

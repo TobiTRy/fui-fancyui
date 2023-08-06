@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { IFancyButton } from './IFancyButton.model';
 
-import generateThemeItem, { IGenerateThemeItem } from '../../HelperFunctions/generateThemeItem';
+import generateThemeItem, { IGenerateThemeItem } from '../../HelperFunctions/designFunctions/generateThemeItem';
 import FancySVGAtom from '../../Atoms/FancySVGAtom/FancySVGAtom';
 import Typography from '../../Atoms/Typography/Typography';
 

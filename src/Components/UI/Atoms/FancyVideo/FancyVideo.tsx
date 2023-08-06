@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import aspectRatioValidation from '../../HelperFunctions/aspectRatioValidation';
+import aspectRatioValidation from '../../HelperFunctions/validations/aspectRatioValidation';
 
 // Define a styled video component using styled-components
 const StyledVideo = styled.video<{ $aspectRatio?: string, $darken?: boolean }>`

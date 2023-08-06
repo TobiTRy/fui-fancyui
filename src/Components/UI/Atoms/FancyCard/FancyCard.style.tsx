@@ -3,7 +3,7 @@ import { styled } from "styled-components";
 import { StyledCardProps } from './Card.model';
 import IStyledPrefixAndOmiter from "../../Interface/IStyledPrefixAndOmiter.model";
 import { spacingPx, uiColors } from "../../Design/design";
-import edgeCalculation from "../../HelperFunctions/edgeCaluculation";
+import edgeCalculation from "../../HelperFunctions/designFunctions/edgeCaluculation";
 
 // the converted $ styling props for the card
 type IStyledCard = IStyledPrefixAndOmiter<StyledCardProps>;

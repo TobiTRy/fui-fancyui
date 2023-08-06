@@ -7,14 +7,13 @@ const generateDayNumbers = (start?: number, end?: number) => {
     const temp = startDay;
     startDay = endDay;
     endDay = temp;
-  };
-  
+  }
+
   // generate the array with the days
   const days = [];
   for (let i = startDay; i <= endDay; i++) {
     days.push(i.toString());
-  };
-
+  }
 
   return days;
 };

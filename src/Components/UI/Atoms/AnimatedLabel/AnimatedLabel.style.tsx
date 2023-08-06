@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import { colorPalet, uiColors } from '../../Design/design';
-import { alignHandler } from '../../HelperFunctions/alignmentHandler';
+import { alignHandler } from '../../HelperFunctions/designFunctions/alignmentHandler';
 
 import InputLabel from '../InputLabel/InputLabel';
 
