@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { animated, useTransition } from '@react-spring/web';
 
-import useWindowDimensions from '../../Atoms/functions/hooks/useWindowDimensions';
+import useWindowDimensions from '../../HelperFunctions/hooks/useWindowDimensions';
 import SwipeUpContainer from '../../Atoms/SwipeUpContainer/SwipeUpContainer';
 import BackDrop from '../../Atoms/BackDrop/BackDrop';
-import UseDelay from '../../Atoms/functions/hooks/UseDelay';
+import UseDelay from '../../HelperFunctions/hooks/UseDelay';
 import ScalingSection from '../ScalingSection/ScalingSection';
 import { Content, ContentBox, WrapperAnimated, WrapperContent, WrapperModal } from './SwipeUpModal.style';
 import { ModalStatus } from '../../Interface/ModalStatus';

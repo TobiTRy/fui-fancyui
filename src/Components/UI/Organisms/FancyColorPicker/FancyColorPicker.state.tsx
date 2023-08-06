@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import Color from 'color';
 
-import { IColorFormat } from '../../Atoms/functions/variables/colorFormats';
+import { IColorFormat } from '../../HelperFunctions/variables/colorFormats';
 
 // --------------------------------------------------------------------------- //
 // ------------- The Interface structure for the colorPicker  ---------------- //

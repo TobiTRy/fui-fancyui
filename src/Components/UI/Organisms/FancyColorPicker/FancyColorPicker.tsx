@@ -10,7 +10,7 @@ import FancyOpacitySlider from '../../Molecules/FancyOpacitySlider/FancyOpacityS
 import FancyColorOutput from '../../Molecules/FancyColorOutput/FancyColorOutput';
 import { emitSelectedColorChange } from './colorPickerUtils';
 import { spacingPx } from '../../Design/design';
-import { IColorFormat } from '../../Atoms/functions/variables/colorFormats';
+import { IColorFormat } from '../../HelperFunctions/variables/colorFormats';
 
 import { useColorPickerStore } from './FancyColorPicker.state';
 

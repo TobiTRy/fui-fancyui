@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useDropDownMenueModuleStore } from './FancyDropDownMenue.state';
 
 import FancyUL, {IFancyUL} from '../../Molecules/FancyDropDownUL/FancyDropDownUL';
-import UseDelay from '../../Atoms/functions/hooks/UseDelay';
+import UseDelay from '../../HelperFunctions/hooks/UseDelay';
 
 
 // --------------------------------------------------------------------------- //

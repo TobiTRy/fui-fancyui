@@ -1,6 +1,6 @@
 import Color from 'color';
 import { ColorTypes, HSLAColor, HSLColor, RGBAColor, RGBColor } from './FancyColorOutput.model';
-import colorFormats from '../../Atoms/functions/variables/colorFormats';
+import colorFormats from '../../HelperFunctions/variables/colorFormats';
 
 //this function transforms a color to the desired format of the color output switch
 const colorTransformator = (color: Color, opacity: number, formatIdx: number): ColorTypes => {
