@@ -49,7 +49,6 @@ export default function ProgressBar(props: IProgressBar) {
 
   return (
     <Wrapper>
-
       <StyledProgressBar id={id} value={progress} max={maxValue || 100} />
     </Wrapper>
   );

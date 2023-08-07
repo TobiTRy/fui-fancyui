@@ -30,6 +30,21 @@ const sizes = {
     thickness: '1.5px',
     thicknessInner: '1px',
   },
+  extraLarge: {
+    width: '64px',
+    thickness: '2px',
+    thicknessInner: '1.5px',
+  },
+  xxl: {
+    width: '96px',
+    thickness: '2px',
+    thicknessInner: '1.5px',
+  },
+  xxxl: {
+    width: '128px',
+    thickness: '2px',
+    thicknessInner: '1.5px',
+  },
 };
 
 // Define a styled component for the spinner container
