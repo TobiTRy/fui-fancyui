@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from 'react'
 
 interface IUseDelay {
   children: React.ReactNode;
-  externalStateBool: boolean;
+  externalStateBool?: boolean;
   delay?: number;
 }
 

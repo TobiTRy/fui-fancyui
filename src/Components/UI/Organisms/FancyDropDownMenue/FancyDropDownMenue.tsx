@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 
-import { useDropDownMenueModuleStore } from './FancyDropDownMenue.state';
-
 import FancyUL, {IFancyUL} from '../../Molecules/FancyDropDownUL/FancyDropDownUL';
 import UseDelay from '../../HelperFunctions/hooks/UseDelay';
 
@@ -14,10 +12,7 @@ interface IFancyDropDownMenue extends IFancyUL {
 }
 export default function FancyDropDownMenue(props:IFancyDropDownMenue) {
   const { isOpen } = props;
-  const isModalOpen = useDropDownMenueModuleStore((state) => state.isOpen);
-  const setModalOpen = useDropDownMenueModuleStore((state) => state.open);
-  const setModalClose = useDropDownMenueModuleStore((state) => state.close);
-
+  const [isOpenState, setIsOpenState] = useState(isOpen);
   const [fristRender, setFristRender] = useState(false);
 
   // This useEffect hook sets the fristRender state to true after the component mounts
@@ -27,15 +22,15 @@ export default function FancyDropDownMenue(props:IFancyDropDownMenue) {
 
   useEffect(() => {
     if (isOpen) {
-      setModalOpen();
+      setIsOpenState(true);
     } else {
-      setModalClose();
+      setIsOpenState(false);
     }
   }, [isOpen]);
 
   // This component returns the FancyUL component wrapped in a UseDelay component
   return fristRender ? (
-    <UseDelay delay={600} externalStateBool={isModalOpen}>
+    <UseDelay delay={600} externalStateBool={isOpenState}>
       <FancyUL isOpen={isOpen} {...props} />
     </UseDelay>
   ) : null
