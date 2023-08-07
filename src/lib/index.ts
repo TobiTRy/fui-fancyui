@@ -37,7 +37,7 @@ export { default as ImageVideoOverlay } from '../Components/UI/Atoms/ImageVideoO
 export { default as FancyImage } from '../Components/UI/Atoms/FancyImage/FancyImage';
 export { default as FancyVideo } from '../Components/UI/Atoms/FancyVideo/FancyVideo';
 export { default as FancyLoadingBar } from '../Components/UI/Atoms/FancyLoadingBar/FancyLoadingBar';
-
+export { default as ProgressBar } from '../Components/UI/Atoms/ProgressBar/ProgressBar';
 
 // ---------- Molecules ------- //
 export { default as DateInput } from '../Components/UI/Molecules/DateInput/DateInput';
@@ -81,6 +81,7 @@ export { default as FancyImageText } from '../Components/UI/Molecules/FancyImage
 export { default as FancyVideoText } from '../Components/UI/Molecules/FancyVideoText/FancyVideoText';
 export { default as FancyPageList } from '../Components/UI/Molecules/FancyPageList/FancyPageList';
 export { default as Paginator } from '../Components/UI/Molecules/Paginator/Paginator';
+export { default as FancyProgressBar } from '../Components/UI/Molecules/FancyProgressBar/FancyProgressBar';
 
 // ---------- Organisms ------- //
 export { default as FancyColorPicker } from '../Components/UI/Organisms/FancyColorPicker/FancyColorPicker';

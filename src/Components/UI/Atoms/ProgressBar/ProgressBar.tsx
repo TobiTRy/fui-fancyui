@@ -36,6 +36,9 @@ export interface IProgressBar {
   id?: string;
 } 
 
+// --------------------------------------------------------------------------- //
+// ---------- A Simple Progressbar Atom to restyle the progressbar ----------- //
+// --------------------------------------------------------------------------- //
 export default function ProgressBar(props: IProgressBar) {
   const { progress, maxValue, id } = props;
   

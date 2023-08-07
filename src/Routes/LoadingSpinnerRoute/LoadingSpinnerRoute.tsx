@@ -14,8 +14,11 @@ export default function LoadingSpinnerRoute() {
     const interval = setInterval(() => {
       progressValue += 1;
       if (progressValue >= 100) {
+        setProgress(100);
+        setTimeout(() => {
         progressValue = 0;
         setProgress(0);
+        }, 5000);
       } else {
         setProgress(progressValue);
       }
@@ -36,7 +39,7 @@ export default function LoadingSpinnerRoute() {
           <FancyLoadingBar />
 
           <p style={{ marginBottom: '20px' }}>Hii</p>
-          <ProgressBar progress={100} label='test' labelAlign='center' progressCount progressAlign='right'/>
+          <ProgressBar progress={progress} label='test' labelAlign='center' progressCount progressAlign='right'/>
           <FancyLoadingSpinner size='xxl'  />
         </div>
       </DesignArea>

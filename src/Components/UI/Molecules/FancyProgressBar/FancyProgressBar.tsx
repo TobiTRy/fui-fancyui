@@ -7,13 +7,16 @@ import { uiColors, spacingPx } from '../../Design/design';
 
 import ProgressBar, { IProgressBar } from '../../Atoms/ProgressBar/ProgressBar';
 
-
 // Define a styled component for the progress bar wrapper
 const Wrapper = styled.div<{ $value?: number }>`
   width: 100%;
   display: flex;
   gap: ${spacingPx.xxs};
   flex-direction: column;
+
+  & span {
+    margin-top: ${spacingPx.xxs};
+  }
 
   ${({ $value }) =>
     $value === 100 &&
@@ -23,10 +26,8 @@ const Wrapper = styled.div<{ $value?: number }>`
       }
 
       & span {
-        margin-top: ${spacingPx.xxs};
         color: ${uiColors.accent.main};
       }
-
     `}
 `;
 
@@ -51,9 +52,14 @@ export default function FancyProgressBar(props: IFancyProgressBar) {
           {label}
         </AlignedInputLabel>
       )}
+      {/* The Progressbar Atom itself */}
       <ProgressBar id={id} progress={progress} maxValue={maxValue || 100} />
       {/* The Progress in percent as Text */}
-      {progressCount && <AlignedInputLabel as={'span'} $align={progressAlign}>{progress}%</AlignedInputLabel>}
+      {progressCount && (
+        <AlignedInputLabel as={'span'} $align={progressAlign}>
+          {progress}%
+        </AlignedInputLabel>
+      )}
     </Wrapper>
   );
 }
