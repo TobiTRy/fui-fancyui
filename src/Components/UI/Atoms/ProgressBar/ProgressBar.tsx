@@ -1,9 +1,7 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
 
-import { TAlign } from '../AlignedInputLabel/AlignedInputLabel';
-import AlignedInputLabel from '../AlignedInputLabel/AlignedInputLabel';
-import { uiColors, spacingPx } from '../../Design/design';
+import styled from 'styled-components';
+import { uiColors } from '../../Design/design';
 
 // Define a styled component for the progress bar
 const StyledProgressBar = styled.progress`
@@ -32,56 +30,14 @@ const StyledProgressBar = styled.progress`
   }
 `;
 
-// Define a styled component for the progress bar wrapper
-const Wrapper = styled.div<{ $value?: number }>`
-  width: 100%;
-  display: flex;
-  gap: ${spacingPx.xxs};
-  flex-direction: column;
-
-  ${({ $value }) =>
-    $value === 100 &&
-    css`
-      & label {
-        color: ${uiColors.accent.main};
-      }
-
-      & span {
-        margin-top: ${spacingPx.xxs};
-        color: ${uiColors.accent.main};
-      }
-
-    `}
-`;
-
-// Define the props for the ProgressBar component
-interface IProgressBar {
-  label?: string;
-  labelAlign?: TAlign;
-  progressCount?: boolean;
-  progressAlign?: TAlign;
+export interface IProgressBar {
   progress?: number;
   maxValue?: number;
   id?: string;
-}
+} 
 
-// --------------------------------------------------------------------------- //
-// ---------- The Progressbar with some Items Like Percent and Label --------- //
-// --------------------------------------------------------------------------- //
 export default function ProgressBar(props: IProgressBar) {
-  const { progress, maxValue, id, label, labelAlign, progressAlign, progressCount } = props;
-
-  return (
-    <Wrapper $value={progress}>
-      {/* A lable to describe the Progress for */}
-      {label && (
-        <AlignedInputLabel htmlFor={id} $align={labelAlign}>
-          {label}
-        </AlignedInputLabel>
-      )}
-      <StyledProgressBar id={id} value={progress} max={maxValue || 100} />
-      {/* The Progress in percent as Text */}
-      {progressCount && <AlignedInputLabel as={'span'} $align={progressAlign}>{progress}%</AlignedInputLabel>}
-    </Wrapper>
-  );
+  const { progress, maxValue, id } = props;
+  
+  return <StyledProgressBar id={id} value={progress} max={maxValue || 100} />;
 }
