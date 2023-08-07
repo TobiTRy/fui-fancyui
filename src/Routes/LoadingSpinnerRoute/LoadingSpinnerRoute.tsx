@@ -33,7 +33,7 @@ export default function LoadingSpinnerRoute() {
     <DesignWrapper>
       <DesignArea title="Loading Spinner">
         <p style={{ marginBottom: '20px' }}>Hii</p>
-        <ProgressBar progress={progress} />
+        <ProgressBar progress={100} label='test' labelAlign='center' progressCount progressAlign='right'/>
         <FancyLoadingSpinner size='xxl'  />
         <FancyLoadingBar />
       </DesignArea>
