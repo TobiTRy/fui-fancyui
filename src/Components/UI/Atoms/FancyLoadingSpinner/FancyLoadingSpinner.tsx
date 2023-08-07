@@ -66,7 +66,7 @@ const StyledInnerSpinner = styled.div<{ $size?: keyof typeof sizes }>`
   animation: ${reverseSpinner} 2s infinite ease-in-out;
   border-radius: 50%;
   width: 80%;
-  height: 80%;
+  aspect-ratio: 1 / 1;
 `;
 
 // Define a styled component for the outer spinner
@@ -79,7 +79,7 @@ const StyledFancyLoadingSpinner = styled.div<{ $size?: keyof typeof sizes; $thic
   animation: ${spinner} 2s infinite ease-in-out;
   border-radius: 50%;
   width: 100%;
-  height: 100%;
+  aspect-ratio: 1 / 1;
 `	;
 
 // Define the props for the FancyLoadingSpinner component

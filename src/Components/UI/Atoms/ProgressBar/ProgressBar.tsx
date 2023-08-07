@@ -5,6 +5,7 @@ import { TAlign } from '../AlignedInputLabel/AlignedInputLabel';
 import AlignedInputLabel from '../AlignedInputLabel/AlignedInputLabel';
 import { uiColors, spacingPx } from '../../Design/design';
 
+// Define a styled component for the progress bar
 const StyledProgressBar = styled.progress`
   width: 100%;
   height: 4px;
@@ -31,6 +32,7 @@ const StyledProgressBar = styled.progress`
   }
 `;
 
+// Define a styled component for the progress bar wrapper
 const Wrapper = styled.div<{ $value?: number }>`
   width: 100%;
   display: flex;
@@ -43,9 +45,16 @@ const Wrapper = styled.div<{ $value?: number }>`
       & label {
         color: ${uiColors.accent.main};
       }
+
+      & span {
+        margin-top: ${spacingPx.xxs};
+        color: ${uiColors.accent.main};
+      }
+
     `}
 `;
 
+// Define the props for the ProgressBar component
 interface IProgressBar {
   label?: string;
   labelAlign?: TAlign;
@@ -56,18 +65,23 @@ interface IProgressBar {
   id?: string;
 }
 
+// --------------------------------------------------------------------------- //
+// ---------- The Progressbar with some Items Like Percent and Label --------- //
+// --------------------------------------------------------------------------- //
 export default function ProgressBar(props: IProgressBar) {
   const { progress, maxValue, id, label, labelAlign, progressAlign, progressCount } = props;
 
   return (
     <Wrapper $value={progress}>
+      {/* A lable to describe the Progress for */}
       {label && (
         <AlignedInputLabel htmlFor={id} $align={labelAlign}>
           {label}
         </AlignedInputLabel>
       )}
       <StyledProgressBar id={id} value={progress} max={maxValue || 100} />
-      {progressCount && <AlignedInputLabel $align={progressAlign}>{progress}%</AlignedInputLabel>}
+      {/* The Progress in percent as Text */}
+      {progressCount && <AlignedInputLabel as={'span'} $align={progressAlign}>{progress}%</AlignedInputLabel>}
     </Wrapper>
   );
 }
