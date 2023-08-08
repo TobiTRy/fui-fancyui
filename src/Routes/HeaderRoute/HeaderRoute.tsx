@@ -6,15 +6,20 @@ import FancyDropDownMenue from '../../Components/UI/Organisms/FancyDropDownMenue
 import FancySearchBar from '../../Components/UI/Organisms/FancySearchBar/FancySearchBar';
 import FancyLiItem from '../../Components/UI/Atoms/FancyLI/FancyLI';
 import { FancyA, FancySVGAtom } from '../../lib';
+import FancyProfilePicture from '../../Components/UI/Atoms/FancyProfilePicture/FancyProfilePicture';
 
 import SVGChevronLeft from '../../Components/UI/SVGIcons/SVGChevronLeft';
 
 const RightSlot = ({ onClick }: { onClick?: () => void }) => {
-  return <div onClick={onClick}>Right Slot</div>;
+  return (
+    <div onClick={onClick} style={{display: 'flex', alignItems: 'center'}}>
+      <FancyProfilePicture src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg" size="xs" rounded='complete'/>
+    </div>
+  );
 };
 
 const Slot = {
-  component: <FancySearchBar searchListWidth='80vw' />,
+  component: <FancySearchBar searchListWidth="80vw" />,
   scale: 1,
 };
 
@@ -30,27 +35,53 @@ const MoreContent = (props: More) => {
 };
 
 const headerTitele = {
-  component: <HeaderTitleWithLogo title='Let´sTryIt'/>,
+  component: <HeaderTitleWithLogo title="Let´sTryIt" />,
 };
 
 export default function HeaderRoute() {
   const [isOpen, setIsOpen] = useState(false);
 
   const Slot2 = {
-    toOpenComponent: 
-    
-    <FancyDropDownMenue isOpen={isOpen} alignHorizontal='right' alignVertical='top' width='auto'> 
-
-      <FancyLiItem size='large'>
-        <FancyA wide={true} align='left' icon={<FancySVGAtom>{SVGChevronLeft}</FancySVGAtom> } design='transparent' hoverColor='primary' roundedCompletly={false} label='test' size='small'/>
-      </FancyLiItem>
-      <FancyLiItem size='large'>
-        <FancyA wide={true} align='left' icon={<FancySVGAtom>{SVGChevronLeft}</FancySVGAtom> } design='transparent' hoverColor='primary' roundedCompletly={false} label='testsasadefsddfdfsdsf ' size='small'/>
-      </FancyLiItem>
-      <FancyLiItem size='large'>
-        <FancyA wide={true} align='left' icon={<FancySVGAtom>{SVGChevronLeft}</FancySVGAtom> } design='transparent' hoverColor='primary' roundedCompletly={false} label='test' size='small'/>
-      </FancyLiItem>
-    </FancyDropDownMenue>,
+    toOpenComponent: (
+      <FancyDropDownMenue isOpen={isOpen} alignHorizontal="right" alignVertical="top" width="auto">
+        <FancyLiItem size="large">
+          <FancyA
+            wide={true}
+            align="left"
+            icon={<FancySVGAtom>{SVGChevronLeft}</FancySVGAtom>}
+            design="transparent"
+            hoverColor="primary"
+            roundedCompletly={false}
+            label="test"
+            size="small"
+          />
+        </FancyLiItem>
+        <FancyLiItem size="large">
+          <FancyA
+            wide={true}
+            align="left"
+            icon={<FancySVGAtom>{SVGChevronLeft}</FancySVGAtom>}
+            design="transparent"
+            hoverColor="primary"
+            roundedCompletly={false}
+            label="testsasadefsddfdfsdsf "
+            size="small"
+          />
+        </FancyLiItem>
+        <FancyLiItem size="large">
+          <FancyA
+            wide={true}
+            align="left"
+            icon={<FancySVGAtom>{SVGChevronLeft}</FancySVGAtom>}
+            design="transparent"
+            hoverColor="primary"
+            roundedCompletly={false}
+            label="test"
+            size="small"
+          />
+        </FancyLiItem>
+      </FancyDropDownMenue>
+    ),
     component: <RightSlot onClick={() => setIsOpen(!isOpen)} />,
     scale: 1,
   };
