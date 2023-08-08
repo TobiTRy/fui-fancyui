@@ -54,18 +54,18 @@ const getBorderRadius = (borderRadius: TBorderRadius) => {
 
 
 interface IFancyProfilePicture {
-  link: string;
-  borderRadius: 'small' | 'medium' | 'large' | 'complete';
-  size: 'small' | 'medium' | 'large' | 'extraLarge';
+  src: string;
+  borderRadius?: 'small' | 'medium' | 'large' | 'complete';
+  size?: 'small' | 'medium' | 'large' | 'extraLarge';
 }
 
 export default function FancyProfilePicture(props: IFancyProfilePicture) {
-  const { link, borderRadius, size } = props;
+  const { src, borderRadius, size } = props;
   
   // generate border radius based on prop
   const generatedBorderRadius = getBorderRadius(borderRadius);
   // generate size based on prop
   const generatedSize = getSize(size);
 
-  return <ProfilePicture src={link} alt="Profile" borderRadius={generatedBorderRadius} size={generatedSize} />;
+  return <ProfilePicture src={src} alt="Profile" borderRadius={generatedBorderRadius} size={generatedSize} />;
 }
