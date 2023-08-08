@@ -1,8 +1,7 @@
 import styled from "styled-components";
 import { IFancyProfilePicture } from "./FancyProfilePicture";
 
-
-// Set the 
+// Set the border based on the prop
 type TBorderRadius = IFancyProfilePicture['rounded'];
 const getBorderRadius = (borderRadius: TBorderRadius) => {
   switch (borderRadius) {
@@ -46,6 +45,8 @@ interface ProfilePictureProps {
   $rounded: TBorderRadius;
   $size: TSize;
 }
+
+// the main ProfilePicture Component renderd on specific props
 export const ProfilePicture = styled.img<ProfilePictureProps>`
   border-radius: ${({$rounded}) => getBorderRadius($rounded)};
   width: ${({$size}) => getSize($size)};

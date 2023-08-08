@@ -7,6 +7,9 @@ export interface IFancyProfilePicture {
   rounded?: 'sm' | 'md' | 'lg' | 'complete';
   size?: 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
 }
+// --------------------------------------------------------------------------- //
+//  ProfilePicture component to render with  different sizes and border radius //
+// --------------------------------------------------------------------------- //
 export default function FancyProfilePicture(props: IFancyProfilePicture) {
   const { src, rounded, size } = props;
 
