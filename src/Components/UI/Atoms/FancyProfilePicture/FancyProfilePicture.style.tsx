@@ -50,6 +50,7 @@ interface ProfilePictureProps {
 export const ProfilePicture = styled.img<ProfilePictureProps>`
   border-radius: ${({$rounded}) => getBorderRadius($rounded)};
   width: ${({$size}) => getSize($size)};
+  height: ${({$size}) => getSize($size)};
   object-fit: cover;
   aspect-ratio: 1/1;
 `;
