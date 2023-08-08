@@ -41,7 +41,7 @@ interface IFancySearchBar {
 // The FancySearchBar component
 export default function FancySearchBar(props: IFancySearchBar) {
   const { handlerSearchValue, children, searchListWidth, searchValue } = props;
-  const [isActive, setIsActive] = useState(true); // State for whether the search bar list is active
+  const [isActive, setIsActive] = useState(false); // State for whether the search bar list is active
 
   // Function to handle changes to the isActive state
   const activeHandler = (isActive: boolean) => {
