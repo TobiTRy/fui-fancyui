@@ -38,6 +38,7 @@ export { default as FancyImage } from '../Components/UI/Atoms/FancyImage/FancyIm
 export { default as FancyVideo } from '../Components/UI/Atoms/FancyVideo/FancyVideo';
 export { default as FancyLoadingBar } from '../Components/UI/Atoms/FancyLoadingBar/FancyLoadingBar';
 export { default as ProgressBar } from '../Components/UI/Atoms/ProgressBar/ProgressBar';
+export { default as FancyProfilePicture } from '../Components/UI/Atoms/FancyProfilePicture/FancyProfilePicture';
 
 // ---------- Molecules ------- //
 export { default as DateInput } from '../Components/UI/Molecules/DateInput/DateInput';

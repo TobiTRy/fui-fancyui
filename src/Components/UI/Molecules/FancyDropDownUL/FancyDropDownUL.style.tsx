@@ -14,10 +14,10 @@ const generateWrapperUL = (props: IStyledUL) => {
   const setBorderRadius = CalculateBorderRadiusOnAlignment({ $alignHorizontal, $alignVertical });
 
   return css`
+    ${setBorderRadius};
     position: absolute;
     overflow: hidden;
     width: ${$width};
-    ${setBorderRadius};
     z-index: 100;
   `;
 };
@@ -30,7 +30,7 @@ export const WrapperUL = styled.div<IStyledUL>`
 // --------------------------------------------------------------------------- //
 // ------------------- the UL for the items and the style -------------------- //
 // --------------------------------------------------------------------------- //
-export const StyledUL = styled.div`
+export const StyledUL = styled.ul`
   display: flex;
   flex-direction: column;
   box-sizing: border-box;

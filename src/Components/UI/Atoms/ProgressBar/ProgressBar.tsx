@@ -11,7 +11,7 @@ const StyledProgressBar = styled.progress`
   overflow: hidden; // This helps to apply the border-radius
   background-color: ${uiColors.secondary.darkest};
   color: ${uiColors.accent.main}; // This sets the color of the progress bar
-
+  transition: all 0.3s ease-out; 
   // For Webkit browsers like Chrome and Safari
   &::-webkit-progress-bar {
     border-radius: 10px;

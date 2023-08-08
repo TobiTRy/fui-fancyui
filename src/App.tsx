@@ -28,6 +28,7 @@ import FancyImageRoute from './Routes/FancyImageRoute/FancyImageRoute';
 import { styled } from 'styled-components';
 import PageSwitchRoute from './Routes/PageSwitchRoute/PageSwitchRoute';
 import LoadingSpinnerRoute from './Routes/LoadingSpinnerRoute/LoadingSpinnerRoute';
+import FancyProfilePictureRoute from './Routes/FancyProfilePictureRoute/FancyProfilePictureRoute';
 
 // const Icon = (
 //   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -163,6 +164,9 @@ function App() {
                 <Link to="/LoadingSpinnerRoute">LoadingSpinnerRoute</Link>
               </li>
               <li>
+                <Link to="/fancyProfilePicture">ProfilePicture</Link>
+              </li>
+              <li>
                 <Link to="/experimental">Experimental</Link>
               </li>
             </OwnUl>
@@ -192,6 +196,7 @@ function App() {
             <Route path="/image" element={<FancyImageRoute />} />
             <Route path="/fancypagelist" element={<PageSwitchRoute />} />
             <Route path="/LoadingSpinnerRoute" element={<LoadingSpinnerRoute />} />
+            <Route path="/fancyProfilePicture" element={<FancyProfilePictureRoute />} />
             <Route path="/" element={<SwipeUpModal />} />
           </Routes>
         </div>
