@@ -12,10 +12,7 @@ const StyledSearchBarList = styled.div`
   z-index: 100;
 `;
 
-// Styled component for the content of the search bar list
-const SearchBarContent = styled.div`
-  padding: ${spacingPx.md} 0;
-`;
+
 
 // Styled component for the inner card of the search bar list
 const InnerCard = styled.div`
@@ -46,9 +43,7 @@ export default function SearchBarList(props: ISearchBarList) {
         <FancyCard backgroundColor="lightest" radius="xxl">
           <InnerCard>
             {/* If there are items to display, display them */}
-            {children && <SearchBarContent>{children}</SearchBarContent>}
-            {/* Display a loading spinner */}
-            {!children && <LoadingSpinner />}
+            {children && <div>{children}</div>}
           </InnerCard>
         </FancyCard>
       )}
