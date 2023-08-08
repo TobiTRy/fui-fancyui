@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 import FancySearchBar from '../../Components/UI/Organisms/FancySearchBar/FancySearchBar'
 
 import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper'
+import styled from 'styled-components';
 
 
 const users = [
@@ -33,12 +34,59 @@ const users = [
   }
 ];
 
+const ListWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+`
+
+const UserWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0;
+
+  div {
+    padding: 0;
+  }
+
+`
+
 
 export default function FancySearchBarRoute() {
+  const [searchValue, setSearchValue] = useState('Bob')
+  const [searchedUsers, setSearchedUsers] = useState(users)
+  
+
+  const searchHandler = (searchValue: string) => {
+    const lowerSearchValue = searchValue.toLowerCase();
+    const getUser = users.filter(
+      user => user.name.toLowerCase().includes(lowerSearchValue) || user.username.toLowerCase().includes(lowerSearchValue)
+    );
+    setSearchedUsers(getUser);
+  };
+  
+  useEffect(() => {
+    setSearchValue('Bob')
+    searchHandler('Bob')
+  }, [])
+
+
   return (
     <DesignWrapper>
       <DesignArea title='Fancy Search Bar'>
-        <FancySearchBar/>
+        <FancySearchBar handlerSearchValue={searchHandler} searchValue={searchValue}>
+          <ListWrapper>
+            {searchedUsers.map((user, index) => (
+              <UserWrapper key={index}>
+                <div>{user.name}</div>
+                <div>{user.username}</div>
+              </UserWrapper>
+            ))}
+          </ListWrapper>
+
+          </FancySearchBar>
       </DesignArea>
     </DesignWrapper>
   )

@@ -21,6 +21,7 @@ const StyledSearchBar = styled.div<{ $isActive?: boolean }>`
 
 // Props for the SearchBar component
 interface ISearchBar {
+  searchValue?: string; // The search value
   isActive?: boolean; // Whether the search bar list is active
   activeHandler?: (isActive: boolean) => void; // Function to handle changes to the isActive state
   handler?: (value: string) => void; // Function to handle changes to the search value
@@ -28,7 +29,7 @@ interface ISearchBar {
 
 // The SearchBar component
 export default function SearchBar(props: ISearchBar) {
-  const { activeHandler, handler, isActive } = props;
+  const { activeHandler, handler, isActive, searchValue } = props;
 
   // Function to handle changes to the isActive state
   const focusHandler = (isFocused: boolean) => {
@@ -51,7 +52,7 @@ export default function SearchBar(props: ISearchBar) {
         {SVGSearch}
       </FancySVGAtom>
       {/* The search input */}
-      <FancyTextInput ariaLabel="Searchbar" activeHandler={focusHandler} handler={(value, e) => onChangeValueHandler(e)} />
+      <FancyTextInput value={searchValue} ariaLabel="Searchbar" activeHandler={focusHandler} handler={(value, e) => onChangeValueHandler(e)} />
     </StyledSearchBar>
   );
 }
