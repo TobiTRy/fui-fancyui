@@ -7,6 +7,7 @@ import FancySearchBar from '../../Components/UI/Organisms/FancySearchBar/FancySe
 import FancyLiItem from '../../Components/UI/Atoms/FancyLI/FancyLI';
 import { FancyA, FancySVGAtom } from '../../lib';
 import FancyProfilePicture from '../../Components/UI/Atoms/FancyProfilePicture/FancyProfilePicture';
+import FancyLoadingSpinner from '../../Components/UI/Atoms/FancyLoadingSpinner/FancyLoadingSpinner';
 
 import SVGChevronLeft from '../../Components/UI/SVGIcons/SVGChevronLeft';
 
@@ -19,7 +20,9 @@ const RightSlot = ({ onClick }: { onClick?: () => void }) => {
 };
 
 const Slot = {
-  component: <FancySearchBar searchListWidth="80vw" />,
+  component: <FancySearchBar searchListWidth="80vw">
+    <FancyLoadingSpinner size='large' />
+  </FancySearchBar>,
   scale: 1,
 };
 
