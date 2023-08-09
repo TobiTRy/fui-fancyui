@@ -74,4 +74,10 @@ export const fontSizeVariants = {
     ${responsiveFontSize(fontSizes.mobile.textElements.smallText, fontSizes.desktop.textElements.smallText)}
     font-weight: 400;
   `,
+  verySmallText: css`
+    line-height: 1;
+    ${nullifyStyle};
+    ${responsiveFontSize(fontSizes.mobile.textElements.verySmallText, fontSizes.desktop.textElements.verySmallText)}
+    font-weight: 400;
+  `,
 };

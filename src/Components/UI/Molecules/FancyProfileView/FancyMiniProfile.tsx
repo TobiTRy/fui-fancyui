@@ -1,95 +1,75 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
-
-import { borderRadius, spacingPx, uiColors } from '../../Design/design';
 
 import FancyProfilePicture, { IFancyProfilePicture } from '../../Atoms/FancyProfilePicture/FancyProfilePicture';
 import Typography from '../../Atoms/Typography/Typography';
+import { TextWrapper, Wrapper } from './FancyMiniProfile.style';
 import { fontSizeVariants } from '../../Atoms/Typography/TypographyStyleVariants';
 
-interface IPillSizes {
+import { spacingPx } from '../../Design/design';
+
+// the inter
+interface IPillSettings {
   [key: string]: {
     imageSize: IFancyProfilePicture['size'];
     padding: keyof typeof spacingPx | undefined;
     textSize: keyof typeof fontSizeVariants;
     paddingToEdge: keyof typeof spacingPx;
+    gapPictureAndText: keyof typeof spacingPx;
   };
 }
-const pillSizes: IPillSizes = {
+
+// the stettings for the different sizes
+const pillSettings: IPillSettings = {
   sm: {
     imageSize: 'xs',
     padding: undefined,
-    textSize: 'smallText',
-    paddingToEdge: 'sm',
+    textSize: 'verySmallText',
+    paddingToEdge: 'md',
+    gapPictureAndText: 'xs',
   },
   md: {
     imageSize: 'xs',
     padding: 'xs',
     textSize: 'smallText',
     paddingToEdge: 'sm',
+    gapPictureAndText: 'xs',
   },
   lg: {
     imageSize: 'sm',
     padding: 'xs',
-    textSize: 'content',
+    textSize: 'h5',
     paddingToEdge: 'lg',
+    gapPictureAndText: 'xs',
   },
 };
 
-const Wrapper = styled.div<{ $size: keyof typeof spacingPx | undefined }>`
-  display: flex;
-  align-items: center;
-  padding: ${({ $size }) => ($size ? spacingPx[$size] : '')};
-  gap: ${spacingPx.xs};
-  background-color: #576a9c;
-  border-radius: ${borderRadius.complete};
-`;
-
-const TextWrapper = styled.div<{ $alignText?: TTextAlign, $paddingToedge: keyof typeof spacingPx}>`
-  ${({ $alignText, $paddingToedge }) =>
-    $alignText === 'left'
-      ? css`
-          order: -1;
-          text-align: right;
-          margin-left: ${spacingPx[$paddingToedge]};
-        `
-      : css`
-          margin-right: ${spacingPx[$paddingToedge]};
-        `}
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-`;
-
-type TTextAlign = 'left' | 'right';
-
+export type TTextAlign = 'left' | 'right';
 interface IFancyMiniprofile {
   alignText?: TTextAlign;
   headingText?: string;
   subHeadingText?: string;
   imageURL?: string;
-  size?: keyof typeof pillSizes;
+  size?: keyof typeof pillSettings;
 }
 export default function FancyMiniProfile(props: IFancyMiniprofile) {
-  const { alignText, size, headingText, subHeadingText } = { ...defaultProps, ...props };
+  const { alignText, size, imageURL, headingText, subHeadingText } = { ...defaultProps, ...props };
 
-  const getSizeProps = pillSizes[size || 'sm'];
+  const getSizeProps = pillSettings[size || 'sm'];
 
   return (
-    <Wrapper $size={getSizeProps.padding}>
-      <FancyProfilePicture
-        rounded="complete"
-        size={getSizeProps.imageSize}
-        src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
-      />
+    <Wrapper $size={getSizeProps.padding} $gapSpacing={getSizeProps.gapPictureAndText}>
+      <FancyProfilePicture rounded="complete" size={getSizeProps.imageSize} src={imageURL || ''} />
       <TextWrapper $alignText={alignText} $paddingToedge={getSizeProps.paddingToEdge}>
-        <Typography type="inlineElement" variant={getSizeProps.textSize} weight="bold">
-          {headingText}
-        </Typography>
-        <Typography type="inlineElement" variant={getSizeProps.textSize}>
-          {subHeadingText}
-        </Typography>
+        {headingText && (
+          <Typography type="inlineElement" variant={getSizeProps.textSize} weight="bold">
+            {headingText}
+          </Typography>
+        )}
+        {subHeadingText && (
+          <Typography type="inlineElement" variant={getSizeProps.textSize}>
+            {subHeadingText}
+          </Typography>
+        )}
       </TextWrapper>
     </Wrapper>
   );
