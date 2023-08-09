@@ -83,6 +83,7 @@ export { default as FancyVideoText } from '../Components/UI/Molecules/FancyVideo
 export { default as FancyPageList } from '../Components/UI/Molecules/FancyPageList/FancyPageList';
 export { default as Paginator } from '../Components/UI/Molecules/Paginator/Paginator';
 export { default as FancyProgressBar } from '../Components/UI/Molecules/FancyProgressBar/FancyProgressBar';
+export { default as FancyMiniProfile } from '../Components/UI/Molecules/FancyMiniProfile/FancyMiniProfile';
 
 // ---------- Organisms ------- //
 export { default as FancyColorPicker } from '../Components/UI/Organisms/FancyColorPicker/FancyColorPicker';

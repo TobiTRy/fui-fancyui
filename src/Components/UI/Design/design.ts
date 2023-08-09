@@ -111,7 +111,8 @@ export const fontSizes = {
     textElements: {
       label: '16px',
       caption: '16px',
-      smallText: '14px',
+      smallText: '12px',
+      verySmallText: '12px',
       input: '16px',
       button: '16px',
     },
@@ -128,7 +129,8 @@ export const fontSizes = {
     textElements: {
       label: '16px',
       caption: '14px',
-      smallText: '14px',
+      smallText: '12px',
+      verySmallText: '12px',
       input: '16px',
       button: '16px',
     },

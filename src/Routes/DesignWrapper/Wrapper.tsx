@@ -1,4 +1,5 @@
 import styled, { CSSProp } from 'styled-components';
+import React from 'react';
 
 export const DesignWrapper = styled.section`
   display: flex;
@@ -8,7 +9,6 @@ export const DesignWrapper = styled.section`
   align-items: center;
 `;
 
-import React from 'react';
 const Area = styled.div<{$style: CSSProp}>`
   width: 90%;
   display: flex;

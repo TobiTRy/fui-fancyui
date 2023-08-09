@@ -8,13 +8,14 @@ import FancyLiItem from '../../Components/UI/Atoms/FancyLI/FancyLI';
 import { FancyA, FancySVGAtom } from '../../lib';
 import FancyProfilePicture from '../../Components/UI/Atoms/FancyProfilePicture/FancyProfilePicture';
 import FancyLoadingSpinner from '../../Components/UI/Atoms/FancyLoadingSpinner/FancyLoadingSpinner';
+import FancyMiniProfile from '../../Components/UI/Molecules/FancyMiniProfile/FancyMiniProfile';
 
 import SVGChevronLeft from '../../Components/UI/SVGIcons/SVGChevronLeft';
 
 const RightSlot = ({ onClick }: { onClick?: () => void }) => {
   return (
     <div onClick={onClick} style={{display: 'flex', alignItems: 'center'}}>
-      <FancyProfilePicture src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg" size="xs" rounded='complete'/>
+    <FancyMiniProfile alignText="left" headingText='@TobiTRy'  imageURL='https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg'/>
     </div>
   );
 };

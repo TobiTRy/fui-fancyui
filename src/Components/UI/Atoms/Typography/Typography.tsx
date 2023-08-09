@@ -54,6 +54,10 @@ const ComponentObj = {
     ${(props) => props.$variant};
     ${(props) => props.$style};
   `,
+  verySmallText: styled.span<IComponentProps>`
+    ${(props) => props.$variant};
+    ${(props) => props.$style};
+  `,
 };
 
 
@@ -73,8 +77,9 @@ export interface ITypography {
   style?: CSSProp;
   [x: string]: any;
 }
-
-
+// --------------------------------------------------------------------------- //
+// The Typography component can render differnet elements with different styles//
+// ------------- like a "h4 can have the style of a p" ----------------------- //
 export default function Typography({ type, variant, children, style, weight, ...htmlProps }: ITypography) {
   // generate the Typography component based on the type prop;
   // const Component = ComponentObj[type] || ComponentObj.content;
