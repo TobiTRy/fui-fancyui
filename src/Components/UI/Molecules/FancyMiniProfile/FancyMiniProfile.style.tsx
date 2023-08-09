@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { borderRadius, spacingPx } from '../../Design/design';
+import { borderRadius, spacingPx, uiColors } from '../../Design/design';
 import { TTextAlign } from './FancyMiniProfile';
 
 
@@ -13,7 +13,7 @@ export const Wrapper = styled.div<IWrapper>`
   align-items: center;
   padding: ${({ $size }) => ($size ? spacingPx[$size] : '')};
   gap: ${({ $gapSpacing }) => ($gapSpacing ? spacingPx[$gapSpacing] : spacingPx.xxs)};
-  background-color: #576a9c;
+  background-color: ${uiColors.primary.dark};
   border-radius: ${borderRadius.complete};
 `;
 
