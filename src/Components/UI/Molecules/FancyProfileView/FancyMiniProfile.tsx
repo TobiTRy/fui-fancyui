@@ -7,7 +7,7 @@ import { fontSizeVariants } from '../../Atoms/Typography/TypographyStyleVariants
 
 import { spacingPx } from '../../Design/design';
 
-// the inter
+// the interface for the different sizes
 interface IPillSettings {
   [key: string]: {
     imageSize: IFancyProfilePicture['size'];
@@ -51,14 +51,21 @@ interface IFancyMiniprofile {
   imageURL?: string;
   size?: keyof typeof pillSettings;
 }
+
+// --------------------------------------------------------------------------- //
+// ------ The MiniProfile rendes a image with a heading and description ------ //
+// --------------------------------------------------------------------------- //
 export default function FancyMiniProfile(props: IFancyMiniprofile) {
   const { alignText, size, imageURL, headingText, subHeadingText } = { ...defaultProps, ...props };
 
+  //get the settings from the picked size
   const getSizeProps = pillSettings[size || 'sm'];
 
   return (
     <Wrapper $size={getSizeProps.padding} $gapSpacing={getSizeProps.gapPictureAndText}>
+      {/* The Profile Picture */}
       <FancyProfilePicture rounded="complete" size={getSizeProps.imageSize} src={imageURL || ''} />
+      {/* The wraper with the heading and subheading text  */}
       <TextWrapper $alignText={alignText} $paddingToedge={getSizeProps.paddingToEdge}>
         {headingText && (
           <Typography type="inlineElement" variant={getSizeProps.textSize} weight="bold">
