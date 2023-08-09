@@ -12,6 +12,7 @@ interface IPillSizes {
     imageSize: IFancyProfilePicture['size'];
     padding: keyof typeof spacingPx | undefined;
     textSize: keyof typeof fontSizeVariants;
+    paddingToEdge: keyof typeof spacingPx;
   };
 }
 const pillSizes: IPillSizes = {
@@ -19,16 +20,19 @@ const pillSizes: IPillSizes = {
     imageSize: 'xs',
     padding: undefined,
     textSize: 'smallText',
+    paddingToEdge: 'sm',
   },
   md: {
     imageSize: 'xs',
     padding: 'xs',
     textSize: 'smallText',
+    paddingToEdge: 'sm',
   },
   lg: {
     imageSize: 'sm',
     padding: 'xs',
     textSize: 'content',
+    paddingToEdge: 'lg',
   },
 };
 
@@ -41,16 +45,16 @@ const Wrapper = styled.div<{ $size: keyof typeof spacingPx | undefined }>`
   border-radius: ${borderRadius.complete};
 `;
 
-const TextWrapper = styled.div<{ $alignText?: TTextAlign }>`
-  ${({ $alignText }) =>
+const TextWrapper = styled.div<{ $alignText?: TTextAlign, $paddingToedge: keyof typeof spacingPx}>`
+  ${({ $alignText, $paddingToedge }) =>
     $alignText === 'left'
       ? css`
           order: -1;
           text-align: right;
-          margin-left: ${spacingPx.md};
+          margin-left: ${spacingPx[$paddingToedge]};
         `
       : css`
-          margin-right: ${spacingPx.md};
+          margin-right: ${spacingPx[$paddingToedge]};
         `}
 
   display: flex;
@@ -79,7 +83,7 @@ export default function FancyMiniProfile(props: IFancyMiniprofile) {
         size={getSizeProps.imageSize}
         src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
       />
-      <TextWrapper $alignText={alignText}>
+      <TextWrapper $alignText={alignText} $paddingToedge={getSizeProps.paddingToEdge}>
         <Typography type="inlineElement" variant={getSizeProps.textSize} weight="bold">
           {headingText}
         </Typography>
