@@ -21,9 +21,9 @@ export default function FancyTextInput(props: FancyTextInputProps) {
   const [value, setValue] = useState('');
 
   // handles the input value change and calls the handler from the parent
-  const changeHandler: IInputCreatorHandler = (value?: string, e?: ChangeEvent<HTMLInputElement>) => {
+  const changeHandler: IInputCreatorHandler = (e: ChangeEvent<HTMLInputElement>) => {
     setValue(value ? value : '');
-    props.handler && props.handler(value, e);
+    props.handler && props.handler(e);
   };
 
   // sets the value from the parent if it is passed

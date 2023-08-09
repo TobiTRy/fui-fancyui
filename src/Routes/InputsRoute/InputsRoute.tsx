@@ -19,7 +19,7 @@ const svg = (
 );
 
 export default function InputsRoute() {
-  const testHandler = (value?: number | string) => {
+  const testHandler = (value: ChangeEvent<HTMLInputElement>) => {
     console.log(value, 'main');
   };
 

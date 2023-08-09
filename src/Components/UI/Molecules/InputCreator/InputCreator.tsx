@@ -9,7 +9,7 @@ import DateInput from '../DateInput/DateInput';
 
 type InputOrSelectEvent = ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>;
 
-export type IInputCreatorHandler = (value?: string, e?: ChangeEvent<HTMLInputElement>) => void;
+export type IInputCreatorHandler = (e: ChangeEvent<HTMLInputElement>) => void;
 export type IInputCreatorActiveHandler = (value: boolean) => void;
 
 interface IInputCreator {
@@ -49,7 +49,7 @@ export default function InputCreator(props: IInputCreator) {
 
   //sends the value to the parent component
   const inputValueHandler = (e: InputOrSelectEvent) => {
-    handler && handler(e.target.value, e as ChangeEvent<HTMLInputElement>);
+    handler && handler(e as ChangeEvent<HTMLInputElement>);
   };
 
   return (

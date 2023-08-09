@@ -27,13 +27,13 @@ export default function DropDownSelect(props: IDropDownSelect) {
       onBlur={() => focusHandler(false)}
     >
       
-      <Option value="" hidden className="disabled" $align={align} disabled>
+      <Option value="" key="-2"  hidden className="disabled" $align={align} disabled>
         {' '}
       </Option>
       
       {/* Empty Select Option  */}
       {emptySelect && (
-        <Option value="" $align={align}>
+        <Option key="-1" value="" $align={align}>
           {''}
         </Option>
       )}
