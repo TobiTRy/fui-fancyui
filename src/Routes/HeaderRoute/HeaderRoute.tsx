@@ -8,7 +8,7 @@ import FancyLiItem from '../../Components/UI/Atoms/FancyLI/FancyLI';
 import { FancyA, FancySVGAtom } from '../../lib';
 import FancyProfilePicture from '../../Components/UI/Atoms/FancyProfilePicture/FancyProfilePicture';
 import FancyLoadingSpinner from '../../Components/UI/Atoms/FancyLoadingSpinner/FancyLoadingSpinner';
-import FancyMiniProfile from '../../Components/UI/Molecules/FancyProfileView/FancyMiniProfile';
+import FancyMiniProfile from '../../Components/UI/Molecules/FancyMiniProfile/FancyMiniProfile';
 
 import SVGChevronLeft from '../../Components/UI/SVGIcons/SVGChevronLeft';
 

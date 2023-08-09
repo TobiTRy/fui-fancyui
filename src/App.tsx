@@ -29,7 +29,7 @@ import { styled } from 'styled-components';
 import PageSwitchRoute from './Routes/PageSwitchRoute/PageSwitchRoute';
 import LoadingSpinnerRoute from './Routes/LoadingSpinnerRoute/LoadingSpinnerRoute';
 import FancyProfilePictureRoute from './Routes/FancyProfilePictureRoute/FancyProfilePictureRoute';
-import FancyMiniProfile from './Components/UI/Molecules/FancyProfileView/FancyMiniProfile';
+import FancyMiniProfile from './Components/UI/Molecules/FancyMiniProfile/FancyMiniProfile';
 import MiniProfileroute from './Routes/MiniProfileRoute/MiniProfileroute';
 
 // const Icon = (
