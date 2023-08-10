@@ -16,7 +16,7 @@ const iconStyle = css`
 `;
 
 export interface IInputWrapper {
-  id?: string;
+  id: string;
   isActiv?: boolean;
   label?: string;
   disabled?: boolean;
