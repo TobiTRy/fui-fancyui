@@ -213,32 +213,6 @@ export const uiColors = {
   },
 };
 
-// export const uiColors = {
-//   accent: {
-//     main: colorPalet.orange,
-//     main_light: colorPalet.orange_light,
-//     contrast: colorPalet.white_light,
-//     hover: colorPalet.orange_dark,
-//   },
-//   secondary: {
-//     main: colorPalet.white,
-//     main_light: colorPalet.white_light,
-//     contrast: colorPalet.darkblue_dark,
-//     hover: colorPalet.white_dark,
-//   },
-//   primary: {
-//     main: colorPalet.darkblue,
-//     main_light: colorPalet.darkblue_light,
-//     contrast: colorPalet.white_light,
-//     hover: colorPalet.darkblue_light,
-//   },
-//   transparent: {
-//     main_light: colorPalet.transparent,
-//     main: colorPalet.transparent,
-//     contrast: colorPalet.light,
-//     hover: colorPalet.transparent,
-//   },
-// };
 
 export type IUiColorsSystemMessageTypes = 'success' | 'warning' | 'error';
 // colors for different types of (success, warning, error)

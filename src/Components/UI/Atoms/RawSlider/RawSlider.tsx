@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { StyledRawSlider } from './RawSlider.style';
 
-
 // --------------------------------------------------------------------------- //
 // ------------ Here is createt the Slider Atom (Range Slider) --------------- //
 // --------------------------------------------------------------------------- //
@@ -11,7 +10,7 @@ interface IRawSlider {
   minValue?: number;
   maxValue?: number;
   value?: number;
-  handler?: (value: string , e?: React.ChangeEvent<HTMLInputElement>) => void;
+  handler?: (value: string, e?: React.ChangeEvent<HTMLInputElement>) => void;
   activeHandler?: (value: boolean) => void;
   ref?: React.RefObject<HTMLInputElement>;
 }
@@ -19,7 +18,7 @@ export default function RawSlider(props: IRawSlider) {
   const { disabled, id, maxValue, minValue, value, handler, ref, activeHandler } = props;
   const [sliderProgress, setSliderProgress] = useState<number>(0);
   const inputSlider = useRef<HTMLInputElement | null>(null);
-  
+
   const focusHandler = (value: boolean) => {
     activeHandler && activeHandler(value);
   };
@@ -42,18 +41,17 @@ export default function RawSlider(props: IRawSlider) {
 
     //limit the value to the max value
     if (newVal > maxVal) newVal = maxVal;
-    
+
     //save value in state
     setSliderProgress(newVal);
     //prevent the numberinput has a zero in front of the number
-    target.value = newVal.toString()
+    target.value = newVal.toString();
     //if event change than give the value back to the parent
     if ('type' in e && e.type === 'change') {
       const calcValueForHanlder = !isNaN(newVal) ? newVal : 0;
       if (handler) handler(calcValueForHanlder.toString());
     }
   };
-
 
   useEffect(() => {
     //initialize the current value
@@ -68,9 +66,8 @@ export default function RawSlider(props: IRawSlider) {
 
   //if the value change from the parent, set the new value
   useEffect(() => {
-    setSliderProgress(value ? value : 0)
-  }, [value])
-
+    setSliderProgress(value ? value : 0);
+  }, [value]);
 
   return (
     <StyledRawSlider
@@ -86,8 +83,8 @@ export default function RawSlider(props: IRawSlider) {
       max={maxVal}
       onTouchStart={() => {
         focusHandler(true);
-        inputSlider.current?.focus()
-        }}
+        inputSlider.current?.focus();
+      }}
       onTouchEnd={() => setTimeout(() => focusHandler(false), 500)}
       onChange={inputHandler}
     />

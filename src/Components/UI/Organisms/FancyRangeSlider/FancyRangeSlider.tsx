@@ -21,7 +21,9 @@ export default function FancyRangeSlider(props: IFancyRangeSlider) {
   const id = useId();
 
   // this function is called when the slider is moved
-  const changeHandler = (value?: string, e?: ChangeEvent<HTMLInputElement>) => {
+  const changeHandler = (value?: string, e?: ChangeEvent<HTMLInputElement>) => { 
+    // this line handles the the input bewteen number and slider
+    value = value || e?.target.value;
     if (!value) return;
     setToutched(true);
     setSliderProgress(parseFloat(value));
@@ -71,7 +73,7 @@ export default function FancyRangeSlider(props: IFancyRangeSlider) {
             autoWidth={true}
             align="center"
             value={sliderProgress.toString()}
-            handler={changeHandler}
+            handler={(e) => changeHandler(undefined, e)}
             minValue={minValue}
             maxValue={maxValue}
           />
