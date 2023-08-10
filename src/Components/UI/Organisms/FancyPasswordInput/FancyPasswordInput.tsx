@@ -21,7 +21,8 @@ export default function FancyPasswordInput(props: FancyTextInputProps) {
 
   // handles the input value change and calls the handler from the parent
   const changeHandler: IInputCreatorHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    setValue(value ? value : '');
+    const inputValue = e.target.value
+    setValue(inputValue ? inputValue : '');
     props.handler && props.handler(e);
   };
 

@@ -5,6 +5,7 @@ import IDropDownSelect from './DropDownSelect.model';
 // ------------------------------------------------------------------ //
 // ---------------- the blank drop down select ---------------------- //
 // ------------------------------------------------------------------ //
+
 export default function DropDownSelect(props: IDropDownSelect) {
   const { id, value, values, name, align, handler, disabled, activeHandler, emptySelect, ariaLabel } = props;
 
@@ -12,6 +13,7 @@ export default function DropDownSelect(props: IDropDownSelect) {
     activeHandler && activeHandler(value);
   };
 
+  
   return (
     <SelectField
       $align={align}
@@ -22,15 +24,10 @@ export default function DropDownSelect(props: IDropDownSelect) {
       disabled={disabled}
       value={value ? value : ''}
       required
-      onChange={handler}
+      onInput={handler}
       onFocus={() => focusHandler(true)}
       onBlur={() => focusHandler(false)}
     >
-      
-      <Option value="" key="-2"  hidden className="disabled" $align={align} disabled>
-        {' '}
-      </Option>
-      
       {/* Empty Select Option  */}
       {emptySelect && (
         <Option key="-1" value="" $align={align}>
@@ -38,11 +35,12 @@ export default function DropDownSelect(props: IDropDownSelect) {
         </Option>
       )}
 
-      {/* placeholder for custom text like "Please Select a item" */}
       {values?.map((item, i) => (
-        <Option key={i} value={item.toString().toLowerCase()} $align={align}>
-          {item}
-        </Option>
+        <React.Fragment key={i}>
+          <Option value={item.toString().toLowerCase()} $align={align}>
+            {item}
+          </Option>
+        </React.Fragment>
       ))}
     </SelectField>
   );
