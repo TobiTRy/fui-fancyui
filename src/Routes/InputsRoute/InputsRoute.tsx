@@ -44,7 +44,7 @@ const testHandler2 = (value: ChangeEvent<HTMLInputElement>) => {
         <FancyTextInput icon={svg} label="Text" handler={testHandler} align="center" />
       </DesignArea>
       <DesignArea title="Number Input AutoWidth" style={row}>
-        <FancyNumberInput label="Test" handler={testHandler2} autoWidth={true} value={1} />
+        <FancyNumberInput label="Test" handler={testHandler2} value={test} autoWidth={true} value={1} />
         <FancyNumberInput icon={svg} label="Test" handler={testHandler2} align="center" value={test} autoWidth={true}  />
       </DesignArea>
       <DesignArea title="DropDown Input">
