@@ -29,6 +29,10 @@ const testHandler2 = (value: ChangeEvent<HTMLInputElement>) => {
     console.log(value, 'main');
   };
 
+  const testHandler3 = (value: ChangeEvent<HTMLSelectElement>) => {
+    console.log(value, 'main');
+  };
+
   const row = css`
     flex-direction: row;
   `;
@@ -44,15 +48,15 @@ const testHandler2 = (value: ChangeEvent<HTMLInputElement>) => {
         <FancyTextInput icon={svg} label="Text" handler={testHandler} align="center" />
       </DesignArea>
       <DesignArea title="Number Input AutoWidth" style={row}>
-        <FancyNumberInput label="Test" handler={testHandler2} value={test} autoWidth={true} value={1} />
+        <FancyNumberInput label="Test" handler={testHandler2} value={test} autoWidth={true}  />
         <FancyNumberInput icon={svg} label="Test" handler={testHandler2} align="center" value={test} autoWidth={true}  />
       </DesignArea>
       <DesignArea title="DropDown Input">
-        <FancyDropDownSelect label="DropDown" handler={testHandler} values={['Test', 'Test2', 'Test3', 'Test3', 'Test3', 'Test3']} />
+        <FancyDropDownSelect label="DropDown" handler={testHandler3} values={['Test', 'Test2', 'Test3', 'Test3', 'Test3', 'Test3']} />
         <FancyDropDownSelect
           icon={svg}
           label="DropDown"
-          handler={testHandler}
+          handler={testHandler3}
           values={['Test', 'Test2', 'Test3', 'Test3', 'Test3', 'Test3']}
           align="center"
         />
@@ -62,13 +66,13 @@ const testHandler2 = (value: ChangeEvent<HTMLInputElement>) => {
         <FancyDateInput icon={svg} label="Date" handler={testHandler} align="center" />
       </DesignArea>
       <DesignArea title="DateDropDown Input">
-        <FancyDateDropDown type="day" label="Day" handler={testHandler} />
-        <FancyDateDropDown type="month" label="Month" handler={testHandler} />
-        <FancyDateDropDown type="year" label="Year" handler={testHandler} />
+        <FancyDateDropDown type="day" label="Day" handler={testHandler3} />
+        <FancyDateDropDown type="month" label="Month" handler={testHandler3} />
+        <FancyDateDropDown type="year" label="Year" handler={testHandler3} />
       </DesignArea>
       <DesignArea title="Range Slider">
-        <FancyRangeSlider label="Slider" handler={testHandler} />
-        <FancyRangeSlider icon={svg} label="Slider" handler={testHandler} align="center" displayNumber={true} />
+        {/* <FancyRangeSlider label="Slider" handler={testHandler2} />
+        <FancyRangeSlider icon={svg} label="Slider" handler={testHandler2} align="center" displayNumber={true} /> */}
       </DesignArea>
     </DesignWrapper>
   );

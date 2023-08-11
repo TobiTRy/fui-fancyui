@@ -32,10 +32,7 @@ export default function ExperimentalRoute() {
       <DesignWrapper>
         <DesignArea title="Experimental">
 
-          <DropDown
-            handler={valueHandler}
-            values={['Test', 'Test2', 'Test3', 'Test3', 'Test3', 'Test3']}
-          />
+
         </DesignArea>
       </DesignWrapper>
     </>

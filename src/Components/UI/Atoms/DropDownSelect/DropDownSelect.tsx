@@ -14,7 +14,7 @@ export interface IDropDownSelect {
   emptySelect?: boolean;
   ariaLabel?: string;
   handler?: (e: ChangeEvent<HTMLSelectElement>) => void;
-  activeHandler: (value: boolean) => void;
+  activeHandler?: (value: boolean) => void;
 }
 // ------------------------------------------------------------------ //
 // ---------------- the blank drop down select ---------------------- //

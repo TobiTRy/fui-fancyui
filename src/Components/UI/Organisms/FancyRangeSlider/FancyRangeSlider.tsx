@@ -72,7 +72,7 @@ export default function FancyRangeSlider(props: IFancyRangeSlider) {
             ariaLabel={label}
             autoWidth={true}
             align="center"
-            value={sliderProgress.toString()}
+            value={sliderProgress}
             handler={(e) => changeHandler(undefined, e)}
             minValue={minValue}
             maxValue={maxValue}

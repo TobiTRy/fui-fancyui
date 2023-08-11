@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import FancyDropDownSelect from '../../../Organisms/FancyDropDownSelect/FancyDropDownSelect';
-import IFancyDropDownSelect from '../../../Organisms/FancyDropDownSelect/FancyDropDownSelect.model';
+import FancyDropDownSelect, { IFancyDropDownSelect } from '../../../Organisms/FancyDropDownSelect/FancyDropDownSelect';
 import generateYearZone from '../../../HelperFunctions/generateFunctions/generateYearZone';
 import generateMonthNames from '../../../HelperFunctions/generateFunctions/generateMonthNames';
 import generateDayNumbers from '../../../HelperFunctions/generateFunctions/generateDayNumbers';
