@@ -31,8 +31,7 @@ export default function ExperimentalRoute() {
     <>
       <DesignWrapper>
         <DesignArea title="Experimental">
-          <TRyDropDownSelect             handler={testHandler}
-            values={['Test', 'Test2', 'Test3', 'Test3', 'Test3', 'Test3']} />
+
           <DropDown
             handler={valueHandler}
             values={['Test', 'Test2', 'Test3', 'Test3', 'Test3', 'Test3']}
