@@ -28,6 +28,8 @@ export default function NumberInput(props: INumberInput) {
     activeHandler && activeHandler(value);
   };
 
+  console.log(autoWidth, value)
+
   return (
     <StyledNumberInput
       id={id}

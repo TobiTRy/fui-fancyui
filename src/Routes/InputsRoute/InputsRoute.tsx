@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from 'react';
+import React, { ChangeEvent, useState } from 'react';
 
 import FancyPasswordInput from '../../Components/UI/Organisms/FancyPasswordInput/FancyPasswordInput';
 import FancyTextInput from '../../Components/UI/Organisms/FancyTextInput/FancyTextInput';
@@ -19,6 +19,12 @@ const svg = (
 );
 
 export default function InputsRoute() {
+  const [test, setTest] = useState(1)
+
+const testHandler2 = (value: ChangeEvent<HTMLInputElement>) => {
+    setTest(Number(value.target.value))
+}
+
   const testHandler = (value: ChangeEvent<HTMLInputElement>) => {
     console.log(value, 'main');
   };
@@ -38,8 +44,8 @@ export default function InputsRoute() {
         <FancyTextInput icon={svg} label="Text" handler={testHandler} align="center" />
       </DesignArea>
       <DesignArea title="Number Input AutoWidth" style={row}>
-        <FancyNumberInput label="Test" handler={testHandler} autoWidth={true} value="1" />
-        <FancyNumberInput icon={svg} label="Test" handler={testHandler} align="center" autoWidth={true} value="1" />
+        <FancyNumberInput label="Test" handler={testHandler2} autoWidth={true} value={1} />
+        <FancyNumberInput icon={svg} label="Test" handler={testHandler2} align="center" value={test} autoWidth={true}  />
       </DesignArea>
       <DesignArea title="DropDown Input">
         <FancyDropDownSelect label="DropDown" handler={testHandler} values={['Test', 'Test2', 'Test3', 'Test3', 'Test3', 'Test3']} />
