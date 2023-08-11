@@ -48,11 +48,6 @@ const StyledDatePicker = styled(RawInput)<IStyledDatePicker>`
 export default function DateInput(props: IDateInputProps) {
   const { value, handler, activeHandler, name, disabled, errorMessage, align, id, ariaLabel } = props;
 
-  //this function is used to toggle the active state of the input
-  const focusHandler = (value: boolean) => {
-    activeHandler && activeHandler(value);
-  };
-
   return (
     <StyledDatePicker
       $errorMessage={errorMessage}
@@ -67,8 +62,8 @@ export default function DateInput(props: IDateInputProps) {
       onChange={handler}
       disabled={disabled}
       required
-      onFocus={() => focusHandler(true)}
-      onBlur={() => focusHandler(false)}
+      onFocus={() => activeHandler && activeHandler(true)}
+      onBlur={() => activeHandler && activeHandler(false)}
     />
   );
 }

@@ -1,45 +1,32 @@
-import React, { ChangeEvent, useEffect, useState } from 'react';
-import InputCreator, { IInputCreatorHandler, IInputCreatorActiveHandler } from '../../Molecules/InputCreator/InputCreator';
-import NumberInput from '../../Molecules/NumberInput/NumberInput';
+import React, { useId, useState } from 'react';
+import NumberInput, { INumberInput } from '../../Molecules/NumberInput/NumberInput';
+import InputWrapper, { IInputWrapperUserInputProps } from '../../Molecules/InputWrapper/InputWrapper';
 
-interface IFancyNumberInput {
-  id?: string;
-  value?: string;
-  errorMessage?: string;
-  name?: string;
-  step?: number;
-  disabled?: boolean;
-  align?: 'left' | 'center';
-  handler?: IInputCreatorHandler;
-  ariaLabel?: string;
-  active?: boolean;
-  activeHandler?: IInputCreatorActiveHandler;
-  autoWidth?: boolean;
-  icon?: JSX.Element;
-  label?: string;
-  minValue?: number;
-  maxValue?: number;
-}
+type IFancyNumberInput = INumberInput & IInputWrapperUserInputProps & { autoWidth?: boolean };
+
 // --------------------------------------------------------------------------- //
 // ----The NumberInput Comonent with surrounding icon, label and underline --- //
 // --------------------------------------------------------------------------- //
 export default function FancyNumberInput(props: IFancyNumberInput) {
-  const [value, setValue] = useState('');
+  const {  label, icon,  activeHandler, disabled, errorMessage, align, id, ...inputProps } =
+    props;
 
-  // handles the input value change and calls the handler from the parent
-  const changeHandler: IInputCreatorHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
+  //the states activity of the input
+  const [isActiv, setIsActive] = useState(false);
 
-    setValue(value ? value : '');
-    props.handler && props.handler(e);
+  // if no id is provided, generate a random one
+  const useid = useId();
+  const usedId = id ? id : useid;
+
+  // handles the focus and blur events and calls the handler from the parent
+  const activeFocusHandler = (value: boolean) => {
+    setIsActive(value);
+    activeHandler && activeHandler(value);
   };
 
-  // sets the value from the parent if it is passed
-  useEffect(() => {
-    if (props.value) {
-      setValue(props.value);
-    }
-  }, [props.value]);
-
-  return <InputCreator {...props} value={value} handler={changeHandler} InputComponent={NumberInput} />;
+  return (
+    <InputWrapper id={usedId} label={label} disabled={disabled} align={align} isActiv={isActiv} icon={icon} errorMessage={errorMessage}>
+      <NumberInput id={usedId} align={align} disabled={disabled} activeHandler={activeFocusHandler} {...inputProps} />
+    </InputWrapper>
+  );
 }

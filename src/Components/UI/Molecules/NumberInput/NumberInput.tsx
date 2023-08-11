@@ -9,7 +9,7 @@ import StyledNumberInput from './NumberInput.styled';
 export interface INumberInput {
   id?: string;
   disabled?: boolean;
-  value?: string | number;
+  value?: number;
   name?: string;
   errorMessage?: string;
   autoWidth?: boolean;

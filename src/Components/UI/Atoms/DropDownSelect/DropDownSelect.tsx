@@ -7,25 +7,21 @@ import { ChangeEvent } from 'react';
 export interface IDropDownSelect {
   id?: string;
   align?: 'left' | 'center';
-  selectedValue?: string;
+  value?: string;
   values?: string[];
   name?: string;
   disabled?: boolean;
   emptySelect?: boolean;
   ariaLabel?: string;
   handler?: (e: ChangeEvent<HTMLSelectElement>) => void;
-  activeHandler?: (value: boolean) => void;
+  activeHandler: (value: boolean) => void;
 }
 // ------------------------------------------------------------------ //
 // ---------------- the blank drop down select ---------------------- //
 // ------------------------------------------------------------------ //
 
 export default function DropDownSelect(props: IDropDownSelect) {
-  const { id, selectedValue, values, name, align, handler, disabled, activeHandler, emptySelect, ariaLabel } = props;
-
-  const focusHandler = (value: boolean) => {
-    activeHandler && activeHandler(value);
-  };
+  const { id, value, values, name, align, handler, disabled, activeHandler, emptySelect, ariaLabel } = props;
 
   
   return (
@@ -36,11 +32,11 @@ export default function DropDownSelect(props: IDropDownSelect) {
       id={id}
       name={name}
       disabled={disabled}
-      value={selectedValue ? selectedValue : ''}
+      value={value ? value : ''}
       required
       onInput={handler}
-      onFocus={() => focusHandler(true)}
-      onBlur={() => focusHandler(false)}
+      onFocus={() => activeHandler && activeHandler(true)}
+      onBlur={() => activeHandler && activeHandler(false)}
     >
       {/* Empty Select Option  */}
       {emptySelect && (
