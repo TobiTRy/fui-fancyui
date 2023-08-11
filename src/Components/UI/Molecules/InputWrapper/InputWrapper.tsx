@@ -15,9 +15,11 @@ const iconStyle = css`
   align-self: flex-end;
 `;
 
+export type IInputWrapperProps = Omit<IInputWrapper, 'children' | 'id' | 'underline' | 'autoWidth' | 'value'>;
+
 export interface IInputWrapper {
   id: string;
-  isActiv?: boolean;
+  isActiv?: boolean
   label?: string;
   disabled?: boolean;
   children?: React.ReactNode;

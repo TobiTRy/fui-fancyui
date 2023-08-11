@@ -2,6 +2,7 @@ import React, { ChangeEvent } from 'react';
 
 import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';
 
+
 import DropDown from '../../Components/UI/Atoms/DropDownSelect/DropDownSelect';
 
 const svg = (
@@ -30,6 +31,8 @@ export default function ExperimentalRoute() {
     <>
       <DesignWrapper>
         <DesignArea title="Experimental">
+          <TRyDropDownSelect             handler={testHandler}
+            values={['Test', 'Test2', 'Test3', 'Test3', 'Test3', 'Test3']} />
           <DropDown
             handler={valueHandler}
             values={['Test', 'Test2', 'Test3', 'Test3', 'Test3', 'Test3']}

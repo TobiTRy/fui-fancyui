@@ -1,28 +1,48 @@
-import React, { ChangeEvent, useEffect, useState } from 'react';
+import React, { ChangeEvent, useId, useState } from 'react';
 
-import InputCreator, { IInputCreatorHandler } from '../../Molecules/InputCreator/InputCreator';
-import DropDownSelect from '../../Atoms/DropDownSelect/DropDownSelect';
-import IFancyDropDownSelect from './FancyDropDownSelect.model';
+import InputWrapper from '../../Molecules/InputWrapper/InputWrapper';
+import DropDownSelect, { IDropDownSelect } from '../../Atoms/DropDownSelect/DropDownSelect';
+
+import { IInputWrapperProps } from '../../Molecules/InputWrapper/InputWrapper';
+
+type ITyDropDownSelect = IInputWrapperProps & Omit<IDropDownSelect, 'id'>;
 
 // --------------------------------------------------------------------------- //
 // ----The Dropdown Comonent with surrounding icon, label and underline ------ //
 // --------------------------------------------------------------------------- //
-export default function FancyDropDownSelect(props: IFancyDropDownSelect) {
-  const [values, setValues] = useState<string[]>([]);
-  const [value, setValue] = useState<string>('');
-  
-  const changeHandler: IInputCreatorHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    const incomingValue = e.target.value;
-    
-    setValue(incomingValue ? incomingValue : '');
-    props.handler && props.handler(e);
+export default function FancyDropDownSelect(props: ITyDropDownSelect) {
+  const { values, disabled, name, align, handler, activeHandler, ariaLabel, icon, label } = props;
+
+  const [selectedValue, setselectedValue] = useState('');
+  const [isActiv, setIsActive] = useState(false);
+
+  const id = useId();
+
+  const activeFocusHandler = (value: boolean) => {
+    setIsActive(value);
+    activeHandler && activeHandler(value);
   };
 
-  useEffect(() => {
-    if (props.values) {
-      setValues(props.values);
-    }
-  }, [props.values]);
+  const changeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
+    const incomingValue = e.target.value;
 
-  return <InputCreator {...props} values={values} value={value} handler={changeHandler} InputComponent={DropDownSelect} />;
+    setselectedValue(incomingValue ? incomingValue : '');
+    handler && handler(e);
+  };
+
+  return (
+    <InputWrapper id={id} label={label} disabled={disabled} align={align} isActiv={isActiv} icon={icon}>
+      <DropDownSelect
+        id={id}
+        handler={changeHandler}
+        activeHandler={activeFocusHandler}
+        selectedValue={selectedValue}
+        values={values}
+        disabled={disabled}
+        name={name}
+        align={align}
+        ariaLabel={ariaLabel}
+      />
+    </InputWrapper>
+  );
 }
