@@ -24,6 +24,7 @@ export interface INumberInput {
 export default function NumberInput(props: INumberInput) {
   const { value, handler, name, activeHandler, disabled, errorMessage, align, id, autoWidth, minValue, maxValue, ariaLabel } = props;
 
+  // this function is used to make sure that the value is within the min and max value
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     let newValue = parseInt(e.target.value, 10);
 
