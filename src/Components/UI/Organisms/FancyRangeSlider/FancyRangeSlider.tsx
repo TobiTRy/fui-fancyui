@@ -12,14 +12,13 @@ import IFancyRangeSlider from './FancyRangeSlider.model';
 // -------------------- The main FancySlider Component ----------------------- //
 // --------------------------------------------------------------------------- //
 export default function FancyRangeSlider(props: IFancyRangeSlider) {
-  const { label, align, icon, value, minValue, maxValue, displayNumber, handler, disabled } = props;
+  const { label, align, icon, value, minValue, maxValue, displayNumber, handler, disabled } = { ...defaultProps, ...props };
+  
 
-  const [sliderProgress, setSliderProgress] = useState(0);
   const [isActive, setIsActive] = useState(false);
   const [toutched, setToutched] = useState(false);
-
+  
   const id = useId();
-
 
   //TODO: Fix the double state issue here and in the routes (build again in the handler)
   //TODO: Fix the min and max Values
@@ -28,7 +27,6 @@ export default function FancyRangeSlider(props: IFancyRangeSlider) {
   const changeHandler = (e: ChangeEvent<HTMLInputElement> ) => { 
     // this line handles the the input bewteen number and slider
     setToutched(true);
-    setSliderProgress(parseFloat(e?.target.value));
     handler && handler(e);
   };
 
@@ -36,13 +34,6 @@ export default function FancyRangeSlider(props: IFancyRangeSlider) {
   const activeHandler = (value: boolean) => {
     setIsActive(value);
   };
-
-  useEffect(() => {
-    if (value) {
-      setSliderProgress(value);
-    }
-  }, [])
-
 
   return (
     <StyledInputWrapper disabled={disabled}>
@@ -66,7 +57,7 @@ export default function FancyRangeSlider(props: IFancyRangeSlider) {
         <RawSlider
           id={id}
           disabled={disabled}
-          value={sliderProgress ? sliderProgress : 0}
+          value={value}
           handler={changeHandler}
           activeHandler={activeHandler}
           minValue={minValue}
@@ -81,7 +72,7 @@ export default function FancyRangeSlider(props: IFancyRangeSlider) {
             ariaLabel={label}
             autoWidth={true}
             align="center"
-            value={sliderProgress ? sliderProgress : 0}
+            value={value}
             handler={changeHandler}
             minValue={minValue}
             maxValue={maxValue}
@@ -90,4 +81,10 @@ export default function FancyRangeSlider(props: IFancyRangeSlider) {
       )}
     </StyledInputWrapper>
   );
+}
+
+
+const defaultProps: IFancyRangeSlider = {
+  minValue: 0,
+  maxValue: 100,
 }

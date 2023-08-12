@@ -24,6 +24,22 @@ export interface INumberInput {
 export default function NumberInput(props: INumberInput) {
   const { value, handler, name, activeHandler, disabled, errorMessage, align, id, autoWidth, minValue, maxValue, ariaLabel } = props;
 
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    let newValue = parseInt(e.target.value, 10);
+
+    if (maxValue !== undefined && newValue > maxValue) {
+      newValue = maxValue;
+    } else if (minValue !== undefined && newValue < minValue) {
+      newValue = minValue;
+    }
+
+    if (handler) {
+      e.target.value = newValue.toString();
+      handler(e);
+    }
+  };
+
+
   return (
     <StyledNumberInput
       id={id}
@@ -32,10 +48,10 @@ export default function NumberInput(props: INumberInput) {
       name={name}
       value={value}
       autoComplete={'off'}
-      onChange={handler}
+      onChange={handleChange}
       disabled={disabled}
       min={minValue}
-      max={maxValue}
+      max={100}
       aria-label={ariaLabel}
       required
       onFocus={() => activeHandler && activeHandler(true)}
