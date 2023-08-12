@@ -24,12 +24,6 @@ export interface INumberInput {
 export default function NumberInput(props: INumberInput) {
   const { value, handler, name, activeHandler, disabled, errorMessage, align, id, autoWidth, minValue, maxValue, ariaLabel } = props;
 
-  const focusHandler = (value: boolean) => {
-    activeHandler && activeHandler(value);
-  };
-
-  console.log(autoWidth, value)
-
   return (
     <StyledNumberInput
       id={id}
@@ -44,8 +38,8 @@ export default function NumberInput(props: INumberInput) {
       max={maxValue}
       aria-label={ariaLabel}
       required
-      onFocus={() => focusHandler(true)}
-      onBlur={() => focusHandler(false)}
+      onFocus={() => activeHandler && activeHandler(true)}
+      onBlur={() => activeHandler && activeHandler(false)}
       $width={autoWidth ? (value ? value.toString().length + 1 + 'ch' : '2ch') : '100%'}
       $align={align}
       $errorMessage={errorMessage}

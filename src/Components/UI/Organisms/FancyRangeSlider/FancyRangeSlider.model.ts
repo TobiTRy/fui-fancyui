@@ -8,7 +8,7 @@ interface IFancyRangeSlider {
   minValue?: number;
   maxValue?: number;
   displayNumber?: boolean;
-  handler?: (value: number, e?: ChangeEvent<HTMLInputElement>) => void;
+  handler?: (e: ChangeEvent<HTMLInputElement>) => void;
   disabled?: boolean;
 }
 

@@ -33,6 +33,10 @@ const testHandler2 = (value: ChangeEvent<HTMLInputElement>) => {
     console.log(value, 'main');
   };
 
+  const testHandler4 = (e: ChangeEvent<HTMLInputElement>) => {
+    setTest(Number(e.target.value))
+  }
+
   const row = css`
     flex-direction: row;
   `;
@@ -71,8 +75,8 @@ const testHandler2 = (value: ChangeEvent<HTMLInputElement>) => {
         <FancyDateDropDown type="year" label="Year" handler={testHandler3} />
       </DesignArea>
       <DesignArea title="Range Slider">
-        {/* <FancyRangeSlider label="Slider" handler={testHandler2} />
-        <FancyRangeSlider icon={svg} label="Slider" handler={testHandler2} align="center" displayNumber={true} /> */}
+        <FancyRangeSlider label="Slider" value={test}  handler={testHandler4} />
+        <FancyRangeSlider icon={svg} label="Slider" value={test} handler={testHandler4} align="center" displayNumber={true} />
       </DesignArea>
     </DesignWrapper>
   );
