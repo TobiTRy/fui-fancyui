@@ -1,12 +1,9 @@
-import React from 'react'
+import React, { ChangeEvent } from 'react';
 
-import FancyHueSlider from '../../Components/UI/Molecules/FancyHueSlider/FancyHueSlider';
-import ScrollableBar from '../../Components/UI/Atoms/ScrollableBar/ScrollableBar';
 import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';
-import BottomScrollbar from '../../Components/UI/Molecules/DynamicBottomScrollBar/DynamicBottomScrollBar';
-import DynamicBottomScrollBar from '../../Components/UI/Molecules/DynamicBottomScrollBar/DynamicBottomScrollBar';
 
-import FancyButton from '../../Components/UI/Molecules/FancyButton/FancyButton';
+
+import DropDown from '../../Components/UI/Atoms/DropDownSelect/DropDownSelect';
 
 const svg = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -16,25 +13,40 @@ const svg = (
 );
 
 export default function ExperimentalRoute() {
-  return (<>
-  
-    <DesignWrapper>
-      <DesignArea title='Experimental'>
-      <FancyHueSlider />
-        <DynamicBottomScrollBar  buttons={defaultProps.buttons} scrollable />
-        <FancyButton icon={svg} label='TEST'  design='transparent'/>
-      </DesignArea>
-    </DesignWrapper>
-  </>)
-}
 
+
+  const testHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    console.log(e);
+  }
+
+  const valueHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    console.log(e.target.value)
+  }
+
+
+
+
+
+  return (
+    <>
+      <DesignWrapper>
+        <DesignArea title="Experimental">
+
+
+        </DesignArea>
+      </DesignWrapper>
+    </>
+  );
+}
 
 const defaultProps = {
   buttons: [
     { label: 'hi', icon: svg, id: '1' },
     { label: 'hi', icon: svg, id: '2' },
-    { label: 'hi', icon: svg, id: '3'},
-    { label: 'hi', icon: svg, id: '4'},
-    { label: 'hi', icon: svg, id: '4'},
+    { label: 'hi', icon: svg, id: '3' },
+    { label: 'hi', icon: svg, id: '4' },
+    { label: 'hi', icon: svg, id: '4' },
   ],
 };
+
+

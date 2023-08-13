@@ -1,11 +1,7 @@
 import styled from 'styled-components';
 import RawInput from '../../Atoms/RawInput/RawInput';
 import IStyledPrefixAndPicker from '../../Interface/IStyledPrefixAndPicker.model';
-import { AnimatedInputLabel, AnimatedLabelFocusStyle } from '../../Atoms/AnimatedLabel/AnimatedLabel.style';
-import { UnderLineFocusStyle } from '../../Atoms/InputUnderline/InputUnderline';
 import { INumberInput } from './NumberInput';
-
-
 
 type IStyledNumberInput = IStyledPrefixAndPicker<INumberInput, 'align' | 'errorMessage'>;
 const StyledNumberInput = styled(RawInput)<IStyledNumberInput & { $width: string }>`
@@ -17,11 +13,8 @@ const StyledNumberInput = styled(RawInput)<IStyledNumberInput & { $width: string
   transition: 0.3s;
   transition-timing-function: cubic-bezier(0.46, 0.03, 0.52, 0.96);
   outline: none;
-
-  ${({ $align, $errorMessage }) => AnimatedLabelFocusStyle($align, $errorMessage)}
   //the focus animation for the underline
-  ${({ $align }) => UnderLineFocusStyle(AnimatedInputLabel, $align)}
-  
+
   &::-webkit-outer-spin-button,
   &::-webkit-inner-spin-button {
     -webkit-appearance: none;

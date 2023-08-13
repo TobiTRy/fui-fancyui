@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from 'react';
+import React, { ChangeEvent, useState } from 'react';
 
 import FancyPasswordInput from '../../Components/UI/Organisms/FancyPasswordInput/FancyPasswordInput';
 import FancyTextInput from '../../Components/UI/Organisms/FancyTextInput/FancyTextInput';
@@ -19,8 +19,45 @@ const svg = (
 );
 
 export default function InputsRoute() {
+  const [text, setText] = useState<string>('');
+  const [test, setTest] = useState<number>(0);
+  const [date, setDate] = useState<string>('');
+  const [dropDown, setDropDown] = useState<string>('');
+  const [dropDown2, setDropDown2] = useState<string>('test');
+  const [password, setPassword] = useState<string>('');
+
+  const testHandler5 = (value: ChangeEvent<HTMLInputElement>) => {
+    setPassword(value.target.value);
+  };
+
+
+  const testHandler2 = (value: ChangeEvent<HTMLInputElement>) => {
+    console.log(value.target.value, test);
+    
+    setTest(Number(value.target.value));
+  };
+
   const testHandler = (value: ChangeEvent<HTMLInputElement>) => {
+    setText(value.target.value);
+  };
+
+  const testHandler3 = (e: ChangeEvent<HTMLSelectElement>) => {
+    const value = e.target.value;
+    setDropDown(value);
     console.log(value, 'main');
+  };
+
+  const testHandler33 = (e: ChangeEvent<HTMLSelectElement>) => {
+    const value = e.target.value;
+    setDropDown2(value);
+    console.log(value, 'main');
+  };
+
+  const testHandler4 = (e: ChangeEvent<HTMLInputElement>) => {
+    setTest(Number(e.target.value));
+  };
+  const dateHandler = (e: ChangeEvent<HTMLInputElement>) => {
+    setDate(e.target.value);
   };
 
   const row = css`
@@ -30,39 +67,45 @@ export default function InputsRoute() {
   return (
     <DesignWrapper>
       <DesignArea title="Password Input">
-        <FancyPasswordInput label="Password" handler={testHandler} align="left" />
-        <FancyPasswordInput icon={svg} label="Password" handler={testHandler} align="center" />
+        <FancyPasswordInput label="Password" value={password} onChange={testHandler5} align="left" />
+        <FancyPasswordInput icon={svg} label="Password" value={password} onChange={testHandler5} align="center" />
       </DesignArea>
       <DesignArea title="Text Input">
-        <FancyTextInput label="Text" handler={testHandler} />
-        <FancyTextInput icon={svg} label="Text" handler={testHandler} align="center" />
+        <FancyTextInput label="Text" value={text} onChange={testHandler} />
+        <FancyTextInput icon={svg} label="Text" value={text} onChange={testHandler} align="center" placeholder="test45454554" />
+      </DesignArea>
+      <DesignArea title="Number Input">
+        <FancyNumberInput label="Text" onChange={testHandler2} value={test} placeholder="test45454554" errorMessage="Hiii" />
+        <FancyNumberInput icon={svg} label="Text" onChange={testHandler2} value={test} align="center" />
+        <FancyNumberInput icon={svg} label="Text" onChange={testHandler2} value={test} align="center" disabled={true} placeholder="Hiii" />
       </DesignArea>
       <DesignArea title="Number Input AutoWidth" style={row}>
-        <FancyNumberInput label="Test" handler={testHandler} autoWidth={true} value="1" />
-        <FancyNumberInput icon={svg} label="Test" handler={testHandler} align="center" autoWidth={true} value="1" />
+        <FancyNumberInput label="Test" onChange={testHandler2} value={test} autoWidth={true}  />
+        <FancyNumberInput icon={svg} label="Test" onChange={testHandler2} align="center" value={test} autoWidth={true}  />
       </DesignArea>
       <DesignArea title="DropDown Input">
-        <FancyDropDownSelect label="DropDown" handler={testHandler} values={['Test', 'Test2', 'Test3', 'Test3', 'Test3', 'Test3']} />
+        <FancyDropDownSelect label="DropDown" onChange={testHandler3} value={dropDown} values={['Test', 'Test2', 'Test3', 'Test3', 'Test3', 'Test3']} placeholder='Hiii' />
         <FancyDropDownSelect
           icon={svg}
           label="DropDown"
-          handler={testHandler}
+          value={dropDown2}
+          onChange={testHandler33}
           values={['Test', 'Test2', 'Test3', 'Test3', 'Test3', 'Test3']}
           align="center"
         />
       </DesignArea>
       <DesignArea title="Date Input">
-        <FancyDateInput label="Date" handler={testHandler} />
-        <FancyDateInput icon={svg} label="Date" handler={testHandler} align="center" />
+        <FancyDateInput value={date} label="Date" onChange={dateHandler} />
+        <FancyDateInput value={date} icon={svg} label="Date" onChange={dateHandler} align="center" />
       </DesignArea>
       <DesignArea title="DateDropDown Input">
-        <FancyDateDropDown type="day" label="Day" handler={testHandler} />
-        <FancyDateDropDown type="month" label="Month" handler={testHandler} />
-        <FancyDateDropDown type="year" label="Year" handler={testHandler} />
+        <FancyDateDropDown type="day" label="Day" onChange={testHandler3} />
+        <FancyDateDropDown type="month" label="Month" onChange={testHandler3} />
+        <FancyDateDropDown type="year" label="Year" onChange={testHandler3} />
       </DesignArea>
       <DesignArea title="Range Slider">
-        <FancyRangeSlider label="Slider" handler={testHandler} />
-        <FancyRangeSlider icon={svg} label="Slider" handler={testHandler} align="center" displayNumber={true} />
+        <FancyRangeSlider label="Slider" value={test} handler={testHandler4} />
+        <FancyRangeSlider icon={svg} label="Slider" value={test} handler={testHandler4} align="center" displayNumber={true} />
       </DesignArea>
     </DesignWrapper>
   );

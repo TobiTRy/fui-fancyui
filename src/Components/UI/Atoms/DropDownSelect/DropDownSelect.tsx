@@ -1,46 +1,49 @@
-import React from 'react';
+import React, { HTMLAttributes } from 'react';
 import { SelectField, Option } from './DropDownSelect.style';
-import IDropDownSelect from './DropDownSelect.model';
 
+export interface IDropDownSelect extends Omit<HTMLAttributes<HTMLSelectElement>, 'type'> {
+  align?: 'left' | 'center';
+  values?: string[];
+  value?: string;
+  disabled?: boolean;
+  placeholder?: string;
+  emptySelect?: boolean;
+  activeHandler?: (value: boolean) => void;
+}
 // ------------------------------------------------------------------ //
 // ---------------- the blank drop down select ---------------------- //
 // ------------------------------------------------------------------ //
-
 export default function DropDownSelect(props: IDropDownSelect) {
-  const { id, value, values, name, align, handler, disabled, activeHandler, emptySelect, ariaLabel } = props;
+  const { values, value, placeholder, align, onChange, activeHandler, emptySelect, ...htmlInputProps } = props;
 
-  const focusHandler = (value: boolean) => {
-    activeHandler && activeHandler(value);
-  };
-
-  
   return (
     <SelectField
       $align={align}
       $labelAlign={align}
-      aria-label={ariaLabel}
-      id={id}
-      name={name}
-      disabled={disabled}
-      value={value ? value : ''}
-      required
-      onInput={handler}
-      onFocus={() => focusHandler(true)}
-      onBlur={() => focusHandler(false)}
+      value={value || ''}
+      onChange={onChange}
+      onFocus={() => activeHandler && activeHandler(true)}
+      onBlur={() => activeHandler && activeHandler(false)}
+      {...htmlInputProps}
     >
+      {/* Placeholder option */}
+      {placeholder && (
+        <Option key="-2" value="" $align={align}>
+          {placeholder}
+        </Option>
+      )}
+
       {/* Empty Select Option  */}
       {emptySelect && (
-        <Option key="-1" value="" $align={align}>
+        <Option key="-1" value="" $align={align} disabled>
           {''}
         </Option>
       )}
 
       {values?.map((item, i) => (
-        <React.Fragment key={i}>
-          <Option value={item.toString().toLowerCase()} $align={align}>
-            {item}
-          </Option>
-        </React.Fragment>
+        <Option key={i} value={item.toString().toLowerCase()} $align={align}>
+          {item}
+        </Option>
       ))}
     </SelectField>
   );

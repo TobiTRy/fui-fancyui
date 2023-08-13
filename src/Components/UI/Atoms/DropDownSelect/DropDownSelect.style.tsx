@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { colorPalet, fontSize, spacing, spacingPx, uiColors } from "../../Design/design";
-import { UnderLineFocusStyle } from "../InputUnderline/InputUnderline";
-import { AnimatedInputLabel } from "../AnimatedLabel/AnimatedLabel.style";
+
 
 //the styling for each option item
 export const Option = styled.option<{ $align?: string }>`
@@ -49,6 +48,4 @@ export const SelectField = styled.select<ISelectField>`
   &:focus ${Option}:checked {
     background: ${uiColors.accent.dark};
   }
-
-  ${({$labelAlign}) => UnderLineFocusStyle(AnimatedInputLabel, $labelAlign)}
 `;

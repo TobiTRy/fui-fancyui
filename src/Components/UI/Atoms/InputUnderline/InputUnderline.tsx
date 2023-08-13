@@ -1,9 +1,12 @@
+import React from 'react';
 import styled, { css } from 'styled-components';
+
 import { colorPalet, uiColors } from '../../Design/design';
+import IStyledPrefixAndPicker from '../../Interface/IStyledPrefixAndPicker.model';
 
-
-//the underline for the input fields
-const UnderLine = styled.i<{ $errorMessage?: string; $isActive?: boolean; $autoWidth?: boolean  }>`
+// Define the styled component for the underline
+type IStyledUnderline = IStyledPrefixAndPicker<IFancyUnderline>;
+const UnderLine = styled.i<IStyledUnderline>`
   position: absolute;
   left: 0;
   bottom: 0;
@@ -12,7 +15,8 @@ const UnderLine = styled.i<{ $errorMessage?: string; $isActive?: boolean; $autoW
   background: ${uiColors.secondary.darkest};
   overflow: hidden;
   width: 100%;
-  
+
+  // Define the styles for the gradient overlay
   &::before {
     content: '';
     width: 100%;
@@ -20,31 +24,36 @@ const UnderLine = styled.i<{ $errorMessage?: string; $isActive?: boolean; $autoW
     position: absolute;
     left: 0;
     bottom: 0;
-    opacity: ${({$isActive}) => $isActive ? '1' : '0'};
+    opacity: ${({ $colorState }) => ($colorState === 'default' ? '0' : '1')};
     height: 100%;
-    background: ${({ $errorMessage }) =>
-      !$errorMessage
-        ? css`linear-gradient(90deg, ${uiColors.accent.main}, ${uiColors.accent.light})`
-        : css`linear-gradient(90deg, ${colorPalet.red_dark}, ${colorPalet.red_light})`};
+    background: ${({ $colorState }) => {
+      switch ($colorState) {
+        case 'active':
+          return css`linear-gradient(90deg, ${uiColors.accent.main}, ${uiColors.accent.light})`;
+        case 'error':
+          return css`linear-gradient(90deg, ${colorPalet.red_dark}, ${colorPalet.red_light})`;
+        default:
+          return 'transparent';
+      }
+    }};
+
+    // Define the transition styles for the gradient overlay
     transition: 0.25s;
     transition-timing-function: cubic-bezier(0.46, 0.03, 0.52, 0.96);
   }
 `;
 
-//this function generates the state behavior for the underline
-export const UnderLineFocusStyle = (Label: any, labelAlign?: 'center' | 'left')=> {
-  const calcTransform = labelAlign !== 'center' ? 'translateY(-20px)' : 'translateY(-20px) translate(-50%)';
+// Define the props for the FancyInputUnderline component
+interface IFancyUnderline {
+  colorState?: 'error' | 'active' | 'default';
+  autoWidth?: boolean;
+}
+// --------------------------------------------------------------------------- //
+// --------- The underline for the input components with state style --------- //
+// --------------------------------------------------------------------------- //
+export default function FancyInputUnderline(props: IFancyUnderline) {
+  const { colorState = 'default', autoWidth } = props;
 
-  return css`
-    &:focus ~ ${Label}, &:valid ~ ${Label} {
-      color: ${uiColors.accent.main};
-      transform: ${calcTransform};
-    }
-
-    &:focus ~ ${UnderLine}::before {
-      opacity: 1;
-    }
-  `;
-};
-
-export default UnderLine;
+  // Render the FancyInputUnderline component with the appropriate props
+  return <UnderLine $colorState={colorState} $autoWidth={autoWidth} />;
+}

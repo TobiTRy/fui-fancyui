@@ -1,52 +1,60 @@
-import React from 'react';
+import React, { InputHTMLAttributes, useState } from 'react';
 import { TRawInputAlign } from '../../Atoms/RawInput/RawInput';
 import StyledNumberInput from './NumberInput.styled';
 
-
-// --------------------------------------------------------------------------- //
-// --------------- The NumberInputcomponent for only the input --------------- //
-// --------------------------------------------------------------------------- //
-export interface INumberInput {
-  id?: string;
-  disabled?: boolean;
-  value?: string | number;
-  name?: string;
+export interface INumberInput extends InputHTMLAttributes<HTMLInputElement> {
   errorMessage?: string;
   autoWidth?: boolean;
   active?: boolean;
-  minValue?: number;
-  maxValue?: number;
   align?: TRawInputAlign;
-  ariaLabel?: string;
-  handler?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   activeHandler?: (value: boolean) => void;
 }
+// --------------------------------------------------------------------------- //
+// ------------ A simple number input with some extra features ---- ---------- //
+// --------------------------------------------------------------------------- //
 export default function NumberInput(props: INumberInput) {
-  const { value, handler, name, activeHandler, disabled, errorMessage, align, id, autoWidth, minValue, maxValue, ariaLabel } = props;
+  const { value, onChange, activeHandler, errorMessage, align, id, autoWidth, max, min, ...moreHTMLProps } = props;
+  const [initialValue, setInitialValue] = useState(true);
 
-  const focusHandler = (value: boolean) => {
-    activeHandler && activeHandler(value);
+  // This is used to make sure that the value is a number
+  const maxValue = typeof max === 'string' ? Number(max) : max;
+  const minValue = typeof min === 'string' ? Number(min) : min;
+
+  // This function is used to make sure that the value is within the min and max value
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInitialValue(false);
+    let newValue = Number(e.target.value);
+
+    if (value !== undefined) {
+      if (maxValue !== undefined && newValue > maxValue) {
+        newValue = maxValue;
+      } else if (minValue !== undefined && newValue < minValue) {
+        newValue = minValue;
+      }
+    }
+
+    // give back the event to the parent
+    if (onChange) {
+      e.target.value = newValue.toString();
+      onChange(e);
+    }
   };
 
   return (
     <StyledNumberInput
       id={id}
       type="number"
-      placeholder=""
-      name={name}
-      value={value}
-      autoComplete={'off'}
-      onChange={handler}
-      disabled={disabled}
+      required
+      value={initialValue ? (value === 0 ? '' : value) : value}
+      onChange={handleChange}
       min={minValue}
       max={maxValue}
-      aria-label={ariaLabel}
-      required
-      onFocus={() => focusHandler(true)}
-      onBlur={() => focusHandler(false)}
+      onFocus={() => activeHandler && activeHandler(true)}
+      onBlur={() => activeHandler && activeHandler(false)}
       $width={autoWidth ? (value ? value.toString().length + 1 + 'ch' : '2ch') : '100%'}
       $align={align}
       $errorMessage={errorMessage}
+      {...moreHTMLProps}
     />
   );
 }

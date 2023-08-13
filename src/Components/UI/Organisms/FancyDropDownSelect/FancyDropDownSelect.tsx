@@ -1,28 +1,42 @@
-import React, { ChangeEvent, useEffect, useState } from 'react';
+import React, { useId, useState } from 'react';
 
-import InputCreator, { IInputCreatorHandler } from '../../Molecules/InputCreator/InputCreator';
-import DropDownSelect from '../../Atoms/DropDownSelect/DropDownSelect';
-import IFancyDropDownSelect from './FancyDropDownSelect.model';
+import InputWrapper from '../../Molecules/InputWrapper/InputWrapper';
+import DropDownSelect, { IDropDownSelect } from '../../Atoms/DropDownSelect/DropDownSelect';
+
+import { IInputWrapperUserInputProps } from '../../Molecules/InputWrapper/InputWrapper';
+
+export type IFancyDropDownSelect = IInputWrapperUserInputProps & IDropDownSelect;
 
 // --------------------------------------------------------------------------- //
 // ----The Dropdown Comonent with surrounding icon, label and underline ------ //
 // --------------------------------------------------------------------------- //
 export default function FancyDropDownSelect(props: IFancyDropDownSelect) {
-  const [values, setValues] = useState<string[]>([]);
-  const [value, setValue] = useState<string>('');
+  const { id, value, placeholder, disabled, align, activeHandler, icon, label, errorMessage, ...inputProps } = props;
+
+  //the states for the value and the activity of the input
+  const [isActiv, setIsActive] = useState(false);
+
+  // if no id is provided, generate a random one
+  const useid = useId();
+  const usedId = id ? id : useid;
   
-  const changeHandler: IInputCreatorHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    const incomingValue = e.target.value;
-    
-    setValue(incomingValue ? incomingValue : '');
-    props.handler && props.handler(e);
+  // handles the focus and blur events and calls the handler from the parent
+  const activeFocusHandler = (value: boolean) => {
+    setIsActive(value);
+    activeHandler && activeHandler(value);
   };
 
-  useEffect(() => {
-    if (props.values) {
-      setValues(props.values);
-    }
-  }, [props.values]);
-
-  return <InputCreator {...props} values={values} value={value} handler={changeHandler} InputComponent={DropDownSelect} />;
+  return (
+    <InputWrapper id={usedId} placeholder={placeholder}value={value} label={label} disabled={disabled} align={align} isActiv={isActiv} icon={icon} errorMessage={errorMessage}>
+      <DropDownSelect
+        placeholder={placeholder}
+        disabled={disabled}
+        id={usedId}
+        value={value}
+        activeHandler={activeFocusHandler}
+        align={align}
+        {...inputProps}
+      />
+    </InputWrapper>
+  );
 }
