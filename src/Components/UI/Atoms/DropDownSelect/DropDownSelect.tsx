@@ -1,54 +1,49 @@
-import React from 'react';
+import React, { HTMLAttributes } from 'react';
 import { SelectField, Option } from './DropDownSelect.style';
-import { ChangeEvent } from 'react';
 
-
-
-export interface IDropDownSelect {
-  id?: string;
+export interface IDropDownSelect extends Omit<HTMLAttributes<HTMLSelectElement>, 'type'> {
   align?: 'left' | 'center';
-  value?: string;
   values?: string[];
-  name?: string;
+  value?: string;
   disabled?: boolean;
+  placeholder?: string;
   emptySelect?: boolean;
-  ariaLabel?: string;
-  handler?: (e: ChangeEvent<HTMLSelectElement>) => void;
   activeHandler?: (value: boolean) => void;
 }
 // ------------------------------------------------------------------ //
 // ---------------- the blank drop down select ---------------------- //
 // ------------------------------------------------------------------ //
-
 export default function DropDownSelect(props: IDropDownSelect) {
-  const { id, value, values, name, align, handler, disabled, activeHandler, emptySelect, ariaLabel } = props;
+  const { values, value, placeholder, align, onChange, activeHandler, emptySelect, ...htmlInputProps } = props;
 
-  
   return (
     <SelectField
       $align={align}
       $labelAlign={align}
-      aria-label={ariaLabel}
-      id={id}
-      name={name}
-      disabled={disabled}
-      value={value ? value : ''}
-      required
-      onInput={handler}
+      value={value || ''}
+      onChange={onChange}
       onFocus={() => activeHandler && activeHandler(true)}
       onBlur={() => activeHandler && activeHandler(false)}
+      {...htmlInputProps}
     >
+      {/* Placeholder option */}
+      {placeholder && (
+        <Option key="-2" value="" $align={align}>
+          {placeholder}
+        </Option>
+      )}
+
       {/* Empty Select Option  */}
       {emptySelect && (
-        <Option key="-1" value="" $align={align}>
+        <Option key="-1" value="" $align={align} disabled>
           {''}
         </Option>
       )}
 
       {values?.map((item, i) => (
-          <Option key={i} value={item.toString().toLowerCase()} $align={align}>
-            {item}
-          </Option>
+        <Option key={i} value={item.toString().toLowerCase()} $align={align}>
+          {item}
+        </Option>
       ))}
     </SelectField>
   );

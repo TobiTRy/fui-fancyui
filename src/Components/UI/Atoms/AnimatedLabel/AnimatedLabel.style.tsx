@@ -27,13 +27,14 @@ const activeHandler = (align: string, $moveUp?: boolean) => {
   }
 };
 
-//the animated label is for the inputs where the Placholder is the label
 interface IAnimatedInputLabel {
   $align?: 'center' | 'left';
   $moveUp?: boolean;
   $colorState?: 'error' | 'active' | 'default';
 }
-
+// --------------------------------------------------------------------------- //
+// ---------- The input label wich hase some colors and an animation --------- //
+// --------------------------------------------------------------------------- //
 export const AnimatedInputLabel = styled(InputLabel)<IAnimatedInputLabel>`
   position: absolute;
   padding: 12px 0 5px;
@@ -50,14 +51,3 @@ export const AnimatedInputLabel = styled(InputLabel)<IAnimatedInputLabel>`
 
   ${({ $align, $moveUp }) => activeHandler($align!, $moveUp)};
 `;
-
-export const AnimatedLabelFocusStyle = ($align?: 'center' | 'left', $errorMessage?: string) => {
-  const isErrorMessage = $errorMessage ? colorPalet.red_dark : uiColors.accent.main;
-
-  //the focus animation for the Label
-  return css`
-    &:focus ~ ${AnimatedInputLabel}, &:valid ~ ${AnimatedInputLabel} {
-      font-weight: 600;
-    }
-  `;
-};
