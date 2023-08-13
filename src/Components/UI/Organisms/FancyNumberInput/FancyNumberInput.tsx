@@ -23,8 +23,6 @@ export default function FancyNumberInput(props: IFancyNumberInput) {
     activeHandler && activeHandler(value);
   };
 
-
-
   return (
     <InputWrapper id={usedId} value={value} label={label} disabled={disabled} align={align} placeholder={placeholder} isActiv={isActiv} icon={icon} autoWidth={autoWidth} errorMessage={errorMessage}>
       <NumberInput id={usedId} value={value} align={align} disabled={disabled} activeHandler={activeFocusHandler} placeholder={placeholder} autoWidth={autoWidth}  {...inputProps} />
