@@ -32,6 +32,8 @@ export default function InputsRoute() {
 
 
   const testHandler2 = (value: ChangeEvent<HTMLInputElement>) => {
+    console.log(value.target.value, test);
+    
     setTest(Number(value.target.value));
   };
 
@@ -77,10 +79,10 @@ export default function InputsRoute() {
         <FancyNumberInput icon={svg} label="Text" onChange={testHandler2} value={test} align="center" />
         <FancyNumberInput icon={svg} label="Text" onChange={testHandler2} value={test} align="center" disabled={true} placeholder="Hiii" />
       </DesignArea>
-      {/* <DesignArea title="Number Input AutoWidth" style={row}>
-        <FancyNumberInput label="Test" handler={testHandler2} value={test} autoWidth={true}  />
-        <FancyNumberInput icon={svg} label="Test" handler={testHandler2} align="center" value={test} autoWidth={true}  />
-      </DesignArea> */}
+      <DesignArea title="Number Input AutoWidth" style={row}>
+        <FancyNumberInput label="Test" onChange={testHandler2} value={test} autoWidth={true}  />
+        <FancyNumberInput icon={svg} label="Test" onChange={testHandler2} align="center" value={test} autoWidth={true}  />
+      </DesignArea>
       <DesignArea title="DropDown Input">
         <FancyDropDownSelect label="DropDown" onChange={testHandler3} value={dropDown} values={['Test', 'Test2', 'Test3', 'Test3', 'Test3', 'Test3']} placeholder='Hiii' />
         <FancyDropDownSelect
