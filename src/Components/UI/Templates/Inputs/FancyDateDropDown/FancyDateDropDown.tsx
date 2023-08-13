@@ -6,7 +6,11 @@ import generateMonthNames from '../../../HelperFunctions/generateFunctions/gener
 import generateDayNumbers from '../../../HelperFunctions/generateFunctions/generateDayNumbers';
 
 // this function creates the options for the dropdown day month and year
-const generateOptions = (type: DateType, limitStart?: number, limitEnd?: number) => {
+const generateOptions = (type: DateType, dateLimits?: [number, number]) => {
+
+  const limitStart = dateLimits ? dateLimits[0] : undefined;
+  const limitEnd = dateLimits ? dateLimits[1] : undefined;
+
   //default limits for year
   const currentYear = new Date().getFullYear();
 
@@ -36,46 +40,20 @@ const generateOptions = (type: DateType, limitStart?: number, limitEnd?: number)
   }
 };
 
+
+
 type DateType = 'year' | 'month' | 'day';
 interface IFancyDateDropDown extends IFancyDropDownSelect {
   type: DateType;
-  yearLimits?: [number, number];
-  monthLimits?: [number, number];
-  dayLimits?: [number, number];
+  dateLimits?: [number, number];
 }
 // --------------------------------------------------------------------------- //
 // -------------- Fancy Date DropDown to Pick a day/month/year --------------- //
 // --------------------------------------------------------------------------- //
 export default function FancyDateDropDown(props: IFancyDateDropDown) {
-  const { type = 'year', yearLimits, monthLimits, ...inputProps } = props;
-  const [inputOptions, setInputOptions] = useState<string[]>([]);
+  const { type = 'year', dateLimits, ...inputProps } = props;
 
-  // this useEffect is used to generate the options for the dropdown
-  useEffect(() => {
+  const dateMonthOrYearNumbers = generateOptions(type, dateLimits);
 
-    let limitStart, limitEnd;
-    switch (type) {
-      case 'year': {
-        limitEnd = yearLimits ? yearLimits[1] : undefined;
-        limitStart = yearLimits ? yearLimits[0] : undefined;
-        break;
-      }
-      case 'month': {
-        limitEnd = monthLimits ? monthLimits[1] : undefined;
-        limitStart = monthLimits ? monthLimits[0] : undefined;
-        break;
-      }
-      case 'day': {
-        limitEnd = monthLimits ? monthLimits[1] : undefined;
-        limitStart = monthLimits ? monthLimits[0] : undefined;
-        break;
-      }
-    }
-
-    const generatedOptions = generateOptions(type, limitStart, limitEnd);
-    setInputOptions(generatedOptions);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  return <FancyDropDownSelect {...inputProps} values={inputOptions} />;
+  return <FancyDropDownSelect {...inputProps} values={dateMonthOrYearNumbers} emptySelect={true} />;
 }

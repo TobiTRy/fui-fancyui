@@ -11,7 +11,7 @@ export type IFancyDropDownSelect = IInputWrapperUserInputProps & IDropDownSelect
 // ----The Dropdown Comonent with surrounding icon, label and underline ------ //
 // --------------------------------------------------------------------------- //
 export default function FancyDropDownSelect(props: IFancyDropDownSelect) {
-  const { id, disabled,  align, handler, activeHandler,  icon, label, errorMessage, ...inputProps } = props;
+  const { id, value, placeholder, disabled, align, activeHandler, icon, label, errorMessage, ...inputProps } = props;
 
   //the states for the value and the activity of the input
   const [isActiv, setIsActive] = useState(false);
@@ -27,12 +27,13 @@ export default function FancyDropDownSelect(props: IFancyDropDownSelect) {
   };
 
   return (
-    <InputWrapper id={usedId} label={label} disabled={disabled} align={align} isActiv={isActiv} icon={icon} errorMessage={errorMessage}>
+    <InputWrapper id={usedId} placeholder={placeholder}value={value} label={label} disabled={disabled} align={align} isActiv={isActiv} icon={icon} errorMessage={errorMessage}>
       <DropDownSelect
-        id={usedId}
-        handler={handler}
-        activeHandler={activeFocusHandler}
+        placeholder={placeholder}
         disabled={disabled}
+        id={usedId}
+        value={value}
+        activeHandler={activeFocusHandler}
         align={align}
         {...inputProps}
       />
