@@ -20,7 +20,7 @@ export const ErrorMessage = styled.p`
   margin: 0;
   margin-top: ${spacingPx.xxs};
   font-size: ${fontSize.extraSmall};
-  color: ${colorPalet.red_dark};
+  color: ${colorPalet.red_light};
 `;
 
 //the input/label/underline are all wrapped in thid container
