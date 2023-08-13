@@ -1,10 +1,10 @@
+import React from 'react';
 import styled, { css } from 'styled-components';
+
 import { colorPalet, uiColors } from '../../Design/design';
 import IStyledPrefixAndPicker from '../../Interface/IStyledPrefixAndPicker.model';
 
-import React from 'react';
-
-//the underline for the input fields
+// Define the styled component for the underline
 type IStyledUnderline = IStyledPrefixAndPicker<IFancyUnderline>;
 const UnderLine = styled.i<IStyledUnderline>`
   position: absolute;
@@ -16,6 +16,7 @@ const UnderLine = styled.i<IStyledUnderline>`
   overflow: hidden;
   width: 100%;
 
+  // Define the styles for the gradient overlay
   &::before {
     content: '';
     width: 100%;
@@ -36,34 +37,23 @@ const UnderLine = styled.i<IStyledUnderline>`
       }
     }};
 
+    // Define the transition styles for the gradient overlay
     transition: 0.25s;
     transition-timing-function: cubic-bezier(0.46, 0.03, 0.52, 0.96);
   }
 `;
 
+// Define the props for the FancyInputUnderline component
 interface IFancyUnderline {
   colorState?: 'error' | 'active' | 'default';
   autoWidth?: boolean;
 }
-
+// --------------------------------------------------------------------------- //
+// --------- The underline for the input components with state style --------- //
+// --------------------------------------------------------------------------- //
 export default function FancyInputUnderline(props: IFancyUnderline) {
   const { colorState = 'default', autoWidth } = props;
 
+  // Render the FancyInputUnderline component with the appropriate props
   return <UnderLine $colorState={colorState} $autoWidth={autoWidth} />;
 }
-
-//this function generates the state behavior for the underline
-export const UnderLineFocusStyle = (Label: any, labelAlign?: 'center' | 'left') => {
-  const calcTransform = labelAlign !== 'center' ? 'translateY(-20px)' : 'translateY(-20px) translate(-50%)';
-
-  return css`
-    &:focus ~ ${Label}, &:valid ~ ${Label} {
-      color: ${uiColors.accent.main};
-      transform: ${calcTransform};
-    }
-
-    &:focus ~ ${UnderLine}::before {
-      opacity: 1;
-    }
-  `;
-};
