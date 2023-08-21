@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import Paginator from '../Paginator/Paginator';
 import { spacingPx } from '../../Design/design';

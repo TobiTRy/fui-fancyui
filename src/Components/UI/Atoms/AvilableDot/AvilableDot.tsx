@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { systemMessages } from '../../Design/design';
 import { borderRadius } from '../../Design/design';

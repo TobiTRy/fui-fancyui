@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import { styled, css } from 'styled-components';
 import { fontSize, spacingPx, uiColors } from '../../Design/design';
 
 const SpeedDailButtonSize = 60;

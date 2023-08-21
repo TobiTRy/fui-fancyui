@@ -1,6 +1,5 @@
-import styled from "styled-components";
-import { colorPalet, fontSize, spacing, spacingPx, uiColors } from "../../Design/design";
-
+import { styled } from 'styled-components';
+import { colorPalet, fontSize, spacing, spacingPx, uiColors } from '../../Design/design';
 
 //the styling for each option item
 export const Option = styled.option<{ $align?: string }>`

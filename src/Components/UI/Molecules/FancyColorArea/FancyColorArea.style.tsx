@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import { borderRadius } from '../../Design/design';
 
 //the wrapper of the color area (it wraps the color area and the color indicator)

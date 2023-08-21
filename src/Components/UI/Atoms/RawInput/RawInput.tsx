@@ -1,6 +1,5 @@
-import styled  from 'styled-components'
-import { colorPalet, fontSize } from '../../Design/design'
-
+import { styled } from 'styled-components';
+import { colorPalet, fontSize } from '../../Design/design';
 
 export type TRawInputAlign = 'left' | 'center';
 

@@ -30,10 +30,9 @@ export default function InputsRoute() {
     setPassword(value.target.value);
   };
 
-
   const testHandler2 = (value: ChangeEvent<HTMLInputElement>) => {
     console.log(value.target.value, test);
-    
+
     setTest(Number(value.target.value));
   };
 
@@ -67,6 +66,9 @@ export default function InputsRoute() {
   return (
     <DesignWrapper>
       <DesignArea title="Password Input">
+        <FancyNumberInput label="Text" onChange={testHandler2} value={test} placeholder="test45454554" errorMessage="Hiii" />
+      </DesignArea>
+      <DesignArea title="Password Input">
         <FancyPasswordInput label="Password" value={password} onChange={testHandler5} align="left" />
         <FancyPasswordInput icon={svg} label="Password" value={password} onChange={testHandler5} align="center" />
       </DesignArea>
@@ -75,16 +77,21 @@ export default function InputsRoute() {
         <FancyTextInput icon={svg} label="Text" value={text} onChange={testHandler} align="center" placeholder="test45454554" />
       </DesignArea>
       <DesignArea title="Number Input">
-        <FancyNumberInput label="Text" onChange={testHandler2} value={test} placeholder="test45454554" errorMessage="Hiii" />
         <FancyNumberInput icon={svg} label="Text" onChange={testHandler2} value={test} align="center" />
         <FancyNumberInput icon={svg} label="Text" onChange={testHandler2} value={test} align="center" disabled={true} placeholder="Hiii" />
       </DesignArea>
       <DesignArea title="Number Input AutoWidth" style={row}>
-        <FancyNumberInput label="Test" onChange={testHandler2} value={test} autoWidth={true}  />
-        <FancyNumberInput icon={svg} label="Test" onChange={testHandler2} align="center" value={test} autoWidth={true}  />
+        <FancyNumberInput label="Test" onChange={testHandler2} value={test} autoWidth={true} />
+        <FancyNumberInput icon={svg} label="Test" onChange={testHandler2} align="center" value={test} autoWidth={true} />
       </DesignArea>
       <DesignArea title="DropDown Input">
-        <FancyDropDownSelect label="DropDown" onChange={testHandler3} value={dropDown} values={['Test', 'Test2', 'Test3', 'Test3', 'Test3', 'Test3']} placeholder='Hiii' />
+        <FancyDropDownSelect
+          label="DropDown"
+          onChange={testHandler3}
+          value={dropDown}
+          values={['Test', 'Test2', 'Test3', 'Test3', 'Test3', 'Test3']}
+          placeholder="Hiii"
+        />
         <FancyDropDownSelect
           icon={svg}
           label="DropDown"

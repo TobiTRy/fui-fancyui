@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import { styled } from 'styled-components';
 import { uiColors } from "../../Design/design";
 
 export const WrapperModal = styled.div`

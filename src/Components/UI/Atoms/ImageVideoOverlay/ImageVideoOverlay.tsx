@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 
-import styled, { css } from 'styled-components';
+import { styled, css } from 'styled-components';
 import { spacingPx } from '../../Design/design';
 
 // Define the gradient options for the overlay
@@ -46,7 +46,7 @@ const Overlay = styled.div<{ $position: string }>`
       default:
         return '';
     }
-  }}; 
+  }};
 `;
 
 // Define a styled text wrapper component using styled-components
@@ -92,7 +92,7 @@ const TextWrapper = styled.div<{ $position: string }>`
       default:
         return '';
     }
-  }}; 
+  }};
 `;
 
 // Define the possible positions for the overlay

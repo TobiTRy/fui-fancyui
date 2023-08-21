@@ -1,6 +1,6 @@
 import React from 'react';
 import { uiColors } from '../../Design/design';
-import styled, { keyframes } from 'styled-components';
+import { styled, keyframes } from 'styled-components';
 
 // Define keyframe animation for the loading bar
 const loadingAnimation = keyframes`
@@ -29,7 +29,6 @@ const LoadingBar = styled.div`
   background-image: linear-gradient(90deg, transparent, ${uiColors.accent.main}, transparent);
   animation: ${loadingAnimation} 3s ease-in-out infinite; // Set the animation duration to 3s
 `;
-
 
 // --------------------------------------------------------------------------- //
 // ------------------ A Loadingbar ........................ ------------------ //

@@ -1,15 +1,15 @@
-import styled, { css } from 'styled-components';
+import { styled, css } from 'styled-components';
 import { uiColors } from '../../Design/design';
 
 const DragableThumb = css`
-    height: 30px;
-    width: 30px;
-    border-radius: 50%;
-    background: ${uiColors.accent.main};
-    cursor: ew-resize;
-    box-shadow: 0 0 8px 0 rgba(85, 85, 85, 0.516);
-    transition: background 0.1s ease-in-out;
-    border: none;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  background: ${uiColors.accent.main};
+  cursor: ew-resize;
+  box-shadow: 0 0 8px 0 rgba(85, 85, 85, 0.516);
+  transition: background 0.1s ease-in-out;
+  border: none;
 `;
 
 export const StyledRawSlider = styled.input`

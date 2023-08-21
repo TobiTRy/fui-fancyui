@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import { styled } from 'styled-components';
 import { borderRadius, spacingPx, uiColors } from "../../Design/design";
 
 export const DatePickerContainer = styled.div`

@@ -1,5 +1,5 @@
 import Color from 'color';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import { borderRadius, fontSize, uiColors } from '../../Design/design';
 
 export const Content = styled.div<{ $isBright: boolean }>`
@@ -22,11 +22,11 @@ export const Content = styled.div<{ $isBright: boolean }>`
   }
 
   &:active {
-    color: ${({$isBright}) => $isBright ? uiColors.primary.dark : uiColors.secondary.dark};
+    color: ${({ $isBright }) => ($isBright ? uiColors.primary.dark : uiColors.secondary.dark)};
   }
 
   &:hover {
-    color: ${({$isBright}) => $isBright ? uiColors.primary.dark : uiColors.secondary.dark};
+    color: ${({ $isBright }) => ($isBright ? uiColors.primary.dark : uiColors.secondary.dark)};
   }
 `;
 
@@ -50,7 +50,7 @@ export const Wrapper = styled.div<{ $fullHeight?: boolean }>`
 interface IColorDisplayColor {
   color?: string;
   opacity?: number;
-};
+}
 
 const colorDisplayColor = ({ color, opacity }: IColorDisplayColor) => {
   const checkOpacity = opacity === undefined ? 1 : opacity;

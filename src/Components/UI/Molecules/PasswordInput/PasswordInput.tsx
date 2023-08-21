@@ -1,5 +1,5 @@
 import React, { InputHTMLAttributes, useState } from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import RawInput, { TRawInputAlign } from '../../Atoms/RawInput/RawInput';
 import PasswordEye from '../../Atoms/PasswordEye/PasswordEye';

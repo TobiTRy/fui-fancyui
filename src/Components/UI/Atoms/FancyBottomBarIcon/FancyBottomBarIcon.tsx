@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import { styled, css } from 'styled-components';
 
 import { IFancyBottomBarIcon } from './FancyBottomBarIcon.model';
 import { IconTextButton, Icon, Underline } from './FancyBottomBarIcon.style';
@@ -23,7 +23,7 @@ export default function FancyBottomBarIcon(props: IFancyBottomBarIcon) {
     <ItemWrapper $secondBar={secondBar}>
       <IconTextButton $color={color} $isActive={active} disabled={disabled} onClick={handler}>
         <Icon>{icon}</Icon>
-        <Typography type='smallText'>{label}</Typography>
+        <Typography type="smallText">{label}</Typography>
         <Underline $isActive={active} />
       </IconTextButton>
     </ItemWrapper>

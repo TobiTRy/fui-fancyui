@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 //TODO: Settings: Border needs ==> Color / Borderstyle / BorderWidth / Radius
 //TODO: Shadow needs ==> Color / Strength / Vertikal / Horizontal

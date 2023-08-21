@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import { styled, css } from 'styled-components';
 
 import IStyledPrefixAndPicker from '../../Interface/IStyledPrefixAndPicker.model';
 import { IFancyTabStyle } from '../../Molecules/FancyTabSwitch/IFancyTab.model';
@@ -72,7 +72,6 @@ const generateLabelChilds = (props: Pick<ILIStyledButton, '$iconAlign'>) => {
       width: 24px;
       height: 24px;
     }
-
   `;
 };
 
@@ -84,7 +83,7 @@ const generateButtonStyle = (props: ILIStyledButton) => {
 
   return css`
     list-style: none;
-    width: ${$wide ? `100%`: `auto`};
+    width: ${$wide ? `100%` : `auto`};
 
     label {
       display: flex;
@@ -103,7 +102,6 @@ const generateButtonStyle = (props: ILIStyledButton) => {
       // generates underlying childs in this element
       ${generateLabelChilds(props)}
     }
-
 
     input {
       display: none;

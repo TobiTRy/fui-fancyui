@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import { uiColors } from '../../Design/design';
 import Typography from '../Typography/Typography';
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import DateOutput from '../../Atoms/DateOutput/DateOutput';
 import FancyVR from '../../Atoms/FancyVR/FancyVR';

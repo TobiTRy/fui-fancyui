@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import { styled } from 'styled-components';
 import { spacingPx } from "../../Design/design";
 
 export const ToastsWrapper = styled.div`

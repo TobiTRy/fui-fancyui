@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react'
 
 import FancySearchBar from '../../Components/UI/Organisms/FancySearchBar/FancySearchBar'
 
-import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper'
-import styled from 'styled-components';
+import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';
+import { styled } from 'styled-components';
 
 
 const users = [

@@ -2,7 +2,7 @@ import React from 'react';
 
 import FancyPageList from '../../Components/UI/Molecules/FancyPageList/FancyPageList';
 import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 const StyledDiv = styled.div`
   display: flex;

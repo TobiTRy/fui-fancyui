@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import Typography from '../../Atoms/Typography/Typography';
 import { spacingPx, uiColors } from '../../Design/design';

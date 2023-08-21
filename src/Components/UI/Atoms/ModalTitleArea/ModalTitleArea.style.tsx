@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { spacingPx, uiColors } from "../../Design/design";
+import { styled } from 'styled-components';
+import { spacingPx, uiColors } from '../../Design/design';
 
 export const TitleArea = styled.div`
   color: ${uiColors.primary.contrast};
@@ -21,8 +21,7 @@ export const TitleArea = styled.div`
     box-shadow: 0 0 5px ${uiColors.accent.main};
   }
 
-  h4  {
+  h4 {
     margin: ${spacingPx.sm} 0;
   }
-
-`
+`;

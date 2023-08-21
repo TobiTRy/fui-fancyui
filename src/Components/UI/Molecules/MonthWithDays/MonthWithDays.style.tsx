@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import { styled } from 'styled-components';
 
 export const DaysContainer = styled.div`
   display: grid;

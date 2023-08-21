@@ -1,16 +1,20 @@
 import React, { ChangeEvent } from 'react';
-import styled, { css } from 'styled-components';
+import { styled, css } from 'styled-components';
 import FancyTextInput from '../../Organisms/FancyTextInput/FancyTextInput';
 
 import { spacingPx, uiColors, borderRadius } from '../../Design/design';
 import SVGSearch from '../../SVGIcons/SVGSearch';
 import FancySVGAtom from '../../Atoms/FancySVGAtom/FancySVGAtom';
+import { TRawInputAlign } from '../../Atoms/RawInput/RawInput';
 
 // Styled component for the search bar
 const StyledSearchBar = styled.div<{ $isActive?: boolean }>`
   display: flex;
   align-items: center;
-  border-radius: ${({ $isActive }) => ($isActive ? `${borderRadius.large} ${borderRadius.large} 0px 0px` : borderRadius.large)}; // Set the border radius based on whether the search bar list is active
+  border-radius: ${({ $isActive }) =>
+    $isActive
+      ? `${borderRadius.large} ${borderRadius.large} 0px 0px`
+      : borderRadius.large}; // Set the border radius based on whether the search bar list is active
   gap: ${spacingPx.sm};
   z-index: 1;
 
@@ -21,15 +25,15 @@ const StyledSearchBar = styled.div<{ $isActive?: boolean }>`
 
 // Props for the SearchBar component
 interface ISearchBar {
-  searchValue?: string; // The search value
-  isActive?: boolean; // Whether the search bar list is active
-  activeHandler?: (isActive: boolean) => void; // Function to handle changes to the isActive state
-  handler?: (value: string) => void; // Function to handle changes to the search value
+  searchValue?: string; 
+  isActive?: boolean; 
+  align?: TRawInputAlign;
+  activeHandler?: (isActive: boolean) => void;
+  handler?: (value: string) => void;
 }
-
 // The SearchBar component
 export default function SearchBar(props: ISearchBar) {
-  const { activeHandler, handler, isActive, searchValue } = props;
+  const { activeHandler, handler, isActive, searchValue, align } = {...defaultProps, ...props};
 
   // Function to handle changes to the isActive state
   const focusHandler = (isFocused: boolean) => {
@@ -52,7 +56,18 @@ export default function SearchBar(props: ISearchBar) {
         {SVGSearch}
       </FancySVGAtom>
       {/* The search input */}
-      <FancyTextInput value={searchValue} ariaLabel="Searchbar" activeHandler={focusHandler} handler={(value, e) => onChangeValueHandler(e)} />
+      <FancyTextInput
+        value={searchValue}
+        placeholder="Search"
+        align={align as TRawInputAlign}
+        aria-label="Searchbar"
+        activeHandler={focusHandler}
+        onChange={onChangeValueHandler}
+      />
     </StyledSearchBar>
   );
+}
+
+const defaultProps = {
+  align: 'center',
 }

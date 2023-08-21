@@ -1,6 +1,6 @@
-import styled, { keyframes } from 'styled-components';
+import { styled, keyframes } from 'styled-components';
 
-import { borderRadius, fontSize, systemMessages ,spacingPx } from '../../Design/design';
+import { borderRadius, fontSize, systemMessages, spacingPx } from '../../Design/design';
 
 type ToastMessageProps = 'success' | 'warning' | 'error';
 
@@ -39,7 +39,6 @@ export const Headline = styled.div`
   }
 `;
 
-
 // animation for timer line
 const timerAnimation = keyframes`
   0% {
@@ -60,7 +59,7 @@ export const TimerLine = styled.div<TimerLineProps>`
 `;
 
 export const CloseButton = styled.button<IToastMessage>`
-  padding: 0  ${spacingPx.sm} 2px;
+  padding: 0 ${spacingPx.sm} 2px;
   color: ${({ $messageType }) => systemMessages[$messageType].light};
   background: none;
   border: none;

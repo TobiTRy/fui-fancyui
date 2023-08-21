@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import SearchBar from '../../Molecules/SearchBar/SearchBar';
 import SearchBarList from '../../Molecules/SearchBarList/SearchBarList';

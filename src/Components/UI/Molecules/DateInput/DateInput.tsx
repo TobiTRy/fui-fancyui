@@ -1,5 +1,5 @@
 import React, { ChangeEvent, InputHTMLAttributes } from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import RawInput from '../../Atoms/RawInput/RawInput';
 import { uiColors } from '../../Design/design';

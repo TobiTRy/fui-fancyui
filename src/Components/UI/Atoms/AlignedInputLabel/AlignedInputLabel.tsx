@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import { styled } from 'styled-components'
 import InputLabel from '../InputLabel/InputLabel';
 import { spacingPx, uiColors } from '../../Design/design';
 

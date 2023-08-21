@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import { styled } from 'styled-components';
 import InputStatus from "../../Design/Interfaces/IStatus";
 import { colorPalet, spacingPx } from "../../Design/design";
 

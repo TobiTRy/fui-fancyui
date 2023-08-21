@@ -1,6 +1,6 @@
-import styled, { css } from "styled-components";
-import IStatus from "../../Design/Interfaces/IStatus";
-import { colorPalet, fontSize, spacingPx, uiColors } from "../../Design/design";
+import { styled, css } from 'styled-components';
+import IStatus from '../../Design/Interfaces/IStatus';
+import { colorPalet, fontSize, spacingPx, uiColors } from '../../Design/design';
 
 export const WarpperComponent = styled.div`
   display: flex;
@@ -13,7 +13,7 @@ export const MessageContainer = styled.div`
   flex-direction: column;
   align-items: center;
   margin-top: ${spacingPx.sm};
-`
+`;
 
 export const Message = styled.p<{ $status?: boolean }>`
   color: ${uiColors.secondary.main};
@@ -34,8 +34,7 @@ export const Message = styled.p<{ $status?: boolean }>`
     `}
 `;
 
-
-export const Container = styled.div<{ $status?: Omit<IStatus, 'isLoading'>}>`
+export const Container = styled.div<{ $status?: Omit<IStatus, 'isLoading'> }>`
   display: flex;
   flex-direction: column;
   align-items: center;
