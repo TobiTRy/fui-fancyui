@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 // --------------------------------------------------------------------------- //
 // --------------- The main label design for the input elements -------------- //

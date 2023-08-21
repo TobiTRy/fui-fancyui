@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import {styled, css } from "styled-components";
 import { borderRadius, spacingPx, uiColors } from "../../Design/design";
 
 const calcBarWidthandSpacing = (width?: string, spacingLeftRight?: string) => { 

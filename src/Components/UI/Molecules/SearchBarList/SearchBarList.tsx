@@ -1,18 +1,14 @@
 import React from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import FancyCard from '../../Atoms/FancyCard/FancyCard';
 
-import LoadingSpinner from '../../Atoms/FancyLoadingSpinner/FancyLoadingSpinner';
-
-import { borderRadius, spacingPx } from '../../Design/design';
+import { borderRadius } from '../../Design/design';
 
 // Styled component for the search bar list
 const StyledSearchBarList = styled.div`
   border-radius: ${borderRadius.extraLarge};
   z-index: 100;
 `;
-
-
 
 // Styled component for the inner card of the search bar list
 const InnerCard = styled.div`

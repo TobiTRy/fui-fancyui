@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 
 import Color from 'color';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import ColorDisplay from '../../Atoms/ColorDisplay/ColorDisplay';
 import ColorArea from '../../Molecules/FancyColorArea/FancyColorArea';
@@ -11,8 +11,6 @@ import FancyColorOutput from '../../Molecules/FancyColorOutput/FancyColorOutput'
 import { emitSelectedColorChange } from './colorPickerUtils';
 import { spacingPx } from '../../Design/design';
 import { IColorFormat } from '../../HelperFunctions/variables/colorFormats';
-
-import { useColorPickerStore } from './FancyColorPicker.state';
 
 const Wrapper = styled.div`
   width: 100%;

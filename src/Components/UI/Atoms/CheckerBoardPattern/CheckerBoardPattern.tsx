@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import { styled } from 'styled-components';
 
 const CheckerBoardPattern = styled.div`
   position: absolute;
@@ -10,6 +10,6 @@ const CheckerBoardPattern = styled.div`
   background-size: 14px 14px;
   background-position: 0 0, 0 7px, 7px -7px, -7px 0px;
   opacity: 0.05;
-  `;
+`;
 
 export default CheckerBoardPattern;

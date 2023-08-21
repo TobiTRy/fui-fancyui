@@ -1,5 +1,5 @@
 import React, { forwardRef, useState } from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import { uiColors, spacingPx, fontSize } from '../../Design/design';
 
 // the style for a single input

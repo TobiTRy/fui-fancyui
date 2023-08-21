@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { IcalcIconPaddingAsProps } from '../../HelperFunctions/designFunctions/generateIconPadding';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import IStyledPrefixAndOmiter from '../../Interface/IStyledPrefixAndOmiter.model';
 
 type StyledFancyLi = IStyledPrefixAndOmiter<IFancyLi, 'children'>;

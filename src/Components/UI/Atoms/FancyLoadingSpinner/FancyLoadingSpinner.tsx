@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { keyframes } from 'styled-components';
+import { styled, keyframes } from 'styled-components';
 import { uiColors } from '../../Design/design';
 
 // Define keyframe animations for the spinner
@@ -80,7 +80,7 @@ const StyledFancyLoadingSpinner = styled.div<{ $size?: keyof typeof sizes; $thic
   border-radius: 50%;
   width: 100%;
   aspect-ratio: 1 / 1;
-`	;
+`;
 
 // Define the props for the FancyLoadingSpinner component
 // --------------------------------------------------------------------------- //

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { FancyButton } from '../../Molecules/FancyButton';
 import { uiColors, spacingPx } from '../../Design/design';
@@ -34,7 +34,7 @@ const generateNumbers = (totalPages: number, currentPage: number, pageLimit = 3)
   }
 
   if (endPage > totalPages) {
-    startPage -= (endPage - totalPages);
+    startPage -= endPage - totalPages;
     endPage = totalPages;
   }
 
@@ -70,7 +70,7 @@ export default function PageNumberList(props: IPageNumberList) {
   const { totalPages, currentPage, onClick, pageLimits } = props;
 
   // Generate an array of page numbers to display
-  const NumberArray = generateNumbers(totalPages, currentPage, pageLimits)
+  const NumberArray = generateNumbers(totalPages, currentPage, pageLimits);
 
   // Render the PageNumberList component with the appropriate props
   return (

@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import { styled } from 'styled-components';
 
 import IHeadLine from './FancyModalHeadLine.model';
 import Typography from '../../Atoms/Typography/Typography';

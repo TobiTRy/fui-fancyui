@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import { styled } from 'styled-components';
 import AlignedInputLabel from "../../Atoms/AlignedInputLabel/AlignedInputLabel";
 import { spacingPx } from "../../Design/design";
 

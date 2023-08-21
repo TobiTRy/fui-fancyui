@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import {  spacing, uiColors } from "../../Design/design";
-import { disabledStyle } from "../../HelperFunctions/designFunctions/disableStyle";
+import { styled } from 'styled-components';
+import { spacing, uiColors } from '../../Design/design';
+import { disabledStyle } from '../../HelperFunctions/designFunctions/disableStyle';
 
 export const IconTextButton = styled.button<{ $color?: string; $isActive?: boolean; $disabled?: boolean }>`
   position: relative;
@@ -17,7 +17,6 @@ export const IconTextButton = styled.button<{ $color?: string; $isActive?: boole
   transition: all 0.3s ease-in-out;
   ${({ disabled }) => disabled && disabledStyle}
   padding-bottom: ${spacing.xs + 2 + 'px'};
-
 
   @media (hover: hover) {
     &:hover {

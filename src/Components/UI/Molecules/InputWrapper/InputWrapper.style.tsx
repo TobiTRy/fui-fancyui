@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import { styled, css } from 'styled-components';
 import { disabledStyle } from '../../HelperFunctions/designFunctions/disableStyle';
 import { spacingPx, fontSize, colorPalet, spacing } from '../../Design/design';
 

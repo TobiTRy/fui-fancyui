@@ -1,7 +1,7 @@
 import React from 'react';
 
 import SimpleHeader from '../../Molecules/SimpleHeader/SimpleHeader';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import { spacingPx } from '../../Design/design';
 
 import {ISimpleHeader} from '../../Molecules/SimpleHeader/SimpleHeader.model';

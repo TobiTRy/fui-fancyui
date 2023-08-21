@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import { styled, css } from 'styled-components';
 
 import { colorPalet, uiColors } from '../../Design/design';
 import IStyledPrefixAndPicker from '../../Interface/IStyledPrefixAndPicker.model';

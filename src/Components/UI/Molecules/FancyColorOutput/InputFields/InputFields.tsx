@@ -34,7 +34,7 @@ export default function InputFields({currentColorObject, handler }:IInputFields)
       {/* if the color is a string render a input field for the HEX Colors */}
       {typeof currentColorObject?.color === 'string' ? (
         <ContainerInputs>
-          <FancyTextInput name='color' value={currentColorObject.color} align='center' handler={handleInputChange}/>
+          <FancyTextInput name='color' value={currentColorObject.color} align='center' onChange={handleInputChange}/>
           <Typography type='inlineElement' variant='smallText'>{currentColorObject.type}</Typography>
         </ContainerInputs>
       ) : (

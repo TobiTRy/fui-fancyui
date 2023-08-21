@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { animated, useSpring } from '@react-spring/web';
 
@@ -31,7 +31,7 @@ interface ISimpleDialog {
 }
 export default function SimpleDialog({ isOpen, children }: ISimpleDialog) {
   const [shouldRender, setRender] = useState(isOpen);
-  
+
   const fade = useSpring({
     transform: isOpen ? 'translate(-50%, -50%)' : 'translate(-50%, -40%)',
     opacity: isOpen ? 1 : 0,
@@ -42,6 +42,9 @@ export default function SimpleDialog({ isOpen, children }: ISimpleDialog) {
     if (isOpen) setRender(true);
   }, [isOpen]);
 
-
-  return shouldRender ? <StyledDialog as={animated.div} style={fade}>{children}</StyledDialog> : null;
+  return shouldRender ? (
+    <StyledDialog as={animated.div} style={fade}>
+      {children}
+    </StyledDialog>
+  ) : null;
 }

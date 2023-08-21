@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { animated, useSpring } from '@react-spring/web';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 const BackdropContainer = styled.div`
   position: fixed;

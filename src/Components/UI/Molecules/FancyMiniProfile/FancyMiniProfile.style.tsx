@@ -1,7 +1,6 @@
-import styled, { css } from 'styled-components';
+import { styled, css } from 'styled-components';
 import { borderRadius, spacingPx, uiColors } from '../../Design/design';
 import { TTextAlign } from './FancyMiniProfile';
-
 
 // this container wraps the whole component
 interface IWrapper {
@@ -16,7 +15,6 @@ export const Wrapper = styled.div<IWrapper>`
   background-color: ${uiColors.primary.dark};
   border-radius: ${borderRadius.complete};
 `;
-
 
 // this container wraps the texts (Heading, Subheading)
 interface ITextWrapper {

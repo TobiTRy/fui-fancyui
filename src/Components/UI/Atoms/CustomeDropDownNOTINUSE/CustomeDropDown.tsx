@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import { fontSize, spacing, uiColors } from '../../Design/design';
 
 const { primary, accent, secondary } = uiColors;
@@ -22,12 +22,12 @@ const DropDownTrigger = styled.div`
 `;
 
 // Styled dropdown menu
-const DropDownMenu = styled.div<{$isOpen: boolean}>`
-  display: ${props => (props.$isOpen ? "block" : "none")};
+const DropDownMenu = styled.div<{ $isOpen: boolean }>`
+  display: ${(props) => (props.$isOpen ? 'block' : 'none')};
   position: absolute;
   background-color: ${primary.dark};
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 `;
 
@@ -47,12 +47,9 @@ interface CustomDropdownProps {
   onSelect?: (value: string) => void;
 }
 
-
-
-
 //This is not a Finished component ist for later replacinge the HTML Select with a custom Dropdown (Searchselect, checkboxselect, etc.)
 const CustomDropdown: React.FC<CustomDropdownProps> = (props) => {
-  const { values, onSelect } = {...defaultProps, ...props};
+  const { values, onSelect } = { ...defaultProps, ...props };
   const [isOpen, setIsOpen] = useState(false);
   const [selectedValue, setSelectedValue] = useState<string | null>(null);
 
@@ -64,9 +61,7 @@ const CustomDropdown: React.FC<CustomDropdownProps> = (props) => {
 
   return (
     <DropDownContainer>
-      <DropDownTrigger onClick={() => setIsOpen(!isOpen)}>
-        {selectedValue || "Select an item"}
-      </DropDownTrigger>
+      <DropDownTrigger onClick={() => setIsOpen(!isOpen)}>{selectedValue || 'Select an item'}</DropDownTrigger>
       <DropDownMenu $isOpen={isOpen}>
         {values!.map((value, index) => (
           <DropDownItem key={index} onClick={() => handleSelect(value)}>
@@ -80,7 +75,6 @@ const CustomDropdown: React.FC<CustomDropdownProps> = (props) => {
 
 export default CustomDropdown;
 
-
 const defaultProps: CustomDropdownProps = {
-  values: ['test', 'test2', 'test3' ],
-}
+  values: ['test', 'test2', 'test3'],
+};

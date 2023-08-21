@@ -1,5 +1,5 @@
-import styled, { css } from "styled-components";
-import { spacingPx, spacing ,uiColors } from "../../Design/design";
+import { styled, css } from 'styled-components';
+import { spacingPx, uiColors } from '../../Design/design';
 
 //this calculates the spacing from left and right or nothing
 const calcBarWidthandSpacing = (width?: string, spacingLeftRight?: string) => {
@@ -48,5 +48,4 @@ export const WrapperContent = styled.div`
   flex-direction: column;
   align-items: center;
   gap: ${spacingPx.md};
-
-`
+`;

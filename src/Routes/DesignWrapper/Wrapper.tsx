@@ -1,4 +1,4 @@
-import styled, { CSSProp } from 'styled-components';
+import { styled, CSSProp } from 'styled-components';
 import React from 'react';
 
 export const DesignWrapper = styled.section`
@@ -9,43 +9,40 @@ export const DesignWrapper = styled.section`
   align-items: center;
 `;
 
-const Area = styled.div<{$style: CSSProp}>`
+const Area = styled.div<{ $style: CSSProp }>`
   width: 90%;
   display: flex;
   flex-direction: column;
   color: white;
-  
+
   & > h1 {
     text-align: center;
     margin-top: 50px;
     margin-bottom: 24px;
   }
-  
+
   & > div {
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     gap: 24px;
-    
-    ${({$style}) => $style}
+
+    ${({ $style }) => $style}
   }
-  
-  
+
   @media (min-width: 768px) {
     & > div {
       justify-content: space-around;
       display: flex;
       flex-direction: row;
       gap: 24px;
-      ${({$style}) => $style}
+      ${({ $style }) => $style}
     }
   }
 `;
 
-export function DesignArea({ children, title, style }: { title: string; children: React.ReactNode, style?: CSSProp }) {
-
-
+export function DesignArea({ children, title, style }: { title: string; children: React.ReactNode; style?: CSSProp }) {
   return (
     <Area $style={style}>
       <h2>{title}</h2>

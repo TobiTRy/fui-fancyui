@@ -7,6 +7,7 @@ import FancyInputUnderline from '../../Atoms/InputUnderline/InputUnderline';
 import FancySVGAtom from '../../Atoms/FancySVGAtom/FancySVGAtom';
 import { spacing } from '../../Design/design';
 import { AnimatedInputLabel } from '../../Atoms/AnimatedLabel/AnimatedLabel.style';
+import { TRawInputAlign } from '../../Atoms/RawInput/RawInput';
 
 // Define the styles for the icon
 const iconStyle = css`
@@ -45,7 +46,7 @@ export interface IInputWrapper {
   errorMessage?: string;
   icon?: JSX.Element;
   value?: string | number | readonly string[] | undefined;
-  align?: 'left' | 'center';
+  align?: TRawInputAlign;
   autoWidth?: boolean;
   underline?: boolean;
   placeholder?: string;

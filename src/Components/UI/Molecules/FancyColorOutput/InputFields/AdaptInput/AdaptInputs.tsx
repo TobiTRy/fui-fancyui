@@ -67,13 +67,13 @@ export default function AdaptInputs(props: IAdapedInput) {
       {colorObject && (
         <FancyNumberInput
           align="center"
-          ariaLabel={ariaLabel}
+          aria-label={ariaLabel}
           name={inputLetter}
-          minValue={colorObject.min}
-          maxValue={colorObject.max}
+          min={colorObject.min}
+          max={colorObject.max}
           step={colorObject.step}
           value={value.toString()}
-          handler={handler}
+          onChange={handler}
         />
       )}
     </>

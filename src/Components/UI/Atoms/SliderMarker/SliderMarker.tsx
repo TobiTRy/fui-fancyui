@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import { borderRadius } from '../../Design/design';
 
 export const WrapperMarker = styled.div`

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Slot, { ISlot } from '../../Atoms/Slot/Slot';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 const Wrapper = styled.div`
   position: relative;

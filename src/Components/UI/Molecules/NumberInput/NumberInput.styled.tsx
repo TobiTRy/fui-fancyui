@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import RawInput from '../../Atoms/RawInput/RawInput';
 import IStyledPrefixAndPicker from '../../Interface/IStyledPrefixAndPicker.model';
 import { INumberInput } from './NumberInput';

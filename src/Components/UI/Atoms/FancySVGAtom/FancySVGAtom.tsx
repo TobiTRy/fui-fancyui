@@ -1,9 +1,9 @@
 import React from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import { colorPalet, uiColors } from '../../Design/design';
 import { ISVGAtom, IStyledSVGAtom, sizes } from './FancySVGAtom.model';
 
-const calcIconColor = ($isActive?: boolean, errorMessage?: string | undefined) : string => {
+const calcIconColor = ($isActive?: boolean, errorMessage?: string | undefined): string => {
   if (!errorMessage) {
     return $isActive ? uiColors.accent.main : uiColors.secondary.darkest;
   } else {
@@ -17,7 +17,7 @@ const StyledSVG = styled.i<IStyledSVGAtom>`
   align-items: center;
   width: ${({ $size }) => sizes[$size!]};
   aspect-ratio: 1/1;
-  color: ${({ $isActive, $errorMessage, $isPassive }) => !$isPassive && calcIconColor($isActive, $errorMessage) };
+  color: ${({ $isActive, $errorMessage, $isPassive }) => !$isPassive && calcIconColor($isActive, $errorMessage)};
   transition: color 0.3s ease-in-out;
   ${({ $externalStyle }) => $externalStyle};
 
@@ -31,10 +31,17 @@ const StyledSVG = styled.i<IStyledSVGAtom>`
 // --------- This is a wrapper for SVGs to wrap them and style them ---------- //
 // --------------------------------------------------------------------------- //
 export default function FancySVGAtom(props: ISVGAtom) {
-  const { children, isPassive, size, isActive, errorMessage, externalStyle, ariaLabel } = {...defaultProps,...props};
+  const { children, isPassive, size, isActive, errorMessage, externalStyle, ariaLabel } = { ...defaultProps, ...props };
 
   return (
-    <StyledSVG $size={size} $isPassive={isPassive} $isActive={isActive} $errorMessage={errorMessage} $externalStyle={externalStyle} aria-label={ariaLabel}>
+    <StyledSVG
+      $size={size}
+      $isPassive={isPassive}
+      $isActive={isActive}
+      $errorMessage={errorMessage}
+      $externalStyle={externalStyle}
+      aria-label={ariaLabel}
+    >
       {children}
     </StyledSVG>
   );
@@ -44,4 +51,4 @@ const defaultProps: ISVGAtom = {
   size: 'medium',
   isPassive: false,
   isActive: true,
-}
+};

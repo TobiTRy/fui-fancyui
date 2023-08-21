@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import { uiColors } from '../../Design/design';
 
 // Define a styled component for the progress bar
@@ -11,7 +11,7 @@ const StyledProgressBar = styled.progress`
   overflow: hidden; // This helps to apply the border-radius
   background-color: ${uiColors.secondary.darkest};
   color: ${uiColors.accent.main}; // This sets the color of the progress bar
-  transition: all 0.3s ease-out; 
+  transition: all 0.3s ease-out;
   // For Webkit browsers like Chrome and Safari
   &::-webkit-progress-bar {
     border-radius: 10px;
@@ -34,13 +34,13 @@ export interface IProgressBar {
   progress?: number;
   maxValue?: number;
   id?: string;
-} 
+}
 
 // --------------------------------------------------------------------------- //
 // ---------- A Simple Progressbar Atom to restyle the progressbar ----------- //
 // --------------------------------------------------------------------------- //
 export default function ProgressBar(props: IProgressBar) {
   const { progress, maxValue, id } = props;
-  
+
   return <StyledProgressBar id={id} value={progress} max={maxValue || 100} />;
 }

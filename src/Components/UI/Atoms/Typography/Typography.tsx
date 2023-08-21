@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import styled, { CSSProp, css } from 'styled-components';
+import { styled, CSSProp, css } from 'styled-components';
 
 import { fontSizeVariants } from './TypographyStyleVariants';
 
@@ -60,14 +60,12 @@ const ComponentObj = {
   `,
 };
 
-
 const generateStyle = (externalStyle: CSSProp, fontWeight: 'normal' | 'bold' | undefined) => {
   return css`
     ${externalStyle};
     font-weight: ${fontWeight};
   `;
 };
-
 
 export interface ITypography {
   type: keyof typeof ComponentObj;

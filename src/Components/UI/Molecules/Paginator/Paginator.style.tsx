@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import { styled, css } from 'styled-components';
 import { spacing, spacingPx } from '../../Design/design';
 
 // The Paginator Wrapper that wraps the hole components
