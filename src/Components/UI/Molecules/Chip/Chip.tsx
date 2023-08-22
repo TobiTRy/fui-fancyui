@@ -31,7 +31,7 @@ type IChipProps = IChipPropsWithXButton | IChipPropsWithoutXButton;
 
 // Define the Chip component
 export default function Chip(props: IChipProps) {
-  const { label, xButton, onDelete, icon, image, onClick } = props;
+  const { label, xButton, onDelete, icon, image, onClick } = { ...defaultProps, ...props };
 
   // Define a function to calculate the spacing position for the chip
   const clacPosition = (): TSpacingPosition => {
@@ -47,7 +47,7 @@ export default function Chip(props: IChipProps) {
 
   // Render the Chip component with the appropriate props
   return (
-    <StyledChip onClick={onClick} $spacingPosition={getCalcPosition}>
+    <StyledChip as={'button'} onClick={onClick} $spacingPosition={getCalcPosition}>
       {image && (
         <WrapperImage>
           <img src={image} alt="chip" />
@@ -64,10 +64,29 @@ export default function Chip(props: IChipProps) {
       </Typography>
 
       {xButton && (
-        <StyledXButton onClick={onDelete}>
+        <StyledXButton
+          onClick={(e) => {
+            e.stopPropagation(); 
+            onDelete && onDelete();
+          }}
+        >
           <SVGXCircle />
         </StyledXButton>
       )}
     </StyledChip>
   );
 }
+
+// Define the default props for the Chip component
+const defaultProps = {
+  xButton: true,
+  label: 'Test',
+  onClick: () => {
+    console.log('onClick');
+  },
+  onDelete: () => {
+    console.log('onDelete');
+  },
+  icon: null,
+  image: null,
+};

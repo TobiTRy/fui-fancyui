@@ -46,8 +46,11 @@ export const StyledXButton = styled.button`
 // Define the styled component for the chip
 export const StyledChip = styled.div<{ $spacingPosition?: TSpacingPosition }>`
   ${({ $spacingPosition }) => GenerateSpacing($spacingPosition)}
+  border: none;
+  cursor: pointer;
   display: flex;
   height: 32px;
+  color: ${uiColors.secondary.main};
   justify-content: space-between;
   align-items: center;
   width: fit-content;
