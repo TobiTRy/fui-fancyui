@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Chip from '../../Components/UI/Atoms/Chip/Chip';
+import Chip from '../../Components/UI/Molecules/Chip/Chip';
 
 import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
 
