@@ -11,18 +11,18 @@ interface IChipPropsBase {
   label: string;
   icon?: React.ReactNode;
   image?: string;
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 // Define the interface for the chip props with an X button
 interface IChipPropsWithXButton extends IChipPropsBase {
-  xButton: true;
+  deleteButton: true;
   onDelete: () => void;
 }
 
 // Define the interface for the chip props without an X button
 interface IChipPropsWithoutXButton extends IChipPropsBase {
-  xButton?: false;
+  deleteButton?: false;
   onDelete?: never;
 }
 
@@ -31,23 +31,23 @@ type IChipProps = IChipPropsWithXButton | IChipPropsWithoutXButton;
 
 // Define the Chip component
 export default function Chip(props: IChipProps) {
-  const { label, xButton, onDelete, icon, image, onClick } = { ...defaultProps, ...props };
+  const { label, deleteButton, onDelete, icon, image, onClick } = { ...defaultProps, ...props };
 
   // Define a function to calculate the spacing position for the chip
   const clacPosition = (): TSpacingPosition => {
-    if (icon && xButton) return 'booth';
-    if (image && xButton) return 'right';
-    if (xButton) return 'booth';
+    if (icon && deleteButton) return 'booth';
+    if (image && deleteButton) return 'right';
+    if (deleteButton) return 'booth';
     if (icon) return 'booth';
     return 'booth';
   };
 
   // Calculate the spacing position for the chip
   const getCalcPosition = clacPosition();
-
+  
   // Render the Chip component with the appropriate props
   return (
-    <StyledChip as={'button'} onClick={onClick} $spacingPosition={getCalcPosition}>
+    <StyledChip as={props.onClick ? 'button' : 'div'} onClick={onClick} $spacingPosition={getCalcPosition}>
       {image && (
         <WrapperImage>
           <img src={image} alt="chip" />
@@ -60,13 +60,13 @@ export default function Chip(props: IChipProps) {
       )}
 
       <Typography type="smallText" variant="content">
-        {label || 'Test'}
+        {label}
       </Typography>
 
-      {xButton && (
+      {deleteButton && (
         <StyledXButton
           onClick={(e) => {
-            e.stopPropagation(); 
+            e.stopPropagation();
             onDelete && onDelete();
           }}
         >
@@ -79,7 +79,7 @@ export default function Chip(props: IChipProps) {
 
 // Define the default props for the Chip component
 const defaultProps = {
-  xButton: true,
+  deleteButton: true,
   label: 'Test',
   onClick: () => {
     console.log('onClick');

@@ -8,7 +8,7 @@ export default function ChipsRoute() {
   return (
     <DesignWrapper>
       <DesignArea title='Chip'>
-        <Chip />
+        <Chip label='Heyyjoo'/>
       </DesignArea>
     </DesignWrapper>
   );
