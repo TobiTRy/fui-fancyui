@@ -31,14 +31,7 @@ type IChipProps = IChipPropsWithXButton | IChipPropsWithoutXButton;
 
 // Define the Chip component
 export default function Chip(props: IChipProps) {
-  const {
-    label,
-    xButton = true,
-    onDelete,
-    icon,
-    image = '',
-    onClick,
-  } = props;
+  const { label, xButton, onDelete, icon, image, onClick } = props;
 
   // Define a function to calculate the spacing position for the chip
   const clacPosition = (): TSpacingPosition => {
