@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import { simpleColorTransition } from "../../Design/simpleTransition";
 import { borderRadius, spacing, spacingPx, uiColors } from "../../Design/design";
 
 // Define the type for the spacing position
@@ -36,6 +37,11 @@ export const StyledXButton = styled.button`
   display: flex;
   align-items: center;
   margin-left: ${spacing.xs + 2 + 'px'};
+  ${simpleColorTransition};
+
+  &:hover {
+    color: ${uiColors.secondary.main};
+  }
 
   svg {
     width: 14px;
