@@ -50,13 +50,16 @@ export const colorPalet = {
   // darkblue_dark: '#17131e',
   // #110E18 // #17131e // #00050d
 
-  green_dark: '#161c22f2',
+  green_background: '#161c22f2',
+  green_dark: '#17815f',
   green_light: '#1ea97c', //'#e4f8f0',
 
-  red_dark: '#170c0cf2',
+  red_backGround: '#170c0cf2',
+  red_dark: '#8b1c1c',
   red_light: '#ce2222',
 
-  yellow_dark: '#131312f2',
+  yellow_background: '#131312f2',
+  yellow_dark: '#c96512',
   yellow_light: '#f67911',
 
   //TODO: REMOVE ME OR REPLACE ME
@@ -214,18 +217,21 @@ export const uiColors = {
 };
 
 
-export type IUiColorsSystemMessageTypes = 'success' | 'warning' | 'error';
+export type IUiColorsSystemMessageTypes = keyof typeof systemMessages;
 // colors for different types of (success, warning, error)
 export const systemMessages = {
   success: {
+    backGround: colorPalet.green_background,
     dark: colorPalet.green_dark,
     light: colorPalet.green_light,
   },
   warning: {
+    backGround: colorPalet.yellow_background,
     dark: colorPalet.yellow_dark,
     light: colorPalet.yellow_light,
   },
   error: {
+    backGround: colorPalet.red_backGround,
     dark: colorPalet.red_dark,
     light: colorPalet.red_light,
   },
