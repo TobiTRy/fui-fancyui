@@ -13,6 +13,7 @@ const gradientOptions = {
 const Wrapper = styled.div`
   position: relative;
   overflow: hidden;
+  line-height: 0;
 `;
 
 // Define a styled overlay component using styled-components
