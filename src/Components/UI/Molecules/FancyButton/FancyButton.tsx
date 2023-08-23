@@ -1,10 +1,16 @@
 import React from 'react';
-import { styled } from 'styled-components';
-import { IFancyButton } from './IFancyButton.model';
+import { css, keyframes, styled } from 'styled-components';
+import { IFancyButtonProps } from './IFancyButton.model';
 
 import generateThemeItem, { IGenerateThemeItem } from '../../HelperFunctions/designFunctions/generateThemeItem';
 import FancySVGAtom from '../../Atoms/FancySVGAtom/FancySVGAtom';
 import Typography from '../../Atoms/Typography/Typography';
+import SVGLoadingArrows from '../../SVGIcons/SVGLoadingArrows';
+
+const loadingAnimation = keyframes`
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+`;
 
 //this creates the button component and handles the style via generateButton
 const Button = styled.button<IGenerateThemeItem>`
@@ -12,8 +18,11 @@ const Button = styled.button<IGenerateThemeItem>`
 `;
 
 //the main react component to generate the fancyButton
-export default function FancyButton(props: IFancyButton) {
-  const { icon, label, size, onClick, disabled, wide, design, align, color, hoverColor, outlined, roundedCompletly } = {...defaultProps, ...props};
+export default function FancyButton(props: IFancyButtonProps) {
+  const { icon, label, size, wide, design, align, color, hoverColor, outlined, roundedCompletly, isLoading, ...htmlButtonProps } = {
+    ...defaultProps,
+    ...props,
+  };
 
   return (
     <Button
@@ -28,17 +37,32 @@ export default function FancyButton(props: IFancyButton) {
       $label={label}
       $outlined={outlined}
       type="button"
-      onClick={onClick}
-      disabled={disabled}
       aria-label={label ? label : 'Switch'}
+      {...htmlButtonProps}
     >
-      {icon && <FancySVGAtom size={size} isPassive>{icon}</FancySVGAtom>}
-      {label && <Typography type='button'>{label}</Typography>}
+      {isLoading && (
+        <FancySVGAtom
+          size={size}
+          isPassive
+          externalStyle={css`
+            animation: ${loadingAnimation} 2s infinite linear;
+            padding-right: 0 !important;
+          `}
+        >
+          <SVGLoadingArrows />
+        </FancySVGAtom>
+      )}
+      {(icon && !isLoading) && (
+        <FancySVGAtom size={size} isPassive>
+          {icon}
+        </FancySVGAtom>
+      )}
+      {(label && !isLoading) && <Typography type="button">{label}</Typography>}
     </Button>
   );
 }
 
-const defaultProps: IFancyButton = {
+const defaultProps: IFancyButtonProps = {
   design: 'accent',
   size: 'large',
   align: 'center',

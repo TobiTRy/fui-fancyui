@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';
 import FancyButton from '../../Components/UI/Molecules/FancyButton/FancyButton';
@@ -11,6 +11,8 @@ const Icon = (
 );
 
 export default function ButtonRoute() {
+  const [isLoading, setIsLoading] = useState(false);
+
   const backgroundColor = css`
     background-color: #235179;
     padding: 1rem;
@@ -51,6 +53,10 @@ export default function ButtonRoute() {
         <FancyButton icon={Icon} label="Button" design="secondary" outlined />
         <FancyButton icon={Icon} label="Button" design="accent" outlined />
         <FancyButton icon={Icon}  label="Button" design="transparent" outlined />
+      </DesignArea>
+      <DesignArea title="Loading Buttons" style={backgroundColor}>
+        <FancyButton icon={Icon} label="Button" size='small' isLoading={isLoading} onClick={() => setIsLoading(true)} design="primary" outlined />
+        <FancyButton icon={Icon} label="Button" isLoading={isLoading} onClick={() => setIsLoading(false)} design="secondary" outlined />
       </DesignArea>
     </DesignWrapper>
   );

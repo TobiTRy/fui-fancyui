@@ -1,5 +1,10 @@
-export interface IFancyButton {
+import { ButtonHTMLAttributes } from "react";
+
+type NativeButtonAttributes = ButtonHTMLAttributes<HTMLButtonElement>;
+
+type IFancyButton = {
   size?: "small" | "medium" | "large";
+  isLoading?: boolean;
   wide?: boolean; 
   design?: "primary" | "secondary" | "accent" | "transparent";
   roundedCompletly?: boolean;
@@ -9,7 +14,7 @@ export interface IFancyButton {
   label?: string;
   outlined?: boolean;
   icon?: JSX.Element;
-  disabled?: boolean;
-  ariaLabel?: string;
   onClick?: () => void;
 }
+
+export type IFancyButtonProps = IFancyButton & NativeButtonAttributes;
