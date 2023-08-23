@@ -23,7 +23,7 @@ export const Container = styled.div<IToastMessage>`
   color: ${({ $messageType }) => systemMessages[$messageType].light};
   border-radius: ${borderRadius.small};
   padding: ${spacingPx.lg};
-  background-color: ${({ $messageType }) => systemMessages[$messageType].dark};
+  background-color: ${({ $messageType }) => systemMessages[$messageType].backGround};
   border-left: 4px solid ${({ $messageType }) => systemMessages[$messageType].light};
   box-sizing: border-box;
 `;
