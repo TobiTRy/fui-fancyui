@@ -19,7 +19,7 @@ const Button = styled.button<IGenerateThemeItem>`
 
 //the main react component to generate the fancyButton
 export default function FancyButton(props: IFancyButtonProps) {
-  const { icon, label, size, wide, design, align, color, hoverColor, outlined, roundedCompletly, loading, ...htmlButtonProps } = {
+  const { icon, label, size, wide, design, align, color, hoverColor, outlined, roundedCompletly, isLoading, ...htmlButtonProps } = {
     ...defaultProps,
     ...props,
   };
@@ -40,7 +40,7 @@ export default function FancyButton(props: IFancyButtonProps) {
       aria-label={label ? label : 'Switch'}
       {...htmlButtonProps}
     >
-      {loading && (
+      {isLoading && (
         <FancySVGAtom
           size={size}
           isPassive
@@ -52,12 +52,12 @@ export default function FancyButton(props: IFancyButtonProps) {
           <SVGLoadingArrows />
         </FancySVGAtom>
       )}
-      {(icon && !loading) && (
+      {(icon && !isLoading) && (
         <FancySVGAtom size={size} isPassive>
           {icon}
         </FancySVGAtom>
       )}
-      {(label && !loading) && <Typography type="button">{label}</Typography>}
+      {(label && !isLoading) && <Typography type="button">{label}</Typography>}
     </Button>
   );
 }
