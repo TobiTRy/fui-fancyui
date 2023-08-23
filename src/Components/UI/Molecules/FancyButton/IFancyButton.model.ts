@@ -4,7 +4,7 @@ type NativeButtonAttributes = ButtonHTMLAttributes<HTMLButtonElement>;
 
 type IFancyButton = {
   size?: "small" | "medium" | "large";
-  loading?: boolean;
+  isLoading?: boolean;
   wide?: boolean; 
   design?: "primary" | "secondary" | "accent" | "transparent";
   roundedCompletly?: boolean;
