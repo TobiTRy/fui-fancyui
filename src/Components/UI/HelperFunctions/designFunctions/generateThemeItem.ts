@@ -106,14 +106,14 @@ const generateOutlined = (props: IGenerateOutlinedItem) => {
   const textColor = calcTextColor({ $color, $design, $outlined });
 
   //this makes the color, no matther which one transparent
-  const backgroundColor = Color(uiColors[$design].main).alpha(0.1).hexa();
+  const backgroundColor = $design !== 'transparent' ? Color(uiColors[$design].main).alpha(0.1).hexa() : null;
 
   const clacHoverColor = () => {
     if ($color) {
       return uiColors[$color].main;
     } else {
       if($design === 'transparent') {
-        return uiColors[$design].contrast;
+        return uiColors.secondary.dark;
       }
       return uiColors[$design].main;
     }
@@ -129,7 +129,7 @@ const generateOutlined = (props: IGenerateOutlinedItem) => {
     &:hover:enabled {
       background-color: ${backgroundColor};
       color: ${clacHoverColor()};
-      box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.15);
+      box-shadow: ${$design !== 'transparent' ?  '0 0 10px 1px rgba(0, 0, 0, 0.15)' : ''};
     }
   `;
 };
@@ -158,8 +158,6 @@ const generateNormal = (props: IGenerateNormalitem) => {
       background-color: ${hoverBackgroundColorStyle};
       box-shadow: ${$design !== 'transparent' ?  '0 0 10px 1px rgba(0, 0, 0, 0.15)' : ''};
     }
-
-
   `;
 };
 

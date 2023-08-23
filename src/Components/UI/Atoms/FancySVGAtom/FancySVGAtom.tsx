@@ -18,7 +18,7 @@ const StyledSVG = styled.i<IStyledSVGAtom>`
   width: ${({ $size }) => sizes[$size!]};
   aspect-ratio: 1/1;
   color: ${({ $isActive, $errorMessage, $isPassive }) => !$isPassive && calcIconColor($isActive, $errorMessage)};
-  transition: color 0.3s ease-in-out;
+  transition: color 0.2s ease-in-out;
   ${({ $externalStyle }) => $externalStyle};
 
   svg {

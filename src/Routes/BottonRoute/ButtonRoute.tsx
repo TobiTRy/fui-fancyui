@@ -52,6 +52,12 @@ export default function ButtonRoute() {
         <FancyButton icon={Icon} label="Button" design="accent" outlined />
         <FancyButton icon={Icon}  label="Button" design="transparent" outlined />
       </DesignArea>
+      <DesignArea title="Loading Buttons" style={backgroundColor}>
+        <FancyButton icon={Icon} label="Button" loading design="primary" outlined />
+        <FancyButton icon={Icon} label="Button" loading design="secondary" outlined />
+        <FancyButton icon={Icon} label="Button" loading design="accent" outlined />
+        <FancyButton icon={Icon}  label="Button" loading design="transparent" outlined />
+      </DesignArea>
     </DesignWrapper>
   );
 }
