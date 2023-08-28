@@ -32,7 +32,7 @@ export default function Chip(props: IChipProps) {
       role={props.onClick ? 'button' : undefined}
       tabIndex={props.onClick ? 0 : undefined}
       onClick={props.onClick}
-      onKeyDown={(e) => {
+      onKeyDown={(e: React.KeyboardEvent<HTMLDivElement>) => {
         if (props.onClick && (e.key === 'Enter' || e.key === 'Space')) {
           e.preventDefault();
           props.onClick();
@@ -57,7 +57,7 @@ export default function Chip(props: IChipProps) {
       {deleteButton && (
         <StyledXButton
           $size={size}
-          onClick={(e) => {
+          onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
             e.stopPropagation();
             onDelete && onDelete();
           }}
