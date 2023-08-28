@@ -163,6 +163,7 @@ const colorSteps = {
     30: Color(mainColors.primary).darken(0.1).hex(),
   },
   accent: {
+    80: Color(mainColors.accent).lighten(0.3).hex(),
     70: Color(mainColors.accent).lighten(0.2).hex(),
     60: Color(mainColors.accent).lighten(0.15).hex(),
     50: mainColors.accent,
@@ -170,6 +171,7 @@ const colorSteps = {
     30: Color(mainColors.accent).darken(0.15).hex(),
   },
   secondary: {
+    80: Color(mainColors.secondary).lighten(0.3).hex(),
     70: Color(mainColors.secondary).lighten(0.2).hex(),
     60: Color(mainColors.secondary).lighten(0.15).hex(),
     50: mainColors.secondary,
@@ -190,6 +192,7 @@ export const uiColors = {
     contrast: colorSteps.secondary[60],
   },
   accent: {
+    lightest: colorSteps.accent[80],
     lighter: colorSteps.accent[70],
     light: colorSteps.accent[60],
     main: mainColors.accent,
@@ -198,6 +201,7 @@ export const uiColors = {
     contrast: colorSteps.secondary[60],
   },
   secondary: {
+    lightest: colorSteps.secondary[80],
     lighter: colorSteps.secondary[70],
     light: colorSteps.secondary[60],
     main: mainColors.secondary,
@@ -207,6 +211,7 @@ export const uiColors = {
     contrast: colorSteps.primary[60],
   },
   transparent: {
+    lightest: 'transparent',
     lighter: 'transparent',
     light: 'transparent',
     main: 'transparent',
