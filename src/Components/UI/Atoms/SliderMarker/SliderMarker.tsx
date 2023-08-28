@@ -2,7 +2,7 @@ import React from 'react';
 
 import { styled } from 'styled-components';
 import { borderRadius } from '../../Design/design';
-import { dropShadow } from '../../Design/shadows';
+import { boxShadow } from '../../Design/shadows';
 
 export const WrapperMarker = styled.div`
   position: absolute;
@@ -22,7 +22,7 @@ const Marker = styled.div`
   border: 1px solid white;
   width: 100%;
   height: 100%;
-  ${dropShadow.large}
+  ${boxShadow.large}
   border-radius: ${borderRadius.small};
 `;
 

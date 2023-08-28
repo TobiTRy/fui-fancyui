@@ -2,6 +2,7 @@ import React from 'react';
 
 import { styled, css } from 'styled-components';
 import { spacingPx } from '../../Design/design';
+import { textShadow } from '../../Design/shadows';
 
 // Define the gradient options for the overlay
 const gradientOptions = {
@@ -55,7 +56,7 @@ const TextWrapper = styled.div<{ $position: string }>`
   position: absolute;
   z-index: 1;
   padding: ${spacingPx.md};
-  text-shadow: 0 0 20px black;
+  ${textShadow.large}
 
   ${({ $position }) => {
     switch ($position) {

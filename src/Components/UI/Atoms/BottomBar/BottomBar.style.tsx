@@ -1,6 +1,6 @@
 import {styled, css } from "styled-components";
 import { borderRadius, spacingPx, uiColors } from "../../Design/design";
-import { dropShadow } from "../../Design/shadows";
+import { boxShadow } from "../../Design/shadows";
 
 const calcBarWidthandSpacing = (width?: string, spacingLeftRight?: string) => { 
   if(width) {
@@ -44,7 +44,7 @@ export const Wrapper = styled.div<IBottomBarWrapper>`
   background-color: ${uiColors.primary.main};
   border-radius: ${({$roundedness}) => $roundedness ? `${borderRadius[$roundedness]} ${borderRadius[$roundedness]} 0px 0px` : ''} ;
   padding: ${spacingPx.sm} ${spacingPx.sm} 0 ${spacingPx.sm};
-  ${dropShadow.small}
+  ${boxShadow.small}
 `;
 
 //the bar for the items and the style

@@ -4,7 +4,7 @@ import { styled } from 'styled-components';
 import { animated, useSpring } from '@react-spring/web';
 
 import { uiColors, borderRadius, spacingPx } from '../../Design/design';
-import { dropShadow } from '../../Design/shadows';
+import { boxShadow } from '../../Design/shadows';
 
 const StyledDialog = styled(animated.div)`
   position: fixed;
@@ -20,7 +20,7 @@ const StyledDialog = styled(animated.div)`
   color: ${uiColors.primary.contrast};
   z-index: 1000;
   backdrop-filter: blur(4px);
-  ${dropShadow.large}
+  ${boxShadow.large}
 `;
 
 // --------------------------------------------------------------------------- //

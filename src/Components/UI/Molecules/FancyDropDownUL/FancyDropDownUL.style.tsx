@@ -3,7 +3,7 @@ import CalculateBorderRadiusOnAlignment from '../../HelperFunctions/designFuncti
 import { IFancyUL } from './FancyDropDownUL';
 import { spacingPx, uiColors } from '../../Design/design';
 import IStyledPrefixAndPicker from '../../Interface/IStyledPrefixAndPicker.model';
-import { dropShadow } from '../../Design/shadows';
+import { boxShadow } from '../../Design/shadows';
 
 // --------------------------------------------------------------------------- //
 // ------- the generator function for the Wrapper of the UL ------------------ //
@@ -39,7 +39,7 @@ export const StyledUL = styled.ul`
   width: 100%;
   padding: ${spacingPx.lg};
   background-color: ${uiColors.primary.lighter};
-  ${dropShadow.large}
+  ${boxShadow.large}
   gap: ${spacingPx.xs};
   overflow: hidden;
 
