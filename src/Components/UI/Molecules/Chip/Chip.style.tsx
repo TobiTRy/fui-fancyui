@@ -62,6 +62,7 @@ export const GenerateSpacing = ({ spacingPosition, size }: IGenerateSpacing) => 
 interface IStyledChip {
   $spacingPosition?: TSpacingPosition;
   $size?: keyof typeof sizes;
+  $outlined?: boolean;
 }
 export const StyledChip = styled.div<IStyledChip>`
   ${({ $spacingPosition, $size }) => GenerateSpacing({ spacingPosition: $spacingPosition, size: $size })}
@@ -75,7 +76,15 @@ export const StyledChip = styled.div<IStyledChip>`
   line-height: 2;
   width: fit-content;
   border-radius: ${borderRadius.xxxl};
-  background-color: ${uiColors.primary.lightest};
+
+  ${({ $outlined }) =>
+    $outlined
+      ? css`
+          border: 1px solid ${uiColors.primary.lightest};
+        `
+      : css`
+          background-color: ${uiColors.primary.lightest};
+        `};
 
   i {
     line-height: 0;

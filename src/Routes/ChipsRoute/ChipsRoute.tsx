@@ -28,6 +28,11 @@ export default function ChipsRoute() {
         <Chip label='Heyyjoo' icon={<ClipBoardIconCheck/>} size='medium' deleteButton onDelete={() => console.log('DELETE')}/>
         <Chip label='Heyyjoo' icon={<ClipBoardIconCheck/>} deleteButton size='large' onClick={() => console.log('hii')}  />
       </DesignArea>
+      <DesignArea title='Chip Outlined'>
+        <Chip label='Heyyjoo' outlined icon={<ClipBoardIconCheck/>} size='small' deleteButton/>
+        <Chip label='Heyyjoo' outlined icon={<ClipBoardIconCheck/>} size='medium' deleteButton onDelete={() => console.log('DELETE')}/>
+        <Chip label='Heyyjoo' outlined icon={<ClipBoardIconCheck/>} deleteButton size='large' onClick={() => console.log('hii')}  />
+      </DesignArea>
     </DesignWrapper>
   );
 }

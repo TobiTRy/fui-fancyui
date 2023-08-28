@@ -6,6 +6,7 @@ interface IChipPropsBase {
   size?: keyof typeof sizes;
   icon?: React.ReactNode;
   image?: string;
+  outlined?: boolean;
   onClick?: () => void;
 }
 
