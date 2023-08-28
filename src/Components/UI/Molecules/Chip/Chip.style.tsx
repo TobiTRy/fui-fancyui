@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components';
-import { simpleColorTransition } from '../../Design/simpleTransition';
-import { borderRadius, spacing, spacingPx, uiColors } from '../../Design/design';
+import { IUiColorsTypes, borderRadius, spacing, spacingPx, uiColors } from '../../Design/design';
 
 // Define the type for the spacing position
 export type TSpacingPosition = 'left' | 'right' | 'booth';
@@ -57,12 +56,23 @@ export const GenerateSpacing = ({ spacingPosition, size }: IGenerateSpacing) => 
       return null;
   }
 };
+const generateTextColor = (color: IUiColorsTypes, outlined?: boolean, textColor?: IUiColorsTypes) => {
+  if (textColor) return uiColors[textColor].main;
+
+  if (outlined) {
+    return uiColors.secondary.main;
+  } else {
+    return uiColors[color].contrast;
+  }
+};
 
 // Define the styled component for the chip
 interface IStyledChip {
   $spacingPosition?: TSpacingPosition;
   $size?: keyof typeof sizes;
   $outlined?: boolean;
+  $color?: IUiColorsTypes;
+  $textColor?: IUiColorsTypes;
 }
 export const StyledChip = styled.div<IStyledChip>`
   ${({ $spacingPosition, $size }) => GenerateSpacing({ spacingPosition: $spacingPosition, size: $size })}
@@ -70,26 +80,27 @@ export const StyledChip = styled.div<IStyledChip>`
   height: ${({ $size }) => ($size ? sizes[$size].height : sizes.medium.height)};
   cursor: pointer;
   display: flex;
-  color: ${uiColors.secondary.main};
   justify-content: space-between;
   align-items: center;
   line-height: 2;
   width: fit-content;
   border-radius: ${borderRadius.xxxl};
 
-  ${({ $outlined }) =>
+  ${({ $outlined, $color, $textColor }) =>
     $outlined
       ? css`
-          border: 1px solid ${uiColors.primary.lightest};
+          border: 1px solid ${uiColors[$color || 'primary'].lightest};
+          color: ${generateTextColor($color || 'primary', $outlined, $textColor)};
         `
       : css`
-          background-color: ${uiColors.primary.lightest};
+          color: ${generateTextColor($color || 'primary', $outlined, $textColor)};
+          background-color: ${uiColors[$color || 'primary'].lightest};
         `};
 
+  /* the icon for the Chip */
   i {
     line-height: 0;
     margin-right: ${spacing.xs + 2 + 'px'};
-
     svg {
       width: ${({ $size }) => ($size ? sizes[$size].icon : sizes.medium.icon)};
       height: ${({ $size }) => ($size ? sizes[$size].icon : sizes.medium.icon)};
@@ -98,22 +109,18 @@ export const StyledChip = styled.div<IStyledChip>`
 `;
 
 // Define the styled component for the X button
-export const StyledXButton = styled.button<{ $size?: keyof typeof sizes }>`
+export const StyledXButton = styled.button<{ $size?: keyof typeof sizes;}>`
   border: none;
   background-color: transparent;
   cursor: pointer;
-  color: ${uiColors.secondary.light};
+  color: inherit;
   background-color: transparent;
   padding: 0;
   line-height: 1;
   display: flex;
   align-items: center;
   margin-left: ${spacing.xs + 2 + 'px'};
-  ${simpleColorTransition};
 
-  &:hover {
-    color: ${uiColors.secondary.main};
-  }
 
   svg {
     width: ${({ $size }) => ($size ? sizes[$size].deleteButtonSize : sizes.medium.deleteButtonSize)};
