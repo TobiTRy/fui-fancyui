@@ -1,5 +1,6 @@
 import { styled, css } from 'styled-components';
 import { fontSize, spacingPx, uiColors } from '../../Design/design';
+import { dropShadow } from '../../Design/shadows';
 
 const SpeedDailButtonSize = 60;
 
@@ -31,8 +32,8 @@ export const Button = styled.button<{ $isOpen: boolean }>`
   align-items: center;
   justify-content: center;
   z-index: 3;
-  box-shadow: #19191980 0 0 15px;
   transition: box-shadow 0.3s ease;
+  ${dropShadow.medium}
 
   svg {
     position: absolute;
