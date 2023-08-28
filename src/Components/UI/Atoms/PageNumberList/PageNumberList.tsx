@@ -2,12 +2,13 @@ import { styled } from 'styled-components';
 
 import { FancyButton } from '../../Molecules/FancyButton';
 import { uiColors, spacingPx } from '../../Design/design';
+import { simpleColorTransition } from '../../Design/simpleTransition';
 
 // Define a styled component for the button wrapper
 export const ButtonWrapper = styled.div<{ $isActive: boolean }>`
   button {
     color: ${(props) => props.$isActive && uiColors.accent.light};
-    transition: color 0.1s ease-in-out;
+    ${simpleColorTransition}
     padding: ${spacingPx.sm};
 
     &:hover {

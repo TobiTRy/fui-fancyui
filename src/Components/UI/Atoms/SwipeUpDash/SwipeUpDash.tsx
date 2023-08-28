@@ -2,6 +2,7 @@ import React from 'react';
 import { styled } from 'styled-components';
 
 import { uiColors } from '../../Design/design';
+import { simpleColorTransition } from '../../Design/simpleTransition';
 
 const StyledSwipeUpDash = styled.div`
     width: 50px;
@@ -16,7 +17,7 @@ const StyledButton = styled.button`
     border: none;
     background-color: transparent;
     cursor: pointer;
-    transition: color 0.5s ease-in-out;
+    ${simpleColorTransition}
     margin-top: 1rem;
     margin-bottom: 1rem;
 `;

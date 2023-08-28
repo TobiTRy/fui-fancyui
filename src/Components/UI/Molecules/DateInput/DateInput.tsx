@@ -5,6 +5,7 @@ import RawInput from '../../Atoms/RawInput/RawInput';
 import { uiColors } from '../../Design/design';
 import { TRawInputAlign } from '../../Atoms/RawInput/RawInput';
 import IStyledPrefixAndPicker from '../../Interface/IStyledPrefixAndPicker.model';
+import { simpleColorTransition } from '../../Design/simpleTransition';
 
 type IStyledDatePicker = IStyledPrefixAndPicker<IDateInputProps, 'errorMessage' | 'align'> & { value?: string };
 const StyledDatePicker = styled(RawInput)<IStyledDatePicker>`
@@ -18,7 +19,7 @@ const StyledDatePicker = styled(RawInput)<IStyledDatePicker>`
     filter: invert(1);
   }
 
-  transition: color 0.2s ease-in-out;
+  ${simpleColorTransition}
 `;
 
 export interface IDateInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'type'> {
