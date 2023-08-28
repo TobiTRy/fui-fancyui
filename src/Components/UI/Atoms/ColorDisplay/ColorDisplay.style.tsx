@@ -1,6 +1,7 @@
 import Color from 'color';
 import { styled } from 'styled-components';
 import { borderRadius, fontSize, uiColors } from '../../Design/design';
+import { simpleColorTransition } from '../../Design/simpleTransition';
 
 export const Content = styled.div<{ $isBright: boolean }>`
   position: absolute;
@@ -15,7 +16,7 @@ export const Content = styled.div<{ $isBright: boolean }>`
   gap: 3px;
   font-size: ${fontSize.small};
   color: ${({ $isBright }) => (!$isBright ? uiColors.secondary.main : uiColors.primary.main)};
-  transition: color 0.2s ease-in-out;
+  ${simpleColorTransition}
 
   p {
     user-select: none;

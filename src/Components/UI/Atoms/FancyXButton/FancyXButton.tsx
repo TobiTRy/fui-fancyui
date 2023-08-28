@@ -3,6 +3,7 @@ import { styled } from 'styled-components';
 
 import { uiColors, IUiColorsTypes, IUiColorsSystemMessageTypes, spacingPx, fontSize, systemMessages } from '../../Design/design';
 import Color from 'color';
+import { simpleColorTransition } from '../../Design/simpleTransition';
 
 type FancyXButtonDesign = IUiColorsTypes | IUiColorsSystemMessageTypes;
 
@@ -24,7 +25,7 @@ const StyledFancyXButton = styled.button<{$colorValue?: string }>`
   font-weight: bolder;
   cursor: pointer;
   outline: none;
-  transition: color 0.2s ease-in-out;
+  ${simpleColorTransition}
 
   &:hover {
     color: ${({ $colorValue }) => $colorValue ? Color($colorValue).darken(0.3).hex() : uiColors.accent.dark};
