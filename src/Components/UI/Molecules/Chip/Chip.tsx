@@ -9,7 +9,7 @@ import { IChipProps } from './Chip.model';
 
 // Define the Chip component
 export default function Chip(props: IChipProps) {
-  const { label, deleteButton, onDelete, icon, image, size } = { ...defaultProps, ...props };
+  const { label, deleteButton, onDelete, icon, image, size, outlined, color, textColor } = { ...defaultProps, ...props };
 
   // Define a function to calculate the spacing position for the chip
   const clacPosition = (): TSpacingPosition => {
@@ -29,10 +29,13 @@ export default function Chip(props: IChipProps) {
     <StyledChip
       $spacingPosition={getCalcPosition}
       $size={size}
+      $outlined={outlined}
+      $color={color}
+      $textColor={textColor}
       role={props.onClick ? 'button' : undefined}
       tabIndex={props.onClick ? 0 : undefined}
       onClick={props.onClick}
-      onKeyDown={(e) => {
+      onKeyDown={(e: React.KeyboardEvent<HTMLDivElement>) => {
         if (props.onClick && (e.key === 'Enter' || e.key === 'Space')) {
           e.preventDefault();
           props.onClick();
@@ -57,7 +60,7 @@ export default function Chip(props: IChipProps) {
       {deleteButton && (
         <StyledXButton
           $size={size}
-          onClick={(e) => {
+          onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
             e.stopPropagation();
             onDelete && onDelete();
           }}
@@ -73,6 +76,7 @@ export default function Chip(props: IChipProps) {
 const defaultProps = {
   deleteButton: false,
   label: 'Test',
+  size: 'medium' as const,
   onClick: () => {
     console.log('onClick');
   },

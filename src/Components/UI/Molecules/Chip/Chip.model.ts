@@ -1,3 +1,4 @@
+import { IUiColorsTypes } from "../../Design/design";
 import { sizes } from "./Chip.style";
 
 // Define the interface for the base chip props
@@ -6,6 +7,9 @@ interface IChipPropsBase {
   size?: keyof typeof sizes;
   icon?: React.ReactNode;
   image?: string;
+  outlined?: boolean;
+  color: IUiColorsTypes;
+  textColor?: IUiColorsTypes;
   onClick?: () => void;
 }
 
