@@ -11,7 +11,11 @@ export interface IFancyProfilePicture {
 //  ProfilePicture component to render with  different sizes and border radius //
 // --------------------------------------------------------------------------- //
 export default function FancyProfilePicture(props: IFancyProfilePicture) {
-  const { src, rounded, size } = props;
+  const { src, rounded, size } = {...defaultProps, ...props};
 
   return <ProfilePicture src={src} alt="Profile" $rounded={rounded} $size={size} />;
 }
+
+const defaultProps = {
+  size: 'md',
+};
