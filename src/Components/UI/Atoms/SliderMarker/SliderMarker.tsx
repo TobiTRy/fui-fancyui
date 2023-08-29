@@ -23,7 +23,7 @@ const Marker = styled.div`
   width: 100%;
   height: 100%;
   ${boxShadow.large}
-  border-radius: ${borderRadius.small};
+  border-radius: ${borderRadius.sm};
 `;
 
 // --------------------------------------------------------------------------- //

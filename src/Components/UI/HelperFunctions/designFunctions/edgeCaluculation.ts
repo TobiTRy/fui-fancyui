@@ -13,7 +13,7 @@ const edgeCalculation = (edges: IRoundedEdges = {}, radius?: IBorderRadiusNames)
   const {topRight = true, topLeft= true, bottomRight = true, bottomLeft = true} = edges;
   
   // if no radius is given, use the large radius
-  const calcRadius = radius ? borderRadius[radius] : borderRadius.large;
+  const calcRadius = radius ? borderRadius[radius] : borderRadius.lg;
   
   // creates for each edge a radius
   let result = '';

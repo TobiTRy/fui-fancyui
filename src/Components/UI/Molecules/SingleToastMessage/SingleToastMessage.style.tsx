@@ -21,7 +21,7 @@ export const Container = styled.div<IToastMessage>`
   flex-direction: column;
   align-items: left;
   color: ${({ $messageType }) => systemMessages[$messageType].light};
-  border-radius: ${borderRadius.small};
+  border-radius: ${borderRadius.sm};
   padding: ${spacingPx.lg};
   background-color: ${({ $messageType }) => systemMessages[$messageType].backGround};
   border-left: 4px solid ${({ $messageType }) => systemMessages[$messageType].light};

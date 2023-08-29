@@ -13,7 +13,7 @@ const StyledDialog = styled(animated.div)`
   transform: translate(-50%, -50%);
   padding: ${spacingPx.xl};
   background-color: ${uiColors.primary.dark};
-  border-radius: ${borderRadius.large};
+  border-radius: ${borderRadius.lg};
   border: none;
   width: 70%;
   max-height: 85%;

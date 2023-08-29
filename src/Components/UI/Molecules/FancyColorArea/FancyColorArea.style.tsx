@@ -15,7 +15,7 @@ export const ColorAreaContainer = styled.div`
   height: 100%;
   cursor: crosshair;
   user-select: none;
-  border-radius: ${borderRadius.small};
+  border-radius: ${borderRadius.sm};
 `;
 
 
@@ -33,7 +33,7 @@ export const CurrentColorArea  = styled.div.attrs<IColorGradient>(({ $hue }) => 
   position: absolute;
   width: 100%;
   height: 100%;
-  border-radius: ${borderRadius.small};
+  border-radius: ${borderRadius.sm};
 `;
 
 
@@ -62,7 +62,7 @@ export const WrapperMarker = styled.div`
   width: 100%;
   height: 100%;
   aspect-ratio: 1/1;
-  border-radius: ${borderRadius.small};
+  border-radius: ${borderRadius.sm};
 `;
 
 

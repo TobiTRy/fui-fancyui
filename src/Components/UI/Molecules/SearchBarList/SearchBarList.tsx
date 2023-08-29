@@ -6,7 +6,7 @@ import { borderRadius } from '../../Design/design';
 
 // Styled component for the search bar list
 const StyledSearchBarList = styled.div`
-  border-radius: ${borderRadius.extraLarge};
+  border-radius: ${borderRadius.xl};
   z-index: 100;
 `;
 

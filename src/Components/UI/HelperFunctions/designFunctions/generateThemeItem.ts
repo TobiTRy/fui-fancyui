@@ -172,7 +172,7 @@ const generateBorderRadius = (props: Pick<IGenerateThemeItem, '$wide' | '$rounde
   if ($roundedCompletly) {
     return borderRadius.xxxl;
   } else if ($wide) {
-    return borderRadius.large;
+    return borderRadius.lg;
   } else {
     return borderRadius[$size];
   }
