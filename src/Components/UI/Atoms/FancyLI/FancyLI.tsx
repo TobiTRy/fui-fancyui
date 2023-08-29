@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { IcalcIconPaddingAsProps } from '../../HelperFunctions/designFunctions/generateIconPadding';
+import { IcalcIconPaddingAsProps } from '../../HelperFunctions/designFunctions/generateIconMargin';
 import { styled } from 'styled-components';
 import IStyledPrefixAndOmiter from '../../Interface/IStyledPrefixAndOmiter.model';
 

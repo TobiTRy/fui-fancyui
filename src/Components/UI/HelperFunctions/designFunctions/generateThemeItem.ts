@@ -2,7 +2,7 @@ import { css } from 'styled-components';
 import Color from 'color';
 
 import { disabledStyle } from './disableStyle';
-import { calcIconPaddingAndAlign } from './generateIconPadding';
+import { calcIconMarginAndAlign } from './generateIconMargin';
 import { generatePadding } from './generatePadding';
 import { borderRadius, spacing, uiColors } from '../../Design/design';
 import { IUiColorsTypes } from '../../Design/design';
@@ -95,7 +95,8 @@ const generateIcon = (props: IGenerateIconItem) => {
     i {
       display: flex;
       align-items: center;
-      ${$label && calcIconPaddingAndAlign({ $aligned: $align, $size })};
+      aspect-ratio: 1/1;
+      ${$label && calcIconMarginAndAlign({ $aligned: $align, $size })};
     }
   `;
 };

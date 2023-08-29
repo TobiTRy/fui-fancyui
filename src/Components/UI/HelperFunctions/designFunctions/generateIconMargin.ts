@@ -16,15 +16,15 @@ const paddingFromIcon = {
 
 //this funktion handles the spacing between the icon and the text deepends on the alignment
 export type IcalcIconPadding = IStyledPrefixAndPicker<IcalcIconPaddingAsProps>;
-export function calcIconPaddingAndAlign({ $aligned = 'left', $size = 'md' }: IcalcIconPadding) {
+export function calcIconMarginAndAlign({ $aligned = 'left', $size = 'md' }: IcalcIconPadding) {
   if ($aligned === 'right') {
     return css`
-      padding-left: ${paddingFromIcon[$size]};
+      margin-left: ${paddingFromIcon[$size]};
       order: 1;
     `;
   } else if ($aligned === 'left' || $aligned === 'center') {
     return css`
-      padding-right: ${paddingFromIcon[$size]};
+      margin-right: ${paddingFromIcon[$size]};
     `;
   }
 }
