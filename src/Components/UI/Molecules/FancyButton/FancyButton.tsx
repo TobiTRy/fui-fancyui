@@ -1,11 +1,11 @@
 import React from 'react';
-import { css, keyframes, styled } from 'styled-components';
+import { keyframes, styled } from 'styled-components';
 import { IFancyButtonProps } from './IFancyButton.model';
 
 import generateThemeItem, { IGenerateThemeItem } from '../../HelperFunctions/designFunctions/generateThemeItem';
 import FancySVGAtom from '../../Atoms/FancySVGAtom/FancySVGAtom';
 import Typography from '../../Atoms/Typography/Typography';
-import SVGLoadingArrows from '../../SVGIcons/SVGLoadingArrows';
+import LoadingSVGArrows from '../../Atoms/LoadingSVGArrows/LoadingSVGArrows';
 
 const loadingAnimation = keyframes`
   0% { transform: rotate(0deg); }
@@ -37,27 +37,16 @@ export default function FancyButton(props: IFancyButtonProps) {
       $label={label}
       $outlined={outlined}
       type="button"
-      aria-label={label ? label : 'Switch'}
       {...htmlButtonProps}
     >
-      {isLoading && (
-        <FancySVGAtom
-          size={size}
-          isPassive
-          externalStyle={css`
-            animation: ${loadingAnimation} 2s infinite linear;
-            padding-right: 0 !important;
-          `}
-        >
-          <SVGLoadingArrows />
-        </FancySVGAtom>
-      )}
-      {(icon && !isLoading) && (
+      <LoadingSVGArrows size={size} isLoading={isLoading} />
+
+      {icon && !isLoading && (
         <FancySVGAtom size={size} isPassive>
           {icon}
         </FancySVGAtom>
       )}
-      {(label && !isLoading) && <Typography type="button">{label}</Typography>}
+      {label && !isLoading && <Typography type="button">{label}</Typography>}
     </Button>
   );
 }

@@ -206,7 +206,7 @@ const generateThemeItem = (props: IGenerateThemeItem) => {
     border: none;
     cursor: pointer;
     box-sizing: border-box;
-    height: ${buttonSizes[$size]} ;
+    height: ${buttonSizes[$size]};
     width: ${$wide ? '100%' : 'initial'};
     border-radius: ${borderRadius};
     transition: all 0.2s ease-in-out;
