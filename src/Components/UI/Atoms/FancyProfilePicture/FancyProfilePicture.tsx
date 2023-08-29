@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { ProfilePicture } from './FancyProfilePicture.style';
+import { ProfilePicture, TSize } from './FancyProfilePicture.style';
 
 export interface IFancyProfilePicture {
   src: string;
   rounded?: 'sm' | 'md' | 'lg' | 'complete';
-  size?: 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
+  size?: TSize | string;
 }
 // --------------------------------------------------------------------------- //
 //  ProfilePicture component to render with  different sizes and border radius //
