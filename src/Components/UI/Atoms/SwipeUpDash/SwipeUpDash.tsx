@@ -12,7 +12,7 @@ const StyledSwipeUpDash = styled.div`
 `;
 
 const StyledButton = styled.button`
-    font-size: larger;
+    font-size: lgr;
     font-weight: bold;
     border: none;
     background-color: transparent;

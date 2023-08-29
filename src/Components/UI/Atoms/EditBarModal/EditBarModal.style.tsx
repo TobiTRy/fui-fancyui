@@ -40,7 +40,7 @@ export const Wrapper = styled.div<IWrapper>`
   ${({ $width, $spacingLeftRight }) => calcBarWidthandSpacing($width, $spacingLeftRight)};
   background-color: ${uiColors.primary.dark};
   border-radius: 12px 12px 0px 0px;
-  ${boxShadow.medium}
+  ${boxShadow.md}
 `;
 
 export const WrapperContent = styled.div`

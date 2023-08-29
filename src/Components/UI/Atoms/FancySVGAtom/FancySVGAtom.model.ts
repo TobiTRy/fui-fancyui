@@ -2,10 +2,10 @@ import { CSSProp } from 'styled-components';
 import IStyledPrefixAndOmiter from '../../Interface/IStyledPrefixAndOmiter.model';
 
 export const sizes = {
-  extraSmall: '14px',
-  small: '16px',
-  medium: '18px',
-  large: '20px',
+  xs: '14px',
+  sm: '16px',
+  md: '18px',
+  lg: '20px',
 };
 
 export type ISizes = keyof typeof sizes;

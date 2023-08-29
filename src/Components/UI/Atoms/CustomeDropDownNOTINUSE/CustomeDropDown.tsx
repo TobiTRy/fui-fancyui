@@ -8,7 +8,7 @@ const { primary, accent, secondary } = uiColors;
 const DropDownContainer = styled.div`
   position: relative;
   display: inline-block;
-  font-size: ${fontSize.medium};
+  font-size: ${fontSize.md};
   color: ${secondary.main};
   user-select: none;
 `;

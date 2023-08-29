@@ -9,7 +9,7 @@ export const StyledYearSelector = styled.div`
   color: ${uiColors.secondary.main};
 
   span {
-    font-size: ${fontSize.large};
+    font-size: ${fontSize.lg};
   }
 `;
 

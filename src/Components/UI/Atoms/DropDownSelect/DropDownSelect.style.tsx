@@ -32,7 +32,7 @@ export const SelectField = styled.select<ISelectField>`
   color: ${colorPalet.white_high};
   appearance: none;
   padding: 0px 0px ${spacing.xs + 2 + 'px'};
-  font-size: ${fontSize.medium};
+  font-size: ${fontSize.md};
   background-color: transparent;
 
   &:disabled {

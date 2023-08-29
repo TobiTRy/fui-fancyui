@@ -47,7 +47,7 @@ export default function FancySVGAtom(props: ISVGAtom) {
 }
 
 const defaultProps: ISVGAtom = {
-  size: 'medium',
+  size: 'md',
   isPassive: false,
   isActive: true,
 };

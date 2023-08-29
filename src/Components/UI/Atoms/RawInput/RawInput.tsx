@@ -19,7 +19,7 @@ const RawInput = styled.input<IRawInput>`
   border: none;
   outline: none;
   box-shadow: none;
-  font-size: ${fontSize.medium};
+  font-size: ${fontSize.md};
   padding: 0;
 `;
 

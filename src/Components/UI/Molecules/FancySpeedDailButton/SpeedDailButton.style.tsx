@@ -33,7 +33,7 @@ export const Button = styled.button<{ $isOpen: boolean }>`
   justify-content: center;
   z-index: 3;
   transition: box-shadow 0.3s ease;
-  ${boxShadow.medium}
+  ${boxShadow.md}
 
   svg {
     position: absolute;
@@ -71,7 +71,7 @@ export const Label = css<{ $isOpen: boolean; $labelAlign?: 'left' | 'right' }>`
   display: ${({ $isOpen }) => ($isOpen ? 'inline' : 'none')};
   opacity: ${({ $isOpen }) => ($isOpen ? 1 : 0)};
   transition: opacity 0.5s ease-in-out, right 0.3s ease, left 0.3s ease;
-  ${textShadow.medium}
+  ${textShadow.md}
   white-space: nowrap;
 
   ${({ $labelAlign }) =>
@@ -116,7 +116,7 @@ export const MenuItem = styled.button`
   padding: 0;
   color: ${uiColors.secondary.main};
   cursor: pointer;
-  font-size: ${fontSize.medium};
+  font-size: ${fontSize.md};
   border: none;
   outline: none;
   display: flex;

@@ -23,7 +23,7 @@ export default function FancyBottomBarIcon(props: IFancyBottomBarIcon) {
     <ItemWrapper $secondBar={secondBar}>
       <IconTextButton $color={color} $isActive={active} disabled={disabled} onClick={handler}>
         <Icon>{icon}</Icon>
-        <Typography type="smallText">{label}</Typography>
+        <Typography type="smText">{label}</Typography>
         <Underline $isActive={active} />
       </IconTextButton>
     </ItemWrapper>

@@ -3,7 +3,7 @@ import { ButtonHTMLAttributes } from "react";
 type NativeButtonAttributes = ButtonHTMLAttributes<HTMLButtonElement>;
 
 type IFancyButton = {
-  size?: "small" | "medium" | "large";
+  size?: "sm" | "md" | "lg";
   isLoading?: boolean;
   wide?: boolean; 
   design?: "primary" | "secondary" | "accent" | "transparent";

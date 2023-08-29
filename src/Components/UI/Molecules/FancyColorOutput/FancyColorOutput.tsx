@@ -104,7 +104,7 @@ const FancyColorOutput = ({ pickedColor, opacity, handler, handlerOpacity, curre
       {/* this Component renders the Input fields for the color and opacity */}
       <InputFields currentColorObject={transformedColorObject} handler={handleInputChange} />
       {/* Switch Button this switches the color format */}
-      <FancyButton onClick={handleFormatChange} outlined={true} icon={Svg} wide={true} size="small" design="accent"></FancyButton>
+      <FancyButton onClick={handleFormatChange} outlined={true} icon={Svg} wide={true} size="sm" design="accent"></FancyButton>
     </Container>
   );
 };

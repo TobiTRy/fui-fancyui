@@ -22,7 +22,7 @@ export const colorPalet = {
   white_dark: Color(mainColors.secondary).darken(0.05).hex(),
 
   white_high: 'rgba(255 255 255 / 87%)',
-  white_medium: 'rgba(255 255 255 / 60%)',
+  white_md: 'rgba(255 255 255 / 60%)',
   white_disabled: 'rgba(255 255 255 / 38%)',
 
   //backup
@@ -93,10 +93,10 @@ export const spacingPx = {
 };
 
 export const fontSize = {
-  extraSmall: '0.7rem',
-  small: '0.875rem',
-  medium: '1rem',
-  large: '1.125rem',
+  extrasm: '0.7rem',
+  sm: '0.875rem',
+  md: '1rem',
+  lg: '1.125rem',
   extraLarge: '1.25rem',
   xxl: '1.5rem',
 };
@@ -114,8 +114,8 @@ export const fontSizes = {
     textElements: {
       label: '16px',
       caption: '16px',
-      smallText: '12px',
-      verySmallText: '12px',
+      smText: '12px',
+      verysmText: '12px',
       input: '16px',
       button: '16px',
     },
@@ -132,8 +132,8 @@ export const fontSizes = {
     textElements: {
       label: '16px',
       caption: '14px',
-      smallText: '12px',
-      verySmallText: '12px',
+      smText: '12px',
+      verysmText: '12px',
       input: '16px',
       button: '16px',
     },

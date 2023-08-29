@@ -35,7 +35,7 @@ export const Headline = styled.div`
 
   button {
     align-self: flex-start;
-    line-height: ${fontSize.large};
+    line-height: ${fontSize.lg};
   }
 `;
 
@@ -63,7 +63,7 @@ export const CloseButton = styled.button<IToastMessage>`
   color: ${({ $messageType }) => systemMessages[$messageType].light};
   background: none;
   border: none;
-  font-size: ${fontSize.large};
+  font-size: ${fontSize.lg};
   font-weight: bolder;
   cursor: pointer;
   outline: none;

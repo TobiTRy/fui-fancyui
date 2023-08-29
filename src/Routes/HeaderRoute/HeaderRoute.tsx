@@ -22,7 +22,7 @@ const RightSlot = ({ onClick }: { onClick?: () => void }) => {
 
 const Slot = {
   component: <FancySearchBar searchListWidth="80vw">
-    <FancyLoadingSpinner size='large' />
+    <FancyLoadingSpinner size='lg' />
   </FancySearchBar>,
   scale: 1,
 };
@@ -48,7 +48,7 @@ export default function HeaderRoute() {
   const Slot2 = {
     toOpenComponent: (
       <FancyDropDownMenue isOpen={isOpen} alignHorizontal="right" alignVertical="top" width="auto">
-        <FancyLiItem size="large">
+        <FancyLiItem size="lg">
           <FancyA
             wide={true}
             align="left"
@@ -57,10 +57,10 @@ export default function HeaderRoute() {
             hoverColor="primary"
             roundedCompletly={false}
             label="test"
-            size="small"
+            size="sm"
           />
         </FancyLiItem>
-        <FancyLiItem size="large">
+        <FancyLiItem size="lg">
           <FancyA
             wide={true}
             align="left"
@@ -69,10 +69,10 @@ export default function HeaderRoute() {
             hoverColor="primary"
             roundedCompletly={false}
             label="testsasadefsddfdfsdsf "
-            size="small"
+            size="sm"
           />
         </FancyLiItem>
-        <FancyLiItem size="large">
+        <FancyLiItem size="lg">
           <FancyA
             wide={true}
             align="left"
@@ -81,7 +81,7 @@ export default function HeaderRoute() {
             hoverColor="primary"
             roundedCompletly={false}
             label="test"
-            size="small"
+            size="sm"
           />
         </FancyLiItem>
       </FancyDropDownMenue>

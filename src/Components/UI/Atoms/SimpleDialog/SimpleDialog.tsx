@@ -20,7 +20,7 @@ const StyledDialog = styled(animated.div)`
   color: ${uiColors.primary.contrast};
   z-index: 1000;
   backdrop-filter: blur(4px);
-  ${boxShadow.large}
+  ${boxShadow.lg}
 `;
 
 // --------------------------------------------------------------------------- //

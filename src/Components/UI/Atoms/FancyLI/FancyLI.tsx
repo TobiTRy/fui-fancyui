@@ -32,6 +32,6 @@ export default function FancyLI(props: IFancyLi) {
 }
 
 const defaultProps:IFancyLi = {
-  size: 'medium',
+  size: 'md',
   aligned: 'left',
 };

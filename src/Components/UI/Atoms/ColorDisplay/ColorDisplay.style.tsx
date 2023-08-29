@@ -14,7 +14,7 @@ export const Content = styled.div<{ $isBright: boolean }>`
   left: 0;
   z-index: 2;
   gap: 3px;
-  font-size: ${fontSize.small};
+  font-size: ${fontSize.sm};
   color: ${({ $isBright }) => (!$isBright ? uiColors.secondary.main : uiColors.primary.main)};
   ${simpleColorTransition}
 

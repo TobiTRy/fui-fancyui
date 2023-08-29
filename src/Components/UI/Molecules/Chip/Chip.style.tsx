@@ -5,7 +5,7 @@ import { IUiColorsTypes, borderRadius, spacing, spacingPx, uiColors } from '../.
 export type TSpacingPosition = 'left' | 'right' | 'booth';
 
 export const sizes = {
-  small: {
+  sm: {
     height: '24px',
     deleteButtonSize: '14px',
     padding: spacing.xs,
@@ -13,7 +13,7 @@ export const sizes = {
     paddingLeft: spacing.xs,
     icon: '16px',
   },
-  medium: {
+  md: {
     height: '32px',
     deleteButtonSize: '14px',
     padding: spacing.sm,
@@ -21,7 +21,7 @@ export const sizes = {
     paddingLeft: spacing.sm,
     icon: '18px',
   },
-  large: {
+  lg: {
     height: '38px',
     deleteButtonSize: '14px',
     padding: spacing.sm,
@@ -37,7 +37,7 @@ interface IGenerateSpacing {
   size?: keyof typeof sizes;
 }
 export const GenerateSpacing = ({ spacingPosition, size }: IGenerateSpacing) => {
-  const pickedSize = size ? size : 'medium';
+  const pickedSize = size ? size : 'md';
 
   switch (spacingPosition) {
     case 'left':
@@ -77,7 +77,7 @@ interface IStyledChip {
 export const StyledChip = styled.div<IStyledChip>`
   ${({ $spacingPosition, $size }) => GenerateSpacing({ spacingPosition: $spacingPosition, size: $size })}
   border: none;
-  height: ${({ $size }) => ($size ? sizes[$size].height : sizes.medium.height)};
+  height: ${({ $size }) => ($size ? sizes[$size].height : sizes.md.height)};
   cursor: pointer;
   display: flex;
   justify-content: space-between;
@@ -102,8 +102,8 @@ export const StyledChip = styled.div<IStyledChip>`
     line-height: 0;
     margin-right: ${spacing.xs + 2 + 'px'};
     svg {
-      width: ${({ $size }) => ($size ? sizes[$size].icon : sizes.medium.icon)};
-      height: ${({ $size }) => ($size ? sizes[$size].icon : sizes.medium.icon)};
+      width: ${({ $size }) => ($size ? sizes[$size].icon : sizes.md.icon)};
+      height: ${({ $size }) => ($size ? sizes[$size].icon : sizes.md.icon)};
     }
   }
 `;
@@ -123,8 +123,8 @@ export const StyledXButton = styled.button<{ $size?: keyof typeof sizes;}>`
 
 
   svg {
-    width: ${({ $size }) => ($size ? sizes[$size].deleteButtonSize : sizes.medium.deleteButtonSize)};
-    height: ${({ $size }) => ($size ? sizes[$size].deleteButtonSize : sizes.medium.deleteButtonSize)};
+    width: ${({ $size }) => ($size ? sizes[$size].deleteButtonSize : sizes.md.deleteButtonSize)};
+    height: ${({ $size }) => ($size ? sizes[$size].deleteButtonSize : sizes.md.deleteButtonSize)};
   }
 `;
 

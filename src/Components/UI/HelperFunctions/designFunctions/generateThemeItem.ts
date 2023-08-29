@@ -11,7 +11,7 @@ import IStyledPrefixAndOmiter from '../../Interface/IStyledPrefixAndOmiter.model
 export interface IGenerateThemeItemProps {
   outlined?: boolean;
   icon?: JSX.Element;
-  size: 'small' | 'medium' | 'large';
+  size: 'sm' | 'md' | 'lg';
   label?: string;
   wide?: boolean;
   design: IUiColorsTypes;
@@ -35,15 +35,15 @@ const alignment = {
 
 //this are the values between the $icon and the edge of the button
 const paddingIconButton = {
-  small: spacing.md + 'px',
-  medium: spacing.xl - 4 + 'px',
-  large: spacing.xl + 'px',
+  sm: spacing.md + 'px',
+  md: spacing.xl - 4 + 'px',
+  lg: spacing.xl + 'px',
 };
 
 const buttonSizes = {
-  small: '32px',
-  medium: '40px',
-  large: '48px',
+  sm: '32px',
+  md: '40px',
+  lg: '48px',
 };
 
 // ------------------------------------------------------------------ //
@@ -167,7 +167,7 @@ const generateNormal = (props: IGenerateNormalitem) => {
   `;
 };
 
-const generateBorderRadius = (props: Pick<IGenerateThemeItem, '$wide' | '$roundedCompletly' | '$size'>) => {
+const generateBorderRadius = (props: Pick<IGenerateThemeItem, '$wide' | '$roundedCompletly' | '$size'>): string => {
   const { $wide, $roundedCompletly, $size } = props;
   if ($roundedCompletly) {
     return borderRadius.xxxl;
@@ -193,8 +193,8 @@ const generateThemeItem = (props: IGenerateThemeItem) => {
   //gets the style of a button with a $icon
   if ($icon) iconStyle = generateIcon(props);
 
-  //check if the button has no $label if its true make it completely round
-  if (Boolean(!$label) && !$wide) {
+
+  if (Boolean(!$label) && $icon) {
     borderRadius = '50%';
   }
 

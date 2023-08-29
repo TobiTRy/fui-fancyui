@@ -48,12 +48,12 @@ export default function Chip(props: IChipProps) {
         </WrapperImage>
       )}
       {icon && (
-        <FancySVGAtom isPassive size="small">
+        <FancySVGAtom isPassive size="sm">
           <ClipBoardIconCheck />
         </FancySVGAtom>
       )}
 
-      <Typography type="smallText" variant={size === 'large' ? 'h5' : 'content'}>
+      <Typography type="smText" variant={size === 'lg' ? 'h5' : 'content'}>
         {label}
       </Typography>
 
@@ -76,7 +76,7 @@ export default function Chip(props: IChipProps) {
 const defaultProps = {
   deleteButton: false,
   label: 'Test',
-  size: 'medium' as const,
+  size: 'md' as const,
   onClick: () => {
     console.log('onClick');
   },

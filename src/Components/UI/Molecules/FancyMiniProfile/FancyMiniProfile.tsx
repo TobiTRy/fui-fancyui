@@ -23,14 +23,14 @@ const pillSettings: IPillSettings = {
   sm: {
     imageSize: 'xs',
     padding: undefined,
-    textSize: 'verySmallText',
+    textSize: 'verysmText',
     paddingToEdge: 'md',
     gapPictureAndText: 'xs',
   },
   md: {
     imageSize: 'xs',
     padding: 'xs',
-    textSize: 'smallText',
+    textSize: 'smText',
     paddingToEdge: 'sm',
     gapPictureAndText: 'xs',
   },

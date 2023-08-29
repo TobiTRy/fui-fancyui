@@ -50,11 +50,11 @@ const ComponentObj = {
     ${(props) => props.$variant};
     ${(props) => props.$style};
   `,
-  smallText: styled.p<IComponentProps>`
+  smText: styled.p<IComponentProps>`
     ${(props) => props.$variant};
     ${(props) => props.$style};
   `,
-  verySmallText: styled.span<IComponentProps>`
+  verysmText: styled.span<IComponentProps>`
     ${(props) => props.$variant};
     ${(props) => props.$style};
   `,

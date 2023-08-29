@@ -37,7 +37,7 @@ const generateCheckedStyle = (props: IStyledPrefixAndPicker<IFancyTabStyle, 'tra
     ${!$transparent
       ? css`
           &:checked + label {
-            ${textShadow.small}
+            ${textShadow.sm}
             background-color: ${uiColors.accent.main};
           }
         `

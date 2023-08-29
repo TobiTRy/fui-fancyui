@@ -56,7 +56,7 @@ const TextWrapper = styled.div<{ $position: string }>`
   position: absolute;
   z-index: 1;
   padding: ${spacingPx.md};
-  ${textShadow.large}
+  ${textShadow.lg}
 
   ${({ $position }) => {
     switch ($position) {
