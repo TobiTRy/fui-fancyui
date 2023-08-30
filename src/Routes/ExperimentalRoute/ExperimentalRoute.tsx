@@ -2,6 +2,8 @@ import React, { ChangeEvent } from 'react';
 
 import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';
 
+import { FancyButton } from '../../lib';
+
 
 import DropDown from '../../Components/UI/Atoms/DropDownSelect/DropDownSelect';
 
@@ -31,7 +33,7 @@ export default function ExperimentalRoute() {
     <>
       <DesignWrapper>
         <DesignArea title="Experimental">
-
+          <FancyButton icon={svg} outlined/>
 
         </DesignArea>
       </DesignWrapper>

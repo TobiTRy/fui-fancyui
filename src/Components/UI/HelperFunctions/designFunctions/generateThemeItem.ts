@@ -112,6 +112,7 @@ const generateOutlined = (props: IGenerateOutlinedItem) => {
   //this calculates the textcolor depend on $design and $color
   const textColor = calcTextColor({ $color, $design, $outlined });
 
+
   //this makes the color, no matther which one transparent
   const backgroundColor = $design !== 'transparent' ? Color(uiColors[$design].main).alpha(0.1).hexa() : null;
 
@@ -183,7 +184,7 @@ const generateBorderRadius = (props: Pick<IGenerateThemeItem, '$wide' | '$rounde
 const generateThemeItem = (props: IGenerateThemeItem) => {
   const { $outlined, $icon, $size, $label, $wide, $roundedCompletly, $align } = props;
 
-  let iconStyle, borderRadius;
+  let iconStyle, borderRadius, aspectRatio;
 
   //if the button a $outlined generate this, it his a normal generate an normal
   const itemStyle = $outlined ? generateOutlined(props) : generateNormal(props);
@@ -197,6 +198,9 @@ const generateThemeItem = (props: IGenerateThemeItem) => {
 
   if (Boolean(!$label) && $icon) {
     borderRadius = '50%';
+    aspectRatio = css`aspect-ratio: 1/1;
+      justify-content: center;
+    `;
   }
 
   return css`
@@ -213,6 +217,7 @@ const generateThemeItem = (props: IGenerateThemeItem) => {
 
     ${itemStyle}
     ${iconStyle}
+    ${aspectRatio}
 
     &:disabled {
       ${disabledStyle}
