@@ -15,7 +15,7 @@ export interface IGenerateThemeItemProps {
   label?: string;
   wide?: boolean;
   design: IUiColorsTypes;
-  roundedCompletly?: boolean;
+  borderRadius?: keyof typeof borderRadius;
   align?: 'left' | 'right' | 'center';
   color?: 'primary' | 'secondary' | 'accent';
   hoverColor?: 'primary' | 'secondary' | 'accent';
@@ -169,10 +169,10 @@ const generateNormal = (props: IGenerateNormalitem) => {
   `;
 };
 
-const generateBorderRadius = (props: Pick<IGenerateThemeItem, '$wide' | '$roundedCompletly' | '$size'>): string => {
-  const { $wide, $roundedCompletly, $size } = props;
-  if ($roundedCompletly) {
-    return borderRadius.xxxl;
+const generateBorderRadius = (props: Pick<IGenerateThemeItem, '$wide' | '$borderRadius' | '$size'>): string => {
+  const { $wide, $borderRadius, $size } = props;
+  if ($borderRadius) {
+    return borderRadius[$borderRadius];
   } else if ($wide) {
     return borderRadius.lg;
   } else {
@@ -182,7 +182,7 @@ const generateBorderRadius = (props: Pick<IGenerateThemeItem, '$wide' | '$rounde
 
 //-----this funktion handles the button style on his conditions-----//
 const generateThemeItem = (props: IGenerateThemeItem) => {
-  const { $outlined, $icon, $size, $label, $wide, $roundedCompletly, $align } = props;
+  const { $outlined, $icon, $size, $label, $wide, $borderRadius, $align } = props;
 
   let iconStyle, borderRadius, aspectRatio;
 
@@ -190,7 +190,7 @@ const generateThemeItem = (props: IGenerateThemeItem) => {
   const itemStyle = $outlined ? generateOutlined(props) : generateNormal(props);
 
   //this claculates the borderradius depeend on if its a $wide button or not
-  borderRadius = generateBorderRadius({ $wide, $roundedCompletly, $size });
+  borderRadius = generateBorderRadius({ $wide, $borderRadius, $size });
 
   //gets the style of a button with a $icon
   if ($icon) iconStyle = generateIcon(props);

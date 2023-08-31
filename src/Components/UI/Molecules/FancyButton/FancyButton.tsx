@@ -7,7 +7,6 @@ import FancySVGAtom from '../../Atoms/FancySVGAtom/FancySVGAtom';
 import Typography from '../../Atoms/Typography/Typography';
 import LoadingSVGArrows from '../../Atoms/LoadingSVGArrows/LoadingSVGArrows';
 
-
 //this creates the button component and handles the style via generateButton
 const Button = styled.button<IGenerateThemeItem>`
   ${(props: IGenerateThemeItem) => generateThemeItem(props)}
@@ -15,7 +14,7 @@ const Button = styled.button<IGenerateThemeItem>`
 
 //the main react component to generate the fancyButton
 export default function FancyButton(props: IFancyButtonProps) {
-  const { icon, label, size, wide, design, align, color, hoverColor, outlined, roundedCompletly, isLoading, ...htmlButtonProps } = {
+  const { icon, label, size, wide, design, align, color, hoverColor, outlined, borderRadius, isLoading, ...htmlButtonProps } = {
     ...defaultProps,
     ...props,
   };
@@ -24,7 +23,7 @@ export default function FancyButton(props: IFancyButtonProps) {
     <Button
       $size={size!}
       $design={design!}
-      $roundedCompletly={roundedCompletly}
+      $borderRadius={borderRadius}
       $align={align}
       $color={color}
       $wide={wide}
@@ -35,7 +34,13 @@ export default function FancyButton(props: IFancyButtonProps) {
       type="button"
       {...htmlButtonProps}
     >
-      <LoadingSVGArrows size={size} isLoading={isLoading} externalStyle={css`margin-right: 0 !important;`}/>
+      <LoadingSVGArrows
+        size={size}
+        isLoading={isLoading}
+        externalStyle={css`
+          margin-right: 0 !important;
+        `}
+      />
 
       {icon && !isLoading && (
         <FancySVGAtom size={size} isPassive>
@@ -50,4 +55,5 @@ export default function FancyButton(props: IFancyButtonProps) {
 const defaultProps: IFancyButtonProps = {
   design: 'accent',
   size: 'lg',
+  align: 'center',
 };
