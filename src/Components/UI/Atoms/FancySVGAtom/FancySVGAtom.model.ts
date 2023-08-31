@@ -10,16 +10,15 @@ export const sizes = {
 
 export type ISizes = keyof typeof sizes;
 
-export interface ISVGAtom {
+export type ISVGAtom = {
   children?: React.ReactNode;
   size?: ISizes;
   externalStyle?: CSSProp;
   isPassive?: boolean;
   isActive?: boolean;
-  ariaLabel?: string;
   errorMessage?: string;
 }
 
+export type ISVGAtomProps = ISVGAtom & Omit<React.HTMLAttributes<HTMLElement>, 'style'>;
 
-
-export type IStyledSVGAtom = IStyledPrefixAndOmiter<ISVGAtom, 'children' | 'ariaLabel'>;
+export type IStyledSVGAtom = IStyledPrefixAndOmiter<ISVGAtom, 'children'>;
