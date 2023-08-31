@@ -3,7 +3,8 @@ import React from 'react';
 import { css, keyframes } from 'styled-components';
 import SVGLoadingArrows from '../../SVGIcons/SVGLoadingArrows';
 import { FancySVGAtom } from '../FancySVGAtom';
-import { ISizes } from '../FancySVGAtom/FancySVGAtom.model';
+import { ISVGAtomProps, ISizes } from '../FancySVGAtom/FancySVGAtom.model';
+
 
 const loadingAnimation = keyframes`
   0% { transform: rotate(0deg); }
@@ -18,14 +19,16 @@ interface ILoadingSVGArrowsProps {
 // --------------------------------------------------------------------------- //
 //  A loading animation with two arrows thats shown when something is loading  //
 // --------------------------------------------------------------------------- //
-export default function LoadingSVGArrows({ size = 'md', isLoading }: ILoadingSVGArrowsProps) {
+export default function LoadingSVGArrows(props: ILoadingSVGArrowsProps & ISVGAtomProps) {
+  const { size = 'md', isLoading, externalStyle } = props;
+
   return isLoading ? (
     <FancySVGAtom
       size={size}
       isPassive
       externalStyle={css`
         animation: ${loadingAnimation} 2s infinite linear;
-        margin-right: 0 !important;
+        ${externalStyle}
       `}
     >
       <SVGLoadingArrows />
