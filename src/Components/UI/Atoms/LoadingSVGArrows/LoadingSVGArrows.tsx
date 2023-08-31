@@ -25,7 +25,7 @@ export default function LoadingSVGArrows({ size = 'md', isLoading }: ILoadingSVG
       isPassive
       externalStyle={css`
         animation: ${loadingAnimation} 2s infinite linear;
-        padding-right: 0 !important;
+        margin-right: 0 !important;
       `}
     >
       <SVGLoadingArrows />
