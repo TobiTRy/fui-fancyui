@@ -184,20 +184,19 @@ const generateBorderRadius = (props: Pick<IGenerateThemeItem, '$wide' | '$border
 const generateThemeItem = (props: IGenerateThemeItem) => {
   const { $outlined, $icon, $size, $label, $wide, $borderRadius, $align } = props;
 
-  let iconStyle, borderRadius, aspectRatio;
+  let iconStyle, aspectRatio;
 
   //if the button a $outlined generate this, it his a normal generate an normal
   const itemStyle = $outlined ? generateOutlined(props) : generateNormal(props);
 
   //this claculates the borderradius depeend on if its a $wide button or not
-  borderRadius = generateBorderRadius({ $wide, $borderRadius, $size });
+  const borderRadius = generateBorderRadius({ $wide, $borderRadius, $size });
 
   //gets the style of a button with a $icon
   if ($icon) iconStyle = generateIcon(props);
 
-
+  //this makes the button a square (1/1) if there is no $label and a $icon
   if (Boolean(!$label) && $icon) {
-    borderRadius = '50%';
     aspectRatio = css`aspect-ratio: 1/1;
       justify-content: center;
     `;
