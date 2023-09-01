@@ -3,6 +3,7 @@ import { styled, css } from 'styled-components';
 import IStyledPrefixAndPicker from '../../Interface/IStyledPrefixAndPicker.model';
 import { IFancyTabStyle } from '../../Molecules/FancyTabSwitch/IFancyTab.model';
 import { spacingPx, uiColors } from '../../Design/design';
+import { textShadow } from '../../Design/shadows';
 
 // ------------------------------------------------------------------ //
 // ----------- the helperfunctions for the style generate ----------- //
@@ -36,7 +37,7 @@ const generateCheckedStyle = (props: IStyledPrefixAndPicker<IFancyTabStyle, 'tra
     ${!$transparent
       ? css`
           &:checked + label {
-            text-shadow: 1px 1px 1px black;
+            ${textShadow.sm}
             background-color: ${uiColors.accent.main};
           }
         `

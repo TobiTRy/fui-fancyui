@@ -35,7 +35,7 @@ export default function InputFields({currentColorObject, handler }:IInputFields)
       {typeof currentColorObject?.color === 'string' ? (
         <ContainerInputs>
           <FancyTextInput name='color' value={currentColorObject.color} align='center' onChange={handleInputChange}/>
-          <Typography type='inlineElement' variant='smallText'>{currentColorObject.type}</Typography>
+          <Typography type='inlineElement' variant='smText'>{currentColorObject.type}</Typography>
         </ContainerInputs>
       ) : (
         // if the color is a object render a input field for each color value
@@ -44,7 +44,7 @@ export default function InputFields({currentColorObject, handler }:IInputFields)
             <ContainerInputs key={key} >
               {/* the AdaptInputs component creates the input for the specific color (like: r, b, g ...) */}
               <AdaptInputs inputLetter={key} value={value as number} handler={handleInputChange} ariaLabel={key}/>
-              <Typography type='inlineElement' variant='smallText'>{key}</Typography>
+              <Typography type='inlineElement' variant='smText'>{key}</Typography>
             </ContainerInputs>
           );
         })

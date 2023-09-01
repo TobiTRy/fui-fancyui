@@ -4,6 +4,7 @@ import { styled } from 'styled-components';
 import { animated, useSpring } from '@react-spring/web';
 
 import { uiColors, borderRadius, spacingPx } from '../../Design/design';
+import { boxShadow } from '../../Design/shadows';
 
 const StyledDialog = styled(animated.div)`
   position: fixed;
@@ -12,14 +13,14 @@ const StyledDialog = styled(animated.div)`
   transform: translate(-50%, -50%);
   padding: ${spacingPx.xl};
   background-color: ${uiColors.primary.dark};
-  border-radius: ${borderRadius.large};
+  border-radius: ${borderRadius.lg};
   border: none;
   width: 70%;
   max-height: 85%;
   color: ${uiColors.primary.contrast};
-  box-shadow: 1px 0px 23px #000000e3;
   z-index: 1000;
   backdrop-filter: blur(4px);
+  ${boxShadow.lg}
 `;
 
 // --------------------------------------------------------------------------- //

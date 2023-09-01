@@ -71,7 +71,7 @@ export default function InputWrapper(props: IInputWrapper) {
   return (
     <StyledInputWrapper disabled={disabled} $autoWidth={autoWidth}>
       {icon && (
-        <FancySVGAtom isPassive={false} externalStyle={iconStyle} size="large" isActive={isActiv}>
+        <FancySVGAtom isPassive={false} externalStyle={iconStyle} size="lg" isActive={isActiv}>
           {icon}
         </FancySVGAtom>
       )}

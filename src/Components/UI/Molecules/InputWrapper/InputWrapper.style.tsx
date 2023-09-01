@@ -19,7 +19,7 @@ export const ErrorMessage = styled.p`
   grid-row: 2;
   margin: 0;
   margin-top: ${spacingPx.xxs};
-  font-size: ${fontSize.extraSmall};
+  font-size: ${fontSize.extrasm};
   color: ${colorPalet.red_light};
 `;
 

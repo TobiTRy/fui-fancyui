@@ -1,5 +1,6 @@
 import { styled, css } from 'styled-components';
 import { fontSize, spacingPx, uiColors } from '../../Design/design';
+import { boxShadow, textShadow } from '../../Design/shadows';
 
 const SpeedDailButtonSize = 60;
 
@@ -31,8 +32,8 @@ export const Button = styled.button<{ $isOpen: boolean }>`
   align-items: center;
   justify-content: center;
   z-index: 3;
-  box-shadow: #19191980 0 0 15px;
   transition: box-shadow 0.3s ease;
+  ${boxShadow.md}
 
   svg {
     position: absolute;
@@ -70,7 +71,7 @@ export const Label = css<{ $isOpen: boolean; $labelAlign?: 'left' | 'right' }>`
   display: ${({ $isOpen }) => ($isOpen ? 'inline' : 'none')};
   opacity: ${({ $isOpen }) => ($isOpen ? 1 : 0)};
   transition: opacity 0.5s ease-in-out, right 0.3s ease, left 0.3s ease;
-  text-shadow: #19191980 0 0 15px;
+  ${textShadow.md}
   white-space: nowrap;
 
   ${({ $labelAlign }) =>
@@ -115,7 +116,7 @@ export const MenuItem = styled.button`
   padding: 0;
   color: ${uiColors.secondary.main};
   cursor: pointer;
-  font-size: ${fontSize.medium};
+  font-size: ${fontSize.md};
   border: none;
   outline: none;
   display: flex;

@@ -29,7 +29,7 @@ const WrapperContent = styled.div`
   flex-direction: column;
   margin: 0.5em 0 1em 0;
   overflow: hidden;
-  border-radius: ${borderRadius.medium};
+  border-radius: ${borderRadius.md};
 `;
 
 // --------------------------------------------------------------------------- //

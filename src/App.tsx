@@ -230,10 +230,10 @@ function App() {
     //       <FancyButton icon={svg} label='Open SwipeUp' onClick={() => openModal(true)}/>
     //      </section>
     //     <section>
-    //       <FancyButton size="small" wide={true} design="accent" outlined={true} onClick={() => handleModalCreation()} label="Modal"></FancyButton>
+    //       <FancyButton size="sm" wide={true} design="accent" outlined={true} onClick={() => handleModalCreation()} label="Modal"></FancyButton>
     //     </section>
     //     <section>
-    //       <FancyButton size="small" wide={true} design="accent" onClick={handleClick} label="Toaster"></FancyButton>
+    //       <FancyButton size="sm" wide={true} design="accent" onClick={handleClick} label="Toaster"></FancyButton>
     //     </section>
     //     <section>
     //       <FancyBottomBarIcon label="Test" icon={svg} active={activated} handler={() => setActivated(!activated)} />

@@ -4,27 +4,27 @@ import IStyledPrefixAndPicker from '../../Interface/IStyledPrefixAndPicker.model
 
 export interface IcalcIconPaddingAsProps {
   aligned?: 'left' | 'right' | 'center';
-  size?: 'small' | 'medium' | 'large';
+  size?: 'sm' | 'md' | 'lg';
 }
 
 //this are the values between the icon and the edge of the button
 const paddingFromIcon = {
-  small:  spacing.xs + 'px',
-  medium: spacing.xs + 'px',
-  large:  spacing.xs + 'px',
+  sm:  spacing.xs + 'px',
+  md: spacing.xs + 'px',
+  lg:  spacing.xs + 'px',
 };
 
 //this funktion handles the spacing between the icon and the text deepends on the alignment
 export type IcalcIconPadding = IStyledPrefixAndPicker<IcalcIconPaddingAsProps>;
-export function calcIconPaddingAndAlign({ $aligned = 'left', $size = 'medium' }: IcalcIconPadding) {
+export function calcIconMarginAndAlign({ $aligned = 'left', $size = 'md' }: IcalcIconPadding) {
   if ($aligned === 'right') {
     return css`
-      padding-left: ${paddingFromIcon[$size]};
+      margin-left: ${paddingFromIcon[$size]};
       order: 1;
     `;
   } else if ($aligned === 'left' || $aligned === 'center') {
     return css`
-      padding-right: ${paddingFromIcon[$size]};
+      margin-right: ${paddingFromIcon[$size]};
     `;
   }
 }

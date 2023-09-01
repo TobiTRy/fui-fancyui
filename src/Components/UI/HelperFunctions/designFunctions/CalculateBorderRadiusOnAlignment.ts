@@ -10,43 +10,43 @@ const CalculateBorderRadiusOnAlignment = ({ $alignHorizontal, $alignVertical }: 
     return css`
       top: 0;
       left: 0;
-      border-radius: 0 0 ${borderRadius.medium} 0;
+      border-radius: 0 0 ${borderRadius.md} 0;
     `;
   } else if ($alignHorizontal === 'left' && $alignVertical === 'bottom') {
     return css`
       bottom: 0;
       left: 0;
-      border-radius: 0 ${borderRadius.medium} 0 0;
+      border-radius: 0 ${borderRadius.md} 0 0;
     `;
   } else if ($alignHorizontal === 'right' && $alignVertical === 'top') {
     return css`
       top: 0;
       right: 0;
-      border-radius: 0 0 0 ${borderRadius.medium};
+      border-radius: 0 0 0 ${borderRadius.md};
     `;
   } else if ($alignHorizontal === 'right' && $alignVertical === 'bottom') {
     return css`
       bottom: 0;
       right: 0;
-      border-radius: ${borderRadius.medium} 0 0 0;
+      border-radius: ${borderRadius.md} 0 0 0;
     `;
   } else if ($alignHorizontal === 'center' && $alignVertical === 'top') {
     return css`
       top: 0;
       left: 50%;
       transform: translateX(-50%);
-      border-radius: 0 0 ${borderRadius.medium} ${borderRadius.medium};
+      border-radius: 0 0 ${borderRadius.md} ${borderRadius.md};
     `;
   } else if ($alignHorizontal === 'center' && $alignVertical === 'bottom') {
     return css`
       bottom: 0;
       left: 50%;
       transform: translateX(-50%);
-      border-radius: ${borderRadius.medium} ${borderRadius.medium} 0 0;
+      border-radius: ${borderRadius.md} ${borderRadius.md} 0 0;
     `;
   } else {
     return css`
-      border-radius: ${borderRadius.medium};
+      border-radius: ${borderRadius.md};
     `;
   }
 };

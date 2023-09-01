@@ -59,11 +59,11 @@ export default function EditBar(props: IEditBar) {
       )}
       {/* The second Bar that adapts to the activated button from the man bar */}
       {subSectionItems && (
-        <DynamicBottomScrollBar buttons={subSectionItems} scrollable={scrollable} bottomFixed={false} spacingLeftRight={spacingPx.xl} roundedness='medium' secondBar={true}/>
+        <DynamicBottomScrollBar buttons={subSectionItems} scrollable={scrollable} bottomFixed={false} spacingLeftRight={spacingPx.xl} roundedness='md' secondBar={true}/>
       )}
       {/* The Main Bar which always shown with the main settings */}
       {sectionItems && (
-        <DynamicBottomScrollBar buttons={sectionItems} bottomFixed={false} scrollable={scrollable} roundedness='medium'  />
+        <DynamicBottomScrollBar buttons={sectionItems} bottomFixed={false} scrollable={scrollable} roundedness='md'  />
       )}
     </Wrapper>
   );

@@ -68,16 +68,16 @@ export const fontSizeVariants = {
     line-height: 1.4;
     font-weight: 400;
   `,
-  smallText: css`
+  smText: css`
     line-height: 1.1;
     ${nullifyStyle};
-    ${responsiveFontSize(fontSizes.mobile.textElements.smallText, fontSizes.desktop.textElements.smallText)}
+    ${responsiveFontSize(fontSizes.mobile.textElements.smText, fontSizes.desktop.textElements.smText)}
     font-weight: 400;
   `,
-  verySmallText: css`
+  verysmText: css`
     line-height: 1;
     ${nullifyStyle};
-    ${responsiveFontSize(fontSizes.mobile.textElements.verySmallText, fontSizes.desktop.textElements.verySmallText)}
+    ${responsiveFontSize(fontSizes.mobile.textElements.verysmText, fontSizes.desktop.textElements.verysmText)}
     font-weight: 400;
   `,
 };

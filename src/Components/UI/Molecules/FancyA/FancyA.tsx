@@ -17,7 +17,7 @@ const A = styled.a<IGenerateThemeItem & {disabled?: boolean}>`
 // --------------- The Main Component for the Fancy A Tag -------------------- //
 // --------------------------------------------------------------------------- //
 export interface IFancyA {
-  size?: "small" | "medium" | "large";
+  size?: "sm" | "md" | "lg";
   wide?: boolean; 
   design?: "primary" | "secondary" | "accent" | "transparent";
   align?: "left" | "right" | "center";
@@ -55,7 +55,7 @@ export default function FancyA(props: IFancyA) {
 }
 
 const defaultProps: IFancyA = {
-  size: 'medium',
+  size: 'md',
   design: 'transparent',
   align: 'left',
   hoverColor: 'accent',

@@ -18,7 +18,6 @@ export const TitleArea = styled.div`
     height: 1px;
     border-radius: 50%;
     background-color: ${uiColors.accent.main};
-    box-shadow: 0 0 5px ${uiColors.accent.main};
   }
 
   h4 {

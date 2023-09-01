@@ -19,31 +19,33 @@ const getBorderRadius = (borderRadius: TBorderRadius) => {
 };
 
 // Set size based on prop
-type TSize = IFancyProfilePicture['size'];
-const getSize = (size: TSize) => {
-  switch (size) {
-    case 'xxs':
-      return '24px';
-    case 'xs':
-      return '32px';
-    case 'sm':
-      return '48px';
-    case 'md':
-      return '96px';
-    case 'lg':
-      return '128px';
-    case 'xl':
-      return '192px';
-    case 'xxl':
-      return '256px';
-    default:
-      return '100px';
-  }
+export type TSize = "sm" | "md" | "lg" | "xxs" | "xs" | "xl" | "xxl";
+const sizeConfig: Record<TSize | string, string> = {
+  'xxs': '24px',
+  'xs': '32px',
+  'sm': '48px',
+  'md': '96px',
+  'lg': '128px',
+  'xl': '192px',
+  'xxl': '256px',
+  'default': '100px'
 };
+
+
+const getSize = (size: TSize | string) => {
+  // Check if the size is a percentage value
+  if (typeof size === 'string' && size.endsWith('%')) {
+    return size;
+  }
+
+  // Return the size from the config or default if not found
+  return sizeConfig[size] || sizeConfig['default'];
+};
+
 
 interface ProfilePictureProps {
   $rounded: TBorderRadius;
-  $size: TSize;
+  $size: TSize | string;
 }
 
 // the main ProfilePicture Component renderd on specific props

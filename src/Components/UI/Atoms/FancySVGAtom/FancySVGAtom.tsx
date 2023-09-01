@@ -1,7 +1,7 @@
 import React from 'react';
 import { styled } from 'styled-components';
 import { colorPalet, uiColors } from '../../Design/design';
-import { ISVGAtom, IStyledSVGAtom, sizes } from './FancySVGAtom.model';
+import { ISVGAtomProps, IStyledSVGAtom, sizes } from './FancySVGAtom.model';
 
 const calcIconColor = ($isActive?: boolean, errorMessage?: string | undefined): string => {
   if (!errorMessage) {
@@ -29,8 +29,8 @@ const StyledSVG = styled.i<IStyledSVGAtom>`
 // --------------------------------------------------------------------------- //
 // --------- This is a wrapper for SVGs to wrap them and style them ---------- //
 // --------------------------------------------------------------------------- //
-export default function FancySVGAtom(props: ISVGAtom) {
-  const { children, isPassive, size, isActive, errorMessage, externalStyle, ariaLabel } = { ...defaultProps, ...props };
+export default function FancySVGAtom(props: ISVGAtomProps) {
+  const { children, isPassive, size, isActive, errorMessage, externalStyle, ...htmlProps } = { ...defaultProps, ...props };
 
   return (
     <StyledSVG
@@ -39,15 +39,15 @@ export default function FancySVGAtom(props: ISVGAtom) {
       $isActive={isActive}
       $errorMessage={errorMessage}
       $externalStyle={externalStyle}
-      aria-label={ariaLabel}
+      {...htmlProps}
     >
       {children}
     </StyledSVG>
   );
 }
 
-const defaultProps: ISVGAtom = {
-  size: 'medium',
+const defaultProps: ISVGAtomProps = {
+  size: 'md',
   isPassive: false,
   isActive: true,
 };

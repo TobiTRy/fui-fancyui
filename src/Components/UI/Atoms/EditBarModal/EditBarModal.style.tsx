@@ -1,5 +1,6 @@
 import { styled, css } from 'styled-components';
 import { spacingPx, uiColors } from '../../Design/design';
+import { boxShadow } from '../../Design/shadows';
 
 //this calculates the spacing from left and right or nothing
 const calcBarWidthandSpacing = (width?: string, spacingLeftRight?: string) => {
@@ -39,7 +40,7 @@ export const Wrapper = styled.div<IWrapper>`
   ${({ $width, $spacingLeftRight }) => calcBarWidthandSpacing($width, $spacingLeftRight)};
   background-color: ${uiColors.primary.dark};
   border-radius: 12px 12px 0px 0px;
-  box-shadow: 0 0 12px black;
+  ${boxShadow.md}
 `;
 
 export const WrapperContent = styled.div`

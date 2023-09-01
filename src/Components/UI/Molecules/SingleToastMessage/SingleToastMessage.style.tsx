@@ -21,7 +21,7 @@ export const Container = styled.div<IToastMessage>`
   flex-direction: column;
   align-items: left;
   color: ${({ $messageType }) => systemMessages[$messageType].light};
-  border-radius: ${borderRadius.small};
+  border-radius: ${borderRadius.sm};
   padding: ${spacingPx.lg};
   background-color: ${({ $messageType }) => systemMessages[$messageType].backGround};
   border-left: 4px solid ${({ $messageType }) => systemMessages[$messageType].light};
@@ -35,7 +35,7 @@ export const Headline = styled.div`
 
   button {
     align-self: flex-start;
-    line-height: ${fontSize.large};
+    line-height: ${fontSize.lg};
   }
 `;
 
@@ -63,7 +63,7 @@ export const CloseButton = styled.button<IToastMessage>`
   color: ${({ $messageType }) => systemMessages[$messageType].light};
   background: none;
   border: none;
-  font-size: ${fontSize.large};
+  font-size: ${fontSize.lg};
   font-weight: bolder;
   cursor: pointer;
   outline: none;

@@ -2,7 +2,7 @@ import { css } from 'styled-components';
 import Color from 'color';
 
 import { disabledStyle } from './disableStyle';
-import { calcIconPaddingAndAlign } from './generateIconPadding';
+import { calcIconMarginAndAlign } from './generateIconMargin';
 import { generatePadding } from './generatePadding';
 import { borderRadius, spacing, uiColors } from '../../Design/design';
 import { IUiColorsTypes } from '../../Design/design';
@@ -11,11 +11,11 @@ import IStyledPrefixAndOmiter from '../../Interface/IStyledPrefixAndOmiter.model
 export interface IGenerateThemeItemProps {
   outlined?: boolean;
   icon?: JSX.Element;
-  size: 'small' | 'medium' | 'large';
+  size: 'sm' | 'md' | 'lg';
   label?: string;
   wide?: boolean;
   design: IUiColorsTypes;
-  roundedCompletly?: boolean;
+  borderRadius?: keyof typeof borderRadius;
   align?: 'left' | 'right' | 'center';
   color?: 'primary' | 'secondary' | 'accent';
   hoverColor?: 'primary' | 'secondary' | 'accent';
@@ -35,15 +35,15 @@ const alignment = {
 
 //this are the values between the $icon and the edge of the button
 const paddingIconButton = {
-  small: spacing.md + 'px',
-  medium: spacing.xl - 4 + 'px',
-  large: spacing.xl + 'px',
+  sm: spacing.md + 'px',
+  md: spacing.xl - 4 + 'px',
+  lg: spacing.xl + 'px',
 };
 
 const buttonSizes = {
-  small: '32px',
-  medium: '40px',
-  large: '48px',
+  sm: '32px',
+  md: '40px',
+  lg: '48px',
 };
 
 // ------------------------------------------------------------------ //
@@ -95,7 +95,8 @@ const generateIcon = (props: IGenerateIconItem) => {
     i {
       display: flex;
       align-items: center;
-      ${$label && calcIconPaddingAndAlign({ $aligned: $align, $size })};
+      aspect-ratio: 1/1;
+      ${$label && calcIconMarginAndAlign({ $aligned: $align, $size })};
     }
   `;
 };
@@ -110,6 +111,7 @@ const generateOutlined = (props: IGenerateOutlinedItem) => {
 
   //this calculates the textcolor depend on $design and $color
   const textColor = calcTextColor({ $color, $design, $outlined });
+
 
   //this makes the color, no matther which one transparent
   const backgroundColor = $design !== 'transparent' ? Color(uiColors[$design].main).alpha(0.1).hexa() : null;
@@ -167,12 +169,12 @@ const generateNormal = (props: IGenerateNormalitem) => {
   `;
 };
 
-const generateBorderRadius = (props: Pick<IGenerateThemeItem, '$wide' | '$roundedCompletly' | '$size'>) => {
-  const { $wide, $roundedCompletly, $size } = props;
-  if ($roundedCompletly) {
-    return borderRadius.xxxl;
+const generateBorderRadius = (props: Pick<IGenerateThemeItem, '$wide' | '$borderRadius' | '$size'>): string => {
+  const { $wide, $borderRadius, $size } = props;
+  if ($borderRadius) {
+    return borderRadius[$borderRadius];
   } else if ($wide) {
-    return borderRadius.large;
+    return borderRadius.lg;
   } else {
     return borderRadius[$size];
   }
@@ -180,22 +182,24 @@ const generateBorderRadius = (props: Pick<IGenerateThemeItem, '$wide' | '$rounde
 
 //-----this funktion handles the button style on his conditions-----//
 const generateThemeItem = (props: IGenerateThemeItem) => {
-  const { $outlined, $icon, $size, $label, $wide, $roundedCompletly, $align } = props;
+  const { $outlined, $icon, $size, $label, $wide, $borderRadius, $align } = props;
 
-  let iconStyle, borderRadius;
+  let iconStyle, aspectRatio;
 
   //if the button a $outlined generate this, it his a normal generate an normal
   const itemStyle = $outlined ? generateOutlined(props) : generateNormal(props);
 
   //this claculates the borderradius depeend on if its a $wide button or not
-  borderRadius = generateBorderRadius({ $wide, $roundedCompletly, $size });
+  const borderRadius = generateBorderRadius({ $wide, $borderRadius, $size });
 
   //gets the style of a button with a $icon
   if ($icon) iconStyle = generateIcon(props);
 
-  //check if the button has no $label if its true make it completely round
-  if (Boolean(!$label) && !$wide) {
-    borderRadius = '50%';
+  //this makes the button a square (1/1) if there is no $label and a $icon
+  if (Boolean(!$label) && $icon) {
+    aspectRatio = css`aspect-ratio: 1/1;
+      justify-content: center;
+    `;
   }
 
   return css`
@@ -205,13 +209,14 @@ const generateThemeItem = (props: IGenerateThemeItem) => {
     border: none;
     cursor: pointer;
     box-sizing: border-box;
-    height: ${buttonSizes[$size]} ;
+    height: ${buttonSizes[$size]};
     width: ${$wide ? '100%' : 'initial'};
     border-radius: ${borderRadius};
     transition: all 0.2s ease-in-out;
 
     ${itemStyle}
     ${iconStyle}
+    ${aspectRatio}
 
     &:disabled {
       ${disabledStyle}

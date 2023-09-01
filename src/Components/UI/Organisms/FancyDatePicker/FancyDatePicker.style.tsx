@@ -6,7 +6,7 @@ export const DatePickerContainer = styled.div`
   flex-direction: column;
   align-items: center;
   background-color: ${uiColors.primary.light};
-  border-radius: ${borderRadius.extraLarge};
+  border-radius: ${borderRadius.xl};
   padding: 20px;
   width: 100%;
   box-sizing: border-box;

@@ -38,7 +38,7 @@ export default function FancyRangeSlider(props: IFancyRangeSlider) {
       {/* Icon for the left side of the slider */}
       {icon && (
         <Icon>
-          <FancySVGAtom isPassive={false} isActive={isActive} size="large">
+          <FancySVGAtom isPassive={false} isActive={isActive} size="lg">
             {icon}
           </FancySVGAtom>
         </Icon>
