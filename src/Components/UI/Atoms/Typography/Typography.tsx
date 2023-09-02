@@ -2,6 +2,7 @@ import React, { ReactNode } from 'react';
 import { styled, CSSProp, css } from 'styled-components';
 
 import { fontSizeVariants } from './TypographyStyleVariants';
+import { uiColors } from '../../Design/design';
 
 interface IComponentProps {
   children?: ReactNode;
@@ -64,6 +65,7 @@ const generateStyle = (externalStyle: CSSProp, fontWeight: 'normal' | 'bold' | u
   return css`
     ${externalStyle};
     font-weight: ${fontWeight};
+    color: ${uiColors.secondary.main};
   `;
 };
 
