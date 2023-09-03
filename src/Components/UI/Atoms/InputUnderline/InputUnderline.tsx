@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { styled, css } from 'styled-components';
 
 import { colorPalet, uiColors } from '../../Design/design';
@@ -24,36 +24,32 @@ const UnderLine = styled.i<IStyledUnderline>`
     position: absolute;
     left: 0;
     bottom: 0;
-    opacity: ${({ $colorState }) => ($colorState === 'default' ? '0' : '1')};
+    opacity: ${({ $isActive }) => ($isActive ? 1 : 0)};
     height: 100%;
     background: ${({ $colorState }) => {
-      switch ($colorState) {
-        case 'active':
-          return css`linear-gradient(90deg, ${uiColors.accent.main}, ${uiColors.accent.light})`;
-        case 'error':
-          return css`linear-gradient(90deg, ${colorPalet.red_dark}, ${colorPalet.red_light})`;
-        default:
-          return 'transparent';
-      }
+      if ($colorState === 'error') return css`linear-gradient(90deg, ${colorPalet.red_dark}, ${colorPalet.red_light})`;
+      if ($colorState === 'active') return css`linear-gradient(90deg, ${uiColors.accent.main}, ${uiColors.accent.main})`;
+      if ($colorState === 'default') return css`linear-gradient(90deg, ${uiColors.secondary.darkest}, ${uiColors.secondary.darkest})`;
     }};
 
     // Define the transition styles for the gradient overlay
     transition: 0.25s;
-    transition-timing-function: cubic-bezier(0.46, 0.03, 0.52, 0.96);
+    transition-timing-function: cubic-bezier(0.46, 0.03, 0.52, 0.96); 
   }
 `;
 
 // Define the props for the FancyInputUnderline component
 interface IFancyUnderline {
   colorState?: 'error' | 'active' | 'default';
+  isActive?: boolean;
   autoWidth?: boolean;
 }
 // --------------------------------------------------------------------------- //
 // --------- The underline for the input components with state style --------- //
 // --------------------------------------------------------------------------- //
 export default function FancyInputUnderline(props: IFancyUnderline) {
-  const { colorState = 'default', autoWidth } = props;
+  const { colorState = 'default', isActive, autoWidth } = props;
 
   // Render the FancyInputUnderline component with the appropriate props
-  return <UnderLine $colorState={colorState} $autoWidth={autoWidth} />;
+  return <UnderLine $colorState={colorState} $isActive={isActive} $autoWidth={autoWidth} />;
 }

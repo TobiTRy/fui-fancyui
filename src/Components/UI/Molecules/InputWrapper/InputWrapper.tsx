@@ -89,7 +89,7 @@ export default function InputWrapper(props: IInputWrapper) {
           </AnimatedInputLabel>
         )}
         {/* Render the underline for the input field if the underline prop is true */}
-        {underline && <FancyInputUnderline colorState={colorStateUnderline} />}
+        {underline && <FancyInputUnderline colorState={(colorStateUnderline === 'error') ? 'error' : 'active'} isActive={isActiv} />}
       </InputContainer>
       {/* Render the error message if an errorMessage prop exists */}
       {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
