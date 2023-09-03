@@ -53,7 +53,6 @@ export { default as FancyContentCard } from '../Components/UI/Molecules/FancyCon
 export { default as FancyDropDownUL } from '../Components/UI/Molecules/FancyDropDownUL/FancyDropDownUL';
 export { default as FancySpeedDialButton } from '../Components/UI/Molecules/FancySpeedDailButton/FancySpeedDailButton';
 export { default as HeaderSlot } from '../Components/UI/Molecules/HeaderSlot/HeaderSlot';
-export { default as InputCreator } from '../Components/UI/Molecules/InputCreator/InputCreator';
 export { default as InputWrapper } from '../Components/UI/Molecules/InputWrapper/InputWrapper';
 export { default as Modal } from '../Components/UI/Molecules/Modal/Modal';
 export { default as ModalBottomLine } from '../Components/UI/Molecules/ModalBottomLine/ModalBottomLine';

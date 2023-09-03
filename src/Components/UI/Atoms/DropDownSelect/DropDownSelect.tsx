@@ -1,5 +1,5 @@
 import React, { HTMLAttributes } from 'react';
-import { SelectField, Option } from './DropDownSelect.style';
+import { SelectField } from './DropDownSelect.style';
 
 export interface IDropDownSelect extends Omit<HTMLAttributes<HTMLSelectElement>, 'type'> {
   align?: 'left' | 'center';
@@ -28,22 +28,22 @@ export default function DropDownSelect(props: IDropDownSelect) {
     >
       {/* Placeholder option */}
       {placeholder && (
-        <Option key="-2" value="" $align={align}>
+        <option key="-2" value="">
           {placeholder}
-        </Option>
+        </option>
       )}
 
       {/* Empty Select Option  */}
       {emptySelect && (
-        <Option key="-1" value="" $align={align} disabled>
+        <option key="-1" value="" disabled>
           {''}
-        </Option>
+        </option>
       )}
 
       {values?.map((item, i) => (
-        <Option key={i} value={item.toString().toLowerCase()} $align={align}>
+        <option key={i} value={item.toString().toLowerCase()}>
           {item}
-        </Option>
+        </option>
       ))}
     </SelectField>
   );
