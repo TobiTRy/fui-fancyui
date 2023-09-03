@@ -32,6 +32,7 @@ import FancyProfilePictureRoute from './Routes/FancyProfilePictureRoute/FancyPro
 import FancyMiniProfile from './Components/UI/Molecules/FancyMiniProfile/FancyMiniProfile';
 import MiniProfileroute from './Routes/MiniProfileRoute/MiniProfileroute';
 import ChipsRoute from './Routes/ChipsRoute/ChipsRoute';
+import CheckboxRoute from './Routes/CheckboxRoute/CheckboxRoute';
 
 // const Icon = (
 //   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -176,6 +177,9 @@ function App() {
                 <Link to="/chips">Chips</Link>
               </li>
               <li>
+                <Link to="/checkbox">Checkbox</Link>
+              </li>
+              <li>
                 <Link to="/experimental">Experimental</Link>
               </li>
             </OwnUl>
@@ -208,6 +212,7 @@ function App() {
             <Route path="/fancyProfilePicture" element={<FancyProfilePictureRoute />} />
             <Route path="/miniProfile" element={<MiniProfileroute />} />
             <Route path="/chips" element={<ChipsRoute />} />
+            <Route path="/checkbox" element={<CheckboxRoute />} />
             <Route path="/" element={<SwipeUpModal />} />
           </Routes>
         </div>

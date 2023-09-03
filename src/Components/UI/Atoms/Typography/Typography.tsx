@@ -2,11 +2,13 @@ import React, { ReactNode } from 'react';
 import { styled, CSSProp, css } from 'styled-components';
 
 import { fontSizeVariants } from './TypographyStyleVariants';
+import { uiColors } from '../../Design/design';
 
 interface IComponentProps {
   children?: ReactNode;
   $variant?: CSSProp;
   $style?: CSSProp;
+  className?: string;
 }
 
 const ComponentObj = {
@@ -62,8 +64,9 @@ const ComponentObj = {
 
 const generateStyle = (externalStyle: CSSProp, fontWeight: 'normal' | 'bold' | undefined) => {
   return css`
-    ${externalStyle};
+    color: ${uiColors.secondary.main};
     font-weight: ${fontWeight};
+    ${externalStyle};
   `;
 };
 
@@ -74,11 +77,12 @@ export interface ITypography {
   weight?: 'normal' | 'bold';
   style?: CSSProp;
   [x: string]: any;
+  className?: string;
 }
 // --------------------------------------------------------------------------- //
 // The Typography component can render differnet elements with different styles//
 // ------------- like a "h4 can have the style of a p" ----------------------- //
-export default function Typography({ type, variant, children, style, weight, ...htmlProps }: ITypography) {
+export default function Typography({ type, variant, children, style, weight, className ,...htmlProps }: ITypography) {
   // generate the Typography component based on the type prop;
   // const Component = ComponentObj[type] || ComponentObj.content;
   const Component = (ComponentObj[type] || ComponentObj.content) as React.FC<IComponentProps>;
@@ -88,7 +92,7 @@ export default function Typography({ type, variant, children, style, weight, ...
   const variantStyle = variant ? fontSizeVariants[variant] : fontSizeVariants[type];
 
   return (
-    <Component $variant={variantStyle} $style={mixedStyle} {...htmlProps}>
+    <Component $variant={variantStyle} $style={mixedStyle} className={className} {...htmlProps}>
       {children}
     </Component>
   );

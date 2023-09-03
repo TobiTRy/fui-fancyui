@@ -1,11 +1,12 @@
-import React, { ChangeEvent } from 'react';
+import React, { ChangeEvent, useState } from 'react';
 
 import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';
 
 import { FancyButton } from '../../lib';
 
-
 import DropDown from '../../Components/UI/Atoms/DropDownSelect/DropDownSelect';
+import RawCheckbox from '../../Components/UI/Atoms/RawCheckbox/RawCheckbox';
+import FancyCheckbox from '../../Components/UI/Molecules/FancyCheckbox/FancyCheckbox';
 
 const svg = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -15,28 +16,25 @@ const svg = (
 );
 
 export default function ExperimentalRoute() {
-
+  const [checked, setChecked] = useState(false);
 
   const testHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
     console.log(e);
-  }
+  };
 
   const valueHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    console.log(e.target.value)
-  }
+    console.log(e.target.value);
+  };
 
-
-
-
+  const handleCheckboxChange = () => {
+    setChecked(!checked);
+  };
 
   return (
     <>
-      <DesignWrapper>
-        <DesignArea title="Experimental">
-          <FancyButton icon={svg} outlined/>
-
-        </DesignArea>
-      </DesignWrapper>
+      <FancyButton icon={svg} outlined />
+      <FancyCheckbox defaultChecked={checked} onChange={handleCheckboxChange}description='There is some description in this checkbox' label="Testt ttets sakjkas akllaksa klaas lllksaks askklalks ajdssjkadjsk ajkkjsajk jkkjsa jkjaksj kka jalw " />
+      <FancyCheckbox description='There is some description in this checkbox' label="Testt ttets sakjkas sdosodo a sdsdsdsjalw " />
     </>
   );
 }
@@ -50,5 +48,3 @@ const defaultProps = {
     { label: 'hi', icon: svg, id: '4' },
   ],
 };
-
-
