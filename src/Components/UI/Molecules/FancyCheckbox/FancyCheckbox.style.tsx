@@ -20,7 +20,7 @@ export const Wrapper = styled.div<{ $align?: TAlign; }>`
 `;
 
 // this wraps the label and the description
-/* handle the order of the checkbox and label/description */
+// handle the order of the checkbox and label/description
 export const TextWrapper = styled.div<{ $align?: TAlignCheckbox; }>`
   display: flex;
   flex-direction: column;

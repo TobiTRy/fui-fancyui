@@ -29,9 +29,11 @@ export default function RawCheckbox(props: IRawCheckboxProps) {
 
   return (
     <InputContainer>
+      {/* The Fakecheckbox for the styling */}
       <FakeCheckbox $checked={checked} onClick={handleClick}>
         <SVGCheckMark />
       </FakeCheckbox>
+      {/* The real checkbox but this hidden */}
       <HidenCheckBox id={id} type="checkbox" defaultChecked={checked} onChange={handleChange} {...rest} />
     </InputContainer>
   );

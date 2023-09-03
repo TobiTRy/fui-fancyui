@@ -6,8 +6,6 @@ import { TextWrapper, Wrapper } from './FancyCheckbox.style';
 import { uiColors } from '../../Design/design';
 import { IFancyCheckboxProps } from './FancyCheckbox.model';
 
-
-
 // --------------------------------------------------------------------------- //
 // -------------------- A simple Checkbox with a Label ----------------------- //
 // --------------------------------------------------------------------------- //
@@ -20,6 +18,7 @@ export default function FancyCheckbox(props: IFancyCheckboxProps) {
 
   return (
     <Wrapper $align={align}>
+      {/* The label and description */}
       {(label || description) && <TextWrapper $align={alignCheckbox}>
         {label && (
           <label htmlFor={pickedId}>
@@ -34,8 +33,7 @@ export default function FancyCheckbox(props: IFancyCheckboxProps) {
           </Typography>
         )}
       </TextWrapper>}
-
-      {/* Add ckeckbox */}
+      {/* The check box */}
       <RawCheckbox id={pickedId} onChange={onChange} defaultChecked={defaultChecked} {...rest} />
     </Wrapper>
   );
