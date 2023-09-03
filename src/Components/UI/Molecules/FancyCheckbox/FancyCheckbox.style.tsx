@@ -26,7 +26,7 @@ export const TextWrapper = styled.div<{ $align?: TAlignCheckbox; }>`
   flex-direction: column;
   gap: ${spacingPx.xxs};
   ${({ $align }) =>
-    $align === 'left'
+    $align === 'right'
       ? css`
           margin-right: ${spacingPx.sm};
           order: 0;

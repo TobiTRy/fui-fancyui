@@ -16,9 +16,11 @@ export default function FancyCheckbox(props: IFancyCheckboxProps) {
   const id = useId();
   const pickedId = props.id ? props.id : id;
 
+  console.log(alignCheckbox)
+
   return (
     <Wrapper $align={align}>
-      <TextWrapper $align={alignCheckbox}>
+      {(label || description) && <TextWrapper $align={alignCheckbox}>
         {label && (
           <label htmlFor={pickedId}>
             <Typography type="inlineElement" variant="label">
@@ -31,7 +33,7 @@ export default function FancyCheckbox(props: IFancyCheckboxProps) {
             {description}
           </Typography>
         )}
-      </TextWrapper>
+      </TextWrapper>}
 
       {/* Add ckeckbox */}
       <RawCheckbox id={pickedId} onChange={onChange} defaultChecked={defaultChecked} {...rest} />
