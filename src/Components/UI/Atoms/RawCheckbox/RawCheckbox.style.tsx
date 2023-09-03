@@ -1,29 +1,16 @@
 import styled, { css } from "styled-components";
-import { uiColors } from "../../Design/design";
-import { TAlign, TAlignCheckbox } from "./RawCheckbox.model";
+import {  uiColors } from "../../Design/design";
 
+
+// a consistant style for the checkbox and the fake checkbox
 const checkboxStyles = css`
   width: 20px;
   height: 20px;
   border-radius: 4px;
 `;
 
-export const Wrapper = styled.div<{ $align: TAlign; }>`
-  position: relative;
-  display: flex;
 
-  justify-content: ${({ $align }) => {
-    switch ($align) {
-      case 'left':
-        return 'flex-start';
-      case 'right':
-        return 'flex-end';
-      case 'center':
-        return 'center';
-    }
-  }};
-`;
-
+// the real chekbox but its hidden and the fake one is shown
 export const HidenCheckBox = styled.input`
   margin: 0;
   position: absolute;
@@ -45,6 +32,7 @@ export const HidenCheckBox = styled.input`
   }
 `;
 
+// the fake checkbox that is shown for better styling
 export const FakeCheckbox = styled.div<{ $checked: boolean }>`
   position: absolute;
   top: 0;
@@ -59,7 +47,7 @@ export const FakeCheckbox = styled.div<{ $checked: boolean }>`
   &:focus-visible {
     outline: none; /* Remove default outline */
   }
-
+  /* the checkmark svg */
   svg {
     position: absolute;
     top: 50%;
@@ -72,6 +60,7 @@ export const FakeCheckbox = styled.div<{ $checked: boolean }>`
   }
 `;
 
+// the container for the checkbox and the fake checkbox
 export const InputContainer = styled.div`
   position: relative;
   display: flex;
@@ -80,24 +69,6 @@ export const InputContainer = styled.div`
   width: 20px;
   height: 20px;
   flex-shrink: 0;
+  margin-top: 1px;
 `;
 
-export const Label = styled.label<{ $align?: TAlignCheckbox }>`
-
-`;
-
-export const TextWrapper = styled.div<{ $align?: TAlignCheckbox }>`
-  display: flex;
-  flex-direction: column;
-  ${({ $align }) =>
-    $align === 'left'
-      ? css`
-          margin-right: 10px;
-          order: 0;
-        `
-      : css`
-          margin-left: 10px;
-          order: 1;
-        `};
-  
-`
