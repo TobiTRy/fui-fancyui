@@ -42,5 +42,5 @@ export default function FancyCheckbox(props: IFancyCheckboxProps) {
 // the default props of the component
 const defaultProps: IFancyCheckboxProps = {
   align: 'center',
-  alignCheckbox: 'right',
+  alignCheckbox: 'left',
 };
