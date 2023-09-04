@@ -42,7 +42,7 @@ export interface IInputWrapper {
   isActiv?: boolean;
   label?: string;
   disabled?: boolean;
-  children?: React.ReactNode;
+  InputElement?: React.ReactNode;
   errorMessage?: string;
   icon?: JSX.Element;
   value?: string | number | readonly string[] | undefined;
@@ -55,7 +55,7 @@ export interface IInputWrapper {
 // ------ The Wrapper for the inputs that give him some extra features  ------ //
 // ------------------ like a Label icon errormessage ------------------------- //
 export default function InputWrapper(props: IInputWrapper) {
-  const { id, value, isActiv, disabled, children, errorMessage, icon, label, align, underline = true, autoWidth, placeholder } = props;
+  const { id, value, isActiv, disabled, InputElement ,errorMessage, icon, label, align, underline = true, autoWidth, placeholder } = props;
   const [isInitial, setIsInitial] = useState(false);
 
   // Calculate the color state for the label and underline
@@ -76,7 +76,7 @@ export default function InputWrapper(props: IInputWrapper) {
         </FancySVGAtom>
       )}
       <InputContainer $givePadding={Boolean(label)}>
-        {children}
+        { InputElement }
         {/* Render the label for the input field if a label prop exists */}
         {label && (
           <AnimatedInputLabel

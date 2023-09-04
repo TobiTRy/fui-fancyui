@@ -19,7 +19,7 @@ export default function FancyDropDownSelect(props: IFancyDropDownSelect) {
   // if no id is provided, generate a random one
   const useid = useId();
   const usedId = id ? id : useid;
-  
+
   // handles the focus and blur events and calls the handler from the parent
   const activeFocusHandler = (value: boolean) => {
     setIsActive(value);
@@ -27,16 +27,27 @@ export default function FancyDropDownSelect(props: IFancyDropDownSelect) {
   };
 
   return (
-    <InputWrapper id={usedId} placeholder={placeholder}value={value} label={label} disabled={disabled} align={align} isActiv={isActiv} icon={icon} errorMessage={errorMessage}>
-      <DropDownSelect
-        placeholder={placeholder}
-        disabled={disabled}
-        id={usedId}
-        value={value}
-        activeHandler={activeFocusHandler}
-        align={align}
-        {...inputProps}
-      />
-    </InputWrapper>
+    <InputWrapper
+      id={usedId}
+      placeholder={placeholder}
+      value={value}
+      label={label}
+      disabled={disabled}
+      align={align}
+      isActiv={isActiv}
+      icon={icon}
+      errorMessage={errorMessage}
+      InputElement={
+        <DropDownSelect
+          id={usedId}
+          value={value}
+          align={align}
+          disabled={disabled}
+          activeHandler={activeFocusHandler}
+          placeholder={placeholder}
+          {...inputProps}
+        />
+      }
+    />
   );
 }
