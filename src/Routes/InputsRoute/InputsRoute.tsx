@@ -92,14 +92,18 @@ export default function InputsRoute() {
           values={['Test', 'Test2', 'Test3', 'Test3', 'Test3', 'Test3']}
           placeholder="Hiii"
         />
-        <FancyDropDownSelect
-          icon={svg}
-          label="DropDown"
-          value={dropDown2}
-          onChange={testHandler33}
-          values={['Test', 'Test2', 'Test3', 'Test3', 'Test3', 'Test3']}
-          align="center"
-        />
+        <FancyDropDownSelect icon={svg} label="DropDown" value={dropDown2} onChange={testHandler33} align="center">
+          <option value="test">Test</option>
+          <option value="test2">Test2</option>
+          <option value="test3">Test3</option>
+          <option value="test4">Test4</option>
+          <optgroup label="test">
+            <option value="test5">Test5</option>
+            <option value="test6">Test6</option>
+            <option value="test7">Test7</option>
+            <option value="test8">Test8</option>
+          </optgroup>
+        </FancyDropDownSelect>
       </DesignArea>
       <DesignArea title="Date Input">
         <FancyDateInput value={date} label="Date" onChange={dateHandler} />

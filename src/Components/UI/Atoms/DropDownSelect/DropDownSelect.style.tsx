@@ -2,15 +2,7 @@ import { styled } from 'styled-components';
 import { colorPalet, fontSize, spacing, spacingPx, uiColors } from '../../Design/design';
 
 //the styling for each option item
-export const Option = styled.option<{ $align?: string }>`
-  background-color: ${uiColors.primary.dark};
-  text-align: ${({ $align }) => ($align !== 'left' ? 'center' : 'left')};
-  color: ${colorPalet.white_high};
 
-  &:disabled {
-    background: ${uiColors.primary.light};
-  }
-`;
 
 //the selectfield for the options
 interface ISelectField {
@@ -44,7 +36,17 @@ export const SelectField = styled.select<ISelectField>`
   }
 
   /* When a item is checked in the dropdown */
-  &:focus ${Option}:checked {
+  &:focus option:checked {
     background: ${uiColors.accent.dark};
+  }
+
+  option {
+    background-color: ${uiColors.primary.dark};
+    text-align: ${({ $align }) => ($align !== 'left' ? 'center' : 'left')};
+    color: ${colorPalet.white_high};
+
+    &:disabled {
+      background: ${uiColors.primary.light};
+    }
   }
 `;

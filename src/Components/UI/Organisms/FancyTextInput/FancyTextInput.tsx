@@ -33,16 +33,17 @@ export default function FancyTextInput(props: IFancyTextInputProps) {
       isActiv={isActiv}
       icon={icon}
       errorMessage={errorMessage}
-    >
-      <TextInput
-        id={usedId}
-        value={value}
-        align={align}
-        placeholder={placeholder}
-        disabled={disabled}
-        activeHandler={activeFocusHandler}
-        {...inputProps}
-      />
-    </InputWrapper>
+      InputElement={
+        <TextInput
+          id={usedId}
+          value={value}
+          align={align}
+          disabled={disabled}
+          activeHandler={activeFocusHandler}
+          placeholder={placeholder}
+          {...inputProps}
+        />
+      }
+    />
   );
 }

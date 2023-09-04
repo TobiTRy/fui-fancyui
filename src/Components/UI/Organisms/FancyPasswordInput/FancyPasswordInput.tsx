@@ -34,16 +34,17 @@ export default function FancyPasswordInput(props: IFancyTextInputProps) {
       isActiv={isActiv}
       icon={icon}
       errorMessage={errorMessage}
-    >
-      <PasswordInput
-        id={usedId}
-        value={value}
-        placeholder={placeholder}
-        disabled={disabled}
-        align={align}
-        activeHandler={activeFocusHandler}
-        {...inputProps}
-      />
-    </InputWrapper>
+      InputElement={
+        <PasswordInput
+          id={usedId}
+          value={value}
+          align={align}
+          disabled={disabled}
+          activeHandler={activeFocusHandler}
+          placeholder={placeholder}
+          {...inputProps}
+        />
+      }
+    />
   );
 }
