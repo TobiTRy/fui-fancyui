@@ -2,7 +2,6 @@ import React, { ReactNode } from 'react';
 import { styled, CSSProp, css } from 'styled-components';
 
 import { fontSizeVariants } from './TypographyStyleVariants';
-import { uiColors } from '../../Design/design';
 
 interface IComponentProps {
   children?: ReactNode;
@@ -64,7 +63,6 @@ const ComponentObj = {
 
 const generateStyle = (externalStyle: CSSProp, fontWeight: 'normal' | 'bold' | undefined) => {
   return css`
-    color: ${uiColors.secondary.main};
     font-weight: ${fontWeight};
     ${externalStyle};
   `;
@@ -89,7 +87,7 @@ export default function Typography({ type, variant, children, style, weight, cla
 
   const mixedStyle = generateStyle(style, weight);
   // get the variant style based on the variant prop or the type prop;
-  const variantStyle = variant ? fontSizeVariants[variant] : fontSizeVariants[type];
+  const variantStyle = variant ? fontSizeVariants[variant] : fontSizeVariants[type] as CSSProp;
 
   return (
     <Component $variant={variantStyle} $style={mixedStyle} className={className} {...htmlProps}>
