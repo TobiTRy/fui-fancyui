@@ -1,12 +1,7 @@
-import React, { ChangeEvent, useState } from 'react';
+import React from 'react';
 
-import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';
-
-import { FancyButton } from '../../lib';
-
-import DropDown from '../../Components/UI/Atoms/DropDownSelect/DropDownSelect';
-import RawCheckbox from '../../Components/UI/Atoms/RawCheckbox/RawCheckbox';
-import FancyCheckbox from '../../Components/UI/Molecules/FancyCheckbox/FancyCheckbox';
+import { styled } from 'styled-components';
+import { colorSteps } from '../../Components/UI/Design/design';
 
 const svg = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -15,27 +10,132 @@ const svg = (
   </svg>
 );
 
+
+const DivHighest = styled.div`
+  width: 100px;
+  height: 100px;
+  background-color: ${colorSteps.secondary[30]};
+`;
+
+const DivHigher = styled.div`
+  width: 100px;
+  height: 100px;
+  background-color: ${colorSteps.secondary[40]};
+`;
+
+const DivHigh = styled.div`
+  width: 100px;
+  height: 100px;
+  background-color: ${colorSteps.secondary[50]};
+`;
+
+const DivMedium = styled.div`
+  width: 100px;
+  height: 100px;
+  background-color: ${colorSteps.secondary[60]};
+`;
+
+const DivLow = styled.div`
+  width: 100px;
+  height: 100px;
+  background-color: ${colorSteps.secondary[70]};
+`;
+
+const DivLower = styled.div`
+  width: 100px;
+  height: 100px;
+  background-color: ${colorSteps.secondary[80]};
+`;
+
+const DivHighest1 = styled.div`
+  width: 100px;
+  height: 100px;
+  background-color: ${colorSteps.primary[30]};
+`;
+
+const DivHigher1 = styled.div`
+  width: 100px;
+  height: 100px;
+  background-color: ${colorSteps.primary[40]};
+`;
+
+const DivHigh1 = styled.div`
+  width: 100px;
+  height: 100px;
+  background-color: ${colorSteps.primary[50]};
+`;
+
+const DivMedium1 = styled.div`
+  width: 100px;
+  height: 100px;
+  background-color: ${colorSteps.primary[60]};
+`;
+
+const DivLow1 = styled.div`
+  width: 100px;
+  height: 100px;
+  background-color: ${colorSteps.primary[70]};
+`;
+
+const DivLower1 = styled.div`
+  width: 100px;
+  height: 100px;
+  background-color: ${colorSteps.primary[80]};
+`;
+
+
+
+const DivHighest2 = styled.div`
+  width: 100px;
+  height: 100px;
+  background-color: ${colorSteps.accent[30]};
+`;
+
+const DivHigher2 = styled.div`
+  width: 100px;
+  height: 100px;
+  background-color: ${colorSteps.accent[40]};
+`;
+
+const DivHigh2 = styled.div`
+  width: 100px;
+  height: 100px;
+  background-color: ${colorSteps.accent[50]};
+`;
+
+const DivMedium2 = styled.div`
+  width: 100px;
+  height: 100px;
+  background-color: ${colorSteps.accent[60]};
+`;
+
 export default function ExperimentalRoute() {
-  const [checked, setChecked] = useState(false);
-
-  const testHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    console.log(e);
-  };
-
-  const valueHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    console.log(e.target.value);
-  };
-
-  const handleCheckboxChange = () => {
-    setChecked(!checked);
-  };
-
   return (
-    <>
-      <FancyButton icon={svg} outlined />
-      <FancyCheckbox defaultChecked={checked} onChange={handleCheckboxChange}description='There is some description in this checkbox' label="Testt ttets sakjkas akllaksa klaas lllksaks askklalks ajdssjkadjsk ajkkjsajk jkkjsa jkjaksj kka jalw " />
-      <FancyCheckbox description='There is some description in this checkbox' label="Testt ttets sakjkas sdosodo a sdsdsdsjalw " />
-    </>
+    <div style={{display: 'flex'}}>
+      <div>
+        <DivHighest />
+        <DivHigher />
+        <DivHigh />
+        <DivMedium />
+        <DivLow />
+        <DivLower />
+      </div>
+      <div>
+        <DivHighest1 />
+        <DivHigher1 />
+        <DivHigh1 />
+        <DivMedium1 />
+        <DivLow1 />
+        <DivLower1 />
+      </div>
+      <div>
+        <DivHighest2 />
+        <DivHigher2 />
+        <DivHigh2 />
+        <DivMedium2 />
+
+      </div>
+    </div>
   );
 }
 

@@ -16,8 +16,7 @@ function adjustLightness(color: Color, delta: number): Color {
 function generateColorVariations(baseColor: string, steps: number[]): string[] {
   const color = Color(baseColor);
   return steps.map((step) => {
-    const delta = step - 50; // Delta relative to the midpoint (50)
-    return adjustLightness(color, delta).hex();
+    return adjustLightness(color, step).hsl().string();
   });
 }
 
@@ -26,16 +25,26 @@ function generateColorSteps(baseColor: string, steps: number[]): ColorStepsType 
   const colorVariations = generateColorVariations(baseColor, steps);
   const colorSteps: ColorStepsType = {};
   steps.forEach((step, index) => {
+    if(step < 0) step = -step;
     colorSteps[step] = colorVariations[index];
   });
   return colorSteps;
 }
 
-// Steps for the color generation
-const steps = [65, 60, 55, 50, 45, 40, 35];
-
-export default function lightenColors(color: string): ColorStepsType {
-  const generatedColors = generateColorSteps(color, steps);
-  console.log('Generated Colors:', generatedColors);
-  return generatedColors;
+export default function lightenColors(color: string, steps: number[]): ColorStepsType {
+  const colorLightness = Color(color).lightness();
+  console.log('colorLightness', colorLightness);
+  // If the color is bright, then darken it
+  if(colorLightness > 80) {
+    const stepsUpdated = steps.map(step => -step);
+    return generateColorSteps(color, stepsUpdated);
+  }
+  // If the color is dark, then lighten it
+  else if(colorLightness < 20) {
+    return generateColorSteps(color, steps);
+  }
+  // If the color is neither too bright nor too dark, use different steps
+  else {
+    return generateColorSteps(color, steps);
+  }
 }

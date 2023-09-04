@@ -11,6 +11,11 @@ const mainColors = {
   accent: '#F17C12',
   secondary: '#E8E7E4',
 };
+// const mainColors = {
+//   primary: 'hsl(292.5deg 88.51% 10.35%)',
+//   accent: '#F17C12',
+//   secondary: '#E8E7E4',
+// };
 
 export const colorPalet = {
   //backup
@@ -154,41 +159,44 @@ export type IBorderRadius = typeof borderRadius;
 
 export type IUiColorsTypes = 'primary' | 'secondary' | 'accent' | 'transparent';
 
-const primaryLightcolors = lightenColors(mainColors.primary);
-const accentLightcolors = lightenColors(mainColors.accent);
-const secondaryLightcolors = lightenColors(mainColors.secondary);
+const primaryLightcolors = lightenColors(mainColors.primary, [5, 10, 15, 20, 25, 30, 35]);
+const accentLightcolors = lightenColors(mainColors.accent, [5, -10, 15, -20, 25, 30, 35]);
+const secondaryLightcolors = lightenColors(mainColors.secondary, [5, 10, 15, 20, 25, 30, 50]);
+
+console.log('secondary', secondaryLightcolors);
 
 
-const colorSteps = {
+export const colorSteps = {
   primary: {
-    80: primaryLightcolors['60'],
-    70: primaryLightcolors['60'],
-    60: primaryLightcolors['55'],
-    50: mainColors.primary,
-    40: primaryLightcolors['45'],
-    30: primaryLightcolors['40'],
+    80: primaryLightcolors['25'],
+    70: primaryLightcolors['20'],
+    60: primaryLightcolors['15'],
+    50: primaryLightcolors['10'],
+    40: primaryLightcolors['5'],
+    30: mainColors.primary,
+
   },
   accent: {
-    80: accentLightcolors['60'],
-    70: accentLightcolors['60'],
-    60: accentLightcolors['55'],
-    50: accentLightcolors['50'],
-    40: accentLightcolors['45'],
-    30: accentLightcolors['40'],
+    80: accentLightcolors['30'],
+    70: accentLightcolors['25'],
+    60: accentLightcolors['20'],
+    50: accentLightcolors['15'],
+    40: accentLightcolors['10'],
+    30: accentLightcolors['5'],
   },
   secondary: {
-    80: secondaryLightcolors['65'],
-    70: secondaryLightcolors['60'],
-    60: secondaryLightcolors['50'],
-    50: mainColors.secondary,
-    40: secondaryLightcolors['45'],
-    30: secondaryLightcolors['40'],
+    80: secondaryLightcolors['50'],
+    70: secondaryLightcolors['20'],
+    60: secondaryLightcolors['15'],
+    50: secondaryLightcolors['10'],
+    40: secondaryLightcolors['5'],
+    30: mainColors.secondary,
     20: secondaryLightcolors['35'],
   },
 };
 
 
-// BACKUP
+// // BACKUP
 // const colorSteps = {
 //   primary: {
 //     80: Color(mainColors.primary).lighten(0.5).hex(),
@@ -216,6 +224,34 @@ const colorSteps = {
 //     20: Color(mainColors.secondary).darken(0.4).hex(),
 //   },
 // };
+const strenghuiColors = {
+  primary: {
+    80: colorSteps.primary[80],
+    70: colorSteps.primary[70],
+    60: colorSteps.primary[60],
+    50: colorSteps.primary[50],
+    40: colorSteps.primary[40],
+    30: colorSteps.primary[30],
+  },
+  accent: {
+    80: colorSteps.accent[80],
+    70: colorSteps.accent[70],
+    60: colorSteps.accent[60],
+    50: colorSteps.accent[50],
+    40: colorSteps.accent[40],
+    30: colorSteps.accent[30],
+  },
+  secondary: {
+    80: colorSteps.secondary[80],
+    70: colorSteps.secondary[70],
+    60: colorSteps.secondary[60],
+    50: colorSteps.secondary[50],
+    40: colorSteps.secondary[40],
+    30: colorSteps.secondary[30],
+    20: colorSteps.secondary[20],
+  },
+};
+
 
 
 export const uiColors = {
