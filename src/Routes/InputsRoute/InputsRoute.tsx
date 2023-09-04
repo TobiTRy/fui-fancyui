@@ -20,7 +20,7 @@ const svg = (
 
 export default function InputsRoute() {
   const [text, setText] = useState<string>('');
-  const [test, setTest] = useState<number>(0);
+  const [test, setTest] = useState<string>('');
   const [date, setDate] = useState<string>('');
   const [dropDown, setDropDown] = useState<string>('');
   const [dropDown2, setDropDown2] = useState<string>('test');
@@ -31,9 +31,9 @@ export default function InputsRoute() {
   };
 
   const testHandler2 = (value: ChangeEvent<HTMLInputElement>) => {
-    console.log(value.target.value, test);
-
-    setTest(Number(value.target.value));
+    console.log('e', value.target.value, 'sate', test);
+    console.log(Number(value.target.value))
+    setTest(value.target.value);
   };
 
   const testHandler = (value: ChangeEvent<HTMLInputElement>) => {
@@ -77,7 +77,7 @@ export default function InputsRoute() {
         <FancyTextInput icon={svg} label="Text" value={text} onChange={testHandler} align="center" placeholder="test45454554" />
       </DesignArea>
       <DesignArea title="Number Input">
-        <FancyNumberInput icon={svg} label="Text" onChange={testHandler2} value={test} align="center" />
+        <FancyNumberInput icon={svg} label="Text" onChange={testHandler2} value={test} align="center" step={0.1} min={0} max={100}/>
         <FancyNumberInput icon={svg} label="Text" onChange={testHandler2} value={test} align="center" disabled={true} placeholder="Hiii" />
       </DesignArea>
       <DesignArea title="Number Input AutoWidth" style={row}>
