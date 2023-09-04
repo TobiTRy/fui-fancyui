@@ -55,7 +55,7 @@ export interface IInputWrapper {
 // ------ The Wrapper for the inputs that give him some extra features  ------ //
 // ------------------ like a Label icon errormessage ------------------------- //
 export default function InputWrapper(props: IInputWrapper) {
-  const { id, value, isActiv, disabled, InputElement ,errorMessage, icon, label, align, underline = true, autoWidth, placeholder } = props;
+  const { id, value, isActiv, disabled, InputElement, errorMessage, icon, label, align, underline = true, autoWidth, placeholder } = props;
   const [isInitial, setIsInitial] = useState(false);
 
   // Calculate the color state for the label and underline
@@ -67,6 +67,8 @@ export default function InputWrapper(props: IInputWrapper) {
     if (isActiv) setIsInitial(true);
   }, [isActiv]);
 
+  console.log(isInitial, value);
+
   // Render the InputWrapper component with the appropriate props
   return (
     <StyledInputWrapper disabled={disabled} $autoWidth={autoWidth}>
@@ -76,20 +78,23 @@ export default function InputWrapper(props: IInputWrapper) {
         </FancySVGAtom>
       )}
       <InputContainer $givePadding={Boolean(label)}>
-        { InputElement }
+        {InputElement}
         {/* Render the label for the input field if a label prop exists */}
         {label && (
           <AnimatedInputLabel
             htmlFor={id}
             $align={align}
-            $moveUp={Boolean((isInitial && value === 0 ? undefined : value) || Boolean(isInitial && value === 0)) || isActiv || Boolean(placeholder)}
+            $moveUp={
+              Boolean((isInitial && value === 0 ? undefined : value) || Boolean(isInitial && value === 0)) ||
+              isActiv || Boolean(placeholder)
+            }
             $colorState={colorStateLabel}
           >
             {label}
           </AnimatedInputLabel>
         )}
         {/* Render the underline for the input field if the underline prop is true */}
-        {underline && <FancyInputUnderline colorState={(colorStateUnderline === 'error') ? 'error' : 'active'} isActive={isActiv} />}
+        {underline && <FancyInputUnderline colorState={colorStateUnderline === 'error' ? 'error' : 'active'} isActive={isActiv} />}
       </InputContainer>
       {/* Render the error message if an errorMessage prop exists */}
       {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}

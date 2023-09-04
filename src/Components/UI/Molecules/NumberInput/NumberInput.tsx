@@ -1,57 +1,87 @@
-import React, { InputHTMLAttributes, useState } from 'react';
-import { TRawInputAlign } from '../../Atoms/RawInput/RawInput';
+import React, { InputHTMLAttributes, useState, useEffect, KeyboardEvent, ChangeEvent } from 'react';
 import StyledNumberInput from './NumberInput.styled';
 
 export interface INumberInput extends InputHTMLAttributes<HTMLInputElement> {
   errorMessage?: string;
   autoWidth?: boolean;
   active?: boolean;
-  align?: TRawInputAlign;
+  align?: string;
+  step?: number;
   activeHandler?: (value: boolean) => void;
 }
-// --------------------------------------------------------------------------- //
-// ------------ A simple number input with some extra features ---- ---------- //
-// --------------------------------------------------------------------------- //
+
 export default function NumberInput(props: INumberInput) {
-  const { value, onChange, activeHandler, errorMessage, align, id, autoWidth, max, min, ...moreHTMLProps } = props;
-  const [initialValue, setInitialValue] = useState(true);
+  const { value, onChange, activeHandler, errorMessage, align, id, autoWidth, max, min, step = 1, ...moreHTMLProps } = props;
+  const [inputValue, setInputValue] = useState<string | null>(value ? value.toString() : null);
 
-  // This is used to make sure that the value is a number
-  const maxValue = typeof max === 'string' ? Number(max) : max;
-  const minValue = typeof min === 'string' ? Number(min) : min;
-
-  // This function is used to make sure that the value is within the min and max value
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInitialValue(false);
-    let newValue = Number(e.target.value);
-
+  // Set the initial value
+  useEffect(() => {
     if (value !== undefined) {
-      if (maxValue !== undefined && newValue > maxValue) {
-        newValue = maxValue;
-      } else if (minValue !== undefined && newValue < minValue) {
-        newValue = minValue;
-      }
+      setInputValue(value.toString());
+    }
+  }, [value]);
+
+  // Handle the change of the input value
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const newValue = e.target.value;
+    // Remove all non-numeric characters
+    const sanitizedValue = newValue.replace(/[^\d]/g, '');
+    updateValue(sanitizedValue, e);
+  };
+
+  // Handle the arrow up and down keys to increase or decrease the value
+  const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
+      e.preventDefault();
+  
+      const currentValue = Number(inputValue) || 0;
+      let newValue = e.key === 'ArrowUp' ? currentValue + step : currentValue - step;
+  
+      // Round to the number of decimal places in `step`
+      const numDecimalPlaces = step.toString().split('.')[1]?.length || 0;
+      newValue = Number(newValue.toFixed(numDecimalPlaces));
+  
+      // Update the fake event object to pass to the onChange handler
+      const fakeEvent = {
+        target: {
+          value: newValue.toString(),
+        },
+      } as ChangeEvent<HTMLInputElement>;
+  
+      updateValue(newValue.toString(), fakeEvent);
+    }
+  };
+  
+  // Update the value and call the onChange handler
+  const updateValue = (newValue: string, e?: ChangeEvent<HTMLInputElement>) => {
+    let adjustedValue = newValue;
+    // Check if the value is within the min and max range
+    if (max !== undefined && Number(newValue) > Number(max)) {
+      adjustedValue = max.toString();
+    } else if (min !== undefined && Number(newValue) < Number(min)) {
+      adjustedValue = min.toString();
     }
 
-    // give back the event to the parent
-    if (onChange) {
-      e.target.value = newValue.toString();
+    // Update the state
+    setInputValue(adjustedValue);
+  
+    // Call the onChange handler if provided
+    if (onChange && e) {
+      e.target.value = adjustedValue;
       onChange(e);
     }
   };
-
+  
   return (
     <StyledNumberInput
       id={id}
-      type="number"
-      required
-      value={initialValue ? (value === 0 ? '' : value) : value}
+      type="text"
+      value={inputValue !== null ? inputValue : ""}
       onChange={handleChange}
-      min={minValue}
-      max={maxValue}
+      onKeyDown={handleKeyDown}
       onFocus={() => activeHandler && activeHandler(true)}
       onBlur={() => activeHandler && activeHandler(false)}
-      $width={autoWidth ? (value ? value.toString().length + 1 + 'ch' : '2ch') : '100%'}
+      $width={autoWidth ? (inputValue ? inputValue.length + 1 + 'ch' : '2ch') : '100%'}
       $align={align}
       $errorMessage={errorMessage}
       {...moreHTMLProps}
