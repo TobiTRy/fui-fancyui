@@ -8,13 +8,14 @@ export interface IDropDownSelect extends Omit<HTMLAttributes<HTMLSelectElement>,
   disabled?: boolean;
   placeholder?: string;
   emptySelect?: boolean;
+  children?: React.ReactNode;
   activeHandler?: (value: boolean) => void;
 }
 // ------------------------------------------------------------------ //
 // ---------------- the blank drop down select ---------------------- //
 // ------------------------------------------------------------------ //
 export default function DropDownSelect(props: IDropDownSelect) {
-  const { values, value, placeholder, align, onChange, activeHandler, emptySelect, ...htmlInputProps } = props;
+  const { values, value, placeholder, children, align, onChange, activeHandler, emptySelect, ...htmlInputProps } = props;
 
   return (
     <SelectField
@@ -39,12 +40,15 @@ export default function DropDownSelect(props: IDropDownSelect) {
           {''}
         </option>
       )}
+      {/* Children */}
 
       {values?.map((item, i) => (
         <option key={i} value={item.toString().toLowerCase()}>
           {item}
         </option>
       ))}
+      
+      {children}
     </SelectField>
   );
 }
