@@ -2,6 +2,7 @@ import React from 'react';
 import { styled } from 'styled-components';
 
 import { uiColors, borderRadius, spacingPx } from '../../Design/design';
+import { boxShadow } from '../../Design/shadows';
 
 const StyledSwipeUpContainer = styled.div<{ $giveSpace: boolean }>`
   width: 100%;
@@ -14,9 +15,9 @@ const StyledSwipeUpContainer = styled.div<{ $giveSpace: boolean }>`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: ${uiColors.primary.dark};
+  background-color: ${uiColors.primary.main};
   z-index: 101;
-  box-shadow: 1px 0px 23px #000000e3;
+  ${boxShadow.lg}
   backdrop-filter: blur(4px);
 `;
 

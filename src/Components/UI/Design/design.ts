@@ -1,4 +1,5 @@
 import Color from 'color';
+import lightenColors from './color/lighenColors';
 
 type ITransparency = 0.1 | 0.2 | 0.3 | 0.4 | 0.5 | 0.6 | 0.8 | 0.9;
 export const transparencyCalculator = (color: string, transparency: ITransparency) => {
@@ -153,33 +154,69 @@ export type IBorderRadius = typeof borderRadius;
 
 export type IUiColorsTypes = 'primary' | 'secondary' | 'accent' | 'transparent';
 
+const primaryLightcolors = lightenColors(mainColors.primary);
+const accentLightcolors = lightenColors(mainColors.accent);
+const secondaryLightcolors = lightenColors(mainColors.secondary);
+
+
 const colorSteps = {
   primary: {
-    80: Color(mainColors.primary).lighten(0.5).hex(),
-    70: Color(mainColors.primary).lighten(0.25).hex(),
-    60: Color(mainColors.primary).lighten(0.15).hex(),
+    80: primaryLightcolors['60'],
+    70: primaryLightcolors['60'],
+    60: primaryLightcolors['55'],
     50: mainColors.primary,
-    40: Color(mainColors.primary).darken(0.05).hex(),
-    30: Color(mainColors.primary).darken(0.1).hex(),
+    40: primaryLightcolors['45'],
+    30: primaryLightcolors['40'],
   },
   accent: {
-    80: Color(mainColors.accent).lighten(0.3).hex(),
-    70: Color(mainColors.accent).lighten(0.2).hex(),
-    60: Color(mainColors.accent).lighten(0.15).hex(),
-    50: mainColors.accent,
-    40: Color(mainColors.accent).darken(0.1).hex(),
-    30: Color(mainColors.accent).darken(0.15).hex(),
+    80: accentLightcolors['60'],
+    70: accentLightcolors['60'],
+    60: accentLightcolors['55'],
+    50: accentLightcolors['50'],
+    40: accentLightcolors['45'],
+    30: accentLightcolors['40'],
   },
   secondary: {
-    80: Color(mainColors.secondary).lighten(0.3).hex(),
-    70: Color(mainColors.secondary).lighten(0.2).hex(),
-    60: Color(mainColors.secondary).lighten(0.15).hex(),
+    80: secondaryLightcolors['65'],
+    70: secondaryLightcolors['60'],
+    60: secondaryLightcolors['50'],
     50: mainColors.secondary,
-    40: Color(mainColors.secondary).darken(0.05).hex(),
-    30: Color(mainColors.secondary).darken(0.2).hex(),
-    20: Color(mainColors.secondary).darken(0.4).hex(),
+    40: secondaryLightcolors['45'],
+    30: secondaryLightcolors['40'],
+    20: secondaryLightcolors['35'],
   },
 };
+
+
+// BACKUP
+// const colorSteps = {
+//   primary: {
+//     80: Color(mainColors.primary).lighten(0.5).hex(),
+//     70: Color(mainColors.primary).lighten(0.25).hex(),
+//     60: Color(mainColors.primary).lighten(0.15).hex(),
+//     50: mainColors.primary,
+//     40: Color(mainColors.primary).darken(0.05).hex(),
+//     30: Color(mainColors.primary).darken(0.1).hex(),
+//   },
+//   accent: {
+//     80: Color(mainColors.accent).lighten(0.3).hex(),
+//     70: Color(mainColors.accent).lighten(0.2).hex(),
+//     60: Color(mainColors.accent).lighten(0.15).hex(),
+//     50: mainColors.accent,
+//     40: Color(mainColors.accent).darken(0.1).hex(),
+//     30: Color(mainColors.accent).darken(0.15).hex(),
+//   },
+//   secondary: {
+//     80: Color(mainColors.secondary).lighten(0.3).hex(),
+//     70: Color(mainColors.secondary).lighten(0.2).hex(),
+//     60: Color(mainColors.secondary).lighten(0.15).hex(),
+//     50: mainColors.secondary,
+//     40: Color(mainColors.secondary).darken(0.05).hex(),
+//     30: Color(mainColors.secondary).darken(0.2).hex(),
+//     20: Color(mainColors.secondary).darken(0.4).hex(),
+//   },
+// };
+
 
 export const uiColors = {
   primary: {
@@ -207,7 +244,7 @@ export const uiColors = {
     main: mainColors.secondary,
     dark: colorSteps.secondary[40],
     darker: colorSteps.secondary[30],
-    darkest: 'gray', // is used for passiv elements to make them more passive
+    darkest: colorSteps.secondary[20], // is used for passiv elements to make them more passive
     contrast: colorSteps.primary[60],
   },
   transparent: {
