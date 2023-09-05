@@ -41,11 +41,32 @@ const DivLow = styled.div`
   background-color: ${colorSteps.secondary[70]};
 `;
 
+
 const DivLower = styled.div`
   width: 100px;
   height: 100px;
   background-color: ${colorSteps.secondary[80]};
 `;
+
+
+const DivHighest1111 = styled.div`
+  width: 100px;
+  height: 100px;
+  background-color: ${colorSteps.primary[0]};
+`;
+
+const DivHighest111 = styled.div`
+  width: 100px;
+  height: 100px;
+  background-color: ${colorSteps.primary[10]};
+`;
+
+const DivHighest11 = styled.div`
+  width: 100px;
+  height: 100px;
+  background-color: ${colorSteps.primary[20]};
+`;
+
 
 const DivHighest1 = styled.div`
   width: 100px;
@@ -81,6 +102,21 @@ const DivLower1 = styled.div`
   width: 100px;
   height: 100px;
   background-color: ${colorSteps.primary[80]};
+`;
+const DivLower11 = styled.div`
+  width: 100px;
+  height: 100px;
+  background-color: ${colorSteps.primary[90]};
+`;
+const DivLower111 = styled.div`
+  width: 100px;
+  height: 100px;
+  background-color: ${colorSteps.primary[100]};
+`;
+const DivLower1111 = styled.div`
+  width: 100px;
+  height: 100px;
+  background-color: ${colorSteps.primary[120]};
 `;
 
 
@@ -121,12 +157,19 @@ export default function ExperimentalRoute() {
         <DivLower />
       </div>
       <div>
+        <DivHighest1111 />
+        <DivHighest111 />
+        <DivHighest11 />
         <DivHighest1 />
         <DivHigher1 />
         <DivHigh1 />
         <DivMedium1 />
         <DivLow1 />
         <DivLower1 />
+        <DivLower11 />
+        <DivLower111 />
+        <DivLower1111 />
+          
       </div>
       <div>
         <DivHighest2 />

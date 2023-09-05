@@ -159,41 +159,77 @@ export type IBorderRadius = typeof borderRadius;
 
 export type IUiColorsTypes = 'primary' | 'secondary' | 'accent' | 'transparent';
 
-const primaryLightcolors = lightenColors(mainColors.primary, [5, 10, 15, 20, 25, 30, 35]);
-const accentLightcolors = lightenColors(mainColors.accent, [5, -10, 15, -20, 25, 30, 35]);
-const secondaryLightcolors = lightenColors(mainColors.secondary, [5, 10, 15, 20, 25, 30, 50]);
-
-console.log('secondary', secondaryLightcolors);
-
-
-export const colorSteps = {
-  primary: {
-    80: primaryLightcolors['25'],
-    70: primaryLightcolors['20'],
-    60: primaryLightcolors['15'],
-    50: primaryLightcolors['10'],
-    40: primaryLightcolors['5'],
-    30: mainColors.primary,
-
-  },
-  accent: {
-    80: accentLightcolors['30'],
-    70: accentLightcolors['25'],
-    60: accentLightcolors['20'],
-    50: accentLightcolors['15'],
-    40: accentLightcolors['10'],
-    30: accentLightcolors['5'],
-  },
-  secondary: {
-    80: secondaryLightcolors['50'],
-    70: secondaryLightcolors['20'],
-    60: secondaryLightcolors['15'],
-    50: secondaryLightcolors['10'],
-    40: secondaryLightcolors['5'],
-    30: mainColors.secondary,
-    20: secondaryLightcolors['35'],
-  },
+type ColorSteps = {
+  [key: number]: string;
 };
+
+type MainColors = {
+  primary: string;
+  secondary: string;
+  accent: string;
+};
+
+
+const degreeSteps: number[] = [0, 3, 15, 20, 25, 30, 35, 40, 45, 50];
+
+// Function to generate color steps
+function generateColorSteps(color: string, degrees: number[]): ColorSteps {
+  const lightColors = lightenColors(color, degrees);
+  return degrees.reduce((obj: ColorSteps, degree, index) => {
+    const step = 100 - index * 10;  // Assuming a step of 10
+    return {
+      ...obj,
+      [step]: lightColors[index],
+    };
+  }, {});
+}
+
+// Generate steps for multiple colors
+const colorTypes =  ['primary', 'secondary', 'accent'] as const;
+export const colorSteps: { [key in keyof MainColors]?: ColorSteps } = {};
+
+colorTypes.forEach(type => {
+  colorSteps[type] = {
+    ...generateColorSteps(mainColors[type], degreeSteps),
+  };
+});
+
+console.log('colorSteps', colorSteps);
+
+
+
+// export const colorSteps = {
+//   primary: {
+//     100: primaryLightcolors[10],
+//     90: primaryLightcolors[9],
+//     80: primaryLightcolors[8],
+//     70: primaryLightcolors[7],
+//     60: primaryLightcolors[6],
+//     50: primaryLightcolors[5],
+//     40: primaryLightcolors[4],
+//     30: primaryLightcolors[3],
+//     20: primaryLightcolors[2],
+//     10: primaryLightcolors[1],
+//     0 : mainColors.primary[0],
+//   },
+//   accent: {
+//     80: Color(mainColors.accent).lighten(0.3).hex(),
+//     70: Color(mainColors.accent).lighten(0.2).hex(),
+//     60: Color(mainColors.accent).lighten(0.15).hex(),
+//     50: mainColors.accent,
+//     40: Color(mainColors.accent).darken(0.1).hex(),
+//     30: Color(mainColors.accent).darken(0.15).hex(),
+//   },
+//   secondary: {
+//     80: Color(mainColors.secondary).lighten(0.3).hex(),
+//     70: Color(mainColors.secondary).lighten(0.2).hex(),
+//     60: Color(mainColors.secondary).lighten(0.15).hex(),
+//     50: mainColors.secondary,
+//     40: Color(mainColors.secondary).darken(0.05).hex(),
+//     30: Color(mainColors.secondary).darken(0.2).hex(),
+//     20: Color(mainColors.secondary).darken(0.4).hex(),
+//   },
+// };
 
 
 // // BACKUP
