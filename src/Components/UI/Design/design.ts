@@ -5,12 +5,14 @@ type ITransparency = 0.1 | 0.2 | 0.3 | 0.4 | 0.5 | 0.6 | 0.8 | 0.9;
 export const transparencyCalculator = (color: string, transparency: ITransparency) => {
   return Color(color).alpha(transparency).rgb().string();
 };
+type MainColors = 'primary' | 'accent' | 'secondary';
 
-const mainColors = {
+const mainColors: { [key in MainColors]: string } = {
   primary: '#131825',
   accent: '#F17C12',
-  secondary: '#E8E7E4',
+  secondary: '#f0f0ef',
 };
+
 // const mainColors = {
 //   primary: 'hsl(292.5deg 88.51% 10.35%)',
 //   accent: '#F17C12',
@@ -67,11 +69,6 @@ export const colorPalet = {
   yellow_background: '#131312f2',
   yellow_dark: '#c96512',
   yellow_light: '#f67911',
-
-  //TODO: REMOVE ME OR REPLACE ME
-  // get primary() { return this.darkblue_dark },
-  // get secondary() { return this.white },
-  // get accent() { return this.orange },
 
   transparent: 'transparent',
   light: '#f1f1f1',
@@ -145,6 +142,7 @@ export const fontSizes = {
     },
   },
 };
+
 export const borderRadius = {
   sm: '4px',
   md: '8px',
@@ -159,44 +157,36 @@ export type IBorderRadius = typeof borderRadius;
 
 export type IUiColorsTypes = 'primary' | 'secondary' | 'accent' | 'transparent';
 
-type ColorSteps = {
-  [key: number]: string;
-};
-
-type MainColors = {
-  primary: string;
-  secondary: string;
-  accent: string;
-};
-
+type StepKeys = 100 | 90 | 80 | 70 | 60 | 50 | 40 | 30 | 20 | 10 | 0;
 
 const degreeSteps: number[] = [0, 3, 15, 20, 25, 30, 35, 40, 45, 50];
+
+type ColorSteps = {
+  [key in StepKeys]: string;
+};
 
 // Function to generate color steps
 function generateColorSteps(color: string, degrees: number[]): ColorSteps {
   const lightColors = lightenColors(color, degrees);
-  return degrees.reduce((obj: ColorSteps, degree, index) => {
-    const step = 100 - index * 10;  // Assuming a step of 10
+  return degrees.reduce((obj: ColorSteps, _, index) => {
+    const step = (10 - index * 1) as StepKeys;
     return {
       ...obj,
       [step]: lightColors[index],
     };
-  }, {});
+  }, {} as ColorSteps);
 }
 
-// Generate steps for multiple colors
-const colorTypes =  ['primary', 'secondary', 'accent'] as const;
-export const colorSteps: { [key in keyof MainColors]?: ColorSteps } = {};
+export const colorSteps: { [key in MainColors]: ColorSteps } = {} as { [key in MainColors]: ColorSteps };
 
-colorTypes.forEach(type => {
-  colorSteps[type] = {
-    ...generateColorSteps(mainColors[type], degreeSteps),
-  };
+(Object.keys(mainColors) as MainColors[]).forEach((type) => {
+  colorSteps[type] = generateColorSteps(mainColors[type], degreeSteps);
 });
 
-console.log('colorSteps', colorSteps);
 
 
+
+console.log('colorSteps', colorSteps.primary);
 
 // export const colorSteps = {
 //   primary: {
@@ -231,35 +221,6 @@ console.log('colorSteps', colorSteps);
 //   },
 // };
 
-
-// // BACKUP
-// const colorSteps = {
-//   primary: {
-//     80: Color(mainColors.primary).lighten(0.5).hex(),
-//     70: Color(mainColors.primary).lighten(0.25).hex(),
-//     60: Color(mainColors.primary).lighten(0.15).hex(),
-//     50: mainColors.primary,
-//     40: Color(mainColors.primary).darken(0.05).hex(),
-//     30: Color(mainColors.primary).darken(0.1).hex(),
-//   },
-//   accent: {
-//     80: Color(mainColors.accent).lighten(0.3).hex(),
-//     70: Color(mainColors.accent).lighten(0.2).hex(),
-//     60: Color(mainColors.accent).lighten(0.15).hex(),
-//     50: mainColors.accent,
-//     40: Color(mainColors.accent).darken(0.1).hex(),
-//     30: Color(mainColors.accent).darken(0.15).hex(),
-//   },
-//   secondary: {
-//     80: Color(mainColors.secondary).lighten(0.3).hex(),
-//     70: Color(mainColors.secondary).lighten(0.2).hex(),
-//     60: Color(mainColors.secondary).lighten(0.15).hex(),
-//     50: mainColors.secondary,
-//     40: Color(mainColors.secondary).darken(0.05).hex(),
-//     30: Color(mainColors.secondary).darken(0.2).hex(),
-//     20: Color(mainColors.secondary).darken(0.4).hex(),
-//   },
-// };
 const strenghuiColors = {
   primary: {
     80: colorSteps.primary[80],
@@ -287,8 +248,6 @@ const strenghuiColors = {
     20: colorSteps.secondary[20],
   },
 };
-
-
 
 export const uiColors = {
   primary: {
@@ -329,7 +288,6 @@ export const uiColors = {
     contrast: colorSteps.secondary[60],
   },
 };
-
 
 export type IUiColorsSystemMessageTypes = keyof typeof systemMessages;
 // colors for different types of (success, warning, error)
