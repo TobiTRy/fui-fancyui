@@ -1,17 +1,20 @@
 import Color from 'color';
 import lightenColors from './color/lighenColors';
+import generateColorSteps from './color/lighenColors';
 
 type ITransparency = 0.1 | 0.2 | 0.3 | 0.4 | 0.5 | 0.6 | 0.8 | 0.9;
 export const transparencyCalculator = (color: string, transparency: ITransparency) => {
   return Color(color).alpha(transparency).rgb().string();
 };
-type MainColors = 'primary' | 'accent' | 'secondary';
+export type TColorTypes = 'primary' | 'accent' | 'accentDarken' | 'secondary';
 
-const mainColors: { [key in MainColors]: string } = {
+const mainColors: { [key in TColorTypes]: string } = {
   primary: '#131825',
   accent: '#F17C12',
+  accentDarken: '',
   secondary: '#f0f0ef',
 };
+mainColors.accentDarken = mainColors.accent
 
 // const mainColors = {
 //   primary: 'hsl(292.5deg 88.51% 10.35%)',
@@ -157,36 +160,17 @@ export type IBorderRadius = typeof borderRadius;
 
 export type IUiColorsTypes = 'primary' | 'secondary' | 'accent' | 'transparent';
 
-type StepKeys = 100 | 90 | 80 | 70 | 60 | 50 | 40 | 30 | 20 | 10 | 0;
 
-const degreeSteps: number[] = [0, 3, 15, 20, 25, 30, 35, 40, 45, 50];
+const primaryLightcolors = lightenColors('primary', mainColors.primary);
+const secondaryLightcolors = lightenColors('secondary', mainColors.secondary);
+const accentLightcolors = lightenColors('accent', mainColors.accent);
+const accentDarkenLightcolors = lightenColors('accentDarken', mainColors.accentDarken);
 
-type ColorSteps = {
-  [key in StepKeys]: string;
-};
-
-// Function to generate color steps
-function generateColorSteps(color: string, degrees: number[]): ColorSteps {
-  const lightColors = lightenColors(color, degrees);
-  return degrees.reduce((obj: ColorSteps, _, index) => {
-    const step = (10 - index * 1) as StepKeys;
-    return {
-      ...obj,
-      [step]: lightColors[index],
-    };
-  }, {} as ColorSteps);
-}
-
-export const colorSteps: { [key in MainColors]: ColorSteps } = {} as { [key in MainColors]: ColorSteps };
-
-(Object.keys(mainColors) as MainColors[]).forEach((type) => {
-  colorSteps[type] = generateColorSteps(mainColors[type], degreeSteps);
-});
+console.log('primaryLightcolors', primaryLightcolors);
 
 
 
 
-console.log('colorSteps', colorSteps.primary);
 
 // export const colorSteps = {
 //   primary: {

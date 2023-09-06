@@ -1,5 +1,5 @@
 import Color from 'color';
-
+import { TColorTypes } from '../design';
 
 // Function to adjust lightness
 function adjustLightness(color: Color, delta: number): Color {
@@ -17,25 +17,40 @@ function generateColorVariations(baseColor: string, steps: number[]): string[] {
 }
 
 
-export default function lightenColors(color: string, steps: number[]): string[] {
-  const colorLightness = Color(color).lightness();
+const degreeSteps = [0, 5, 10, 15, 20, 30, 40, 50, 60, 70];
+const degreeStepsAccent = [0, 5, 10, 15, 20, 25, 30, 35, 40, 45];
 
-  // If the color is bright, then darken it
-  if(colorLightness > 80) {
-    const degreeSteps: number[] = [0, 5, 10, 15, 20, 30, 40, 50, 60, 70];
-    
-    const stepsUpdated = degreeSteps.map(step => -step);
-    return generateColorVariations(color, stepsUpdated).reverse();
+function lightenColors(colorType: TColorTypes, color: string): string[] {
+  switch (colorType) {
+    case 'primary':
+      return generateColorVariations(color, degreeSteps).reverse();
+    case 'secondary': {
+      const stepsUpdated = degreeSteps.map((step) => -step);
+      return generateColorVariations(color, stepsUpdated).reverse();
+    }
+    case 'accent':
+      return generateColorVariations(color, degreeStepsAccent).reverse();
+    case 'accentDarken': {
+      const stepsUpdated = degreeStepsAccent.map((step) => -step);
+      return generateColorVariations(color, stepsUpdated);
+    }
   }
-  // If the color is dark, then lighten it
-  else if(colorLightness < 20) {
-    const degreeSteps: number[] = [0, 5, 10, 15, 20, 30, 40, 50, 60, 70];
-    return generateColorVariations(color, degreeSteps).reverse();
+}
+
+type StepKeys = 10 | 9 | 8 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0;
+
+type ColorSteps = {
+  [key in StepKeys]: string;
+};
+
+export default function generateColorSteps(colorType: TColorTypes, color: string): ColorSteps {
+  const lightColors = lightenColors(colorType, color);
+  const obj: ColorSteps = {} as ColorSteps;
+
+  for (let index = 0; index < degreeSteps.length; index++) {
+    const step = (10 - index * 1) as StepKeys;
+    obj[step] = lightColors[index];
   }
-  // If the color is neither too bright nor too dark, use different steps
-  else {
-    const degreeSteps: number[] = [-20, -15, -10, -5, 0, 5, 10, 15, 20, 25];
-    console.log(generateColorVariations(color, degreeSteps))
-    return generateColorVariations(color, degreeSteps);
-  }
+
+  return obj;
 }

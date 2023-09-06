@@ -19,6 +19,7 @@ export default function ColorGeneratorRoute() {
   //get keys of primary
   const primaryKeys = Object.keys(colorSteps.primary!);
   const accentKeys = Object.keys(colorSteps.accent!);
+  const accentDarkKeys = Object.keys(colorSteps.accentDarken!);
   const secondaryKeys = Object.keys(colorSteps.secondary!);
 
   return (
@@ -32,6 +33,13 @@ export default function ColorGeneratorRoute() {
         {accentKeys?.map((color, index) => {
           return <div key={index} style={{ width: '100px', height: '100px', backgroundColor: colorSteps.accent![color] }}></div>;
         })}
+      </div>
+      <div>
+        {
+          accentDarkKeys?.map((color, index) => {
+            return <div key={index} style={{ width: '100px', height: '100px', backgroundColor: colorSteps.accentDarken![color] }}></div>;
+          })
+        }
       </div>
       <div>
         {secondaryKeys?.map((color, index) => {
