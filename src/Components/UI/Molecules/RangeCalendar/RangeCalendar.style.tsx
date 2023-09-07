@@ -7,7 +7,7 @@ export const MonthContainer = styled.div`
   h2 {
     margin: ${spacingPx.sm};
     margin-left: ${spacingPx.sm};
-    color: ${uiColors.secondary.main};
+    color: ${uiColors.secondary[0]};
   }
 `;
 

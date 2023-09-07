@@ -6,7 +6,7 @@ export const StyledYearSelector = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  color: ${uiColors.secondary.main};
+  color: ${uiColors.secondary[0]};
 
   span {
     font-size: ${fontSize.lg};
@@ -18,7 +18,7 @@ export const StyledButton = styled.button`
   justify-content: center;
   align-items: center;
   background-color: transparent;
-  color: ${uiColors.secondary.main};
+  color: ${uiColors.secondary[0]};
   border: none;
   padding: 0;
   cursor: pointer;

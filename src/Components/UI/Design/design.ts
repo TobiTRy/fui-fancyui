@@ -205,73 +205,33 @@ console.log('primaryLightcolors', primaryLightcolors);
 //   },
 // };
 
-const strenghuiColors = {
-  primary: {
-    80: colorSteps.primary[80],
-    70: colorSteps.primary[70],
-    60: colorSteps.primary[60],
-    50: colorSteps.primary[50],
-    40: colorSteps.primary[40],
-    30: colorSteps.primary[30],
-  },
-  accent: {
-    80: colorSteps.accent[80],
-    70: colorSteps.accent[70],
-    60: colorSteps.accent[60],
-    50: colorSteps.accent[50],
-    40: colorSteps.accent[40],
-    30: colorSteps.accent[30],
-  },
-  secondary: {
-    80: colorSteps.secondary[80],
-    70: colorSteps.secondary[70],
-    60: colorSteps.secondary[60],
-    50: colorSteps.secondary[50],
-    40: colorSteps.secondary[40],
-    30: colorSteps.secondary[30],
-    20: colorSteps.secondary[20],
-  },
-};
 
 export const uiColors = {
   primary: {
-    lightest: colorSteps.primary[80],
-    lighter: colorSteps.primary[70],
-    light: colorSteps.primary[60],
-    main: mainColors.primary,
-    dark: colorSteps.primary[40],
-    darker: colorSteps.primary[30],
-    contrast: colorSteps.secondary[60],
+    ...primaryLightcolors,  
+    contrast: secondaryLightcolors[0],
   },
   accent: {
-    lightest: colorSteps.accent[80],
-    lighter: colorSteps.accent[70],
-    light: colorSteps.accent[60],
-    main: mainColors.accent,
-    dark: colorSteps.accent[40],
-    darker: colorSteps.accent[30],
-    contrast: colorSteps.secondary[60],
+    ...accentLightcolors,
+    contrast: secondaryLightcolors[0],
   },
   secondary: {
-    lightest: colorSteps.secondary[80],
-    lighter: colorSteps.secondary[70],
-    light: colorSteps.secondary[60],
-    main: mainColors.secondary,
-    dark: colorSteps.secondary[40],
-    darker: colorSteps.secondary[30],
-    darkest: colorSteps.secondary[20], // is used for passiv elements to make them more passive
-    contrast: colorSteps.primary[60],
+    ...secondaryLightcolors,
+    contrast: primaryLightcolors[0],
   },
   transparent: {
+    '0': 'transparent',
     lightest: 'transparent',
     lighter: 'transparent',
     light: 'transparent',
     main: 'transparent',
     dark: 'transparent',
     darker: 'transparent',
-    contrast: colorSteps.secondary[60],
+    contrast: secondaryLightcolors[0],
   },
 };
+console.log('uiColors', uiColors);
+
 
 export type IUiColorsSystemMessageTypes = keyof typeof systemMessages;
 // colors for different types of (success, warning, error)

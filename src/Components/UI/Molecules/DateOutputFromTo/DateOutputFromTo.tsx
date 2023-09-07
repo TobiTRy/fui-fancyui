@@ -16,13 +16,13 @@ const StyledDateOutputFromTo = styled.div`
 
   button:nth-child(1) {
     border-radius: 50px 0 0 50px;
-    color: ${uiColors.secondary.main};
+    color: ${uiColors.secondary[0]};
     filter: brightness(1.25);
     padding: ${spacingPx.sm};
   }
 
   button:nth-child(3) {
-    color: ${uiColors.secondary.main};
+    color: ${uiColors.secondary[0]};
     filter: brightness(1.25);
     border-radius: 0 50px 50px 0;
     padding: ${spacingPx.sm};

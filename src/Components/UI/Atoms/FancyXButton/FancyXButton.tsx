@@ -19,7 +19,7 @@ const pickColorObject = (design: FancyXButtonDesign | undefined | null) => {
 const StyledFancyXButton = styled.button<{$colorValue?: string }>`
   padding: 0 ${spacingPx.sm} 2px;
   background: none;
-  color: ${({ $colorValue }) => $colorValue ? $colorValue : uiColors.accent.main};
+  color: ${({ $colorValue }) => $colorValue ? $colorValue : uiColors.accent[0]};
   border: none;
   font-size: ${fontSize.extraLarge};
   font-weight: bolder;

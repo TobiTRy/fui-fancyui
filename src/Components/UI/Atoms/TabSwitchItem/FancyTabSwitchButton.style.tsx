@@ -23,7 +23,7 @@ const generateDynamicTabStyle = (props: Pick<ILIStyledButton, '$transparent' | '
   } else {
     //when the it is transparent style it with underline
     return css`
-      color: ${$textColor === 'dark' ? uiColors.primary.main : uiColors.primary.contrast};
+      color: ${$textColor === 'dark' ? uiColors.primary[0] : uiColors.primary.contrast};
       background-color: transparent;
       border-bottom: 1.5px solid transparent;
     `;
@@ -38,13 +38,13 @@ const generateCheckedStyle = (props: IStyledPrefixAndPicker<IFancyTabStyle, 'tra
       ? css`
           &:checked + label {
             ${textShadow.sm}
-            background-color: ${uiColors.accent.main};
+            background-color: ${uiColors.accent[0]};
           }
         `
       : css`
           &:checked + label {
-            color: ${uiColors.accent.main};
-            border-bottom: 1.5px solid ${uiColors.accent.main};
+            color: ${uiColors.accent[0]};
+            border-bottom: 1.5px solid ${uiColors.accent[0]};
           }
         `}
   `;

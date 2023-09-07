@@ -5,7 +5,7 @@ const DragableThumb = css`
   height: 30px;
   width: 30px;
   border-radius: 50%;
-  background: ${uiColors.accent.main};
+  background: ${uiColors.accent[0]};
   cursor: ew-resize;
   box-shadow: 0 0 8px 0 rgba(85, 85, 85, 0.516);
   transition: background 0.1s ease-in-out;
@@ -20,7 +20,7 @@ export const StyledRawSlider = styled.input`
   margin: 10px 0 12px 0;
   background: gray;
   border-radius: 5px;
-  background-image: linear-gradient(90deg, ${uiColors.accent.main}, ${uiColors.accent.light});
+  background-image: linear-gradient(90deg, ${uiColors.accent[0]}, ${uiColors.accent.light});
   background-size: 70% 100%;
   background-repeat: no-repeat;
   outline: none;

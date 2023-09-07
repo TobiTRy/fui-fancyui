@@ -22,11 +22,11 @@ const Wrapper = styled.div<{ $value?: number }>`
     $value === 100 &&
     css`
       & label {
-        color: ${uiColors.accent.main};
+        color: ${uiColors.accent[0]};
       }
 
       & span {
-        color: ${uiColors.accent.main};
+        color: ${uiColors.accent[0]};
       }
     `}
 `;

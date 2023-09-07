@@ -43,7 +43,7 @@ export const AnimatedInputLabel = styled(InputLabel)<IAnimatedInputLabel>`
       case 'error':
         return colorPalet.red_light;
       case 'active':
-        return uiColors.accent.main;
+        return uiColors.accent[0];
       default:
         return uiColors.secondary.darkest;
     }

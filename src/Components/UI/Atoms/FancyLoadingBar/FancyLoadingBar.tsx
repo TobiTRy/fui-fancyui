@@ -26,7 +26,7 @@ const LoadingBar = styled.div`
   left: -70%;
   height: 100%;
   width: 70%;
-  background-image: linear-gradient(90deg, transparent, ${uiColors.accent.main}, transparent);
+  background-image: linear-gradient(90deg, transparent, ${uiColors.accent[0]}, transparent);
   animation: ${loadingAnimation} 3s ease-in-out infinite; // Set the animation duration to 3s
 `;
 

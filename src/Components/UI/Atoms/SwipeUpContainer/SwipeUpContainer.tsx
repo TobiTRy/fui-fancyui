@@ -15,7 +15,7 @@ const StyledSwipeUpContainer = styled.div<{ $giveSpace: boolean }>`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: ${uiColors.primary.main};
+  background-color: ${uiColors.primary[0]};
   z-index: 101;
   ${boxShadow.lg}
   backdrop-filter: blur(4px);

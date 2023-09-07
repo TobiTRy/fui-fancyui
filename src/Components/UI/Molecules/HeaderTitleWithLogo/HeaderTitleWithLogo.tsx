@@ -26,7 +26,7 @@ const StyledHeading = styled.a`
   align-items: center;
   word-break: keep-all;
   text-decoration: none;
-  color: ${uiColors.secondary.main};
+  color: ${uiColors.secondary[0]};
 `;
 
 interface IHeaderTitleWithLogo {

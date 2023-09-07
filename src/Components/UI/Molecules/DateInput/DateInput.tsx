@@ -12,7 +12,7 @@ const StyledDatePicker = styled(RawInput)<IStyledDatePicker>`
   color: ${({ value }) => (value ? '' : 'transparent')};
 
   &:focus {
-    color: ${uiColors.secondary.main};
+    color: ${uiColors.secondary[0]};
   }
 
   &::-webkit-calendar-picker-indicator {

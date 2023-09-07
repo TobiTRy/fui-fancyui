@@ -9,7 +9,7 @@ const WeekdaysConatiner = styled.div`
   grid-template-columns: repeat(7, 1fr);
   width: 100%;
   margin-bottom: ${spacingPx.xs};
-  color: ${uiColors.secondary.main};
+  color: ${uiColors.secondary[0]};
 
   & > * {
     display: flex;

@@ -9,7 +9,7 @@ const AlignedInputLabel = styled(InputLabel)<{$align?: TAlign; $isActive?: boole
   align-items: flex-end;
   margin-bottom: ${spacingPx.xxs};
   justify-content: ${({$align}) =>  $align === 'left' ? 'flex-start' : $align === 'center' ? 'center' : 'flex-end'};
-  color: ${({ $isActive }) => ($isActive ? uiColors.accent.main : 'gray')};
+  color: ${({ $isActive }) => ($isActive ? uiColors.accent[0] : 'gray')};
 `
 
 export default AlignedInputLabel;

@@ -20,6 +20,6 @@ export const ContainerInputs = styled.div`
     padding: 0;
     font-size: 0.8rem;
     text-transform: uppercase;
-    color: ${uiColors.secondary.main};
+    color: ${uiColors.secondary[0]};
   }
 `

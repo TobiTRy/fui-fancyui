@@ -19,8 +19,8 @@ export const StyledDay = styled.button<IStyledDay>`
   justify-content: center;
   align-items: center;
   border-radius: ${borderRadius.complete};
-  color: ${({$isCurrentDay}) => $isCurrentDay ? uiColors.accent.main : uiColors.secondary.main };
-  border: ${({$selected}) => $selected ? `1px solid ${uiColors.accent.main}` : `none`};
+  color: ${({$isCurrentDay}) => $isCurrentDay ? uiColors.accent[0] : uiColors.secondary[0] };
+  border: ${({$selected}) => $selected ? `1px solid ${uiColors.accent[0]}` : `none`};
   background-color: transparent;
   padding: 0;
   width: 80%;
@@ -38,27 +38,27 @@ export const StyledDay = styled.button<IStyledDay>`
   }
 
   &:hover {
-    border: 1px solid ${uiColors.accent.main};
+    border: 1px solid ${uiColors.accent[0]};
   }
 
   &:active {
-    border: 1px solid ${uiColors.accent.main};
+    border: 1px solid ${uiColors.accent[0]};
   }
 
   ${({$range}) => $range?.start && `
     border-radius: 40% 5px 5px 40%;
-    background-image: linear-gradient(to right, ${uiColors.accent.main}, transparent);
+    background-image: linear-gradient(to right, ${uiColors.accent[0]}, transparent);
     color: white;
   `}
 
   ${({$range}) => $range?.end && `
     border-radius: 5px 40% 40% 5px;
-    background-image: linear-gradient(to left, ${uiColors.accent.main}, transparent);
+    background-image: linear-gradient(to left, ${uiColors.accent[0]}, transparent);
     color: white;
   `}
 
   ${({$range}) => $range?.inRange && `
-    background-color: ${uiColors.accent.main};
+    background-color: ${uiColors.accent[0]};
     color: white;
   `}
 

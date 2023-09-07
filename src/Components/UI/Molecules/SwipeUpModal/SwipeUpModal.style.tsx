@@ -22,7 +22,7 @@ export const WrapperAnimated = styled.div`
 
 export const ContentBox = styled.div`
   overflow-y: scroll;
-  color: ${uiColors.secondary.main};
+  color: ${uiColors.secondary[0]};
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

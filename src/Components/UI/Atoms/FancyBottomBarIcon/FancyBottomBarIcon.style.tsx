@@ -13,14 +13,14 @@ export const IconTextButton = styled.button<{ $color?: string; $isActive?: boole
   border: none;
   cursor: pointer;
   margin: 0 auto;
-  color: ${({ $isActive }) => ($isActive ? uiColors.accent.main : uiColors.secondary.main)};
+  color: ${({ $isActive }) => ($isActive ? uiColors.accent[0] : uiColors.secondary[0])};
   transition: all 0.3s ease-in-out;
   ${({ disabled }) => disabled && disabledStyle}
   padding-bottom: ${spacing.xs + 2 + 'px'};
 
   @media (hover: hover) {
     &:hover {
-      color: ${({ disabled }) => !disabled && uiColors.accent.main};
+      color: ${({ disabled }) => !disabled && uiColors.accent[0]};
     }
   }
 `;
@@ -34,7 +34,7 @@ export const Underline = styled.i<{ $isActive?: boolean }>`
   height: 1.5px;
   margin-top: 12px;
   border-radius: 10px;
-  background-color: ${({ $isActive }) => ($isActive ? uiColors.accent.main : 'transparent')};
+  background-color: ${({ $isActive }) => ($isActive ? uiColors.accent[0] : 'transparent')};
   transition: all 0.1s ease-in-out;
 `;
 

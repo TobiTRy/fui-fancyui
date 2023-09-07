@@ -7,7 +7,7 @@ import { simpleColorTransition } from '../../Design/simpleTransition';
 const StyledSwipeUpDash = styled.div`
     width: 50px;
     height: 3px;
-    background-color: ${uiColors.secondary.main};
+    background-color: ${uiColors.secondary[0]};
     border-radius: 3px;
 `;
 

@@ -60,9 +60,9 @@ const SpinnerContainer = styled.div<{ $size?: keyof typeof sizes }>`
 // Define a styled component for the inner spinner
 const StyledInnerSpinner = styled.div<{ $size?: keyof typeof sizes }>`
   border-top: ${({ $size }) => ($size ? sizes[$size].thicknessInner : sizes.md.thicknessInner)} solid transparent;
-  border-right: ${({ $size }) => ($size ? sizes[$size].thicknessInner : sizes.md.thicknessInner)} solid ${uiColors.accent.main};
+  border-right: ${({ $size }) => ($size ? sizes[$size].thicknessInner : sizes.md.thicknessInner)} solid ${uiColors.accent[0]};
   border-bottom: ${({ $size }) => ($size ? sizes[$size].thicknessInner : sizes.md.thicknessInner)} solid transparent;
-  border-left: ${({ $size }) => ($size ? sizes[$size].thicknessInner : sizes.md.thicknessInner)} solid ${uiColors.accent.main};
+  border-left: ${({ $size }) => ($size ? sizes[$size].thicknessInner : sizes.md.thicknessInner)} solid ${uiColors.accent[0]};
   animation: ${reverseSpinner} 2s infinite ease-in-out;
   border-radius: 50%;
   width: 80%;
@@ -73,9 +73,9 @@ const StyledInnerSpinner = styled.div<{ $size?: keyof typeof sizes }>`
 const StyledFancyLoadingSpinner = styled.div<{ $size?: keyof typeof sizes; $thickness?: string }>`
   position: absolute;
   border-top: ${({ $size }) => ($size ? sizes[$size].thickness : sizes.md.thickness)} solid transparent;
-  border-right: ${({ $size }) => ($size ? sizes[$size].thickness : sizes.md.thickness)} solid ${uiColors.accent.main};
+  border-right: ${({ $size }) => ($size ? sizes[$size].thickness : sizes.md.thickness)} solid ${uiColors.accent[0]};
   border-bottom: ${({ $size }) => ($size ? sizes[$size].thickness : sizes.md.thickness)} solid transparent;
-  border-left: ${({ $size }) => ($size ? sizes[$size].thickness : sizes.md.thickness)} solid ${uiColors.accent.main};
+  border-left: ${({ $size }) => ($size ? sizes[$size].thickness : sizes.md.thickness)} solid ${uiColors.accent[0]};
   animation: ${spinner} 2s infinite ease-in-out;
   border-radius: 50%;
   width: 100%;

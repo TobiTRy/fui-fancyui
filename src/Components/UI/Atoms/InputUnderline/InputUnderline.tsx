@@ -28,7 +28,7 @@ const UnderLine = styled.i<IStyledUnderline>`
     height: 100%;
     background: ${({ $colorState }) => {
       if ($colorState === 'error') return css`linear-gradient(90deg, ${colorPalet.red_dark}, ${colorPalet.red_light})`;
-      if ($colorState === 'active') return css`linear-gradient(90deg, ${uiColors.accent.main}, ${uiColors.accent.main})`;
+      if ($colorState === 'active') return css`linear-gradient(90deg, ${uiColors.accent[0]}, ${uiColors.accent[0]})`;
       if ($colorState === 'default') return css`linear-gradient(90deg, ${uiColors.secondary.darkest}, ${uiColors.secondary.darkest})`;
     }};
 

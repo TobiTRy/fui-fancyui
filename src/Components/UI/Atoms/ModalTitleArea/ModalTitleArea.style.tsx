@@ -17,7 +17,7 @@ export const TitleArea = styled.div`
     width: 100%;
     height: 1px;
     border-radius: 50%;
-    background-color: ${uiColors.accent.main};
+    background-color: ${uiColors.accent[0]};
   }
 
   h4 {

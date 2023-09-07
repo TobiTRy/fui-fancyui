@@ -41,7 +41,7 @@ export const Wrapper = styled.div<IBottomBarWrapper>`
   align-items: center;
   z-index: 99;
   ${({ $width, $spacingLeftRight }) => calcBarWidthandSpacing($width, $spacingLeftRight)};
-  background-color: ${uiColors.primary.main};
+  background-color: ${uiColors.primary[0]};
   border-radius: ${({$roundedness}) => $roundedness ? `${borderRadius[$roundedness]} ${borderRadius[$roundedness]} 0px 0px` : ''} ;
   padding: ${spacingPx.sm} ${spacingPx.sm} 0 ${spacingPx.sm};
   ${boxShadow.sm}

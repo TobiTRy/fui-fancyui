@@ -50,7 +50,7 @@ export default function SearchBar(props: ISearchBar) {
       {/* The search icon */}
       <FancySVGAtom
         externalStyle={css`
-          color: ${uiColors.secondary.main};
+          color: ${uiColors.secondary[0]};
         `}
       >
         {SVGSearch}

@@ -53,12 +53,12 @@ const buttonSizes = {
 type IcalcTextColor = Pick<IGenerateThemeItem, '$color' | '$design' | '$outlined'>;
 const calcTextColor = ({ $color, $design, $outlined }: IcalcTextColor) => {
   if ($color) {
-    return uiColors[$color].main;
+    return uiColors[$color][0];
   } else if ($outlined) {
     if ($design === 'transparent') {
       return uiColors[$design].contrast;
     }
-    return uiColors[$design].main;
+    return uiColors[$design][0];
   } else {
     return uiColors[$design].contrast;
   }
@@ -114,16 +114,16 @@ const generateOutlined = (props: IGenerateOutlinedItem) => {
 
 
   //this makes the color, no matther which one transparent
-  const backgroundColor = $design !== 'transparent' ? Color(uiColors[$design].main).alpha(0.1).hexa() : null;
+  const backgroundColor = $design !== 'transparent' ? Color(uiColors[$design][0]).alpha(0.1).hexa() : null;
 
   const clacHoverColor = () => {
     if ($color) {
-      return uiColors[$color].main;
+      return uiColors[$color][0];
     } else {
       if ($design === 'transparent') {
         return uiColors.secondary.dark;
       }
-      return uiColors[$design].main;
+      return uiColors[$design][0];
     }
   };
 
@@ -131,7 +131,7 @@ const generateOutlined = (props: IGenerateOutlinedItem) => {
     position: relative;
     background-color: transparent;
     padding: ${paddings[$size]};
-    border: 1.5px solid ${uiColors[$design].main};
+    border: 1.5px solid ${uiColors[$design][0]};
     color: ${textColor};
 
     &:hover:enabled {
@@ -157,7 +157,7 @@ const generateNormal = (props: IGenerateNormalitem) => {
   const hoverBackgroundColorStyle = $design === 'transparent' && $hoverColor ? uiColors[$hoverColor].dark : uiColors[$design].dark;
 
   return css`
-    background-color: ${uiColors[$design].main};
+    background-color: ${uiColors[$design]['0']};
     color: ${textColor};
     padding: ${paddings[$size]};
 

@@ -18,6 +18,6 @@ export const WrapperSVG = styled.div`
   svg {
     width: 24px;
     height: 24px;
-    fill: ${uiColors.secondary.main};
+    fill: ${uiColors.secondary[0]};
   }
 `;

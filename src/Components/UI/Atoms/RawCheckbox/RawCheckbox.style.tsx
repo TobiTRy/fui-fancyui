@@ -55,7 +55,7 @@ export const FakeCheckbox = styled.div<{ $checked: boolean }>`
     width: 20px;
     height: 20px;
     transform: translate(-50%, -50%);
-    fill: ${uiColors.accent.main};
+    fill: ${uiColors.accent[0]};
     display: ${({ $checked }) => ($checked ? 'block' : 'none')};
   }
 `;

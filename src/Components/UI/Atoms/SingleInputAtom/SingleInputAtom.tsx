@@ -12,8 +12,8 @@ const StyledSingleInput = styled.input<StyledSingleInputProps>`
   width: 1.5ch;
   font-size: ${fontSize.xxl};
   text-align: center;
-  color: ${uiColors.secondary.main};
-  border: 1.5px solid ${(props) => (props.$hasValue ? uiColors.accent.main : uiColors.secondary.main)};
+  color: ${uiColors.secondary[0]};
+  border: 1.5px solid ${(props) => (props.$hasValue ? uiColors.accent[0] : uiColors.secondary[0])};
   border-radius: 5px;
   padding: ${spacingPx.xs};
   background-color: transparent;

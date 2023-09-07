@@ -16,7 +16,7 @@ export const MessageContainer = styled.div`
 `;
 
 export const Message = styled.p<{ $status?: boolean }>`
-  color: ${uiColors.secondary.main};
+  color: ${uiColors.secondary[0]};
   font-size: ${fontSize.sm};
   max-height: 0;
   visibility: hidden;

@@ -60,7 +60,7 @@ const generateTextColor = (color: IUiColorsTypes, outlined?: boolean, textColor?
   if (textColor) return uiColors[textColor].main;
 
   if (outlined) {
-    return uiColors.secondary.main;
+    return uiColors.secondary[0];
   } else {
     return uiColors[color].contrast;
   }

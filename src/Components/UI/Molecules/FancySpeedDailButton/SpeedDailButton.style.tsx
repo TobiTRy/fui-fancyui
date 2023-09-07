@@ -20,7 +20,7 @@ export const SpeedDialContainer = styled.div`
 
 export const Button = styled.button<{ $isOpen: boolean }>`
   position: relative;
-  background-color: ${uiColors.accent.main};
+  background-color: ${uiColors.accent[0]};
   color: ${uiColors.accent.contrast};
   border: none;
   border-radius: 50%;
@@ -52,7 +52,7 @@ export const Ring = styled.div<{ $isOpen: boolean }>`
   position: absolute;
   height: ${SpeedDailButtonSize + 'px'};
   width: ${SpeedDailButtonSize + 'px'};
-  border: 1.5px solid ${uiColors.accent.main};
+  border: 1.5px solid ${uiColors.accent[0]};
   border-radius: 50%;
   z-index: 4;
   top: 50%;
@@ -67,7 +67,7 @@ export const Label = css<{ $isOpen: boolean; $labelAlign?: 'left' | 'right' }>`
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  color: ${uiColors.secondary.main};
+  color: ${uiColors.secondary[0]};
   display: ${({ $isOpen }) => ($isOpen ? 'inline' : 'none')};
   opacity: ${({ $isOpen }) => ($isOpen ? 1 : 0)};
   transition: opacity 0.5s ease-in-out, right 0.3s ease, left 0.3s ease;
@@ -114,7 +114,7 @@ export const MenuItem = styled.button`
   height: 100%;
   border-radius: 50%;
   padding: 0;
-  color: ${uiColors.secondary.main};
+  color: ${uiColors.secondary[0]};
   cursor: pointer;
   font-size: ${fontSize.md};
   border: none;
