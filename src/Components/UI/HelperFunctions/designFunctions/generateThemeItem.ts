@@ -46,15 +46,23 @@ const paddingIconButton = {
 //this hanles the padding of the button deppend on the $size and if needs a second value
 type IcalcTextColor = Pick<IGenerateThemeItem, '$color' | '$design' | '$outlined'>;
 const calcTextColor = ({ $color, $design, $outlined }: IcalcTextColor) => {
-  if ($color) {
-    return uiColors[$color][0];
-  } else if ($outlined) {
-    if ($design === 'transparent') {
-      return uiColors[$design].contrast;
-    }
-    return uiColors[$design][0];
+  //  if the userer profides a $color use this
+  if ($color) return uiColors[$color][0];
+  if ($design === 'transparent') return uiColors.secondary[1];
+  if ($outlined) return uiColors[$design][0];
+  return uiColors[$design].contrast;
+};
+
+const generateBackgroundColor = (props: Pick<IGenerateThemeItem, '$design'>) => {
+  const { $design } = props;
+
+  console.log('generateBackgroundColor', $design);
+
+  if ($design === 'transparent') {
+    return 'transparent';
   } else {
-    return uiColors[$design].contrast;
+    console.log('uiColors[$design][0]', uiColors[$design][1]);
+    return uiColors[$design][0];
   }
 };
 
@@ -106,26 +114,20 @@ const generateOutlined = (props: IGenerateOutlinedItem) => {
   //this calculates the textcolor depend on $design and $color
   const textColor = calcTextColor({ $color, $design, $outlined });
 
-
   //this makes the color, no matther which one transparent
   const backgroundColor = $design !== 'transparent' ? Color(uiColors[$design][0]).alpha(0.1).hexa() : null;
 
   const clacHoverColor = () => {
-    if ($color) {
-      return uiColors[$color][0];
-    } else {
-      if ($design === 'transparent') {
-        return uiColors.secondary.dark;
-      }
-      return uiColors[$design][0];
-    }
+    if($color) return uiColors[$color][1];
+    if ($design === 'transparent') return uiColors.secondary[1];
+    return uiColors[$design][0];
   };
 
   return css`
     position: relative;
     background-color: transparent;
     padding: ${paddings[$size]};
-    border: 1.5px solid ${uiColors[$design][0]};
+    ${ $design ?  css`border: 1.5px solid uiColors[$design][0];` : ''};
     color: ${textColor};
 
     &:hover:enabled {
@@ -148,15 +150,29 @@ const generateNormal = (props: IGenerateNormalitem) => {
   const textColor = calcTextColor({ $color, $design, $outlined });
 
   // generates the hover style for the button
-  const hoverBackgroundColorStyle = $design === 'transparent' && $hoverColor ? uiColors[$hoverColor].dark : uiColors[$design].dark;
+  const hoverBackgroundColorStyle = () => {
+    if ($design === 'transparent' && $hoverColor) {
+      return uiColors[$hoverColor][1];
+    } else {
+      if ($design === 'transparent') {
+        return uiColors.secondary[1];
+      }
+      return uiColors[$design][0];
+    }
+  }
+  
+  //$design === 'transparent' && $hoverColor ? uiColors[$hoverColor][1] : uiColors[$design][0];
+
+
+  const generatedBackgroundColor = generateBackgroundColor({ $design });
 
   return css`
-    background-color: ${uiColors[$design]['0']};
+    background-color: ${generatedBackgroundColor};
     color: ${textColor};
     padding: ${paddings[$size]};
 
     &:hover {
-      ${$design === 'transparent' ? 'color: ' + uiColors.secondary.dark : ''};
+      ${$design === 'transparent' ? 'color: ' + uiColors.secondary[1] : ''};
       background-color: ${hoverBackgroundColorStyle};
       box-shadow: ${$design !== 'transparent' ? '0 0 10px 1px rgba(0, 0, 0, 0.15)' : ''};
     }
@@ -191,7 +207,8 @@ const generateThemeItem = (props: IGenerateThemeItem) => {
 
   //this makes the button a square (1/1) if there is no $label and a $icon
   if (Boolean(!$label) && $icon) {
-    aspectRatio = css`aspect-ratio: 1/1;
+    aspectRatio = css`
+      aspect-ratio: 1/1;
       justify-content: center;
     `;
   }

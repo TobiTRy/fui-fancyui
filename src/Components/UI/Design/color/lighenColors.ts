@@ -47,10 +47,10 @@ export default function generateColorSteps(colorType: TColorTypes, color: string
   const lightColors = lightenColors(colorType, color);
   const obj: ColorSteps = {} as ColorSteps;
 
-  for (let index = 0; index < degreeSteps.length; index++) {
-    const step = (10 - index * 1) as StepKeys;
-    obj[step] = lightColors[index];
-  }
+  //make array to object with keys but reversed order
+  lightColors.forEach((color, index) => {
+    obj[(lightColors.length - index - 1) as StepKeys] = color;
+  })
 
   return obj;
 }

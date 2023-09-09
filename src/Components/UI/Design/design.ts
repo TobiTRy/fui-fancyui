@@ -219,16 +219,6 @@ export const uiColors = {
     ...secondaryLightcolors,
     contrast: primaryLightcolors[0],
   },
-  transparent: {
-    '0': 'transparent',
-    lightest: 'transparent',
-    lighter: 'transparent',
-    light: 'transparent',
-    main: 'transparent',
-    dark: 'transparent',
-    darker: 'transparent',
-    contrast: secondaryLightcolors[0],
-  },
 };
 console.log('uiColors', uiColors);
 
