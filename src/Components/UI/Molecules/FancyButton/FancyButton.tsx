@@ -1,5 +1,5 @@
 import React from 'react';
-import { css, styled } from 'styled-components';
+import { styled } from 'styled-components';
 import { IFancyButtonProps } from './IFancyButton.model';
 
 import generateThemeItem, { IGenerateThemeItem } from '../../HelperFunctions/designFunctions/generateThemeItem';
@@ -35,11 +35,8 @@ export default function FancyButton(props: IFancyButtonProps) {
       {...htmlButtonProps}
     >
       <LoadingSVGArrows
-        size={size}
         isLoading={isLoading}
-        externalStyle={css`
-          margin-right: 0 !important;
-        `}
+        size={size}
       />
 
       {icon && !isLoading && (
@@ -47,7 +44,11 @@ export default function FancyButton(props: IFancyButtonProps) {
           {icon}
         </FancySVGAtom>
       )}
-      {label && !isLoading && <Typography type="button">{label}</Typography>}
+
+      {/* This is needed to hold the button the same size when its loading*/}
+      {(isLoading && label ) && <Typography  style={{visibility: 'hidden', width: 0}} type="button">{'.'}</Typography>}
+  
+      {label && <Typography type="button">{label}</Typography>}
     </Button>
   );
 }
