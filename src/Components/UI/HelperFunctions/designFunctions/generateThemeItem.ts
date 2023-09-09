@@ -40,12 +40,6 @@ const paddingIconButton = {
   lg: spacing.xl + 'px',
 };
 
-const buttonSizes = {
-  sm: '32px',
-  md: '40px',
-  lg: '48px',
-};
-
 // ------------------------------------------------------------------ //
 // ---------- Here are the helper functions for the $design --------- //
 // ------------------------------------------------------------------ //
@@ -209,7 +203,6 @@ const generateThemeItem = (props: IGenerateThemeItem) => {
     border: none;
     cursor: pointer;
     box-sizing: border-box;
-    height: ${buttonSizes[$size]};
     width: ${$wide ? '100%' : 'initial'};
     border-radius: ${borderRadius};
     transition: all 0.2s ease-in-out;
