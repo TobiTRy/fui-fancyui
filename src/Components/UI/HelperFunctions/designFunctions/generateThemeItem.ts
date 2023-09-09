@@ -157,11 +157,9 @@ const generateNormal = (props: IGenerateNormalitem) => {
       if ($design === 'transparent') {
         return uiColors.secondary[1];
       }
-      return uiColors[$design][0];
+      return uiColors[$design][1];
     }
   }
-  
-  //$design === 'transparent' && $hoverColor ? uiColors[$hoverColor][1] : uiColors[$design][0];
 
 
   const generatedBackgroundColor = generateBackgroundColor({ $design });
