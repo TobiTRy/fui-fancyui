@@ -45,13 +45,13 @@ export default function ButtonRoute() {
       <DesignArea title="Outlined Buttons" style={backgroundColor}>
         <FancyButton label="Button" design="primary" outlined />
         <FancyButton label="Button" design="secondary" outlined />
-        <FancyButton label="Button" design="accent" outlined />
+        <FancyButton label="Butto jjsjkd jkjdjkbs jkj kskjdj j jsjkdj njk jksjd jbsbjkjkf n" design="accent" outlined />
         <FancyButton label="Button" design="transparent" outlined />
       </DesignArea>
       <DesignArea title="Outlined Buttons" style={backgroundColor}>
         <FancyButton icon={Icon} label="Button" design="primary" outlined />
         <FancyButton icon={Icon} label="Button" design="secondary" outlined />
-        <FancyButton icon={Icon} label="Button" design="accent" outlined />
+        <FancyButton icon={Icon} label="Button Butto jjsjkd jkjdjkbs jkj kskjdj j jsjkdj njk jksjd jbsbjkjkf n" design="accent" outlined />
         <FancyButton icon={Icon}  label="Button" design="transparent" outlined />
       </DesignArea>
       <DesignArea title="Loading Buttons" style={backgroundColor}>
