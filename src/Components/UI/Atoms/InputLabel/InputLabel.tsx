@@ -6,7 +6,7 @@ import { uiColors } from '../../Design/design';
 // --------------------------------------------------------------------------- //
 const InputLabel = styled.label`
   width: 100%;
-  color: ${uiColors.secondary.darkest};
+  color: ${uiColors.secondary[7]};
   font-weight: bold;
   pointer-events: none;
   user-select: none;

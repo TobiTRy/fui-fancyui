@@ -12,7 +12,7 @@ const UnderLine = styled.i<IStyledUnderline>`
   bottom: 0;
   height: 2px;
   border-radius: 5px;
-  background: ${uiColors.secondary.darkest};
+  background: ${uiColors.secondary[7]};
   overflow: hidden;
   width: 100%;
 
@@ -29,7 +29,7 @@ const UnderLine = styled.i<IStyledUnderline>`
     background: ${({ $colorState }) => {
       if ($colorState === 'error') return css`linear-gradient(90deg, ${colorPalet.red_dark}, ${colorPalet.red_light})`;
       if ($colorState === 'active') return css`linear-gradient(90deg, ${uiColors.accent[0]}, ${uiColors.accent[0]})`;
-      if ($colorState === 'default') return css`linear-gradient(90deg, ${uiColors.secondary.darkest}, ${uiColors.secondary.darkest})`;
+      if ($colorState === 'default') return css`linear-gradient(90deg, ${uiColors.secondary[7]}, ${uiColors.secondary[7]})`;
     }};
 
     // Define the transition styles for the gradient overlay

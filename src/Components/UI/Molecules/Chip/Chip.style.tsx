@@ -57,7 +57,7 @@ export const GenerateSpacing = ({ spacingPosition, size }: IGenerateSpacing) => 
   }
 };
 const generateTextColor = (color: IUiColorsTypes, outlined?: boolean, textColor?: IUiColorsTypes) => {
-  if (textColor) return uiColors[textColor].main;
+  if (textColor) return uiColors[textColor][0];
 
   if (outlined) {
     return uiColors.secondary[0];
@@ -89,12 +89,12 @@ export const StyledChip = styled.div<IStyledChip>`
   ${({ $outlined, $color, $textColor }) =>
     $outlined
       ? css`
-          border: 1px solid ${uiColors[$color || 'primary'].lightest};
+          border: 1px solid ${uiColors[$color || 'primary'][7]};
           color: ${generateTextColor($color || 'primary', $outlined, $textColor)};
         `
       : css`
           color: ${generateTextColor($color || 'primary', $outlined, $textColor)};
-          background-color: ${uiColors[$color || 'primary'].lightest};
+          background-color: ${uiColors[$color || 'primary'][3]};
         `};
 
   /* the icon for the Chip */

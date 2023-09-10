@@ -45,7 +45,7 @@ export const AnimatedInputLabel = styled(InputLabel)<IAnimatedInputLabel>`
       case 'active':
         return uiColors.accent[0];
       default:
-        return uiColors.secondary.darkest;
+        return uiColors.secondary[7];
     }
   }};
 

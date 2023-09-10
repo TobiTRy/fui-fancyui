@@ -169,7 +169,36 @@ export const accentDarkenLightcolors = lightenColors('accentDarken', mainColors.
 console.log('primaryLightcolors', primaryLightcolors);
 
 
-
+// export const uiColors = {
+//   primary: {
+//     lightest: colorSteps.primary[80],
+//     lighter: colorSteps.primary[70],
+//     light: colorSteps.primary[60],
+//     main: mainColors.primary,
+//     dark: colorSteps.primary[40],
+//     darker: colorSteps.primary[30],
+//     contrast: colorSteps.secondary[60],
+//   },
+//   accent: {
+//     lightest: colorSteps.accent[80],
+//     lighter: colorSteps.accent[70],
+//     light: colorSteps.accent[60],
+//     main: mainColors.accent,
+//     dark: colorSteps.accent[40],
+//     darker: colorSteps.accent[30],
+//     contrast: colorSteps.secondary[60],
+//   },
+//   secondary: {
+//     lightest: colorSteps.secondary[80],
+//     lighter: colorSteps.secondary[70],
+//     light: colorSteps.secondary[60],
+//     main: mainColors.secondary,
+//     dark: colorSteps.secondary[40],
+//     darker: colorSteps.secondary[30],
+//     darkest: 'gray', // is used for passiv elements to make them more passive
+//     contrast: colorSteps.primary[60],
+//   },
+// }
 
 
 // export const colorSteps = {
@@ -218,6 +247,19 @@ export const uiColors = {
   secondary: {
     ...secondaryLightcolors,
     contrast: primaryLightcolors[0],
+  },
+  transparent: {
+    '0': 'transparent',
+    '1': 'transparent',
+    '2': 'transparent',
+    '3': 'transparent',
+    '4': 'transparent',
+    '5': 'transparent',
+    '6': 'transparent',
+    '7': 'transparent',
+    '8': 'transparent',
+    '9': 'transparent',
+    contrast : Color(mainColors.primary).isDark() ? secondaryLightcolors[0] : primaryLightcolors[0],
   },
 };
 

@@ -5,7 +5,7 @@ import { ISVGAtomProps, IStyledSVGAtom, sizes } from './FancySVGAtom.model';
 
 const calcIconColor = ($isActive?: boolean, errorMessage?: string | undefined): string => {
   if (!errorMessage) {
-    return $isActive ? uiColors.accent[0] : uiColors.secondary.darkest;
+    return $isActive ? uiColors.accent[0] : uiColors.secondary[7];
   } else {
     return colorPalet.red_dark;
   }

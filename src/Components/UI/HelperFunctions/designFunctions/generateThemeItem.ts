@@ -7,8 +7,10 @@ import { generatePadding } from './generatePadding';
 import { borderRadius, spacing, uiColors } from '../../Design/design';
 import { IUiColorsTypes } from '../../Design/design';
 import IStyledPrefixAndOmiter from '../../Interface/IStyledPrefixAndOmiter.model';
+import { boxShadow } from '../../Design/shadows';
 
-export interface IGenerateThemeItemProps {
+
+export type IGenerateThemeItemProps = {
   outlined?: boolean;
   icon?: JSX.Element;
   size: 'sm' | 'md' | 'lg';
@@ -19,7 +21,9 @@ export interface IGenerateThemeItemProps {
   align?: 'left' | 'right' | 'center';
   color?: 'primary' | 'secondary' | 'accent';
   hoverColor?: 'primary' | 'secondary' | 'accent';
-}
+};
+
+
 
 export type IGenerateThemeItem = IStyledPrefixAndOmiter<IGenerateThemeItemProps>;
 
@@ -48,15 +52,13 @@ type IcalcTextColor = Pick<IGenerateThemeItem, '$color' | '$design' | '$outlined
 const calcTextColor = ({ $color, $design, $outlined }: IcalcTextColor) => {
   //  if the userer profides a $color use this
   if ($color) return uiColors[$color][0];
-  if ($design === 'transparent') return uiColors.secondary[1];
+  if ($design === 'transparent') return uiColors.secondary[0];
   if ($outlined) return uiColors[$design][0];
   return uiColors[$design].contrast;
 };
 
 const generateBackgroundColor = (props: Pick<IGenerateThemeItem, '$design'>) => {
   const { $design } = props;
-
-  console.log('generateBackgroundColor', $design);
 
   if ($design === 'transparent') {
     return 'transparent';
@@ -107,6 +109,10 @@ const generateIcon = (props: IGenerateIconItem) => {
 type IGenerateOutlinedItem = Pick<IGenerateThemeItem, '$design' | '$color' | '$size' | '$label' | '$outlined'>;
 const generateOutlined = (props: IGenerateOutlinedItem) => {
   const { $design, $color, $size, $label, $outlined } = props;
+  if($design === 'transparent') return;
+
+
+  console.log($design, $color, $size, $label, $outlined)
 
   //reduce the padding with the border $size
   const paddings = generatePadding(-2, Boolean($label));
@@ -115,25 +121,25 @@ const generateOutlined = (props: IGenerateOutlinedItem) => {
   const textColor = calcTextColor({ $color, $design, $outlined });
 
   //this makes the color, no matther which one transparent
-  const backgroundColor = $design !== 'transparent' ? Color(uiColors[$design][0]).alpha(0.1).hexa() : null;
+  const backgroundColor = Color(uiColors[$design][0]).alpha(0.1).hexa() ;
 
   const clacHoverColor = () => {
     if($color) return uiColors[$color][1];
-    if ($design === 'transparent') return uiColors.secondary[1];
     return uiColors[$design][0];
-  };
+  }; 
+
 
   return css`
     position: relative;
     background-color: transparent;
     padding: ${paddings[$size]};
-    ${ $design ?  css`border: 1.5px solid uiColors[$design][0];` : ''};
+    border: 1.5px solid ${uiColors[$design][0]};
     color: ${textColor};
 
     &:hover:enabled {
       background-color: ${backgroundColor};
       color: ${clacHoverColor()};
-      box-shadow: ${$design !== 'transparent' ? '0 0 10px 1px rgba(0, 0, 0, 0.15)' : ''};
+      box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.15);
     }
   `;
 };
@@ -151,14 +157,9 @@ const generateNormal = (props: IGenerateNormalitem) => {
 
   // generates the hover style for the button
   const hoverBackgroundColorStyle = () => {
-    if ($design === 'transparent' && $hoverColor) {
-      return uiColors[$hoverColor][1];
-    } else {
-      if ($design === 'transparent') {
-        return uiColors.secondary[1];
-      }
-      return uiColors[$design][1];
-    }
+    if($design === 'transparent') return 'transparent';
+    if($hoverColor) return uiColors[$hoverColor][0];
+    return uiColors[$design][0];
   }
 
 
@@ -172,7 +173,7 @@ const generateNormal = (props: IGenerateNormalitem) => {
     &:hover {
       ${$design === 'transparent' ? 'color: ' + uiColors.secondary[1] : ''};
       background-color: ${hoverBackgroundColorStyle};
-      box-shadow: ${$design !== 'transparent' ? '0 0 10px 1px rgba(0, 0, 0, 0.15)' : ''};
+      box-shadow: ${$design !== 'transparent' ? boxShadow.sm : ''};
     }
   `;
 };
@@ -190,12 +191,12 @@ const generateBorderRadius = (props: Pick<IGenerateThemeItem, '$wide' | '$border
 
 //-----this funktion handles the button style on his conditions-----//
 const generateThemeItem = (props: IGenerateThemeItem) => {
-  const { $outlined, $icon, $size, $label, $wide, $borderRadius, $align } = props;
+  const { $design ,$outlined, $icon, $size, $label, $wide, $borderRadius, $align } = props;
 
   let iconStyle, aspectRatio;
 
   //if the button a $outlined generate this, it his a normal generate an normal
-  const itemStyle = $outlined ? generateOutlined(props) : generateNormal(props);
+  const itemStyle = $outlined && ($design !== 'transparent') ? generateOutlined(props) : generateNormal(props);
 
   //this claculates the borderradius depeend on if its a $wide button or not
   const borderRadius = generateBorderRadius({ $wide, $borderRadius, $size });

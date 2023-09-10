@@ -17,7 +17,7 @@ const svg = (
 export default function ExperimentalRoute() {
   return (
     <div style={{display: 'flex'}}>
-      <FancyButton design='accent' label='hii'/>
+      <FancyButton design='transparent' outlined label='hii'/>
     </div>
   );
 }
