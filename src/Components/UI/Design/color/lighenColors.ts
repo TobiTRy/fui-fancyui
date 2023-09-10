@@ -30,7 +30,7 @@ function lightenColors(colorType: TColorTypes, color: string): string[] {
     case 'accent':
       return generateColorVariations(color, degreeStepsAccent);
     case 'accentDarken': {
-      const stepsUpdated = degreeStepsAccent.map((step) => -step).reverse();
+      const stepsUpdated = degreeStepsAccent.map((step) => -step);
       return generateColorVariations(color, stepsUpdated);
     }
   }

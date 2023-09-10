@@ -164,7 +164,7 @@ export type IUiColorsTypes = 'primary' | 'secondary' | 'accent' | 'transparent';
 const primaryLightcolors = lightenColors('primary', mainColors.primary);
 const secondaryLightcolors = lightenColors('secondary', mainColors.secondary);
 const accentLightcolors = lightenColors('accent', mainColors.accent);
-const accentDarkenLightcolors = lightenColors('accentDarken', mainColors.accentDarken);
+export const accentDarkenLightcolors = lightenColors('accentDarken', mainColors.accentDarken);
 
 console.log('primaryLightcolors', primaryLightcolors);
 
@@ -212,7 +212,7 @@ export const uiColors = {
     contrast: secondaryLightcolors[0],
   },
   accent: {
-    ...accentLightcolors,
+    ...accentDarkenLightcolors,
     contrast: secondaryLightcolors[0],
   },
   secondary: {
@@ -220,8 +220,6 @@ export const uiColors = {
     contrast: primaryLightcolors[0],
   },
 };
-console.log('uiColors', uiColors);
-
 
 export type IUiColorsSystemMessageTypes = keyof typeof systemMessages;
 // colors for different types of (success, warning, error)

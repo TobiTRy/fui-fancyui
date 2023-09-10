@@ -2,6 +2,7 @@ import React from 'react';
 
 import { uiColors } from '../../Components/UI/Design/design';
 import styled, { css } from 'styled-components';
+import { accentDarkenLightcolors } from '../../Components/UI/Design/design';
 import { Typography } from '../../lib';
 
 const BackGroundBox = styled.div`
@@ -20,6 +21,8 @@ export default function ColorGeneratorRoute() {
   const primaryKeys = Object.keys(uiColors.primary);
   const accentKeys = Object.keys(uiColors.accent);
   const secondaryKeys = Object.keys(uiColors.secondary);
+  const accentDarkKeys =  Object.keys(accentDarkenLightcolors)
+
 
   return (
     <div style={{ display: 'flex' }}>
@@ -33,13 +36,13 @@ export default function ColorGeneratorRoute() {
           return <div key={index} style={{ width: '100px', height: '100px', backgroundColor: uiColors.accent![color] }}></div>;
         })}
       </div>
-      {/* <div>
+      <div>
         {
           accentDarkKeys?.map((color, index) => {
-            return <div key={index} style={{ width: '100px', height: '100px', backgroundColor: colorSteps.accentDarken![color] }}></div>;
+            return <div key={index} style={{ width: '100px', height: '100px', backgroundColor: accentDarkenLightcolors![color] }}></div>;
           })
         }
-      </div> */}
+      </div>
       <div>
         {secondaryKeys?.map((color, index) => {
           return <div key={index} style={{ width: '100px', height: '100px', backgroundColor: uiColors.secondary![color] }}></div>;
