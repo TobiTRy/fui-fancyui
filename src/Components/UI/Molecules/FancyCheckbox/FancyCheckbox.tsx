@@ -28,7 +28,7 @@ export default function FancyCheckbox(props: IFancyCheckboxProps) {
           </label>
         )}
         {description && (
-          <Typography type="inlineElement" variant="smText" className="description" style={{ color: uiColors.secondary.dark }}>
+          <Typography type="inlineElement" variant="smText" className="description" style={{ color: uiColors.secondary[1] }}>
             {description}
           </Typography>
         )}
