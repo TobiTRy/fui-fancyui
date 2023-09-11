@@ -123,7 +123,7 @@ export const MenuItem = styled.button`
   align-items: center;
   justify-content: center;
   z-index: 2;
-  background-color: #495057;
+  background-color: ${uiColors.primary[2]};
   transition: 150ms ease-in-out;
 
   svg {
@@ -133,6 +133,6 @@ export const MenuItem = styled.button`
 
   &:hover {
     transform: scale(1.01);
-    background-color: ${uiColors.primary.lighter};
+    background-color: ${uiColors.accent[2]};
   }
 `;

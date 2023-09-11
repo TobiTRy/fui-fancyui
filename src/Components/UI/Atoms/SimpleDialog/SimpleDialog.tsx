@@ -12,14 +12,13 @@ const StyledDialog = styled(animated.div)`
   left: 50%;
   transform: translate(-50%, -50%);
   padding: ${spacingPx.xl};
-  background-color: ${uiColors.primary.dark};
+  background-color: ${uiColors.primary[1]};
   border-radius: ${borderRadius.lg};
   border: none;
   width: 70%;
   max-height: 85%;
-  color: ${uiColors.primary.contrast};
+  color: ${uiColors.secondary[0]};
   z-index: 1000;
-  backdrop-filter: blur(4px);
   ${boxShadow.lg}
 `;
 

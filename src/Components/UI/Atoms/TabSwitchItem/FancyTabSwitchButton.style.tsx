@@ -17,13 +17,13 @@ const generateDynamicTabStyle = (props: Pick<ILIStyledButton, '$transparent' | '
   //if the background not transparent give him a background/text color
   if (!$transparent) {
     return css`
-      background-color: ${uiColors.primary.light};
+      background-color: ${uiColors.primary[1]};
       color: ${uiColors.primary.contrast};
     `;
   } else {
     //when the it is transparent style it with underline
     return css`
-      color: ${$textColor === 'dark' ? uiColors.primary[0] : uiColors.primary.contrast};
+      color: ${$textColor === 'dark' ? uiColors.primary[0] : uiColors.secondary[0]};
       background-color: transparent;
       border-bottom: 1.5px solid transparent;
     `;

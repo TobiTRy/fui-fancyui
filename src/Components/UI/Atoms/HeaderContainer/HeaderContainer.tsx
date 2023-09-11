@@ -5,7 +5,7 @@ import { uiColors } from '../../Design/design';
 
 // the slotsInFR is an array of strings which will be used to genera dynamicly the grid-template-columns
 const HeaderWrapper = styled.div<{ $slotsInFR?: string[]; $height: string }>`
-  background-color: ${uiColors.primary.lighter};
+  background-color: ${uiColors.primary[1]};
   color: ${uiColors.secondary[0]};
   display: grid;
   grid-template-columns: ${({ $slotsInFR }) => ($slotsInFR ? $slotsInFR.join(' ') : '1fr')};

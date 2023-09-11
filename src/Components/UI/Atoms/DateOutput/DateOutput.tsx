@@ -7,12 +7,12 @@ import Typography from '../Typography/Typography';
 const DateOutputButton = styled.button<{ $isActive?: boolean }>`
   text-align: center;
   width: 100%;
-  background-color: ${({ $isActive }) => ($isActive ? uiColors.primary.lighter : uiColors.primary.light)};
+  background-color: ${({ $isActive }) => ($isActive ? uiColors.primary[2] : uiColors.primary[1])};
   border: none;
   cursor: pointer;
 
   &:hover {
-    background-color: ${uiColors.primary.lighter};
+    background-color: ${uiColors.primary[2]};
   }
 `;
 

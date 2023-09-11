@@ -7,12 +7,12 @@ import { simpleColorTransition } from '../../Design/simpleTransition';
 // Define a styled component for the button wrapper
 export const ButtonWrapper = styled.div<{ $isActive: boolean }>`
   button {
-    color: ${(props) => props.$isActive && uiColors.accent.light};
+    color: ${(props) => props.$isActive && uiColors.accent[0]};
     ${simpleColorTransition}
     padding: ${spacingPx.sm};
 
     &:hover {
-      color: ${(props) => props.$isActive && uiColors.accent.light};
+      color: ${(props) => props.$isActive && uiColors.accent[0]};
     }
   }
 `;

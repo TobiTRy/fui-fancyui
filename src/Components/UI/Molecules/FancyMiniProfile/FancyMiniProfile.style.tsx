@@ -12,7 +12,7 @@ export const Wrapper = styled.div<IWrapper>`
   align-items: center;
   padding: ${({ $size }) => ($size ? spacingPx[$size] : '')};
   gap: ${({ $gapSpacing }) => ($gapSpacing ? spacingPx[$gapSpacing] : spacingPx.xxs)};
-  background-color: ${uiColors.primary.dark};
+  background-color: ${uiColors.primary[2]};
   border-radius: ${borderRadius.complete};
 `;
 

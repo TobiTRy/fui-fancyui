@@ -38,7 +38,7 @@ export const StyledUL = styled.ul`
   margin: 0;
   width: 100%;
   padding: ${spacingPx.lg};
-  background-color: ${uiColors.primary.lighter};
+  background-color: ${uiColors.primary[1]};
   ${boxShadow.lg}
   gap: ${spacingPx.xs};
   overflow: hidden;

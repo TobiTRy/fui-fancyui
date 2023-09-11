@@ -158,8 +158,8 @@ const generateNormal = (props: IGenerateNormalitem) => {
   // generates the hover style for the button
   const hoverBackgroundColorStyle = () => {
     if($design === 'transparent') return 'transparent';
-    if($hoverColor) return uiColors[$hoverColor][0];
-    return uiColors[$design][0];
+    if($hoverColor) return uiColors[$hoverColor][1];
+    return uiColors[$design][1];
   }
 
 
@@ -221,7 +221,7 @@ const generateThemeItem = (props: IGenerateThemeItem) => {
     box-sizing: border-box;
     width: ${$wide ? '100%' : 'initial'};
     border-radius: ${borderRadius};
-    transition: all 0.2s ease-in-out;
+    transition: all 0.125s ease-in-out;
 
     ${itemStyle}
     ${iconStyle}

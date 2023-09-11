@@ -18,6 +18,7 @@ const Wrapper = styled.div<{ $value?: number }>`
     margin-top: ${spacingPx.xxs};
   }
 
+  /* if the value is full set the color to accent color */
   ${({ $value }) =>
     $value === 100 &&
     css`
@@ -43,6 +44,8 @@ interface IFancyProgressBar extends IProgressBar {
 // --------------------------------------------------------------------------- //
 export default function FancyProgressBar(props: IFancyProgressBar) {
   const { progress, maxValue, id, label, labelAlign, progressAlign, progressCount } = props;
+  
+
 
   return (
     <Wrapper $value={progress}>
