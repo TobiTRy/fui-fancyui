@@ -44,7 +44,7 @@ export const Wrapper = styled.div<IBottomBarWrapper>`
   background-color: ${uiColors.primary[1]};
   border-radius: ${({$roundedness}) => $roundedness ? `${borderRadius[$roundedness]} ${borderRadius[$roundedness]} 0px 0px` : ''} ;
   padding: ${spacingPx.sm} ${spacingPx.sm} 0 ${spacingPx.sm};
-  ${boxShadow.sm}
+  ${boxShadow.md}
 `;
 
 //the bar for the items and the style

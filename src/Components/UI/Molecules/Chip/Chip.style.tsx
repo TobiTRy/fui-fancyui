@@ -94,7 +94,7 @@ export const StyledChip = styled.div<IStyledChip>`
         `
       : css`
           color: ${generateTextColor($color || 'primary', $outlined, $textColor)};
-          background-color: ${uiColors[$color || 'primary'][3]};
+          background-color: ${uiColors[$color || 'primary'][2]};
         `};
 
   /* the icon for the Chip */
