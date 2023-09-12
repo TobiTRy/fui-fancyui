@@ -7,6 +7,7 @@ import { spacingPx } from '../../Design/design';
 // The List with dymaic spacing between items
 const StyledList = styled.div<{ $spacing?: string }>`
   display: flex;
+
   flex-direction: column; 
   gap: ${({ $spacing }) => $spacing ? $spacing : '0px'};
 `
@@ -14,6 +15,7 @@ const StyledList = styled.div<{ $spacing?: string }>`
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
   gap: ${spacingPx.xl};
 `
 
