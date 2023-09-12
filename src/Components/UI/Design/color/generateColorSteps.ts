@@ -12,13 +12,16 @@ function adjustLightness(color: Color, delta: number): Color {
 function generateColorVariations(baseColor: string, steps: number[]): string[] {
   const color = Color(baseColor);
   return steps.map((step) => {
-    return adjustLightness(color, step).hsl().string();
+    return adjustLightness(color, step).hexa();
   });
 }
 
+
+// Define the steps for the different color types
 const degreeSteps = [0, 3, 7, 15, 20, 30, 40, 50, 60, 70];
 const degreeStepsAccent = [0, 5, 10, 15, 20, 25, 30, 35, 40, 45];
 
+// Generate colors at different steps for a single base color
 function lightenColors(colorType: TColorTypes, color: string): string[] {
   switch (colorType) {
     case 'primary':
@@ -42,8 +45,10 @@ type ColorSteps = {
   [key in StepKeys]: string;
 };
 
+
+// this function generates a object with the color steps
 export default function generateColorSteps(colorType: TColorTypes, color: string): ColorSteps {
-  const lightColors = lightenColors(colorType, color);
+  const lightColors = lightenColors(colorType, color); //generate the colors
   const obj: ColorSteps = {} as ColorSteps;
 
   //make array to object with keys but reversed order

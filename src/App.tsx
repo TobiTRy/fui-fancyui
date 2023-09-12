@@ -34,6 +34,7 @@ import MiniProfileroute from './Routes/MiniProfileRoute/MiniProfileroute';
 import ChipsRoute from './Routes/ChipsRoute/ChipsRoute';
 import CheckboxRoute from './Routes/CheckboxRoute/CheckboxRoute';
 import ColorGeneratorRoute from './Routes/ColorGeneratorRoute/ColorGeneratorRoute';
+import { updateThemeColors } from './Components/UI/Design/design';
 
 // const Icon = (
 //   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -99,6 +100,9 @@ const array = [
 
 
 function App() {
+  updateThemeColors({primary: '#ff0000', secondary: '#0000ff', accent: '#00ff00'})
+
+
   return (
     <div className="App">
       <Router>

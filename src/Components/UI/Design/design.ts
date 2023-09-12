@@ -1,26 +1,40 @@
 import Color from 'color';
-import lightenColors from './color/lighenColors';
-import generateColorSteps from './color/lighenColors';
+
+import generateColorSteps from './color/generateColorSteps';
+import isColorValid from './color/isColorValid';
 
 type ITransparency = 0.1 | 0.2 | 0.3 | 0.4 | 0.5 | 0.6 | 0.8 | 0.9;
 export const transparencyCalculator = (color: string, transparency: ITransparency) => {
   return Color(color).alpha(transparency).rgb().string();
 };
+
 export type TColorTypes = 'primary' | 'accent' | 'accentDarken' | 'secondary';
 
-const mainColors: { [key in TColorTypes]: string } = {
+export type IUiColors = {
+  [key in TColorTypes]?: string;
+};
+
+
+
+const themeColors: { [key in TColorTypes]: string } = {
   primary: '#131825',
   accent: '#F17C12',
   accentDarken: '',
   secondary: '#f0f0ef',
-};
-mainColors.accentDarken = mainColors.accent
 
-// const mainColors = {
-//   primary: 'hsl(292.5deg 88.51% 10.35%)',
-//   accent: '#F17C12',
-//   secondary: '#E8E7E4',
-// };
+};
+themeColors.accentDarken = themeColors.accent
+
+export const updateThemeColors = (colorObject: IUiColors) => {
+  for (const key in themeColors) {
+    const typedkey = key as TColorTypes;
+    if(!isColorValid(themeColors[typedkey])) throw new Error('The color ' + typedkey + ' is not valid');
+    if (key !== 'accentDarken' && colorObject[typedkey] !== undefined) {
+      themeColors[typedkey] = colorObject[typedkey]!;
+    }
+  }
+};
+
 
 export const colorPalet = {
   //backup
@@ -28,9 +42,9 @@ export const colorPalet = {
   // white_light: '#F2F1EE',
   // white_dark: '#D7D6D2',
 
-  white: mainColors.secondary,
-  white_light: Color(mainColors.secondary).lighten(0.15).hex(),
-  white_dark: Color(mainColors.secondary).darken(0.05).hex(),
+  white: themeColors.secondary,
+  white_light: Color(themeColors.secondary).lighten(0.15).hex(),
+  white_dark: Color(themeColors.secondary).darken(0.05).hex(),
 
   white_high: 'rgba(255 255 255 / 87%)',
   white_md: 'rgba(255 255 255 / 60%)',
@@ -42,16 +56,16 @@ export const colorPalet = {
   // orange_light: '#FFA42A',
   // orange_dark: '#CC6C0A',
 
-  orange: mainColors.accent,
-  orange_light: Color(mainColors.accent).lighten(0.15).hex(),
-  orange_dark: Color(mainColors.accent).darken(0.1).hex(),
+  orange: themeColors.accent,
+  orange_light: Color(themeColors.accent).lighten(0.15).hex(),
+  orange_dark: Color(themeColors.accent).darken(0.1).hex(),
 
   // darkblue: '#111626',
   // darkblue_light: '#161c2c',
   // darkblue_dark: '#131525f0',
-  darkblue: mainColors.primary,
-  darkblue_light: Color(mainColors.primary).lighten(0.15).hex(),
-  darkblue_dark: Color(mainColors.primary).darken(0.05).hex(),
+  darkblue: themeColors.primary,
+  darkblue_light: Color(themeColors.primary).lighten(0.15).hex(),
+  darkblue_dark: Color(themeColors.primary).darken(0.05).hex(),
   //darkblue_dark: Color('#161c2c').darken(0.15).hex(),
 
   //darkblue_dark: '#14131e',
@@ -161,78 +175,11 @@ export type IBorderRadius = typeof borderRadius;
 export type IUiColorsTypes = 'primary' | 'secondary' | 'accent' | 'transparent';
 
 
-const primaryLightcolors = lightenColors('primary', mainColors.primary);
-const secondaryLightcolors = lightenColors('secondary', mainColors.secondary);
-const accentLightcolors = lightenColors('accent', mainColors.accent);
-export const accentDarkenLightcolors = lightenColors('accentDarken', mainColors.accentDarken);
+const primaryLightcolors = generateColorSteps('primary', themeColors.primary);
+const secondaryLightcolors = generateColorSteps('secondary', themeColors.secondary);
+const accentLightcolors = generateColorSteps('accent', themeColors.accent);
+export const accentDarkenLightcolors = generateColorSteps('accentDarken', themeColors.accentDarken);
 
-console.log('primaryLightcolors', primaryLightcolors);
-
-
-// export const uiColors = {
-//   primary: {
-//     lightest: colorSteps.primary[80],
-//     lighter: colorSteps.primary[70],
-//     light: colorSteps.primary[60],
-//     main: mainColors.primary,
-//     dark: colorSteps.primary[40],
-//     darker: colorSteps.primary[30],
-//     contrast: colorSteps.secondary[60],
-//   },
-//   accent: {
-//     lightest: colorSteps.accent[80],
-//     lighter: colorSteps.accent[70],
-//     light: colorSteps.accent[60],
-//     main: mainColors.accent,
-//     dark: colorSteps.accent[40],
-//     darker: colorSteps.accent[30],
-//     contrast: colorSteps.secondary[60],
-//   },
-//   secondary: {
-//     lightest: colorSteps.secondary[80],
-//     lighter: colorSteps.secondary[70],
-//     light: colorSteps.secondary[60],
-//     main: mainColors.secondary,
-//     dark: colorSteps.secondary[40],
-//     darker: colorSteps.secondary[30],
-//     darkest: 'gray', // is used for passiv elements to make them more passive
-//     contrast: colorSteps.primary[60],
-//   },
-// }
-
-
-// export const colorSteps = {
-//   primary: {
-//     100: primaryLightcolors[10],
-//     90: primaryLightcolors[9],
-//     80: primaryLightcolors[8],
-//     70: primaryLightcolors[7],
-//     60: primaryLightcolors[6],
-//     50: primaryLightcolors[5],
-//     40: primaryLightcolors[4],
-//     30: primaryLightcolors[3],
-//     20: primaryLightcolors[2],
-//     10: primaryLightcolors[1],
-//     0 : mainColors.primary[0],
-//   },
-//   accent: {
-//     80: Color(mainColors.accent).lighten(0.3).hex(),
-//     70: Color(mainColors.accent).lighten(0.2).hex(),
-//     60: Color(mainColors.accent).lighten(0.15).hex(),
-//     50: mainColors.accent,
-//     40: Color(mainColors.accent).darken(0.1).hex(),
-//     30: Color(mainColors.accent).darken(0.15).hex(),
-//   },
-//   secondary: {
-//     80: Color(mainColors.secondary).lighten(0.3).hex(),
-//     70: Color(mainColors.secondary).lighten(0.2).hex(),
-//     60: Color(mainColors.secondary).lighten(0.15).hex(),
-//     50: mainColors.secondary,
-//     40: Color(mainColors.secondary).darken(0.05).hex(),
-//     30: Color(mainColors.secondary).darken(0.2).hex(),
-//     20: Color(mainColors.secondary).darken(0.4).hex(),
-//   },
-// };
 
 
 export const uiColors = {
@@ -259,7 +206,7 @@ export const uiColors = {
     '7': 'transparent',
     '8': 'transparent',
     '9': 'transparent',
-    contrast : Color(mainColors.primary).isDark() ? secondaryLightcolors[0] : primaryLightcolors[0],
+    contrast : Color(themeColors.primary).isDark() ? secondaryLightcolors[0] : primaryLightcolors[0],
   },
 };
 

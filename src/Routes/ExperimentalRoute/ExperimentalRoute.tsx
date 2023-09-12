@@ -3,6 +3,7 @@ import React from 'react';
 import { styled } from 'styled-components';
 import { uiColors } from '../../Components/UI/Design/design';
 import { FancyButton } from '../../lib';
+import Color from 'color';
 
 const svg = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -15,6 +16,8 @@ const svg = (
 
 
 export default function ExperimentalRoute() {
+  console.log(Color('1'))
+
   return (
     <div style={{display: 'flex'}}>
       <FancyButton design='transparent' outlined label='hii'/>
