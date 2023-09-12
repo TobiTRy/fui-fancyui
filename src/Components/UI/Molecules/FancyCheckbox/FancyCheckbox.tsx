@@ -2,7 +2,7 @@ import React, { useId } from 'react';
 import RawCheckbox from '../../Atoms/RawCheckbox/RawCheckbox';
 
 import { Typography } from '../../Atoms/Typography';
-import { TextWrapper, Wrapper } from './FancyCheckbox.style';
+import { LabelWrapper, Wrapper } from './FancyCheckbox.style';
 import { uiColors } from '../../Design/design';
 import { IFancyCheckboxProps } from './FancyCheckbox.model';
 
@@ -14,25 +14,23 @@ export default function FancyCheckbox(props: IFancyCheckboxProps) {
   const id = useId();
   const pickedId = props.id ? props.id : id;
 
-  console.log(alignCheckbox)
-
   return (
     <Wrapper $align={align}>
       {/* The label and description */}
-      {(label || description) && <TextWrapper $align={alignCheckbox}>
-        {label && (
-          <label htmlFor={pickedId}>
-            <Typography type="inlineElement" variant="label">
+      {(label || description) && (
+        <LabelWrapper $align={alignCheckbox} htmlFor={pickedId}>
+          {label && (
+            <Typography type="inlineElement" variant="label" style={{ color: uiColors.secondary[0] }}>
               {label}
             </Typography>
-          </label>
-        )}
-        {description && (
-          <Typography type="inlineElement" variant="smText" className="description" style={{ color: uiColors.secondary[1] }}>
-            {description}
-          </Typography>
-        )}
-      </TextWrapper>}
+          )}
+          {description && (
+            <Typography type="inlineElement" variant="smText" className="description" style={{ color: uiColors.secondary[2] }}>
+              {description}
+            </Typography>
+          )}
+        </LabelWrapper>
+      )}
       {/* The check box */}
       <RawCheckbox id={pickedId} onChange={onChange} defaultChecked={defaultChecked} {...rest} />
     </Wrapper>
