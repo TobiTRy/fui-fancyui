@@ -1,9 +1,10 @@
 import React from 'react';
 
 import { styled } from 'styled-components';
-import { uiColors } from '../../Components/UI/Design/design';
-import { FancyButton } from '../../lib';
+import { FancyButton, FancyCard } from '../../lib';
 import Color from 'color';
+import { uiColors, updateThemeColors } from '../../Components/UI/Design/color/designColor';
+import useThemeStore from '../../Components/UI/Design/color/designColorStore';
 
 const svg = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -16,10 +17,16 @@ const svg = (
 
 
 export default function ExperimentalRoute() {
+  const updateTheme = useThemeStore(state => state.updateTheme)
+  //updateTheme({primary: '#ff0000', secondary: '#0000ff', accent: '#00ff00'})
+  console.log(uiColors)
 
   return (
     <div style={{display: 'flex'}}>
-      <FancyButton design='transparent' outlined label='hii'/>
+      <FancyCard>
+        <span>Iam the fancy card</span>
+        <FancyButton design='primary' label='hii' onClick={() => updateTheme({primary: '#f20c0c'})}/>
+      </FancyCard>
     </div>
   );
 }

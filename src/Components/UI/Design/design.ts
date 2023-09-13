@@ -14,8 +14,6 @@ export type IUiColors = {
   [key in TColorTypes]?: string;
 };
 
-
-
 const themeColors: { [key in TColorTypes]: string } = {
   primary: '#131825',
   accent: '#F17C12',
@@ -26,12 +24,13 @@ const themeColors: { [key in TColorTypes]: string } = {
 themeColors.accentDarken = themeColors.accent
 
 export const updateThemeColors = (colorObject: IUiColors) => {
-  for (const key in themeColors) {
+  for (const key in colorObject) {
     const typedkey = key as TColorTypes;
     if(!isColorValid(themeColors[typedkey])) throw new Error('The color ' + typedkey + ' is not valid');
     if (key !== 'accentDarken' && colorObject[typedkey] !== undefined) {
       themeColors[typedkey] = colorObject[typedkey]!;
     }
+    console.log(colorObject);
   }
 };
 
@@ -179,7 +178,6 @@ const primaryLightcolors = generateColorSteps('primary', themeColors.primary);
 const secondaryLightcolors = generateColorSteps('secondary', themeColors.secondary);
 const accentLightcolors = generateColorSteps('accent', themeColors.accent);
 export const accentDarkenLightcolors = generateColorSteps('accentDarken', themeColors.accentDarken);
-
 
 
 export const uiColors = {

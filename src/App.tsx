@@ -1,8 +1,7 @@
 import './App.css';
 
-
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-
+import { ThemeProvider } from 'styled-components';
 
 import { useFancyModalStore } from './Components/UI/Organisms/FancyModal/FancyModal.state';
 
@@ -34,7 +33,8 @@ import MiniProfileroute from './Routes/MiniProfileRoute/MiniProfileroute';
 import ChipsRoute from './Routes/ChipsRoute/ChipsRoute';
 import CheckboxRoute from './Routes/CheckboxRoute/CheckboxRoute';
 import ColorGeneratorRoute from './Routes/ColorGeneratorRoute/ColorGeneratorRoute';
-import { updateThemeColors } from './Components/UI/Design/design';
+import { updateThemeColors } from './Components/UI/Design/color/designColor';
+import useThemeStore from './Components/UI/Design/color/designColorStore';
 
 // const Icon = (
 //   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -57,51 +57,18 @@ const OwnUl = styled.ul`
   justify-content: center;
 
   li {
-
-
     a {
       color: white;
       text-decoration: none;
     }
-
   }
-`
+`;
 
-
-
-const array = [
-  {
-    title: 'Submit',
-    onClick: () => {
-      useFancyModalStore
-        .getState()
-        .openModal({ headline: { title: 'test', subTitle: 'test' }, content: <div>hi</div>, bottomLine: { buttons: array } });
-    },
-    secondaryButton: true,
-    disabled: false,
-  },
-  {
-    title: 'discard',
-    onClick: () => {
-      console.log('discard');
-    },
-    secondaryButton: false,
-    disabled: false,
-  },
-  {
-    title: 'cancel',
-    onClick: () => {
-      console.log('cancel');
-    },
-    secondaryButton: false,
-    disabled: false,
-  },
-];
 
 
 function App() {
-  updateThemeColors({primary: '#ff0000', secondary: '#0000ff', accent: '#00ff00'})
-
+  const theme = useThemeStore((state) => state.theme);
+  updateThemeColors({ primary: '#ff0000', secondary: '#0000ff', accent: '#00ff00' });
 
   return (
     <div className="App">
