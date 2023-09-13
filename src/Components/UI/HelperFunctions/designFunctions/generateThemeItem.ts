@@ -4,10 +4,11 @@ import Color from 'color';
 import { disabledStyle } from './disableStyle';
 import { calcIconMarginAndAlign } from './generateIconMargin';
 import { generatePadding } from './generatePadding';
-import { borderRadius, spacing, uiColors } from '../../Design/design';
+import { borderRadius, spacing } from '../../Design/design';
 import { IUiColorsTypes } from '../../Design/design';
 import IStyledPrefixAndOmiter from '../../Interface/IStyledPrefixAndOmiter.model';
 import { boxShadow } from '../../Design/shadows';
+import themeStore from '../../Design/color/themeStore';
 
 
 export type IGenerateThemeItemProps = {
@@ -23,12 +24,10 @@ export type IGenerateThemeItemProps = {
   hoverColor?: 'primary' | 'secondary' | 'accent';
 };
 
-
-
 export type IGenerateThemeItem = IStyledPrefixAndOmiter<IGenerateThemeItemProps>;
 
 // --------------------------------------------------------------------------- //
-// ---------- Here are the $design variants for sizing and alignment ---------- //
+// ---------- Here are the $design variants for sizing and alignment --------- //
 // --------------------------------------------------------------------------- //
 //a shortcut to align the ($icon) ond text
 const alignment = {
@@ -44,6 +43,8 @@ const paddingIconButton = {
   lg: spacing.xl + 'px',
 };
 
+const theme = themeStore.getState().theme;
+
 // ------------------------------------------------------------------ //
 // ---------- Here are the helper functions for the $design --------- //
 // ------------------------------------------------------------------ //
@@ -51,10 +52,10 @@ const paddingIconButton = {
 type IcalcTextColor = Pick<IGenerateThemeItem, '$color' | '$design' | '$outlined'>;
 const calcTextColor = ({ $color, $design, $outlined }: IcalcTextColor) => {
   //  if the userer profides a $color use this
-  if ($color) return uiColors[$color][0];
-  if ($design === 'transparent') return uiColors.secondary[0];
-  if ($outlined) return uiColors[$design][0];
-  return uiColors[$design].contrast;
+  if ($color) return theme[$color][0];
+  if ($design === 'transparent') return theme.secondary[0];
+  if ($outlined) return theme[$design][0];
+  return theme[$design].contrast;
 };
 
 const generateBackgroundColor = (props: Pick<IGenerateThemeItem, '$design'>) => {
@@ -63,8 +64,7 @@ const generateBackgroundColor = (props: Pick<IGenerateThemeItem, '$design'>) => 
   if ($design === 'transparent') {
     return 'transparent';
   } else {
-    console.log('uiColors[$design][0]', uiColors[$design][1]);
-    return uiColors[$design][0];
+    return theme[$design][0];
   }
 };
 
@@ -121,11 +121,11 @@ const generateOutlined = (props: IGenerateOutlinedItem) => {
   const textColor = calcTextColor({ $color, $design, $outlined });
 
   //this makes the color, no matther which one transparent
-  const backgroundColor = Color(uiColors[$design][0]).alpha(0.1).hexa() ;
+  const backgroundColor = Color(theme[$design][0]).alpha(0.1).hexa() ;
 
   const clacHoverColor = () => {
-    if($color) return uiColors[$color][1];
-    return uiColors[$design][0];
+    if($color) return theme[$color][1];
+    return theme[$design][0];
   }; 
 
 
@@ -133,7 +133,7 @@ const generateOutlined = (props: IGenerateOutlinedItem) => {
     position: relative;
     background-color: transparent;
     padding: ${paddings[$size]};
-    border: 1.5px solid ${uiColors[$design][0]};
+    border: 1.5px solid ${theme[$design][0]};
     color: ${textColor};
 
     &:hover:enabled {
@@ -158,8 +158,8 @@ const generateNormal = (props: IGenerateNormalitem) => {
   // generates the hover style for the button
   const hoverBackgroundColorStyle = () => {
     if($design === 'transparent') return 'transparent';
-    if($hoverColor) return uiColors[$hoverColor][1];
-    return uiColors[$design][1];
+    if($hoverColor) return theme[$hoverColor][1];
+    return theme[$design][1];
   }
 
 
@@ -171,7 +171,7 @@ const generateNormal = (props: IGenerateNormalitem) => {
     padding: ${paddings[$size]};
 
     &:hover {
-      ${$design === 'transparent' ? 'color: ' + uiColors.secondary[1] : ''};
+      ${$design === 'transparent' ? 'color: ' + theme.secondary[1] : ''};
       background-color: ${hoverBackgroundColorStyle};
       box-shadow: ${$design !== 'transparent' ? boxShadow.sm : ''};
     }

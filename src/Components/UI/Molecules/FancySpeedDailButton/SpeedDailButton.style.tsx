@@ -1,6 +1,7 @@
-import { styled, css } from 'styled-components';
-import { fontSize, spacingPx, uiColors } from '../../Design/design';
-import { boxShadow, textShadow } from '../../Design/shadows';
+import { styled } from 'styled-components';
+import { spacingPx } from '../../Design/design';
+import { boxShadow } from '../../Design/shadows';
+import { TUiColorsType } from '../../Design/color/designColor';
 
 const SpeedDailButtonSize = 60;
 
@@ -18,10 +19,10 @@ export const SpeedDialContainer = styled.div`
   width: ${SpeedDailButtonSize + 'px'};
 `;
 
-export const Button = styled.button<{ $isOpen: boolean }>`
+export const Button = styled.button<{ $isOpen: boolean; theme: TUiColorsType }>`
   position: relative;
-  background-color: ${uiColors.accent[0]};
-  color: ${uiColors.accent.contrast};
+  background-color: ${({ theme }) => theme.accent[0]};
+  color: ${({ theme }) => theme.accent.contrast};
   border: none;
   border-radius: 50%;
   cursor: pointer;
@@ -48,11 +49,11 @@ export const Button = styled.button<{ $isOpen: boolean }>`
   }
 `;
 
-export const Ring = styled.div<{ $isOpen: boolean }>`
+export const Ring = styled.div<{ $isOpen: boolean; theme: TUiColorsType }>`
   position: absolute;
   height: ${SpeedDailButtonSize + 'px'};
   width: ${SpeedDailButtonSize + 'px'};
-  border: 1.5px solid ${uiColors.accent[0]};
+  border: 1.5px solid ${({ theme }) => theme.accent[0]};
   border-radius: 50%;
   z-index: 4;
   top: 50%;
@@ -62,7 +63,6 @@ export const Ring = styled.div<{ $isOpen: boolean }>`
   transition: opacity 0.5s ease-in-out, transform 0.3s ease;
   pointer-events: none;
 `;
-
 
 export const MenueItemWrapper = styled.div`
   position: absolute;
@@ -86,5 +86,3 @@ export const MenueItemContainer = styled.div<{ $isOpen: boolean; $index: number 
   width: 40px;
   box-shadow: #19191980 0 0 15px;
 `;
-
-

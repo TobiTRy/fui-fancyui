@@ -2,10 +2,11 @@ import React, { ChangeEvent } from 'react';
 import { styled, css } from 'styled-components';
 import FancyTextInput from '../../Organisms/FancyTextInput/FancyTextInput';
 
-import { spacingPx, uiColors, borderRadius } from '../../Design/design';
+import { spacingPx, borderRadius } from '../../Design/design';
 import SVGSearch from '../../SVGIcons/SVGSearch';
 import FancySVGAtom from '../../Atoms/FancySVGAtom/FancySVGAtom';
 import { TRawInputAlign } from '../../Atoms/RawInput/RawInput';
+import themeStore from '../../Design/color/themeStore';
 
 // Styled component for the search bar
 const StyledSearchBar = styled.div<{ $isActive?: boolean }>`
@@ -25,15 +26,16 @@ const StyledSearchBar = styled.div<{ $isActive?: boolean }>`
 
 // Props for the SearchBar component
 interface ISearchBar {
-  searchValue?: string; 
-  isActive?: boolean; 
+  searchValue?: string;
+  isActive?: boolean;
   align?: TRawInputAlign;
   activeHandler?: (isActive: boolean) => void;
   handler?: (value: string) => void;
 }
 // The SearchBar component
 export default function SearchBar(props: ISearchBar) {
-  const { activeHandler, handler, isActive, searchValue, align } = {...defaultProps, ...props};
+  const { activeHandler, handler, isActive, searchValue, align } = { ...defaultProps, ...props };
+  const theme = themeStore.getState().theme;
 
   // Function to handle changes to the isActive state
   const focusHandler = (isFocused: boolean) => {
@@ -50,7 +52,7 @@ export default function SearchBar(props: ISearchBar) {
       {/* The search icon */}
       <FancySVGAtom
         externalStyle={css`
-          color: ${uiColors.secondary[0]};
+          color: ${theme.secondary[0]};
         `}
       >
         {SVGSearch}
@@ -70,4 +72,4 @@ export default function SearchBar(props: ISearchBar) {
 
 const defaultProps = {
   align: 'center',
-}
+};

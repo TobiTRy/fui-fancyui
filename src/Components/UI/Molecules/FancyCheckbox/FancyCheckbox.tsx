@@ -3,14 +3,15 @@ import RawCheckbox from '../../Atoms/RawCheckbox/RawCheckbox';
 
 import { Typography } from '../../Atoms/Typography';
 import { LabelWrapper, Wrapper } from './FancyCheckbox.style';
-import { uiColors } from '../../Design/design';
 import { IFancyCheckboxProps } from './FancyCheckbox.model';
+import themeStore from '../../Design/color/themeStore';
 
 // --------------------------------------------------------------------------- //
 // -------------------- A simple Checkbox with a Label ----------------------- //
 // --------------------------------------------------------------------------- //
 export default function FancyCheckbox(props: IFancyCheckboxProps) {
   const { label, onChange, defaultChecked, align, alignCheckbox, description, ...rest } = { ...props, ...defaultProps };
+  const theme = themeStore.getState().theme;
   const id = useId();
   const pickedId = props.id ? props.id : id;
 
@@ -20,12 +21,12 @@ export default function FancyCheckbox(props: IFancyCheckboxProps) {
       {(label || description) && (
         <LabelWrapper $align={alignCheckbox} htmlFor={pickedId}>
           {label && (
-            <Typography type="inlineElement" variant="label" style={{ color: uiColors.secondary[0] }}>
+            <Typography type="inlineElement" variant="label" style={{ color: theme.secondary[0] }}>
               {label}
             </Typography>
           )}
           {description && (
-            <Typography type="inlineElement" variant="smText" className="description" style={{ color: uiColors.secondary[2] }}>
+            <Typography type="inlineElement" variant="smText" className="description" style={{ color: theme.secondary[2] }}>
               {description}
             </Typography>
           )}

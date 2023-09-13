@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
-
 import { styled } from 'styled-components';
 
 import DateOutput from '../../Atoms/DateOutput/DateOutput';
 import FancyVR from '../../Atoms/FancyVR/FancyVR';
-import { uiColors, spacingPx } from '../../Design/design';
+import { spacingPx } from '../../Design/design';
+import { TUiColorsType } from '../../Design/color/designColor';
 
-const StyledDateOutputFromTo = styled.div`
+// Define the styled component for the DateOutputFromTo component
+const StyledDateOutputFromTo = styled.div<{ theme: TUiColorsType }>`
   position: relative;
   display: flex;
   width: 100%;
@@ -16,19 +17,20 @@ const StyledDateOutputFromTo = styled.div`
 
   button:nth-child(1) {
     border-radius: 50px 0 0 50px;
-    color: ${uiColors.secondary[0]};
+    color: ${({ theme }) => theme.secondary[0]};
     filter: brightness(1.25);
     padding: ${spacingPx.sm};
   }
 
   button:nth-child(3) {
-    color: ${uiColors.secondary[0]};
+    color: ${({ theme }) => theme.secondary[0]};
     filter: brightness(1.25);
     border-radius: 0 50px 50px 0;
     padding: ${spacingPx.sm};
   }
 `;
 
+// Define the styled component for the VRWrapper
 const VRWrapper = styled.div`
   position: relative;
   flex: 1;
@@ -36,31 +38,32 @@ const VRWrapper = styled.div`
   align-items: center; // this center the FancyVR vertically
 `;
 
-// --------------------------------------------------------------------------- //
-// --- The date output where the Date is displayed and can select from / to -- //
-// --------------------------------------------------------------------------- //
+// Define the props for the DateOutputFromTo component
 interface IDateOutputFromTo {
   dateFrom?: Date;
   dateTo?: Date;
   handler?: (wich: 'from' | 'to') => void;
   whichIsSelecting?: 'from' | 'to';
 }
-export default function DateOutputFromTo({ whichIsSelecting ,dateFrom, dateTo, handler }: IDateOutputFromTo) {
+
+// Define the DateOutputFromTo component
+export default function DateOutputFromTo({ whichIsSelecting, dateFrom, dateTo, handler }: IDateOutputFromTo) {
   const [currentlySelected, setCurrentlySelected] = useState<'from' | 'to'>('from');
 
-
+  // Define the click handler for the DateOutput component
   const handleClickOnDateOutput = (which: 'from' | 'to') => {
     setCurrentlySelected(which);
     handler && handler(which);
   };
 
+  // Update the currentlySelected state variable when the whichIsSelecting prop changes
   useEffect(() => {
-    if(whichIsSelecting) {
+    if (whichIsSelecting) {
       setCurrentlySelected(whichIsSelecting);
     }
-  }, [whichIsSelecting])
+  }, [whichIsSelecting]);
 
-
+  // Render the DateOutputFromTo component with the appropriate props
   return (
     <StyledDateOutputFromTo>
       <DateOutput

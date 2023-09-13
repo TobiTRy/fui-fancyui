@@ -2,8 +2,9 @@ import { styled, css } from 'styled-components';
 
 import IStyledPrefixAndPicker from '../../Interface/IStyledPrefixAndPicker.model';
 import { IFancyTabStyle } from '../../Molecules/FancyTabSwitch/IFancyTab.model';
-import { spacingPx, uiColors } from '../../Design/design';
+import { spacingPx } from '../../Design/design';
 import { textShadow } from '../../Design/shadows';
+import themeStore from '../../Design/color/themeStore';
 
 // ------------------------------------------------------------------ //
 // ----------- the helperfunctions for the style generate ----------- //
@@ -13,17 +14,18 @@ type ILIStyledButton = IStyledPrefixAndPicker<IFancyTabStyle, 'transparent' | 't
 
 const generateDynamicTabStyle = (props: Pick<ILIStyledButton, '$transparent' | '$textColor'>) => {
   const { $transparent, $textColor } = props;
+  const theme = themeStore.getState().theme;
 
   //if the background not transparent give him a background/text color
   if (!$transparent) {
     return css`
-      background-color: ${uiColors.primary[1]};
-      color: ${uiColors.primary.contrast};
+      background-color: ${theme.primary[1]};
+      color: ${theme.secondary[0]};
     `;
   } else {
     //when the it is transparent style it with underline
     return css`
-      color: ${$textColor === 'dark' ? uiColors.primary[0] : uiColors.secondary[0]};
+      color: ${$textColor === 'dark' ? theme.primary[0] : theme.secondary[0]};
       background-color: transparent;
       border-bottom: 1.5px solid transparent;
     `;
@@ -33,18 +35,20 @@ const generateDynamicTabStyle = (props: Pick<ILIStyledButton, '$transparent' | '
 //when the item is aktiv(clicked) this style is used
 const generateCheckedStyle = (props: IStyledPrefixAndPicker<IFancyTabStyle, 'transparent'>) => {
   const { $transparent } = props;
+  const theme = themeStore.getState().theme;
+
   return css`
     ${!$transparent
       ? css`
           &:checked + label {
             ${textShadow.sm}
-            background-color: ${uiColors.accent[0]};
+            background-color: ${theme.accent[0]};
           }
         `
       : css`
           &:checked + label {
-            color: ${uiColors.accent[0]};
-            border-bottom: 1.5px solid ${uiColors.accent[0]};
+            color: ${theme.accent[0]};
+            border-bottom: 1.5px solid ${theme.accent[0]};
           }
         `}
   `;

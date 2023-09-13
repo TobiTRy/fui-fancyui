@@ -3,7 +3,7 @@ import React from 'react';
 import { styled } from 'styled-components';
 import { FancyButton, FancyCard } from '../../lib';
 import Color from 'color';
-import { uiColors, updateThemeColors } from '../../Components/UI/Design/color/designColor';
+import { updateThemeColors } from '../../Components/UI/Design/color/designColor';
 import useThemeStore from '../../Components/UI/Design/color/themeStore';
 
 const svg = (
@@ -19,8 +19,6 @@ const svg = (
 export default function ExperimentalRoute() {
   const updateTheme = useThemeStore(state => state.updateTheme)
   //updateTheme({primary: '#ff0000', secondary: '#0000ff', accent: '#00ff00'})
-  console.log(uiColors)
-
   return (
     <div style={{display: 'flex'}}>
       <FancyCard>
