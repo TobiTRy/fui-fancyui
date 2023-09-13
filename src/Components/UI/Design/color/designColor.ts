@@ -16,23 +16,18 @@ const themeColors: IUiColors = {
 };
 themeColors.accentDarken = themeColors.accent;
 
-
 export type IUiColorsTypes = 'primary' | 'secondary' | 'accent' | 'transparent';
 
 type ColorGroup = { [key: string]: string };
-export let uiColors: { [key in IUiColorsTypes]: ColorGroup } = {} as { [key in IUiColorsTypes]: ColorGroup };
 
+export type TUiColorsType = { [key in IUiColorsTypes]: ColorGroup };
+export let uiColors: TUiColorsType = {} as TUiColorsType;
 
-
-
-function generateUiColors () {
-  console.log(themeColors, 'themeColors')
-
-  const primaryLightcolors = generateColorSteps('primary',  themeColors.primary);
+function generateUiColors() {
+  const primaryLightcolors = generateColorSteps('primary', themeColors.primary);
   const secondaryLightcolors = generateColorSteps('secondary', themeColors.secondary);
-  const accentLightcolors = generateColorSteps('accent',  themeColors.accent);
+  const accentLightcolors = generateColorSteps('accent', themeColors.accent);
   const accentDarkenLightcolors = generateColorSteps('accentDarken', themeColors.accentDarken);
-  console.log('generate new color')
 
   uiColors = {
     primary: {
@@ -58,15 +53,14 @@ function generateUiColors () {
       '7': 'transparent',
       '8': 'transparent',
       '9': 'transparent',
-      contrast : Color(primaryLightcolors[0]).isDark() ? secondaryLightcolors[0] : primaryLightcolors[0],
+      contrast: Color(primaryLightcolors[0]).isDark() ? secondaryLightcolors[0] : primaryLightcolors[0],
     },
   };
 }
 
 generateUiColors();
 
-
-// this function updates the theme colors with a incomming object 
+// this function updates the theme colors with a incomming object
 // { 'primary': '#131825', 'accent': '#F17C12', 'secondary': '#f0f0ef' }
 export type IUiColorPops = {
   [key in TColorTypes]?: string;
@@ -89,7 +83,6 @@ export const updateThemeColors = (colorObject: IUiColorPops) => {
   if (error) throw new Error(error);
 
   // generate the new colors
-  console.log('generatedddddd new color')
+  console.log('generatedddddd new color');
   generateUiColors();
 };
-

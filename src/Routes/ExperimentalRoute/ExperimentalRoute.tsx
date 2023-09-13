@@ -4,7 +4,7 @@ import { styled } from 'styled-components';
 import { FancyButton, FancyCard } from '../../lib';
 import Color from 'color';
 import { uiColors, updateThemeColors } from '../../Components/UI/Design/color/designColor';
-import useThemeStore from '../../Components/UI/Design/color/designColorStore';
+import useThemeStore from '../../Components/UI/Design/color/themeStore';
 
 const svg = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">

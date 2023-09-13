@@ -5,20 +5,18 @@ import IStyledPrefixAndOmiter from "../../Interface/IStyledPrefixAndOmiter.model
 import { spacingPx } from "../../Design/design";
 import edgeCalculation from "../../HelperFunctions/designFunctions/edgeCaluculation";
 
-import { uiColors } from "../../Design/color/designColor";
-import useThemeStore, { Theme  } from "../../Design/color/designColorStore";
+import { TUiColorsType } from "../../Design/color/designColor";
 
-const colorTheme = useThemeStore.getState().theme;
 
 // the converted $ styling props for the card
 type IStyledCard = IStyledPrefixAndOmiter<StyledCardProps>;
 //the main design of the card
-export const StyledCard = styled.div<IStyledCard & { theme: Theme }>`
+export const StyledCard = styled.div<IStyledCard & { theme: TUiColorsType }>`
   overflow: hidden;
   width: ${({$width}) => $width};
   height: ${({$height}) => $height};
   box-sizing: border-box;
-  background-color: ${colorTheme.primary[5]};
+  background-color: ${({theme}) => theme.primary[1]};
   padding: ${({$padding}) => $padding ?  spacingPx[$padding] : ''};
   border-radius:  ${({$roundedEdges, $radius}) => edgeCalculation($roundedEdges, $radius)};
 `

@@ -34,7 +34,7 @@ import ChipsRoute from './Routes/ChipsRoute/ChipsRoute';
 import CheckboxRoute from './Routes/CheckboxRoute/CheckboxRoute';
 import ColorGeneratorRoute from './Routes/ColorGeneratorRoute/ColorGeneratorRoute';
 import { updateThemeColors } from './Components/UI/Design/color/designColor';
-import useThemeStore from './Components/UI/Design/color/designColorStore';
+import themeStore from './Components/UI/Design/color/themeStore';
 
 // const Icon = (
 //   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -67,12 +67,12 @@ const OwnUl = styled.ul`
 
 
 function App() {
-  const theme = useThemeStore((state) => state.theme);
-  updateThemeColors({ primary: '#ff0000', secondary: '#0000ff', accent: '#00ff00' });
+  const theme = themeStore((state) => state.theme);
 
   return (
     <div className="App">
       <Router>
+        <ThemeProvider theme={theme}>
         <div>
           <nav>
             <OwnUl>
@@ -192,6 +192,7 @@ function App() {
             <Route path="/" element={<SwipeUpModal />} />
           </Routes>
         </div>
+        </ThemeProvider>
       </Router>
     </div>
     // <>
