@@ -1,7 +1,8 @@
-import { styled } from "styled-components";
+import { css, styled } from "styled-components";
 import { IRange } from "./DateNumberAtom";
-import { borderRadius, uiColors } from "../../Design/design";
+import { borderRadius, } from "../../Design/design";
 import { disabledStyle } from "../../HelperFunctions/designFunctions/disableStyle";
+import { TUiColorsType } from "../../Design/color/designColor";
 
 
 
@@ -13,14 +14,14 @@ interface IStyledDay {
 	$isCurrentDay?: boolean;
 	$selected?: boolean;
 }
-export const StyledDay = styled.button<IStyledDay>`
+export const StyledDay = styled.button<IStyledDay & {theme: TUiColorsType}>`
   cursor: pointer;
   box-sizing: border-box;
   justify-content: center;
   align-items: center;
   border-radius: ${borderRadius.complete};
-  color: ${({$isCurrentDay}) => $isCurrentDay ? uiColors.accent[0] : uiColors.secondary[0] };
-  border: ${({$selected}) => $selected ? `1px solid ${uiColors.accent[0]}` : `none`};
+  color: ${({$isCurrentDay, theme}) => $isCurrentDay ? theme.accent[0] : theme.secondary[0] };
+  border: ${({$selected, theme}) => $selected ? `1px solid ${theme.accent[0]}` : `none`};
   background-color: transparent;
   padding: 0;
   width: 80%;
@@ -37,28 +38,25 @@ export const StyledDay = styled.button<IStyledDay>`
     padding-top: 100%;
   }
 
-  &:hover {
-    border: 1px solid ${uiColors.accent[0]};
+  &:hover, &:active {
+    border: 1px solid ${({theme}) => theme.accent[0]};
   }
 
-  &:active {
-    border: 1px solid ${uiColors.accent[0]};
-  }
 
-  ${({$range}) => $range?.start && `
+  ${({$range, theme}) => $range?.start && css`
     border-radius: 40% 5px 5px 40%;
-    background-image: linear-gradient(to right, ${uiColors.accent[0]}, transparent);
+    background-image: linear-gradient(to right, ${theme.accent[0]}, transparent);
     color: white;
   `}
 
-  ${({$range}) => $range?.end && `
+  ${({$range, theme}) => $range?.end && `
     border-radius: 5px 40% 40% 5px;
-    background-image: linear-gradient(to left, ${uiColors.accent[0]}, transparent);
+    background-image: linear-gradient(to left, ${theme.accent[0]}, transparent);
     color: white;
   `}
 
-  ${({$range}) => $range?.inRange && `
-    background-color: ${uiColors.accent[0]};
+  ${({$range, theme}) => $range?.inRange && `
+    background-color: ${theme.accent[0]};
     color: white;
   `}
 

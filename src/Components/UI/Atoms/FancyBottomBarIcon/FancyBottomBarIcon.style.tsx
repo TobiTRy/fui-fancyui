@@ -1,8 +1,9 @@
 import { styled } from 'styled-components';
-import { spacing, uiColors } from '../../Design/design';
+import { spacing } from '../../Design/design';
 import { disabledStyle } from '../../HelperFunctions/designFunctions/disableStyle';
+import { TUiColorsType } from '../../Design/color/designColor';
 
-export const IconTextButton = styled.button<{ $color?: string; $isActive?: boolean; $disabled?: boolean }>`
+export const IconTextButton = styled.button<{ $isActive?: boolean; $disabled?: boolean; theme: TUiColorsType }>`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -13,19 +14,19 @@ export const IconTextButton = styled.button<{ $color?: string; $isActive?: boole
   border: none;
   cursor: pointer;
   margin: 0 auto;
-  color: ${({ $isActive }) => ($isActive ? uiColors.accent[0] : uiColors.secondary[0])};
+  color: ${({ $isActive, theme }) => ($isActive ? theme.accent[0] : theme.secondary[0])};
   transition: all 0.3s ease-in-out;
   ${({ disabled }) => disabled && disabledStyle}
   padding-bottom: ${spacing.xs + 2 + 'px'};
 
   @media (hover: hover) {
     &:hover {
-      color: ${({ disabled }) => !disabled && uiColors.accent[0]};
+      color: ${({ disabled, theme }) => !disabled && theme.accent[0]};
     }
   }
 `;
 
-export const Underline = styled.i<{ $isActive?: boolean }>`
+export const Underline = styled.i<{ $isActive?: boolean; theme: TUiColorsType }>`
   position: absolute;
   bottom: 0;
   left: 50%;
@@ -34,7 +35,7 @@ export const Underline = styled.i<{ $isActive?: boolean }>`
   height: 1.5px;
   margin-top: 12px;
   border-radius: 10px;
-  background-color: ${({ $isActive }) => ($isActive ? uiColors.accent[0] : 'transparent')};
+  background-color: ${({ $isActive, theme }) => ($isActive ? theme.accent[0] : 'transparent')};
   transition: all 0.1s ease-in-out;
 `;
 

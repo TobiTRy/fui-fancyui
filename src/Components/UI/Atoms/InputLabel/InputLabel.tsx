@@ -1,12 +1,12 @@
 import { styled } from 'styled-components';
-import { uiColors } from '../../Design/design';
+import { TUiColorsType } from '../../Design/color/designColor';
 
 // --------------------------------------------------------------------------- //
 // --------------- The main label design for the input elements -------------- //
 // --------------------------------------------------------------------------- //
-const InputLabel = styled.label`
+const InputLabel = styled.label<{theme: TUiColorsType}>`
   width: 100%;
-  color: ${uiColors.secondary[7]};
+  color: ${({theme}) => theme.secondary[7]};
   font-weight: bold;
   pointer-events: none;
   user-select: none;

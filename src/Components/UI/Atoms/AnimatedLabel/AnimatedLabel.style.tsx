@@ -1,6 +1,7 @@
 import { styled, css } from 'styled-components';
-import { colorPalet, uiColors } from '../../Design/design';
+import { colorPalet } from '../../Design/design';
 import InputLabel from '../InputLabel/InputLabel';
+import { TUiColorsType } from '../../Design/color/designColor';
 
 const activeHandler = (align: string, $moveUp?: boolean) => {
   if (align !== 'center') {
@@ -35,17 +36,17 @@ interface IAnimatedInputLabel {
 // --------------------------------------------------------------------------- //
 // ---------- The input label wich hase some colors and an animation --------- //
 // --------------------------------------------------------------------------- //
-export const AnimatedInputLabel = styled(InputLabel)<IAnimatedInputLabel>`
+export const AnimatedInputLabel = styled(InputLabel)<IAnimatedInputLabel & {theme: TUiColorsType}>`
   position: absolute;
   padding: 12px 0 5px;
-  color: ${({ $colorState }) => {
+  color: ${({ $colorState, theme }) => {
     switch ($colorState) {
       case 'error':
         return colorPalet.red_light;
       case 'active':
-        return uiColors.accent[0];
+        return theme.accent[0];
       default:
-        return uiColors.secondary[7];
+        return theme.secondary[7];
     }
   }};
 

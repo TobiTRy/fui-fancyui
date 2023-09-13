@@ -1,6 +1,6 @@
 import React from 'react';
-import { styled, keyframes } from 'styled-components';
-import { uiColors } from '../../Design/design';
+import { styled, keyframes, css, CSSProp } from 'styled-components';
+import { TUiColorsType } from '../../Design/color/designColor';
 
 // Define keyframe animations for the spinner
 const spinner = keyframes`
@@ -57,12 +57,19 @@ const SpinnerContainer = styled.div<{ $size?: keyof typeof sizes }>`
   justify-content: center;
 `;
 
+// Define a function to generate the border for the spinner
+const generateBorder = (size: string, theme: TUiColorsType): CSSProp => {
+  return css`
+    border-top: ${size} solid transparent;
+    border-right: ${size} solid ${theme.accent[0]};
+    border-bottom: ${size} solid transparent;
+    border-left: ${size} solid ${theme.accent[0]};
+  `;
+};
+
 // Define a styled component for the inner spinner
-const StyledInnerSpinner = styled.div<{ $size?: keyof typeof sizes }>`
-  border-top: ${({ $size }) => ($size ? sizes[$size].thicknessInner : sizes.md.thicknessInner)} solid transparent;
-  border-right: ${({ $size }) => ($size ? sizes[$size].thicknessInner : sizes.md.thicknessInner)} solid ${uiColors.accent[0]};
-  border-bottom: ${({ $size }) => ($size ? sizes[$size].thicknessInner : sizes.md.thicknessInner)} solid transparent;
-  border-left: ${({ $size }) => ($size ? sizes[$size].thicknessInner : sizes.md.thicknessInner)} solid ${uiColors.accent[0]};
+const StyledInnerSpinner = styled.div<{ $size?: keyof typeof sizes; theme: TUiColorsType }>`
+  ${({ $size, theme }) => generateBorder($size ? sizes[$size].thicknessInner : sizes.md.thickness, theme)}
   animation: ${reverseSpinner} 2s infinite ease-in-out;
   border-radius: 50%;
   width: 80%;
@@ -70,12 +77,9 @@ const StyledInnerSpinner = styled.div<{ $size?: keyof typeof sizes }>`
 `;
 
 // Define a styled component for the outer spinner
-const StyledFancyLoadingSpinner = styled.div<{ $size?: keyof typeof sizes; $thickness?: string }>`
+const StyledFancyLoadingSpinner = styled.div<{ $size?: keyof typeof sizes; $thickness?: string; theme: TUiColorsType }>`
+  ${({ $size, theme }) => generateBorder($size ? sizes[$size].thickness : sizes.md.thickness, theme)}
   position: absolute;
-  border-top: ${({ $size }) => ($size ? sizes[$size].thickness : sizes.md.thickness)} solid transparent;
-  border-right: ${({ $size }) => ($size ? sizes[$size].thickness : sizes.md.thickness)} solid ${uiColors.accent[0]};
-  border-bottom: ${({ $size }) => ($size ? sizes[$size].thickness : sizes.md.thickness)} solid transparent;
-  border-left: ${({ $size }) => ($size ? sizes[$size].thickness : sizes.md.thickness)} solid ${uiColors.accent[0]};
   animation: ${spinner} 2s infinite ease-in-out;
   border-radius: 50%;
   width: 100%;

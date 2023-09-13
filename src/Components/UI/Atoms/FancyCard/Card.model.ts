@@ -1,7 +1,6 @@
-import { IBorderRadiusNames } from '../../Design/design'
 import { IRoundedEdges } from '../../HelperFunctions/designFunctions/edgeCaluculation';
 import { spacingPx } from '../../Design/design';
-import { uiColors } from '../../Design/design';
+import { uiColors } from '../../Design/color/designColor';
 import { borderRadius } from '../../Design/design';
 
 type IScaling = '100%' | 'auto' | string;

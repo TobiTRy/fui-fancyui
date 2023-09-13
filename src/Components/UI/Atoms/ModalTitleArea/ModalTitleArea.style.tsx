@@ -1,8 +1,9 @@
 import { styled } from 'styled-components';
-import { spacingPx, uiColors } from '../../Design/design';
+import { spacingPx } from '../../Design/design';
+import { TUiColorsType } from '../../Design/color/designColor';
 
-export const TitleArea = styled.div`
-  color: ${uiColors.primary.contrast};
+export const TitleArea = styled.div<{theme: TUiColorsType}>`
+  color: ${({theme}) => theme.secondary[0]};
   margin-bottom: ${spacingPx.sm};
   position: relative;
   display: flex;
@@ -17,7 +18,7 @@ export const TitleArea = styled.div`
     width: 100%;
     height: 1px;
     border-radius: 50%;
-    background-color: ${uiColors.accent[0]};
+    background-color: ${({theme}) => theme.accent[0]};
   }
 
   h4 {

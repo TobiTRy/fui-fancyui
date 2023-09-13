@@ -1,9 +1,10 @@
 import Color from 'color';
 import { styled } from 'styled-components';
-import { borderRadius, fontSize, uiColors } from '../../Design/design';
+import { borderRadius, fontSize } from '../../Design/design';
 import { simpleColorTransition } from '../../Design/simpleTransition';
+import { TUiColorsType } from '../../Design/color/designColor';
 
-export const Content = styled.div<{ $isBright: boolean }>`
+export const Content = styled.div<{ $isBright: boolean; theme: TUiColorsType }>`
   position: absolute;
   width: 100%;
   height: 100%;
@@ -15,19 +16,15 @@ export const Content = styled.div<{ $isBright: boolean }>`
   z-index: 2;
   gap: 3px;
   font-size: ${fontSize.sm};
-  color: ${({ $isBright }) => (!$isBright ? uiColors.secondary[0] : uiColors.primary[0])};
+  color: ${({ $isBright, theme }) => (!$isBright ? theme.secondary[0] : theme.primary[0])};
   ${simpleColorTransition}
 
   p {
     user-select: none;
   }
 
-  &:active {
-    color: ${({ $isBright }) => ($isBright ? uiColors.primary.dark : uiColors.secondary.dark)};
-  }
-
-  &:hover {
-    color: ${({ $isBright }) => ($isBright ? uiColors.primary.dark : uiColors.secondary.dark)};
+  &:active, &:hover {
+    color: ${({ $isBright, theme }) => ($isBright ? theme.primary[1] : theme.secondary[1])};
   }
 `;
 

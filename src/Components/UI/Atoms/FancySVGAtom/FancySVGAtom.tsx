@@ -1,11 +1,13 @@
 import React from 'react';
 import { styled } from 'styled-components';
-import { colorPalet, uiColors } from '../../Design/design';
+import { colorPalet } from '../../Design/design';
 import { ISVGAtomProps, IStyledSVGAtom, sizes } from './FancySVGAtom.model';
+import themeStore from '../../Design/color/themeStore';
 
 const calcIconColor = ($isActive?: boolean, errorMessage?: string | undefined): string => {
+  const theme = themeStore.getState().theme;
   if (!errorMessage) {
-    return $isActive ? uiColors.accent[0] : uiColors.secondary[7];
+    return $isActive ? theme.accent[0] : theme.secondary[7];
   } else {
     return colorPalet.red_dark;
   }

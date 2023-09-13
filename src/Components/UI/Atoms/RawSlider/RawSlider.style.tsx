@@ -1,26 +1,27 @@
 import { styled, css } from 'styled-components';
-import { uiColors } from '../../Design/design';
+import { boxShadow } from '../../Design/shadows';
+import { TUiColorsType } from '../../Design/color/designColor';
 
-const DragableThumb = css`
+const DragableThumb = css<{theme: TUiColorsType}>`
   height: 30px;
   width: 30px;
   border-radius: 50%;
-  background: ${uiColors.accent[0]};
+  background: ${({theme}) => theme.accent[0]};
   cursor: ew-resize;
-  box-shadow: 0 0 8px 0 rgba(85, 85, 85, 0.516);
+  ${boxShadow.sm}
   transition: background 0.1s ease-in-out;
   border: none;
 `;
 
-export const StyledRawSlider = styled.input`
+export const StyledRawSlider = styled.input<{theme: TUiColorsType}>`
   -webkit-appearance: none;
   width: 100%;
   margin: 0;
   height: 4px;
   margin: 10px 0 12px 0;
-  background: gray;
+  background: ${({theme}) => theme.secondary[7]};
   border-radius: 5px;
-  background-image: linear-gradient(90deg, ${uiColors.accent[0]}, ${uiColors.accent.light});
+  background-image: ${({theme}) => `linear-gradient(90deg, ${theme.accent[0]}, ${theme.accent[1]})`};
   background-size: 70% 100%;
   background-repeat: no-repeat;
   outline: none;

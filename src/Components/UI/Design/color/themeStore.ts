@@ -7,7 +7,6 @@ type ThemeState = {
   updateTheme: (colors: IUiColorPops) => void;
 };
 
-
 // the store for the theme
 const themeStore = create<ThemeState>((set) => ({
   theme: uiColors,

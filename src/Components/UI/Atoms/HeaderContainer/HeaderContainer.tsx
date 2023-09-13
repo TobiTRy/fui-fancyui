@@ -1,12 +1,11 @@
 import React from 'react';
 import { styled } from 'styled-components';
-
-import { uiColors } from '../../Design/design';
+import { TUiColorsType } from '../../Design/color/designColor';
 
 // the slotsInFR is an array of strings which will be used to genera dynamicly the grid-template-columns
-const HeaderWrapper = styled.div<{ $slotsInFR?: string[]; $height: string }>`
-  background-color: ${uiColors.primary[1]};
-  color: ${uiColors.secondary[0]};
+const HeaderWrapper = styled.div<{ $slotsInFR?: string[]; $height: string; theme: TUiColorsType }>`
+  background-color: ${({ theme }) => theme.primary[1]};
+  color: ${({ theme }) => theme.secondary[0]};
   display: grid;
   grid-template-columns: ${({ $slotsInFR }) => ($slotsInFR ? $slotsInFR.join(' ') : '1fr')};
   width: 100%;
