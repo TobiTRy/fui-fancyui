@@ -16,7 +16,6 @@ const svg = (
 
 
 export default function ExperimentalRoute() {
-  console.log(Color('1'))
 
   return (
     <div style={{display: 'flex'}}>
