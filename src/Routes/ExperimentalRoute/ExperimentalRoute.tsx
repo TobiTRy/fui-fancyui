@@ -18,12 +18,14 @@ const svg = (
 
 export default function ExperimentalRoute() {
   const updateTheme = useThemeStore(state => state.updateTheme)
+  const switchTheme = useThemeStore(state => state.switchTheme)
   //updateTheme({primary: '#ff0000', secondary: '#0000ff', accent: '#00ff00'})
   return (
     <div style={{display: 'flex'}}>
       <FancyCard>
         <span>Iam the fancy card</span>
         <FancyButton design='primary' label='hii' onClick={() => updateTheme({primary: '#f20c0c'})}/>
+        <FancyButton design='primary' label='Switch' onClick={() => switchTheme()}/>
       </FancyCard>
     </div>
   );
