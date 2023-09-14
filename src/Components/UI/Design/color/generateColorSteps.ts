@@ -18,7 +18,7 @@ function generateColorVariations(baseColor: string, steps: number[]): string[] {
 
 
 // Define the steps for the different color types
-const degreeSteps = [0, 3, 7, 15, 20, 30, 40, 50, 60, 70];
+const degreeSteps = [0, 3, 7, 10, 18, 25, 34, 40, 60, 70];
 const degreeStepsAccent = [0, 5, 10, 15, 20, 25, 30, 35, 40, 45];
 
 // Generate colors at different steps for a single base color

@@ -13,7 +13,7 @@ export const Wrapper = styled.div<IWrapper & { theme: TUiColorsType }>`
   align-items: center;
   padding: ${({ $size }) => ($size ? spacingPx[$size] : '')};
   gap: ${({ $gapSpacing }) => ($gapSpacing ? spacingPx[$gapSpacing] : spacingPx.xxs)};
-  background-color: ${({ theme }) => theme.primary[2]};
+  background-color: ${({ theme }) => theme.primary[3]};
   color: ${({ theme }) => theme.secondary[1]};
   border-radius: ${borderRadius.complete};
 `;

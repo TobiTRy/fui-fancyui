@@ -67,7 +67,7 @@ export type IUiColorPops = {
 };
 export const updateThemeColors = (colorObject: IUiColorPops) => {
   let error: undefined | string;
-  console.log('colorObject', colorObject);
+
   for (const key in colorObject) {
     const typedkey = key as TColorTypes;
     if (!isColorValid(themeColors[typedkey])) {
@@ -83,6 +83,5 @@ export const updateThemeColors = (colorObject: IUiColorPops) => {
   if (error) throw new Error(error);
 
   // generate the new colors
-  console.log('generatedddddd new color');
   generateUiColors();
 };

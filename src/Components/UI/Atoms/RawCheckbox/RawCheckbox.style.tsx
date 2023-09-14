@@ -37,7 +37,7 @@ export const FakeCheckbox = styled.div<{ $checked: boolean, theme: TUiColorsType
   position: absolute;
   top: 0;
   left: 0;
-  background-color: ${({theme}) => theme.primary[2]};
+  background-color: ${({theme}) => theme.primary[3]};
   z-index: 1;
   ${checkboxStyles}
   box-sizing: border-box;
