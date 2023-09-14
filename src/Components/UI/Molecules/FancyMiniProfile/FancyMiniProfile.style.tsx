@@ -14,6 +14,7 @@ export const Wrapper = styled.div<IWrapper & { theme: TUiColorsType }>`
   padding: ${({ $size }) => ($size ? spacingPx[$size] : '')};
   gap: ${({ $gapSpacing }) => ($gapSpacing ? spacingPx[$gapSpacing] : spacingPx.xxs)};
   background-color: ${({ theme }) => theme.primary[2]};
+  color: ${({ theme }) => theme.secondary[1]};
   border-radius: ${borderRadius.complete};
 `;
 
