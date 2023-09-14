@@ -3,7 +3,7 @@ import { updateThemeColors, uiColors, IUiColorPops, TUiColorsType } from './desi
 
 type ThemeState = {
   theme: TUiColorsType;
-  darkTheme: boolean;
+  isDarkTheme: boolean;
   switchTheme: () => void;
   updateTheme: (colors: IUiColorPops) => void;
 };
@@ -11,15 +11,15 @@ type ThemeState = {
 // the store for the theme
 const themeStore = create<ThemeState>((set, get) => ({
   theme: uiColors,
-  darkTheme: true,
+  isDarkTheme: true,
   switchTheme: () => {
   
     set({
-      darkTheme: !get().darkTheme,
+      isDarkTheme: !get().isDarkTheme,
       theme: {
         ...uiColors,
-        primary: get().darkTheme ? uiColors.secondary : uiColors.primary,
-        secondary: get().darkTheme ? uiColors.primary : uiColors.secondary,
+        primary: get().isDarkTheme ? uiColors.secondary : uiColors.primary,
+        secondary: get().isDarkTheme ? uiColors.primary : uiColors.secondary,
       },
     });
   },
