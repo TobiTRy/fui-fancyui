@@ -1,25 +1,25 @@
 import { create } from 'zustand';
 import { updateThemeColors, uiColors, IUiColorPops, TUiColorsType } from './designColor';
 
-
 type ThemeState = {
   theme: TUiColorsType;
+  darkTheme: boolean;
   switchTheme: () => void;
   updateTheme: (colors: IUiColorPops) => void;
 };
 
 // the store for the theme
-const themeStore = create<ThemeState>((set) => ({
+const themeStore = create<ThemeState>((set, get) => ({
   theme: uiColors,
+  darkTheme: true,
   switchTheme: () => {
-    const primary = uiColors.primary;
-    const secondary = uiColors.secondary;
-
+  
     set({
+      darkTheme: !get().darkTheme,
       theme: {
         ...uiColors,
-        primary: secondary,
-        secondary: primary,
+        primary: get().darkTheme ? uiColors.secondary : uiColors.primary,
+        secondary: get().darkTheme ? uiColors.primary : uiColors.secondary,
       },
     });
   },
