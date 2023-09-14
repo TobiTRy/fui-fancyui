@@ -4,7 +4,8 @@ import { borderRadius, fontSize } from '../../Design/design';
 import { simpleColorTransition } from '../../Design/simpleTransition';
 import { TUiColorsType } from '../../Design/color/designColor';
 
-export const Content = styled.div<{ $isBright: boolean; theme: TUiColorsType }>`
+
+export const Content = styled.div<{ $isBright: boolean; theme: TUiColorsType, $isDarkTheme: boolean }>`
   position: absolute;
   width: 100%;
   height: 100%;
@@ -16,7 +17,7 @@ export const Content = styled.div<{ $isBright: boolean; theme: TUiColorsType }>`
   z-index: 2;
   gap: 3px;
   font-size: ${fontSize.sm};
-  color: ${({ $isBright, theme }) => (!$isBright ? theme.secondary[0] : theme.primary[0])};
+  color: ${({theme, $isBright, $isDarkTheme}) => ($isBright && $isDarkTheme) ? theme.primary[0] : theme.secondary[0] };
   ${simpleColorTransition}
 
   p {
@@ -24,7 +25,7 @@ export const Content = styled.div<{ $isBright: boolean; theme: TUiColorsType }>`
   }
 
   &:active, &:hover {
-    color: ${({ $isBright, theme }) => ($isBright ? theme.primary[1] : theme.secondary[1])};
+    color: ${({theme, $isBright, $isDarkTheme}) => ($isBright && $isDarkTheme) ? theme.primary[4] : theme.secondary[4] };
   }
 `;
 
