@@ -37,7 +37,7 @@ export default function TabSwitchRoute() {
   };
 
   return (
-    <FancyCard>
+    <FancyCard layer={1}>
       <DesignWrapper>
         <DesignArea
           title="TabSwitch"

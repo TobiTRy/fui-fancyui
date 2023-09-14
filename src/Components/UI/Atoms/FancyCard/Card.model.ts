@@ -10,6 +10,7 @@ type IScaling = '100%' | 'auto' | string;
 export interface StyledCardProps {
   height?: IScaling;
   width?: IScaling;
+  layer?: number;
   backgroundColor?: keyof typeof theme.primary;
   radius?: keyof typeof borderRadius;
   roundedEdges?: IRoundedEdges;

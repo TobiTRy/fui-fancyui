@@ -16,7 +16,7 @@ export const StyledCard = styled.div<IStyledCard & { theme: TUiColorsType }>`
   width: ${({$width}) => $width};
   height: ${({$height}) => $height};
   box-sizing: border-box;
-  background-color: ${({theme, $backgroundColor}) => $backgroundColor ? theme.primary[$backgroundColor] : theme.primary[1]};
+  background-color: ${({theme, $backgroundColor, $layer}) => $backgroundColor ? theme.primary[$backgroundColor] : theme.primary[$layer || 1]};
   padding: ${({$padding}) => $padding ?  spacingPx[$padding] : ''};
   border-radius:  ${({$roundedEdges, $radius}) => edgeCalculation($roundedEdges, $radius)};
 `
