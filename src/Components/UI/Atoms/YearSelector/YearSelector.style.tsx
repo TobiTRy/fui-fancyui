@@ -1,4 +1,4 @@
-import { styled } from 'styled-components';
+import { css, styled } from 'styled-components';
 import { fontSize } from '../../Design/design';
 import { TUiColorsType } from '../../Design/color/designColor';
 
@@ -24,3 +24,14 @@ export const StyledButton = styled.button<{ theme: TUiColorsType }>`
   padding: 0;
   cursor: pointer;
 `;
+
+
+export const SVGDesignCSS = css<{theme: TUiColorsType}>`
+  svg {
+    path: {
+      stroke: ${({ theme }) => theme.secondary[0]};
+      stroke-width: 2px;
+    }
+  }
+
+`
