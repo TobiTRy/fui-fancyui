@@ -17,14 +17,12 @@ const StyledDateOutputFromTo = styled.div<{ theme: TUiColorsType }>`
 
   button:nth-child(1) {
     border-radius: 50px 0 0 50px;
-    color: ${({ theme }) => theme.secondary[0]};
-    filter: brightness(1.25);
+    color: ${({ theme }) => theme.secondary[1]};
     padding: ${spacingPx.sm};
   }
 
   button:nth-child(3) {
-    color: ${({ theme }) => theme.secondary[0]};
-    filter: brightness(1.25);
+    color: ${({ theme }) => theme.secondary[1]};
     border-radius: 0 50px 50px 0;
     padding: ${spacingPx.sm};
   }

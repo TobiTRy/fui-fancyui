@@ -16,7 +16,7 @@ export const MessageContainer = styled.div`
   margin-top: ${spacingPx.sm};
 `;
 
-export const Message = styled.p<{ $status?: boolean; theme: TUiColorsType }>`
+export const Message = styled.div<{ $status?: boolean; theme: TUiColorsType }>`
   color: ${({ theme }) => theme.secondary[0]};
   font-size: ${fontSize.sm};
   max-height: 0;

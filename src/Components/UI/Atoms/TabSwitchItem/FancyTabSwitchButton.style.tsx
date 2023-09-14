@@ -19,7 +19,7 @@ const generateDynamicTabStyle = (props: Pick<ILIStyledButton, '$transparent' | '
   //if the background not transparent give him a background/text color
   if (!$transparent) {
     return css`
-      background-color: ${theme.primary[1]};
+      background-color: ${theme.primary[3]};
       color: ${theme.secondary[0]};
     `;
   } else {

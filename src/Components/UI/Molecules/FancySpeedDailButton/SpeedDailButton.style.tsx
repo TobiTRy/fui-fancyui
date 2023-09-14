@@ -21,8 +21,8 @@ export const SpeedDialContainer = styled.div`
 
 export const Button = styled.button<{ $isOpen: boolean; theme: TUiColorsType }>`
   position: relative;
-  background-color: ${({ theme }) => theme.accent[0]};
-  color: ${({ theme }) => theme.accent.contrast};
+  background-color: ${({ theme }) => theme.accent[1]};
+  color: ${({ theme }) => theme.secondary[0]};
   border: none;
   border-radius: 50%;
   cursor: pointer;
@@ -84,5 +84,5 @@ export const MenueItemContainer = styled.div<{ $isOpen: boolean; $index: number 
   transform: translate(-50%);
   height: 40px;
   width: 40px;
-  box-shadow: #19191980 0 0 15px;
+  ${boxShadow.sm};
 `;

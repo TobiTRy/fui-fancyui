@@ -6,7 +6,7 @@ export const DatePickerContainer = styled.div<{ theme: TUiColorsType }>`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: ${({ theme }) => theme.primary[1]};
+  background-color: ${({ theme }) => theme.primary[2]};
   border-radius: ${borderRadius.xl};
   padding: 20px;
   width: 100%;

@@ -6,12 +6,12 @@ import { TUiColorsType } from '../../Design/color/designColor';
 const DateOutputButton = styled.button<{ $isActive?: boolean, theme: TUiColorsType }>`
   text-align: center;
   width: 100%;
-  background-color: ${({ $isActive, theme }) => ($isActive ? theme.primary[2] : theme.primary[1])};
+  background-color: ${({ $isActive, theme }) => ($isActive ? theme.primary[1] : theme.primary[3])};
   border: none;
   cursor: pointer;
 
   &:hover {
-    background-color: ${({theme}) => theme.primary[2]};
+    background-color: ${({theme}) => theme.primary[1]};
   }
 `;
 

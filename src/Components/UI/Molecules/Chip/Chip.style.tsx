@@ -93,12 +93,12 @@ export const StyledChip = styled.div<IStyledChip  & { theme: TUiColorsType}>`
   ${({ $outlined, $color, $textColor, theme }) =>
     $outlined
       ? css`
-          border: 1px solid ${theme[$color || 'primary'][7]};
+          border: 1px solid ${theme[$color || 'primary'][3]};
           color: ${generateTextColor($color || 'primary', $outlined, $textColor)};
         `
       : css`
           color: ${generateTextColor($color || 'primary', $outlined, $textColor)};
-          background-color: ${theme[$color || 'primary'][2]};
+          background-color: ${theme[$color || 'primary'][3]};
         `};
 
   /* the icon for the Chip */

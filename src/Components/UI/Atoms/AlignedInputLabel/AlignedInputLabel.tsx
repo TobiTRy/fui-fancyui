@@ -11,7 +11,7 @@ const AlignedInputLabel = styled(InputLabel)<{$align?: TAlign; $isActive?: boole
   align-items: flex-end;
   margin-bottom: ${spacingPx.xxs};
   justify-content: ${({$align}) =>  $align === 'left' ? 'flex-start' : $align === 'center' ? 'center' : 'flex-end'};
-  color: ${({ $isActive, theme }) => ($isActive ? theme.accent[0] : theme.secondary[7])};
+  color: ${({ $isActive, theme }) => ($isActive ? theme.accent[0] : theme.secondary[4])};
 `
 
 export default AlignedInputLabel;

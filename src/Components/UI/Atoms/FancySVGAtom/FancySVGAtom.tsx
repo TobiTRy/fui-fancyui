@@ -7,7 +7,7 @@ import themeStore from '../../Design/color/themeStore';
 const calcIconColor = ($isActive?: boolean, errorMessage?: string | undefined): string => {
   const theme = themeStore.getState().theme;
   if (!errorMessage) {
-    return $isActive ? theme.accent[0] : theme.secondary[7];
+    return $isActive ? theme.accent[0] : theme.secondary[4];
   } else {
     return colorPalet.red_dark;
   }

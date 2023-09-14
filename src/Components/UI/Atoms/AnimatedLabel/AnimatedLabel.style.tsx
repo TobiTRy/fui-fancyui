@@ -46,7 +46,7 @@ export const AnimatedInputLabel = styled(InputLabel)<IAnimatedInputLabel & {them
       case 'active':
         return theme.accent[0];
       default:
-        return theme.secondary[7];
+        return theme.secondary[4];
     }
   }};
 
