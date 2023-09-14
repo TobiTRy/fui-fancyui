@@ -4,9 +4,11 @@ import Chip from '../../Components/UI/Molecules/Chip/Chip';
 
 import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
 import ClipBoardIconCheck from '../../Components/UI/SVGIcons/SVGClipBoardIconChecked';
+import { FancyCard } from '../../lib';
 
 export default function ChipsRoute() {
   return (
+    <FancyCard>
     <DesignWrapper>
       <DesignArea title="Chip">
         <Chip label="Heyyjoo" image="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg" />
@@ -64,5 +66,6 @@ export default function ChipsRoute() {
         <Chip label="Heyyjoo" color='secondary' textColor="accent" size="lg" onClick={() => console.log('hii')} />
       </DesignArea>
     </DesignWrapper>
+    </FancyCard>
   );
 }
