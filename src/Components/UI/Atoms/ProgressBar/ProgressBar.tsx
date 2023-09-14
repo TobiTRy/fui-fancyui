@@ -7,7 +7,7 @@ import { TUiColorsType } from '../../Design/color/designColor';
 const ProgressBarContainer = styled.div<{theme: TUiColorsType}>`
   width: 100%;
   height: 4px;
-  background-color: ${({theme}) => theme.secondary[7]};
+  background-color: ${({theme}) => theme.secondary[4]};
   border-radius: 10px;
   overflow: hidden;
   position: relative;

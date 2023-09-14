@@ -21,7 +21,7 @@ export default function FancyCheckbox(props: IFancyCheckboxProps) {
       {(label || description) && (
         <LabelWrapper $align={alignCheckbox} htmlFor={pickedId}>
           {label && (
-            <Typography type="inlineElement" variant="label" style={{ color: theme.secondary[0] }}>
+            <Typography type="inlineElement" variant="label" style={{ color: theme.secondary[0], fontWeight: 'bold' }}>
               {label}
             </Typography>
           )}
