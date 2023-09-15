@@ -4,8 +4,9 @@ import { styled } from 'styled-components';
 import { FancyButton, FancyCard } from '../../lib';
 import Color from 'color';
 import { updateThemeColors } from '../../Components/UI/Design/color/designColor';
-import useThemeStore from '../../Components/UI/Design/color/themeStore';
+import themeStore from '../../Components/UI/Design/color/themeStore';
 import { FancyTextInput } from '../../Components/UI/Organisms/FancyTextInput';
+import { FancyPasswordInput } from '../../Components/UI/Organisms/FancyPasswordInput';
 
 const svg = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -18,14 +19,15 @@ const svg = (
 
 
 export default function ExperimentalRoute() {
-  const updateTheme = useThemeStore(state => state.updateTheme)
-  const switchTheme = useThemeStore(state => state.switchTheme)
+  const updateTheme = themeStore(state => state.updateTheme)
+  const switchTheme = themeStore(state => state.switchTheme)
   //updateTheme({primary: '#ff0000', secondary: '#0000ff', accent: '#00ff00'})
   return (
     <div style={{display: 'flex'}}>
       <FancyCard>
         <span>Iam the fancy card</span>
         <FancyTextInput label='hii' icon={svg}/>
+        <FancyPasswordInput label='hii' icon={svg}/>
         <FancyButton design='primary' label='hii' onClick={() => updateTheme({primary: '#f20c0c'})}/>
         <FancyButton design='primary' label='Switch' onClick={() => switchTheme()}/>
       </FancyCard>

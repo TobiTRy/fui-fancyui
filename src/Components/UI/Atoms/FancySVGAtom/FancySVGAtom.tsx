@@ -2,10 +2,9 @@ import React from 'react';
 import { styled } from 'styled-components';
 import { colorPalet } from '../../Design/design';
 import { ISVGAtomProps, IStyledSVGAtom, sizes } from './FancySVGAtom.model';
-import themeStore from '../../Design/color/themeStore';
+import { TUiColorsType } from '../../Design/color/designColor';
 
-const calcIconColor = ($isActive?: boolean, errorMessage?: string | undefined): string => {
-  const theme = themeStore.getState().theme;
+const calcIconColor = (theme: TUiColorsType, $isActive?: boolean, errorMessage?: string | undefined): string => {
   if (!errorMessage) {
     return $isActive ? theme.accent[0] : theme.secondary[4];
   } else {
@@ -13,13 +12,13 @@ const calcIconColor = ($isActive?: boolean, errorMessage?: string | undefined): 
   }
 };
 
-const StyledSVG = styled.i<IStyledSVGAtom>`
+const StyledSVG = styled.i<IStyledSVGAtom & { theme: TUiColorsType }>`
   display: flex;
   justify-content: center;
   align-items: center;
   width: ${({ $size }) => sizes[$size!]};
   aspect-ratio: 1/1;
-  color: ${({ $isActive, $errorMessage, $isPassive }) => !$isPassive && calcIconColor($isActive, $errorMessage)};
+  color: ${({ $isActive, $errorMessage, $isPassive, theme }) => !$isPassive ? calcIconColor(theme, $isActive, $errorMessage ) : 'black'};
   ${({ $externalStyle }) => $externalStyle};
 
   svg {

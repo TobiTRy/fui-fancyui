@@ -3,16 +3,15 @@ import { styled } from 'styled-components';
 
 import RawInput, { TRawInputAlign } from '../../Atoms/RawInput/RawInput';
 import PasswordEye from '../../Atoms/PasswordEye/PasswordEye';
+import { TUiColorsType } from '../../Design/color/designColor';
 
-import { colorPalet } from '../../Design/design';
-
-const WrapperEye = styled.div`
+const WrapperEye = styled.div<{theme: TUiColorsType}>`
   position: absolute;
   bottom: 6px;
   right: 4px;
 
   svg {
-    color: ${colorPalet.white_dark};
+    color: ${({ theme }) => theme.secondary[4]};
   }
 `;
 
