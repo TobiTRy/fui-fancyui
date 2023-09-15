@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import SingleInputs from '../../Molecules/SingleInputs/SingleInputs';
 import { Container, WarpperComponent, Message, MessageContainer } from './FancySingleInputs.style';
+import { Typography } from '../../Atoms/Typography';
 
 // --------------------------------------------------------------------------- //
 // -The main FancySinlgeInput Componet wich handle the apicall and the sattus- //
@@ -53,8 +54,12 @@ export default function FancySingleInputs(props: IFancySingleInputs) {
       <Container $status={status}>
         <SingleInputs length={length} handler={valueHandler} status={status} />
         <MessageContainer>
-          <Message $status={status.isSucceed}>Value is valid!</Message>
-          <Message $status={status.isError}>An error occurred, please try again.</Message>
+          <Message $status={status.isSucceed}>
+            <Typography type="content">Value is valid!</Typography>
+          </Message>
+          <Message $status={status.isError}>
+            <Typography type="content">An error occurred, please try again.</Typography>
+          </Message>
         </MessageContainer>
       </Container>
     </WarpperComponent>

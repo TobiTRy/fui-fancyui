@@ -23,9 +23,8 @@ export default function FancyTabSwitchItem(props: IFancyTabStyle) {
         onChange={() => handler(itemObject.key)}
       />
       <Typography htmlFor={id + '_' + itemObject.key} type="label">
-
         {itemObject.icon && <i>{itemObject.icon}</i>}
-        {itemObject.label && <Typography type='content' variant='button'>{itemObject.label}</Typography>}
+        {itemObject.label && <Typography type='content' weight='bold' variant='button'>{itemObject.label}</Typography>}
       </Typography>
     </LISwitchButtonStyle>
   );

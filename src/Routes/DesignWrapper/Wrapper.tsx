@@ -1,5 +1,7 @@
 import { styled, CSSProp } from 'styled-components';
 import React from 'react';
+import themeStore from '../../Components/UI/Design/color/themeStore';
+import { TUiColorsType } from '../../Components/UI/Design/color/designColor';
 
 export const DesignWrapper = styled.section`
   display: flex;
@@ -9,11 +11,11 @@ export const DesignWrapper = styled.section`
   align-items: center;
 `;
 
-const Area = styled.div<{ $style: CSSProp }>`
+const Area = styled.div<{ $style: CSSProp, theme: TUiColorsType }>`
   width: 90%;
   display: flex;
   flex-direction: column;
-  color: white;
+  color: ${({ theme }) => theme.secondary[0]};
 
   & > h1 {
     text-align: center;

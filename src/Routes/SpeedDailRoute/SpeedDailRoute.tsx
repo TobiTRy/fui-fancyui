@@ -4,6 +4,7 @@ import FancySpeedDialButton from '../../Components/UI/Molecules/FancySpeedDailBu
 
 import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';
 import { css } from 'styled-components';
+import { FancyCard } from '../../lib';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -28,15 +29,17 @@ const items = [
 
 export default function SpeedDailRoute() {
   const style = css`
-  height: 500px;
+    height: 500px;
     align-items: flex-end;
   `;
 
   return (
-    <DesignWrapper>
-      <DesignArea title="SpeedDail" style={style}>
-        <FancySpeedDialButton items={items} />
-      </DesignArea>
-    </DesignWrapper>
+    <FancyCard>
+      <DesignWrapper>
+        <DesignArea title="SpeedDail" style={style}>
+          <FancySpeedDialButton items={items} />
+        </DesignArea>
+      </DesignWrapper>
+    </FancyCard>
   );
 }

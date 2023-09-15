@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
-import { uiColors, spacingPx } from "../../../Design/design";
-
+import { spacingPx } from '../../../Design/design';
+import { TUiColorsType } from '../../../Design/color/designColor';
 
 export const WrapperInputs = styled.div`
   display: flex;
@@ -8,7 +8,7 @@ export const WrapperInputs = styled.div`
   gap: ${spacingPx.sm};
 `;
 
-export const ContainerInputs = styled.div`
+export const ContainerInputs = styled.div<{ theme: TUiColorsType }>`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,6 +20,6 @@ export const ContainerInputs = styled.div`
     padding: 0;
     font-size: 0.8rem;
     text-transform: uppercase;
-    color: ${uiColors.secondary.main};
+    color: ${({ theme }) => theme.secondary[0]};
   }
-`
+`;

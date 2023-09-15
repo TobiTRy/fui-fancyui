@@ -1,18 +1,17 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { styled } from 'styled-components';
-import { uiColors } from '../../Design/design';
 import Typography from '../Typography/Typography';
+import { TUiColorsType } from '../../Design/color/designColor';
 
-//uiColors.primary.light
-const DateOutputButton = styled.button<{ $isActive?: boolean }>`
+const DateOutputButton = styled.button<{ $isActive?: boolean, theme: TUiColorsType }>`
   text-align: center;
   width: 100%;
-  background-color: ${({ $isActive }) => ($isActive ? uiColors.primary.lighter : uiColors.primary.light)};
+  background-color: ${({ $isActive, theme }) => ($isActive ? theme.primary[1] : theme.primary[3])};
   border: none;
   cursor: pointer;
 
   &:hover {
-    background-color: ${uiColors.primary.lighter};
+    background-color: ${({theme}) => theme.primary[1]};
   }
 `;
 

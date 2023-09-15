@@ -1,48 +1,50 @@
 import React, { useEffect, useState } from 'react';
 import { styled } from 'styled-components';
-
 import { animated, useSpring } from '@react-spring/web';
-
-import { uiColors, borderRadius, spacingPx } from '../../Design/design';
+import { borderRadius, spacingPx } from '../../Design/design';
 import { boxShadow } from '../../Design/shadows';
+import { TUiColorsType } from '../../Design/color/designColor';
 
-const StyledDialog = styled(animated.div)`
+// Define the styled component for the dialog
+const StyledDialog = styled(animated.div)<{theme: TUiColorsType}>`
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   padding: ${spacingPx.xl};
-  background-color: ${uiColors.primary.dark};
   border-radius: ${borderRadius.lg};
   border: none;
   width: 70%;
   max-height: 85%;
-  color: ${uiColors.primary.contrast};
+  background-color: ${({theme}) => theme.primary[1]};
+  color: ${({theme}) => theme.secondary[0]};
   z-index: 1000;
-  backdrop-filter: blur(4px);
   ${boxShadow.lg}
 `;
 
-// --------------------------------------------------------------------------- //
-// ---------- The SimpleDialog that displays the Box and the Animation ------- //
-// --------------------------------------------------------------------------- //
+// Define the props for the SimpleDialog component
 interface ISimpleDialog {
   isOpen: boolean;
   children: React.ReactNode;
 }
+
+// Define the SimpleDialog component
 export default function SimpleDialog({ isOpen, children }: ISimpleDialog) {
   const [shouldRender, setRender] = useState(isOpen);
 
+  // Define the fade animation for the dialog
   const fade = useSpring({
     transform: isOpen ? 'translate(-50%, -50%)' : 'translate(-50%, -40%)',
     opacity: isOpen ? 1 : 0,
     onRest: () => setRender(isOpen),
   });
 
+  // Update the shouldRender state variable when the isOpen prop changes
   useEffect(() => {
     if (isOpen) setRender(true);
   }, [isOpen]);
 
+  // Render the SimpleDialog component with the appropriate props
   return shouldRender ? (
     <StyledDialog as={animated.div} style={fade}>
       {children}

@@ -8,9 +8,10 @@ import { StyledCardProps } from './Card.model';
 // --------------------------------------------------------------------------- //
 interface ICard extends StyledCardProps {
   children?: React.ReactNode;
+  layer?: number;
 }
 export default function Card(props: ICard) {
-  const { children, height, width, radius, padding, roundedEdges, backgroundColor } = { ...defaultProps, ...props };
+  const { children, height, width, radius, padding, roundedEdges, backgroundColor, layer } = { ...defaultProps, ...props };
 
   return (
     <StyledCard
@@ -20,6 +21,7 @@ export default function Card(props: ICard) {
       $radius={radius}
       $roundedEdges={roundedEdges}
       $backgroundColor={backgroundColor}
+      $layer={layer}
     >
       <InnerCard>{children}</InnerCard>
     </StyledCard>

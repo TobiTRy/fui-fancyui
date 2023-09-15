@@ -16,7 +16,7 @@ export const textShadow = {
 //global box-shadow
 export const boxShadow = {
   sm: css`
-    box-shadow: 1px 0px 5px #000000e3;
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.15);
   `,
   md: css`
     box-shadow: 1px 0px 15px #000000e3;

@@ -1,12 +1,11 @@
-import React, { ChangeEvent, useState } from 'react';
+import React from 'react';
 
-import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';
-
-import { FancyButton } from '../../lib';
-
-import DropDown from '../../Components/UI/Atoms/DropDownSelect/DropDownSelect';
-import RawCheckbox from '../../Components/UI/Atoms/RawCheckbox/RawCheckbox';
-import FancyCheckbox from '../../Components/UI/Molecules/FancyCheckbox/FancyCheckbox';
+import { styled } from 'styled-components';
+import { FancyButton, FancyCard } from '../../lib';
+import Color from 'color';
+import { updateThemeColors } from '../../Components/UI/Design/color/designColor';
+import useThemeStore from '../../Components/UI/Design/color/themeStore';
+import { FancyTextInput } from '../../Components/UI/Organisms/FancyTextInput';
 
 const svg = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -15,27 +14,22 @@ const svg = (
   </svg>
 );
 
+
+
+
 export default function ExperimentalRoute() {
-  const [checked, setChecked] = useState(false);
-
-  const testHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    console.log(e);
-  };
-
-  const valueHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    console.log(e.target.value);
-  };
-
-  const handleCheckboxChange = () => {
-    setChecked(!checked);
-  };
-
+  const updateTheme = useThemeStore(state => state.updateTheme)
+  const switchTheme = useThemeStore(state => state.switchTheme)
+  //updateTheme({primary: '#ff0000', secondary: '#0000ff', accent: '#00ff00'})
   return (
-    <>
-      <FancyButton icon={svg} outlined />
-      <FancyCheckbox defaultChecked={checked} onChange={handleCheckboxChange}description='There is some description in this checkbox' label="Testt ttets sakjkas akllaksa klaas lllksaks askklalks ajdssjkadjsk ajkkjsajk jkkjsa jkjaksj kka jalw " />
-      <FancyCheckbox description='There is some description in this checkbox' label="Testt ttets sakjkas sdosodo a sdsdsdsjalw " />
-    </>
+    <div style={{display: 'flex'}}>
+      <FancyCard>
+        <span>Iam the fancy card</span>
+        <FancyTextInput label='hii' icon={svg}/>
+        <FancyButton design='primary' label='hii' onClick={() => updateTheme({primary: '#f20c0c'})}/>
+        <FancyButton design='primary' label='Switch' onClick={() => switchTheme()}/>
+      </FancyCard>
+    </div>
   );
 }
 

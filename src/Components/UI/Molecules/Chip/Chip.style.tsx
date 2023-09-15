@@ -1,5 +1,7 @@
 import styled, { css } from 'styled-components';
-import { IUiColorsTypes, borderRadius, spacing, spacingPx, uiColors } from '../../Design/design';
+import { IUiColorsTypes, borderRadius, spacing, spacingPx } from '../../Design/design';
+import themeStore from '../../Design/color/themeStore';
+import { TUiColorsType } from '../../Design/color/designColor';
 
 // Define the type for the spacing position
 export type TSpacingPosition = 'left' | 'right' | 'booth';
@@ -56,13 +58,15 @@ export const GenerateSpacing = ({ spacingPosition, size }: IGenerateSpacing) => 
       return null;
   }
 };
+
 const generateTextColor = (color: IUiColorsTypes, outlined?: boolean, textColor?: IUiColorsTypes) => {
-  if (textColor) return uiColors[textColor].main;
+  const theme = themeStore.getState().theme;
+  if (textColor) return theme[textColor][0];
 
   if (outlined) {
-    return uiColors.secondary.main;
+    return theme.secondary[0];
   } else {
-    return uiColors[color].contrast;
+    return theme[color].contrast;
   }
 };
 
@@ -74,7 +78,7 @@ interface IStyledChip {
   $color?: IUiColorsTypes;
   $textColor?: IUiColorsTypes;
 }
-export const StyledChip = styled.div<IStyledChip>`
+export const StyledChip = styled.div<IStyledChip  & { theme: TUiColorsType}>`
   ${({ $spacingPosition, $size }) => GenerateSpacing({ spacingPosition: $spacingPosition, size: $size })}
   border: none;
   height: ${({ $size }) => ($size ? sizes[$size].height : sizes.md.height)};
@@ -86,15 +90,15 @@ export const StyledChip = styled.div<IStyledChip>`
   width: fit-content;
   border-radius: ${borderRadius.xxxl};
 
-  ${({ $outlined, $color, $textColor }) =>
+  ${({ $outlined, $color, $textColor, theme }) =>
     $outlined
       ? css`
-          border: 1px solid ${uiColors[$color || 'primary'].lightest};
+          border: 1px solid ${theme[$color || 'primary'][3]};
           color: ${generateTextColor($color || 'primary', $outlined, $textColor)};
         `
       : css`
           color: ${generateTextColor($color || 'primary', $outlined, $textColor)};
-          background-color: ${uiColors[$color || 'primary'].lightest};
+          background-color: ${theme[$color || 'primary'][3]};
         `};
 
   /* the icon for the Chip */

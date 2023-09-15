@@ -1,13 +1,14 @@
 import { styled } from 'styled-components';
-import { spacingPx, uiColors } from '../../Design/design';
+import { spacingPx } from '../../Design/design';
+import { TUiColorsType } from '../../Design/color/designColor';
 
-export const MonthContainer = styled.div`
+export const MonthContainer = styled.div<{ theme: TUiColorsType }>`
   margin-top: ${spacingPx.md};
 
   h2 {
     margin: ${spacingPx.sm};
     margin-left: ${spacingPx.sm};
-    color: ${uiColors.secondary.main};
+    color: ${({ theme }) => theme.secondary[0]};
   }
 `;
 

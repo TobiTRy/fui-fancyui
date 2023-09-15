@@ -1,46 +1,48 @@
 import React from 'react';
+import styled from 'styled-components';
+import { borderRadius } from '../../Design/design';
+import { TUiColorsType } from '../../Design/color/designColor';
 
-import { styled } from 'styled-components';
-import { uiColors } from '../../Design/design';
-
-// Define a styled component for the progress bar
-const StyledProgressBar = styled.progress`
+// Define the styled component for the progress bar container
+const ProgressBarContainer = styled.div<{theme: TUiColorsType}>`
   width: 100%;
   height: 4px;
+  background-color: ${({theme}) => theme.secondary[4]};
   border-radius: 10px;
-  overflow: hidden; // This helps to apply the border-radius
-  background-color: ${uiColors.secondary.darkest};
-  color: ${uiColors.accent.main}; // This sets the color of the progress bar
-  transition: all 0.3s ease-out;
-  // For Webkit browsers like Chrome and Safari
-  &::-webkit-progress-bar {
-    border-radius: 10px;
-    background-color: ${uiColors.secondary.darkest};
-  }
-
-  &::-webkit-progress-value {
-    border-radius: 10px;
-    background-color: ${uiColors.accent.main};
-  }
-
-  // For Firefox
-  &::-moz-progress-bar {
-    border-radius: 10px;
-    background-color: ${uiColors.accent.main};
-  }
+  overflow: hidden;
+  position: relative;
 `;
 
+// Define the interface for the progress bar fill props
+interface IProgressBarFillProps {
+  width: number;
+}
+
+// Define the styled component for the progress bar fill
+const ProgressBarFill = styled.div<IProgressBarFillProps & { theme: TUiColorsType }>`
+  height: 100%;
+  width: ${({ width }) => width}%;
+  background-color: ${({ theme }) => theme.accent[0]};
+  border-radius: ${borderRadius.complete} 0 0 ${borderRadius.complete};
+  transition: width 0.2s ease-out;
+`;
+
+// Define the interface for the progress bar props
 export interface IProgressBar {
   progress?: number;
   maxValue?: number;
   id?: string;
 }
 
-// --------------------------------------------------------------------------- //
-// ---------- A Simple Progressbar Atom to restyle the progressbar ----------- //
-// --------------------------------------------------------------------------- //
-export default function ProgressBar(props: IProgressBar) {
-  const { progress, maxValue, id } = props;
+// Define the ProgressBar component
+export default function ProgressBar({ progress = 0, maxValue = 100, id }: IProgressBar) {
+  // Calculate the width of the progress bar fill
+  const width = (progress / maxValue) * 100;
 
-  return <StyledProgressBar id={id} value={progress} max={maxValue || 100} />;
+  // Render the ProgressBar component with the appropriate props
+  return (
+    <ProgressBarContainer id={id} role="progressbar" aria-valuenow={progress} aria-valuemin={0} aria-valuemax={maxValue}>
+      <ProgressBarFill width={width} />
+    </ProgressBarContainer>
+  );
 }

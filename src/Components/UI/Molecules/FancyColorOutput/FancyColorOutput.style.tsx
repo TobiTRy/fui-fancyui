@@ -1,5 +1,6 @@
 import { styled } from 'styled-components';
-import {  spacingPx, uiColors } from "../../Design/design";
+import { spacingPx } from '../../Design/design';
+import { TUiColorsType } from '../../Design/color/designColor';
 
 export const Container = styled.div`
   box-sizing: border-box;
@@ -10,7 +11,7 @@ export const Container = styled.div`
   gap: ${spacingPx.sm};
 `;
 
-export const WrapperSVG = styled.div`
+export const WrapperSVG = styled.div<{theme: TUiColorsType}>`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -18,6 +19,6 @@ export const WrapperSVG = styled.div`
   svg {
     width: 24px;
     height: 24px;
-    fill: ${uiColors.secondary.main};
+    fill: ${({ theme }) => theme.secondary[0]};
   }
 `;

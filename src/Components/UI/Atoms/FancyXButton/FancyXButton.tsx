@@ -1,25 +1,30 @@
 import React from 'react';
 import { styled } from 'styled-components';
-
-import { uiColors, IUiColorsTypes, IUiColorsSystemMessageTypes, spacingPx, fontSize, systemMessages } from '../../Design/design';
 import Color from 'color';
+import themeStore from '../../Design/color/themeStore';
+
+import { IUiColorsTypes, IUiColorsSystemMessageTypes, spacingPx, fontSize, systemMessages } from '../../Design/design';
 import { simpleColorTransition } from '../../Design/simpleTransition';
+import { TUiColorsType } from '../../Design/color/designColor';
 
 type FancyXButtonDesign = IUiColorsTypes | IUiColorsSystemMessageTypes;
 
 // this function picks the color from the design object and returns the color value
 const pickColorObject = (design: FancyXButtonDesign | undefined | null) => {
-  if (design && (design in uiColors)) {
-    return uiColors[design as keyof typeof uiColors].main;
+  const theme = themeStore.getState().theme;
+
+  // check if the design is in the theme or systemMessages
+  if (design && (design in theme)) {
+    return theme[design as keyof typeof theme].main;
   } else if (design && (design in systemMessages)) {
     return systemMessages[design as keyof typeof systemMessages].light;
   }
 };
 
-const StyledFancyXButton = styled.button<{$colorValue?: string }>`
+const StyledFancyXButton = styled.button<{$colorValue?: string, theme: TUiColorsType }>`
   padding: 0 ${spacingPx.sm} 2px;
   background: none;
-  color: ${({ $colorValue }) => $colorValue ? $colorValue : uiColors.accent.main};
+  color: ${({ $colorValue, theme }) => $colorValue ? $colorValue : theme.accent[0]};
   border: none;
   font-size: ${fontSize.extraLarge};
   font-weight: bolder;
@@ -28,7 +33,7 @@ const StyledFancyXButton = styled.button<{$colorValue?: string }>`
   ${simpleColorTransition}
 
   &:hover {
-    color: ${({ $colorValue }) => $colorValue ? Color($colorValue).darken(0.3).hex() : uiColors.accent.dark};
+    color: ${({ $colorValue, theme }) => $colorValue ? Color($colorValue).darken(0.3).hex() : theme.accent[1]};
   } 
 `;
 

@@ -2,37 +2,36 @@ import React, { useId } from 'react';
 import RawCheckbox from '../../Atoms/RawCheckbox/RawCheckbox';
 
 import { Typography } from '../../Atoms/Typography';
-import { TextWrapper, Wrapper } from './FancyCheckbox.style';
-import { uiColors } from '../../Design/design';
+import { LabelWrapper, Wrapper } from './FancyCheckbox.style';
 import { IFancyCheckboxProps } from './FancyCheckbox.model';
+import themeStore from '../../Design/color/themeStore';
 
 // --------------------------------------------------------------------------- //
 // -------------------- A simple Checkbox with a Label ----------------------- //
 // --------------------------------------------------------------------------- //
 export default function FancyCheckbox(props: IFancyCheckboxProps) {
   const { label, onChange, defaultChecked, align, alignCheckbox, description, ...rest } = { ...props, ...defaultProps };
+  const theme = themeStore.getState().theme;
   const id = useId();
   const pickedId = props.id ? props.id : id;
-
-  console.log(alignCheckbox)
 
   return (
     <Wrapper $align={align}>
       {/* The label and description */}
-      {(label || description) && <TextWrapper $align={alignCheckbox}>
-        {label && (
-          <label htmlFor={pickedId}>
-            <Typography type="inlineElement" variant="label">
+      {(label || description) && (
+        <LabelWrapper $align={alignCheckbox} htmlFor={pickedId}>
+          {label && (
+            <Typography type="inlineElement" variant="label" style={{ color: theme.secondary[0], fontWeight: 'bold' }}>
               {label}
             </Typography>
-          </label>
-        )}
-        {description && (
-          <Typography type="inlineElement" variant="smText" className="description" style={{ color: uiColors.secondary.dark }}>
-            {description}
-          </Typography>
-        )}
-      </TextWrapper>}
+          )}
+          {description && (
+            <Typography type="inlineElement" variant="smText" className="description" style={{ color: theme.secondary[2] }}>
+              {description}
+            </Typography>
+          )}
+        </LabelWrapper>
+      )}
       {/* The check box */}
       <RawCheckbox id={pickedId} onChange={onChange} defaultChecked={defaultChecked} {...rest} />
     </Wrapper>

@@ -1,6 +1,7 @@
-import { styled, css } from 'styled-components';
-import { fontSize, spacingPx, uiColors } from '../../Design/design';
-import { boxShadow, textShadow } from '../../Design/shadows';
+import { styled } from 'styled-components';
+import { spacingPx } from '../../Design/design';
+import { boxShadow } from '../../Design/shadows';
+import { TUiColorsType } from '../../Design/color/designColor';
 
 const SpeedDailButtonSize = 60;
 
@@ -18,10 +19,10 @@ export const SpeedDialContainer = styled.div`
   width: ${SpeedDailButtonSize + 'px'};
 `;
 
-export const Button = styled.button<{ $isOpen: boolean }>`
+export const Button = styled.button<{ $isOpen: boolean; theme: TUiColorsType }>`
   position: relative;
-  background-color: ${uiColors.accent.main};
-  color: ${uiColors.accent.contrast};
+  background-color: ${({ theme }) => theme.accent[1]};
+  color: ${({ theme }) => theme.secondary[0]};
   border: none;
   border-radius: 50%;
   cursor: pointer;
@@ -48,11 +49,11 @@ export const Button = styled.button<{ $isOpen: boolean }>`
   }
 `;
 
-export const Ring = styled.div<{ $isOpen: boolean }>`
+export const Ring = styled.div<{ $isOpen: boolean; theme: TUiColorsType }>`
   position: absolute;
   height: ${SpeedDailButtonSize + 'px'};
   width: ${SpeedDailButtonSize + 'px'};
-  border: 1.5px solid ${uiColors.accent.main};
+  border: 1.5px solid ${({ theme }) => theme.accent[0]};
   border-radius: 50%;
   z-index: 4;
   top: 50%;
@@ -61,29 +62,6 @@ export const Ring = styled.div<{ $isOpen: boolean }>`
   opacity: ${({ $isOpen }) => ($isOpen ? 1 : 0)};
   transition: opacity 0.5s ease-in-out, transform 0.3s ease;
   pointer-events: none;
-`;
-
-export const Label = css<{ $isOpen: boolean; $labelAlign?: 'left' | 'right' }>`
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  color: ${uiColors.secondary.main};
-  display: ${({ $isOpen }) => ($isOpen ? 'inline' : 'none')};
-  opacity: ${({ $isOpen }) => ($isOpen ? 1 : 0)};
-  transition: opacity 0.5s ease-in-out, right 0.3s ease, left 0.3s ease;
-  ${textShadow.md}
-  white-space: nowrap;
-
-  ${({ $labelAlign }) =>
-    $labelAlign === 'right'
-      ? css`
-          left: 100%;
-          margin-left: 10px;
-        `
-      : css`
-          right: 100%;
-          margin-right: 10px;
-        `}
 `;
 
 export const MenueItemWrapper = styled.div`
@@ -106,33 +84,5 @@ export const MenueItemContainer = styled.div<{ $isOpen: boolean; $index: number 
   transform: translate(-50%);
   height: 40px;
   width: 40px;
-  box-shadow: #19191980 0 0 15px;
-`;
-
-export const MenuItem = styled.button`
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  padding: 0;
-  color: ${uiColors.secondary.main};
-  cursor: pointer;
-  font-size: ${fontSize.md};
-  border: none;
-  outline: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 2;
-  background-color: #495057;
-  transition: 150ms ease-in-out;
-
-  svg {
-    width: 50%;
-    height: 50%;
-  }
-
-  &:hover {
-    transform: scale(1.01);
-    background-color: ${uiColors.primary.lighter};
-  }
+  ${boxShadow.sm};
 `;

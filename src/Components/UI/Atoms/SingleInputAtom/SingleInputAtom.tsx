@@ -1,25 +1,26 @@
 import React, { forwardRef, useState } from 'react';
 import { styled } from 'styled-components';
-import { uiColors, spacingPx, fontSize } from '../../Design/design';
+import { spacingPx, fontSize } from '../../Design/design';
+import { TUiColorsType } from '../../Design/color/designColor';
 
 // the style for a single input
 interface StyledSingleInputProps {
   $hasValue: boolean;
   $isFocused: boolean;
 }
-const StyledSingleInput = styled.input<StyledSingleInputProps>`
+const StyledSingleInput = styled.input<StyledSingleInputProps & {theme: TUiColorsType}>`
   aspect-ratio: 4/5;
   width: 1.5ch;
   font-size: ${fontSize.xxl};
   text-align: center;
-  color: ${uiColors.secondary.main};
-  border: 1.5px solid ${(props) => (props.$hasValue ? uiColors.accent.main : uiColors.secondary.main)};
+  color: ${({theme}) =>  theme.secondary[0]};
+  border: 1.5px solid ${({$hasValue, theme}) => ($hasValue ? theme.accent[0] : theme.secondary[0])};
   border-radius: 5px;
   padding: ${spacingPx.xs};
   background-color: transparent;
   appearance: none;
   outline: none;
-  box-shadow: ${(props) => (props.$isFocused ? `0 0 2px 1px${uiColors.accent.light}` : 'none')};
+  box-shadow: ${({$isFocused, theme}) => ($isFocused ? `0 0 2px 1px${theme.accent[1]}` : 'none')};
 `;
 
 // --------------------------------------------------------------------------- //

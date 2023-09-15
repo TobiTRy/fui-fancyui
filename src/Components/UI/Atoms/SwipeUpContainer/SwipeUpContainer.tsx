@@ -1,23 +1,25 @@
 import React from 'react';
 import { styled } from 'styled-components';
 
-import { uiColors, borderRadius, spacingPx } from '../../Design/design';
+import { borderRadius, spacingPx } from '../../Design/design';
+import { TUiColorsType } from '../../Design/color/designColor';
+import { boxShadow } from '../../Design/shadows';
 
-const StyledSwipeUpContainer = styled.div<{ $giveSpace: boolean }>`
+const StyledSwipeUpContainer = styled.div<{ $giveSpace: boolean; theme: TUiColorsType }>`
   width: 100%;
   max-height: 90%;
   border-radius: ${borderRadius.xxxl} ${borderRadius.xxxl} 0 0;
   position: sticky;
   top: 0;
-  padding-top: ${({ $giveSpace }) => ($giveSpace ? spacingPx.lg : '0')};
   box-shadow: unset;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: ${uiColors.primary.dark};
+  padding-top: ${({ $giveSpace }) => ($giveSpace ? spacingPx.lg : '0')};
+  background-color: ${({ theme }) => theme.primary[0]};
   z-index: 101;
-  box-shadow: 1px 0px 23px #000000e3;
   backdrop-filter: blur(4px);
+  ${boxShadow.lg}
 `;
 
 // --------------------------------------------------------------------------- //

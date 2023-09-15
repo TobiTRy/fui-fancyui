@@ -1,9 +1,10 @@
 import { styled, css } from 'styled-components';
 import CalculateBorderRadiusOnAlignment from '../../HelperFunctions/designFunctions/CalculateBorderRadiusOnAlignment';
 import { IFancyUL } from './FancyDropDownUL';
-import { spacingPx, uiColors } from '../../Design/design';
+import { spacingPx } from '../../Design/design';
 import IStyledPrefixAndPicker from '../../Interface/IStyledPrefixAndPicker.model';
 import { boxShadow } from '../../Design/shadows';
+import { TUiColorsType } from '../../Design/color/designColor';
 
 // --------------------------------------------------------------------------- //
 // ------- the generator function for the Wrapper of the UL ------------------ //
@@ -30,7 +31,7 @@ export const WrapperUL = styled.div<IStyledUL>`
 // --------------------------------------------------------------------------- //
 // ------------------- the UL for the items and the style -------------------- //
 // --------------------------------------------------------------------------- //
-export const StyledUL = styled.ul`
+export const StyledUL = styled.ul<{ theme: TUiColorsType }>`
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
@@ -38,7 +39,7 @@ export const StyledUL = styled.ul`
   margin: 0;
   width: 100%;
   padding: ${spacingPx.lg};
-  background-color: ${uiColors.primary.lighter};
+  background-color: ${({ theme }) => theme.primary[1]};
   ${boxShadow.lg}
   gap: ${spacingPx.xs};
   overflow: hidden;

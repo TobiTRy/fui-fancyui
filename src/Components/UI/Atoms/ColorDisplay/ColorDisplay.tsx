@@ -7,6 +7,7 @@ import CheckerBoardPattern from '../CheckerBoardPattern/CheckerBoardPattern';
 import { ColorDisplayContainer, Wrapper, Content, WrapperSVG } from './ColorDisplay.style';
 import ClipBoardIcon from '../../SVGIcons/SVGClipBoardIcon';
 import ClipBoardIconCheck from '../../SVGIcons/SVGClipBoardIconChecked';
+import themeStore from '../../Design/color/themeStore';
 
 // --------------------------------------------------------------------------- //
 // ----- The main ColorDisplay Component for display the color in a box ------ //
@@ -19,6 +20,7 @@ interface IColorDisplay {
 }
 export default function ColorDisplay({ color, opacity, showText, fullHeight }: IColorDisplay) {
   const [copyd, setCopyd] = useState(false);
+  const isDarkTheme = themeStore.getState().isDarkTheme;
 
   opacity = opacity !== undefined ? opacity : 1;
   const isBright = Color(color).isLight() && opacity > 0.5;
@@ -31,7 +33,7 @@ export default function ColorDisplay({ color, opacity, showText, fullHeight }: I
 
   return (
     <Wrapper $fullHeight={fullHeight} onClick={copyValue}>
-      <Content $isBright={isBright}>
+      <Content $isBright={isBright} $isDarkTheme={isDarkTheme}> 
         {showText && <Typography type="content">{color.toString()}</Typography>}
         <WrapperSVG>{copyd ? <ClipBoardIconCheck /> : <ClipBoardIcon />}</WrapperSVG>
       </Content>

@@ -1,13 +1,13 @@
 import React from 'react';
 import { styled } from 'styled-components';
 
-import { uiColors } from '../../Design/design';
 import { simpleColorTransition } from '../../Design/simpleTransition';
+import { TUiColorsType } from '../../Design/color/designColor';
 
-const StyledSwipeUpDash = styled.div`
+const StyledSwipeUpDash = styled.div<{theme: TUiColorsType}>`
     width: 50px;
     height: 3px;
-    background-color: ${uiColors.secondary.main};
+    background-color: ${({theme}) => theme.secondary[0]};
     border-radius: 3px;
 `;
 
@@ -17,9 +17,9 @@ const StyledButton = styled.button`
     border: none;
     background-color: transparent;
     cursor: pointer;
-    ${simpleColorTransition}
     margin-top: 1rem;
     margin-bottom: 1rem;
+    ${simpleColorTransition}
 `;
 
 // --------------------------------------------------------------------------- //
