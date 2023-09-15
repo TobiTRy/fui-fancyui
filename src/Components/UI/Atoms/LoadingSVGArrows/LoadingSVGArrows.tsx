@@ -27,7 +27,7 @@ export default function LoadingSVGArrows(props: ILoadingSVGArrowsProps & ISVGAto
       size={size}
       isPassive
       externalStyle={css`
-        animation: ${loadingAnimation} 2s infinite linear;
+        animation: ${loadingAnimation} 2s infinite ease-in-out;
         ${externalStyle}
       `}
     >

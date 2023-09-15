@@ -2,18 +2,21 @@ import { styled } from "styled-components";
 
 import { StyledCardProps } from './Card.model';
 import IStyledPrefixAndOmiter from "../../Interface/IStyledPrefixAndOmiter.model";
-import { spacingPx, uiColors } from "../../Design/design";
+import { spacingPx } from "../../Design/design";
 import edgeCalculation from "../../HelperFunctions/designFunctions/edgeCaluculation";
+
+import { TUiColorsType } from "../../Design/color/designColor";
+
 
 // the converted $ styling props for the card
 type IStyledCard = IStyledPrefixAndOmiter<StyledCardProps>;
 //the main design of the card
-export const StyledCard = styled.div<IStyledCard>`
+export const StyledCard = styled.div<IStyledCard & { theme: TUiColorsType }>`
   overflow: hidden;
   width: ${({$width}) => $width};
   height: ${({$height}) => $height};
   box-sizing: border-box;
-  background-color: ${({$backgroundColor}) => $backgroundColor ? uiColors.primary[$backgroundColor] : uiColors.primary.light};
+  background-color: ${({theme, $backgroundColor, $layer}) => $backgroundColor ? theme.primary[$backgroundColor] : theme.primary[$layer || 1]};
   padding: ${({$padding}) => $padding ?  spacingPx[$padding] : ''};
   border-radius:  ${({$roundedEdges, $radius}) => edgeCalculation($roundedEdges, $radius)};
 `

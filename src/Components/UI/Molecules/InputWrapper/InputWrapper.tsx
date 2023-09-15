@@ -67,8 +67,6 @@ export default function InputWrapper(props: IInputWrapper) {
     if (isActiv) setIsInitial(true);
   }, [isActiv]);
 
-  console.log(isInitial, value);
-
   // Render the InputWrapper component with the appropriate props
   return (
     <StyledInputWrapper disabled={disabled} $autoWidth={autoWidth}>

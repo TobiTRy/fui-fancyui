@@ -2,17 +2,17 @@ import React, { ChangeEvent, InputHTMLAttributes } from 'react';
 import { styled } from 'styled-components';
 
 import RawInput from '../../Atoms/RawInput/RawInput';
-import { uiColors } from '../../Design/design';
 import { TRawInputAlign } from '../../Atoms/RawInput/RawInput';
 import IStyledPrefixAndPicker from '../../Interface/IStyledPrefixAndPicker.model';
 import { simpleColorTransition } from '../../Design/simpleTransition';
+import { TUiColorsType } from '../../Design/color/designColor';
 
 type IStyledDatePicker = IStyledPrefixAndPicker<IDateInputProps, 'errorMessage' | 'align'> & { value?: string };
-const StyledDatePicker = styled(RawInput)<IStyledDatePicker>`
+const StyledDatePicker = styled(RawInput)<IStyledDatePicker & {theme: TUiColorsType}>`
   color: ${({ value }) => (value ? '' : 'transparent')};
 
   &:focus {
-    color: ${uiColors.secondary.main};
+    color: ${({theme}) => theme.secondary[0]};
   }
 
   &::-webkit-calendar-picker-indicator {

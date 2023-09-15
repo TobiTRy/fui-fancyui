@@ -1,13 +1,13 @@
-
-import { css, styled } from "styled-components";
-import { IFancyTabSwitchStyle } from "./IFancyTab.model";
-import { borderRadius, spacingPx, uiColors } from "../../Design/design";
-import { disabledStyle } from "../../HelperFunctions/designFunctions/disableStyle";
+import { css, styled } from 'styled-components';
+import { IFancyTabSwitchStyle } from './IFancyTab.model';
+import { borderRadius, spacingPx } from '../../Design/design';
+import { disabledStyle } from '../../HelperFunctions/designFunctions/disableStyle';
+import { TUiColorsType } from '../../Design/color/designColor';
 
 // ------------------------------------------------------------------ //
 // --------- this genreates the UL List with conditions ------------- //
 // ------------------------------------------------------------------ //
-export const ULButtonSwitchList = styled.ul<IFancyTabSwitchStyle>`
+export const ULButtonSwitchList = styled.ul<IFancyTabSwitchStyle & { theme: TUiColorsType }>`
   display: ${({ $wide }) => ($wide ? 'flex' : 'inline-flex')};
   align-items: center;
   padding: 0;
@@ -16,16 +16,16 @@ export const ULButtonSwitchList = styled.ul<IFancyTabSwitchStyle>`
   ${({ $wide }) => $wide && `justify-content: space-around`};
 
   //this handles the the backgroundcolor and the edge rounding when the backorund is not transparent
-  ${({ $transparent, $rounded, $roundedTabs, $tabSpacing }) =>
+  ${({ $transparent, $rounded, $roundedTabs, $tabSpacing, theme }) =>
     !$transparent &&
     css`
-      background-color: ${!$tabSpacing ? uiColors.primary.light : 'transparent'};
+      background-color: ${!$tabSpacing ? theme.primary[1] : 'transparent'};
 
       ${$rounded &&
       css`
         border-radius: ${borderRadius[$rounded]};
 
-        //if each tab sould not rounded, than round the first and the last item 
+        //if each tab sould not rounded, than round the first and the last item
         ${!$roundedTabs
           ? css`
               li:first-of-type label {
@@ -36,8 +36,8 @@ export const ULButtonSwitchList = styled.ul<IFancyTabSwitchStyle>`
                 border-radius: 0 ${borderRadius[$rounded]} ${borderRadius[$rounded]} 0;
               }
             `
-            //round each label
-          : css`
+          : //round each label
+            css`
               li label {
                 border-radius: ${borderRadius[$rounded]};
               }
@@ -48,4 +48,3 @@ export const ULButtonSwitchList = styled.ul<IFancyTabSwitchStyle>`
   //this hanles the disabled style
   ${({ disabled }) => disabled && disabledStyle}
 `;
-

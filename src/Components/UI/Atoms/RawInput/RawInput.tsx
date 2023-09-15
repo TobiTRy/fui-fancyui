@@ -1,5 +1,6 @@
 import { styled } from 'styled-components';
-import { colorPalet, fontSize } from '../../Design/design';
+import { fontSize } from '../../Design/design';
+import { TUiColorsType } from '../../Design/color/designColor';
 
 export type TRawInputAlign = 'left' | 'center';
 
@@ -7,14 +8,14 @@ export interface IRawInput {
   $align?: TRawInputAlign;
 }
 
-const RawInput = styled.input<IRawInput>`
+const RawInput = styled.input<IRawInput & { theme: TUiColorsType }>`
   font-weight: 500;
   font-size: 16px;
   box-sizing: border-box;
   width: 100%;
   appearance: none;
   background-color: transparent;
-  color: ${colorPalet.white_high};
+  color: ${({ theme }) => theme.secondary[0]};
   text-align: ${({ $align }) => ($align !== 'center' ? 'left' : 'center')};
   border: none;
   outline: none;

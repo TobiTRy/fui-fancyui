@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 
-import { Button, Label, MenueItemContainer, MenueItemWrapper, MenuItem, Ring, SpeedDialContainer, Wrapper } from './SpeedDailButton.style';
+import { Button, MenueItemContainer, MenueItemWrapper, Ring, SpeedDialContainer, Wrapper } from './SpeedDailButton.style';
+import SpeedDailMenueItem, { TMenueItemProps, TMenueButtonProps } from '../../Atoms/SpeedDialMenueItem/SpeedDailMenueItem';
 import SVGPlus from '../../SVGIcons/SVGPlus';
-import Typography from '../../Atoms/Typography/Typography';
 
-export interface ISpeedail {
-  items?: Array<{ label?: string; value: string | number | JSX.Element }>;
-  labelAlign?: 'left' | 'right';
-  hideLabel?: boolean;
-}
+export type ISpeedail = {
+  items?: TMenueButtonProps[];
+} & TMenueItemProps;
+
+// --------------------------------------------------------------------------- //
+// ---------- Component that handles the Buttonlist and the opening ---------- //
+// --------------------------------------------------------------------------- //
 export default function FancySpeedDialButton(props: ISpeedail) {
   const { items, labelAlign, hideLabel } = { ...defaultProps, ...props };
   const [isOpen, setIsOpen] = useState(false);
@@ -23,12 +25,7 @@ export default function FancySpeedDialButton(props: ISpeedail) {
         <MenueItemWrapper>
           {items?.map((item, index) => (
             <MenueItemContainer key={index} $index={index} $isOpen={isOpen}>
-              <MenuItem aria-label={item.label} >{item.value}</MenuItem>
-              {(item.label && !hideLabel) && (
-                <Typography type="inlineElement" variant="label" $labelAlign={labelAlign} $isOpen={isOpen} style={Label}>
-                  {item.label}
-                </Typography>
-              )}
+              <SpeedDailMenueItem label={item.label} value={item.value} hideLabel={hideLabel} isOpen={isOpen} labelAlign={labelAlign} />
             </MenueItemContainer>
           ))}
         </MenueItemWrapper>

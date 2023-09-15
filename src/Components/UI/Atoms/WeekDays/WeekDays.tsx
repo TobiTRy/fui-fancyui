@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { styled } from 'styled-components';
 
-import { spacingPx, uiColors } from '../../Design/design';
+import { spacingPx } from '../../Design/design';
 import Typography from '../Typography/Typography';
+import { TUiColorsType } from '../../Design/color/designColor';
 
-const WeekdaysConatiner = styled.div`
+const WeekdaysConatiner = styled.div<{theme: TUiColorsType}>`
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   width: 100%;
   margin-bottom: ${spacingPx.xs};
-  color: ${uiColors.secondary.main};
+  color: ${({theme}) => theme.secondary[0]};
 
   & > * {
     display: flex;

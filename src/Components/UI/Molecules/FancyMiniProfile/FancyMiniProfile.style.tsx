@@ -1,18 +1,20 @@
 import { styled, css } from 'styled-components';
-import { borderRadius, spacingPx, uiColors } from '../../Design/design';
+import { borderRadius, spacingPx } from '../../Design/design';
 import { TTextAlign } from './FancyMiniProfile';
+import { TUiColorsType } from '../../Design/color/designColor';
 
 // this container wraps the whole component
 interface IWrapper {
   $size?: keyof typeof spacingPx;
   $gapSpacing?: keyof typeof spacingPx;
 }
-export const Wrapper = styled.div<IWrapper>`
+export const Wrapper = styled.div<IWrapper & { theme: TUiColorsType }>`
   display: flex;
   align-items: center;
   padding: ${({ $size }) => ($size ? spacingPx[$size] : '')};
   gap: ${({ $gapSpacing }) => ($gapSpacing ? spacingPx[$gapSpacing] : spacingPx.xxs)};
-  background-color: ${uiColors.primary.dark};
+  background-color: ${({ theme }) => theme.primary[3]};
+  color: ${({ theme }) => theme.secondary[1]};
   border-radius: ${borderRadius.complete};
 `;
 

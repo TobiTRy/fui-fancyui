@@ -36,7 +36,7 @@ export default function SearchBarList(props: ISearchBarList) {
     <StyledSearchBarList>
       {/* If the search bar list is active, display the list */}
       {isActive && (
-        <FancyCard backgroundColor="lightest" radius="xxl">
+        <FancyCard backgroundColor={2} radius="xxl">
           <InnerCard>
             {/* If there are items to display, display them */}
             {children && <div>{children}</div>}
