@@ -40,7 +40,7 @@ export default function FancyButton(props: IFancyButtonProps) {
       />
 
       {icon && !isLoading && (
-        <FancySVGAtom size={size} isPassive>
+        <FancySVGAtom size={size} isPassive externalStyle={{flexShrink: '0'}}>
           {icon}
         </FancySVGAtom>
       )}
