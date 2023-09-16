@@ -18,7 +18,7 @@ const StyledSVG = styled.i<IStyledSVGAtom & { theme: TUiColorsType }>`
   align-items: center;
   width: ${({ $size }) => sizes[$size!]};
   aspect-ratio: 1/1;
-  color: ${({ $isActive, $errorMessage, $isPassive, theme }) => !$isPassive ? calcIconColor(theme, $isActive, $errorMessage ) : 'black'};
+  color: ${({ $isActive, $errorMessage, $isPassive, theme }) => !$isPassive && calcIconColor(theme, $isActive, $errorMessage ) };
   ${({ $externalStyle }) => $externalStyle};
 
   svg {
