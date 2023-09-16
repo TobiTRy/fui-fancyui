@@ -23,8 +23,8 @@ export default function PageSwitchRoute() {
   return (
     <FancyCard>
       <DesignWrapper>
-        <DesignArea title="Paginator" style={{ maxWidth: '60%', display: 'flex', justifyContent: 'center' }}>
-          <FancyPageList itemsPerPage={10} elements={JSXArry} spacingBetweenItems="20px" />
+        <DesignArea title="Paginator" style={{ maxWidth: '60%', display: 'flex', justifyContent: 'center', width: '100%'}}>
+          <FancyPageList itemsPerPage={10} pageLimits={5} elements={JSXArry} spacingBetweenItems="20px" />
         </DesignArea>
       </DesignWrapper>
     </FancyCard>
