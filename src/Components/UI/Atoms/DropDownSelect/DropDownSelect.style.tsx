@@ -21,7 +21,7 @@ export const SelectField = styled.select<ISelectField & { theme: TUiColorsType }
   width: 100%;
   font-weight: 500;
   user-select: none;
-  color: ${colorPalet.white_high};
+  color: ${({ theme }) => theme.secondary[0]};
   appearance: none;
   padding: 0px 0px ${spacing.xs + 2 + 'px'};
   font-size: ${fontSize.md};
@@ -37,16 +37,28 @@ export const SelectField = styled.select<ISelectField & { theme: TUiColorsType }
 
   /* When a item is checked in the dropdown */
   &:focus option:checked {
-    background: ${({ theme }) => theme.primary[1]};
+    background: ${({ theme }) => theme.accent[1]};
+  }
+
+  optgroup {
+    font-weight: bold;
+    color: ${({ theme }) => theme.accent[2]};
+    background-color: ${({ theme }) => theme.primary[2]};
+    text-align: ${({ $align }) => ($align !== 'left' ? 'center' : 'left')};
+    
+    &:disabled {
+      background: ${({ theme }) => theme.secondary[9]};
+    }
   }
 
   option {
     background-color: ${({ theme }) => theme.primary[1]};
     text-align: ${({ $align }) => ($align !== 'left' ? 'center' : 'left')};
-    color: ${colorPalet.white_high};
+    color: ${({ theme }) => theme.secondary[0]};
 
+  
     &:disabled {
-      background: ${({ theme }) => theme.primary[1]};
+      background: ${({ theme }) => theme.secondary[9]};
     }
   }
 `;
