@@ -26,9 +26,8 @@ export const Label = styled(AlignedInputLabel)`
 export const Icon = styled.div`
   grid-column: 1/2;
   grid-row: 2/3;
-  margin-top: ${spacingPx.xxs};
+  margin-bottom: ${spacingPx.xxs};
   margin-right: ${spacingPx.sm};
-  transition: 0.5s;
   display: flex;
   align-items: center;
 `;
