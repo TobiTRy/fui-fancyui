@@ -19,7 +19,7 @@ export const StyledRawSlider = styled.input<{theme: TUiColorsType}>`
   margin: 0;
   height: 4px;
   margin: 10px 0 12px 0;
-  background: ${({theme}) => theme.secondary[7]};
+  background: ${({theme}) => theme.secondary[4]};
   border-radius: 5px;
   background-image: ${({theme}) => `linear-gradient(90deg, ${theme.accent[0]}, ${theme.accent[1]})`};
   background-size: 70% 100%;

@@ -1,5 +1,5 @@
 import { styled } from 'styled-components';
-import { colorPalet, fontSize, spacing, spacingPx } from '../../Design/design';
+import { fontSize, spacing, spacingPx } from '../../Design/design';
 import { TUiColorsType } from '../../Design/color/designColor';
 
 //the styling for each option item
@@ -17,11 +17,11 @@ export const SelectField = styled.select<ISelectField & { theme: TUiColorsType }
   background-repeat: no-repeat;
   background-position: right ${spacingPx.sm} top 30%;
   text-align-last: ${({ $align }) => ($align !== 'center' ? 'left' : 'center')};
+  color: ${({ theme }) => theme.secondary[0]};
   border: none;
   width: 100%;
   font-weight: 500;
   user-select: none;
-  color: ${({ theme }) => theme.secondary[0]};
   appearance: none;
   padding: 0px 0px ${spacing.xs + 2 + 'px'};
   font-size: ${fontSize.md};
@@ -45,7 +45,7 @@ export const SelectField = styled.select<ISelectField & { theme: TUiColorsType }
     color: ${({ theme }) => theme.accent[2]};
     background-color: ${({ theme }) => theme.primary[2]};
     text-align: ${({ $align }) => ($align !== 'left' ? 'center' : 'left')};
-    
+
     &:disabled {
       background: ${({ theme }) => theme.secondary[9]};
     }
@@ -56,7 +56,6 @@ export const SelectField = styled.select<ISelectField & { theme: TUiColorsType }
     text-align: ${({ $align }) => ($align !== 'left' ? 'center' : 'left')};
     color: ${({ theme }) => theme.secondary[0]};
 
-  
     &:disabled {
       background: ${({ theme }) => theme.secondary[9]};
     }
