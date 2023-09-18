@@ -3,10 +3,6 @@ import Color from 'color';
 import generateColorSteps from './color/generateColorSteps';
 import isColorValid from './color/isColorValid';
 
-type ITransparency = 0.1 | 0.2 | 0.3 | 0.4 | 0.5 | 0.6 | 0.8 | 0.9;
-export const transparencyCalculator = (color: string, transparency: ITransparency) => {
-  return Color(color).alpha(transparency).rgb().string();
-};
 
 export type TColorTypes = 'primary' | 'accent' | 'accentDarken' | 'secondary';
 
