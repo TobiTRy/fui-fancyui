@@ -52,7 +52,7 @@ export const Wrapper = styled.div<IBottomBarWrapper & { theme: TUiColorsType }>`
   background-color: ${({ theme }) => theme.primary[1]};
   border-radius: ${({ $roundedness }) => ($roundedness ? `${borderRadius[$roundedness]} ${borderRadius[$roundedness]} 0px 0px` : '')};
   padding: ${spacingPx.sm} ${spacingPx.sm} 0 ${spacingPx.sm};
-  ${boxShadow.md}
+  ${boxShadow.sm}
 `;
 
 //the bar for the items and the style
