@@ -2,19 +2,6 @@ html {
   background-color: black;
 }
 
-.App {
-  background-color: #131525f0;
-  position: relative;
-  height: 100vh;
-  width: 100%;
-  overflow-y: auto;
-  color: white;
-}
-
-li {
-  color: white;
-  list-style: none;
-}
 
 section {
   padding: 1rem;
