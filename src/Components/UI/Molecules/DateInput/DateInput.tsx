@@ -34,19 +34,20 @@ export interface IDateInputProps extends Omit<InputHTMLAttributes<HTMLInputEleme
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
   activeHandler?: (value: boolean) => void;
   align?: TRawInputAlign;
+  type?: 'week' | 'date' | 'month' | 'time' | 'datetime-local' | 'datetime';
 }
 // --------------------------------------------------------------------------- //
 // ---------- Here are the design variants for sizing and alignment ---------- //
 // --------------------------------------------------------------------------- //
 export default function DateInput(props: IDateInputProps) {
-  const { value, onChange, activeHandler, name, disabled, errorMessage, align, ...htmlInputProps } = props;
+  const { value, onChange, activeHandler, name, disabled, errorMessage, align, type, ...htmlInputProps } = props;
 
   return (
     <StyledDatePicker
       $errorMessage={errorMessage}
       $align={align}
       name={name}
-      type="date"
+      type={type || 'date'}
       value={value}
       onChange={onChange}
       disabled={disabled}
