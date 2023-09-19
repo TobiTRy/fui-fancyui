@@ -18,10 +18,11 @@ interface ISwipeUpModal {
   children?: React.ReactNode;
   isCloseAble?: boolean; // if a error occurs and the modal should be closeable
   isScalable?: boolean; // if the modal should be static or scalable
+  backgroundColor?: string;
   closeHandler?: (id: string) => void;
 }
 export default function SwipeUpModal(props: ISwipeUpModal) {
-  const { children, status, isCloseAble, isScalable, closeHandler, id } = { ...defaultProps, ...props };
+  const { children, status, isCloseAble, isScalable, closeHandler, id, backgroundColor } = { ...defaultProps, ...props };
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalPosition, setModalPosition] = useState({ height: '100%' });
   const [initialHeight, setInitialHeight] = useState<number | undefined>();
@@ -101,7 +102,7 @@ export default function SwipeUpModal(props: ISwipeUpModal) {
           (styles, item) =>
             item && (
               <WrapperAnimated as={animated.div} style={styles}>
-                <SwipeUpContainer style={modalPosition} isScalable={isScalable}>
+                <SwipeUpContainer style={modalPosition} isScalable={isScalable} backgroundColor={backgroundColor}>
                   {/*// ---------- The top of the modal is used for the scaling ---------- //*/}
                   {isScalable && (
                     <ScalingSection

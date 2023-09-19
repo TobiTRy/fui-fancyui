@@ -2,10 +2,17 @@ import React from 'react';
 import { styled } from 'styled-components';
 
 import { borderRadius, spacingPx } from '../../Design/design';
-import { TUiColorsType } from '../../Design/color/designColor';
+import { TUiColorsType, TthemeColorGroup } from '../../Design/color/designColor';
 import { boxShadow } from '../../Design/shadows';
+import checkThemeOrColor from '../../Design/color/ckeckThemeOrColor';
 
-const StyledSwipeUpContainer = styled.div<{ $giveSpace: boolean; theme: TUiColorsType }>`
+interface IStyledSwipeUpContainer {
+  $giveSpace: boolean;
+  theme: TUiColorsType;
+  $backgroundColor?: string | TthemeColorGroup;
+}
+
+const StyledSwipeUpContainer = styled.div<IStyledSwipeUpContainer>`
   width: 100%;
   max-height: 90%;
   border-radius: ${borderRadius.xxxl} ${borderRadius.xxxl} 0 0;
@@ -16,7 +23,7 @@ const StyledSwipeUpContainer = styled.div<{ $giveSpace: boolean; theme: TUiColor
   flex-direction: column;
   align-items: center;
   padding-top: ${({ $giveSpace }) => ($giveSpace ? spacingPx.lg : '0')};
-  background-color: ${({ theme }) => theme.primary[0]};
+  background-color: ${({ theme, $backgroundColor }) => $backgroundColor ? checkThemeOrColor($backgroundColor) : theme.primary[0]};
   z-index: 101;
   backdrop-filter: blur(4px);
   ${boxShadow.lg}
@@ -29,10 +36,11 @@ interface ISwipeUpContainer {
   children: React.ReactNode;
   style?: { height: string };
   isScalable?: boolean;
+  backgroundColor?: string | TthemeColorGroup;
 }
-export default function SwipeUpContainer({ children, isScalable = true, style }: ISwipeUpContainer) {
+export default function SwipeUpContainer({ children, isScalable = true, style, backgroundColor }: ISwipeUpContainer) {
   return (
-    <StyledSwipeUpContainer style={isScalable ? style : { height: 'auto' }} $giveSpace={!isScalable}>
+    <StyledSwipeUpContainer style={isScalable ? style : { height: 'auto' }} $giveSpace={!isScalable} $backgroundColor={backgroundColor}>
       {children}
     </StyledSwipeUpContainer>
   );
