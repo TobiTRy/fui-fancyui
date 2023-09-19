@@ -12,7 +12,7 @@ export interface StyledCardProps {
   width?: IScaling;
   layer?: number;
   shadow?: boolean;
-  backgroundColor?: keyof typeof theme.primary;
+  backgroundColor?: string;
   radius?: keyof typeof borderRadius;
   roundedEdges?: IRoundedEdges;
   padding?: keyof typeof spacingPx | false;

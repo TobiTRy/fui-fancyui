@@ -65,7 +65,7 @@ export default function InputsRoute() {
   `;
 
   return (
-    <FancyCard>
+    <FancyCard> 
       <DesignWrapper>
         <DesignArea title="Password Input">
           <FancyNumberInput label="Text" onChange={testHandler2} value={test} placeholder="test45454554" errorMessage="Hiii" />
