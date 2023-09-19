@@ -8,6 +8,7 @@ import IExternalYearWithMonths from '../../Molecules/MonthWithDays/IExternalMont
 import DateOutputFromTo from '../../Molecules/DateOutputFromTo/DateOutputFromTo';
 import { IDisabledDateSettings } from '../../Molecules/MonthWithDays/IDisableDateSettings.model';
 import { IDateArray } from '../../Molecules/RangeCalendar/IDateArray.model';
+import { TthemeColorGroup } from '../../Design/color/designColor';
 
 interface IFancyDatePicker {
   rangeCalendar?: boolean;
@@ -15,10 +16,11 @@ interface IFancyDatePicker {
   selectedYear?: number;
   disabledDateSetting?: IDisabledDateSettings;
   externalData?: IExternalYearWithMonths;
+  backgroundColor?: string | TthemeColorGroup;
 }
 
 export default function FancyDatePicker(props: IFancyDatePicker) {
-  const { rangeCalendar, handler, selectedYear, disabledDateSetting, externalData } = { ...defaultProps, ...props };
+  const { rangeCalendar, handler, selectedYear, disabledDateSetting, externalData, backgroundColor } = { ...defaultProps, ...props };
 
   const [selectedDate, setSelectedDate] = useState<IDateArray>([new Date(), new Date()]);
   const [currentlySelectedFromOrTo, setCurrentlySelectedFromOrTo] = useState<'from' | 'to'>('from');
@@ -42,7 +44,7 @@ export default function FancyDatePicker(props: IFancyDatePicker) {
   }, [selectedYear]);
 
   return (
-    <DatePickerContainer>
+    <DatePickerContainer $backgroundColor={backgroundColor}>
       <WrapperYearSelector>
         <YearSelector selectedYear={currentlySelectedYear} handler={(year: number) => setCurrentlySelectedYear(year)} />
       </WrapperYearSelector>

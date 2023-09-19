@@ -1,12 +1,13 @@
 import { styled } from 'styled-components';
 import { borderRadius, spacingPx } from '../../Design/design';
-import { TUiColorsType } from '../../Design/color/designColor';
+import { TUiColorsType, TthemeColorGroup } from '../../Design/color/designColor';
+import checkThemeOrColor from '../../Design/color/ckeckThemeOrColor';
 
-export const DatePickerContainer = styled.div<{ theme: TUiColorsType }>`
+export const DatePickerContainer = styled.div<{ theme: TUiColorsType; $backgroundColor?: TthemeColorGroup | string }>`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: ${({ theme }) => theme.primary[2]};
+  background-color: ${({ theme, $backgroundColor }) => ($backgroundColor ? checkThemeOrColor($backgroundColor) : theme.primary[2])};
   border-radius: ${borderRadius.xl};
   padding: 20px;
   width: 100%;
