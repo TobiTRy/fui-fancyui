@@ -1,8 +1,9 @@
 import React from 'react';
-
 import { styled } from 'styled-components';
+
 import { borderRadius } from '../../Design/design';
 import { boxShadow } from '../../Design/shadows';
+import { TUiColorsType } from '../../Design/color/designColor';
 
 export const WrapperMarker = styled.div`
   position: absolute;
@@ -16,10 +17,10 @@ export const WrapperMarker = styled.div`
   transform: translate(-2.5px);
 `;
 
-const Marker = styled.div`
+const Marker = styled.div<{ theme: TUiColorsType }>`
   box-sizing: border-box;
   position: relative;
-  border: 1px solid white;
+  border: ${({ theme }) => `solid 1px ${theme.primary[0]} `};
   width: 100%;
   height: 100%;
   ${boxShadow.lg}
