@@ -23,7 +23,7 @@ const Marker = styled.div<{ theme: TUiColorsType }>`
   border: ${({ theme }) => `solid 1px ${theme.primary[0]} `};
   width: 100%;
   height: 100%;
-  ${boxShadow.lg}
+  ${() => boxShadow.md}
   border-radius: ${borderRadius.sm};
 `;
 
