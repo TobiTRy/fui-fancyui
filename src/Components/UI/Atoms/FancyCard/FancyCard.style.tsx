@@ -4,6 +4,7 @@ import { StyledCardProps } from './Card.model';
 import IStyledPrefixAndOmiter from '../../Interface/IStyledPrefixAndOmiter.model';
 import { spacingPx } from '../../Design/design';
 import edgeCalculation from '../../HelperFunctions/designFunctions/edgeCaluculation';
+import checkThemeOrColor from '../../Design/color/ckeckThemeOrColor';
 
 import { TUiColorsType } from '../../Design/color/designColor';
 import { boxShadow } from '../../Design/shadows';
@@ -16,11 +17,11 @@ export const StyledCard = styled.div<IStyledCard & { theme: TUiColorsType }>`
   width: ${({ $width }) => $width};
   height: ${({ $height }) => $height};
   box-sizing: border-box;
-  background-color: ${({ theme, $backgroundColor, $layer }) =>
-    $backgroundColor ? theme.primary[$backgroundColor] : theme.primary[$layer || 0]};
+  background-color: ${({ theme, $backgroundColor }) =>
+    $backgroundColor ? checkThemeOrColor($backgroundColor) : theme.primary[0]};
   padding: ${({ $padding }) => ($padding ? spacingPx[$padding] : '')};
   border-radius: ${({ $roundedEdges, $radius }) => edgeCalculation($roundedEdges, $radius)};
-  ${({ $shadow }) => true && boxShadow.sm};
+  ${({ $shadow }) => $shadow && boxShadow.sm};
 `;
 
 //the innercard makes it better to align the content with absolute position

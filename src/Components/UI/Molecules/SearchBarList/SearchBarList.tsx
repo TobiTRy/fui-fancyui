@@ -3,6 +3,7 @@ import { styled } from 'styled-components';
 import FancyCard from '../../Atoms/FancyCard/FancyCard';
 
 import { borderRadius } from '../../Design/design';
+import themeStore from '../../Design/color/themeStore';
 
 // Styled component for the search bar list
 const StyledSearchBarList = styled.div`
@@ -31,12 +32,13 @@ interface ISearchBarList {
 // The SearchBarList component
 export default function SearchBarList(props: ISearchBarList) {
   const { isActive, children } = props;
+  const theme = themeStore((state) => state.theme);
 
   return (
     <StyledSearchBarList>
       {/* If the search bar list is active, display the list */}
       {isActive && (
-        <FancyCard backgroundColor={2} radius="xxl">
+        <FancyCard backgroundColor={theme.primary[2]} radius="xxl">
           <InnerCard>
             {/* If there are items to display, display them */}
             {children && <div>{children}</div>}

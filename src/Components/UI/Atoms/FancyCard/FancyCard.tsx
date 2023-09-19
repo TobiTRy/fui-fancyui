@@ -34,6 +34,7 @@ const defaultProps: ICard = {
   width: '100%',
   radius: 'xxxl',
   padding: 'xl',
+  shadow: true,
   roundedEdges: {
     topRight: true,
     topLeft: true,
