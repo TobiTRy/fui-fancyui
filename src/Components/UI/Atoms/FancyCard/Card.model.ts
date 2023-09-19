@@ -3,7 +3,6 @@ import { spacingPx } from '../../Design/design';
 import { borderRadius } from '../../Design/design';
 import themeStore from '../../Design/color/themeStore';
 
-const theme = themeStore.getState().theme;
 
 type IScaling = '100%' | 'auto' | string;
 // the raw styling props for the card
