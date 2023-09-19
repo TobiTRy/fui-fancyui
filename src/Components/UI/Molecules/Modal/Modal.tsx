@@ -3,6 +3,7 @@ import React, { ReactNode, useEffect, useState } from 'react';
 import SimpleDialog from '../../Atoms/SimpleDialog/SimpleDialog';
 import BackDrop from '../../Atoms/BackDrop/BackDrop';
 import { ModalStatus } from '../../Interface/ModalStatus';
+import { TthemeColorGroup } from '../../Design/color/designColor';
 
 // --------------------------------------------------------------------------- //
 // ------  The main Modal Component to comstomize the Head/Bottomline  ------- //
@@ -12,8 +13,9 @@ interface IModal {
   children?: ReactNode;
   status: ModalStatus;
   closeModal?: (id: string) => void;
+  backgroundColor?: string | TthemeColorGroup;
 }
-function Modal({ children, closeModal, id, status }: IModal) {
+export default function Modal({ children, closeModal, id, status, backgroundColor }: IModal) {
   const [isOpen, setOpen] = useState(false);
 
   const closeModalHanlder = () => {
@@ -35,10 +37,9 @@ function Modal({ children, closeModal, id, status }: IModal) {
 
   return (
     <>
-      <SimpleDialog isOpen={isOpen}>{children}</SimpleDialog>
+      <SimpleDialog isOpen={isOpen} backgroundColor={backgroundColor}>{children}</SimpleDialog>
       <BackDrop isOpen={isOpen} onClick={closeModalHanlder} />
     </>
   );
-}
+};
 
-export default Modal;
