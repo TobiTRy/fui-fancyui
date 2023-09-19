@@ -2,8 +2,6 @@ import { css } from 'styled-components';
 import themeStore from './color/themeStore';
 import colorTransparencyCalculator from './color/colorTransparencyCalculator';
 
-
-
 //global text-shadow
 export const textShadow = {
   sm: css`
@@ -17,18 +15,20 @@ export const textShadow = {
   `,
 };
 
-
 //global box-shadow
 export const boxShadow = {
   get sm() {
     const themeColor = colorTransparencyCalculator(themeStore.getState().theme.secondary[0], 0.05);
     return css`
-    box-shadow:  0 0 1px 1px ${themeColor}, 0 0 0.5px ${themeColor};
-  `;  
+      box-shadow: 0 0 1px 1px ${themeColor}, 0 0 0.5px ${themeColor};
+    `;
   },
-  md: css`
-    box-shadow: 1px 0px 15px #000000e3;
-  `,
+  get md() {
+    const themeColor = colorTransparencyCalculator(themeStore.getState().theme.secondary[0], 0.15);
+    return css`
+      box-shadow: 1px 0px 5px ${themeColor};
+    `;
+  },
   lg: css`
     box-shadow: 1px 0px 23px #000000e3;
   `,

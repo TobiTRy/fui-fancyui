@@ -21,7 +21,7 @@ export default function ExperimentalRoute() {
   //updateTheme({primary: '#ff0000', secondary: '#0000ff', accent: '#00ff00'})
   return (
     <div style={{ display: 'flex' }}>
-      <FancyCard backgroundColor={themeStore.getState().theme.primary[5]}>
+      <FancyCard backgroundColor={themeStore.getState().theme.primary} shadow>
         <span>Iam the fancy card</span>
         <FancyTextInput label="hii" icon={svg} />
         <FancyPasswordInput label="hii" icon={svg} />

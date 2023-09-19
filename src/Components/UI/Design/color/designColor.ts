@@ -18,9 +18,8 @@ themeColors.accentDarken = themeColors.accent;
 
 export type IUiColorsTypes = 'primary' | 'secondary' | 'accent' | 'transparent';
 
-type ColorGroup = { [key: string]: string };
-
-export type TUiColorsType = { [key in IUiColorsTypes]: ColorGroup };
+export type TthemeColorGroup = { [key: string]: string };
+export type TUiColorsType = { [key in IUiColorsTypes]: TthemeColorGroup };
 export let uiColors: TUiColorsType = {} as TUiColorsType;
 
 function generateUiColors() {
