@@ -93,7 +93,7 @@ export default function HeaderRoute() {
   return (
     <>
       <section>
-        <FancyHeader rightSlot={Slot2} leftSlot={headerTitele} middeSlot={Slot} />
+        <FancyHeader rightSlot={Slot2} leftSlot={headerTitele} middeSlot={Slot}/>
       </section>
     </>
   );

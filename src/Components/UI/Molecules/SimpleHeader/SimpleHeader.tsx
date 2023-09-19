@@ -1,12 +1,14 @@
 import React, { useMemo } from 'react';
-
-import HeaderContainer from '../../Atoms/HeaderContainer/HeaderContainer';
-import { ISimpleHeader } from './SimpleHeader.model';
-import HeaderSlot from '../HeaderSlot/HeaderSlot';
 import { css } from 'styled-components';
 
+import HeaderContainer from '../../Atoms/HeaderContainer/HeaderContainer';
+import HeaderSlot from '../HeaderSlot/HeaderSlot';
+
+import { ISimpleHeader } from './SimpleHeader.model';
+
+
 export default function SimpleHeader(props: ISimpleHeader) {
-  const { leftSlot, middeSlot, rightSlot, headerHeight, spacingLeftRight } = props;
+  const { leftSlot, middeSlot, rightSlot, headerHeight, spacingLeftRight, backgroundColor } = props;
 
   // this caluclates the grid-template-columns for the HeaderContainer
   const calcGridSlotsWithSize = useMemo(() => {
@@ -20,7 +22,7 @@ export default function SimpleHeader(props: ISimpleHeader) {
 
   return (
     <>
-      <HeaderContainer height={headerHeight} slotsInFR={calcGridSlotsWithSize}>
+      <HeaderContainer height={headerHeight} slotsInFR={calcGridSlotsWithSize} backgroundColor={backgroundColor}>
       {/* // ---------- The Slots for the Header ------- // */}
       {/* The slots are used to position the Components exactyl, how she needed */}
       {/* If one is not used, that it makes space for other slots */}
