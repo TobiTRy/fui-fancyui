@@ -4,6 +4,7 @@ import { styled } from 'styled-components';
 import { borderRadius } from '../../Design/design';
 import { boxShadow } from '../../Design/shadows';
 import { TUiColorsType } from '../../Design/color/designColor';
+import colorTransparencyCalculator from '../../Design/color/colorTransparencyCalculator';
 
 export const WrapperMarker = styled.div`
   position: absolute;
@@ -23,7 +24,7 @@ const Marker = styled.div<{ theme: TUiColorsType }>`
   border: ${({ theme }) => `solid 1px ${theme.primary[0]} `};
   width: 100%;
   height: 100%;
-  ${() => boxShadow.md}
+  box-shadow: 0px 0px 1px 1px ${({ theme }) => colorTransparencyCalculator(theme.secondary[0], 0.5)};
   border-radius: ${borderRadius.sm};
 `;
 
