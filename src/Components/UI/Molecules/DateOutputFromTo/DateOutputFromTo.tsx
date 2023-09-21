@@ -5,9 +5,11 @@ import DateOutput from '../../Atoms/DateOutput/DateOutput';
 import FancyVR from '../../Atoms/FancyVR/FancyVR';
 import { spacingPx } from '../../Design/design';
 import { TUiColorsType } from '../../Design/color/designColor';
+import { TLayer } from '../../Design/color/generateColorSteps';
+import { getTextColor } from '../../Design/color/colorCalculatorForComponet';
 
 // Define the styled component for the DateOutputFromTo component
-const StyledDateOutputFromTo = styled.div<{ theme: TUiColorsType }>`
+const StyledDateOutputFromTo = styled.div<{ theme: TUiColorsType; $themeType?: keyof TUiColorsType; $layer?: TLayer }>`
   position: relative;
   display: flex;
   width: 100%;
@@ -17,14 +19,14 @@ const StyledDateOutputFromTo = styled.div<{ theme: TUiColorsType }>`
 
   button:nth-child(1) {
     border-radius: 50px 0 0 50px;
-    color: ${({ theme }) => theme.secondary[1]};
     padding: ${spacingPx.sm};
+    color: ${({ theme, $themeType = 'primary', $layer = 1 }) => getTextColor({ theme, $themeType, $textLayer: $layer })};
   }
 
   button:nth-child(3) {
-    color: ${({ theme }) => theme.secondary[1]};
     border-radius: 0 50px 50px 0;
     padding: ${spacingPx.sm};
+    color: ${({ theme, $themeType = 'primary', $layer = 1 }) => getTextColor({ theme, $themeType, $textLayer: $layer })};
   }
 `;
 
@@ -43,10 +45,8 @@ interface IDateOutputFromTo {
   handler?: (wich: 'from' | 'to') => void;
   whichIsSelecting?: 'from' | 'to';
 }
-
 // Define the DateOutputFromTo component
 export default function DateOutputFromTo({ whichIsSelecting, dateFrom, dateTo, handler }: IDateOutputFromTo) {
-
   // Define the click handler for the DateOutput component
   const handleClickOnDateOutput = (which: 'from' | 'to') => {
     handler && handler(which);
