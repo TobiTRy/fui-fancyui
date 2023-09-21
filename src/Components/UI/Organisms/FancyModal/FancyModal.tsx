@@ -11,7 +11,8 @@ import ModalBottomLine from '../../Molecules/ModalBottomLine/ModalBottomLine';
 import FancyPortal from '../../HelperFunctions/FancyPortal';
 
 import { borderRadius } from '../../Design/design';
-import { TthemeColorGroup } from '../../Design/color/designColor';
+import { TUiColorsType } from '../../Design/color/designColor';
+import { TLayer } from '../../Design/color/generateColorSteps';
 
 
 // ---------- How to use the Module ------- //
@@ -37,9 +38,10 @@ const WrapperContent = styled.div`
 // --------------------------------------------------------------------------- //
 interface IFancyModal {
   appendToDomID: string;
-  backgroundColor?: string | TthemeColorGroup;
+  themeType?: keyof TUiColorsType;
+  layer?: TLayer;
 }
-export default function FancyModal({appendToDomID, backgroundColor}: IFancyModal) {
+export default function FancyModal({appendToDomID, themeType, layer}: IFancyModal) {
   const modals = useFancyModalStore((state) => state.modals);
   const closeModal = useFancyModalStore((state) => state.closeModal);
   const removeModal = useFancyModalStore((state) => state.removeModal);
@@ -61,7 +63,7 @@ export default function FancyModal({appendToDomID, backgroundColor}: IFancyModal
       {/* ----- The FancModal Ports the Modal out of the root div in the spearte "modal" div ----- */}
       <FancyPortal appendToID={appendToDomID}>
         {modals.map((modal, key) => (
-          <Modal key={key} status={modal.status} id={modal.id} closeModal={() => closeModalHandler(modal.id)} backgroundColor={backgroundColor}>
+          <Modal key={key} status={modal.status} id={modal.id} closeModal={() => closeModalHandler(modal.id)} themeType={themeType} layer={layer}>
             {/* ----- The Headline of the Modal  ----- */}
             <HeadLine>
               {/* ----- The Content of the headline when its provided ----- */}

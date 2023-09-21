@@ -3,11 +3,12 @@ import { styled } from 'styled-components';
 import { animated, useSpring } from '@react-spring/web';
 import { borderRadius, spacingPx } from '../../Design/design';
 import { boxShadow } from '../../Design/shadows';
-import { TUiColorsType, TthemeColorGroup } from '../../Design/color/designColor';
-import checkThemeOrColor from '../../Design/color/ckeckThemeOrColor';
+import { TUiColorsType } from '../../Design/color/designColor';
+import { TLayer } from '../../Design/color/generateColorSteps';
+import getColorsForComponent from '../../Design/color/colorCalculatorForComponet';
 
 // Define the styled component for the dialog
-const StyledDialog = styled(animated.div)<{theme: TUiColorsType, $backgroundColor?: string | TthemeColorGroup}>`
+const StyledDialog = styled(animated.div)<{theme: TUiColorsType, $themeType?: keyof TUiColorsType, $layer?: TLayer}>`
   position: fixed;
   top: 50%;
   left: 50%;
@@ -17,8 +18,7 @@ const StyledDialog = styled(animated.div)<{theme: TUiColorsType, $backgroundColo
   border: none;
   width: 70%;
   max-height: 85%;
-  background-color: ${({theme, $backgroundColor}) => $backgroundColor ? checkThemeOrColor($backgroundColor) : theme.primary[1]};
-  color: ${({theme}) => theme.secondary[0]};
+  ${({theme, $themeType = 'primary', $layer = 1}) => getColorsForComponent({theme, $themeType, $layer})}
   z-index: 1000;
   ${boxShadow.lg}
 `;
@@ -27,11 +27,12 @@ const StyledDialog = styled(animated.div)<{theme: TUiColorsType, $backgroundColo
 interface ISimpleDialog {
   isOpen: boolean;
   children: React.ReactNode;
-  backgroundColor?: string | TthemeColorGroup;
+  themeType?: keyof TUiColorsType;
+  layer?: TLayer;
 }
 
 // Define the SimpleDialog component
-export default function SimpleDialog({ isOpen, children, backgroundColor }: ISimpleDialog) {
+export default function SimpleDialog({ isOpen, children, themeType, layer }: ISimpleDialog) {
   const [shouldRender, setRender] = useState(isOpen);
 
   // Define the fade animation for the dialog
@@ -48,7 +49,7 @@ export default function SimpleDialog({ isOpen, children, backgroundColor }: ISim
 
   // Render the SimpleDialog component with the appropriate props
   return shouldRender ? (
-    <StyledDialog as={animated.div} style={fade} $backgroundColor={backgroundColor}>
+    <StyledDialog as={animated.div} style={fade} $themeType={themeType} $layer={layer}>
       {children}
     </StyledDialog>
   ) : null;
