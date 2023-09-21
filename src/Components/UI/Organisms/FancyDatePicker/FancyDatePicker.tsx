@@ -8,7 +8,8 @@ import IExternalYearWithMonths from '../../Molecules/MonthWithDays/IExternalMont
 import DateOutputFromTo from '../../Molecules/DateOutputFromTo/DateOutputFromTo';
 import { IDisabledDateSettings } from '../../Molecules/MonthWithDays/IDisableDateSettings.model';
 import { IDateArray } from '../../Molecules/RangeCalendar/IDateArray.model';
-import { TthemeColorGroup } from '../../Design/color/designColor';
+import { TUiColorsType } from '../../Design/color/designColor';
+import { TLayer } from '../../Design/color/generateColorSteps';
 
 interface IFancyDatePicker {
   rangeCalendar?: boolean;
@@ -16,16 +17,16 @@ interface IFancyDatePicker {
   selectedYear?: number;
   disabledDateSetting?: IDisabledDateSettings;
   externalData?: IExternalYearWithMonths;
-  backgroundColor?: string | TthemeColorGroup;
+  themeType?: keyof TUiColorsType;
+  layer?: TLayer;
 }
 
 export default function FancyDatePicker(props: IFancyDatePicker) {
-  const { rangeCalendar, handler, selectedYear, disabledDateSetting, externalData, backgroundColor } = { ...defaultProps, ...props };
+  const { rangeCalendar, handler, selectedYear, disabledDateSetting, externalData, themeType, layer } = { ...defaultProps, ...props };
 
   const [selectedDate, setSelectedDate] = useState<IDateArray>([new Date(), new Date()]);
   const [currentlySelectedFromOrTo, setCurrentlySelectedFromOrTo] = useState<'from' | 'to'>('from');
   const [currentlySelectedYear, setCurrentlySelectedYear] = useState<number>(new Date().getFullYear());
-
 
   const handleDateChange = (changedDate: IDateArray) => {
     handler && handler(changedDate);
@@ -44,7 +45,7 @@ export default function FancyDatePicker(props: IFancyDatePicker) {
   }, [selectedYear]);
 
   return (
-    <DatePickerContainer $backgroundColor={backgroundColor}>
+    <DatePickerContainer $themeType={themeType} $layer={layer}>
       <WrapperYearSelector>
         <YearSelector selectedYear={currentlySelectedYear} handler={(year: number) => setCurrentlySelectedYear(year)} />
       </WrapperYearSelector>
@@ -62,6 +63,9 @@ export default function FancyDatePicker(props: IFancyDatePicker) {
       />
       {rangeCalendar && (
         <DateOutputFromTo
+          themeType={themeType}
+          layer={layer}
+          whichIsSelecting={currentlySelectedFromOrTo}
           handler={handleSwitchFromTo}
           dateFrom={Array.isArray(selectedDate) ? selectedDate[0] : new Date()}
           dateTo={Array.isArray(selectedDate) ? selectedDate[1] : new Date()}

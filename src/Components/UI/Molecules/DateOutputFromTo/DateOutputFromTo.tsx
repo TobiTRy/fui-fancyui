@@ -6,7 +6,6 @@ import FancyVR from '../../Atoms/FancyVR/FancyVR';
 import { spacingPx } from '../../Design/design';
 import { TUiColorsType } from '../../Design/color/designColor';
 import { TLayer } from '../../Design/color/generateColorSteps';
-import { getTextColor } from '../../Design/color/colorCalculatorForComponet';
 
 // Define the styled component for the DateOutputFromTo component
 const StyledDateOutputFromTo = styled.div<{ theme: TUiColorsType; $themeType?: keyof TUiColorsType; $layer?: TLayer }>`
@@ -20,13 +19,11 @@ const StyledDateOutputFromTo = styled.div<{ theme: TUiColorsType; $themeType?: k
   button:nth-child(1) {
     border-radius: 50px 0 0 50px;
     padding: ${spacingPx.sm};
-    color: ${({ theme, $themeType = 'primary', $layer = 1 }) => getTextColor({ theme, $themeType, $textLayer: $layer })};
   }
 
   button:nth-child(3) {
     border-radius: 0 50px 50px 0;
     padding: ${spacingPx.sm};
-    color: ${({ theme, $themeType = 'primary', $layer = 1 }) => getTextColor({ theme, $themeType, $textLayer: $layer })};
   }
 `;
 
@@ -44,9 +41,11 @@ interface IDateOutputFromTo {
   dateTo?: Date;
   handler?: (wich: 'from' | 'to') => void;
   whichIsSelecting?: 'from' | 'to';
+  themeType?: keyof TUiColorsType;
+  layer?: TLayer;
 }
 // Define the DateOutputFromTo component
-export default function DateOutputFromTo({ whichIsSelecting, dateFrom, dateTo, handler }: IDateOutputFromTo) {
+export default function DateOutputFromTo({ whichIsSelecting, dateFrom, dateTo, handler, themeType, layer }: IDateOutputFromTo) {
   // Define the click handler for the DateOutput component
   const handleClickOnDateOutput = (which: 'from' | 'to') => {
     handler && handler(which);
@@ -56,6 +55,8 @@ export default function DateOutputFromTo({ whichIsSelecting, dateFrom, dateTo, h
   return (
     <StyledDateOutputFromTo>
       <DateOutput
+        themeType={themeType}
+        layer={layer}
         date={dateFrom}
         isActive={whichIsSelecting === 'from' || whichIsSelecting === undefined}
         handler={() => handleClickOnDateOutput('from')}
@@ -63,7 +64,13 @@ export default function DateOutputFromTo({ whichIsSelecting, dateFrom, dateTo, h
       <VRWrapper>
         <FancyVR $design="secondary" />
       </VRWrapper>
-      <DateOutput date={dateTo ?? dateFrom} isActive={whichIsSelecting === 'to'} handler={() => handleClickOnDateOutput('to')} />
+      <DateOutput
+        themeType={themeType}
+        layer={layer}
+        date={dateTo ?? dateFrom}
+        isActive={whichIsSelecting === 'to'}
+        handler={() => handleClickOnDateOutput('to')}
+      />
     </StyledDateOutputFromTo>
   );
 }
