@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { styled } from 'styled-components';
 
 import DateOutput from '../../Atoms/DateOutput/DateOutput';
@@ -46,33 +46,24 @@ interface IDateOutputFromTo {
 
 // Define the DateOutputFromTo component
 export default function DateOutputFromTo({ whichIsSelecting, dateFrom, dateTo, handler }: IDateOutputFromTo) {
-  const [currentlySelected, setCurrentlySelected] = useState<'from' | 'to'>('from');
 
   // Define the click handler for the DateOutput component
   const handleClickOnDateOutput = (which: 'from' | 'to') => {
-    setCurrentlySelected(which);
     handler && handler(which);
   };
-
-  // Update the currentlySelected state variable when the whichIsSelecting prop changes
-  useEffect(() => {
-    if (whichIsSelecting) {
-      setCurrentlySelected(whichIsSelecting);
-    }
-  }, [whichIsSelecting]);
 
   // Render the DateOutputFromTo component with the appropriate props
   return (
     <StyledDateOutputFromTo>
       <DateOutput
         date={dateFrom}
-        isActive={currentlySelected === 'from' || currentlySelected === undefined}
+        isActive={whichIsSelecting === 'from' || whichIsSelecting === undefined}
         handler={() => handleClickOnDateOutput('from')}
       />
       <VRWrapper>
         <FancyVR $design="secondary" />
       </VRWrapper>
-      <DateOutput date={dateTo ?? dateFrom} isActive={currentlySelected === 'to'} handler={() => handleClickOnDateOutput('to')} />
+      <DateOutput date={dateTo ?? dateFrom} isActive={whichIsSelecting === 'to'} handler={() => handleClickOnDateOutput('to')} />
     </StyledDateOutputFromTo>
   );
 }
