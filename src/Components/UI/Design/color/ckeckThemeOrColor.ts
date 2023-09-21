@@ -8,7 +8,9 @@ function isTthemeColorGroup(color: string | TthemeColorGroup): color is TthemeCo
 
 
 //this check if a incomming color is a theme or a color and returns the color
-export default function checkThemeOrColor(color: string | TthemeColorGroup): string {
+export default function checkThemeOrColor(color?: string | TthemeColorGroup): string {
+  if(!color) return '';
+  
   //if profied color is a color is a custom color
   if(typeof color === 'string') {
     if(isColorValid(color)) {

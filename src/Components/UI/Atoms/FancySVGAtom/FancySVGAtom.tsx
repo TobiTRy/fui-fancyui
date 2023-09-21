@@ -6,7 +6,6 @@ import { TUiColorsType } from '../../Design/color/designColor';
 
 const calcIconColor = (theme: TUiColorsType, $isActive?: boolean, errorMessage?: string | undefined): string => {
   if (!errorMessage) {
-    console.log('calcIconColor', $isActive)
     return $isActive ? theme.accent[0] : theme.secondary[4];
   } else {
     return colorPalet.red_dark;

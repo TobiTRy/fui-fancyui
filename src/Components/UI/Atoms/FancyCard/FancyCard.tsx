@@ -11,7 +11,7 @@ interface ICard extends StyledCardProps {
   layer?: number;
 }
 export default function FancyCard(props: ICard) {
-  const { children, height, width, radius, padding, roundedEdges, backgroundColor, layer, shadow } = { ...defaultProps, ...props };
+  const { children, height, width, radius, padding, roundedEdges, variant, layer, shadow, customColor, customTextColor, themeType } = { ...defaultProps, ...props };
 
   return (
     <StyledCard
@@ -20,7 +20,10 @@ export default function FancyCard(props: ICard) {
       $padding={padding}
       $radius={radius}
       $roundedEdges={roundedEdges}
-      $backgroundColor={backgroundColor}
+      $variant={variant}
+      $customColor={customColor}
+      $customTextColor={customTextColor}
+      $themeType={themeType}
       $layer={layer}
       $shadow={shadow}
     >
