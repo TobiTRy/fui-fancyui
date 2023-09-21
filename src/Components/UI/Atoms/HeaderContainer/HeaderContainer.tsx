@@ -1,14 +1,15 @@
 import React from 'react';
 import { styled } from 'styled-components';
-import { TUiColorsType, TthemeColorGroup } from '../../Design/color/designColor';
-import checkThemeOrColor from '../../Design/color/ckeckThemeOrColor';
+import { TUiColorsType } from '../../Design/color/designColor';
+import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
 
 // the slotsInFR is an array of strings which will be used to genera dynamicly the grid-template-columns
 interface IHeaderWrapper {
   $slotsInFR?: string[];
   $height: string;
   theme: TUiColorsType;
-  $backgroundColor?: string | TthemeColorGroup;
+  $themeType?: keyof TUiColorsType;
+  $layer?: number;
 }
 const HeaderWrapper = styled.div<IHeaderWrapper>`
   display: grid;
@@ -17,7 +18,7 @@ const HeaderWrapper = styled.div<IHeaderWrapper>`
   height: 44px;
   box-sizing: border-box;
   color: ${({ theme }) => theme.secondary[0]};
-  background-color: ${({ theme, $backgroundColor }) => ($backgroundColor ? checkThemeOrColor($backgroundColor) : theme.primary[1])};
+  background-color: ${({ theme, $themeType = 'primary', $layer = 1 }) => getBackgroundColor({ theme, $themeType, $layer })};
 `;
 
 // --------------------------------------------------------------------------- //
@@ -27,11 +28,12 @@ interface IHeaderContainer {
   children?: React.ReactNode;
   slotsInFR?: string[];
   height?: string;
-  backgroundColor?: string | TthemeColorGroup;
+  themeType?: keyof TUiColorsType;
+  layer?: number;
 }
-export default function HeaderContainer({ children, slotsInFR, height, backgroundColor }: IHeaderContainer) {
+export default function HeaderContainer({ children, slotsInFR, height, themeType, layer }: IHeaderContainer) {
   return (
-    <HeaderWrapper $slotsInFR={slotsInFR} $height={height || '3rem'} $backgroundColor={backgroundColor}>
+    <HeaderWrapper $slotsInFR={slotsInFR} $height={height || '3rem'} $themeType={themeType} $layer={layer}>
       {children}
     </HeaderWrapper>
   );

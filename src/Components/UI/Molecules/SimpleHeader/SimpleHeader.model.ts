@@ -1,4 +1,4 @@
-import { TthemeColorGroup } from "../../Design/color/designColor";
+import { TUiColorsType } from "../../Design/color/designColor";
 
 interface IHeaderSlots {
   scale?: number;
@@ -10,7 +10,8 @@ export interface ISimpleHeader {
   leftSlot?: IHeaderSlots;
   middeSlot?: IHeaderSlots;
   rightSlot?: IHeaderSlots;
-  backgroundColor?: string | TthemeColorGroup; 
+  themeType?: keyof TUiColorsType;
+  layer?: number;
   headerHeight?: string;
   spacingLeftRight?: string;
 }

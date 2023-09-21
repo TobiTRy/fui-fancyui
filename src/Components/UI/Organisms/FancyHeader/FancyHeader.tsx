@@ -19,7 +19,7 @@ const Wrapper = styled.header`
 // --------------------------------------------------------------------------- //
 interface IFancyHeader extends ISimpleHeader {}
 export default function FancyHeader(props: IFancyHeader) {
-  const { rightSlot, leftSlot, middeSlot, spacingLeftRight, headerHeight, backgroundColor } = { ...defaultProps, ...props };
+  const { rightSlot, leftSlot, middeSlot, spacingLeftRight, headerHeight, themeType, layer } = { ...defaultProps, ...props };
 
   return (
     <Wrapper>
@@ -29,7 +29,8 @@ export default function FancyHeader(props: IFancyHeader) {
         headerHeight={headerHeight}
         spacingLeftRight={spacingLeftRight}
         rightSlot={rightSlot}
-        backgroundColor={backgroundColor}
+        themeType={themeType}
+        layer={layer}
       />
     </Wrapper>
   );
