@@ -29,8 +29,8 @@ const StyledSwipeUpContainer = styled.div<IStyledSwipeUpContainer>`
   padding-top: ${({ $giveSpace }) => ($giveSpace ? spacingPx.lg : '0')};
   z-index: 101;
   backdrop-filter: blur(4px);
+  background-color: ${({ theme, $themeType = 'primary', $layer = 0}) => getBackgroundColor({theme, $themeType, $layer})};
   ${boxShadow.lg}
-  ${({ theme, $themeType = 'primary', $layer = 0}) => getBackgroundColor({theme, $themeType, $layer})};
 `;
 
 // --------------------------------------------------------------------------- //
