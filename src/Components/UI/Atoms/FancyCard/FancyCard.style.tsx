@@ -14,8 +14,8 @@ import getColorsForComponent from '../../Design/color/colorCalculatorForComponet
 type IStyledCard = IStyledPrefixAndOmiter<StyledCardProps>;
 //the main design of the card
 export const StyledCard = styled.div<IStyledCard & { theme: TUiColorsType }>`
-  ${({ theme, $themeType = 'primary', $customColor, $customTextColor, $variant }) =>
-    getColorsForComponent({ theme, $themeType, $customColor, $customTextColor, $variant })}
+  ${({ theme, $themeType = 'primary', $customColor, $customTextColor, $layer, $textLayer }) =>
+    getColorsForComponent({ theme, $themeType, $customColor, $customTextColor, $layer, $textLayer })}
   overflow: hidden;
   width: ${({ $width }) => $width};
   height: ${({ $height }) => $height};

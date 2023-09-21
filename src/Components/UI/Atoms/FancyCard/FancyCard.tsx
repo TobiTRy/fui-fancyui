@@ -2,16 +2,31 @@ import React from 'react';
 
 import { InnerCard, StyledCard } from './FancyCard.style';
 import { StyledCardProps } from './Card.model';
+import { TLayer } from '../../Design/color/generateColorSteps';
 
 // --------------------------------------------------------------------------- //
 // ---------- The card is there to wrapp some content or components ---------- //
 // --------------------------------------------------------------------------- //
 interface ICard extends StyledCardProps {
   children?: React.ReactNode;
-  layer?: number;
+  layer?: TLayer;
 }
 export default function FancyCard(props: ICard) {
-  const { children, height, width, radius, padding, roundedEdges, variant, layer, shadow, customColor, customTextColor, themeType } = { ...defaultProps, ...props };
+  const {
+    children,
+    height,
+    width,
+    radius,
+    padding,
+    roundedEdges,
+    variant,
+    layer,
+    shadow,
+    customColor,
+    customTextColor,
+    themeType,
+    textLayer,
+  } = { ...defaultProps, ...props };
 
   return (
     <StyledCard
@@ -21,6 +36,7 @@ export default function FancyCard(props: ICard) {
       $radius={radius}
       $roundedEdges={roundedEdges}
       $variant={variant}
+      $textLayer={textLayer}
       $customColor={customColor}
       $customTextColor={customTextColor}
       $themeType={themeType}

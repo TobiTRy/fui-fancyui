@@ -2,6 +2,7 @@ import { IRoundedEdges } from '../../HelperFunctions/designFunctions/edgeCalucul
 import { spacingPx } from '../../Design/design';
 import { borderRadius } from '../../Design/design';
 import { TUiColorsType, TthemeColorGroup } from '../../Design/color/designColor';
+import { TLayer } from '../../Design/color/generateColorSteps';
 
 
 
@@ -12,9 +13,10 @@ export interface StyledCardProps {
   variant?: number;
   customColor?: string | TthemeColorGroup;
   customTextColor?: string | TthemeColorGroup;
+  textLayer?: TLayer;
   height?: IScaling;
   width?: IScaling;
-  layer?: number;
+  layer?: TLayer;
   shadow?: boolean;
   radius?: keyof typeof borderRadius;
   roundedEdges?: IRoundedEdges;

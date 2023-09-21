@@ -2,14 +2,18 @@ import React from 'react';
 import { styled } from 'styled-components';
 
 import { borderRadius, spacingPx } from '../../Design/design';
-import { TUiColorsType, TthemeColorGroup } from '../../Design/color/designColor';
 import { boxShadow } from '../../Design/shadows';
-import checkThemeOrColor from '../../Design/color/ckeckThemeOrColor';
+import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
+
+import { TLayer } from '../../Design/color/generateColorSteps';
+import { TUiColorsType } from '../../Design/color/designColor';
+
 
 interface IStyledSwipeUpContainer {
   $giveSpace: boolean;
   theme: TUiColorsType;
-  $backgroundColor?: string | TthemeColorGroup;
+  $themeType?: keyof TUiColorsType;
+  $layer?: TLayer;
 }
 
 const StyledSwipeUpContainer = styled.div<IStyledSwipeUpContainer>`
@@ -23,10 +27,10 @@ const StyledSwipeUpContainer = styled.div<IStyledSwipeUpContainer>`
   flex-direction: column;
   align-items: center;
   padding-top: ${({ $giveSpace }) => ($giveSpace ? spacingPx.lg : '0')};
-  background-color: ${({ theme, $backgroundColor }) => $backgroundColor ? checkThemeOrColor($backgroundColor) : theme.primary[0]};
   z-index: 101;
   backdrop-filter: blur(4px);
   ${boxShadow.lg}
+  ${({ theme, $themeType = 'primary', $layer = 0}) => getBackgroundColor({theme, $themeType, $layer})};
 `;
 
 // --------------------------------------------------------------------------- //
@@ -36,11 +40,12 @@ interface ISwipeUpContainer {
   children: React.ReactNode;
   style?: { height: string };
   isScalable?: boolean;
-  backgroundColor?: string | TthemeColorGroup;
+  themeType?: keyof TUiColorsType;
+  layer?: TLayer;
 }
-export default function SwipeUpContainer({ children, isScalable = true, style, backgroundColor }: ISwipeUpContainer) {
+export default function SwipeUpContainer({ children, isScalable = true, style, themeType, layer }: ISwipeUpContainer) {
   return (
-    <StyledSwipeUpContainer style={isScalable ? style : { height: 'auto' }} $giveSpace={!isScalable} $backgroundColor={backgroundColor}>
+    <StyledSwipeUpContainer style={isScalable ? style : { height: 'auto' }} $giveSpace={!isScalable} $themeType={themeType} $layer={layer}>
       {children}
     </StyledSwipeUpContainer>
   );

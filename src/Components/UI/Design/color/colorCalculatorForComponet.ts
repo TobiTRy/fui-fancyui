@@ -4,10 +4,10 @@ import { TUiColorsType, TthemeColorGroup } from './designColor';
 import Color from 'color';
 
 // Define the types for the arguments that will be passed to the getBackgroundColor function
-type IGetBackgroundColor = Pick<IGetColorForComponent, '$themeType' | '$customColor' | '$variant' | 'theme'>;
+type IGetBackgroundColor = Pick<IGetColorForComponent, '$themeType' | '$customColor' | '$layer' | 'theme'>;
 
 // Define the getBackgroundColor function
-function getBackgroundColor({ theme, $themeType, $customColor, $variant }: IGetBackgroundColor) {
+export function getBackgroundColor({ theme, $themeType, $customColor, $layer }: IGetBackgroundColor) {
   // Check if the provided custom color is valid
   const validCustomColor = $customColor ? checkThemeOrColor($customColor) : undefined;
   let proviedColor: string | undefined;
@@ -18,7 +18,7 @@ function getBackgroundColor({ theme, $themeType, $customColor, $variant }: IGetB
   } 
   // If a theme type was provided and no valid custom color was set, use the corresponding color from the theme
   else if ($themeType) {
-    proviedColor = theme[$themeType][$variant || 0];
+    proviedColor = theme[$themeType][$layer || 0];
   }
 
   // Return the background color as a styled-component CSS string
@@ -32,10 +32,10 @@ function getBackgroundColor({ theme, $themeType, $customColor, $variant }: IGetB
 // --------------------------------------------------------------------------- //
 
 // Define the types for the arguments that will be passed to the getTextColor function
-type IGetTextColor = Pick<IGetColorForComponent, '$themeType' | '$customTextColor' | '$textVariant' | 'theme'>;
+type IGetTextColor = Pick<IGetColorForComponent, '$themeType' | '$customTextColor' | '$textLayer' | 'theme'>;
 
 // Define the getTextColor function
-function getTextColor({ theme, $themeType, $customTextColor, $textVariant }: IGetTextColor) {
+export function getTextColor({ theme, $themeType, $customTextColor, $textLayer }: IGetTextColor) {
   // Check if the provided custom text color is valid
   const validCustomColor = $customTextColor ? checkThemeOrColor($customTextColor) : undefined;
   let proviedColor: string | undefined;
@@ -46,20 +46,20 @@ function getTextColor({ theme, $themeType, $customTextColor, $textVariant }: IGe
   } 
   // If the theme type is 'primary', use the corresponding secondary color from the theme
   else if ($themeType === 'primary') {
-    proviedColor = theme.secondary[$textVariant || 0];
+    proviedColor = theme.secondary[$textLayer || 0];
   } 
   // If the theme type is 'secondary', use the corresponding primary color from the theme
   else if ($themeType === 'secondary') {
-    proviedColor = theme.primary[$textVariant || 0];
+    proviedColor = theme.primary[$textLayer || 0];
   } 
   // If the theme type is 'accent', use the corresponding accent color from the theme
   else if ($themeType === 'accent') {
-    proviedColor = Color(theme.accent[$textVariant || 0]).isDark() ? theme.secondary[$textVariant || 0] : theme.primary[$textVariant || 0];
+    proviedColor = Color(theme.accent[$textLayer || 0]).isDark() ? theme.secondary[$textLayer || 0] : theme.primary[$textLayer || 0];
   }
 
   // Return the text color as a styled-component CSS string
   return css`
-    color: ${proviedColor || theme[$themeType][$textVariant || 0]};
+    color: ${proviedColor || theme[$themeType][$textLayer || 0]};
   `;
 }
 
@@ -74,8 +74,8 @@ type IGetColorForComponent = {
   $themeType: keyof TUiColorsType;
   $customColor?: string | TthemeColorGroup;
   $customTextColor?: string | TthemeColorGroup;
-  $variant?: number;
-  $textVariant?: number;
+  $layer?: number;
+  $textLayer?: number;
 };
 
 // Define the getColorsForComponent function
@@ -84,12 +84,12 @@ export default function getColorsForComponent({
   $themeType,
   $customColor,
   $customTextColor,
-  $variant,
-  $textVariant,
+  $layer,
+  $textLayer,
 }: IGetColorForComponent) {
   // Get the background color and text color using the getBackgroundColor and getTextColor functions
-  const backgroundColor = getBackgroundColor({ theme, $themeType, $customColor, $variant });
-  const textColor = getTextColor({ theme, $themeType, $customTextColor, $textVariant });
+  const backgroundColor = getBackgroundColor({ theme, $themeType, $customColor, $layer });
+  const textColor = getTextColor({ theme, $themeType, $customTextColor, $textLayer });
 
   // Return the background color and text color as a styled-component CSS string
   return css`
