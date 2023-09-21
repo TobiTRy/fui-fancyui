@@ -22,9 +22,7 @@ export function getBackgroundColor({ theme, $themeType, $customColor, $layer }: 
   }
 
   // Return the background color as a styled-component CSS string
-  return css`
-    background-color: ${proviedColor || theme.primary[0]};
-  `;
+  return proviedColor || theme.primary[0];
 }
 
 // --------------------------------------------------------------------------- //
@@ -58,9 +56,7 @@ export function getTextColor({ theme, $themeType, $customTextColor, $textLayer }
   }
 
   // Return the text color as a styled-component CSS string
-  return css`
-    color: ${proviedColor || theme[$themeType][$textLayer || 0]};
-  `;
+  return proviedColor || theme[$themeType][$textLayer || 0];
 }
 
 
@@ -93,7 +89,7 @@ export default function getColorsForComponent({
 
   // Return the background color and text color as a styled-component CSS string
   return css`
-    ${backgroundColor};
-    ${textColor};
+    background-color: ${backgroundColor};
+    color: ${textColor};
   `;
 }
