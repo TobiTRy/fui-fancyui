@@ -60,7 +60,7 @@ export default function ButtonRoute() {
       </DesignArea>
       <DesignArea title="1:1 Buttons" style={backgroundColor}>
         <FancyButton icon={Icon} size='md' isLoading={isLoading} onClick={() => setIsLoading(true)} design="primary" borderRadius='complete' />
-        <FancyButton icon={Icon} label="Button" isLoading={isLoading} onClick={() => setIsLoading(false)} design="secondary" outlined />
+        <FancyButton icon={Icon} size='sm' isLoading={isLoading} onClick={() => setIsLoading(false)} design="secondary" outlined borderRadius='sm' />
       </DesignArea>
     </DesignWrapper>
   );
