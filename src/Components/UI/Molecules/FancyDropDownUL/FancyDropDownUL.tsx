@@ -2,7 +2,8 @@ import React, { useEffect, useRef } from 'react';
 
 import { animated, useSpring } from '@react-spring/web';
 import { StyledUL, WrapperUL } from './FancyDropDownUL.style';
-
+import { TUiColorsType } from '../../Design/color/designColor';
+import { TLayer } from '../../Design/color/generateColorSteps';
 
 export interface IFancyUL {
   children: React.ReactNode;
@@ -10,12 +11,14 @@ export interface IFancyUL {
   isOpen?: boolean;
   alignHorizontal?: 'left' | 'center' | 'right';
   alignVertical?: 'top' | 'center' | 'bottom';
+  themeType?: keyof TUiColorsType;
+  layer?: TLayer;
 }
 
 // --------------------------------------------------------------------------- //
 // ---------- Here are the design variants for sizing and alignment ---------- //
 // --------------------------------------------------------------------------- //
-export default function FancyDropDownUL({ children, isOpen, ...styledProps }: IFancyUL) {
+export default function FancyDropDownUL({ children, isOpen, themeType, layer, ...styledProps }: IFancyUL) {
   const { width = '50%', alignHorizontal = 'center', alignVertical = 'top' } = styledProps;
   const listRef = useRef<HTMLDivElement>(null);
   const [style, animate] = useSpring(() => ({ height: '0px' }), []);
@@ -25,23 +28,22 @@ export default function FancyDropDownUL({ children, isOpen, ...styledProps }: IF
     if (!listRef.current) return;
     animate.start({
       height: (isOpen ? listRef?.current.offsetHeight : 0) + 'px',
-    })
+    });
   }, [animate, listRef, isOpen]);
 
   return (
-      <WrapperUL
-        as={animated.div}
-        $width={width}
-        $alignHorizontal={alignHorizontal}
-        $alignVertical={alignVertical} 
-        style={{
-          ...style,
-        }}
-      >
-        <StyledUL ref={listRef}>
-          {children}
-        </StyledUL>
-      </WrapperUL>
-  )
+    <WrapperUL
+      as={animated.div}
+      $width={width}
+      $alignHorizontal={alignHorizontal}
+      $alignVertical={alignVertical}
+      style={{
+        ...style,
+      }}
+    >
+      <StyledUL ref={listRef} $themeType={themeType} $layer={layer}>
+        {children}
+      </StyledUL>
+    </WrapperUL>
+  );
 }
-

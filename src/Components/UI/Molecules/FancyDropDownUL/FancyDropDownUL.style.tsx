@@ -5,6 +5,8 @@ import { spacingPx } from '../../Design/design';
 import IStyledPrefixAndPicker from '../../Interface/IStyledPrefixAndPicker.model';
 import { boxShadow } from '../../Design/shadows';
 import { TUiColorsType } from '../../Design/color/designColor';
+import { TLayer } from '../../Design/color/generateColorSteps';
+import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
 
 // --------------------------------------------------------------------------- //
 // ------- the generator function for the Wrapper of the UL ------------------ //
@@ -31,7 +33,7 @@ export const WrapperUL = styled.div<IStyledUL>`
 // --------------------------------------------------------------------------- //
 // ------------------- the UL for the items and the style -------------------- //
 // --------------------------------------------------------------------------- //
-export const StyledUL = styled.ul<{ theme: TUiColorsType }>`
+export const StyledUL = styled.ul<{ theme: TUiColorsType; $themeType?: keyof TUiColorsType; $layer?: TLayer }>`
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
@@ -39,7 +41,7 @@ export const StyledUL = styled.ul<{ theme: TUiColorsType }>`
   margin: 0;
   width: 100%;
   padding: ${spacingPx.lg};
-  background-color: ${({ theme }) => theme.primary[1]};
+  background-color: ${({ theme, $themeType = 'primary', $layer = 1 }) => getBackgroundColor({theme, $themeType, $layer})};
   ${boxShadow.lg}
   gap: ${spacingPx.xs};
   overflow: hidden;
