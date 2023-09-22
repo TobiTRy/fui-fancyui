@@ -7,6 +7,7 @@ import { spacingPx } from '../../Design/design';
 
 import ProgressBar, { IProgressBar } from '../../Atoms/ProgressBar/ProgressBar';
 import { TUiColorsType } from '../../Design/color/designColor';
+import { TLayer } from '../../Design/color/generateColorSteps';
 
 // Define a styled component for the progress bar wrapper
 const Wrapper = styled.div<{ $value?: number; theme: TUiColorsType }>`
@@ -39,26 +40,30 @@ interface IFancyProgressBar extends IProgressBar {
   labelAlign?: TAlign;
   progressCount?: boolean;
   progressAlign?: TAlign;
+  themeType?: keyof TUiColorsType;
+  textLayer?: TLayer;
+  layer?: TLayer;
 }
 // --------------------------------------------------------------------------- //
 // ---------- The Progressbar with some Items Like Percent and Label --------- //
 // --------------------------------------------------------------------------- //
 export default function FancyProgressBar(props: IFancyProgressBar) {
-  const { progress, maxValue, id, label, labelAlign, progressAlign, progressCount } = props;
+  const { progress, maxValue, id, label, labelAlign, progressAlign, progressCount, themeType, layer, textLayer } = props;
 
   return (
     <Wrapper $value={progress}>
       {/* A lable to describe the Progress for */}
       {label && (
-        <AlignedInputLabel htmlFor={id} $align={labelAlign}>
+        <AlignedInputLabel htmlFor={id} $align={labelAlign} $layer={textLayer}>
           {label}
         </AlignedInputLabel>
       )}
       {/* The Progressbar Atom itself */}
-      <ProgressBar id={id} progress={progress} maxValue={maxValue || 100} />
+      <ProgressBar id={id} progress={progress} maxValue={maxValue || 100} themeType={themeType} layer={layer} />
+
       {/* The Progress in percent as Text */}
       {progressCount && (
-        <AlignedInputLabel as={'span'} $align={progressAlign}>
+        <AlignedInputLabel as={'span'} $align={progressAlign} $layer={textLayer}>
           {progress}%
         </AlignedInputLabel>
       )}
