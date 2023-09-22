@@ -19,11 +19,11 @@ export const ItemWrapper = styled.div<{ $secondBar?: boolean, theme: TUiColorsTy
 `;
 
 export default function FancyBottomBarIcon(props: IFancyBottomBarIcon) {
-  const { icon, label, active, handler, disabled, secondBar } = props;
+  const { icon, label, active, handler, disabled, secondBar, themeType, layer } = props;
 
   return (
     <ItemWrapper $secondBar={secondBar}>
-      <IconTextButton $isActive={active} disabled={disabled} onClick={handler}>
+      <IconTextButton $isActive={active} disabled={disabled} onClick={handler} $themeType={themeType} $layer={layer}>
         <Icon>{icon}</Icon>
         <Typography type="smText">{label}</Typography>
         <Underline $isActive={active} />

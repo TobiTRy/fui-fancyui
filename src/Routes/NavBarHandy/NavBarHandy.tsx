@@ -16,7 +16,7 @@ export default function NavBarHandy() {
   return (
     <DesignWrapper>
       <DesignArea title="NavBarHandy">
-        <StaticBottomBar buttons={defaultProps.buttons}/>
+        <StaticBottomBar buttons={defaultProps.buttons} themeType='secondary'/>
       </DesignArea>
     </DesignWrapper>
   );

@@ -7,6 +7,8 @@ import IBottomBar from '../../Atoms/BottomBar/IBottomBar.model';
 
 type TBoottomBarProps = Omit<IBottomBar, 'children'>;
 import useFancyBottomBarStaticStore from './FancyBottomBarStatic.store';
+import { TUiColorsType } from '../../Design/color/designColor';
+import { TLayer } from '../../Design/color/generateColorSteps';
 
 // --------------------------------------------------------------------------- //
 // ------------------ The Bottom Bar for the mobile navigation --------------- //
@@ -14,6 +16,8 @@ import useFancyBottomBarStaticStore from './FancyBottomBarStatic.store';
 interface IStaticBottomBar {
   buttons?: IFancyBottomBarIcon[];
   isVisible?: boolean;
+  themeType?: keyof TUiColorsType;
+  layer?: TLayer;
 }
 export default function FancyBottomBarStatic(props: IStaticBottomBar & TBoottomBarProps) {
   const { buttons, isVisible, ...bottomBarProps } = {...defaultProps, ...props};

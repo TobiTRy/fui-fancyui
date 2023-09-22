@@ -2,6 +2,7 @@ import { styled, css } from 'styled-components';
 import { borderRadius, spacingPx } from '../../Design/design';
 import { boxShadow } from '../../Design/shadows';
 import { TUiColorsType } from '../../Design/color/designColor';
+import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
 
 const calcBarWidthandSpacing = (width?: string, spacingLeftRight?: string) => {
   if (width) {
@@ -40,8 +41,11 @@ interface IBottomBarWrapper {
   $width?: string;
   $spacingLeftRight?: string;
   $roundedness?: keyof typeof borderRadius;
+  $themeType?: keyof TUiColorsType;
+  theme: TUiColorsType;
+  $layer?: number;
 }
-export const Wrapper = styled.div<IBottomBarWrapper & { theme: TUiColorsType }>`
+export const Wrapper = styled.div<IBottomBarWrapper>`
   ${({ $bottomFixed }) => ($bottomFixed ? BottomCenterdFixed : null)}
   box-sizing: border-box;
   display: flex;
@@ -49,7 +53,7 @@ export const Wrapper = styled.div<IBottomBarWrapper & { theme: TUiColorsType }>`
   align-items: center;
   z-index: 99;
   ${({ $width, $spacingLeftRight }) => calcBarWidthandSpacing($width, $spacingLeftRight)};
-  background-color: ${({ theme }) => theme.primary[1]};
+  background-color: ${({ theme, $layer = 1, $themeType = 'primary' }) => getBackgroundColor({ theme, $layer, $themeType })};
   border-radius: ${({ $roundedness }) => ($roundedness ? `${borderRadius[$roundedness]} ${borderRadius[$roundedness]} 0px 0px` : '')};
   padding: ${spacingPx.sm} ${spacingPx.sm} 0 ${spacingPx.sm};
   ${() => boxShadow.md}
