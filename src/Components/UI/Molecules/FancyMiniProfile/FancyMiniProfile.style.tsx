@@ -2,19 +2,23 @@ import { styled, css } from 'styled-components';
 import { borderRadius, spacingPx } from '../../Design/design';
 import { TTextAlign } from './FancyMiniProfile';
 import { TUiColorsType } from '../../Design/color/designColor';
+import { TLayer } from '../../Design/color/generateColorSteps';
+import getColorsForComponent from '../../Design/color/colorCalculatorForComponet';
 
 // this container wraps the whole component
 interface IWrapper {
   $size?: keyof typeof spacingPx;
   $gapSpacing?: keyof typeof spacingPx;
+  $themeType?: keyof TUiColorsType;
+  $layer?: TLayer;
+  theme: TUiColorsType;
 }
-export const Wrapper = styled.div<IWrapper & { theme: TUiColorsType }>`
+export const Wrapper = styled.div<IWrapper>`
   display: flex;
   align-items: center;
   padding: ${({ $size }) => ($size ? spacingPx[$size] : '')};
   gap: ${({ $gapSpacing }) => ($gapSpacing ? spacingPx[$gapSpacing] : spacingPx.xxs)};
-  background-color: ${({ theme }) => theme.primary[3]};
-  color: ${({ theme }) => theme.secondary[1]};
+  ${({ $themeType = 'primary', $layer, theme }) => getColorsForComponent({ $themeType, $layer, theme })};
   border-radius: ${borderRadius.complete};
 `;
 

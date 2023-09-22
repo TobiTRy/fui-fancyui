@@ -6,6 +6,8 @@ import { TextWrapper, Wrapper } from './FancyMiniProfile.style';
 import { fontSizeVariants } from '../../Atoms/Typography/TypographyStyleVariants';
 
 import { spacingPx } from '../../Design/design';
+import { TUiColorsType } from '../../Design/color/designColor';
+import { TLayer } from '../../Design/color/generateColorSteps';
 
 // the interface for the different sizes
 interface IPillSettings {
@@ -50,19 +52,20 @@ interface IFancyMiniprofile {
   subHeadingText?: string;
   imageURL?: string;
   size?: keyof typeof pillSettings;
+  themeType?: keyof TUiColorsType;
+  layer?: TLayer;
 }
-
 // --------------------------------------------------------------------------- //
 // ------ The MiniProfile rendes a image with a heading and description ------ //
 // --------------------------------------------------------------------------- //
 export default function FancyMiniProfile(props: IFancyMiniprofile) {
-  const { alignText, size, imageURL, headingText, subHeadingText } = { ...defaultProps, ...props };
+  const { alignText, size, imageURL, headingText, subHeadingText, themeType, layer } = { ...defaultProps, ...props };
 
   //get the settings from the picked size
   const getSizeProps = pillSettings[size || 'sm'];
 
   return (
-    <Wrapper $size={getSizeProps.padding} $gapSpacing={getSizeProps.gapPictureAndText}>
+    <Wrapper $size={getSizeProps.padding} $gapSpacing={getSizeProps.gapPictureAndText} $themeType={themeType} $layer={layer}>
       {/* The Profile Picture */}
       <FancyProfilePicture rounded="complete" size={getSizeProps.imageSize} src={imageURL || ''} />
       {/* The wraper with the heading and subheading text  */}

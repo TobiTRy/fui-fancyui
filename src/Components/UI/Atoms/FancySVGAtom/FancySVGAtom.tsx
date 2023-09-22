@@ -3,10 +3,19 @@ import { styled } from 'styled-components';
 import { colorPalet } from '../../Design/design';
 import { ISVGAtomProps, IStyledSVGAtom, sizes } from './FancySVGAtom.model';
 import { TUiColorsType } from '../../Design/color/designColor';
+import { getTextColor } from '../../Design/color/colorCalculatorForComponet';
 
-const calcIconColor = (theme: TUiColorsType, $isActive?: boolean, errorMessage?: string | undefined): string => {
-  if (!errorMessage) {
-    return $isActive ? theme.accent[0] : theme.secondary[4];
+interface ICalcIconColor {
+  theme: TUiColorsType;
+  $isActive?: boolean;
+  $errorMessage?: string | undefined;
+  $themeType: keyof TUiColorsType;
+  $layer?: number;
+}
+
+const calcIconColor = ({ theme, $isActive, $errorMessage, $themeType, $layer }: ICalcIconColor): string => {
+  if (!$errorMessage) {
+    return $isActive ? theme.accent[0] : getTextColor({ theme, $themeType, $textLayer: $layer, turnColorTheme: true });
   } else {
     return colorPalet.red_dark;
   }
@@ -18,7 +27,8 @@ const StyledSVG = styled.i<IStyledSVGAtom & { theme: TUiColorsType }>`
   align-items: center;
   width: ${({ $size }) => sizes[$size!]};
   aspect-ratio: 1/1;
-  color: ${({ $isActive, $errorMessage, $isPassive, theme }) => !$isPassive && calcIconColor(theme, $isActive, $errorMessage ) };
+  color: ${({ $isActive, $errorMessage, $isPassive, theme, $themeType = 'primary', $layer = 4 }) =>
+    !$isPassive && calcIconColor({ theme, $isActive, $errorMessage, $layer, $themeType })};
   ${({ $externalStyle }) => $externalStyle};
 
   svg {
@@ -31,7 +41,7 @@ const StyledSVG = styled.i<IStyledSVGAtom & { theme: TUiColorsType }>`
 // --------- This is a wrapper for SVGs to wrap them and style them ---------- //
 // --------------------------------------------------------------------------- //
 export default function FancySVGAtom(props: ISVGAtomProps) {
-  const { children, isPassive, size, isActive, errorMessage, externalStyle, ...htmlProps } = { ...defaultProps, ...props };
+  const { children, isPassive, size, isActive, errorMessage, externalStyle, themeType, layer, ...htmlProps } = { ...defaultProps, ...props };
 
   return (
     <StyledSVG
@@ -40,6 +50,8 @@ export default function FancySVGAtom(props: ISVGAtomProps) {
       $isActive={isActive}
       $errorMessage={errorMessage}
       $externalStyle={externalStyle}
+      $themeType={themeType}
+      $layer={layer}
       {...htmlProps}
     >
       {children}

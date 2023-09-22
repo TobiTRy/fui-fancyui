@@ -6,7 +6,8 @@ import { spacingPx, borderRadius } from '../../Design/design';
 import SVGSearch from '../../SVGIcons/SVGSearch';
 import FancySVGAtom from '../../Atoms/FancySVGAtom/FancySVGAtom';
 import { TRawInputAlign } from '../../Atoms/RawInput/RawInput';
-import themeStore from '../../Design/color/themeStore';
+import { TUiColorsType } from '../../Design/color/designColor';
+import { TLayer } from '../../Design/color/generateColorSteps';
 
 // Styled component for the search bar
 const StyledSearchBar = styled.div<{ $isActive?: boolean }>`
@@ -31,11 +32,13 @@ interface ISearchBar {
   align?: TRawInputAlign;
   activeHandler?: (isActive: boolean) => void;
   handler?: (value: string) => void;
+  themeType?: keyof TUiColorsType;
+  layer?: TLayer;
+  placerholder?: string;
 }
 // The SearchBar component
 export default function SearchBar(props: ISearchBar) {
-  const { activeHandler, handler, isActive, searchValue, align } = { ...defaultProps, ...props };
-  const theme = themeStore.getState().theme;
+  const { activeHandler, handler, isActive, searchValue, align, themeType, layer } = { ...defaultProps, ...props };
 
   // Function to handle changes to the isActive state
   const focusHandler = (isFocused: boolean) => {
@@ -51,8 +54,11 @@ export default function SearchBar(props: ISearchBar) {
     <StyledSearchBar $isActive={isActive}>
       {/* The search icon */}
       <FancySVGAtom
+        themeType={themeType}
+        layer={layer}
+        isActive={isActive}
         externalStyle={css`
-          color: ${theme.secondary[0]};
+          transition: 0.5s;
         `}
       >
         {SVGSearch}
