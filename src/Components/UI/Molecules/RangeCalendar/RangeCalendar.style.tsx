@@ -8,7 +8,6 @@ export const MonthContainer = styled.div<{ theme: TUiColorsType }>`
   h2 {
     margin: ${spacingPx.sm};
     margin-left: ${spacingPx.sm};
-    color: ${({ theme }) => theme.secondary[0]};
   }
 `;
 

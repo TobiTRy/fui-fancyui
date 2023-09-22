@@ -46,6 +46,8 @@ interface IDateOutputFromTo {
 }
 // Define the DateOutputFromTo component
 export default function DateOutputFromTo({ whichIsSelecting, dateFrom, dateTo, handler, themeType, layer }: IDateOutputFromTo) {
+  const swapTheme = (themeType === 'primary' ? 'secondary' : 'primary');
+
   // Define the click handler for the DateOutput component
   const handleClickOnDateOutput = (which: 'from' | 'to') => {
     handler && handler(which);
@@ -62,7 +64,7 @@ export default function DateOutputFromTo({ whichIsSelecting, dateFrom, dateTo, h
         handler={() => handleClickOnDateOutput('from')}
       />
       <VRWrapper>
-        <FancyVR $design="secondary" />
+        <FancyVR $themeType={swapTheme} />
       </VRWrapper>
       <DateOutput
         themeType={themeType}

@@ -23,10 +23,12 @@ interface IFancyDatePicker {
 
 export default function FancyDatePicker(props: IFancyDatePicker) {
   const { rangeCalendar, handler, selectedYear, disabledDateSetting, externalData, themeType, layer } = { ...defaultProps, ...props };
-
   const [selectedDate, setSelectedDate] = useState<IDateArray>([new Date(), new Date()]);
   const [currentlySelectedFromOrTo, setCurrentlySelectedFromOrTo] = useState<'from' | 'to'>('from');
   const [currentlySelectedYear, setCurrentlySelectedYear] = useState<number>(new Date().getFullYear());
+  const swapedTheme = themeType ? (themeType === 'primary' ? 'secondary' : 'primary') : undefined;
+
+
 
   const handleDateChange = (changedDate: IDateArray) => {
     handler && handler(changedDate);
@@ -47,10 +49,10 @@ export default function FancyDatePicker(props: IFancyDatePicker) {
   return (
     <DatePickerContainer $themeType={themeType} $layer={layer}>
       <WrapperYearSelector>
-        <YearSelector selectedYear={currentlySelectedYear} handler={(year: number) => setCurrentlySelectedYear(year)} />
+        <YearSelector selectedYear={currentlySelectedYear} handler={(year: number) => setCurrentlySelectedYear(year)} themeType={swapedTheme} layer={layer} />
       </WrapperYearSelector>
-      <WrapperWeekdays>
-        <WeekDays />
+      <WrapperWeekdays $themeType={swapedTheme}>
+        <WeekDays themeType={swapedTheme} layer={layer} />
       </WrapperWeekdays>
       <RangeCalendar
         rangeCalendar={rangeCalendar}
@@ -60,6 +62,8 @@ export default function FancyDatePicker(props: IFancyDatePicker) {
         selectFromTo={currentlySelectedFromOrTo ?? 'from'}
         handleSwitchFromTo={handleSwitchFromTo}
         disabledDateSetting={disabledDateSetting}
+        themeType={swapedTheme}
+        layer={layer}
       />
       {rangeCalendar && (
         <DateOutputFromTo

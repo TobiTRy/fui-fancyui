@@ -7,7 +7,9 @@ import Typography from '../../Atoms/Typography/Typography';
 
 import Day from './day.model';
 import createDaysOfMonth from './createDaysOfMonth';
-import  { IDateWithExternalState, IExternalMonthWithDays } from './IExternalMonthWithDays.model';
+import { IDateWithExternalState, IExternalMonthWithDays } from './IExternalMonthWithDays.model';
+import { TUiColorsType } from '../../Design/color/designColor';
+import { TLayer } from '../../Design/color/generateColorSteps';
 
 const getFirstDayOfMonth = (month: number, year: number): number => {
   return new Date(year, month - 1, 1).getDay() || 7;
@@ -16,7 +18,6 @@ const getFirstDayOfMonth = (month: number, year: number): number => {
 const getDaysInMonth = (month: number, year: number): number => {
   return new Date(year, month, 0).getDate();
 };
-
 
 // --------------------------------------------------------------------------- //
 // --------- This Component generates a single month with the dates ---------- //
@@ -29,9 +30,12 @@ interface IMonthWithDays {
   selectedDates: IDateArray;
   externalMonthWithDays?: IExternalMonthWithDays;
   disabledDateSetting?: IDisabledDateSettings;
+  themeType?: keyof TUiColorsType;
+  layer?: TLayer;
 }
 export default function MonthWithDays(props: IMonthWithDays) {
-  const { monthIdx, year, handleDateClick, selectedDates, isRangePicking, disabledDateSetting, externalMonthWithDays } = props;
+  const { monthIdx, year, handleDateClick, selectedDates, isRangePicking, disabledDateSetting, externalMonthWithDays, layer, themeType } =
+    props;
   const [monthDays, setMonthDays] = useState<IDateWithExternalState[]>([]);
 
   // Create the days of the month and memoize them
@@ -60,14 +64,13 @@ export default function MonthWithDays(props: IMonthWithDays) {
 
       setMonthDays(daysOfMonth as IDateWithExternalState[]);
     }
-
   }, [externalMonthWithDays, year, monthIdx]);
-
-
 
   return (
     <div>
-      <Typography type='h2' tabIndex={0} aria-label={`${month.name} ${year}`}>{month.name}</Typography>
+      <Typography type="h2" tabIndex={0} aria-label={`${month.name} ${year}`}>
+        {month.name}
+      </Typography>
       <DaysContainer>
         {/* Generate the empty spaces for the start of the month  */}
         {Array.from({ length: getFirstDayOfMonth(monthIdx + 1, year) - 1 }, (_, i) => (
@@ -77,6 +80,8 @@ export default function MonthWithDays(props: IMonthWithDays) {
         {month.days.map((day) => (
           <DateNumberWithStatus
             key={day.number}
+            themeType={themeType}
+            layer={layer}
             disabled={day.disabled}
             dateNumber={day.number}
             isCurrentDay={day.number === new Date().getDate() && monthIdx === new Date().getMonth() && year === new Date().getFullYear()}
@@ -90,4 +95,3 @@ export default function MonthWithDays(props: IMonthWithDays) {
     </div>
   );
 }
-

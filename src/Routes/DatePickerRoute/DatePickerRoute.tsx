@@ -71,7 +71,7 @@ export default function DatePickerRoute() {
     <FancyCard>
       <DesignWrapper>
         <DesignArea title="FancyDatePicker Range">
-          <FancyDatePicker rangeCalendar={true} disabledDateSetting={{ disableWeekends: true }} externalData={externalYears} />
+          <FancyDatePicker rangeCalendar={true} disabledDateSetting={{ disableWeekends: true }} externalData={externalYears} themeType='secondary' />
         </DesignArea>
         <DesignArea title="FancyDatePicker Single Date">
           <FancyDatePicker disabledDateSetting={{ disableWeekends: true }} externalData={externalYears} />

@@ -33,7 +33,7 @@ export function getBackgroundColor({ theme, $themeType, $customColor, $layer }: 
 type IGetTextColor = Pick<IGetColorForComponent, '$themeType' | '$customTextColor' | '$textLayer' | 'theme'>;
 
 // Define the getTextColor function
-export function getTextColor({ theme, $themeType, $customTextColor, $textLayer }: IGetTextColor) {
+export function getTextColor({ theme, $themeType, $customTextColor, $textLayer, turnColorTheme }: IGetTextColor & { turnColorTheme?: boolean} ) {
   // Check if the provided custom text color is valid
   const validCustomColor = $customTextColor ? checkThemeOrColor($customTextColor) : undefined;
   let proviedColor: string | undefined;
@@ -43,11 +43,11 @@ export function getTextColor({ theme, $themeType, $customTextColor, $textLayer }
     proviedColor = validCustomColor;
   } 
   // If the theme type is 'primary', use the corresponding secondary color from the theme
-  else if ($themeType === 'primary') {
+  else if ($themeType === 'primary' && turnColorTheme) {
     proviedColor = theme.secondary[$textLayer || 0];
   } 
   // If the theme type is 'secondary', use the corresponding primary color from the theme
-  else if ($themeType === 'secondary') {
+  else if ($themeType === 'secondary' && turnColorTheme) {
     proviedColor = theme.primary[$textLayer || 0];
   } 
   // If the theme type is 'accent', use the corresponding accent color from the theme
@@ -85,7 +85,7 @@ export default function getColorsForComponent({
 }: IGetColorForComponent) {
   // Get the background color and text color using the getBackgroundColor and getTextColor functions
   const backgroundColor = getBackgroundColor({ theme, $themeType, $customColor, $layer });
-  const textColor = getTextColor({ theme, $themeType, $customTextColor, $textLayer });
+  const textColor = getTextColor({ theme, $themeType, $customTextColor, $textLayer, turnColorTheme: true });
 
   // Return the background color and text color as a styled-component CSS string
   return css`

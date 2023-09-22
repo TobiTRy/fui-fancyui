@@ -8,17 +8,17 @@ import { TLayer } from '../../Design/color/generateColorSteps';
 const DateOutputButton = styled.button<{ $isActive?: boolean; theme: TUiColorsType; $themeType?: keyof TUiColorsType; $layer?: TLayer }>`
   text-align: center;
   width: 100%;
-  background-color: ${({ theme, $isActive, $themeType = 'primary', $layer }) =>
+  background-color: ${({ theme, $isActive, $themeType = 'primary', $layer = 2 }) =>
     $isActive
-      ? getBackgroundColor({ theme, $themeType, $layer: $layer ? $layer + 3 : 3 })
-      : getBackgroundColor({ theme, $themeType, $layer: $layer ? $layer + 2 : 2 })};
-  color: ${({ theme, $themeType = 'primary', $layer = 1 }) => getTextColor({ theme, $themeType, $textLayer: $layer })};
+      ? getBackgroundColor({ theme, $themeType, $layer: $layer ? $layer + 1 : 3 })
+      : getBackgroundColor({ theme, $themeType, $layer: $layer ? $layer : 2 })};
+  color: ${({ theme, $themeType = 'secondary', $layer = 1 }) => getTextColor({ theme, $themeType, $textLayer: $layer, turnColorTheme: true })};
   border: none;
   cursor: pointer;
 
   &:hover {
     background-color: ${({ theme, $themeType = 'primary', $layer }) =>
-      getBackgroundColor({ theme, $themeType, $layer: $layer ? $layer + 3 : 3 })};
+      getBackgroundColor({ theme, $themeType, $layer: $layer ? $layer : 3 })};
   }
 `;
 
