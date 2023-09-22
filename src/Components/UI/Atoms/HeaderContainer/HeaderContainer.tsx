@@ -1,7 +1,7 @@
 import React from 'react';
 import { styled } from 'styled-components';
 import { TUiColorsType } from '../../Design/color/designColor';
-import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
+import getColorsForComponent from '../../Design/color/colorCalculatorForComponet';
 
 // the slotsInFR is an array of strings which will be used to genera dynamicly the grid-template-columns
 interface IHeaderWrapper {
@@ -17,8 +17,7 @@ const HeaderWrapper = styled.div<IHeaderWrapper>`
   width: 100%;
   height: 44px;
   box-sizing: border-box;
-  color: ${({ theme }) => theme.secondary[0]};
-  background-color: ${({ theme, $themeType = 'primary', $layer = 1 }) => getBackgroundColor({ theme, $themeType, $layer })};
+  ${({ theme, $themeType = 'primary', $layer = 1 }) => getColorsForComponent({ theme, $themeType, $layer })};
 `;
 
 // --------------------------------------------------------------------------- //
