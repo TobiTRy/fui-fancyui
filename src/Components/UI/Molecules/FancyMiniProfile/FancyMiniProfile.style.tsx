@@ -4,6 +4,7 @@ import { TTextAlign } from './FancyMiniProfile';
 import { TUiColorsType } from '../../Design/color/designColor';
 import { TLayer } from '../../Design/color/generateColorSteps';
 import getColorsForComponent from '../../Design/color/colorCalculatorForComponet';
+import { boxShadow } from '../../Design/shadows';
 
 // this container wraps the whole component
 interface IWrapper {
@@ -12,13 +13,15 @@ interface IWrapper {
   $themeType?: keyof TUiColorsType;
   $layer?: TLayer;
   theme: TUiColorsType;
+  $shadow?: boolean;
 }
 export const Wrapper = styled.div<IWrapper>`
   display: flex;
   align-items: center;
   padding: ${({ $size }) => ($size ? spacingPx[$size] : '')};
   gap: ${({ $gapSpacing }) => ($gapSpacing ? spacingPx[$gapSpacing] : spacingPx.xxs)};
-  ${({ $themeType = 'primary', $layer, theme }) => getColorsForComponent({ $themeType, $layer, theme })};
+  ${({ $themeType = 'primary', $layer = 2, theme }) => getColorsForComponent({ $themeType, $layer, theme })};
+  ${({$shadow}) => $shadow && boxShadow.sm}
   border-radius: ${borderRadius.complete};
 `;
 

@@ -56,14 +56,14 @@ export default function ChipsRoute() {
         <Chip label="Heyyjoo" outlined icon={<ClipBoardIconCheck />} deleteButton size="lg" onClick={() => console.log('hii')} />
       </DesignArea>
       <DesignArea title="Chip Colored">
-        <Chip label="Heyyjoo" outlined color='accent' icon={<ClipBoardIconCheck />} size="sm" deleteButton />
-        <Chip label="Heyyjoo" outlined color='secondary' icon={<ClipBoardIconCheck />} size="md" deleteButton onDelete={() => console.log('DELETE')} />
-        <Chip label="Heyyjoo" outlined color='transparent' icon={<ClipBoardIconCheck />} deleteButton size="lg" onClick={() => console.log('hii')} />
+        <Chip label="Heyyjoo" outlined themeType='accent' icon={<ClipBoardIconCheck />} size="sm" deleteButton />
+        <Chip label="Heyyjoo" outlined themeType='secondary' icon={<ClipBoardIconCheck />} size="md" deleteButton onDelete={() => console.log('DELETE')} />
+        <Chip label="Heyyjoo" outlined themeType='transparent' textColor='accent' icon={<ClipBoardIconCheck />} deleteButton size="lg" onClick={() => console.log('hii')} />
       </DesignArea>
       <DesignArea title="Chip Colored">
-        <Chip label="Heyyjoo" color='accent' textColor='primary' icon={<ClipBoardIconCheck />} size="sm" deleteButton />
-        <Chip label="Heyyjoo" color='primary' icon={<ClipBoardIconCheck />} size="md" deleteButton onDelete={() => console.log('DELETE')} />
-        <Chip label="Heyyjoo" color='secondary' textColor="accent" size="lg" onClick={() => console.log('hii')} />
+        <Chip label="Heyyjoo" themeType='accent' textColor='primary' icon={<ClipBoardIconCheck />} size="sm" deleteButton />
+        <Chip label="Heyyjoo" themeType='primary' icon={<ClipBoardIconCheck />} size="md" deleteButton onDelete={() => console.log('DELETE')} />
+        <Chip label="Heyyjoo" themeType='secondary' textColor="accent" size="lg" onClick={() => console.log('hii')} />
       </DesignArea>
     </DesignWrapper>
     </FancyCard>

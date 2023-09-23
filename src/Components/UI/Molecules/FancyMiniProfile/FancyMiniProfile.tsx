@@ -54,18 +54,19 @@ interface IFancyMiniprofile {
   size?: keyof typeof pillSettings;
   themeType?: keyof TUiColorsType;
   layer?: TLayer;
+  shadow?: boolean;
 }
 // --------------------------------------------------------------------------- //
 // ------ The MiniProfile rendes a image with a heading and description ------ //
 // --------------------------------------------------------------------------- //
 export default function FancyMiniProfile(props: IFancyMiniprofile) {
-  const { alignText, size, imageURL, headingText, subHeadingText, themeType, layer } = { ...defaultProps, ...props };
+  const { alignText, size, imageURL, headingText, subHeadingText, themeType, layer, shadow } = { ...defaultProps, ...props };
 
   //get the settings from the picked size
   const getSizeProps = pillSettings[size || 'sm'];
 
   return (
-    <Wrapper $size={getSizeProps.padding} $gapSpacing={getSizeProps.gapPictureAndText} $themeType={themeType} $layer={layer}>
+    <Wrapper $size={getSizeProps.padding} $gapSpacing={getSizeProps.gapPictureAndText} $themeType={themeType} $layer={layer} $shadow={shadow}>
       {/* The Profile Picture */}
       <FancyProfilePicture rounded="complete" size={getSizeProps.imageSize} src={imageURL || ''} />
       {/* The wraper with the heading and subheading text  */}

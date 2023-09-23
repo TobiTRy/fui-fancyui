@@ -1,3 +1,5 @@
+import { TUiColorsType } from "../../Design/color/designColor";
+import { TLayer } from "../../Design/color/generateColorSteps";
 import { IUiColorsTypes } from "../../Design/design";
 import { sizes } from "./Chip.style";
 
@@ -8,9 +10,11 @@ interface IChipPropsBase {
   icon?: React.ReactNode;
   image?: string;
   outlined?: boolean;
-  color: IUiColorsTypes;
   textColor?: IUiColorsTypes;
   onClick?: () => void;
+  themeType?: keyof TUiColorsType;
+  layer?: TLayer;
+  textLayer?: TLayer;
 }
 
 // Define the interface for the chip props with an X button

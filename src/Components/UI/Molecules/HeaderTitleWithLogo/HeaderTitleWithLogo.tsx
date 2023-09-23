@@ -29,7 +29,7 @@ const StyledHeading = styled.a<{ theme: TUiColorsType; $themeType?: keyof TUiCol
   align-items: center;
   word-break: keep-all;
   text-decoration: none;
-  color: ${({ theme, $themeType = 'secondary', $layer }) => getTextColor({ theme, $themeType, $textLayer: $layer, turnColorTheme: true })};
+  color: ${({ theme, $themeType = 'secondary', $layer }) => getTextColor({ theme, $themeType, $textLayer: $layer, })};
 `;
 
 interface IHeaderTitleWithLogo {
@@ -37,15 +37,15 @@ interface IHeaderTitleWithLogo {
   logo?: React.ReactNode;
   linkTo?: string;
   themeType?: keyof TUiColorsType;
-  layer?: number;
+  layer?: TLayer;
 }
 export default function HeaderTitleWithLogo(props: IHeaderTitleWithLogo) {
-  const { title, logo, linkTo } = { ...defaultProps, ...props };
+  const { title, logo, linkTo, themeType, layer } = { ...defaultProps, ...props };
 
   return (
     <Wrapper>
       {/* //TODO: NEXTJS LINK? */}
-      <StyledHeading href={linkTo}>
+      <StyledHeading href={linkTo} $themeType={themeType} $layer={layer}>
         {logo && <LogoWrapper>{logo}</LogoWrapper>}
         {title && (
           <Typography type="inlineElement" variant="h3" weight="bold">

@@ -21,7 +21,7 @@ const RightSlot = ({ onClick }: { onClick?: () => void }) => {
 };
 
 const Slot = {
-  component: <FancySearchBar searchListWidth="80vw" themeType='secondary' layer={1}>
+  component: <FancySearchBar searchListWidth="80vw" layer={1}>
     <FancyLoadingSpinner size='lg'  />
   </FancySearchBar>,
   scale: 1,
@@ -93,7 +93,7 @@ export default function HeaderRoute() {
   return (
     <>
       <section>
-        <FancyHeader rightSlot={Slot2} leftSlot={headerTitele} middeSlot={Slot} themeType='secondary'/>
+        <FancyHeader rightSlot={Slot2} leftSlot={headerTitele} middeSlot={Slot} />
       </section>
     </>
   );
