@@ -9,7 +9,7 @@ import { IChipProps } from './Chip.model';
 
 // Define the Chip component
 export default function Chip(props: IChipProps) {
-  const { label, deleteButton, onDelete, icon, image, size, outlined, themeType, layer, textColor, textLayer } = { ...defaultProps, ...props };
+  const { label, deleteButton, onDelete, icon, image, size, outlined, themeType, layer, textColor, textLayer, isActive } = { ...defaultProps, ...props };
 
   // Define a function to calculate the spacing position for the chip
   const clacPosition = (): TSpacingPosition => {
@@ -27,6 +27,7 @@ export default function Chip(props: IChipProps) {
   // Render the Chip component with the appropriate props
   return (
     <StyledChip
+      $isActive={isActive}
       $spacingPosition={getCalcPosition}
       $size={size}
       $outlined={outlined}

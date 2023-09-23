@@ -7,6 +7,7 @@ import { sizes } from "./Chip.style";
 interface IChipPropsBase {
   label: string;
   size?: keyof typeof sizes;
+  isActive?: boolean;
   icon?: React.ReactNode;
   image?: string;
   outlined?: boolean;

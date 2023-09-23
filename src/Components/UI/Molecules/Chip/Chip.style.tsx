@@ -88,6 +88,7 @@ interface IStyledChip {
   $textColor?: keyof TUiColorsType;
   $layer?: TLayer;
   $textLayer?: TLayer;
+  $isActive?: boolean;
 }
 export const StyledChip = styled.div<IStyledChip & { theme: TUiColorsType }>`
   ${({ $spacingPosition, $size }) => GenerateSpacing({ spacingPosition: $spacingPosition, size: $size })}
@@ -104,7 +105,7 @@ export const StyledChip = styled.div<IStyledChip & { theme: TUiColorsType }>`
   ${({ $outlined, $themeType = 'primary', $textColor = 'secondary', theme, $layer, $textLayer }) =>
     $outlined
       ? css`
-          border: 1px solid ${getBackgroundColor({ theme, $themeType, $layer: $layer || 3 })}; //theme[$themeType || 'primary'][3]
+          border: 1px solid ${getBackgroundColor({ theme, $themeType, $layer: $layer || 3 })};
           color: ${generateTextColor({
             theme,
             themeType: $themeType || 'secondary',
@@ -123,6 +124,14 @@ export const StyledChip = styled.div<IStyledChip & { theme: TUiColorsType }>`
           })};
           background-color: ${getBackgroundColor({ theme, $themeType, $layer: $layer || 3 })};
         `};
+  
+  ${({ $isActive, theme }) => {
+    if ($isActive) {
+      return css`
+        box-shadow: 0 0 0 1px ${theme.accent[0]};
+      `;
+    }
+  }}
 
   /* the icon for the Chip */
   i {
