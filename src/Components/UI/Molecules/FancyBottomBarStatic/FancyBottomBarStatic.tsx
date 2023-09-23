@@ -17,6 +17,7 @@ interface IStaticBottomBar {
   buttons?: IFancyBottomBarIcon[];
   isVisible?: boolean;
   themeType?: keyof TUiColorsType;
+  iconThemeType?: keyof TUiColorsType;
   layer?: TLayer;
 }
 export default function FancyBottomBarStatic(props: IStaticBottomBar & TBoottomBarProps) {
@@ -25,6 +26,8 @@ export default function FancyBottomBarStatic(props: IStaticBottomBar & TBoottomB
   const setIsVisible = useFancyBottomBarStaticStore((state) => state.setIsVisible);
   const whichIsActive = useFancyBottomBarStaticStore((state) => state.whichIsActive);
   const setWhichIsActive = useFancyBottomBarStaticStore((state) => state.setWhichIsActive);
+
+
 
   useEffect(() => {
     setIsVisible(isVisible ? isVisible : true);
@@ -39,6 +42,7 @@ export default function FancyBottomBarStatic(props: IStaticBottomBar & TBoottomB
             <FancyBottomBarIcon
               key={i}
               {...button}
+              themeType={props.iconThemeType}
               active={button.id === whichIsActive}
               handler={() => {
                 button.handler && button.handler();
