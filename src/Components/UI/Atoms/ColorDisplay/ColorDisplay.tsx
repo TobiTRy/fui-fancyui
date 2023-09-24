@@ -26,15 +26,20 @@ export default function ColorDisplay({ color, opacity, showText, fullHeight }: I
   const isBright = Color(color).isLight() && opacity > 0.5;
 
   const copyValue = () => {
-    copyToClipboard(color.toString());
-    setCopyd(true);
-    setTimeout(() => setCopyd(false), 1000);
+    copyToClipboard(color.toString())
+      .then(() => {
+        setCopyd(true);
+        setTimeout(() => setCopyd(false), 1000);
+      })
+      .catch((err) => {
+        console.error('Failed to copy: ', err);
+      });
   };
 
-  console.log(isBright, isDarkTheme)
+  console.log(isBright, isDarkTheme);
   return (
     <Wrapper $fullHeight={fullHeight} onClick={copyValue}>
-      <Content $isBright={isBright} $isDarkTheme={isDarkTheme}> 
+      <Content $isBright={isBright} $isDarkTheme={isDarkTheme}>
         {showText && <Typography type="content">{color.toString()}</Typography>}
         <WrapperSVG>{copyd ? <ClipBoardIconCheck /> : <ClipBoardIcon />}</WrapperSVG>
       </Content>
