@@ -23,44 +23,45 @@ export default function ButtonRoute() {
   return (
     <DesignWrapper>
       <DesignArea title="Buttons sizes" style={backgroundColor}>
-        <FancyButton label="Button" design="primary" size="sm" wide={false} onClick={()=> console.log('moooinn')}/>
-        <FancyButton label="Button" design="secondary" size="md" wide={false} />
-        <FancyButton label="Button" design="accent" size="lg" wide={false} />
-        <FancyButton label="Button" design="transparent" wide={false} />
-        <FancyButton label="Button" design="primary" size="sm" wide={false} borderRadius={'lg'} />
+        <FancyButton label="Button" themeType="primary" size="sm" wide={false} onClick={()=> console.log('moooinn')}/>
+        <FancyButton label="Button" themeType="secondary" size="md" wide={false} />
+        <FancyButton label="Button" themeType="accent" size="lg" wide={false} />
+        <FancyButton label="Button" themeType='secondary' wide={false} />
+        <FancyButton label="Button" themeType="primary" size="sm" wide={false} borderRadius={'lg'} />
       </DesignArea>
       <DesignArea title="Button Types in wide" style={backgroundColor}>
-        <FancyButton label="Button" design="primary"  wide/>
-        <FancyButton label="Button" design="primary" wide />
-        <FancyButton label="Button" design="secondary" wide/>
-        <FancyButton label="Button" design="accent" wide borderRadius='complete' align='center'/>
-        <FancyButton label="Button" design="transparent" wide align='center' />
+        <FancyButton label="Button" themeType="primary"  wide/>
+        <FancyButton label="Button" themeType="primary" wide />
+        <FancyButton label="Button" themeType="secondary" wide/>
+        <FancyButton label="Button" themeType="accent" wide borderRadius='complete' align='center'/>
+        <FancyButton label="Button" themeType="transparent" wide align='center' />
       </DesignArea>
       <DesignArea title="Button Types in wide" style={backgroundColor}>
-        <FancyButton icon={Icon}  label="Button" design="primary" align='left' />
-        <FancyButton icon={Icon}  label="Button" design="secondary" align='right' />
-        <FancyButton icon={Icon} label="Button" design="accent" />
-        <FancyButton icon={Icon} label="Button" design="transparent"align='left' />
+        <FancyButton icon={Icon} label="Button" themeType="primary" align='left' />
+        <FancyButton icon={Icon} label="Button" themeType="secondary" align='right' />
+        <FancyButton icon={Icon} label="Button" themeType="accent" />
+        <FancyButton icon={Icon} label="Button" themeType="transparent"align='left' />
       </DesignArea>
       <DesignArea title="Outlined Buttons" style={backgroundColor}>
-        <FancyButton label="Button" design="primary" outlined />
-        <FancyButton label="Button" design="secondary" outlined />
-        <FancyButton label="Butto jjsjkd jkjdjkbs jkj kskjdj j jsjkdj njk jksjd jbsbjkjkf n" design="accent" outlined />
-        <FancyButton label="Button" design="transparent" outlined />
+        <FancyButton label="Button" themeType="primary" outlined />
+        <FancyButton label="Button" themeType="secondary" outlined />
+        <FancyButton label="Butto jjsjkd jkjdjkbs jkj kskjdj j jsjkdj njk jksjd jbsbjkjkf n" themeType="accent" outlined />
+        <FancyButton label="Button" themeType="transparent" outlined />
       </DesignArea>
       <DesignArea title="Outlined Buttons" style={backgroundColor}>
-        <FancyButton icon={Icon} label="Button" design="primary" outlined />
-        <FancyButton icon={Icon} label="Button" design="secondary" outlined />
-        <FancyButton icon={Icon} label="Button Butto jjsjkd jkjdjkbs jkj kskjdj j jsjkdj njk jksjd jbsbjkjkf n" design="accent" outlined />
-        <FancyButton icon={Icon}  label="Button" design="transparent" outlined />
+        <FancyButton icon={Icon} label="Button" themeType="primary" outlined />
+        <FancyButton icon={Icon} label="Button" themeType="secondary" outlined />
+        <FancyButton icon={Icon} label="Button Butto jjsjkd jkjdjkbs jkj kskjdj j jsjkdj njk jksjd jbsbjkjkf n" themeType="accent" outlined />
+        <FancyButton icon={Icon}  label="Button" themeType="transparent" outlined />
       </DesignArea>
       <DesignArea title="Loading Buttons" style={backgroundColor}>
-        <FancyButton icon={Icon} label="Button" size='sm' isLoading={isLoading} onClick={() => setIsLoading(true)} design="primary" outlined />
-        <FancyButton icon={Icon} label="Button" isLoading={isLoading} onClick={() => setIsLoading(false)} design="secondary" outlined />
+        <FancyButton icon={Icon} label="Button" size='sm' isLoading={isLoading} onClick={() => setIsLoading(true)} themeType="primary" outlined />
+        <FancyButton icon={Icon} label="Button" isLoading={isLoading} onClick={() => setIsLoading(false)} themeType="secondary" outlined />
       </DesignArea>
       <DesignArea title="1:1 Buttons" style={backgroundColor}>
-        <FancyButton icon={Icon} size='md' isLoading={isLoading} onClick={() => setIsLoading(true)} design="primary" borderRadius='complete' />
-        <FancyButton icon={Icon} size='sm' isLoading={isLoading} onClick={() => setIsLoading(false)} design="secondary" outlined borderRadius='sm' />
+        <FancyButton icon={Icon} size='md' isLoading={isLoading} onClick={() => setIsLoading(true)} themeType="primary" borderRadius='complete' />
+        <FancyButton icon={Icon} size='sm' isLoading={isLoading} onClick={() => setIsLoading(false)} themeType="secondary" outlined borderRadius='sm' />
+        <FancyButton icon={Icon} size='lg' isLoading={isLoading} onClick={() => setIsLoading(false)} themeType="secondary" outlined borderRadius='sm' />
       </DesignArea>
     </DesignWrapper>
   );
