@@ -6,12 +6,13 @@ import SVGChevronRight from '../../SVGIcons/SVGChevronRight';
 import FancyButton from '../FancyButton/FancyButton';
 import { IconWrapper, NumberList, StyledPaginator } from './Paginator.style';
 import PageNumberList from '../../Atoms/PageNumberList/PageNumberList';
+import { TUiColorsType } from '../../Design/color/designColor';
 
 // Define the props for the Paginator component
 interface IPaginator {
   currentPage?: number;
   totalPages: number;
-  design?: 'accent' | 'primary' | 'transparent';
+  themeType?: keyof TUiColorsType;
   outlinedButton?: boolean;
   onPageChange: (page: number) => void;
   pageLimits?: number;
@@ -21,7 +22,7 @@ interface IPaginator {
 // ---------------- The Paginator for a List to siwtch pages ----------------- //
 // --------------------------------------------------------------------------- //
 export default function Paginator(props: IPaginator) {
-  const { currentPage, totalPages, onPageChange, outlinedButton, design, pageLimits } = { ...defaultProps, ...props };
+  const { currentPage, totalPages, onPageChange, outlinedButton, themeType, pageLimits } = { ...defaultProps, ...props };
 
   // Define a function to handle page changes
   const pageHandler = (page: number) => {
@@ -40,7 +41,7 @@ export default function Paginator(props: IPaginator) {
       {/* The left button for the Page Switch */}
       <FancyButton
         size="md"
-        design={design ? design : 'accent'}
+        themeType={themeType ? themeType : 'accent'}
         outlined={outlinedButton ? true : false}
         wide={false}
         icon={<IconWrapper $align="left">{SVGChevronLeft}</IconWrapper>}
@@ -52,7 +53,7 @@ export default function Paginator(props: IPaginator) {
       {/* The right button for the Page Switch */}
       <FancyButton
         wide={false}
-        design={design ? design : 'accent'}
+        themeType={themeType ? themeType : 'accent'}
         outlined={outlinedButton ? true : false}
         icon={<IconWrapper $align="right">{SVGChevronRight}</IconWrapper>}
         size="md"

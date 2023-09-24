@@ -5,10 +5,12 @@ import { disabledStyle } from './disableStyle';
 import { calcIconMarginAndAlign } from './generateIconMargin';
 import { generatePadding } from './generatePadding';
 import { borderRadius, spacing } from '../../Design/design';
-import { IUiColorsTypes } from '../../Design/design';
 import IStyledPrefixAndOmiter from '../../Interface/IStyledPrefixAndOmiter.model';
 import { boxShadow } from '../../Design/shadows';
 import themeStore from '../../Design/color/themeStore';
+import { TUiColorsType } from '../../Design/color/designColor';
+import { TLayer } from '../../Design/color/generateColorSteps';
+import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
 
 export type IGenerateThemeItemProps = {
   outlined?: boolean;
@@ -16,19 +18,20 @@ export type IGenerateThemeItemProps = {
   size: 'sm' | 'md' | 'lg';
   label?: string;
   wide?: boolean;
-  design: IUiColorsTypes;
   borderRadius?: keyof typeof borderRadius;
+  themeType?: keyof TUiColorsType;
+  textColor?: Exclude<keyof TUiColorsType, 'transparent'>;
+  hoverColor?: Exclude<keyof TUiColorsType, 'transparent'>;
+  layer?: TLayer;
   align?: 'left' | 'right' | 'center';
-  color?: 'primary' | 'secondary' | 'accent';
-  hoverColor?: 'primary' | 'secondary' | 'accent';
 };
 
 export type IGenerateThemeItem = IStyledPrefixAndOmiter<IGenerateThemeItemProps>;
 
 // --------------------------------------------------------------------------- //
-// ---------- Here are the $design variants for sizing and alignment --------- //
+// ---------- Here are the $themeType variants for sizing and alignment --------- //
 // --------------------------------------------------------------------------- //
-//a shortcut to align the ($icon) ond text
+// a shortcut to align the ($icon) ond text
 const alignment = {
   left: 'flex-start',
   right: 'flex-end',
@@ -43,28 +46,29 @@ const paddingIconButton = {
 };
 
 // ------------------------------------------------------------------ //
-// ---------- Here are the helper functions for the $design --------- //
+// ---------- Here are the helper functions for the $themeType --------- //
 // ------------------------------------------------------------------ //
 //this hanles the padding of the button deppend on the $size and if needs a second value
-type IcalcTextColor = Pick<IGenerateThemeItem, '$color' | '$design' | '$outlined'>;
-const calcTextColor = ({ $color, $design, $outlined }: IcalcTextColor) => {
+type IcalcTextColor = Pick<IGenerateThemeItem, '$textColor' | '$themeType' | '$outlined'>;
+const calcTextColor = ({ $textColor, $themeType, $outlined }: IcalcTextColor) => {
   const theme = themeStore.getState().theme;
 
-  //  if the userer profides a $color use this
-  if ($color) return theme[$color][0];
-  if ($design === 'transparent') return theme.secondary[0];
-  if ($outlined) return theme[$design][0];
-  return theme[$design].contrast;
+  //  if the userer profides a $textColor use this
+  if ($textColor) return theme[$textColor][0];
+  if ($themeType === 'transparent') return theme.secondary[0];
+  if ($outlined) return theme[$themeType || 'secondary'][0];
+  return theme[$themeType || 'secondary'].contrast;
 };
 
-const generateBackgroundColor = (props: Pick<IGenerateThemeItem, '$design'>) => {
-  const { $design } = props;
+
+const generateBackgroundColor = (props: Pick<IGenerateThemeItem, '$themeType' | '$layer'>) => {
+  const { $themeType, $layer } = props;
   const theme = themeStore.getState().theme;
 
-  if ($design === 'transparent') {
+  if ($themeType === 'transparent') {
     return 'transparent';
   } else {
-    return theme[$design][0];
+    return theme[$themeType || 'primary'][$layer || 0];
   }
 };
 
@@ -106,35 +110,32 @@ const generateIcon = (props: IGenerateIconItem) => {
 };
 
 //-----this funktion generates a button that looks like a $outlined button-----//
-type IGenerateOutlinedItem = Pick<IGenerateThemeItem, '$design' | '$color' | '$size' | '$label' | '$outlined'>;
+type IGenerateOutlinedItem = Pick<IGenerateThemeItem, '$themeType' | '$textColor' | '$size' | '$label' | '$outlined' | '$layer'>;
 const generateOutlined = (props: IGenerateOutlinedItem) => {
-  const { $design, $color, $size, $label, $outlined } = props;
-
+  const { $themeType, $textColor, $size, $label, $outlined, $layer } = props;
   const theme = themeStore.getState().theme;
 
-  if ($design === 'transparent') return;
-
-  console.log($design, $color, $size, $label, $outlined);
+  const getButtonColor = getBackgroundColor({ theme, $themeType: $themeType || 'accent', $layer: $layer, });
 
   //reduce the padding with the border $size
   const paddings = generatePadding(-2, Boolean($label));
 
-  //this calculates the textcolor depend on $design and $color
-  const textColor = calcTextColor({ $color, $design, $outlined });
+  //this calculates the texttextColor depend on $themeType and $textColor
+  const textColor = calcTextColor({ $textColor, $themeType, $outlined });
 
-  //this makes the color, no matther which one transparent
-  const backgroundColor = Color(theme[$design][0]).alpha(0.1).hexa();
+  //this makes the textColor, no matther which one transparent
+  const backgroundColor = Color(getButtonColor).alpha(0.1).hexa();
 
   const clacHoverColor = () => {
-    if ($color) return theme[$color][1];
-    return theme[$design][0];
+    if ($textColor) return theme[$textColor][1];
+    return getButtonColor;
   };
 
   return css`
     position: relative;
     background-color: transparent;
     padding: ${paddings[$size]};
-    border: 1.5px solid ${theme[$design][0]};
+    border: 1.5px solid ${getButtonColor};
     color: ${textColor};
 
     &:hover:enabled {
@@ -146,26 +147,25 @@ const generateOutlined = (props: IGenerateOutlinedItem) => {
 };
 
 //-----this funktion generates a button that looks like a normal button-----//
-type IGenerateNormalitem = Pick<IGenerateThemeItem, '$design' | '$size' | '$label' | '$hoverColor' | '$color' | '$outlined'>;
+type IGenerateNormalitem = Pick<IGenerateThemeItem, '$themeType' | '$size' | '$label' | '$hoverColor' | '$textColor' | '$outlined' | '$layer'>;
 const generateNormal = (props: IGenerateNormalitem) => {
-  const { $design, $size, $label, $hoverColor, $color, $outlined } = props;
-
+  const { $themeType, $size, $label, $hoverColor, $textColor, $outlined, $layer } = props;
   const theme = themeStore.getState().theme;
 
   //reduce the padding with the border $size
-  const paddings = generatePadding(0, !$label ? false : true);
-
-  //this calculates the textcolor depend on $design and $color
-  const textColor = calcTextColor({ $color, $design, $outlined });
+  const paddings = generatePadding(0, $label ? true : false);
+  
+  //this calculates the texttextColor depend on $themeType and $textColor
+  const textColor = calcTextColor({ $textColor, $themeType, $outlined });
 
   // generates the hover style for the button
   const hoverBackgroundColorStyle = () => {
-    if ($design === 'transparent') return 'transparent';
+    if ($themeType === 'transparent') return 'transparent';
     if ($hoverColor) return theme[$hoverColor][1];
-    return theme[$design][1];
+    return getBackgroundColor({ theme, $themeType: $themeType || 'accent', $layer: $layer && ($layer + 1) || 1, });
   };
 
-  const generatedBackgroundColor = generateBackgroundColor({ $design });
+  const generatedBackgroundColor = generateBackgroundColor({ $themeType, $layer });
 
   return css`
     background-color: ${generatedBackgroundColor};
@@ -173,9 +173,9 @@ const generateNormal = (props: IGenerateNormalitem) => {
     padding: ${paddings[$size]};
 
     &:hover {
-      ${$design === 'transparent' ? 'color: ' + theme.secondary[1] : ''};
+      ${$themeType === 'transparent' ? 'color: ' + theme.secondary[1] : ''};
       background-color: ${hoverBackgroundColorStyle};
-      box-shadow: ${$design !== 'transparent' ? boxShadow.sm : ''};
+      box-shadow: ${$themeType !== 'transparent' ? boxShadow.sm : ''};
     }
   `;
 };
@@ -193,12 +193,12 @@ const generateBorderRadius = (props: Pick<IGenerateThemeItem, '$wide' | '$border
 
 //-----this funktion handles the button style on his conditions-----//
 const generateThemeItem = (props: IGenerateThemeItem) => {
-  const { $design, $outlined, $icon, $size, $label, $wide, $borderRadius, $align } = props;
+  const { $themeType, $outlined, $icon, $size, $label, $wide, $borderRadius, $align } = props;
 
   let iconStyle, aspectRatio;
 
   //if the button a $outlined generate this, it his a normal generate an normal
-  const itemStyle = $outlined && $design !== 'transparent' ? generateOutlined(props) : generateNormal(props);
+  const itemStyle = $outlined && $themeType !== 'transparent' ? generateOutlined(props) : generateNormal(props);
 
   //this claculates the borderradius depeend on if its a $wide button or not
   const borderRadius = generateBorderRadius({ $wide, $borderRadius, $size });
@@ -219,6 +219,7 @@ const generateThemeItem = (props: IGenerateThemeItem) => {
     justify-content: ${$align && alignment[$align]};
     align-items: center;
     border: none;
+    height: fit-content;
     cursor: pointer;
     box-sizing: border-box;
     width: ${$wide ? '100%' : 'initial'};
