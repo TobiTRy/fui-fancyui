@@ -8,6 +8,8 @@ import FancySVGAtom from '../../Atoms/FancySVGAtom/FancySVGAtom';
 import { spacing } from '../../Design/design';
 import { AnimatedInputLabel } from '../../Atoms/AnimatedLabel/AnimatedLabel.style';
 import { TRawInputAlign } from '../../Atoms/RawInput/RawInput';
+import { TUiColorsType } from '../../Design/color/designColor';
+import { TLayer } from '../../Design/color/generateColorSteps';
 
 // Define the styles for the icon
 const iconStyle = css`
@@ -46,6 +48,8 @@ export interface IInputWrapper {
   errorMessage?: string;
   icon?: JSX.Element;
   value?: string | number | readonly string[] | undefined;
+  themeType?: keyof TUiColorsType;
+  layer?: TLayer;
   align?: TRawInputAlign;
   autoWidth?: boolean;
   underline?: boolean;
@@ -55,7 +59,22 @@ export interface IInputWrapper {
 // ------ The Wrapper for the inputs that give him some extra features  ------ //
 // ------------------ like a Label icon errormessage ------------------------- //
 export default function InputWrapper(props: IInputWrapper) {
-  const { id, value, isActiv, disabled, InputElement, errorMessage, icon, label, align, underline = true, autoWidth, placeholder } = props;
+  const {
+    id,
+    value,
+    isActiv,
+    disabled,
+    InputElement,
+    errorMessage,
+    icon,
+    label,
+    align,
+    underline = true,
+    autoWidth,
+    placeholder,
+    layer = 4,
+    themeType = 'secondary',
+  } = props;
   const [isInitial, setIsInitial] = useState(false);
 
   // Calculate the color state for the label and underline
@@ -71,7 +90,7 @@ export default function InputWrapper(props: IInputWrapper) {
   return (
     <StyledInputWrapper disabled={disabled} $autoWidth={autoWidth}>
       {icon && (
-        <FancySVGAtom isPassive={false} externalStyle={iconStyle} size="lg" isActive={isActiv}>
+        <FancySVGAtom themeType={themeType} layer={layer} isPassive={false} externalStyle={iconStyle} size="lg" isActive={isActiv}>
           {icon}
         </FancySVGAtom>
       )}
@@ -82,9 +101,12 @@ export default function InputWrapper(props: IInputWrapper) {
           <AnimatedInputLabel
             htmlFor={id}
             $align={align}
+            $themeType={themeType}
+            $layer={layer}
             $moveUp={
               Boolean((isInitial && value === 0 ? undefined : value) || Boolean(isInitial && value === 0)) ||
-              isActiv || Boolean(placeholder)
+              isActiv ||
+              Boolean(placeholder)
             }
             $colorState={colorStateLabel}
           >
@@ -92,7 +114,14 @@ export default function InputWrapper(props: IInputWrapper) {
           </AnimatedInputLabel>
         )}
         {/* Render the underline for the input field if the underline prop is true */}
-        {underline && <FancyInputUnderline colorState={colorStateUnderline === 'error' ? 'error' : 'active'} isActive={isActiv} />}
+        {underline && (
+          <FancyInputUnderline
+            colorState={colorStateUnderline === 'error' ? 'error' : 'active'}
+            themeType={themeType}
+            layer={layer}
+            isActive={isActiv}
+          />
+        )}
       </InputContainer>
       {/* Render the error message if an errorMessage prop exists */}
       {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
