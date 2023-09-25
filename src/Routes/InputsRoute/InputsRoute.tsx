@@ -125,8 +125,8 @@ export default function InputsRoute() {
           <FancyDateDropDown type="year" label="Year" onChange={testHandler3} />
         </DesignArea>
         <DesignArea title="Range Slider">
-          <FancyRangeSlider label="Slider" value={test} handler={testHandler4} />
-          <FancyRangeSlider icon={svg} label="Slider" value={test} handler={testHandler4} align="center" displayNumber={true} />
+          <FancyRangeSlider label="Slider"  value={test} handler={testHandler4} />
+          <FancyRangeSlider icon={svg} themeType='primary' label="Slider" value={test} handler={testHandler4} align="center" displayNumber={true} />
         </DesignArea>
       </DesignWrapper>
     </FancyCard>

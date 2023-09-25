@@ -8,7 +8,7 @@ type IFancyDateInput = IInputWrapperUserInputProps & IDateInputProps;
 // ----The TextInput Comonent with surrounding icon, label and underline ----- //
 // --------------------------------------------------------------------------- //
 export default function FancyDateInput(props: IFancyDateInput) {
-  const { id, value, label, icon, errorMessage, align, disabled, activeHandler, ...inputProps } = props;
+  const { id, value, label, icon, errorMessage, align, disabled, activeHandler, themeType, layer, ...inputProps } = props;
 
   //the states activity of the input
   const [isActiv, setIsActive] = useState(false);
@@ -29,6 +29,8 @@ export default function FancyDateInput(props: IFancyDateInput) {
       value={value}
       label={label}
       disabled={disabled}
+      themeType={themeType}
+      layer={layer}
       align={align}
       isActiv={isActiv}
       icon={icon}
