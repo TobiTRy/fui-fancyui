@@ -94,7 +94,7 @@ export default function InputWrapper(props: IInputWrapper) {
           {icon}
         </FancySVGAtom>
       )}
-      <InputContainer $givePadding={Boolean(label)}>
+      <InputContainer $givePadding={Boolean(label)} $themeType={themeType} $layer={layer}>
         {InputElement}
         {/* Render the label for the input field if a label prop exists */}
         {label && (
