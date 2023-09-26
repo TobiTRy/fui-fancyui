@@ -39,9 +39,10 @@ export default function Modal({ children, closeModal, id, status, themeType, lay
 
   return (
     <>
-      <SimpleDialog isOpen={isOpen} themeType={themeType} layer={layer}>{children}</SimpleDialog>
+      <SimpleDialog isOpen={isOpen} themeType={themeType} layer={layer}>
+        {children}
+      </SimpleDialog>
       <BackDrop isOpen={isOpen} onClick={closeModalHanlder} />
     </>
   );
-};
-
+}

@@ -20,7 +20,6 @@ const StyledDialog = styled(animated.div)<{theme: TUiColorsType, $themeType?: ke
   max-height: 85%;
   ${({theme, $themeType = 'primary', $layer = 1}) => getColorsForComponent({theme, $themeType, $layer})}
   z-index: 1000;
-  ${boxShadow.lg}
 `;
 
 // Define the props for the SimpleDialog component

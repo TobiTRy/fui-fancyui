@@ -7,7 +7,7 @@ const colorTransparencyCalculator = (color: string, transparency: number) => {
   //check color is valid
   if (!isColorValid(color)) {
     console.error('color is not valid');
-    return;
+    return '0 0 0.5px #000000e3';
   }
 
   return Color(color).alpha(transparency).rgb().string();
