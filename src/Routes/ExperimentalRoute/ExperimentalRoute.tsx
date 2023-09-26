@@ -8,7 +8,6 @@ import themeStore from '../../Components/UI/Design/color/themeStore';
 import { FancyTextInput } from '../../Components/UI/Organisms/FancyTextInput';
 import { FancyPasswordInput } from '../../Components/UI/Organisms/FancyPasswordInput';
 
-import TabSwitch from '../../Components/UI/Molecules/TabSwitch/TabSwitch';
 
 const svg = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -43,7 +42,7 @@ export default function ExperimentalRoute() {
   return (
     <div style={{ display: 'flex' }}>
       <FancyCard shadow>
-      <FancyTabSwitch switchValues={switchValues} roundedTabs rounded={'complete'} currentSelect={test} handler={(id: string) => setTest(id)} wide={true} />
+      <FancyTabSwitch size='md' switchValues={switchValues} roundedTabs rounded={'complete'} currentSelect={test} handler={(id: string) => setTest(id)} wide={true} />
         <FancyCard layer={1}>
 
           <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-end' }}>

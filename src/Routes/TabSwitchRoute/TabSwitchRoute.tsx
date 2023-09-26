@@ -12,7 +12,7 @@ const Icon = (
 );
 
 const switchValues = [
-  { key: '1', value: 'Tab 1', label: 'Tab 1' },
+  { key: '1', value: 'Tab 1', label: 'Tab 1 sdsd ldlsldls' },
   { key: '2', value: 'Tab 2', label: 'Tab 2' },
   { key: '3', value: 'Tab 3', label: 'Tab 3' },
 ];

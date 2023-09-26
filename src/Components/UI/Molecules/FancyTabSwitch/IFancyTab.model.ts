@@ -16,6 +16,7 @@ export interface IFancyTabSwitchComponent {
   switchValues: IinputValues[];
   currentSelect?: string;
   handler?: (value: string) => void;
+  size?: 'sm' | 'md' | 'lg';
 }
 
 //this interface hold the complete style propertys  
@@ -26,7 +27,7 @@ export interface IFancyTabStyle  {
   roundedTabs?: boolean;
   tabSpacing?: keyof typeof spacingPx;
   itemObject: IinputValues;
-  textColor?: 'bright' | 'dark';
+  textColor?: keyof TUiColorsType;
   wide?: boolean;
   transparent?: boolean;
   disabled?: boolean;

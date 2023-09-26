@@ -1,19 +1,29 @@
 import { css, styled } from 'styled-components';
-import { IFancyTabSwitchStyle } from './IFancyTab.model';
 import { borderRadius, spacingPx } from '../../Design/design';
 import { disabledStyle } from '../../HelperFunctions/designFunctions/disableStyle';
 import { TUiColorsType } from '../../Design/color/designColor';
+import { tabSwitchSizes } from './FancyTabSwitch';
 
 // ------------------------------------------------------------------ //
 // --------- this genreates the UL List with conditions ------------- //
 // ------------------------------------------------------------------ //
+interface IFancyTabSwitchStyle {
+  $transparent?: boolean;
+  $rounded?: keyof typeof borderRadius;
+  $roundedTabs?: boolean;
+  $wide?: boolean;
+  $tabSpacing?: keyof typeof spacingPx;
+  disabled?: boolean;
+  theme: TUiColorsType;
+  padding?: keyof typeof tabSwitchSizes;
+}
 export const ULButtonSwitchList = styled.ul<IFancyTabSwitchStyle & { theme: TUiColorsType }>`
   display: ${({ $wide }) => ($wide ? 'flex' : 'inline-flex')};
-  align-items: center;
-  padding: ${spacingPx.sm};
-  margin: 0;
+  padding: ${({ padding }) => (padding ? tabSwitchSizes[padding].paddingComponent : '0')};
   gap: ${({ $tabSpacing }) => ($tabSpacing ? spacingPx[$tabSpacing] : '0')};
   ${({ $wide }) => $wide && `justify-content: space-around`};
+  align-items: center;
+  margin: 0;
 
   //this handles the the backgroundcolor and the edge rounding when the backorund is not transparent
   ${({ $transparent, $rounded, $roundedTabs, $tabSpacing, theme }) =>
