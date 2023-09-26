@@ -2,16 +2,31 @@ import React from 'react';
 
 import { InnerCard, StyledCard } from './FancyCard.style';
 import { StyledCardProps } from './Card.model';
+import { TLayer } from '../../Design/color/generateColorSteps';
 
 // --------------------------------------------------------------------------- //
 // ---------- The card is there to wrapp some content or components ---------- //
 // --------------------------------------------------------------------------- //
 interface ICard extends StyledCardProps {
   children?: React.ReactNode;
-  layer?: number;
+  layer?: TLayer;
 }
-export default function Card(props: ICard) {
-  const { children, height, width, radius, padding, roundedEdges, backgroundColor, layer } = { ...defaultProps, ...props };
+export default function FancyCard(props: ICard) {
+  const {
+    children,
+    height,
+    width,
+    radius,
+    padding,
+    roundedEdges,
+    variant,
+    layer,
+    shadow,
+    customColor,
+    customTextColor,
+    themeType,
+    textLayer,
+  } = { ...defaultProps, ...props };
 
   return (
     <StyledCard
@@ -20,8 +35,13 @@ export default function Card(props: ICard) {
       $padding={padding}
       $radius={radius}
       $roundedEdges={roundedEdges}
-      $backgroundColor={backgroundColor}
+      $variant={variant}
+      $textLayer={textLayer}
+      $customColor={customColor}
+      $customTextColor={customTextColor}
+      $themeType={themeType}
       $layer={layer}
+      $shadow={shadow}
     >
       <InnerCard>{children}</InnerCard>
     </StyledCard>
@@ -33,6 +53,7 @@ const defaultProps: ICard = {
   width: '100%',
   radius: 'xxxl',
   padding: 'xl',
+  shadow: true,
   roundedEdges: {
     topRight: true,
     topLeft: true,

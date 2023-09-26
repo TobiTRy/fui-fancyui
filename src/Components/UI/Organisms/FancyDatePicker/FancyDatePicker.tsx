@@ -8,6 +8,8 @@ import IExternalYearWithMonths from '../../Molecules/MonthWithDays/IExternalMont
 import DateOutputFromTo from '../../Molecules/DateOutputFromTo/DateOutputFromTo';
 import { IDisabledDateSettings } from '../../Molecules/MonthWithDays/IDisableDateSettings.model';
 import { IDateArray } from '../../Molecules/RangeCalendar/IDateArray.model';
+import { TUiColorsType } from '../../Design/color/designColor';
+import { TLayer } from '../../Design/color/generateColorSteps';
 
 interface IFancyDatePicker {
   rangeCalendar?: boolean;
@@ -15,14 +17,17 @@ interface IFancyDatePicker {
   selectedYear?: number;
   disabledDateSetting?: IDisabledDateSettings;
   externalData?: IExternalYearWithMonths;
+  themeType?: keyof TUiColorsType;
+  layer?: TLayer;
 }
 
 export default function FancyDatePicker(props: IFancyDatePicker) {
-  const { rangeCalendar, handler, selectedYear, disabledDateSetting, externalData } = { ...defaultProps, ...props };
-
+  const { rangeCalendar, handler, selectedYear, disabledDateSetting, externalData, themeType, layer } = { ...defaultProps, ...props };
   const [selectedDate, setSelectedDate] = useState<IDateArray>([new Date(), new Date()]);
   const [currentlySelectedFromOrTo, setCurrentlySelectedFromOrTo] = useState<'from' | 'to'>('from');
   const [currentlySelectedYear, setCurrentlySelectedYear] = useState<number>(new Date().getFullYear());
+  const swapedTheme = themeType ? (themeType === 'primary' ? 'secondary' : 'primary') : undefined;
+
 
 
   const handleDateChange = (changedDate: IDateArray) => {
@@ -42,12 +47,12 @@ export default function FancyDatePicker(props: IFancyDatePicker) {
   }, [selectedYear]);
 
   return (
-    <DatePickerContainer>
+    <DatePickerContainer $themeType={themeType} $layer={layer}>
       <WrapperYearSelector>
-        <YearSelector selectedYear={currentlySelectedYear} handler={(year: number) => setCurrentlySelectedYear(year)} />
+        <YearSelector selectedYear={currentlySelectedYear} handler={(year: number) => setCurrentlySelectedYear(year)} themeType={swapedTheme} layer={layer} />
       </WrapperYearSelector>
-      <WrapperWeekdays>
-        <WeekDays />
+      <WrapperWeekdays $themeType={swapedTheme}>
+        <WeekDays themeType={swapedTheme} layer={layer} />
       </WrapperWeekdays>
       <RangeCalendar
         rangeCalendar={rangeCalendar}
@@ -57,9 +62,14 @@ export default function FancyDatePicker(props: IFancyDatePicker) {
         selectFromTo={currentlySelectedFromOrTo ?? 'from'}
         handleSwitchFromTo={handleSwitchFromTo}
         disabledDateSetting={disabledDateSetting}
+        themeType={swapedTheme}
+        layer={layer}
       />
       {rangeCalendar && (
         <DateOutputFromTo
+          themeType={themeType}
+          layer={layer}
+          whichIsSelecting={currentlySelectedFromOrTo}
           handler={handleSwitchFromTo}
           dateFrom={Array.isArray(selectedDate) ? selectedDate[0] : new Date()}
           dateTo={Array.isArray(selectedDate) ? selectedDate[1] : new Date()}

@@ -8,7 +8,7 @@ type IFancyTextInputProps = IPasswordInputProps & IInputWrapperUserInputProps;
 // ----The PasswordInput Comonent with surrounding icon, label and underline-- //
 // --------------------------------------------------------------------------- //
 export default function FancyPasswordInput(props: IFancyTextInputProps) {
-  const { id, value, placeholder, activeHandler, errorMessage, disabled, align, icon, label, ...inputProps } = props;
+  const { id, value, placeholder, activeHandler, errorMessage, disabled, align, themeType, layer, icon, label, ...inputProps } = props;
 
   //the states activity of the input
   const [isActiv, setIsActive] = useState(false);
@@ -26,6 +26,8 @@ export default function FancyPasswordInput(props: IFancyTextInputProps) {
   return (
     <InputWrapper
       id={usedId}
+      themeType={themeType}
+      layer={layer}
       value={value}
       placeholder={placeholder}
       label={label}
@@ -39,6 +41,8 @@ export default function FancyPasswordInput(props: IFancyTextInputProps) {
           id={usedId}
           value={value}
           align={align}
+          themeType={themeType}
+          layer={layer}
           disabled={disabled}
           activeHandler={activeFocusHandler}
           placeholder={placeholder}

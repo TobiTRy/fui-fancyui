@@ -4,6 +4,8 @@ import { styled, css } from 'styled-components';
 import { colorPalet } from '../../Design/design';
 import IStyledPrefixAndPicker from '../../Interface/IStyledPrefixAndPicker.model';
 import { TUiColorsType } from '../../Design/color/designColor';
+import { TLayer } from '../../Design/color/generateColorSteps';
+import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
 
 // Define the styled component for the underline
 type IStyledUnderline = IStyledPrefixAndPicker<IFancyUnderline>;
@@ -13,7 +15,7 @@ const UnderLine = styled.i<IStyledUnderline & { theme: TUiColorsType }>`
   bottom: 0;
   height: 2px;
   border-radius: 5px;
-  background: ${({ theme }) => theme.secondary[4]};
+  background: ${({ theme, $themeType = 'secondary', $layer }) => getBackgroundColor({ theme, $themeType, $layer })};
   overflow: hidden;
   width: 100%;
 
@@ -44,13 +46,17 @@ interface IFancyUnderline {
   colorState?: 'error' | 'active' | 'default';
   isActive?: boolean;
   autoWidth?: boolean;
+  themeType?: keyof TUiColorsType;
+  layer?: TLayer;
 }
 // --------------------------------------------------------------------------- //
 // --------- The underline for the input components with state style --------- //
 // --------------------------------------------------------------------------- //
 export default function FancyInputUnderline(props: IFancyUnderline) {
-  const { colorState = 'default', isActive, autoWidth } = props;
+  const { colorState = 'default', isActive, autoWidth, layer = 4, themeType } = props;
+
+  console.log('themeType', themeType);
 
   // Render the FancyInputUnderline component with the appropriate props
-  return <UnderLine $colorState={colorState} $isActive={isActive} $autoWidth={autoWidth} />;
+  return <UnderLine $colorState={colorState} $themeType={themeType} $layer={layer} $isActive={isActive} $autoWidth={autoWidth} />;
 }

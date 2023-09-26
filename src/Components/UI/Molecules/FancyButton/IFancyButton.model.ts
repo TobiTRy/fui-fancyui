@@ -1,5 +1,8 @@
 import { ButtonHTMLAttributes } from "react";
 import { borderRadius } from "../../Design/design";
+import { TUiColorsType } from "../../Design/color/designColor";
+import { TLayer } from "../../Design/color/generateColorSteps";
+import { ISizes } from "../../Atoms/FancySVGAtom/FancySVGAtom.model";
 
 type NativeButtonAttributes = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type'>;
 
@@ -7,11 +10,13 @@ type IFancyButton = {
   size?: "sm" | "md" | "lg";
   isLoading?: boolean;
   wide?: boolean; 
-  design?: "primary" | "secondary" | "accent" | "transparent";
   borderRadius?: keyof typeof borderRadius;
   align?: "left" | "right" | "center";
-  color?: "primary" | "secondary" | "accent";
-  hoverColor?: "primary" | "secondary" | "accent";
+  themeType?: keyof TUiColorsType;
+  layer?: TLayer;
+  textColor?: Exclude<keyof TUiColorsType, "transparent">;
+  hoverColor?: Exclude<keyof TUiColorsType, "transparent">;
+  iconSize?: ISizes;
   label?: string;
   outlined?: boolean;
   icon?: JSX.Element;

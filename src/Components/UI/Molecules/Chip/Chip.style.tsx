@@ -1,7 +1,8 @@
 import styled, { css } from 'styled-components';
-import { IUiColorsTypes, borderRadius, spacing, spacingPx } from '../../Design/design';
-import themeStore from '../../Design/color/themeStore';
+import { borderRadius, spacing, spacingPx } from '../../Design/design';
 import { TUiColorsType } from '../../Design/color/designColor';
+import { TLayer } from '../../Design/color/generateColorSteps';
+import { getBackgroundColor, getTextColor } from '../../Design/color/colorCalculatorForComponet';
 
 // Define the type for the spacing position
 export type TSpacingPosition = 'left' | 'right' | 'booth';
@@ -13,7 +14,7 @@ export const sizes = {
     padding: spacing.xs,
     paddingRight: spacing.xs,
     paddingLeft: spacing.xs,
-    icon: '16px',
+    icon: '14px',
   },
   md: {
     height: '32px',
@@ -59,14 +60,22 @@ export const GenerateSpacing = ({ spacingPosition, size }: IGenerateSpacing) => 
   }
 };
 
-const generateTextColor = (color: IUiColorsTypes, outlined?: boolean, textColor?: IUiColorsTypes) => {
-  const theme = themeStore.getState().theme;
-  if (textColor) return theme[textColor][0];
+interface IGenerateTextColor {
+  theme: TUiColorsType;
+  themeType: keyof TUiColorsType;
+  outlined?: boolean;
+  textColor?: keyof TUiColorsType;
+  textLayer?: TLayer;
+}
+
+const generateTextColor = (props: IGenerateTextColor) => {
+  const { theme, themeType, outlined, textColor, textLayer } = props;
+  if (textColor) return theme[textColor][textLayer || 1];
 
   if (outlined) {
-    return theme.secondary[0];
+    return theme[themeType][0];
   } else {
-    return theme[color].contrast;
+    return getTextColor({ theme, $themeType: themeType, $textLayer: 1 });
   }
 };
 
@@ -75,10 +84,13 @@ interface IStyledChip {
   $spacingPosition?: TSpacingPosition;
   $size?: keyof typeof sizes;
   $outlined?: boolean;
-  $color?: IUiColorsTypes;
-  $textColor?: IUiColorsTypes;
+  $themeType?: keyof TUiColorsType;
+  $textColor?: keyof TUiColorsType;
+  $layer?: TLayer;
+  $textLayer?: TLayer;
+  $isActive?: boolean;
 }
-export const StyledChip = styled.div<IStyledChip  & { theme: TUiColorsType}>`
+export const StyledChip = styled.div<IStyledChip & { theme: TUiColorsType }>`
   ${({ $spacingPosition, $size }) => GenerateSpacing({ spacingPosition: $spacingPosition, size: $size })}
   border: none;
   height: ${({ $size }) => ($size ? sizes[$size].height : sizes.md.height)};
@@ -90,21 +102,41 @@ export const StyledChip = styled.div<IStyledChip  & { theme: TUiColorsType}>`
   width: fit-content;
   border-radius: ${borderRadius.xxxl};
 
-  ${({ $outlined, $color, $textColor, theme }) =>
+  ${({ $outlined, $themeType = 'primary', $textColor = 'secondary', theme, $layer, $textLayer }) =>
     $outlined
       ? css`
-          border: 1px solid ${theme[$color || 'primary'][3]};
-          color: ${generateTextColor($color || 'primary', $outlined, $textColor)};
+          border: 1px solid ${getBackgroundColor({ theme, $themeType, $layer: $layer || 3 })};
+          color: ${generateTextColor({
+            theme,
+            themeType: $themeType || 'secondary',
+            outlined: $outlined,
+            textColor: $textColor,
+            textLayer: $textLayer,
+          })};
         `
       : css`
-          color: ${generateTextColor($color || 'primary', $outlined, $textColor)};
-          background-color: ${theme[$color || 'primary'][3]};
+          color: ${generateTextColor({
+            theme,
+            themeType: $themeType || 'secondary',
+            outlined: $outlined,
+            textColor: $textColor,
+            textLayer: $textLayer,
+          })};
+          background-color: ${getBackgroundColor({ theme, $themeType, $layer: $layer || 3 })};
         `};
+  
+  ${({ $isActive, theme }) => {
+    if ($isActive) {
+      return css`
+        box-shadow: 0 0 0 1px ${theme.accent[0]};
+      `;
+    }
+  }}
 
   /* the icon for the Chip */
   i {
     line-height: 0;
-    margin-right: ${spacing.xs + 2 + 'px'};
+    margin-right: ${spacing.xxs + 2 + 'px'};
     svg {
       width: ${({ $size }) => ($size ? sizes[$size].icon : sizes.md.icon)};
       height: ${({ $size }) => ($size ? sizes[$size].icon : sizes.md.icon)};
@@ -113,7 +145,7 @@ export const StyledChip = styled.div<IStyledChip  & { theme: TUiColorsType}>`
 `;
 
 // Define the styled component for the X button
-export const StyledXButton = styled.button<{ $size?: keyof typeof sizes;}>`
+export const StyledXButton = styled.button<{ $size?: keyof typeof sizes }>`
   border: none;
   background-color: transparent;
   cursor: pointer;
@@ -124,7 +156,6 @@ export const StyledXButton = styled.button<{ $size?: keyof typeof sizes;}>`
   display: flex;
   align-items: center;
   margin-left: ${spacing.xs + 2 + 'px'};
-
 
   svg {
     width: ${({ $size }) => ($size ? sizes[$size].deleteButtonSize : sizes.md.deleteButtonSize)};

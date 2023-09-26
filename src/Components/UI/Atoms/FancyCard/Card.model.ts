@@ -1,17 +1,23 @@
 import { IRoundedEdges } from '../../HelperFunctions/designFunctions/edgeCaluculation';
 import { spacingPx } from '../../Design/design';
 import { borderRadius } from '../../Design/design';
-import themeStore from '../../Design/color/themeStore';
+import { TUiColorsType, TthemeColorGroup } from '../../Design/color/designColor';
+import { TLayer } from '../../Design/color/generateColorSteps';
 
-const theme = themeStore.getState().theme;
+
 
 type IScaling = '100%' | 'auto' | string;
 // the raw styling props for the card
 export interface StyledCardProps {
+  themeType?: keyof TUiColorsType;  
+  variant?: number;
+  customColor?: string | TthemeColorGroup;
+  customTextColor?: string | TthemeColorGroup;
+  textLayer?: TLayer;
   height?: IScaling;
   width?: IScaling;
-  layer?: number;
-  backgroundColor?: keyof typeof theme.primary;
+  layer?: TLayer;
+  shadow?: boolean;
   radius?: keyof typeof borderRadius;
   roundedEdges?: IRoundedEdges;
   padding?: keyof typeof spacingPx | false;

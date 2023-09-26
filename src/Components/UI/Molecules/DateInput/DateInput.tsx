@@ -1,5 +1,5 @@
 import React, { ChangeEvent, InputHTMLAttributes } from 'react';
-import { styled } from 'styled-components';
+import { css, styled } from 'styled-components';
 
 import RawInput from '../../Atoms/RawInput/RawInput';
 import { TRawInputAlign } from '../../Atoms/RawInput/RawInput';
@@ -8,18 +8,24 @@ import { simpleColorTransition } from '../../Design/simpleTransition';
 import { TUiColorsType } from '../../Design/color/designColor';
 
 type IStyledDatePicker = IStyledPrefixAndPicker<IDateInputProps, 'errorMessage' | 'align'> & { value?: string };
-const StyledDatePicker = styled(RawInput)<IStyledDatePicker & {theme: TUiColorsType}>`
+const StyledDatePicker = styled(RawInput)<IStyledDatePicker & { theme: TUiColorsType }>`
   color: ${({ value }) => (value ? '' : 'transparent')};
 
   &:focus {
-    color: ${({theme}) => theme.secondary[0]};
+    color: ${({ theme }) => theme.secondary[0]};
   }
 
   &::-webkit-calendar-picker-indicator {
-    filter: invert(1);
-  }
+    ${simpleColorTransition}
 
-  ${simpleColorTransition}
+    ${({ theme }) =>
+      css`
+        background-image: ${`url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" viewBox="0 0 24 24"><path fill="${theme.secondary[4].replace(
+          '#',
+          '%23'
+        )}" d="M20 3h-1V1h-2v2H7V1H5v2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 18H4V8h16v13z"/></svg>')`};
+      `};
+  }
 `;
 
 export interface IDateInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'type'> {
@@ -28,20 +34,20 @@ export interface IDateInputProps extends Omit<InputHTMLAttributes<HTMLInputEleme
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
   activeHandler?: (value: boolean) => void;
   align?: TRawInputAlign;
+  type?: 'week' | 'date' | 'month' | 'time' | 'datetime-local' | 'datetime';
 }
-
 // --------------------------------------------------------------------------- //
 // ---------- Here are the design variants for sizing and alignment ---------- //
 // --------------------------------------------------------------------------- //
 export default function DateInput(props: IDateInputProps) {
-  const { value, onChange, activeHandler, name, disabled, errorMessage, align, ...htmlInputProps } = props;
+  const { value, onChange, activeHandler, name, disabled, errorMessage, align, type, ...htmlInputProps } = props;
 
   return (
     <StyledDatePicker
       $errorMessage={errorMessage}
       $align={align}
       name={name}
-      type="date"
+      type={type || 'date'}
       value={value}
       onChange={onChange}
       disabled={disabled}

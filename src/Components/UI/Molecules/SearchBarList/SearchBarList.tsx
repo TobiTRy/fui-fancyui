@@ -3,6 +3,8 @@ import { styled } from 'styled-components';
 import FancyCard from '../../Atoms/FancyCard/FancyCard';
 
 import { borderRadius } from '../../Design/design';
+import { TUiColorsType } from '../../Design/color/designColor';
+import { TLayer } from '../../Design/color/generateColorSteps';
 
 // Styled component for the search bar list
 const StyledSearchBarList = styled.div`
@@ -23,20 +25,21 @@ const InnerCard = styled.div`
 
 // Props for the SearchBarList component
 interface ISearchBarList {
-  isActive?: boolean; // Whether the search bar list is active
-  children?: React.ReactNode; // List of items to display in the search bar list
+  isActive?: boolean;
+  children?: React.ReactNode;
   alignTop?: string;
+  themeType?: keyof TUiColorsType;
+  layer?: TLayer;
 }
-
 // The SearchBarList component
 export default function SearchBarList(props: ISearchBarList) {
-  const { isActive, children } = props;
+  const { isActive, children, themeType, layer } = props;
 
   return (
     <StyledSearchBarList>
       {/* If the search bar list is active, display the list */}
       {isActive && (
-        <FancyCard backgroundColor={2} radius="xxl">
+        <FancyCard themeType={themeType} layer={layer} radius="xxl">
           <InnerCard>
             {/* If there are items to display, display them */}
             {children && <div>{children}</div>}

@@ -8,6 +8,8 @@ import useVisibleMonths from './useVisibleMonths';
 import { IDisabledDateSettings } from '../MonthWithDays/IDisableDateSettings.model';
 import {IExternalMonthWithDays} from '../MonthWithDays/IExternalMonthWithDays.model';
 import { IDateArray } from './IDateArray.model';
+import { TUiColorsType } from '../../Design/color/designColor';
+import { TLayer } from '../../Design/color/generateColorSteps';
 
 
 // --------------------------------------------------------------------------- //
@@ -21,6 +23,8 @@ interface ICalendar {
   handleSwitchFromTo?: (change: 'from' | 'to') => void;
   disabledDateSetting?: IDisabledDateSettings;
   externalMonthsWithDays?: IExternalMonthWithDays[];
+  themeType?: keyof TUiColorsType;
+  layer?: TLayer;
 }
 export default function RangeCalendar(props: ICalendar) {
   const {
@@ -31,6 +35,8 @@ export default function RangeCalendar(props: ICalendar) {
     disabledDateSetting,
     externalMonthsWithDays,
     rangeCalendar = false,
+    themeType,
+    layer,
   } = props;
   const monthRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -84,6 +90,8 @@ export default function RangeCalendar(props: ICalendar) {
               monthIdx={MonthIdx}
               externalMonthWithDays={externalMonthsData[MonthIdx]}
               year={selectedYear}
+              themeType={themeType}
+              layer={layer}
               handleDateClick={handleDateClick}
               isRangePicking={rangeCalendar}
               selectedDates={selectedDates}

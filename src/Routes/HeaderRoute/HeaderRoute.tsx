@@ -21,8 +21,8 @@ const RightSlot = ({ onClick }: { onClick?: () => void }) => {
 };
 
 const Slot = {
-  component: <FancySearchBar searchListWidth="80vw">
-    <FancyLoadingSpinner size='lg' />
+  component: <FancySearchBar searchListWidth="80vw" layer={1}>
+    <FancyLoadingSpinner size='lg'  />
   </FancySearchBar>,
   scale: 1,
 };

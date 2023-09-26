@@ -14,7 +14,22 @@ const Button = styled.button<IGenerateThemeItem>`
 
 //the main react component to generate the fancyButton
 export default function FancyButton(props: IFancyButtonProps) {
-  const { icon, label, size, wide, design, align, color, hoverColor, outlined, borderRadius, isLoading, ...htmlButtonProps } = {
+  const {
+    icon,
+    label,
+    size,
+    iconSize,
+    wide,
+    themeType,
+    align,
+    textColor,
+    hoverColor,
+    outlined,
+    borderRadius,
+    isLoading,
+    layer,
+    ...htmlButtonProps
+  } = {
     ...defaultProps,
     ...props,
   };
@@ -22,39 +37,41 @@ export default function FancyButton(props: IFancyButtonProps) {
   return (
     <Button
       $size={size!}
-      $design={design!}
+      $themeType={themeType}
       $borderRadius={borderRadius}
       $align={align}
-      $color={color}
+      $textColor={textColor}
       $wide={wide}
       $icon={icon}
       $hoverColor={hoverColor}
       $label={label}
       $outlined={outlined}
+      $layer={layer}
       type="button"
       {...htmlButtonProps}
     >
-      <LoadingSVGArrows
-        isLoading={isLoading}
-        size={size}
-      />
+      <LoadingSVGArrows isLoading={isLoading} size={size} />
 
       {icon && !isLoading && (
-        <FancySVGAtom size={size} isPassive>
+        <FancySVGAtom size={iconSize || size} isPassive externalStyle={{ flexShrink: '0' }}>
           {icon}
         </FancySVGAtom>
       )}
 
       {/* This is needed to hold the button the same size when its loading*/}
-      {(isLoading && label ) && <Typography  style={{visibility: 'hidden', width: 0}} type="button">{'.'}</Typography>}
-  
+      {isLoading && label && (
+        <Typography style={{ visibility: 'hidden', width: 0 }} type="button">
+          {'.'}
+        </Typography>
+      )}
+
       {label && <Typography type="button">{label}</Typography>}
     </Button>
   );
 }
 
 const defaultProps: IFancyButtonProps = {
-  design: 'accent',
+  themeType: 'accent',
   size: 'lg',
   align: 'center',
 };

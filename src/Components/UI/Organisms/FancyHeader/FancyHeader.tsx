@@ -4,7 +4,7 @@ import SimpleHeader from '../../Molecules/SimpleHeader/SimpleHeader';
 import { styled } from 'styled-components';
 import { spacingPx } from '../../Design/design';
 
-import {ISimpleHeader} from '../../Molecules/SimpleHeader/SimpleHeader.model';
+import { ISimpleHeader } from '../../Molecules/SimpleHeader/SimpleHeader.model';
 
 const Wrapper = styled.header`
   position: absolute;
@@ -17,16 +17,21 @@ const Wrapper = styled.header`
 // --------------------------------------------------------------------------- //
 // ------ The header component which handles the position and the props ------ //
 // --------------------------------------------------------------------------- //
-interface IFancyHeader extends ISimpleHeader {
-
-}
+interface IFancyHeader extends ISimpleHeader {}
 export default function FancyHeader(props: IFancyHeader) {
-  const { rightSlot, leftSlot, middeSlot, spacingLeftRight, headerHeight} = {...defaultProps, ...props};
-
+  const { rightSlot, leftSlot, middeSlot, spacingLeftRight, headerHeight, themeType, layer } = { ...defaultProps, ...props };
 
   return (
     <Wrapper>
-      <SimpleHeader leftSlot={leftSlot} middeSlot={middeSlot} headerHeight={headerHeight} spacingLeftRight={spacingLeftRight} rightSlot={rightSlot} />
+      <SimpleHeader
+        leftSlot={leftSlot}
+        middeSlot={middeSlot}
+        headerHeight={headerHeight}
+        spacingLeftRight={spacingLeftRight}
+        rightSlot={rightSlot}
+        themeType={themeType}
+        layer={layer}
+      />
     </Wrapper>
   );
 }
@@ -34,4 +39,4 @@ export default function FancyHeader(props: IFancyHeader) {
 const defaultProps: IFancyHeader = {
   spacingLeftRight: spacingPx.sm,
   headerHeight: '3rem',
-}
+};

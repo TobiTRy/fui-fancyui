@@ -3,6 +3,8 @@ import { styled } from 'styled-components';
 
 import SearchBar from '../../Molecules/SearchBar/SearchBar';
 import SearchBarList from '../../Molecules/SearchBarList/SearchBarList';
+import { TLayer } from '../../Design/color/generateColorSteps';
+import { TUiColorsType } from '../../Design/color/designColor';
 
 // Styled component for the entire search bar
 const StyledFancySearchBar = styled.div`
@@ -32,15 +34,17 @@ const WrapperList = styled.div<{ $width?: string }>`
 
 // Props for the FancySearchBar component
 interface IFancySearchBar {
-  handlerSearchValue?: (searchValue: string) => void; // Function to handle search value changes
-  children?: React.ReactNode; // List of items to display in the search bar list
-  searchListWidth?: string; // Width of the search bar list
-  searchValue?: string; // The search value
+  handlerSearchValue?: (searchValue: string) => void;
+  children?: React.ReactNode;
+  searchListWidth?: string;
+  searchValue?: string;
+  themeType?: keyof TUiColorsType;
+  layer?: TLayer;
 }
 
 // The FancySearchBar component
 export default function FancySearchBar(props: IFancySearchBar) {
-  const { handlerSearchValue, children, searchListWidth, searchValue } = props;
+  const { handlerSearchValue, children, searchListWidth, searchValue, themeType, layer } = props;
   const [isActive, setIsActive] = useState(false); // State for whether the search bar list is active
 
   // Function to handle changes to the isActive state
@@ -53,7 +57,6 @@ export default function FancySearchBar(props: IFancySearchBar) {
     handlerSearchValue && handlerSearchValue(searchValue);
   };
 
-
   return (
     <StyledFancySearchBar>
       <WrapperListInput>
@@ -61,7 +64,7 @@ export default function FancySearchBar(props: IFancySearchBar) {
         <SearchBar activeHandler={activeHandler} searchValue={searchValue} isActive={isActive} handler={searchValueHandler} />
         {/* The search bar list */}
         <WrapperList $width={searchListWidth}>
-          <SearchBarList isActive={isActive}>{children}</SearchBarList>
+          <SearchBarList isActive={isActive} themeType={themeType} layer={layer}>{children}</SearchBarList>
         </WrapperList>
       </WrapperListInput>
     </StyledFancySearchBar>

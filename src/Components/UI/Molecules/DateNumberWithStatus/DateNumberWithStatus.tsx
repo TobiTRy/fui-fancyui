@@ -5,6 +5,8 @@ import DateNumberAtom from '../../Atoms/DateNumberAtom/DateNumberAtom';
 import AvilableDot, { IAvilableDot } from '../../Atoms/AvilableDot/AvilableDot';
 import { spacingPx } from '../../Design/design';
 import { IRange } from '../../Atoms/DateNumberAtom/DateNumberAtom';
+import { TLayer } from '../../Design/color/generateColorSteps';
+import { TUiColorsType } from '../../Design/color/designColor';
 
 const StyledDateNumberWithStatus = styled.div`
   box-sizing: border-box;
@@ -24,13 +26,23 @@ interface IDateNumberWithStatus {
   isCurrentDay?: boolean;
   range?: IRange;
   onClick?: () => void;
+  themeType?: keyof TUiColorsType;
+  layer?: TLayer;
 }
 export default function DateNumberWithStatus(props: IDateNumberWithStatus) {
-  const { isAvailable, disabled, dateNumber, isSelected, onClick, range, isCurrentDay } = props;
+  const { isAvailable, disabled, dateNumber, isSelected, onClick, range, isCurrentDay, layer, themeType } = props;
 
   return (
     <StyledDateNumberWithStatus onClick={onClick}>
-      <DateNumberAtom dateNumber={dateNumber} disabled={disabled} selected={isSelected} isCurrentDay={isCurrentDay} range={range} />
+      <DateNumberAtom
+        dateNumber={dateNumber}
+        disabled={disabled}
+        selected={isSelected}
+        isCurrentDay={isCurrentDay}
+        range={range}
+        layer={layer}
+        themeType={themeType}
+      />
       <AvilableDot $avilable={disabled ? 'transparent' : isAvailable!} />
     </StyledDateNumberWithStatus>
   );

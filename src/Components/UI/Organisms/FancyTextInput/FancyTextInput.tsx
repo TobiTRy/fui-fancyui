@@ -7,7 +7,7 @@ type IFancyTextInputProps = ITextInputProps & IInputWrapperUserInputProps;
 // ----The TextInput Comonent with surrounding icon, label and underline ----- //
 // --------------------------------------------------------------------------- //
 export default function FancyTextInput(props: IFancyTextInputProps) {
-  const { id, value, activeHandler, placeholder, errorMessage, disabled, align, icon, label, ...inputProps } = props;
+  const { id, value, activeHandler, themeType, layer, placeholder, errorMessage, disabled ,align, icon, label, ...inputProps } = props;
 
   //the states activity of the input
   const [isActiv, setIsActive] = useState(false);
@@ -29,6 +29,8 @@ export default function FancyTextInput(props: IFancyTextInputProps) {
       label={label}
       disabled={disabled}
       placeholder={placeholder}
+      themeType={themeType}
+      layer={layer}
       align={align}
       isActiv={isActiv}
       icon={icon}

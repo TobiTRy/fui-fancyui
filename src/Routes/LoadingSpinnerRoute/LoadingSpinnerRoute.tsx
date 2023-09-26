@@ -39,7 +39,7 @@ export default function LoadingSpinnerRoute() {
         <DesignArea title="Loading Spinner">
           <div style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '48px' }}>
             <FancyLoadingBar />
-            <ProgressBar progress={progress} label="test" labelAlign="center" progressCount progressAlign="right" />
+            <ProgressBar progress={progress} label="test" labelAlign="center" progressCount progressAlign="right" themeType='primary' />
             <FancyLoadingSpinner size="xxl" />
           </div>
         </DesignArea>

@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useEffect, useId, useState } from 'react';
+import React, { ChangeEvent, useId, useState } from 'react';
 
 import RawSlider from '../../Atoms/RawSlider/RawSlider';
 import FancyNumberInput from '../FancyNumberInput/FancyNumberInput';
@@ -11,7 +11,7 @@ import IFancyRangeSlider from './FancyRangeSlider.model';
 // -------------------- The main FancySlider Component ----------------------- //
 // --------------------------------------------------------------------------- //
 export default function FancyRangeSlider(props: IFancyRangeSlider) {
-  const { label, align, icon, value, minValue, maxValue, displayNumber, handler, disabled } = { ...defaultProps, ...props };
+  const { label, align, icon, value, min, max, displayNumber, handler, themeType, layer, disabled } = { ...defaultProps, ...props };
 
   const [isActive, setIsActive] = useState(false);
   const [toutched, setToutched] = useState(false);
@@ -38,7 +38,7 @@ export default function FancyRangeSlider(props: IFancyRangeSlider) {
       {/* Icon for the left side of the slider */}
       {icon && (
         <Icon>
-          <FancySVGAtom isPassive={false} isActive={isActive} size="lg">
+          <FancySVGAtom isPassive={false} isActive={isActive} size="lg" themeType={themeType} layer={layer} externalStyle={{transition: 'color 0.3s ease-in-out'}}>
             {icon}
           </FancySVGAtom>
         </Icon>
@@ -46,7 +46,7 @@ export default function FancyRangeSlider(props: IFancyRangeSlider) {
 
       {/* label for the top side of the slider */}
       {label && (
-        <Label htmlFor={id} $align={align} $isActive={isActive || toutched}>
+        <Label htmlFor={id} $align={align} $isActive={isActive || toutched} $themeType={themeType} $layer={layer}>
           {label}
         </Label>
       )}
@@ -56,10 +56,12 @@ export default function FancyRangeSlider(props: IFancyRangeSlider) {
           id={id}
           disabled={disabled}
           value={value}
-          handler={changeHandler}
+          themeType={themeType}
+          layer={layer}
+          onChange={changeHandler}
           activeHandler={activeHandler}
-          minValue={minValue}
-          maxValue={maxValue}
+          min={min}
+          max={max}
         />
       </RangeSliderContainer>
 
@@ -67,13 +69,15 @@ export default function FancyRangeSlider(props: IFancyRangeSlider) {
       {displayNumber && (
         <NumberContainer>
           <FancyNumberInput
+            themeType={themeType}
+            layer={layer}
             aria-label={label}
             autoWidth={true}
             align="center"
             value={value}
             onChange={changeHandler}
-            min={minValue}
-            max={maxValue}
+            min={min}
+            max={max}
           />
         </NumberContainer>
       )}
@@ -82,6 +86,6 @@ export default function FancyRangeSlider(props: IFancyRangeSlider) {
 }
 
 const defaultProps: IFancyRangeSlider = {
-  minValue: 0,
-  maxValue: 100,
+  min: 0,
+  max: 100,
 };

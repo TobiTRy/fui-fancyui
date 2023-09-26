@@ -8,6 +8,8 @@ import UseDelay from '../../HelperFunctions/hooks/UseDelay';
 import ScalingSection from '../ScalingSection/ScalingSection';
 import { Content, ContentBox, WrapperAnimated, WrapperContent, WrapperModal } from './SwipeUpModal.style';
 import { ModalStatus } from '../../Interface/ModalStatus';
+import { TUiColorsType } from '../../Design/color/designColor';
+import { TLayer } from '../../Design/color/generateColorSteps';
 
 // --------------------------------------------------------------------------- //
 // ----------- The Modal Molecule the displays the complete modal - ---------- //
@@ -18,10 +20,12 @@ interface ISwipeUpModal {
   children?: React.ReactNode;
   isCloseAble?: boolean; // if a error occurs and the modal should be closeable
   isScalable?: boolean; // if the modal should be static or scalable
+  themeType?: keyof TUiColorsType;
+  layer?: TLayer;
   closeHandler?: (id: string) => void;
 }
 export default function SwipeUpModal(props: ISwipeUpModal) {
-  const { children, status, isCloseAble, isScalable, closeHandler, id } = { ...defaultProps, ...props };
+  const { children, status, isCloseAble, isScalable, closeHandler, id, themeType, layer } = { ...defaultProps, ...props };
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalPosition, setModalPosition] = useState({ height: '100%' });
   const [initialHeight, setInitialHeight] = useState<number | undefined>();
@@ -101,7 +105,7 @@ export default function SwipeUpModal(props: ISwipeUpModal) {
           (styles, item) =>
             item && (
               <WrapperAnimated as={animated.div} style={styles}>
-                <SwipeUpContainer style={modalPosition} isScalable={isScalable}>
+                <SwipeUpContainer style={modalPosition} isScalable={isScalable} themeType={themeType} layer={layer}>
                   {/*// ---------- The top of the modal is used for the scaling ---------- //*/}
                   {isScalable && (
                     <ScalingSection

@@ -21,7 +21,7 @@ export const SpeedDialContainer = styled.div`
 
 export const Button = styled.button<{ $isOpen: boolean; theme: TUiColorsType }>`
   position: relative;
-  background-color: ${({ theme }) => theme.accent[1]};
+  background-color: ${({ theme }) => theme.accent[0]};
   color: ${({ theme }) => theme.secondary[0]};
   border: none;
   border-radius: 50%;
@@ -32,9 +32,8 @@ export const Button = styled.button<{ $isOpen: boolean; theme: TUiColorsType }>`
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 3;
-  transition: box-shadow 0.3s ease;
-  ${boxShadow.md}
+  z-index: 50;
+  ${boxShadow.sm}
 
   svg {
     position: absolute;
@@ -53,14 +52,17 @@ export const Ring = styled.div<{ $isOpen: boolean; theme: TUiColorsType }>`
   position: absolute;
   height: ${SpeedDailButtonSize + 'px'};
   width: ${SpeedDailButtonSize + 'px'};
-  border: 1.5px solid ${({ theme }) => theme.accent[0]};
+  border-bottom: 1.5px solid ${({ theme }) => theme.accent[0]};
+  border-top: 1.5px solid ${({ theme }) => theme.accent[0]};
+  border-left:  solid transparent;
+  border-right:  solid transparent;
   border-radius: 50%;
-  z-index: 4;
+  z-index: 49;
   top: 50%;
   right: 50%;
-  transform: ${({ $isOpen }) => ($isOpen ? 'translate(50%, -50%) scale(1.12)' : 'translate(50%, -50%) scale(0.9)')};
+  transform: ${({ $isOpen }) => ($isOpen ? 'translate(50%, -50%) scale(1.12) rotate(125deg)' : 'translate(50%, -50%) scale(0.9) rotate(20deg)')};
   opacity: ${({ $isOpen }) => ($isOpen ? 1 : 0)};
-  transition: opacity 0.5s ease-in-out, transform 0.3s ease;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
   pointer-events: none;
 `;
 

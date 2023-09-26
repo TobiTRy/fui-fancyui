@@ -1,31 +1,32 @@
-import React, { useRef } from 'react';
+import React, { InputHTMLAttributes, useRef } from 'react';
 import { StyledRawSlider } from './RawSlider.style';
+import { TLayer } from '../../Design/color/generateColorSteps';
+import { TUiColorsType } from '../../Design/color/designColor';
+
+
 
 // --------------------------------------------------------------------------- //
 // ------------ Here is createt the Slider Atom (Range Slider) --------------- //
 // --------------------------------------------------------------------------- //
-interface IRawSlider {
-  disabled?: boolean;
+export interface IRawSlider extends InputHTMLAttributes<HTMLInputElement> {
   id?: string;
-  minValue?: number;
-  maxValue?: number;
-  value?: number;
-  handler?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   activeHandler?: (value: boolean) => void;
   ref?: React.RefObject<HTMLInputElement>;
+  themeType?: keyof TUiColorsType;
+  layer?: TLayer;
 }
 export default function RawSlider(props: IRawSlider) {
-  const { disabled, id, maxValue, minValue, value, handler, ref, activeHandler } = props;
+  const { disabled, id, max, min, value, ref, activeHandler, themeType, layer, ...htmlProps } = props;
   const inputSlider = useRef<HTMLInputElement | null>(null);
-  const sliderProgress = value ? value : 0
+  const sliderProgress = value ? Number(value) : 0;
 
   const focusHandler = (value: boolean) => {
     activeHandler && activeHandler(value);
   };
 
   //initialize the min an max value when get it or not
-  const minVal = minValue ? minValue : 0;
-  const maxVal = maxValue ? maxValue : 100;
+  const minVal = min ? Number(min) : 0;
+  const maxVal = max ? Number(max) : 100;
 
   //calc the the progress
   const calcBackgorundSize = !isNaN(sliderProgress) ? ((sliderProgress - minVal) * 100) / (maxVal - minVal) + '% 100%' : '0% 100%';
@@ -39,6 +40,8 @@ export default function RawSlider(props: IRawSlider) {
       onBlur={() => focusHandler(false)}
       style={{ backgroundSize: calcBackgorundSize }}
       id={id}
+      $themeType={themeType}
+      $layer={layer}
       type="range"
       value={calcSliderProgress}
       min={minVal}
@@ -48,7 +51,7 @@ export default function RawSlider(props: IRawSlider) {
         inputSlider.current?.focus();
       }}
       onTouchEnd={() => setTimeout(() => focusHandler(false), 500)}
-      onChange={handler}
+      {...htmlProps}
     />
   );
 }

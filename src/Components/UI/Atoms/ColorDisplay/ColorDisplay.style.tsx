@@ -4,6 +4,12 @@ import { borderRadius, fontSize } from '../../Design/design';
 import { simpleColorTransition } from '../../Design/simpleTransition';
 import { TUiColorsType } from '../../Design/color/designColor';
 
+const colorCalculation = ({ theme, $isBright, $isDarkTheme }: { theme: TUiColorsType; $isBright: boolean; $isDarkTheme: boolean }) => {
+  if($isDarkTheme) return ($isBright ? theme.primary[0] : theme.secondary[0]);
+
+  return ($isBright ? theme.secondary[0] : theme.primary[0]);
+}
+
 
 export const Content = styled.div<{ $isBright: boolean; theme: TUiColorsType, $isDarkTheme: boolean }>`
   position: absolute;
@@ -17,7 +23,7 @@ export const Content = styled.div<{ $isBright: boolean; theme: TUiColorsType, $i
   z-index: 2;
   gap: 3px;
   font-size: ${fontSize.sm};
-  color: ${({theme, $isBright, $isDarkTheme}) => ($isBright && $isDarkTheme) ? theme.primary[0] : theme.secondary[0] };
+  color: ${({theme, $isBright, $isDarkTheme}) => colorCalculation({theme, $isBright, $isDarkTheme})};
   ${simpleColorTransition}
 
   p {

@@ -85,7 +85,7 @@ export default function PageNumberList(props: IPageNumberList) {
             label={`${item}`}
             onClick={() => onClick && onClick(index + 1)}
             size="md"
-            design="transparent"
+            themeType="transparent"
             wide={false}
           />
         </ButtonWrapper>

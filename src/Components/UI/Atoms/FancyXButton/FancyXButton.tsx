@@ -42,11 +42,11 @@ const StyledFancyXButton = styled.button<{$colorValue?: string, theme: TUiColors
 // --------------------------------------------------------------------------- //
 interface IFancyXButton {
   onClick?: () => void;
-  design?: FancyXButtonDesign;
+  themeType?: FancyXButtonDesign;
 }
-export default function FancyXButton({ onClick, design }: IFancyXButton) {
+export default function FancyXButton({ onClick, themeType }: IFancyXButton) {
   //check wich design comes in and add the right color object uiColor or systemMessages  to the button 
-  const colorValue = pickColorObject(design);
+  const colorValue = pickColorObject(themeType);
 
   return <StyledFancyXButton onClick={onClick} $colorValue={colorValue}>x</StyledFancyXButton>;
 }

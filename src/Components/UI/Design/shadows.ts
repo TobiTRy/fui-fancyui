@@ -1,9 +1,12 @@
 import { css } from 'styled-components';
+import themeStore from './color/themeStore';
+import colorTransparencyCalculator from './color/colorTransparencyCalculator';
+import { TUiColorsType } from './color/designColor';
 
 //global text-shadow
 export const textShadow = {
   sm: css`
-    text-shadow: 1px 1px 1px black;
+    text-shadow: 0 0 20px #0000009c;;
   `,
   md: css`
     text-shadow: 0 0 15px #19191980;
@@ -16,12 +19,22 @@ export const textShadow = {
 //global box-shadow
 export const boxShadow = {
   sm: css`
-    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.15);
+    ${() => {
+      const themeColor = colorTransparencyCalculator(themeStore.getState().theme.secondary[0], 0.05);
+      return `box-shadow: 0 0 1px 1px ${themeColor}, 0 0 0.5px ${themeColor};`;
+    }}
   `,
   md: css`
-    box-shadow: 1px 0px 15px #000000e3;
+    ${() => {
+      const themeColor = colorTransparencyCalculator(themeStore.getState().theme.secondary[0], 0.1);
+      return `box-shadow: 0 0 2px 1px ${themeColor}, 0 0 1px ${themeColor};`;
+    }}
   `,
   lg: css`
-    box-shadow: 1px 0px 23px #000000e3;
+    ${() => {
+      const themeColor = colorTransparencyCalculator(themeStore.getState().theme.secondary[0], 0.1);
+      return `box-shadow: 1px 0 23px ${themeColor}`;
+    }}
+
   `,
 };

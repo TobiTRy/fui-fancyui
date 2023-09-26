@@ -16,7 +16,6 @@ function generateColorVariations(baseColor: string, steps: number[]): string[] {
   });
 }
 
-
 // Define the steps for the different color types
 const degreeSteps = [0, 3, 7, 10, 18, 25, 34, 40, 60, 70];
 const degreeStepsAccent = [0, 5, 10, 15, 20, 25, 30, 35, 40, 45];
@@ -39,12 +38,11 @@ function lightenColors(colorType: TColorTypes, color: string): string[] {
   }
 }
 
-type StepKeys = 10 | 9 | 8 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0;
+export type TLayer = 10 | 9 | 8 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0;
 
 type ColorSteps = {
-  [key in StepKeys]: string;
+  [key in TLayer]: string;
 };
-
 
 // this function generates a object with the color steps
 export default function generateColorSteps(colorType: TColorTypes, color: string): ColorSteps {
@@ -53,7 +51,7 @@ export default function generateColorSteps(colorType: TColorTypes, color: string
 
   //make array to object with keys but reversed order
   lightColors.forEach((color, index) => {
-    obj[index  as StepKeys] = color;
+    obj[index as TLayer] = color;
   });
 
   return obj;

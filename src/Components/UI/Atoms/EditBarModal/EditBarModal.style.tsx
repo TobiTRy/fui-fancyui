@@ -41,7 +41,7 @@ export const Wrapper = styled.div<IWrapper & { theme: TUiColorsType }>`
   ${({ $width, $spacingLeftRight }) => calcBarWidthandSpacing($width, $spacingLeftRight)};
   background-color: ${({theme}) => theme.primary[1]};
   border-radius: 12px 12px 0px 0px;
-  ${boxShadow.md}
+  ${boxShadow.sm}
 `;
 
 export const WrapperContent = styled.div`

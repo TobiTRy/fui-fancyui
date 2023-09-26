@@ -56,6 +56,7 @@ export default function TabSwitchRoute() {
           <FancyTabSwitch
             transparent={true}
             switchValues={switchValues}
+            wide={true}
             rounded={'complete'}
             currentSelect={selected}
             handler={selecttHandler}

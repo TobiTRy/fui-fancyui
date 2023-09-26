@@ -8,7 +8,8 @@ type IFancyNumberInput = INumberInput & IInputWrapperUserInputProps & { autoWidt
 // ----The NumberInput Comonent with surrounding icon, label and underline --- //
 // --------------------------------------------------------------------------- //
 export default function FancyNumberInput(props: IFancyNumberInput) {
-  const { value, label, icon, activeHandler, disabled, errorMessage, align, id, autoWidth, placeholder, ...inputProps } = props;
+  const { value, label, icon, activeHandler, disabled, errorMessage, align, id, themeType, layer, autoWidth, placeholder, ...inputProps } =
+    props;
 
   //the states activity of the input
   const [isActiv, setIsActive] = useState(false);
@@ -35,6 +36,8 @@ export default function FancyNumberInput(props: IFancyNumberInput) {
       icon={icon}
       autoWidth={autoWidth}
       errorMessage={errorMessage}
+      themeType={themeType}
+      layer={layer}
       InputElement={
         <NumberInput
           id={usedId}

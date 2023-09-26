@@ -18,10 +18,6 @@ export default function FancySpeedDialButton(props: ISpeedail) {
   return (
     <Wrapper>
       <SpeedDialContainer>
-        <Button $isOpen={isOpen} aria-label={'Open Menue'} onClick={() => setIsOpen(!isOpen)}>
-          {SVGPlus}
-        </Button>
-        <Ring $isOpen={isOpen} />
         <MenueItemWrapper>
           {items?.map((item, index) => (
             <MenueItemContainer key={index} $index={index} $isOpen={isOpen}>
@@ -29,6 +25,10 @@ export default function FancySpeedDialButton(props: ISpeedail) {
             </MenueItemContainer>
           ))}
         </MenueItemWrapper>
+        <Button $isOpen={isOpen} aria-label={'Open Menue'} onClick={() => setIsOpen(!isOpen)}>
+          {SVGPlus}
+        </Button>
+        <Ring $isOpen={isOpen} />
       </SpeedDialContainer>
     </Wrapper>
   );
