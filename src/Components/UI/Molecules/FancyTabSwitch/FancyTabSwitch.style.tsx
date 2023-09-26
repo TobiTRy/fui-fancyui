@@ -10,7 +10,7 @@ import { TUiColorsType } from '../../Design/color/designColor';
 export const ULButtonSwitchList = styled.ul<IFancyTabSwitchStyle & { theme: TUiColorsType }>`
   display: ${({ $wide }) => ($wide ? 'flex' : 'inline-flex')};
   align-items: center;
-  padding: 0;
+  padding: ${spacingPx.sm};
   margin: 0;
   gap: ${({ $tabSpacing }) => ($tabSpacing ? spacingPx[$tabSpacing] : '0')};
   ${({ $wide }) => $wide && `justify-content: space-around`};
@@ -19,7 +19,7 @@ export const ULButtonSwitchList = styled.ul<IFancyTabSwitchStyle & { theme: TUiC
   ${({ $transparent, $rounded, $roundedTabs, $tabSpacing, theme }) =>
     !$transparent &&
     css`
-      background-color: ${!$tabSpacing ? theme.primary[1] : 'transparent'};
+      background-color: ${!$tabSpacing ? theme.primary[3] : 'transparent'};
 
       ${$rounded &&
       css`

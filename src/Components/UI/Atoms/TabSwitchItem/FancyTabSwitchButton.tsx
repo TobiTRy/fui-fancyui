@@ -7,6 +7,16 @@ import Typography from '../Typography/Typography';
 // ------------------------------------------------------------------ //
 // ------------- main component for the tab (li item) --------------- //
 // ------------------------------------------------------------------ //
+interface IFancyTabSwitchItem  {
+  disabled?: boolean;
+  itemObject: { key: string; label?: string; icon?: JSX.Element };
+  selected: boolean;
+  onClick: (key: string) => void;
+  transparent?: boolean;
+  wide?: boolean;
+  textColor?: 'dark' | 'light';
+  iconAlign?: 'left' | 'right';
+}
 export default function FancyTabSwitchItem(props: IFancyTabStyle) {
   const { disabled, itemObject, selected, handler, transparent, wide, textColor, iconAlign } = props;
 

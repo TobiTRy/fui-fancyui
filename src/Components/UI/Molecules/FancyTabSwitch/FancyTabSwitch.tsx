@@ -3,10 +3,31 @@ import React, { useState } from 'react';
 import FancyTabSwitchButton from '../../Atoms/TabSwitchItem/FancyTabSwitchButton';
 import IFancyTab from './IFancyTab.model';
 import { ULButtonSwitchList } from './FancyTabSwitch.style';
+import styled from 'styled-components';
+import { TUiColorsType } from '../../Design/color/designColor';
 
 // ------------------------------------------------------------------ //
 // ------ the main react component to generate the TabSwitch -------- //
 // ------------------------------------------------------------------ //
+const ItemWrapper = styled.li`
+  position: relative;
+  width: 100%;
+  height: 100%;
+  list-style: none;
+`;
+
+const ActiveSwitchIndicator = styled.div<{theme: TUiColorsType}>`
+  width: 100%;
+  height: 100%;
+  background-color: ${({ theme }) => theme.accent[3]};
+  border-radius: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateX(100%);
+`;
+
+
 export default function FancyTabSwitch(props: IFancyTab) {
   const { switchValues, currentSelect, handler, rounded, tabSpacing, ...styleProps } = props;
   const { wide, disabled, transparent, roundedTabs, icon, iconAlign, textColor, selected } = styleProps;
@@ -27,17 +48,20 @@ export default function FancyTabSwitch(props: IFancyTab) {
       <ULButtonSwitchList $tabSpacing={tabSpacing} $roundedTabs={roundedTabs} $rounded={rounded} $transparent={transparent} $wide={wide}>
         {/* this map generates for each switchvalue a new List item */}
         {switchValues.map((item, i) => (
-          <FancyTabSwitchButton
-            key={i}
-            disabled={disabled}
-            wide={wide}
-            transparent={transparent}
-            textColor={textColor}
-            iconAlign={iconAlign}
-            itemObject={item}
-            selected={item.key === currentSelected}
-            handler={radioChangeHandler}
-          />
+          <ItemWrapper>
+            <FancyTabSwitchButton
+              key={i}
+              disabled={disabled}
+              wide={wide}
+              transparent={transparent}
+              textColor={textColor}
+              iconAlign={iconAlign}
+              itemObject={item}
+              selected={item.key === currentSelected}
+              handler={radioChangeHandler}
+            />
+            {i === 0 && <ActiveSwitchIndicator />}
+          </ItemWrapper>
         ))}
       </ULButtonSwitchList>
     </>

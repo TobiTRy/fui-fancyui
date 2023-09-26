@@ -1,3 +1,5 @@
+import { TUiColorsType } from "../../Design/color/designColor";
+import { TLayer } from "../../Design/color/generateColorSteps";
 import { borderRadius } from "../../Design/design";
 import { spacingPx } from "../../Design/design";
 import IStyledPrefixAndPicker from "../../Interface/IStyledPrefixAndPicker.model";
@@ -29,6 +31,8 @@ export interface IFancyTabStyle  {
   transparent?: boolean;
   disabled?: boolean;
   selected?: boolean;
+  themeType?: keyof TUiColorsType;
+  layer?: TLayer;
   handler: (position: string) => void;
 }
 

@@ -8,6 +8,8 @@ import themeStore from '../../Components/UI/Design/color/themeStore';
 import { FancyTextInput } from '../../Components/UI/Organisms/FancyTextInput';
 import { FancyPasswordInput } from '../../Components/UI/Organisms/FancyPasswordInput';
 
+import TabSwitch from '../../Components/UI/Molecules/TabSwitch/TabSwitch';
+
 const svg = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
     <path d="M11.5 6.027a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm-1.5 1.5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zm2.5-.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm-1.5 1.5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zm-6.5-3h1v1h1v1h-1v1h-1v-1h-1v-1h1v-1z" />
@@ -22,6 +24,13 @@ const reloadIcon = (
   </svg>
 );
 
+
+const switchValues2 = [
+  { key: '5', value: 'Tab 5', label: 'Tab 5', icon: svg},
+  { key: '6', value: 'Tab 6', label: 'Tab 6', icon: svg },
+  { key: '7', value: 'Tab 7', label: 'Tab 7', icon: svg },
+];
+
 export default function ExperimentalRoute() {
   const updateTheme = themeStore((state) => state.updateTheme);
   const switchTheme = themeStore((state) => state.switchTheme);
@@ -32,6 +41,7 @@ export default function ExperimentalRoute() {
   return (
     <div style={{ display: 'flex' }}>
       <FancyCard shadow>
+
         <span>Iam the fancy card</span>
         {/* <FancyTextInput label="hii" icon={svg} />
         <FancyPasswordInput label="hii" icon={svg} /> */}

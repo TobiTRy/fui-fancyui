@@ -1,7 +1,6 @@
 import React from 'react';
 
 import FancyTabSwitch from '../../Components/UI/Molecules/FancyTabSwitch/FancyTabSwitch';
-
 import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';
 import { css } from 'styled-components';
 import { FancyCard } from '../../lib';
@@ -45,7 +44,7 @@ export default function TabSwitchRoute() {
             flex-direction: column;
           `}
         >
-          <FancyTabSwitch switchValues={switchValues} rounded={'complete'} currentSelect={selected} handler={selecttHandler} wide={true} />
+          <FancyTabSwitch switchValues={switchValues} roundedTabs rounded={'complete'} currentSelect={selected} handler={selecttHandler} wide={true} />
         </DesignArea>
         <DesignArea
           title="TabSwitch"
