@@ -16,15 +16,17 @@ const ItemWrapper = styled.li`
   list-style: none;
 `;
 
-const ActiveSwitchIndicator = styled.div<{theme: TUiColorsType}>`
+const ActiveSwitchIndicator = styled.div<{theme: TUiColorsType; itemNumber: number}>`
   width: 100%;
   height: 100%;
-  background-color: ${({ theme }) => theme.accent[3]};
+  background-color: ${({ theme }) => theme.accent[0]};
   border-radius: 10px;
   position: absolute;
   top: 0;
+  border-radius: 50px;
   left: 0;
-  transform: translateX(100%);
+  transform: ${({itemNumber}) => itemNumber ? `translateX(${(itemNumber - 1) * 100}%)` : 'translateX(0)' };
+  transition: transform 0.2s ease;
 `;
 
 
@@ -42,6 +44,8 @@ export default function FancyTabSwitch(props: IFancyTab) {
     handler && handler(currentItem?.key!);
   };
 
+  console.log('currentSelected', currentSelected);
+
   return (
     <>
       {/* the ul wich is generated on the top of this file  */}
@@ -58,9 +62,10 @@ export default function FancyTabSwitch(props: IFancyTab) {
               iconAlign={iconAlign}
               itemObject={item}
               selected={item.key === currentSelected}
+          
               handler={radioChangeHandler}
             />
-            {i === 0 && <ActiveSwitchIndicator />}
+            {i === 0 && <ActiveSwitchIndicator itemNumber={Number(currentSelected)} />}
           </ItemWrapper>
         ))}
       </ULButtonSwitchList>

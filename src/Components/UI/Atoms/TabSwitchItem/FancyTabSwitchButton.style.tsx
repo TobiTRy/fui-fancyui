@@ -109,6 +109,7 @@ const generateButtonStyle = (props: IListButtonStyle) => {
       cursor: pointer;
       width: 100%;
       user-select: none;
+      z-index: 1;
 
       padding: ${$wide ? `${spacingPx.sm} 0px` : `${spacingPx.sm}`};
       //handles the dynamic values
@@ -119,7 +120,6 @@ const generateButtonStyle = (props: IListButtonStyle) => {
 
     input {
       display: none;
-      ${generateCheckedStyle({ $transparent })}
     }
   `;
 };

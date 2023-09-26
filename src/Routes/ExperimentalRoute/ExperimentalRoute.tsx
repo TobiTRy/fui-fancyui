@@ -1,7 +1,7 @@
 import React, { ChangeEvent, ChangeEventHandler } from 'react';
 
 import { styled } from 'styled-components';
-import { FancyButton, FancyCard, FancySVGAtom } from '../../lib';
+import { FancyButton, FancyCard, FancySVGAtom, FancyTabSwitch } from '../../lib';
 import Color from 'color';
 import { updateThemeColors } from '../../Components/UI/Design/color/designColor';
 import themeStore from '../../Components/UI/Design/color/themeStore';
@@ -25,29 +25,27 @@ const reloadIcon = (
 );
 
 
-const switchValues2 = [
-  { key: '5', value: 'Tab 5', label: 'Tab 5', icon: svg},
-  { key: '6', value: 'Tab 6', label: 'Tab 6', icon: svg },
-  { key: '7', value: 'Tab 7', label: 'Tab 7', icon: svg },
+const switchValues = [
+  { key: '1', value: 'Tab 1', label: 'Tab 1' },
+  { key: '2', value: 'Tab 2', label: 'Tab 2' },
+  { key: '3', value: 'Tab 3', label: 'Tab 3' },
 ];
 
 export default function ExperimentalRoute() {
   const updateTheme = themeStore((state) => state.updateTheme);
   const switchTheme = themeStore((state) => state.switchTheme);
   const [isActive, setIsActive] = React.useState('');
+  
+  const [test, setTest] = React.useState('1');
   //updateTheme({primary: '#ff0000', secondary: '#0000ff', accent: '#00ff00'})
 
 
   return (
     <div style={{ display: 'flex' }}>
       <FancyCard shadow>
-
-        <span>Iam the fancy card</span>
-        {/* <FancyTextInput label="hii" icon={svg} />
-        <FancyPasswordInput label="hii" icon={svg} /> */}
-        <FancyButton themeType="primary" label="hii" onClick={() => updateTheme({ primary: '#f20c0c' })} />
-        <FancyButton themeType="primary" label="Switch" onClick={() => switchTheme()} />
+      <FancyTabSwitch switchValues={switchValues} roundedTabs rounded={'complete'} currentSelect={test} handler={(id: string) => setTest(id)} wide={true} />
         <FancyCard layer={1}>
+
           <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-end' }}>
             <FancyTextInput themeType='primary' label="hii" icon={svg} value={isActive} onChange={(e: ChangeEvent<HTMLInputElement>) => setIsActive(e.target.value)}/>
             <FancyButton themeType="primary" borderRadius='md' iconSize='lg' size='md' layer={4} icon={reloadIcon} onClick={() => switchTheme()} />

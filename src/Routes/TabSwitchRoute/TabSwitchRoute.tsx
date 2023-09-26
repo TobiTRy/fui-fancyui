@@ -27,6 +27,8 @@ export default function TabSwitchRoute() {
   const [selected, setSelected] = React.useState('1');
   const [selected2, setSelected2] = React.useState('7');
 
+  const [test, setTest] = React.useState('1');
+
   const selecttHandler = (key: string) => {
     setSelected(key);
   };
@@ -44,7 +46,7 @@ export default function TabSwitchRoute() {
             flex-direction: column;
           `}
         >
-          <FancyTabSwitch switchValues={switchValues} roundedTabs rounded={'complete'} currentSelect={selected} handler={selecttHandler} wide={true} />
+          <FancyTabSwitch switchValues={switchValues} roundedTabs rounded={'complete'} currentSelect={test} handler={(id: string) => setTest(id)} wide={true} />
         </DesignArea>
         <DesignArea
           title="TabSwitch"
