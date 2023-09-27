@@ -9,7 +9,6 @@ import { TUiColorsType } from '../../Design/color/designColor';
 import { spacingPx } from '../../Design/design';
 import { TypographyList } from '../../Atoms/Typography/Typography';
 
-
 export const tabSwitchSizes = {
   sm: {
     paddingComponent: '4px',
@@ -24,7 +23,6 @@ export const tabSwitchSizes = {
 
 const ItemWrapper = styled.li`
   position: relative;
-  flex-grow: 1;
   width: 100%;
   height: 100%;
   list-style: none;
@@ -39,7 +37,8 @@ const ActiveSwitchIndicator = styled.div<{ theme: TUiColorsType; $itemNumber: nu
   background-color: ${({ theme }) => theme.accent[0]};
   border-radius: 10px;
   border-radius: 50px;
-  transform: ${({ $itemNumber }) => ($itemNumber ? `translateX(${($itemNumber - 1) * 100}%)` : 'translateX(0)')};
+  transform: ${({ $itemNumber }) =>
+    $itemNumber ? `translateX(calc(${($itemNumber - 1) * 100}% + ${($itemNumber - 1) * 2 + 'px'}))` : 'translateX(0)'};
   transition: transform 0.2s ease;
 `;
 
@@ -65,7 +64,14 @@ export default function FancyTabSwitch(props: IFancyTab) {
   return (
     <>
       {/* the ul wich is generated on the top of this file  */}
-      <ULButtonSwitchList $tabSpacing={tabSpacing} $roundedTabs={roundedTabs} $rounded={rounded} $transparent={transparent} $wide={wide} padding={size}>
+      <ULButtonSwitchList
+        $tabSpacing={tabSpacing}
+        $roundedTabs={roundedTabs}
+        $rounded={rounded}
+        $transparent={transparent}
+        $wide={wide}
+        padding={size}
+      >
         {/* this map generates for each switchvalue a new List item */}
         {switchValues.map((item, i) => (
           <ItemWrapper>

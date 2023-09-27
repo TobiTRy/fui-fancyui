@@ -30,8 +30,11 @@ const StyledSVG = styled.i<IStyledSVGAtom & { theme: TUiColorsType }>`
   color: ${({ $isActive, $errorMessage, $isPassive, theme, $themeType = 'secondary', $layer = 0 }) =>
     !$isPassive && calcIconColor({ theme, $isActive, $errorMessage, $layer, $themeType })};
   ${({ $externalStyle }) => $externalStyle};
+  transform-origin: 50% 50%;
+  will-change: transform;
 
   svg {
+    will-change: transform;
     width: 100%;
     height: 100%;
   }

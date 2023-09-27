@@ -21,7 +21,7 @@ export const ULButtonSwitchList = styled.ul<IFancyTabSwitchStyle & { theme: TUiC
   /* display: ${({ $wide }) => ($wide ? 'flex' : 'inline-flex')}; */
   display: flex;
   padding: ${({ padding }) => (padding ? tabSwitchSizes[padding].paddingComponent : '0')};
-  gap: ${({ $tabSpacing }) => ($tabSpacing ? spacingPx[$tabSpacing] : '0')};
+  gap: ${({ $tabSpacing }) => ($tabSpacing ? spacingPx[$tabSpacing] : '2px')};
   ${({ $wide }) => $wide && `justify-content: space-around`};
   align-items: center;
   margin: 0;
@@ -37,22 +37,6 @@ export const ULButtonSwitchList = styled.ul<IFancyTabSwitchStyle & { theme: TUiC
         border-radius: ${borderRadius[$rounded]};
 
         //if each tab sould not rounded, than round the first and the last item
-        ${!$roundedTabs
-          ? css`
-              li:first-of-type label {
-                border-radius: ${borderRadius[$rounded]} 0 0 ${borderRadius[$rounded]};
-              }
-
-              li:last-of-type label {
-                border-radius: 0 ${borderRadius[$rounded]} ${borderRadius[$rounded]} 0;
-              }
-            `
-          : //round each label
-            css`
-              li label {
-                border-radius: ${borderRadius[$rounded]};
-              }
-            `}
       `}
     `}
 

@@ -6,7 +6,6 @@ import themeStore from '../../Design/color/themeStore';
 import { TUiColorsType } from '../../Design/color/designColor';
 import { TLayer } from '../../Design/color/generateColorSteps';
 import { getTextColor } from '../../Design/color/colorCalculatorForComponet';
-import { tabSwitchSizes } from '../../Molecules/FancyTabSwitch/FancyTabSwitch';
 import { TypographyList } from '../Typography/Typography';
 
 export const tabSwitchItemSizes = {
@@ -37,7 +36,7 @@ interface IListButtonStyle {
   theme: TUiColorsType;
   $themeType?: keyof TUiColorsType;
   $layer?: TLayer;
-  $size?: keyof typeof tabSwitchSizes;
+  $size?: keyof typeof tabSwitchItemSizes;
   $hasLabel?: boolean;
   $hasIcon?: boolean;
 }
@@ -94,13 +93,13 @@ const generateIconAlignment = (props: Pick<IListButtonStyle, '$iconAlign'>) => {
     switch ($iconAlign) {
       case 'right':
         return css`
-          padding-left: ${spacingPx.xs};
+          gap: ${spacingPx.xxs};
           order: 1;
         `;
       default:
       case 'left':
         return css`
-          padding-right: ${spacingPx.xs};
+          gap: ${spacingPx.xxs};
         `;
     }
   };
@@ -108,10 +107,10 @@ const generateIconAlignment = (props: Pick<IListButtonStyle, '$iconAlign'>) => {
   console.log('align', getAlignment(), $iconAlign);
 
   return css`
+      ${getAlignment()}
     i {
       display: flex;
       justify-content: center;
-      ${getAlignment()}
 
       svg {
         width: 24px;
@@ -129,7 +128,7 @@ const generateButtonStyle = (props: IListButtonStyle) => {
 
   return css`
     list-style: none;
-    width: ${$wide ? `100%` : `auto`};
+    width: 100%;
 
     label {
       display: flex;
@@ -138,8 +137,8 @@ const generateButtonStyle = (props: IListButtonStyle) => {
       box-sizing: border-box;
       align-items: center;
       text-align: center;
+      width: auto;
       cursor: pointer;
-      width: 100%;
       user-select: none;
       padding: ${$wide ? `${tabSwitchItemSizes[$size || 'sm'].padding} 0px` : `${tabSwitchItemSizes[$size || 'sm'].padding}`};
       //handles the dynamic values

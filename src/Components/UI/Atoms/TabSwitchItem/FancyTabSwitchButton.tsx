@@ -46,6 +46,7 @@ export default function FancyTabSwitchItem(props: IFancyTabSwitchItem) {
       <Typography htmlFor={id + '_' + itemObject.key} type="label">
         {itemObject.icon && (
           <FancySVGAtom
+            size={size || 'sm'}
             themeType={textColor || 'secondary'}
             externalStyle={css`
               z-index: 1;
