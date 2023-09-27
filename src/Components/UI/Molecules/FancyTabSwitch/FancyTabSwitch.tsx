@@ -46,7 +46,7 @@ const ActiveSwitchIndicator = styled.div<{ theme: TUiColorsType; $itemNumber: nu
 // ------------------------------------------------------------------ //
 export default function FancyTabSwitch(props: IFancyTab) {
   const { switchValues, size, currentSelect, handler, rounded, tabSpacing,  themeType, ...styleProps } = props;
-  const { wide, disabled, transparent, roundedTabs, icon, iconAlign, textColor, selected } = styleProps;
+  const { wide, disabled, roundedTabs, icon, iconAlign, textColor, selected } = styleProps;
 
   //the state in which is saved the current sékected tab as sting (key)
   const [currentSelected, setCurrentSelect] = useState(currentSelect);
@@ -77,8 +77,7 @@ export default function FancyTabSwitch(props: IFancyTab) {
               disabled={disabled}
               wide={wide}
               size={size}
-              $themeType={themeType}
-              transparent={transparent}
+              themeType={themeType}
               textColor={textColor}
               iconAlign={iconAlign}
               onClick={() => radioChangeHandler(item.key)}
