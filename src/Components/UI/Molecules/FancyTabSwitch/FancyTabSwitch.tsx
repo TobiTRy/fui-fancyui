@@ -7,7 +7,6 @@ import IFancyTab from './IFancyTab.model';
 import { ULButtonSwitchList } from './FancyTabSwitch.style';
 import { TUiColorsType } from '../../Design/color/designColor';
 import { spacingPx } from '../../Design/design';
-import { TypographyList } from '../../Atoms/Typography/Typography';
 
 export const tabSwitchSizes = {
   sm: {
@@ -17,7 +16,7 @@ export const tabSwitchSizes = {
     paddingComponent: spacingPx.xs,
   },
   lg: {
-    paddingComponent: spacingPx.md,
+    paddingComponent: spacingPx.sm,
   },
 };
 
@@ -46,10 +45,8 @@ const ActiveSwitchIndicator = styled.div<{ theme: TUiColorsType; $itemNumber: nu
 // ------ the main react component to generate the TabSwitch -------- //
 // ------------------------------------------------------------------ //
 export default function FancyTabSwitch(props: IFancyTab) {
-  const { switchValues, size, currentSelect, handler, rounded, tabSpacing, ...styleProps } = props;
+  const { switchValues, size, currentSelect, handler, rounded, tabSpacing,  themeType, ...styleProps } = props;
   const { wide, disabled, transparent, roundedTabs, icon, iconAlign, textColor, selected } = styleProps;
-
-  console.log(size);
 
   //the state in which is saved the current sékected tab as sting (key)
   const [currentSelected, setCurrentSelect] = useState(currentSelect);
@@ -68,7 +65,7 @@ export default function FancyTabSwitch(props: IFancyTab) {
         $tabSpacing={tabSpacing}
         $roundedTabs={roundedTabs}
         $rounded={rounded}
-        $transparent={transparent}
+        $themeType={themeType}
         $wide={wide}
         padding={size}
       >
@@ -80,6 +77,7 @@ export default function FancyTabSwitch(props: IFancyTab) {
               disabled={disabled}
               wide={wide}
               size={size}
+              $themeType={themeType}
               transparent={transparent}
               textColor={textColor}
               iconAlign={iconAlign}
@@ -87,7 +85,7 @@ export default function FancyTabSwitch(props: IFancyTab) {
               itemObject={item}
               selected={item.key === currentSelected}
             />
-            {i === 0 && !transparent && <ActiveSwitchIndicator $itemNumber={Number(currentSelected)} />}
+            {(i === 0) && (themeType !== 'transparent') && <ActiveSwitchIndicator $itemNumber={Number(currentSelected)} />}
           </ItemWrapper>
         ))}
       </ULButtonSwitchList>

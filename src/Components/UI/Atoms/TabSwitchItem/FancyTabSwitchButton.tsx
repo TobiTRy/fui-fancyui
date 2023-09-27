@@ -1,10 +1,10 @@
 import React, { useId } from 'react';
+import { css } from 'styled-components';
 
 import { LISwitchButtonStyle } from './FancyTabSwitchButton.style';
 import Typography from '../Typography/Typography';
 import { TUiColorsType } from '../../Design/color/designColor';
 import { tabSwitchItemSizes } from './FancyTabSwitchButton.style';
-import { css } from 'styled-components';
 import { FancySVGAtom } from '../FancySVGAtom';
 
 // ------------------------------------------------------------------ //
@@ -15,19 +15,19 @@ interface IFancyTabSwitchItem {
   itemObject: { key: string; label?: string; icon?: JSX.Element };
   selected: boolean;
   onClick: (key: string) => void;
-  transparent?: boolean;
   wide?: boolean;
   textColor?: keyof TUiColorsType;
   iconAlign?: 'left' | 'right';
   size?: keyof typeof tabSwitchItemSizes;
+  themeType?: keyof TUiColorsType;
 }
 export default function FancyTabSwitchItem(props: IFancyTabSwitchItem) {
-  const { disabled, itemObject, selected, onClick, transparent, wide, textColor, iconAlign, size } = props;
+  const { disabled, itemObject, selected, onClick, themeType, wide, textColor, iconAlign, size } = props;
   const id = useId();
 
   return (
     <LISwitchButtonStyle
-      $transparent={transparent}
+      $themeType={themeType}
       $size={size}
       $wide={wide}
       $textColor={textColor}
@@ -59,7 +59,6 @@ export default function FancyTabSwitchItem(props: IFancyTabSwitchItem) {
           <Typography
             type="inlineElement"
             weight="bold"
-            
             variant={tabSwitchItemSizes[size || 'sm'].fontSize}
             style={css`
               z-index: 1;

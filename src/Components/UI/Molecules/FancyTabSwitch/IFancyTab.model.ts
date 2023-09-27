@@ -29,7 +29,6 @@ export interface IFancyTabStyle  {
   itemObject: IinputValues;
   textColor?: keyof TUiColorsType;
   wide?: boolean;
-  transparent?: boolean;
   disabled?: boolean;
   selected?: boolean;
   themeType?: keyof TUiColorsType;
@@ -39,7 +38,7 @@ export interface IFancyTabStyle  {
 
 //----------this are some specified types from the interfaces above----------//
 //Gernerate the styled types for the component
-type FancyTabSwitchStyle = IStyledPrefixAndPicker<IFancyTabStyle, 'wide' | 'rounded' | 'transparent' | 'roundedTabs' | 'tabSpacing'>
+type FancyTabSwitchStyle = IStyledPrefixAndPicker<IFancyTabStyle, 'wide' | 'rounded'  | 'roundedTabs' | 'tabSpacing'>
 export type IFancyTabSwitchStyle = FancyTabSwitchStyle & Pick<IFancyTabStyle, 'disabled'>
 
 //only props for the TabStyle

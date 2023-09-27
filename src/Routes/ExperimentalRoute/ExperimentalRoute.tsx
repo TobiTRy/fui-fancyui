@@ -52,7 +52,7 @@ export default function ExperimentalRoute() {
   return (
     <div style={{ display: 'flex' }}>
       <FancyCard shadow>
-        <div >
+        <div style={{display: 'flex' , flexDirection: 'column', gap: '12px'}}>
           <FancyTabSwitch
             size="sm"
             switchValues={switchValues1}
@@ -61,17 +61,32 @@ export default function ExperimentalRoute() {
             currentSelect={test}
             handler={(id: string) => setTest(id)}
           />
-        </div>
-        <div style={{width: '150px'}}>
 
-        <FancyTabSwitch
-          size="sm"
-          switchValues={switchValues2}
-          roundedTabs
-          rounded={'complete'}
-          currentSelect={test}
-          handler={(id: string) => setTest(id)}
-        />
+          <FancyTabSwitch
+            size="sm"
+            switchValues={switchValues2}
+            roundedTabs
+            rounded={'complete'}
+            currentSelect={test}
+            handler={(id: string) => setTest(id)}
+          />
+
+          <FancyTabSwitch
+            size="md"
+            switchValues={switchValues1}
+            roundedTabs
+            rounded={'complete'}
+            currentSelect={test}
+            handler={(id: string) => setTest(id)}
+          />
+          <FancyTabSwitch
+            size="lg"
+            switchValues={switchValues}
+            roundedTabs
+            rounded={'complete'}
+            currentSelect={test}
+            handler={(id: string) => setTest(id)}
+          />
         </div>
         <FancyCard layer={1}>
           <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-end' }}>

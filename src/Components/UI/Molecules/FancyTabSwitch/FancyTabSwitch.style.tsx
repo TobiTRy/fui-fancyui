@@ -13,8 +13,9 @@ interface IFancyTabSwitchStyle {
   $roundedTabs?: boolean;
   $wide?: boolean;
   $tabSpacing?: keyof typeof spacingPx;
-  disabled?: boolean;
+  $disabled?: boolean;
   theme: TUiColorsType;
+  $themeType?: keyof TUiColorsType;
   padding?: keyof typeof tabSwitchSizes;
 }
 export const ULButtonSwitchList = styled.ul<IFancyTabSwitchStyle & { theme: TUiColorsType }>`
@@ -27,8 +28,8 @@ export const ULButtonSwitchList = styled.ul<IFancyTabSwitchStyle & { theme: TUiC
   margin: 0;
 
   //this handles the the backgroundcolor and the edge rounding when the backorund is not transparent
-  ${({ $transparent, $rounded, $roundedTabs, $tabSpacing, theme }) =>
-    !$transparent &&
+  ${({ $themeType, $rounded, $roundedTabs, $tabSpacing, theme }) =>
+    $themeType !== 'transparent' &&
     css`
       background-color: ${!$tabSpacing ? theme.primary[3] : 'transparent'};
 
@@ -41,5 +42,5 @@ export const ULButtonSwitchList = styled.ul<IFancyTabSwitchStyle & { theme: TUiC
     `}
 
   //this hanles the disabled style
-  ${({ disabled }) => disabled && disabledStyle}
+  ${({ $disabled }) => $disabled && disabledStyle}
 `;

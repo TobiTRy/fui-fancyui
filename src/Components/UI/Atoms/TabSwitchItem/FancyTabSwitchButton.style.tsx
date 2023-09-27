@@ -10,11 +10,11 @@ import { TypographyList } from '../Typography/Typography';
 
 export const tabSwitchItemSizes = {
   sm: {
-    fontSize: 'content' as keyof typeof TypographyList,
-    padding: spacingPx.xxs,
+    fontSize: 'smText' as keyof typeof TypographyList,
+    padding: spacingPx.xs,
   },
   md: {
-    fontSize: 'button' as keyof typeof TypographyList,
+    fontSize: 'content' as keyof typeof TypographyList,
     padding: spacingPx.sm,
   },
   lg: {
@@ -29,7 +29,6 @@ export const tabSwitchItemSizes = {
 //generates the style from the dynamic values of the tab
 
 interface IListButtonStyle {
-  $transparent?: boolean;
   $wide?: boolean;
   $textColor?: keyof TUiColorsType;
   $iconAlign?: 'left' | 'right';
@@ -41,13 +40,13 @@ interface IListButtonStyle {
   $hasIcon?: boolean;
 }
 
-type TGenerateDynamicTabStyle = Pick<IListButtonStyle, '$transparent' | '$textColor' | '$layer' | 'theme' | '$themeType'>;
+type TGenerateDynamicTabStyle = Pick<IListButtonStyle, '$textColor' | '$layer' | 'theme' | '$themeType'>;
 const generateDynamicTabStyle = (props: TGenerateDynamicTabStyle) => {
-  const { $transparent, $textColor = 'secondary', theme, $layer = 0 } = props;
+  const { $textColor = 'secondary', theme, $themeType, $layer = 0 } = props;
   const darkTheme = themeStore.getState().isDarkTheme;
 
   //if the background not transparent give him a background/text color
-  if (!$transparent) {
+  if ($themeType !== 'transparent') {
     return css`
       color: ${darkTheme
         ? getTextColor({ theme, $themeType: $textColor, $textLayer: $layer })
@@ -64,12 +63,12 @@ const generateDynamicTabStyle = (props: TGenerateDynamicTabStyle) => {
 };
 
 //when the item is aktiv(clicked) this style is used
-const generateCheckedStyle = (props: Pick<IListButtonStyle, '$transparent'>) => {
-  const { $transparent } = props;
+const generateCheckedStyle = (props: Pick<IListButtonStyle, '$themeType'>) => {
+  const { $themeType } = props;
   const theme = themeStore.getState().theme;
 
   return css`
-    ${!$transparent
+    ${$themeType !== 'transparent'
       ? css`
           &:checked + label {
             ${textShadow.sm}
@@ -93,29 +92,22 @@ const generateIconAlignment = (props: Pick<IListButtonStyle, '$iconAlign'>) => {
     switch ($iconAlign) {
       case 'right':
         return css`
-          gap: ${spacingPx.xxs};
+          gap: ${spacingPx.xs};
           order: 1;
         `;
       default:
       case 'left':
         return css`
-          gap: ${spacingPx.xxs};
+          gap: ${spacingPx.xs};
         `;
     }
   };
 
-  console.log('align', getAlignment(), $iconAlign);
-
   return css`
-      ${getAlignment()}
+    ${getAlignment()}
     i {
       display: flex;
       justify-content: center;
-
-      svg {
-        width: 24px;
-        height: 24px;
-      }
     }
   `;
 };
@@ -124,7 +116,7 @@ const generateIconAlignment = (props: Pick<IListButtonStyle, '$iconAlign'>) => {
 // ------------ the main style generator for the li item ------------ //
 // ------------------------------------------------------------------ //
 const generateButtonStyle = (props: IListButtonStyle) => {
-  const { $wide, $textColor, $transparent, theme, $layer, $themeType, $iconAlign, $size, $hasIcon, $hasLabel } = props;
+  const { $wide, $textColor, $th, theme, $layer, $themeType, $iconAlign, $size, $hasIcon, $hasLabel } = props;
 
   return css`
     list-style: none;
@@ -142,7 +134,7 @@ const generateButtonStyle = (props: IListButtonStyle) => {
       user-select: none;
       padding: ${$wide ? `${tabSwitchItemSizes[$size || 'sm'].padding} 0px` : `${tabSwitchItemSizes[$size || 'sm'].padding}`};
       //handles the dynamic values
-      ${generateDynamicTabStyle({ $transparent, $textColor, theme, $layer, $themeType })}
+      ${generateDynamicTabStyle({ $themeType, $textColor, theme, $layer })}
       // generates underlying childs in this element
       ${$hasIcon && $hasLabel && generateIconAlignment({ $iconAlign })}
     }
