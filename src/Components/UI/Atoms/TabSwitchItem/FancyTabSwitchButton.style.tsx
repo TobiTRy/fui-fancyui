@@ -12,7 +12,7 @@ import { TypographyList } from '../Typography/Typography';
 export const tabSwitchItemSizes = {
   sm: {
     fontSize: 'content' as keyof typeof TypographyList,
-    padding: spacingPx.xs,
+    padding: spacingPx.xxs,
   },
   md: {
     fontSize: 'button' as keyof typeof TypographyList,
@@ -23,7 +23,6 @@ export const tabSwitchItemSizes = {
     padding: spacingPx.sm,
   },
 };
-
 
 // ------------------------------------------------------------------ //
 // ----------- the helperfunctions for the style generate ----------- //
@@ -39,6 +38,8 @@ interface IListButtonStyle {
   $themeType?: keyof TUiColorsType;
   $layer?: TLayer;
   $size?: keyof typeof tabSwitchSizes;
+  $hasLabel?: boolean;
+  $hasIcon?: boolean;
 }
 
 type TGenerateDynamicTabStyle = Pick<IListButtonStyle, '$transparent' | '$textColor' | '$layer' | 'theme' | '$themeType'>;
@@ -86,25 +87,36 @@ const generateCheckedStyle = (props: Pick<IListButtonStyle, '$transparent'>) => 
 };
 
 //this functions hold litle childs for the label
-const generateLabelAlignment = (props: Pick<IListButtonStyle, '$iconAlign'>) => {
+const generateIconAlignment = (props: Pick<IListButtonStyle, '$iconAlign'>) => {
   const { $iconAlign } = props;
+
+  const getAlignment = () => {
+    switch ($iconAlign) {
+      case 'right':
+        return css`
+          padding-left: ${spacingPx.xs};
+          order: 1;
+        `;
+      default:
+      case 'left':
+        return css`
+          padding-right: ${spacingPx.xs};
+        `;
+    }
+  };
+
+  console.log('align', getAlignment(), $iconAlign);
 
   return css`
     i {
       display: flex;
       justify-content: center;
-      ${$iconAlign === 'right'
-        ? css`
-            padding-left: ${spacingPx.xs};
-            order: 1;
-          `
-        : css`
-            padding-right: ${spacingPx.xs};
-          `};
-    }
-    svg {
-      width: 24px;
-      height: 24px;
+      ${getAlignment()}
+
+      svg {
+        width: 24px;
+        height: 24px;
+      }
     }
   `;
 };
@@ -113,7 +125,7 @@ const generateLabelAlignment = (props: Pick<IListButtonStyle, '$iconAlign'>) => 
 // ------------ the main style generator for the li item ------------ //
 // ------------------------------------------------------------------ //
 const generateButtonStyle = (props: IListButtonStyle) => {
-  const { $wide, $textColor, $transparent, theme, $layer, $themeType, $iconAlign, $size } = props;
+  const { $wide, $textColor, $transparent, theme, $layer, $themeType, $iconAlign, $size, $hasIcon, $hasLabel } = props;
 
   return css`
     list-style: none;
@@ -122,8 +134,8 @@ const generateButtonStyle = (props: IListButtonStyle) => {
     label {
       display: flex;
       flex-direction: row;
-      box-sizing: border-box;
       justify-content: center;
+      box-sizing: border-box;
       align-items: center;
       text-align: center;
       cursor: pointer;
@@ -133,7 +145,7 @@ const generateButtonStyle = (props: IListButtonStyle) => {
       //handles the dynamic values
       ${generateDynamicTabStyle({ $transparent, $textColor, theme, $layer, $themeType })}
       // generates underlying childs in this element
-      ${generateLabelAlignment({ $iconAlign })}
+      ${$hasIcon && $hasLabel && generateIconAlignment({ $iconAlign })}
     }
 
     input {

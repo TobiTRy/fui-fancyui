@@ -8,7 +8,6 @@ import themeStore from '../../Components/UI/Design/color/themeStore';
 import { FancyTextInput } from '../../Components/UI/Organisms/FancyTextInput';
 import { FancyPasswordInput } from '../../Components/UI/Organisms/FancyPasswordInput';
 
-
 const svg = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
     <path d="M11.5 6.027a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm-1.5 1.5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zm2.5-.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm-1.5 1.5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zm-6.5-3h1v1h1v1h-1v1h-1v-1h-1v-1h1v-1z" />
@@ -23,32 +22,76 @@ const reloadIcon = (
   </svg>
 );
 
-
 const switchValues = [
-  { key: '1', value: 'Tab 1', label: 'Tab 1' },
+  { key: '1', value: 'Tab 1', label: 'Tab 1 djkjk dklkdd' },
   { key: '2', value: 'Tab 2', label: 'Tab 2' },
   { key: '3', value: 'Tab 3', label: 'Tab 3' },
+];
+const switchValues1 = [
+  { key: '1', value: 'Tab 1', label: 'Tab 1', icon: svg },
+  { key: '2', value: 'Tab 2', label: 'Tab 2', icon: svg },
+  { key: '3', value: 'Tab 3', label: 'Tab 3', icon: svg },
+];
+const switchValues2 = [
+  { key: '1', value: 'Tab 1', icon: svg },
+  { key: '2', value: 'Tab 2', icon: svg },
+  { key: '3', value: 'Tab 3', icon: svg },
+  { key: '4', value: 'Tab 1', icon: svg },
+  { key: '5', value: 'Tab 2', icon: svg },
+  { key: '6', value: 'Tab 3', icon: svg },
 ];
 
 export default function ExperimentalRoute() {
   const updateTheme = themeStore((state) => state.updateTheme);
   const switchTheme = themeStore((state) => state.switchTheme);
   const [isActive, setIsActive] = React.useState('');
-  
+
   const [test, setTest] = React.useState('1');
   //updateTheme({primary: '#ff0000', secondary: '#0000ff', accent: '#00ff00'})
-
 
   return (
     <div style={{ display: 'flex' }}>
       <FancyCard shadow>
-      <FancyTabSwitch size='md' switchValues={switchValues} roundedTabs rounded={'complete'} currentSelect={test} handler={(id: string) => setTest(id)} wide={true} />
-        <FancyCard layer={1}>
+        <div >
+          <FancyTabSwitch
+            size="sm"
+            switchValues={switchValues1}
+            roundedTabs
+            rounded={'complete'}
+            currentSelect={test}
+            handler={(id: string) => setTest(id)}
+          />
+        </div>
+        <div style={{width: '150px'}}>
 
+        <FancyTabSwitch
+          size="sm"
+          switchValues={switchValues2}
+          roundedTabs
+          rounded={'complete'}
+          currentSelect={test}
+          handler={(id: string) => setTest(id)}
+        />
+        </div>
+        <FancyCard layer={1}>
           <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-end' }}>
-            <FancyTextInput themeType='primary' label="hii" icon={svg} value={isActive} onChange={(e: ChangeEvent<HTMLInputElement>) => setIsActive(e.target.value)}/>
-            <FancyButton themeType="primary" borderRadius='md' iconSize='lg' size='md' layer={4} icon={reloadIcon} onClick={() => switchTheme()} />
-          </div> 
+            <FancyTextInput
+              themeType="primary"
+              label="hii"
+              icon={svg}
+              value={isActive}
+              onChange={(e: ChangeEvent<HTMLInputElement>) => setIsActive(e.target.value)}
+            />
+            <FancyButton
+              themeType="primary"
+              borderRadius="md"
+              iconSize="lg"
+              size="md"
+              layer={4}
+              icon={reloadIcon}
+              onClick={() => switchTheme()}
+            />
+          </div>
           {/* <FancyPasswordInput label="hii" icon={svg} /> */}
           <FancyButton themeType="primary" label="hii" onClick={() => updateTheme({ primary: '#f20c0c' })} />
         </FancyCard>

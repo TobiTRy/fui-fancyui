@@ -5,6 +5,7 @@ import Typography from '../Typography/Typography';
 import { TUiColorsType } from '../../Design/color/designColor';
 import { tabSwitchItemSizes } from './FancyTabSwitchButton.style';
 import { css } from 'styled-components';
+import { FancySVGAtom } from '../FancySVGAtom';
 
 // ------------------------------------------------------------------ //
 // ------------- main component for the tab (li item) --------------- //
@@ -25,7 +26,15 @@ export default function FancyTabSwitchItem(props: IFancyTabSwitchItem) {
   const id = useId();
 
   return (
-    <LISwitchButtonStyle $transparent={transparent} $size={size} $wide={wide} $textColor={textColor} $iconAlign={iconAlign}>
+    <LISwitchButtonStyle
+      $transparent={transparent}
+      $size={size}
+      $wide={wide}
+      $textColor={textColor}
+      $iconAlign={iconAlign}
+      $hasIcon={Boolean(itemObject.icon)}
+      $hasLabel={Boolean(itemObject.label)}
+    >
       <input
         id={id + '_' + itemObject.key}
         disabled={disabled}
@@ -35,9 +44,26 @@ export default function FancyTabSwitchItem(props: IFancyTabSwitchItem) {
         onChange={() => onClick(itemObject.key)}
       />
       <Typography htmlFor={id + '_' + itemObject.key} type="label">
-        {itemObject.icon && <i>{itemObject.icon}</i>}
+        {itemObject.icon && (
+          <FancySVGAtom
+            themeType={textColor || 'secondary'}
+            externalStyle={css`
+              z-index: 1;
+            `}
+          >
+            {itemObject.icon}
+          </FancySVGAtom>
+        )}
         {itemObject.label && (
-          <Typography type="content" weight="bold" variant={tabSwitchItemSizes[size || 'sm'].fontSize} style={css`z-index: 1;`}>
+          <Typography
+            type="inlineElement"
+            weight="bold"
+            
+            variant={tabSwitchItemSizes[size || 'sm'].fontSize}
+            style={css`
+              z-index: 1;
+            `}
+          >
             {itemObject.label}
           </Typography>
         )}

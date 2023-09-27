@@ -12,7 +12,7 @@ import { TypographyList } from '../../Atoms/Typography/Typography';
 
 export const tabSwitchSizes = {
   sm: {
-    paddingComponent: '0',
+    paddingComponent: '4px',
   },
   md: {
     paddingComponent: spacingPx.xs,
@@ -24,6 +24,7 @@ export const tabSwitchSizes = {
 
 const ItemWrapper = styled.li`
   position: relative;
+  flex-grow: 1;
   width: 100%;
   height: 100%;
   list-style: none;

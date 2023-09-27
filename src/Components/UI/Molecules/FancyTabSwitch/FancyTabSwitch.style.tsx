@@ -18,7 +18,8 @@ interface IFancyTabSwitchStyle {
   padding?: keyof typeof tabSwitchSizes;
 }
 export const ULButtonSwitchList = styled.ul<IFancyTabSwitchStyle & { theme: TUiColorsType }>`
-  display: ${({ $wide }) => ($wide ? 'flex' : 'inline-flex')};
+  /* display: ${({ $wide }) => ($wide ? 'flex' : 'inline-flex')}; */
+  display: flex;
   padding: ${({ padding }) => (padding ? tabSwitchSizes[padding].paddingComponent : '0')};
   gap: ${({ $tabSpacing }) => ($tabSpacing ? spacingPx[$tabSpacing] : '0')};
   ${({ $wide }) => $wide && `justify-content: space-around`};
