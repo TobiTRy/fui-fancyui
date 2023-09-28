@@ -56,8 +56,6 @@ const generateDynamicTabStyle = (props: TGenerateDynamicTabStyle) => {
     //when the it is transparent style it with underline
     return css`
       color: ${getTextColor({ theme, $themeType: $textColor, $textLayer: $layer })};
-      background-color: transparent;
-      border-bottom: 1.5px solid transparent;
     `;
   }
 };

@@ -54,12 +54,11 @@ export default function ExperimentalRoute() {
       <FancyCard shadow>
         <div style={{display: 'flex' , flexDirection: 'column', gap: '12px'}}>
           <FancyTabSwitch
-            size="sm"
             switchValues={switchValues1}
+            size='sm'
             roundedTabs
             rounded={'complete'}
             currentSelect={test}
-            outlined
             handler={(id: string) => setTest(id)}
           />
 

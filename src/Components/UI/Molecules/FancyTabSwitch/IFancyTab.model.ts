@@ -19,21 +19,21 @@ export interface IFancyTabSwitchComponent {
   size?: 'sm' | 'md' | 'lg';
   tabSpacing?: keyof typeof spacingPx;
   outlined?: boolean;
+  themeType?: keyof TUiColorsType;
 }
 
 //this interface hold the complete style propertys  
 export interface IFancyTabStyle  {
-  icon?: JSX.Element;
   iconAlign?: 'left' | 'right';
   rounded?: keyof typeof borderRadius; 
   roundedTabs?: boolean;
 
-  itemObject: IinputValues;
+
   textColor?: keyof TUiColorsType;
   wide?: boolean;
   disabled?: boolean;
   selected?: boolean;
-  themeType?: keyof TUiColorsType;
+
   layer?: TLayer;
   handler: (position: string) => void;
 }

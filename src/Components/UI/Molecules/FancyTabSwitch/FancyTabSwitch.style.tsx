@@ -6,9 +6,9 @@ import { tabSwitchSizes } from './FancyTabSwitch';
 import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
 import colorTransparencyCalculator from '../../Design/color/colorTransparencyCalculator';
 
-type TGenerateColorDesign = Pick<IFancyTabSwitchStyle, '$themeType' | '$tabSpacing' | 'theme' | '$outlined'>;
+type TGenerateColorDesign = Pick<IFancyTabSwitchStyle, '$themeType' | '$tabSpacing' | 'theme' | '$outlined' | '$padding'>;
 const generateColorDesign = (props: TGenerateColorDesign) => {
-  const { $themeType, theme, $outlined } = props;
+  const { $themeType, theme, $outlined, $padding } = props;
 
   const backgroundColor = getBackgroundColor({ theme, $themeType: $themeType || 'primary', $layer: 3 });
 
@@ -16,12 +16,15 @@ const generateColorDesign = (props: TGenerateColorDesign) => {
     const generateSlightBackgroundColor = colorTransparencyCalculator(getBackgroundColor({ theme, $themeType: $themeType || 'primary', $layer: 1 }), 0.5);
 
     return css`
+      box-sizing: border-box;
       background-color: ${generateSlightBackgroundColor};
       border: 1.5px solid ${backgroundColor};
+      padding: ${($padding ? (parseInt(tabSwitchSizes[$padding].paddingComponent) - 1.5 + 'px' ) : '0')};
     `;
 
   }
   return css`
+    padding: ${($padding ? tabSwitchSizes[$padding].paddingComponent : '0')};
     background-color: ${backgroundColor};
   `;
 };
@@ -43,14 +46,15 @@ interface IFancyTabSwitchStyle {
 }
 export const ULButtonSwitchList = styled.ul<IFancyTabSwitchStyle & { theme: TUiColorsType }>`
   display: flex;
-  padding: ${({ $padding }) => ($padding ? tabSwitchSizes[$padding].paddingComponent : '0')};
+
   gap: ${({ $tabSpacing }) => ($tabSpacing ? spacingPx[$tabSpacing] : '0')};
   ${({ $wide }) => $wide && `justify-content: space-around`};
+  border-radius: ${({ $rounded }) => ($rounded ? borderRadius[$rounded] : '0')};
   align-items: center;
   margin: 0;
 
   //this handles the the backgroundcolor and the edge rounding when the backorund is not transparent
-  ${({ $themeType, $tabSpacing, theme, $outlined }) => generateColorDesign({ $themeType, $tabSpacing, theme, $outlined })}
+  ${({ $themeType, $tabSpacing, theme, $outlined, $padding }) => generateColorDesign({ $themeType, $tabSpacing, theme, $outlined, $padding })}
 
   //this hanles the disabled style
   ${({ $disabled }) => $disabled && disabledStyle}

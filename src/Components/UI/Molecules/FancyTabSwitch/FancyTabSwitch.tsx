@@ -36,8 +36,8 @@ const ItemWrapper = styled.li`
 // ------ the main react component to generate the TabSwitch -------- //
 // ------------------------------------------------------------------ //
 export default function FancyTabSwitch(props: IFancyTab) {
-  const { switchValues, size, currentSelect, handler, rounded, tabSpacing, themeType, ...styleProps } = props;
-  const { wide, disabled, roundedTabs, icon, iconAlign, textColor, outlined } = styleProps;
+  const { switchValues, size, currentSelect, handler, rounded, tabSpacing, themeType, outlined, ...styleProps } = props;
+  const { wide, disabled, roundedTabs, iconAlign, textColor } = styleProps;
 
   //the state in which is saved the current sékected tab as sting (key)
   const [currentSelected, setCurrentSelect] = useState(currentSelect);
@@ -76,7 +76,7 @@ export default function FancyTabSwitch(props: IFancyTab) {
               itemObject={item}
               selected={item.key === currentSelected}
             />
-            {i === 0 && <SwitchActiveIndicator $outlined $rounded='xl' $type={'bolb'} $itemNumber={Number(currentSelected)} $themeType={themeType} />}
+            {i === 0 && <SwitchActiveIndicator $outlined={outlined} $rounded='xl' $type={themeType !== 'transparent' ? 'bolb' : 'underline'} $itemNumber={Number(currentSelected)} $themeType={themeType} />}
           </ItemWrapper>
         ))}
       </ULButtonSwitchList>

@@ -16,7 +16,7 @@ const generateBlob = (props: IGenerateBlob) => {
   if ($outlined) {
     const generateSlightBackgroundColor = colorTransparencyCalculator(
       getBackgroundColor({ theme, $themeType: $themeType || 'accent', $layer: 3 }),
-      0.3
+      0.2
     );
 
     backgroundStyle = css`
@@ -50,14 +50,16 @@ const ActiveSwitchIndicator = styled.i<IActiveSwitchIndicator & {theme: TUiColor
         return generateBlob({ ...props });
       case 'underline':
         return css`
-          bottom: 0;
-          height: 1.5px;
+          bottom: -1px;
+          height: 1px;
+          background-color: ${getBackgroundColor({ theme: props.theme, $themeType: 'accent' })};
+          border-radius: 5px;
         `;
       case 'overline':
         return css`
           top: 0;
           height: 1.5px;
-          border-radius: 5px;
+          
         `;
       default:
         return css`
