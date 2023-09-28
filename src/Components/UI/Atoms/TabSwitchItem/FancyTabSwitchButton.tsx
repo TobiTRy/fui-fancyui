@@ -6,6 +6,7 @@ import Typography from '../Typography/Typography';
 import { TUiColorsType } from '../../Design/color/designColor';
 import { tabSwitchItemSizes } from './FancyTabSwitchButton.style';
 import { FancySVGAtom } from '../FancySVGAtom';
+import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
 
 // ------------------------------------------------------------------ //
 // ------------- main component for the tab (li item) --------------- //
@@ -47,7 +48,7 @@ export default function FancyTabSwitchItem(props: IFancyTabSwitchItem) {
         {itemObject.icon && (
           <FancySVGAtom
             size={size || 'sm'}
-            themeType={textColor || 'secondary'}
+            themeType={ textColor || 'secondary'}
             externalStyle={css`
               z-index: 1;
             `}

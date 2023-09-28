@@ -59,11 +59,22 @@ export default function ExperimentalRoute() {
             roundedTabs
             rounded={'complete'}
             currentSelect={test}
+            outlined
             handler={(id: string) => setTest(id)}
           />
 
           <FancyTabSwitch
             size="sm"
+            themeType='transparent'
+            switchValues={switchValues1}
+            roundedTabs
+            rounded={'complete'}
+            currentSelect={test}
+            handler={(id: string) => setTest(id)}
+          />
+          <FancyTabSwitch
+            size="sm"
+            themeType='transparent'
             switchValues={switchValues2}
             roundedTabs
             rounded={'complete'}

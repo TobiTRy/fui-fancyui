@@ -19,7 +19,7 @@ export const tabSwitchItemSizes = {
   },
   lg: {
     fontSize: 'button' as keyof typeof TypographyList,
-    padding: spacingPx.sm,
+    padding: spacingPx.md,
   },
 };
 
@@ -116,7 +116,7 @@ const generateIconAlignment = (props: Pick<IListButtonStyle, '$iconAlign'>) => {
 // ------------ the main style generator for the li item ------------ //
 // ------------------------------------------------------------------ //
 const generateButtonStyle = (props: IListButtonStyle) => {
-  const { $wide, $textColor, $th, theme, $layer, $themeType, $iconAlign, $size, $hasIcon, $hasLabel } = props;
+  const { $wide, $textColor, theme, $layer, $themeType, $iconAlign, $size, $hasIcon, $hasLabel } = props;
 
   return css`
     list-style: none;

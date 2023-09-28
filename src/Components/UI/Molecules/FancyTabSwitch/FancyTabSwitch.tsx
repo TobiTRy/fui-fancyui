@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import FancyTabSwitchButton from '../../Atoms/TabSwitchItem/FancyTabSwitchButton';
 import IFancyTab from './IFancyTab.model';
 import { ULButtonSwitchList } from './FancyTabSwitch.style';
 import { TUiColorsType } from '../../Design/color/designColor';
-import { spacingPx } from '../../Design/design';
+import { spacing, spacingPx } from '../../Design/design';
+import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
+import SwitchActiveIndicator from '../../Atoms/SwitchActiveIndicator/SwitchActiveIndicator';
 
 export const tabSwitchSizes = {
   sm: {
@@ -27,26 +29,15 @@ const ItemWrapper = styled.li`
   list-style: none;
 `;
 
-const ActiveSwitchIndicator = styled.div<{ theme: TUiColorsType; $itemNumber: number }>`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: ${({ theme }) => theme.accent[0]};
-  border-radius: 10px;
-  border-radius: 50px;
-  transform: ${({ $itemNumber }) =>
-    $itemNumber ? `translateX(calc(${($itemNumber - 1) * 100}% + ${($itemNumber - 1) * 2 + 'px'}))` : 'translateX(0)'};
-  transition: transform 0.2s ease;
-`;
+
+/* // ($itemNumber - 1) * 100}% + ${($itemNumber - 1) * 2 + 'px'})) */
 
 // ------------------------------------------------------------------ //
 // ------ the main react component to generate the TabSwitch -------- //
 // ------------------------------------------------------------------ //
 export default function FancyTabSwitch(props: IFancyTab) {
-  const { switchValues, size, currentSelect, handler, rounded, tabSpacing,  themeType, ...styleProps } = props;
-  const { wide, disabled, roundedTabs, icon, iconAlign, textColor, selected } = styleProps;
+  const { switchValues, size, currentSelect, handler, rounded, tabSpacing, themeType, ...styleProps } = props;
+  const { wide, disabled, roundedTabs, icon, iconAlign, textColor, outlined } = styleProps;
 
   //the state in which is saved the current sékected tab as sting (key)
   const [currentSelected, setCurrentSelect] = useState(currentSelect);
@@ -67,7 +58,8 @@ export default function FancyTabSwitch(props: IFancyTab) {
         $rounded={rounded}
         $themeType={themeType}
         $wide={wide}
-        padding={size}
+        $padding={size}
+        $outlined={outlined}
       >
         {/* this map generates for each switchvalue a new List item */}
         {switchValues.map((item, i) => (
@@ -84,7 +76,7 @@ export default function FancyTabSwitch(props: IFancyTab) {
               itemObject={item}
               selected={item.key === currentSelected}
             />
-            {(i === 0) && (themeType !== 'transparent') && <ActiveSwitchIndicator $itemNumber={Number(currentSelected)} />}
+            {i === 0 && <SwitchActiveIndicator $outlined $rounded='xl' $type={'bolb'} $itemNumber={Number(currentSelected)} $themeType={themeType} />}
           </ItemWrapper>
         ))}
       </ULButtonSwitchList>
