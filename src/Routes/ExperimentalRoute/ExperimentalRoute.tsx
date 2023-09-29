@@ -54,20 +54,29 @@ export default function ExperimentalRoute() {
       <FancyCard shadow>
         <div style={{display: 'flex' , flexDirection: 'column', gap: '12px'}}>
           <FancyTabSwitch
-            switchValues={switchValues1}
             size='sm'
-            roundedTabs
-            rounded={'complete'}
+            themeType='transparent'
+            rounded='complete'
+            outlined
+            switchValues={switchValues1}
+            currentSelect={test}
+            handler={(id: string) => setTest(id)}
+          />
+          <FancyTabSwitch
+            switchValues={switchValues1}
+            themeType='transparent'
+            size='sm'
+            rounded='md'
             currentSelect={test}
             handler={(id: string) => setTest(id)}
           />
 
           <FancyTabSwitch
+            outlined
+            rounded='complete'
             size="sm"
             themeType='transparent'
             switchValues={switchValues1}
-            roundedTabs
-            rounded={'complete'}
             currentSelect={test}
             handler={(id: string) => setTest(id)}
           />

@@ -20,6 +20,7 @@ export interface IFancyTabSwitchComponent {
   tabSpacing?: keyof typeof spacingPx;
   outlined?: boolean;
   themeType?: keyof TUiColorsType;
+  activeColor?: keyof TUiColorsType;
 }
 
 //this interface hold the complete style propertys  

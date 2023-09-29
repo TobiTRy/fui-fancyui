@@ -11,7 +11,8 @@ const generateBlob = (props: IGenerateBlob) => {
   const { $themeType, theme, $rounded, $outlined } = props;
 
   const backgroundColor = getBackgroundColor({ theme, $themeType: $themeType || 'accent', $layer: 0 });
-  let backgroundStyle;
+  let backgroundStyle; 
+  const isRadiusKey = $rounded ? Object.keys(borderRadius).includes($rounded) : false;
 
   if ($outlined) {
     const generateSlightBackgroundColor = colorTransparencyCalculator(
@@ -34,7 +35,7 @@ const generateBlob = (props: IGenerateBlob) => {
     top: 0;
     height: 100%;
     background-color: ${backgroundColor};
-    border-radius: ${$rounded && borderRadius[$rounded]};
+    border-radius: ${isRadiusKey ? borderRadius[$rounded as keyof IBorderRadius] : $rounded};
     ${backgroundStyle}
   `;
 };
@@ -106,7 +107,7 @@ interface IActiveSwitchIndicator {
   $tabSpacing?: keyof typeof spacingPx;
 
   $type?: 'bolb' | 'underline' | 'overline';
-  $rounded?: keyof IBorderRadius;
+  $rounded?: keyof IBorderRadius | string;
   $outlined?: boolean;
 }
 export default function SwitchActiveIndicator(props: IActiveSwitchIndicator) {

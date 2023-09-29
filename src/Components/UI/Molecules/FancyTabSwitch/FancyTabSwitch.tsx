@@ -1,15 +1,12 @@
 import React, { useState } from 'react';
 
-import styled, { css } from 'styled-components';
-
-import FancyTabSwitchButton from '../../Atoms/TabSwitchItem/FancyTabSwitchButton';
-import IFancyTab from './IFancyTab.model';
-import { ULButtonSwitchList } from './FancyTabSwitch.style';
-import { TUiColorsType } from '../../Design/color/designColor';
-import { spacing, spacingPx } from '../../Design/design';
-import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
 import SwitchActiveIndicator from '../../Atoms/SwitchActiveIndicator/SwitchActiveIndicator';
+import FancyTabSwitchButton from '../../Atoms/TabSwitchItem/FancyTabSwitchButton';
+import { borderRadius, spacingPx } from '../../Design/design';
+import { ItemWrapper, ULButtonSwitchList } from './FancyTabSwitch.style';
+import IFancyTab from './IFancyTab.model';
 
+// Define the different sizes for the tab switch
 export const tabSwitchSizes = {
   sm: {
     paddingComponent: '4px',
@@ -22,27 +19,15 @@ export const tabSwitchSizes = {
   },
 };
 
-const ItemWrapper = styled.li`
-  position: relative;
-  width: 100%;
-  height: 100%;
-  list-style: none;
-`;
-
-
-/* // ($itemNumber - 1) * 100}% + ${($itemNumber - 1) * 2 + 'px'})) */
-
-// ------------------------------------------------------------------ //
-// ------ the main react component to generate the TabSwitch -------- //
-// ------------------------------------------------------------------ //
+// Define the main FancyTabSwitch component
 export default function FancyTabSwitch(props: IFancyTab) {
-  const { switchValues, size, currentSelect, handler, rounded, tabSpacing, themeType, outlined, ...styleProps } = props;
-  const { wide, disabled, roundedTabs, iconAlign, textColor } = styleProps;
+  const { switchValues, size, currentSelect, handler, rounded, tabSpacing, themeType, outlined, activeColor, ...styleProps } = props;
+  const { wide, disabled, iconAlign, textColor } = styleProps;
 
-  //the state in which is saved the current sékected tab as sting (key)
+  // Define the state for the currently selected tab
   const [currentSelected, setCurrentSelect] = useState(currentSelect);
 
-  //this function handles the current selected tab and sends it to the parent
+  // Define the function to handle the selection of a tab
   const radioChangeHandler = (position: string) => {
     const currentItem = switchValues.find((item) => item.key === position);
     setCurrentSelect(position);
@@ -51,19 +36,19 @@ export default function FancyTabSwitch(props: IFancyTab) {
 
   return (
     <>
-      {/* the ul wich is generated on the top of this file  */}
+      {/* Generate the unordered list for the tab switch */}
       <ULButtonSwitchList
         $tabSpacing={tabSpacing}
-        $roundedTabs={roundedTabs}
         $rounded={rounded}
         $themeType={themeType}
         $wide={wide}
         $padding={size}
         $outlined={outlined}
       >
-        {/* this map generates for each switchvalue a new List item */}
+        {/* Generate a list item for each switch value */}
         {switchValues.map((item, i) => (
-          <ItemWrapper>
+          <ItemWrapper key={item.key}>
+            {/* Generate the button for the switch item */}
             <FancyTabSwitchButton
               key={i}
               disabled={disabled}
@@ -76,7 +61,20 @@ export default function FancyTabSwitch(props: IFancyTab) {
               itemObject={item}
               selected={item.key === currentSelected}
             />
-            {i === 0 && <SwitchActiveIndicator $outlined={outlined} $rounded='xl' $type={themeType !== 'transparent' ? 'bolb' : 'underline'} $itemNumber={Number(currentSelected)} $themeType={themeType} />}
+
+            {/* Generate the switch active indicator wich is a blob or underline */}
+            {i === 0 && (
+              <SwitchActiveIndicator
+                $outlined={outlined}
+                // the radius of the switch indicator is adjusted for good looks with minus the padding of the switch
+                $rounded={
+                  rounded ? parseInt(borderRadius[rounded]) - parseInt(tabSwitchSizes[size || 'sm'].paddingComponent) + 'px' : undefined
+                }
+                $type={themeType !== 'transparent' ? 'bolb' : 'underline'}
+                $itemNumber={Number(currentSelected)}
+                $themeType={activeColor}
+              />
+            )}
           </ItemWrapper>
         ))}
       </ULButtonSwitchList>
