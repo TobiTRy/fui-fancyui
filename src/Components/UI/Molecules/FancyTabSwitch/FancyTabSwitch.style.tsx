@@ -52,3 +52,7 @@ export const ItemWrapper = styled.li`
   height: 100%;
   list-style: none;
 `;
+
+export const Wrapper = styled.div`
+  
+`

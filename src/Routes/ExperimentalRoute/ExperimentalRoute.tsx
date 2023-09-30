@@ -52,55 +52,58 @@ export default function ExperimentalRoute() {
   return (
     <div style={{ display: 'flex' }}>
       <FancyCard shadow>
-        <div style={{display: 'flex' , flexDirection: 'column', gap: '12px'}}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
           <FancyTabSwitch
-            rounded='complete'
+            label="test"
+            rounded="complete"
             outlined
-            themeType='transparent'
+            themeType="transparent"
             switchValues={switchValues1}
             currentSelect={test}
             onChange={(id: string) => setTest(id)}
           />
           <FancyTabSwitch
+            label="test"
             switchValues={switchValues1}
-            themeType='transparent'
-            size='sm'
-            rounded='md'
+            themeType="transparent"
+            size="sm"
+            rounded="md"
             currentSelect={test}
             onChange={(id: string) => setTest(id)}
           />
 
           <FancyTabSwitch
+            label="test"
             outlined
-            rounded='complete'
+            rounded="complete"
             size="sm"
-            themeType='transparent'
+            themeType="transparent"
             switchValues={switchValues1}
             currentSelect={test}
             onChange={(id: string) => setTest(id)}
           />
           <FancyTabSwitch
+            label="test"
             size="sm"
-            themeType='transparent'
+            themeType="transparent"
             switchValues={switchValues2}
-            
             rounded={'complete'}
             currentSelect={test}
             onChange={(id: string) => setTest(id)}
           />
 
           <FancyTabSwitch
+            label="test"
             size="md"
             switchValues={switchValues1}
-            
             rounded={'complete'}
             currentSelect={test}
             onChange={(id: string) => setTest(id)}
           />
           <FancyTabSwitch
             size="lg"
+            label="test"
             switchValues={switchValues}
-            
             rounded={'complete'}
             currentSelect={test}
             onChange={(id: string) => setTest(id)}
@@ -109,8 +112,8 @@ export default function ExperimentalRoute() {
         <FancyCard layer={1}>
           <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-end' }}>
             <FancyTextInput
+              label="test"
               themeType="primary"
-              label="hii"
               icon={svg}
               value={isActive}
               onChange={(e: ChangeEvent<HTMLInputElement>) => setIsActive(e.target.value)}
