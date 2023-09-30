@@ -9,9 +9,10 @@ import colorTransparencyCalculator from '../../Design/color/colorTransparencyCal
 type IGenerateBlob = Pick<IActiveSwitchIndicator, '$themeType' | '$outlined' | '$rounded'> & { theme: TUiColorsType };
 const generateBlob = (props: IGenerateBlob) => {
   const { $themeType, theme, $rounded, $outlined } = props;
+  let backgroundStyle; 
 
   const backgroundColor = getBackgroundColor({ theme, $themeType: $themeType || 'accent', $layer: 0 });
-  let backgroundStyle; 
+
   const isRadiusKey = $rounded ? Object.keys(borderRadius).includes($rounded) : false;
 
   if ($outlined) {
@@ -51,7 +52,7 @@ const ActiveSwitchIndicator = styled.i<IActiveSwitchIndicator & {theme: TUiColor
         return generateBlob({ ...props });
       case 'underline':
         return css`
-          bottom: -1px;
+          bottom: 0px;
           height: 1px;
           background-color: ${getBackgroundColor({ theme: props.theme, $themeType: 'accent' })};
           border-radius: 5px;
@@ -105,7 +106,6 @@ interface IActiveSwitchIndicator {
   $itemNumber: number;
   $themeType?: keyof TUiColorsType;
   $tabSpacing?: keyof typeof spacingPx;
-
   $type?: 'bolb' | 'underline' | 'overline';
   $rounded?: keyof IBorderRadius | string;
   $outlined?: boolean;
