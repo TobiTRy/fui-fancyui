@@ -41,10 +41,14 @@ const generateBlob = (props: IGenerateBlob) => {
   `;
 };
 
+
+
+
 const ActiveSwitchIndicator = styled.i<IActiveSwitchIndicator & {theme: TUiColorsType}>`
   position: absolute;
   left: 0;
   width: 100%;
+
   /* Build a siwtch case */
   ${(props) => {
     switch (props.$type) {
@@ -56,6 +60,7 @@ const ActiveSwitchIndicator = styled.i<IActiveSwitchIndicator & {theme: TUiColor
           height: 1px;
           background-color: ${getBackgroundColor({ theme: props.theme, $themeType: 'accent' })};
           border-radius: 5px;
+          z-index: 1;
         `;
       case 'overline':
         return css`
@@ -69,23 +74,6 @@ const ActiveSwitchIndicator = styled.i<IActiveSwitchIndicator & {theme: TUiColor
         `;
     }
   }}
-  /* ${({ theme, $themeType = 'accent' }) => {
-    const backgroundColor = getBackgroundColor({ theme, $themeType });
-    if ($themeType === 'transparent')
-      return css`
-        bottom: 0;
-        height: 1.5px;
-        border-radius: 5px;
-        background-color: ${getBackgroundColor({ theme, $themeType: 'accent' })};
-      `;
-
-    return css`
-      top: 0;
-      background-color: ${backgroundColor};
-      border-radius: 50px;
-      height: 100%;
-    `;
-  }}; */
   transition: transform 0.2s ease;
 
   ${({ $itemNumber, $tabSpacing }) => {

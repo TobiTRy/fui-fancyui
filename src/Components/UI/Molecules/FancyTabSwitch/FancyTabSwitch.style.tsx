@@ -6,7 +6,6 @@ import { tabSwitchSizes } from './FancyTabSwitch';
 import generateColorDesign from './helperFunctions/generateColorDesign';
 
 
-
 // Define the interface for the styled-component
 export interface IFancyTabSwitchStyle {
   $transparent?: boolean;

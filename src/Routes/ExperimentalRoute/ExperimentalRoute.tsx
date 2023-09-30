@@ -59,7 +59,7 @@ export default function ExperimentalRoute() {
             themeType='transparent'
             switchValues={switchValues1}
             currentSelect={test}
-            handler={(id: string) => setTest(id)}
+            onChange={(id: string) => setTest(id)}
           />
           <FancyTabSwitch
             switchValues={switchValues1}
@@ -67,7 +67,7 @@ export default function ExperimentalRoute() {
             size='sm'
             rounded='md'
             currentSelect={test}
-            handler={(id: string) => setTest(id)}
+            onChange={(id: string) => setTest(id)}
           />
 
           <FancyTabSwitch
@@ -77,7 +77,7 @@ export default function ExperimentalRoute() {
             themeType='transparent'
             switchValues={switchValues1}
             currentSelect={test}
-            handler={(id: string) => setTest(id)}
+            onChange={(id: string) => setTest(id)}
           />
           <FancyTabSwitch
             size="sm"
@@ -86,7 +86,7 @@ export default function ExperimentalRoute() {
             
             rounded={'complete'}
             currentSelect={test}
-            handler={(id: string) => setTest(id)}
+            onChange={(id: string) => setTest(id)}
           />
 
           <FancyTabSwitch
@@ -95,7 +95,7 @@ export default function ExperimentalRoute() {
             
             rounded={'complete'}
             currentSelect={test}
-            handler={(id: string) => setTest(id)}
+            onChange={(id: string) => setTest(id)}
           />
           <FancyTabSwitch
             size="lg"
@@ -103,7 +103,7 @@ export default function ExperimentalRoute() {
             
             rounded={'complete'}
             currentSelect={test}
-            handler={(id: string) => setTest(id)}
+            onChange={(id: string) => setTest(id)}
           />
         </div>
         <FancyCard layer={1}>

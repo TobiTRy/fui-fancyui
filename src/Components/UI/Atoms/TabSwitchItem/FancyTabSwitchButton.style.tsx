@@ -143,6 +143,6 @@ const generateButtonStyle = (props: IListButtonStyle) => {
   `;
 };
 
-export const LISwitchButtonStyle = styled.div<IListButtonStyle>`
+export const SwitchButtonStyle = styled.div<IListButtonStyle>`
   ${generateButtonStyle}
 `;

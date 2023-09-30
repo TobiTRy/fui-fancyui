@@ -1,7 +1,7 @@
-import React, { useId } from 'react';
+import React, { useId, HTMLAttributes } from 'react';
 import { css } from 'styled-components';
 
-import { LISwitchButtonStyle } from './FancyTabSwitchButton.style';
+import { SwitchButtonStyle } from './FancyTabSwitchButton.style';
 import Typography from '../Typography/Typography';
 import { TUiColorsType } from '../../Design/color/designColor';
 import { tabSwitchItemSizes } from './FancyTabSwitchButton.style';
@@ -11,7 +11,7 @@ import { getBackgroundColor } from '../../Design/color/colorCalculatorForCompone
 // ------------------------------------------------------------------ //
 // ------------- main component for the tab (li item) --------------- //
 // ------------------------------------------------------------------ //
-interface IFancyTabSwitchItem {
+interface ITabSwitchItem {
   disabled?: boolean;
   itemObject: { key: string; label?: string; icon?: JSX.Element };
   selected: boolean;
@@ -22,12 +22,16 @@ interface IFancyTabSwitchItem {
   size?: keyof typeof tabSwitchItemSizes;
   themeType?: keyof TUiColorsType;
 }
-export default function FancyTabSwitchItem(props: IFancyTabSwitchItem) {
-  const { disabled, itemObject, selected, onClick, themeType, wide, textColor, iconAlign, size } = props;
+
+type IFancyTabSwitchItem = ITabSwitchItem & HTMLAttributes<HTMLDivElement>;
+const FancyTabSwitchItem = React.forwardRef<HTMLDivElement, IFancyTabSwitchItem>((props, ref) => {
+  const { disabled, itemObject, selected, onClick, themeType, wide, textColor, iconAlign, size,  ...HTMLProps } = props;
   const id = useId();
 
   return (
-    <LISwitchButtonStyle
+    <SwitchButtonStyle
+      ref={ref}
+      role="radio"
       $themeType={themeType}
       $size={size}
       $wide={wide}
@@ -35,6 +39,7 @@ export default function FancyTabSwitchItem(props: IFancyTabSwitchItem) {
       $iconAlign={iconAlign}
       $hasIcon={Boolean(itemObject.icon)}
       $hasLabel={Boolean(itemObject.label)}
+      {...HTMLProps}
     >
       <input
         id={id + '_' + itemObject.key}
@@ -42,13 +47,14 @@ export default function FancyTabSwitchItem(props: IFancyTabSwitchItem) {
         name={'FancyButtonSwitcher' + id}
         type="radio"
         checked={selected}
+        aria-hidden="true"
         onChange={() => onClick(itemObject.key)}
       />
       <Typography htmlFor={id + '_' + itemObject.key} type="label">
         {itemObject.icon && (
           <FancySVGAtom
             size={size || 'sm'}
-            themeType={ textColor || 'secondary'}
+            themeType={textColor || 'secondary'}
             externalStyle={css`
               z-index: 1;
             `}
@@ -69,6 +75,8 @@ export default function FancyTabSwitchItem(props: IFancyTabSwitchItem) {
           </Typography>
         )}
       </Typography>
-    </LISwitchButtonStyle>
+    </SwitchButtonStyle>
   );
-}
+});
+
+export default FancyTabSwitchItem;
