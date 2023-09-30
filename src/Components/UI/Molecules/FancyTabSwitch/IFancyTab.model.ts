@@ -15,38 +15,22 @@ export interface IinputValues {
 export interface IFancyTabSwitchComponent {
   switchValues: IinputValues[];
   currentSelect?: string;
-  handler?: (value: string) => void;
+  onChange?: (value: string) => void;
   size?: 'sm' | 'md' | 'lg';
   tabSpacing?: keyof typeof spacingPx;
   outlined?: boolean;
   themeType?: keyof TUiColorsType;
   activeColor?: keyof TUiColorsType;
-}
-
-//this interface hold the complete style propertys  
-export interface IFancyTabStyle  {
   iconAlign?: 'left' | 'right';
   rounded?: keyof typeof borderRadius; 
-  roundedTabs?: boolean;
-
-
-  textColor?: keyof TUiColorsType;
   wide?: boolean;
   disabled?: boolean;
   selected?: boolean;
-
+  textColor?: keyof TUiColorsType;
   layer?: TLayer;
-  handler: (position: string) => void;
 }
 
-//----------this are some specified types from the interfaces above----------//
-//Gernerate the styled types for the component
-type FancyTabSwitchStyle = IStyledPrefixAndPicker<IFancyTabStyle, 'wide' | 'rounded'  | 'roundedTabs'>
-export type IFancyTabSwitchStyle = FancyTabSwitchStyle & Pick<IFancyTabStyle, 'disabled'>
-
-//only props for the TabStyle
-export type IFancyTabButtonStyle = Omit<IFancyTabStyle, 'itemObject' | 'handler'>;
 //for all incomming props from the component
-type IFancyTab = IFancyTabSwitchComponent & IFancyTabButtonStyle;
+type IFancyTab = IFancyTabSwitchComponent ;
 
 export default IFancyTab;

@@ -83,7 +83,7 @@ export default function ExperimentalRoute() {
             size="sm"
             themeType='transparent'
             switchValues={switchValues2}
-            roundedTabs
+            
             rounded={'complete'}
             currentSelect={test}
             handler={(id: string) => setTest(id)}
@@ -92,7 +92,7 @@ export default function ExperimentalRoute() {
           <FancyTabSwitch
             size="md"
             switchValues={switchValues1}
-            roundedTabs
+            
             rounded={'complete'}
             currentSelect={test}
             handler={(id: string) => setTest(id)}
@@ -100,7 +100,7 @@ export default function ExperimentalRoute() {
           <FancyTabSwitch
             size="lg"
             switchValues={switchValues}
-            roundedTabs
+            
             rounded={'complete'}
             currentSelect={test}
             handler={(id: string) => setTest(id)}

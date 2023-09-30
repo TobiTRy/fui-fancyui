@@ -21,7 +21,7 @@ export const tabSwitchSizes = {
 
 // Define the main FancyTabSwitch component
 export default function FancyTabSwitch(props: IFancyTab) {
-  const { switchValues, size, currentSelect, handler, rounded, tabSpacing, themeType, outlined, activeColor, ...styleProps } = props;
+  const { switchValues, size, currentSelect, onChange, rounded, tabSpacing, themeType, outlined, activeColor, ...styleProps } = props;
   const { wide, disabled, iconAlign, textColor } = styleProps;
 
   // Define the state for the currently selected tab
@@ -31,7 +31,7 @@ export default function FancyTabSwitch(props: IFancyTab) {
   const radioChangeHandler = (position: string) => {
     const currentItem = switchValues.find((item) => item.key === position);
     setCurrentSelect(position);
-    handler && handler(currentItem?.key!);
+    onChange && onChange(currentItem?.key!);
   };
 
   return (
