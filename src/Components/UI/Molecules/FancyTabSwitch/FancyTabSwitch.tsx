@@ -39,7 +39,7 @@ export default function FancyTabSwitch(props: IFancyTab) {
     onChange && onChange(currentItem?.key!);
   };
 
-  // This handles the navigation with the keyboard 
+  // This handles the navigation with the keyboard
   const handleKeyDown = (event: React.KeyboardEvent, itemKey: string) => {
     const currentIndex = switchValues.findIndex((item) => item.key === itemKey);
     let newIndex = -1;
@@ -59,19 +59,11 @@ export default function FancyTabSwitch(props: IFancyTab) {
 
   /* Generate the unordered list for the tab switch */
   return (
-    <Wrapper>
+    <fieldset>
       {label && (
-        <Typography
-          htmlFor={id}
-          type="label"
-          style={css`
-            display: inline-block;
-            margin-left: 10px;
-            margin-bottom: 2px;
-          `}
-        >
-          {label}
-        </Typography>
+        <legend>
+          <Typography type="label">{label}</Typography>
+        </legend>
       )}
       <ULButtonSwitchList
         $tabSpacing={tabSpacing}
@@ -102,7 +94,6 @@ export default function FancyTabSwitch(props: IFancyTab) {
               tabIndex={item.key === currentSelected ? 0 : -1} // Manage focus
               onKeyDown={(e) => handleKeyDown(e, item.key)}
             />
-
             {/* Generate the switch active indicator wich is a blob or underline */}
             {i === 0 && (
               <SwitchActiveIndicator
@@ -119,6 +110,6 @@ export default function FancyTabSwitch(props: IFancyTab) {
           </ItemWrapper>
         ))}
       </ULButtonSwitchList>
-    </Wrapper>
+    </fieldset>
   );
 }
