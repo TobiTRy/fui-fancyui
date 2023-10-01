@@ -56,7 +56,7 @@ const ActiveSwitchIndicator = styled.i<IActiveSwitchIndicator & {theme: TUiColor
         return generateBlob({ ...props });
       case 'underline':
         return css`
-          bottom: 0px;
+          bottom: 1px;
           height: 1px;
           background-color: ${getBackgroundColor({ theme: props.theme, $themeType: 'accent' })};
           border-radius: 5px;
