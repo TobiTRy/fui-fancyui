@@ -22,7 +22,7 @@ export const tabSwitchSizes = {
 
 // Define the main FancyTabSwitch component
 export default function FancyTabSwitch(props: IFancyTab) {
-  const { switchValues, size, currentSelect, onChange, rounded, tabSpacing, themeType, outlined, activeColor, label, ...styleProps } =
+  const { switchValues, size, currentSelect, onChange, rounded, tabSpacing, themeType, outlined, activeColor, label, direction, ...styleProps } =
     props;
   const { wide, disabled, iconAlign, textColor } = styleProps;
 
@@ -66,6 +66,7 @@ export default function FancyTabSwitch(props: IFancyTab) {
         $wide={wide}
         $padding={size}
         $outlined={outlined}
+        $direction={direction}
         role="radiogroup"
         id={id}
       >
@@ -99,6 +100,7 @@ export default function FancyTabSwitch(props: IFancyTab) {
                 $type={themeType !== 'transparent' ? 'bolb' : 'underline'}
                 $itemNumber={Number(currentSelected)}
                 $themeType={activeColor}
+                $direction={direction}
               />
             )}
           </ItemWrapper>

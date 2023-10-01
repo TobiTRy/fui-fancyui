@@ -9,7 +9,7 @@ import colorTransparencyCalculator from '../../Design/color/colorTransparencyCal
 type IGenerateBlob = Pick<IActiveSwitchIndicator, '$themeType' | '$outlined' | '$rounded'> & { theme: TUiColorsType };
 const generateBlob = (props: IGenerateBlob) => {
   const { $themeType, theme, $rounded, $outlined } = props;
-  let backgroundStyle; 
+  let backgroundStyle;
 
   const backgroundColor = getBackgroundColor({ theme, $themeType: $themeType || 'accent', $layer: 0 });
 
@@ -41,10 +41,7 @@ const generateBlob = (props: IGenerateBlob) => {
   `;
 };
 
-
-
-
-const ActiveSwitchIndicator = styled.i<IActiveSwitchIndicator & {theme: TUiColorsType}>`
+const ActiveSwitchIndicator = styled.i<IActiveSwitchIndicator & { theme: TUiColorsType }>`
   position: absolute;
   left: 0;
   width: 100%;
@@ -56,17 +53,17 @@ const ActiveSwitchIndicator = styled.i<IActiveSwitchIndicator & {theme: TUiColor
         return generateBlob({ ...props });
       case 'underline':
         return css`
-          bottom: 1px;
-          height: 1px;
-          background-color: ${getBackgroundColor({ theme: props.theme, $themeType: 'accent' })};
-          border-radius: 5px;
+          top: 0;
+          box-sizing: border-box;
+          height: 100%;
+          border-bottom: 1px solid ${getBackgroundColor({ theme: props.theme, $themeType: 'accent' })};
+          border-radius: 0;
           z-index: 1;
         `;
       case 'overline':
         return css`
           top: 0;
           height: 1.5px;
-          
         `;
       default:
         return css`
@@ -76,12 +73,18 @@ const ActiveSwitchIndicator = styled.i<IActiveSwitchIndicator & {theme: TUiColor
   }}
   transition: transform 0.2s ease;
 
-  ${({ $itemNumber, $tabSpacing }) => {
+  ${({ $itemNumber, $tabSpacing, $direction }) => {
     const itemPosition = ($itemNumber - 1) * 100 + '%';
     const gapSpacing = $tabSpacing ? ($itemNumber - 1) * spacing[$tabSpacing] : 0;
     const currentPosition = $itemNumber
       ? css`
-          transform: translateX(calc(${itemPosition} + ${gapSpacing + 'px'}));
+          ${$direction === 'vertical'
+            ? css`
+                transform: translateY(calc(${itemPosition} + ${gapSpacing + 'px'}));
+              `
+            : css`
+                transform: translateX(calc(${itemPosition} + ${gapSpacing + 'px'}));
+              `}
         `
       : css`
           transform: translateX(0);
@@ -97,6 +100,7 @@ interface IActiveSwitchIndicator {
   $type?: 'bolb' | 'underline' | 'overline';
   $rounded?: keyof IBorderRadius | string;
   $outlined?: boolean;
+  $direction?: 'horizontal' | 'vertical';
 }
 export default function SwitchActiveIndicator(props: IActiveSwitchIndicator) {
   return <ActiveSwitchIndicator {...props} />;

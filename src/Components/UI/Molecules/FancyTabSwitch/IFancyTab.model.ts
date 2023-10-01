@@ -29,6 +29,7 @@ export interface IFancyTabSwitchComponent {
   selected?: boolean;
   textColor?: keyof TUiColorsType;
   layer?: TLayer;
+  direction?: 'horizontal' | 'vertical';
 }
 
 //for all incomming props from the component

@@ -5,7 +5,6 @@ import { TUiColorsType } from '../../Design/color/designColor';
 import { tabSwitchSizes } from './FancyTabSwitch';
 import generateColorDesign from './helperFunctions/generateColorDesign';
 
-
 // Define the interface for the styled-component
 export interface IFancyTabSwitchStyle {
   $transparent?: boolean;
@@ -17,6 +16,7 @@ export interface IFancyTabSwitchStyle {
   $themeType?: keyof TUiColorsType;
   $padding?: keyof typeof tabSwitchSizes;
   $outlined?: boolean;
+  $direction?: 'horizontal' | 'vertical';
 }
 
 // ----------------------------------------------------------- //
@@ -24,7 +24,11 @@ export interface IFancyTabSwitchStyle {
 // ----------------------------------------------------------- //
 // Define the styled-component for the unordered list of the tab switch
 export const ULButtonSwitchList = styled.ul<IFancyTabSwitchStyle & { theme: TUiColorsType }>`
-  display: ${({ $wide }) => ($wide ? 'flex' : 'inline-flex')};
+  display: grid;
+  grid-auto-flow: ${({ $direction }) => ($direction === 'vertical' ? 'row' : 'column')};
+  grid-auto-rows: 1fr;
+  grid-auto-columns: 1fr;
+  align-items: center;
   gap: ${({ $tabSpacing }) => ($tabSpacing ? spacingPx[$tabSpacing] : '0')};
   border-radius: ${({ $rounded }) => ($rounded ? borderRadius[$rounded] : '0')};
   ${({ $wide }) => $wide && `justify-content: space-between`};
@@ -39,7 +43,6 @@ export const ULButtonSwitchList = styled.ul<IFancyTabSwitchStyle & { theme: TUiC
   ${({ $disabled }) => $disabled && disabledStyle}
 `;
 
-
 // ----------------------------------- //
 // ---------- Other styled  ---------- //
 // ----------------------------------- //
@@ -50,9 +53,6 @@ export const ItemWrapper = styled.li`
   width: 100%;
   flex: 1 0;
   list-style: none;
-
 `;
 
-export const Wrapper = styled.div`
-  
-`
+export const Wrapper = styled.div``;

@@ -8,7 +8,7 @@ const generateTransparentStyle = (props: TGenerateOutlineStyle) => {
   const { $padding, $themeType, theme, $rounded } = props;
 
   const getPaddings = $padding ? parseInt(tabSwitchSizes[$padding].paddingComponent) : 0;
-  const calcPadding = getPaddings - 1.5 + 'px ' + (getPaddings + 12) + 'px';
+  const calcPadding = Math.max(0, getPaddings - 1.5) + 'px ' + (getPaddings + 12) + 'px';
 
   return css`
     overflow: hidden;
