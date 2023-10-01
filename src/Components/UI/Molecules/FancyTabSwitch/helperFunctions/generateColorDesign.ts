@@ -38,7 +38,7 @@ const generateOutlineStyle = (props: TGenerateOutlineStyle) => {
     box-sizing: border-box;
     background-color: ${generateSlightBackgroundColor};
     border: 1.5px solid ${backgroundColor};
-    padding: ${$padding ? parseInt(tabSwitchSizes[$padding].paddingComponent) - 1.5 + 'px' : '0'};
+    padding: ${$padding ? (parseInt(tabSwitchSizes[$padding].paddingComponent) - 1.5) + 'px' : '0'};
   `;
 };
 

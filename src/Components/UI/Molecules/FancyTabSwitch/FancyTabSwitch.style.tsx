@@ -24,10 +24,10 @@ export interface IFancyTabSwitchStyle {
 // ----------------------------------------------------------- //
 // Define the styled-component for the unordered list of the tab switch
 export const ULButtonSwitchList = styled.ul<IFancyTabSwitchStyle & { theme: TUiColorsType }>`
-  display: flex;
+  display: ${({ $wide }) => ($wide ? 'flex' : 'inline-flex')};
   gap: ${({ $tabSpacing }) => ($tabSpacing ? spacingPx[$tabSpacing] : '0')};
   border-radius: ${({ $rounded }) => ($rounded ? borderRadius[$rounded] : '0')};
-  ${({ $wide }) => $wide && `justify-content: space-around`};
+  ${({ $wide }) => $wide && `justify-content: space-between`};
   align-items: center;
   margin: 0;
 
@@ -43,14 +43,14 @@ export const ULButtonSwitchList = styled.ul<IFancyTabSwitchStyle & { theme: TUiC
 // ----------------------------------- //
 // ---------- Other styled  ---------- //
 // ----------------------------------- //
-
-
 // Define the styled-component for the list item wrapper
 export const ItemWrapper = styled.li`
   position: relative;
-  width: 100%;
   height: 100%;
+  width: 100%;
+  flex: 1 0;
   list-style: none;
+
 `;
 
 export const Wrapper = styled.div`

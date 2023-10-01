@@ -28,7 +28,7 @@ const switchValues = [
   { key: '3', value: 'Tab 3', label: 'Tab 3' },
 ];
 const switchValues1 = [
-  { key: '1', value: 'Tab 1', label: 'Tab 1', icon: svg },
+  { key: '1', value: 'Tab 1', label: 'Tab 1 asksk aklsaklskl klaskl aklas aklkl  asuiasuiui uiasui asiuui asuiausi u asasuaui suaiausu asuusau isasuus ',},
   { key: '2', value: 'Tab 2', label: 'Tab 2', icon: svg },
   { key: '3', value: 'Tab 3', label: 'Tab 3', icon: svg },
 ];
@@ -54,6 +54,7 @@ export default function ExperimentalRoute() {
       <FancyCard shadow>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
           <FancyTabSwitch
+            wide
             label="test"
             rounded="complete"
             outlined
@@ -74,6 +75,7 @@ export default function ExperimentalRoute() {
 
           <FancyTabSwitch
             label="test"
+            wide
             outlined
             rounded="complete"
             size="sm"
@@ -103,6 +105,7 @@ export default function ExperimentalRoute() {
           <FancyTabSwitch
             size="lg"
             label="test"
+            wide
             switchValues={switchValues}
             rounded={'complete'}
             currentSelect={test}

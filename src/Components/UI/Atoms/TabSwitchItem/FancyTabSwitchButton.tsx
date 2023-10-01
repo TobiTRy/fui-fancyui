@@ -6,7 +6,6 @@ import Typography from '../Typography/Typography';
 import { TUiColorsType } from '../../Design/color/designColor';
 import { tabSwitchItemSizes } from './FancyTabSwitchButton.style';
 import { FancySVGAtom } from '../FancySVGAtom';
-import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
 
 // ------------------------------------------------------------------ //
 // ------------- main component for the tab (li item) --------------- //
@@ -22,10 +21,9 @@ interface ITabSwitchItem {
   size?: keyof typeof tabSwitchItemSizes;
   themeType?: keyof TUiColorsType;
 }
-
 type IFancyTabSwitchItem = ITabSwitchItem & HTMLAttributes<HTMLDivElement>;
 const FancyTabSwitchItem = React.forwardRef<HTMLDivElement, IFancyTabSwitchItem>((props, ref) => {
-  const { disabled, itemObject, selected, onClick, themeType, wide, textColor, iconAlign, size,  ...HTMLProps } = props;
+  const { disabled, itemObject, selected, onClick, themeType, wide, textColor, iconAlign, size, ...HTMLProps } = props;
   const id = useId();
 
   return (
@@ -57,6 +55,7 @@ const FancyTabSwitchItem = React.forwardRef<HTMLDivElement, IFancyTabSwitchItem>
             themeType={textColor || 'secondary'}
             externalStyle={css`
               z-index: 1;
+              flex-shrink: 0;
             `}
           >
             {itemObject.icon}
@@ -69,6 +68,7 @@ const FancyTabSwitchItem = React.forwardRef<HTMLDivElement, IFancyTabSwitchItem>
             variant={tabSwitchItemSizes[size || 'sm'].fontSize}
             style={css`
               z-index: 1;
+              word-break: break-word;
             `}
           >
             {itemObject.label}

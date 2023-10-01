@@ -1,12 +1,11 @@
 import React, { useId, useRef, useState } from 'react';
-import { css } from 'styled-components';
 
 import SwitchActiveIndicator from '../../Atoms/SwitchActiveIndicator/SwitchActiveIndicator';
 import FancyTabSwitchButton from '../../Atoms/TabSwitchItem/FancyTabSwitchButton';
 import { borderRadius, spacingPx } from '../../Design/design';
-import { ItemWrapper, ULButtonSwitchList, Wrapper } from './FancyTabSwitch.style';
-import { Typography } from '../../Atoms/Typography';
+import { ItemWrapper, ULButtonSwitchList } from './FancyTabSwitch.style';
 import IFancyTab from './IFancyTab.model';
+import Fieldset from '../../Atoms/Fieldset/Fieldset';
 
 // Define the different sizes for the tab switch
 export const tabSwitchSizes = {
@@ -59,12 +58,7 @@ export default function FancyTabSwitch(props: IFancyTab) {
 
   /* Generate the unordered list for the tab switch */
   return (
-    <fieldset>
-      {label && (
-        <legend>
-          <Typography type="label">{label}</Typography>
-        </legend>
-      )}
+    <Fieldset label='Test'>
       <ULButtonSwitchList
         $tabSpacing={tabSpacing}
         $rounded={rounded}
@@ -110,6 +104,6 @@ export default function FancyTabSwitch(props: IFancyTab) {
           </ItemWrapper>
         ))}
       </ULButtonSwitchList>
-    </fieldset>
+    </Fieldset>
   );
 }

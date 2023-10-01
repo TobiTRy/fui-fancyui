@@ -1,8 +1,8 @@
 import { styled, css } from 'styled-components';
+import themeStore from '../../Design/color/themeStore';
 
 import { spacingPx } from '../../Design/design';
 import { textShadow } from '../../Design/shadows';
-import themeStore from '../../Design/color/themeStore';
 import { TUiColorsType } from '../../Design/color/designColor';
 import { TLayer } from '../../Design/color/generateColorSteps';
 import { getTextColor } from '../../Design/color/colorCalculatorForComponet';
@@ -27,7 +27,6 @@ export const tabSwitchItemSizes = {
 // ----------- the helperfunctions for the style generate ----------- //
 // ------------------------------------------------------------------ //
 //generates the style from the dynamic values of the tab
-
 interface IListButtonStyle {
   $wide?: boolean;
   $textColor?: keyof TUiColorsType;
@@ -119,6 +118,9 @@ const generateButtonStyle = (props: IListButtonStyle) => {
   return css`
     list-style: none;
     width: 100%;
+    display: flex;
+    justify-content: center;
+
 
     label {
       display: flex;
@@ -130,7 +132,7 @@ const generateButtonStyle = (props: IListButtonStyle) => {
       width: auto;
       cursor: pointer;
       user-select: none;
-      padding: ${$wide ? `${tabSwitchItemSizes[$size || 'sm'].padding} 0px` : `${tabSwitchItemSizes[$size || 'sm'].padding}`};
+      padding: ${$wide ? `${tabSwitchItemSizes[$size || 'sm'].padding} ${spacingPx.md}` : `${tabSwitchItemSizes[$size || 'sm'].padding}`};
       //handles the dynamic values
       ${generateDynamicTabStyle({ $themeType, $textColor, theme, $layer })}
       // generates underlying childs in this element
