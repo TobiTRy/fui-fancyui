@@ -22,25 +22,6 @@ const reloadIcon = (
   </svg>
 );
 
-const switchValues = [
-  { key: '1', value: 'Tab 1', label: 'Tab 1 djkjk dklkdd' },
-  { key: '2', value: 'Tab 2', label: 'Tab 2' },
-  { key: '3', value: 'Tab 3', label: 'Tab 3' },
-];
-const switchValues1 = [
-  { key: '1', value: 'Tab 1', label: 'Tab 1 asksk aklsaklskl klaskl aklas aklkl  asuiasuiui uiasui asiuui asuiausi u asasuaui suaiausu asuusau isasuus ', icon: svg},
-  { key: '2', value: 'Tab 2', label: 'Tab 2', icon: svg },
-  { key: '3', value: 'Tab 3', label: 'Tab 3', icon: svg },
-];
-const switchValues2 = [
-  { key: '1', value: 'Tab 1', icon: svg },
-  { key: '2', value: 'Tab 2', icon: svg },
-  { key: '3', value: 'Tab 3', icon: svg },
-  { key: '4', value: 'Tab 1', icon: svg },
-  { key: '5', value: 'Tab 2', icon: svg },
-  { key: '6', value: 'Tab 3', icon: svg },
-];
-
 export default function ExperimentalRoute() {
   const updateTheme = themeStore((state) => state.updateTheme);
   const switchTheme = themeStore((state) => state.switchTheme);
@@ -53,68 +34,7 @@ export default function ExperimentalRoute() {
     <div style={{ display: 'flex' }}>
       <FancyCard shadow>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-          <FancyTabSwitch
-            wide
-            size='sm'
-            label="test"
-            outlined
-            rounded="xxl"
-            layer={5}
-            values={switchValues1}
-            currentSelect={test}
-            onChange={(id: string) => setTest(id)}
-          />
-          <FancyTabSwitch
-            label="test"
-            values={switchValues1}
-            themeType="transparent"
-            size="sm"
-            rounded="md"
-            currentSelect={test}
-            onChange={(id: string) => setTest(id)}
-          />
 
-          <FancyTabSwitch
-            label="test"
-            wide
-            outlined
-            rounded="complete"
-            size="sm"
-            themeType="transparent"
-            values={switchValues1}
-            currentSelect={test}
-            onChange={(id: string) => setTest(id)}
-          />
-          <FancyTabSwitch
-            label="test"
-            size="sm"
-            themeType="transparent"
-            values={switchValues2}
-            rounded={'complete'}
-            currentSelect={test}
-            onChange={(id: string) => setTest(id)}
-          />
-
-          <FancyTabSwitch
-
-            label="test"
-            size="md"
-            values={switchValues1}
-            rounded={'xxxl'}
-            currentSelect={test}
-            onChange={(id: string) => setTest(id)}
-          />
-          <FancyTabSwitch
-            size="lg"
-            label="test"
-            wide
-            outlined
-            direction='vertical'
-            values={switchValues}
-            rounded={'xxl'}
-            currentSelect={test}
-            onChange={(id: string) => setTest(id)}
-          />
         </div>
         <FancyCard layer={1}>
           <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-end' }}>

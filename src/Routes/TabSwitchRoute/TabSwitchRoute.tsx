@@ -12,15 +12,22 @@ const Icon = (
 );
 
 const switchValues = [
-  { key: '1', value: 'Tab 1', label: 'Tab 1 sdsd ldlsldls' },
+  { key: '1', value: 'Tab 1', label: 'Tab 1 djkjk dklkdd' },
   { key: '2', value: 'Tab 2', label: 'Tab 2' },
   { key: '3', value: 'Tab 3', label: 'Tab 3' },
 ];
-
+const switchValues1 = [
+  { key: '1', value: 'Tab 1', label: 'Tab 1 asksk aklsaklskl klaskl aklas aklkl  asuiasuiui uiasui asiuui asuiausi u asasuaui suaiausu asuusau isasuus ', icon: Icon},
+  { key: '2', value: 'Tab 2', label: 'Tab 2', icon: Icon },
+  { key: '3', value: 'Tab 3', label: 'Tab 3', icon: Icon },
+];
 const switchValues2 = [
-  { key: '5', value: 'Tab 5', label: 'Tab 5', icon: Icon },
-  { key: '6', value: 'Tab 6', label: 'Tab 6', icon: Icon },
-  { key: '7', value: 'Tab 7', label: 'Tab 7', icon: Icon },
+  { key: '1', value: 'Tab 1', icon: Icon },
+  { key: '2', value: 'Tab 2', icon: Icon },
+  { key: '3', value: 'Tab 3', icon: Icon },
+  { key: '4', value: 'Tab 1', icon: Icon },
+  { key: '5', value: 'Tab 2', icon: Icon },
+  { key: '6', value: 'Tab 3', icon: Icon },
 ];
 
 export default function TabSwitchRoute() {
@@ -46,7 +53,6 @@ export default function TabSwitchRoute() {
             flex-direction: column;
           `}
         >
-          <FancyTabSwitch switchValues={switchValues} roundedTabs rounded={'complete'} currentSelect={test} handler={(id: string) => setTest(id)} wide={true} />
         </DesignArea>
         <DesignArea
           title="TabSwitch"
@@ -55,29 +61,66 @@ export default function TabSwitchRoute() {
           `}
         >
           <FancyTabSwitch
-            transparent={true}
-            switchValues={switchValues}
-            wide={true}
-            rounded={'complete'}
-            currentSelect={selected}
-            handler={selecttHandler}
+            wide
+            size='sm'
+            label="test"
+            outlined
+            rounded="xxl"
+            layer={5}
+            values={switchValues1}
+            currentSelect={test}
+            onChange={(id: string) => setTest(id)}
           />
           <FancyTabSwitch
-            transparent={true}
-            switchValues={switchValues2}
-            rounded={'complete'}
-            wide={true}
-            currentSelect={selected}
-            handler={selecttHandler}
+            label="test"
+            values={switchValues1}
+            themeType="transparent"
+            size="sm"
+            rounded="md"
+            currentSelect={test}
+            onChange={(id: string) => setTest(id)}
+          />
+
+          <FancyTabSwitch
+            label="test"
+            wide
+            outlined
+            rounded="complete"
+            size="sm"
+            themeType="transparent"
+            values={switchValues1}
+            currentSelect={test}
+            onChange={(id: string) => setTest(id)}
           />
           <FancyTabSwitch
-            transparent={true}
-            switchValues={switchValues2}
+            label="test"
+            size="sm"
+            themeType="transparent"
+            values={switchValues2}
             rounded={'complete'}
-            wide={true}
-            iconAlign={'right'}
-            currentSelect={selected}
-            handler={selecttHandler}
+            currentSelect={test}
+            onChange={(id: string) => setTest(id)}
+          />
+
+          <FancyTabSwitch
+
+            label="test"
+            size="md"
+            values={switchValues1}
+            rounded={'xxxl'}
+            currentSelect={test}
+            onChange={(id: string) => setTest(id)}
+          />
+          <FancyTabSwitch
+            size="lg"
+            label="test"
+            wide
+            outlined
+            direction='vertical'
+            values={switchValues}
+            rounded={'xxl'}
+            currentSelect={test}
+            onChange={(id: string) => setTest(id)}
           />
         </DesignArea>
         <DesignArea
@@ -86,7 +129,6 @@ export default function TabSwitchRoute() {
             flex-direction: column;
           `}
         >
-          <FancyTabSwitch switchValues={switchValues2} currentSelect={selected2} handler={selecttHandler2} wide={true} />
         </DesignArea>
       </DesignWrapper>
     </FancyCard>
