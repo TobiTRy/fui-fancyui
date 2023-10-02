@@ -59,28 +59,6 @@ const generateDynamicTabStyle = (props: TGenerateDynamicTabStyle) => {
   }
 };
 
-//when the item is aktiv(clicked) this style is used
-const generateCheckedStyle = (props: Pick<IListButtonStyle, '$themeType'>) => {
-  const { $themeType } = props;
-  const theme = themeStore.getState().theme;
-
-  return css`
-    ${$themeType !== 'transparent'
-      ? css`
-          &:checked + label {
-            ${textShadow.sm}
-            background-color: ${theme.accent[0]};
-          }
-        `
-      : css`
-          &:checked + label {
-            color: ${theme.accent[0]};
-            border-bottom: 1.5px solid ${theme.accent[0]};
-          }
-        `}
-  `;
-};
-
 //this functions hold litle childs for the label
 const generateIconAlignment = (props: Pick<IListButtonStyle, '$iconAlign'>) => {
   const { $iconAlign } = props;
@@ -132,7 +110,7 @@ const generateButtonStyle = (props: IListButtonStyle) => {
       width: auto;
       cursor: pointer;
       user-select: none;
-      padding: ${$wide ? `${tabSwitchItemSizes[$size || 'sm'].padding} ${spacingPx.md}` : `${tabSwitchItemSizes[$size || 'sm'].padding}`};
+      padding: ${$wide ? `${tabSwitchItemSizes[$size || 'sm'].padding} ${spacingPx.md}` : `${tabSwitchItemSizes[$size || 'sm'].padding} ${parseInt(tabSwitchItemSizes[$size || 'sm'].padding) + 7 +'px'}`};
       //handles the dynamic values
       ${generateDynamicTabStyle({ $themeType, $textColor, theme, $layer })}
       // generates underlying childs in this element

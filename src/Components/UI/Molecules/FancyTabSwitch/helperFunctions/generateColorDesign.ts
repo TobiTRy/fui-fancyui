@@ -3,12 +3,13 @@ import { getBackgroundColor } from '../../../Design/color/colorCalculatorForComp
 import { tabSwitchSizes } from '../FancyTabSwitch';
 import { IFancyTabSwitchStyle } from '../FancyTabSwitch.style';
 import colorTransparencyCalculator from '../../../Design/color/colorTransparencyCalculator';
+import { borderRadius } from '../../../Design/design';
 
 const generateTransparentStyle = (props: TGenerateOutlineStyle) => {
   const { $padding, $themeType, theme, $rounded } = props;
 
   const getPaddings = $padding ? parseInt(tabSwitchSizes[$padding].paddingComponent) : 0;
-  const calcPadding = Math.max(0, getPaddings - 1.5) + 'px ' + (getPaddings + 12) + 'px';
+  const calcPadding = Math.max(0, getPaddings - 1.5) + 'px ' + (getPaddings + parseInt(borderRadius[$rounded || 'sm'])) + 'px';
 
   return css`
     overflow: hidden;
@@ -26,7 +27,7 @@ type TGenerateOutlineStyle = Pick<IFancyTabSwitchStyle, '$outlined' | '$padding'
 const generateOutlineStyle = (props: TGenerateOutlineStyle) => {
   const { $padding, $themeType, theme, $rounded } = props;
 
-  const backgroundColor = getBackgroundColor({ theme, $themeType: $themeType || 'primary', $layer: 3 });
+  const backgroundColor = getBackgroundColor({ theme, $themeType: $themeType || 'primary', $layer: 5 });
   if ($themeType === 'transparent') return generateTransparentStyle({ $padding, $themeType, theme, $rounded });
 
   const generateSlightBackgroundColor = colorTransparencyCalculator(
@@ -38,7 +39,7 @@ const generateOutlineStyle = (props: TGenerateOutlineStyle) => {
     box-sizing: border-box;
     background-color: ${generateSlightBackgroundColor};
     border: 1.5px solid ${backgroundColor};
-    padding: ${$padding ? (parseInt(tabSwitchSizes[$padding].paddingComponent) - 1.5) + 'px' : '0'};
+    padding: ${$padding ? (parseInt(tabSwitchSizes[$padding].paddingComponent) - 1.5) + 'px' : '0'}; // 1.5px is the border width
   `;
 };
 

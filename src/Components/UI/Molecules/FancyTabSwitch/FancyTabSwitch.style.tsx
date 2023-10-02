@@ -28,19 +28,18 @@ export const ULButtonSwitchList = styled.ul<IFancyTabSwitchStyle & { theme: TUiC
   grid-auto-flow: ${({ $direction }) => ($direction === 'vertical' ? 'row' : 'column')};
   grid-auto-rows: 1fr;
   grid-auto-columns: 1fr;
-  align-items: center;
   gap: ${({ $tabSpacing }) => ($tabSpacing ? spacingPx[$tabSpacing] : '0')};
   border-radius: ${({ $rounded }) => ($rounded ? borderRadius[$rounded] : '0')};
   ${({ $wide }) => $wide && `justify-content: space-between`};
   align-items: center;
   margin: 0;
-
+  
   // Generate the color design for the tab switch
   ${({ $themeType, $tabSpacing, theme, $outlined, $padding, $rounded }) =>
     generateColorDesign({ $themeType, $tabSpacing, theme, $outlined, $padding, $rounded })}
 
-  // Generate the disabled style for the tab switch
-  ${({ $disabled }) => $disabled && disabledStyle}
+// Generate the disabled style for the tab switch
+${({ $disabled }) => $disabled && disabledStyle}
 `;
 
 // ----------------------------------- //
@@ -54,5 +53,3 @@ export const ItemWrapper = styled.li`
   flex: 1 0;
   list-style: none;
 `;
-
-export const Wrapper = styled.div``;

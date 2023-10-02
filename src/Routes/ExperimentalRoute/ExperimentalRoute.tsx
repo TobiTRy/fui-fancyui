@@ -54,10 +54,9 @@ export default function ExperimentalRoute() {
       <FancyCard shadow>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
           <FancyTabSwitch
-            direction='vertical'
             wide
             label="test"
-            rounded="complete"
+            rounded="xxl"
             outlined
             themeType="transparent"
             switchValues={switchValues1}
@@ -99,7 +98,7 @@ export default function ExperimentalRoute() {
             label="test"
             size="md"
             switchValues={switchValues1}
-            rounded={'complete'}
+            rounded={'xxxl'}
             currentSelect={test}
             onChange={(id: string) => setTest(id)}
           />
@@ -107,9 +106,10 @@ export default function ExperimentalRoute() {
             size="lg"
             label="test"
             wide
+            outlined
             direction='vertical'
             switchValues={switchValues}
-            rounded={'complete'}
+            rounded={'xxl'}
             currentSelect={test}
             onChange={(id: string) => setTest(id)}
           />
