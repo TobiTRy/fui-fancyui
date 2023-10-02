@@ -10,7 +10,7 @@ interface IFancyRangeSlider {
   min?: number;
   max?: number;
   displayNumber?: boolean;
-  handler?: (e: ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
   themeType?: keyof TUiColorsType;
   layer?: TLayer;
   disabled?: boolean;

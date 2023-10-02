@@ -54,10 +54,10 @@ interface IAdapedInput {
   inputLetter: string;
   value: number;
   ariaLabel?: string;
-  handler: () => void;
+  onChange: () => void;
 }
 export default function AdaptInputs(props: IAdapedInput) {
-  const { inputLetter, handler, value, ariaLabel } = props;
+  const { inputLetter, onChange, value, ariaLabel } = props;
 
   //find the specific color object for the input (like: r)
   const colorObject = colorLettersObject.find((obj) => obj.colorLetter === inputLetter);
@@ -73,7 +73,7 @@ export default function AdaptInputs(props: IAdapedInput) {
           max={colorObject.max}
           step={colorObject.step}
           value={value.toString()}
-          onChange={handler}
+          onChange={onChange}
         />
       )}
     </>

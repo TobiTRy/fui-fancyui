@@ -44,8 +44,8 @@ export default function FancyBottomBarStatic(props: IStaticBottomBar & TBoottomB
               {...button}
               themeType={props.iconThemeType}
               active={button.id === whichIsActive}
-              handler={() => {
-                button.handler && button.handler();
+              onClick={() => {
+                button.onClick && button.onClick();
                 setWhichIsActive(button.id!);
               }}
             />

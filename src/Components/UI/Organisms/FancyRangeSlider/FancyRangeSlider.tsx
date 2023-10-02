@@ -11,21 +11,18 @@ import IFancyRangeSlider from './FancyRangeSlider.model';
 // -------------------- The main FancySlider Component ----------------------- //
 // --------------------------------------------------------------------------- //
 export default function FancyRangeSlider(props: IFancyRangeSlider) {
-  const { label, align, icon, value, min, max, displayNumber, handler, themeType, layer, disabled } = { ...defaultProps, ...props };
+  const { label, align, icon, value, min, max, displayNumber, onChange, themeType, layer, disabled } = { ...defaultProps, ...props };
 
   const [isActive, setIsActive] = useState(false);
   const [toutched, setToutched] = useState(false);
 
   const id = useId();
 
-  //TODO: Fix the double state issue here and in the routes (build again in the handler)
-  //TODO: Fix the min and max Values
-
   // this function is called when the slider is moved
   const changeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     // this line handles the the input bewteen number and slider
     setToutched(true);
-    handler && handler(e);
+    onChange && onChange(e);
   };
 
   // this function is called when the slider is clicked

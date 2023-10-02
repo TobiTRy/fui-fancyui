@@ -6,11 +6,12 @@ import FancySVGAtom from '../FancySVGAtom/FancySVGAtom';
 
 interface IPasswordEye {
   isShow?: boolean;
-  handler?: () => void;
+  onClick?: () => void;
 }
-export default function PasswordEye({ isShow, handler }: IPasswordEye) {
+export default function PasswordEye({ isShow, onClick }: IPasswordEye) {
+  
   const clickHandler = () => {
-    handler && handler();
+    onClick && onClick();
   };
 
   return (

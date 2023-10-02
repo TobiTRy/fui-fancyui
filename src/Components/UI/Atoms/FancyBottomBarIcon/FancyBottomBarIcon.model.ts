@@ -9,7 +9,7 @@ export interface IFancyBottomBarIcon {
   active?: boolean;
   disabled?: boolean;
   secondBar?: boolean;
-  handler?: () => void;
+  onClick?: () => void;
   themeType?: keyof TUiColorsType;
   layer?: TLayer;
 }
