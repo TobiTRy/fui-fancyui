@@ -11,14 +11,14 @@ interface IDay {
   isWeekend?: boolean;
   selected?: boolean;
   disabled?: boolean;
-  handler?: () => void;
+  onClick?: () => void;
   range?: IRange;
   isCurrentDay?: boolean;
   themeType?: keyof TUiColorsType;
   layer?: TLayer;
 }
 export default function DateNumberAtom(props: IDay) {
-  const { dateNumber, isWeekend, selected, disabled, handler, range, isCurrentDay, themeType, layer } = props;
+  const { dateNumber, isWeekend, selected, disabled, onClick, range, isCurrentDay, themeType, layer } = props;
 
   const isDisabled = disabled ? disabled : isWeekend ? isWeekend : false;
 
@@ -28,7 +28,7 @@ export default function DateNumberAtom(props: IDay) {
       $selected={selected}
       $isCurrentDay={isCurrentDay}
       disabled={isDisabled}
-      onClick={handler}
+      onClick={onClick}
       $themeType={themeType}
       $layer={layer}
     >

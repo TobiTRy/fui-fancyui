@@ -39,7 +39,7 @@ export default function PasswordInput(props: IPasswordInputProps) {
   return (
     <>
       <WrapperEye $themeType={themeType} $layer={layer}>
-        <PasswordEye isShow={isShowPassword} handler={showPasswordHandler} />
+        <PasswordEye isShow={isShowPassword} onClick={showPasswordHandler} />
       </WrapperEye>
       <RawInput
         type={isShowPassword ? 'text' : 'password'}

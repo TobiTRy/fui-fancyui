@@ -61,7 +61,7 @@ export default function DateOutputFromTo({ whichIsSelecting, dateFrom, dateTo, h
         layer={layer}
         date={dateFrom}
         isActive={whichIsSelecting === 'from' || whichIsSelecting === undefined}
-        handler={() => handleClickOnDateOutput('from')}
+        onClick={() => handleClickOnDateOutput('from')}
       />
       <VRWrapper>
         <FancyVR $themeType={swapTheme} />
@@ -71,7 +71,7 @@ export default function DateOutputFromTo({ whichIsSelecting, dateFrom, dateTo, h
         layer={layer}
         date={dateTo ?? dateFrom}
         isActive={whichIsSelecting === 'to'}
-        handler={() => handleClickOnDateOutput('to')}
+        onClick={() => handleClickOnDateOutput('to')}
       />
     </StyledDateOutputFromTo>
   );

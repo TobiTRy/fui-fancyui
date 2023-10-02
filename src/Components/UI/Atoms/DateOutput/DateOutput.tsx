@@ -25,11 +25,11 @@ const DateOutputButton = styled.button<{ $isActive?: boolean; theme: TUiColorsTy
 interface IDateOutput {
   date?: Date;
   isActive?: boolean;
-  handler?: () => void;
+  onClick?: () => void;
   themeType?: keyof TUiColorsType;
   layer?: TLayer;
 }
-export default function DateOutput({ date = new Date(), isActive, handler, themeType, layer }: IDateOutput) {
+export default function DateOutput({ date = new Date(), isActive, onClick, themeType, layer }: IDateOutput) {
   const [active, setActive] = useState(false);
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(date);
 
@@ -43,7 +43,7 @@ export default function DateOutput({ date = new Date(), isActive, handler, theme
 
   const handleOpenCalendar = () => {
     setActive(true);
-    handler && handler();
+    onClick && onClick();
   };
 
   useEffect(() => {
