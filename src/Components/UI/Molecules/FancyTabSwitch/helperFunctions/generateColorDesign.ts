@@ -13,7 +13,7 @@ const generateTransparentStyle = (props: TGenerateOutlineStyle) => {
 
   return css`
     overflow: hidden;
-    border: 1.5px solid ${getBackgroundColor({ theme, $themeType: 'primary', $layer: 1 })};
+    border: 1.5px solid ${getBackgroundColor({ theme, $themeType: 'primary', $layer: 4 })};
 
     ${$rounded &&
     css`
@@ -27,7 +27,7 @@ type TGenerateOutlineStyle = Pick<IFancyTabSwitchStyle, '$outlined' | '$padding'
 const generateOutlineStyle = (props: TGenerateOutlineStyle) => {
   const { $padding, $themeType, theme, $rounded } = props;
 
-  const backgroundColor = getBackgroundColor({ theme, $themeType: $themeType || 'primary', $layer: 5 });
+  const backgroundColor = getBackgroundColor({ theme, $themeType: $themeType || 'primary', $layer: 4 });
   if ($themeType === 'transparent') return generateTransparentStyle({ $padding, $themeType, theme, $rounded });
 
   const generateSlightBackgroundColor = colorTransparencyCalculator(
