@@ -14,7 +14,7 @@ export interface IinputValues {
 //this interface is only for the componet
 export interface IFancyTabSwitchComponent {
   label?: string;
-  switchValues: IinputValues[];
+  values: IinputValues[];
   currentSelect?: string;
   onChange?: (value: string) => void;
   size?: 'sm' | 'md' | 'lg';

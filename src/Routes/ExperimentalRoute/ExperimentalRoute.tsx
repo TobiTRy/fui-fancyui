@@ -57,16 +57,16 @@ export default function ExperimentalRoute() {
             wide
             size='sm'
             label="test"
-            rounded="xxl"
             outlined
-            themeType="transparent"
-            switchValues={switchValues1}
+            rounded="xxl"
+            layer={5}
+            values={switchValues1}
             currentSelect={test}
             onChange={(id: string) => setTest(id)}
           />
           <FancyTabSwitch
             label="test"
-            switchValues={switchValues1}
+            values={switchValues1}
             themeType="transparent"
             size="sm"
             rounded="md"
@@ -81,7 +81,7 @@ export default function ExperimentalRoute() {
             rounded="complete"
             size="sm"
             themeType="transparent"
-            switchValues={switchValues1}
+            values={switchValues1}
             currentSelect={test}
             onChange={(id: string) => setTest(id)}
           />
@@ -89,16 +89,17 @@ export default function ExperimentalRoute() {
             label="test"
             size="sm"
             themeType="transparent"
-            switchValues={switchValues2}
+            values={switchValues2}
             rounded={'complete'}
             currentSelect={test}
             onChange={(id: string) => setTest(id)}
           />
 
           <FancyTabSwitch
+
             label="test"
             size="md"
-            switchValues={switchValues1}
+            values={switchValues1}
             rounded={'xxxl'}
             currentSelect={test}
             onChange={(id: string) => setTest(id)}
@@ -109,7 +110,7 @@ export default function ExperimentalRoute() {
             wide
             outlined
             direction='vertical'
-            switchValues={switchValues}
+            values={switchValues}
             rounded={'xxl'}
             currentSelect={test}
             onChange={(id: string) => setTest(id)}

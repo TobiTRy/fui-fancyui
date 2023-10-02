@@ -4,27 +4,28 @@ import { disabledStyle } from '../../HelperFunctions/designFunctions/disableStyl
 import { TUiColorsType } from '../../Design/color/designColor';
 import { tabSwitchSizes } from './FancyTabSwitch';
 import generateColorDesign from './helperFunctions/generateColorDesign';
+import { TLayer } from '../../Design/color/generateColorSteps';
 
 // Define the interface for the styled-component
 export interface IFancyTabSwitchStyle {
   $transparent?: boolean;
-  $rounded?: keyof typeof borderRadius;
   $wide?: boolean;
-  $tabSpacing?: keyof typeof spacingPx;
   $disabled?: boolean;
+  $outlined?: boolean;
+  $rounded?: keyof typeof borderRadius;
+  $tabSpacing?: keyof typeof spacingPx;
   theme: TUiColorsType;
   $themeType?: keyof TUiColorsType;
+  $layer?: TLayer;
   $padding?: keyof typeof tabSwitchSizes;
-  $outlined?: boolean;
   $direction?: 'horizontal' | 'vertical';
 }
-
 // ----------------------------------------------------------- //
 // ---------- The main UL element for the component ---------- //
 // ----------------------------------------------------------- //
 // Define the styled-component for the unordered list of the tab switch
 export const ULButtonSwitchList = styled.ul<IFancyTabSwitchStyle & { theme: TUiColorsType }>`
-  display: grid;
+  display: ${({ $wide }) => ($wide ? 'grid' : 'inline-grid')};
   grid-auto-flow: ${({ $direction }) => ($direction === 'vertical' ? 'row' : 'column')};
   grid-auto-rows: 1fr;
   grid-auto-columns: 1fr;
@@ -35,8 +36,8 @@ export const ULButtonSwitchList = styled.ul<IFancyTabSwitchStyle & { theme: TUiC
   margin: 0;
   
   // Generate the color design for the tab switch
-  ${({ $themeType, $tabSpacing, theme, $outlined, $padding, $rounded }) =>
-    generateColorDesign({ $themeType, $tabSpacing, theme, $outlined, $padding, $rounded })}
+  ${({ $themeType, $tabSpacing, theme, $outlined, $padding, $rounded, $layer }) =>
+    generateColorDesign({ $themeType, $tabSpacing, theme, $outlined, $padding, $rounded, $layer })}
 
 // Generate the disabled style for the tab switch
 ${({ $disabled }) => $disabled && disabledStyle}

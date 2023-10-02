@@ -22,35 +22,34 @@ export const tabSwitchSizes = {
 
 // Define the main FancyTabSwitch component
 export default function FancyTabSwitch(props: IFancyTab) {
-  const { switchValues, size, currentSelect, onChange, rounded, tabSpacing, themeType, outlined, activeColor, label, direction, ...styleProps } =
-    props;
-  const { wide, disabled, iconAlign, textColor } = styleProps;
+  const { values, currentSelect, onChange, tabSpacing, activeColor, label, layer, direction, ...styleProps } = props;
+  const { themeType, size, wide, disabled, iconAlign, textColor, outlined, rounded } = styleProps;
 
   // Define the state for the currently selected tab
   const [currentSelected, setCurrentSelect] = useState(currentSelect);
-  const buttonRefs = useRef<React.RefObject<HTMLDivElement>[]>(switchValues.map(() => React.createRef<HTMLDivElement>()));
+  const buttonRefs = useRef<React.RefObject<HTMLDivElement>[]>(values.map(() => React.createRef<HTMLDivElement>()));
   const id = useId();
 
   // Define the function to handle the selection of a tab
   const radioChangeHandler = (position: string) => {
-    const currentItem = switchValues.find((item) => item.key === position);
+    const currentItem = values.find((item) => item.key === position);
     setCurrentSelect(position);
     onChange && onChange(currentItem?.key!);
   };
 
   // This handles the navigation with the keyboard
   const handleKeyDown = (event: React.KeyboardEvent, itemKey: string) => {
-    const currentIndex = switchValues.findIndex((item) => item.key === itemKey);
+    const currentIndex = values.findIndex((item) => item.key === itemKey);
     let newIndex = -1;
 
     if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
-      newIndex = (currentIndex + 1) % switchValues.length;
+      newIndex = (currentIndex + 1) % values.length;
     } else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
-      newIndex = (currentIndex - 1 + switchValues.length) % switchValues.length;
+      newIndex = (currentIndex - 1 + values.length) % values.length;
     }
 
     if (newIndex !== -1) {
-      const newPosition = switchValues[newIndex].key;
+      const newPosition = values[newIndex].key;
       radioChangeHandler(newPosition);
       buttonRefs.current[newIndex].current?.focus();
     }
@@ -58,7 +57,7 @@ export default function FancyTabSwitch(props: IFancyTab) {
 
   /* Generate the unordered list for the tab switch */
   return (
-    <Fieldset label='Test'>
+    <Fieldset label={label}>
       <ULButtonSwitchList
         $tabSpacing={tabSpacing}
         $rounded={rounded}
@@ -68,10 +67,11 @@ export default function FancyTabSwitch(props: IFancyTab) {
         $outlined={outlined}
         $direction={direction}
         role="radiogroup"
+        $layer={layer}
         id={id}
       >
         {/* Generate a list item for each switch value */}
-        {switchValues.map((item, i) => (
+        {values.map((item, i) => (
           <ItemWrapper key={item.key}>
             {/* Generate the button for the switch item */}
             <FancyTabSwitchButton
