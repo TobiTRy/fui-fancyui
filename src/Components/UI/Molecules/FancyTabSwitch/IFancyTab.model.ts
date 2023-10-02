@@ -1,3 +1,5 @@
+import { TUiColorsType } from "../../Design/color/designColor";
+import { TLayer } from "../../Design/color/generateColorSteps";
 import { borderRadius } from "../../Design/design";
 import { spacingPx } from "../../Design/design";
 import IStyledPrefixAndPicker from "../../Interface/IStyledPrefixAndPicker.model";
@@ -11,35 +13,26 @@ export interface IinputValues {
 
 //this interface is only for the componet
 export interface IFancyTabSwitchComponent {
-  switchValues: IinputValues[];
+  label?: string;
+  values: IinputValues[];
   currentSelect?: string;
-  handler?: (value: string) => void;
-}
-
-//this interface hold the complete style propertys  
-export interface IFancyTabStyle  {
-  icon?: JSX.Element;
+  onChange?: (value: string) => void;
+  size?: 'sm' | 'md' | 'lg';
+  tabSpacing?: keyof typeof spacingPx;
+  outlined?: boolean;
+  themeType?: keyof TUiColorsType;
+  activeColor?: keyof TUiColorsType;
   iconAlign?: 'left' | 'right';
   rounded?: keyof typeof borderRadius; 
-  roundedTabs?: boolean;
-  tabSpacing?: keyof typeof spacingPx;
-  itemObject: IinputValues;
-  textColor?: 'bright' | 'dark';
   wide?: boolean;
-  transparent?: boolean;
   disabled?: boolean;
   selected?: boolean;
-  handler: (position: string) => void;
+  textColor?: keyof TUiColorsType;
+  layer?: TLayer;
+  direction?: 'horizontal' | 'vertical';
 }
 
-//----------this are some specified types from the interfaces above----------//
-//Gernerate the styled types for the component
-type FancyTabSwitchStyle = IStyledPrefixAndPicker<IFancyTabStyle, 'wide' | 'rounded' | 'transparent' | 'roundedTabs' | 'tabSpacing'>
-export type IFancyTabSwitchStyle = FancyTabSwitchStyle & Pick<IFancyTabStyle, 'disabled'>
-
-//only props for the TabStyle
-export type IFancyTabButtonStyle = Omit<IFancyTabStyle, 'itemObject' | 'handler'>;
 //for all incomming props from the component
-type IFancyTab = IFancyTabSwitchComponent & IFancyTabButtonStyle;
+type IFancyTab = IFancyTabSwitchComponent ;
 
 export default IFancyTab;

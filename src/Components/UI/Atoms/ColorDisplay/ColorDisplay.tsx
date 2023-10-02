@@ -36,7 +36,6 @@ export default function ColorDisplay({ color, opacity, showText, fullHeight }: I
       });
   };
 
-  console.log(isBright, isDarkTheme);
   return (
     <Wrapper $fullHeight={fullHeight} onClick={copyValue}>
       <Content $isBright={isBright} $isDarkTheme={isDarkTheme}>

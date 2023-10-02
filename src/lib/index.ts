@@ -40,6 +40,7 @@ export { default as FancyLoadingBar } from '../Components/UI/Atoms/FancyLoadingB
 export { default as ProgressBar } from '../Components/UI/Atoms/ProgressBar/ProgressBar';
 export { default as FancyProfilePicture } from '../Components/UI/Atoms/FancyProfilePicture/FancyProfilePicture';
 export { default as RawCheckbox } from '../Components/UI/Atoms/RawCheckbox/RawCheckbox';
+export { default as Fieldset } from '../Components/UI/Atoms/Fieldset/Fieldset';
 
 
 // ---------- Molecules ------- //

@@ -10,7 +10,7 @@ interface IComponentProps {
   className?: string;
 }
 
-const ComponentObj = {
+export const TypographyList = {
   h1: styled.h1<IComponentProps>`
     ${(props) => props.$variant};
     ${(props) => props.$style};
@@ -69,8 +69,8 @@ const generateStyle = (externalStyle: CSSProp, fontWeight: 'normal' | 'bold' | u
 };
 
 export interface ITypography {
-  type: keyof typeof ComponentObj;
-  variant?: keyof typeof ComponentObj;
+  type: keyof typeof TypographyList;
+  variant?: keyof typeof TypographyList;
   children?: ReactNode;
   weight?: 'normal' | 'bold';
   style?: CSSProp;
@@ -82,8 +82,8 @@ export interface ITypography {
 // ------------- like a "h4 can have the style of a p" ----------------------- //
 export default function Typography({ type, variant, children, style, weight, className ,...htmlProps }: ITypography) {
   // generate the Typography component based on the type prop;
-  // const Component = ComponentObj[type] || ComponentObj.content;
-  const Component = (ComponentObj[type] || ComponentObj.content) as React.FC<IComponentProps>;
+  // const Component = TypographyList[type] || TypographyList.content;
+  const Component = (TypographyList[type] || TypographyList.content) as React.FC<IComponentProps>;
 
   const mixedStyle = generateStyle(style, weight);
   // get the variant style based on the variant prop or the type prop;

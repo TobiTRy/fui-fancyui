@@ -1,50 +1,56 @@
-import { css, styled } from 'styled-components';
-import { IFancyTabSwitchStyle } from './IFancyTab.model';
+import { styled } from 'styled-components';
 import { borderRadius, spacingPx } from '../../Design/design';
 import { disabledStyle } from '../../HelperFunctions/designFunctions/disableStyle';
 import { TUiColorsType } from '../../Design/color/designColor';
+import { tabSwitchSizes } from './FancyTabSwitch';
+import generateColorDesign from './helperFunctions/generateColorDesign';
+import { TLayer } from '../../Design/color/generateColorSteps';
 
-// ------------------------------------------------------------------ //
-// --------- this genreates the UL List with conditions ------------- //
-// ------------------------------------------------------------------ //
+// Define the interface for the styled-component
+export interface IFancyTabSwitchStyle {
+  $transparent?: boolean;
+  $wide?: boolean;
+  $disabled?: boolean;
+  $outlined?: boolean;
+  $rounded?: keyof typeof borderRadius;
+  $tabSpacing?: keyof typeof spacingPx;
+  theme: TUiColorsType;
+  $themeType?: keyof TUiColorsType;
+  $layer?: TLayer;
+  $padding?: keyof typeof tabSwitchSizes;
+  $direction?: 'horizontal' | 'vertical';
+}
+// ----------------------------------------------------------- //
+// ---------- The main UL element for the component ---------- //
+// ----------------------------------------------------------- //
+// Define the styled-component for the unordered list of the tab switch
 export const ULButtonSwitchList = styled.ul<IFancyTabSwitchStyle & { theme: TUiColorsType }>`
-  display: ${({ $wide }) => ($wide ? 'flex' : 'inline-flex')};
-  align-items: center;
-  padding: 0;
-  margin: 0;
+  display: ${({ $wide }) => ($wide ? 'grid' : 'inline-grid')};
+  grid-auto-flow: ${({ $direction }) => ($direction === 'vertical' ? 'row' : 'column')};
+  grid-auto-rows: 1fr;
+  grid-auto-columns: 1fr;
   gap: ${({ $tabSpacing }) => ($tabSpacing ? spacingPx[$tabSpacing] : '0')};
-  ${({ $wide }) => $wide && `justify-content: space-around`};
+  border-radius: ${({ $rounded }) => ($rounded ? borderRadius[$rounded] : '0')};
+  ${({ $wide }) => $wide && `justify-content: space-between`};
+  align-items: center;
+  margin: 0;
+  
+  // Generate the color design for the tab switch
+  ${({ $themeType, $tabSpacing, theme, $outlined, $padding, $rounded, $layer }) =>
+    generateColorDesign({ $themeType, $tabSpacing, theme, $outlined, $padding, $rounded, $layer })}
 
-  //this handles the the backgroundcolor and the edge rounding when the backorund is not transparent
-  ${({ $transparent, $rounded, $roundedTabs, $tabSpacing, theme }) =>
-    !$transparent &&
-    css`
-      background-color: ${!$tabSpacing ? theme.primary[1] : 'transparent'};
+// Generate the disabled style for the tab switch
+${({ $disabled }) => $disabled && disabledStyle}
+`;
 
-      ${$rounded &&
-      css`
-        border-radius: ${borderRadius[$rounded]};
-
-        //if each tab sould not rounded, than round the first and the last item
-        ${!$roundedTabs
-          ? css`
-              li:first-of-type label {
-                border-radius: ${borderRadius[$rounded]} 0 0 ${borderRadius[$rounded]};
-              }
-
-              li:last-of-type label {
-                border-radius: 0 ${borderRadius[$rounded]} ${borderRadius[$rounded]} 0;
-              }
-            `
-          : //round each label
-            css`
-              li label {
-                border-radius: ${borderRadius[$rounded]};
-              }
-            `}
-      `}
-    `}
-
-  //this hanles the disabled style
-  ${({ disabled }) => disabled && disabledStyle}
+// ----------------------------------- //
+// ---------- Other styled  ---------- //
+// ----------------------------------- //
+// Define the styled-component for the list item wrapper
+export const ItemWrapper = styled.li`
+  position: relative;
+  height: 100%;
+  width: 100%;
+  flex: 1 0;
+  list-style: none;
 `;
