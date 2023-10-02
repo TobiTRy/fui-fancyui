@@ -55,6 +55,7 @@ export default function ExperimentalRoute() {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
           <FancyTabSwitch
             wide
+            size='sm'
             label="test"
             rounded="xxl"
             outlined
