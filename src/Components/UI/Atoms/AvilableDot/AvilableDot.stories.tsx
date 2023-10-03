@@ -1,15 +1,24 @@
-// AvailableDot.stories.tsx
-import React from 'react';
+// Import necessary dependencies
 import { Meta, StoryObj } from '@storybook/react';
 
+// Import the component to be tested
 import AvailableDot from './AvailableDot';
 
+// Define metadata for the story
 const meta = {
   component: AvailableDot,
   parameters: {
-    // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout
     layout: 'centered',
+    docs: {
+      toc: true,
+      description: {
+        component:
+          'A little Circle that indicates if something is avilable. <br> - the color changes depending on the $available prop. <br> - the size is fixed.',
+      },
+    },
   },
+
+  // Define arguments for the story
   argTypes: {
     $available: {
       options: ['completly', 'partially', 'not', 'transparent'],
@@ -17,16 +26,26 @@ const meta = {
     },
   },
 
-  // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/react/writing-docs/autodocs
+  // Add tags to the story
   tags: ['autodocs'],
 } satisfies Meta<typeof AvailableDot>;
 
+// Export the metadata
 export default meta;
+
+// Define the story object
 type Story = StoryObj<typeof meta>;
 
+// Define the primary story
 export const Primary: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story: '',
+      },
+    },
+  },
   args: {
-    $available: 'completly',
-
+    $available: undefined,
   },
 };

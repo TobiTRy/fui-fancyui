@@ -7,11 +7,11 @@ import { borderRadius } from '../../Design/design';
 // ---------- A little Circle that indicates if something is avilable -------- //
 // --------------------------------------------------------------------------- //
 export type IAvailableDot = 'completly' | 'partially' | 'not' | 'transparent';
-const AvailableDot = styled.div<{ $available: IAvailableDot }>`
+const AvailableDot = styled.div<{ $available?: IAvailableDot }>`
   width: 4px;
   height: 4px;
   border-radius: ${borderRadius.complete};
-  background-color: ${({ $available }) => {
+  background-color: ${({ $available = 'completly' }) => {
     switch ($available) {
       case 'completly':
         return  systemMessages.success.light;
@@ -19,13 +19,13 @@ const AvailableDot = styled.div<{ $available: IAvailableDot }>`
         return systemMessages.warning.light;
       case 'not':
         return systemMessages.error.light;
-      default:
+      case 'transparent':
         return 'transparent';
     }
   }};
 `;
 
-AvailableDot.displayName = 'StyledDot';
+AvailableDot.displayName = 'AvailableDot';
 
 export default AvailableDot;
 
