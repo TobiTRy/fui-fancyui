@@ -10,7 +10,6 @@ const meta = {
   parameters: {
     layout: 'centered',
     docs: {
-      toc: true,
       description: {
         component:
           'A little Circle that indicates if something is avilable. <br> - the color changes depending on the $available prop. <br> - the size is fixed.',
@@ -38,14 +37,12 @@ type Story = StoryObj<typeof meta>;
 
 // Define the primary story
 export const Primary: Story = {
+  render: (args) => <AvailableDot {...args} />,
   parameters: {
     docs: {
       description: {
         story: '',
       },
     },
-  },
-  args: {
-    $available: undefined,
   },
 };

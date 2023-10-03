@@ -6,7 +6,7 @@ import FancyInputUnderline from '../../Atoms/InputUnderline/InputUnderline';
 
 import FancySVGAtom from '../../Atoms/FancySVGAtom/FancySVGAtom';
 import { spacing } from '../../Design/design';
-import { AnimatedInputLabel } from '../../Atoms/AnimatedLabel/AnimatedLabel.style';
+import { AnimatedInputLabel } from '../../Atoms/AnimatedLabel/AnimatedInputLabel';
 import { TRawInputAlign } from '../../Atoms/RawInput/RawInput';
 import { TUiColorsType } from '../../Design/color/designColor';
 import { TLayer } from '../../Design/color/generateColorSteps';

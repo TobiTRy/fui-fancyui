@@ -30,7 +30,7 @@ const activeHandler = (align: string, $moveUp?: boolean) => {
   }
 };
 
-interface IAnimatedInputLabel {
+export interface IAnimatedInputLabel {
   $align?: 'center' | 'left';
   $moveUp?: boolean;
   $colorState?: 'error' | 'active' | 'default';
@@ -40,7 +40,7 @@ interface IAnimatedInputLabel {
 // --------------------------------------------------------------------------- //
 // ---------- The input label wich hase some colors and an animation --------- //
 // --------------------------------------------------------------------------- //
-export const AnimatedInputLabel = styled(InputLabel)<IAnimatedInputLabel & {theme: TUiColorsType}>`
+const AnimatedInputLabel = styled(InputLabel)<IAnimatedInputLabel & { theme?: TUiColorsType }>`
   position: absolute;
   padding: 12px 0 5px;
   color: ${({ $colorState, theme, $themeType = 'secondary', $layer = 4 }) => {
@@ -56,3 +56,5 @@ export const AnimatedInputLabel = styled(InputLabel)<IAnimatedInputLabel & {them
 
   ${({ $align, $moveUp }) => activeHandler($align!, $moveUp)};
 `;
+
+export default AnimatedInputLabel;
