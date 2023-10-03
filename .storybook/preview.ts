@@ -1,4 +1,14 @@
 import type { Preview } from '@storybook/react';
+import { withThemeFromJSXProvider } from '@storybook/addon-styling';
+import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import themeStore from '../src/Components/UI/Design/color/themeStore';
+
+
+const GlobalStyles = createGlobalStyle`
+  body {
+    font-family: "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+`;
 
 const preview: Preview = {
   parameters: {
@@ -13,3 +23,19 @@ const preview: Preview = {
 };
 
 export default preview;
+
+const switchTheme = () => {
+  themeStore.getState().switchTheme();
+  return themeStore.getState().theme;
+}
+
+export const decorators = [
+  withThemeFromJSXProvider({
+    themes: {
+      theme: themeStore.getState().theme,
+      switchTheme: switchTheme,
+    },
+    GlobalStyles, // Adds your GlobalStyle component to all stories
+    Provider: ThemeProvider,
+  }),
+];
