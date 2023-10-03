@@ -51,7 +51,7 @@ const meta = {
     layer: {
       description: 'The layer of the bottom bar.',
       control: {
-        type: 'number',
+        type: 'select',
       },
     },
   },

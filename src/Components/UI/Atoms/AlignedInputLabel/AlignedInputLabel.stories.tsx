@@ -2,30 +2,29 @@ import React from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
-import AnimatedInputLabel from './AnimatedInputLabel';
+import AlignedInputLabel from './AlignedInputLabel';
 import Typography from '../Typography/Typography';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta = {
-  component: AnimatedInputLabel,
+  component: AlignedInputLabel,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout
-    layout: 'centered',
     docs: {
       description: {
         component:
-          'The input label wich hase some colors and an animation. <br> - the color changes depending on the $colorState prop. <br> - the animation is triggered by the $moveUp prop',
+          'The input label wich is aligned left or centered. <br> - the alignment is set by the $align prop. <br> - the color changes depending on the $isActive prop',
       },
     },
   },
   argTypes: {
-    $moveUp: {
-      control: { type: 'boolean' },
+    $align: {
+      control: { type: 'select', options: ['left', 'center'] },
     },
   },
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/react/writing-docs/autodocs
   tags: ['autodocs'],
-} satisfies Meta<typeof AnimatedInputLabel>;
+} satisfies Meta<typeof AlignedInputLabel>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -33,11 +32,10 @@ type Story = StoryObj<typeof meta>;
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Primary: Story = {
   args: {
-    $moveUp: true,
   },
   render: (args) => (
-    <AnimatedInputLabel {...args}>
+    <AlignedInputLabel {...args}>
       <Typography type="label">Hello World</Typography>
-    </AnimatedInputLabel>
+    </AlignedInputLabel>
   ),
 };
