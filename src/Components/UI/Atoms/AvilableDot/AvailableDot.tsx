@@ -6,13 +6,13 @@ import { borderRadius } from '../../Design/design';
 // --------------------------------------------------------------------------- //
 // ---------- A little Circle that indicates if something is avilable -------- //
 // --------------------------------------------------------------------------- //
-export type IAvilableDot = 'completly' | 'partially' | 'not' | 'transparent';
-const AvilableDot = styled.div<{ $avilable: IAvilableDot }>`
+export type IAvailableDot = 'completly' | 'partially' | 'not' | 'transparent';
+const AvailableDot = styled.div<{ $available: IAvailableDot }>`
   width: 4px;
   height: 4px;
   border-radius: ${borderRadius.complete};
-  background-color: ${({ $avilable }) => {
-    switch ($avilable) {
+  background-color: ${({ $available }) => {
+    switch ($available) {
       case 'completly':
         return  systemMessages.success.light;
       case 'partially':
@@ -25,4 +25,7 @@ const AvilableDot = styled.div<{ $avilable: IAvilableDot }>`
   }};
 `;
 
-export default AvilableDot;
+AvailableDot.displayName = 'StyledDot';
+
+export default AvailableDot;
+

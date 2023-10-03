@@ -1,8 +1,8 @@
-import { IAvilableDot } from "../../Atoms/AvilableDot/AvilableDot";
+import { IAvailableDot } from "../../Atoms/AvilableDot/AvailableDot";
 
 export type IDateWithExternalState = {
   date: number;
-  isAvilable: IAvilableDot;
+  isAvilable: IAvailableDot;
 };
 
 export interface IExternalMonthWithDays {

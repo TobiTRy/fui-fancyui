@@ -1,1 +1,1 @@
-export { default as AvilableDot } from './AvilableDot';
+export { default as AvilableDot } from './AvailableDot';

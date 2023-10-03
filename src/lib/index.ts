@@ -27,7 +27,7 @@ export { default as Typography } from '../Components/UI/Atoms/Typography/Typogra
 export { default as WeekDays } from '../Components/UI/Atoms/WeekDays/WeekDays';
 export { default as YearSelector } from '../Components/UI/Atoms/YearSelector/YearSelector';
 export { default as AlignedInputLabel } from '../Components/UI/Atoms/AlignedInputLabel/AlignedInputLabel';
-export { default as AvilableDot } from '../Components/UI/Atoms/AvilableDot/AvilableDot';
+export { default as AvailableDot } from '../Components/UI/Atoms/AvilableDot/AvailableDot';
 export { default as FancyXButton } from '../Components/UI/Atoms/FancyXButton/FancyXButton';
 export { default as InputLabel } from '../Components/UI/Atoms/InputLabel/InputLabel';
 export { default as InputUnderline } from '../Components/UI/Atoms/InputUnderline/InputUnderline';
