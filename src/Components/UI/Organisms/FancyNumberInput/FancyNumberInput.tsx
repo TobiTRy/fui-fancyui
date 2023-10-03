@@ -12,7 +12,7 @@ export default function FancyNumberInput(props: IFancyNumberInput) {
     props;
 
   //the states activity of the input
-  const [isActiv, setIsActive] = useState(false);
+  const [isActive, setIsActive] = useState(false);
 
   // if no id is provided, generate a random one
   const useid = useId();
@@ -32,7 +32,7 @@ export default function FancyNumberInput(props: IFancyNumberInput) {
       disabled={disabled}
       align={align}
       placeholder={placeholder}
-      isActiv={isActiv}
+      isActive={isActive}
       icon={icon}
       autoWidth={autoWidth}
       errorMessage={errorMessage}
