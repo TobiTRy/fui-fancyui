@@ -11,7 +11,7 @@ export default function FancyDateInput(props: IFancyDateInput) {
   const { id, value, label, icon, errorMessage, align, disabled, activeHandler, themeType, layer, ...inputProps } = props;
 
   //the states activity of the input
-  const [isActiv, setIsActive] = useState(false);
+  const [isActive, setIsActive] = useState(false);
 
   // if no id is provided, generate a random one
   const useid = useId();
@@ -32,7 +32,7 @@ export default function FancyDateInput(props: IFancyDateInput) {
       themeType={themeType}
       layer={layer}
       align={align}
-      isActiv={isActiv}
+      isActive={isActive}
       icon={icon}
       errorMessage={errorMessage}
       InputElement={<DateInput id={usedId} value={value} activeHandler={activeFocusHandler} align={align} {...inputProps} />}

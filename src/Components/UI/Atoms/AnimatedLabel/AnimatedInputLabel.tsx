@@ -4,6 +4,7 @@ import InputLabel from '../InputLabel/InputLabel';
 import { TUiColorsType } from '../../Design/color/designColor';
 import { TLayer } from '../../Design/color/generateColorSteps';
 import { getTextColor } from '../../Design/color/colorCalculatorForComponet';
+import { HTMLAttributes } from 'react';
 
 const activeHandler = (align: string, $moveUp?: boolean) => {
   if (align !== 'center') {
@@ -30,17 +31,9 @@ const activeHandler = (align: string, $moveUp?: boolean) => {
   }
 };
 
-export interface IAnimatedInputLabel {
-  $align?: 'center' | 'left';
-  $moveUp?: boolean;
-  $colorState?: 'error' | 'active' | 'default';
-  $themeType?: keyof TUiColorsType;
-  $layer?: TLayer;
-}
-// --------------------------------------------------------------------------- //
-// ---------- The input label wich hase some colors and an animation --------- //
-// --------------------------------------------------------------------------- //
-const AnimatedInputLabel = styled(InputLabel)<IAnimatedInputLabel & { theme?: TUiColorsType }>`
+
+
+const StyledInputLabel = styled(InputLabel)<IAnimatedInputLabel & { theme?: TUiColorsType }>`
   position: absolute;
   padding: 12px 0 5px;
   color: ${({ $colorState, theme, $themeType = 'secondary', $layer = 4 }) => {
@@ -57,4 +50,21 @@ const AnimatedInputLabel = styled(InputLabel)<IAnimatedInputLabel & { theme?: TU
   ${({ $align, $moveUp }) => activeHandler($align!, $moveUp)};
 `;
 
-export default AnimatedInputLabel;
+
+interface IAnimatedInputLabel {
+  $align?: 'center' | 'left';
+  $moveUp?: boolean;
+  $colorState?: 'error' | 'active' | 'default';
+  $themeType?: keyof TUiColorsType;
+  $layer?: TLayer;
+  children?: React.ReactNode;
+  as?: React.ElementType;
+  htmlFor?: string;
+  theme?: TUiColorsType;
+}
+// --------------------------------------------------------------------------- //
+// ---------- The input label wich hase some colors and an animation --------- //
+// --------------------------------------------------------------------------- //
+export default function AnimatedInputLabel(props: IAnimatedInputLabel & HTMLAttributes<HTMLLabelElement>) {
+  return <StyledInputLabel {...props}>{props.children}</StyledInputLabel>;
+}

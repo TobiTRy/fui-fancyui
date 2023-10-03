@@ -14,7 +14,7 @@ export default function FancyDropDownSelect(props: IFancyDropDownSelect) {
   const { id, value, placeholder, disabled, align, activeHandler, icon, label, errorMessage, themeType, layer, ...inputProps } = props;
 
   //the states for the value and the activity of the input
-  const [isActiv, setIsActive] = useState(false);
+  const [isActive, setIsActive] = useState(false);
 
   // if no id is provided, generate a random one
   const useid = useId();
@@ -36,7 +36,7 @@ export default function FancyDropDownSelect(props: IFancyDropDownSelect) {
       label={label}
       disabled={disabled}
       align={align}
-      isActiv={isActiv}
+      isActive={isActive}
       icon={icon}
       errorMessage={errorMessage}
       InputElement={
