@@ -10,9 +10,6 @@ type IScaling = '100%' | 'auto' | string;
 // the raw styling props for the card
 export interface StyledCardProps {
   themeType?: keyof TUiColorsType;  
-  variant?: number;
-  customColor?: string | TthemeColorGroup;
-  customTextColor?: string | TthemeColorGroup;
   textLayer?: TLayer;
   height?: IScaling;
   width?: IScaling;

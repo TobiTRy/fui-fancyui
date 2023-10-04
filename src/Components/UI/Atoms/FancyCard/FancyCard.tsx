@@ -19,11 +19,8 @@ export default function FancyCard(props: ICard) {
     radius,
     padding,
     roundedEdges,
-    variant,
     layer,
     shadow,
-    customColor,
-    customTextColor,
     themeType,
     textLayer,
   } = { ...defaultProps, ...props };
@@ -35,10 +32,7 @@ export default function FancyCard(props: ICard) {
       $padding={padding}
       $radius={radius}
       $roundedEdges={roundedEdges}
-      $variant={variant}
       $textLayer={textLayer}
-      $customColor={customColor}
-      $customTextColor={customTextColor}
       $themeType={themeType}
       $layer={layer}
       $shadow={shadow}

@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
 
-const CheckerBoardPattern = styled.div`
+const CheckerBoardPattern = styled.div<{opacity?: number}>`
   position: absolute;
   height: 20px;
   height: 100%;
@@ -9,7 +9,7 @@ const CheckerBoardPattern = styled.div`
     linear-gradient(45deg, transparent 75%, #808080 75%), linear-gradient(-45deg, transparent 75%, #808080 75%);
   background-size: 14px 14px;
   background-position: 0 0, 0 7px, 7px -7px, -7px 0px;
-  opacity: 0.05;
+  opacity: ${({opacity}) => opacity || 0.05};
 `;
 
 export default CheckerBoardPattern;
