@@ -1,27 +1,30 @@
 import React from 'react';
-
-import { IcalcIconPaddingAsProps } from '../../HelperFunctions/designFunctions/generateIconMargin';
 import { styled } from 'styled-components';
-import IStyledPrefixAndOmiter from '../../Interface/IStyledPrefixAndOmiter.model';
 
-type StyledFancyLi = IStyledPrefixAndOmiter<IFancyLi, 'children'>;
+import IStyledPrefixAndOmiter from '../../Interface/IStyledPrefixAndOmiter.model';
+import { spacingPx } from '../../Design/design';
+
+type StyledFancyLi = IStyledPrefixAndOmiter<FancyLIProps, 'children'>;
 
 const FancyLiItem = styled.li<StyledFancyLi>`
   list-style: none;
   display: flex;
-  align-items: self-start;
+  align-items: center;
   width: 100%;
+  justify-content: ${({ $aligned }) => $aligned};
+  padding: ${({ $size }) => $size && spacingPx[$size]};
 `;
 
 
 interface FancyLIProps {
+  aligned?: 'left' | 'center' | 'right';
   children?: React.ReactNode;
+  size?: keyof typeof spacingPx;
 }
-export type IFancyLi = FancyLIProps & IcalcIconPaddingAsProps;
 // --------------------------------------------------------------------------- //
 // ------------- The fancy LI Item that can dynamicly adjusted --------------- //
 // --------------------------------------------------------------------------- //
-export default function FancyLI(props: IFancyLi) {
+export default function FancyLI(props: FancyLIProps) {
   const { children, size, aligned } = {...defaultProps, ...props};
 
   return (
@@ -31,7 +34,7 @@ export default function FancyLI(props: IFancyLi) {
   );
 }
 
-const defaultProps:IFancyLi = {
+const defaultProps:FancyLIProps = {
   size: 'md',
   aligned: 'left',
 };

@@ -1,6 +1,6 @@
 import React from 'react';
-
 import { styled, keyframes } from 'styled-components';
+
 import { TUiColorsType } from '../../Design/color/designColor';
 
 // Define keyframe animation for the loading bar
@@ -31,9 +31,9 @@ const LoadingBar = styled.div<{theme: TUiColorsType}>`
   animation: ${loadingAnimation} 3s ease-in-out infinite; // Set the animation duration to 3s
 `;
 
-// --------------------------------------------------------------------------- //
-// ------------------ A Loadingbar ........................ ------------------ //
-// --------------------------------------------------------------------------- //
+// ----------------------------------------------------- //
+// ------------------ A Loadingbar --------------------- //
+// ----------------------------------------------------- //
 export default function FancyLoadingBar() {
   return (
     <LoadingContainer>

@@ -30,7 +30,7 @@ const sizes = {
     thickness: '1.5px',
     thicknessInner: '1px',
   },
-  extraLarge: {
+  xl: {
     width: '64px',
     thickness: '2px',
     thicknessInner: '1.5px',
@@ -93,7 +93,7 @@ const StyledFancyLoadingSpinner = styled.div<{ $size?: keyof typeof sizes; $thic
 interface IFancyLoadingSpinner {
   size?: keyof typeof sizes;
 }
-export default function FancyLoadingSpinner({ size }: IFancyLoadingSpinner) {
+export default function FancyLoadingSpinner({ size = 'md' }: IFancyLoadingSpinner) {
   return (
     <SpinnerContainer $size={size}>
       <StyledFancyLoadingSpinner $size={size} />

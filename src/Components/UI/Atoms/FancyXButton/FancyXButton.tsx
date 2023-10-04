@@ -26,7 +26,7 @@ const StyledFancyXButton = styled.button<{$colorValue?: string, theme: TUiColors
   background: none;
   color: ${({ $colorValue, theme }) => $colorValue ? $colorValue : theme.accent[0]};
   border: none;
-  font-size: ${fontSize.extraLarge};
+  font-size: ${fontSize.xl};
   font-weight: bolder;
   cursor: pointer;
   outline: none;
