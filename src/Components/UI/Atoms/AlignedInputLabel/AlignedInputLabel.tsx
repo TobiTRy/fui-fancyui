@@ -33,4 +33,6 @@ export const AlignedInputLabel = styled(InputLabel)<IAlignedInputLabel>`
   }};
 `;
 
+export default AlignedInputLabel;
+
 

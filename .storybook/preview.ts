@@ -1,14 +1,8 @@
 import type { Preview } from '@storybook/react';
 import { withThemeFromJSXProvider } from '@storybook/addon-styling';
-import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import { ThemeProvider } from 'styled-components';
 import themeStore from '../src/Components/UI/Design/color/themeStore';
-
-
-const GlobalStyles = createGlobalStyle`
-  body {
-    font-family: "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  }
-`;
+import GlobalStyle from '../src/GlobalStyle';
 
 const preview: Preview = {
   parameters: {
@@ -42,7 +36,7 @@ export const decorators = [
       theme: themeStore.getState().theme,
       switchTheme: switchTheme,
     },
-    GlobalStyles, // Adds your GlobalStyle component to all stories
+    GlobalStyles: GlobalStyle, // Adds your GlobalStyle component to all stories
     Provider: ThemeProvider,
   }),
 ];

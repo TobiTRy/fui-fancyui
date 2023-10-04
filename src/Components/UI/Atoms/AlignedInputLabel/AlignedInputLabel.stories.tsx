@@ -1,5 +1,3 @@
-import React from 'react';
-
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { AlignedInputLabel } from './AlignedInputLabel';
@@ -33,9 +31,6 @@ const meta = {
       options: ['primary', 'secondary'],
       control: { type: 'radio' },
     },
-
-
-
   },
 
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/react/writing-docs/autodocs

@@ -2,7 +2,7 @@ import React from 'react';
 import { styled, css } from 'styled-components';
 
 import { TAlign } from '../../Atoms/AlignedInputLabel/AlignedInputLabel';
-import AlignedInputLabel from '../../Atoms/AlignedInputLabel/AlignedInputLabel';
+import { AlignedInputLabel } from '../../Atoms/AlignedInputLabel/AlignedInputLabel';
 import { spacingPx } from '../../Design/design';
 
 import ProgressBar, { IProgressBar } from '../../Atoms/ProgressBar/ProgressBar';

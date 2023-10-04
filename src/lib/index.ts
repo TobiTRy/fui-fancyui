@@ -26,7 +26,7 @@ export { default as SwipeUpDash } from '../Components/UI/Atoms/SwipeUpDash/Swipe
 export { default as Typography } from '../Components/UI/Atoms/Typography/Typography';
 export { default as WeekDays } from '../Components/UI/Atoms/WeekDays/WeekDays';
 export { default as YearSelector } from '../Components/UI/Atoms/YearSelector/YearSelector';
-export { default as AlignedInputLabel } from '../Components/UI/Atoms/AlignedInputLabel/AlignedInputLabel';
+export { default as AlignedInputLabel } from '../Components/UI/Atoms/AlignedInputLabel//AlignedInputLabel';
 export { default as AvailableDot } from '../Components/UI/Atoms/AvilableDot/AvailableDot';
 export { default as FancyXButton } from '../Components/UI/Atoms/FancyXButton/FancyXButton';
 export { default as InputLabel } from '../Components/UI/Atoms/InputLabel/InputLabel';

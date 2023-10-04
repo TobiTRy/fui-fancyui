@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
-import AlignedInputLabel from "../../Atoms/AlignedInputLabel/AlignedInputLabel";
-import { spacingPx } from "../../Design/design";
+import { AlignedInputLabel } from '../../Atoms/AlignedInputLabel/AlignedInputLabel';
+import { spacingPx } from '../../Design/design';
 
 export const RangeSliderContainer = styled.div`
   grid-row: 2/3;
