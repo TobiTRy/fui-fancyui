@@ -16,8 +16,8 @@ const preview: Preview = {
     backgrounds: {
       default: 'dark',
       values: [
-        { name: 'light', value: '#ffffff' },
-        { name: 'dark', value: '#000000' },
+        { name: 'light', value: themeStore.getState().theme.secondary[0] },
+        { name: 'dark', value: themeStore.getState().theme.primary[0] },
       ],
     },
     controls: {

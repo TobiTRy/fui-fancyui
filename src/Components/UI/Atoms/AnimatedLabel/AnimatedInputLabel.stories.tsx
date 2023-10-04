@@ -2,7 +2,7 @@ import React from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
-import AnimatedInputLabel from './AnimatedInputLabel';
+import { AnimatedInputLabel } from './AnimatedInputLabel';
 import Typography from '../Typography/Typography';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
@@ -22,6 +22,17 @@ const meta = {
     $moveUp: {
       control: { type: 'boolean' },
     },
+    $colorState: {
+      control: { type: 'radio' },
+      options: ['error', 'active', 'default'],
+    },
+    $layer: {
+      control: { type: 'range', min: 1, max: 10 },
+    },
+    $themeType: {
+      options: ['primary', 'secondary'],
+      control: { type: 'radio' },
+    },
   },
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/react/writing-docs/autodocs
   tags: ['autodocs'],
@@ -34,6 +45,10 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   args: {
     $moveUp: true,
+    $colorState: 'default', 
+    $themeType: 'secondary',
+    $layer: 4,
+
   },
   render: (args) => (
     <AnimatedInputLabel {...args}>
