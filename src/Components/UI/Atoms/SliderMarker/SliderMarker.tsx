@@ -2,7 +2,6 @@ import React from 'react';
 import { styled } from 'styled-components';
 
 import { borderRadius } from '../../Design/design';
-import { boxShadow } from '../../Design/shadows';
 import { TUiColorsType } from '../../Design/color/designColor';
 import colorTransparencyCalculator from '../../Design/color/colorTransparencyCalculator';
 

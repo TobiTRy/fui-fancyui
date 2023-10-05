@@ -2,11 +2,10 @@ import { styled, css } from 'styled-components';
 import themeStore from '../../Design/color/themeStore';
 
 import { spacingPx } from '../../Design/design';
-import { textShadow } from '../../Design/shadows';
 import { TUiColorsType } from '../../Design/color/designColor';
 import { TLayer } from '../../Design/color/generateColorSteps';
 import { getTextColor } from '../../Design/color/colorCalculatorForComponet';
-import { TypographyList } from '../Typography/Typography';
+import { TypographyList } from '../../Atoms/Typography/Typography';
 
 export const tabSwitchItemSizes = {
   sm: {

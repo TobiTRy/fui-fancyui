@@ -29,7 +29,7 @@ const StyledSingleInput = styled.input<StyledSingleInputProps & {theme: TUiColor
 interface ISingleInputAtomProps {
   value: string;
   ariaLabel?: string;
-  onKeyDown: (e: React.KeyboardEvent<HTMLInputElement>) => void;
+  onKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
 }
 const SingleInputAtom = forwardRef<HTMLInputElement, ISingleInputAtomProps>(({ value, onKeyDown, ariaLabel }, ref) => {
   const [isFocused, setIsFocused] = useState(false);

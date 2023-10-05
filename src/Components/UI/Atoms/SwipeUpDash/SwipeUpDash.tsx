@@ -12,7 +12,6 @@ const StyledSwipeUpDash = styled.div<{theme: TUiColorsType}>`
 `;
 
 const StyledButton = styled.button`
-    font-size: lgr;
     font-weight: bold;
     border: none;
     background-color: transparent;

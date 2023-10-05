@@ -2,15 +2,15 @@ import React, { useId, HTMLAttributes } from 'react';
 import { css } from 'styled-components';
 
 import { SwitchButtonStyle } from './FancyTabSwitchButton.style';
-import Typography from '../Typography/Typography';
+import Typography from '../../Atoms/Typography/Typography';
 import { TUiColorsType } from '../../Design/color/designColor';
 import { tabSwitchItemSizes } from './FancyTabSwitchButton.style';
-import { FancySVGAtom } from '../FancySVGAtom';
+import { FancySVGAtom } from '../../Atoms/FancySVGAtom';
 
 // ------------------------------------------------------------------ //
 // ------------- main component for the tab (li item) --------------- //
 // ------------------------------------------------------------------ //
-interface ITabSwitchItem {
+interface ITabSwitchButton {
   disabled?: boolean;
   itemObject: { key: string; label?: string; icon?: JSX.Element };
   selected: boolean;
@@ -21,8 +21,8 @@ interface ITabSwitchItem {
   size?: keyof typeof tabSwitchItemSizes;
   themeType?: keyof TUiColorsType;
 }
-type IFancyTabSwitchItem = ITabSwitchItem & HTMLAttributes<HTMLDivElement>;
-const FancyTabSwitchItem = React.forwardRef<HTMLDivElement, IFancyTabSwitchItem>((props, ref) => {
+type IFancyTabSwitchButton = ITabSwitchButton & HTMLAttributes<HTMLDivElement>;
+const FancyTabSwitchButton = React.forwardRef<HTMLDivElement, IFancyTabSwitchButton>((props, ref) => {
   const { disabled, itemObject, selected, onClick, themeType, wide, textColor, iconAlign, size, ...HTMLProps } = props;
   const id = useId();
 
@@ -79,4 +79,4 @@ const FancyTabSwitchItem = React.forwardRef<HTMLDivElement, IFancyTabSwitchItem>
   );
 });
 
-export default FancyTabSwitchItem;
+export default FancyTabSwitchButton;
