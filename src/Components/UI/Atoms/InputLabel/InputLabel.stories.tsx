@@ -2,28 +2,23 @@
 import { Meta, StoryObj } from '@storybook/react';
 
 // Import the component to be tested
-import FancyXButton from './FancyXButton';
+import InputLabel from './InputLabel';
 
 // Define metadata for the story
 const meta = {
-  component: FancyXButton,
+  component: InputLabel,
   parameters: {
     docs: {
       description: {
-        component: 'FancyXButton is a button with a fancy X in it. It is used to close a modal or a popup.',
+        component: 'Is simply a label for the input. It is used to describe the input. The Parents are the Aligned and AnimatedInputLabel. <br> Its only used for grounding the design',
       },
     },
   },
 
   // Define arguments for the story
-  argTypes: {
-    
-
-  },
-
   // Add tags to the story
   tags: ['autodocs'],
-} satisfies Meta<typeof FancyXButton>;
+} satisfies Meta<typeof InputLabel>;
 
 // Export the metadata
 export default meta;
@@ -32,11 +27,10 @@ type Story = StoryObj<typeof meta>;
 
 // Define the primary story
 export const Primary: Story = {
-  render: (args) => <FancyXButton {...args}/>,
-  args: {
-    themeType: 'secondary',
+  render: () => <InputLabel>
+    Label
+  </InputLabel>,
 
-  },
   parameters: {
     docs: {
       description: {

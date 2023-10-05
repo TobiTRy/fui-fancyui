@@ -18,6 +18,11 @@ export const ButtonWrapper = styled.div<{ $isActive: boolean, theme: TUiColorsTy
   }
 `;
 
+export const Wrapper = styled.div`
+  display: flex;
+`;
+
+
 // Define a function to generate an array of page numbers to display
 const generateNumbers = (totalPages: number, currentPage: number, pageLimit = 3) => {
   const numbers: (number | string)[] = [];
@@ -64,7 +69,6 @@ interface IPageNumberList {
   pageLimits?: number;
   onClick?: (page: number) => void;
 }
-
 // --------------------------------------------------------------------------- //
 // ------- This compoennt generate the Page Numbers and the Spacings --------- //
 // --------------------------------------------------------------------------- //
@@ -76,7 +80,7 @@ export default function PageNumberList(props: IPageNumberList) {
 
   // Render the PageNumberList component with the appropriate props
   return (
-    <>
+    <Wrapper>
       {/* Map over the total number of pages and render a FancyButton for each page */}
       {NumberArray.map((item, index) => (
         <ButtonWrapper $isActive={item === currentPage} key={index}>
@@ -90,6 +94,6 @@ export default function PageNumberList(props: IPageNumberList) {
           />
         </ButtonWrapper>
       ))}
-    </>
+    </Wrapper>
   );
 }

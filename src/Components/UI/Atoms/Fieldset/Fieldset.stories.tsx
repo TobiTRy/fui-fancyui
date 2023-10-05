@@ -2,15 +2,15 @@
 import { Meta, StoryObj } from '@storybook/react';
 
 // Import the component to be tested
-import FancyXButton from './FancyXButton';
+import Fieldset from './Fieldset';
 
 // Define metadata for the story
 const meta = {
-  component: FancyXButton,
+  component: Fieldset,
   parameters: {
     docs: {
       description: {
-        component: 'FancyXButton is a button with a fancy X in it. It is used to close a modal or a popup.',
+        component: 'Fieldset is only   a wrapper for a group of elements. It is used to group elements in a form.',
       },
     },
   },
@@ -23,7 +23,7 @@ const meta = {
 
   // Add tags to the story
   tags: ['autodocs'],
-} satisfies Meta<typeof FancyXButton>;
+} satisfies Meta<typeof Fieldset>;
 
 // Export the metadata
 export default meta;
@@ -32,9 +32,15 @@ type Story = StoryObj<typeof meta>;
 
 // Define the primary story
 export const Primary: Story = {
-  render: (args) => <FancyXButton {...args}/>,
+  render: (args) => <Fieldset {...args}>
+    <p>Some text</p>
+    <p>Iam the Content of the Fieldset</p>
+  </Fieldset>,
   args: {
-    themeType: 'secondary',
+    alignLabel: 'left',
+    label: 'This is a label',
+    fontVariantLegend: 'h3',
+
 
   },
   parameters: {

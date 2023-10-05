@@ -5,7 +5,6 @@ import SVGLoadingArrows from '../../SVGIcons/SVGLoadingArrows';
 import { FancySVGAtom } from '../FancySVGAtom';
 import { ISVGAtomProps, ISizes } from '../FancySVGAtom/FancySVGAtom.model';
 
-
 const loadingAnimation = keyframes`
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
@@ -20,7 +19,7 @@ interface ILoadingSVGArrowsProps {
 //  A loading animation with two arrows thats shown when something is loading  //
 // --------------------------------------------------------------------------- //
 export default function LoadingSVGArrows(props: ILoadingSVGArrowsProps & ISVGAtomProps) {
-  const { size = 'md', isLoading, externalStyle } = props;
+  const { size = 'md', isLoading, externalStyle, ...SVGAtomProps } = props;
 
   return isLoading ? (
     <FancySVGAtom
@@ -30,10 +29,9 @@ export default function LoadingSVGArrows(props: ILoadingSVGArrowsProps & ISVGAto
         animation: ${loadingAnimation} 2s infinite ease-in-out;
         ${externalStyle}
       `}
+      {...SVGAtomProps}
     >
       <SVGLoadingArrows />
     </FancySVGAtom>
   ) : null;
 }
-
-

@@ -117,6 +117,7 @@ export default function ImageVideoOverlay(props: IImageVideoOverlay) {
     <Wrapper>
       <Overlay $position={position} />
       <TextWrapper $position={position}>{textChildren}</TextWrapper>
+      {/* The children is normaly only a Video or a image, but do with it what d o you fuucking want */}
       {children}
     </Wrapper>
   );

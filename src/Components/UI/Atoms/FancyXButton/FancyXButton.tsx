@@ -10,14 +10,14 @@ import { TUiColorsType } from '../../Design/color/designColor';
 type FancyXButtonDesign = IUiColorsTypes | IUiColorsSystemMessageTypes;
 
 // this function picks the color from the design object and returns the color value
-const pickColorObject = (design: FancyXButtonDesign | undefined | null) => {
+const pickColorObject = (themeType: FancyXButtonDesign | undefined | null) => {
   const theme = themeStore.getState().theme;
 
   // check if the design is in the theme or systemMessages
-  if (design && (design in theme)) {
-    return theme[design as keyof typeof theme].main;
-  } else if (design && (design in systemMessages)) {
-    return systemMessages[design as keyof typeof systemMessages].light;
+  if (themeType && (themeType in theme)) {
+    return theme[themeType as keyof typeof theme][0];
+  } else if (themeType && (themeType in systemMessages)) {
+    return systemMessages[themeType as keyof typeof systemMessages].light;
   }
 };
 
@@ -33,7 +33,7 @@ const StyledFancyXButton = styled.button<{$colorValue?: string, theme: TUiColors
   ${simpleColorTransition}
 
   &:hover {
-    color: ${({ $colorValue, theme }) => $colorValue ? Color($colorValue).darken(0.3).hex() : theme.accent[1]};
+    color: ${({ $colorValue, theme }) => $colorValue ? Color($colorValue).darken(0.1).hex() : theme.accent[1]};
   } 
 `;
 

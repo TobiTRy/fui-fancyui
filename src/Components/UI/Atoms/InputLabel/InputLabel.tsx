@@ -4,9 +4,9 @@ import { TUiColorsType } from '../../Design/color/designColor';
 // --------------------------------------------------------------------------- //
 // --------------- The main label design for the input elements -------------- //
 // --------------------------------------------------------------------------- //
-const InputLabel = styled.label<{theme: TUiColorsType}>`
+const InputLabel = styled.label<{theme?: TUiColorsType}>`
   width: 100%;
-  color: ${({theme}) => theme.secondary[7]};
+  color: ${({theme}) => theme.secondary[1]};
   font-weight: bold;
   pointer-events: none;
   user-select: none;
@@ -14,5 +14,7 @@ const InputLabel = styled.label<{theme: TUiColorsType}>`
   transition-timing-function: cubic-bezier(0.46, 0.03, 0.52, 0.96);
   letter-spacing: 0.8px;
 `;
+
+InputLabel.displayName = 'InputLabel';
 
 export default InputLabel;

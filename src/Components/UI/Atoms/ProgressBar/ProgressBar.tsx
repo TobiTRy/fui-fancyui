@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+
 import { borderRadius } from '../../Design/design';
 import { TUiColorsType } from '../../Design/color/designColor';
 import { TLayer } from '../../Design/color/generateColorSteps';
@@ -41,7 +42,7 @@ export interface IProgressBar {
 export default function ProgressBar({ progress = 0, maxValue = 100, id, themeType, layer }: IProgressBar) {
   // Calculate the width of the progress bar fill
   const width = (progress / maxValue) * 100;
-
+  
   // Render the ProgressBar component with the appropriate props
   return (
     <ProgressBarContainer id={id} role="progressbar" $themeType={themeType} $layer={layer} aria-valuenow={progress} aria-valuemin={0} aria-valuemax={maxValue}>

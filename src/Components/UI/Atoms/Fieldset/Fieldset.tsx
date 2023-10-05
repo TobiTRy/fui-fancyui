@@ -6,7 +6,7 @@ import { TypographyList } from '../Typography/Typography';
 export type TalignLabel = 'left' | 'center';
 
 interface IFieldset {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   label?: string;
   alignLabel?: TalignLabel;
   fontVariantLegend?: keyof typeof TypographyList;

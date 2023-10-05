@@ -16,7 +16,7 @@ export default function PasswordEye({ isShow, onClick }: IPasswordEye) {
 
   return (
     <i onClick={clickHandler}>
-      {!isShow ? (
+      {isShow ? (
         // the eye icon for the password type toggle
         <FancySVGAtom size="sm" isPassive={true}>{SVGEyeOpen}</FancySVGAtom>
       ) : (

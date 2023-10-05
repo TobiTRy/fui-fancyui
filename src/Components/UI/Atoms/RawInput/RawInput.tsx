@@ -7,8 +7,7 @@ export type TRawInputAlign = 'left' | 'center';
 export interface IRawInput {
   $align?: TRawInputAlign;
 }
-
-const RawInput = styled.input<IRawInput & { theme: TUiColorsType }>`
+const RawInput = styled.input<IRawInput & { theme?: TUiColorsType }>`
   font-weight: 500;
   font-size: 16px;
   box-sizing: border-box;

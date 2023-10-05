@@ -2,28 +2,41 @@
 import { Meta, StoryObj } from '@storybook/react';
 
 // Import the component to be tested
-import FancyXButton from './FancyXButton';
+import RawInput from './RawInput';
 
 // Define metadata for the story
 const meta = {
-  component: FancyXButton,
+  component: RawInput,
   parameters: {
     docs: {
       description: {
-        component: 'FancyXButton is a button with a fancy X in it. It is used to close a modal or a popup.',
+        component:
+          '',
+      },
+    },
+  },
+  // Define arguments for the story
+  argTypes: {
+    placeholder: {
+      control: {
+        type: 'text',
+      },
+    },
+    value: {
+      control: {
+        type: 'text',
+      },
+    },
+    onChange: {
+      control: {
+        type: 'function',
       },
     },
   },
 
-  // Define arguments for the story
-  argTypes: {
-    
-
-  },
-
   // Add tags to the story
   tags: ['autodocs'],
-} satisfies Meta<typeof FancyXButton>;
+} satisfies Meta<typeof RawInput>;
 
 // Export the metadata
 export default meta;
@@ -32,10 +45,11 @@ type Story = StoryObj<typeof meta>;
 
 // Define the primary story
 export const Primary: Story = {
-  render: (args) => <FancyXButton {...args}/>,
+  render: (args) => <RawInput {...args} />,
   args: {
-    themeType: 'secondary',
-
+    placeholder: 'Placeholder',
+    value: '',
+    onChange: (event: React.ChangeEvent<HTMLInputElement>) => console.log(event.target.value),
   },
   parameters: {
     docs: {
