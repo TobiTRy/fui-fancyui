@@ -88,7 +88,7 @@ export { default as Paginator } from '../Components/UI/Molecules/Paginator/Pagin
 export { default as FancyProgressBar } from '../Components/UI/Molecules/FancyProgressBar/FancyProgressBar';
 export { default as FancyMiniProfile } from '../Components/UI/Molecules/FancyMiniProfile/FancyMiniProfile';
 export { default as FancyCheckbox } from '../Components/UI/Molecules/FancyCheckbox/FancyCheckbox';
-
+export { default as FancyChip } from '../Components/UI/Molecules/FancyChip/FancyChip';
 
 // ---------- Organisms ------- //
 export { default as FancyColorPicker } from '../Components/UI/Organisms/FancyColorPicker/FancyColorPicker';

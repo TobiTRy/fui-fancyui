@@ -7,7 +7,7 @@ import IStyledPrefixAndPicker from '../../Interface/IStyledPrefixAndPicker.model
 import { simpleColorTransition } from '../../Design/simpleTransition';
 import { TUiColorsType } from '../../Design/color/designColor';
 
-type IStyledDatePicker = IStyledPrefixAndPicker<IDateInputProps, 'errorMessage' | 'align'> & { value?: string };
+type IStyledDatePicker = IStyledPrefixAndPicker<IDateInputProps, 'align'> & { value?: string };
 const StyledDatePicker = styled(RawInput)<IStyledDatePicker & { theme: TUiColorsType }>`
   color: ${({ value }) => (value ? '' : 'transparent')};
 
@@ -30,8 +30,6 @@ const StyledDatePicker = styled(RawInput)<IStyledDatePicker & { theme: TUiColors
 
 export interface IDateInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'type'> {
   value?: string;
-  errorMessage?: string;
-  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
   activeHandler?: (value: boolean) => void;
   align?: TRawInputAlign;
   type?: 'week' | 'date' | 'month' | 'time' | 'datetime-local' | 'datetime';
@@ -40,17 +38,13 @@ export interface IDateInputProps extends Omit<InputHTMLAttributes<HTMLInputEleme
 // ---------- Here are the design variants for sizing and alignment ---------- //
 // --------------------------------------------------------------------------- //
 export default function DateInput(props: IDateInputProps) {
-  const { value, onChange, activeHandler, name, disabled, errorMessage, align, type, ...htmlInputProps } = props;
+  const { value, activeHandler, align, type, ...htmlInputProps } = props;
 
   return (
     <StyledDatePicker
-      $errorMessage={errorMessage}
       $align={align}
-      name={name}
       type={type || 'date'}
       value={value}
-      onChange={onChange}
-      disabled={disabled}
       required
       onFocus={() => activeHandler && activeHandler(true)}
       onBlur={() => activeHandler && activeHandler(false)}

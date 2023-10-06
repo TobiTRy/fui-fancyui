@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Chip from '../../Components/UI/Molecules/Chip/Chip';
+import Chip from '../../Components/UI/Molecules/FancyChip/FancyChip';
 
 import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
 import ClipBoardIconCheck from '../../Components/UI/SVGIcons/SVGClipBoardIconChecked';
