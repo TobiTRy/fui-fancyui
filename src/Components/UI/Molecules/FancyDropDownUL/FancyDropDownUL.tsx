@@ -20,7 +20,7 @@ export interface IFancyUL {
 // --------------------------------------------------------------------------- //
 export default function FancyDropDownUL({ children, isOpen, themeType, layer, ...styledProps }: IFancyUL) {
   const { width = '50%', alignHorizontal = 'center', alignVertical = 'top' } = styledProps;
-  const listRef = useRef<HTMLDivElement>(null);
+  const listRef = useRef<HTMLUListElement>(null);
   const [style, animate] = useSpring(() => ({ height: '0px' }), []);
 
   // This useEffect hook animates the height of the UL element
