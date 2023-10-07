@@ -61,7 +61,7 @@ export default function FancyPageList(props: IFancyPageList) {
         totalPages={totalPageCount}
         pageLimits={pageLimits}
         onPageChange={(page) => setCurrentPage(page)}
-        design={buttonDesign}
+        themeType={buttonDesign}
         outlinedButton={outlinedButton}
       />
     </Wrapper>
