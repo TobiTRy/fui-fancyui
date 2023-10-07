@@ -64,7 +64,7 @@ export default function HeaderRoute() {
           <FancyA
             wide={true}
             align="left"
-            icon={<FancySVGAtom>{SVGChevronLeft}</FancySVGAtom>}
+            icon={SVGChevronLeft}
             design="transparent"
             hoverColor="primary"
             roundedCompletly={false}

@@ -37,11 +37,13 @@ interface IFancyColorOutput {
   pickedColor: Color;
   opacity: number;
   currentColorType?: IColorFormat;
-  handler: (color: Color) => void;
+  handler?: (color: Color) => void;
   colorTypeHandler?: (type: IColorFormat) => void;
   handlerOpacity: (color: number) => void;
 }
-const FancyColorOutput = ({ pickedColor, opacity, handler, handlerOpacity, currentColorType, colorTypeHandler }: IFancyColorOutput) => {
+export default function FancyColorOutput(props: IFancyColorOutput) {
+  const { pickedColor, opacity, handler, handlerOpacity, currentColorType, colorTypeHandler } = props;
+
   const [colorFormatIndex, setColorFormatIndex] = useState(0);
   const [currentPicketColor, setCurrentPickedColor] = useState<Color>(pickedColor);
 
@@ -74,14 +76,14 @@ const FancyColorOutput = ({ pickedColor, opacity, handler, handlerOpacity, curre
       //indentify the inputletter is a color or alpha value
       if (inputLetter !== 'a') {
         colorWhitoutAlpha[inputLetter] = parseInt(value);
-        handler(Color(colorWhitoutAlpha).hsl());
+        handler && handler(Color(colorWhitoutAlpha).hsl());
       } else {
-        handler(Color(colorWhitoutAlpha).hsl());
+        handler && handler(Color(colorWhitoutAlpha).hsl());
         handlerOpacity(parseFloat(value));
       }
     } else {
       //if the color is a string it is a HEX  code give it back to the parent component
-      handler(Color(color).hsl());
+      handler && handler(Color(color).hsl());
     }
   };
 
@@ -96,8 +98,8 @@ const FancyColorOutput = ({ pickedColor, opacity, handler, handlerOpacity, curre
       const index = colorFormats.findIndex((type) => type === currentColorType);
       setColorFormatIndex(index);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <Container>
@@ -107,6 +109,4 @@ const FancyColorOutput = ({ pickedColor, opacity, handler, handlerOpacity, curre
       <FancyButton onClick={handleFormatChange} outlined={true} icon={Svg} wide={true} size="sm" themeType="accent"></FancyButton>
     </Container>
   );
-};
-
-export default FancyColorOutput;
+}

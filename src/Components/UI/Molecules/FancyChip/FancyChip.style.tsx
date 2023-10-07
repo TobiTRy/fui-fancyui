@@ -96,6 +96,7 @@ export const StyledChip = styled.div<IStyledChip & { theme: TUiColorsType }>`
   height: ${({ $size }) => ($size ? sizes[$size].height : sizes.md.height)};
   cursor: pointer;
   display: flex;
+
   justify-content: space-between;
   align-items: center;
   line-height: 2;

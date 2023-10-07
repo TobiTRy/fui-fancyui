@@ -4,7 +4,7 @@ import { IUiColorsTypes } from "../../Design/design";
 import { sizes } from "./FancyChip.style";
 
 // Define the interface for the base chip props
-interface IChipPropsBase {
+export interface IChipProps {
   label: string;
   size?: keyof typeof sizes;
   isActive?: boolean;
@@ -12,23 +12,11 @@ interface IChipPropsBase {
   image?: string;
   outlined?: boolean;
   textColor?: IUiColorsTypes;
-  onClick?: () => void;
   themeType?: keyof TUiColorsType;
   layer?: TLayer;
   textLayer?: TLayer;
+  onDelete?: () => void;
+  onClick?: () => void;
 }
 
-// Define the interface for the chip props with an X button
-interface IChipPropsWithXButton extends IChipPropsBase {
-  deleteButton: true;
-  onDelete: () => void;
-}
 
-// Define the interface for the chip props without an X button
-interface IChipPropsWithoutXButton extends IChipPropsBase {
-  deleteButton?: false;
-  onDelete?: never;
-}
-
-// Define the type for the chip props
-export type IChipProps = IChipPropsWithXButton | IChipPropsWithoutXButton;

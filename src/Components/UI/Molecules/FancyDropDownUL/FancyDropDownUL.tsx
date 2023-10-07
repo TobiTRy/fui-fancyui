@@ -4,6 +4,7 @@ import { animated, useSpring } from '@react-spring/web';
 import { StyledUL, WrapperUL } from './FancyDropDownUL.style';
 import { TUiColorsType } from '../../Design/color/designColor';
 import { TLayer } from '../../Design/color/generateColorSteps';
+import { borderRadius } from '../../Design/design';
 
 export interface IFancyUL {
   children: React.ReactNode;
@@ -13,6 +14,7 @@ export interface IFancyUL {
   alignVertical?: 'top' | 'center' | 'bottom';
   themeType?: keyof TUiColorsType;
   layer?: TLayer;
+  $rouned?: keyof typeof borderRadius;
 }
 
 // --------------------------------------------------------------------------- //
@@ -20,6 +22,7 @@ export interface IFancyUL {
 // --------------------------------------------------------------------------- //
 export default function FancyDropDownUL({ children, isOpen, themeType, layer, ...styledProps }: IFancyUL) {
   const { width = '50%', alignHorizontal = 'center', alignVertical = 'top' } = styledProps;
+  
   const listRef = useRef<HTMLUListElement>(null);
   const [style, animate] = useSpring(() => ({ height: '0px' }), []);
 

@@ -35,7 +35,21 @@ export interface IFancyA {
   onClick?: () => void;
 }
 export default function FancyA(props: IFancyA) {
-  const { icon, label, outlined, size, themeType, align, textColor, wide, hoverColor, disabled, onClick, borderRadius, layer } = {
+  const {
+    icon,
+    label,
+    outlined,
+    size,
+    themeType = 'secondary',
+    align,
+    textColor,
+    wide,
+    hoverColor,
+    disabled,
+    onClick,
+    borderRadius,
+    layer,
+  } = {
     ...defaultProps,
     ...props,
   };
@@ -56,7 +70,11 @@ export default function FancyA(props: IFancyA) {
       onClick={onClick}
       $layer={layer}
     >
-      {icon && <FancySVGAtom size={props.size}>{icon}</FancySVGAtom>}
+      {icon && (
+        <FancySVGAtom size={size} isPassive externalStyle={{ flexShrink: '0' }}>
+          {icon}
+        </FancySVGAtom>
+      )}
       {label && (
         <Typography type="inlineElement" variant="label">
           {label}

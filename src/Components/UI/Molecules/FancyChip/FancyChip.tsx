@@ -9,17 +9,20 @@ import { IChipProps } from './FancyChip.model';
 
 // Define the Chip component
 export default function FancyChip(props: IChipProps) {
-  const { label, deleteButton, onDelete, icon, image, size, outlined, themeType, layer, textColor, textLayer, isActive } = { ...defaultProps, ...props };
+  const { label, onDelete, icon, image, size, outlined, themeType, layer, textColor, textLayer, isActive } = { ...defaultProps, ...props };
+  console.log(onDelete)
 
   // Define a function to calculate the spacing position for the chip
   const clacPosition = (): TSpacingPosition => {
-    if (icon && deleteButton) return 'booth';
-    if (image && deleteButton) return 'right';
+    if (icon && onDelete) return 'booth';
+    if (image && onDelete) return 'right';
     if (image) return 'right';
-    if (deleteButton) return 'booth';
+    if (onDelete) return 'booth';
     if (icon) return 'booth';
     return 'booth';
   };
+
+  console.log(Boolean(onDelete))
 
   // Calculate the spacing po%sition for the chip
   const getCalcPosition = clacPosition();
@@ -60,7 +63,7 @@ export default function FancyChip(props: IChipProps) {
         {label}
       </Typography>
 
-      {deleteButton && (
+      {onDelete && (
         <StyledXButton
           $size={size}
           onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
@@ -77,15 +80,6 @@ export default function FancyChip(props: IChipProps) {
 
 // Define the default props for the Chip component
 const defaultProps = {
-  deleteButton: false,
   label: 'Test',
   size: 'md' as const,
-  onClick: () => {
-    console.log('onClick');
-  },
-  onDelete: () => {
-    console.log('onDelete');
-  },
-  icon: null,
-  image: null,
 };
