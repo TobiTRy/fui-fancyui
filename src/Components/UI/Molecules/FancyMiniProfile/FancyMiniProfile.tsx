@@ -26,22 +26,22 @@ const pillSettings: IPillSettings = {
     imageSize: 'xs',
     padding: undefined,
     textSize: 'verysmText',
-    paddingToEdge: 'md',
-    gapPictureAndText: 'xs',
+    paddingToEdge: 'lg',
+    gapPictureAndText: 'sm',
   },
   md: {
     imageSize: 'xs',
     padding: 'xs',
     textSize: 'smText',
-    paddingToEdge: 'sm',
-    gapPictureAndText: 'xs',
+    paddingToEdge: 'lg',
+    gapPictureAndText: 'sm',
   },
   lg: {
     imageSize: 'sm',
     padding: 'xs',
     textSize: 'h5',
-    paddingToEdge: 'lg',
-    gapPictureAndText: 'xs',
+    paddingToEdge: 'xl',
+    gapPictureAndText: 'sm',
   },
 };
 
