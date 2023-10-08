@@ -7,7 +7,8 @@ import { spacingPx } from '../../Design/design';
 // The List with dymaic spacing between items
 const StyledList = styled.div<{ $spacing?: string }>`
   display: flex;
-
+  justify-content: center;
+  align-items: center;
   flex-direction: column; 
   gap: ${({ $spacing }) => $spacing ? $spacing : '0px'};
 `

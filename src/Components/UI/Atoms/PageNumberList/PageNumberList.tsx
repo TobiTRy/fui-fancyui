@@ -20,6 +20,7 @@ export const ButtonWrapper = styled.div<{ $isActive: boolean, theme: TUiColorsTy
 
 export const Wrapper = styled.div`
   display: flex;
+  gap: ${spacingPx.md};
 `;
 
 
