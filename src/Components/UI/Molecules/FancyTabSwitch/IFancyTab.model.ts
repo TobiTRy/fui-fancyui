@@ -2,7 +2,6 @@ import { TUiColorsType } from "../../Design/color/designColor";
 import { TLayer } from "../../Design/color/generateColorSteps";
 import { borderRadius } from "../../Design/design";
 import { spacingPx } from "../../Design/design";
-import IStyledPrefixAndPicker from "../../Interface/IStyledPrefixAndPicker.model";
 
 //this type accepts a value or Icon (or booth) and needed a key
 export interface IinputValues {
@@ -16,7 +15,7 @@ export interface IFancyTabSwitchComponent {
   label?: string;
   values: IinputValues[];
   currentSelect?: string;
-  onChange?: (value: string) => void;
+  handler?: (value: string) => void;
   size?: 'sm' | 'md' | 'lg';
   tabSpacing?: keyof typeof spacingPx;
   outlined?: boolean;
@@ -26,7 +25,6 @@ export interface IFancyTabSwitchComponent {
   rounded?: keyof typeof borderRadius; 
   wide?: boolean;
   disabled?: boolean;
-  selected?: boolean;
   textColor?: keyof TUiColorsType;
   layer?: TLayer;
   direction?: 'horizontal' | 'vertical';

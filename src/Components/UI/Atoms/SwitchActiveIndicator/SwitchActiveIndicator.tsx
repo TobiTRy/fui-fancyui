@@ -69,6 +69,7 @@ const ActiveSwitchIndicator = styled.i<IActiveSwitchIndicator & { theme: TUiColo
   ${({ $itemNumber, $tabSpacing, $direction }) => {
     const itemPosition = ($itemNumber - 1) * 100 + '%';
     const gapSpacing = $tabSpacing ? ($itemNumber - 1) * spacing[$tabSpacing] : 0;
+    console.log('gapSpacing', gapSpacing);
     const currentPosition = $itemNumber
       ? css`
           ${$direction === 'vertical'

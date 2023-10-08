@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { Button, MenueItemContainer, MenueItemWrapper, Ring, SpeedDialContainer, Wrapper } from './SpeedDailButton.style';
+import { Button, MenueItemWrapper, Ring, SpeedDialContainer, Wrapper } from './SpeedDailButton.style';
 import SpeedDailMenueItem, { TMenueItemProps, TMenueButtonProps } from '../../Atoms/SpeedDialMenueItem/SpeedDailMenueItem';
 import SVGPlus from '../../SVGIcons/SVGPlus';
 
