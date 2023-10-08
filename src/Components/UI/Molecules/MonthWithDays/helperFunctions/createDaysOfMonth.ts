@@ -1,8 +1,8 @@
 import createDay from './createDayFunction';
-import Day from './day.model';
-import { IDateArray } from '../RangeCalendar/IDateArray.model';
-import { IDisabledDateSettings } from './IDisableDateSettings.model';
-import { IDateWithExternalState } from './IExternalMonthWithDays.model';
+import Day from '../day.model';
+import { IDateArray } from '../../RangeCalendar/IDateArray.model';
+import { IDisabledDateSettings } from '../IDisableDateSettings.model';
+import { IDateWithExternalState } from '../IExternalMonthWithDays.model';
 
 const getDaysInMonth = (month: number, year: number): number => {
   return new Date(year, month, 0).getDate();
