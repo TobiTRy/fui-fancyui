@@ -3,7 +3,7 @@ import RawInput from '../../Atoms/RawInput/RawInput';
 import IStyledPrefixAndPicker from '../../Interface/IStyledPrefixAndPicker.model';
 import { INumberInput } from './NumberInput';
 
-type IStyledNumberInput = IStyledPrefixAndPicker<INumberInput, 'align' | 'errorMessage'>;
+type IStyledNumberInput = IStyledPrefixAndPicker<INumberInput, 'align'>;
 const StyledNumberInput = styled(RawInput)<IStyledNumberInput & { $width: string }>`
   box-sizing: border-box;
   border-radius: 0;
