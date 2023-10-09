@@ -2,27 +2,33 @@
 import { Meta, StoryObj } from '@storybook/react';
 
 // Import the component to be tested
-import FancyTabSwitchButton from './FancyTabSwitchButton';
+import TextInput from './TextInput';
 
 // Define metadata for the story
 const meta = {
-  component: FancyTabSwitchButton,
+  component: TextInput,
   parameters: {
     docs: {
       description: {
-        component:  'SwipeUpDash is a simple horizontal line'
+        component: 'SwipeUpDash is a simple horizontal line',
       },
     },
   },
   // Define arguments for the story
   argTypes: {
-
-
+    value: {
+      description: 'The value of the input.',
+      type: { name: 'string' },
+    },
+    align: {
+      description: 'The alignment of the text.',
+      control: { type: 'select'},
+    }, 
 
   },
   // Add tags to the story
   tags: ['autodocs'],
-} satisfies Meta<typeof FancyTabSwitchButton>;
+} satisfies Meta<typeof TextInput>;
 
 // Export the metadata
 export default meta;
@@ -31,16 +37,8 @@ type Story = StoryObj<typeof meta>;
 
 // Define the primary story
 export const Primary: Story = {
-  render: (args) => <FancyTabSwitchButton {...args} />,
+  render: (args) => <TextInput {...args} />,
   args: {
-    
 
-  },
-  parameters: {
-    docs: {
-      description: {
-        story: '',
-      },
-    },
   },
 };

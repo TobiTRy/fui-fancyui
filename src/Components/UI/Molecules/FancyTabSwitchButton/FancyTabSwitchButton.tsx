@@ -19,18 +19,16 @@ interface ITabSwitchButton {
   textColor?: keyof TUiColorsType;
   iconAlign?: 'left' | 'right';
   size?: keyof typeof tabSwitchItemSizes;
-  themeType?: keyof TUiColorsType;
 }
 type IFancyTabSwitchButton = ITabSwitchButton & HTMLAttributes<HTMLDivElement>;
 const FancyTabSwitchButton = React.forwardRef<HTMLDivElement, IFancyTabSwitchButton>((props, ref) => {
-  const { disabled, itemObject, selected, onClick, themeType, wide, textColor, iconAlign, size, ...HTMLProps } = props;
+  const { disabled, itemObject, selected, onClick, wide, textColor, iconAlign, size, ...HTMLProps } = props;
   const id = useId();
 
   return (
     <SwitchButtonStyle
       ref={ref}
       role="radio"
-      $themeType={themeType}
       $size={size}
       $wide={wide}
       $textColor={textColor}

@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import { styled, css } from 'styled-components';
 import FancyTextInput from '../../Organisms/FancyTextInput/FancyTextInput';
 
@@ -28,7 +28,6 @@ const StyledSearchBar = styled.div<{ $isActive?: boolean }>`
 // Props for the SearchBar component
 interface ISearchBar {
   searchValue?: string;
-  isActive?: boolean;
   align?: TRawInputAlign;
   activeHandler?: (isActive: boolean) => void;
   handler?: (value: string) => void;
@@ -38,11 +37,12 @@ interface ISearchBar {
 }
 // The SearchBar component
 export default function SearchBar(props: ISearchBar) {
-  const { activeHandler, handler, isActive, searchValue, align, themeType, layer } = { ...defaultProps, ...props };
-
+  const { activeHandler, handler, searchValue, align, themeType, layer } = { ...defaultProps, ...props };
+  const [isActive, setIsActive] = useState(false); // The state for the isActive state of the search bar
   // Function to handle changes to the isActive state
   const focusHandler = (isFocused: boolean) => {
     activeHandler && activeHandler(isFocused);
+    setIsActive(isFocused);
   };
 
   // Function to handle changes to the search value

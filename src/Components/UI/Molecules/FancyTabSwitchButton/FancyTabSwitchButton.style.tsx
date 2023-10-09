@@ -4,7 +4,7 @@ import themeStore from '../../Design/color/themeStore';
 import { spacingPx } from '../../Design/design';
 import { TUiColorsType } from '../../Design/color/designColor';
 import { TLayer } from '../../Design/color/generateColorSteps';
-import { getTextColor } from '../../Design/color/colorCalculatorForComponet';
+import { getBackgroundColor, getTextColor } from '../../Design/color/colorCalculatorForComponet';
 import { TypographyList } from '../../Atoms/Typography/Typography';
 
 export const tabSwitchItemSizes = {
@@ -47,13 +47,13 @@ const generateDynamicTabStyle = (props: TGenerateDynamicTabStyle) => {
   if ($themeType !== 'transparent') {
     return css`
       color: ${darkTheme
-        ? getTextColor({ theme, $themeType: $textColor, $textLayer: $layer })
-        : getTextColor({ theme, $themeType: $textColor, $textLayer: $layer })};
+        ? getBackgroundColor({ theme, $themeType: $textColor, $layer })
+        : getBackgroundColor({ theme, $themeType: $textColor, $layer })};
     `;
   } else {
     //when the it is transparent style it with underline
     return css`
-      color: ${getTextColor({ theme, $themeType: $textColor, $textLayer: $layer })};
+      color: ${getBackgroundColor({ theme, $themeType: $textColor, $layer })};
     `;
   }
 };
@@ -109,7 +109,9 @@ const generateButtonStyle = (props: IListButtonStyle) => {
       width: auto;
       cursor: pointer;
       user-select: none;
-      padding: ${$wide ? `${tabSwitchItemSizes[$size || 'sm'].padding} ${spacingPx.md}` : `${tabSwitchItemSizes[$size || 'sm'].padding} ${parseInt(tabSwitchItemSizes[$size || 'sm'].padding) + 7 +'px'}`};
+      padding: ${$wide
+        ? `${tabSwitchItemSizes[$size || 'sm'].padding} ${spacingPx.md}`
+        : `${tabSwitchItemSizes[$size || 'sm'].padding} ${parseInt(tabSwitchItemSizes[$size || 'sm'].padding) + 7 + 'px'}`};
       //handles the dynamic values
       ${generateDynamicTabStyle({ $themeType, $textColor, theme, $layer })}
       // generates underlying childs in this element

@@ -1,10 +1,11 @@
 import React, { InputHTMLAttributes, useState, useEffect, KeyboardEvent, ChangeEvent } from 'react';
 import StyledNumberInput from './NumberInput.styled';
+import { TRawInputAlign } from '../../Atoms/RawInput/RawInput';
 
 export interface INumberInput extends InputHTMLAttributes<HTMLInputElement> {
   autoWidth?: boolean;
   active?: boolean;
-  align?: string;
+  align?: TRawInputAlign;
   step?: number;
   activeHandler?: (value: boolean) => void;
 }
