@@ -1,8 +1,8 @@
 // useSelectedDates.ts
 import { useState, useCallback } from 'react';
-import Day from '../MonthWithDays/day.model';
+import Day from '../../MonthWithDays/day.model';
 import selectDayFunction from './selectDayFunction';
-import { IDateArray, IDateOnlyArray } from './IDateArray.model';
+import { IDateArray, IDateOnlyArray } from '../IDateArray.model';
 
 // the hook for handle the selected dates
 export default function useSelectedDates(

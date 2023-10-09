@@ -1,6 +1,6 @@
-import Day from '../MonthWithDays/day.model';
+import Day from '../../MonthWithDays/day.model';
 
-import { IDateOnlyArray } from './IDateArray.model';
+import { IDateOnlyArray } from '../IDateArray.model';
 type DateArray = Date[] | (Date | undefined)[];
 
 const checkForValidDatesEnterd = (dates: DateArray) => {

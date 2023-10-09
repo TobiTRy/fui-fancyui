@@ -2,8 +2,8 @@ import React, { useEffect, useState, useRef } from 'react';
 import { MonthContainer, StyledCalendar } from './RangeCalendar.style';
 
 import MonthWithDays from '../MonthWithDays/MonthWithDays';
-import useSelectedDates from './useSelectedDates';
-import useVisibleMonths from './useVisibleMonths';
+import useSelectedDates from './helperFunctions/useSelectedDates';
+import useVisibleMonths from './helperFunctions/useVisibleMonths';
 
 import { IDisabledDateSettings } from '../MonthWithDays/IDisableDateSettings.model';
 import {IExternalMonthWithDays} from '../MonthWithDays/IExternalMonthWithDays.model';

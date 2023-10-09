@@ -9,7 +9,7 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component: 'Smart-Comonent: A Modal component to show a Dialog with a Backdrop',
+        component: 'Dumb-Comonent: A Paginator component to switch pages',
       },
     },
   },
