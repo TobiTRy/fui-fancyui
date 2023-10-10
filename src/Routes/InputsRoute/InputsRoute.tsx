@@ -117,7 +117,7 @@ export default function InputsRoute() {
         </DesignArea>
         <DesignArea title="Date Input">
           <FancyDateInput value={date} label="Date" onChange={dateHandler} />
-          <FancyDateInput value={date} icon={svg} label="Date" onChange={dateHandler} align="center" />
+          <FancyDateInput value={date} placeholder={'HI'} icon={svg} label="Date" onChange={dateHandler} align="left" />
         </DesignArea>
         <DesignArea title="DateDropDown Input">
           <FancyDateDropDown type="day" label="Day" onChange={testHandler3} />

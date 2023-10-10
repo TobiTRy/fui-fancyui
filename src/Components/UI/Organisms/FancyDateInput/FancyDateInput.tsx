@@ -3,12 +3,12 @@ import React, { useId, useState } from 'react';
 import DateInput, { IDateInputPropsWithNativeAttrs } from '../../Molecules/DateInput/DateInput';
 import InputWrapper, { IInputWrapperUserInputProps } from '../../Molecules/InputWrapper/InputWrapper';
 
-type IFancyDateInput = IInputWrapperUserInputProps & IDateInputPropsWithNativeAttrs;
+type IFancyDateInput = Omit<IInputWrapperUserInputProps, 'InputElement'> & IDateInputPropsWithNativeAttrs;
 // --------------------------------------------------------------------------- //
 // ----The TextInput Comonent with surrounding icon, label and underline ----- //
 // --------------------------------------------------------------------------- //
 export default function FancyDateInput(props: IFancyDateInput) {
-  const { id, value, label, icon, errorMessage, align, disabled, activeHandler, themeType, layer, ...inputProps } = props;
+  const { id, value, label, icon, errorMessage, align, disabled, activeHandler, themeType, layer, placeholder, ...inputProps } = props;
 
   //the states activity of the input
   const [isActive, setIsActive] = useState(false);
@@ -30,6 +30,7 @@ export default function FancyDateInput(props: IFancyDateInput) {
       label={label}
       disabled={disabled}
       themeType={themeType}
+      placeholder={placeholder}
       layer={layer}
       align={align}
       isActive={isActive}
@@ -38,6 +39,7 @@ export default function FancyDateInput(props: IFancyDateInput) {
       InputElement={
         <DateInput
           id={usedId}
+          placeholder={placeholder}
           themeType={themeType}
           layer={layer}
           value={value}

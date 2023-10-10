@@ -4,6 +4,8 @@ import { Meta, StoryObj } from '@storybook/react';
 // Import the component to be tested
 import FancyDateInput from './FancyDateInput';
 
+import SVGCheckMark from '../../SVGIcons/SVGCheckMark';
+
 // Define metadata for the story
 const meta = {
   component: FancyDateInput,
@@ -21,42 +23,96 @@ const meta = {
       control: {
         type: 'text',
       },
+      defaultValue: {
+        summary: '',
+      }
     },
     align: {
       description: 'Alignment of the label',
       control: {
         type: 'select',
       },
+      defaultValue: {
+        summary: 'left',
+      }
     },
     disabled: {
       description: 'Disable the input',
       control: {
         type: 'boolean',
       },
+      defaultValue: {
+        summary: false,
+      }
     },
     themeType: {
       description: 'Theme type of the input',
       control: {
         type: 'select',
       },
+      defaultValue: {
+        summary: 'secondary',
+      }
     },
     layer: {
       description: 'Layer of the input',
       control: {
-        type: 'number',
+        type: 'range', min: 0, max: 10, step: 1,
       },
+      defaultValue: {
+        summary: 4,
+      }
     },
     errorMessage: {
       description: 'Error message to be displayed',
       control: {
         type: 'text',
       },
+      defaultValue: {
+        summary: '',
+      }
     },
     activeHandler: {
       description: 'Handler for the input',
       control: {
         type: 'function',
       },
+    },
+    placeholder: {
+      description: 'Placeholder for the input',
+      control: {
+        type: 'text',
+      },
+      defaultValue: {
+        summary: '',
+      }
+    },
+    icon: {
+      description: 'Icon for the input',
+    },
+    isActive: {
+      description: 'Active state of the input',
+      control: {
+        type: 'boolean',
+      },
+      defaultValue: {
+        summary: false,
+      }
+    },
+    value: {
+      description: 'Value of the input',
+      control: {
+        type: 'text',
+      },
+    },
+    type: {
+      description: 'Type of the input',
+      control: {
+        type: 'select',
+      },
+      defaultValue: {
+        summary: 'date',
+      }
     },
   },
   // Add tags to the story
@@ -75,10 +131,14 @@ export const Primary: Story = {
     label: 'Date',
     align: 'left',
     disabled: false,
+    placeholder: new Date().toLocaleDateString(),
     themeType: 'secondary',
     layer: 4,
+    value: '2023-10-26',
+    icon: <SVGCheckMark />,
     activeHandler: (value: boolean) => console.log(value),
   },
+  
 };
 
 export const WithError: Story = {

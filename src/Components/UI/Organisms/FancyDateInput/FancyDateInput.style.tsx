@@ -15,9 +15,25 @@ export const StyledDatePicker = styled(RawInput)<IRawInputWrapper & IDateInputPr
   color: ${({ value }) => (value ? '' : 'transparent')};
   transition: color 0.3s ease-in;
 
-  &:focus {
-    color: ${({ theme, $themeType = 'secondary', $layer = 4 }) => getBackgroundColor({ theme, $themeType, $layer })};
-  }
+
+  /* This renders a Placerholder in Text when its needed */
+  ${({placeholder, $themeType = 'secondary', $layer = 4, value, theme, align, }) => {
+    if(placeholder && !value) {
+      return css`
+        &:not(:focus):before {
+          content: attr(placeholder);
+          width: 100%;
+          text-align: ${align};
+          color: ${getBackgroundColor({ theme, $themeType, $layer })};
+          position: absolute;
+          transition: all 0.3s ease-in-out;
+          pointer-events: none;
+        }
+      `
+    }
+  }}
+
+  /* This renders the calendar Icon with the color theme */
   &::-webkit-calendar-picker-indicator {
     ${simpleColorTransition}
 
