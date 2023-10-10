@@ -2,7 +2,7 @@ import React, { useId, useState } from 'react';
 import TextInput, { ITextInputProps } from '../../Molecules/TextInput/TextInput';
 import InputWrapper, { IInputWrapperUserInputProps } from '../../Molecules/InputWrapper/InputWrapper';
 
-type IFancyTextInputProps = ITextInputProps & IInputWrapperUserInputProps;
+type IFancyTextInputProps = ITextInputProps & Omit<IInputWrapperUserInputProps, 'InputElement'>;
 // --------------------------------------------------------------------------- //
 // ----The TextInput Comonent with surrounding icon, label and underline ----- //
 // --------------------------------------------------------------------------- //
