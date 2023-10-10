@@ -65,9 +65,8 @@ export default function HeaderRoute() {
             wide={true}
             align="left"
             icon={<FancySVGAtom>{SVGChevronLeft}</FancySVGAtom>}
-            design="transparent"
+            themeType="transparent"
             hoverColor="primary"
-            roundedCompletly={false}
             label="test"
             size="sm"
           />
@@ -77,9 +76,8 @@ export default function HeaderRoute() {
             wide={true}
             align="left"
             icon={SVGChevronLeft}
-            design="transparent"
+            themeType="transparent"
             hoverColor="primary"
-            roundedCompletly={false}
             label="testsasadefsddfdfsdsf "
             size="sm"
           />
@@ -89,9 +87,8 @@ export default function HeaderRoute() {
             wide={true}
             align="left"
             icon={<FancySVGAtom>{SVGChevronLeft}</FancySVGAtom>}
-            design="transparent"
+            themeType="transparent"
             hoverColor="primary"
-            roundedCompletly={false}
             label="test"
             size="sm"
           />

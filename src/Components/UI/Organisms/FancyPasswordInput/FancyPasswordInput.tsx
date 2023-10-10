@@ -2,7 +2,7 @@ import React, { useId, useState } from 'react';
 import PasswordInput, { IPasswordInputProps } from '../../Molecules/PasswordInput/PasswordInput';
 
 import InputWrapper, { IInputWrapperUserInputProps } from '../../Molecules/InputWrapper/InputWrapper';
-type IFancyTextInputProps = IPasswordInputProps & IInputWrapperUserInputProps;
+type IFancyTextInputProps = IPasswordInputProps & Omit<IInputWrapperUserInputProps, 'InputElement'>;
 
 // --------------------------------------------------------------------------- //
 // ----The PasswordInput Comonent with surrounding icon, label and underline-- //

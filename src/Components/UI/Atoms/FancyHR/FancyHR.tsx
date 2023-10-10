@@ -8,7 +8,7 @@ import { TLayer } from '../../Design/color/generateColorSteps';
 // --------------------------------------------------------------------------- //
 // ------------ A dynamic horizontal line for better UX/UI  ------------------ //
 // --------------------------------------------------------------------------- //
-export const FancyHR = styled.hr<{ $themeType?: IUiColorsTypes, theme?: TUiColorsType, $layer: TLayer }>`
+export const FancyHR = styled.hr<{ $themeType?: IUiColorsTypes, theme?: TUiColorsType, $layer?: TLayer }>`
   width: 100%;
   background-color: ${({ $themeType = 'accent', theme, $layer = 0 }) => getBackgroundColor({$themeType, $layer, theme})};
   display: block;
