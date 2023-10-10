@@ -117,7 +117,7 @@ export default function InputsRoute() {
         </DesignArea>
         <DesignArea title="Date Input">
           <FancyDateInput value={date} label="Date" onChange={dateHandler} />
-          <FancyDateInput value={date} icon={svg} label="Date" onChange={dateHandler} align="center" />
+          <FancyDateInput value={date} placeholder={'HI'} icon={svg} label="Date" onChange={dateHandler} align="left" />
         </DesignArea>
         <DesignArea title="DateDropDown Input">
           <FancyDateDropDown type="day" label="Day" onChange={testHandler3} />
@@ -125,8 +125,8 @@ export default function InputsRoute() {
           <FancyDateDropDown type="year" label="Year" onChange={testHandler3} />
         </DesignArea>
         <DesignArea title="Range Slider">
-          <FancyRangeSlider label="Slider"  value={test} handler={testHandler4} />
-          <FancyRangeSlider icon={svg} themeType='primary' label="Slider" value={test} handler={testHandler4} align="center" displayNumber={true} />
+          <FancyRangeSlider label="Slider"  value={Number(test)} onChange={testHandler4} />
+          <FancyRangeSlider icon={svg} label="Slider" value={Number(test)} onChange={testHandler4} align="center" displayNumber={true} />
         </DesignArea>
       </DesignWrapper>
     </FancyCard>

@@ -2,7 +2,7 @@ import React from 'react';
 import { styled } from 'styled-components';
 
 import DateNumberAtom from '../../Atoms/DateNumberAtom/DateNumberAtom';
-import AvilableDot, { IAvilableDot } from '../../Atoms/AvilableDot/AvilableDot';
+import AvilableDot, { IAvailableDot } from '../../Atoms/AvilableDot/AvailableDot';
 import { spacingPx } from '../../Design/design';
 import { IRange } from '../../Atoms/DateNumberAtom/DateNumberAtom';
 import { TLayer } from '../../Design/color/generateColorSteps';
@@ -19,7 +19,7 @@ const StyledDateNumberWithStatus = styled.div`
 `;
 
 interface IDateNumberWithStatus {
-  isAvailable?: IAvilableDot;
+  isAvailable?: IAvailableDot;
   disabled?: boolean;
   dateNumber: number;
   isSelected?: boolean;
@@ -43,7 +43,7 @@ export default function DateNumberWithStatus(props: IDateNumberWithStatus) {
         layer={layer}
         themeType={themeType}
       />
-      <AvilableDot $avilable={disabled ? 'transparent' : isAvailable!} />
+      <AvilableDot $available={disabled ? 'transparent' : isAvailable!} />
     </StyledDateNumberWithStatus>
   );
 }

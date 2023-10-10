@@ -14,8 +14,6 @@ export default function SingleInputs(props: IFancySingleInputsProps) {
   const [values, setValues] = useState<string[]>(Array(length).fill(''));
   const refs = Array.from({ length }, () => createRef<HTMLInputElement>());
 
-//TODO: BUILD IN STRG +V
-
   //when the values are filled, call the handler
   useEffect(() => {
     if (values.every((value) => value !== '')) {

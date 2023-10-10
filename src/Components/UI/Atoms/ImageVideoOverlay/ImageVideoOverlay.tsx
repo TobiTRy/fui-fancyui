@@ -15,6 +15,7 @@ const Wrapper = styled.div`
   position: relative;
   overflow: hidden;
   line-height: 0;
+  pointer-events: none; 
 `;
 
 // Define a styled overlay component using styled-components
@@ -22,6 +23,7 @@ const Overlay = styled.div<{ $position: string }>`
   position: absolute;
   width: 100%;
   height: 100%;
+  pointer-events: none;
 
   ${({ $position }) => {
     switch ($position) {
@@ -56,6 +58,7 @@ const TextWrapper = styled.div<{ $position: string }>`
   position: absolute;
   z-index: 1;
   padding: ${spacingPx.md};
+  pointer-events: none;
   ${textShadow.lg}
 
   ${({ $position }) => {
@@ -117,6 +120,7 @@ export default function ImageVideoOverlay(props: IImageVideoOverlay) {
     <Wrapper>
       <Overlay $position={position} />
       <TextWrapper $position={position}>{textChildren}</TextWrapper>
+      {/* The children is normaly only a Video or a image, but do with it what d o you fuucking want */}
       {children}
     </Wrapper>
   );

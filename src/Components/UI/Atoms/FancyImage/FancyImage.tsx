@@ -1,19 +1,11 @@
 import React from 'react';
-import { styled } from 'styled-components';
+
+import { StyledA, StyledImage } from './FancyImage.style';
 
 import aspectRatioValidation from '../../HelperFunctions/validations/aspectRatioValidation';
 
-// Define a styled image component using styled-components
-const StyledImage = styled.img<{ $darken?: boolean; $aspectRatio?: string }>`
-  width: 100%;
-  object-fit: cover;
-  transition: filter 0.3s;
-  ${({ $aspectRatio }) => ($aspectRatio ? `aspect-ratio: ${$aspectRatio};` : '')}
-  filter: ${({ $darken }) => ($darken ? 'brightness(0.5)' : 'none')};
-`;
 
 // Define the props for the FancyImage component
-
 export interface IFancyImage {
   imageUrl: string;
   aspectRatio?: string; // e.g. "16/9"
@@ -36,9 +28,9 @@ export default function FancyImage(props: IFancyImage) {
   return (
     <>
       {link ? (
-        <a href={link} target="_blank" rel="noopener noreferrer">
+        <StyledA href={link} target="_blank" rel="noopener noreferrer">
           <StyledImage src={imageUrl} $darken={darken} $aspectRatio={aspectRatio} alt={alt} />
-        </a>
+        </StyledA>
       ) : (
         <StyledImage src={imageUrl} $darken={darken} alt={alt} />
       )}

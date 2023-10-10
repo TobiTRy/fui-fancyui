@@ -1,7 +1,7 @@
 import React, { useId, useRef, useState } from 'react';
 
 import SwitchActiveIndicator from '../../Atoms/SwitchActiveIndicator/SwitchActiveIndicator';
-import FancyTabSwitchButton from '../../Atoms/TabSwitchItem/FancyTabSwitchButton';
+import FancyTabSwitchButton from '../FancyTabSwitchButton/FancyTabSwitchButton';
 import { borderRadius, spacingPx } from '../../Design/design';
 import { ItemWrapper, ULButtonSwitchList } from './FancyTabSwitch.style';
 import IFancyTab from './IFancyTab.model';
@@ -22,7 +22,7 @@ export const tabSwitchSizes = {
 
 // Define the main FancyTabSwitch component
 export default function FancyTabSwitch(props: IFancyTab) {
-  const { values, currentSelect, onChange, tabSpacing, activeColor, label, layer, direction, ...styleProps } = props;
+  const { values, currentSelect, handler, tabSpacing, activeColor, label, layer, direction, ...styleProps } = props;
   const { themeType, size, wide, disabled, iconAlign, textColor, outlined, rounded } = styleProps;
 
   // Define the state for the currently selected tab
@@ -34,7 +34,7 @@ export default function FancyTabSwitch(props: IFancyTab) {
   const radioChangeHandler = (position: string) => {
     const currentItem = values.find((item) => item.key === position);
     setCurrentSelect(position);
-    onChange && onChange(currentItem?.key!);
+    handler && handler(currentItem?.key!);
   };
 
   // This handles the navigation with the keyboard
@@ -57,7 +57,7 @@ export default function FancyTabSwitch(props: IFancyTab) {
 
   /* Generate the unordered list for the tab switch */
   return (
-    <Fieldset label={label}>
+    <Fieldset label={label} $disabled={disabled}>
       <ULButtonSwitchList
         $tabSpacing={tabSpacing}
         $rounded={rounded}
@@ -101,6 +101,7 @@ export default function FancyTabSwitch(props: IFancyTab) {
                 $itemNumber={Number(currentSelected)}
                 $themeType={activeColor}
                 $direction={direction}
+                $tabSpacing={tabSpacing}
               />
             )}
           </ItemWrapper>

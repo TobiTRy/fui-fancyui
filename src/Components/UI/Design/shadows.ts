@@ -33,7 +33,7 @@ export const boxShadow = {
   lg: css`
     ${() => {
       const themeColor = colorTransparencyCalculator(themeStore.getState().theme.secondary[0], 0.1);
-      return `box-shadow: 1px 0 23px ${themeColor}`;
+      return `box-shadow: 1px 0 23px ${themeColor};`;
     }}
 
   `,

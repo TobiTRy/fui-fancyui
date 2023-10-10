@@ -3,7 +3,7 @@ import { styled } from 'styled-components';
 import { colorPalet } from '../../Design/design';
 import { ISVGAtomProps, IStyledSVGAtom, sizes } from './FancySVGAtom.model';
 import { TUiColorsType } from '../../Design/color/designColor';
-import { getTextColor } from '../../Design/color/colorCalculatorForComponet';
+import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
 
 interface ICalcIconColor {
   theme: TUiColorsType;
@@ -15,7 +15,7 @@ interface ICalcIconColor {
 
 const calcIconColor = ({ theme, $isActive, $errorMessage, $themeType, $layer }: ICalcIconColor): string => {
   if (!$errorMessage) {
-    return $isActive ? theme.accent[0] : getTextColor({ theme, $themeType, $textLayer: $layer });
+    return $isActive ? theme.accent[0] : getBackgroundColor({ theme, $themeType, $layer });
   } else {
     return colorPalet.red_dark;
   }

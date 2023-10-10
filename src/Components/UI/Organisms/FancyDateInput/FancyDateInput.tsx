@@ -1,17 +1,17 @@
 import React, { useId, useState } from 'react';
 
-import DateInput, { IDateInputProps } from '../../Molecules/DateInput/DateInput';
+import DateInput, { IDateInputPropsWithNativeAttrs } from '../../Molecules/DateInput/DateInput';
 import InputWrapper, { IInputWrapperUserInputProps } from '../../Molecules/InputWrapper/InputWrapper';
 
-type IFancyDateInput = IInputWrapperUserInputProps & IDateInputProps;
+type IFancyDateInput = Omit<IInputWrapperUserInputProps, 'InputElement'> & IDateInputPropsWithNativeAttrs;
 // --------------------------------------------------------------------------- //
 // ----The TextInput Comonent with surrounding icon, label and underline ----- //
 // --------------------------------------------------------------------------- //
 export default function FancyDateInput(props: IFancyDateInput) {
-  const { id, value, label, icon, errorMessage, align, disabled, activeHandler, themeType, layer, ...inputProps } = props;
+  const { id, value, label, icon, errorMessage, align, disabled, activeHandler, themeType, layer, placeholder, ...inputProps } = props;
 
   //the states activity of the input
-  const [isActiv, setIsActive] = useState(false);
+  const [isActive, setIsActive] = useState(false);
 
   // if no id is provided, generate a random one
   const useid = useId();
@@ -30,12 +30,24 @@ export default function FancyDateInput(props: IFancyDateInput) {
       label={label}
       disabled={disabled}
       themeType={themeType}
+      placeholder={placeholder}
       layer={layer}
       align={align}
-      isActiv={isActiv}
+      isActive={isActive}
       icon={icon}
       errorMessage={errorMessage}
-      InputElement={<DateInput id={usedId} value={value} activeHandler={activeFocusHandler} align={align} {...inputProps} />}
+      InputElement={
+        <DateInput
+          id={usedId}
+          placeholder={placeholder}
+          themeType={themeType}
+          layer={layer}
+          value={value}
+          activeHandler={activeFocusHandler}
+          align={align}
+          {...inputProps}
+        />
+      }
     />
   );
 }

@@ -1,33 +1,14 @@
 import React from 'react';
-import { styled } from 'styled-components';
-import FancyCard from '../../Atoms/FancyCard/FancyCard';
 
-import { borderRadius } from '../../Design/design';
+import FancyCard from '../../Atoms/FancyCard/FancyCard';
 import { TUiColorsType } from '../../Design/color/designColor';
 import { TLayer } from '../../Design/color/generateColorSteps';
-
-// Styled component for the search bar list
-const StyledSearchBarList = styled.div`
-  border-radius: ${borderRadius.xl};
-  z-index: 100;
-`;
-
-// Styled component for the inner card of the search bar list
-const InnerCard = styled.div`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-  align-items: center;
-  justify-content: center;
-`;
+import { InnerCard, StyledSearchBarList } from './SearchBarList.style';
 
 // Props for the SearchBarList component
 interface ISearchBarList {
   isActive?: boolean;
   children?: React.ReactNode;
-  alignTop?: string;
   themeType?: keyof TUiColorsType;
   layer?: TLayer;
 }

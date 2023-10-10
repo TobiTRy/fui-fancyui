@@ -1,17 +1,17 @@
 import React, { InputHTMLAttributes, useState, useEffect, KeyboardEvent, ChangeEvent } from 'react';
 import StyledNumberInput from './NumberInput.styled';
+import { TRawInputAlign } from '../../Atoms/RawInput/RawInput';
 
 export interface INumberInput extends InputHTMLAttributes<HTMLInputElement> {
-  errorMessage?: string;
   autoWidth?: boolean;
   active?: boolean;
-  align?: string;
+  align?: TRawInputAlign;
   step?: number;
   activeHandler?: (value: boolean) => void;
 }
 
 export default function NumberInput(props: INumberInput) {
-  const { value, onChange, activeHandler, errorMessage, align, id, autoWidth, max, min, step = 1, ...moreHTMLProps } = props;
+  const { value, onChange, activeHandler, align, id, autoWidth, max, min, step = 1, ...moreHTMLProps } = props;
   const [inputValue, setInputValue] = useState<string | null>(value ? value.toString() : null);
 
   // Set the initial value
@@ -83,7 +83,6 @@ export default function NumberInput(props: INumberInput) {
       onBlur={() => activeHandler && activeHandler(false)}
       $width={autoWidth ? (inputValue ? inputValue.length + 1 + 'ch' : '2ch') : '100%'}
       $align={align}
-      $errorMessage={errorMessage}
       {...moreHTMLProps}
     />
   );

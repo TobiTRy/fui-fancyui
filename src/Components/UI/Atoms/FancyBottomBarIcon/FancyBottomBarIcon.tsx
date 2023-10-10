@@ -1,26 +1,19 @@
 import React from 'react';
-import { styled, css } from 'styled-components';
 
+// Import necessary components and interfaces
 import { IFancyBottomBarIcon } from './FancyBottomBarIcon.model';
-import { IconTextButton, Icon, Underline } from './FancyBottomBarIcon.style';
+import { IconTextButton, Icon, Underline, ItemWrapper } from './FancyBottomBarIcon.style';
 import Typography from '../Typography/Typography';
-import { TUiColorsType } from '../../Design/color/designColor';
 
-export const ItemWrapper = styled.div<{ $secondBar?: boolean, theme: TUiColorsType }>`
-  flex: 1 0 64px;
-  filter: drop-shadow(0px 0px 16px rgba(0, 0, 0, 0.55));
-  ${({ $secondBar }) =>
-    $secondBar
-      ? css`
-          padding-bottom: ${0 + 'px'};
-          margin-bottom: 4px;
-        `
-      : null};
-`;
 
+// --------------------------------------------------------------------------- //
+//The component creates a button that mainly constructed for the navigation bar //
+// --------------------------------------------------------------------------- //
 export default function FancyBottomBarIcon(props: IFancyBottomBarIcon) {
+  // Destructure props
   const { icon, label, active, onClick, disabled, secondBar, themeType, layer } = props;
 
+  // Render the component
   return (
     <ItemWrapper $secondBar={secondBar}>
       <IconTextButton $isActive={active} disabled={disabled} onClick={onClick} $themeType={themeType} $layer={layer}>

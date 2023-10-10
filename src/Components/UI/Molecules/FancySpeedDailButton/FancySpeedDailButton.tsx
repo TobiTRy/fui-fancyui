@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { Button, MenueItemContainer, MenueItemWrapper, Ring, SpeedDialContainer, Wrapper } from './SpeedDailButton.style';
+import { Button, MenueItemWrapper, Ring, SpeedDialContainer, Wrapper } from './SpeedDailButton.style';
 import SpeedDailMenueItem, { TMenueItemProps, TMenueButtonProps } from '../../Atoms/SpeedDialMenueItem/SpeedDailMenueItem';
 import SVGPlus from '../../SVGIcons/SVGPlus';
 
@@ -20,9 +20,7 @@ export default function FancySpeedDialButton(props: ISpeedail) {
       <SpeedDialContainer>
         <MenueItemWrapper>
           {items?.map((item, index) => (
-            <MenueItemContainer key={index} $index={index} $isOpen={isOpen}>
-              <SpeedDailMenueItem label={item.label} value={item.value} hideLabel={hideLabel} isOpen={isOpen} labelAlign={labelAlign} />
-            </MenueItemContainer>
+            <SpeedDailMenueItem key={index} index={index} isOpen={isOpen} label={item.label} icon={item.icon} hideLabel={hideLabel} labelAlign={labelAlign} />
           ))}
         </MenueItemWrapper>
         <Button $isOpen={isOpen} aria-label={'Open Menue'} onClick={() => setIsOpen(!isOpen)}>

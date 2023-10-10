@@ -57,7 +57,7 @@ interface IColorArea {
   hue: number;
   handler: (color: Color) => void;
 }
-const ColorArea = ({ color, hue, handler }: IColorArea) => {
+export default function FancyColorArea({ color, hue, handler }: IColorArea) {
   //use the hue from the parent component or set it to 0
   const currentHue = hue ?? 0;
 
@@ -91,6 +91,4 @@ const ColorArea = ({ color, hue, handler }: IColorArea) => {
       </ColorAreaContainer>
     </WrapperColorArea>
   );
-};
-
-export default ColorArea;
+}

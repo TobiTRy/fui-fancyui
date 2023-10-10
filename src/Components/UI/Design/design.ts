@@ -112,7 +112,7 @@ export const fontSize = {
   sm: '0.875rem',
   md: '1rem',
   lg: '1.125rem',
-  extraLarge: '1.25rem',
+  xl: '1.25rem',
   xxl: '1.5rem',
 };
 

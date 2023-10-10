@@ -8,7 +8,6 @@ import Typography from '../Typography/Typography';
 // --------------------------------------------------------------------------- //
 interface IModalTitleArea {
   width?: string;
-  spacingLeftRight?: string;
   title?: string;
 }
 export default function ModalTitleArea(props: IModalTitleArea) {

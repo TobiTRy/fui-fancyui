@@ -61,7 +61,7 @@ export default function FancySearchBar(props: IFancySearchBar) {
     <StyledFancySearchBar>
       <WrapperListInput>
         {/* The search bar where something can be searched */}
-        <SearchBar activeHandler={activeHandler} searchValue={searchValue} isActive={isActive} handler={searchValueHandler} />
+        <SearchBar activeHandler={activeHandler} searchValue={searchValue} handler={searchValueHandler} />
         {/* The search bar list */}
         <WrapperList $width={searchListWidth}>
           <SearchBarList isActive={isActive} themeType={themeType} layer={layer}>{children}</SearchBarList>

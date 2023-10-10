@@ -2,7 +2,7 @@ import React, { useId, useState } from 'react';
 import PasswordInput, { IPasswordInputProps } from '../../Molecules/PasswordInput/PasswordInput';
 
 import InputWrapper, { IInputWrapperUserInputProps } from '../../Molecules/InputWrapper/InputWrapper';
-type IFancyTextInputProps = IPasswordInputProps & IInputWrapperUserInputProps;
+type IFancyTextInputProps = IPasswordInputProps & Omit<IInputWrapperUserInputProps, 'InputElement'>;
 
 // --------------------------------------------------------------------------- //
 // ----The PasswordInput Comonent with surrounding icon, label and underline-- //
@@ -11,7 +11,7 @@ export default function FancyPasswordInput(props: IFancyTextInputProps) {
   const { id, value, placeholder, activeHandler, errorMessage, disabled, align, themeType, layer, icon, label, ...inputProps } = props;
 
   //the states activity of the input
-  const [isActiv, setIsActive] = useState(false);
+  const [isActive, setIsActive] = useState(false);
 
   // if no id is provided, generate a random one
   const useid = useId();
@@ -33,7 +33,7 @@ export default function FancyPasswordInput(props: IFancyTextInputProps) {
       label={label}
       disabled={disabled}
       align={align}
-      isActiv={isActiv}
+      isActive={isActive}
       icon={icon}
       errorMessage={errorMessage}
       InputElement={

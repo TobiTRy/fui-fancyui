@@ -1,6 +1,5 @@
 import { styled } from 'styled-components';
 import { borderRadius, spacingPx } from '../../Design/design';
-import { disabledStyle } from '../../HelperFunctions/designFunctions/disableStyle';
 import { TUiColorsType } from '../../Design/color/designColor';
 import { tabSwitchSizes } from './FancyTabSwitch';
 import generateColorDesign from './helperFunctions/generateColorDesign';
@@ -10,7 +9,6 @@ import { TLayer } from '../../Design/color/generateColorSteps';
 export interface IFancyTabSwitchStyle {
   $transparent?: boolean;
   $wide?: boolean;
-  $disabled?: boolean;
   $outlined?: boolean;
   $rounded?: keyof typeof borderRadius;
   $tabSpacing?: keyof typeof spacingPx;
@@ -37,10 +35,10 @@ export const ULButtonSwitchList = styled.ul<IFancyTabSwitchStyle & { theme: TUiC
   
   // Generate the color design for the tab switch
   ${({ $themeType, $tabSpacing, theme, $outlined, $padding, $rounded, $layer }) =>
-    generateColorDesign({ $themeType, $tabSpacing, theme, $outlined, $padding, $rounded, $layer })}
+    generateColorDesign({ $themeType, $tabSpacing, theme, $outlined, $padding, $rounded, $layer })};
 
 // Generate the disabled style for the tab switch
-${({ $disabled }) => $disabled && disabledStyle}
+
 `;
 
 // ----------------------------------- //

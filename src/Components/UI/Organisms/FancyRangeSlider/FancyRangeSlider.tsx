@@ -6,17 +6,20 @@ import { StyledInputWrapper } from '../../Molecules/InputWrapper/InputWrapper.st
 import FancySVGAtom from '../../Atoms/FancySVGAtom/FancySVGAtom';
 import { Label, NumberContainer, RangeSliderContainer, Icon } from './FancyRangeSlider.style';
 import IFancyRangeSlider from './FancyRangeSlider.model';
+import calcColorState from '../../Design/color/calcColorState';
 
 // --------------------------------------------------------------------------- //
 // -------------------- The main FancySlider Component ----------------------- //
 // --------------------------------------------------------------------------- //
 export default function FancyRangeSlider(props: IFancyRangeSlider) {
-  const { label, align, icon, value, min, max, displayNumber, onChange, themeType, layer, disabled } = { ...defaultProps, ...props };
+  const { label, align, icon, value, min, max, displayNumber, onChange, themeType, layer = 4, disabled } = { ...defaultProps, ...props };
 
   const [isActive, setIsActive] = useState(false);
   const [toutched, setToutched] = useState(false);
 
   const id = useId();
+  
+  const colorStateLabel = calcColorState({ type: 'label', isActive: isActive || toutched, value });
 
   // this function is called when the slider is moved
   const changeHandler = (e: ChangeEvent<HTMLInputElement>) => {
@@ -35,7 +38,7 @@ export default function FancyRangeSlider(props: IFancyRangeSlider) {
       {/* Icon for the left side of the slider */}
       {icon && (
         <Icon>
-          <FancySVGAtom isPassive={false} isActive={isActive} size="lg" themeType={themeType} layer={layer} externalStyle={{transition: 'color 0.3s ease-in-out'}}>
+          <FancySVGAtom isActive={isActive} size="lg" themeType={themeType} layer={layer} externalStyle={{transition: 'color 0.3s ease-in-out'}}>
             {icon}
           </FancySVGAtom>
         </Icon>
@@ -43,7 +46,7 @@ export default function FancyRangeSlider(props: IFancyRangeSlider) {
 
       {/* label for the top side of the slider */}
       {label && (
-        <Label htmlFor={id} $align={align} $isActive={isActive || toutched} $themeType={themeType} $layer={layer}>
+        <Label htmlFor={id} $align={align} $colorState={colorStateLabel} $themeType={themeType} $layer={layer}>
           {label}
         </Label>
       )}

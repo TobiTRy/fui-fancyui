@@ -1,0 +1,69 @@
+import React from 'react';
+
+import type { Meta, StoryObj } from '@storybook/react';
+
+import SingleToastMessage from './SingleToastMessage';
+
+const meta = {
+  component: SingleToastMessage,
+  parameters: {
+    docs: {
+      description: {
+        component: 'Dumb-Comonent: A toast message to display a message to the user',
+      },
+    },
+  },
+
+  argTypes: {
+    remove: {
+      description: 'A function that is called from the toast when the it should be removed.',
+      type: { name: 'function' },
+    },
+    toast: {
+      description: 'The toast message to display.',
+    },
+  },
+
+  tags: ['autodocs'],
+} satisfies Meta<typeof SingleToastMessage>;
+
+export default meta;
+
+type Story = StoryObj<typeof meta>;
+
+export const Success: Story = {
+  render: (args) => <SingleToastMessage {...args} />,
+  args: {
+    toast: {
+      id: 1,
+      title: 'Success',
+      message: 'This is a success message',
+      time: 5000,
+      type: 'success',
+    },
+  },
+};
+export const Error: Story = {
+  render: (args) => <SingleToastMessage {...args} />,
+  args: {
+    toast: {
+      id: 2,
+      title: 'warning',
+      message: 'this is a warning message',
+      time: 5000,
+      type: 'warning',
+    },
+  },
+};
+export const Warning: Story = {
+  render: (args) => <SingleToastMessage {...args} />,
+  args: {
+    toast: {
+      id: 3,
+      title: 'error',
+      message: 'this is an error message',
+      time: 5000,
+      type: 'error',
+    },
+  },
+};

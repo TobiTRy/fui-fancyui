@@ -1,12 +1,12 @@
 import { IRange } from "../../Atoms/DateNumberAtom/DateNumberAtom";
-import { IAvilableDot } from "../../Atoms/AvilableDot/AvilableDot";
+import { IAvailableDot } from "../../Atoms/AvilableDot/AvailableDot";
 
 interface Day {
   number: number;
   isSelected: boolean;
   range: IRange;
   disabled: boolean;
-  isAvilable?: IAvilableDot;
+  isAvilable?: IAvailableDot;
 }
 
 export default Day;

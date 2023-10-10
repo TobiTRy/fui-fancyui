@@ -1,8 +1,7 @@
 import { css, styled } from 'styled-components';
-import { fontSize } from '../../Design/design';
 import { TUiColorsType } from '../../Design/color/designColor';
 import { TLayer } from '../../Design/color/generateColorSteps';
-import { getTextColor } from '../../Design/color/colorCalculatorForComponet';
+import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
 
 export const StyledYearSelector = styled.div<{ theme: TUiColorsType; $themeType?: keyof TUiColorsType; $layer?: TLayer }>`
   display: flex;
@@ -17,7 +16,7 @@ export const StyledButton = styled.button<{ theme: TUiColorsType; $themeType?: k
   justify-content: center;
   align-items: center;
   background-color: transparent;
-  color: ${({ theme, $layer, $themeType = 'secondary' }) => getTextColor({ theme, $themeType, $textLayer: $layer })};
+  color: ${({ theme, $layer, $themeType = 'secondary' }) => getBackgroundColor({ theme, $themeType, $layer })};
   border: none;
   padding: 0;
   cursor: pointer;

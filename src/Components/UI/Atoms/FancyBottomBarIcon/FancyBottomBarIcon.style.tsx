@@ -1,9 +1,9 @@
-import { styled } from 'styled-components';
+import { css, styled } from 'styled-components';
 import { spacing } from '../../Design/design';
 import { disabledStyle } from '../../HelperFunctions/designFunctions/disableStyle';
 import { TUiColorsType } from '../../Design/color/designColor';
 import { TLayer } from '../../Design/color/generateColorSteps';
-import { getTextColor } from '../../Design/color/colorCalculatorForComponet';
+import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
 
 
 interface IIconTextButton {
@@ -25,7 +25,7 @@ export const IconTextButton = styled.button<IIconTextButton>`
   border: none;
   cursor: pointer;
   margin: 0 auto;
-  color: ${({ $isActive, theme, $layer = 0, $themeType = 'secondary' }) => ($isActive ? theme.accent[0] : getTextColor({ theme, $themeType, $textLayer: $layer }))};
+  color: ${({ $isActive, theme, $layer = 0, $themeType = 'secondary' }) => ($isActive ? theme.accent[0] : getBackgroundColor({ theme, $themeType, $textLayer: $layer }))};
   transition: all 0.3s ease-in-out;
   ${({ disabled }) => disabled && disabledStyle}
   padding-bottom: ${spacing.xs + 2 + 'px'};
@@ -36,6 +36,20 @@ export const IconTextButton = styled.button<IIconTextButton>`
     }
   }
 `;
+
+// Define the styled component for the item wrapper
+export const ItemWrapper = styled.div<{ $secondBar?: boolean, theme: TUiColorsType }>`
+  flex: 1 0 64px;
+  filter: drop-shadow(0px 0px 16px rgba(0, 0, 0, 0.55));
+  ${({ $secondBar }) =>
+    $secondBar
+      ? css`
+          padding-bottom: ${0 + 'px'};
+          margin-bottom: 4px;
+        `
+      : null};
+`;
+
 
 export const Underline = styled.i<{ $isActive?: boolean; theme: TUiColorsType }>`
   position: absolute;

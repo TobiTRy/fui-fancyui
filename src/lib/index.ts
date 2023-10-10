@@ -26,8 +26,8 @@ export { default as SwipeUpDash } from '../Components/UI/Atoms/SwipeUpDash/Swipe
 export { default as Typography } from '../Components/UI/Atoms/Typography/Typography';
 export { default as WeekDays } from '../Components/UI/Atoms/WeekDays/WeekDays';
 export { default as YearSelector } from '../Components/UI/Atoms/YearSelector/YearSelector';
-export { default as AlignedInputLabel } from '../Components/UI/Atoms/AlignedInputLabel/AlignedInputLabel';
-export { default as AvilableDot } from '../Components/UI/Atoms/AvilableDot/AvilableDot';
+export { default as AlignedInputLabel } from '../Components/UI/Atoms/AlignedInputLabel//AlignedInputLabel';
+export { default as AvailableDot } from '../Components/UI/Atoms/AvilableDot/AvailableDot';
 export { default as FancyXButton } from '../Components/UI/Atoms/FancyXButton/FancyXButton';
 export { default as InputLabel } from '../Components/UI/Atoms/InputLabel/InputLabel';
 export { default as InputUnderline } from '../Components/UI/Atoms/InputUnderline/InputUnderline';
@@ -41,6 +41,7 @@ export { default as ProgressBar } from '../Components/UI/Atoms/ProgressBar/Progr
 export { default as FancyProfilePicture } from '../Components/UI/Atoms/FancyProfilePicture/FancyProfilePicture';
 export { default as RawCheckbox } from '../Components/UI/Atoms/RawCheckbox/RawCheckbox';
 export { default as Fieldset } from '../Components/UI/Atoms/Fieldset/Fieldset';
+export { default as AnimatedInputLabel } from '../Components/UI/Atoms/AnimatedLabel/AnimatedInputLabel';
 
 
 // ---------- Molecules ------- //
@@ -87,7 +88,7 @@ export { default as Paginator } from '../Components/UI/Molecules/Paginator/Pagin
 export { default as FancyProgressBar } from '../Components/UI/Molecules/FancyProgressBar/FancyProgressBar';
 export { default as FancyMiniProfile } from '../Components/UI/Molecules/FancyMiniProfile/FancyMiniProfile';
 export { default as FancyCheckbox } from '../Components/UI/Molecules/FancyCheckbox/FancyCheckbox';
-
+export { default as FancyChip } from '../Components/UI/Molecules/FancyChip/FancyChip';
 
 // ---------- Organisms ------- //
 export { default as FancyColorPicker } from '../Components/UI/Organisms/FancyColorPicker/FancyColorPicker';

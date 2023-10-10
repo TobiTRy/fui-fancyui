@@ -1,6 +1,5 @@
 import { styled } from 'styled-components';
 
-import { IUiColorsTypes } from '../../Design/design';
 import { TUiColorsType } from '../../Design/color/designColor';
 import { TLayer } from '../../Design/color/generateColorSteps';
 import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
@@ -8,7 +7,7 @@ import { getBackgroundColor } from '../../Design/color/colorCalculatorForCompone
 // --------------------------------------------------------------------------- //
 // ------------ A dynamic vertical line for better UX/UI  ------------------ //
 // --------------------------------------------------------------------------- //
-const FancyVR = styled.hr<{ $design?: IUiColorsTypes, theme: TUiColorsType, $themeType?: keyof TUiColorsType, $layer?: TLayer }>`
+const FancyVR = styled.hr<{ theme?: TUiColorsType, $themeType?: keyof TUiColorsType, $layer?: TLayer }>`
   position: absolute;
   top: 5%;
   bottom: 5%;

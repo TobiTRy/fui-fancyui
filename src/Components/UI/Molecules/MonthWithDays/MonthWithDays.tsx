@@ -6,7 +6,7 @@ import { IDisabledDateSettings } from './IDisableDateSettings.model';
 import Typography from '../../Atoms/Typography/Typography';
 
 import Day from './day.model';
-import createDaysOfMonth from './createDaysOfMonth';
+import createDaysOfMonth from './helperFunctions/createDaysOfMonth';
 import { IDateWithExternalState, IExternalMonthWithDays } from './IExternalMonthWithDays.model';
 import { TUiColorsType } from '../../Design/color/designColor';
 import { TLayer } from '../../Design/color/generateColorSteps';
@@ -19,9 +19,6 @@ const getDaysInMonth = (month: number, year: number): number => {
   return new Date(year, month, 0).getDate();
 };
 
-// --------------------------------------------------------------------------- //
-// --------- This Component generates a single month with the dates ---------- //
-// --------------------------------------------------------------------------- //
 interface IMonthWithDays {
   monthIdx: number;
   year: number;
@@ -33,6 +30,9 @@ interface IMonthWithDays {
   themeType?: keyof TUiColorsType;
   layer?: TLayer;
 }
+// --------------------------------------------------------------------------- //
+// --------- This Component generates a single month with the dates ---------- //
+// --------------------------------------------------------------------------- //
 export default function MonthWithDays(props: IMonthWithDays) {
   const { monthIdx, year, handleDateClick, selectedDates, isRangePicking, disabledDateSetting, externalMonthWithDays, layer, themeType } =
     props;

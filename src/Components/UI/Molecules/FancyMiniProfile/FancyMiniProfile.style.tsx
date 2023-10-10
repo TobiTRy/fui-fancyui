@@ -1,5 +1,5 @@
 import { styled, css } from 'styled-components';
-import { borderRadius, spacingPx } from '../../Design/design';
+import { borderRadius, spacing, spacingPx } from '../../Design/design';
 import { TTextAlign } from './FancyMiniProfile';
 import { TUiColorsType } from '../../Design/color/designColor';
 import { TLayer } from '../../Design/color/generateColorSteps';
@@ -16,9 +16,9 @@ interface IWrapper {
   $shadow?: boolean;
 }
 export const Wrapper = styled.div<IWrapper>`
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  padding: ${({ $size }) => ($size ? spacingPx[$size] : '')};
+  padding: ${({ $size }) => ($size ? spacingPx[$size] : '')}; 
   gap: ${({ $gapSpacing }) => ($gapSpacing ? spacingPx[$gapSpacing] : spacingPx.xxs)};
   ${({ $themeType = 'primary', $layer = 2, theme }) => getColorsForComponent({ $themeType, $layer, theme })};
   ${({$shadow}) => $shadow && boxShadow.sm}

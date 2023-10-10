@@ -55,8 +55,6 @@ interface IFancyUnderline {
 export default function FancyInputUnderline(props: IFancyUnderline) {
   const { colorState = 'default', isActive, autoWidth, layer = 4, themeType } = props;
 
-  console.log('themeType', themeType);
-
   // Render the FancyInputUnderline component with the appropriate props
   return <UnderLine $colorState={colorState} $themeType={themeType} $layer={layer} $isActive={isActive} $autoWidth={autoWidth} />;
 }

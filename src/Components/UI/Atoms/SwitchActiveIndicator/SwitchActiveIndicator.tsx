@@ -49,8 +49,6 @@ const ActiveSwitchIndicator = styled.i<IActiveSwitchIndicator & { theme: TUiColo
   /* Build a siwtch case */
   ${(props) => {
     switch (props.$type) {
-      case 'bolb':
-        return generateBlob({ ...props });
       case 'underline':
         return css`
           top: 0;
@@ -60,15 +58,10 @@ const ActiveSwitchIndicator = styled.i<IActiveSwitchIndicator & { theme: TUiColo
           border-radius: 0;
           z-index: 1;
         `;
-      case 'overline':
-        return css`
-          top: 0;
-          height: 1.5px;
-        `;
+      case 'bolb':
       default:
-        return css`
-          border-radius: 50%;
-        `;
+        return generateBlob({ ...props });
+
     }
   }}
   transition: transform 0.2s ease;
@@ -76,6 +69,7 @@ const ActiveSwitchIndicator = styled.i<IActiveSwitchIndicator & { theme: TUiColo
   ${({ $itemNumber, $tabSpacing, $direction }) => {
     const itemPosition = ($itemNumber - 1) * 100 + '%';
     const gapSpacing = $tabSpacing ? ($itemNumber - 1) * spacing[$tabSpacing] : 0;
+    console.log('gapSpacing', gapSpacing);
     const currentPosition = $itemNumber
       ? css`
           ${$direction === 'vertical'
@@ -94,10 +88,10 @@ const ActiveSwitchIndicator = styled.i<IActiveSwitchIndicator & { theme: TUiColo
 `;
 
 interface IActiveSwitchIndicator {
-  $itemNumber: number;
+  $itemNumber: number; // the itemnumber is to calc the position of the indicator for each item
   $themeType?: keyof TUiColorsType;
-  $tabSpacing?: keyof typeof spacingPx;
-  $type?: 'bolb' | 'underline' | 'overline';
+  $tabSpacing?: keyof typeof spacingPx; // the spacing is to calc the position of the indicator for each item
+  $type?: 'bolb' | 'underline';
   $rounded?: keyof IBorderRadius | string;
   $outlined?: boolean;
   $direction?: 'horizontal' | 'vertical';

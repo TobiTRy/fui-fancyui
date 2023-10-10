@@ -36,7 +36,7 @@ interface IOpacitySlider {
   opacity: number;
   handler: (opacity: number) => void;
 }
-const FancyOpacitySlider = ({ color, opacity, handler }: IOpacitySlider) => {
+export default function FancyOpacitySlider({ color, opacity, handler }: IOpacitySlider) {
   //give the opacity back to the parent component
   const handleOpacityChange = (newHue: number) => handler(parseFloat(newHue.toFixed(2)));
 
@@ -48,7 +48,6 @@ const FancyOpacitySlider = ({ color, opacity, handler }: IOpacitySlider) => {
     handlerSlider: handleOpacityChange,
     type: 'opacity',
   });
-
 
   return (
     <Wrapper>
@@ -66,6 +65,4 @@ const FancyOpacitySlider = ({ color, opacity, handler }: IOpacitySlider) => {
       </SliderContainer>
     </Wrapper>
   );
-};
-
-export default FancyOpacitySlider;
+}

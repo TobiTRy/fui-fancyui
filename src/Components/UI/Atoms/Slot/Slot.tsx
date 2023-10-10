@@ -16,7 +16,6 @@ const StyledSlot = styled.div<{ $align?: TAlign; $grow?: number; $extenalStyle?:
   }};
   flex-grow: ${({ $grow = 1 }) => $grow};
   align-items: center;
-
   ${({ $extenalStyle }) => ($extenalStyle ? $extenalStyle : '')}
 `;
 

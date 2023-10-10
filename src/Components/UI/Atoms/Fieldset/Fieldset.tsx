@@ -6,16 +6,17 @@ import { TypographyList } from '../Typography/Typography';
 export type TalignLabel = 'left' | 'center';
 
 interface IFieldset {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   label?: string;
   alignLabel?: TalignLabel;
   fontVariantLegend?: keyof typeof TypographyList;
+  $disabled?: boolean;
 }
 export default function Fieldset(props: IFieldset) {
-  const { children, label, alignLabel, fontVariantLegend } = props;
+  const { children, label, alignLabel, fontVariantLegend, $disabled } = props;
 
   return (
-    <StyledFieldset>
+    <StyledFieldset $disabled={$disabled}>
       {label && (
         <StyledLegend alignLabel={alignLabel}>
           <Typography type={fontVariantLegend || 'label'} htmlFor={label} weight="bold">
