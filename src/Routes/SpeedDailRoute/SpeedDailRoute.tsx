@@ -15,15 +15,15 @@ const Icon = (
 const items = [
   {
     label: 'test',
-    value: Icon,
+    icon: Icon,
   },
   {
     label: 'test2',
-    value: Icon,
+    icon: Icon,
   },
   {
     label: 'test3',
-    value: Icon,
+    icon: Icon,
   },
 ];
 

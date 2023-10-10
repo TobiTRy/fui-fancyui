@@ -12,7 +12,7 @@ import calcColorState from '../../Design/color/calcColorState';
 // -------------------- The main FancySlider Component ----------------------- //
 // --------------------------------------------------------------------------- //
 export default function FancyRangeSlider(props: IFancyRangeSlider) {
-  const { label, align, icon, value, min, max, displayNumber, onChange, themeType, layer, disabled } = { ...defaultProps, ...props };
+  const { label, align, icon, value, min, max, displayNumber, onChange, themeType, layer = 4, disabled } = { ...defaultProps, ...props };
 
   const [isActive, setIsActive] = useState(false);
   const [toutched, setToutched] = useState(false);
@@ -38,7 +38,7 @@ export default function FancyRangeSlider(props: IFancyRangeSlider) {
       {/* Icon for the left side of the slider */}
       {icon && (
         <Icon>
-          <FancySVGAtom isPassive={true} isActive={isActive} size="lg" themeType={themeType} layer={layer} externalStyle={{transition: 'color 0.3s ease-in-out'}}>
+          <FancySVGAtom isActive={isActive} size="lg" themeType={themeType} layer={layer} externalStyle={{transition: 'color 0.3s ease-in-out'}}>
             {icon}
           </FancySVGAtom>
         </Icon>

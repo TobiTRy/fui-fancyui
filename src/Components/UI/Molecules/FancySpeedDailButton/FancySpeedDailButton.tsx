@@ -20,7 +20,7 @@ export default function FancySpeedDialButton(props: ISpeedail) {
       <SpeedDialContainer>
         <MenueItemWrapper>
           {items?.map((item, index) => (
-            <SpeedDailMenueItem key={index} index={index} isOpen={isOpen} label={item.label} icon={item.icon} hideLabel={hideLabel}  labelAlign={labelAlign} />
+            <SpeedDailMenueItem key={index} index={index} isOpen={isOpen} label={item.label} icon={item.icon} hideLabel={hideLabel} labelAlign={labelAlign} />
           ))}
         </MenueItemWrapper>
         <Button $isOpen={isOpen} aria-label={'Open Menue'} onClick={() => setIsOpen(!isOpen)}>

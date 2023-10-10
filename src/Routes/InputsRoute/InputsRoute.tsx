@@ -126,7 +126,7 @@ export default function InputsRoute() {
         </DesignArea>
         <DesignArea title="Range Slider">
           <FancyRangeSlider label="Slider"  value={Number(test)} onChange={testHandler4} />
-          <FancyRangeSlider icon={svg} themeType='primary' label="Slider" value={Number(test)} onChange={testHandler4} align="center" displayNumber={true} />
+          <FancyRangeSlider icon={svg} label="Slider" value={Number(test)} onChange={testHandler4} align="center" displayNumber={true} />
         </DesignArea>
       </DesignWrapper>
     </FancyCard>
