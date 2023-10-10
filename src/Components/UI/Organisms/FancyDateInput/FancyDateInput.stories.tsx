@@ -12,7 +12,7 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component: 'Dumb-Comonent: A fancy date input with label, icon and error message',
+        component: 'Dumb-Comonent: A fancy date input with label, icon and error message and more',
       },
     },
   },
