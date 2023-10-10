@@ -18,7 +18,6 @@ export default function FancySingleInputs(props: IFancySingleInputs) {
   const debounceTimeoutRef = useRef<NodeJS.Timeout>();
 
   // this function validates the input key with the api
-
   const validateValue = () => {
     if (keyCode === inputValue) {
       setStatus({
@@ -39,6 +38,7 @@ export default function FancySingleInputs(props: IFancySingleInputs) {
     if (inputValue.length === length) {
       if (debounceTimeoutRef.current) {
         clearTimeout(debounceTimeoutRef.current);
+        
       }
       debounceTimeoutRef.current = setTimeout(validateValue, 700);
     }
