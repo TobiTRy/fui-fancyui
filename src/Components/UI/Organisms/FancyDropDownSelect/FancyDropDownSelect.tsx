@@ -5,7 +5,7 @@ import DropDownSelect, { IDropDownSelect } from '../../Atoms/DropDownSelect/Drop
 
 import { IInputWrapperUserInputProps } from '../../Molecules/InputWrapper/InputWrapper';
 
-export type IFancyDropDownSelect = IInputWrapperUserInputProps & IDropDownSelect;
+export type IFancyDropDownSelect = Omit<IInputWrapperUserInputProps, 'InputElement'> & IDropDownSelect;
 
 // --------------------------------------------------------------------------- //
 // ----The Dropdown Comonent with surrounding icon, label and underline ------ //
