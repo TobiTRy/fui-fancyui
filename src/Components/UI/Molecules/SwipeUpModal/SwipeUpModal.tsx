@@ -7,23 +7,12 @@ import BackDrop from '../../Atoms/BackDrop/BackDrop';
 import UseDelay from '../../HelperFunctions/hooks/UseDelay';
 import ScalingSection from '../ScalingSection/ScalingSection';
 import { Content, ContentBox, WrapperAnimated, WrapperContent, WrapperModal } from './SwipeUpModal.style';
-import { ModalStatus } from '../../Interface/ModalStatus';
-import { TUiColorsType } from '../../Design/color/designColor';
-import { TLayer } from '../../Design/color/generateColorSteps';
+import { ISwipeUpModal } from './ISwipeUpModal.model';
 
 // --------------------------------------------------------------------------- //
 // ----------- The Modal Molecule the displays the complete modal - ---------- //
 // --------------------------------------------------------------------------- //
-interface ISwipeUpModal {
-  id?: string;
-  status: ModalStatus;
-  children?: React.ReactNode;
-  isCloseAble?: boolean; // if a error occurs and the modal should be closeable
-  isScalable?: boolean; // if the modal should be static or scalable
-  themeType?: keyof TUiColorsType;
-  layer?: TLayer;
-  closeHandler?: (id: string) => void;
-}
+
 export default function SwipeUpModal(props: ISwipeUpModal) {
   const { children, status, isCloseAble, isScalable, closeHandler, id, themeType, layer } = { ...defaultProps, ...props };
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -82,10 +71,10 @@ export default function SwipeUpModal(props: ISwipeUpModal) {
   // if the modal is open, open the modal else close it
   useEffect(() => {
     switch (status) {
-      case ModalStatus.Open:
+      case 'open':
         openModal();
         break;
-      case ModalStatus.Closing:
+      case 'closing':
         closeModal('status');
         break;
     }
@@ -99,7 +88,7 @@ export default function SwipeUpModal(props: ISwipeUpModal) {
   });
 
   return (
-    <UseDelay externalStateBool={status === ModalStatus.Open}>
+    <UseDelay externalStateBool={status === 'open'}>
       <WrapperModal>
         {openTransition(
           (styles, item) =>
@@ -134,7 +123,7 @@ export default function SwipeUpModal(props: ISwipeUpModal) {
 }
 
 const defaultProps: ISwipeUpModal = {
-  status: ModalStatus.Open,
+  status: 'open',
   isCloseAble: true,
   isScalable: true,
 };
