@@ -2,7 +2,7 @@ import React from 'react';
 import { IEditBarModal } from './IEditbarModal.model';
 import { Wrapper,  WrapperContent } from './EditBarModal.style';
 
-import ModalTitleArea from '../ModalTitleArea/ModalTitleArea';
+import { FancyModalHeadLine } from '../../Molecules/FancyModalHeadLine';
 
 
 export default function EditBarModal(props: IEditBarModal) {
@@ -10,7 +10,7 @@ export default function EditBarModal(props: IEditBarModal) {
 
   return (
     <Wrapper $spacingLeftRight={spacingLeftRight} $width={width}>
-      {title && <ModalTitleArea title={title} />}
+      <FancyModalHeadLine title={title} />
       <WrapperContent>
         {children}
       </WrapperContent>
