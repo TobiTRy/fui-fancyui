@@ -1,7 +1,7 @@
 import React from 'react';
 import Color from 'color';
 
-import useSlider from '../../HelperFunctions/hooks/useSilder';
+import useSlider from '../../HelperFunctions/hooks/useSlider/useSilder';
 import SliderMarker from '../../Atoms/SliderMarker/SliderMarker';
 import ColorIndicator from '../../Atoms/ColorIndicator/ColorIndicator';
 import { SliderContainer, SliderWrapper } from './FancyHueSlider.style';
