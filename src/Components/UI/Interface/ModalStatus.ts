@@ -1,6 +1,1 @@
-export enum ModalStatus {
-    Open = 'open',
-    Closing = 'closing',
-    Closed = 'closed'
-  }
-  
+export type ModalStatus = 'open' | 'closing' | 'closed';

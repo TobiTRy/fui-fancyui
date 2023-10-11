@@ -52,12 +52,12 @@ export const useFancyModalStore = create<IModalModule>((set) => ({
   // add a new modal to the state array
   openModal: (content, id = Math.random().toFixed(4).toString()) =>
     set((state) => ({
-      modals: [...state.modals, { id, content, status: ModalStatus.Open }],
+      modals: [...state.modals, { id, content, status: 'open'}],
     })),
   // change the status of the modal to closing
   closeModal: (id) =>
     set((state) => ({
-      modals: state.modals.map((modal) => (modal.id === id ? { ...modal, status: ModalStatus.Closing } : modal)),
+      modals: state.modals.map((modal) => (modal.id === id ? { ...modal, status: 'closing' } : modal)),
     })),
   // remove the modal from the state array
   removeModal: (id) =>

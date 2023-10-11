@@ -28,10 +28,10 @@ export default function Modal({ children, closeModal, id, status, themeType, lay
 
   useEffect(() => {
     switch (status) {
-      case ModalStatus.Open:
+      case 'open':
         setOpen(true);
         break;
-      case ModalStatus.Closing:
+      case 'closing':
         setOpen(false);
         break;
     }
