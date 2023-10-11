@@ -32,11 +32,11 @@ export const useFancySwipeUpModalStore = create<IFancySwipeUpModalStore>((set) =
   modals: [],
   // add a new modal to the state array
   openSwipeUpModal: (content, id = Math.random().toFixed(4).toString()) =>
-    set((state) => ({ modals: [...state.modals, { content, id, status: ModalStatus.Open }] })),
+    set((state) => ({ modals: [...state.modals, { content, id, status: 'open' }] })),
   // change the status of the modal to closing
   closeSwipeUpModal: (id) =>
     set((state) => ({
-      modals: state.modals.map((modal) => (modal.id === id ? { ...modal, status: ModalStatus.Closing } : modal)),
+      modals: state.modals.map((modal) => (modal.id === id ? { ...modal, status: 'closing' } : modal)),
     })),
   // remove the modal from the state array
   removeSwipeUpModal: (id) =>

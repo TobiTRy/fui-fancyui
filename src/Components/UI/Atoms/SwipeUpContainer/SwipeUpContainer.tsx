@@ -30,7 +30,6 @@ const StyledSwipeUpContainer = styled.div<IStyledSwipeUpContainer>`
   z-index: 101;
   backdrop-filter: blur(4px);
   background-color: ${({ theme, $themeType = 'primary', $layer = 0}) => getBackgroundColor({theme, $themeType, $layer})};
-  ${boxShadow.lg}
 `;
 
 // --------------------------------------------------------------------------- //

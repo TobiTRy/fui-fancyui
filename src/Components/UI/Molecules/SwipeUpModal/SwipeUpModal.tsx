@@ -82,10 +82,10 @@ export default function SwipeUpModal(props: ISwipeUpModal) {
   // if the modal is open, open the modal else close it
   useEffect(() => {
     switch (status) {
-      case ModalStatus.Open:
+      case 'open':
         openModal();
         break;
-      case ModalStatus.Closing:
+      case 'closing':
         closeModal('status');
         break;
     }
@@ -99,7 +99,7 @@ export default function SwipeUpModal(props: ISwipeUpModal) {
   });
 
   return (
-    <UseDelay externalStateBool={status === ModalStatus.Open}>
+    <UseDelay externalStateBool={status === 'open'}>
       <WrapperModal>
         {openTransition(
           (styles, item) =>
@@ -134,7 +134,7 @@ export default function SwipeUpModal(props: ISwipeUpModal) {
 }
 
 const defaultProps: ISwipeUpModal = {
-  status: ModalStatus.Open,
+  status: 'open',
   isCloseAble: true,
   isScalable: true,
 };
