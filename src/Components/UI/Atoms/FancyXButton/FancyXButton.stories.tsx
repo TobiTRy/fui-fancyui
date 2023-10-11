@@ -17,6 +17,16 @@ const meta = {
 
   // Define arguments for the story
   argTypes: {
+    themeType: {
+      description: 'The themeType is used to define the color of the X in the button. It can be any of the colors defined in the theme or systemMessages.',
+      control: {
+        type: 'select',
+        options: ['primary', 'secondary', 'success', 'warning', 'info', ],
+      },
+      defaultValue: {
+        summary: 'accent',
+      }
+    },
     
 
   },
