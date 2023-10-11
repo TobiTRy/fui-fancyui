@@ -14,7 +14,6 @@ export { default as FancyHR } from '../Components/UI/Atoms/FancyHR/FancyHR';
 export { default as FancyLI } from '../Components/UI/Atoms/FancyLI/FancyLI';
 export { default as FancyLoadingSpinner } from '../Components/UI/Atoms/FancyLoadingSpinner/FancyLoadingSpinner';
 export { default as FancySVGAtom } from '../Components/UI/Atoms/FancySVGAtom/FancySVGAtom';
-export { default as ModalTitleArea } from '../Components/UI/Atoms/ModalTitleArea/ModalTitleArea';
 export { default as PasswordEye } from '../Components/UI/Atoms/PasswordEye/PasswordEye';
 export { default as RawSlider } from '../Components/UI/Atoms/RawSlider/RawSlider';
 export { default as ScrollableBar } from '../Components/UI/Atoms/ScrollableBar/ScrollableBar';
