@@ -8,7 +8,6 @@ export type IRange = { start?: boolean; end?: boolean; inRange?: boolean };
 
 interface IDay {
   dateNumber: number;
-  isWeekend?: boolean;
   selected?: boolean;
   disabled?: boolean;
   onClick?: () => void;
@@ -17,17 +16,18 @@ interface IDay {
   themeType?: keyof TUiColorsType;
   layer?: TLayer;
 }
+// --------------------------------------------------------------------------- //
+// -------- The DateNumberAtom Displays the date number of a clendar --------- //
+// --------------------------------------------------------------------------- //
 export default function DateNumberAtom(props: IDay) {
-  const { dateNumber, isWeekend, selected, disabled, onClick, range, isCurrentDay, themeType, layer } = props;
-
-  const isDisabled = disabled ? disabled : isWeekend ? isWeekend : false;
+  const { dateNumber, selected, disabled, onClick, range, isCurrentDay, themeType, layer } = props;
 
   return (
     <StyledDay
       $range={range}
       $selected={selected}
       $isCurrentDay={isCurrentDay}
-      disabled={isDisabled}
+      disabled={disabled}
       onClick={onClick}
       $themeType={themeType}
       $layer={layer}
