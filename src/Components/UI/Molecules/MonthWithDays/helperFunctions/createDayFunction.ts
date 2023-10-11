@@ -5,7 +5,7 @@ import { IDateArray } from '../../RangeCalendar/IDateArray.model';
 
 // 0 - Sunday, 1 - Monday, 2 - Tuesday, 3 - Wednesday, 4 - Thursday, 5 - Friday, 6 - Saturday
 // this function disables dates based on the following parameters:
-const disableDates = (date: Date, disabledDateSetting?: IDisabledDateSettings): boolean => {
+const disableDate = (date: Date, disabledDateSetting?: IDisabledDateSettings): boolean => {
   const { disablePastDates = false, disableWeekends = false, disabledWeekdays = [] } = disabledDateSetting || {};
   
   const dateDay = date.getDay() as IWeekDays;
@@ -49,7 +49,7 @@ const createDay = (props: ICreateDay): Day => {
   }
 
   // this function disables the date
-  const isDateDisabled = disableDates(date, disabledDateSetting);
+  const isDateDisabled = disableDate(date, disabledDateSetting);
 
   return {
     number: dayNumber,
