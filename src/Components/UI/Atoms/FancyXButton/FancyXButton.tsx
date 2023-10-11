@@ -1,6 +1,7 @@
 import React from 'react';
 import { styled } from 'styled-components';
 import Color from 'color';
+
 import themeStore from '../../Design/color/themeStore';
 
 import { IUiColorsTypes, IUiColorsSystemMessageTypes, spacingPx, fontSize, systemMessages } from '../../Design/design';
