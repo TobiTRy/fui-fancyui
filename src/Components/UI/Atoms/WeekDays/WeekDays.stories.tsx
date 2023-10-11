@@ -18,18 +18,23 @@ const meta = {
   // Define arguments for the story
   argTypes: {
     themeType: {
-      description: 'The elemnt type of the typography',
+      description: 'The Color of the week days',
       control: {
         type: 'select',
       },
+      defaultValue: {
+        summary: 'secondary',
+      },
     },
     layer: {
-      description: 'The variant how the typography should look like',
+      description: 'The layer of the week days',
       control: {
         type: 'range', min: 0, max: 10, step: 1,
       },
+      defaultValue: {
+        summary: 0,
+      },
     },
-
   },
   // Add tags to the story
   tags: ['autodocs'],

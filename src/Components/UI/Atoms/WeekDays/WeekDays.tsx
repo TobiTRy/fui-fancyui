@@ -5,12 +5,14 @@ import { spacingPx } from '../../Design/design';
 import Typography from '../Typography/Typography';
 import { TUiColorsType } from '../../Design/color/designColor';
 import { TLayer } from '../../Design/color/generateColorSteps';
+import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
 
 const WeekdaysConatiner = styled.div<{ theme: TUiColorsType; $themeType?: keyof TUiColorsType; $layer?: TLayer }>`
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   width: 100%;
   margin-bottom: ${spacingPx.xs};
+  color: ${({ theme, $themeType, $layer }) => getBackgroundColor({ theme, $themeType: $themeType || 'secondary', $layer: $layer || 0 })};
 
   & > * {
     display: flex;
