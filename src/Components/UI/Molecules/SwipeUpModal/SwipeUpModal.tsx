@@ -14,7 +14,7 @@ import { ModalStatus } from '../../Interface/ModalStatus';
 // ----------- The Modal Molecule the displays the complete modal - ---------- //
 // --------------------------------------------------------------------------- //
 export default function SwipeUpModal(props: ISwipeUpModal) {
-  const { children, isOpen, isCloseAble, isScalable, onClose, themeType, layer,  } = { ...defaultProps, ...props };
+  const { children, isOpen, isCloseAble, isScalable, onClose, themeType, layer } = { ...defaultProps, ...props };
 
   const [statusModal, setStatusModal] = useState<ModalStatus>('closed');
   const [modalPosition, setModalPosition] = useState({ height: '100%' });
