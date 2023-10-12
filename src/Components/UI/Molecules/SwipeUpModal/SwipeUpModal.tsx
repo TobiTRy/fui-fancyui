@@ -8,14 +8,15 @@ import UseDelay from '../../HelperFunctions/hooks/UseDelay';
 import ScalingSection from '../ScalingSection/ScalingSection';
 import { Content, ContentBox, WrapperAnimated, WrapperContent, WrapperModal } from './SwipeUpModal.style';
 import { ISwipeUpModal } from './ISwipeUpModal.model';
+import { ModalStatus } from '../../Interface/ModalStatus';
 
 // --------------------------------------------------------------------------- //
 // ----------- The Modal Molecule the displays the complete modal - ---------- //
 // --------------------------------------------------------------------------- //
-
 export default function SwipeUpModal(props: ISwipeUpModal) {
-  const { children, status, isCloseAble, isScalable, closeHandler, id, themeType, layer } = { ...defaultProps, ...props };
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const { children, isOpen, isCloseAble, isScalable, onClose, themeType, layer,  } = { ...defaultProps, ...props };
+
+  const [statusModal, setStatusModal] = useState<ModalStatus>('closed');
   const [modalPosition, setModalPosition] = useState({ height: '100%' });
   const [initialHeight, setInitialHeight] = useState<number | undefined>();
   const { height } = useWindowDimensions();
@@ -23,8 +24,8 @@ export default function SwipeUpModal(props: ISwipeUpModal) {
   //Opens the modal and set the overfolw to hidden
   const openModal = () => {
     document.body.style.overflow = 'hidden';
-    setIsModalOpen(true);
     setModalPosition({ height: 'auto' });
+    setStatusModal('open');
   };
 
   const moveModalHandler = (e: React.TouchEvent<HTMLDivElement>) => {
@@ -51,11 +52,15 @@ export default function SwipeUpModal(props: ISwipeUpModal) {
   const closeModal = (cloesedBy: 'status' | 'intercation') => {
     if (cloesedBy === 'intercation' && !isCloseAble) return;
 
-    setIsModalOpen(false);
-
     //close the gobal modal state
-    if (closeHandler && id) closeHandler(id);
-    
+    if (onClose) onClose();
+    setStatusModal('closing');
+
+    //wait for the animation and remove the modal from the store
+    setTimeout(() => {
+      setStatusModal('closed');
+    }, 250);
+
     document.body.style.overflow = 'overlay';
   };
 
@@ -68,27 +73,25 @@ export default function SwipeUpModal(props: ISwipeUpModal) {
     }
   };
 
-  // if the modal is open, open the modal else close it
-  useEffect(() => {
-    switch (status) {
-      case 'open':
-        openModal();
-        break;
-      case 'closing':
-        closeModal('status');
-        break;
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [status]);
-
-  const openTransition = useTransition(isModalOpen, {
+  // the open transition for the modal via react-spring
+  const openTransition = useTransition(statusModal === 'open', {
     from: { height: '0%' },
     enter: { height: '100%' },
     leave: { height: '0%' },
   });
 
+  // if the modal is open, open the modal else close it
+  useEffect(() => {
+    if (isOpen) {
+      openModal();
+    } else {
+      closeModal('status');
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isOpen]);
+
   return (
-    <UseDelay externalStateBool={status === 'open'}>
+    <UseDelay externalStateBool={statusModal === 'open'}>
       <WrapperModal>
         {openTransition(
           (styles, item) =>
@@ -116,14 +119,13 @@ export default function SwipeUpModal(props: ISwipeUpModal) {
               </WrapperAnimated>
             )
         )}
-        <BackDrop isOpen={isModalOpen} onClick={() => closeModal('intercation')} />
+        <BackDrop isOpen={statusModal === 'open'} onClick={() => closeModal('intercation')} />
       </WrapperModal>
     </UseDelay>
   );
 }
 
 const defaultProps: ISwipeUpModal = {
-  status: 'open',
   isCloseAble: true,
   isScalable: true,
 };

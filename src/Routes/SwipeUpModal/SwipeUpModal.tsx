@@ -9,41 +9,29 @@ import { FancyTextInput } from '../../Components/UI/Organisms/FancyTextInput';
 import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';
 
 export default function SwipeUpModal() {
-  const closeSwipeUpModal = useFancySwipeUpModalStore((state) => state.closeSwipeUpModal);
-  const openSwipeUpModal = useFancySwipeUpModalStore((state) => state.openSwipeUpModal);
-
-  const openModalHandler = () => {
-    openSwipeUpModal(
-      'test',
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
-        <FancyTextInput label="Email" />
-        <FancyTextInput label="Email" />
-        <FancyTextInput label="Email" />
-        <FancyButton onClick={() => closeSwipeUpModal('test')} label="Close Modal"></FancyButton>
-      </div>,
-      { isCloseAble: false, isScalable: false }
-    );
-  };
-
-  const openModalHandler2 = () => {
-    openSwipeUpModal(
-      'test1',
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
-        <FancyTextInput label="Email" />
-        <FancyTextInput label="Email" />
-        <FancyTextInput label="Email" />
-        <FancyButton onClick={() => closeSwipeUpModal('test1')} label="Close Modal"></FancyButton>
-      </div>,
-      { isCloseAble: true, isScalable: true }
-    );
-  };
+  const [isVisible, setIsVisible] = React.useState(false);
 
   return (
     <DesignWrapper>
       <DesignArea title="Swipe Up Modals">
-        <FancyButton onClick={openModalHandler} label="Open Modal"></FancyButton>
-        <FancyButton onClick={openModalHandler2} label="Open Modal Scalable"></FancyButton>
-        <FancySwipeUpModal appendToDomID="modal"></FancySwipeUpModal>
+        <FancyButton onClick={() => setIsVisible(true)} label="Open Modal"></FancyButton>
+        <FancyButton onClick={() => setIsVisible(false)} label="Close Modal "></FancyButton>
+        <FancySwipeUpModal appendToDomID="modal" isOpen={isVisible} onClose={() => setIsVisible(false)} isScalable isCloseAble>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
+            <FancyTextInput label="Email" />
+            <FancyTextInput label="Email" />
+            <FancyTextInput label="Email" />
+            <FancyButton onClick={() => setIsVisible(false)} label="Close Modal"></FancyButton>
+          </div>
+        </FancySwipeUpModal>
+        <FancySwipeUpModal appendToDomID="modal">
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
+            <FancyTextInput label="Email" />
+            <FancyTextInput label="Email" />
+            <FancyTextInput label="Email" />
+            <FancyButton onClick={() => setIsVisible(false)} label="Close Modal"></FancyButton>
+          </div>
+        </FancySwipeUpModal>
       </DesignArea>
     </DesignWrapper>
   );
