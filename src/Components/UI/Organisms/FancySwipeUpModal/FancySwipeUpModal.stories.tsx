@@ -4,9 +4,7 @@ import { Meta, StoryObj } from '@storybook/react';
 // Import the component to be tested
 import FancySwipeUpModal from './FancySwipeUpModal';
 import { FancyButton } from '../../Molecules/FancyButton';
-
-import { useFancySwipeUpModalStore } from './FancySwipeUpModal.state';
-
+import React from 'react';
 
 // Define metadata for the story
 const meta = {
@@ -14,37 +12,75 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component: 'Dumb-Comonent: The FancyPasswordInput Comonent with surrounding icon, label and underline',
+        component: 'Smart-Comonent: The FancySwipeUpModal is a smart component that handles all the logic for the SwipeUpModal.',
       },
     },
   },
   // Define arguments for the story
   argTypes: {
-    layer: {
-      description: 'The layer of the modal',
-      defaultValue: 0,
+    appendToDomID: {
+      description: 'The ID of the DOM element to append the modal to',
       control: {
-        type: 'range',
-        min: 0,
-        max: 10,
-        step: 1,
+        type: 'text',
+      },
+      defaultValue: {
+        summary: 'body',
+      },
+    },
+    isOpen: {
+      description: 'The state of the modal',
+      control: {
+        type: 'boolean',
+      },
+      defaultValue: {
+        summary: false,
+      },
+    },
+    onClose: {
+      description: 'The function to close the modal',
+      control: {
+        type: 'function',
+      },
+      defaultValue: {
+        summary: '',
+      },
+    },
+    isScalable: {
+      description: 'Is the modal scalable by the user',
+      control: {
+        type: 'boolean',
+      },
+      defaultValue: {
+        summary: true,
+      },
+    },
+    isCloseAble: {
+      description: 'Is the modal closeable by the user',
+      control: {
+        type: 'boolean',
+      },
+      defaultValue: {
+        summary: true,
       },
     },
     themeType: {
       description: 'The theme of the modal',
-      defaultValue: 'primary',
       control: {
         type: 'select',
       },
-    },
-    appendToDomID: {
-      description: 'The id of the dom element to append the modal to',
-      defaultValue: 'root',
-      control: {
-        type: 'text',
+      defaultValue: {
+        summary: 'primary',
       },
     },
-
+    layer: {
+      description: 'The layer of the modal',
+      control: {
+        type: 'range', min: 0, max: 10, step: 1,
+      },
+      defaultValue: {
+        summary: 0,
+      },
+    },
   },
   // Add tags to the story
   tags: ['autodocs'],
@@ -55,18 +91,30 @@ export default meta;
 // Define the story object
 type Story = StoryObj<typeof meta>;
 
-const handleClick = () => {
-  useFancySwipeUpModalStore.getState().openSwipeUpModal({ content: <p>Hi</p> },'modal')
+
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function HelperComponent(props: any) {
+  const [isVisible, setIsVisible] = React.useState(false);
+
+  const onClose = () => {
+    setIsVisible(false);
+  };
+  return (
+    <>
+      <FancySwipeUpModal {...props} isOpen={isVisible} onClose={onClose} />
+      <FancyButton label="Open Modal" onClick={() => setIsVisible(true)} />
+    </>
+  );
 }
 
 // Define the primary story
 export const Primary: Story = {
-  render: (args) => <div id='modal'>
-  <FancySwipeUpModal {...args} />
-    <FancyButton label='Open Modal' onClick={handleClick}/>
-  </div>,
-  args: {
-
-
-  },
+  render: (args) => (
+    <>
+      <div id="modal"></div>
+      <HelperComponent {...args} />
+    </>
+  ),
+  args: {},
 };
