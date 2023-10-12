@@ -15,10 +15,11 @@ const meta = {
   },
 
   argTypes: {
-    status: {
-      description: 'The status of the modal.',
-      control: {
-        type: 'radio',
+    isOpen: {
+      description: 'The state of the modal',
+      type: { name: 'boolean' },
+      defaultValue: {
+        summary: false,
       },
     },
     isCloseAble: {
@@ -35,13 +36,9 @@ const meta = {
         summary: true,
       },
     },
-    closeHandler: {
+    onClose: {
       description: 'A function that is called when the modal should be closed.',
       type: { name: 'function' },
-    },
-    id: {
-      description: 'The id of the modal.',
-      type: { name: 'string' },
     },
     themeType: {
       description: 'The theme type of the modal.',
@@ -73,7 +70,7 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   render: (args) => <SwipeUpModal {...args} />,
   args: {
-    status: 'open',
+    isOpen: true,
     isCloseAble: true,
     isScalable: true,
     themeType: 'primary',
