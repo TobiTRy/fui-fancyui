@@ -14,47 +14,35 @@ export default function SwipeUpModal() {
 
   const openModalHandler = () => {
     openSwipeUpModal(
-      {
-        content: 
-          <div style={{display: 'flex', flexDirection: 'column', gap: '18px'}}>
-          <FancyTextInput label="Email" />
-          <FancyTextInput label="Email" />
-          <FancyTextInput label="Email" />
-          <FancyButton onClick={() => closeSwipeUpModal('test')} label="Close Modal"></FancyButton>
-        </div>
-      ,
-      headline: { title: 'test', subTitle: 'test' },
-      settings: { isCloseAble: false, isScalable: false}
-    },
-    'test'
-    )
+      'test',
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
+        <FancyTextInput label="Email" />
+        <FancyTextInput label="Email" />
+        <FancyTextInput label="Email" />
+        <FancyButton onClick={() => closeSwipeUpModal('test')} label="Close Modal"></FancyButton>
+      </div>,
+      { isCloseAble: false, isScalable: false }
+    );
   };
 
-  
   const openModalHandler2 = () => {
     openSwipeUpModal(
-      {
-        content: 
-          <div style={{display: 'flex', flexDirection: 'column', gap: '18px'}}>
-          <FancyTextInput label="Email" />
-          <FancyTextInput label="Email" />
-          <FancyTextInput label="Email" />
-          <FancyButton onClick={() => closeSwipeUpModal('test1')} label="Close Modal"></FancyButton>
-        </div>
-      ,
-      headline: { title: 'test', subTitle: 'test' },
-      settings: { isCloseAble: true, isScalable: true}
-    },
-    'test1'
-    )
+      'test1',
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
+        <FancyTextInput label="Email" />
+        <FancyTextInput label="Email" />
+        <FancyTextInput label="Email" />
+        <FancyButton onClick={() => closeSwipeUpModal('test1')} label="Close Modal"></FancyButton>
+      </div>,
+      { isCloseAble: true, isScalable: true }
+    );
   };
 
   return (
     <DesignWrapper>
-      <DesignArea title='Swipe Up Modals'>
-
-        <FancyButton onClick={openModalHandler} label="Open Modal" ></FancyButton>
-        <FancyButton onClick={openModalHandler2} label="Open Modal Scalable" ></FancyButton>
+      <DesignArea title="Swipe Up Modals">
+        <FancyButton onClick={openModalHandler} label="Open Modal"></FancyButton>
+        <FancyButton onClick={openModalHandler2} label="Open Modal Scalable"></FancyButton>
         <FancySwipeUpModal appendToDomID="modal"></FancySwipeUpModal>
       </DesignArea>
     </DesignWrapper>

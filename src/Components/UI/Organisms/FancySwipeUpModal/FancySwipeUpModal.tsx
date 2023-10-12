@@ -4,19 +4,14 @@ import { useFancySwipeUpModalStore } from './FancySwipeUpModal.state';
 
 import SwipeUpModal from '../../Molecules/SwipeUpModal/SwipeUpModal';
 import FancyPortal from '../../HelperFunctions/FancyPortal';
-import ModalHeadLine from '../../Molecules/FancyModalHeadLine/FancyModalHeadLine';
-import { TUiColorsType } from '../../Design/color/designColor';
-import { TLayer } from '../../Design/color/generateColorSteps';
 
 // --------------------------------------------------------------------------- //
 // ----------- The main FancySwipeUpModal to handle all everything ----------- //
 // --------------------------------------------------------------------------- //
 interface IFancySwipeUpModal {
   appendToDomID?: string;
-  themeType?: keyof TUiColorsType;
-  layer?: TLayer;
 }
-export default function FancySwipeUpModal({ appendToDomID, themeType, layer }: IFancySwipeUpModal) {
+export default function FancySwipeUpModal({ appendToDomID }: IFancySwipeUpModal) {
   // get the global states and actions from the store to handle the modal
   const modals = useFancySwipeUpModalStore((state) => state.modals);
   const removeSwipeUpModal = useFancySwipeUpModalStore((state) => state.removeSwipeUpModal);
@@ -40,18 +35,16 @@ export default function FancySwipeUpModal({ appendToDomID, themeType, layer }: I
       {modals.map((modal, key) => (
         <SwipeUpModal
           key={key}
-          status={modal.status}
           id={modal.id}
-          isCloseAble={modal.content.settings?.isCloseAble}
-          isScalable={modal.content.settings?.isScalable}
-          themeType={themeType}
-          layer={layer}
+          status={modal.status}
+          layer={modal.settings?.layer}
+          themeType={modal.settings?.themeType}
+          isScalable={modal.settings?.isScalable}
+          isCloseAble={modal.settings?.isCloseAble}
           closeHandler={() => closeModalHandler(modal.id)}
         >
-          {/* if there is a headline, render it */}
-          {modal.content.headline && <ModalHeadLine {...modal.content.headline} />}
-          {/* render the children of the modal  */}
-          {modal.content.content}
+          {/* render the content of the modal  */}
+          {modal.children}
         </SwipeUpModal>
       ))}
     </FancyPortal>

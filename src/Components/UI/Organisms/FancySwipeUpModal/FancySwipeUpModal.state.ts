@@ -1,25 +1,26 @@
 import { create } from 'zustand';
-import IFancyModalHeadLine from '../../Molecules/FancyModalHeadLine/FancyModalHeadLine.model';
-import { ModalStatus } from '../../Interface/ModalStatus';
 
-export type SwipeUpModalContent = {
-  headline?: IFancyModalHeadLine;
-  content?: React.ReactNode;
-  settings?: {
-    isCloseAble: boolean;
-    isScalable: boolean;
-  }
+import { ModalStatus } from '../../Interface/ModalStatus';
+import { TUiColorsType } from '../../Design/color/designColor';
+import { TLayer } from '../../Design/color/generateColorSteps';
+
+export type ModalSettings = {
+  isCloseAble?: boolean;
+  isScalable?: boolean;
+  themeType?: keyof TUiColorsType;
+  layer?: TLayer;
 };
 
 export interface IFancySwipeUpModal {
   id: string;
-  content: SwipeUpModalContent;
+  children: React.ReactNode;
   status: ModalStatus;
+  settings?: ModalSettings;
 }
 
 export interface IFancySwipeUpModalStore {
   modals: IFancySwipeUpModal[];
-  openSwipeUpModal: (modal: SwipeUpModalContent, id?: string) => void;
+  openSwipeUpModal: (id: string, children: React.ReactNode, settings: ModalSettings) => void;
   removeSwipeUpModal: (id: string) => void;
   closeSwipeUpModal: (id: string) => void;
 }
@@ -31,8 +32,7 @@ export const useFancySwipeUpModalStore = create<IFancySwipeUpModalStore>((set) =
   // the state array for the modals
   modals: [],
   // add a new modal to the state array
-  openSwipeUpModal: (content, id = Math.random().toFixed(4).toString()) =>
-    set((state) => ({ modals: [...state.modals, { content, id, status: 'open' }] })),
+  openSwipeUpModal: (id, children, settings) => set((state) => ({ modals: [...state.modals, { children, id, status: 'open', settings }] })),
   // change the status of the modal to closing
   closeSwipeUpModal: (id) =>
     set((state) => ({
