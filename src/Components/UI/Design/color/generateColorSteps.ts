@@ -21,7 +21,7 @@ const degreeSteps = [0, 3, 7, 10, 18, 25, 34, 40, 60, 70];
 const degreeStepsAccent = [0, 5, 10, 15, 20, 25, 30, 35, 40, 45];
 
 // Generate colors at different steps for a single base color
-function lightenColors(colorType: TColorTypes, color: string): string[] {
+function lightenColors(color: string, colorType?: TColorTypes) {
   switch (colorType) {
     case 'primary':
       return generateColorVariations(color, degreeSteps);
@@ -35,6 +35,8 @@ function lightenColors(colorType: TColorTypes, color: string): string[] {
       const stepsUpdated = degreeStepsAccent.map((step) => -step);
       return generateColorVariations(color, stepsUpdated);
     }
+    default:
+      return generateColorVariations(color, degreeSteps);
   }
 }
 
@@ -46,11 +48,11 @@ type ColorSteps = {
 
 // this function generates a object with the color steps
 export default function generateColorSteps(colorType: TColorTypes, color: string): ColorSteps {
-  const lightColors = lightenColors(colorType, color); //generate the colors
+  const lightColors = lightenColors(color,colorType); //generate the colors
   const obj: ColorSteps = {} as ColorSteps;
 
   //make array to object with keys but reversed order
-  lightColors.forEach((color, index) => {
+  lightColors?.forEach((color, index) => {
     obj[index as TLayer] = color;
   });
 

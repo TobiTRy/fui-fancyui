@@ -3,32 +3,8 @@ import Color from 'color';
 import generateColorSteps from './color/generateColorSteps';
 import isColorValid from './color/isColorValid';
 
+export type TColorTypes = 'primary' | 'accent' | 'accentDarken' | 'secondary' | 'info';
 
-export type TColorTypes = 'primary' | 'accent' | 'accentDarken' | 'secondary';
-
-export type IUiColors = {
-  [key in TColorTypes]?: string;
-};
-
-const themeColors: { [key in TColorTypes]: string } = {
-  primary: '#131825',
-  accent: '#F17C12',
-  accentDarken: '',
-  secondary: '#f0f0ef',
-
-};
-themeColors.accentDarken = themeColors.accent
-
-export const updateThemeColors = (colorObject: IUiColors) => {
-  for (const key in colorObject) {
-    const typedkey = key as TColorTypes;
-    if(!isColorValid(themeColors[typedkey])) throw new Error('The color ' + typedkey + ' is not valid');
-    if (key !== 'accentDarken' && colorObject[typedkey] !== undefined) {
-      themeColors[typedkey] = colorObject[typedkey]!;
-    }
-    console.log(colorObject);
-  }
-};
 
 
 export const colorPalet = {
@@ -132,39 +108,7 @@ export type IBorderRadius = typeof borderRadius;
 export type IUiColorsTypes = 'primary' | 'secondary' | 'accent' | 'transparent';
 
 
-const primaryLightcolors = generateColorSteps('primary', themeColors.primary);
-const secondaryLightcolors = generateColorSteps('secondary', themeColors.secondary);
-const accentLightcolors = generateColorSteps('accent', themeColors.accent);
-export const accentDarkenLightcolors = generateColorSteps('accentDarken', themeColors.accentDarken);
 
-
-export const uiColors = {
-  primary: {
-    ...primaryLightcolors,  
-    contrast: secondaryLightcolors[0],
-  },
-  accent: {
-    ...accentDarkenLightcolors,
-    contrast: secondaryLightcolors[0],
-  },
-  secondary: {
-    ...secondaryLightcolors,
-    contrast: primaryLightcolors[0],
-  },
-  transparent: {
-    '0': 'transparent',
-    '1': 'transparent',
-    '2': 'transparent',
-    '3': 'transparent',
-    '4': 'transparent',
-    '5': 'transparent',
-    '6': 'transparent',
-    '7': 'transparent',
-    '8': 'transparent',
-    '9': 'transparent',
-    contrast : Color(themeColors.primary).isDark() ? secondaryLightcolors[0] : primaryLightcolors[0],
-  },
-};
 
 export type IUiColorsSystemMessageTypes = keyof typeof systemMessages;
 // colors for different types of (success, warning, error)

@@ -8,11 +8,12 @@ export type IUiColors = {
   [key in TColorTypes]: string;
 };
 
-const themeColors: IUiColors = {
+const themeColors = {
   primary: '#131825',
   accent: '#F17C12',
   accentDarken: '',
   secondary: '#f0f0ef',
+  info: '#16487a',
 };
 themeColors.accentDarken = themeColors.accent;
 
@@ -31,15 +32,12 @@ function generateUiColors() {
   uiColors = {
     primary: {
       ...primaryLightcolors,
-      contrast: secondaryLightcolors[0],
     },
     accent: {
       ...accentDarkenLightcolors,
-      contrast: secondaryLightcolors[0],
     },
     secondary: {
       ...secondaryLightcolors,
-      contrast: primaryLightcolors[0],
     },
     transparent: {
       '0': 'transparent',
@@ -52,7 +50,6 @@ function generateUiColors() {
       '7': 'transparent',
       '8': 'transparent',
       '9': 'transparent',
-      contrast: Color(primaryLightcolors[0]).isDark() ? secondaryLightcolors[0] : primaryLightcolors[0],
     },
   };
 }
