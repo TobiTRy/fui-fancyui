@@ -16,7 +16,7 @@ export const MessageContainer = styled.div`
   margin-top: ${spacingPx.sm};
 `;
 
-export const Message = styled.div<{ $status?: boolean; theme: TUiColorsType }>`
+export const Message = styled.div<{ $isError?: boolean; theme: TUiColorsType }>`
   color: ${({ theme }) => theme.secondary[0]};
   font-size: ${fontSize.sm};
   max-height: 0;
@@ -24,32 +24,20 @@ export const Message = styled.div<{ $status?: boolean; theme: TUiColorsType }>`
   overflow: hidden;
   opacity: 0;
 
-  transition: opacity 0.3s ease-in-out, max-height 0.3s ease-in-out, visibility 0.3s ease-in-out;
-
-  ${({ $status }) =>
-    $status &&
+  ${({ $isError }) =>
+    $isError &&
     css`
+      color: ${colorPalet.red_light};
       max-height: 100px;
       visibility: visible;
       opacity: 1;
     `}
+
+  transition: opacity 0.3s ease-in-out, max-height 0.3s ease-in-out, visibility 0.3s ease-in-out;
 `;
 
-export const Container = styled.div<{ $status?: Omit<IStatus, 'isLoading'> }>`
+export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  ${Message} {
-    ${({ $status }) =>
-      $status?.isError
-        ? css`
-            color: ${colorPalet.red_light};
-          `
-        : $status?.isSucceed
-        ? css`
-            color: ${colorPalet.green_light};
-          `
-        : ''};
-  }
 `;

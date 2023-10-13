@@ -27,6 +27,24 @@ const meta = {
         type: 'text',
       },
     },
+    themeType: {
+      description: 'The theme type of the input',
+      control: {
+        type: 'select',
+      },
+      defaultValue: {
+        summary: 'secondary',
+      },
+    },
+    layer: {
+      description: 'The layer of the input',
+      control: {
+        type: 'range', min: 0, max: 10, step: 1,
+      },
+      defaultValue: {
+        summary: '0',
+      },
+    },
   },
 
   // Add tags to the story
@@ -43,6 +61,7 @@ export const Primary: Story = {
   render: (args) => <SingleInputAtom {...args} />,
   args: {
     value: '1',
+  
   },
   parameters: {
     docs: {
