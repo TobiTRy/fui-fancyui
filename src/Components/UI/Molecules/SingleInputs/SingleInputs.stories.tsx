@@ -9,7 +9,7 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component: 'Dumb-Comonent: A simple header component to display a header with slots',
+        component: 'Dumb-Comonent: The Singele input component is for single input like a verification code.',
       },
     },
   },
@@ -18,13 +18,50 @@ const meta = {
     length: {
       description: 'How many inputs are Displayed / how long is the verification code.',
       control: {
-        type: 'range', min: 0, max: 10, step: 1,
+        type: 'number',
       },
       defaultValue: {
         summary: 6,
       },
     },
-
+    automaticCase: {
+      description: 'If the input should be upper or lower case',
+      control: {
+        type: 'select',
+        options: ['upper', 'lower', undefined],
+      },
+      defaultValue: {
+        summary: undefined,
+      },
+    },
+    status: {
+      description: 'The status of the input',
+      control: {
+        type: 'object',
+      },
+      defaultValue: {
+        summary: `isError: false,
+          isSucceed: false,`,
+      },
+    },
+    themeType: {
+      description: 'The theme type of the input',
+      control: {
+        type: 'select',
+      },
+      defaultValue: {
+        summary: 'secondary',
+      },
+    },
+    layer: {
+      description: 'The layer of the input',
+      control: {
+        type: 'range', min: 0, max: 10, step: 1,
+      },
+      defaultValue: {
+        summary: '0',
+      },
+    },
   },
   tags: ['autodocs'],
 } satisfies Meta<typeof SingleInputs>;
