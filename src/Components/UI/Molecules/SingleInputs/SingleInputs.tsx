@@ -8,9 +8,10 @@ interface IFancySingleInputsProps {
   length?: number;
   handler?: (value: string) => void;
   status?: Omit<InputStatus, 'isLoading'>;
+  automaticCase?: 'upper' | 'lower';
 }
 export default function SingleInputs(props: IFancySingleInputsProps) {
-  const { length = 6, handler, status } = props;
+  const { length = 6, handler, status, automaticCase } = props;
   const [values, setValues] = useState<string[]>(Array(length).fill(''));
   const refs = Array.from({ length }, () => createRef<HTMLInputElement>());
 
@@ -46,12 +47,21 @@ export default function SingleInputs(props: IFancySingleInputsProps) {
   const handleCharacterInput = (event: React.KeyboardEvent<HTMLInputElement>, index: number) => {
     event.preventDefault();
 
+    // if the automatic case is upper, change the character to upper case
+    if (automaticCase === 'upper') {
+      event.key = event.key.toUpperCase();
+    }
+    if (automaticCase === 'lower') {
+      event.key = event.key.toLowerCase();
+    }
+
     setValues((prev) => {
       const copy = [...prev];
       copy[index] = event.key;
       return copy;
     });
 
+    // if the next input exists, focus it
     if (refs[index + 1]) {
       moveRightToTheNextInputRef(index)
     } else {
