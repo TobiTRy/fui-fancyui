@@ -98,7 +98,7 @@ export { default as FancyHeader } from '../Components/UI/Organisms/FancyHeader/F
 export { default as FancyRangeSlider } from '../Components/UI/Organisms/FancyRangeSlider/FancyRangeSlider';
 export { default as FancySearchBar } from '../Components/UI/Organisms/FancySearchBar/FancySearchBar';
 export { default as FancyModal } from '../Components/UI/Organisms/FancyModal/FancyModal';
-export { default as FancySingleInputs } from '../Components/UI/Organisms/FancySingleInputs/FancySingleInputs';
+export { default as FancySingleInputs } from '../Components/UI/Organisms/FancyCodeVerificationInput/FancySingleInputs';
 export { default as FancySwipeUpModal } from '../Components/UI/Organisms/FancySwipeUpModal/FancySwipeUpModal';
 export { default as FancyDateInput } from '../Components/UI/Organisms/FancyDateInput/FancyDateInput';
 export { default as FancyDateDropDown } from '../Components/UI/Templates/Inputs/FancyDateDropDown/FancyDateDropDown';
