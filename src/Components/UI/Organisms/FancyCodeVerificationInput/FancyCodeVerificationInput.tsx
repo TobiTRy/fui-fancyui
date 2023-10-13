@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 
 import SingleInputs from '../../Molecules/SingleInputs/SingleInputs';
-import { Container, WarpperComponent, Message, MessageContainer } from './FancySingleInputs.style';
+import { Container, WarpperComponent, Message, MessageContainer } from './FancyCodeVerificationInput.style';
 import { Typography } from '../../Atoms/Typography';
 
 // --------------------------------------------------------------------------- //
@@ -15,7 +15,7 @@ interface IFancySingleInputs {
   automaticCase?: 'upper' | 'lower';
   debounceTime?: number;
 }
-export default function FancySingleInputs(props: IFancySingleInputs) {
+export default function FancyCodeVerificationInput(props: IFancySingleInputs) {
   const { length, errorMessage, isSuccess, handler, automaticCase, debounceTime } = { ...defaultProps, ...props };
   const [inputValue, setInputValue] = useState('');
   const debounceTimeoutRef = useRef<NodeJS.Timeout>();

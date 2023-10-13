@@ -1,1 +1,1 @@
-export { default as FancySingleInputs } from './FancySingleInputs';
+export { default as FancyCodeVerificationInput } from './FancyCodeVerificationInput';
