@@ -11,7 +11,7 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component: 'Dumb-Comonent: The FancyPasswordInput Comonent with surrounding icon, label and underline',
+        component: 'Dumb-Comonent: The FancyCodeVerificationInput component is for single input like a verification code',
       },
     },
   },
@@ -24,7 +24,7 @@ const meta = {
       },
     },
     length: {
-      description: 'The length of the input',
+      description: 'The length of the input fields',
       control: {
         type: 'number',
       },
@@ -71,7 +71,6 @@ const meta = {
     },
   },
   // Add tags to the story
-  tags: ['autodocs'],
 } satisfies Meta<typeof FancyCodeVerificationInput>;
 
 // Export the metadata
