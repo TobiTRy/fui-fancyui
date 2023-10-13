@@ -32,47 +32,9 @@ export const updateThemeColors = (colorObject: IUiColors) => {
 
 
 export const colorPalet = {
-  //backup
-  // white: '#E8E7E4',
-  // white_light: '#F2F1EE',
-  // white_dark: '#D7D6D2',
-
-  white: themeColors.secondary,
-  white_light: Color(themeColors.secondary).lighten(0.15).hex(),
-  white_dark: Color(themeColors.secondary).darken(0.05).hex(),
-
-  white_high: 'rgba(255 255 255 / 87%)',
-  white_md: 'rgba(255 255 255 / 60%)',
-  white_disabled: 'rgba(255 255 255 / 38%)',
-
-  //backup
-  //#e75400
-  // orange: '#F17C12',
-  // orange_light: '#FFA42A',
-  // orange_dark: '#CC6C0A',
-
-  orange: themeColors.accent,
-  orange_light: Color(themeColors.accent).lighten(0.15).hex(),
-  orange_dark: Color(themeColors.accent).darken(0.1).hex(),
-
-  // darkblue: '#111626',
-  // darkblue_light: '#161c2c',
-  // darkblue_dark: '#131525f0',
-  darkblue: themeColors.primary,
-  darkblue_light: Color(themeColors.primary).lighten(0.15).hex(),
-  darkblue_dark: Color(themeColors.primary).darken(0.05).hex(),
-  //darkblue_dark: Color('#161c2c').darken(0.15).hex(),
-
-  //darkblue_dark: '#14131e',
-
-  // darkblue: '#083448',
-  // darkblue_light: '#1a3947',
-  // darkblue_dark: '#17131e',
-  // #110E18 // #17131e // #00050d
-
   green_background: '#161c22f2',
   green_dark: '#17815f',
-  green_light: '#1ea97c', //'#e4f8f0',
+  green_light: '#1ea97c',
 
   red_backGround: '#170c0cf2',
   red_dark: '#8b1c1c',
@@ -82,9 +44,9 @@ export const colorPalet = {
   yellow_dark: '#c96512',
   yellow_light: '#f67911',
 
-  transparent: 'transparent',
-  light: '#f1f1f1',
-  dark: '#252525',
+  blue_background: '#162a3bf2',
+  blue_dark: '#16487a',
+  blue_light: '#1681c2',
 };
 
 export const spacing = {
@@ -221,5 +183,10 @@ export const systemMessages = {
     backGround: colorPalet.red_backGround,
     dark: colorPalet.red_dark,
     light: colorPalet.red_light,
+  },
+  info: {
+    backGround: colorPalet.blue_background,
+    dark: colorPalet.blue_dark,
+    light: colorPalet.blue_light,
   },
 };
