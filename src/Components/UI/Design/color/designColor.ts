@@ -28,6 +28,7 @@ function generateUiColors() {
   const secondaryLightcolors = generateColorSteps('secondary', themeColors.secondary);
   const accentLightcolors = generateColorSteps('accent', themeColors.accent);
   const accentDarkenLightcolors = generateColorSteps('accentDarken', themeColors.accentDarken);
+  const infoColor = generateColorSteps('primary', themeColors.info);
 
   uiColors = {
     primary: {
