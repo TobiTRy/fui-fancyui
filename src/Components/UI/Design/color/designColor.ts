@@ -1,12 +1,7 @@
-import Color from 'color';
 import generateColorSteps from './generateColorSteps';
 import isColorValid from './isColorValid';
 
 export type TColorTypes = 'primary' | 'accent' | 'accentDarken' | 'secondary';
-
-export type IUiColors = {
-  [key in TColorTypes]: string;
-};
 
 const themeColors = {
   primary: '#131825',
@@ -14,32 +9,33 @@ const themeColors = {
   accentDarken: '',
   secondary: '#f0f0ef',
   info: '#16487a',
+  transparent: 'transparent',
 };
 themeColors.accentDarken = themeColors.accent;
 
-export type IUiColorsTypes = 'primary' | 'secondary' | 'accent' | 'transparent';
+export type IUiColorsTypes = keyof typeof themeColors | 'transparent';
 
 export type TthemeColorGroup = { [key: string]: string };
 export type TUiColorsType = { [key in IUiColorsTypes]: TthemeColorGroup };
 export let uiColors: TUiColorsType = {} as TUiColorsType;
 
 function generateUiColors() {
-  const primaryLightcolors = generateColorSteps('primary', themeColors.primary);
-  const secondaryLightcolors = generateColorSteps('secondary', themeColors.secondary);
-  const accentLightcolors = generateColorSteps('accent', themeColors.accent);
-  const accentDarkenLightcolors = generateColorSteps('accentDarken', themeColors.accentDarken);
-  const infoColor = generateColorSteps('primary', themeColors.info);
+  let generatedColors = {} as TUiColorsType;
+
+  // generate for each theme color the color steps  
+  for (const color in themeColors) {
+    // generate the color steps for the color
+    const generatedColor = generateColorSteps(color as IUiColorsTypes, themeColors[color as IUiColorsTypes]);
+
+    // add the color steps to the generatedColors object
+    generatedColors = {
+      ...generatedColors,
+      [color]: generatedColor,
+    };
+  }
 
   uiColors = {
-    primary: {
-      ...primaryLightcolors,
-    },
-    accent: {
-      ...accentDarkenLightcolors,
-    },
-    secondary: {
-      ...secondaryLightcolors,
-    },
+    ...generatedColors,
     transparent: {
       '0': 'transparent',
       '1': 'transparent',
@@ -62,9 +58,10 @@ generateUiColors();
 export type IUiColorPops = {
   [key in TColorTypes]?: string;
 };
+// this function updates the theme colors with a incomming object and generates the new colors
 export const updateThemeColors = (colorObject: IUiColorPops) => {
   let error: undefined | string;
-
+  // check if the color is valid
   for (const key in colorObject) {
     const typedkey = key as TColorTypes;
     if (!isColorValid(themeColors[typedkey])) {
