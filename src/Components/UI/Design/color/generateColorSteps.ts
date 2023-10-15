@@ -1,5 +1,5 @@
 import Color from 'color';
-import { TColorTypes } from '../design';
+import { IUiColorsTypes } from './designColor';
 
 // Function to adjust lightness
 function adjustLightness(color: Color, delta: number): Color {
@@ -21,7 +21,7 @@ const degreeSteps = [0, 3, 7, 10, 18, 25, 34, 40, 60, 70];
 const degreeStepsAccent = [0, 5, 10, 15, 20, 25, 30, 35, 40, 45];
 
 // Generate colors at different steps for a single base color
-function lightenColors(color: string, colorType?: TColorTypes) {
+function lightenColors(color: string, colorType?: IUiColorsTypes) {
   switch (colorType) {
     case 'primary':
       return generateColorVariations(color, degreeSteps);
@@ -35,6 +35,9 @@ function lightenColors(color: string, colorType?: TColorTypes) {
       const stepsUpdated = degreeStepsAccent.map((step) => -step);
       return generateColorVariations(color, stepsUpdated);
     }
+    case 'transparent': {
+      return degreeSteps.map(() => 'transparent');
+    }
     default:
       return generateColorVariations(color, degreeSteps);
   }
@@ -47,13 +50,13 @@ type ColorSteps = {
 };
 
 // this function generates a object with the color steps
-export default function generateColorSteps(colorType: TColorTypes, color: string): ColorSteps {
-  const lightColors = lightenColors(color,colorType); //generate the colors
+export default function generateColorSteps(colorType: IUiColorsTypes, color: string): ColorSteps {
+  const lightColors = lightenColors(color, colorType); //generate the colors
   const obj: ColorSteps = {} as ColorSteps;
 
   //make array to object with keys but reversed order
-  lightColors?.forEach((color, index) => {
-    obj[index as TLayer] = color;
+  lightColors?.forEach((colorItem, index) => {
+    obj[index as TLayer] = colorItem;
   });
 
   return obj;
