@@ -1,8 +1,6 @@
 import generateColorSteps from './generateColorSteps';
 import isColorValid from './isColorValid';
 
-export type TColorTypes = 'primary' | 'accent' | 'accentDarken' | 'secondary';
-
 const themeColors = {
   primary: '#131825',
   accent: '#F17C12',
@@ -36,18 +34,6 @@ function generateUiColors() {
 
   uiColors = {
     ...generatedColors,
-    transparent: {
-      '0': 'transparent',
-      '1': 'transparent',
-      '2': 'transparent',
-      '3': 'transparent',
-      '4': 'transparent',
-      '5': 'transparent',
-      '6': 'transparent',
-      '7': 'transparent',
-      '8': 'transparent',
-      '9': 'transparent',
-    },
   };
 }
 
@@ -56,14 +42,14 @@ generateUiColors();
 // this function updates the theme colors with a incomming object
 // { 'primary': '#131825', 'accent': '#F17C12', 'secondary': '#f0f0ef' }
 export type IUiColorPops = {
-  [key in TColorTypes]?: string;
+  [key in IUiColorsTypes]?: string;
 };
 // this function updates the theme colors with a incomming object and generates the new colors
 export const updateThemeColors = (colorObject: IUiColorPops) => {
   let error: undefined | string;
   // check if the color is valid
   for (const key in colorObject) {
-    const typedkey = key as TColorTypes;
+    const typedkey = key as IUiColorsTypes;
     if (!isColorValid(themeColors[typedkey])) {
       error = 'The color ' + typedkey + ' is not valid';
       break;
