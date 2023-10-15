@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 import styled, { css } from 'styled-components';
 import { Typography } from '../../lib';
 import themeStore from '../../Components/UI/Design/color/themeStore';
@@ -22,6 +21,7 @@ export default function ColorGeneratorRoute() {
   const primaryKeys = Object.keys(theme.primary);
   const accentKeys = Object.keys(theme.accent);
   const secondaryKeys = Object.keys(theme.secondary);
+  const infoKeys = Object.keys(theme.info);
 
   return (
     <div style={{ display: 'flex' }}>
@@ -36,15 +36,18 @@ export default function ColorGeneratorRoute() {
         })}
       </div>
       <div>
+        {infoKeys?.map((color, index) => {
+          return <div key={index} style={{ width: '100px', height: '100px', backgroundColor: theme.info![color] }}></div>;
+        })}
+      </div>
+
+      <div>
         {secondaryKeys?.map((color, index) => {
           return <div key={index} style={{ width: '100px', height: '100px', backgroundColor: theme.secondary![color] }}></div>;
         })}
       </div>
-      <div>
-        {}
-      </div>
-      <div>
-      </div>
+      <div>{}</div>
+      <div></div>
     </div>
   );
 }
