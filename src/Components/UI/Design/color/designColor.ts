@@ -18,23 +18,18 @@ export type TUiColorsType = { [key in IUiColorsTypes]: TthemeColorGroup };
 export let uiColors: TUiColorsType = {} as TUiColorsType;
 
 function generateUiColors() {
-  let generatedColors = {} as TUiColorsType;
-
-  // generate for each theme color the color steps  
+  const generatedColors = {} as TUiColorsType;
+  // generate for each theme color the color steps
   for (const color in themeColors) {
     // generate the color steps for the color
     const generatedColor = generateColorSteps(color as IUiColorsTypes, themeColors[color as IUiColorsTypes]);
 
     // add the color steps to the generatedColors object
-    generatedColors = {
+    uiColors = {
       ...generatedColors,
       [color]: generatedColor,
     };
   }
-
-  uiColors = {
-    ...generatedColors,
-  };
 }
 
 generateUiColors();

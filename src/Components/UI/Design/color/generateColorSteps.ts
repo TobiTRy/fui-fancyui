@@ -22,6 +22,10 @@ const degreeStepsAccent = [0, 5, 10, 15, 20, 25, 30, 35, 40, 45];
 
 // Generate colors at different steps for a single base color
 function lightenColors(color: string, colorType?: IUiColorsTypes) {
+  //checkColor is dark or light
+  const isPrimaryColorDark = Color(color).isDark();
+
+
   switch (colorType) {
     case 'primary':
       return generateColorVariations(color, degreeSteps);

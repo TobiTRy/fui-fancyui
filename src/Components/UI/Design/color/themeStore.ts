@@ -13,7 +13,6 @@ const themeStore = create<ThemeState>((set, get) => ({
   theme: uiColors,
   isDarkTheme: true,
   switchTheme: () => {
-  
     set({
       isDarkTheme: !get().isDarkTheme,
       theme: {
