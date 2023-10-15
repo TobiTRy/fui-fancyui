@@ -1,11 +1,3 @@
-import Color from 'color';
-
-import generateColorSteps from './color/generateColorSteps';
-import isColorValid from './color/isColorValid';
-
-export type TColorTypes = 'primary' | 'accent' | 'accentDarken' | 'secondary' | 'info';
-
-
 
 export const colorPalet = {
   green_background: '#161c22f2',
