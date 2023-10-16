@@ -40,17 +40,15 @@ export default function ExperimentalRoute() {
           <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-end' }}>
             <FancyTextInput
               label="test"
-              themeType="primary"
               icon={svg}
               value={isActive}
               onChange={(e: ChangeEvent<HTMLInputElement>) => setIsActive(e.target.value)}
             />
             <FancyButton
-              themeType="primary"
               borderRadius="md"
               iconSize="lg"
               size="md"
-              layer={4}
+              themeType="secondary"
               icon={reloadIcon}
               onClick={() => switchTheme()}
             />

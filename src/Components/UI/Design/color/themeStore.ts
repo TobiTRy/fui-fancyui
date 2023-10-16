@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { updateThemeColors, uiColors, IUiColorPops, TUiColorsType } from './designColor';
+import { updateThemeColors, uiColors, IUiColorPops, TUiColorsType, regenerateUiColors } from './designColor';
 
 type ThemeState = {
   theme: TUiColorsType;
@@ -13,6 +13,8 @@ const themeStore = create<ThemeState>((set, get) => ({
   theme: uiColors,
   isDarkTheme: true,
   switchTheme: () => {
+    const newColor = regenerateUiColors(get().isDarkTheme)
+    console.log(uiColors, 'newColor');
     set({
       isDarkTheme: !get().isDarkTheme,
       theme: {
@@ -21,6 +23,7 @@ const themeStore = create<ThemeState>((set, get) => ({
         secondary: get().isDarkTheme ? uiColors.primary : uiColors.secondary,
       },
     });
+    console.log(get().isDarkTheme);
   },
   updateTheme: (colors) => {
     updateThemeColors(colors);
