@@ -11,8 +11,8 @@ interface ISingleToastMessage {
   remove: (id: number) => void;
 }
 const SingleToastMessage = forwardRef<HTMLDivElement, ISingleToastMessage>((props, ref) => {
-  // destructuring all incomming props
-  const { id, title, message, time, type } = props.toast;
+  const { id, title, message, time, type, layer } = props.toast;
+
   const remove = props.remove;
 
   // remove toast after time
@@ -28,7 +28,7 @@ const SingleToastMessage = forwardRef<HTMLDivElement, ISingleToastMessage>((prop
     <Container ref={ref} $messageType={type}>
       <Headline>
         <Typography type='content' variant='h5'>{title}</Typography>
-        <FancyXButton onClick={() => remove(id)} themeType={type} />
+        <FancyXButton onClick={() => remove(id)} themeType={type} layer={layer || 5}/>
       </Headline>
       <Typography type='content'>{message}</Typography>
       <TimerLine $time={time!} $messageType={type} />

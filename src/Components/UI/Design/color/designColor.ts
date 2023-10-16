@@ -7,9 +7,9 @@ const themeColors = {
   accentDarken: '',
   secondary: '#f0f0ef',
   info: '#287fd7',
-  success: '#26d9a0',
-  warning: '#ff9605',
-  error: '#e91616',
+  success: '#22C390',
+  warning: '#EB8800',
+  error: '#D21414',
   transparent: 'transparent',
 };
 //info: '#16487a',

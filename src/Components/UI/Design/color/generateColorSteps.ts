@@ -5,7 +5,6 @@ import { IUiColorsTypes } from './designColor';
 function adjustLightness(color: Color, delta: number): Color {
   const currentLightness = color.lightness();
   const newLightness = Math.max(0, Math.min(100, currentLightness + delta));
-  console.log(currentLightness , delta,newLightness);
   return color.lightness(newLightness);
 }
 
@@ -20,12 +19,11 @@ function generateColorVariations(baseColor: string, steps: number[]): string[] {
 // Define the steps for the different color types
 const degreeSteps = [0, 3, 7, 10, 18, 25, 34, 40, 45, 60];
 const degreeStepsAccent = [0, 5, 10, 15, 20, 25, 30, 35, 40, 45];
-const systemMessagesSteps = [-30, -20, -10, -5, 0, 3, 7, 10, 18, 25, 30];
+const systemMessagesSteps = [0, 3, 7, 10, 13, 18, 23 , 30, 35, 40];
 
 // Generate colors at different steps for a single base color
 function lightenColors({pimaryColor, colorType, color}:IGenerateColorSteps) {
   //checkColor is dark or light
-  console.log(pimaryColor, 'pimaryColor');
   const isPrimaryColorDark = Color(pimaryColor).isDark();
 
   // if the color is dark, mirror the degreeSteps 
@@ -46,7 +44,7 @@ function lightenColors({pimaryColor, colorType, color}:IGenerateColorSteps) {
     }
 
     default:
-      return generateColorVariations(color, systemMessagesSteps);
+      return generateColorVariations(color, modifiedForBirigthnesDegreeSteps);
   }
 }
 

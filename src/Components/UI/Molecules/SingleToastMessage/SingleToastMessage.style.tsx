@@ -3,6 +3,7 @@ import { styled, keyframes } from 'styled-components';
 import { borderRadius, fontSize, spacingPx } from '../../Design/design';
 import { TUiColorsType } from '../../Design/color/designColor';
 import colorTransparencyCalculator from '../../Design/color/colorTransparencyCalculator';
+import { boxShadow } from '../../Design/shadows';
 
 type ToastMessageProps = 'success' | 'warning' | 'error';
 
@@ -24,12 +25,13 @@ export const Container = styled.div<IToastMessage>`
   position: relative;
   flex-direction: column;
   align-items: left;
-  color: ${({ $messageType, theme }) => theme[$messageType][6]};
+  color: ${({ $messageType, theme }) => theme[$messageType][5]};
   border-radius: ${borderRadius.sm};
   padding: ${spacingPx.lg};
-  background-color: ${({ $messageType, theme }) => colorTransparencyCalculator(theme[$messageType][0], 0.8)};
+  background-color: ${({ theme }) => colorTransparencyCalculator(theme.primary[0], 0.95)};
   border-left: 4px solid ${({ $messageType ,theme}) => theme[$messageType][3]};
   box-sizing: border-box;
+  ${boxShadow.md}
 `;
 
 
