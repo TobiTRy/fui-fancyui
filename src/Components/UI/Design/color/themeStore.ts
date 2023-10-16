@@ -13,8 +13,7 @@ const themeStore = create<ThemeState>((set, get) => ({
   theme: uiColors,
   isDarkTheme: true,
   switchTheme: () => {
-    const newColor = regenerateUiColors(get().isDarkTheme)
-    console.log(uiColors, 'newColor');
+    regenerateUiColors(get().isDarkTheme)
     set({
       isDarkTheme: !get().isDarkTheme,
       theme: {

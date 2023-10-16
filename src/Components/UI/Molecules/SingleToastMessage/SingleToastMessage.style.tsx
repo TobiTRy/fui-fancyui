@@ -1,16 +1,20 @@
 import { styled, keyframes } from 'styled-components';
 
-import { borderRadius, fontSize, systemMessages, spacingPx } from '../../Design/design';
+import { borderRadius, fontSize, spacingPx } from '../../Design/design';
+import { TUiColorsType } from '../../Design/color/designColor';
+import colorTransparencyCalculator from '../../Design/color/colorTransparencyCalculator';
 
 type ToastMessageProps = 'success' | 'warning' | 'error';
 
 interface IToastMessage {
   $messageType: ToastMessageProps;
+  theme: TUiColorsType;
 }
 
 interface TimerLineProps {
   $messageType: ToastMessageProps;
   $time: number;
+  theme: TUiColorsType;
 }
 
 // styles for single toast message
@@ -20,13 +24,14 @@ export const Container = styled.div<IToastMessage>`
   position: relative;
   flex-direction: column;
   align-items: left;
-  color: ${({ $messageType }) => systemMessages[$messageType].light};
+  color: ${({ $messageType, theme }) => theme[$messageType][6]};
   border-radius: ${borderRadius.sm};
   padding: ${spacingPx.lg};
-  background-color: ${({ $messageType }) => systemMessages[$messageType].backGround};
-  border-left: 4px solid ${({ $messageType }) => systemMessages[$messageType].light};
+  background-color: ${({ $messageType, theme }) => colorTransparencyCalculator(theme[$messageType][0], 0.8)};
+  border-left: 4px solid ${({ $messageType ,theme}) => theme[$messageType][3]};
   box-sizing: border-box;
 `;
+
 
 export const Headline = styled.div`
   display: flex;
@@ -54,17 +59,6 @@ export const TimerLine = styled.div<TimerLineProps>`
   left: 0;
   height: 2px;
   width: 100%;
-  background-color: ${({ $messageType }) => systemMessages[$messageType].light};
+  background-color: ${({ $messageType, theme }) => theme[$messageType][3]};
   animation: ${() => timerAnimation} ${({ $time }) => $time - 300}ms linear forwards;
-`;
-
-export const CloseButton = styled.button<IToastMessage>`
-  padding: 0 ${spacingPx.sm} 2px;
-  color: ${({ $messageType }) => systemMessages[$messageType].light};
-  background: none;
-  border: none;
-  font-size: ${fontSize.lg};
-  font-weight: bolder;
-  cursor: pointer;
-  outline: none;
 `;

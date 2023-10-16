@@ -22,6 +22,9 @@ export default function ColorGeneratorRoute() {
   const accentKeys = Object?.keys(theme?.accent);
   const secondaryKeys = Object?.keys(theme?.secondary);
   const infoKeys = Object?.keys(theme?.info);
+  const warningKeys = Object?.keys(theme?.warning);
+  const errorKeys = Object?.keys(theme?.error);
+  const successKeys = Object?.keys(theme?.success);
 
   return (
     <div style={{ display: 'flex' }}>
@@ -46,8 +49,21 @@ export default function ColorGeneratorRoute() {
           return <div key={index} style={{ width: '100px', height: '100px', backgroundColor: theme.secondary![color] }}></div>;
         })}
       </div>
-      <div>{}</div>
-      <div></div>
+      <div>
+        {warningKeys?.map((color, index) => {
+          return <div key={index} style={{ width: '100px', height: '100px', backgroundColor: theme.warning![color] }}></div>;
+        })}
+      </div>
+      <div>
+        {errorKeys?.map((color, index) => {
+          return <div key={index} style={{ width: '100px', height: '100px', backgroundColor: theme.error![color] }}></div>;
+        })}
+      </div>
+      <div>
+        {successKeys?.map((color, index) => {
+          return <div key={index} style={{ width: '100px', height: '100px', backgroundColor: theme.success![color] }}></div>;
+        })}
+      </div>
     </div>
   );
 }

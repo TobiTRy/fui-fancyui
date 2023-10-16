@@ -7,6 +7,9 @@ const themeColors = {
   accentDarken: '',
   secondary: '#f0f0ef',
   info: '#287fd7',
+  success: '#26d9a0',
+  warning: '#ff9605',
+  error: '#e91616',
   transparent: 'transparent',
 };
 //info: '#16487a',
@@ -25,7 +28,7 @@ export function initialGenerateUiColors() {
     const generatedColor = generateColorSteps({
       colorType: color as IUiColorsTypes,
       color: themeColors[color as IUiColorsTypes],
-      pimaryColor: themeColors.primary,
+      pimaryColor: themeColors.secondary,
     });
     uiColors = {
       ...uiColors,

@@ -5,6 +5,7 @@ import { IUiColorsTypes } from './designColor';
 function adjustLightness(color: Color, delta: number): Color {
   const currentLightness = color.lightness();
   const newLightness = Math.max(0, Math.min(100, currentLightness + delta));
+  console.log(currentLightness , delta,newLightness);
   return color.lightness(newLightness);
 }
 
@@ -17,17 +18,18 @@ function generateColorVariations(baseColor: string, steps: number[]): string[] {
 }
 
 // Define the steps for the different color types
-const degreeSteps = [0, 3, 7, 10, 18, 25, 34, 40, 60, 70];
+const degreeSteps = [0, 3, 7, 10, 18, 25, 34, 40, 45, 60];
 const degreeStepsAccent = [0, 5, 10, 15, 20, 25, 30, 35, 40, 45];
+const systemMessagesSteps = [-30, -20, -10, -5, 0, 3, 7, 10, 18, 25, 30];
 
 // Generate colors at different steps for a single base color
 function lightenColors({pimaryColor, colorType, color}:IGenerateColorSteps) {
   //checkColor is dark or light
+  console.log(pimaryColor, 'pimaryColor');
   const isPrimaryColorDark = Color(pimaryColor).isDark();
-  console.log(isPrimaryColorDark, 'isPrimaryColorDark');
 
   // if the color is dark, mirror the degreeSteps 
-  const modifiedForBirigthnesDegreeSteps = !isPrimaryColorDark ? degreeStepsAccent : degreeStepsAccent.map((step) => -step);
+  const modifiedForBirigthnesDegreeSteps = !isPrimaryColorDark ? systemMessagesSteps : systemMessagesSteps.map((step) => -step);
 
 
   switch (colorType) {
@@ -39,14 +41,12 @@ function lightenColors({pimaryColor, colorType, color}:IGenerateColorSteps) {
     }
     case 'accent':
       return generateColorVariations(color, degreeStepsAccent);
-    case 'accentDarken': {
-      return generateColorVariations(color, modifiedForBirigthnesDegreeSteps);
-    }
     case 'transparent': {
       return degreeSteps.map(() => 'transparent');
     }
+
     default:
-      return generateColorVariations(color, modifiedForBirigthnesDegreeSteps);
+      return generateColorVariations(color, systemMessagesSteps);
   }
 }
 
