@@ -1,3 +1,4 @@
+import { TSystemMessageProps } from "../../Design/Interfaces/TSystemMessageProps";
 import { TLayer } from "../../Design/color/generateColorSteps";
 
 type IToastMessage = {
@@ -5,8 +6,8 @@ type IToastMessage = {
   title: string;
   message: string;
   time?: number;
-  type: 'success' | 'warning' | 'error' | 'info';
-  layer: TLayer;
+  themeType: TSystemMessageProps;
+  layer?: TLayer;
 };
 
 export default IToastMessage;

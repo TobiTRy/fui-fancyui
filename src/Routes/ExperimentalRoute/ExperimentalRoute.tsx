@@ -52,6 +52,9 @@ export default function ExperimentalRoute() {
               icon={reloadIcon}
               onClick={() => switchTheme()}
             />
+            <FancySVGAtom themeType='error'>
+              {reloadIcon}
+            </FancySVGAtom>
           </div>
           {/* <FancyPasswordInput label="hii" icon={svg} /> */}
           <FancyButton themeType="primary" label="hii" onClick={() => updateTheme({ primary: '#f20c0c' })} />

@@ -13,7 +13,7 @@ const handler = () => {
     title: 'My Title of the titel ',
     message: 'This is my toast message hjsadhjgdshjag.',
     time: 50050,
-    type: messageType[randomType] as 'success' | 'warning' | 'error',
+    themeType: messageType[randomType] as 'success' | 'warning' | 'error',
   });
 
 }

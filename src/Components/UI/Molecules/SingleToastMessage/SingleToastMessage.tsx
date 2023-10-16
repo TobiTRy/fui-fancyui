@@ -11,8 +11,7 @@ interface ISingleToastMessage {
   remove: (id: number) => void;
 }
 const SingleToastMessage = forwardRef<HTMLDivElement, ISingleToastMessage>((props, ref) => {
-  const { id, title, message, time, type, layer } = props.toast;
-
+  const { id, title, message, time, themeType, layer } = props.toast;
   const remove = props.remove;
 
   // remove toast after time
@@ -25,13 +24,13 @@ const SingleToastMessage = forwardRef<HTMLDivElement, ISingleToastMessage>((prop
   }, [id, time, remove]);
 
   return (
-    <Container ref={ref} $messageType={type}>
+    <Container ref={ref} $messageType={themeType}>
       <Headline>
         <Typography type='content' variant='h5'>{title}</Typography>
-        <FancyXButton onClick={() => remove(id)} themeType={type} layer={layer || 5}/>
+        <FancyXButton onClick={() => remove(id)} themeType={themeType} layer={layer || 5}/>
       </Headline>
       <Typography type='content'>{message}</Typography>
-      <TimerLine $time={time!} $messageType={type} />
+      <TimerLine $time={time!} $messageType={themeType} />
     </Container>
   );
 });

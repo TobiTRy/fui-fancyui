@@ -4,7 +4,6 @@ import { colorPalet } from '../../Design/design';
 import { ISVGAtomProps, IStyledSVGAtom, sizes } from './FancySVGAtom.model';
 import { TUiColorsType } from '../../Design/color/designColor';
 import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
-import { systemMessages } from '../../Design/design';
 
 interface ICalcIconColor {
   theme: TUiColorsType;

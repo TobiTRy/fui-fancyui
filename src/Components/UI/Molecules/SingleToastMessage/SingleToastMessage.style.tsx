@@ -4,18 +4,22 @@ import { borderRadius, fontSize, spacingPx } from '../../Design/design';
 import { TUiColorsType } from '../../Design/color/designColor';
 import colorTransparencyCalculator from '../../Design/color/colorTransparencyCalculator';
 import { boxShadow } from '../../Design/shadows';
+import { TLayer } from '../../Design/color/generateColorSteps';
+import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
 
-type ToastMessageProps = 'success' | 'warning' | 'error';
+type ToastMessageProps = 'success' | 'warning' | 'error' | 'info';
 
 interface IToastMessage {
   $messageType: ToastMessageProps;
+  $layer?: TLayer;
   theme: TUiColorsType;
 }
 
 interface TimerLineProps {
   $messageType: ToastMessageProps;
-  $time: number;
+  $layer?: TLayer;
   theme: TUiColorsType;
+  $time: number;
 }
 
 // styles for single toast message
@@ -25,11 +29,11 @@ export const Container = styled.div<IToastMessage>`
   position: relative;
   flex-direction: column;
   align-items: left;
-  color: ${({ $messageType, theme }) => theme[$messageType][5]};
+  color: ${({ $messageType, theme, $layer = 5 }) => getBackgroundColor({$themeType: $messageType, theme, $layer}) }; //theme[$messageType]['5']
   border-radius: ${borderRadius.sm};
   padding: ${spacingPx.lg};
-  background-color: ${({ theme }) => colorTransparencyCalculator(theme.primary[0], 0.95)};
-  border-left: 4px solid ${({ $messageType ,theme}) => theme[$messageType][3]};
+  background-color: ${({ theme }) => colorTransparencyCalculator(theme.primary['0'], 0.95)};
+  border-left: 4px solid ${({ $messageType, theme, $layer = 3}) => getBackgroundColor({$themeType: $messageType, theme, $layer})};
   box-sizing: border-box;
   ${boxShadow.md}
 `;
@@ -39,7 +43,7 @@ export const Headline = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-
+  
   button {
     align-self: flex-start;
     line-height: ${fontSize.lg};
@@ -61,6 +65,6 @@ export const TimerLine = styled.div<TimerLineProps>`
   left: 0;
   height: 2px;
   width: 100%;
-  background-color: ${({ $messageType, theme }) => theme[$messageType][3]};
+  background-color: ${({ $messageType, theme, $layer = 3 }) => getBackgroundColor({$themeType: $messageType, theme, $layer})};
   animation: ${() => timerAnimation} ${({ $time }) => $time - 300}ms linear forwards;
 `;
