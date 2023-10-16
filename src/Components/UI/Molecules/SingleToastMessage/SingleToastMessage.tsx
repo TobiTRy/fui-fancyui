@@ -1,20 +1,23 @@
 import React, { forwardRef, useEffect } from 'react';
 
+// Import necessary components and interfaces
 import IToastMessage from './IToastMessage.model';
 import { Container, TimerLine, Headline } from './SingleToastMessage.style';
 import Typography from '../../Atoms/Typography/Typography';
 import FancyXButton from '../../Atoms/FancyXButton/FancyXButton';
 
-
+// Define the interface for the component
 interface ISingleToastMessage {
   toast: IToastMessage;
   remove: (id: number) => void;
 }
+
+// A Single Toast Message Component wich
 const SingleToastMessage = forwardRef<HTMLDivElement, ISingleToastMessage>((props, ref) => {
   const { id, title, message, time, themeType, layer } = props.toast;
   const remove = props.remove;
 
-  // remove toast after time
+  // Remove toast after the time
   useEffect(() => {
     const timer = setTimeout(() => {
       remove(id);
@@ -22,6 +25,7 @@ const SingleToastMessage = forwardRef<HTMLDivElement, ISingleToastMessage>((prop
 
     return () => clearTimeout(timer);
   }, [id, time, remove]);
+
 
   return (
     <Container ref={ref} $messageType={themeType}>
@@ -35,4 +39,5 @@ const SingleToastMessage = forwardRef<HTMLDivElement, ISingleToastMessage>((prop
   );
 });
 
+// Export the component
 export default SingleToastMessage;

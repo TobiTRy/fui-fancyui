@@ -1,7 +1,7 @@
 import React, { ChangeEvent, ChangeEventHandler } from 'react';
 
 import { styled } from 'styled-components';
-import { FancyButton, FancyCard, FancySVGAtom, FancyTabSwitch } from '../../lib';
+import { FancyButton, FancyCard, FancySVGAtom, FancyTabSwitch, SingleToastMessage } from '../../lib';
 import Color from 'color';
 import { updateThemeColors } from '../../Components/UI/Design/color/designColor';
 import themeStore from '../../Components/UI/Design/color/themeStore';
@@ -29,6 +29,10 @@ export default function ExperimentalRoute() {
 
   const [test, setTest] = React.useState('1');
   //updateTheme({primary: '#ff0000', secondary: '#0000ff', accent: '#00ff00'})
+
+  const removeToast = () => {
+    console.log('remove');
+  }
 
   return (
     <div style={{ display: 'flex' }}>
@@ -58,6 +62,15 @@ export default function ExperimentalRoute() {
           </div>
           {/* <FancyPasswordInput label="hii" icon={svg} /> */}
           <FancyButton themeType="primary" label="hii" onClick={() => updateTheme({ primary: '#f20c0c' })} />
+          <SingleToastMessage toast={{
+            id: 1,
+            title: 'My Title of the titel ',
+            message: 'This is my toast message hjsadhjgdshjag.',
+            time: 50050,
+            themeType: 'success',
+          }}
+          remove={removeToast}
+          />
         </FancyCard>
       </FancyCard>
     </div>
