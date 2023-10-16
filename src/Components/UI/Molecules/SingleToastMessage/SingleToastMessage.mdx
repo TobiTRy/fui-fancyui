@@ -1,0 +1,57 @@
+## SingleToastMessage Documentation
+
+### Overview
+
+`SingleToastMessage` is a React component tailored to display individual toast notifications with style and interactivity. It handles various message types such as success, warning, error, and information. Each toast is equipped with a headline, a message body, a customizable timer line indicating its duration, and a close button for users to dismiss the toast manually.
+
+### Component Props
+
+The component accepts the following properties:
+
+- **toast**: This is the main object that contains all the data required for the toast. It follows the `IToastMessage` type, which encompasses:
+  - `id`: A unique identifier for the toast.
+  - `title`: The headline or main point of the toast.
+  - `message`: Detailed message or information.
+  - `time`: Optional. The duration the toast will be displayed (in milliseconds).
+  - `themeType`: Determines the style of the toast based on its type. Accepts values 'success', 'warning', 'error', or 'info'.
+  - `layer`: Optional. Sets the depth or layer of the toast's appearance.
+
+- **remove**: A function to be called to dismiss the toast. It takes the toast's `id` as an argument.
+
+### Component Behavior
+
+On mounting, the `SingleToastMessage` component starts a timer based on the `time` prop its only for displaying the countdown. However, users also have the flexibility to manually dismiss the toast using the `FancyXButton`.
+
+### Styling
+
+Different message types (`themeType`) influence the toast's appearance, ensuring users can quickly distinguish the notification's nature. For instance, an 'error' might display in red, while 'success' might show in green. The `$messageType` and `$time` props are also leveraged for stylized components like `Container` and `TimerLine`.
+
+### Example Usage
+
+```React
+import SingleToastMessage from './SingleToastMessage';
+
+const MyToastComponent = () => {
+  const handleRemove = (id: number) => {
+    console.log(`Toast with ID: ${id} removed.`);
+    // Further logic to handle removal, e.g., update state
+  };
+
+  const sampleToast: IToastMessage = {
+    id: 1,
+    title: "Success!",
+    message: "Data has been saved successfully.",
+    time: 3000,
+    themeType: "success",
+    layer: 5
+  };
+
+  return <SingleToastMessage toast={sampleToast} remove={handleRemove} />;
+};
+
+export default MyToastComponent;
+```
+
+### Conclusion
+
+The `SingleToastMessage` component offers a sleek and user-friendly way to relay notifications to users. With automated dismissal and manual override capabilities, it ensures a smooth user experience while effectively conveying important messages.

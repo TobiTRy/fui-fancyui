@@ -1,15 +1,24 @@
 import { styled, keyframes } from 'styled-components';
 
-import { borderRadius, fontSize, systemMessages, spacingPx } from '../../Design/design';
+import { borderRadius, fontSize, spacingPx } from '../../Design/design';
+import { TUiColorsType } from '../../Design/color/designColor';
+import colorTransparencyCalculator from '../../Design/color/colorTransparencyCalculator';
+import { boxShadow } from '../../Design/shadows';
+import { TLayer } from '../../Design/color/generateColorSteps';
+import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
 
-type ToastMessageProps = 'success' | 'warning' | 'error';
+type ToastMessageProps = 'success' | 'warning' | 'error' | 'info';
 
 interface IToastMessage {
   $messageType: ToastMessageProps;
+  $layer?: TLayer;
+  theme: TUiColorsType;
 }
 
 interface TimerLineProps {
   $messageType: ToastMessageProps;
+  $layer?: TLayer;
+  theme: TUiColorsType;
   $time: number;
 }
 
@@ -20,19 +29,21 @@ export const Container = styled.div<IToastMessage>`
   position: relative;
   flex-direction: column;
   align-items: left;
-  color: ${({ $messageType }) => systemMessages[$messageType].light};
+  color: ${({ $messageType, theme, $layer = 5 }) => getBackgroundColor({$themeType: $messageType, theme, $layer}) }; //theme[$messageType]['5']
   border-radius: ${borderRadius.sm};
   padding: ${spacingPx.lg};
-  background-color: ${({ $messageType }) => systemMessages[$messageType].backGround};
-  border-left: 4px solid ${({ $messageType }) => systemMessages[$messageType].light};
+  background-color: ${({ theme }) => colorTransparencyCalculator(theme.primary['0'], 0.95)};
+  border-left: 4px solid ${({ $messageType, theme, $layer = 3}) => getBackgroundColor({$themeType: $messageType, theme, $layer})};
   box-sizing: border-box;
+  ${boxShadow.md}
 `;
+
 
 export const Headline = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-
+  
   button {
     align-self: flex-start;
     line-height: ${fontSize.lg};
@@ -54,17 +65,6 @@ export const TimerLine = styled.div<TimerLineProps>`
   left: 0;
   height: 2px;
   width: 100%;
-  background-color: ${({ $messageType }) => systemMessages[$messageType].light};
+  background-color: ${({ $messageType, theme, $layer = 3 }) => getBackgroundColor({$themeType: $messageType, theme, $layer})};
   animation: ${() => timerAnimation} ${({ $time }) => $time - 300}ms linear forwards;
-`;
-
-export const CloseButton = styled.button<IToastMessage>`
-  padding: 0 ${spacingPx.sm} 2px;
-  color: ${({ $messageType }) => systemMessages[$messageType].light};
-  background: none;
-  border: none;
-  font-size: ${fontSize.lg};
-  font-weight: bolder;
-  cursor: pointer;
-  outline: none;
 `;

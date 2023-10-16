@@ -1,7 +1,7 @@
 import React, { ChangeEvent, ChangeEventHandler } from 'react';
 
 import { styled } from 'styled-components';
-import { FancyButton, FancyCard, FancySVGAtom, FancyTabSwitch } from '../../lib';
+import { FancyButton, FancyCard, FancySVGAtom, FancyTabSwitch, SingleToastMessage } from '../../lib';
 import Color from 'color';
 import { updateThemeColors } from '../../Components/UI/Design/color/designColor';
 import themeStore from '../../Components/UI/Design/color/themeStore';
@@ -30,6 +30,10 @@ export default function ExperimentalRoute() {
   const [test, setTest] = React.useState('1');
   //updateTheme({primary: '#ff0000', secondary: '#0000ff', accent: '#00ff00'})
 
+  const removeToast = () => {
+    console.log('remove');
+  }
+
   return (
     <div style={{ display: 'flex' }}>
       <FancyCard shadow>
@@ -40,23 +44,33 @@ export default function ExperimentalRoute() {
           <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-end' }}>
             <FancyTextInput
               label="test"
-              themeType="primary"
               icon={svg}
               value={isActive}
               onChange={(e: ChangeEvent<HTMLInputElement>) => setIsActive(e.target.value)}
             />
             <FancyButton
-              themeType="primary"
               borderRadius="md"
               iconSize="lg"
               size="md"
-              layer={4}
+              themeType="secondary"
               icon={reloadIcon}
               onClick={() => switchTheme()}
             />
+            <FancySVGAtom themeType='error'>
+              {reloadIcon}
+            </FancySVGAtom>
           </div>
           {/* <FancyPasswordInput label="hii" icon={svg} /> */}
           <FancyButton themeType="primary" label="hii" onClick={() => updateTheme({ primary: '#f20c0c' })} />
+          <SingleToastMessage toast={{
+            id: 1,
+            title: 'My Title of the titel ',
+            message: 'This is my toast message hjsadhjgdshjag.',
+            time: 50050,
+            themeType: 'success',
+          }}
+          remove={removeToast}
+          />
         </FancyCard>
       </FancyCard>
     </div>

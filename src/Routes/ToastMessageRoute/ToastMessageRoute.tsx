@@ -12,8 +12,8 @@ const handler = () => {
   useFancyToastMessageStore.getState().addToast({
     title: 'My Title of the titel ',
     message: 'This is my toast message hjsadhjgdshjag.',
-    time: 5050,
-    type: messageType[randomType] as 'success' | 'warning' | 'error',
+    time: 50050,
+    themeType: messageType[randomType] as 'success' | 'warning' | 'error',
   });
 
 }

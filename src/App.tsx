@@ -70,6 +70,8 @@ const OwnUl = styled.ul<{theme: TUiColorsType}>`
 function App() {
   const theme = themeStore((state) => state.theme);
 
+  console.log(theme, 'app')
+
   return (
     <div className="App">
       <Router>

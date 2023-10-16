@@ -24,7 +24,6 @@ const meta = {
     },
   },
 
-  tags: ['autodocs'],
 } satisfies Meta<typeof SingleToastMessage>;
 
 export default meta;
@@ -39,7 +38,7 @@ export const Success: Story = {
       title: 'Success',
       message: 'This is a success message',
       time: 5000,
-      type: 'success',
+      themeType: 'success',
     },
   },
 };
@@ -51,7 +50,7 @@ export const Error: Story = {
       title: 'warning',
       message: 'this is a warning message',
       time: 5000,
-      type: 'warning',
+      themeType: 'warning',
     },
   },
 };
@@ -63,7 +62,7 @@ export const Warning: Story = {
       title: 'error',
       message: 'this is an error message',
       time: 5000,
-      type: 'error',
+      themeType: 'error',
     },
   },
 };

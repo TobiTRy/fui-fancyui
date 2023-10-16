@@ -11,6 +11,7 @@ import themeStore from '../../Design/color/themeStore';
 import { TUiColorsType } from '../../Design/color/designColor';
 import { TLayer } from '../../Design/color/generateColorSteps';
 import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
+import { getOpositColorContrast } from './getOpositColorContrast';
 
 export type IGenerateThemeItemProps = {
   outlined?: boolean;
@@ -57,7 +58,8 @@ const calcTextColor = ({ $textColor, $themeType, $outlined }: IcalcTextColor) =>
   if ($textColor) return theme[$textColor][0];
   if ($themeType === 'transparent') return theme.secondary[0];
   if ($outlined) return theme[$themeType || 'secondary'][0];
-  return theme[$themeType || 'secondary'].contrast;
+  
+  return getOpositColorContrast($themeType || 'secondary');
 };
 
 

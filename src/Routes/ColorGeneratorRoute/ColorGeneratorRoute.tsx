@@ -1,8 +1,6 @@
 import React from 'react';
 
-import { uiColors } from '../../Components/UI/Design/design';
 import styled, { css } from 'styled-components';
-import { accentDarkenLightcolors } from '../../Components/UI/Design/design';
 import { Typography } from '../../lib';
 import themeStore from '../../Components/UI/Design/color/themeStore';
 import { TUiColorsType } from '../../Components/UI/Design/color/designColor';
@@ -20,44 +18,51 @@ const BackGroundBox = styled.div<{ theme: TUiColorsType }>`
 export default function ColorGeneratorRoute() {
   const theme = themeStore((state) => state.theme);
   //get keys of primary
-  const primaryKeys = Object.keys(theme.primary);
-  const accentKeys = Object.keys(theme.accent);
-  const secondaryKeys = Object.keys(theme.secondary);
-  const accentDarkKeys = Object.keys(accentDarkenLightcolors);
+  const primaryKeys = Object?.keys(theme?.primary);
+  const accentKeys = Object?.keys(theme?.accent);
+  const secondaryKeys = Object?.keys(theme?.secondary);
+  const infoKeys = Object?.keys(theme?.info);
+  const warningKeys = Object?.keys(theme?.warning);
+  const errorKeys = Object?.keys(theme?.error);
+  const successKeys = Object?.keys(theme?.success);
 
   return (
     <div style={{ display: 'flex' }}>
       <div>
         {primaryKeys?.map((color, index) => {
-          return <div key={index} style={{ width: '100px', height: '100px', backgroundColor: uiColors.primary![color] }}></div>;
+          return <div key={index} style={{ width: '100px', height: '100px', backgroundColor: theme.primary![color] }}></div>;
         })}
       </div>
       <div>
         {accentKeys?.map((color, index) => {
-          return <div key={index} style={{ width: '100px', height: '100px', backgroundColor: uiColors.accent![color] }}></div>;
+          return <div key={index} style={{ width: '100px', height: '100px', backgroundColor: theme.accent![color] }}></div>;
         })}
       </div>
       <div>
-        {accentDarkKeys?.map((color, index) => {
-          return <div key={index} style={{ width: '100px', height: '100px', backgroundColor: accentDarkenLightcolors![color] }}></div>;
+        {infoKeys?.map((color, index) => {
+          return <div key={index} style={{ width: '100px', height: '100px', backgroundColor: theme.info![color] }}></div>;
         })}
       </div>
+
       <div>
         {secondaryKeys?.map((color, index) => {
-          return <div key={index} style={{ width: '100px', height: '100px', backgroundColor: uiColors.secondary![color] }}></div>;
+          return <div key={index} style={{ width: '100px', height: '100px', backgroundColor: theme.secondary![color] }}></div>;
         })}
       </div>
       <div>
-        <BackGroundBox>
-          <Typography
-            type="h1"
-            style={css`
-              color: ${uiColors.secondary[90]};
-            `}
-          >
-            H1
-          </Typography>
-        </BackGroundBox>
+        {warningKeys?.map((color, index) => {
+          return <div key={index} style={{ width: '100px', height: '100px', backgroundColor: theme.warning![color] }}></div>;
+        })}
+      </div>
+      <div>
+        {errorKeys?.map((color, index) => {
+          return <div key={index} style={{ width: '100px', height: '100px', backgroundColor: theme.error![color] }}></div>;
+        })}
+      </div>
+      <div>
+        {successKeys?.map((color, index) => {
+          return <div key={index} style={{ width: '100px', height: '100px', backgroundColor: theme.success![color] }}></div>;
+        })}
       </div>
     </div>
   );
