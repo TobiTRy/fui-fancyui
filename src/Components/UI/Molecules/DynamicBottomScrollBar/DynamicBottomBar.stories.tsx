@@ -38,12 +38,6 @@ const meta = {
         type: 'boolean',
       },
     },
-    secondBar: {
-      description: 'If true, the bar acts as a second bar, this is if you want to have two bars over each other in the same page.',
-      control: {
-        type: 'boolean',
-      },
-    },
     buttons: {
       description: 'The buttons to be rendered in the bar. <br> - The button recives a prop wich has a on click on this item, to call the specific function',
     },

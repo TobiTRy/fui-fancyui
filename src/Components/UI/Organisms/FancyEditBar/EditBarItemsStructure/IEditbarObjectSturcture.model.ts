@@ -1,8 +1,9 @@
 import { IFancyBottomBarIcon } from '../../../Atoms/FancyBottomBarIcon/FancyBottomBarIcon.model';
-import IFancyDropDownSelect from '../../FancyDropDownSelect/FancyDropDownSelect.model';
-import { FancyTextInputProps } from '../../FancyTextInput/FancyTextInput';
+import FancyDropDownSelect from '../../FancyDropDownSelect/FancyDropDownSelect';
+import FancyTextInput from '../../FancyTextInput/FancyTextInput';
 import IFancyRangeSlider from '../../FancyRangeSlider/FancyRangeSlider.model';
 import IFancyTab from '../../../Molecules/FancyTabSwitch/IFancyTab.model';
+import React from 'react';
 
 // --------------------------------------------------------------------------- //
 // ---------- thes interfaces map the strings and JSX Item together ---------- //
@@ -14,11 +15,11 @@ interface ISettingsItem {
 }
 
 //---------- The mapped interfaces ----------//
-interface IDropDown extends ISettingsItem, IFancyDropDownSelect {
+interface IDropDown extends ISettingsItem, React.ComponentProps<typeof FancyDropDownSelect> {
   settingsType: 'dropDown';
 }
 
-interface ITextInput extends ISettingsItem, FancyTextInputProps {
+interface ITextInput extends ISettingsItem, React.ComponentProps<typeof FancyTextInput> {
   settingsType: 'textInput';
 }
 

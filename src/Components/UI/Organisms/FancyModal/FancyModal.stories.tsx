@@ -32,7 +32,6 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   render: (args) => <FancyModal {...args} />,
   args: {
-
-
+    appendToDomID: '',
   },
 };

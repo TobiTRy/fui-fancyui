@@ -1,6 +1,6 @@
 import React from 'react';
-import { ColorTypes } from '../FancyColorOutput.model';
 
+import { ColorTypes } from '../FancyColorOutput.model';
 import { FancyTextInput } from '../../../Organisms/FancyTextInput';
 import AdaptInputs from './AdaptInput/AdaptInputs';
 import { ContainerInputs, WrapperInputs } from './InputFields.style';
@@ -43,7 +43,7 @@ export default function InputFields({currentColorObject, handler }:IInputFields)
           return (
             <ContainerInputs key={key} >
               {/* the AdaptInputs component creates the input for the specific color (like: r, b, g ...) */}
-              <AdaptInputs inputLetter={key} value={value as number} handler={handleInputChange} ariaLabel={key}/>
+              <AdaptInputs inputLetter={key} value={value as number} onChange={handleInputChange} ariaLabel={key}/>
               <Typography type='inlineElement' variant='smText'>{key}</Typography>
             </ContainerInputs>
           );

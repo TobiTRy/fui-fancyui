@@ -59,7 +59,7 @@ export default function ChipsRoute() {
         <Chip label="Heyyjoo" icon={<ClipBoardIconCheck />}  size="lg" onClick={() => console.log('hii')} />
       </DesignArea>
       <DesignArea title="Chip Outlined">
-        <Chip label="Heyyjoo" isActive={isActive} onClick={clickHandler} outlined themeType={'primary'} layer={5} icon={<ClipBoardIconCheck />} size="sm"  />
+        <Chip label="Heyyjoo" isActive={isActive} outlined themeType={'primary'} layer={5} icon={<ClipBoardIconCheck />} size="sm"  />
         <Chip label="Heyyjoo" outlined icon={<ClipBoardIconCheck />} size="md"  onDelete={() => console.log('DELETE')} />
         <Chip label="Heyyjoo" outlined icon={<ClipBoardIconCheck />}  size="lg" onClick={() => console.log('hii')} />
       </DesignArea>
@@ -69,7 +69,7 @@ export default function ChipsRoute() {
         <Chip label="Heyyjoo" outlined themeType='transparent' textColor='accent' icon={<ClipBoardIconCheck />}  size="lg" onClick={() => console.log('hii')} />
       </DesignArea>
       <DesignArea title="Chip Colored">
-        <Chip label="Heyyjoo" isActive={isActive} onClick={clickHandler} themeType='accent' layer={1} textColor='primary' icon={<ClipBoardIconCheck />} size="sm"  />
+        <Chip label="Heyyjoo" isActive={isActive} themeType='accent' layer={1} textColor='primary' icon={<ClipBoardIconCheck />} size="sm"  />
         <Chip label="Heyyjoo" themeType='primary' icon={<ClipBoardIconCheck />} size="md"  onDelete={() => console.log('DELETE')} />
         <Chip label="Heyyjoo" themeType='secondary' textColor="accent" size="lg" onClick={() => console.log('hii')} />
       </DesignArea>

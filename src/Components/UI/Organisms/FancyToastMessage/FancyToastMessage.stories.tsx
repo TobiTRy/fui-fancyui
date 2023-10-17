@@ -34,7 +34,7 @@ const clickHandler = () => {
     title: 'My Title of the titel ',
     message: 'This is my toast message hjsadhjgdshjag.',
     time: 50500,
-    type: 'error',
+    themeType: 'error',
   });
 }
 

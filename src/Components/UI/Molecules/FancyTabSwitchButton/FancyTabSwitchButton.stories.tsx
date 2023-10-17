@@ -41,7 +41,7 @@ const meta = {
       description: 'If true, the button will be wide.',
       type: { name: 'boolean' },
     },
-    textColor: {
+    themeType: {
       description: 'The text color of the button.',
       control: { type: 'select' },
     },
@@ -70,7 +70,7 @@ export const Primary: Story = {
     itemObject: { key: '1', label: 'label', icon: <SVGCheckMark /> },
     selected: false,
     wide: false,
-    textColor: 'secondary',
+    themeType: 'secondary',
     iconAlign: 'left',
     size: 'sm',
   },

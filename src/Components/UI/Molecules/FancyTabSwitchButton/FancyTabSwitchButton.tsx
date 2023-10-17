@@ -16,13 +16,13 @@ interface ITabSwitchButton {
   selected: boolean;
   onClick: (key: string) => void;
   wide?: boolean;
-  textColor?: keyof TUiColorsType;
+  themeType?: keyof TUiColorsType;
   iconAlign?: 'left' | 'right';
   size?: keyof typeof tabSwitchItemSizes;
 }
 type IFancyTabSwitchButton = ITabSwitchButton & HTMLAttributes<HTMLDivElement>;
 const FancyTabSwitchButton = React.forwardRef<HTMLDivElement, IFancyTabSwitchButton>((props, ref) => {
-  const { disabled, itemObject, selected, onClick, wide, textColor, iconAlign, size, ...HTMLProps } = props;
+  const { disabled, itemObject, selected, onClick, wide, themeType, iconAlign, size, ...HTMLProps } = props;
   const id = useId();
 
   return (
@@ -31,7 +31,7 @@ const FancyTabSwitchButton = React.forwardRef<HTMLDivElement, IFancyTabSwitchBut
       role="radio"
       $size={size}
       $wide={wide}
-      $textColor={textColor}
+      $themeType={themeType}
       $iconAlign={iconAlign}
       $hasIcon={Boolean(itemObject.icon)}
       $hasLabel={Boolean(itemObject.label)}
@@ -50,7 +50,7 @@ const FancyTabSwitchButton = React.forwardRef<HTMLDivElement, IFancyTabSwitchBut
         {itemObject.icon && (
           <FancySVGAtom
             size={size || 'sm'}
-            themeType={textColor || 'secondary'}
+            themeType={themeType || 'secondary'}
             externalStyle={css`
               z-index: 1;
               flex-shrink: 0;

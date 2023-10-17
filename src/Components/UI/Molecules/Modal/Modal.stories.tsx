@@ -57,7 +57,7 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   render: (args) => <Modal {...args} />,
   args: {
-    status: ModalStatus.Open,
+    status: 'open',
     themeType: 'primary',
     layer: 0,
     id: 'Modal',

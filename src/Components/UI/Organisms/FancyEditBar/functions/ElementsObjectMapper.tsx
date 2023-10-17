@@ -10,16 +10,17 @@ import FancyTabSwitch from '../../../Molecules/FancyTabSwitch/FancyTabSwitch';
 // --------- Give back a Element of the the specified item string ------------ //
 // --------------------------------------------------------------------------- //
 const settingsToJSXMapper = (itemObject: InputSettings) => {
-  const { settingsType } = itemObject;
+  const { settingsType, ...inputProps } = itemObject;
+  console.log(inputProps);
   switch (settingsType) {
     case 'textInput':
-      return <FancyTextInput {...itemObject} />;
+      return <FancyTextInput {...inputProps} />;
     case 'dropDown':
-      return <FancyDropDownSelect {...itemObject} />;
+      return <FancyDropDownSelect {...inputProps} />;
     case 'slider':
-      return <FancyRangeSlider {...itemObject} />;
+      return <FancyRangeSlider {...inputProps} />;
     case 'tab':
-      return <FancyTabSwitch {...itemObject} />;
+      return <FancyTabSwitch {...inputProps} />;
   }
 };
 

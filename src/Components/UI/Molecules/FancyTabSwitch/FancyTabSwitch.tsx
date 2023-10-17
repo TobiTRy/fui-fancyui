@@ -80,8 +80,7 @@ export default function FancyTabSwitch(props: IFancyTab) {
               disabled={disabled}
               wide={wide}
               size={size}
-              themeType={themeType}
-              textColor={textColor}
+              themeType={textColor}
               iconAlign={iconAlign}
               onClick={() => radioChangeHandler(item.key)}
               itemObject={item}
