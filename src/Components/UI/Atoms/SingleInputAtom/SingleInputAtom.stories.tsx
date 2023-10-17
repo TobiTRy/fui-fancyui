@@ -2,11 +2,15 @@
 import { Meta, StoryObj } from '@storybook/react';
 
 // Import the component to be tested
-import SingleInputAtom from './SingleInputAtom';
+import { SingleInputAtom } from './SingleInputAtom';
+
+// fix for building ... because storybook is not able to handle the default export
+const HelperComponent = (props: React.ComponentProps<typeof SingleInputAtom>) => <SingleInputAtom {...props} />;
+HelperComponent.displayName = 'SingleInputAtom';
 
 // Define metadata for the story
 const meta = {
-  component: SingleInputAtom,
+  component: HelperComponent,
   parameters: {
     docs: {
       description: {
@@ -39,7 +43,10 @@ const meta = {
     layer: {
       description: 'The layer of the input',
       control: {
-        type: 'range', min: 0, max: 10, step: 1,
+        type: 'range',
+        min: 0,
+        max: 10,
+        step: 1,
       },
       defaultValue: {
         summary: '0',
@@ -49,7 +56,7 @@ const meta = {
 
   // Add tags to the story
   tags: ['autodocs'],
-} satisfies Meta<typeof SingleInputAtom>;
+} satisfies Meta<typeof HelperComponent>;
 
 // Export the metadata
 export default meta;
@@ -58,10 +65,9 @@ type Story = StoryObj<typeof meta>;
 
 // Define the primary story
 export const Primary: Story = {
-  render: (args) => <SingleInputAtom {...args} />,
+  render: (args) => <HelperComponent {...args} />,
   args: {
     value: '1',
-  
   },
   parameters: {
     docs: {

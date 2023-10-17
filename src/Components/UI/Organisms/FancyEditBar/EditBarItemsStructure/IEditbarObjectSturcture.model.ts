@@ -15,19 +15,19 @@ interface ISettingsItem {
 }
 
 //---------- The mapped interfaces ----------//
-interface IDropDown extends ISettingsItem, React.ComponentProps<typeof FancyDropDownSelect> {
+export interface IDropDown extends ISettingsItem, React.ComponentProps<typeof FancyDropDownSelect> {
   settingsType: 'dropDown';
 }
 
-interface ITextInput extends ISettingsItem, React.ComponentProps<typeof FancyTextInput> {
+export interface ITextInput extends ISettingsItem, React.ComponentProps<typeof FancyTextInput> {
   settingsType: 'textInput';
 }
 
-interface IRangeSlider extends ISettingsItem, IFancyRangeSlider {
+export interface IRangeSlider extends ISettingsItem, IFancyRangeSlider {
   settingsType: 'slider';
 }
 
-interface ITab extends ISettingsItem, IFancyTab {
+export interface ITab extends ISettingsItem, IFancyTab {
   settingsType: 'tab';
 }
 

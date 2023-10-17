@@ -40,7 +40,7 @@ interface ISingleInputAtomProps {
   themeType?: keyof TUiColorsType;
   layer?: TLayer;
 }
-const SingleInputAtom = forwardRef<HTMLInputElement, ISingleInputAtomProps>(({ value, onKeyDown, ariaLabel, themeType, layer }, ref) => {
+export const SingleInputAtom = forwardRef<HTMLInputElement, ISingleInputAtomProps>(({ value, onKeyDown, ariaLabel, themeType, layer }, ref) => {
   const [isFocused, setIsFocused] = useState(false);
 
   return (

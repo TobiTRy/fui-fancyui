@@ -6,9 +6,13 @@ import FancyTabSwitchButton from './FancyTabSwitchButton';
 
 import SVGCheckMark from '../../SVGIcons/SVGCheckMark';
 
+// fix for building ... because storybook is not able to handle the default export
+const HelperComponent = (props: React.ComponentProps<typeof FancyTabSwitchButton>) => <FancyTabSwitchButton {...props} />;
+HelperComponent.displayName = 'FancyTabSwitchButton';
+
 // Define metadata for the story
 const meta = {
-  component: FancyTabSwitchButton,
+  component: HelperComponent,
   parameters: {
     docs: {
       description: {
@@ -56,7 +60,7 @@ const meta = {
   },
   // Add tags to the story
   tags: ['autodocs'],
-} satisfies Meta<typeof FancyTabSwitchButton>;
+} satisfies Meta<typeof HelperComponent>;
 
 // Export the metadata
 export default meta;
@@ -65,7 +69,7 @@ type Story = StoryObj<typeof meta>;
 
 // Define the primary story
 export const Primary: Story = {
-  render: (args) => <FancyTabSwitchButton {...args} />,
+  render: (args) => <HelperComponent {...args} />,
   args: {
     itemObject: { key: '1', label: 'label', icon: <SVGCheckMark /> },
     selected: false,
