@@ -12,14 +12,13 @@ type TBottomBarProps = Omit<IBottomBar, 'children'>;
 type TDynamicScrollBarProps = {
   scrollable?: boolean;
   buttons?: IFancyBottomBarIcon[];
-  secondBar?: boolean;
 };
 type IBottomScrollbar = TBottomBarProps & TDynamicScrollBarProps;
 
 // Define the component
 export default function DynamicBottomScrollBar(props: IBottomScrollbar) {
   // Destructure props
-  const { buttons, secondBar, scrollable, ...bottomBarProps } = props;
+  const { buttons, scrollable, ...bottomBarProps } = props;
   // Set state for active button
   const [activeButton, setActiveButton] = useState('');
 
@@ -41,7 +40,6 @@ export default function DynamicBottomScrollBar(props: IBottomScrollbar) {
             <FancyBottomBarIcon
               key={i}
               {...item}
-              secondBar={secondBar}
               active={item.id === activeButton}
               onClick={() => {
                 item.onClick && item.onClick();
@@ -55,7 +53,6 @@ export default function DynamicBottomScrollBar(props: IBottomScrollbar) {
           <FancyBottomBarIcon
             key={i}
             {...item}
-            secondBar={secondBar}
             active={item.id === activeButton}
             onClick={() => {
               item.onClick && item.onClick();
