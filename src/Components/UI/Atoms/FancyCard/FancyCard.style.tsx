@@ -21,7 +21,7 @@ export const StyledCard = styled.div<IStyledCard & { theme: TUiColorsType }>`
   height: ${({ $height }) => $height};
   box-sizing: border-box;
   padding: ${({ $padding }) => ($padding ? spacingPx[$padding] : '')};
-  border-radius: ${({ $roundedEdges, $radius }) => edgeCalculation($roundedEdges, $radius)};
+  border-radius: ${({ $roundedEdges }) => edgeCalculation($roundedEdges)};
   ${({ $shadow }) => $shadow && boxShadow.sm};
 `;
 
