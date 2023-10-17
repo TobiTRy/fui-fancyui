@@ -6,6 +6,7 @@ import DynamicBottomScrollBar from './DynamicBottomScrollBar';
 import SVGCheckMark from '../../SVGIcons/SVGCheckMark';
 
 const meta = {
+  title: 'components/ui/Molecules/DynamicBottomScrollBar',
   component: DynamicBottomScrollBar,
   parameters: {
     docs: {

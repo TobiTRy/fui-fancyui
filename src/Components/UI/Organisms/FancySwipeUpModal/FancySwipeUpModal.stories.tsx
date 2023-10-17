@@ -8,6 +8,7 @@ import React from 'react';
 
 // Define metadata for the story
 const meta = {
+  title: 'components/ui/Organisms/FancySwipeUpModal',
   component: FancySwipeUpModal,
   parameters: {
     docs: {

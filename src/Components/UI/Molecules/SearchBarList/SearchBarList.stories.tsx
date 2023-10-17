@@ -5,6 +5,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import SearchBarList from './SearchBarList';
 
 const meta = {
+  
   component: SearchBarList,
   parameters: {
     docs: {

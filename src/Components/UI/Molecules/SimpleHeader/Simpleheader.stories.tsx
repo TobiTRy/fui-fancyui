@@ -5,6 +5,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import SimpleHeader from './SimpleHeader';
 
 const meta = {
+  title: 'components/ui/Molecules/SimpleHeader',
   component: SimpleHeader,
   parameters: {
     docs: {
@@ -27,7 +28,10 @@ const meta = {
     layer: {
       description: 'The layer of the header.',
       control: {
-        type: 'range', min: 0, max: 10, step: 1,
+        type: 'range',
+        min: 0,
+        max: 10,
+        step: 1,
       },
       defaultValue: {
         summary: 1,
@@ -52,14 +56,17 @@ const meta = {
       },
     },
     leftSlot: {
-      description: 'The left slot of the header. <br> <code>{<br>component: <b>Component</b>,<br>scale: <b>1</b>,<br>toOpenComponent: <b>Component</b><br>}</code>',
+      description:
+        'The left slot of the header. <br> <code>{<br>component: <b>Component</b>,<br>scale: <b>1</b>,<br>toOpenComponent: <b>Component</b><br>}</code>',
     },
     middeSlot: {
-      description: 'The left slot of the header. <br> <code>{<br>component: <b>Component</b>,<br>scale: <b>1</b>,<br>toOpenComponent: <b>Component</b><br>}</code>',
+      description:
+        'The left slot of the header. <br> <code>{<br>component: <b>Component</b>,<br>scale: <b>1</b>,<br>toOpenComponent: <b>Component</b><br>}</code>',
     },
     rightSlot: {
-      description: 'The left slot of the header. <br> <code>{<br>component: <b>Component</b>,<br>scale: <b>1</b>,<br>toOpenComponent: <b>Component</b><br>}</code>',
-    }
+      description:
+        'The left slot of the header. <br> <code>{<br>component: <b>Component</b>,<br>scale: <b>1</b>,<br>toOpenComponent: <b>Component</b><br>}</code>',
+    },
   },
   tags: ['autodocs'],
 } satisfies Meta<typeof SimpleHeader>;
