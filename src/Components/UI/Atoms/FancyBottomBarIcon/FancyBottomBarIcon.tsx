@@ -11,11 +11,11 @@ import Typography from '../Typography/Typography';
 // --------------------------------------------------------------------------- //
 export default function FancyBottomBarIcon(props: IFancyBottomBarIcon) {
   // Destructure props
-  const { icon, label, active, onClick, disabled, secondBar, themeType, layer } = props;
+  const { icon, label, active, onClick, disabled, themeType, layer } = props;
 
   // Render the component
   return (
-    <ItemWrapper $secondBar={secondBar}>
+    <ItemWrapper>
       <IconTextButton $isActive={active} disabled={disabled} onClick={onClick} $themeType={themeType} $layer={layer}>
         <Icon>{icon}</Icon>
         <Typography type="smText">{label}</Typography>

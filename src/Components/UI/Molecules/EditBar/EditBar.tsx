@@ -59,7 +59,7 @@ export default function EditBar(props: IEditBar) {
       )}
       {/* The second Bar that adapts to the activated button from the man bar */}
       {subSectionItems && (
-        <DynamicBottomScrollBar buttons={subSectionItems} scrollable={scrollable} bottomFixed={false} spacingLeftRight={spacingPx.xl} roundedness='md' secondBar={true}/>
+        <DynamicBottomScrollBar buttons={subSectionItems} scrollable={scrollable} bottomFixed={false} spacingLeftRight={spacingPx.xl} roundedness='md'/>
       )}
       {/* The Main Bar which always shown with the main settings */}
       {sectionItems && (
