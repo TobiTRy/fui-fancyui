@@ -8,7 +8,7 @@ import { getTextColor } from '../../Design/color/colorCalculatorForComponet';
 
 export type TAlign = 'left' | 'center';
 
-interface IAlignedInputLabel {
+export interface IAlignedInputLabel {
   $align?: TAlign;
   $colorState?: 'error' | 'active' | 'default';
   theme?: TUiColorsType;

@@ -1,11 +1,22 @@
+import { HTMLAttributes } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { AlignedInputLabel } from './AlignedInputLabel';
+import { AlignedInputLabel, IAlignedInputLabel } from './AlignedInputLabel';
 import Typography from '../Typography/Typography';
+
+//This is a helper component to show the styled component in the story
+const HelperComponent = (props: IAlignedInputLabel & HTMLAttributes<HTMLLabelElement>) => (
+  <AlignedInputLabel {...props}>
+    <Typography type="label">Hello World</Typography>
+  </AlignedInputLabel>
+);
+
+// Give the component a more meaningful name in the storybook
+HelperComponent.displayName = 'AlignedInputLabel';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta = {
-  component: AlignedInputLabel,
+  component: HelperComponent,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout
     docs: {
@@ -35,7 +46,7 @@ const meta = {
 
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/react/writing-docs/autodocs
   tags: ['autodocs'],
-} satisfies Meta<typeof AlignedInputLabel>;
+} satisfies Meta<typeof HelperComponent>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -48,9 +59,5 @@ export const Primary: Story = {
     $themeType: 'secondary',
     $layer: 4,
   },
-  render: (args) => (
-    <AlignedInputLabel {...args}>
-      <Typography type="label">Hello World</Typography>
-    </AlignedInputLabel>
-  ),
+  render: (args: IAlignedInputLabel) => <HelperComponent {...args} />,
 };
