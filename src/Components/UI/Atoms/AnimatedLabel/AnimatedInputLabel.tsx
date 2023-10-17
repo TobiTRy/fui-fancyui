@@ -31,7 +31,7 @@ const activeHandler = (align: string, $moveUp?: boolean) => {
   }
 };
 
-interface IAnimatedInputLabel {
+export interface IAnimatedInputLabel {
   $align?: 'center' | 'left';
   $moveUp?: boolean;
   $colorState?: 'error' | 'active' | 'default';

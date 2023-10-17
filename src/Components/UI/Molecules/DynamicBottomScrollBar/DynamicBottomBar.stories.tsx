@@ -6,6 +6,7 @@ import DynamicBottomScrollBar from './DynamicBottomScrollBar';
 import SVGCheckMark from '../../SVGIcons/SVGCheckMark';
 
 const meta = {
+  title: 'components/ui/Molecules/DynamicBottomScrollBar',
   component: DynamicBottomScrollBar,
   parameters: {
     docs: {
@@ -34,12 +35,6 @@ const meta = {
     },
     scrollable: {
       description: 'If true, the bar will be scrollable.',
-      control: {
-        type: 'boolean',
-      },
-    },
-    secondBar: {
-      description: 'If true, the bar acts as a second bar, this is if you want to have two bars over each other in the same page.',
       control: {
         type: 'boolean',
       },

@@ -31,18 +31,7 @@ const switchValues2 = [
 ];
 
 export default function TabSwitchRoute() {
-  const [selected, setSelected] = React.useState('1');
-  const [selected2, setSelected2] = React.useState('7');
-
   const [test, setTest] = React.useState('1');
-
-  const selecttHandler = (key: string) => {
-    setSelected(key);
-  };
-
-  const selecttHandler2 = (key: string) => {
-    setSelected2(key);
-  };
 
   return (
     <FancyCard layer={1}>
@@ -69,7 +58,7 @@ export default function TabSwitchRoute() {
             layer={5}
             values={switchValues1}
             currentSelect={test}
-            onChange={(id: string) => setTest(id)}
+            handler={(id: string) => setTest(id)}
           />
           <FancyTabSwitch
             label="test"
@@ -78,7 +67,7 @@ export default function TabSwitchRoute() {
             size="sm"
             rounded="md"
             currentSelect={test}
-            onChange={(id: string) => setTest(id)}
+            handler={(id: string) => setTest(id)}
           />
 
           <FancyTabSwitch
@@ -90,7 +79,7 @@ export default function TabSwitchRoute() {
             themeType="transparent"
             values={switchValues1}
             currentSelect={test}
-            onChange={(id: string) => setTest(id)}
+            handler={(id: string) => setTest(id)}
           />
           <FancyTabSwitch
             label="test"
@@ -99,7 +88,7 @@ export default function TabSwitchRoute() {
             values={switchValues2}
             rounded={'complete'}
             currentSelect={test}
-            onChange={(id: string) => setTest(id)}
+            handler={(id: string) => setTest(id)}
           />
 
           <FancyTabSwitch
@@ -109,7 +98,7 @@ export default function TabSwitchRoute() {
             values={switchValues1}
             rounded={'xxxl'}
             currentSelect={test}
-            onChange={(id: string) => setTest(id)}
+            handler={(id: string) => setTest(id)}
           />
           <FancyTabSwitch
             size="lg"
@@ -120,7 +109,7 @@ export default function TabSwitchRoute() {
             values={switchValues}
             rounded={'xxl'}
             currentSelect={test}
-            onChange={(id: string) => setTest(id)}
+            handler={(id: string) => setTest(id)}
           />
         </DesignArea>
         <DesignArea

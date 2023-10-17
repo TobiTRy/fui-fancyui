@@ -5,6 +5,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import ColorIndicator from './ColorIndicator';
 // Define metadata for the story
 const meta = {
+  title: 'components/ui/Atoms/ColorIndicator',
   component: ColorIndicator,
   parameters: {
     docs: {

@@ -29,9 +29,6 @@ const meta = {
     onClick: {
       control: { type: 'function' },
     },
-    secondBar: {
-      control: { type: 'boolean' },
-    },
     disabled: {
       control: { type: 'boolean' },
     },
@@ -56,7 +53,6 @@ export const Primary: Story = {
   args: {
     active: true,
     label: 'Label',
-    secondBar: false,
     disabled: false,
     themeType: 'secondary',
     layer: 4,

@@ -108,7 +108,6 @@ export const WithDelete: Story = {
     onDelete: undefined,
     themeType: 'primary',
     isActive: false,
-    onDelete: () =>{console.log('DELETE')},
   },
 };
 

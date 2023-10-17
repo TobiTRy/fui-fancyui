@@ -54,7 +54,7 @@ export default function InputsRoute() {
   };
 
   const testHandler4 = (e: ChangeEvent<HTMLInputElement>) => {
-    setTest(Number(e.target.value));
+    setTest(e.target.value);
   };
   const dateHandler = (e: ChangeEvent<HTMLInputElement>) => {
     setDate(e.target.value);

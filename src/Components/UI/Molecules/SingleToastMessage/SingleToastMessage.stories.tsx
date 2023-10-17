@@ -4,8 +4,11 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import SingleToastMessage from './SingleToastMessage';
 
+const HelperComponent = (props: React.ComponentProps<typeof SingleToastMessage>) => <SingleToastMessage {...props} />;
+HelperComponent.displayName = 'SingleToastMessage';
+
 const meta = {
-  component: SingleToastMessage,
+  component: HelperComponent,
   parameters: {
     docs: {
       description: {
@@ -24,14 +27,14 @@ const meta = {
     },
   },
 
-} satisfies Meta<typeof SingleToastMessage>;
+} satisfies Meta<typeof HelperComponent>;
 
 export default meta;
 
 type Story = StoryObj<typeof meta>;
 
 export const Success: Story = {
-  render: (args) => <SingleToastMessage {...args} />,
+  render: (args) => <HelperComponent {...args} />,
   args: {
     toast: {
       id: 1,
@@ -43,7 +46,7 @@ export const Success: Story = {
   },
 };
 export const Error: Story = {
-  render: (args) => <SingleToastMessage {...args} />,
+  render: (args) => <HelperComponent {...args} />,
   args: {
     toast: {
       id: 2,
@@ -55,7 +58,7 @@ export const Error: Story = {
   },
 };
 export const Warning: Story = {
-  render: (args) => <SingleToastMessage {...args} />,
+  render: (args) => <HelperComponent {...args} />,
   args: {
     toast: {
       id: 3,

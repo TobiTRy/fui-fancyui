@@ -1,5 +1,5 @@
 import { IFancyBottomBarIcon } from '../../../Atoms/FancyBottomBarIcon/FancyBottomBarIcon.model';
-import { ICategoryItem, InputSettings } from '../EditBarItemsStructure/IEditbarObjectSturcture.model';
+import { ICategoryItem, IDropDown, IRangeSlider, ITab, ITextInput, InputSettings } from '../EditBarItemsStructure/IEditbarObjectSturcture.model';
 
 import { FancyTextInput } from '../../FancyTextInput';
 import FancyDropDownSelect from '../../FancyDropDownSelect/FancyDropDownSelect';
@@ -10,17 +10,18 @@ import FancyTabSwitch from '../../../Molecules/FancyTabSwitch/FancyTabSwitch';
 // --------- Give back a Element of the the specified item string ------------ //
 // --------------------------------------------------------------------------- //
 const settingsToJSXMapper = (itemObject: InputSettings) => {
-  const { settingsType } = itemObject;
+  const { settingsType, ...inputProps } = itemObject;
+
   switch (settingsType) {
     case 'textInput':
-      return <FancyTextInput {...itemObject} />;
+        return <FancyTextInput {...(inputProps as ITextInput)} />;
     case 'dropDown':
-      return <FancyDropDownSelect {...itemObject} />;
+        return <FancyDropDownSelect {...(inputProps as IDropDown)} />;
     case 'slider':
-      return <FancyRangeSlider {...itemObject} />;
+        return <FancyRangeSlider {...(inputProps as IRangeSlider)} />;
     case 'tab':
-      return <FancyTabSwitch {...itemObject} />;
-  }
+        return <FancyTabSwitch {...(inputProps as ITab)} />;
+}
 };
 
 // --------------------------------------------------------------------------- //
@@ -39,6 +40,7 @@ export const getObjectMapper = ({ activeEditbarCategory, activeSubSectionItem }:
   //get the JSX SETTINGS from the currently ACTIVE CATEGORY ---> ACTIVE SUBSECTION  ---> and get the SETTINGS
   const currentActiveSettings = activeEditbarCategory.subsectionSettingItems[activeSubSectionItem].settings;
 
+  console.log('currentActiveSettings', currentActiveSettings, activeEditbarCategory);
   //map the settings to JSX
   const JSXElements = currentActiveSettings ? currentActiveSettings.map((item) => settingsToJSXMapper(item)) : null;
 

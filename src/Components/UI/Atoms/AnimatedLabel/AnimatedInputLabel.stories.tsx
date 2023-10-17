@@ -1,13 +1,23 @@
-import React from 'react';
-
+import React, { HTMLAttributes } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { AnimatedInputLabel } from './AnimatedInputLabel';
+import { AnimatedInputLabel, IAnimatedInputLabel } from './AnimatedInputLabel';
 import Typography from '../Typography/Typography';
+
+// This is a helper component to show the styled component in the story
+const HelperComponent = (props: IAnimatedInputLabel & HTMLAttributes<HTMLLabelElement>) => (
+  <AnimatedInputLabel {...props}>
+    <Typography type="label">Hello World</Typography>
+  </AnimatedInputLabel>
+);
+
+// Give the component a more meaningful name in the storybook
+HelperComponent.displayName = 'AnimatedInputLabel';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta = {
-  component: AnimatedInputLabel,
+  title: 'components/ui/Atoms/AnimatedInputLabel',
+  component: HelperComponent,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout
     layout: 'centered',
@@ -36,7 +46,7 @@ const meta = {
   },
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/react/writing-docs/autodocs
   tags: ['autodocs'],
-} satisfies Meta<typeof AnimatedInputLabel>;
+} satisfies Meta<typeof HelperComponent>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -50,9 +60,6 @@ export const Primary: Story = {
     $layer: 4,
 
   },
-  render: (args) => (
-    <AnimatedInputLabel {...args}>
-      <Typography type="label">Hello World</Typography>
-    </AnimatedInputLabel>
+  render: (args) => (<HelperComponent {...args}/>
   ),
 };

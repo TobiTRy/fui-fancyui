@@ -5,6 +5,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import FancyCard from './FancyCard';
 // Define metadata for the story
 const meta = {
+  title: 'components/ui/Atoms/FancyCard',
   component: FancyCard,
   
   parameters: {
