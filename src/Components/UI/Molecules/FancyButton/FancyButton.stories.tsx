@@ -35,6 +35,15 @@ const meta = {
         type: 'boolean',
       },
     },
+    iconAlign: {
+      description: 'This prop will align the icon inside the button to the left or right from the text',
+      control: {
+        type: 'radio',
+      },
+      defaultValue: {
+        summary: 'left',
+      }
+    },
     borderRadius: {
       description: 'This prop will change the borderRadius of the button',
       control: {

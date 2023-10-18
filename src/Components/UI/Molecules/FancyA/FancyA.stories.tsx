@@ -29,6 +29,15 @@ const meta = {
         type: 'select',
       },
     },
+    iconAlign: {
+      description: 'This prop will align the icon inside the button to the left or right from the text',
+      control: {
+        type: 'radio',
+      },
+      defaultValue: {
+        summary: 'left',
+      }
+    },
     themeType: {
       description: 'This prop will change the color of the button',
       control: {
@@ -80,8 +89,5 @@ export const Primary: Story = {
     icon: SVGChevronRight,
     align: 'right',
     wide: true,
-    
-
-
   },
 };
