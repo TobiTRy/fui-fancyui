@@ -4,6 +4,7 @@ import IStyledPrefixAndPicker from '../../Interface/IStyledPrefixAndPicker.model
 
 export interface IcalcIconPaddingAsProps {
   aligned?: 'left' | 'right' | 'center';
+  iconAlign?: 'left' | 'right';
   size?: 'sm' | 'md' | 'lg';
 }
 

@@ -16,6 +16,7 @@ import { getOpositColorContrast } from './getOpositColorContrast';
 export type IGenerateThemeItemProps = {
   outlined?: boolean;
   icon?: JSX.Element;
+  iconAlign?: 'left' | 'right';
   size: 'sm' | 'md' | 'lg';
   label?: string;
   wide?: boolean;
@@ -79,9 +80,9 @@ const generateBackgroundColor = (props: Pick<IGenerateThemeItem, '$themeType' | 
 // -------------------------------------------------------------------------- //
 
 //-----this funktion adds to the normal/oulined button a $icon if its needed-----//
-type IGenerateIconItem = Pick<IGenerateThemeItem, '$size' | '$align' | '$label'>;
+type IGenerateIconItem = Pick<IGenerateThemeItem, '$size' | '$align' | '$label' | '$iconAlign'>;
 const generateIcon = (props: IGenerateIconItem) => {
-  const { $size, $align, $label } = props;
+  const { $size, $align, $label, $iconAlign } = props;
 
   //this funktion handles the spacing between the $icon and the text deepends on the alignment
   const calcIconButtoonPadding = ({ $align, $size }: Pick<IGenerateThemeItem, '$align' | '$size'>) => {
@@ -95,18 +96,17 @@ const generateIcon = (props: IGenerateIconItem) => {
       `;
     }
   };
-  //this funktion reduces the padding to the edge && makes it look centered
 
   //this function generates the addons for a $icon button
   return css`
     align-items: center;
-    ${$label && calcIconButtoonPadding({ $align, $size })};
 
+    ${$label && calcIconButtoonPadding({ $align, $size })};
     i {
       display: flex;
       align-items: center;
       aspect-ratio: 1/1;
-      ${$label && calcIconMarginAndAlign({ $aligned: $align, $size })};
+      ${$label && calcIconMarginAndAlign({ $aligned: $iconAlign, $size })};
     }
   `;
 };
