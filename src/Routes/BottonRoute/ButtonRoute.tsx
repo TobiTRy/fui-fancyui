@@ -37,7 +37,7 @@ export default function ButtonRoute() {
         <FancyButton label="Button" themeType="transparent" wide align='center' />
       </DesignArea>
       <DesignArea title="Button Types in wide" style={backgroundColor}>
-        <FancyButton icon={Icon} label="Button" themeType="primary" align='left' />
+        <FancyButton icon={Icon} label="Button" iconAlign='left' themeType="primary" align='left' wide />
         <FancyButton icon={Icon} label="Button" themeType="secondary" align='right' />
         <FancyButton icon={Icon} label="Button" themeType="accent" />
         <FancyButton icon={Icon} label="Button" themeType="transparent"align='left' />
