@@ -25,6 +25,7 @@ export interface IFancyA {
   themeType?: keyof TUiColorsType;
   layer?: TLayer;
   align?: 'left' | 'right' | 'center';
+  iconAlign?: 'left' | 'right';
   textColor?: Exclude<keyof TUiColorsType, 'transparent'>;
   hoverColor?: Exclude<keyof TUiColorsType, 'transparent'>;
   label?: string;
@@ -45,6 +46,7 @@ export default function FancyA(props: IFancyA) {
     textColor,
     wide,
     hoverColor,
+    iconAlign,
     disabled,
     onClick,
     borderRadius,
@@ -57,6 +59,7 @@ export default function FancyA(props: IFancyA) {
   return (
     <A
       $size={size!}
+      $iconAlign={iconAlign}
       $themeType={themeType}
       $align={align}
       $textColor={textColor}

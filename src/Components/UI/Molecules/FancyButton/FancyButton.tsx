@@ -28,6 +28,7 @@ export default function FancyButton(props: IFancyButtonProps) {
     borderRadius,
     isLoading,
     layer,
+    iconAlign,
     ...htmlButtonProps
   } = {
     ...defaultProps,
@@ -47,6 +48,7 @@ export default function FancyButton(props: IFancyButtonProps) {
       $label={label}
       $outlined={outlined}
       $layer={layer}
+      $iconAlign={iconAlign}
       type="button"
       {...htmlButtonProps}
     >
