@@ -1,15 +1,18 @@
 // Import necessary dependencies
+import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 
 // Import the component to be tested
 import FancySwipeUpModal from './FancySwipeUpModal';
 import { FancyButton } from '../../Molecules/FancyButton';
-import React from 'react';
+import { useFancySwipeUpModalStore } from './FancySwipeUpModal.state';
+import { FancyTextInput } from '../FancyTextInput';
+import { ISwipeUpModal } from '../../Molecules/SwipeUpModal/ISwipeUpModal.model';
 
 // Define metadata for the story
 const meta = {
   title: 'components/ui/Organisms/FancySwipeUpModal',
-  component: FancySwipeUpModal,
+  component: HelperComponent,
   parameters: {
     docs: {
       description: {
@@ -37,15 +40,6 @@ const meta = {
         summary: false,
       },
     },
-    onClose: {
-      description: 'The function to close the modal',
-      control: {
-        type: 'function',
-      },
-      defaultValue: {
-        summary: '',
-      },
-    },
     isScalable: {
       description: 'Is the modal scalable by the user',
       control: {
@@ -69,6 +63,7 @@ const meta = {
       control: {
         type: 'select',
       },
+      options: ['primary', 'secondary', 'accent'],
       defaultValue: {
         summary: 'primary',
       },
@@ -76,7 +71,10 @@ const meta = {
     layer: {
       description: 'The layer of the modal',
       control: {
-        type: 'range', min: 0, max: 10, step: 1,
+        type: 'range',
+        min: 0,
+        max: 10,
+        step: 1,
       },
       defaultValue: {
         summary: 0,
@@ -85,26 +83,38 @@ const meta = {
   },
   // Add tags to the story
   tags: ['autodocs'],
-} satisfies Meta<typeof FancySwipeUpModal>;
+} satisfies Meta<typeof HelperComponent>;
 
 // Export the metadata
 export default meta;
 // Define the story object
 type Story = StoryObj<typeof meta>;
 
-
-
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-function HelperComponent(props: any) {
-  const [isVisible, setIsVisible] = React.useState(false);
+function HelperComponent(props: React.ComponentProps<typeof FancySwipeUpModal> & Omit<ISwipeUpModal, 'onClose'>) {
+  const { appendToDomID, children, ...configProps } = props;
+  const openModal = useFancySwipeUpModalStore((state) => state.openSwipeUpModal);
+  const closeModal = useFancySwipeUpModalStore((state) => state.closeSwipeUpModal);
 
-  const onClose = () => {
-    setIsVisible(false);
+  const openModalHandler = () => {
+    openModal(
+      appendToDomID || 'modalTest',
+      children || (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
+          <FancyTextInput label="Email" />
+          <FancyButton onClick={() => closeModal('modalTest')} label="Close Modal"></FancyButton>
+        </div>
+      ),
+      configProps || {
+        isCloseAble: false,
+        isScalable: true,
+      }
+    );
   };
   return (
     <>
-      <FancySwipeUpModal {...props} isOpen={isVisible} onClose={onClose} />
-      <FancyButton label="Open Modal" onClick={() => setIsVisible(true)} />
+      <FancySwipeUpModal appendToDomID="modal" />
+      <FancyButton label="Open Modal" onClick={() => openModalHandler()} />
     </>
   );
 }
@@ -117,5 +127,8 @@ export const Primary: Story = {
       <HelperComponent {...args} />
     </>
   ),
-  args: {},
+  args: {
+    themeType: 'primary',
+    isCloseAble: true,
+  },
 };

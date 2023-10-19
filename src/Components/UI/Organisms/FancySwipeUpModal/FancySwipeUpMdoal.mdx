@@ -2,71 +2,79 @@
 
 ### Overview
 
-The FancySwipeUpModal is a responsive modal component that integrates seamlessly with the fancyportal. It is a highly customizable component that offers a variety of features, making it a versatile solution for displaying modal content in your application.
+The FancySwipeUpModal is now powered by the `useFancySwipeUpStore`. This enhancement further simplifies the process of creating modals, while retaining the component's adaptability and feature-rich nature. With this update, developers can effortlessly integrate FancySwipeUpModal into their applications without the previous manual prop configurations.
 
-### Integration Steps
+### Initial Setup
 
-1. Connect the modal to the DOM
+1. **Render the Main Component in the Base File**:
+   
+   Place `<FancySwipeUpModal />` at the desired location in your main file.
 
-Use the `appendToDomID` prop of the FancySwipeUpModal component to specify the DOM element to which the modal should be appended. For example, if you set `appendToDomID` to `modal`, the modal will be appended to the DOM element with the ID `modal`. If you do not provide this prop, the modal will be appended to the body by default. However, it is recommended to always provide an ID for precise placement.
+2. **Specify the DOM Element for Rendering**:
+   
+   Create a DOM element where the modal will be rendered. For instance: 
+   
+   ```html
+   <div id="modal"></div>
+   ```
 
-2. Set Modal Open State and Handle Closure
+3. **Connect the Modal to the DOM**:
+   
+   Pass the `appendToDomID` prop to the modal component. For instance, `appendToDomID="modal"`. This ties the modal to the specified DOM element. Configuration settings are now managed by the store, simplifying the overall process.
 
-The FancySwipeUpModal relies on two vital props: `isOpen` and `onClose`.
+### Using the Modal
 
-* `isOpen`: This prop uses a state variable, such as `isVisible`, to denote the modal's display status.
-* `onClose`: This prop accepts a callback function that is executed when the modal closes on its own accord.
+1. **Import the Store in the Component**:
+   
+   First, you need to import the `useFancySwipeUpModalStore` within the component where you intend to trigger the modal.
 
-### Additional Features
+   ```javascript
+   const openModal = useFancySwipeUpModalStore((state) => state.openSwipeUpModal);
+   ```
 
-The FancySwipeUpModal also accepts the following props:
+2. **Open the Modal**:
 
-* `children`: Use this prop to pass the child elements you'd like to display inside the modal.
-* `isCloseAble`: A boolean prop that indicates if the modal can be closed by the user. When set to `false`, the modal's closure is controlled solely by the state.
-* `isScalable`: Another boolean prop determining if the user can scale the modal's height.
-* `themeType`: This prop takes different theme values, enabling you to tweak the modal's appearance according to your preference.
-* `layer`: It sets the depth of the theme color.
+   Use the `openModal` method with the following parameters:
 
-### Example Usage
+   - Modal ID (e.g., "CustomerModal")
+   - Child components to be displayed within the modal
+   - Configuration object specifying various options
 
-The following example demonstrates how to use the FancySwipeUpModal component:
+   ```javascript
+   const openModalHandler = () => {
+     openModal(
+       'modalTest',
+       <div style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
+         <FancyTextInput label="Email" />
+         <FancyButton onClick={() => closeModal('modalTest')} label="Close Modal"></FancyButton>
+       </div>,
+       {
+         isCloseAble: false,
+         isScalable: true,
+       }
+     );
+   };
+   ```
 
-```React
-import FancySwipeUpModal from '@fancyportal/react-modal';
+3. **Close the Modal**:
 
-const MyComponent = () => {
-  const [isVisible, setIsVisible] = useState(false);
+   To close the modal, you will need to utilize the `closeModal` method from the `useFancySwipeUpModalStore`.
 
-  const handleCloseModal = () => {
-    setIsVisible(false);
-  };
+   ```javascript
+   const closeModal = useFancySwipeUpModalStore((state) => state.closeSwipeUpModal);
+   ```
 
-  return (
-    <div>
-      <button onClick={() => setIsVisible(true)}>Open Modal</button>
-      <FancySwipeUpModal
-        appendToDomID="modal"
-        isOpen={isVisible}
-        onClose={handleCloseModal}
-        children={<div>This is the modal content.</div>}
-      />
-    </div>
-  );
-};
+   You can then call `closeModal` with the ID of the modal you wish to close, as shown in the `openModalHandler` example above.
 
-export default MyComponent;
-```
+### Configuration Options
 
-In this example, we use a state variable called `isVisible` to manage the modal's visibility. We also define a callback function called `handleCloseModal` to set `isVisible` to `false` when the modal is closed.
+When opening a modal, you can provide a configuration object with the following optional properties:
 
-We then pass these props to the `FancySwipeUpModal` component, along with the child elements that we want to display inside the modal.
-
-### Customization
-
-The FancySwipeUpModal component offers a variety of customization options. You can use the `themeType` prop to change the modal's appearance, the `layer` prop to set its depth, and the `isCloseAble` and `isScalable` props to control its behavior.
-
-You can also use CSS to style the modal to your liking. For example, you can change the modal's background color, font size, and border radius.
+- `themeType`: Accepts different theme values to alter the modal's appearance.
+- `layer`: Sets the modal's depth.
+- `isCloseAble`: A boolean that specifies if the user can close the modal.
+- `isScalable`: A boolean that indicates whether the modal's height can be adjusted by the user.
 
 ### Conclusion
 
-The FancySwipeUpModal is a powerful modal component that offers a variety of features and customization options. It is a great choice for displaying modal content in your application.
+The revamped FancySwipeUpModal, powered by `useFancySwipeUpStore`, offers an even more streamlined approach to managing modals in applications. This update makes it easier to incorporate the modal component, providing a straightforward and efficient user experience.

@@ -22,7 +22,7 @@ const meta = {
         type: 'text',
       },
     },
-    status: {
+    isOpen: {
       description: 'The status of the component',
       control: {
         type: 'select',
@@ -40,7 +40,8 @@ const meta = {
         type: 'range', min: 0, max: 10, step: 1,
       },
     },
-    closeModal: {
+    
+    onClose: {
       description: 'The closeModal of the component',
       control: {
         type: 'function',
@@ -57,10 +58,10 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   render: (args) => <Modal {...args} />,
   args: {
-    status: 'open',
+    isOpen: true,
     themeType: 'primary',
     layer: 0,
     id: 'Modal',
-    closeModal: () => {console.log('closeModal')},
+    onClose: () => {console.log('closeModal')},
   },
 };
