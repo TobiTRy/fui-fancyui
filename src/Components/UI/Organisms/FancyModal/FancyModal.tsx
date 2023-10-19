@@ -1,9 +1,7 @@
 import React from 'react';
 
 import { useFancyModalStore } from './FancyModal.state';
-
 import Modal from '../../Molecules/Modal/Modal';
-
 import FancyPortal from '../../HelperFunctions/FancyPortal';
 
 
@@ -12,7 +10,7 @@ import FancyPortal from '../../HelperFunctions/FancyPortal';
 // Append this module to the root of the app you dont need to pass any props
 // just use the useModalModuleStore to open a modal
 //--- open modal
-// useModalModuleStore.openModal( { headline: { title: 'title' }, content: () => <div>content</div>, bottomLine: { buttons: [{ title: 'title', onClick: () => {} }] } }, 'ID')
+// useModalModuleStore.openModal( 'ID', <JSXComponent/> , '{CONFIG OBJECT})
 //--- close modal
 // when you want to close the modal with a custom button just use the closeModal function with the "ID" of the modal
 // useModalModuleStore.closeModal('id')
