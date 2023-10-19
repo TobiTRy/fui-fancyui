@@ -9,12 +9,12 @@ export interface IFancySwipeUpModal {
   id: string;
   children: React.ReactNode;
   status: ModalStatus;
-  settings?: ModalSettings;
+  config?: ModalSettings;
 }
 
 export interface IFancySwipeUpModalStore {
   modals: IFancySwipeUpModal[];
-  openSwipeUpModal: (id: string, children: React.ReactNode, settings: ModalSettings) => void;
+  openSwipeUpModal: (id: string, children: React.ReactNode, config?: ModalSettings) => void;
   removeSwipeUpModal: (id: string) => void;
   closeSwipeUpModal: (id: string) => void;
 }
@@ -26,7 +26,10 @@ export const useFancySwipeUpModalStore = create<IFancySwipeUpModalStore>((set) =
   // the state array for the modals
   modals: [],
   // add a new modal to the state array
-  openSwipeUpModal: (id, children, settings) => set((state) => ({ modals: [...state.modals, { children, id, status: 'open', settings }] })),
+  openSwipeUpModal: (id, children, config) => set((state) => {
+    console.log('openSwipeUpModal', id, children, config);
+    return { modals: [...state.modals, { children, id, status: 'open', config }] }
+  }),
   // change the status of the modal to closing
   closeSwipeUpModal: (id) =>
     set((state) => ({

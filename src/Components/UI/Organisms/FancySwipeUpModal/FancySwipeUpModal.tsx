@@ -2,7 +2,6 @@ import React from 'react';
 
 import SwipeUpModal from '../../Molecules/SwipeUpModal/SwipeUpModal';
 import FancyPortal from '../../HelperFunctions/FancyPortal';
-import { ISwipeUpModal } from '../../Molecules/SwipeUpModal/ISwipeUpModal.model';
 
 import { useFancySwipeUpModalStore } from './FancySwipeUpModal.state';
 
@@ -30,20 +29,11 @@ export default function FancySwipeUpModal({ appendToDomID }: IFancySwipeUpModal)
     }, 250);
   };
 
-
-
   return (
     <FancyPortal appendToID={appendToDomID}>
       {/* The Mobile Modal Component  */}
       {modals.map((modal, key) => (
-        <SwipeUpModal
-          key={key}
-          layer={modal.settings?.layer}
-          themeType={modal.settings?.themeType}
-          isScalable={modal.settings?.isScalable}
-          isCloseAble={modal.settings?.isCloseAble}
-          onClose={() => closeModalHandler(modal.id)}
-        >
+        <SwipeUpModal key={key} {...modal.config} onClose={() => closeModalHandler(modal.id)} isOpen={modal.status === 'open'}>
           {/* render the content of the modal  */}
           {modal.children}
         </SwipeUpModal>

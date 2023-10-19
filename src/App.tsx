@@ -36,6 +36,7 @@ import ColorGeneratorRoute from './Routes/ColorGeneratorRoute/ColorGeneratorRout
 import { TUiColorsType, updateThemeColors } from './Components/UI/Design/color/designColor';
 import themeStore from './Components/UI/Design/color/themeStore';
 import GlobalStyle from './GlobalStyle';
+import { FancySwipeUpModal } from './lib';
 
 // const Icon = (
 //   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -77,6 +78,7 @@ function App() {
       <Router>
         <ThemeProvider theme={theme}>
         <GlobalStyle theme={theme} />
+        <FancySwipeUpModal appendToDomID='modal'/>
         <div>
           <nav>
             <OwnUl>
