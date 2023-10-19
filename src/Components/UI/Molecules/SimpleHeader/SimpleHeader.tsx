@@ -33,7 +33,6 @@ export default function SimpleHeader(props: ISimpleHeader) {
               padding-left: ${spacingLeftRight};
             `,
           }}
-          outOfHeaderSlot={leftSlot.toOpenComponent && leftSlot.toOpenComponent}
         />
       )}
       {middeSlot && (
@@ -43,7 +42,6 @@ export default function SimpleHeader(props: ISimpleHeader) {
             grow: middeSlot.scale,
             align: 'center',
           }}
-          outOfHeaderSlot={middeSlot.toOpenComponent && middeSlot.toOpenComponent}
         />
       )}
       {rightSlot && (
@@ -56,7 +54,6 @@ export default function SimpleHeader(props: ISimpleHeader) {
               padding-right: ${spacingLeftRight};
             `,
           }}
-          outOfHeaderSlot={rightSlot.toOpenComponent && rightSlot.toOpenComponent}
         />
       )}
     </HeaderContainer>

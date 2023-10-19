@@ -15,7 +15,7 @@ const HeaderWrapper = styled.div<IHeaderWrapper>`
   display: grid;
   grid-template-columns: ${({ $slotsInFR }) => ($slotsInFR ? $slotsInFR.join(' ') : '1fr')};
   width: 100%;
-  height: 44px;
+  height: 3rem;
   box-sizing: border-box;
   ${({ theme, $themeType = 'primary', $layer = 1 }) => getColorsForComponent({ theme, $themeType, $layer })};
 `;

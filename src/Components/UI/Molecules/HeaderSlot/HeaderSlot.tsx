@@ -17,25 +17,18 @@ const StyledHeaderSlot = styled.div`
   box-sizing: border-box;
 `;
 
-const StyledOutOfHeaderSlot = styled.div`
-  position: absolute;
-  width: 100%;
-  top: 100%;
-`;
 
 interface IHeaderSlot {
   headerSlot: ISlot;
-  outOfHeaderSlot?: React.ReactNode;
 }
 export default function HeaderSlot(props: IHeaderSlot) {
-  const { headerSlot, outOfHeaderSlot } = props;
+  const { headerSlot } = props;
 
   return (
     <Wrapper>
       <StyledHeaderSlot>
         <Slot {...headerSlot} />
       </StyledHeaderSlot>
-      <StyledOutOfHeaderSlot>{outOfHeaderSlot}</StyledOutOfHeaderSlot>
     </Wrapper>
   );
 }

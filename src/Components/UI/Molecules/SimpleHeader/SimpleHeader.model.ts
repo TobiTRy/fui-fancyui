@@ -3,7 +3,6 @@ import { TUiColorsType } from "../../Design/color/designColor";
 interface IHeaderSlots {
   scale?: number;
   component?: React.ReactNode;
-  toOpenComponent?: React.ReactNode;
 }
 
 export interface ISimpleHeader {

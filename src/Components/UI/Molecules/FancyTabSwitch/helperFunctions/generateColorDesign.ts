@@ -1,4 +1,5 @@
 import { css } from 'styled-components';
+
 import { getBackgroundColor } from '../../../Design/color/colorCalculatorForComponet';
 import { tabSwitchSizes } from '../FancyTabSwitch';
 import { IFancyTabSwitchStyle } from '../FancyTabSwitch.style';
@@ -6,7 +7,7 @@ import colorTransparencyCalculator from '../../../Design/color/colorTransparency
 import { borderRadius } from '../../../Design/design';
 
 const generateTransparentStyle = (props: TGenerateOutlineStyle) => {
-  const { $padding, $themeType, theme, $rounded } = props;
+  const { $padding, theme, $rounded } = props;
 
   const getPaddings = $padding ? parseInt(tabSwitchSizes[$padding].paddingComponent) : 0;
   const calcPadding = Math.max(0, getPaddings - 1.5) + 'px ' + (getPaddings + parseInt(borderRadius[$rounded || 'sm'])) + 'px';
@@ -44,7 +45,7 @@ const generateOutlineStyle = (props: TGenerateOutlineStyle) => {
 };
 
 // Define the function to generate the color design for the tab switch
-type TGenerateColorDesign = Pick<IFancyTabSwitchStyle, '$themeType' | '$tabSpacing' | 'theme' | '$outlined' | '$padding' | '$rounded' | '$layer'>;
+type TGenerateColorDesign = Pick<IFancyTabSwitchStyle, '$themeType' | 'theme' | '$outlined' | '$padding' | '$rounded' | '$layer'>;
 export default function generateColorDesign(props: TGenerateColorDesign) {
   const { $themeType, theme, $outlined, $padding, $rounded, $layer } = props;
   let outlinedStyle;

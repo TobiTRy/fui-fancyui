@@ -32,13 +32,12 @@ export const ULButtonSwitchList = styled.ul<IFancyTabSwitchStyle & { theme: TUiC
   ${({ $wide }) => $wide && `justify-content: space-between`};
   align-items: center;
   margin: 0;
-  
+
   // Generate the color design for the tab switch
   ${({ $themeType, $tabSpacing, theme, $outlined, $padding, $rounded, $layer }) =>
-    generateColorDesign({ $themeType, $tabSpacing, theme, $outlined, $padding, $rounded, $layer })};
+    generateColorDesign({ $themeType, $tabSpacing, theme, $outlined, $padding, $rounded, $layer })}
 
-// Generate the disabled style for the tab switch
-
+  // Generate the disabled style for the tab switch
 `;
 
 // ----------------------------------- //

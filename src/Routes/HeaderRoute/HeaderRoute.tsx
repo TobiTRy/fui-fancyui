@@ -10,6 +10,7 @@ import FancyLoadingSpinner from '../../Components/UI/Atoms/FancyLoadingSpinner/F
 import FancyMiniProfile from '../../Components/UI/Molecules/FancyMiniProfile/FancyMiniProfile';
 
 import SVGChevronLeft from '../../Components/UI/SVGIcons/SVGChevronLeft';
+import NewHeader from '../../Components/UI/Molecules/NewHeader/NewHeader';
 
 const Logo = () => (
   <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" height="30" version="1.1" viewBox="0 0 96.37 64.15" fill="#ff9800f0">
@@ -58,52 +59,14 @@ export default function HeaderRoute() {
   const [isOpen, setIsOpen] = useState(false);
 
   const Slot2 = {
-    toOpenComponent: (
-      <FancyDropDownMenue isOpen={isOpen} alignHorizontal="right" alignVertical="top" width="auto">
-        <FancyLiItem size="lg">
-          <FancyA
-            wide={true}
-            align="left"
-            icon={<FancySVGAtom>{SVGChevronLeft}</FancySVGAtom>}
-            themeType="transparent"
-            hoverColor="primary"
-            label="test"
-            size="sm"
-          />
-        </FancyLiItem>
-        <FancyLiItem size="lg">
-          <FancyA
-            wide={true}
-            align="left"
-            icon={SVGChevronLeft}
-            themeType="transparent"
-            hoverColor="primary"
-            label="testsasadefsddfdfsdsf "
-            size="sm"
-          />
-        </FancyLiItem>
-        <FancyLiItem size="lg">
-          <FancyA
-            wide={true}
-            align="left"
-            icon={<FancySVGAtom>{SVGChevronLeft}</FancySVGAtom>}
-            themeType="transparent"
-            hoverColor="primary"
-            label="test"
-            size="sm"
-          />
-        </FancyLiItem>
-      </FancyDropDownMenue>
-    ),
     component: <RightSlot onClick={() => setIsOpen(!isOpen)} />,
     scale: 1,
   };
 
   return (
-    <>
-      <section>
-        <FancyHeader rightSlot={Slot2} leftSlot={headerTitele} middeSlot={Slot} />
-      </section>
-    </>
+    <section>
+      <NewHeader />
+      <FancyHeader rightSlot={Slot2} leftSlot={headerTitele} middeSlot={Slot} />
+    </section>
   );
 }
