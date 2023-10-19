@@ -10,28 +10,11 @@ export default function ModalRoute() {
   const closeModal = useFancyModalStore((state) => state.closeModal);
 
   const handleModalCreation = () => {
-    createModal(
-      {
-        headline: { title: 'test', subTitle: 'test' },
-        content: <div>hi</div>,
-        bottomLine: {
-          buttons: [
-            {
-              title: 'submit me',
-              onClick: () => {
-                closeModal('test111');
-              },
-              secondaryButton: false,
-            },
-          ],
-        },
-      },
-      'test111'
-    );
+    createModal('hi', <div>hi</div>, {isCloseable: true, });
   };
   return (
     <section>
-      <FancyModal appendToDomID='modal' />
+
       <FancyButton onClick={handleModalCreation} label='open modal'></FancyButton>
     </section>
   );

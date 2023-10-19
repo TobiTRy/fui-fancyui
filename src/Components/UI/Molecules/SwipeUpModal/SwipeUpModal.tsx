@@ -99,7 +99,7 @@ export default function SwipeUpModal(props: ISwipeUpModal) {
               <WrapperAnimated as={animated.div} style={styles}>
                 <SwipeUpContainer style={modalPosition} isScalable={isScalable} themeType={themeType} layer={layer}>
                   {/*// ---------- The top of the modal is used for the scaling ---------- //*/}
-                  {isScalable && (
+                  {(isScalable && isCloseAble) && (
                     <ScalingSection
                       touchMove={(e) => {
                         moveModalHandler(e);
@@ -128,4 +128,5 @@ export default function SwipeUpModal(props: ISwipeUpModal) {
 const defaultProps: ISwipeUpModal = {
   isCloseAble: true,
   isScalable: true,
+  isOpen: true,
 };

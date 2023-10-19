@@ -1,48 +1,30 @@
 import { create } from 'zustand';
 
-
-import IModalHeadLine from '../../Molecules/FancyModalHeadLine/FancyModalHeadLine.model';
-import IModalBottomLine from '../../Molecules/ModalBottomLine/ModalBottomLine.model';
-
 import { ModalStatus } from '../../Interface/ModalStatus';
+import { TUiColorsType } from '../../Design/color/designColor';
+import { TLayer } from '../../Design/color/generateColorSteps';
 
-type ModalContent = {
-  headline?: IModalHeadLine;
-  content?: React.ReactNode;
-  bottomLine?: IModalBottomLine;
+type TModalConfig = {
+  isCloseable?: boolean;
+  themeType?: keyof TUiColorsType;
+  layer?: TLayer;
 };
 
 type IModal = {
   id: string;
-  content: ModalContent;
+  children: React.ReactNode;
   status: ModalStatus;
+  config?: TModalConfig;
 };
 
-//   openModal(
-//     {
-//       headline: { title: 'test', subTitle: 'test' },
-//       content: <div>hi</div>,
-//       bottomLine: {
-//         buttons: [
-//           {
-//             title: 'submit me',
-//             onClick: () => {
-//               closeModal('test111');
-//             },
-//             secondaryButton: false,
-//           },
-//         ],
-//       },
-//     },
-//     'test111'   // this is the id
-//   );
+//   openModal(id, <div>hi</div>, {})
 
 // --------------------------------------------------------------------------- //
 // --------------------- The state for the ModalModuel ----------------------- //
 // --------------------------------------------------------------------------- //
 interface IModalModule {
   modals: IModal[];
-  openModal: (content: ModalContent, id?: string) => void;
+  openModal: (id: string, content: React.ReactNode, config: TModalConfig) => void;
   removeModal: (id: string) => void;
   closeModal: (id: string) => void;
 }
@@ -50,9 +32,9 @@ export const useFancyModalStore = create<IModalModule>((set) => ({
   // the state array for the modals
   modals: [],
   // add a new modal to the state array
-  openModal: (content, id = Math.random().toFixed(4).toString()) =>
+  openModal: (id, children, config) =>
     set((state) => ({
-      modals: [...state.modals, { id, content, status: 'open'}],
+      modals: [...state.modals, { id, children, status: 'open', config}],
     })),
   // change the status of the modal to closing
   closeModal: (id) =>
