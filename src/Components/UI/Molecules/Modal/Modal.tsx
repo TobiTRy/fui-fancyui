@@ -2,7 +2,6 @@ import React, { ReactNode, useEffect, useState } from 'react';
 
 import SimpleDialog from '../../Atoms/SimpleDialog/SimpleDialog';
 import BackDrop from '../../Atoms/BackDrop/BackDrop';
-import { ModalStatus } from '../../Interface/ModalStatus';
 import { TUiColorsType } from '../../Design/color/designColor';
 import { TLayer } from '../../Design/color/generateColorSteps';
 
@@ -12,37 +11,35 @@ import { TLayer } from '../../Design/color/generateColorSteps';
 interface IModal {
   id?: string;
   children?: ReactNode;
-  status: ModalStatus;
+  isOpen: boolean;
   closeModal?: (id: string) => void;
+  isCloseable?: boolean;
   themeType?: keyof TUiColorsType;
   layer?: TLayer;
 }
-export default function Modal({ children, closeModal, id, status, themeType, layer }: IModal) {
-  const [isOpen, setOpen] = useState(false);
+export default function Modal(props: IModal) {
+  const { id, children, isOpen, closeModal, isCloseable, themeType, layer } = props;
+  const [modalVisible, setModalVisible] = useState(false);
 
+  // close the modal when the user clicks on the backdrop
   const closeModalHanlder = () => {
-    setOpen(false);
+    if (isCloseable === false) return;
     //if a components needs controle from outside
     if (closeModal && id) closeModal(id);
+    setModalVisible(false);
   };
 
   useEffect(() => {
-    switch (status) {
-      case 'open':
-        setOpen(true);
-        break;
-      case 'closing':
-        setOpen(false);
-        break;
-    }
-  }, [status]);
+    if (isOpen) setModalVisible(true);
+    else setModalVisible(false);
+  }, [isOpen]);
 
   return (
     <>
-      <SimpleDialog isOpen={isOpen} themeType={themeType} layer={layer}>
+      <SimpleDialog isOpen={modalVisible} themeType={themeType} layer={layer}>
         {children}
       </SimpleDialog>
-      <BackDrop isOpen={isOpen} onClick={closeModalHanlder} />
+      <BackDrop isOpen={modalVisible} onClick={closeModalHanlder} />
     </>
   );
 }
