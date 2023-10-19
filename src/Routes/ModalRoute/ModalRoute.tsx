@@ -10,7 +10,7 @@ export default function ModalRoute() {
   const closeModal = useFancyModalStore((state) => state.closeModal);
 
   const handleModalCreation = () => {
-    createModal('hi', <div>hi</div>, {isCloseable: true});
+    createModal('hi', <div>hi</div>, {isCloseable: true, });
   };
   return (
     <section>
