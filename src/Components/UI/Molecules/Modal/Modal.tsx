@@ -8,7 +8,7 @@ import { TLayer } from '../../Design/color/generateColorSteps';
 // --------------------------------------------------------------------------- //
 // ------  The main Modal Component to comstomize the Head/Bottomline  ------- //
 // --------------------------------------------------------------------------- //
-interface IModal {
+export interface IModal {
   id?: string;
   children?: ReactNode;
   isOpen: boolean;

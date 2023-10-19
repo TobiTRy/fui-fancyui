@@ -11,7 +11,7 @@ import { ISwipeUpModal } from '../../Molecules/SwipeUpModal/ISwipeUpModal.model'
 
 // Define metadata for the story
 const meta = {
-  title: 'components/ui/Organisms/FancySwipeUpModal',
+  title: 'Components/UI/Organisms/FancySwipeUpModal',
   component: HelperComponent,
   parameters: {
     docs: {
@@ -82,7 +82,6 @@ const meta = {
     },
   },
   // Add tags to the story
-  tags: ['autodocs'],
 } satisfies Meta<typeof HelperComponent>;
 
 // Export the metadata
@@ -111,6 +110,7 @@ function HelperComponent(props: React.ComponentProps<typeof FancySwipeUpModal> &
       }
     );
   };
+
   return (
     <>
       <FancySwipeUpModal appendToDomID="modal" />
@@ -118,6 +118,8 @@ function HelperComponent(props: React.ComponentProps<typeof FancySwipeUpModal> &
     </>
   );
 }
+
+HelperComponent.displayName = 'FancyModal';
 
 // Define the primary story
 export const Primary: Story = {
