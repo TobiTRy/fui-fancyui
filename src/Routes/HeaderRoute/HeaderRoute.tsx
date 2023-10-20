@@ -12,6 +12,7 @@ import FancyMiniProfile from '../../Components/UI/Molecules/FancyMiniProfile/Fan
 import SVGChevronLeft from '../../Components/UI/SVGIcons/SVGChevronLeft';
 import NewHeader from '../../Components/UI/Molecules/NewHeader/NewHeader';
 import styled from 'styled-components';
+import FancyBar from '../../Components/UI/Atoms/FancyBar/FancyBar';
 
 const Logo = () => (
   <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" height="30" version="1.1" viewBox="0 0 96.37 64.15" fill="#ff9800f0">
@@ -55,7 +56,6 @@ const MoreContent = (props: More) => {
 const headerTitele = {
   component: <HeaderTitleWithLogo title="Let´sTryIt" />,
 };
-
 
 const HeaderContentWrapper = styled.div`
   display: flex;
@@ -104,6 +104,9 @@ export default function HeaderRoute() {
         <HeaderContent />
       </NewHeader>
       <FancyHeader rightSlot={Slot2} leftSlot={headerTitele} middeSlot={Slot} />
+      <div style={{marginTop: '40px'}}>
+        <FancyBar>Hii</FancyBar>
+      </div>
     </section>
   );
 }

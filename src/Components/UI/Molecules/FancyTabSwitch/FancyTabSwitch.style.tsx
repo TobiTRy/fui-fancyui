@@ -9,15 +9,15 @@ import { TLayer } from '../../Design/color/generateColorSteps';
 export interface IFancyTabSwitchStyle {
   $transparent?: boolean;
   $wide?: boolean;
-  $outlined?: boolean;
   $outlinedBackgroundStrength?: number;
-  $rounded?: keyof typeof borderRadius;
   $tabSpacing?: keyof typeof spacingPx;
-  theme: TUiColorsType;
-  $themeType?: keyof TUiColorsType;
-  $layer?: TLayer;
-  $padding?: keyof typeof tabSwitchSizes;
   $direction?: 'horizontal' | 'vertical';
+  $rounded?: keyof typeof borderRadius;
+  $padding?: keyof typeof tabSwitchSizes;
+  $outlined?: boolean;
+  theme: TUiColorsType;
+  $layer?: TLayer;
+  $themeType?: keyof TUiColorsType;
 }
 // ----------------------------------------------------------- //
 // ---------- The main UL element for the component ---------- //

@@ -8,17 +8,18 @@ import { CSSProp } from 'styled-components';
 
 export interface IHeader {
   children?: React.ReactNode;
-  height?: string;
   themeType?: keyof TUiColorsType;
   layer?: TLayer;
   outlined?: boolean;
   outlinedBackgroundStrength?: number;
+  height?: string;
   width?: string;
   spacingLeftRight?: string;
   spacingTop?: string;
   rounded?: keyof IBorderRadius;
   externalStyle?: CSSProp;
 }
+
 
 export default function NewHeader(props: IHeader) {
   const {
