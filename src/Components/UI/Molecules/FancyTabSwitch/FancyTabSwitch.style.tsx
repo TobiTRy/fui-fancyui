@@ -10,6 +10,7 @@ export interface IFancyTabSwitchStyle {
   $transparent?: boolean;
   $wide?: boolean;
   $outlined?: boolean;
+  $outlinedBackgroundStrength?: number;
   $rounded?: keyof typeof borderRadius;
   $tabSpacing?: keyof typeof spacingPx;
   theme: TUiColorsType;
@@ -34,8 +35,8 @@ export const ULButtonSwitchList = styled.ul<IFancyTabSwitchStyle & { theme: TUiC
   margin: 0;
 
   // Generate the color design for the tab switch
-  ${({ $themeType, $tabSpacing, theme, $outlined, $padding, $rounded, $layer }) =>
-    generateColorDesign({ $themeType, $tabSpacing, theme, $outlined, $padding, $rounded, $layer })}
+  ${({ $themeType, theme, $outlined, $padding, $rounded, $layer }) =>
+    generateColorDesign({ $themeType, theme, $outlined, $padding, $rounded, $layer })}
 
   // Generate the disabled style for the tab switch
 `;
@@ -51,3 +52,4 @@ export const ItemWrapper = styled.li`
   flex: 1 0;
   list-style: none;
 `;
+

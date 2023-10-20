@@ -24,35 +24,51 @@ const generateTransparentStyle = (props: TGenerateOutlineStyle) => {
 };
 
 // Define the function to generate the outline style for the tab switch
-type TGenerateOutlineStyle = Pick<IFancyTabSwitchStyle, '$outlined' | '$padding' | '$themeType' | '$rounded' | 'theme' | '$layer'>;
+type TGenerateOutlineStyle = Pick<
+  IFancyTabSwitchStyle,
+  '$outlined' | '$padding' | '$themeType' | '$rounded' | 'theme' | '$layer' | '$outlinedBackgroundStrength'
+>;
 const generateOutlineStyle = (props: TGenerateOutlineStyle) => {
-  const { $padding, $themeType, theme, $rounded, $layer = 3 } = props;
+  const { $padding, $themeType, theme, $rounded, $layer = 3, $outlinedBackgroundStrength = 0.5 } = props;
 
-  const backgroundColor = getBackgroundColor({ theme, $themeType: $themeType || 'primary', $layer: $layer || 3 });
+  // if the theme type istransparent, generate the transparent style and return it
   if ($themeType === 'transparent') return generateTransparentStyle({ $padding, $themeType, theme, $rounded });
+  // get theme background color
+  const backgroundColor = getBackgroundColor({ theme, $themeType: $themeType || 'primary', $layer: $layer || 3 });
 
+  // generate the background color with a transparency of the background color
   const generateSlightBackgroundColor = colorTransparencyCalculator(
-    getBackgroundColor({ theme, $themeType: $themeType || 'primary', $layer: Math.max(1, $layer - 3 ) }),
-    0.5
+    getBackgroundColor({ theme, $themeType: $themeType || 'primary', $layer: Math.max(1, $layer - 3) }),
+    $outlinedBackgroundStrength
   );
 
   return css`
     box-sizing: border-box;
     background-color: ${generateSlightBackgroundColor};
     border: 1.5px solid ${backgroundColor};
-    padding: ${$padding ? (parseInt(tabSwitchSizes[$padding].paddingComponent) - 1.5) + 'px' : '0'}; // 1.5px is the border width
+    padding: ${$padding ? parseInt(tabSwitchSizes[$padding].paddingComponent) - 1.5 + 'px' : '0'}; // 1.5px is the border width
   `;
 };
 
-// Define the function to generate the color design for the tab switch
-type TGenerateColorDesign = Pick<IFancyTabSwitchStyle, '$themeType' | 'theme' | '$outlined' | '$padding' | '$rounded' | '$layer'>;
+
+
+// --------------------------------------------------------------------------- //
+// -----------  The Main generator function to create a the square  ---------- //
+// --------------------------------------------------------------------------- //
+type TGenerateColorDesign = Pick<
+  IFancyTabSwitchStyle,
+  '$themeType' | 'theme' | '$outlined' | '$padding' | '$rounded' | '$layer' | '$outlinedBackgroundStrength'
+>;
 export default function generateColorDesign(props: TGenerateColorDesign) {
-  const { $themeType, theme, $outlined, $padding, $rounded, $layer } = props;
-  let outlinedStyle;
+  const { $themeType, theme, $outlined, $padding, $rounded, $layer, $outlinedBackgroundStrength } = props;
+  let outlinedStyle, backgroundColor;
 
-  const backgroundColor = getBackgroundColor({ theme, $themeType: $themeType || 'primary', $layer: $layer || 3 });
-
-  if ($outlined) outlinedStyle = generateOutlineStyle({ $outlined, $padding, $themeType, theme, $rounded, $layer });
+  // generate the outlined style if the outlined prop is true else generate only the background color
+  if ($outlined) {
+    outlinedStyle = generateOutlineStyle({ $outlined, $padding, $themeType, theme, $rounded, $layer, $outlinedBackgroundStrength });
+  } else {
+    backgroundColor = getBackgroundColor({ theme, $themeType: $themeType || 'primary', $layer: $layer || 3 });
+  }
 
   return css`
     padding: ${$padding && $themeType !== 'transparent' ? tabSwitchSizes[$padding].paddingComponent : '0'};
