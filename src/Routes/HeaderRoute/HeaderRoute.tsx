@@ -10,7 +10,6 @@ import FancyLoadingSpinner from '../../Components/UI/Atoms/FancyLoadingSpinner/F
 import FancyMiniProfile from '../../Components/UI/Molecules/FancyMiniProfile/FancyMiniProfile';
 
 import SVGChevronLeft from '../../Components/UI/SVGIcons/SVGChevronLeft';
-import NewHeader from '../../Components/UI/Molecules/NewHeader/NewHeader';
 import styled from 'styled-components';
 import FancyBar from '../../Components/UI/Atoms/FancyBar/FancyBar';
 import { borderRadius } from '../../Components/UI/Design/design';
@@ -93,9 +92,6 @@ export default function HeaderRoute() {
 
   return (
     <section>
-      <NewHeader outlined layer={6} outlinedBackgroundStrength={0.95}>
-        <HeaderContent />
-      </NewHeader>
       <FancyHeader rightSlot={Slot2} leftSlot={headerTitele} middeSlot={Slot} />
       <div style={{ marginTop: '40px' }}>
         <FancyBar outlined layer={6} outlinedBackgroundStrength={0.95} style={{padding: '5px 18px', borderRadius: '22px',  width: '80%'}}>
