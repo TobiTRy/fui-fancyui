@@ -1,4 +1,4 @@
-import { css } from 'styled-components';
+import { styled, css } from 'styled-components';
 
 import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
 import colorTransparencyCalculator from '../../Design/color/colorTransparencyCalculator';
@@ -52,3 +52,13 @@ export default function generateColorDesign(props: TGenerateColorDesign) {
     ${outlinedStyle}
   `;
 }
+
+// the styled-component for the FancyBar
+type IStyledFancyBar = IStyledPrefixAndPicker<IFancyBarProps> & { theme: TUiColorsType };
+export const StyledFancyBar = styled.div<IStyledFancyBar>`
+  box-sizing: border-box;
+  ${({ $themeType, theme, $layer, $outlined, $outlinedBackgroundStrength }) =>
+    generateColorDesign({ $themeType, theme, $outlined, $layer, $outlinedBackgroundStrength })};
+    
+  ${({ $style }) => $style};
+`;

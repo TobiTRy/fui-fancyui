@@ -1,8 +1,7 @@
 import { styled } from 'styled-components';
 import { borderRadius, spacingPx } from '../../Design/design';
 import { TUiColorsType } from '../../Design/color/designColor';
-import { tabSwitchSizes } from './FancyTabSwitch';
-import generateColorDesign from './helperFunctions/generateColorDesign';
+import { tabSwitchSizes } from '../TabSwitch/TabSwitch';
 import { TLayer } from '../../Design/color/generateColorSteps';
 
 // Define the interface for the styled-component

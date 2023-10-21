@@ -1,7 +1,7 @@
 import { css } from 'styled-components';
 
 import { getBackgroundColor } from '../../../Design/color/colorCalculatorForComponet';
-import { tabSwitchSizes } from '../FancyTabSwitch';
+import { tabSwitchSizes } from '../../TabSwitch/TabSwitch';
 import { IFancyTabSwitchStyle } from '../FancyTabSwitch.style';
 import colorTransparencyCalculator from '../../../Design/color/colorTransparencyCalculator';
 import { borderRadius } from '../../../Design/design';
@@ -49,7 +49,6 @@ const generateOutlineStyle = (props: TGenerateOutlineStyle) => {
     padding: ${$padding ? parseInt(tabSwitchSizes[$padding].paddingComponent) - 1.5 + 'px' : '0'}; // 1.5px is the border width
   `;
 };
-
 
 
 // --------------------------------------------------------------------------- //
