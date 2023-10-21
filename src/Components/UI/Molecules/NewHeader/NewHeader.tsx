@@ -1,55 +1,20 @@
 import React from 'react';
 
-import { TUiColorsType } from '../../Design/color/designColor';
-import { StyledNewHeader } from './FancyHeader.style';
-import { IBorderRadius } from '../../Design/design';
-import { TLayer } from '../../Design/color/generateColorSteps';
-import { CSSProp } from 'styled-components';
+import styled, { CSSProp } from 'styled-components';
+import FancyBar from '../../Atoms/FancyBar/FancyBar';
+
+const Wrapper = styled.div``;
 
 export interface IHeader {
   children?: React.ReactNode;
-  themeType?: keyof TUiColorsType;
-  layer?: TLayer;
-  outlined?: boolean;
-  outlinedBackgroundStrength?: number;
-  height?: string;
-  width?: string;
-  spacingLeftRight?: string;
-  spacingTop?: string;
-  rounded?: keyof IBorderRadius;
-  externalStyle?: CSSProp;
+  alignmentStyle?: CSSProp;
+  barStyle?: CSSProp;
 }
 
+type FancyBarProps = React.ComponentProps<typeof FancyBar>;
 
-export default function NewHeader(props: IHeader) {
-  const {
-    children,
-    height,
-    themeType,
-    layer,
-    width,
-    outlined,
-    spacingLeftRight,
-    spacingTop,
-    rounded,
-    outlinedBackgroundStrength,
-    externalStyle,
-  } = props;
+export default function NewHeader(props: IHeader & FancyBarProps) {
+  const { children,  ...FancyBarProps } = props;
 
-  return (
-    <StyledNewHeader
-      $height={height}
-      $themeType={themeType}
-      $layer={layer}
-      $width={width}
-      $outlined={outlined}
-      $spacingLeftRight={spacingLeftRight}
-      $spacingTop={spacingTop}
-      $rounded={rounded}
-      $outlinedBackgroundStrength={outlinedBackgroundStrength}
-      $externalStyle={externalStyle}
-    >
-      {children}
-    </StyledNewHeader>
-  );
+  return <FancyBar {...FancyBarProps}>{children}</FancyBar>;
 }

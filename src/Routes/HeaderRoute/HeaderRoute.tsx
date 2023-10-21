@@ -5,7 +5,7 @@ import FancyDropDownMenue from '../../Components/UI/Organisms/FancyDropDownMenue
 
 import FancySearchBar from '../../Components/UI/Organisms/FancySearchBar/FancySearchBar';
 import FancyLiItem from '../../Components/UI/Atoms/FancyLI/FancyLI';
-import { FancyA, FancySVGAtom } from '../../lib';
+import { FancyA, FancySVGAtom, Typography } from '../../lib';
 import FancyLoadingSpinner from '../../Components/UI/Atoms/FancyLoadingSpinner/FancyLoadingSpinner';
 import FancyMiniProfile from '../../Components/UI/Molecules/FancyMiniProfile/FancyMiniProfile';
 
@@ -13,6 +13,7 @@ import SVGChevronLeft from '../../Components/UI/SVGIcons/SVGChevronLeft';
 import NewHeader from '../../Components/UI/Molecules/NewHeader/NewHeader';
 import styled from 'styled-components';
 import FancyBar from '../../Components/UI/Atoms/FancyBar/FancyBar';
+import { borderRadius } from '../../Components/UI/Design/design';
 
 const Logo = () => (
   <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" height="30" version="1.1" viewBox="0 0 96.37 64.15" fill="#ff9800f0">
@@ -71,7 +72,7 @@ const HeaderContent = () => {
       <FancySearchBar searchListWidth="80vw" layer={1}>
         <FancyLoadingSpinner size="lg" />
       </FancySearchBar>
-      <div style={{ display: 'flex', alignItems: 'center' }}>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent:  'flex-end' ,width: '100%' }}>
         <FancyMiniProfile
           alignText="left"
           headingText="@TobiTRy"
@@ -92,20 +93,19 @@ export default function HeaderRoute() {
 
   return (
     <section>
-      <NewHeader
-        outlined
-        rounded="xxl"
-        width="80%"
-        spacingTop="20px"
-        layer={6}
-        outlinedBackgroundStrength={0.95}
-        externalStyle={{ filter: 'drop-shadow(0 0 0 #fff)' }}
-      >
+      <NewHeader outlined layer={6} outlinedBackgroundStrength={0.95}>
         <HeaderContent />
       </NewHeader>
       <FancyHeader rightSlot={Slot2} leftSlot={headerTitele} middeSlot={Slot} />
-      <div style={{marginTop: '40px'}}>
-        <FancyBar>Hii</FancyBar>
+      <div style={{ marginTop: '40px' }}>
+        <FancyBar outlined layer={6} outlinedBackgroundStrength={0.95} style={{padding: '5px 18px', borderRadius: '22px',  width: '80%'}}>
+          <HeaderContent />
+        </FancyBar>
+      </div>
+      <div style={{ marginTop: '40px' }}>
+        <FancyBar style={{ borderRadius: borderRadius.lg, top: 0, width: '80%' }}>
+          <Typography type="h1">FancyBar</Typography>
+        </FancyBar>
       </div>
     </section>
   );

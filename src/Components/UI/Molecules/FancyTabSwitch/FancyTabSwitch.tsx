@@ -6,6 +6,8 @@ import { borderRadius, spacingPx } from '../../Design/design';
 import { ItemWrapper, ULButtonSwitchList } from './FancyTabSwitch.style';
 import IFancyTab from './IFancyTab.model';
 import Fieldset from '../../Atoms/Fieldset/Fieldset';
+import FancyBar from '../../Atoms/FancyBar/FancyBar';
+import { css } from 'styled-components';
 
 // Define the different sizes for the tab switch
 export const tabSwitchSizes = {
@@ -58,54 +60,67 @@ export default function FancyTabSwitch(props: IFancyTab) {
   /* Generate the unordered list for the tab switch */
   return (
     <Fieldset label={label} $disabled={disabled}>
-      <ULButtonSwitchList
-        $tabSpacing={tabSpacing}
-        $rounded={rounded}
-        $themeType={themeType}
-        $wide={wide}
-        $padding={size}
-        $outlined={outlined}
-        $direction={direction}
-        role="radiogroup"
-        $layer={layer}
-        id={id}
+      <FancyBar
+        {...styleProps}
+        layer={layer}
+        style={css`
+          padding: ${outlined
+            ? parseInt(tabSwitchSizes[size || 'sm'].paddingComponent) - 1.5 + 'px'
+            : size
+            ? tabSwitchSizes[size].paddingComponent
+            : '0'};
+          border-radius: ${rounded && borderRadius[rounded]};
+          background-color: ${themeType === 'transparent' && 'transparent'};
+        `}
       >
-        {/* Generate a list item for each switch value */}
-        {values.map((item, i) => (
-          <ItemWrapper key={item.key}>
-            {/* Generate the button for the switch item */}
-            <FancyTabSwitchButton
-              ref={buttonRefs.current[i]}
-              aria-checked={item.key === currentSelected}
-              disabled={disabled}
-              wide={wide}
-              size={size}
-              themeType={textColor}
-              iconAlign={iconAlign}
-              onClick={() => radioChangeHandler(item.key)}
-              itemObject={item}
-              selected={item.key === currentSelected}
-              tabIndex={item.key === currentSelected ? 0 : -1} // Manage focus
-              onKeyDown={(e) => handleKeyDown(e, item.key)}
-            />
-            {/* Generate the switch active indicator wich is a blob or underline */}
-            {i === 0 && (
-              <SwitchActiveIndicator
-                $outlined={outlined}
-                // the radius of the switch indicator is adjusted for good looks with minus the padding of the switch
-                $rounded={
-                  rounded ? parseInt(borderRadius[rounded]) - parseInt(tabSwitchSizes[size || 'sm'].paddingComponent) + 'px' : undefined
-                }
-                $type={themeType !== 'transparent' ? 'bolb' : 'underline'}
-                $itemNumber={Number(currentSelected)}
-                $themeType={activeColor}
-                $direction={direction}
-                $tabSpacing={tabSpacing}
+        <ULButtonSwitchList
+          $tabSpacing={tabSpacing}
+          $rounded={rounded}
+          $themeType={themeType}
+          $wide={wide}
+          $outlined={outlined}
+          $direction={direction}
+          role="radiogroup"
+          $layer={layer}
+          id={id}
+        >
+          {/* Generate a list item for each switch value */}
+          {values.map((item, i) => (
+            <ItemWrapper key={item.key}>
+              {/* Generate the button for the switch item */}
+              <FancyTabSwitchButton
+                ref={buttonRefs.current[i]}
+                aria-checked={item.key === currentSelected}
+                disabled={disabled}
+                wide={wide}
+                size={size}
+                themeType={textColor}
+                iconAlign={iconAlign}
+                onClick={() => radioChangeHandler(item.key)}
+                itemObject={item}
+                selected={item.key === currentSelected}
+                tabIndex={item.key === currentSelected ? 0 : -1} // Manage focus
+                onKeyDown={(e) => handleKeyDown(e, item.key)}
               />
-            )}
-          </ItemWrapper>
-        ))}
-      </ULButtonSwitchList>
+              {/* Generate the switch active indicator wich is a blob or underline */}
+              {i === 0 && (
+                <SwitchActiveIndicator
+                  $outlined={outlined}
+                  // the radius of the switch indicator is adjusted for good looks with minus the padding of the switch
+                  $rounded={
+                    rounded ? parseInt(borderRadius[rounded]) - parseInt(tabSwitchSizes[size || 'sm'].paddingComponent) + 'px' : undefined
+                  }
+                  $type={themeType !== 'transparent' ? 'bolb' : 'underline'}
+                  $itemNumber={Number(currentSelected)}
+                  $themeType={activeColor}
+                  $direction={direction}
+                  $tabSpacing={tabSpacing}
+                />
+              )}
+            </ItemWrapper>
+          ))}
+        </ULButtonSwitchList>
+      </FancyBar>
     </Fieldset>
   );
 }

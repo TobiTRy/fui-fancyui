@@ -94,7 +94,7 @@ export default function TabSwitchRoute() {
           <FancyTabSwitch
 
             label="test"
-            size="md"
+            size="lg"
             values={switchValues1}
             rounded={'xxxl'}
             currentSelect={test}
@@ -106,6 +106,14 @@ export default function TabSwitchRoute() {
             wide
             outlined
             direction='vertical'
+            values={switchValues}
+            rounded={'xxl'}
+            currentSelect={test}
+            handler={(id: string) => setTest(id)}
+          />
+          <FancyTabSwitch
+            label="test"
+            wide
             values={switchValues}
             rounded={'xxl'}
             currentSelect={test}
