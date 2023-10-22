@@ -3,7 +3,6 @@ import React from 'react';
 import { IFancyBarProps } from './FancyBar.model';
 import { StyledFancyBar } from './FancyBar.style';
 
-
 // --------------------------------------------------------------------------- //
 // ------------  A Bar that can usesd for for the most components ------------ //
 // --------------------------------------------------------------------------- //
