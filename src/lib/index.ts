@@ -1,6 +1,5 @@
 // ---------- Atoms ------- //
 export { default as BackDrop } from '../Components/UI/Atoms/BackDrop/BackDrop';
-export { default as BottomBar } from '../Components/UI/Atoms/BottomBar/BottomBar';
 export { default as ColorDisplay } from '../Components/UI/Atoms/ColorDisplay/ColorDisplay';
 export { default as ColorIndicator } from '../Components/UI/Atoms/ColorIndicator/ColorIndicator';
 export { default as DateNumberAtom } from '../Components/UI/Atoms/DateNumberAtom/DateNumberAtom';
@@ -41,6 +40,8 @@ export { default as FancyProfilePicture } from '../Components/UI/Atoms/FancyProf
 export { default as RawCheckbox } from '../Components/UI/Atoms/RawCheckbox/RawCheckbox';
 export { default as Fieldset } from '../Components/UI/Atoms/Fieldset/Fieldset';
 export { default as AnimatedInputLabel } from '../Components/UI/Atoms/AnimatedLabel/AnimatedInputLabel';
+export { default as FancyBar } from '../Components/UI/Atoms/FancyBar/FancyBar';
+
 
 
 // ---------- Molecules ------- //
@@ -53,7 +54,6 @@ export { default as FancyBottomBarStatic } from '../Components/UI/Molecules/Fanc
 export { default as FancyContentCard } from '../Components/UI/Molecules/FancyContentCard/FancyContentCard';
 export { default as FancyDropDownUL } from '../Components/UI/Molecules/FancyDropDownUL/FancyDropDownUL';
 export { default as FancySpeedDialButton } from '../Components/UI/Molecules/FancySpeedDailButton/FancySpeedDailButton';
-export { default as HeaderSlot } from '../Components/UI/Molecules/HeaderSlot/HeaderSlot';
 export { default as InputWrapper } from '../Components/UI/Molecules/InputWrapper/InputWrapper';
 export { default as Modal } from '../Components/UI/Molecules/Modal/Modal';
 export { default as ModalBottomLine } from '../Components/UI/Molecules/ModalBottomLine/ModalBottomLine';
@@ -64,7 +64,6 @@ export { default as RangeCalendar } from '../Components/UI/Molecules/RangeCalend
 export { default as ScalingSection } from '../Components/UI/Molecules/ScalingSection/ScalingSection';
 export { default as SearchBar } from '../Components/UI/Molecules/SearchBar/SearchBar';
 export { default as SearchBarList } from '../Components/UI/Molecules/SearchBarList/SearchBarList';
-export { default as SimpleHeader } from '../Components/UI/Molecules/SimpleHeader/SimpleHeader';
 export { default as SingleInputs } from '../Components/UI/Molecules/SingleInputs/SingleInputs';
 export { default as SingleToastMessage } from '../Components/UI/Molecules/SingleToastMessage/SingleToastMessage';
 export { default as SwipeUpModal } from '../Components/UI/Molecules/SwipeUpModal/SwipeUpModal';
@@ -94,7 +93,6 @@ export { default as FancyColorPicker } from '../Components/UI/Organisms/FancyCol
 export { default as FancyDatePicker } from '../Components/UI/Organisms/FancyDatePicker/FancyDatePicker';
 export { default as FancyDropDownMenue } from '../Components/UI/Organisms/FancyDropDownMenue/FancyDropDownMenue';
 export { default as FancyDropDownSelect } from '../Components/UI/Organisms/FancyDropDownSelect/FancyDropDownSelect';
-export { default as FancyHeader } from '../Components/UI/Organisms/FancyHeader/FancyHeader';
 export { default as FancyRangeSlider } from '../Components/UI/Organisms/FancyRangeSlider/FancyRangeSlider';
 export { default as FancySearchBar } from '../Components/UI/Organisms/FancySearchBar/FancySearchBar';
 export { default as FancyModal } from '../Components/UI/Organisms/FancyModal/FancyModal';

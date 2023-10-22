@@ -4,7 +4,7 @@ import themeStore from '../../Design/color/themeStore';
 import { spacingPx } from '../../Design/design';
 import { TUiColorsType } from '../../Design/color/designColor';
 import { TLayer } from '../../Design/color/generateColorSteps';
-import { getBackgroundColor, getTextColor } from '../../Design/color/colorCalculatorForComponet';
+import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
 import { TypographyList } from '../../Atoms/Typography/Typography';
 
 export const tabSwitchItemSizes = {

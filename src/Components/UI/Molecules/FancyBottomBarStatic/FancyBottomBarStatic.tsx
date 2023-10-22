@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react';
 
-import BottomBar from '../../Atoms/BottomBar/BottomBar';
 import { FancyBottomBarIcon } from '../../Atoms/FancyBottomBarIcon';
 import { IFancyBottomBarIcon } from '../../Atoms/FancyBottomBarIcon/FancyBottomBarIcon.model';
-import IBottomBar from '../../Atoms/BottomBar/IBottomBar.model';
 
-type TBoottomBarProps = Omit<IBottomBar, 'children'>;
 import useFancyBottomBarStaticStore from './FancyBottomBarStatic.store';
 import { TUiColorsType } from '../../Design/color/designColor';
 import { TLayer } from '../../Design/color/generateColorSteps';
+import { FancyBar } from '../../Atoms/FancyBar';
+import { CSSProp, css } from 'styled-components';
+import { fancyBarStyle } from './FancyBottomBarStatic.style';
 
 // --------------------------------------------------------------------------- //
 // ------------------ The Bottom Bar for the mobile navigation --------------- //
@@ -18,9 +18,10 @@ interface IStaticBottomBar {
   isVisible?: boolean;
   themeType?: keyof TUiColorsType;
   layer?: TLayer;
+  externalStyle?: CSSProp;
 }
-export default function FancyBottomBarStatic(props: IStaticBottomBar & TBoottomBarProps) {
-  const { buttons, isVisible, ...bottomBarProps } = {...defaultProps, ...props};
+export default function FancyBottomBarStatic(props: IStaticBottomBar) {
+  const { buttons, isVisible, externalStyle ,...bottomBarProps } = {...defaultProps, ...props};
   const isVisibleState = useFancyBottomBarStaticStore((state) => state.isVisible);
   const setIsVisible = useFancyBottomBarStaticStore((state) => state.setIsVisible);
   const whichIsActive = useFancyBottomBarStaticStore((state) => state.whichIsActive);
@@ -34,7 +35,8 @@ export default function FancyBottomBarStatic(props: IStaticBottomBar & TBoottomB
   return (
     <>
       {isVisibleState && (
-        <BottomBar {...bottomBarProps}>
+        <FancyBar {...bottomBarProps} style={css`${fancyBarStyle}${externalStyle}`}>
+
           {buttons?.map((button, i) => (
             <FancyBottomBarIcon
               key={i}
@@ -46,7 +48,7 @@ export default function FancyBottomBarStatic(props: IStaticBottomBar & TBoottomB
               }}
             />
           ))}
-        </BottomBar>
+        </FancyBar>
       )}
     </>
   );

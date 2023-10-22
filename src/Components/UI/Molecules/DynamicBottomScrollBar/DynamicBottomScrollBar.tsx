@@ -1,24 +1,20 @@
 import React, { useEffect, useState } from 'react';
 
-// Import necessary components and interfaces
-import BottomBar from '../../Atoms/BottomBar/BottomBar';
 import ScollAbleBar from '../../Atoms/ScrollableBar/ScrollableBar';
 import { FancyBottomBarIcon } from '../../Atoms/FancyBottomBarIcon';
 import { IFancyBottomBarIcon } from '../../Atoms/FancyBottomBarIcon/FancyBottomBarIcon.model';
-import IBottomBar from '../../Atoms/BottomBar/IBottomBar.model';
 
 // Define types for the component
-type TBottomBarProps = Omit<IBottomBar, 'children'>;
 type TDynamicScrollBarProps = {
   scrollable?: boolean;
   buttons?: IFancyBottomBarIcon[];
 };
-type IBottomScrollbar = TBottomBarProps & TDynamicScrollBarProps;
+type IBottomScrollbar =  TDynamicScrollBarProps;
 
 // Define the component
 export default function DynamicBottomScrollBar(props: IBottomScrollbar) {
   // Destructure props
-  const { buttons, scrollable, ...bottomBarProps } = props;
+  const { buttons, scrollable  } = props;
   // Set state for active button
   const [activeButton, setActiveButton] = useState('');
 
@@ -33,7 +29,7 @@ export default function DynamicBottomScrollBar(props: IBottomScrollbar) {
 
   // Render the component
   return (
-    <BottomBar {...bottomBarProps}>
+    <>
       {scrollable && activateScrollbar ? (
         <ScollAbleBar>
           {buttons?.map((item, i) => (
@@ -61,6 +57,6 @@ export default function DynamicBottomScrollBar(props: IBottomScrollbar) {
           />
         ))
       )}
-    </BottomBar>
+    </>
   );
 }

@@ -53,10 +53,10 @@ const generateUnderline = ({ theme, $themeType = 'accent', $layer }: IGenerateUn
 
   // Return the styled-component CSS for the active indicator
   return css`
-    top: 0;
+    top: 2px;
     box-sizing: border-box;
     height: 100%;
-    border-bottom: 1px solid ${backgroundColor};
+    border-bottom: 1.5px solid ${backgroundColor};
     border-radius: 0;
   `;
 };

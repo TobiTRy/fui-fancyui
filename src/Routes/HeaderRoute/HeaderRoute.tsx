@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
-import FancyHeader from '../../Components/UI/Organisms/FancyHeader/FancyHeader';
 import HeaderTitleWithLogo from '../../Components/UI/Molecules/HeaderTitleWithLogo/HeaderTitleWithLogo';
 import FancyDropDownMenue from '../../Components/UI/Organisms/FancyDropDownMenue/FancyDropDownMenue';
 
 import FancySearchBar from '../../Components/UI/Organisms/FancySearchBar/FancySearchBar';
 import FancyLiItem from '../../Components/UI/Atoms/FancyLI/FancyLI';
-import { FancyA, FancySVGAtom } from '../../lib';
+import { FancyA, FancySVGAtom, Typography } from '../../lib';
 import FancyLoadingSpinner from '../../Components/UI/Atoms/FancyLoadingSpinner/FancyLoadingSpinner';
 import FancyMiniProfile from '../../Components/UI/Molecules/FancyMiniProfile/FancyMiniProfile';
 
 import SVGChevronLeft from '../../Components/UI/SVGIcons/SVGChevronLeft';
+import styled from 'styled-components';
+import FancyBar from '../../Components/UI/Atoms/FancyBar/FancyBar';
+import { borderRadius } from '../../Components/UI/Design/design';
 
 const Logo = () => (
   <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" height="30" version="1.1" viewBox="0 0 96.37 64.15" fill="#ff9800f0">
@@ -54,56 +56,51 @@ const headerTitele = {
   component: <HeaderTitleWithLogo title="Let´sTryIt" />,
 };
 
+const HeaderContentWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+`;
+
+const HeaderContent = () => {
+  return (
+    <HeaderContentWrapper>
+      <HeaderTitleWithLogo title="Let´sTryIt" />
+      <FancySearchBar searchListWidth="80vw" layer={1}>
+        <FancyLoadingSpinner size="lg" />
+      </FancySearchBar>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent:  'flex-end' ,width: '100%' }}>
+        <FancyMiniProfile
+          alignText="left"
+          headingText="@TobiTRy"
+          imageURL="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
+        />
+      </div>
+    </HeaderContentWrapper>
+  );
+};
+
 export default function HeaderRoute() {
   const [isOpen, setIsOpen] = useState(false);
 
   const Slot2 = {
-    toOpenComponent: (
-      <FancyDropDownMenue isOpen={isOpen} alignHorizontal="right" alignVertical="top" width="auto">
-        <FancyLiItem size="lg">
-          <FancyA
-            wide={true}
-            align="left"
-            icon={<FancySVGAtom>{SVGChevronLeft}</FancySVGAtom>}
-            themeType="transparent"
-            hoverColor="primary"
-            label="test"
-            size="sm"
-          />
-        </FancyLiItem>
-        <FancyLiItem size="lg">
-          <FancyA
-            wide={true}
-            align="left"
-            icon={SVGChevronLeft}
-            themeType="transparent"
-            hoverColor="primary"
-            label="testsasadefsddfdfsdsf "
-            size="sm"
-          />
-        </FancyLiItem>
-        <FancyLiItem size="lg">
-          <FancyA
-            wide={true}
-            align="left"
-            icon={<FancySVGAtom>{SVGChevronLeft}</FancySVGAtom>}
-            themeType="transparent"
-            hoverColor="primary"
-            label="test"
-            size="sm"
-          />
-        </FancyLiItem>
-      </FancyDropDownMenue>
-    ),
     component: <RightSlot onClick={() => setIsOpen(!isOpen)} />,
     scale: 1,
   };
 
   return (
-    <>
-      <section>
-        <FancyHeader rightSlot={Slot2} leftSlot={headerTitele} middeSlot={Slot} />
-      </section>
-    </>
+    <section>
+      <div style={{ marginTop: '40px' }}>
+        <FancyBar outlined layer={6} outlinedBackgroundStrength={0.95} style={{padding: '5px 18px', borderRadius: '22px',  width: '80%'}}>
+          <HeaderContent />
+        </FancyBar>
+      </div>
+      <div style={{ marginTop: '40px' }}>
+        <FancyBar style={{ borderRadius: borderRadius.lg, top: 0, width: '80%' }}>
+          <Typography type="h1">FancyBar</Typography>
+        </FancyBar>
+      </div>
+    </section>
   );
 }

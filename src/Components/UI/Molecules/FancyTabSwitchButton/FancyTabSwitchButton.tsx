@@ -3,26 +3,18 @@ import { css } from 'styled-components';
 
 import { SwitchButtonStyle } from './FancyTabSwitchButton.style';
 import Typography from '../../Atoms/Typography/Typography';
-import { TUiColorsType } from '../../Design/color/designColor';
 import { tabSwitchItemSizes } from './FancyTabSwitchButton.style';
 import { FancySVGAtom } from '../../Atoms/FancySVGAtom';
+import { ITabSwitchButtonProps } from './FancyTabSwitchButton.model';
 
 // ------------------------------------------------------------------ //
 // ------------- main component for the tab (li item) --------------- //
 // ------------------------------------------------------------------ //
-interface ITabSwitchButton {
-  disabled?: boolean;
-  itemObject: { key: string; label?: string; icon?: JSX.Element };
-  selected: boolean;
-  onClick: (key: string) => void;
-  wide?: boolean;
-  themeType?: keyof TUiColorsType;
-  iconAlign?: 'left' | 'right';
-  size?: keyof typeof tabSwitchItemSizes;
-}
-type IFancyTabSwitchButton = ITabSwitchButton & HTMLAttributes<HTMLDivElement>;
+type IFancyTabSwitchButton = ITabSwitchButtonProps & HTMLAttributes<HTMLDivElement>;
 const FancyTabSwitchButton = React.forwardRef<HTMLDivElement, IFancyTabSwitchButton>((props, ref) => {
-  const { disabled, itemObject, selected, onClick, wide, themeType, iconAlign, size, ...HTMLProps } = props;
+  const { disabled, selected, onClick, wide, themeType, iconAlign, size, key, label, icon, children, ...HTMLProps } = props;
+  
+
   const id = useId();
 
   return (
@@ -33,21 +25,21 @@ const FancyTabSwitchButton = React.forwardRef<HTMLDivElement, IFancyTabSwitchBut
       $wide={wide}
       $themeType={themeType}
       $iconAlign={iconAlign}
-      $hasIcon={Boolean(itemObject.icon)}
-      $hasLabel={Boolean(itemObject.label)}
+      $hasIcon={Boolean(icon)}
+      $hasLabel={Boolean(label)}
       {...HTMLProps}
     >
       <input
-        id={id + '_' + itemObject.key}
+        id={id + '_' + key}
         disabled={disabled}
         name={'FancyButtonSwitcher' + id}
         type="radio"
         checked={selected}
         aria-hidden="true"
-        onChange={() => onClick(itemObject.key)}
+        onChange={() => onClick(key)}
       />
-      <Typography htmlFor={id + '_' + itemObject.key} type="label">
-        {itemObject.icon && (
+      <Typography htmlFor={id + '_' + key} type="label">
+        {icon && (
           <FancySVGAtom
             size={size || 'sm'}
             themeType={themeType || 'secondary'}
@@ -56,10 +48,10 @@ const FancyTabSwitchButton = React.forwardRef<HTMLDivElement, IFancyTabSwitchBut
               flex-shrink: 0;
             `}
           >
-            {itemObject.icon}
+            {icon}
           </FancySVGAtom>
         )}
-        {itemObject.label && (
+        {label && (
           <Typography
             type="inlineElement"
             weight="bold"
@@ -69,9 +61,10 @@ const FancyTabSwitchButton = React.forwardRef<HTMLDivElement, IFancyTabSwitchBut
               word-break: break-word;
             `}
           >
-            {itemObject.label}
+            {label}
           </Typography>
         )}
+        { children }
       </Typography>
     </SwitchButtonStyle>
   );
