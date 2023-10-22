@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import FancyHeader from '../../Components/UI/Organisms/FancyHeader/FancyHeader';
 import HeaderTitleWithLogo from '../../Components/UI/Molecules/HeaderTitleWithLogo/HeaderTitleWithLogo';
 import FancyDropDownMenue from '../../Components/UI/Organisms/FancyDropDownMenue/FancyDropDownMenue';
 
@@ -92,7 +91,6 @@ export default function HeaderRoute() {
 
   return (
     <section>
-      <FancyHeader rightSlot={Slot2} leftSlot={headerTitele} middeSlot={Slot} />
       <div style={{ marginTop: '40px' }}>
         <FancyBar outlined layer={6} outlinedBackgroundStrength={0.95} style={{padding: '5px 18px', borderRadius: '22px',  width: '80%'}}>
           <HeaderContent />
