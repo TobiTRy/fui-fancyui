@@ -86,18 +86,18 @@ export default function TabSwitch(props: ITabSwitchProps) {
         <ItemWrapper key={item.key}>
           {/* Generate the button for the switch item */}
           <FancyTabSwitchButton
-            ref={buttonRefs.current[i]}
-            aria-checked={item.key === currentSelected}
             disabled={disabled}
             wide={wide}
             size={size}
             themeType={textColor}
             iconAlign={iconAlign}
-            onClick={() => radioChangeHandler(item.key)}
-            itemObject={item}
+            {...item}
+            ref={buttonRefs.current[i]}
             selected={item.key === currentSelected}
-            tabIndex={item.key === currentSelected ? 0 : -1} // Manage focus
+            aria-checked={item.key === currentSelected}
+            onClick={() => radioChangeHandler(item.key)}
             onKeyDown={(e) => handleKeyDown(e, item.key)}
+            tabIndex={item.key === currentSelected ? 0 : -1} // Manage focus
           />
           {/* Generate the switch active indicator wich is a blob or underline */}
           {i === 0 && (

@@ -1,12 +1,7 @@
 import { TUiColorsType } from "../../Design/color/designColor";
 import { TLayer } from "../../Design/color/generateColorSteps";
 import { borderRadius, spacingPx } from "../../Design/design";
-
-export interface IinputValues {
-  key: string;
-  label?: string;
-  icon?: JSX.Element;
-}
+import {ITabSwitchDetailsLabelIcon , ITabSwitchDetailsChildren } from "../FancyTabSwitchButton/FancyTabSwitchButton.model";
 
 export interface ITabSwitchProps {
   wide?: boolean;
@@ -16,7 +11,7 @@ export interface ITabSwitchProps {
   layer?: TLayer;
   disabled?: boolean;
   tabSpacing?: keyof typeof spacingPx;
-  values: IinputValues[];
+  values: ITabSwitchDetailsChildren[] & ITabSwitchDetailsLabelIcon[];
   rounded?: keyof typeof borderRadius;
   direction?: 'horizontal' | 'vertical';
   outlined?: boolean;
