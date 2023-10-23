@@ -6,6 +6,7 @@ import generateThemeItem, { IGenerateThemeItem } from '../../HelperFunctions/des
 import FancySVGAtom from '../../Atoms/FancySVGAtom/FancySVGAtom';
 import Typography from '../../Atoms/Typography/Typography';
 import LoadingSVGArrows from '../../Atoms/LoadingSVGArrows/LoadingSVGArrows';
+import FancyContent from '../FancyContent/FancyContent';
 
 //this creates the button component and handles the style via generateButton
 const Button = styled.button<IGenerateThemeItem>`
@@ -35,6 +36,8 @@ export default function FancyButton(props: IFancyButtonProps) {
     ...props,
   };
 
+  const showIcon = icon && !isLoading;
+
   return (
     <Button
       $size={size!}
@@ -52,22 +55,15 @@ export default function FancyButton(props: IFancyButtonProps) {
       type="button"
       {...htmlButtonProps}
     >
-      <LoadingSVGArrows isLoading={isLoading} size={size} />
-
-      {icon && !isLoading && (
+      {/* {icon && !isLoading && (
         <FancySVGAtom size={iconSize || size} isPassive externalStyle={{ flexShrink: '0' }}>
           {icon}
         </FancySVGAtom>
-      )}
+      )} */}
 
-      {/* This is needed to hold the button the same size when its loading*/}
-      {isLoading && label && (
-        <Typography style={{ visibility: 'hidden', width: 0 }} type="button">
-          {'.'}
-        </Typography>
-      )}
-
-      {label && <Typography type="button">{label}</Typography>}
+      <FancyContent text={label} icon={showIcon ? icon : isLoading ? <LoadingSVGArrows isLoading={isLoading} size={size} /> : null} />
+      
+      {/* {label && <Typography type="button">{label}</Typography>} */}
     </Button>
   );
 }

@@ -36,7 +36,6 @@ export default function FancyBottomBarStatic(props: IStaticBottomBar) {
     <>
       {isVisibleState && (
         <FancyBar {...bottomBarProps} style={css`${fancyBarStyle}${externalStyle}`}>
-
           {buttons?.map((button, i) => (
             <FancyBottomBarIcon
               key={i}
