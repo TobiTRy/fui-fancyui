@@ -5,13 +5,13 @@ import { tabSwitchItemSizes } from "./FancyTabSwitchButton.style";
 
 
 export interface ITabSwitchDetailsLabelIcon {
-  key: string;
+  itemKey: string;
   label?: string;
   icon?: JSX.Element;
 }
 
 export interface ITabSwitchDetailsChildren {
-  key: string;
+  itemKey: string;
   children?: React.ReactNode;
 }
 

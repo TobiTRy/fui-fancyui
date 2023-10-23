@@ -34,8 +34,11 @@ export const ULButtonSwitchList = styled.ul<IFancyTabSwitchStyle & { theme: TUiC
   align-items: center;
   margin: 0;
   padding: 0;
+  & > * {
+    /* Selects all direct children of the parent */
+    min-width: 0; 
+  }
 
-  // Generate the disabled style for the tab switch
 `;
 
 // ----------------------------------- //
@@ -46,6 +49,5 @@ export const ItemWrapper = styled.li`
   position: relative;
   height: 100%;
   width: 100%;
-  flex: 1 0;
   list-style: none;
 `;

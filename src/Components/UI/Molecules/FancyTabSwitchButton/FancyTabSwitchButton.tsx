@@ -6,14 +6,15 @@ import Typography from '../../Atoms/Typography/Typography';
 import { tabSwitchItemSizes } from './FancyTabSwitchButton.style';
 import { FancySVGAtom } from '../../Atoms/FancySVGAtom';
 import { ITabSwitchButtonProps } from './FancyTabSwitchButton.model';
+import FancyContent from '../FancyContent/FancyContent';
 
 // ------------------------------------------------------------------ //
 // ------------- main component for the tab (li item) --------------- //
 // ------------------------------------------------------------------ //
 type IFancyTabSwitchButton = ITabSwitchButtonProps & HTMLAttributes<HTMLDivElement>;
 const FancyTabSwitchButton = React.forwardRef<HTMLDivElement, IFancyTabSwitchButton>((props, ref) => {
-  const { disabled, selected, onClick, wide, themeType, iconAlign, size, key, label, icon, children, ...HTMLProps } = props;
-  
+  const { disabled, selected,onClick, wide, themeType, iconAlign, size, itemKey, label, icon, children, ...HTMLProps } = props;
+  console.log(props, itemKey)
 
   const id = useId();
 
@@ -30,16 +31,16 @@ const FancyTabSwitchButton = React.forwardRef<HTMLDivElement, IFancyTabSwitchBut
       {...HTMLProps}
     >
       <input
-        id={id + '_' + key}
+        id={id + '_' + itemKey}
         disabled={disabled}
         name={'FancyButtonSwitcher' + id}
         type="radio"
         checked={selected}
         aria-hidden="true"
-        onChange={() => onClick(key)}
+        onChange={() => onClick(itemKey)}
       />
-      <Typography htmlFor={id + '_' + key} type="label">
-        {icon && (
+      <Typography htmlFor={id + '_' + itemKey} type="label" style={{zIndex: 1}}>
+        {/* {icon && (
           <FancySVGAtom
             size={size || 'sm'}
             themeType={themeType || 'secondary'}
@@ -63,7 +64,8 @@ const FancyTabSwitchButton = React.forwardRef<HTMLDivElement, IFancyTabSwitchBut
           >
             {label}
           </Typography>
-        )}
+        )} */}
+        <FancyContent text={label} icon={icon} />
         { children }
       </Typography>
     </SwitchButtonStyle>

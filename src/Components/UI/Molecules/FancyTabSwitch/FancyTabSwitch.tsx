@@ -16,6 +16,7 @@ export default function FancyTabSwitch(props: ITabSwitchProps & { label?: string
     <Fieldset label={label} $disabled={disabled}>
       <FancyBar
         {...tabSwitchProps}
+        outlined={outlined}
         layer={layer}
         style={css`
           padding: ${outlined
@@ -27,7 +28,7 @@ export default function FancyTabSwitch(props: ITabSwitchProps & { label?: string
           background-color: ${themeType === 'transparent' && 'transparent'};
         `}
       >
-        <TabSwitch values={values} outlined={outlined} rounded={rounded} themeType={themeType} {...tabSwitchProps} />
+        <TabSwitch layer={layer} values={values} outlined={outlined} rounded={rounded} themeType={themeType} {...tabSwitchProps} />
       </FancyBar>
     </Fieldset>
   );
