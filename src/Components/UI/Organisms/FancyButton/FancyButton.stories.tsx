@@ -95,7 +95,6 @@ export const Primary: Story = {
     borderRadius: 'md',
     isLoading: false,
     wide: false,
-    iconSize: 'sm',
   },
 };
 
@@ -112,11 +111,10 @@ export const Outlined: Story = {
     borderRadius: 'md',
     isLoading: false,
     wide: false,
-    iconSize: 'sm',
   },
 };
 
-export const onetoone: Story = {
+export const oneToOne: Story = {
   render: (args) => <FancyButton {...args} />,
   args: {
     icon: SVGChevronLeft,
@@ -128,6 +126,5 @@ export const onetoone: Story = {
     borderRadius: 'md',
     isLoading: false,
     wide: false,
-    iconSize: 'sm',
   },
 };
