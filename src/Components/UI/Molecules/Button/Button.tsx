@@ -1,10 +1,12 @@
 import React from 'react';
+import { styled } from 'styled-components';
 
 import { borderRadius } from '../../Design/design';
 import { TUiColorsType } from '../../Design/color/designColor';
 import { TLayer } from '../../Design/color/generateColorSteps';
-import generateThemeItem, { IGenerateThemeItem } from '../../HelperFunctions/designFunctions/generateItemTheme/generateThemeItem';
-import { styled } from 'styled-components';
+import { IGenerateThemeItem } from '../../HelperFunctions/designFunctions/generateItemTheme/IGenerateThemeItemProps.model';
+import generateOnlyColorDesign, { IGenerateColorDesignProps } from '../FancyTabSwitch/utils/generateOnlyColorDesign';
+import IStyledPrefixAndPicker from '../../Interface/IStyledPrefixAndPicker.model';
 
 export interface IButtonProps {
   size?: 'sm' | 'md' | 'lg';
@@ -19,15 +21,15 @@ export interface IButtonProps {
   children?: React.ReactNode;
 }
 
-const StyledButton = styled.button<IGenerateThemeItem>`
-  ${(props: IGenerateThemeItem) => generateThemeItem(props)}
+const StyledButton = styled.button<IGenerateColorDesignProps & IStyledPrefixAndPicker<IButtonProps>>`
+  ${(props: IGenerateColorDesignProps) => generateOnlyColorDesign(props)}
 `;
 
 export default function Button(props: IButtonProps) {
-  const { children, size, wide, borderRadius, align, themeType, layer, textColor, hoverColor, outlined } = props;
+  const { children, size, wide, borderRadius, align, themeType, layer, textColor, hoverColor, outlined } = { ...defaultProps, ...props };
   return (
     <StyledButton
-      $size={size!}
+      $size={size}
       $wide={wide}
       $borderRadius={borderRadius}
       $align={align}
@@ -41,3 +43,9 @@ export default function Button(props: IButtonProps) {
     </StyledButton>
   );
 }
+
+const defaultProps: IButtonProps = {
+  themeType: 'accent',
+  size: 'md',
+  layer: 0,
+};

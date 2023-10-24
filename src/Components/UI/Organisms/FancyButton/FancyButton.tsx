@@ -2,9 +2,10 @@ import React from 'react';
 import { styled } from 'styled-components';
 import { IFancyButtonProps } from './IFancyButton.model';
 
-import generateThemeItem, { IGenerateThemeItem } from '../../HelperFunctions/designFunctions/generateItemTheme/generateThemeItem';
 import LoadingSVGArrows from '../../Atoms/LoadingSVGArrows/LoadingSVGArrows';
 import FancyContent from '../../Molecules/FancyContent/FancyContent';
+import { IGenerateThemeItem } from '../../HelperFunctions/designFunctions/generateItemTheme/IGenerateThemeItemProps.model';
+import generateThemeItem from '../../HelperFunctions/designFunctions/generateItemTheme/generateThemeItem';
 
 //this creates the button component and handles the style via generateButton
 const Button = styled.button<IGenerateThemeItem>`

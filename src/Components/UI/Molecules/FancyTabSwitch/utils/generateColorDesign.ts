@@ -10,7 +10,7 @@ const generateTransparentStyle = (props: TGenerateOutlineStyle) => {
   const { $padding, theme, $rounded } = props;
 
   const getPaddings = $padding ? parseInt(tabSwitchSizes[$padding].paddingComponent) : 0;
-  const calcPadding = Math.max(0, getPaddings - 1.5) + 'px ' + (getPaddings + parseInt(borderRadius[$rounded || 'sm'])) + 'px';
+  const calcPadding = Math.max(0, getPaddings - 1.5) + 'px ' + (getPaddings + parseInt(borderRadius[$rounded ?? 'sm'])) + 'px';
 
   return css`
     overflow: hidden;
@@ -34,11 +34,11 @@ const generateOutlineStyle = (props: TGenerateOutlineStyle) => {
   // if the theme type istransparent, generate the transparent style and return it
   if ($themeType === 'transparent') return generateTransparentStyle({ $padding, $themeType, theme, $rounded });
   // get theme background color
-  const backgroundColor = getBackgroundColor({ theme, $themeType: $themeType || 'primary', $layer: $layer || 3 });
+  const backgroundColor = getBackgroundColor({ theme, $themeType: $themeType ?? 'primary', $layer: $layer ?? 3 });
 
   // generate the background color with a transparency of the background color
   const generateSlightBackgroundColor = colorTransparencyCalculator(
-    getBackgroundColor({ theme, $themeType: $themeType || 'primary', $layer: Math.max(1, $layer - 3) }),
+    getBackgroundColor({ theme, $themeType: $themeType ?? 'primary', $layer: Math.max(1, $layer - 3) }),
     $outlinedBackgroundStrength
   );
 
@@ -66,7 +66,7 @@ export default function generateColorDesign(props: TGenerateColorDesign) {
   if ($outlined) {
     outlinedStyle = generateOutlineStyle({ $outlined, $padding, $themeType, theme, $rounded, $layer, $outlinedBackgroundStrength });
   } else {
-    backgroundColor = getBackgroundColor({ theme, $themeType: $themeType || 'primary', $layer: $layer || 3 });
+    backgroundColor = getBackgroundColor({ theme, $themeType: $themeType ?? 'primary', $layer: $layer ?? 3 });
   }
 
   return css`
