@@ -4,30 +4,12 @@ import Color from 'color';
 import { disabledStyle } from '../disableStyle';
 import { generatePadding } from '../generatePadding';
 import { borderRadius } from '../../../Design/design';
-import IStyledPrefixAndOmiter from '../../../Interface/IStyledPrefixAndOmiter.model';
 import { boxShadow } from '../../../Design/shadows';
 import themeStore from '../../../Design/color/themeStore';
-import { TUiColorsType } from '../../../Design/color/designColor';
-import { TLayer } from '../../../Design/color/generateColorSteps';
 import { getBackgroundColor } from '../../../Design/color/colorCalculatorForComponet';
 import { getOpositColorContrast } from '../getOpositColorContrast';
+import { IGenerateThemeItem } from './IGenerateThemeItemProps.model';
 
-export type IGenerateThemeItemProps = {
-  outlined?: boolean;
-  icon?: JSX.Element;
-  iconAlign?: 'left' | 'right';
-  size: 'sm' | 'md' | 'lg';
-  label?: string;
-  wide?: boolean;
-  borderRadius?: keyof typeof borderRadius;
-  themeType?: keyof TUiColorsType;
-  textColor?: Exclude<keyof TUiColorsType, 'transparent'>;
-  hoverColor?: Exclude<keyof TUiColorsType, 'transparent'>;
-  layer?: TLayer;
-  align?: 'left' | 'right' | 'center';
-};
-
-export type IGenerateThemeItem = IStyledPrefixAndOmiter<IGenerateThemeItemProps>;
 
 // ------------------------------------------------------------------ //
 // ---------- Here are the helper functions for the $themeType --------- //
@@ -40,9 +22,9 @@ const calcTextColor = ({ $textColor, $themeType, $outlined }: IcalcTextColor) =>
   //  if the userer profides a $textColor use this
   if ($textColor) return theme[$textColor][0];
   if ($themeType === 'transparent') return theme.secondary[0];
-  if ($outlined) return theme[$themeType || 'secondary'][0];
+  if ($outlined) return theme[$themeType ?? 'secondary'][0];
 
-  return getOpositColorContrast($themeType || 'secondary');
+  return getOpositColorContrast($themeType ?? 'secondary');
 };
 
 const generateBackgroundColor = (props: Pick<IGenerateThemeItem, '$themeType' | '$layer'>) => {
@@ -52,7 +34,7 @@ const generateBackgroundColor = (props: Pick<IGenerateThemeItem, '$themeType' | 
   if ($themeType === 'transparent') {
     return 'transparent';
   } else {
-    return theme[$themeType || 'primary'][$layer || 0];
+    return theme[$themeType ?? 'primary'][$layer ?? 0];
   }
 };
 
@@ -66,7 +48,7 @@ const generateOutlined = (props: IGenerateOutlinedItem) => {
   const { $themeType, $textColor, $size, $label, $outlined, $layer } = props;
   const theme = themeStore.getState().theme;
 
-  const getButtonColor = getBackgroundColor({ theme, $themeType: $themeType || 'accent', $layer: $layer });
+  const getButtonColor = getBackgroundColor({ theme, $themeType: $themeType ?? 'accent', $layer: $layer });
 
   //reduce the padding with the border $size
   const paddings = generatePadding(-2, Boolean($label));
@@ -107,7 +89,7 @@ const generateNormal = (props: IGenerateNormalitem) => {
   const theme = themeStore.getState().theme;
 
   //reduce the padding with the border $size
-  const paddings = generatePadding(0, $label ? true : false);
+  const paddings = generatePadding(0, true);
 
   //this calculates the texttextColor depend on $themeType and $textColor
   const textColor = calcTextColor({ $textColor, $themeType, $outlined });
@@ -116,7 +98,7 @@ const generateNormal = (props: IGenerateNormalitem) => {
   const hoverBackgroundColorStyle = () => {
     if ($themeType === 'transparent') return 'transparent';
     if ($hoverColor) return theme[$hoverColor][1];
-    return getBackgroundColor({ theme, $themeType: $themeType || 'accent', $layer: ($layer && $layer + 1) || 1 });
+    return getBackgroundColor({ theme, $themeType: $themeType ?? 'accent', $layer: ($layer && $layer + 1) ?? 1 });
   };
 
   const generatedBackgroundColor = generateBackgroundColor({ $themeType, $layer });
@@ -128,8 +110,8 @@ const generateNormal = (props: IGenerateNormalitem) => {
 
     &:hover {
       ${$themeType === 'transparent' ? 'color: ' + theme.secondary[1] : ''};
-      background-color: ${hoverBackgroundColorStyle};
       ${$themeType !== 'transparent' && boxShadow.sm};
+      background-color: ${hoverBackgroundColorStyle};
     }
   `;
 };
@@ -158,12 +140,12 @@ const generateThemeItem = (props: IGenerateThemeItem) => {
   const borderRadius = generateBorderRadius({ $wide, $borderRadius, $size: props.$size });
 
   //this makes the button a square (1/1) if there is no $label and a $icon
-  if (Boolean(!$label) && $icon) {
-    aspectRatio = css`
-      aspect-ratio: 1/1;
-      justify-content: center;
-    `;
-  }
+  // if (Boolean(!$label) && $icon) {
+  //   aspectRatio = css`
+  //     aspect-ratio: 1/1;
+  //     justify-content: center;
+  //   `;
+  // }
 
   return css`
     display: inline-flex;

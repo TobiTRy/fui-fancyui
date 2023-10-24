@@ -14,7 +14,7 @@ const generateOutlineStyle = (props: TGenerateOutlineStyle) => {
   const { $themeType, theme, $layer = 3, $outlinedBackgroundStrength = 0.5 } = props;
 
   // get theme background color
-  const backgroundColor = getBackgroundColor({ theme, $themeType: $themeType || 'primary', $layer: $layer || 3 });
+  const backgroundColor = getBackgroundColor({ theme, $themeType: $themeType ?? 'primary', $layer: $layer ?? 3 });
 
   // generate the background color with a transparency of the background color
   const generateSlightBackgroundColor = colorTransparencyCalculator(
@@ -43,7 +43,7 @@ export default function generateColorDesign(props: TGenerateColorDesign) {
   if ($outlined) {
     outlinedStyle = generateOutlineStyle({ $outlined, $themeType, theme, $layer, $outlinedBackgroundStrength });
   } else {
-    backgroundColor = getBackgroundColor({ theme, $themeType: $themeType || 'primary', $layer: $layer || 3 });
+    backgroundColor = getBackgroundColor({ theme, $themeType: $themeType ?? 'primary', $layer: $layer ?? 3 });
   }
 
   // padding: ${$padding && $themeType !== 'transparent' ? tabSwitchSizes[$padding].paddingComponent : '0'};

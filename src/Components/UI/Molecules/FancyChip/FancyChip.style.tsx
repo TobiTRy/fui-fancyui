@@ -106,7 +106,7 @@ export const StyledChip = styled.div<IStyledChip & { theme: TUiColorsType }>`
   ${({ $outlined, $themeType = 'primary', $textColor = 'secondary', theme, $layer, $textLayer }) =>
     $outlined
       ? css`
-          border: 1px solid ${getBackgroundColor({ theme, $themeType, $layer: $layer || 3 })};
+          border: 1px solid ${getBackgroundColor({ theme, $themeType, $layer: $layer ?? 3 })};
           color: ${generateTextColor({
             theme,
             themeType: $themeType || 'secondary',
@@ -123,7 +123,7 @@ export const StyledChip = styled.div<IStyledChip & { theme: TUiColorsType }>`
             textColor: $textColor,
             textLayer: $textLayer,
           })};
-          background-color: ${getBackgroundColor({ theme, $themeType, $layer: $layer || 3 })};
+          background-color: ${getBackgroundColor({ theme, $themeType, $layer: $layer ?? 3 })};
         `};
   
   ${({ $isActive, theme }) => {
