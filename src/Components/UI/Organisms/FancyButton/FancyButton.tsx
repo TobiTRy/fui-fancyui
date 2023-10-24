@@ -17,7 +17,6 @@ export default function FancyButton(props: IFancyButtonProps) {
     icon,
     label,
     size,
-    iconSize,
     wide,
     themeType,
     align,
@@ -55,8 +54,6 @@ export default function FancyButton(props: IFancyButtonProps) {
     >
 
       <FancyContent text={label} icon={showIcon ? icon : isLoading ? <LoadingSVGArrows isLoading={isLoading} size={size} /> : null} />
-
-      {/* {label && <Typography type="button">{label}</Typography>} */}
     </Button>
   );
 }

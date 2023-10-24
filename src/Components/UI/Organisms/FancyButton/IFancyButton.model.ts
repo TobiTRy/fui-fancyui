@@ -2,7 +2,6 @@ import { ButtonHTMLAttributes } from "react";
 import { borderRadius } from "../../Design/design";
 import { TUiColorsType } from "../../Design/color/designColor";
 import { TLayer } from "../../Design/color/generateColorSteps";
-import { ISizes } from "../../Atoms/FancySVGAtom/FancySVGAtom.model";
 
 type NativeButtonAttributes = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type'>;
 
@@ -17,7 +16,6 @@ type IFancyButton = {
   layer?: TLayer;
   textColor?: Exclude<keyof TUiColorsType, "transparent">;
   hoverColor?: Exclude<keyof TUiColorsType, "transparent">;
-  iconSize?: ISizes;
   label?: string;
   outlined?: boolean;
   icon?: JSX.Element;
