@@ -182,14 +182,14 @@ const generateNormal = (props: IGenerateNormalitem) => {
   `;
 };
 
-const generateBorderRadius = (props: Pick<IGenerateThemeItem, '$wide' | '$borderRadius'>): string => {
-  const { $wide, $borderRadius } = props;
+const generateBorderRadius = (props: Pick<IGenerateThemeItem, '$wide' | '$borderRadius' | '$size'>): string => {
+  const { $wide, $borderRadius, $size } = props;
   if ($borderRadius) {
     return borderRadius[$borderRadius];
   } else if ($wide) {
     return borderRadius.lg;
   } else {
-    return '';
+    return borderRadius[$size];
   }
 };
 
@@ -203,7 +203,7 @@ const generateThemeItem = (props: IGenerateThemeItem) => {
   const itemStyle = $outlined && $themeType !== 'transparent' ? generateOutlined(props) : generateNormal(props);
 
   //this claculates the borderradius depeend on if its a $wide button or not
-  const borderRadius = generateBorderRadius({ $wide, $borderRadius });
+  const borderRadius = generateBorderRadius({ $wide, $borderRadius, $size: props.$size });
 
   //gets the style of a button with a $icon
   if ($icon) iconStyle = generateIcon(props);
