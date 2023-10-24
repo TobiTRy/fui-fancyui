@@ -32,13 +32,14 @@ interface IFancyContentProps {
   text?: string;
   textType?: typeof TypographyList;
   icon?: React.ReactNode;
+  bold?: boolean;
   size?: 'sm' | 'md' | 'lg';
   flexDirection?: 'row' | 'row-reverse' | 'column' | 'column-reverse';
   flexJustify?: 'flex-start' | 'flex-end' | 'center' | 'space-between' | 'space-around' | 'space-evenly';
   flexAlign?: 'flex-start' | 'flex-end' | 'center' | 'stretch' | 'baseline';
 }
 export default function FancyContent(props: IFancyContentProps) {
-  const { text, icon, flexDirection, flexAlign, size } = props;
+  const { text, icon, flexDirection, flexAlign, size, bold } = {...defaultProps, ...props};
 
   return (
     <>
@@ -50,7 +51,7 @@ export default function FancyContent(props: IFancyContentProps) {
             </FancySVGAtom>
           )}
           {text && (
-            <Typography variant={sizes[size || 'sm'].fontSize} weight="bold" type="button">
+            <Typography variant={sizes[size || 'sm'].fontSize} weight={bold ? 'bold' : 'normal'} type="button">
               {text}
             </Typography>
           )}
@@ -59,4 +60,8 @@ export default function FancyContent(props: IFancyContentProps) {
       {(icon && !text) && icon}
     </>
   );
+}
+
+const defaultProps: IFancyContentProps = {
+  bold: true,
 }
