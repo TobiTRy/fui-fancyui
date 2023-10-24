@@ -71,7 +71,7 @@ export default function ExperimentalRoute() {
             </FancySVGAtom>
           </div>
           {/* <FancyPasswordInput label="hii" icon={svg} /> */}
-          <FancyButton themeType="primary" label="hii" onClick={() => updateTheme({ primary: '#f20c0c' })} />
+          {/* <FancyButton themeType="primary" label="hii" onClick={() => updateTheme({ primary: '#f20c0c' })} /> */}
           <SingleToastMessage toast={{
             id: 1,
             title: 'My Title of the titel ',
@@ -84,7 +84,7 @@ export default function ExperimentalRoute() {
         </FancyCard>
 
         <FancyContent flexDirection='row' flexAlign='center' text='HIII MY FANS' icon={Icon}/>
-        <FancyButton label={'Test'} icon={Icon}/>
+        {/* <FancyButton label={'Test'} icon={Icon}/> */}
       </FancyCard>
     </div>
   );
