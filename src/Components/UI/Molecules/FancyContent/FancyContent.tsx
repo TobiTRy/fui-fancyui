@@ -1,9 +1,11 @@
+// Import necessary dependencies
 import React from 'react';
 import Typography, { TypographyList } from '../../Atoms/Typography/Typography';
 import FancySVGAtom from '../../Atoms/FancySVGAtom/FancySVGAtom';
 import styled from 'styled-components';
 import { spacingPx } from '../../Design/design';
 
+// Define the sizes for the FancyContent component
 const sizes = {
   sm: {
     fontSize: 'smText' as keyof typeof TypographyList,
@@ -19,7 +21,10 @@ const sizes = {
   },
 };
 
+// Define the types for the Wrapper component
 type TWrapper = Pick<IFancyContentProps, 'flexDirection' | 'flexAlign' | 'flexJustify'>;
+
+// Define the Wrapper component
 const Wrapper = styled.span<TWrapper>`
   display: flex;
   flex-direction: ${({ flexDirection }) => flexDirection || 'row'};
@@ -28,9 +33,9 @@ const Wrapper = styled.span<TWrapper>`
   gap: ${spacingPx.xs};
 `;
 
+// Define the props for the FancyContent component
 interface IFancyContentProps {
   text?: string;
-  textType?: typeof TypographyList;
   icon?: React.ReactNode;
   bold?: boolean;
   size?: 'sm' | 'md' | 'lg';
@@ -38,9 +43,12 @@ interface IFancyContentProps {
   flexJustify?: 'flex-start' | 'flex-end' | 'center' | 'space-between' | 'space-around' | 'space-evenly';
   flexAlign?: 'flex-start' | 'flex-end' | 'center' | 'stretch' | 'baseline';
 }
-export default function FancyContent(props: IFancyContentProps) {
-  const { text, icon, flexDirection, flexAlign, size, bold } = {...defaultProps, ...props};
 
+// --------------------------------------------------------------------------- //
+// ------- The conent Components handles the Content of The componets -------- //
+// -------------------like for a button or chip etc. ------------------------ //
+export default function FancyContent(props: IFancyContentProps) {
+  const { text, icon, flexDirection, flexAlign, size, bold = true } = props;
   return (
     <>
       {text && (
@@ -60,8 +68,4 @@ export default function FancyContent(props: IFancyContentProps) {
       {(icon && !text) && icon}
     </>
   );
-}
-
-const defaultProps: IFancyContentProps = {
-  bold: true,
 }
