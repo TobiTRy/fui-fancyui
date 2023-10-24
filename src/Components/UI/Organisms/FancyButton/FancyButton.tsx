@@ -2,7 +2,7 @@ import React from 'react';
 import { styled } from 'styled-components';
 import { IFancyButtonProps } from './IFancyButton.model';
 
-import generateThemeItem, { IGenerateThemeItem } from '../../HelperFunctions/designFunctions/generateThemeItem';
+import generateThemeItem, { IGenerateThemeItem } from '../../HelperFunctions/designFunctions/generateItemTheme/generateThemeItem';
 import LoadingSVGArrows from '../../Atoms/LoadingSVGArrows/LoadingSVGArrows';
 import FancyContent from '../../Molecules/FancyContent/FancyContent';
 
@@ -34,6 +34,7 @@ export default function FancyButton(props: IFancyButtonProps) {
   };
 
   const showIcon = icon && !isLoading;
+  const alignIcon = iconAlign === 'left' ? 'row' : 'row-reverse';
 
   return (
     <Button
@@ -48,12 +49,14 @@ export default function FancyButton(props: IFancyButtonProps) {
       $label={label}
       $outlined={outlined}
       $layer={layer}
-      $iconAlign={iconAlign}
       type="button"
       {...htmlButtonProps}
     >
-
-      <FancyContent text={label} icon={showIcon ? icon : isLoading ? <LoadingSVGArrows isLoading={isLoading} size={size} /> : null} />
+      <FancyContent
+        flexDirection={alignIcon}
+        text={label}
+        icon={showIcon ? icon : isLoading ? <LoadingSVGArrows isLoading={isLoading} size={size} /> : null}
+      />
     </Button>
   );
 }
