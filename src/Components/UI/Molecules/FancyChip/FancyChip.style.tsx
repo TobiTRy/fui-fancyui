@@ -134,15 +134,6 @@ export const StyledChip = styled.div<IStyledChip & { theme: TUiColorsType }>`
     }
   }}
 
-  /* the icon for the Chip */
-  i {
-    line-height: 0;
-    margin-right: ${spacing.xxs + 2 + 'px'};
-    svg {
-      width: ${({ $size }) => ($size ? sizes[$size].icon : sizes.md.icon)};
-      height: ${({ $size }) => ($size ? sizes[$size].icon : sizes.md.icon)};
-    }
-  }
 `;
 
 // Define the styled component for the X button

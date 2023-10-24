@@ -100,13 +100,13 @@ const generateButtonStyle = (props: IListButtonStyle) => {
     justify-content: center;
 
     label {
+      width: 100%;
       display: flex;
       flex-direction: row;
       justify-content: center;
       box-sizing: border-box;
       align-items: center;
       text-align: center;
-      width: auto;
       cursor: pointer;
       user-select: none;
       padding: ${$wide

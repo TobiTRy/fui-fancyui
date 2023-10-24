@@ -26,7 +26,7 @@ export function initialGenerateUiColors() {
   for (const color in themeColors) {
     // generate the color steps for the color
     const generatedColor = generateColorSteps({
-      colorType: color as IUiColorsTypes,
+      themeType: color as IUiColorsTypes,
       color: themeColors[color as IUiColorsTypes],
       pimaryColor: themeColors.secondary,
     });
@@ -44,10 +44,11 @@ export const regenerateUiColors = (isDarkTheme: boolean) => {
   for (const color in uiColors) {
     // generate the color steps for the color
     const generatedColor = generateColorSteps({
-      colorType: color as IUiColorsTypes,
+      themeType: color as IUiColorsTypes,
       color: uiColors[color as IUiColorsTypes]['0'],
       pimaryColor: isDarkTheme ? themeColors.primary : themeColors.secondary // if the theme is dark, the primary color is the secondary color
     });
+    
     uiColors = {
       ...uiColors,
       [color]: generatedColor,

@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
 
-import { FancyButton } from '../../Molecules/FancyButton';
+import { FancyButton } from '../../Organisms/FancyButton';
 import { spacingPx } from '../../Design/design';
 import { simpleColorTransition } from '../../Design/simpleTransition';
 import { TUiColorsType } from '../../Design/color/designColor';

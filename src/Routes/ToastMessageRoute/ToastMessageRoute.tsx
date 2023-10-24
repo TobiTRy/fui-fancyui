@@ -1,6 +1,6 @@
 import React from 'react'
 import FancyToastMessage from '../../Components/UI/Organisms/FancyToastMessage/FancyToastMessage'
-import FancyButton from '../../Components/UI/Molecules/FancyButton/FancyButton'
+import FancyButton from '../../Components/UI/Organisms/FancyButton/FancyButton'
 
 import { useFancyToastMessageStore } from '../../Components/UI/Organisms/FancyToastMessage/FancyToastMessage.state'
 

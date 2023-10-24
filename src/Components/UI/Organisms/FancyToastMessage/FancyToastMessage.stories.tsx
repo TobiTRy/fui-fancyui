@@ -4,7 +4,7 @@ import { Meta, StoryObj } from '@storybook/react';
 // Import the component to be tested
 import FancyToastMessage from './FancyToastMessage';
 import { useFancyToastMessageStore } from './FancyToastMessage.state';
-import { FancyButton } from '../../Molecules/FancyButton';
+import { FancyButton } from '../FancyButton';
 
 // Define metadata for the story
 const meta = {

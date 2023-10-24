@@ -7,7 +7,7 @@ const GlobalStyle = createGlobalStyle<{ theme: TUiColorsType }>`
     padding: 0;
     background: ${({ theme }) => theme.primary[0]};
     color: ${({ theme }) => theme.secondary[0]};
-    font-family: Open-Sans, Helvetica, Sans-Serif;
+    font-family: DMSans, Helvetica, Sans-Serif;
 
     .App {
       position: relative;

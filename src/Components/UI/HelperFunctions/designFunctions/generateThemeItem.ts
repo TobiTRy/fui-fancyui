@@ -2,7 +2,6 @@ import { css } from 'styled-components';
 import Color from 'color';
 
 import { disabledStyle } from './disableStyle';
-import { calcIconMarginAndAlign } from './generateIconMargin';
 import { generatePadding } from './generatePadding';
 import { borderRadius, spacing } from '../../Design/design';
 import IStyledPrefixAndOmiter from '../../Interface/IStyledPrefixAndOmiter.model';
@@ -106,7 +105,7 @@ const generateIcon = (props: IGenerateIconItem) => {
       display: flex;
       align-items: center;
       aspect-ratio: 1/1;
-      ${$label && calcIconMarginAndAlign({ $aligned: $iconAlign, $size })};
+
     }
   `;
 };

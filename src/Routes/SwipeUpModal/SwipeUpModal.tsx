@@ -1,7 +1,7 @@
 import React from 'react';
 
 import FancySwipeUpModal from '../../Components/UI/Organisms/FancySwipeUpModal/FancySwipeUpModal';
-import FancyButton from '../../Components/UI/Molecules/FancyButton/FancyButton';
+import FancyButton from '../../Components/UI/Organisms/FancyButton/FancyButton';
 
 import { FancyTextInput } from '../../Components/UI/Organisms/FancyTextInput';
 

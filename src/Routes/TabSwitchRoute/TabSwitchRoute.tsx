@@ -12,22 +12,22 @@ const Icon = (
 );
 
 const switchValues = [
-  { key: '1', value: 'Tab 1', label: 'Tab 1 djkjk dklkdd' },
-  { key: '2', value: 'Tab 2', label: 'Tab 2' },
-  { key: '3', value: 'Tab 3', label: 'Tab 3' },
+  { itemKey: '1', value: 'Tab 1', label: 'Tab 1 djkjk dklkdd' },
+  { itemKey: '2', value: 'Tab 2', label: 'Tab 2' },
+  { itemKey: '3', value: 'Tab 3', label: 'Tab 3' },
 ];
 const switchValues1 = [
-  { key: '1', value: 'Tab 1', label: 'Tab 1 asksk aklsaklskl klaskl aklas aklkl  asuiasuiui uiasui asiuui asuiausi u asasuaui suaiausu asuusau isasuus ', icon: Icon},
-  { key: '2', value: 'Tab 2', label: 'Tab 2', icon: Icon },
-  { key: '3', value: 'Tab 3', label: 'Tab 3', icon: Icon },
+  { itemKey: '1', value: 'Tab 2', label: 'Tab 2', icon: Icon },
+  { itemKey: '2', value: 'Tab 1', label: 'Tab 1 asksk aklsaklskl klaskl aklas aklkl  asuiasuiui uiasui asiuui asuiausi u asasuaui suaiausu asuusau isasuus ', icon: Icon},
+  { itemKey: '3', value: 'Tab 3', label: 'Tab 3', icon: Icon },
 ];
 const switchValues2 = [
-  { key: '1', value: 'Tab 1', icon: Icon },
-  { key: '2', value: 'Tab 2', icon: Icon },
-  { key: '3', value: 'Tab 3', icon: Icon },
-  { key: '4', value: 'Tab 1', icon: Icon },
-  { key: '5', value: 'Tab 2', icon: Icon },
-  { key: '6', value: 'Tab 3', icon: Icon },
+  { itemKey: '1', value: 'Tab 1', icon: Icon },
+  { itemKey: '2', value: 'Tab 2', icon: Icon },
+  { itemKey: '3', value: 'Tab 3', icon: Icon },
+  { itemKey: '4', value: 'Tab 1', icon: Icon },
+  { itemKey: '5', value: 'Tab 2', icon: Icon },
+  { itemKey: '6', value: 'Tab 3', icon: Icon },
 ];
 
 export default function TabSwitchRoute() {
