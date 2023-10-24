@@ -56,12 +56,6 @@ const meta = {
         type: 'boolean',
       },
     },
-    iconSize: {
-      description: 'This prop will change the size of the icon',
-      control: {
-        type: 'select',
-      },
-    },
     textColor: {
       description: 'This prop will change the color of the text',
       control: {
