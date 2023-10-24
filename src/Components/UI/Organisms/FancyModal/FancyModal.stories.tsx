@@ -4,7 +4,7 @@ import { Meta, StoryObj } from '@storybook/react';
 // Import the component to be tested
 import FancyModal from './FancyModal';
 import { useFancyModalStore } from './FancyModal.state';
-import { FancyButton } from '../../Molecules/FancyButton';
+import { FancyButton } from '../FancyButton';
 import { IModal } from '../../Molecules/Modal/Modal';
 import { FancyTextInput } from '../FancyTextInput';
 

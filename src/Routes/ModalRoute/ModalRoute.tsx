@@ -2,7 +2,7 @@ import React from 'react';
 
 import FancyModal from '../../Components/UI/Organisms/FancyModal/FancyModal';
 import { useFancyModalStore } from '../../Components/UI/Organisms/FancyModal/FancyModal.state';
-import FancyButton from '../../Components/UI/Molecules/FancyButton/FancyButton';
+import FancyButton from '../../Components/UI/Organisms/FancyButton/FancyButton';
 
 
 export default function ModalRoute() {

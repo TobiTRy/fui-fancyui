@@ -3,7 +3,7 @@ import React, { useMemo } from 'react';
 import SVGChevronLeft from '../../SVGIcons/SVGChevronLeft';
 import SVGChevronRight from '../../SVGIcons/SVGChevronRight';
 
-import FancyButton from '../FancyButton/FancyButton';
+import FancyButton from '../../Organisms/FancyButton/FancyButton';
 import { IconWrapper, NumberList, StyledPaginator } from './Paginator.style';
 import PageNumberList from '../../Atoms/PageNumberList/PageNumberList';
 import { TUiColorsType } from '../../Design/color/designColor';

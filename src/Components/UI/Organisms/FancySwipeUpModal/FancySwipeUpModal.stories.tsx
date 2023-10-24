@@ -4,7 +4,7 @@ import { Meta, StoryObj } from '@storybook/react';
 
 // Import the component to be tested
 import FancySwipeUpModal from './FancySwipeUpModal';
-import { FancyButton } from '../../Molecules/FancyButton';
+import { FancyButton } from '../FancyButton';
 import { useFancySwipeUpModalStore } from './FancySwipeUpModal.state';
 import { FancyTextInput } from '../FancyTextInput';
 import { ISwipeUpModal } from '../../Molecules/SwipeUpModal/ISwipeUpModal.model';

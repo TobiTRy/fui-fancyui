@@ -3,7 +3,7 @@ import React from 'react';
 import { styled } from 'styled-components';
 
 import brakePoints from '../../Design/brakePoints';
-import FancyButton from '../FancyButton/FancyButton';
+import FancyButton from '../../Organisms/FancyButton/FancyButton';
 import IModalBottomLine, { IBottomLineButton } from './ModalBottomLine.model';
 
 // a example for the buttons array for the ModalBottomLine

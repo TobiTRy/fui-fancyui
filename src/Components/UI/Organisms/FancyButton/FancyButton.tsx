@@ -3,10 +3,8 @@ import { styled } from 'styled-components';
 import { IFancyButtonProps } from './IFancyButton.model';
 
 import generateThemeItem, { IGenerateThemeItem } from '../../HelperFunctions/designFunctions/generateThemeItem';
-import FancySVGAtom from '../../Atoms/FancySVGAtom/FancySVGAtom';
-import Typography from '../../Atoms/Typography/Typography';
 import LoadingSVGArrows from '../../Atoms/LoadingSVGArrows/LoadingSVGArrows';
-import FancyContent from '../FancyContent/FancyContent';
+import FancyContent from '../../Molecules/FancyContent/FancyContent';
 
 //this creates the button component and handles the style via generateButton
 const Button = styled.button<IGenerateThemeItem>`
@@ -55,14 +53,9 @@ export default function FancyButton(props: IFancyButtonProps) {
       type="button"
       {...htmlButtonProps}
     >
-      {/* {icon && !isLoading && (
-        <FancySVGAtom size={iconSize || size} isPassive externalStyle={{ flexShrink: '0' }}>
-          {icon}
-        </FancySVGAtom>
-      )} */}
 
       <FancyContent text={label} icon={showIcon ? icon : isLoading ? <LoadingSVGArrows isLoading={isLoading} size={size} /> : null} />
-      
+
       {/* {label && <Typography type="button">{label}</Typography>} */}
     </Button>
   );
