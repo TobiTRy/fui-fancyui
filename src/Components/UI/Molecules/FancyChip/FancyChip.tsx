@@ -19,11 +19,8 @@ export default function FancyChip(props: IChipProps) {
     return 'booth';
   };
 
-  // Calculate the spacing po%sition for the chip
+  // Calculate the spacing position for the chip
   const getCalcPosition = clacPosition();
-
-  //fllip text color
-
 
   // Render the Chip component with the appropriate props
   return (
