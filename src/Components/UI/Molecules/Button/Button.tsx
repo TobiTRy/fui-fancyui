@@ -13,7 +13,9 @@ export interface IButtonProps {
   externalStyle?: CSSProp;
   oneToOne?: boolean;
 }
-
+// --------------------------------------------------------------------------- //
+// --------------- A normal Button with Style from the Theme ----------------- //
+// --------------------------------------------------------------------------- //
 type IButton = IButtonProps & IGenerateThemeDesignForComponentProps & React.HTMLAttributes<HTMLButtonElement>;
 export default function Button(props: IButton) {
   const { children, size, wide, borderRadius, themeType, layer, textColor, hoverColor, outlined, externalStyle, oneToOne, ...htmlProps } = {
