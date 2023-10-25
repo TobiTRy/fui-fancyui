@@ -1,58 +1,45 @@
 import React from 'react';
-import { styled } from 'styled-components';
+import { css, styled } from 'styled-components';
 import { IFancyButtonProps } from './IFancyButton.model';
 
 import LoadingSVGArrows from '../../Atoms/LoadingSVGArrows/LoadingSVGArrows';
 import FancyContent from '../../Molecules/FancyContent/FancyContent';
 import { IGenerateThemeItem } from '../../HelperFunctions/designFunctions/generateItemTheme/IGenerateThemeItemProps.model';
 import generateThemeItem from '../../HelperFunctions/designFunctions/generateItemTheme/generateThemeItem';
+import Button from '../../Molecules/Button/Button';
+import { generatePadding } from '../../HelperFunctions/designFunctions/generatePaddingForComponent/generatePadding';
 
 //this creates the button component and handles the style via generateButton
-const Button = styled.button<IGenerateThemeItem>`
+const BaaButton = styled.button<IGenerateThemeItem>`
   ${(props: IGenerateThemeItem) => generateThemeItem(props)}
 `;
 
 //the main react component to generate the fancyButton
-export default function FancyButton(props: IFancyButtonProps) {
-  const {
-    icon,
-    label,
-    size,
-    wide,
-    themeType,
-    align,
-    textColor,
-    hoverColor,
-    outlined,
-    borderRadius,
-    isLoading,
-    layer,
-    iconAlign,
-    ...htmlButtonProps
-  } = {
+
+type IFancyButtonProps = {
+  isLoading?: boolean;
+  label?: string;
+  align?: "left" | "right" | "center";
+  iconAlign?: "left" | "right";
+  icon?: React.ReactNode;
+}
+
+type IFancyButton = React.ComponentProps<typeof Button> & IFancyButtonProps;
+export default function FancyButton(props: IFancyButton) {
+  const { icon, label, isLoading, iconAlign, size, externalStyle, ...htmlButtonProps } = {
     ...defaultProps,
     ...props,
   };
+  let aspectRatio;
 
   const showIcon = icon && !isLoading;
   const alignIcon = iconAlign === 'left' ? 'row' : 'row-reverse';
 
+
+    //this makes the button a square (1/1) if there is no $label and a $icon
+
   return (
-    <Button
-      $size={size!}
-      $themeType={themeType}
-      $borderRadius={borderRadius}
-      $align={align}
-      $textColor={textColor}
-      $wide={wide}
-      $icon={icon}
-      $hoverColor={hoverColor}
-      $label={label}
-      $outlined={outlined}
-      $layer={layer}
-      type="button"
-      {...htmlButtonProps}
-    >
+    <Button size={size} externalStyle={css`${externalStyle} ${aspectRatio}`} oneToOne={Boolean(!label) && Boolean(icon)} {...htmlButtonProps}>
       <FancyContent
         flexDirection={alignIcon}
         text={label}
@@ -62,7 +49,7 @@ export default function FancyButton(props: IFancyButtonProps) {
   );
 }
 
-const defaultProps: IFancyButtonProps = {
+const defaultProps: IFancyButton = {
   themeType: 'accent',
   size: 'lg',
   align: 'center',

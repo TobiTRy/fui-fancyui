@@ -105,7 +105,7 @@ export default function ExperimentalRoute() {
         <Button themeType='primary' outlined>
           Hiiii 
         </Button>
-        <Button themeType='secondary' outlined textColor='success'>
+        <Button themeType='secondary' outlined textColor='success'wide>
           Hiiii 
         </Button>
         {/* <FancyButton label={'Test'} icon={Icon}/> */}
