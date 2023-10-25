@@ -4,8 +4,9 @@ import { styled } from 'styled-components';
 import { borderRadius } from '../../Design/design';
 import { TUiColorsType } from '../../Design/color/designColor';
 import { TLayer } from '../../Design/color/generateColorSteps';
-import { IGenerateThemeItem } from '../../HelperFunctions/designFunctions/generateItemTheme/IGenerateThemeItemProps.model';
-import generateOnlyColorDesign, { IGenerateColorDesignProps } from '../FancyTabSwitch/utils/generateOnlyColorDesign';
+import generateThemeDesignForComponent, {
+  IGenerateThemeDesignForComponent,
+} from '../../HelperFunctions/designFunctions/generateThemeDesignForComponent/generateThemeDesignForComponent';
 import IStyledPrefixAndPicker from '../../Interface/IStyledPrefixAndPicker.model';
 
 export interface IButtonProps {
@@ -21,8 +22,9 @@ export interface IButtonProps {
   children?: React.ReactNode;
 }
 
-const StyledButton = styled.button<IGenerateColorDesignProps & IStyledPrefixAndPicker<IButtonProps>>`
-  ${(props: IGenerateColorDesignProps) => generateOnlyColorDesign(props)}
+const StyledButton = styled.button<IGenerateThemeDesignForComponent & IStyledPrefixAndPicker<IButtonProps>>`
+  ${(props: IGenerateThemeDesignForComponent) =>
+    generateThemeDesignForComponent({ ...props, $backgroundState: 'hover', $hoverColor: 'accent' })}
 `;
 
 export default function Button(props: IButtonProps) {
