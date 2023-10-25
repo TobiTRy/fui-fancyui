@@ -3,7 +3,7 @@ import { getBackgroundColor, getTextColor } from '../../../../Design/color/color
 import { IGenerateThemeDesignForComponent } from '../generateThemeDesignForComponent';
 import { generateStateStyle } from './generateHoverActiveColor';
 
-type TGenerateNormalStyle = Pick<IGenerateThemeDesignForComponent, '$themeType' | 'theme' | '$layer' | '$textColor' | '$backgroundState'>;
+type TGenerateNormalStyle = Pick<IGenerateThemeDesignForComponent, '$themeType' | 'theme' | '$layer' | '$textColor' | '$backgroundState' | '$hoverColor'>;
 // --------------------------------------------------------------------------- //
 // ----------- generates a normal style for the specific component  ---------- //
 // --------------------------------------------------------------------------- //

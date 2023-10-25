@@ -11,7 +11,7 @@ type TGenerateOutlinedHoverStyle = Pick<
 // ---- this function generates the color for the background ----------------- //
 // --------------------------------------------------------------------------- //
 const generateHoverColor = (props: TGenerateOutlinedHoverStyle) => {
-  const { theme, $layer = 3, $themeType, $backgroundStrength = 1, $hoverColor } = props;
+  const { theme, $layer = 0, $themeType, $backgroundStrength = 1, $hoverColor } = props;
 
   // generate the background color with a transparency of the background color
   const generateSlightBackgroundColor = colorTransparencyCalculator(

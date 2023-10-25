@@ -28,6 +28,6 @@ export default function generateThemeDesignForComponent(props: IGenerateThemeDes
   } else if ($outlined) {
     return generateOutlineStyle({ $themeType, theme, $backgroundStrength, $backgroundState, $hoverColor, $textColor, $layer });
   } else {
-    return generateNormalStyle({ $themeType, theme, $layer, $backgroundState, $textColor });
+    return generateNormalStyle({ $themeType, theme, $layer, $backgroundState, $textColor, $hoverColor });
   }
 }

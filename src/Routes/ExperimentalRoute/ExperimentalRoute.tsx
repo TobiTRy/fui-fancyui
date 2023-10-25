@@ -84,7 +84,7 @@ export default function ExperimentalRoute() {
         </FancyCard>
 
         <FancyContent flexDirection='row' flexAlign='center' text='HIII MY FANS' icon={Icon}/>
-        <Button>
+        <Button hoverColor='success'>
           Hiiii
         </Button>
         <Button themeType='transparent'>
@@ -93,19 +93,19 @@ export default function ExperimentalRoute() {
         <Button themeType='primary'>
           Hiiii 
         </Button>
-        <Button themeType='secondary'>
+        <Button themeType='secondary' textColor='error'>
           Hiiii 
         </Button>
         <Button outlined>
           Hiiii
         </Button>
-        <Button themeType='transparent' hoverColor='info'>
+        <Button themeType='transparent' hoverColor='info' textColor={"warning"} borderRadius={undefined}>
           Hiiii Transparent
         </Button>
         <Button themeType='primary' outlined>
           Hiiii 
         </Button>
-        <Button themeType='secondary' outlined>
+        <Button themeType='secondary' outlined textColor='success'>
           Hiiii 
         </Button>
         {/* <FancyButton label={'Test'} icon={Icon}/> */}
