@@ -2,9 +2,9 @@ import React from 'react';
 
 import SVGXCircle from '../../SVGIcons/SVGXCircle';
 import FancyContent from '../FancyContent/FancyContent';
-
 import { StyledChip, StyledXButton, TSpacingPosition, WrapperImage } from './FancyChip.style';
 import { IChipProps } from './FancyChip.model';
+import { getTextColor } from '../../Design/color/colorCalculatorForComponet';
 
 // Define the Chip component
 export default function FancyChip(props: IChipProps) {
@@ -22,6 +22,9 @@ export default function FancyChip(props: IChipProps) {
 
   // Calculate the spacing po%sition for the chip
   const getCalcPosition = clacPosition();
+
+  //fllip text color
+
 
   // Render the Chip component with the appropriate props
   return (
@@ -51,7 +54,6 @@ export default function FancyChip(props: IChipProps) {
       )}
 
       <FancyContent size={size} text={label} icon={icon} />
-
 
       {onDelete && (
         <StyledXButton

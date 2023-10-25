@@ -18,7 +18,7 @@ export const generateTransparentStyle = (props: TGenerateTransparentStyle) => {
   const calcTextColor = isDarkTheme ? theme.secondary[$layer ?? 0] : theme.primary[$layer ?? 0];
 
   return css`
-    color: ${$textColor ? theme[$textColor][$layer ?? 0]: calcTextColor};
+    color: ${$textColor ? theme[$textColor][ 0]: calcTextColor};
     ${$backgroundState !== 'active' && 'background-color: transparent'};
     /* This generate the hover / active style if its needed */
     ${$backgroundState && generateStateStyle({ ...props, $backgroundStrength })}

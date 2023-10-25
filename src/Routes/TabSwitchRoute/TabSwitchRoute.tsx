@@ -30,6 +30,15 @@ const switchValues2 = [
   { itemKey: '6', value: 'Tab 3', icon: Icon },
 ];
 
+const switchValues3 = [
+  { itemKey: '1', value: 'Tab 1', label: 'Tab 1' },
+  { itemKey: '2', value: 'Tab 2', label: 'Tab 1' },
+  { itemKey: '3', value: 'Tab 3', label: 'Tab 1' },
+  { itemKey: '4', value: 'Tab 1', label: 'Tab 1' },
+  { itemKey: '5', value: 'Tab 2', label: 'Tab 1' },
+  { itemKey: '6', value: 'Tab 3', label: 'Tab 1' },
+];
+
 export default function TabSwitchRoute() {
   const [test, setTest] = React.useState('1');
 
@@ -86,6 +95,15 @@ export default function TabSwitchRoute() {
             size="sm"
             themeType="transparent"
             values={switchValues2}
+            rounded={'complete'}
+            currentSelect={test}
+            handler={(id: string) => setTest(id)}
+          />
+          <FancyTabSwitch
+            label="test"
+            size="sm"
+            themeType="transparent"
+            values={switchValues3}
             rounded={'complete'}
             currentSelect={test}
             handler={(id: string) => setTest(id)}

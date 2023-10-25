@@ -23,7 +23,6 @@ const generateOutlineStyle = (props: TGenerateOutlineStyle) => {
   );
 
   return css`
-    box-sizing: border-box;
     background-color: ${generateSlightBackgroundColor};
     border: 1.5px solid ${backgroundColor};
   `;

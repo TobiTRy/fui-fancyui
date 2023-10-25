@@ -11,6 +11,12 @@ import { ITabSwitchProps } from '../TabSwitch/TabSwitch.model';
 export default function FancyTabSwitch(props: ITabSwitchProps & { label?: string }) {
   const { values, label, layer, themeType, size, disabled, outlined, rounded, ...tabSwitchProps } = props;
 
+  const clacPadding = outlined
+    ? parseInt(tabSwitchSizes[size || 'sm'].paddingComponent) - 1.5 + 'px'
+    : size
+    ? tabSwitchSizes[size].paddingComponent
+    : '0';
+
   /* Generate the unordered list for the tab switch */
   return (
     <Fieldset label={label} $disabled={disabled}>
@@ -19,12 +25,9 @@ export default function FancyTabSwitch(props: ITabSwitchProps & { label?: string
         outlined={outlined}
         layer={layer}
         style={css`
-          padding: ${outlined
-            ? parseInt(tabSwitchSizes[size || 'sm'].paddingComponent) - 1.5 + 'px'
-            : size
-            ? tabSwitchSizes[size].paddingComponent
-            : '0'};
+          padding: ${clacPadding};
           border-radius: ${rounded && borderRadius[rounded]};
+          overflow: hidden;
           background-color: ${themeType === 'transparent' && 'transparent'};
         `}
       >
