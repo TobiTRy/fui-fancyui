@@ -5,7 +5,6 @@ import { IFancyBottomBarIcon } from './FancyBottomBarIcon.model';
 import { IconTextButton, Icon, Underline, ItemWrapper } from './FancyBottomBarIcon.style';
 import Typography from '../Typography/Typography';
 
-
 // --------------------------------------------------------------------------- //
 //The component creates a button that mainly constructed for the navigation bar //
 // --------------------------------------------------------------------------- //
