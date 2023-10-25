@@ -23,7 +23,7 @@ export default function ButtonRoute() {
   return (
     <DesignWrapper>
       <DesignArea title="Buttons sizes" style={backgroundColor}>
-        <FancyButton label="Button" themeType="primary" size="sm" wide={false} onClick={()=> console.log('moooinn')}/>
+        <FancyButton label="Button" themeType="primary"  size="sm" wide={false} onClick={()=> console.log('moooinn')}/>
         <FancyButton label="Button" themeType="secondary" size="md" wide={false} />
         <FancyButton label="Button" themeType="accent" size="lg" wide={false} />
         <FancyButton label="Button" themeType='secondary' wide={false} />
@@ -34,10 +34,10 @@ export default function ButtonRoute() {
         <FancyButton label="Button" themeType="primary" wide />
         <FancyButton label="Button" themeType="secondary" wide/>
         <FancyButton label="Button" themeType="accent" wide borderRadius='complete' align='center'/>
-        <FancyButton label="Button" themeType="transparent" wide align='center' />
+        <FancyButton label="Button" themeType="transparent" wide align='center' hoverColor='accent' />
       </DesignArea>
       <DesignArea title="Button Types in wide" style={backgroundColor}>
-        <FancyButton icon={Icon} label="Button" iconAlign='left' themeType="primary" align='left' wide />
+        <FancyButton icon={Icon} label="Button" themeType="primary" align='left' iconAlign='left' wide />
         <FancyButton icon={Icon} label="Button" themeType="secondary" align='right' />
         <FancyButton icon={Icon} label="Button" themeType="accent" />
         <FancyButton icon={Icon} label="Button" themeType="transparent"align='left' />

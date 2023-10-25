@@ -1,8 +1,8 @@
 import React from 'react';
 import { styled } from 'styled-components';
 
-import generateThemeItem from '../../HelperFunctions/designFunctions/generateThemeItem';
-import { IGenerateThemeItem } from '../../HelperFunctions/designFunctions/generateThemeItem';
+import generateThemeItem from '../../HelperFunctions/designFunctions/generateItemTheme/generateThemeItem';
+import { IGenerateThemeItem } from '../../HelperFunctions/designFunctions/generateItemTheme/generateThemeItem';
 import FancySVGAtom from '../../Atoms/FancySVGAtom/FancySVGAtom';
 import Typography from '../../Atoms/Typography/Typography';
 import { disabledStyle } from '../../HelperFunctions/designFunctions/disableStyle';

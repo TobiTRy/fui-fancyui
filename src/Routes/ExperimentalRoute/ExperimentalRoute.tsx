@@ -10,6 +10,7 @@ import { FancyPasswordInput } from '../../Components/UI/Organisms/FancyPasswordI
 import SVGCheckMark from '../../Components/UI/SVGIcons/SVGCheckMark';
 
 import FancyContent from '../../Components/UI/Molecules/FancyContent/FancyContent';
+import Button from '../../Components/UI/Molecules/Button/Button';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -60,7 +61,6 @@ export default function ExperimentalRoute() {
             />
             <FancyButton
               borderRadius="md"
-              iconSize="lg"
               size="md"
               themeType="secondary"
               icon={reloadIcon}
@@ -84,6 +84,30 @@ export default function ExperimentalRoute() {
         </FancyCard>
 
         <FancyContent flexDirection='row' flexAlign='center' text='HIII MY FANS' icon={Icon}/>
+        <Button hoverColor='success'>
+          Hiiii
+        </Button>
+        <Button themeType='transparent'>
+          Hiiii Transparent
+        </Button>
+        <Button themeType='primary'>
+          Hiiii 
+        </Button>
+        <Button themeType='secondary' textColor='error'>
+          Hiiii 
+        </Button>
+        <Button outlined>
+          Hiiii
+        </Button>
+        <Button themeType='transparent' hoverColor='info' textColor={"warning"} borderRadius={undefined}>
+          Hiiii Transparent
+        </Button>
+        <Button themeType='primary' outlined>
+          Hiiii 
+        </Button>
+        <Button themeType='secondary' outlined textColor='success'wide>
+          Hiiii 
+        </Button>
         {/* <FancyButton label={'Test'} icon={Icon}/> */}
       </FancyCard>
     </div>

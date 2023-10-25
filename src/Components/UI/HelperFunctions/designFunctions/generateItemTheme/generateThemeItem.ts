@@ -1,50 +1,15 @@
 import { css } from 'styled-components';
 import Color from 'color';
 
-import { disabledStyle } from './disableStyle';
-import { generatePadding } from './generatePadding';
-import { borderRadius, spacing } from '../../Design/design';
-import IStyledPrefixAndOmiter from '../../Interface/IStyledPrefixAndOmiter.model';
-import { boxShadow } from '../../Design/shadows';
-import themeStore from '../../Design/color/themeStore';
-import { TUiColorsType } from '../../Design/color/designColor';
-import { TLayer } from '../../Design/color/generateColorSteps';
-import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
-import { getOpositColorContrast } from './getOpositColorContrast';
+import { disabledStyle } from '../disableStyle';
+import { generatePadding } from '../generatePaddingForComponent/generatePadding';
+import { borderRadius } from '../../../Design/design';
+import { boxShadow } from '../../../Design/shadows';
+import themeStore from '../../../Design/color/themeStore';
+import { getBackgroundColor } from '../../../Design/color/colorCalculatorForComponet';
+import { getOpositColorContrast } from '../getOpositColorContrast';
+import { IGenerateThemeItem } from './IGenerateThemeItemProps.model';
 
-export type IGenerateThemeItemProps = {
-  outlined?: boolean;
-  icon?: JSX.Element;
-  iconAlign?: 'left' | 'right';
-  size: 'sm' | 'md' | 'lg';
-  label?: string;
-  wide?: boolean;
-  borderRadius?: keyof typeof borderRadius;
-  themeType?: keyof TUiColorsType;
-  textColor?: Exclude<keyof TUiColorsType, 'transparent'>;
-  hoverColor?: Exclude<keyof TUiColorsType, 'transparent'>;
-  layer?: TLayer;
-  align?: 'left' | 'right' | 'center';
-};
-
-export type IGenerateThemeItem = IStyledPrefixAndOmiter<IGenerateThemeItemProps>;
-
-// --------------------------------------------------------------------------- //
-// ---------- Here are the $themeType variants for sizing and alignment --------- //
-// --------------------------------------------------------------------------- //
-// a shortcut to align the ($icon) ond text
-const alignment = {
-  left: 'flex-start',
-  right: 'flex-end',
-  center: 'center',
-};
-
-//this are the values between the $icon and the edge of the button
-const paddingIconButton = {
-  sm: spacing.md + 'px',
-  md: spacing.xl - 4 + 'px',
-  lg: spacing.xl + 'px',
-};
 
 // ------------------------------------------------------------------ //
 // ---------- Here are the helper functions for the $themeType --------- //
@@ -57,9 +22,9 @@ const calcTextColor = ({ $textColor, $themeType, $outlined }: IcalcTextColor) =>
   //  if the userer profides a $textColor use this
   if ($textColor) return theme[$textColor][0];
   if ($themeType === 'transparent') return theme.secondary[0];
-  if ($outlined) return theme[$themeType || 'secondary'][0];
+  if ($outlined) return theme[$themeType ?? 'secondary'][0];
 
-  return getOpositColorContrast($themeType || 'secondary');
+  return getOpositColorContrast($themeType ?? 'secondary');
 };
 
 const generateBackgroundColor = (props: Pick<IGenerateThemeItem, '$themeType' | '$layer'>) => {
@@ -69,7 +34,7 @@ const generateBackgroundColor = (props: Pick<IGenerateThemeItem, '$themeType' | 
   if ($themeType === 'transparent') {
     return 'transparent';
   } else {
-    return theme[$themeType || 'primary'][$layer || 0];
+    return theme[$themeType ?? 'primary'][$layer ?? 0];
   }
 };
 
@@ -77,44 +42,13 @@ const generateBackgroundColor = (props: Pick<IGenerateThemeItem, '$themeType' | 
 // ---------- Here are the functions to generate the button styles ---------- //
 // -------------------------------------------------------------------------- //
 
-//-----this funktion adds to the normal/oulined button a $icon if its needed-----//
-type IGenerateIconItem = Pick<IGenerateThemeItem, '$size' | '$align' | '$label' | '$iconAlign'>;
-const generateIcon = (props: IGenerateIconItem) => {
-  const { $size, $align, $label, $iconAlign } = props;
-
-  //this funktion handles the spacing between the $icon and the text deepends on the alignment
-  const calcIconButtoonPadding = ({ $align, $size }: Pick<IGenerateThemeItem, '$align' | '$size'>) => {
-    if ($align === 'right') {
-      return css`
-        padding-right: ${paddingIconButton[$size]};
-      `;
-    } else if ($align === 'left') {
-      return css`
-        padding-left: ${paddingIconButton[$size]};
-      `;
-    }
-  };
-
-  //this function generates the addons for a $icon button
-  return css`
-    align-items: center;
-
-    ${$label && calcIconButtoonPadding({ $align, $size })};
-    i {
-      display: flex;
-      align-items: center;
-      aspect-ratio: 1/1;
-    }
-  `;
-};
-
 //-----this funktion generates a button that looks like a $outlined button-----//
 type IGenerateOutlinedItem = Pick<IGenerateThemeItem, '$themeType' | '$textColor' | '$size' | '$label' | '$outlined' | '$layer'>;
 const generateOutlined = (props: IGenerateOutlinedItem) => {
   const { $themeType, $textColor, $size, $label, $outlined, $layer } = props;
   const theme = themeStore.getState().theme;
 
-  const getButtonColor = getBackgroundColor({ theme, $themeType: $themeType || 'accent', $layer: $layer });
+  const getButtonColor = getBackgroundColor({ theme, $themeType: $themeType ?? 'accent', $layer: $layer });
 
   //reduce the padding with the border $size
   const paddings = generatePadding(-2, Boolean($label));
@@ -155,7 +89,7 @@ const generateNormal = (props: IGenerateNormalitem) => {
   const theme = themeStore.getState().theme;
 
   //reduce the padding with the border $size
-  const paddings = generatePadding(0, $label ? true : false);
+  const paddings = generatePadding(0, true);
 
   //this calculates the texttextColor depend on $themeType and $textColor
   const textColor = calcTextColor({ $textColor, $themeType, $outlined });
@@ -164,7 +98,7 @@ const generateNormal = (props: IGenerateNormalitem) => {
   const hoverBackgroundColorStyle = () => {
     if ($themeType === 'transparent') return 'transparent';
     if ($hoverColor) return theme[$hoverColor][1];
-    return getBackgroundColor({ theme, $themeType: $themeType || 'accent', $layer: ($layer && $layer + 1) || 1 });
+    return getBackgroundColor({ theme, $themeType: $themeType ?? 'accent', $layer: ($layer && $layer + 1) ?? 1 });
   };
 
   const generatedBackgroundColor = generateBackgroundColor({ $themeType, $layer });
@@ -176,8 +110,8 @@ const generateNormal = (props: IGenerateNormalitem) => {
 
     &:hover {
       ${$themeType === 'transparent' ? 'color: ' + theme.secondary[1] : ''};
-      background-color: ${hoverBackgroundColorStyle};
       ${$themeType !== 'transparent' && boxShadow.sm};
+      background-color: ${hoverBackgroundColorStyle};
     }
   `;
 };
@@ -195,7 +129,7 @@ const generateBorderRadius = (props: Pick<IGenerateThemeItem, '$wide' | '$border
 
 //-----this funktion handles the button style on his conditions-----//
 const generateThemeItem = (props: IGenerateThemeItem) => {
-  const { $themeType, $outlined, $icon, $label, $wide, $borderRadius, $align } = props;
+  const { $themeType, $outlined, $icon, $label, $wide, $borderRadius } = props;
 
   let iconStyle, aspectRatio;
 
@@ -205,23 +139,19 @@ const generateThemeItem = (props: IGenerateThemeItem) => {
   //this claculates the borderradius depeend on if its a $wide button or not
   const borderRadius = generateBorderRadius({ $wide, $borderRadius, $size: props.$size });
 
-  //gets the style of a button with a $icon
-  if ($icon) iconStyle = generateIcon(props);
-
   //this makes the button a square (1/1) if there is no $label and a $icon
-  if (Boolean(!$label) && $icon) {
-    aspectRatio = css`
-      aspect-ratio: 1/1;
-      justify-content: center;
-    `;
-  }
+  // if (Boolean(!$label) && $icon) {
+  //   aspectRatio = css`
+  //     aspect-ratio: 1/1;
+  //     justify-content: center;
+  //   `;
+  // }
 
   return css`
     display: inline-flex;
-    justify-content: ${$align && alignment[$align]};
     align-items: center;
-    border: none;
     height: fit-content;
+    border: none;
     cursor: pointer;
     box-sizing: border-box;
     width: ${$wide ? '100%' : 'fit-content'};

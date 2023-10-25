@@ -2,11 +2,10 @@ import React from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
-import FancyButton from './FancyButton';
-import SVGChevronLeft from '../../SVGIcons/SVGChevronLeft';
+import Button from './Button';
 
 const meta = {
-  component: FancyButton,
+  component: Button,
   parameters: {
     docs: {
       description: {
@@ -35,25 +34,10 @@ const meta = {
         type: 'boolean',
       },
     },
-    iconAlign: {
-      description: 'This prop will align the icon inside the button to the left or right from the text',
-      control: {
-        type: 'radio',
-      },
-      defaultValue: {
-        summary: 'left',
-      }
-    },
     borderRadius: {
       description: 'This prop will change the borderRadius of the button',
       control: {
         type: 'select',
-      },
-    },
-    isLoading: {
-      description: 'This prop will change the button to loading',
-      control: {
-        type: 'boolean',
       },
     },
     textColor: {
@@ -77,54 +61,43 @@ const meta = {
 
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof FancyButton>;
+} satisfies Meta<typeof Button>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
-  render: (args) => <FancyButton {...args} />,
+  render: (args) => <Button {...args} />,
   args: {
-    icon: SVGChevronLeft,
     themeType: 'accent',
-    label: 'Button',
     size: 'md',
-    align: 'center',
     layer: 0,
     outlined: false,
     borderRadius: 'md',
-    isLoading: false,
     wide: false,
   },
 };
 
 export const Outlined: Story = {
-  render: (args) => <FancyButton {...args} />,
+  render: (args) => <Button {...args} />,
   args: {
-    icon: SVGChevronLeft,
     themeType: 'accent',
-    label: 'Button',
     size: 'md',
-    align: 'center',
     layer: 0,
     outlined: true,
     borderRadius: 'md',
-    isLoading: false,
     wide: false,
   },
 };
 
 export const oneToOne: Story = {
-  render: (args) => <FancyButton {...args} />,
+  render: (args) => <Button {...args} />,
   args: {
-    icon: SVGChevronLeft,
     themeType: 'accent',
     size: 'md',
-    align: 'center',
     layer: 0,
     outlined: true,
     borderRadius: 'md',
-    isLoading: false,
     wide: false,
   },
 };

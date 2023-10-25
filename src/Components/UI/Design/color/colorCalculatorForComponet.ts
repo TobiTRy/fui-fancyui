@@ -18,7 +18,7 @@ export function getBackgroundColor({ theme, $themeType, $customColor, $layer }: 
   } 
   // If a theme type was provided and no valid custom color was set, use the corresponding color from the theme
   else if ($themeType) {
-    proviedColor = theme[$themeType][$layer || 0];
+    proviedColor = theme[$themeType][$layer ?? 0];
   }
 
   // Return the background color as a styled-component CSS string
@@ -44,19 +44,19 @@ export function getTextColor({ theme, $themeType, $customTextColor, $textLayer, 
   } 
   // If the theme type is 'primary', use the corresponding secondary color from the theme
   else if ($themeType === 'primary' && turnColorTheme) {
-    proviedColor = theme.secondary[$textLayer || 0];
+    proviedColor = theme.secondary[$textLayer ?? 0];
   } 
   // If the theme type is 'secondary', use the corresponding primary color from the theme
   else if ($themeType === 'secondary' && turnColorTheme) {
-    proviedColor = theme.primary[$textLayer || 0];
+    proviedColor = theme.primary[$textLayer ?? 0];
   } 
   // If the theme type is 'accent', use the corresponding accent color from the theme
   else if ($themeType === 'accent') {
-    proviedColor = Color(theme.accent[$textLayer || 0]).isDark() ? theme.secondary[$textLayer || 0] : theme.primary[$textLayer || 0];
+    proviedColor = Color(theme.accent[$textLayer ?? 0]).isDark() ? theme.secondary[$textLayer ?? 0] : theme.primary[$textLayer ?? 0];
   }
 
   // Return the text color as a styled-component CSS string
-  return proviedColor || theme[$themeType][$textLayer || 0];
+  return proviedColor ?? theme[$themeType][$textLayer ?? 0];
 }
 
 

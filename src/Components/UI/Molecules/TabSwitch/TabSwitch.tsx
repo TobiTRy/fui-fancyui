@@ -51,7 +51,7 @@ export default function TabSwitch(props: ITabSwitchProps) {
     handler && handler(currentItem?.itemKey!);
   };
 
-  // This handles the navigation with the keyboard
+  // This handles the navigation with the keyboard 
   const handleKeyDown = (event: React.KeyboardEvent, itemKey: string) => {
     const currentIndex = values.findIndex((item) => item.itemKey === itemKey);
     let newIndex = -1;

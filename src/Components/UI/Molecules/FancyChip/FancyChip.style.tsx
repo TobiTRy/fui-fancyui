@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components';
-import { borderRadius, spacing, spacingPx } from '../../Design/design';
 import { TUiColorsType } from '../../Design/color/designColor';
 import { TLayer } from '../../Design/color/generateColorSteps';
-import { getBackgroundColor, getTextColor } from '../../Design/color/colorCalculatorForComponet';
+import { borderRadius, spacing, spacingPx } from '../../Design/design';
+import generateThemeDesignForComponent from '../../HelperFunctions/designFunctions/generateThemeDesignForComponent/generateThemeDesignForComponent';
 
 // Define the type for the spacing position
 export type TSpacingPosition = 'left' | 'right' | 'booth';
@@ -39,7 +39,7 @@ interface IGenerateSpacing {
   spacingPosition?: TSpacingPosition;
   size?: keyof typeof sizes;
 }
-export const GenerateSpacing = ({ spacingPosition, size }: IGenerateSpacing) => {
+export const generateSpacing = ({ spacingPosition, size }: IGenerateSpacing) => {
   const pickedSize = size ? size : 'md';
 
   switch (spacingPosition) {
@@ -60,72 +60,32 @@ export const GenerateSpacing = ({ spacingPosition, size }: IGenerateSpacing) => 
   }
 };
 
-interface IGenerateTextColor {
-  theme: TUiColorsType;
-  themeType: keyof TUiColorsType;
-  outlined?: boolean;
-  textColor?: keyof TUiColorsType;
-  textLayer?: TLayer;
-}
-
-const generateTextColor = (props: IGenerateTextColor) => {
-  const { theme, themeType, outlined, textColor, textLayer } = props;
-  if (textColor) return theme[textColor][textLayer || 1];
-
-  if (outlined) {
-    return theme[themeType][0];
-  } else {
-    return getTextColor({ theme, $themeType: themeType, $textLayer: 1 });
-  }
-};
-
 // Define the styled component for the chip
 interface IStyledChip {
   $spacingPosition?: TSpacingPosition;
   $size?: keyof typeof sizes;
   $outlined?: boolean;
   $themeType?: keyof TUiColorsType;
-  $textColor?: keyof TUiColorsType;
+  $textColor?: Exclude<keyof TUiColorsType, 'transparent'>;
   $layer?: TLayer;
   $textLayer?: TLayer;
   $isActive?: boolean;
 }
 export const StyledChip = styled.div<IStyledChip & { theme: TUiColorsType }>`
-  ${({ $spacingPosition, $size }) => GenerateSpacing({ spacingPosition: $spacingPosition, size: $size })}
+  ${({ $spacingPosition, $size }) => generateSpacing({ spacingPosition: $spacingPosition, size: $size })}
   border: none;
   height: ${({ $size }) => ($size ? sizes[$size].height : sizes.md.height)};
   cursor: pointer;
   display: flex;
-
   justify-content: space-between;
   align-items: center;
   line-height: 2;
   width: fit-content;
   border-radius: ${borderRadius.xxxl};
 
-  ${({ $outlined, $themeType = 'primary', $textColor = 'secondary', theme, $layer, $textLayer }) =>
-    $outlined
-      ? css`
-          border: 1px solid ${getBackgroundColor({ theme, $themeType, $layer: $layer || 3 })};
-          color: ${generateTextColor({
-            theme,
-            themeType: $themeType || 'secondary',
-            outlined: $outlined,
-            textColor: $textColor,
-            textLayer: $textLayer,
-          })};
-        `
-      : css`
-          color: ${generateTextColor({
-            theme,
-            themeType: $themeType || 'secondary',
-            outlined: $outlined,
-            textColor: $textColor,
-            textLayer: $textLayer,
-          })};
-          background-color: ${getBackgroundColor({ theme, $themeType, $layer: $layer || 3 })};
-        `};
-  
+  ${({ $outlined, $themeType = 'primary', $textColor = 'secondary', theme, $layer }) =>
+    generateThemeDesignForComponent({ theme, $themeType, $layer: $layer ?? 3, $outlined, $textColor, $useSimpleeTextColor: true })};
+
   ${({ $isActive, theme }) => {
     if ($isActive) {
       return css`
@@ -133,7 +93,6 @@ export const StyledChip = styled.div<IStyledChip & { theme: TUiColorsType }>`
       `;
     }
   }}
-
 `;
 
 // Define the styled component for the X button

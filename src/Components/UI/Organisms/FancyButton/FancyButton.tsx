@@ -1,64 +1,44 @@
 import React from 'react';
-import { styled } from 'styled-components';
-import { IFancyButtonProps } from './IFancyButton.model';
 
-import generateThemeItem, { IGenerateThemeItem } from '../../HelperFunctions/designFunctions/generateThemeItem';
 import LoadingSVGArrows from '../../Atoms/LoadingSVGArrows/LoadingSVGArrows';
+import Button from '../../Molecules/Button/Button';
 import FancyContent from '../../Molecules/FancyContent/FancyContent';
 
-//this creates the button component and handles the style via generateButton
-const Button = styled.button<IGenerateThemeItem>`
-  ${(props: IGenerateThemeItem) => generateThemeItem(props)}
-`;
 
-//the main react component to generate the fancyButton
-export default function FancyButton(props: IFancyButtonProps) {
-  const {
-    icon,
-    label,
-    size,
-    wide,
-    themeType,
-    align,
-    textColor,
-    hoverColor,
-    outlined,
-    borderRadius,
-    isLoading,
-    layer,
-    iconAlign,
-    ...htmlButtonProps
-  } = {
+type IFancyButtonProps = {
+  isLoading?: boolean;
+  label?: string;
+  align?: "left" | "right" | "center";
+  iconAlign?: "left" | "right";
+  icon?: React.ReactNode;
+}
+// --------------------------------------------------------------------------- //
+// ---------- The Fancy Button has a bit more options than another  ---------- //
+// --------------------------------------------------------------------------- //
+type IFancyButton = React.ComponentProps<typeof Button> & IFancyButtonProps;
+export default function FancyButton(props: IFancyButton) {
+  const { icon, label, isLoading, iconAlign, size, ...ButtonProps } = {
     ...defaultProps,
     ...props,
   };
 
+  // hanlde loadingstate with
   const showIcon = icon && !isLoading;
+  // handle icon alignment
+  const alignIcon = iconAlign === 'left' ? 'row' : 'row-reverse';
 
   return (
-    <Button
-      $size={size!}
-      $themeType={themeType}
-      $borderRadius={borderRadius}
-      $align={align}
-      $textColor={textColor}
-      $wide={wide}
-      $icon={icon}
-      $hoverColor={hoverColor}
-      $label={label}
-      $outlined={outlined}
-      $layer={layer}
-      $iconAlign={iconAlign}
-      type="button"
-      {...htmlButtonProps}
-    >
-
-      <FancyContent text={label} icon={showIcon ? icon : isLoading ? <LoadingSVGArrows isLoading={isLoading} size={size} /> : null} />
+    <Button size={size} oneToOne={Boolean(!label) && Boolean(icon)} {...ButtonProps}>
+      <FancyContent
+        flexDirection={alignIcon}
+        text={label}
+        icon={showIcon ? icon : isLoading ? <LoadingSVGArrows isLoading={isLoading} size={size} /> : null}
+      />
     </Button>
   );
 }
 
-const defaultProps: IFancyButtonProps = {
+const defaultProps: IFancyButton = {
   themeType: 'accent',
   size: 'lg',
   align: 'center',

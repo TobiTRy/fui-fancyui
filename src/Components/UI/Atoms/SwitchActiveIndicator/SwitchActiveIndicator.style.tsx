@@ -12,7 +12,7 @@ const generateBlob = (props: IGenerateBlob) => {
   let backgroundStyle;
 
   // Get the background color for the active indicator
-  const backgroundColor = getBackgroundColor({ theme, $themeType: $themeType || 'accent', $layer: $layer || 0 });
+  const backgroundColor = getBackgroundColor({ theme, $themeType: $themeType ?? 'accent', $layer: $layer ?? 0 });
 
   // Check if the provided rounded value is a valid key in the borderRadius object
   const isRadiusKey = $rounded ? Object.keys(borderRadius).includes($rounded) : false;
@@ -20,7 +20,7 @@ const generateBlob = (props: IGenerateBlob) => {
   // If the outlined prop is true, generate a slightly transparent background color and a border
   if ($outlined) {
     const generateSlightBackgroundColor = colorTransparencyCalculator(
-      getBackgroundColor({ theme, $themeType: $themeType || 'accent', $layer: $layer || 3 }),
+      getBackgroundColor({ theme, $themeType: $themeType ?? 'accent', $layer: $layer ?? 3 }),
       0.2
     );
 
