@@ -12,13 +12,13 @@ IGenerateThemeDesignForComponent,
 // ---------- generates a transparent background ---------- //
 // --------------------------------------------------------------------------- //
 export const generateTransparentStyle = (props: TGenerateTransparentStyle) => {
-  const { theme, $backgroundState, $textColor, $backgroundStrength = 0.1 } = props;
+  const { theme, $backgroundState, $textColor, $backgroundStrength = 0.1, $layer } = props;
   const isDarkTheme = themeStore.getState().isDarkTheme;
 
   return css`
-    color: ${isDarkTheme ? $textColor ?? theme.secondary[0] : $textColor ?? theme.primary[0]};
+    color: ${isDarkTheme ? $textColor ?? theme.secondary[$layer ?? 0] : $textColor ?? theme.primary[$layer ?? 0]};
     ${$backgroundState !== 'active' && 'background-color: transparent'};
-    /* This generate the hover / active style if its needed */
+        /* This generate the hover / active style if its needed */
     ${$backgroundState && generateStateStyle({...props, $backgroundStrength})}
   `;
 };

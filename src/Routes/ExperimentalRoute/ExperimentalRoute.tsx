@@ -99,7 +99,7 @@ export default function ExperimentalRoute() {
         <Button outlined>
           Hiiii
         </Button>
-        <Button themeType='transparent' outlined>
+        <Button themeType='transparent' hoverColor='info'>
           Hiiii Transparent
         </Button>
         <Button themeType='primary' outlined>

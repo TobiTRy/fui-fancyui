@@ -1,55 +1,68 @@
 import React from 'react';
-import { styled } from 'styled-components';
+import { CSSProp, styled } from 'styled-components';
 
 import { borderRadius } from '../../Design/design';
-import { TUiColorsType } from '../../Design/color/designColor';
-import { TLayer } from '../../Design/color/generateColorSteps';
+import { disabledStyle } from '../../HelperFunctions/designFunctions/disableStyle';
 import generateThemeDesignForComponent, {
   IGenerateThemeDesignForComponent,
+  IGenerateThemeDesignForComponentProps,
 } from '../../HelperFunctions/designFunctions/generateThemeDesignForComponent/generateThemeDesignForComponent';
 import IStyledPrefixAndPicker from '../../Interface/IStyledPrefixAndPicker.model';
+import { generatePadding } from '../../HelperFunctions/designFunctions/generatePaddingForComponent/generatePadding';
+import { generateComponentPadding } from '../../HelperFunctions/designFunctions/generatePaddingForComponent/generatepaddingForComponent';
 
 export interface IButtonProps {
   size?: 'sm' | 'md' | 'lg';
   wide?: boolean;
   borderRadius?: keyof typeof borderRadius;
-  align?: 'left' | 'right' | 'center'; // should not needed
-  themeType?: keyof TUiColorsType;
-  layer?: TLayer;
-  textColor?: Exclude<keyof TUiColorsType, 'transparent'>;
-  hoverColor?: Exclude<keyof TUiColorsType, 'transparent'>;
-  outlined?: boolean;
   children?: React.ReactNode;
+  externalStyle?: CSSProp;
 }
 
 const StyledButton = styled.button<IGenerateThemeDesignForComponent & IStyledPrefixAndPicker<IButtonProps>>`
+  display: inline-flex;
+  height: fit-content;
   border: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  width: ${({$wide}) => $wide ? '100%' : 'fit-content'};
+  min-width: fit-content;
   transition: background-color 0.125s ease-in-out;
+
   ${(props: IGenerateThemeDesignForComponent) =>
-    generateThemeDesignForComponent({ ...props, $backgroundState: 'hover', $hoverColor: 'accent' })};
+    generateThemeDesignForComponent({ ...props, $backgroundState: 'hover' })};
+  ${({ $size, $outlined }) =>
+    generateComponentPadding({ size: $size ?? 'md', borderThinkness: $outlined ? 1.20 : 0, doublePaddingLeftRight: true })}
+  ${({ $externalStyle }) => $externalStyle && $externalStyle}
+  &:disabled {
+    ${disabledStyle}
+  }
 `;
 
-export default function Button(props: IButtonProps) {
-  const { children, size, wide, borderRadius, align, themeType, layer, textColor, hoverColor, outlined } = { ...defaultProps, ...props };
+export default function Button(props: IButtonProps & IGenerateThemeDesignForComponentProps) {
+  const { children, size, wide, borderRadius, themeType, layer, textColor, hoverColor, outlined, externalStyle } = {
+    ...defaultProps,
+    ...props,
+  };
   return (
     <StyledButton
       $size={size}
       $wide={wide}
       $borderRadius={borderRadius}
-      $align={align}
       $themeType={themeType}
       $layer={layer}
       $textColor={textColor}
       $hoverColor={hoverColor}
       $outlined={outlined}
+      $externalStyle={externalStyle}
     >
       {children}
     </StyledButton>
   );
 }
 
-const defaultProps: IButtonProps = {
-  themeType: 'accent',
+const defaultProps: IButtonProps & IGenerateThemeDesignForComponentProps = {
+  themeType: 'accent' as const,
   size: 'md',
   layer: 0,
 };

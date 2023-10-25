@@ -2,7 +2,7 @@ import { css } from 'styled-components';
 import Color from 'color';
 
 import { disabledStyle } from '../disableStyle';
-import { generatePadding } from '../generatePadding';
+import { generatePadding } from '../generatePaddingForComponent/generatePadding';
 import { borderRadius } from '../../../Design/design';
 import { boxShadow } from '../../../Design/shadows';
 import themeStore from '../../../Design/color/themeStore';
