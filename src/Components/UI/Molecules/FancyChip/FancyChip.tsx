@@ -2,9 +2,8 @@ import React from 'react';
 
 import SVGXCircle from '../../SVGIcons/SVGXCircle';
 import FancyContent from '../FancyContent/FancyContent';
-import { StyledChip, StyledXButton, TSpacingPosition, WrapperImage } from './FancyChip.style';
 import { IChipProps } from './FancyChip.model';
-import { getTextColor } from '../../Design/color/colorCalculatorForComponet';
+import { StyledChip, StyledXButton, TSpacingPosition, WrapperImage } from './FancyChip.style';
 
 // Define the Chip component
 export default function FancyChip(props: IChipProps) {
