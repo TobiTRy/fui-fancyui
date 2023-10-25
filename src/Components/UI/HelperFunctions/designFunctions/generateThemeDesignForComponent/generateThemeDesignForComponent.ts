@@ -1,16 +1,10 @@
-import { css } from 'styled-components';
-
 import { TUiColorsType } from '../../../Design/color/designColor';
 import { TLayer } from '../../../Design/color/generateColorSteps';
 import { generateNormalStyle } from './utils/generateNormalStyle';
 import { generateTransparentStyle } from './utils/generateTransparentStyle';
 import { generateOutlineStyle } from './utils/generateOutlineStyle';
 
-
-// --------------------------------------------------------------------------- //
-// -----------  The Main generator function to create a the square  ---------- //
-// --------------------------------------------------------------------------- //
-export interface IGenerateThemeDesignForComponent{
+export interface IGenerateThemeDesignForComponent {
   $themeType?: keyof TUiColorsType;
   $hoverColor?: keyof TUiColorsType;
   $textColor?: keyof TUiColorsType;
@@ -20,22 +14,17 @@ export interface IGenerateThemeDesignForComponent{
   $backgroundStrength?: number;
   $backgroundState: 'normal' | 'hover' | 'active';
 }
+// --------------------------------------------------------------------------- //
+// -------  The main function to generate a style for the components -- ------ //
+// --------------------------------------------------------------------------- //
 export default function generateThemeDesignForComponent(props: IGenerateThemeDesignForComponent) {
   const { $themeType, theme, $outlined, $layer, $backgroundStrength, $backgroundState, $hoverColor, $textColor } = props;
-  let style;
 
-  // generate the outlined style if the outlined prop is true else generate only the background color
   if ($themeType === 'transparent') {
-    style = generateTransparentStyle({ $themeType, theme, $backgroundState, $hoverColor });
+    return generateTransparentStyle({ theme, $backgroundState, $hoverColor });
   } else if ($outlined) {
-    style = generateOutlineStyle({ $themeType, theme, $backgroundStrength, $backgroundState, $hoverColor, $textColor });
+    return generateOutlineStyle({ $themeType, theme, $backgroundStrength, $backgroundState, $hoverColor, $textColor });
   } else {
-    style = generateNormalStyle({ $themeType, theme, $layer, $backgroundState });
+    return generateNormalStyle({ $themeType, theme, $layer, $backgroundState });
   }
-
-  return css`
-
-
-    ${style}
-  `;
 }

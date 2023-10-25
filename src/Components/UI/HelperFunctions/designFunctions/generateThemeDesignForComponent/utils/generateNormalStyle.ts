@@ -4,19 +4,25 @@ import { IGenerateThemeDesignForComponent } from '../generateThemeDesignForCompo
 import { generateStateStyle } from './generateHoverActiveColor';
 
 type TGenerateNormalStyle = Pick<IGenerateThemeDesignForComponent, '$themeType' | 'theme' | '$layer' | '$textColor' | '$backgroundState'>;
+// --------------------------------------------------------------------------- //
+// ----------- generates a normal style for the specific component  ---------- //
+// --------------------------------------------------------------------------- //
 export const generateNormalStyle = (props: TGenerateNormalStyle) => {
   const { $themeType, theme, $layer = 0, $textColor, $backgroundState } = props;
+
+  // get theme background color
   const backgorundColor = getBackgroundColor({ theme, $themeType: $themeType ?? 'primary', $layer: $layer ?? 0 });
 
+  // this function returns the oposit text color of the background color like primary -> secondary
   const getOpositTextColor = () => {
-    if ($textColor) return theme[$textColor][0];
     return getTextColor({ theme, $themeType: $themeType ?? 'primary', $textLayer: $layer ?? 0, turnColorTheme: true });
   };
 
   return css`
     border: none;
     background-color: ${backgorundColor};
-    color: ${getOpositTextColor};
+    color: ${$textColor ? theme[$textColor][0] : getOpositTextColor()};
+    /* This generate the hover / active style if its needed */
     ${$backgroundState && generateStateStyle(props)}
   `;
 };

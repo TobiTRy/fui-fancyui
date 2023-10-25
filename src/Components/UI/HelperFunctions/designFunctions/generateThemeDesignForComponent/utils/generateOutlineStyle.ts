@@ -8,15 +8,13 @@ type TGenerateOutlineStyle = Pick<
 IGenerateThemeDesignForComponent,
   '$outlined' | '$themeType' | 'theme' | '$layer' | '$backgroundStrength' | '$backgroundState' | '$hoverColor' | '$textColor'
 >;
+// --------------------------------------------------------------------------- //
+// ------- Generates the style for a outlined box or other compoent ---------- //
+// --------------------------------------------------------------------------- //
 export const generateOutlineStyle = (props: TGenerateOutlineStyle) => {
-  const { $themeType, theme, $layer = 3, $backgroundState, $backgroundStrength = 0.1, $hoverColor, $textColor } = props;
-  let backgroundColor;
-
-  if ($backgroundState) backgroundColor = generateStateStyle({ ...props, $outlined: true, $backgroundStrength });
-
-  // if the theme type istransparent, generate the transparent style and return it
-  // if ($themeType === 'transparent') return generateTransparentStyle({ $themeType, theme });
-  // get theme background color
+  const { $themeType, theme, $layer = 3, $backgroundState, $backgroundStrength = 0.1, $textColor } = props;
+  
+  // generates the color for the border 
   const borderColor = getBackgroundColor({ theme, $themeType: $themeType ?? 'primary', $layer: $layer ?? 0 });
 
   return css`
@@ -24,6 +22,7 @@ export const generateOutlineStyle = (props: TGenerateOutlineStyle) => {
     border: 1.5px solid ${borderColor};
     color: ${generateTextColor({ $themeType, $textColor, $layer })};
     ${$backgroundState !== 'active' && 'background-color: transparent'};
-    ${backgroundColor}
+      /* This generate the hover / active style if its needed */
+    ${$backgroundState && generateStateStyle({ ...props, $outlined: true, $backgroundStrength })}
   `;
 };

@@ -23,8 +23,10 @@ export interface IButtonProps {
 }
 
 const StyledButton = styled.button<IGenerateThemeDesignForComponent & IStyledPrefixAndPicker<IButtonProps>>`
+  border: none;
+  transition: background-color 0.125s ease-in-out;
   ${(props: IGenerateThemeDesignForComponent) =>
-    generateThemeDesignForComponent({ ...props, $backgroundState: 'hover', $hoverColor: 'accent' })}
+    generateThemeDesignForComponent({ ...props, $backgroundState: 'hover', $hoverColor: 'accent' })};
 `;
 
 export default function Button(props: IButtonProps) {
