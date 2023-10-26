@@ -2,7 +2,7 @@ import React from 'react';
 
 // Import necessary components and interfaces
 import { IFancyBottomBarIcon } from './FancyBottomBarIcon.model';
-import { IconTextButton, Icon, Underline, ItemWrapper } from './FancyBottomBarIcon.style';
+import { IconTextButton, Icon, ItemWrapper } from './FancyBottomBarIcon.style';
 import Typography from '../Typography/Typography';
 
 // --------------------------------------------------------------------------- //
@@ -18,7 +18,6 @@ export default function FancyBottomBarIcon(props: IFancyBottomBarIcon) {
       <IconTextButton $isActive={active} disabled={disabled} onClick={onClick} $themeType={themeType} $layer={layer}>
         <Icon>{icon}</Icon>
         <Typography type="smText">{label}</Typography>
-        <Underline $isActive={active} />
       </IconTextButton>
     </ItemWrapper>
   );

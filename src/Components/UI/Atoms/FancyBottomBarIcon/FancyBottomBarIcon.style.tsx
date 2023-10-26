@@ -45,19 +45,6 @@ export const ItemWrapper = styled.div`
   filter: drop-shadow(0px 0px 16px rgba(0, 0, 0, 0.55));
 `;
 
-export const Underline = styled.i<{ $isActive?: boolean; theme: TUiColorsType }>`
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translate(-50%);
-  width: 80%;
-  height: 1.5px;
-  margin-top: 12px;
-  border-radius: 10px;
-  background-color: ${({ $isActive, theme }) => ($isActive ? theme.accent[0] : 'transparent')};
-  transition: all 0.1s ease-in-out;
-`;
-
 export const Icon = styled.div`
   height: 18px;
   width: 18px;
