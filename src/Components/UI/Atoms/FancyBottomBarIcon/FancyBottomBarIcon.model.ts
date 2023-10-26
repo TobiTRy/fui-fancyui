@@ -11,4 +11,5 @@ export interface IFancyBottomBarIcon {
   onClick?: () => void;
   themeType?: keyof TUiColorsType;
   layer?: TLayer;
+  uniqekey?: string | number;
 }

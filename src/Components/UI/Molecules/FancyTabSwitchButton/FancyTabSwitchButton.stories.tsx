@@ -29,9 +29,21 @@ const meta = {
         summary: false,
       },
     },
-    itemObject: {
-      description: 'The object of the item.',
-      control: { type: 'object' },
+    label: {
+      description: 'The text to be displayed in the button.',
+      type: { name: 'string' },
+    },
+    icon: {
+      description: 'The icon to be displayed in the button.',
+      type: { name: 'string' },
+    },
+    children: {
+      description: 'The children of the button.',
+      type: { name: 'string' },
+    },
+    itemKey: {
+      description: 'The key of the button.',
+      type: { name: 'string' },
     },
     selected: {
       description: 'If true, the button will be selected.',
@@ -71,7 +83,9 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   render: (args) => <HelperComponent {...args} />,
   args: {
-    itemObject: { key: '1', label: 'label', icon: <SVGCheckMark /> },
+    itemKey: '1',
+    label: 'label',
+    icon: <SVGCheckMark />,
     selected: false,
     wide: false,
     themeType: 'secondary',

@@ -1,14 +1,11 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import HeaderTitleWithLogo from '../../Components/UI/Molecules/HeaderTitleWithLogo/HeaderTitleWithLogo';
-import FancyDropDownMenue from '../../Components/UI/Organisms/FancyDropDownMenue/FancyDropDownMenue';
 
-import FancySearchBar from '../../Components/UI/Organisms/FancySearchBar/FancySearchBar';
-import FancyLiItem from '../../Components/UI/Atoms/FancyLI/FancyLI';
-import { FancyA, FancySVGAtom, Typography } from '../../lib';
 import FancyLoadingSpinner from '../../Components/UI/Atoms/FancyLoadingSpinner/FancyLoadingSpinner';
 import FancyMiniProfile from '../../Components/UI/Molecules/FancyMiniProfile/FancyMiniProfile';
+import FancySearchBar from '../../Components/UI/Organisms/FancySearchBar/FancySearchBar';
+import { Typography } from '../../lib';
 
-import SVGChevronLeft from '../../Components/UI/SVGIcons/SVGChevronLeft';
 import styled from 'styled-components';
 import FancyBar from '../../Components/UI/Atoms/FancyBar/FancyBar';
 import { borderRadius } from '../../Components/UI/Design/design';

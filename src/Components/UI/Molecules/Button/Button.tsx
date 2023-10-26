@@ -12,6 +12,7 @@ export interface IButtonProps {
   children?: React.ReactNode;
   externalStyle?: CSSProp;
   oneToOne?: boolean;
+  disabled?: boolean;
 }
 // --------------------------------------------------------------------------- //
 // --------------- A normal Button with Style from the Theme ----------------- //
@@ -24,6 +25,7 @@ export default function Button(props: IButton) {
   };
   return (
     <StyledButton
+  
       $size={size}
       $wide={wide}
       $borderRadius={borderRadius}

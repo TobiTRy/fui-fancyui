@@ -58,5 +58,7 @@ export const Primary: Story = {
       <FancyBottomBarIcon label='Test' icon={<SVGCheckMark/>}  />
     </SwitchList>
   ),
-  args: {},
+  args: {
+    children: <></>
+  },
 };

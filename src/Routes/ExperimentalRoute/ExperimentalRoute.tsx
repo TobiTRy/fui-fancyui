@@ -1,17 +1,11 @@
-import React, { ChangeEvent, ChangeEventHandler } from 'react';
+import React, { ChangeEvent } from 'react';
 
-import { styled } from 'styled-components';
-import { FancyButton, FancyCard, FancySVGAtom, FancyTabSwitch, SingleToastMessage } from '../../lib';
-import Color from 'color';
-import { updateThemeColors } from '../../Components/UI/Design/color/designColor';
 import themeStore from '../../Components/UI/Design/color/themeStore';
 import { FancyTextInput } from '../../Components/UI/Organisms/FancyTextInput';
-import { FancyPasswordInput } from '../../Components/UI/Organisms/FancyPasswordInput';
-import SVGCheckMark from '../../Components/UI/SVGIcons/SVGCheckMark';
+import { FancyBottomBarIcon, FancyButton, FancyCard, FancySVGAtom, SingleToastMessage } from '../../lib';
 
 import FancyContent from '../../Components/UI/Molecules/FancyContent/FancyContent';
-import Button from '../../Components/UI/Molecules/Button/Button';
-import BottomBarList from '../../Components/UI/Molecules/BottomBarList/BottomBarList';
+import BottomBarList from '../../Components/UI/Molecules/SwitchList/SwitchList';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -38,7 +32,6 @@ const values = [
   { label: 'test2', icon: Icon, itemKey: '2' },
   { label: 'test3', icon: Icon, itemKey: '3' },
   { label: 'test4', icon: Icon, itemKey: '4' },
-
 ];
 
 export default function ExperimentalRoute() {
@@ -46,7 +39,7 @@ export default function ExperimentalRoute() {
   const switchTheme = themeStore((state) => state.switchTheme);
   const [isActive, setIsActive] = React.useState('');
 
-  const [test, setTest] = React.useState('1');
+  
   //updateTheme({primary: '#ff0000', secondary: '#0000ff', accent: '#00ff00'})
 
   const removeToast = () => {
@@ -83,8 +76,18 @@ export default function ExperimentalRoute() {
         </FancyCard>
 
         <FancyContent flexDirection="row" flexAlign="center" text="HIII MY FANS" icon={Icon} />
-        <BottomBarList items={values} />
-        <BottomBarList items={values} indicatorType='topline' />
+        <BottomBarList  indicatorType="underline">
+          <FancyBottomBarIcon label="test" uniqekey={1} icon={Icon} onClick={() => console.log('sdsdds')}/>
+          <FancyBottomBarIcon label="test" uniqekey={2} icon={Icon} />
+          <FancyBottomBarIcon label="test" uniqekey={3} icon={Icon} />
+          <FancyBottomBarIcon label="test" uniqekey={4} icon={Icon} />
+        </BottomBarList>
+        <BottomBarList indicatorType="underline" whichIndexIsSelected={0}>
+          <FancyBottomBarIcon label="test" uniqekey={1} icon={Icon} onClick={() => console.log('sdsdds')}/>
+          <FancyBottomBarIcon label="test" uniqekey={2} icon={Icon} />
+          <FancyBottomBarIcon label="test" uniqekey={3} icon={Icon} />
+          <FancyBottomBarIcon label="test" uniqekey={4} icon={Icon} />
+        </BottomBarList>
         {/* <FancyButton label={'Test'} icon={Icon}/> */}
       </FancyCard>
     </div>

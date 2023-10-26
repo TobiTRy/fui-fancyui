@@ -36,24 +36,6 @@ const meta = {
         type: 'range', min: 0, max: 10, step: 1,
       },
     },
-    bottomFixed : {
-      description: 'This prop will fix the bar to the bottom',
-      control: {
-        type: 'boolean',
-      },
-    },
-    width: {
-      control: {
-        type: 'text'
-      },
-    },
-    spacingLeftRight: {
-      control: {
-        type: 'text'
-      },
-    },
-
-
   },
   tags: ['autodocs'],
 } satisfies Meta<typeof FancyBottomBarStatic>;

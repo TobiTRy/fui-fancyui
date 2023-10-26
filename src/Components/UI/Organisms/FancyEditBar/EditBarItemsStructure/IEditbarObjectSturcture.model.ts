@@ -1,9 +1,10 @@
+import React from 'react';
+
 import { IFancyBottomBarIcon } from '../../../Atoms/FancyBottomBarIcon/FancyBottomBarIcon.model';
 import FancyDropDownSelect from '../../FancyDropDownSelect/FancyDropDownSelect';
 import FancyTextInput from '../../FancyTextInput/FancyTextInput';
 import IFancyRangeSlider from '../../FancyRangeSlider/FancyRangeSlider.model';
-import IFancyTab from '../../../Molecules/FancyTabSwitch/IFancyTab.model';
-import React from 'react';
+import { ITabSwitchProps } from '../../../Molecules/TabSwitch/TabSwitch.model';
 
 // --------------------------------------------------------------------------- //
 // ---------- thes interfaces map the strings and JSX Item together ---------- //
@@ -27,7 +28,7 @@ export interface IRangeSlider extends ISettingsItem, IFancyRangeSlider {
   settingsType: 'slider';
 }
 
-export interface ITab extends ISettingsItem, IFancyTab {
+export interface ITab extends ISettingsItem, ITabSwitchProps {
   settingsType: 'tab';
 }
 

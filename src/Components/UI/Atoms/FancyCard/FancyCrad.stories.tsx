@@ -59,12 +59,7 @@ export const Primary: Story = {
     </FancyCard>
   ),
   args: {
-    roundedEdges: {
-      topLeft: true,
-      topRight: true,
-      bottomLeft: true,
-      bottomRight: true,
-    },
+    roundedEdges: ['sm', 'md', 'lg', 'xl',],
     shadow: true,
     themeType: 'primary',
     layer: 3,

@@ -70,7 +70,6 @@ export { default as SwipeUpModal } from '../Components/UI/Molecules/SwipeUpModal
 export { default as TextInput } from '../Components/UI/Molecules/TextInput/TextInput';
 export { default as FancyOpacitySlider } from '../Components/UI/Molecules/FancyOpacitySlider/FancyOpacitySlider';
 export { default as FancyButton } from '../Components/UI/Organisms/FancyButton/FancyButton';
-export { default as FancyA } from '../Components/UI/Molecules/FancyA/FancyA';
 export { default as FancyHueSlider } from '../Components/UI/Molecules/FancyHueSlider/FancyHueSlider';
 export { default as FancyTabSwitch } from '../Components/UI/Molecules/FancyTabSwitch/FancyTabSwitch';
 export { default as FancyColorArea } from '../Components/UI/Molecules/FancyColorArea/FancyColorArea';

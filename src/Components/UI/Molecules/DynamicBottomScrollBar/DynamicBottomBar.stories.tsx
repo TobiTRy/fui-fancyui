@@ -17,22 +17,6 @@ const meta = {
     },
   },
   argTypes: {
-    width: {
-      description: 'The width of the component.',
-      control: {
-        type: 'text',
-      },
-    },
-    themeType: {
-      control: {
-        type: 'select',
-      },
-    },
-    bottomFixed: {
-      control: {
-        type: 'boolean',
-      },
-    },
     scrollable: {
       description: 'If true, the bar will be scrollable.',
       control: {
@@ -41,11 +25,6 @@ const meta = {
     },
     buttons: {
       description: 'The buttons to be rendered in the bar. <br> - The button recives a prop wich has a on click on this item, to call the specific function',
-    },
-    layer : {
-      control: {
-        type: 'range',  min: 0, max: 10, step: 1,
-      },
     },
   },
   tags: ['autodocs'],
@@ -57,7 +36,6 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   render: (args) => <DynamicBottomScrollBar {...args} />,
   args: {
-    layer: 4,
     buttons: [
       {
         id: '1',
@@ -109,8 +87,5 @@ export const Primary: Story = {
         onClick: () => console.log('exit'),
       },
     ],
-    spacingLeftRight: '0px',
-    width: '100%',
-
   },
 };

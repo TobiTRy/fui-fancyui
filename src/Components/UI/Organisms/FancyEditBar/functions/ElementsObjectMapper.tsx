@@ -5,6 +5,7 @@ import { FancyTextInput } from '../../FancyTextInput';
 import FancyDropDownSelect from '../../FancyDropDownSelect/FancyDropDownSelect';
 import FancyRangeSlider from '../../FancyRangeSlider/FancyRangeSlider';
 import FancyTabSwitch from '../../../Molecules/FancyTabSwitch/FancyTabSwitch';
+import { ITabSwitchProps } from '../../../Molecules/TabSwitch/TabSwitch.model';
 
 // --------------------------------------------------------------------------- //
 // --------- Give back a Element of the the specified item string ------------ //
@@ -20,7 +21,7 @@ const settingsToJSXMapper = (itemObject: InputSettings) => {
     case 'slider':
         return <FancyRangeSlider {...(inputProps as IRangeSlider)} />;
     case 'tab':
-        return <FancyTabSwitch {...(inputProps as ITab)} />;
+        return <FancyTabSwitch {...(inputProps as ITabSwitchProps)} />;
 }
 };
 
