@@ -11,13 +11,13 @@ import SVGCheckMark from '../../Components/UI/SVGIcons/SVGCheckMark';
 
 import FancyContent from '../../Components/UI/Molecules/FancyContent/FancyContent';
 import Button from '../../Components/UI/Molecules/Button/Button';
+import BottomBarList from '../../Components/UI/Molecules/BottomBarList/BottomBarList';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
     <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm11.666 1.89c.682 0 1.139.47 1.187 1.107H14v-.11c-.053-1.187-1.024-2-2.342-2-1.604 0-2.518 1.05-2.518 2.751v.747c0 1.7.905 2.73 2.518 2.73 1.314 0 2.285-.792 2.342-1.939v-.114h-1.147c-.048.615-.497 1.05-1.187 1.05-.839 0-1.318-.62-1.318-1.727v-.742c0-1.112.488-1.754 1.318-1.754zm-6.188.926h.044L6.542 11h1.006L9 5.001H7.818l-.82 4.355h-.056L5.97 5.001h-.94l-.972 4.355h-.053l-.827-4.355H2L3.452 11h1.005l1.02-4.184z" />
   </svg>
 );
-
 
 const svg = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -33,6 +33,14 @@ const reloadIcon = (
   </svg>
 );
 
+const values = [
+  { label: 'test1', icon: Icon, itemKey: '1' },
+  { label: 'test2', icon: Icon, itemKey: '2' },
+  { label: 'test3', icon: Icon, itemKey: '3' },
+  { label: 'test4', icon: Icon, itemKey: '4' },
+
+];
+
 export default function ExperimentalRoute() {
   const updateTheme = themeStore((state) => state.updateTheme);
   const switchTheme = themeStore((state) => state.switchTheme);
@@ -43,14 +51,12 @@ export default function ExperimentalRoute() {
 
   const removeToast = () => {
     console.log('remove');
-  }
+  };
 
   return (
     <div style={{ display: 'flex' }}>
       <FancyCard shadow>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-
-        </div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}></div>
         <FancyCard layer={1}>
           <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-end' }}>
             <FancyTextInput
@@ -59,55 +65,26 @@ export default function ExperimentalRoute() {
               value={isActive}
               onChange={(e: ChangeEvent<HTMLInputElement>) => setIsActive(e.target.value)}
             />
-            <FancyButton
-              borderRadius="md"
-              size="md"
-              themeType="secondary"
-              icon={reloadIcon}
-              onClick={() => switchTheme()}
-            />
-            <FancySVGAtom themeType='error'>
-              {reloadIcon}
-            </FancySVGAtom>
+            <FancyButton borderRadius="md" size="md" themeType="secondary" icon={reloadIcon} onClick={() => switchTheme()} />
+            <FancySVGAtom themeType="error">{reloadIcon}</FancySVGAtom>
           </div>
           {/* <FancyPasswordInput label="hii" icon={svg} /> */}
           {/* <FancyButton themeType="primary" label="hii" onClick={() => updateTheme({ primary: '#f20c0c' })} /> */}
-          <SingleToastMessage toast={{
-            id: 1,
-            title: 'My Title of the titel ',
-            message: 'This is my toast message hjsadhjgdshjag.',
-            time: 50050,
-            themeType: 'success',
-          }}
-          remove={removeToast}
+          <SingleToastMessage
+            toast={{
+              id: 1,
+              title: 'My Title of the titel ',
+              message: 'This is my toast message hjsadhjgdshjag.',
+              time: 50050,
+              themeType: 'success',
+            }}
+            remove={removeToast}
           />
         </FancyCard>
 
-        <FancyContent flexDirection='row' flexAlign='center' text='HIII MY FANS' icon={Icon}/>
-        <Button hoverColor='success'>
-          Hiiii
-        </Button>
-        <Button themeType='transparent'>
-          Hiiii Transparent
-        </Button>
-        <Button themeType='primary'>
-          Hiiii 
-        </Button>
-        <Button themeType='secondary' textColor='error'>
-          Hiiii 
-        </Button>
-        <Button outlined>
-          Hiiii
-        </Button>
-        <Button themeType='transparent' hoverColor='info' textColor={"warning"} borderRadius={undefined}>
-          Hiiii Transparent
-        </Button>
-        <Button themeType='primary' outlined>
-          Hiiii 
-        </Button>
-        <Button themeType='secondary' outlined textColor='success'wide>
-          Hiiii 
-        </Button>
+        <FancyContent flexDirection="row" flexAlign="center" text="HIII MY FANS" icon={Icon} />
+        <BottomBarList items={values} />
+        <BottomBarList items={values} indicatorType='topline' />
         {/* <FancyButton label={'Test'} icon={Icon}/> */}
       </FancyCard>
     </div>

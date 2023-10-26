@@ -80,7 +80,7 @@ export interface ITypography {
 // --------------------------------------------------------------------------- //
 // The Typography component can render differnet elements with different styles//
 // ------------- like a "h4 can have the style of a p" ----------------------- //
-export default function Typography({ type, variant, children, style, weight, className ,...htmlProps }: ITypography) {
+export default function Typography({ type, variant, children, style, weight, className, ...htmlProps }: ITypography) {
   // generate the Typography component based on the type prop;
   // const Component = TypographyList[type] || TypographyList.content;
   const Component = (TypographyList[type] || TypographyList.content) as React.FC<IComponentProps>;
