@@ -85,10 +85,11 @@ export const Primary: Story = {
   render: (args) => <FancyTabSwitch {...args}/>,
   args: {
     values: [
-      { key: '1', label: 'Tab 1' },
-      { key: '2', label: 'Tab 2' },
-      { key: '3', label: 'Tab 3' },
+      { itemKey: '1', label: 'Tab 1' },
+      { itemKey: '2', label: 'Tab 2' },
+      { itemKey: '3', label: 'Tab 3' },
     ],
+
     label: 'FancyTabSwitch',
     currentSelect: '2',
     handler: () => {console.log('onChange')},

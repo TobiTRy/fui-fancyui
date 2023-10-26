@@ -37,6 +37,7 @@ export const StyledButton = styled.button<IGenerateThemeDesignForComponent & ISt
   ${({ $externalStyle }) => $externalStyle && $externalStyle}
 
   ${({ $size, $outlined, $oneToOne }) => $oneToOne && generate1To1Button($size ?? 'md', $outlined)};
+  
   &:disabled {
     ${disabledStyle}
   }
