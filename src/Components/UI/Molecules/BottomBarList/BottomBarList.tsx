@@ -10,6 +10,7 @@ interface IBottomBarListProps {
   items: Iitem[];
   handler?: (itemKey: string) => void;
   indicatorType?: React.ComponentProps<typeof SwitchActiveIndicator>['$type'];
+  children?: React.ReactNode;
 }
 
 const StyledList = styled.div`
@@ -22,7 +23,7 @@ const ItemWrapper = styled.div`
   flex-grow: 1;
 `
 
-export default function BottomBarList({ items, handler, indicatorType }: IBottomBarListProps) {
+export default function BottomBarList({ items, handler, indicatorType, children }: IBottomBarListProps) {
   const [currentActive, setCurrentActive] = useState('');
 
   // Define the function to handle the selection of a tab
@@ -36,7 +37,8 @@ export default function BottomBarList({ items, handler, indicatorType }: IBottom
     <StyledList>
       {items.map((item, index) => (
         <ItemWrapper>
-          <FancyBottomBarIcon key={index} active={item.itemKey === currentActive} {...item} onClick={() => activeHandler(item.itemKey)} />
+          {React.Children.map(children, (child) => React.cloneElement(child as React.ReactElement, { active: item.itemKey === currentActive, onClick: () => activeHandler(item.itemKey)}))}
+          {/* <FancyBottomBarIcon key={index} active={item.itemKey === currentActive} {...item} onClick={() => activeHandler(item.itemKey)} /> */}
           {index === 0 && <SwitchActiveIndicator $itemNumber={Number(currentActive)} $type={indicatorType ?? 'underline'} />}
         </ItemWrapper>
       ))}
