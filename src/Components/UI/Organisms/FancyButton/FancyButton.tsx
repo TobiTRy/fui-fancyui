@@ -7,6 +7,12 @@ import FancyContent from '../../Molecules/FancyContent/FancyContent';
 import { generateFancyButton } from './FancyButton.style';
 import { css } from 'styled-components';
 
+const alignment = {
+  left: 'flex-start' as const,
+  right: 'flex-end' as const,
+  center: 'center' as const,
+};
+
 export type IFancyButtonProps = {
   isLoading?: boolean;
   label?: string;
@@ -23,7 +29,7 @@ export type IFancyButtonProps = {
 // --------------------------------------------------------------------------- //
 type IFancyButton = IFancyButtonProps & IButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement>;
 export default function FancyButton(props: IFancyButton) {
-  const { icon, label, isLoading, iconAlign, size, externalStyle, ...ButtonProps } = {
+  const { icon, label, isLoading, iconAlign, size, align, externalStyle, ...ButtonProps } = {
     ...defaultProps,
     ...props,
   };
@@ -33,6 +39,7 @@ export default function FancyButton(props: IFancyButton) {
     borderRadius: props.borderRadius,
     oneToOne: Boolean(!label) && Boolean(icon),
     outlined: props.outlined,
+    justifyContent: alignment[align ?? 'center'],
   });
 
   // hanlde loadingstate with
