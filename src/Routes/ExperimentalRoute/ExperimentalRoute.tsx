@@ -7,6 +7,7 @@ import { FancyBottomBarIcon, FancyButton, FancyCard, FancySVGAtom, SingleToastMe
 import FancyContent from '../../Components/UI/Molecules/FancyContent/FancyContent';
 import BottomBarList from '../../Components/UI/Molecules/SwitchList/SwitchList';
 import Button from '../../Components/UI/Molecules/Button/Button';
+import FancyContent2 from '../../Components/UI/Molecules/FancyContent2/FancyContent2';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -89,8 +90,15 @@ export default function ExperimentalRoute() {
           <FancyBottomBarIcon label="test" uniqekey={3} icon={Icon} />
           <FancyBottomBarIcon label="test" uniqekey={4} icon={Icon} />
         </BottomBarList>
-        <Button type='button'/>
-        <FancyButton/>
+        <Button>
+          asas
+        </Button>
+        <FancyButton label='Hi' >
+          
+        </FancyButton>
+        <FancyContent2>
+          <FancyContent2.Text text='Hi' />
+        </FancyContent2>
       </FancyCard>
     </div>
   );
