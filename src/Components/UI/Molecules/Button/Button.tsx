@@ -5,7 +5,7 @@ import { borderRadius } from '../../Design/design';
 import { IGenerateThemeDesignForComponentProps } from '../../HelperFunctions/designFunctions/generateThemeDesignForComponent/generateThemeDesignForComponent';
 import { StyledButton } from './Button.style';
 
-export interface IButtonProps {
+export type IButtonProps = {
   size?: 'sm' | 'md' | 'lg';
   wide?: boolean;
   borderRadius?: keyof typeof borderRadius;
@@ -13,11 +13,20 @@ export interface IButtonProps {
   externalStyle?: CSSProp;
   oneToOne?: boolean;
   disabled?: boolean;
-}
+} & IGenerateThemeDesignForComponentProps
+
+
+type ButtonHTML = React.ButtonHTMLAttributes<HTMLButtonElement>;
+type AnchorHTML = React.AnchorHTMLAttributes<HTMLAnchorElement>;
+
+// Using conditional type based on the 'as' prop
+export type IButton = IButtonProps & (
+  { as?: 'button' } & ButtonHTML | 
+  { as: 'a' } & AnchorHTML
+) ;
 // --------------------------------------------------------------------------- //
 // --------------- A normal Button with Style from the Theme ----------------- //
 // --------------------------------------------------------------------------- //
-type IButton = IButtonProps & IGenerateThemeDesignForComponentProps & React.HTMLAttributes<HTMLButtonElement>;
 export default function Button(props: IButton) {
   const { children, size, wide, borderRadius, themeType, layer, textColor, hoverColor, outlined, externalStyle, oneToOne, ...htmlProps } = {
     ...defaultProps,
@@ -25,7 +34,6 @@ export default function Button(props: IButton) {
   };
   return (
     <StyledButton
-  
       $size={size}
       $wide={wide}
       $borderRadius={borderRadius}
