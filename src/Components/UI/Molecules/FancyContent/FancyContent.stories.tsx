@@ -3,7 +3,7 @@ import SVGCheckMark from '../../SVGIcons/SVGCheckMark';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
-import FancyContent from './FancyContent';
+import FancyContent from '../FancyContent/FancyContent';
 
 const meta = {
   component: FancyContent,

@@ -1,25 +1,9 @@
 // Import necessary dependencies
 import React from 'react';
-import Typography, { TypographyList } from '../../Atoms/Typography/Typography';
-import FancySVGAtom from '../../Atoms/FancySVGAtom/FancySVGAtom';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import { spacingPx } from '../../Design/design';
-
-// Define the sizes for the FancyContent component
-const sizes = {
-  sm: {
-    fontSize: 'smText' as keyof typeof TypographyList,
-    padding: spacingPx.xs,
-  },
-  md: {
-    fontSize: 'content' as keyof typeof TypographyList,
-    padding: spacingPx.sm,
-  },
-  lg: {
-    fontSize: 'button' as keyof typeof TypographyList,
-    padding: spacingPx.md,
-  },
-};
+import FancyContentIcon from './utils/FancyContentIcon';
+import FancyContentText from './utils/FancyContentText';
 
 // Define the types for the Wrapper component
 type TWrapper = Pick<IFancyContentProps, 'flexDirection' | 'flexAlign' | 'flexJustify'>;
@@ -35,37 +19,45 @@ const Wrapper = styled.span<TWrapper>`
 
 // Define the props for the FancyContent component
 interface IFancyContentProps {
-  text?: string;
-  icon?: React.ReactNode;
-  bold?: boolean;
-  size?: 'sm' | 'md' | 'lg';
   flexDirection?: 'row' | 'row-reverse' | 'column' | 'column-reverse';
   flexJustify?: 'flex-start' | 'flex-end' | 'center' | 'space-between' | 'space-around' | 'space-evenly';
   flexAlign?: 'flex-start' | 'flex-end' | 'center' | 'stretch' | 'baseline';
+  children?: React.ReactNode;
 }
 
 // --------------------------------------------------------------------------- //
 // ------- The conent Components handles the Content of The componets -------- //
 // -------------------like for a button or chip etc. ------------------------ //
 export default function FancyContent(props: IFancyContentProps) {
-  const { text, icon, flexDirection, flexAlign, size, bold = true } = props;
+  const { children, flexAlign, flexDirection } = props;
+  let hasIcon = false;
+  let hasText = false;
+
+  // Check if the children are valid and if they are of the type FancyContentIcon or FancyContentText
+  React.Children.forEach(children, (child) => {
+    if (React.isValidElement(child) && typeof child.type === 'function') {
+      if (child.type.name === 'FancyContentIcon') {
+        hasIcon = true;
+      } else if (child.type.name === 'FancyContentText') {
+        hasText = true;
+      }
+    }
+  });
+
   return (
     <>
-      {text && (
+      {/* If it has a icon and no text dont put it in a container */}
+      {hasIcon && !hasText ? (
+        children
+      ) : (
         <Wrapper flexAlign={flexAlign} flexDirection={flexDirection}>
-          {icon && (
-            <FancySVGAtom size={size} externalStyle={{ flexShrink: '0' }} isPassive>
-              {icon}
-            </FancySVGAtom>
-          )}
-          {text && (
-            <Typography variant={sizes[size || 'sm'].fontSize} weight={bold ? 'bold' : 'normal'} type="button">
-              {text}
-            </Typography>
-          )}
+          {children}
         </Wrapper>
       )}
-      {(icon && !text) && icon}
     </>
   );
 }
+
+// Link the subcomponents to the main component
+FancyContent.Text = FancyContentText;
+FancyContent.Icon = FancyContentIcon;
