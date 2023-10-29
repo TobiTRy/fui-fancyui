@@ -4,22 +4,8 @@ import Typography, { TypographyList } from '../../Atoms/Typography/Typography';
 import FancySVGAtom from '../../Atoms/FancySVGAtom/FancySVGAtom';
 import styled from 'styled-components';
 import { spacingPx } from '../../Design/design';
-
-// Define the sizes for the FancyContent component
-const sizes = {
-  sm: {
-    fontSize: 'smText' as keyof typeof TypographyList,
-    padding: spacingPx.xs,
-  },
-  md: {
-    fontSize: 'content' as keyof typeof TypographyList,
-    padding: spacingPx.sm,
-  },
-  lg: {
-    fontSize: 'button' as keyof typeof TypographyList,
-    padding: spacingPx.md,
-  },
-};
+import FancyContentText from './utils/FancyContentText';
+import FancyContentIcon from './utils/FancyContentIcon';
 
 // Define the types for the Wrapper component
 type TWrapper = Pick<IFancyContentProps, 'flexDirection' | 'flexAlign' | 'flexJustify'>;
@@ -49,6 +35,7 @@ export default function FancyContent2(props: IFancyContentProps) {
   let hasIcon = false;
   let hasText = false;
 
+  // Check if the children are valid and if they are of the type FancyContentIcon or FancyContentText
   React.Children.forEach(children, (child) => {
     if (React.isValidElement(child) && typeof child.type === 'function') {
       if (child.type.name === 'FancyContentIcon') {
@@ -61,6 +48,7 @@ export default function FancyContent2(props: IFancyContentProps) {
 
   return (
     <>
+      {/* If it has a icon and no text dont put it in a container */}
       {hasIcon && !hasText ? (
         children
       ) : (
@@ -72,31 +60,6 @@ export default function FancyContent2(props: IFancyContentProps) {
   );
 }
 
-
-interface IFancyContentIconProps {
-  icon?: React.ReactNode;
-  size?: 'sm' | 'md' | 'lg';
-}
-FancyContent2.Icon = function FancyContentIcon(props: IFancyContentIconProps) {
-  const { icon, size } = props;
-  return (
-    <FancySVGAtom size={size} externalStyle={{ flexShrink: '0' }} isPassive>
-      {icon}
-    </FancySVGAtom>
-  );
-};
-
-
-interface IFancyContentTextProps {
-  text?: string;
-  bold?: boolean;
-  size?: 'sm' | 'md' | 'lg';
-}
-FancyContent2.Text = function FancyContentText(props: IFancyContentTextProps) {
-  const { text, size, bold = true } = props;
-  return (
-    <Typography variant={sizes[size || 'sm'].fontSize} weight={bold ? 'bold' : 'normal'} type="button">
-      {text}
-    </Typography>
-  );
-};
+// Link the subcomponents to the main component
+FancyContent2.Text = FancyContentText;
+FancyContent2.Icon = FancyContentIcon;

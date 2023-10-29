@@ -41,7 +41,6 @@ export default function ExperimentalRoute() {
   const switchTheme = themeStore((state) => state.switchTheme);
   const [isActive, setIsActive] = React.useState('');
 
-  
   //updateTheme({primary: '#ff0000', secondary: '#0000ff', accent: '#00ff00'})
 
   const removeToast = () => {
@@ -96,8 +95,9 @@ export default function ExperimentalRoute() {
         <FancyButton label='Hi' >
           
         </FancyButton>
-        <FancyContent2>
-          <FancyContent2.Text text='Hi' />
+        <FancyContent2 flexDirection='column'>
+          <FancyContent2.Icon icon={Icon} size='md' />
+          <FancyContent2.Text text='Hi' fontVariant={'smText'} />
         </FancyContent2>
       </FancyCard>
     </div>
