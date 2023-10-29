@@ -7,7 +7,6 @@ import { FancyBottomBarIcon, FancyButton, FancyCard, FancySVGAtom, SingleToastMe
 import FancyContent from '../../Components/UI/Molecules/FancyContent/FancyContent';
 import BottomBarList from '../../Components/UI/Molecules/SwitchList/SwitchList';
 import Button from '../../Components/UI/Molecules/Button/Button';
-import FancyContent2 from '../../Components/UI/Molecules/FancyContent2/FancyContent2';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -77,28 +76,24 @@ export default function ExperimentalRoute() {
         </FancyCard>
 
         <FancyContent flexDirection="row" flexAlign="center" text="HIII MY FANS" icon={Icon} />
-        <BottomBarList  indicatorType="underline">
-          <FancyBottomBarIcon label="test" uniqekey={1} icon={Icon} onClick={() => console.log('sdsdds')}/>
+        <BottomBarList indicatorType="underline">
+          <FancyBottomBarIcon label="test" uniqekey={1} icon={Icon} onClick={() => console.log('sdsdds')} />
           <FancyBottomBarIcon label="test" uniqekey={2} icon={Icon} />
           <FancyBottomBarIcon label="test" uniqekey={3} icon={Icon} />
           <FancyBottomBarIcon label="test" uniqekey={4} icon={Icon} />
         </BottomBarList>
         <BottomBarList indicatorType="underline" whichIndexIsSelected={0}>
-          <FancyBottomBarIcon label="test" uniqekey={1} icon={Icon} onClick={() => console.log('sdsdds')}/>
+          <FancyBottomBarIcon label="test" uniqekey={1} icon={Icon} onClick={() => console.log('sdsdds')} />
           <FancyBottomBarIcon label="test" uniqekey={2} icon={Icon} />
           <FancyBottomBarIcon label="test" uniqekey={3} icon={Icon} />
           <FancyBottomBarIcon label="test" uniqekey={4} icon={Icon} />
         </BottomBarList>
-        <Button>
-          asas
-        </Button>
-        <FancyButton label='Hi' >
-          
-        </FancyButton>
-        <FancyContent2 flexDirection='column'>
-          <FancyContent2.Icon icon={Icon} size='md' />
-          <FancyContent2.Text text='Hi' fontVariant={'smText'} />
-        </FancyContent2>
+        <Button>asas</Button>
+        <FancyButton label="Hi"></FancyButton>
+        <FancyContent flexDirection="column">
+          <FancyContent.Icon size="md">{Icon}</FancyContent.Icon>
+          <FancyContent.Text fontVariant={'smText'}>Aassas</FancyContent.Text>
+        </FancyContent>
       </FancyCard>
     </div>
   );

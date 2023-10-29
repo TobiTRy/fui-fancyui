@@ -33,31 +33,28 @@ export default function FancyContent(props: IFancyContentProps) {
   let hasIcon = false;
   let hasText = false;
 
-  // Check if the children are valid and if they are of the type FancyContentIcon or FancyContentText
+  // Check for the presence of icon and text components within children
   React.Children.forEach(children, (child) => {
-    if (React.isValidElement(child) && typeof child.type === 'function') {
-      if (child.type.name === 'FancyContentIcon') {
+    if (React.isValidElement(child) && child.props) {
+      if (child.type === FancyContent.Icon) {
         hasIcon = true;
-      } else if (child.type.name === 'FancyContentText') {
+      } else if (child.type === FancyContent.Text) {
         hasText = true;
       }
     }
   });
 
+  const renderWrapper = hasIcon && hasText;
   return (
-    <>
-      {/* If it has a icon and no text dont put it in a container */}
-      {hasIcon && !hasText ? (
-        children
-      ) : (
-        <Wrapper flexAlign={flexAlign} flexDirection={flexDirection}>
-          {children}
-        </Wrapper>
-      )}
-    </>
+    renderWrapper ? (
+      <Wrapper flexAlign={flexAlign} flexDirection={flexDirection}>
+        {children}
+      </Wrapper>
+    ) : (
+      <>{children}</>
+    )
   );
 }
-
 // Link the subcomponents to the main component
 FancyContent.Text = FancyContentText;
 FancyContent.Icon = FancyContentIcon;

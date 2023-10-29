@@ -53,11 +53,10 @@ export default function FancyButton(props: IFancyButton) {
       externalStyle={css`${generateFancyStyle} ${externalStyle}`}
       {...ButtonProps}
     >
-      <FancyContent
-        flexDirection={alignIcon}
-        text={label}
-        icon={showIcon ? icon : isLoading ? <LoadingSVGArrows isLoading={isLoading} size={size} /> : null}
-      />
+      <FancyContent flexDirection={alignIcon}>
+        {label && <FancyContent.Text fontVariant="button">{label}</FancyContent.Text>}
+        {showIcon && <FancyContent.Icon>{isLoading ? <LoadingSVGArrows isLoading={isLoading} size={size} /> : icon}</FancyContent.Icon>}
+      </FancyContent>
     </Button>
   );
 }

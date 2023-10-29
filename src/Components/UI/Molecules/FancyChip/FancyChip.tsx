@@ -49,7 +49,11 @@ export default function FancyChip(props: IChipProps) {
         </WrapperImage>
       )}
 
-      <FancyContent size={size} text={label} icon={icon} />
+      <FancyContent>
+        {icon && <FancyContent.Icon size={size}>{icon}</FancyContent.Icon> }
+        {label && <FancyContent.Text size={size} bold={false}>{label}</FancyContent.Text>}
+      </FancyContent>
+
 
       {onDelete && (
         <StyledXButton

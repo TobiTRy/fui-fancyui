@@ -4,6 +4,7 @@ import Typography from '../../Atoms/Typography/Typography';
 import FancyContent from '../FancyContent/FancyContent';
 import { ITabSwitchButtonProps } from './FancyTabSwitchButton.model';
 import { SwitchButtonStyle } from './FancyTabSwitchButton.style';
+import { leftRightToFlex } from '../../HelperFunctions/leftRightToFlex';
 
 // ------------------------------------------------------------------ //
 // ------------- main component for the tab (li item) --------------- //
@@ -13,6 +14,8 @@ const FancyTabSwitchButton = React.forwardRef<HTMLDivElement, IFancyTabSwitchBut
   const { disabled, selected,onClick, wide, themeType, iconAlign, size, itemKey, label, icon, children, ...HTMLProps } = props;
   
   const id = useId();
+
+
 
   return (
     <SwitchButtonStyle
@@ -36,7 +39,10 @@ const FancyTabSwitchButton = React.forwardRef<HTMLDivElement, IFancyTabSwitchBut
         onChange={() => onClick(itemKey)}
       />
       <Typography htmlFor={id + '_' + itemKey} type="label" style={{zIndex: 1}}>
-        <FancyContent text={label} icon={icon} />
+        <FancyContent flexDirection={leftRightToFlex(iconAlign)}>
+          {icon && <FancyContent.Icon>{icon}</FancyContent.Icon>}
+          {label &&<FancyContent.Text>{label}</FancyContent.Text>}
+        </FancyContent>
         { children }
       </Typography>
     </SwitchButtonStyle>

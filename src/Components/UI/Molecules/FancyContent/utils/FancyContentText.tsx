@@ -1,5 +1,5 @@
-import Typography, { TypographyList } from "../../../Atoms/Typography/Typography";
-import { sizes } from "./sizeSettings";
+import Typography, { TypographyList } from '../../../Atoms/Typography/Typography';
+import { sizes } from './sizeSettings';
 
 type IFancyContentTextProps = {
   children?: React.ReactNode;
@@ -20,6 +20,10 @@ export default function FancyContentText(
   props: IFancyContentTextProps & (IFancyContentTextWithFontVariantProps | IFancyContentTextWithSizeProps)
 ) {
   const { size, bold = true, fontVariant, children } = props;
+
+  console.log('children', children);
+
+
   return (
     <Typography variant={fontVariant ?? sizes[size || 'sm'].fontSize} weight={bold ? 'bold' : 'normal'} type="button">
       {children}
