@@ -50,7 +50,10 @@ export default function FancyButton(props: IFancyButton) {
   return (
     <Button
       size={size}
-      externalStyle={css`${generateFancyStyle} ${externalStyle}`}
+      externalStyle={css`
+        ${generateFancyStyle};
+        ${externalStyle};
+      `}
       {...ButtonProps}
     >
       <FancyContent flexDirection={alignIcon}>
