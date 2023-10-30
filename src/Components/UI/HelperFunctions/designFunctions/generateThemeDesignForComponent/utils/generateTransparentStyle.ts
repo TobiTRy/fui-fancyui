@@ -1,26 +1,25 @@
 import { css } from 'styled-components';
-
-import themeStore from '../../../../Design/color/themeStore';
-import { generateStateStyle } from './generateHoverActiveColor';
 import { IGenerateThemeDesignForComponent } from '../generateThemeDesignForComponent';
+import { generateStateStyle } from './generateHoverActiveColor';
+import { generateTextColor } from './generateTextColor';
+
+
 
 type TGenerateTransparentStyle = Pick<
   IGenerateThemeDesignForComponent,
-  '$outlined' | 'theme' | '$layer' | '$backgroundStrength' | '$backgroundState' | '$hoverColor' | '$textColor'
+  '$outlined' | 'theme' | '$layer' | '$backgroundStrength' | '$backgroundState' | '$hoverColor' | '$textColor' | '$textHover'
 >;
 // --------------------------------------------------------------------------- //
 // ---------- generates a transparent background ---------- //
 // --------------------------------------------------------------------------- //
 export const generateTransparentStyle = (props: TGenerateTransparentStyle) => {
-  const { theme, $backgroundState, $textColor, $backgroundStrength = 0.05, $layer } = props;
-  const isDarkTheme = themeStore.getState().isDarkTheme;
+  const { $backgroundState, $textColor, $backgroundStrength = 0.05, $layer } = props;
 
-  const calcTextColor = isDarkTheme ? theme.secondary[$layer ?? 0] : theme.primary[$layer ?? 0];
 
   return css`
-    color: ${$textColor ? theme[$textColor][ 0]: calcTextColor};
+    color: ${generateTextColor({ $layer, $themeType: $textColor })};
     ${$backgroundState !== 'active' && 'background-color: transparent'};
     /* This generate the hover / active style if its needed */
-    ${$backgroundState && generateStateStyle({ ...props, $backgroundStrength })}
+    ${$backgroundState && generateStateStyle({ ...props, $backgroundStrength, $textHover: true, $textColor: $textColor ?? 'accent' })}
   `;
 };

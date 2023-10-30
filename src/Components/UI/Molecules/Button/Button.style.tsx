@@ -13,7 +13,7 @@ export const StyledButton = styled.button<IGenerateThemeDesignForComponent & ISt
   align-items: center;
   width: ${({ $wide }) => ($wide ? '100%' : 'fit-content')};
   min-width: fit-content;
-  transition: background-color 0.125s ease-in-out;
+  transition: background-color 0.125s ease-in-out, color 0.125s ease-in-out;
 
   ${(props: IGenerateThemeDesignForComponent) => generateThemeDesignForComponent({ ...props, $backgroundState: 'hover' })};
 

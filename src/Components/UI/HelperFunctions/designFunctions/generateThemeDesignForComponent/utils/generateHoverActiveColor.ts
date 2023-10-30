@@ -2,6 +2,7 @@ import { css } from 'styled-components';
 import { getBackgroundColor } from '../../../../Design/color/colorCalculatorForComponet';
 import colorTransparencyCalculator from '../../../../Design/color/colorTransparencyCalculator';
 import { IGenerateThemeDesignForComponent } from '../generateThemeDesignForComponent';
+import { TLayer } from '../../../../Design/color/generateColorSteps';
 
 type TGenerateOutlinedHoverStyle = Pick<
   IGenerateThemeDesignForComponent,
@@ -22,12 +23,9 @@ const generateHoverColor = (props: TGenerateOutlinedHoverStyle) => {
   return generateSlightBackgroundColor;
 };
 
-
-
-
 type TGenerateStateStyle = Pick<
-IGenerateThemeDesignForComponent,
-'$themeType' | 'theme' | '$layer' | '$backgroundStrength' | '$hoverColor' | '$backgroundState' | '$outlined'
+  IGenerateThemeDesignForComponent,
+  '$themeType' | 'theme' | '$layer' | '$backgroundStrength' | '$hoverColor' | '$backgroundState' | '$outlined' | '$textHover' | '$textColor'
 >;
 // --------------------------------------------------------------------------- //
 // ---------- this function handles wich style should apply ------------------ //
@@ -41,6 +39,12 @@ export const generateStateStyle = (props: TGenerateStateStyle) => {
         return css`
           &:hover:enabled {
             background-color: ${generateHoverColor(props)};
+          }
+        `;
+      } else if (props.$textHover) {
+        return css`
+          &:hover:enabled {
+            color: ${getBackgroundColor({ theme: props.theme, $themeType: props.$textColor ?? 'accent', $layer: Math.min(props.$layer ? props.$layer + 2 : 2, 10) as TLayer })};
           }
         `;
       }

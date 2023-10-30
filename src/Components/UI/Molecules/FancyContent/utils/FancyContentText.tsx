@@ -21,8 +21,6 @@ export default function FancyContentText(
 ) {
   const { size, bold = true, fontVariant, children } = props;
 
-  console.log('children', children);
-
 
   return (
     <Typography variant={fontVariant ?? sizes[size || 'sm'].fontSize} weight={bold ? 'bold' : 'normal'} type="button">

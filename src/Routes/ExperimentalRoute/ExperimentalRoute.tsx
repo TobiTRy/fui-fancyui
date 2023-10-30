@@ -48,7 +48,7 @@ export default function ExperimentalRoute() {
 
   return (
     <div style={{ display: 'flex' }}>
-      <FancyCard shadow>
+      {/* <FancyCard shadow>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}></div>
         <FancyCard layer={1}>
           <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-end' }}>
@@ -61,8 +61,6 @@ export default function ExperimentalRoute() {
             <FancyButton borderRadius="md" size="md" themeType="secondary" icon={reloadIcon} onClick={() => switchTheme()} />
             <FancySVGAtom themeType="error">{reloadIcon}</FancySVGAtom>
           </div>
-          {/* <FancyPasswordInput label="hii" icon={svg} /> */}
-          {/* <FancyButton themeType="primary" label="hii" onClick={() => updateTheme({ primary: '#f20c0c' })} /> */}
           <SingleToastMessage
             toast={{
               id: 1,
@@ -73,28 +71,18 @@ export default function ExperimentalRoute() {
             }}
             remove={removeToast}
           />
-        </FancyCard>
+        </FancyCard> */}
 
-        <FancyContent flexDirection="row" flexAlign="center" text="HIII MY FANS" icon={Icon} />
-        <BottomBarList indicatorType="underline">
-          <FancyBottomBarIcon label="test" uniqekey={1} icon={Icon} onClick={() => console.log('sdsdds')} />
-          <FancyBottomBarIcon label="test" uniqekey={2} icon={Icon} />
-          <FancyBottomBarIcon label="test" uniqekey={3} icon={Icon} />
-          <FancyBottomBarIcon label="test" uniqekey={4} icon={Icon} />
-        </BottomBarList>
-        <BottomBarList indicatorType="underline" whichIndexIsSelected={0}>
-          <FancyBottomBarIcon label="test" uniqekey={1} icon={Icon} onClick={() => console.log('sdsdds')} />
-          <FancyBottomBarIcon label="test" uniqekey={2} icon={Icon} />
-          <FancyBottomBarIcon label="test" uniqekey={3} icon={Icon} />
-          <FancyBottomBarIcon label="test" uniqekey={4} icon={Icon} />
-        </BottomBarList>
-        <Button>asas</Button>
+
+        {/* <Button>asas</Button>
         <FancyButton label="Hi"></FancyButton>
         <FancyContent flexDirection="column">
           <FancyContent.Icon size="md">{Icon}</FancyContent.Icon>
           <FancyContent.Text fontVariant={'smText'}>Aassas</FancyContent.Text>
-        </FancyContent>
-      </FancyCard>
+        </FancyContent> */}
+        <FancyButton themeType='transparent' textColor='accent' label='hiii' >
+
+        </FancyButton>
     </div>
   );
 }
