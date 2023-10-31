@@ -9,6 +9,7 @@ import { Typography } from '../../lib';
 import styled from 'styled-components';
 import FancyBar from '../../Components/UI/Atoms/FancyBar/FancyBar';
 import { borderRadius } from '../../Components/UI/Design/design';
+import Header from '../../Components/UI/Molecules/Header/Header';
 
 const Logo = () => (
   <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" height="30" version="1.1" viewBox="0 0 96.37 64.15" fill="#ff9800f0">
@@ -98,6 +99,7 @@ export default function HeaderRoute() {
           <Typography type="h1">FancyBar</Typography>
         </FancyBar>
       </div>
+      <Header/>
     </section>
   );
 }
