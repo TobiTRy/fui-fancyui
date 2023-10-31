@@ -58,6 +58,13 @@ const meta = {
         summary: 0,
       },
     },
+    backdrop: {
+      description: 'If true, the backdrop is visible.',
+      type: { name: 'boolean' },
+      defaultValue: {
+        summary: true,
+      },
+    },
   },
 
   tags: ['autodocs'],

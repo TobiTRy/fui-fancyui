@@ -47,6 +47,21 @@ const meta = {
         type: 'function',
       },
     },
+    backDrop: {
+      description: 'Is the backdrop visible',
+      control: {
+        type: 'boolean',
+      },
+    },
+    isCloseable: {
+      description: 'The modal is closeable',
+      control: {
+        type: 'boolean',
+      },
+      defaultValue: {
+        summary: true,
+      },
+    },
   },
   tags: ['autodocs'],
 } satisfies Meta<typeof Modal>;

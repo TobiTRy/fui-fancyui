@@ -14,11 +14,12 @@ export interface IModal {
   isOpen: boolean;
   onClose?: (id: string) => void;
   isCloseable?: boolean;
+  backDrop?: boolean;
   themeType?: keyof TUiColorsType;
   layer?: TLayer;
 }
 export default function Modal(props: IModal) {
-  const { id, children, isOpen, onClose, isCloseable, themeType, layer } = props;
+  const { id, children, isOpen, onClose, isCloseable, themeType, layer, backDrop = true } = props;
   const [modalVisible, setModalVisible] = useState(false);
 
   // close the modal when the user clicks on the backdrop
@@ -39,7 +40,7 @@ export default function Modal(props: IModal) {
       <SimpleDialog isOpen={modalVisible} themeType={themeType} layer={layer}>
         {children}
       </SimpleDialog>
-      <BackDrop isOpen={modalVisible} onClick={closeModalHanlder} />
+      {backDrop && <BackDrop isOpen={modalVisible} onClick={closeModalHanlder} />}
     </>
   );
 }
