@@ -4,7 +4,7 @@ import { TUiColorsType } from "../../Design/color/designColor";
 
 
 type HTMLDivElementProps = Omit<React.HTMLAttributes<HTMLDivElement>, 'style'>;
-interface IFancyBar {
+interface IFancyBox {
   outlined?: boolean;
   layer?: TLayer;
   themeType?: keyof TUiColorsType;
@@ -13,4 +13,4 @@ interface IFancyBar {
   externalStyle?: CSSProp;
 }
 
-export type IFancyBarProps = IFancyBar & HTMLDivElementProps;
+export type IFancyBoxProps = IFancyBox & HTMLDivElementProps;

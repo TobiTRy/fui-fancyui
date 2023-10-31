@@ -2,7 +2,7 @@
 import { Meta, StoryObj } from '@storybook/react';
 
 // Import the component to be tested
-import FancyBar from './FancyBar';
+import FancyBox from './FancyBox';
 import { css } from 'styled-components';
 import { FancyMiniProfile } from '../../Molecules/FancyMiniProfile';
 import { HeaderTitleWithLogo } from '../../Molecules/HeaderTitleWithLogo';
@@ -13,7 +13,7 @@ import { FancySearchBar } from '../../Organisms/FancySearchBar';
 
 // Define metadata for the story
 const meta = {
-  component: FancyBar,
+  component: FancyBox,
 
   parameters: {
     docs: {
@@ -75,7 +75,7 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof FancyBar>;
+} satisfies Meta<typeof FancyBox>;
 
 // Export the metadata
 export default meta;
@@ -84,7 +84,9 @@ type Story = StoryObj<typeof meta>;
 
 // Define the primary story
 export const Primary: Story = {
-  render: (args) => <FancyBar {...args} />,
+  render: (args) => <FancyBox {...args} >
+    Hiii
+  </FancyBox>,
   args: {},
   parameters: {
     docs: {
@@ -108,7 +110,7 @@ const headerStyle = css`
 
 export const Header: Story = {
   render: (args) => (
-    <FancyBar {...args} externalStyle={headerStyle}>
+    <FancyBox {...args} externalStyle={headerStyle}>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start', width: '100%' }}>
         <HeaderTitleWithLogo title="Let´sTryIt" />
       </div>
@@ -120,7 +122,7 @@ export const Header: Story = {
           imageURL="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
         />
       </div>
-    </FancyBar>
+    </FancyBox>
   ),
   args: {},
   parameters: {
@@ -143,18 +145,18 @@ const BottomBarStyle = css`
   border-radius: 12px 12px 0 0;
 `;
 
-const BottomBarComponent = (args: React.ComponentProps<typeof FancyBar>) => { 
+const BottomBarComponent = (args: React.ComponentProps<typeof FancyBox>) => { 
   const [wichIsActive, setWichIsActive] = React.useState('0');
   
 
 
   return (
-    <FancyBar {...args} externalStyle={BottomBarStyle}>
+    <FancyBox {...args} externalStyle={BottomBarStyle}>
       <FancyBottomBarIcon icon={<SVGCheckMark />} label="Test" active={wichIsActive === '0'} onClick={() => setWichIsActive('0')}/>
       <FancyBottomBarIcon icon={<SVGCheckMark />} label="Test" active={wichIsActive === '1'} onClick={() => setWichIsActive('1')}/>
       <FancyBottomBarIcon icon={<SVGCheckMark />} label="Test" active={wichIsActive === '2'} onClick={() => setWichIsActive('2')}/>
       <FancyBottomBarIcon icon={<SVGCheckMark />} label="Test" active={wichIsActive === '3'} onClick={() => setWichIsActive('3')}/>
-    </FancyBar>
+    </FancyBox>
   );
 };
 
