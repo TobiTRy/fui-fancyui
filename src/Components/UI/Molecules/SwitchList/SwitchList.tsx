@@ -47,7 +47,7 @@ export default function SwitchList(props: IBottomBarListProps & TSwitchActiveInd
           return (
             <ItemWrapper key={uniqueKey} onClick={() => activeHandler(uniqueKey)}>
               {clonedChild}
-              {index === 0 && <SwitchActiveIndicator $itemNumber={Number(currentActive)} $type={indicatorType ?? 'underline'} {...indicatorProps} />}
+              {index === 0 && <SwitchActiveIndicator $direction={$direction} $itemNumber={Number(currentActive)} $type={indicatorType ?? 'underline'} {...indicatorProps} />}
             </ItemWrapper>
           );
         }

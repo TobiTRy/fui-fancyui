@@ -14,13 +14,15 @@ export default function SwitchesRoute() {
   return (
     <DesignWrapper>
       <DesignArea title='Switches'>
-      <SwitchList indicatorType="underline" $direction='vertical'>
+        <SwitchList indicatorType="underline" whichIndexIsSelected={0}>
           <FancyBottomBarIcon label="test" uniqekey={1} icon={Icon} onClick={() => console.log('sdsdds')} />
           <FancyBottomBarIcon label="test" uniqekey={2} icon={Icon} />
           <FancyBottomBarIcon label="test" uniqekey={3} icon={Icon} />
           <FancyBottomBarIcon label="test" uniqekey={4} icon={Icon} />
         </SwitchList>
-        <SwitchList indicatorType="underline" whichIndexIsSelected={0}>
+      </DesignArea>
+      <DesignArea title='Switches'>
+      <SwitchList indicatorType="underline" $direction='vertical'>
           <FancyBottomBarIcon label="test" uniqekey={1} icon={Icon} onClick={() => console.log('sdsdds')} />
           <FancyBottomBarIcon label="test" uniqekey={2} icon={Icon} />
           <FancyBottomBarIcon label="test" uniqekey={3} icon={Icon} />

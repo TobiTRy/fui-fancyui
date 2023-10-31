@@ -80,8 +80,11 @@ export default function ExperimentalRoute() {
           <FancyContent.Icon size="md">{Icon}</FancyContent.Icon>
           <FancyContent.Text fontVariant={'smText'}>Aassas</FancyContent.Text>
         </FancyContent> */}
-        <FancyButton themeType='transparent' textColor='accent' label='hiii' >
-
+        <FancyButton themeType='transparent'  label='hiii' >
+        </FancyButton>
+        <FancyButton themeType='transparent' textColor='secondary' label='hiii' >
+        </FancyButton>
+        <FancyButton themeType='transparent' textColor='primary' label='hiii' >
         </FancyButton>
     </div>
   );
