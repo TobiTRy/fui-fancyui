@@ -82,7 +82,7 @@ export const Outlined: Story = {
   },
 };
 
-export const oneToOne: Story = {
+export const OneToOne: Story = {
   render: (args) => <Button {...args} />,
   args: {
     themeType: 'accent',
