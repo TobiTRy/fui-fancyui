@@ -6,7 +6,7 @@ import { IFancyBottomBarIcon } from '../../Atoms/FancyBottomBarIcon/FancyBottomB
 import useFancyBottomBarStaticStore from './FancyBottomBarStatic.store';
 import { TUiColorsType } from '../../Design/color/designColor';
 import { TLayer } from '../../Design/color/generateColorSteps';
-import { FancyBar } from '../../Atoms/FancyBar';
+import { FancyBar } from '../../Atoms/FancyBox';
 import { CSSProp, css } from 'styled-components';
 import { fancyBarStyle } from './FancyBottomBarStatic.style';
 

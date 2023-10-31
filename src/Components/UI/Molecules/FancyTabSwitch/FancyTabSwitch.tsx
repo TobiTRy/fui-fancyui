@@ -3,7 +3,7 @@ import { css } from 'styled-components';
 
 import { borderRadius } from '../../Design/design';
 import Fieldset from '../../Atoms/Fieldset/Fieldset';
-import FancyBar from '../../Atoms/FancyBar/FancyBar';
+import FancyBar from '../../Atoms/FancyBox/FancyBox';
 import TabSwitch, { tabSwitchSizes } from '../TabSwitch/TabSwitch';
 import { ITabSwitchProps } from '../TabSwitch/TabSwitch.model';
 
