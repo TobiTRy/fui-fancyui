@@ -90,12 +90,12 @@ export default function HeaderRoute() {
   return (
     <section>
       <div style={{ marginTop: '40px' }}>
-        <FancyBar outlined layer={6} outlinedBackgroundStrength={0.95} style={{ padding: '5px 18px', borderRadius: '22px', width: '80%' }}>
+        <FancyBar outlined layer={6} outlinedBackgroundStrength={0.95} externalStyle={{ padding: '5px 18px', borderRadius: '22px', width: '80%' }}>
           <HeaderContent />
         </FancyBar>
       </div>
       <div style={{ marginTop: '40px' }}>
-        <FancyBar style={{ borderRadius: borderRadius.lg, top: 0, width: '80%' }}>
+        <FancyBar externalStyle={{ borderRadius: borderRadius.lg, top: 0, width: '80%' }}>
           <Typography type="h1">FancyBar</Typography>
         </FancyBar>
       </div>
