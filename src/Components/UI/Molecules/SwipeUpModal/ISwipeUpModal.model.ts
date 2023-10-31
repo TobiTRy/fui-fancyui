@@ -8,5 +8,6 @@ export interface ISwipeUpModal {
   isScalable?: boolean; // if the modal should be static or scalable
   themeType?: keyof TUiColorsType;
   layer?: TLayer;
+  backdrop?: boolean;
   onClose?: () => void;
 }
