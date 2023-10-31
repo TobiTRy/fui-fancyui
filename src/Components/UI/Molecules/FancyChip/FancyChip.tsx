@@ -51,7 +51,7 @@ export default function FancyChip(props: IChipProps) {
 
       <FancyContent>
         {icon && <FancyContent.Icon size={size}>{icon}</FancyContent.Icon> }
-        {label && <FancyContent.Text size={size} bold={false}>{label}</FancyContent.Text>}
+        {label && <FancyContent.Title size={size} bold={false}>{label}</FancyContent.Title>}
       </FancyContent>
 
 
