@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { CSSProp } from 'styled-components';
 
-import SwitchActiveIndicator from '../../Atoms/SwitchActiveIndicator/SwitchActiveIndicator';
+import SwitchActiveIndicator, { IActiveSwitchIndicator } from '../../Atoms/SwitchActiveIndicator/SwitchActiveIndicator';
 import { ItemWrapper, StyledList } from './SwitchList.style';
+
+
+type TSwitchActiveIndicator = Omit<IActiveSwitchIndicator, '$itemNumber'>;
 
 interface IBottomBarListProps {
   children: React.ReactNode;
@@ -18,7 +21,8 @@ interface IKey  {
 // --------------------------------------------------------------------------- //
 // -------------- The Switch List Indicates wich item is active -------------- //
 // --------------------------------------------------------------------------- //
-export default function SwitchList({ handler, indicatorType, children, whichIndexIsSelected}: IBottomBarListProps) {
+export default function SwitchList(props: IBottomBarListProps & TSwitchActiveIndicator) {
+  const { children, whichIndexIsSelected, handler, indicatorType, externalStyle, $direction, ...indicatorProps  } = props;
   const [currentActive, setCurrentActive] = useState('');
 
   const activeHandler = (uniqueKey: string) => {
@@ -31,7 +35,7 @@ export default function SwitchList({ handler, indicatorType, children, whichInde
   }, [whichIndexIsSelected]);
 
   return (
-    <StyledList>
+    <StyledList $externalStyle={externalStyle} $direction={$direction}>
       {React.Children.map(children, (child, index) => {
         if (React.isValidElement(child)) {
           // Generate a unique key (or use any other unique identifier logic)
@@ -43,7 +47,7 @@ export default function SwitchList({ handler, indicatorType, children, whichInde
           return (
             <ItemWrapper key={uniqueKey} onClick={() => activeHandler(uniqueKey)}>
               {clonedChild}
-              {index === 0 && <SwitchActiveIndicator $itemNumber={Number(currentActive)} $type={indicatorType ?? 'underline'} />}
+              {index === 0 && <SwitchActiveIndicator $direction={$direction} $itemNumber={Number(currentActive)} $type={indicatorType ?? 'underline'} {...indicatorProps} />}
             </ItemWrapper>
           );
         }

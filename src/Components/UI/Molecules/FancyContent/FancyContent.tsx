@@ -1,71 +1,70 @@
 // Import necessary dependencies
-import React from 'react';
-import Typography, { TypographyList } from '../../Atoms/Typography/Typography';
-import FancySVGAtom from '../../Atoms/FancySVGAtom/FancySVGAtom';
-import styled from 'styled-components';
+import React, { ReactElement } from 'react';
+import { styled } from 'styled-components';
 import { spacingPx } from '../../Design/design';
-
-// Define the sizes for the FancyContent component
-const sizes = {
-  sm: {
-    fontSize: 'smText' as keyof typeof TypographyList,
-    padding: spacingPx.xs,
-  },
-  md: {
-    fontSize: 'content' as keyof typeof TypographyList,
-    padding: spacingPx.sm,
-  },
-  lg: {
-    fontSize: 'button' as keyof typeof TypographyList,
-    padding: spacingPx.md,
-  },
-};
+import FancyContentIcon from './utils/FancyContentIcon';
+import { FancyContentDescription, FancyContentTitle } from './utils/FancyContentText';
+import IStyledPrefixAndPicker from '../../Interface/IStyledPrefixAndPicker.model';
 
 // Define the types for the Wrapper component
-type TWrapper = Pick<IFancyContentProps, 'flexDirection' | 'flexAlign' | 'flexJustify'>;
+type TWrapper = IStyledPrefixAndPicker<IFancyContentProps, 'flexDirection' | 'flexAlign' | 'flexJustify' | 'gapBetweenText'>;
 
 // Define the Wrapper component
 const Wrapper = styled.span<TWrapper>`
   display: flex;
-  flex-direction: ${({ flexDirection }) => flexDirection || 'row'};
-  justify-content: ${({ flexJustify }) => flexJustify || 'center'};
-  align-items: ${({ flexAlign }) => flexAlign || 'center'};
+  flex-direction: ${({ $flexDirection }) => $flexDirection || 'row'};
+  justify-content: ${({ $flexJustify }) => $flexJustify || 'center'};
+  align-items: ${({ $flexAlign }) => $flexAlign || 'center'};
   gap: ${spacingPx.xs};
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: ${({ $gapBetweenText }) => $gapBetweenText || spacingPx.xs};
+  }
 `;
 
 // Define the props for the FancyContent component
 interface IFancyContentProps {
-  text?: string;
-  icon?: React.ReactNode;
-  bold?: boolean;
-  size?: 'sm' | 'md' | 'lg';
   flexDirection?: 'row' | 'row-reverse' | 'column' | 'column-reverse';
   flexJustify?: 'flex-start' | 'flex-end' | 'center' | 'space-between' | 'space-around' | 'space-evenly';
   flexAlign?: 'flex-start' | 'flex-end' | 'center' | 'stretch' | 'baseline';
+  gapBetweenText?: string;
+  children?: React.ReactNode;
 }
-
 // --------------------------------------------------------------------------- //
 // ------- The conent Components handles the Content of The componets -------- //
 // -------------------like for a button or chip etc. ------------------------ //
 export default function FancyContent(props: IFancyContentProps) {
-  const { text, icon, flexDirection, flexAlign, size, bold = true } = props;
-  return (
-    <>
-      {text && (
-        <Wrapper flexAlign={flexAlign} flexDirection={flexDirection}>
-          {icon && (
-            <FancySVGAtom size={size} externalStyle={{ flexShrink: '0' }} isPassive>
-              {icon}
-            </FancySVGAtom>
-          )}
-          {text && (
-            <Typography variant={sizes[size || 'sm'].fontSize} weight={bold ? 'bold' : 'normal'} type="button">
-              {text}
-            </Typography>
-          )}
-        </Wrapper>
-      )}
-      {(icon && !text) && icon}
-    </>
+  const { children, flexAlign, flexDirection } = props;
+  let iconElement: ReactElement | null = null;
+  const contentGroup: ReactElement[] = [];
+
+  React.Children.forEach(children, (child) => {
+    if (React.isValidElement(child)) {
+      if (child.type === FancyContent.Icon) {
+        iconElement = child;
+      } else {
+        contentGroup.push(child);
+      }
+    }
+  });
+
+  const renderWrapper = iconElement;
+  return renderWrapper ? (
+    <Wrapper $flexAlign={flexAlign} $flexDirection={flexDirection}>
+      {iconElement}
+      {contentGroup.length > 0 && (<div className="content">{contentGroup}</div>)}
+    </Wrapper>
+  ) : (
+    <>{children}</>
   );
 }
+
+// Link the subcomponents to the main component
+FancyContent.Icon = FancyContentIcon;
+FancyContent.Title = FancyContentTitle;
+FancyContent.Description = FancyContentDescription;
+

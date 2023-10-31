@@ -8,6 +8,7 @@ export const sizes = {
   sm: '16px',
   md: '18px',
   lg: '20px',
+  full: '100%',
 };
 
 export type ISizes = keyof typeof sizes;

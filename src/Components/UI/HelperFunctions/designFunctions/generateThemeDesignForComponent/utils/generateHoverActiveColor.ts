@@ -2,6 +2,7 @@ import { css } from 'styled-components';
 import { getBackgroundColor } from '../../../../Design/color/colorCalculatorForComponet';
 import colorTransparencyCalculator from '../../../../Design/color/colorTransparencyCalculator';
 import { IGenerateThemeDesignForComponent } from '../generateThemeDesignForComponent';
+import { TLayer } from '../../../../Design/color/generateColorSteps';
 
 type TGenerateOutlinedHoverStyle = Pick<
   IGenerateThemeDesignForComponent,
@@ -22,12 +23,9 @@ const generateHoverColor = (props: TGenerateOutlinedHoverStyle) => {
   return generateSlightBackgroundColor;
 };
 
-
-
-
 type TGenerateStateStyle = Pick<
-IGenerateThemeDesignForComponent,
-'$themeType' | 'theme' | '$layer' | '$backgroundStrength' | '$hoverColor' | '$backgroundState' | '$outlined'
+  IGenerateThemeDesignForComponent,
+  '$themeType' | 'theme' | '$layer' | '$backgroundStrength' | '$hoverColor' | '$backgroundState' | '$outlined' | '$textHover' | '$textColor'
 >;
 // --------------------------------------------------------------------------- //
 // ---------- this function handles wich style should apply ------------------ //
@@ -39,14 +37,24 @@ export const generateStateStyle = (props: TGenerateStateStyle) => {
       // when the component is outlined styled
       if (props.$outlined) {
         return css`
-          &:hover:enabled {
+          &:hover {
             background-color: ${generateHoverColor(props)};
+          }
+        `;
+      } else if (props.$textHover) {
+        return css`
+          &:hover {
+            color: ${getBackgroundColor({
+              theme: props.theme,
+              $themeType: props.$textHover ?? 'secondary',
+              $layer: Math.min(props.$layer ? props.$layer + 2 : 2, 10) as TLayer,
+            })};
           }
         `;
       }
       // when the component is normal styled
       return css`
-        &:hover:enabled {
+        &:hover {
           background-color: ${generateHoverColor(props)};
         }
       `;

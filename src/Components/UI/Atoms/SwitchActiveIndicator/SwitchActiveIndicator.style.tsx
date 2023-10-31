@@ -38,10 +38,10 @@ const clacCurrentPosition = (props: IClacCurrentPosition) => {
 // --------------------------------------------------------------------------- //
 // -------- Here is the main Generator Function of the activ indicator ------- //
 // --------------------------------------------------------------------------- //
-type TActiveSwitchIndicator = Pick<IActiveSwitchIndicator, '$layer' | '$rounded' | '$outlined' | '$themeType' | '$type' | '$width'  >;
+type TActiveSwitchIndicator = Pick<IActiveSwitchIndicator, '$layer' | '$rounded' | '$outlined' | '$themeType' | '$type' | '$indicatorWidth'  >;
 export const ActiveSwitchIndicator = styled.span<TActiveSwitchIndicator & { theme: TUiColorsType }>`
   position: absolute;
-  width: ${({ $width }) => $width ?? '100%'}; /* Set the width of the active indicator */
+  width: ${({ $indicatorWidth }) => $indicatorWidth ?? '100%'}; /* Set the width of the active indicator */
 
   /* Build a switch case */
   ${(props) => {

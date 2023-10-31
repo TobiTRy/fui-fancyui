@@ -18,7 +18,12 @@ const switchValues = [
 ];
 const switchValues1 = [
   { itemKey: '1', value: 'Tab 2', label: 'Tab 2', icon: Icon },
-  { itemKey: '2', value: 'Tab 1', label: 'Tab 1 asksk aklsaklskl klaskl aklas aklkl  asuiasuiui uiasui asiuui asuiausi u asasuaui suaiausu asuusau isasuus ', icon: Icon},
+  {
+    itemKey: '2',
+    value: 'Tab 1',
+    label: 'Tab 1 asksk aklsaklskl klaskl aklas aklkl  asuiasuiui uiasui asiuui asuiausi u asasuaui suaiausu asuusau isasuus ',
+    icon: Icon,
+  },
   { itemKey: '3', value: 'Tab 3', label: 'Tab 3', icon: Icon },
 ];
 const switchValues2 = [
@@ -43,109 +48,96 @@ export default function TabSwitchRoute() {
   const [test, setTest] = React.useState('1');
 
   return (
-    <FancyCard layer={1}>
-      <DesignWrapper>
-        <DesignArea
-          title="TabSwitch"
-          style={css`
-            flex-direction: column;
-          `}
-        >
-        </DesignArea>
-        <DesignArea
-          title="TabSwitch"
-          style={css`
-            flex-direction: column;
-          `}
-        >
-          <FancyTabSwitch
-            wide
-            size='sm'
-            label="test"
-            outlined
-            rounded="xxl"
-            layer={3}
-            values={switchValues1}
-            currentSelect={test}
-            handler={(id: string) => setTest(id)}
-          />
-          <FancyTabSwitch
-            label="test"
-            values={switchValues1}
-            themeType="transparent"
-            size="sm"
-            rounded="md"
-            currentSelect={test}
-            handler={(id: string) => setTest(id)}
-          />
+    <>
+      <FancyTabSwitch
+        label="test"
+        size="md"
+        values={switchValues1}
+        rounded={'xxxl'}
+        currentSelect={test}
+        handler={(id: string) => setTest(id)}
+      />
+      <FancyCard layer={1}>
+        <DesignWrapper>
+          <DesignArea
+            title="TabSwitch"
+            style={css`
+              flex-direction: column;
+            `}
+          >
+            <FancyTabSwitch
+              wide
+              size="sm"
+              label="test"
+              outlined
+              rounded="xxl"
+              layer={3}
+              values={switchValues1}
+              currentSelect={test}
+              handler={(id: string) => setTest(id)}
+            />
+            <FancyTabSwitch
+              label="test"
+              values={switchValues1}
+              themeType="transparent"
+              size="sm"
+              rounded="md"
+              currentSelect={test}
+              handler={(id: string) => setTest(id)}
+            />
 
-          <FancyTabSwitch
-            label="test"
-            wide
-            outlined
-            rounded="complete"
-            size="sm"
-            themeType="transparent"
-            values={switchValues1}
-            currentSelect={test}
-            handler={(id: string) => setTest(id)}
-          />
-          <FancyTabSwitch
-            label="test"
-            size="sm"
-            themeType="transparent"
-            values={switchValues2}
-            rounded={'complete'}
-            currentSelect={test}
-            handler={(id: string) => setTest(id)}
-          />
-          <FancyTabSwitch
-            label="test"
-            size="sm"
-            themeType="transparent"
-            values={switchValues3}
-            rounded={'complete'}
-            currentSelect={test}
-            handler={(id: string) => setTest(id)}
-          />
+            <FancyTabSwitch
+              label="test"
+              wide
+              outlined
+              rounded="complete"
+              size="sm"
+              themeType="transparent"
+              values={switchValues1}
+              currentSelect={test}
+              handler={(id: string) => setTest(id)}
+            />
+            <FancyTabSwitch
+              label="test"
+              size="sm"
+              themeType="transparent"
+              values={switchValues2}
+              rounded={'complete'}
+              currentSelect={test}
+              handler={(id: string) => setTest(id)}
+            />
+            <FancyTabSwitch
+              label="test"
+              size="sm"
+              themeType="transparent"
+              values={switchValues3}
+              rounded={'complete'}
+              currentSelect={test}
+              handler={(id: string) => setTest(id)}
+            />
 
-          <FancyTabSwitch
-
-            label="test"
-            size="lg"
-            values={switchValues1}
-            rounded={'xxxl'}
-            currentSelect={test}
-            handler={(id: string) => setTest(id)}
-          />
-          <FancyTabSwitch
-            size="lg"
-            label="test"
-            wide
-            outlined
-            direction='vertical'
-            values={switchValues}
-            rounded={'xl'}
-            currentSelect={test}
-            handler={(id: string) => setTest(id)}
-          />
-          <FancyTabSwitch
-            label="test"
-            wide
-            values={switchValues}
-            rounded={'lg'}
-            currentSelect={test}
-            handler={(id: string) => setTest(id)}
-          />
-        </DesignArea>
-        <DesignArea
-          title="TabSwitch"
-          style={css`
-            flex-direction: column;
-          `}
-        >
-        </DesignArea>
-      </DesignWrapper>
-    </FancyCard>
+            <FancyTabSwitch
+              size="lg"
+              label="test"
+              wide
+              outlined
+              direction="vertical"
+              values={switchValues}
+              rounded={'xl'}
+              currentSelect={test}
+              handler={(id: string) => setTest(id)}
+            />
+            <FancyTabSwitch
+              label="test"
+              wide
+              values={switchValues}
+              rounded={'xl'}
+              currentSelect={test}
+              handler={(id: string) => setTest(id)}
+            />
+          </DesignArea>
+        </DesignWrapper>
+      </FancyCard>
+    </>
   );
 }

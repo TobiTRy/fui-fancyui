@@ -1,9 +1,10 @@
 import { styled, CSSProp } from 'styled-components';
 
-export const StyledList = styled.div<{ externalStyle?: CSSProp }>`
+export const StyledList = styled.div<{ $externalStyle?: CSSProp; $direction?: 'horizontal' | 'vertical' }>`
   display: flex;
+  flex-direction: ${({ $direction }) => ($direction === 'vertical' ? 'column' : 'row')};
   justify-content: space-evenly;
-  ${({ externalStyle }) => externalStyle};
+  ${({ $externalStyle }) => $externalStyle};
 `;
 
 export const ItemWrapper = styled.div`

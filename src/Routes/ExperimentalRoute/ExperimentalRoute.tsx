@@ -6,6 +6,7 @@ import { FancyBottomBarIcon, FancyButton, FancyCard, FancySVGAtom, SingleToastMe
 
 import FancyContent from '../../Components/UI/Molecules/FancyContent/FancyContent';
 import BottomBarList from '../../Components/UI/Molecules/SwitchList/SwitchList';
+import Button from '../../Components/UI/Molecules/Button/Button';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -39,7 +40,6 @@ export default function ExperimentalRoute() {
   const switchTheme = themeStore((state) => state.switchTheme);
   const [isActive, setIsActive] = React.useState('');
 
-  
   //updateTheme({primary: '#ff0000', secondary: '#0000ff', accent: '#00ff00'})
 
   const removeToast = () => {
@@ -48,7 +48,7 @@ export default function ExperimentalRoute() {
 
   return (
     <div style={{ display: 'flex' }}>
-      <FancyCard shadow>
+      {/* <FancyCard shadow>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}></div>
         <FancyCard layer={1}>
           <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-end' }}>
@@ -61,8 +61,6 @@ export default function ExperimentalRoute() {
             <FancyButton borderRadius="md" size="md" themeType="secondary" icon={reloadIcon} onClick={() => switchTheme()} />
             <FancySVGAtom themeType="error">{reloadIcon}</FancySVGAtom>
           </div>
-          {/* <FancyPasswordInput label="hii" icon={svg} /> */}
-          {/* <FancyButton themeType="primary" label="hii" onClick={() => updateTheme({ primary: '#f20c0c' })} /> */}
           <SingleToastMessage
             toast={{
               id: 1,
@@ -73,23 +71,17 @@ export default function ExperimentalRoute() {
             }}
             remove={removeToast}
           />
-        </FancyCard>
+        </FancyCard> */}
 
-        <FancyContent flexDirection="row" flexAlign="center" text="HIII MY FANS" icon={Icon} />
-        <BottomBarList  indicatorType="underline">
-          <FancyBottomBarIcon label="test" uniqekey={1} icon={Icon} onClick={() => console.log('sdsdds')}/>
-          <FancyBottomBarIcon label="test" uniqekey={2} icon={Icon} />
-          <FancyBottomBarIcon label="test" uniqekey={3} icon={Icon} />
-          <FancyBottomBarIcon label="test" uniqekey={4} icon={Icon} />
-        </BottomBarList>
-        <BottomBarList indicatorType="underline" whichIndexIsSelected={0}>
-          <FancyBottomBarIcon label="test" uniqekey={1} icon={Icon} onClick={() => console.log('sdsdds')}/>
-          <FancyBottomBarIcon label="test" uniqekey={2} icon={Icon} />
-          <FancyBottomBarIcon label="test" uniqekey={3} icon={Icon} />
-          <FancyBottomBarIcon label="test" uniqekey={4} icon={Icon} />
-        </BottomBarList>
-        {/* <FancyButton label={'Test'} icon={Icon}/> */}
-      </FancyCard>
+      {/* <Button>asas</Button>
+        <FancyButton label="Hi"></FancyButton>
+        <FancyContent flexDirection="column">
+          <FancyContent.Icon size="md">{Icon}</FancyContent.Icon>
+          <FancyContent.Text fontVariant={'smText'}>Aassas</FancyContent.Text>
+        </FancyContent> */}
+      <FancyButton size='sm' themeType='transparent' hoverColor='accent' href="https://google.com" as='a' icon={Icon} label="hiii"></FancyButton>
+      <FancyButton themeType="transparent" textColor="secondary" textHover='accent' label="hiii"></FancyButton>
+      <FancyButton themeType="transparent" textColor="primary" label="hiii"></FancyButton>
     </div>
   );
 }

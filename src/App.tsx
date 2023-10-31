@@ -35,7 +35,9 @@ import ColorGeneratorRoute from './Routes/ColorGeneratorRoute/ColorGeneratorRout
 import { TUiColorsType } from './Components/UI/Design/color/designColor';
 import themeStore from './Components/UI/Design/color/themeStore';
 import GlobalStyle from './GlobalStyle';
+import FancyContentRoute from './Routes/FancyContentRoute/FancyContentRoute';
 import { FancyModal, FancySwipeUpModal } from './lib';
+import SwitchesRoute from './Routes/Switches/SwitchesRoute';
 
 // const Icon = (
 //   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -161,6 +163,12 @@ function App() {
                 <Link to="/colorGenerator">ColorGenerator</Link>
               </li>
               <li>
+                <Link to="/content">FancyContent</Link>
+              </li>
+              <li>
+                <Link to="/switches">Switches</Link>
+              </li>
+              <li>
                 <Link to="/experimental">Experimental</Link>
               </li>
             </OwnUl>
@@ -195,6 +203,8 @@ function App() {
             <Route path="/chips" element={<ChipsRoute />} />
             <Route path="/checkbox" element={<CheckboxRoute />} />
             <Route path="/colorGenerator" element={<ColorGeneratorRoute />} />
+            <Route path="/content" element={<FancyContentRoute />} />
+            <Route path="/switches" element={<SwitchesRoute />} />
             <Route path="/" element={<SwipeUpModal />} />
           </Routes>
         </div>
