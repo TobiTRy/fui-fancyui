@@ -24,7 +24,7 @@ export default function FancyTabSwitch(props: ITabSwitchProps & { label?: string
         {...tabSwitchProps}
         outlined={outlined}
         layer={layer}
-        style={css`
+        externalStyle={css`
           padding: ${clacPadding};
           border-radius: ${rounded && borderRadius[rounded]};
           overflow: hidden;
