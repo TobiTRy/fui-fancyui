@@ -68,7 +68,7 @@ const meta = {
         summary: 0.5,
       },
     },
-    style: {
+    externalStyle: {
       description: 'The style of the card can porvieed with the styled-component css and react style={{width: "100px"}}',
       control: {
         type: 'object',
@@ -108,7 +108,7 @@ const headerStyle = css`
 
 export const Header: Story = {
   render: (args) => (
-    <FancyBar {...args} style={headerStyle}>
+    <FancyBar {...args} externalStyle={headerStyle}>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start', width: '100%' }}>
         <HeaderTitleWithLogo title="Let´sTryIt" />
       </div>
@@ -149,7 +149,7 @@ const BottomBarComponent = (args: React.ComponentProps<typeof FancyBar>) => {
 
 
   return (
-    <FancyBar {...args} style={BottomBarStyle}>
+    <FancyBar {...args} externalStyle={BottomBarStyle}>
       <FancyBottomBarIcon icon={<SVGCheckMark />} label="Test" active={wichIsActive === '0'} onClick={() => setWichIsActive('0')}/>
       <FancyBottomBarIcon icon={<SVGCheckMark />} label="Test" active={wichIsActive === '1'} onClick={() => setWichIsActive('1')}/>
       <FancyBottomBarIcon icon={<SVGCheckMark />} label="Test" active={wichIsActive === '2'} onClick={() => setWichIsActive('2')}/>

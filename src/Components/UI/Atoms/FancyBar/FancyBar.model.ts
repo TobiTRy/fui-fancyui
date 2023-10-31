@@ -10,7 +10,7 @@ interface IFancyBar {
   themeType?: keyof TUiColorsType;
   children?: React.ReactNode;
   outlinedBackgroundStrength?: number;
-  style?: CSSProp;
+  externalStyle?: CSSProp;
 }
 
 export type IFancyBarProps = IFancyBar & HTMLDivElementProps;
