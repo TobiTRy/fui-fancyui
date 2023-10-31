@@ -14,7 +14,7 @@ export default function SwitchesRoute() {
   return (
     <DesignWrapper>
       <DesignArea title='Switches'>
-      <SwitchList indicatorType="underline">
+      <SwitchList indicatorType="underline" $direction='vertical'>
           <FancyBottomBarIcon label="test" uniqekey={1} icon={Icon} onClick={() => console.log('sdsdds')} />
           <FancyBottomBarIcon label="test" uniqekey={2} icon={Icon} />
           <FancyBottomBarIcon label="test" uniqekey={3} icon={Icon} />

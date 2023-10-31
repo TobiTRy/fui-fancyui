@@ -52,11 +52,11 @@ export default function FancyContent(props: IFancyContentProps) {
     }
   });
 
-  const renderWrapper = iconElement || contentGroup.length > 0;
+  const renderWrapper = iconElement;
   return renderWrapper ? (
     <Wrapper $flexAlign={flexAlign} $flexDirection={flexDirection}>
       {iconElement}
-      <div className="content">{contentGroup}</div>
+      {contentGroup.length > 0 && (<div className="content">{contentGroup}</div>)}
     </Wrapper>
   ) : (
     <>{children}</>
