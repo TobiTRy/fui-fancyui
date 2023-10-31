@@ -1,4 +1,5 @@
 import { css } from 'styled-components';
+
 import { IGenerateThemeDesignForComponent } from '../generateThemeDesignForComponent';
 import { generateStateStyle } from './generateHoverActiveColor';
 import { generateTextColor } from './generateTextColor';
@@ -20,6 +21,6 @@ export const generateTransparentStyle = (props: TGenerateTransparentStyle) => {
     color: ${generateTextColor({ $layer, $themeType: $textColor })};
     ${$backgroundState !== 'active' && 'background-color: transparent'};
     /* This generate the hover / active style if its needed */
-    ${$backgroundState && generateStateStyle({ ...props, $backgroundStrength, $textHover: true, $textColor: $textColor ?? 'accent' })}
+    ${$backgroundState && generateStateStyle({ ...props, $backgroundStrength, $textHover: true, $textColor: $textColor})}
   `;
 };
