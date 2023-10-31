@@ -1,11 +1,14 @@
 import React from 'react';
+import { css } from 'styled-components';
 
 import LoadingSVGArrows from '../../Atoms/LoadingSVGArrows/LoadingSVGArrows';
 import { borderRadius } from '../../Design/design';
 import Button, { IButtonProps } from '../../Molecules/Button/Button';
 import FancyContent from '../../Molecules/FancyContent/FancyContent';
 import { generateFancyButton } from './FancyButton.style';
-import { css } from 'styled-components';
+
+import { IButton } from '../../Molecules/Button/Button';
+import { fontSizeVariants } from '../../Atoms/Typography/TypographyStyleVariants';
 
 const alignment = {
   left: 'flex-start' as const,
@@ -22,14 +25,16 @@ export type IFancyButtonProps = {
   borderRadius?: keyof typeof borderRadius;
   oneToOne?: boolean;
   icon?: React.ReactNode;
+  fontVariant?: keyof typeof fontSizeVariants;
+  noPadding?: boolean;
 };
 
 // --------------------------------------------------------------------------- //
 // ---------- The Fancy Button has a bit more options than another  ---------- //
 // --------------------------------------------------------------------------- //
-type IFancyButton = IFancyButtonProps & IButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement>;
+type IFancyButton = IFancyButtonProps & IButton;
 export default function FancyButton(props: IFancyButton) {
-  const { icon, label, isLoading, iconAlign, size, align, externalStyle, ...ButtonProps } = {
+  const { icon, label, isLoading, iconAlign, size, align, externalStyle, oneToOne, noPadding, fontVariant, ...buttonProps } = {
     ...defaultProps,
     ...props,
   };
@@ -37,9 +42,10 @@ export default function FancyButton(props: IFancyButton) {
   const generateFancyStyle = generateFancyButton({
     size,
     borderRadius: props.borderRadius,
-    oneToOne: Boolean(!label) && Boolean(icon),
+    oneToOne: oneToOne || (Boolean(!label) && Boolean(icon)),
     outlined: props.outlined,
     justifyContent: alignment[align ?? 'center'],
+    noPadding,
   });
 
   // hanlde loadingstate with
@@ -54,10 +60,10 @@ export default function FancyButton(props: IFancyButton) {
         ${generateFancyStyle};
         ${externalStyle};
       `}
-      {...ButtonProps}
+      {...(buttonProps as IButtonProps)}
     >
       <FancyContent flexDirection={alignIcon}>
-        {label && <FancyContent.Title fontVariant="button">{label}</FancyContent.Title>}
+        {label && <FancyContent.Title fontVariant={fontVariant ?? 'button'}>{label}</FancyContent.Title>}
         {showIcon && <FancyContent.Icon>{isLoading ? <LoadingSVGArrows isLoading={isLoading} size={size} /> : icon}</FancyContent.Icon>}
       </FancyContent>
     </Button>

@@ -11,6 +11,7 @@ export const StyledButton = styled.button<IGenerateThemeDesignForComponent & ISt
   cursor: pointer;
   box-sizing: border-box;
   align-items: center;
+  text-decoration: none;
   width: ${({ $wide }) => ($wide ? '100%' : 'fit-content')};
   min-width: fit-content;
   transition: background-color 0.125s ease-in-out, color 0.125s ease-in-out;

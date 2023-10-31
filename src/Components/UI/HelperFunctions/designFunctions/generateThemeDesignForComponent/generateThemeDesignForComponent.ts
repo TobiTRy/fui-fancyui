@@ -11,7 +11,7 @@ export interface IGenerateThemeDesignForComponentProps {
   themeType?: keyof TUiColorsType;
   hoverColor?: Exclude<keyof TUiColorsType, 'transparent'>;
   textColor?: Exclude<keyof TUiColorsType, 'transparent'>;
-  textHover?: boolean;
+  textHover?: Exclude<keyof TUiColorsType, 'transparent'>;
   layer?: TLayer;
   outlined?: boolean;
   backgroundStrength?: number;

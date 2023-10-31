@@ -73,19 +73,15 @@ export default function ExperimentalRoute() {
           />
         </FancyCard> */}
 
-
-        {/* <Button>asas</Button>
+      {/* <Button>asas</Button>
         <FancyButton label="Hi"></FancyButton>
         <FancyContent flexDirection="column">
           <FancyContent.Icon size="md">{Icon}</FancyContent.Icon>
           <FancyContent.Text fontVariant={'smText'}>Aassas</FancyContent.Text>
         </FancyContent> */}
-        <FancyButton themeType='transparent'  label='hiii' >
-        </FancyButton>
-        <FancyButton themeType='transparent' textColor='secondary' label='hiii' >
-        </FancyButton>
-        <FancyButton themeType='transparent' textColor='primary' label='hiii' >
-        </FancyButton>
+      <FancyButton size='sm' themeType='transparent' hoverColor='accent' href="https://google.com" as='a' icon={Icon} label="hiii"></FancyButton>
+      <FancyButton themeType="transparent" textColor="secondary" textHover='accent' label="hiii"></FancyButton>
+      <FancyButton themeType="transparent" textColor="primary" label="hiii"></FancyButton>
     </div>
   );
 }

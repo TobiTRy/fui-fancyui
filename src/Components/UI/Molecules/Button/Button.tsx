@@ -21,7 +21,7 @@ export type IButton = IButtonProps & (({ as?: 'button' } & ButtonHTML) | ({ as: 
 // --------------- A normal Button with Style from the Theme ----------------- //
 // --------------------------------------------------------------------------- //
 export default function Button(props: IButton) {
-  const { children, wide, themeType, layer, textColor, hoverColor, outlined, externalStyle, ...htmlProps } = {
+  const { children, wide, themeType, layer, textColor, hoverColor, outlined, externalStyle, textHover, ...htmlProps } = {
     ...defaultProps,
     ...props,
   };
@@ -34,6 +34,7 @@ export default function Button(props: IButton) {
       $hoverColor={hoverColor}
       $outlined={outlined}
       $externalStyle={externalStyle}
+      $textHover={textHover}
       {...htmlProps}
     >
       {children}

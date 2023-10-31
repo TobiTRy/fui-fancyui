@@ -14,13 +14,13 @@ type TGenerateTransparentStyle = Pick<
 // ---------- generates a transparent background ---------- //
 // --------------------------------------------------------------------------- //
 export const generateTransparentStyle = (props: TGenerateTransparentStyle) => {
-  const { $backgroundState, $textColor, $backgroundStrength = 0.05, $layer } = props;
+  const { $backgroundState, $textColor, $backgroundStrength = 0.3, $layer, $textHover } = props;
 
 
   return css`
     color: ${generateTextColor({ $layer, $themeType: $textColor })};
     ${$backgroundState !== 'active' && 'background-color: transparent'};
     /* This generate the hover / active style if its needed */
-    ${$backgroundState && generateStateStyle({ ...props, $backgroundStrength, $textHover: true, $textColor: $textColor})}
+    ${$backgroundState && generateStateStyle({ ...props, $backgroundStrength, $textHover: $textHover, $textColor: $textColor})}
   `;
 };

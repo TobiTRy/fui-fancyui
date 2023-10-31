@@ -37,16 +37,16 @@ export const generateStateStyle = (props: TGenerateStateStyle) => {
       // when the component is outlined styled
       if (props.$outlined) {
         return css`
-          &:hover:enabled {
+          &:hover {
             background-color: ${generateHoverColor(props)};
           }
         `;
       } else if (props.$textHover) {
         return css`
-          &:hover:enabled {
+          &:hover {
             color: ${getBackgroundColor({
               theme: props.theme,
-              $themeType: props.$textColor ?? 'secondary',
+              $themeType: props.$textHover ?? 'secondary',
               $layer: Math.min(props.$layer ? props.$layer + 2 : 2, 10) as TLayer,
             })};
           }
@@ -54,7 +54,7 @@ export const generateStateStyle = (props: TGenerateStateStyle) => {
       }
       // when the component is normal styled
       return css`
-        &:hover:enabled {
+        &:hover {
           background-color: ${generateHoverColor(props)};
         }
       `;

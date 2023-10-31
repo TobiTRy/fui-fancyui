@@ -20,15 +20,16 @@ interface IGenerateFancyButton {
   oneToOne?: boolean;
   borderRadius?: keyof typeof borderRadius;
   justifyContent?: 'flex-start' | 'flex-end' | 'center';
+  noPadding?: boolean;
 }
 
 export const generateFancyButton = (props: IGenerateFancyButton) => {
-  const { size, borderRadius, outlined, oneToOne, justifyContent } = props;
+  const { size, borderRadius, outlined, oneToOne, justifyContent, noPadding } = props;
 
   return css`
     justify-content: ${justifyContent ?? 'center'};
     ${generateBorderRadiusForComponent(size, borderRadius)};
-    ${generateComponentPadding({ size: size ?? 'md', borderThinkness: outlined ? 1.2 : 0, doublePaddingLeftRight: true })};
+    ${!noPadding && generateComponentPadding({ size: size ?? 'md', borderThinkness: outlined ? 1.2 : 0, doublePaddingLeftRight: true })};
     ${oneToOne && generate1To1Button(size ?? 'md', outlined)};
   `;
 };
