@@ -11,11 +11,9 @@ import { leftRightToFlex } from '../../HelperFunctions/leftRightToFlex';
 // ------------------------------------------------------------------ //
 type IFancyTabSwitchButton = ITabSwitchButtonProps & HTMLAttributes<HTMLDivElement>;
 const FancyTabSwitchButton = React.forwardRef<HTMLDivElement, IFancyTabSwitchButton>((props, ref) => {
-  const { disabled, selected,onClick, wide, themeType, iconAlign, size, itemKey, label, icon, children, ...HTMLProps } = props;
-  
+  const { disabled, selected, onClick, wide, themeType, iconAlign, size, itemKey, label, icon, children, ...HTMLProps } = props;
+
   const id = useId();
-
-
 
   return (
     <SwitchButtonStyle
@@ -38,12 +36,15 @@ const FancyTabSwitchButton = React.forwardRef<HTMLDivElement, IFancyTabSwitchBut
         aria-hidden="true"
         onChange={() => onClick(itemKey)}
       />
-      <Typography htmlFor={id + '_' + itemKey} type="label" style={{zIndex: 1}}>
-        <FancyContent flexDirection={leftRightToFlex(iconAlign)}>
-          {icon && <FancyContent.Icon>{icon}</FancyContent.Icon>}
-          {label &&<FancyContent.Text>{label}</FancyContent.Text>}
-        </FancyContent>
-        { children }
+      <Typography htmlFor={id + '_' + itemKey} type="label" style={{ zIndex: 1 }}>
+        {icon ||
+          (label && (
+            <FancyContent flexDirection={leftRightToFlex(iconAlign)}>
+              {icon && <FancyContent.Icon>{icon}</FancyContent.Icon>}
+              {label && <FancyContent.Title>{label}</FancyContent.Title>}
+            </FancyContent>
+          ))}
+        {children}
       </Typography>
     </SwitchButtonStyle>
   );
