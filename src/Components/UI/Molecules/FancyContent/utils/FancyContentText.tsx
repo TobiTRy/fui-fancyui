@@ -16,14 +16,25 @@ type IFancyContentTextWithFontVariantProps = IFancyContentTextProps & {
   size?: never;
 };
 
-export default function FancyContentText(
+export function FancyContentTitle(
   props: IFancyContentTextProps & (IFancyContentTextWithFontVariantProps | IFancyContentTextWithSizeProps)
 ) {
   const { size, bold = true, fontVariant, children } = props;
 
+  return (
+    <Typography variant={fontVariant ?? sizes[size || 'lg'].fontSizeTitle} weight={bold ? 'bold' : 'normal'} type="button">
+      {children}
+    </Typography>
+  );
+}
+
+export function FancyContentDescription(
+  props: IFancyContentTextProps & (IFancyContentTextWithFontVariantProps | IFancyContentTextWithSizeProps)
+) {
+  const { size, bold, fontVariant, children } = props;
 
   return (
-    <Typography variant={fontVariant ?? sizes[size || 'sm'].fontSize} weight={bold ? 'bold' : 'normal'} type="button">
+    <Typography variant={fontVariant ?? sizes[size || 'sm'].fontSizeTitle} weight={bold ? 'bold' : 'normal'} type="button">
       {children}
     </Typography>
   );

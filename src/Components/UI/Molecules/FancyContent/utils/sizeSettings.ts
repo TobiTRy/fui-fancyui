@@ -4,15 +4,18 @@ import { spacingPx } from "../../../Design/design";
 // Define the sizes for the FancyContent component
 export const sizes = {
   sm: {
-    fontSize: 'smText' as keyof typeof TypographyList,
+    fontSizeDescription: 'smText' as keyof typeof TypographyList,
+    fontSizeTitle: 'h6' as keyof typeof TypographyList,
     padding: spacingPx.xs,
   },
   md: {
-    fontSize: 'content' as keyof typeof TypographyList,
+    fontSizeDescription: 'content' as keyof typeof TypographyList,
+    fontSizeTitle: 'h5' as keyof typeof TypographyList,
     padding: spacingPx.sm,
   },
   lg: {
-    fontSize: 'button' as keyof typeof TypographyList,
+    fontSizeDescription: 'button' as keyof typeof TypographyList,
+    fontSizeTitle: 'h4' as keyof typeof TypographyList,
     padding: spacingPx.md,
   },
 };

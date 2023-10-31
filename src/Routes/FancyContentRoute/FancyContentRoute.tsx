@@ -9,11 +9,14 @@ export default function FancyContentRoute() {
   return (
     <DesignWrapper>
       <DesignArea title="FancyContent">
-        <FancyContent>
-          <FancyContent.Icon size="sm">{<SVGCheckMark />}</FancyContent.Icon>
-          <FancyContent.Text size="sm" bold={false}>
+        <FancyContent flexAlign="flex-start" flexJustify="center">
+          <FancyContent.Icon size="lg">{<SVGCheckMark />}</FancyContent.Icon>
+          <FancyContent.Description>
             Hiii
-          </FancyContent.Text>
+          </FancyContent.Description>
+          <FancyContent.Title>
+            Hiii
+          </FancyContent.Title>
         </FancyContent>
       </DesignArea>
     </DesignWrapper>
