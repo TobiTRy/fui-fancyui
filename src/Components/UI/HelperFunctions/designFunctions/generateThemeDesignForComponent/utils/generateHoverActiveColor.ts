@@ -46,7 +46,7 @@ export const generateStateStyle = (props: TGenerateStateStyle) => {
           &:hover:enabled {
             color: ${getBackgroundColor({
               theme: props.theme,
-              $themeType: props.$textColor ?? props.$themeType ?? 'secondary',
+              $themeType: props.$textColor ?? 'secondary',
               $layer: Math.min(props.$layer ? props.$layer + 2 : 2, 10) as TLayer,
             })};
           }
