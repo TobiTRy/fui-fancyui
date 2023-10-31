@@ -14,7 +14,7 @@ export interface IActiveSwitchIndicator {
   $rounded?: keyof IBorderRadius | string;
   $outlined?: boolean;
   $direction?: 'horizontal' | 'vertical';
-  $width?: string;
+  $indicatorWidth?: string;
 }
 // --------------------------------------------------------------------------- //
 // -------- Create a Incator for wich Item in a Switch List ist activ  ------- //
