@@ -1,16 +1,12 @@
 import { create } from 'zustand';
 
 import { ModalStatus } from '../../Interface/ModalStatus';
-import { TUiColorsType } from '../../Design/color/designColor';
-import { TLayer } from '../../Design/color/generateColorSteps';
+import { IModal } from '../../Molecules/Modal/Modal';
 
-type TModalConfig = {
-  isCloseable?: boolean;
-  themeType?: keyof TUiColorsType;
-  layer?: TLayer;
-};
 
-type IModal = {
+type TModalConfig = Omit<IModal, 'id' | 'children' | 'status'>;
+
+type IModals = {
   id: string;
   children: React.ReactNode;
   status: ModalStatus;
@@ -23,7 +19,7 @@ type IModal = {
 // --------------------- The state for the ModalModuel ----------------------- //
 // --------------------------------------------------------------------------- //
 interface IModalModule {
-  modals: IModal[];
+  modals: IModals[];
   openModal: (id: string, content: React.ReactNode, config: TModalConfig) => void;
   removeModal: (id: string) => void;
   closeModal: (id: string) => void;
