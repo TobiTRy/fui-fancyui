@@ -1,12 +1,11 @@
-import { styled, CSSProp, css } from 'styled-components';
+import { CSSProp, css } from 'styled-components';
 import { TUiColorsType } from '../../../Design/color/designColor';
 import { TLayer } from '../../../Design/color/generateColorSteps';
 import IStyledPrefixAndPicker from '../../../Interface/IStyledPrefixAndPicker.model';
 import { getBackgroundColor } from '../../../Design/color/colorCalculatorForComponet';
 import colorTransparencyCalculator from '../../../Design/color/colorTransparencyCalculator';
 
-type HTMLDivElementProps = Omit<React.HTMLAttributes<HTMLDivElement>, 'style'>;
-interface IgenerateThemeForCard {
+export interface IgenerateThemeForCard {
   outlined?: boolean;
   layer?: TLayer;
   themeType?: keyof TUiColorsType;
@@ -15,13 +14,9 @@ interface IgenerateThemeForCard {
   style?: CSSProp;
 }
 
-export type IFancyBarProps = IgenerateThemeForCard & HTMLDivElementProps;
 
-// Define the function to generate the outline style for the tab switch
-type TGenerateOutlineStyle = IStyledPrefixAndPicker<IFancyBarProps, 'outlined' | 'themeType' | 'layer' | 'outlinedBackgroundStrength'> & {
-  theme: TUiColorsType;
-};
-const generateOutlineStyle = (props: TGenerateOutlineStyle) => {
+
+const generateOutlineStyle = (props: TGenerateColorDesign) => {
   const { $themeType, theme, $layer = 3, $outlinedBackgroundStrength = 0.5 } = props;
 
   // get theme background color
@@ -42,10 +37,10 @@ const generateOutlineStyle = (props: TGenerateOutlineStyle) => {
 // --------------------------------------------------------------------------- //
 // -----------  The Main generator function to create a the square  ---------- //
 // --------------------------------------------------------------------------- //
-type TGenerateColorDesign = IStyledPrefixAndPicker<IFancyBarProps, 'themeType' | 'outlined' | 'layer' | 'outlinedBackgroundStrength'> & {
+type TGenerateColorDesign = IStyledPrefixAndPicker<IgenerateThemeForCard, 'themeType' | 'outlined' | 'layer' | 'outlinedBackgroundStrength'> & {
   theme: TUiColorsType;
 };
-export default function generateColorDesign(props: TGenerateColorDesign) {
+export default function generateThemeForCard(props: TGenerateColorDesign) {
   const { $themeType, theme, $outlined, $layer, $outlinedBackgroundStrength } = props;
   let outlinedStyle, backgroundColor;
 
@@ -53,7 +48,7 @@ export default function generateColorDesign(props: TGenerateColorDesign) {
   if ($outlined) {
     outlinedStyle = generateOutlineStyle({ $outlined, $themeType, theme, $layer, $outlinedBackgroundStrength });
   } else {
-    backgroundColor = getBackgroundColor({ theme, $themeType: $themeType ?? 'primary', $layer: $layer ?? 3 });
+    backgroundColor = getBackgroundColor({ theme, $themeType: $themeType ?? 'primary', $layer: $layer ?? 1 });
   }
 
   // padding: ${$padding && $themeType !== 'transparent' ? tabSwitchSizes[$padding].paddingComponent : '0'};
@@ -62,12 +57,3 @@ export default function generateColorDesign(props: TGenerateColorDesign) {
     ${outlinedStyle}
   `;
 }
-
-// the styled-component for the FancyBar
-type IStyledFancyBar = IStyledPrefixAndPicker<IFancyBarProps> & { theme: TUiColorsType };
-export const StyledFancyBar = styled.div<IStyledFancyBar>`
-  ${({ $themeType, theme, $layer, $outlined, $outlinedBackgroundStrength }) =>
-    generateColorDesign({ $themeType, theme, $outlined, $layer, $outlinedBackgroundStrength })};
-
-  ${({ $style }) => $style};
-`;

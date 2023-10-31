@@ -68,7 +68,7 @@ const HeaderContent = () => {
       <FancySearchBar searchListWidth="80vw" layer={1}>
         <FancyLoadingSpinner size="lg" />
       </FancySearchBar>
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent:  'flex-end' ,width: '100%' }}>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', width: '100%' }}>
         <FancyMiniProfile
           alignText="left"
           headingText="@TobiTRy"
@@ -90,7 +90,7 @@ export default function HeaderRoute() {
   return (
     <section>
       <div style={{ marginTop: '40px' }}>
-        <FancyBar outlined layer={6} outlinedBackgroundStrength={0.95} style={{padding: '5px 18px', borderRadius: '22px',  width: '80%'}}>
+        <FancyBar outlined layer={6} outlinedBackgroundStrength={0.95} style={{ padding: '5px 18px', borderRadius: '22px', width: '80%' }}>
           <HeaderContent />
         </FancyBar>
       </div>
@@ -99,7 +99,11 @@ export default function HeaderRoute() {
           <Typography type="h1">FancyBar</Typography>
         </FancyBar>
       </div>
-      <Header/>
+      <div style={{ marginTop: '40px' }}>
+        <Header outlined externalStyle={{ padding: '5px 18px', borderRadius: '22px', width: '80%' }}>
+          <HeaderContent />
+        </Header>
+      </div>
     </section>
   );
 }
