@@ -16,30 +16,6 @@ const meta = {
     },
   },
   argTypes: {
-    bold: {
-      description: 'The font weight of the text',
-      control: {
-        type: 'boolean',
-      },
-    },
-    text: {
-      description: 'The text that is displayed',
-      control: {
-        type: 'text',
-      },
-    },
-    icon: {
-      description: 'The icon that is displayed',
-      control: {
-        type: 'object',
-      },
-    },
-    size: {
-      description: 'The size of the text',
-      control: {
-        type: 'select',
-      },
-    },
     flexDirection: {
       description: 'The flex direction of the component',
       control: {
@@ -68,10 +44,16 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
-  render: (args) => <FancyContent {...args} />,
+  render: (args) => <FancyContent {...args}>
+    <FancyContent.Icon>
+      <SVGCheckMark />
+    </FancyContent.Icon>
+    <FancyContent.Title>
+      Text
+    </FancyContent.Title>
+  </FancyContent>,
   args: {
-    text: 'Hello World',
-    icon: <SVGCheckMark />,
+
   },
 };
 

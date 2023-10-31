@@ -40,7 +40,7 @@ export { default as FancyProfilePicture } from '../Components/UI/Atoms/FancyProf
 export { default as RawCheckbox } from '../Components/UI/Atoms/RawCheckbox/RawCheckbox';
 export { default as Fieldset } from '../Components/UI/Atoms/Fieldset/Fieldset';
 export { default as AnimatedInputLabel } from '../Components/UI/Atoms/AnimatedLabel/AnimatedInputLabel';
-export { default as FancyBar } from '../Components/UI/Atoms/FancyBar/FancyBar';
+export { default as FancyBar } from '../Components/UI/Atoms/FancyBox/FancyBox';
 
 
 
@@ -86,6 +86,7 @@ export { default as FancyProgressBar } from '../Components/UI/Molecules/FancyPro
 export { default as FancyMiniProfile } from '../Components/UI/Molecules/FancyMiniProfile/FancyMiniProfile';
 export { default as FancyCheckbox } from '../Components/UI/Molecules/FancyCheckbox/FancyCheckbox';
 export { default as FancyChip } from '../Components/UI/Molecules/FancyChip/FancyChip';
+export { default as Header } from '../Components/UI/Molecules/Header/Header';
 
 // ---------- Organisms ------- //
 export { default as FancyColorPicker } from '../Components/UI/Organisms/FancyColorPicker/FancyColorPicker';

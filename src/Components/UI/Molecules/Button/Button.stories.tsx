@@ -34,12 +34,6 @@ const meta = {
         type: 'boolean',
       },
     },
-    borderRadius: {
-      description: 'This prop will change the borderRadius of the button',
-      control: {
-        type: 'select',
-      },
-    },
     textColor: {
       description: 'This prop will change the color of the text',
       control: {
@@ -73,7 +67,6 @@ export const Primary: Story = {
     size: 'md',
     layer: 0,
     outlined: false,
-    borderRadius: 'md',
     wide: false,
   },
 };
@@ -85,19 +78,17 @@ export const Outlined: Story = {
     size: 'md',
     layer: 0,
     outlined: true,
-    borderRadius: 'md',
     wide: false,
   },
 };
 
-export const oneToOne: Story = {
+export const OneToOne: Story = {
   render: (args) => <Button {...args} />,
   args: {
     themeType: 'accent',
     size: 'md',
     layer: 0,
     outlined: true,
-    borderRadius: 'md',
     wide: false,
   },
 };

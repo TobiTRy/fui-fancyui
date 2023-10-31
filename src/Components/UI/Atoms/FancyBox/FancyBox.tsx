@@ -1,20 +1,20 @@
 import React from 'react';
 
-import { IFancyBarProps } from './FancyBar.model';
-import { StyledFancyBar } from './FancyBar.style';
+import { IFancyBoxProps } from './FancyBox.model';
+import { StyledFancyBar } from './FancyBox.style';
 
 // --------------------------------------------------------------------------- //
 // ------------  A Bar that can usesd for for the most components ------------ //
 // --------------------------------------------------------------------------- //
-export default function FancyBar(props: IFancyBarProps) {
-  const { layer, themeType, outlined, style } = props;
+export default function FancyBar(props: IFancyBoxProps) {
+  const { layer, themeType, outlined, externalStyle } = props;
 
   return (
     <StyledFancyBar
       $layer={layer}
       $themeType={themeType}
       $outlined={outlined}
-      $style={style}
+      $externalStyle={externalStyle}
     >
       {props.children}
     </StyledFancyBar>

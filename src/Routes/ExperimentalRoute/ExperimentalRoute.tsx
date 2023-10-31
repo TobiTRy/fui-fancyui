@@ -39,6 +39,7 @@ export default function ExperimentalRoute() {
   const updateTheme = themeStore((state) => state.updateTheme);
   const switchTheme = themeStore((state) => state.switchTheme);
   const [isActive, setIsActive] = React.useState('');
+  const [isLoading, setIsLoading] = React.useState(false);
 
   //updateTheme({primary: '#ff0000', secondary: '#0000ff', accent: '#00ff00'})
 
@@ -79,9 +80,19 @@ export default function ExperimentalRoute() {
           <FancyContent.Icon size="md">{Icon}</FancyContent.Icon>
           <FancyContent.Text fontVariant={'smText'}>Aassas</FancyContent.Text>
         </FancyContent> */}
-      <FancyButton size='sm' themeType='transparent' hoverColor='accent' href="https://google.com" as='a' icon={Icon} label="hiii"></FancyButton>
+      {/* <FancyButton size='sm' themeType='transparent' hoverColor='accent' href="https://google.com" as='a' icon={Icon} label="hiii"></FancyButton>
       <FancyButton themeType="transparent" textColor="secondary" textHover='accent' label="hiii"></FancyButton>
-      <FancyButton themeType="transparent" textColor="primary" label="hiii"></FancyButton>
+      <FancyButton themeType="transparent" textColor="primary" label="hiii"></FancyButton> */}
+      <FancyButton
+        icon={Icon}
+        size="lg"
+        label='adsasas'
+        isLoading={isLoading}
+        onClick={() => setIsLoading(!isLoading)}
+        themeType="secondary"
+        outlined
+        borderRadius="sm"
+      />
     </div>
   );
 }
