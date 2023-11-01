@@ -1,13 +1,24 @@
 import React from 'react';
+import { css } from 'styled-components';
 
 import SVGXCircle from '../../SVGIcons/SVGXCircle';
 import FancyContent from '../../Molecules/FancyContent/FancyContent';
-import { IChipProps } from './FancyChip.model';
-import { StyledChip, StyledXButton, TSpacingPosition, WrapperImage } from './FancyChip.style';
+
+import { StyledXButton, TSpacingPosition, WrapperImage, generateSpacing } from './FancyChip.style';
+import Chip from '../../Molecules/Chip/Chip';
+import { IStyledChip } from '../../Molecules/Chip/Chip';
+
+export type TChipProps = {
+  label: string;
+  isActive?: boolean;
+  icon?: React.ReactNode;
+  image?: string;
+  onDelete?: () => void;
+} & IStyledChip;
 
 // Define the Chip component
-export default function FancyChip(props: IChipProps) {
-  const { label, onDelete, icon, image, size, outlined, themeType, layer, textColor, textLayer, isActive } = { ...defaultProps, ...props };
+export default function FancyChip(props: TChipProps) {
+  const { label, onDelete, icon, image, size, outlined, themeType, layer, textColor, textLayer, isActive, externalStyle } = { ...defaultProps, ...props };
 
   // Define a function to calculate the spacing position for the chip
   const clacPosition = (): TSpacingPosition => {
@@ -24,24 +35,19 @@ export default function FancyChip(props: IChipProps) {
 
   // Render the Chip component with the appropriate props
   return (
-    <StyledChip
-      $isActive={isActive}
-      $spacingPosition={getCalcPosition}
-      $size={size}
-      $outlined={outlined}
-      $themeType={themeType}
-      $textColor={textColor}
-      $layer={layer}
-      $textLayer={textLayer}
-      role={props.onClick ? 'button' : undefined}
-      tabIndex={props.onClick ? 0 : undefined}
+    <Chip
+      size={size}
+      isActive={isActive}
+      outlined={outlined}
+      themeType={themeType}
+      textColor={textColor}
+      layer={layer}
+      textLayer={textLayer}
       onClick={props.onClick}
-      onKeyDown={(e: React.KeyboardEvent<HTMLDivElement>) => {
-        if (props.onClick && (e.key === 'Enter' || e.key === 'Space')) {
-          e.preventDefault();
-          props.onClick();
-        }
-      }}
+      externalStyle={css`
+        ${externalStyle}
+        ${generateSpacing({spacingPosition: getCalcPosition, size: size})}
+      `}
     >
       {image && (
         <WrapperImage>
@@ -50,10 +56,13 @@ export default function FancyChip(props: IChipProps) {
       )}
 
       <FancyContent>
-        {icon && <FancyContent.Icon size={size}>{icon}</FancyContent.Icon> }
-        {label && <FancyContent.Title size={size} bold={false}>{label}</FancyContent.Title>}
+        {icon && <FancyContent.Icon size={size}>{icon}</FancyContent.Icon>}
+        {label && (
+          <FancyContent.Title size={size} bold={false}>
+            {label}
+          </FancyContent.Title>
+        )}
       </FancyContent>
-
 
       {onDelete && (
         <StyledXButton
@@ -66,7 +75,7 @@ export default function FancyChip(props: IChipProps) {
           <SVGXCircle />
         </StyledXButton>
       )}
-    </StyledChip>
+    </Chip>
   );
 }
 
