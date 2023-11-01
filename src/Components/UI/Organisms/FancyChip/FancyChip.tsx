@@ -1,7 +1,7 @@
 import React from 'react';
 
 import SVGXCircle from '../../SVGIcons/SVGXCircle';
-import FancyContent from '../FancyContent/FancyContent';
+import FancyContent from '../../Molecules/FancyContent/FancyContent';
 import { IChipProps } from './FancyChip.model';
 import { StyledChip, StyledXButton, TSpacingPosition, WrapperImage } from './FancyChip.style';
 
