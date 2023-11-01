@@ -5,6 +5,7 @@ import Chip from '../../Components/UI/Organisms/FancyChip/FancyChip';
 import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
 import ClipBoardIconCheck from '../../Components/UI/SVGIcons/SVGClipBoardIconChecked';
 import { FancyCard } from '../../lib';
+import ChipList from '../../Components/UI/Molecules/ChipList/ChipList';
 
 export default function ChipsRoute() {
   const [isActive, setIsActive] = React.useState(false);
@@ -18,6 +19,9 @@ export default function ChipsRoute() {
   return (
     <FancyCard>
     <DesignWrapper>
+      <DesignArea title="ChipList">
+        <ChipList />
+      </DesignArea>
       <DesignArea title="Chip">
         <Chip label="Heyyjoo" isActive={isActive} onClick={() => clickHandler('hi')} image="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg" />
         <Chip label="Heyyjoo"  onClick={() => clickHandler('hi')} onDelete={() => console.log('DELETE')} />
