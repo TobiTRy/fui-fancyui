@@ -18,11 +18,13 @@ export interface IStyledChip {
   externalStyle?: CSSProp;
   children?: React.ReactNode;
 }
+
 // --------------------------------------------------------------------------- //
 // --------------- A Simple chip you can put everthing in it  ---------------- //
 // --------------------------------------------------------------------------- //
-export default function Chip(props: IStyledChip) {
-  const { size, outlined, themeType, textColor, layer, textLayer, isActive, externalStyle } = props;
+type TChipProps = IStyledChip & React.HTMLAttributes<HTMLDivElement>;
+export default function Chip(props: TChipProps) {
+  const { size, outlined, themeType, textColor, layer, textLayer, isActive, externalStyle, ...htmlProps } = props;
 
   return (
     <StyledChip
@@ -35,7 +37,7 @@ export default function Chip(props: IStyledChip) {
       $textLayer={textLayer}
       $externalStyle={externalStyle}
       role={props.onClick ? 'button' : undefined}
-      tabIndex={props.onClick ? 0 : undefined}
+      tabIndex={0}
       onClick={props.onClick}
       onKeyDown={(e: React.KeyboardEvent<HTMLDivElement>) => {
         if (props.onClick && (e.key === 'Enter' || e.key === 'Space')) {
@@ -43,6 +45,7 @@ export default function Chip(props: IStyledChip) {
           props.onClick();
         }
       }}
+      {...htmlProps}
     >
       {props.children}
     </StyledChip>
