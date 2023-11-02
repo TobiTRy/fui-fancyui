@@ -9,16 +9,34 @@ import Chip from '../../Molecules/Chip/Chip';
 import { IStyledChip } from '../../Molecules/Chip/Chip';
 
 export type TChipProps = {
-  label: string;
+  label?: string;
   isActive?: boolean;
   icon?: React.ReactNode;
   image?: string;
   onDelete?: () => void;
-} & IStyledChip;
+} & IStyledChip &
+  React.HTMLAttributes<HTMLDivElement>;
 
 // Define the Chip component
 export default function FancyChip(props: TChipProps) {
-  const { label, onDelete, icon, image, size, outlined, themeType, layer, textColor, textLayer, isActive, externalStyle } = { ...defaultProps, ...props };
+  const {
+    label,
+    onDelete,
+    icon,
+    image,
+    size,
+    outlined,
+    themeType,
+    layer,
+    textColor,
+    textLayer,
+    isActive,
+    externalStyle,
+    ...HTMLAttributes
+  } = {
+    ...defaultProps,
+    ...props,
+  };
 
   // Define a function to calculate the spacing position for the chip
   const clacPosition = (): TSpacingPosition => {
@@ -31,7 +49,7 @@ export default function FancyChip(props: TChipProps) {
   };
 
   // Calculate the spacing position for the chip
-  const getCalcPosition = clacPosition();
+  const getCalcPosition = clacPosition();3
 
   // Render the Chip component with the appropriate props
   return (
@@ -44,10 +62,12 @@ export default function FancyChip(props: TChipProps) {
       layer={layer}
       textLayer={textLayer}
       onClick={props.onClick}
+    
       externalStyle={css`
         ${externalStyle}
-        ${generateSpacing({spacingPosition: getCalcPosition, size: size})}
+        ${generateSpacing({ spacingPosition: getCalcPosition, size: size })}
       `}
+      {...HTMLAttributes}
     >
       {image && (
         <WrapperImage>
@@ -66,6 +86,7 @@ export default function FancyChip(props: TChipProps) {
 
       {onDelete && (
         <StyledXButton
+          aria-label="delete"
           $size={size}
           onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
             e.stopPropagation();
@@ -81,6 +102,5 @@ export default function FancyChip(props: TChipProps) {
 
 // Define the default props for the Chip component
 const defaultProps = {
-  label: 'Test',
   size: 'md' as const,
 };
