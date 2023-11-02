@@ -9,12 +9,8 @@ export interface IgenerateThemeForCard {
   outlined?: boolean;
   layer?: TLayer;
   themeType?: keyof TUiColorsType;
-  children?: React.ReactNode;
   outlinedBackgroundStrength?: number;
-  style?: CSSProp;
 }
-
-
 
 const generateOutlineStyle = (props: TGenerateColorDesign) => {
   const { $themeType, theme, $layer = 3, $outlinedBackgroundStrength = 0.5 } = props;
@@ -37,7 +33,7 @@ const generateOutlineStyle = (props: TGenerateColorDesign) => {
 // --------------------------------------------------------------------------- //
 // -----------  The Main generator function to create a the square  ---------- //
 // --------------------------------------------------------------------------- //
-type TGenerateColorDesign = IStyledPrefixAndPicker<IgenerateThemeForCard, 'themeType' | 'outlined' | 'layer' | 'outlinedBackgroundStrength'> & {
+type TGenerateColorDesign = IStyledPrefixAndPicker<IgenerateThemeForCard> & {
   theme: TUiColorsType;
 };
 export default function generateThemeForCard(props: TGenerateColorDesign) {
