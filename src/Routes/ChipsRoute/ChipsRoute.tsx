@@ -7,6 +7,8 @@ import ClipBoardIconCheck from '../../Components/UI/SVGIcons/SVGClipBoardIconChe
 import { FancyCard } from '../../lib';
 import ChipList from '../../Components/UI/Molecules/ChipList/ChipList';
 
+const chipList = ['12', '1212', '1212', '121221', '121212211', '12121212', '12121212']
+
 export default function ChipsRoute() {
   const [isActive, setIsActive] = React.useState(false);
 
@@ -16,11 +18,12 @@ export default function ChipsRoute() {
   }
 
 
+
   return (
     <FancyCard>
     <DesignWrapper>
       <DesignArea title="ChipList">
-        <ChipList />
+        <ChipList chips={chipList}/>
       </DesignArea>
       <DesignArea title="Chip">
         <Chip label="Heyyjoo" isActive={isActive} onClick={() => clickHandler('hi')} image="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg" />
@@ -76,6 +79,7 @@ export default function ChipsRoute() {
         <Chip label="Heyyjoo" isActive={isActive} themeType='accent' layer={1} textColor='primary' icon={<ClipBoardIconCheck />} size="sm"  />
         <Chip label="Heyyjoo" themeType='primary' icon={<ClipBoardIconCheck />} size="md"  onDelete={() => console.log('DELETE')} />
         <Chip label="Heyyjoo" themeType='secondary' textColor="accent" size="lg" onClick={() => console.log('hii')} />
+        <Chip textColor="accent" size="lg" onClick={() => console.log('hii')} />
       </DesignArea>
     </DesignWrapper>
     </FancyCard>
