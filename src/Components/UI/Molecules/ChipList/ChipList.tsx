@@ -1,7 +1,15 @@
 import React, { KeyboardEvent, useState } from 'react';
 import { Chip, ChipContainer, ChipInput } from './ChipList.style';
+import { TUiColorsType } from '../../Design/color/designColor';
 
-export default function ChipList() {
+
+
+export interface ChipListProps {
+  themeType?: Exclude<keyof TUiColorsType, 'transparent'>
+}
+
+export default function ChipList(props: ChipListProps) {
+  const { themeType = 'primary' } = props;
   const [chips, setChips] = useState<string[]>([]);
   const [inputValue, setInputValue] = useState('');
 
@@ -14,7 +22,13 @@ export default function ChipList() {
         setChips([...chips, val]);
       }
       setInputValue('');
+    } else if (event.key === 'Backspace' && !val) {
+      // make the last chip to text again
+      const lastChip = chips[chips.length - 1];
+      setChips(chips.slice(0, chips.length - 1));
+      setInputValue(lastChip || '');
     }
+
   };
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -22,12 +36,12 @@ export default function ChipList() {
   };
 
   return (
-    <ChipContainer>
+    <ChipContainer >
       {chips.map((chip, index) => (
         <Chip key={index}>{chip}</Chip>
       ))}
       <li>
-        <ChipInput value={inputValue} onChange={handleInputChange} onKeyDown={handleKeyDown} placeholder="Enter a chip..." />
+        <ChipInput $themeType={themeType} value={inputValue} onChange={handleInputChange} onKeyDown={handleKeyDown} placeholder="Enter a chip..." />
       </li>
     </ChipContainer>
   );
