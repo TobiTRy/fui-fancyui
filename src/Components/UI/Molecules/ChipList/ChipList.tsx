@@ -1,5 +1,5 @@
 import React, { KeyboardEvent, useEffect, useState } from 'react';
-import { ChipContainer, ChipInput, InputLi, LimitText } from './ChipList.style';
+import { ChipContainer, InputLi, LimitText } from './ChipList.style';
 import { TUiColorsType } from '../../Design/color/designColor';
 import FancyChip from '../../Organisms/FancyChip/FancyChip';
 import { TLayer } from '../../Design/color/generateColorSteps';
@@ -26,6 +26,8 @@ export default function ChipList(props: ChipListProps) {
   const { themeType = 'primary', layer = 1, outlined = false, chips = [], inputPlaceholder, label, limit = 50 } = props;
   const [chipsWithKeys, setChipsWithKeys] = useState<TChip[]>([]);
   const [inputValue, setInputValue] = useState('');
+  const [focusedChip, setFocusedChip] = useState('');
+  
 
   useEffect(() => {
     setChipsWithKeys(chips.map((label) => ({ id: uuidv4(), label })));
@@ -39,22 +41,27 @@ export default function ChipList(props: ChipListProps) {
     setChipsWithKeys(chipsWithKeys.filter((chip) => chip.id !== chipToDelete));
   };
 
-  // Function to update the label of a chip
+  const hanleChipFocus = (chipId: string) => () => {
+    setFocusedChip(chipId);
+  }
+
   const updateChipLabel = (chipId: string, newLabel: string) => {
     setChipsWithKeys((prev) => prev.map((chip) => (chip.id === chipId ? { ...chip, label: newLabel } : chip)));
-  };
+  }
 
-  const handleChipEdit = (chipId: string) => (e: React.FocusEvent<HTMLDivElement> | React.KeyboardEvent<HTMLDivElement>) => {
+  const handleChipEdit = (chipId: string) => (e: React.KeyboardEvent<HTMLDivElement>) => {
     const target = e.target as HTMLDivElement;
-    console.log(e);
-    if (e.type === 'blur' || (e.type === 'keydown' && (e as React.KeyboardEvent).key === 'Enter')) {
+    if((e.key === 'Enter' || e.key === ',') && chipId === focusedChip) {
+      console.log(target)
       e.preventDefault();
+      updateChipLabel(chipId, target.innerText);
+      setFocusedChip('');
       target.blur();
-
     }
+
   };
 
-  const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
+  const handleInputKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
     const val = event.currentTarget.value.trim();
     if ((event.key === 'Enter' || event.key === ',') && val) {
       event.preventDefault();
@@ -77,21 +84,20 @@ export default function ChipList(props: ChipListProps) {
           <FancyChip
           key={index}
           label={chip.label}
-          contentEditable={true}
+          contentEditable={focusedChip === chip.id}
           tabIndex={0}
           layer={Math.min(layer + 1, 10) as TLayer}
           onDelete={deleteChip(chip.id)}
           outlined={outlined}
-          onBlur={handleChipEdit(chip.id)}
+          onFocus={hanleChipFocus(chip.id)}
           onKeyDown={handleChipEdit(chip.id)}
           ></FancyChip>
         ))}
         <InputLi>
-          <ChipInput
-            $themeType={themeType}
+          <input
             value={inputValue}
             onChange={handleInputChange}
-            onKeyDown={handleKeyDown}
+            onKeyDown={handleInputKeyDown}
             placeholder={inputPlaceholder}
           />
         </InputLi>

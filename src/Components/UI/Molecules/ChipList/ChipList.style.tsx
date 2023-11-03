@@ -21,18 +21,7 @@ export const ChipContainer = styled.ul<IChipContainer>`
     generateThemeForCard({ $layer: $layer ?? 2, $themeType: $themeType ?? 'primary', theme, $outlined })}
 `;
 
-export const ChipInput = styled.input<IChipContainer>`
-  flex: 1;
-  border: none;
-  margin: 5px;
-  padding: 5px;
-  font-size: 14px;
-  background-color: transparent;
-  color: ${({ $themeType, theme }) => getTextColor({ $themeType: $themeType ?? 'primary', theme, turnColorTheme: true })};
-  &:focus {
-    outline: none;
-  }
-`;
+
 
 export const InputLi = styled.li<IChipContainer>`
   display: flex;
@@ -41,7 +30,6 @@ export const InputLi = styled.li<IChipContainer>`
   input {
     flex: 1;
     border: none;
-    margin: 5px;
     padding: 5px;
     font-size: 14px;
     background-color: transparent;

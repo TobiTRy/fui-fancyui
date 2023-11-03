@@ -62,7 +62,6 @@ export default function FancyChip(props: TChipProps) {
       layer={layer}
       textLayer={textLayer}
       onClick={props.onClick}
-    
       externalStyle={css`
         ${externalStyle}
         ${generateSpacing({ spacingPosition: getCalcPosition, size: size })}
