@@ -2,7 +2,7 @@ import React, { ChangeEvent } from 'react';
 
 import themeStore from '../../Components/UI/Design/color/themeStore';
 import { FancyTextInput } from '../../Components/UI/Organisms/FancyTextInput';
-import { FancyBottomBarIcon, FancyButton, FancyCard, FancySVGAtom, SingleToastMessage } from '../../lib';
+import { FancyBottomBarIcon, FancyButton, FancyCard, FancyChip, FancySVGAtom, SingleToastMessage } from '../../lib';
 
 import FancyContent from '../../Components/UI/Molecules/FancyContent/FancyContent';
 import BottomBarList from '../../Components/UI/Molecules/SwitchList/SwitchList';
@@ -49,6 +49,7 @@ export default function ExperimentalRoute() {
 
   return (
     <div style={{ display: 'flex' }}>
+      <FancyChip label='Hhaa' textColor='secondary'/>
       {/* <FancyCard shadow>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}></div>
         <FancyCard layer={1}>

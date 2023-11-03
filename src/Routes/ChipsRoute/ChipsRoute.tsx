@@ -6,6 +6,7 @@ import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
 import ClipBoardIconCheck from '../../Components/UI/SVGIcons/SVGClipBoardIconChecked';
 import { FancyCard } from '../../lib';
 import ChipList from '../../Components/UI/Molecules/ChipList/ChipList';
+import FancyChipList from '../../Components/UI/Organisms/FancyChipList/FancyChipList';
 
 const chipList = ['12', '1212', '1212', '121221', '121212211', '12121212', '12121212']
 
@@ -23,9 +24,10 @@ export default function ChipsRoute() {
     <FancyCard>
     <DesignWrapper>
       <DesignArea title="ChipList">
-        <ChipList chips={chipList}/>
+        <ChipList />
+        <FancyChipList size='sm' chips={chipList} />
       </DesignArea>
-      <DesignArea title="Chip">
+      {/* <DesignArea title="Chip">
         <Chip label="Heyyjoo" isActive={isActive} onClick={() => clickHandler('hi')} image="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg" />
         <Chip label="Heyyjoo"  onClick={() => clickHandler('hi')} onDelete={() => console.log('DELETE')} />
         <Chip label="Heyyjoo" onClick={() => console.log('hii')} />
@@ -80,7 +82,7 @@ export default function ChipsRoute() {
         <Chip label="Heyyjoo" themeType='primary' icon={<ClipBoardIconCheck />} size="md"  onDelete={() => console.log('DELETE')} />
         <Chip label="Heyyjoo" themeType='secondary' textColor="accent" size="lg" onClick={() => console.log('hii')} />
         <Chip textColor="accent" size="lg" onClick={() => console.log('hii')} />
-      </DesignArea>
+      </DesignArea> */}
     </DesignWrapper>
     </FancyCard>
   );
