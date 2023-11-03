@@ -1,46 +1,52 @@
-import { styled } from 'styled-components';
-import { TUiColorsType } from '../../Design/color/designColor';
-import { getBackgroundColor, getTextColor } from '../../Design/color/colorCalculatorForComponet';
-import IStyledPrefixAndPicker from '../../Interface/IStyledPrefixAndPicker.model';
-import { ChipListProps } from './ChipList';
-import { spacingPx } from '../../Design/design';
-import generateThemeForCard, {
-  IgenerateThemeForCard,
-} from '../../HelperFunctions/designFunctions/generateThemeForCard/generateThemeForCard';
+import { CSSProp, css, styled } from 'styled-components';
+import { borderRadius, spacingPx } from '../../Design/design';
+import { TSytemMessage } from '../../Design/color/designColor';
+import { sytemMessageIndicatorStyle } from '../../HelperFunctions/designFunctions/generateSytemIncicator';
 
-type IChipContainer = IStyledPrefixAndPicker<IgenerateThemeForCard> & { theme: TUiColorsType };
-export const ChipContainer = styled.ul<IChipContainer>`
+export const FancyBoxStyle = css``;
+
+export const ChipContainer = styled.ul`
   display: flex;
   flex-wrap: wrap;
-  padding: 8px;
-  border-radius: 5px;
-  gap: ${spacingPx.sm};
   list-style-type: none;
   margin: 0;
-  ${({ $layer, $themeType, theme, $outlined }) =>
-    generateThemeForCard({ $layer: $layer ?? 2, $themeType: $themeType ?? 'primary', theme, $outlined })}
+  padding: 0;
 `;
 
+export const generateChipListStyle = (size: 'sm' | 'md' | 'lg', sytemMessage?: TSytemMessage) => {
+  const styemIndicatorStyle = sytemMessageIndicatorStyle(sytemMessage);
+  let generatedStyle;
 
-
-export const InputLi = styled.li<IChipContainer>`
-  display: flex;
-  flex: 1;
-
-  input {
-    flex: 1;
-    border: none;
-    padding: 5px;
-    font-size: 14px;
-    background-color: transparent;
-    color: ${({ $themeType, theme }) => getTextColor({ $themeType: $themeType ?? 'primary', theme, turnColorTheme: true })};
-    &:focus {
-      outline: none;
-    }
+  switch (size) {
+    case 'sm':
+      generatedStyle = css`
+        border-radius: ${borderRadius.xxl};
+        ul {
+          padding: ${spacingPx.md};
+          gap: ${spacingPx.sm};
+        }
+      `;
+      break;
+    case 'md':
+      generatedStyle = css`
+        border-radius: ${borderRadius.xxl};
+        ul {
+          padding: ${spacingPx.md};
+          gap: ${spacingPx.sm};
+        }
+      `;
+      break;
+    case 'lg':
+      generatedStyle = css`
+        border-radius: ${borderRadius.xxl};
+        ul {
+          padding: ${spacingPx.md};
+          gap: ${spacingPx.md};
+        }
+      `;
   }
-`;
-
-export const LimitText = styled.div`
-  padding-top: ${spacingPx.xxs};
-  text-align: right;
-`
+  return css`
+    ${styemIndicatorStyle}
+    ${generatedStyle}
+  `;
+};
