@@ -50,6 +50,7 @@ export default function generateThemeForCard(props: TGenerateColorDesign) {
   // padding: ${$padding && $themeType !== 'transparent' ? tabSwitchSizes[$padding].paddingComponent : '0'};
   return css`
     background-color: ${$themeType !== 'transparent' && backgroundColor};
+    border: 1.5px solid ${$themeType !== 'transparent' && backgroundColor};
     ${outlinedStyle}
   `;
 }
