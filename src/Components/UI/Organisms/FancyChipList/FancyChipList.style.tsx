@@ -24,10 +24,3 @@ export const InputLi = styled.li<IChipContainer>`
     }
   }
 `;
-
-
-
-export const LimitText = styled.div`
-  padding-top: ${spacingPx.xxs};
-  text-align: right;
-`
