@@ -10,5 +10,6 @@ export function sytemMessageIndicatorStyle(systemMessage?: TSytemMessageIndicato
   if (systemMessage)
     return css`
       border: ${`1.5px solid ${theme[systemMessage][0]}`};
+      transition: border 0.3s ease-in-out;
     `;
 }
