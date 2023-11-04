@@ -30,6 +30,7 @@ export const IconTextButton = styled.button<IIconTextButton>`
   transition: all 0.3s ease-in-out;
   ${({ disabled }) => disabled && disabledStyle}
   padding-bottom: ${spacing.xs + 2 + 'px'};
+  text-decoration: none;
 
   /* This is a media query that tests if the primary input mechanism of the device (e.g., mouse or touch screen) is capable of hovering  */
   @media (hover: hover) {
