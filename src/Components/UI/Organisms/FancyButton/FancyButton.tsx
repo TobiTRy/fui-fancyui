@@ -34,22 +34,20 @@ export type IFancyButtonProps = {
 // --------------------------------------------------------------------------- //
 type IFancyButton = IFancyButtonProps & IButton;
 export default function FancyButton(props: IFancyButton) {
-  const { icon, label, isLoading, iconAlign, size, align, externalStyle, oneToOne, noPadding, fontVariant, ...buttonProps } = {
+  const { icon, label, isLoading, iconAlign, size, align, externalStyle, oneToOne, noPadding, fontVariant, borderRadius, ...buttonProps } = {
     ...defaultProps,
     ...props,
   };
 
   const generateFancyStyle = generateFancyButton({
-    size,
-    borderRadius: props.borderRadius,
-    oneToOne: oneToOne || (Boolean(!label) && Boolean(icon)),
-    outlined: props.outlined,
-    justifyContent: alignment[align ?? 'center'],
-    noPadding,
+    $size: size,
+    $borderRadius: borderRadius,
+    $oneToOne: oneToOne || (Boolean(!label) && Boolean(icon)),
+    $outlined: props.outlined,
+    $justifyContent: alignment[align ?? 'center'],
+    $noPadding: noPadding,
   });
 
-  // hanlde loadingstate with
-  const showIcon = icon && !isLoading;
   // handle icon alignment
   const alignIcon = iconAlign === 'left' ? 'row' : 'row-reverse';
 
