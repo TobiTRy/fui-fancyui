@@ -24,10 +24,9 @@ export default function NavBarHandy() {
 
 const defaultProps = {
   buttons: [
-    { label: 'hi', icon: svg, id: '1' },
-    { label: 'hi', icon: svg, id: '2' },
-    { label: 'hi', icon: svg, id: '3' },
-    { label: 'hi', icon: svg, id: '4' },
-    { label: 'hi', icon: svg, id: '4' },
+    { label: 'TRY', icon: svg, id: '1' },
+    { label: 'SOME', icon: svg, id: '2' },
+    { label: 'HOT', icon: svg, id: '3' },
+    { label: 'CHICKS', icon: svg, id: '4' },
   ],
 };
