@@ -4,7 +4,7 @@ interface IFancyContentIconProps {
   children?: React.ReactNode;
   size?: React.ComponentProps<typeof FancySVGAtom>['size'];
 }
-export default function FancyContentIcon(props: IFancyContentIconProps) {
+export function FancyContentIcon(props: IFancyContentIconProps) {
   const { children, size = 'md' } = props;
   return (
     <FancySVGAtom size={size} externalStyle={{ flexShrink: '0' }} isPassive>
