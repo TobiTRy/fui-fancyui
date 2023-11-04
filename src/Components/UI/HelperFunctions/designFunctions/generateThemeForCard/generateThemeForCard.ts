@@ -9,12 +9,8 @@ export interface IgenerateThemeForCard {
   outlined?: boolean;
   layer?: TLayer;
   themeType?: keyof TUiColorsType;
-  children?: React.ReactNode;
   outlinedBackgroundStrength?: number;
-  style?: CSSProp;
 }
-
-
 
 const generateOutlineStyle = (props: TGenerateColorDesign) => {
   const { $themeType, theme, $layer = 3, $outlinedBackgroundStrength = 0.5 } = props;
@@ -37,12 +33,14 @@ const generateOutlineStyle = (props: TGenerateColorDesign) => {
 // --------------------------------------------------------------------------- //
 // -----------  The Main generator function to create a the square  ---------- //
 // --------------------------------------------------------------------------- //
-type TGenerateColorDesign = IStyledPrefixAndPicker<IgenerateThemeForCard, 'themeType' | 'outlined' | 'layer' | 'outlinedBackgroundStrength'> & {
+type TGenerateColorDesign = IStyledPrefixAndPicker<IgenerateThemeForCard> & {
   theme: TUiColorsType;
 };
 export default function generateThemeForCard(props: TGenerateColorDesign) {
   const { $themeType, theme, $outlined, $layer, $outlinedBackgroundStrength } = props;
   let outlinedStyle, backgroundColor;
+
+
 
   // generate the outlined style if the outlined prop is true else generate only the background color
   if ($outlined) {
@@ -54,6 +52,7 @@ export default function generateThemeForCard(props: TGenerateColorDesign) {
   // padding: ${$padding && $themeType !== 'transparent' ? tabSwitchSizes[$padding].paddingComponent : '0'};
   return css`
     background-color: ${$themeType !== 'transparent' && backgroundColor};
+    border: 1.5px solid ${$themeType !== 'transparent' && backgroundColor};
     ${outlinedStyle}
   `;
 }

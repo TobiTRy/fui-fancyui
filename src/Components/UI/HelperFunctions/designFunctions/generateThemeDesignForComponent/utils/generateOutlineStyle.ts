@@ -19,7 +19,7 @@ export const generateOutlineStyle = (props: TGenerateOutlineStyle) => {
   return css`
     box-sizing: border-box;
     border: 1.5px solid ${borderColor};
-    color: ${getBackgroundColor({ $themeType: $themeType ?? 'secondary', theme, $layer: $layer ?? 0 })};
+    color: ${getBackgroundColor({ $themeType: $textColor ?? $themeType ?? 'secondary', theme, $layer: 0 })};
     ${$backgroundState !== 'active' && 'background-color: transparent'};
     /* This generate the hover / active style if its needed */
     ${$backgroundState && generateStateStyle({ ...props, $outlined: true, $backgroundStrength })}

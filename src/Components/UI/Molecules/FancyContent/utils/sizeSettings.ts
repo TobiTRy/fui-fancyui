@@ -5,7 +5,7 @@ import { spacingPx } from "../../../Design/design";
 export const sizes = {
   sm: {
     fontSizeDescription: 'smText' as keyof typeof TypographyList,
-    fontSizeTitle: 'button' as keyof typeof TypographyList,
+    fontSizeTitle: 'content' as keyof typeof TypographyList,
     padding: spacingPx.xs,
   },
   md: {

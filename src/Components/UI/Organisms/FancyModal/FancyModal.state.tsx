@@ -4,7 +4,7 @@ import { ModalStatus } from '../../Interface/ModalStatus';
 import { IModal } from '../../Molecules/Modal/Modal';
 
 
-type TModalConfig = Omit<IModal, 'id' | 'children' | 'status'>;
+type TModalConfig = Omit<IModal, 'id' | 'children' | 'status' | 'isOpen' >;
 
 type IModals = {
   id: string;

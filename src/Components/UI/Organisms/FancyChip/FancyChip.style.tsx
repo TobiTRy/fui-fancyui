@@ -1,8 +1,5 @@
 import styled, { css } from 'styled-components';
-import { TUiColorsType } from '../../Design/color/designColor';
-import { TLayer } from '../../Design/color/generateColorSteps';
-import { borderRadius, spacing, spacingPx } from '../../Design/design';
-import generateThemeDesignForComponent from '../../HelperFunctions/designFunctions/generateThemeDesignForComponent/generateThemeDesignForComponent';
+import { spacing, spacingPx } from '../../Design/design';
 
 // Define the type for the spacing position
 export type TSpacingPosition = 'left' | 'right' | 'booth';
@@ -60,40 +57,7 @@ export const generateSpacing = ({ spacingPosition, size }: IGenerateSpacing) => 
   }
 };
 
-// Define the styled component for the chip
-interface IStyledChip {
-  $spacingPosition?: TSpacingPosition;
-  $size?: keyof typeof sizes;
-  $outlined?: boolean;
-  $themeType?: keyof TUiColorsType;
-  $textColor?: Exclude<keyof TUiColorsType, 'transparent'>;
-  $layer?: TLayer;
-  $textLayer?: TLayer;
-  $isActive?: boolean;
-}
-export const StyledChip = styled.div<IStyledChip & { theme: TUiColorsType }>`
-  ${({ $spacingPosition, $size }) => generateSpacing({ spacingPosition: $spacingPosition, size: $size })}
-  border: none;
-  height: ${({ $size }) => ($size ? sizes[$size].height : sizes.md.height)};
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  line-height: 2;
-  width: fit-content;
-  border-radius: ${borderRadius.xxxl};
 
-  ${({ $outlined, $themeType = 'primary', $textColor = 'secondary', theme, $layer }) =>
-    generateThemeDesignForComponent({ theme, $themeType, $layer: $layer ?? 3, $outlined, $textColor, $useSimpleTextColor: true })};
-
-  ${({ $isActive, theme }) => {
-    if ($isActive) {
-      return css`
-        box-shadow: 0 0 0 1px ${theme.accent[0]};
-      `;
-    }
-  }}
-`;
 
 // Define the styled component for the X button
 export const StyledXButton = styled.button<{ $size?: keyof typeof sizes }>`
