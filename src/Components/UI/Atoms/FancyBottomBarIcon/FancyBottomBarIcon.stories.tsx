@@ -24,7 +24,7 @@ const meta = {
       control: { type: 'text' },
     },
     layer: {
-      control: { type: 'range', min: 0, max: 10, step: 1}
+      control: { type: 'range', min: 0, max: 10, step: 1 },
     },
     onClick: {
       control: { type: 'function' },
@@ -35,7 +35,6 @@ const meta = {
     themeType: {
       control: { type: 'select', options: ['primary', 'secondary', 'accent'] },
     },
-
   },
 
   // Add tags to the story
@@ -57,7 +56,6 @@ export const Primary: Story = {
     themeType: 'secondary',
     layer: 4,
     icon: <SVGCheckMark />,
-
   },
   parameters: {
     docs: {
