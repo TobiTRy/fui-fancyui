@@ -7,7 +7,7 @@ import { FancyContentDescription, FancyContentTitle } from './utils/FancyContent
 import IStyledPrefixAndPicker from '../../Interface/IStyledPrefixAndPicker.model';
 
 // Define the types for the Wrapper component
-type TWrapper = IStyledPrefixAndPicker<IFancyContentProps, 'flexDirection' | 'flexAlign' | 'flexJustify' | 'gapBetweenText'>;
+type TWrapper = IStyledPrefixAndPicker<IFancyContentProps, 'flexDirection' | 'flexAlign' | 'flexJustify' | 'gapBetweenText' | 'gapBetweenIcon'>;
 
 // Define the Wrapper component
 const Wrapper = styled.span<TWrapper>`
@@ -15,14 +15,14 @@ const Wrapper = styled.span<TWrapper>`
   flex-direction: ${({ $flexDirection }) => $flexDirection || 'row'};
   justify-content: ${({ $flexJustify }) => $flexJustify || 'center'};
   align-items: ${({ $flexAlign }) => $flexAlign || 'center'};
-  gap: ${spacingPx.xs};
+  gap: ${({ $gapBetweenIcon }) => $gapBetweenIcon ?? spacingPx.xs};
 
   .content {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    gap: ${({ $gapBetweenText }) => $gapBetweenText || spacingPx.xs};
+    gap: ${({ $gapBetweenText }) => $gapBetweenText ?? spacingPx.xs};
   }
 `;
 
@@ -32,13 +32,14 @@ interface IFancyContentProps {
   flexJustify?: 'flex-start' | 'flex-end' | 'center' | 'space-between' | 'space-around' | 'space-evenly';
   flexAlign?: 'flex-start' | 'flex-end' | 'center' | 'stretch' | 'baseline';
   gapBetweenText?: string;
+  gapBetweenIcon?: string;
   children?: React.ReactNode;
 }
 // --------------------------------------------------------------------------- //
 // ------- The conent Components handles the Content of The componets -------- //
 // -------------------like for a button or chip etc. ------------------------ //
 function FancyContent(props: IFancyContentProps) {
-  const { children, flexAlign, flexDirection } = props;
+  const { children, flexAlign, flexDirection, gapBetweenText, gapBetweenIcon } = props;
   let iconElement: ReactElement | null = null;
   const contentGroup: ReactElement[] = [];
 
@@ -54,7 +55,7 @@ function FancyContent(props: IFancyContentProps) {
 
   const renderWrapper = iconElement;
   return renderWrapper ? (
-    <Wrapper $flexAlign={flexAlign} $flexDirection={flexDirection}>
+    <Wrapper $flexAlign={flexAlign} $flexDirection={flexDirection} $gapBetweenText={gapBetweenText} $gapBetweenIcon={gapBetweenIcon} >
       {iconElement}
       {contentGroup.length > 0 && <div className="content">{contentGroup}</div>}
     </Wrapper>
