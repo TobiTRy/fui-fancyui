@@ -16,7 +16,7 @@ export default function Menu(props: MenuProps) {
     <>
       {isOpen && (
         <MenuContainer>
-          <MenuItem data-value="profile">
+          <MenuItem data-value="profile" tabIndex={0}>
             <IconPlaceholder>👤</IconPlaceholder>
             Profile
           </MenuItem>
@@ -24,6 +24,7 @@ export default function Menu(props: MenuProps) {
             <IconPlaceholder>⚙️</IconPlaceholder>
             Settings
           </MenuItem>
+          <ListDivider label='Hi List ffgfg  fgfg gfgfg' />
           <ListDivider />
           <MenuItem data-value="logout">
             <IconPlaceholder>🚪</IconPlaceholder>
