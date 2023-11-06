@@ -12,7 +12,7 @@ export default function MenueItem(props: MenueItemProps) {
   const { children, label, icon, ...HTMLProps } = props;
   return (
     <MenuItem {...HTMLProps}>
-      <FancyContent>
+      <FancyContent flexAlign='flex-start'>
         <FancyContent.Title bold={false}>{label}</FancyContent.Title>
         <FancyContent.Icon>{icon}</FancyContent.Icon>
       </FancyContent>

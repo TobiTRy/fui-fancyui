@@ -1,27 +1,36 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 
 import { FancyButton } from '../../lib';
 
 import Menu from '../../Components/UI/Molecules/Menu/Menu';
 import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
-import usePopover from '../../Components/UI/Molecules/Menu/utils/usePopover';
-import Popover from '../../Components/UI/Molecules/Menu/utils/Popover';
+import Popover from '../../Components/UI/HelperFunctions/Popover/Popover';
 
 export default function MenueRoute() {
-  const [isOpen, setIsOpen] = React.useState(false);
-  const { anchorEl, popoverStyle, updatePopoverStyle, togglePopover, popoverRef } = usePopover();
+  const [isPopoverVisible, setPopoverVisible] = useState(false);
+  const buttonRef = useRef<HTMLDivElement>(null);
+
+  const togglePopover = () => {
+    setPopoverVisible(!isPopoverVisible);
+  };
+
+  const closePopover = () => {
+    setPopoverVisible(false);
+  };
 
   return (
     <DesignWrapper>
       <DesignArea title="Teststs" style={{ justifyContent: 'flex-end' }}>
-        <FancyButton label="Hiii" onClick={(e) => togglePopover(e)} />
-        <Popover
-        isOpen={Boolean(anchorEl)}
-        style={popoverStyle}
-        content={<Menu />}
-        updatePopoverStyle={updatePopoverStyle}
-        popoverRef={popoverRef}
-      />
+        <div ref={buttonRef} style={{ position: 'relative' }}>
+          <FancyButton label="Hi" onClick={togglePopover} />
+          <Popover
+            buttonRef={buttonRef}
+            content={<Menu/>}
+            isVisible={isPopoverVisible}
+            onClose={closePopover}
+            yOffset={5}
+          />
+        </div>
       </DesignArea>
     </DesignWrapper>
   );

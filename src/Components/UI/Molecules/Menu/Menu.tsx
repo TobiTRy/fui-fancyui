@@ -17,12 +17,13 @@ export default function Menu(props: MenuProps) {
     <>
       {isOpen && (
         <MenuContainer>
-          <MenuItem data-value="profile" tabIndex={0} label='Muuuhhh' icon={<>👤</>}>
+          <MenuItem tabIndex={0} label='Muuuhhh' icon={<>👤</>}>
           </MenuItem>
           <ListDivider />
-          <MenuItem data-value="profile" tabIndex={0} label='Muuusettingshhh' icon={<>⚙️</>}/>
-          <ListDivider label='Hi List ffgfg  fgfg gfgfg' />
-          <MenuItem data-value="profile" tabIndex={0} label='Muuusettingshhh' icon={<>⚙️</>}/>
+          <MenuItem tabIndex={0} label='Muuusettingshhh' icon={<>⚙️</>}/>
+          <ListDivider label='Hi List ffgfg' />
+          <MenuItem tabIndex={0} label='Muuusettingshhh' icon={<>⚙️</>}/>
+          <MenuItem tabIndex={0} label='Logout' icon={<>🚪</>}/>
           {/* <MenuItem data-value="logout">
             <IconPlaceholder>🚪</IconPlaceholder>
             Logout
