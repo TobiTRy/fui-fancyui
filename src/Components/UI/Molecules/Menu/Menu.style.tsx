@@ -19,21 +19,7 @@ export const MenuContainer = styled.div<StyledMenuProps >`
   border-radius: ${borderRadius.md};
 `;
 
-// Menu item
-export const MenuItem = styled.div<StyledMenuProps>`
-  padding: 10px 20px;
-  cursor: pointer;
-  &:hover {
-    background-color: ${({theme, $themeType, $layer}) => getBackgroundColor({theme, $themeType: $themeType ??  'primary', $layer: $layer ?? 3})};
-  }
-`;
 
-// Divider
-export const MenuDivider = styled.div`
-  height: 1px;
-  background-color: #e0e0e0;
-  margin: 8px 0;
-`;
 
 // Icon placeholder
 export const IconPlaceholder = styled.span`
