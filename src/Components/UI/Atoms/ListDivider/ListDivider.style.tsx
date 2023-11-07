@@ -22,6 +22,7 @@ export const StyledTextDiv = styled.div<TStyledTextDiv>`
   color: ${({ $themeType, $layer, theme }) => getBackgroundColor({ $themeType: $themeType ?? 'secondary', $layer, theme })};
   justify-content: center;
   align-items: center;
+  margin: 2px 0;
 
   > span {
     padding: 0 12px;

@@ -7,10 +7,10 @@ import { MenuProps } from './Menu';
 
 import IStyledPrefixAndOmitter from '../../Interface/IStyledPrefixAndOmiter.model';
 
-type StyledMenuProps = IStyledPrefixAndOmitter<MenuProps, 'isOpen'> & {theme: TUiColorsType};
+type StyledMenuProps = IStyledPrefixAndOmitter<MenuProps> & {theme: TUiColorsType};
 
 // Menu container
-export const MenuContainer = styled.div<StyledMenuProps >`
+export const MenuContainer = styled.div<StyledMenuProps>`
   display: flex;
   flex-direction: column;
   padding: 8px 0;
@@ -18,12 +18,3 @@ export const MenuContainer = styled.div<StyledMenuProps >`
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
   border-radius: ${borderRadius.md};
 `;
-
-
-
-// Icon placeholder
-export const IconPlaceholder = styled.span`
-  margin-right: 8px;
-`;
-
-// You can customize your MenuTitle, MenuList, and other components as needed.
