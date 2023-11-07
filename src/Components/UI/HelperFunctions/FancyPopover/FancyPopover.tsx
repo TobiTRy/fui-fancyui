@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import styled from 'styled-components';
+import { ContentContainer, RefContainer } from './Popover.style';
 
 interface FancyPopoverProps {
   refComponent: React.ReactElement;
@@ -7,24 +7,13 @@ interface FancyPopoverProps {
   offsetX?: number; // horizontal offset
   offsetY?: number; // vertical offset
 }
-
-const RefContainer = styled.div`
-  position: relative;
-  display: inline-block;
-`;
-
-const ContentContainer = styled.div`
-  position: absolute;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1000;
-`;
-
 export default function FancyPopover(props: FancyPopoverProps) {
   const { refComponent, contentComponent, offsetX = 0, offsetY = 0 } = props;
   const [isContentVisible, setContentVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
+  // Close popover when clicking outside of it
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (ref.current && !ref.current.contains(event.target as Node)) {
@@ -37,6 +26,8 @@ export default function FancyPopover(props: FancyPopoverProps) {
   }, []);
 
   useEffect(() => {
+
+    // this is the function that will position the content element relative to the ref element 
     const handleWindowResize = () => {
       // Early return if refs are not set
       if (!contentRef.current || !ref.current) return;
@@ -71,7 +62,7 @@ export default function FancyPopover(props: FancyPopoverProps) {
     return () => window.removeEventListener('resize', handleWindowResize);
   }, [isContentVisible, offsetX, offsetY]); // Added dependencies
 
-
+  // hanldeClick on the ref toggles the visibility of the content element 
   const handleClick = () => {
     setContentVisible(!isContentVisible);
   };
