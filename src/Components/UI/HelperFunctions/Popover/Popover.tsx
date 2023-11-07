@@ -1,10 +1,8 @@
 // PopoverContainer.ts
 import styled from 'styled-components';
 
-export const PopoverContainer = styled.div<{ $isVisible: boolean; position: { top: number; left: number; } }>`
+export const PopoverContainer = styled.div<{ $isVisible: boolean;}>`
   position: fixed;
-  top: ${(props) => props.position.top}px;
-  left: ${(props) => props.position.left}px;
   z-index: 100;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   display: ${(props) => (props.$isVisible ? 'block' : 'none')};
@@ -45,32 +43,39 @@ const Popover: React.FC<PopoverProps> = ({
     function updatePosition() {
       if (buttonRef.current && popoverRef.current) {
         const buttonRect = buttonRef.current.getBoundingClientRect();
-
+        const popoverRect = popoverRef.current.getBoundingClientRect();
+        console.log('Button Rect:', buttonRect);
+        console.log('Popover Rect before position adjustment:', popoverRect);
+    
+        const isButtonOnLeftSide = buttonRect.left < window.innerWidth / 2;
+    
+        let newLeft = isButtonOnLeftSide
+          ? buttonRect.left + xOffset
+          : buttonRect.right - popoverRef.current.offsetWidth - xOffset;
+    
+        let newTop = buttonRect.bottom + yOffset;
+    
+        // Check for window boundaries
+        if (newLeft < 0) {
+          newLeft = xOffset; // Add space to avoid touching the window edge
+        }
+        if (newLeft + popoverRect.width > window.innerWidth) {
+          newLeft = window.innerWidth - popoverRect.width - xOffset; // Subtract space to avoid touching the window edge
+        }
+        if (newTop + popoverRect.height > window.innerHeight) {
+          newTop = buttonRect.top - popoverRect.height - yOffset;
+        }
+    
         const newPosition = {
-          top: buttonRect.bottom + yOffset,
-          left: buttonRect.left + xOffset,
+          top: newTop,
+          left: newLeft
         };
-
-        const popoverWidth = popoverRef.current.offsetWidth;
-        const popoverHeight = popoverRef.current.offsetHeight;
-
-        // Adjust for right side overflow
-        if (newPosition.left + popoverWidth > window.innerWidth) {
-          newPosition.left -= (newPosition.left + popoverWidth) - window.innerWidth;
-        }
-        // Adjust for bottom overflow
-        if (newPosition.top + popoverHeight > window.innerHeight) {
-          newPosition.top -= (newPosition.top + popoverHeight) - window.innerHeight;
-        }
-
-        // Adjust so it doesn't overlap the button
-        if (newPosition.top < buttonRect.top) {
-          newPosition.top = buttonRect.top - popoverHeight - yOffset;
-        }
-
+    
+        console.log('New Position:', newPosition);
         setPosition(newPosition);
       }
     }
+    
 
     if (isVisible) {
       updatePosition();
@@ -87,13 +92,12 @@ const Popover: React.FC<PopoverProps> = ({
       document.removeEventListener('click', handleClickOutside, true);
       window.removeEventListener('resize', updatePosition);
     };
-  }, [isVisible, buttonRef, xOffset, yOffset, content]); // Added `content` dependency to recalculate on content change
+  }, [isVisible, buttonRef, xOffset, yOffset, content]);
 
   return (
     <PopoverContainer
       ref={popoverRef}
       $isVisible={isVisible}
-      position={position}
       style={position}
     >
       {content}
