@@ -2,16 +2,16 @@
 import { Meta, StoryObj } from '@storybook/react';
 
 // Import the component to be tested
-import MenueItem from './MenuItem';
+import ListDivider from './ListDivider';
 
 // Define metadata for the story
 const meta = {
-  component: MenueItem,
+  component: ListDivider,
   parameters: {
     docs: {
       description: {
         component:
-          'Dumb-Component: The MenueItem is only a Box with some styles you can use it to build your own MenueList or something else',
+          'Dumb-Component: Its a Divider that displays only a line or line with informations',
       },
     },
   },
@@ -38,10 +38,11 @@ const meta = {
         summary: '3',
       },
     },
+
   },
   // Add tags to the story
   tags: ['autodocs'],
-} satisfies Meta<typeof MenueItem>;
+} satisfies Meta<typeof ListDivider>;
 
 // Export the metadata
 export default meta;
@@ -51,10 +52,16 @@ type Story = StoryObj<typeof meta>;
 // Define the primary story
 export const Primary: Story = {
   render: (args) => (
-    <MenueItem {...args}>
-      <span>Some Content</span>
-      {args.children}
-    </MenueItem>
+    <ListDivider {...args}/>
   ),
-  args: {},
+  args: {  
+  },
+};
+export const WithText: Story = {
+  render: (args) => (
+    <ListDivider {...args}/>
+  ),
+  args: {  
+    label: 'Some Text',
+  },
 };
