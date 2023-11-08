@@ -52,7 +52,7 @@ export default function ExperimentalRoute() {
       <FancyChip label='Hhaa' textColor='secondary'/>
       <FancyBottomBarIcon label="test" icon={Icon}  onClick={() => console.log('hi')} />
       <FancyBottomBarIcon label="testREF" icon={Icon}  as='a' href='https://google.de' />
-      {/* <FancyCard shadow>
+      <FancyCard shadow>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}></div>
         <FancyCard layer={1}>
           <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-end' }}>
@@ -75,7 +75,8 @@ export default function ExperimentalRoute() {
             }}
             remove={removeToast}
           />
-        </FancyCard> */}
+        </FancyCard>
+      </FancyCard>
 
       {/* <Button>asas</Button>
         <FancyButton label="Hi"></FancyButton>

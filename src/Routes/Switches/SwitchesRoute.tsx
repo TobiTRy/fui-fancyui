@@ -1,7 +1,7 @@
-import React from 'react'
-import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper'
-import { FancyBottomBarIcon } from '../../Components/UI/Atoms/FancyBottomBarIcon'
-import SwitchList from '../../Components/UI/Molecules/SwitchList/SwitchList'
+import React from 'react';
+import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
+import { FancyBottomBarIcon } from '../../Components/UI/Atoms/FancyBottomBarIcon';
+import SwitchList from '../../Components/UI/Molecules/SwitchList/SwitchList';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -9,26 +9,25 @@ const Icon = (
   </svg>
 );
 
-
 export default function SwitchesRoute() {
   return (
     <DesignWrapper>
-      <DesignArea title='Switches'>
+      <DesignArea title="Switches">
         <SwitchList indicatorType="underline" whichIndexIsSelected={0}>
-          <FancyBottomBarIcon label="test" uniqekey={1} icon={Icon} onClick={() => console.log('sdsdds')} />
-          <FancyBottomBarIcon label="test" uniqekey={2} icon={Icon} />
-          <FancyBottomBarIcon label="test" uniqekey={3} icon={Icon} />
-          <FancyBottomBarIcon label="test" uniqekey={4} icon={Icon} />
+          <FancyBottomBarIcon label="test" icon={Icon} onClick={() => console.log('sdsdds')} />
+          <FancyBottomBarIcon label="test" icon={Icon} />
+          <FancyBottomBarIcon label="test" icon={Icon} />
+          <FancyBottomBarIcon label="test" icon={Icon} />
         </SwitchList>
       </DesignArea>
-      <DesignArea title='Switches'>
-      <SwitchList indicatorType="underline" $direction='vertical'>
-          <FancyBottomBarIcon label="test" uniqekey={1} icon={Icon} onClick={() => console.log('sdsdds')} />
-          <FancyBottomBarIcon label="test" uniqekey={2} icon={Icon} />
-          <FancyBottomBarIcon label="test" uniqekey={3} icon={Icon} />
-          <FancyBottomBarIcon label="test" uniqekey={4} icon={Icon} />
+      <DesignArea title="Switches">
+        <SwitchList indicatorType="underline" $direction="vertical">
+          <FancyBottomBarIcon label="test" icon={Icon} onClick={() => console.log('sdsdds')} />
+          <FancyBottomBarIcon label="test" icon={Icon} />
+          <FancyBottomBarIcon label="test" icon={Icon} />
+          <FancyBottomBarIcon label="test" icon={Icon} />
         </SwitchList>
       </DesignArea>
     </DesignWrapper>
-  )
+  );
 }

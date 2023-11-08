@@ -16,7 +16,7 @@ interface IBottomBarListProps {
 }
 
 interface IKey  {
-  uniquekey: string;
+  $uniquekey: string;
 } 
 // --------------------------------------------------------------------------- //
 // -------------- The Switch List Indicates wich item is active -------------- //
@@ -42,7 +42,7 @@ export default function SwitchList(props: IBottomBarListProps & TSwitchActiveInd
           const uniqueKey = `${index + 1}`;
 
           // Clone the child and add the uniqueKey prop
-          const clonedChild = React.cloneElement(child as React.ReactElement<IKey>, { 'uniquekey': uniqueKey });
+          const clonedChild = React.cloneElement(child as React.ReactElement<IKey>, { '$uniquekey': uniqueKey });
 
           return (
             <ItemWrapper key={uniqueKey} onClick={() => activeHandler(uniqueKey)}>

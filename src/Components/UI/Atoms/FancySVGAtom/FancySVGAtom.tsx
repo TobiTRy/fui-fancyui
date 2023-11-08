@@ -24,6 +24,7 @@ const calcIconColor = ({ theme, $isActive, $errorMessage, $themeType, $layer }: 
 const StyledSVG = styled.i<IStyledSVGAtom & { theme: TUiColorsType }>`
   display: flex;
   justify-content: center;
+  font-style: normal;
   align-items: center;
   width: ${({ $size }) => sizes[$size!]};
   aspect-ratio: 1/1;

@@ -55,7 +55,7 @@ function FancyContent(props: IFancyContentProps) {
 
   const renderWrapper = iconElement;
   return renderWrapper ? (
-    <Wrapper $flexAlign={flexAlign} $flexDirection={flexDirection} $gapBetweenText={gapBetweenText} $gapBetweenIcon={gapBetweenIcon} >
+    <Wrapper $flexAlign={flexAlign} $flexDirection={flexDirection} $gapBetweenText={gapBetweenText} $gapBetweenIcon={gapBetweenIcon}>
       {iconElement}
       {contentGroup.length > 0 && <div className="content">{contentGroup}</div>}
     </Wrapper>

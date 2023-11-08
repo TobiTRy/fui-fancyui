@@ -13,6 +13,6 @@ export type IFancyBottomBarIcon = {
   disabled?: boolean;
   themeType?: keyof TUiColorsType;
   layer?: TLayer;
-  uniqekey?: string | number;
+  uniquekey?: string | number;
 } & (TNativeButtonProps | TNativeAnchorProps);
 

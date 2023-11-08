@@ -21,7 +21,7 @@ interface IStaticBottomBar {
   externalStyle?: CSSProp;
 }
 export default function FancyBottomBarStatic(props: IStaticBottomBar) {
-  const { buttons, isVisible, externalStyle ,...bottomBarProps } = {...defaultProps, ...props};
+  const { buttons, isVisible, externalStyle, ...bottomBarProps } = { ...defaultProps, ...props };
   const isVisibleState = useFancyBottomBarStaticStore((state) => state.isVisible);
   const setIsVisible = useFancyBottomBarStaticStore((state) => state.setIsVisible);
   const whichIsActive = useFancyBottomBarStaticStore((state) => state.whichIsActive);
@@ -29,20 +29,34 @@ export default function FancyBottomBarStatic(props: IStaticBottomBar) {
 
   useEffect(() => {
     setIsVisible(isVisible ? isVisible : true);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
 
   return (
     <>
       {isVisibleState && (
-        <FancyBox {...bottomBarProps} externalStyle={css`${fancyBarStyle}${externalStyle}`}>
+        <FancyBox
+          {...bottomBarProps}
+          externalStyle={css`
+            ${fancyBarStyle}
+            ${externalStyle}
+          `}
+        >
           {buttons?.map((button, i) => (
             <FancyBottomBarIcon
               key={i}
               {...button}
               active={button.id === whichIsActive}
               onClick={() => {
-                button.onClick && button.onClick();
+                if (button.as === 'a') {
+                  button.href && window.open(button.href, '_blank');
+                }
+                if (button.onClick) {
+                  const handler = button.onClick as () => void;
+                  handler();
+                }
+
                 setWhichIsActive(button.id!);
               }}
             />
@@ -55,4 +69,4 @@ export default function FancyBottomBarStatic(props: IStaticBottomBar) {
 
 const defaultProps: IStaticBottomBar = {
   isVisible: true,
-}
+};
