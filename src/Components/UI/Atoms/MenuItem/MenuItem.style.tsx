@@ -10,7 +10,7 @@ type StyledMenuProps = {
   as?: 'a' | 'button';
 };
 
-export const MenuItem = styled.button<StyledMenuProps>`
+export const StyledMenuItem = styled.button<StyledMenuProps>`
   display: flex;
   box-sizing: border-box;
   padding: 10px 20px;
