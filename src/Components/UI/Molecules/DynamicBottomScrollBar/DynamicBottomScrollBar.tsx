@@ -38,7 +38,13 @@ export default function DynamicBottomScrollBar(props: IBottomScrollbar) {
               {...item}
               active={item.id === activeButton}
               onClick={() => {
-                item.onClick && item.onClick();
+                if (item.as === 'a') {
+                  item.href && window.open(item.href, '_blank');
+                }
+                if (item.onClick) {
+                  const handler = item.onClick as () => void;
+                  handler();
+                }
                 setActiveButton(item.id!);
               }}
             />
@@ -51,7 +57,13 @@ export default function DynamicBottomScrollBar(props: IBottomScrollbar) {
             {...item}
             active={item.id === activeButton}
             onClick={() => {
-              item.onClick && item.onClick();
+              if (item.as === 'a') {
+                item.href && window.open(item.href, '_blank');
+              }
+              if (item.onClick) {
+                const handler = item.onClick as () => void;
+                handler();
+              }
               setActiveButton(item.id!);
             }}
           />
