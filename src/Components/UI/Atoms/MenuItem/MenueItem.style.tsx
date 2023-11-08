@@ -7,6 +7,7 @@ type StyledMenuProps = {
   $themeType?: keyof TUiColorsType;
   $layer?: TLayer;
   theme: TUiColorsType;
+  as?: 'a' | 'button';
 };
 
 export const MenuItem = styled.button<StyledMenuProps>`
@@ -16,8 +17,9 @@ export const MenuItem = styled.button<StyledMenuProps>`
   cursor: pointer;
   background-color: transparent;
   border: none;
-  color: ${({ theme, $themeType, $layer }) =>
-      getTextColor({ theme, $themeType: $themeType ?? 'secondary', $textLayer: $layer ?? 3 })};
+  text-decoration: none;
+  color: ${({ theme, $themeType }) =>
+      getTextColor({ theme, $themeType: $themeType ?? 'secondary', $textLayer: 1 })};
 
   &:hover {
     background-color: ${({ theme, $themeType, $layer }) =>

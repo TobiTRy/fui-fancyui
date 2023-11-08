@@ -1,21 +1,26 @@
 import React from 'react';
+
+import { TUiColorsType } from '../../Design/color/designColor';
+import { TLayer } from '../../Design/color/generateColorSteps';
 import { MenuItem } from './MenueItem.style';
-import FancyContent from '../../Molecules/FancyContent/FancyContent';
 
-interface MenueItemProps extends Omit<React.ComponentProps<typeof MenuItem>, 'theme'>  {
-  label?: string;
-  icon?: React.ReactNode;
-  as: 'a' | 'button';
-}
+type HTMLButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & { as?: 'button' };
+type HTMLAnchorProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & { as: 'a' };
 
+type MenueItemProps = {
+  children?: React.ReactNode;
+  themeType?: keyof TUiColorsType;
+  layer?: TLayer;
+} & (HTMLButtonProps | HTMLAnchorProps);
+// --------------------------------------------------------------------------- //
+//A Empty Menue Item that only handles the style you can put everythin as childs//
+// --------------------------------------------------------------------------- //
 export default function MenueItem(props: MenueItemProps) {
-  const { label, icon, ...HTMLProps } = props;
+  const { children, as, themeType, layer, ...HTMLProps } = props;
+
   return (
-    <MenuItem {...HTMLProps}>
-      <FancyContent flexAlign='flex-start'>
-        <FancyContent.Title bold={false}>{label}</FancyContent.Title>
-        <FancyContent.Icon>{icon}</FancyContent.Icon>
-      </FancyContent>
+    <MenuItem as={as} $themeType={themeType} $layer={layer} {...HTMLProps}>
+      {children}
     </MenuItem>
   );
 }
