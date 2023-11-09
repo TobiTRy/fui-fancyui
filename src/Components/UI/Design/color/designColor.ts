@@ -7,12 +7,12 @@ const themeColors = {
   accentDarken: '',
   secondary: '#f0f0ef',
   info: '#287fd7',
-  success: '#22C390',
+  success: '#009688',
   warning: '#EB8800',
   error: '#D21414',
   transparent: 'transparent',
 };
-//info: '#16487a',
+// success: '#22C390',
 themeColors.accentDarken = themeColors.accent;
 
 export type IUiColorsTypes = keyof typeof themeColors | 'transparent';
