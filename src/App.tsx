@@ -39,6 +39,7 @@ import FancyContentRoute from './Routes/FancyContentRoute/FancyContentRoute';
 import { FancyModal, FancySwipeUpModal } from './lib';
 import SwitchesRoute from './Routes/Switches/SwitchesRoute';
 import MenueRoute from './Routes/MenuRoute/MenueRoute';
+import InfoCardRoute from './Routes/InfoCardRoute/InfoCardRoute';
 
 // const Icon = (
 //   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -171,6 +172,9 @@ function App() {
                   <Link to="/menu">Menue</Link>
                 </li>
                 <li>
+                  <Link to="/infoCard">infocard</Link>
+                </li>
+                <li>
                   <Link to="/experimental">Experimental</Link>
                 </li>
               </OwnUl>
@@ -208,6 +212,7 @@ function App() {
               <Route path="/content" element={<FancyContentRoute />} />
               <Route path="/switches" element={<SwitchesRoute />} />
               <Route path="/menu" element={<MenueRoute />} />
+              <Route path="/infoCard" element={<InfoCardRoute />} />
               <Route path="/" element={<SwipeUpModal />} />
             </Routes>
           </div>
