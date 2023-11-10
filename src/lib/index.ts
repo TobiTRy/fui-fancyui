@@ -103,3 +103,7 @@ export { default as FancyDateInput } from '../Components/UI/Organisms/FancyDateI
 export { default as FancyDateDropDown } from '../Components/UI/Templates/Inputs/FancyDateDropDown/FancyDateDropDown';
 export { default as FancyToastMessage } from '../Components/UI/Organisms/FancyToastMessage/FancyToastMessage';
 export { default as FancyEditBar } from '../Components/UI/Organisms/FancyEditBar/FancyEditBar';
+
+// ---------- Templates ------- //
+export { default as FancyInfoCard } from '../Components/UI/Templates/FancyInfoCard/FancyInfoCard';
+export { default as FancyMenu } from '../Components/UI/Templates/FancyMenueComponent/FancyMenu/FancyMenu';

@@ -2,15 +2,15 @@
 import { Meta, StoryObj } from '@storybook/react';
 
 // Import the component to be tested
-import FancyMenuList from './FancyMenuList';
+import FancyMenu from './FancyMenu';
 
 // Define metadata for the story
 const meta = {
-  component: FancyMenuList,
+  component: FancyMenu,
   parameters: {
     docs: {
       description: {
-        component: 'Template: The FancyMenueItem is a template for a finished Item it used by the FancyMenuList',
+        component: 'Template: The FancyMenueItem is a template for a finished Item it used by the FancyMenu',
       },
     },
   },
@@ -28,7 +28,10 @@ const meta = {
     layer: {
       description: 'The layer of the button hover effect',
       control: {
-        type: 'range', min: 1, max: 10, step: 1,
+        type: 'range',
+        min: 1,
+        max: 10,
+        step: 1,
       },
       defaultValue: {
         summary: '3',
@@ -37,7 +40,7 @@ const meta = {
   },
   // Add tags to the story
   tags: ['autodocs'],
-} satisfies Meta<typeof FancyMenuList>;
+} satisfies Meta<typeof FancyMenu>;
 
 // Export the metadata
 export default meta;
@@ -46,16 +49,17 @@ type Story = StoryObj<typeof meta>;
 
 // Define the primary story
 export const Primary: Story = {
-  render: (args) => <FancyMenuList {...args} >
-    <FancyMenuList.Item label="Muuusettingshhh" icon={<>⚙️</>} />
-    <FancyMenuList.Divider label='Moooiin'/>
-    <FancyMenuList.Item label="Muuusettingshhh" icon={<>⚙️</>} />
-    <FancyMenuList.Divider/>
-    <FancyMenuList.Item label="Muuusettingshhh" icon={<>⚙️</>} />
-    <FancyMenuList.Item label="Muuusettingshhh" icon={<>⚙️</>} />
-    <FancyMenuList.Divider />
-    <FancyMenuList.Item label="Logout" icon={<>🚪</>} />
-  </FancyMenuList>,
-  args: {
-  },
+  render: (args) => (
+    <FancyMenu {...args}>
+      <FancyMenu.Item label="Muuusettingshhh" icon={<>⚙️</>} />
+      <FancyMenu.Divider label="Moooiin" />
+      <FancyMenu.Item label="Muuusettingshhh" icon={<>⚙️</>} />
+      <FancyMenu.Divider />
+      <FancyMenu.Item label="Muuusettingshhh" icon={<>⚙️</>} />
+      <FancyMenu.Item label="Muuusettingshhh" icon={<>⚙️</>} />
+      <FancyMenu.Divider />
+      <FancyMenu.Item label="Logout" icon={<>🚪</>} />
+    </FancyMenu>
+  ),
+  args: {},
 };
