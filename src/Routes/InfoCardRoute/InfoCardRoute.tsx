@@ -16,7 +16,7 @@ export default function InfoCardRoute() {
         <InfoCard>
           <span>InfoCard</span>
         </InfoCard>
-        <FancyInfoCard size='sm' themeType='info' title='A Vergy good title' description='Mooiin Saying mooii jkjkjkdf jkjsjkfdsjfj sjkjkfsj kjjkfjsjkf jjsfjkskjfkjs jjkjk fsjjkfskjjkf n' icon={<SVGCheckMark/>} />
+        <FancyInfoCard size='sm' themeType='info' title='A Vergy good title' description='Mooiin Saying mooii jkjkjkdf jkjsjkfdsjfj sjkjkfsj kjjkfjsjkf jjsfjkskjfkjs jjkjk fsjjkfskjjkf n'  />
         <FancyInfoCard size='md' themeType='success' title='A Vergy good title' description='Mooiin Saying mooii jkjkjkdf jkjsjkfdsjfj sjkjkfsj kjjkfjsjkf jjsfjkskjfkjs jjkjk fsjjkfskjjkf n' icon={<SVGCheckMark/>} />
         <FancyInfoCard size='lg' themeType='warning' title='A Vergy good title' description='Mooiin Saying mooii jkjkjkdf jkjsjkfdsjfj sjkjkfsj kjjkfjsjkf jjsfjkskjfkjs jjkjk fsjjkfskjjkf n' icon={<SVGCheckMark/>} />
         <FancyInfoCard themeType='error' title='A Vergy good title' description='Mooiin Saying mooii jkjkjkdf jkjsjkfdsjfj sjkjkfsj kjjkfjsjkf jjsfjkskjfkjs jjkjk fsjjkfskjjkf n' icon={<SVGCheckMark/>} />
