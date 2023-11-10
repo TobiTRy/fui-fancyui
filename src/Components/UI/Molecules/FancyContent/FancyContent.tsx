@@ -25,7 +25,7 @@ const Wrapper = styled.span<TWrapper>`
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    gap: ${({ $gapBetweenText }) => $gapBetweenText ?? spacingPx.xs};
+    gap: ${({ $gapBetweenText }) => $gapBetweenText ?? spacingPx.xxs};
   }
 `;
 
