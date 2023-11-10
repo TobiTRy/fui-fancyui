@@ -66,10 +66,8 @@ function FancyContent(props: IFancyContentProps) {
     }
   });
 
-  console.log(contentGroup.length)
 
-  const renderWrapper = true;
-  return renderWrapper ? (
+  return iconElement ? (
     <Wrapper
       $flexAlign={flexAlign}
       $flexDirection={flexDirection}
