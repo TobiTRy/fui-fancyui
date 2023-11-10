@@ -29,6 +29,16 @@ const Wrapper = styled.span<TWrapper>`
   }
 `;
 
+
+type TOnlyTextWrapper = IStyledPrefixAndPicker<IFancyContentProps, 'flexDirection' | 'gapBetweenText' | 'flexAlign' | 'flexJustify'>
+const OnlyTextWrapper = styled.div<TOnlyTextWrapper>`
+  display: flex;
+  flex-direction: ${({ $flexDirection }) => $flexDirection || 'collumn'};
+  justify-content: ${({ $flexJustify }) => $flexJustify || 'center'};
+  align-items: ${({ $flexAlign }) => $flexAlign || 'center'};
+  gap: ${({ $gapBetweenText }) => $gapBetweenText ?? spacingPx.xxs};
+`
+
 // Define the props for the FancyContent component
 interface IFancyContentProps {
   flexDirection?: 'row' | 'row-reverse' | 'column' | 'column-reverse';
@@ -56,7 +66,9 @@ function FancyContent(props: IFancyContentProps) {
     }
   });
 
-  const renderWrapper = iconElement;
+  console.log(contentGroup.length)
+
+  const renderWrapper = true;
   return renderWrapper ? (
     <Wrapper
       $flexAlign={flexAlign}
@@ -69,7 +81,7 @@ function FancyContent(props: IFancyContentProps) {
       {contentGroup.length > 0 && <div className="content">{contentGroup}</div>}
     </Wrapper>
   ) : (
-    <>{children}</>
+    <OnlyTextWrapper>{children}</OnlyTextWrapper>
   );
 }
 
