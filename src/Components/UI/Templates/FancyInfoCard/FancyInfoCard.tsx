@@ -12,9 +12,10 @@ type TSizeObj = {
 };
 
 type TSizesObject = {
-  [key: string]: TSizeObj;
+  [K in TSizes]: TSizeObj;
 };
 
+// the template for the sizes
 const sizes: TSizesObject = {
   sm: {
     iconSize: 'md',
@@ -38,7 +39,9 @@ type TFancyInfoCardProps = {
   description?: string;
   icon?: React.ReactNode;
 } & React.ComponentProps<typeof InfoCard>;
-
+// --------------------------------------------------------------------------- //
+// ------- This is a Template for a Infocard with icon Title und desc. ------- //
+// --------------------------------------------------------------------------- //
 export default function FancyInfoCard(props: TFancyInfoCardProps) {
   const { title, description, icon, size = 'md', ...infoCardProps } = props;
 

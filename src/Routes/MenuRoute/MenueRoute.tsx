@@ -6,7 +6,7 @@ import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
 import Popover from '../../Components/UI/HelperFunctions/FancyPopover/Popover';
 import FancyPopover from '../../Components/UI/HelperFunctions/FancyPopover/FancyPopover';
 import FancyMenueItem from '../../Components/UI/Templates/FancyMenueComponent/FancyMenuItem/FancyMenuItem';
-import FancyMenuList from '../../Components/UI/Templates/FancyMenueComponent/FancyMenuList/FancyMenuList';
+import FancyMenuList from '../../Components/UI/Templates/FancyMenueComponent/FancyMenu/FancyMenu';
 
 export default function MenueRoute() {
   const [isPopoverVisible, setPopoverVisible] = useState(false);
