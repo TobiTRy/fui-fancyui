@@ -7,7 +7,7 @@ import { StyledFancyBar } from './FancyBox.style';
 // ------------  A Bar that can usesd for for the most components ------------ //
 // --------------------------------------------------------------------------- //
 export default function FancyBar(props: IFancyBoxProps) {
-  const { layer, themeType, outlined, externalStyle } = props;
+  const { layer, themeType, outlined, outlinedBackgroundStrength, externalStyle } = props;
 
   return (
     <StyledFancyBar
@@ -15,6 +15,7 @@ export default function FancyBar(props: IFancyBoxProps) {
       $themeType={themeType}
       $outlined={outlined}
       $externalStyle={externalStyle}
+      $outlinedBackgroundStrength={outlinedBackgroundStrength}
     >
       {props.children}
     </StyledFancyBar>

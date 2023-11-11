@@ -87,6 +87,7 @@ export { default as FancyMiniProfile } from '../Components/UI/Molecules/FancyMin
 export { default as FancyCheckbox } from '../Components/UI/Molecules/FancyCheckbox/FancyCheckbox';
 export { default as FancyChip } from '../Components/UI/Organisms/FancyChip/FancyChip';
 export { default as Header } from '../Components/UI/Molecules/Header/Header';
+export { default as InfoCard } from '../Components/UI/Molecules/InfoCard/InfoCard';
 
 // ---------- Organisms ------- //
 export { default as FancyColorPicker } from '../Components/UI/Organisms/FancyColorPicker/FancyColorPicker';
@@ -102,3 +103,7 @@ export { default as FancyDateInput } from '../Components/UI/Organisms/FancyDateI
 export { default as FancyDateDropDown } from '../Components/UI/Templates/Inputs/FancyDateDropDown/FancyDateDropDown';
 export { default as FancyToastMessage } from '../Components/UI/Organisms/FancyToastMessage/FancyToastMessage';
 export { default as FancyEditBar } from '../Components/UI/Organisms/FancyEditBar/FancyEditBar';
+
+// ---------- Templates ------- //
+export { default as FancyInfoCard } from '../Components/UI/Templates/FancyInfoCard/FancyInfoCard';
+export { default as FancyMenu } from '../Components/UI/Templates/FancyMenueComponent/FancyMenu/FancyMenu';

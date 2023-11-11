@@ -7,7 +7,10 @@ import { FancyContentDescription, FancyContentTitle } from './utils/FancyContent
 import IStyledPrefixAndPicker from '../../Interface/IStyledPrefixAndPicker.model';
 
 // Define the types for the Wrapper component
-type TWrapper = IStyledPrefixAndPicker<IFancyContentProps, 'flexDirection' | 'flexAlign' | 'flexJustify' | 'gapBetweenText' | 'gapBetweenIcon'>;
+type TWrapper = IStyledPrefixAndPicker<
+  IFancyContentProps,
+  'flexDirection' | 'flexAlign' | 'flexJustify' | 'gapBetweenText' | 'gapBetweenIcon'
+>;
 
 // Define the Wrapper component
 const Wrapper = styled.span<TWrapper>`
@@ -22,9 +25,19 @@ const Wrapper = styled.span<TWrapper>`
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    gap: ${({ $gapBetweenText }) => $gapBetweenText ?? spacingPx.xs};
+    gap: ${({ $gapBetweenText }) => $gapBetweenText ?? spacingPx.xxs};
   }
 `;
+
+
+type TOnlyTextWrapper = IStyledPrefixAndPicker<IFancyContentProps, 'flexDirection' | 'gapBetweenText' | 'flexAlign' | 'flexJustify'>
+const OnlyTextWrapper = styled.div<TOnlyTextWrapper>`
+  display: flex;
+  flex-direction: ${({ $flexDirection }) => $flexDirection || 'column'};
+  justify-content: ${({ $flexJustify }) => $flexJustify || 'center'};
+  align-items: ${({ $flexAlign }) => $flexAlign || 'flex-start'};
+  gap: ${({ $gapBetweenText }) => $gapBetweenText ?? spacingPx.xxs};
+`
 
 // Define the props for the FancyContent component
 interface IFancyContentProps {
@@ -39,7 +52,7 @@ interface IFancyContentProps {
 // ------- The conent Components handles the Content of The componets -------- //
 // -------------------like for a button or chip etc. ------------------------ //
 function FancyContent(props: IFancyContentProps) {
-  const { children, flexAlign, flexDirection, gapBetweenText, gapBetweenIcon } = props;
+  const { children, flexAlign, flexDirection, flexJustify, gapBetweenText, gapBetweenIcon } = props;
   let iconElement: ReactElement | null = null;
   const contentGroup: ReactElement[] = [];
 
@@ -53,14 +66,20 @@ function FancyContent(props: IFancyContentProps) {
     }
   });
 
-  const renderWrapper = iconElement;
-  return renderWrapper ? (
-    <Wrapper $flexAlign={flexAlign} $flexDirection={flexDirection} $gapBetweenText={gapBetweenText} $gapBetweenIcon={gapBetweenIcon}>
+
+  return iconElement ? (
+    <Wrapper
+      $flexAlign={flexAlign}
+      $flexDirection={flexDirection}
+      $flexJustify={flexJustify}
+      $gapBetweenText={gapBetweenText}
+      $gapBetweenIcon={gapBetweenIcon}
+    >
       {iconElement}
       {contentGroup.length > 0 && <div className="content">{contentGroup}</div>}
     </Wrapper>
   ) : (
-    <>{children}</>
+    <OnlyTextWrapper>{children}</OnlyTextWrapper>
   );
 }
 
