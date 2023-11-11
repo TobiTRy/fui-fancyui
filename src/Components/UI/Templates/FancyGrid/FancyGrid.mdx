@@ -1,0 +1,71 @@
+
+# FancyGrid Component Documentation
+
+`FancyGrid` is a custom grid layout components. It's built using styled-components and is designed to be both flexible and responsive.
+
+## Installation
+
+Before using `FancyGrid`, make sure you have React, TypeScript, and styled-components installed in your project.
+
+## Usage
+
+### FancyGrid Container
+
+The `FancyGrid` container establishes the grid layout.
+
+**Props**:
+- `grid`: Specifies the number of columns in the grid (e.g., 12).
+- `space`: Sets the spacing between grid items (e.g., "2px").
+
+**Example**:
+
+```jsx
+import FancyGrid from './FancyGrid';
+
+const MyComponent = () => {
+  return (
+    <FancyGrid grid={12} space="2px">
+      {/* Grid items will be placed here */}
+    </FancyGrid>
+  );
+};
+```
+
+### FancyGrid.Item
+
+`FancyGrid.Item` represents individual items within the `FancyGrid`. 
+
+**Props**:
+- `gridSpace`: Determines the number of columns the item should span.
+
+**Example**:
+
+```jsx
+<FancyGrid grid={12} space="2px">
+  <FancyGrid.Item gridSpace={4}>
+    {/* Content for the first item */}
+  </FancyGrid.Item>
+  <FancyGrid.Item gridSpace={4}>
+    {/* Content for the second item */}
+  </FancyGrid.Item>
+  <FancyGrid.Item gridSpace={4}>
+    {/* Content for the third item */}
+  </FancyGrid.Item>
+  {/* Since the grid limit is reached, the next item starts on a new line */}
+  <FancyGrid.Item gridSpace={12}>
+    {/* Content for the fourth item */}
+  </FancyGrid.Item>
+</FancyGrid>
+```
+
+## Responsive Design
+
+`FancyGrid` supports responsive design. You can specify different `gridSpace` values for different screen sizes to ensure your layout adapts to various devices.
+
+## Customization
+
+You can customize the `FancyGrid` and `FancyGrid.Item` by passing additional styling props or by extending the styled components to fit your design requirements.
+
+---
+
+This documentation provides a basic guideline on how to integrate and use the `FancyGrid` component in your React applications. Adjust your implementation as needed to match the specific requirements of your project.
