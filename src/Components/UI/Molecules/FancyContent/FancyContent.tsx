@@ -33,9 +33,9 @@ const Wrapper = styled.span<TWrapper>`
 type TOnlyTextWrapper = IStyledPrefixAndPicker<IFancyContentProps, 'flexDirection' | 'gapBetweenText' | 'flexAlign' | 'flexJustify'>
 const OnlyTextWrapper = styled.div<TOnlyTextWrapper>`
   display: flex;
-  flex-direction: ${({ $flexDirection }) => $flexDirection || 'collumn'};
+  flex-direction: ${({ $flexDirection }) => $flexDirection || 'column'};
   justify-content: ${({ $flexJustify }) => $flexJustify || 'center'};
-  align-items: ${({ $flexAlign }) => $flexAlign || 'center'};
+  align-items: ${({ $flexAlign }) => $flexAlign || 'flex-start'};
   gap: ${({ $gapBetweenText }) => $gapBetweenText ?? spacingPx.xxs};
 `
 
