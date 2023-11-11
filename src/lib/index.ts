@@ -107,3 +107,5 @@ export { default as FancyEditBar } from '../Components/UI/Organisms/FancyEditBar
 // ---------- Templates ------- //
 export { default as FancyInfoCard } from '../Components/UI/Templates/FancyInfoCard/FancyInfoCard';
 export { default as FancyMenu } from '../Components/UI/Templates/FancyMenueComponent/FancyMenu/FancyMenu';
+export { default as FancyGrid } from '../Components/UI/Templates/FancyGrid/FancyGrid';
+export { default as FancyGridItem } from '../Components/UI/Templates/FancyGrid/FancyGridItem/FancyGridItem';
