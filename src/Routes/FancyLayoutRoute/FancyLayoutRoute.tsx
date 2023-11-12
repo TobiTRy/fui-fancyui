@@ -2,7 +2,8 @@ import React from 'react';
 import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
 
 import FancyGrid from '../../Components/UI/Templates/FancyGrid/FancyGrid';
-import { FancyButton } from '../../lib';
+import { FancyButton, FancyVR } from '../../lib';
+import FancyFlexBox from '../../Components/UI/Templates/FancyFlexBox/FancyFlexBox';
 
 export default function FancyLayoutRoute() {
   return (
@@ -28,6 +29,13 @@ export default function FancyLayoutRoute() {
             <FancyButton label='Ji' wide/>
           </FancyGrid.Item>
         </FancyGrid>
+      </DesignArea>
+      <DesignArea title='Fancy FlexBox'>
+        <FancyFlexBox seperator={<FancyVR/>}>
+          <FancyButton label='Ji' wide/>
+          <FancyButton label='Ji' wide/>
+          <FancyButton label='Ji' wide/>
+        </FancyFlexBox>
       </DesignArea>
     </DesignWrapper>
   );
