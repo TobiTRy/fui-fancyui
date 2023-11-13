@@ -2,7 +2,6 @@ import React from 'react';
 import { styled } from 'styled-components';
 
 import DateOutput from '../../Atoms/DateOutput/DateOutput';
-import FancyVR from '../../Atoms/FancyVR/FancyVR';
 import { spacingPx } from '../../Design/design';
 import { TUiColorsType } from '../../Design/color/designColor';
 import { TLayer } from '../../Design/color/generateColorSteps';
