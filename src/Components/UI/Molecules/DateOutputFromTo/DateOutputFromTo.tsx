@@ -1,6 +1,5 @@
 import React from 'react';
 import { styled } from 'styled-components';
-
 import DateOutput from '../../Atoms/DateOutput/DateOutput';
 import { spacingPx } from '../../Design/design';
 import { TUiColorsType } from '../../Design/color/designColor';
