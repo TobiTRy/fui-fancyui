@@ -4,6 +4,7 @@ export const StyledList = styled.div<{ $externalStyle?: CSSProp; $direction?: 'h
   display: flex;
   flex-direction: ${({ $direction }) => ($direction === 'vertical' ? 'column' : 'row')};
   justify-content: space-evenly;
+  width: 100%;
   ${({ $externalStyle }) => $externalStyle};
 `;
 
