@@ -9,7 +9,7 @@ export type IFancyBottomBarIcon = {
   id?: string;
   icon: React.ReactNode;
   label: string;
-  active?: boolean;
+  isActive?: boolean;
   disabled?: boolean;
   themeType?: keyof TUiColorsType;
   layer?: TLayer;

@@ -9,6 +9,7 @@ import { TLayer } from '../../Design/color/generateColorSteps';
 import { FancyBox } from '../../Atoms/FancyBox';
 import { CSSProp, css } from 'styled-components';
 import { fancyBarStyle } from './FancyBottomBarStatic.style';
+import SwitchList from '../SwitchList/SwitchList';
 
 // --------------------------------------------------------------------------- //
 // ------------------ The Bottom Bar for the mobile navigation --------------- //
@@ -19,9 +20,10 @@ interface IStaticBottomBar {
   themeType?: keyof TUiColorsType;
   layer?: TLayer;
   externalStyle?: CSSProp;
+  wichIndexIsActive?: string;
 }
 export default function FancyBottomBarStatic(props: IStaticBottomBar) {
-  const { buttons, isVisible, externalStyle, ...bottomBarProps } = { ...defaultProps, ...props };
+  const { buttons, isVisible, externalStyle, wichIndexIsActive, ...bottomBarProps } = { ...defaultProps, ...props };
   const isVisibleState = useFancyBottomBarStaticStore((state) => state.isVisible);
   const setIsVisible = useFancyBottomBarStaticStore((state) => state.setIsVisible);
   const whichIsActive = useFancyBottomBarStaticStore((state) => state.whichIsActive);
@@ -29,8 +31,17 @@ export default function FancyBottomBarStatic(props: IStaticBottomBar) {
 
   useEffect(() => {
     setIsVisible(isVisible ? isVisible : true);
+    setWhichIsActive(wichIndexIsActive ? wichIndexIsActive : '0');
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const ItterateButtons = () => {
+    return buttons?.map((button, i) => (
+      <div onClick={() => setWhichIsActive(i.toString())} key={i}>
+        <FancyBottomBarIcon {...button} isActive={whichIsActive === i.toString()} />
+      </div>
+    ));
+  }
 
 
   return (
@@ -43,24 +54,9 @@ export default function FancyBottomBarStatic(props: IStaticBottomBar) {
             ${externalStyle}
           `}
         >
-          {buttons?.map((button, i) => (
-            <FancyBottomBarIcon
-              key={i}
-              {...button}
-              active={button.id === whichIsActive}
-              onClick={() => {
-                if (button.as === 'a') {
-                  button.href && window.open(button.href, '_blank');
-                }
-                if (button.onClick) {
-                  const handler = button.onClick as () => void;
-                  handler();
-                }
-
-                setWhichIsActive(button.id!);
-              }}
-            />
-          ))}
+          <SwitchList whichIndexIsSelected={Number(whichIsActive)} $indicatorWidth={'70%'}>
+            {ItterateButtons()}
+          </SwitchList>
         </FancyBox>
       )}
     </>
