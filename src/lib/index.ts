@@ -8,8 +8,7 @@ export { default as DropDownSelect } from '../Components/UI/Atoms/DropDownSelect
 export { default as EditBarModal } from '../Components/UI/Atoms/EditBarModal/EditBarModal';
 export { default as FancyBottomBarIcon } from '../Components/UI/Atoms/FancyBottomBarIcon/FancyBottomBarIcon';
 export { default as FancyCard } from '../Components/UI/Atoms/FancyCard/FancyCard';
-export { default as FancyVR } from '../Components/UI/Atoms/FancyVR/FancyVR';
-export { default as FancyHR } from '../Components/UI/Atoms/FancyHR/FancyHR';
+export { default as FancyLine } from '../Components/UI/Atoms/FancyLine/FancyLine';
 export { default as FancyLI } from '../Components/UI/Atoms/FancyLI/FancyLI';
 export { default as FancyLoadingSpinner } from '../Components/UI/Atoms/FancyLoadingSpinner/FancyLoadingSpinner';
 export { default as FancySVGAtom } from '../Components/UI/Atoms/FancySVGAtom/FancySVGAtom';

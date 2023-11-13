@@ -4,7 +4,7 @@ import { styled } from 'styled-components';
 import IHeadLine from './FancyModalHeadLine.model';
 import Typography from '../../Atoms/Typography/Typography';
 import { spacingPx } from '../../Design/design';
-import FancyHR from '../../Atoms/FancyHR/FancyHR';
+import FancyLine from '../../Atoms/FancyLine/FancyLine';
 
 const StyledHeadLine = styled.div<{$alignCenter?: boolean}>`
   display: flex;
@@ -30,7 +30,7 @@ export default function FancyModalHeadLine(props: IHeadLine) {
     <StyledHeadLine $alignCenter={alignCenter}>
       { title && <Typography type='h4' variant='h3'>{ title }</Typography> }
       { subTitle && <Typography type='h5' variant='content' weight='normal'>{ subTitle }</Typography> }
-      { (hr && (title || subTitle))  && <FancyHR />}
+      { (hr && (title || subTitle))  && <FancyLine direction='horizontal'  />}
     </StyledHeadLine>
   )
 }
