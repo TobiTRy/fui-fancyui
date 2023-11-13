@@ -6,6 +6,7 @@ import FancyVR from '../../Atoms/FancyVR/FancyVR';
 import { spacingPx } from '../../Design/design';
 import { TUiColorsType } from '../../Design/color/designColor';
 import { TLayer } from '../../Design/color/generateColorSteps';
+import FancyLine from '../../Atoms/FancyLine/FancyLine';
 
 // Define the styled component for the DateOutputFromTo component
 const StyledDateOutputFromTo = styled.div<{ theme: TUiColorsType; $themeType?: keyof TUiColorsType; $layer?: TLayer }>`
@@ -29,7 +30,8 @@ const StyledDateOutputFromTo = styled.div<{ theme: TUiColorsType; $themeType?: k
 
 // Define the styled component for the VRWrapper
 const VRWrapper = styled.div`
-  position: relative;
+  position: absolute;
+  height: 100%;
   flex: 1;
   display: flex;
   align-items: center; // this center the FancyVR vertically
@@ -64,7 +66,7 @@ export default function DateOutputFromTo({ whichIsSelecting, dateFrom, dateTo, h
         onClick={() => handleClickOnDateOutput('from')}
       />
       <VRWrapper>
-        <FancyVR $themeType={swapTheme} />
+        <FancyLine direction='vertical' themeType={swapTheme} thickness='2px' margin={'´${spacingPx.sm}´'} />
       </VRWrapper>
       <DateOutput
         themeType={themeType}
