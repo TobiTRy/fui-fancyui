@@ -8,8 +8,9 @@ const generateFlexSytles = (props: TStyledFlexBoxProps) => {
 
   return css`
     display: flex;
-    flex-direction: ${$flexDirection ?? 'column'};
-    justify-content: ${ $flexJustify ?? 'center'};
+    width: 100%;
+    flex-direction: ${$flexDirection ?? 'row'};
+    justify-content: ${ $flexJustify ?? 'flex-start'};
     align-items: ${$flexAlign ?? 'flex-start'};
     gap: ${$gap?? spacingPx.xxs};
   `;

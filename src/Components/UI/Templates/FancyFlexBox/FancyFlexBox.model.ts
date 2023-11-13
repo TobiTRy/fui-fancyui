@@ -5,9 +5,8 @@ export type TStyleProps = {
   gap?: string;
 }
 
-
 export type FancyFlexBoxProps = {
   children?: React.ReactNode;
-  seperator?: React.ReactNode;
+  separator?: React.ReactNode;
   inline?: boolean;
 } & TStyleProps;
