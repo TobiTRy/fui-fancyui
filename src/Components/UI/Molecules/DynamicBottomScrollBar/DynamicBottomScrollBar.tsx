@@ -36,7 +36,7 @@ export default function DynamicBottomScrollBar(props: IBottomScrollbar) {
             <FancyBottomBarIcon
               key={i}
               {...item}
-              active={item.id === activeButton}
+              isActive={item.id === activeButton}
               onClick={() => {
                 if (item.as === 'a') {
                   item.href && window.open(item.href, '_blank');
@@ -55,7 +55,7 @@ export default function DynamicBottomScrollBar(props: IBottomScrollbar) {
           <FancyBottomBarIcon
             key={i}
             {...item}
-            active={item.id === activeButton}
+            isActive={item.id === activeButton}
             onClick={() => {
               if (item.as === 'a') {
                 item.href && window.open(item.href, '_blank');
