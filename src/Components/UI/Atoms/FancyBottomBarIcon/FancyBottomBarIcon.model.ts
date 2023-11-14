@@ -14,5 +14,6 @@ export type IFancyBottomBarIcon = {
   themeType?: keyof TUiColorsType;
   layer?: TLayer;
   uniquekey?: string | number;
+  WrapperComponent?: React.ReactElement;
 } & (TNativeButtonProps | TNativeAnchorProps);
 
