@@ -9,6 +9,8 @@ import BottomBarList from '../../Components/UI/Molecules/SwitchList/SwitchList';
 import Button from '../../Components/UI/Molecules/Button/Button';
 import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
 import ComponentAsWrapper from '../../Components/UI/Atoms/ComponentAsWrapper/ComponentAsWrapper';
+import ActionWrapper from '../../Components/UI/Atoms/ActionWrapper/ActionWrapper';
+import FancyActionWrapper from '../../Components/UI/Atoms/FancyActionWrapper/FancyActionWrapper';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -37,7 +39,7 @@ const values = [
   { label: 'test4', icon: Icon, itemKey: '4' },
 ];
 
-const CustomComponent = ({ children }: { children?: React.ReactNode }) => {
+const CustomComponent = ({ children, test }: { children?: React.ReactNode; test?: string }) => {
   return <span>{children}</span>;
 };
 
@@ -96,9 +98,8 @@ export default function ExperimentalRoute() {
         </div>
       </DesignArea>
       <DesignArea title="Test">
-        <ComponentAsWrapper wrapper={<CustomComponent />}>
-          <p>Mooin</p>
-        </ComponentAsWrapper>
+
+        <FancyBottomBarIcon icon={svg} label='Test' />
       </DesignArea>
     </DesignWrapper>
   );
