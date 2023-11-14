@@ -1,7 +1,8 @@
 import React from 'react';
 
 import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';
-import StaticBottomBar from '../../Components/UI/Molecules/FancyBottomBarStatic/FancyBottomBarStatic';
+import BottomBar from '../../Components/UI/Molecules/BottomBar/BottomBar';
+import { FancyBottomBarIcon } from '../../lib';
 
 const svg = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -16,7 +17,12 @@ export default function NavBarHandy() {
   return (
     <DesignWrapper>
       <DesignArea title="NavBarHandy">
-        <StaticBottomBar buttons={defaultProps.buttons} />
+        <BottomBar>
+          <FancyBottomBarIcon label="TRY" icon={svg} id="1" />
+          <FancyBottomBarIcon label="SOME" icon={svg} id="2" />
+          <FancyBottomBarIcon label="HOT" icon={svg} id="3" />
+          <FancyBottomBarIcon label="CHICKS" icon={svg} id="4" />
+        </BottomBar>
       </DesignArea>
     </DesignWrapper>
   );

@@ -15,7 +15,7 @@ export default function SwitchesRoute() {
       <DesignArea title="Switches">
         <SwitchList indicatorType="underline" whichIndexIsSelected={0}>
           <FancyBottomBarIcon label="test" icon={Icon} onClick={() => console.log('sdsdds')} />
-          <FancyBottomBarIcon label="test" icon={Icon} />
+          <FancyBottomBarIcon label="test" icon={Icon} WrapperComponent={<a></a>} />
           <FancyBottomBarIcon label="test" icon={Icon} />
           <FancyBottomBarIcon label="test" icon={Icon} />
         </SwitchList>
