@@ -49,7 +49,7 @@ export { default as DateNumberWithStatus } from '../Components/UI/Molecules/Date
 export { default as DateOutputFromTo } from '../Components/UI/Molecules/DateOutputFromTo/DateOutputFromTo';
 export { default as DynamicBottomScrollBar } from '../Components/UI/Molecules/DynamicBottomScrollBar/DynamicBottomScrollBar';
 export { default as EditBar } from '../Components/UI/Molecules/EditBar/EditBar';
-export { default as FancyBottomBarStatic } from '../Components/UI/Molecules/FancyBottomBarStatic/FancyBottomBarStatic';
+export { default as BottomBar } from '../Components/UI/Molecules/BottomBar/BottomBar';
 export { default as FancyContentCard } from '../Components/UI/Molecules/FancyContentCard/FancyContentCard';
 export { default as FancyDropDownUL } from '../Components/UI/Molecules/FancyDropDownUL/FancyDropDownUL';
 export { default as FancySpeedDialButton } from '../Components/UI/Molecules/FancySpeedDailButton/FancySpeedDailButton';
