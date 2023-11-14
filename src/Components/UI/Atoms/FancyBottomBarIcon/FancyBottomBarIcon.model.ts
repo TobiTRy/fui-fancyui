@@ -1,9 +1,6 @@
-import React from "react";
-import { TUiColorsType } from "../../Design/color/designColor";
-import { TLayer } from "../../Design/color/generateColorSteps";
-
-type TNativeButtonProps = React.HTMLAttributes<HTMLButtonElement> & { as?: 'button' };  
-type TNativeAnchorProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & { as: 'a' };
+import React from 'react';
+import { TUiColorsType } from '../../Design/color/designColor';
+import { TLayer } from '../../Design/color/generateColorSteps';
 
 export type IFancyBottomBarIcon = {
   id?: string;
@@ -15,5 +12,4 @@ export type IFancyBottomBarIcon = {
   layer?: TLayer;
   uniquekey?: string | number;
   WrapperComponent?: React.ReactElement;
-} & (TNativeButtonProps | TNativeAnchorProps);
-
+};
