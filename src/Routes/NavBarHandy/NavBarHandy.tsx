@@ -17,9 +17,10 @@ export default function NavBarHandy() {
       <DesignArea title="NavBarHandy">
         <BottomBar>
           <FancyBottomBarIcon  icon={svg} />
+          <FancyBottomBarIcon type='a' href='http://google.de' icon={svg} />
           <FancyBottomBarIcon  icon={svg} />
           <FancyBottomBarIcon  icon={svg} />
-          <FancyBottomBarIcon  icon={svg} />
+
         </BottomBar>
       </DesignArea>
     </DesignWrapper>
