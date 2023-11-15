@@ -10,30 +10,54 @@ const meta = {
     docs: {
       description: {
         component:
-          'The FancyBottomBarIcon component is for displaying a fancy bottom bar icon, it can be used for displaying a navivation button in da navigation bar<br> - active: is the icon active <br> - label: the label of the icon <br> - layer: the layer of the icon <br> - onClick: function to be called when the icon is clicked <br> - secondBar: is the icon in the second bar <br> - disabled: is the icon disabled <br> - themeType: the theme type of the icon <br> - icon: the icon to be displayed',
+          'The FancyBottomBarIcon component is for displaying a fancy bottom bar icon, it can be used for displaying a navivation button in da navigation bar.',
       },
     },
   },
 
   // Define arguments for the story
   argTypes: {
-    active: {
+    type: {
+      control: { type: 'select' },
+      defaultValue: {
+        summary: 'a',
+      },
+    },
+    href: {
+      control: { type: 'text' },
+    },
+    isActive: {
       control: { type: 'boolean' },
+      defaultValue: {
+        summary: false,
+      },
     },
     label: {
       control: { type: 'text' },
     },
     layer: {
       control: { type: 'range', min: 0, max: 10, step: 1 },
+      defaultValue: {
+        summary: 1,
+      },
     },
     onClick: {
       control: { type: 'function' },
     },
     disabled: {
       control: { type: 'boolean' },
+      defaultValue: {
+        summary: false,
+      },
     },
     themeType: {
-      control: { type: 'select', options: ['primary', 'secondary', 'accent'] },
+      control: { type: 'select' },
+      defaultValue: {
+        summary: 'secondary',
+      },
+    },
+    icon: {
+      control: { type: 'object' },
     },
   },
 
@@ -50,11 +74,13 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   render: (args) => <FancyBottomBarIcon {...args} />,
   args: {
-    active: true,
+    type: 'a',
+    href: 'https://www.google.com',
+    isActive: false,
     label: 'Label',
     disabled: false,
     themeType: 'secondary',
-    layer: 4,
+    layer: 1,
     icon: <SVGCheckMark />,
   },
   parameters: {
