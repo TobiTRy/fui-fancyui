@@ -1,9 +1,12 @@
+import { CSSProp } from 'styled-components';
+
 import Typography, { TypographyList } from '../../../Atoms/Typography/Typography';
 import { sizes } from './sizeSettings';
 
 type IFancyContentTextProps = {
   children?: React.ReactNode;
   bold?: boolean;
+  externalStyle?: CSSProp;
 };
 
 type IFancyContentTextWithSizeProps = IFancyContentTextProps & {
@@ -19,10 +22,15 @@ type IFancyContentTextWithFontVariantProps = IFancyContentTextProps & {
 export function FancyContentTitle(
   props: IFancyContentTextProps & (IFancyContentTextWithFontVariantProps | IFancyContentTextWithSizeProps)
 ) {
-  const { size, bold = true, fontVariant, children } = props;
+  const { size, bold = true, fontVariant, children, externalStyle } = props;
 
   return (
-    <Typography variant={fontVariant ?? sizes[size || 'lg'].fontSizeTitle} weight={bold ? 'bold' : 'normal'} type="button">
+    <Typography
+      variant={fontVariant ?? sizes[size || 'lg'].fontSizeTitle}
+      weight={bold ? 'bold' : 'normal'}
+      type="button"
+      style={externalStyle}
+    >
       {children}
     </Typography>
   );
@@ -31,10 +39,15 @@ export function FancyContentTitle(
 export function FancyContentDescription(
   props: IFancyContentTextProps & (IFancyContentTextWithFontVariantProps | IFancyContentTextWithSizeProps)
 ) {
-  const { size, bold, fontVariant, children } = props;
+  const { size, bold, fontVariant, children, externalStyle } = props;
 
   return (
-    <Typography variant={fontVariant ?? sizes[size || 'sm'].fontSizeTitle} weight={bold ? 'bold' : 'normal'} type="button">
+    <Typography
+      variant={fontVariant ?? sizes[size || 'sm'].fontSizeTitle}
+      weight={bold ? 'bold' : 'normal'}
+      type="button"
+      style={externalStyle}
+    >
       {children}
     </Typography>
   );
