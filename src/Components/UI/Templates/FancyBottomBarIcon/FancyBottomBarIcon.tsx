@@ -1,42 +1,37 @@
 import React from 'react';
 
-// Import necessary components and interfaces
 import { ItemWrapper } from './FancyBottomBarIcon.style';
 import BottomBarIcon from '../../Molecules/BottomBarIcon/BottomBarIcon';
 import ComponentAsWrapper from '../../Atoms/ComponentAsWrapper/ComponentAsWrapper';
 import FancyActionWrapper from '../../Atoms/FancyActionWrapper/FancyActionWrapper';
 
 type TAnchorProps = {
-  type: 'a';
-  href?: string;
+  type?: 'a';
+  href: string; // `href` is mandatory for an anchor
+  onClick?: (event: React.MouseEvent<HTMLAnchorElement>) => void; // More specific type for `onClick`
 };
 
 type TButtonProps = {
-  type?: 'button';
-  onClick?: () => void;
+  type: 'button';
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void; // More specific type for `onClick`
+  href?: never; // `href` should not be available for a button
 };
-
-
-
-
 
 export type IFancyBottomBarIcon = {
   WrapperComponent?: React.ReactElement;
-} & React.ComponentProps<typeof BottomBarIcon> & (TAnchorProps | TButtonProps);
+} & React.ComponentProps<typeof BottomBarIcon> &
+  (TAnchorProps | TButtonProps);
 
-// --------------------------------------------------------------------------- //
-//The component creates a button that mainly constructed for the navigation bar //
-// --------------------------------------------------------------------------- //
 export default function FancyBottomBarIcon(props: IFancyBottomBarIcon) {
-  const { WrapperComponent, type, ...BottomBarProps } = props;
+  const { WrapperComponent, type, href, onClick, ...BottomBarProps } = props;
 
   const ContentWrapper = WrapperComponent ? (
     <ComponentAsWrapper wrapper={WrapperComponent} children={<BottomBarIcon {...BottomBarProps} />} />
   ) : type === 'button' ? (
-    <FancyActionWrapper as={'a'} children={<BottomBarIcon {...BottomBarProps} />} />
+    <FancyActionWrapper as={'button'} onClick={onClick} children={<BottomBarIcon {...BottomBarProps} />} />
   ) : (
-    <FancyActionWrapper as={'button'} children={<BottomBarIcon {...BottomBarProps} />} />
+    <FancyActionWrapper as={'a'} href={href} onClick={onClick} children={<BottomBarIcon {...BottomBarProps} />} />
   );
-  // Render the component
+
   return <ItemWrapper>{ContentWrapper}</ItemWrapper>;
 }

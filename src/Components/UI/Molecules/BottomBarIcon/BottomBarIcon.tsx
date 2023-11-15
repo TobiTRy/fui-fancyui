@@ -21,7 +21,7 @@ export default function BottomBarIcon(props: IBottomBarIconProps) {
   return (
     <ContentWrapper $disabled={disabled} $isActive={isActive} $themeType={themeType} $layer={layer}>
       <FancyContent flexDirection="column" gapBetweenIcon="0">
-        <FancyContent.Icon size={!label ? 'full' : 'md'}>{icon}</FancyContent.Icon>
+        <FancyContent.Icon size={!label ? 'xl' : 'md'}>{icon}</FancyContent.Icon>
         {label && <FancyContent.Description fontVariant={'smText'}>{label}</FancyContent.Description>}
       </FancyContent>
     </ContentWrapper>
