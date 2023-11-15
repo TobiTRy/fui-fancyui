@@ -67,6 +67,8 @@ export const Wrapper = styled.i<IWrapper>`
   position: absolute;
   width: 100%;
   height: 100%;
+  pointer-events: all;
+  cursor: pointer;  
   transition: transform 0.2s ease;
   ${({ $itemNumber, $tabSpacing, $direction }) => clacCurrentPosition({ $itemNumber, $tabSpacing, $direction })}
 `;

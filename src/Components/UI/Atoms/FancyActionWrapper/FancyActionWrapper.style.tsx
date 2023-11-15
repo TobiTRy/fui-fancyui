@@ -17,4 +17,5 @@ export const StyledAnchor = styled.a`
   cursor: pointer;
   outline: none;
   width: 100%;
+  text-decoration: none;
 `
