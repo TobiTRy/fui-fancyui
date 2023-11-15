@@ -6,7 +6,7 @@ export { default as DateNumberAtom } from '../Components/UI/Atoms/DateNumberAtom
 export { default as DateOutput } from '../Components/UI/Atoms/DateOutput/DateOutput';
 export { default as DropDownSelect } from '../Components/UI/Atoms/DropDownSelect/DropDownSelect';
 export { default as EditBarModal } from '../Components/UI/Atoms/EditBarModal/EditBarModal';
-export { default as FancyBottomBarIcon } from '../Components/UI/Atoms/FancyBottomBarIcon/FancyBottomBarIcon';
+export { default as FancyBottomBarIcon } from '../Components/UI/Templates/FancyBottomBarIcon/FancyBottomBarIcon';
 export { default as FancyCard } from '../Components/UI/Atoms/FancyCard/FancyCard';
 export { default as FancyLine } from '../Components/UI/Atoms/FancyLine/FancyLine';
 export { default as FancyLI } from '../Components/UI/Atoms/FancyLI/FancyLI';

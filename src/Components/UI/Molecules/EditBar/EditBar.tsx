@@ -13,7 +13,7 @@ import { styled } from 'styled-components';
 //the first bar is getting settings for the grouped bar
 //the second is for the settings
 
-import { IFancyBottomBarIcon } from '../../Atoms/FancyBottomBarIcon/FancyBottomBarIcon.model';
+import { IFancyBottomBarIcon } from '../../Templates/FancyBottomBarIcon/FancyBottomBarIcon.model';
 import { spacingPx, spacing } from '../../Design/design';
 import EditBarModal from '../../Atoms/EditBarModal/EditBarModal';
 
