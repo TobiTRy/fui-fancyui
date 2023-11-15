@@ -8,7 +8,7 @@ import { ItemWrapper, StyledList } from './SwitchList.style';
 type TSwitchActiveIndicator = Omit<IActiveSwitchIndicator, '$itemNumber'>;
 
 interface IBottomBarListProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   whichIndexIsSelected?: number;
   activeItemHandler?: (activeKey: number) => void;
   indicatorType?: React.ComponentProps<typeof SwitchActiveIndicator>['$type'];
