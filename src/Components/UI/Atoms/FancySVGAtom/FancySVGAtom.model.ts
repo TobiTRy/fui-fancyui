@@ -8,6 +8,7 @@ export const sizes = {
   sm: '16px',
   md: '18px',
   lg: '20px',
+  xl: '24px',
   full: '100%',
 };
 
