@@ -8,12 +8,12 @@ import FancyActionWrapper from '../../Atoms/FancyActionWrapper/FancyActionWrappe
 type TAnchorProps = {
   type?: 'a';
   href: string; // `href` is mandatory for an anchor
-  onClick?: (event: React.MouseEvent<HTMLAnchorElement>) => void; // More specific type for `onClick`
+  onClick?: () => void; // More specific type for `onClick`
 };
 
 type TButtonProps = {
   type: 'button';
-  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void; // More specific type for `onClick`
+  onClick?: () => void; // More specific type for `onClick`
   href?: never; // `href` should not be available for a button
 };
 
@@ -21,7 +21,6 @@ export type IFancyBottomBarIcon = {
   WrapperComponent?: React.ReactElement;
 } & React.ComponentProps<typeof BottomBarIcon> &
   (TAnchorProps | TButtonProps);
-
 export default function FancyBottomBarIcon(props: IFancyBottomBarIcon) {
   const { WrapperComponent, type, href, onClick, ...BottomBarProps } = props;
 
