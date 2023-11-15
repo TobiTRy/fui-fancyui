@@ -3,8 +3,6 @@ import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
 import FancyBottomBarStatic from './BottomBar';
-import SVGChevronRight from '../../SVGIcons/SVGChevronRight';
-
 
 const meta = {
   component: FancyBottomBarStatic,
