@@ -6,7 +6,7 @@ import FancyBox from './FancyBox';
 import { css } from 'styled-components';
 import { FancyMiniProfile } from '../../Molecules/FancyMiniProfile';
 import { HeaderTitleWithLogo } from '../../Molecules/HeaderTitleWithLogo';
-import { FancyBottomBarIcon } from '../FancyBottomBarIcon';
+import { FancyBottomBarIcon } from '../../Templates/FancyBottomBarIcon';
 import SVGCheckMark from '../../SVGIcons/SVGCheckMark';
 import React from 'react';
 import { FancySearchBar } from '../../Organisms/FancySearchBar';

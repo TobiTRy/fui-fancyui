@@ -11,6 +11,7 @@ import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
 import ComponentAsWrapper from '../../Components/UI/Atoms/ComponentAsWrapper/ComponentAsWrapper';
 import ActionWrapper from '../../Components/UI/Atoms/ActionWrapper/ActionWrapper';
 import FancyActionWrapper from '../../Components/UI/Atoms/FancyActionWrapper/FancyActionWrapper';
+import BottomBarIcon from '../../Components/UI/Molecules/BottomBarIcon/BottomBarIcon';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -58,8 +59,8 @@ export default function ExperimentalRoute() {
       <DesignArea title="Test">
         <div style={{ display: 'flex' }}>
           <FancyChip label="Hhaa" textColor="secondary" />
-          <FancyBottomBarIcon label="test" icon={Icon} onClick={() => console.log('hi')} />
-          <FancyBottomBarIcon label="testREF" icon={Icon} as="a" href="https://google.de" />
+          <FancyBottomBarIcon label="test" icon={Icon} />
+          <FancyBottomBarIcon label="testREF" icon={Icon} type='button' onClick={() => {console.log('')}} />
           <FancyCard shadow>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}></div>
             <FancyCard layer={1}>
@@ -100,6 +101,8 @@ export default function ExperimentalRoute() {
       <DesignArea title="Test">
 
         <FancyBottomBarIcon icon={svg} label='Test' />
+    
+        <BottomBarIcon icon={svg} />
       </DesignArea>
     </DesignWrapper>
   );
