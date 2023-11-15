@@ -12,16 +12,14 @@ const svg = (
 );
 
 export default function NavBarHandy() {
-
-
   return (
     <DesignWrapper>
       <DesignArea title="NavBarHandy">
         <BottomBar>
-          <FancyBottomBarIcon label="TRY" icon={svg} id="1" />
-          <FancyBottomBarIcon label="SOME" icon={svg} id="2" />
-          <FancyBottomBarIcon label="HOT" icon={svg} id="3" />
-          <FancyBottomBarIcon label="CHICKS" icon={svg} id="4" />
+          <FancyBottomBarIcon  icon={svg} />
+          <FancyBottomBarIcon  icon={svg} />
+          <FancyBottomBarIcon  icon={svg} />
+          <FancyBottomBarIcon  icon={svg} />
         </BottomBar>
       </DesignArea>
     </DesignWrapper>

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 
 import ScollAbleBar from '../../Atoms/ScrollableBar/ScrollableBar';
-import { FancyBottomBarIcon } from '../../Atoms/FancyBottomBarIcon';
-import { IFancyBottomBarIcon } from '../../Atoms/FancyBottomBarIcon/FancyBottomBarIcon.model';
+import { FancyBottomBarIcon } from '../../Templates/FancyBottomBarIcon';
+import { IFancyBottomBarIcon } from '../../Templates/FancyBottomBarIcon/FancyBottomBarIcon.model';
 
 // Define types for the component
 type TDynamicScrollBarProps = {
