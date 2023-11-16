@@ -6,7 +6,8 @@ import { ContentWrapper } from './BottomBarIcon.style';
 
 interface IBottomBarIconProps {
   icon: React.ReactNode;
-  label?: string;
+  label: string;
+  hideLabel?: boolean;
   isActive?: boolean;
   disabled?: boolean;
   themeType?: keyof TUiColorsType;
@@ -16,13 +17,15 @@ interface IBottomBarIconProps {
 // -------------------- Only a Bottombar Icon with Text  --------------------- //
 // --------------------------------------------------------------------------- //
 export default function BottomBarIcon(props: IBottomBarIconProps) {
-  const { icon, label, isActive, disabled, themeType, layer } = props;
+  const { icon, label, isActive, disabled, themeType, layer, hideLabel } = props;
 
   return (
     <ContentWrapper $disabled={disabled} $isActive={isActive} $themeType={themeType} $layer={layer}>
       <FancyContent flexDirection="column" gapBetweenIcon="0">
-        <FancyContent.Icon size={!label ? 'xl' : 'md'}>{icon}</FancyContent.Icon>
-        {label && <FancyContent.Description fontVariant={'smText'}>{label}</FancyContent.Description>}
+        <FancyContent.Icon size={hideLabel ? 'xl' : 'md'} aria-label={hideLabel ? label : undefined}>
+          {icon}
+        </FancyContent.Icon>
+        {!hideLabel && <FancyContent.Description fontVariant={'smText'}>{label}</FancyContent.Description>}
       </FancyContent>
     </ContentWrapper>
   );
