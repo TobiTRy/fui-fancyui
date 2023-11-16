@@ -9,14 +9,14 @@ import { fancyBarStyle } from './BottomBar.style';
 // --------------------------------------------------------------------------- //
 // ------------------ The Bottom Bar for the mobile navigation --------------- //
 // --------------  use the store to controle the bar from outside ------------ //
-interface IBottomBar {
+type TBottomBar = {
   isVisible?: boolean;
   themeType?: keyof TUiColorsType;
   layer?: TLayer;
   externalStyle?: CSSProp;
   children?: React.ReactNode;
-}
-export default function BottomBar(props: IBottomBar) {
+} & React.ComponentProps<typeof FancyBox>;
+export default function BottomBar(props: TBottomBar) {
   const { isVisible, externalStyle, children, ...bottomBarProps } = { ...defaultProps, ...props };
 
   return (
@@ -36,6 +36,6 @@ export default function BottomBar(props: IBottomBar) {
   );
 }
 
-const defaultProps: IBottomBar = {
+const defaultProps: TBottomBar = {
   isVisible: true,
 };

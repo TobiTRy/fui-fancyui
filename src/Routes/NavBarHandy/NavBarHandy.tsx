@@ -5,6 +5,7 @@ import BottomBar from '../../Components/UI/Molecules/BottomBar/BottomBar';
 import { FancyBottomBarIcon } from '../../lib';
 import FancyHandyNav from '../../Components/UI/Templates/FancyHandyNav/FancyHandyNav';
 import { IFancyBottomBarIcon } from '../../Components/UI/Templates/FancyBottomBarIcon/FancyBottomBarIcon';
+import { css } from 'styled-components';
 
 const svg = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -28,6 +29,20 @@ const items2: IFancyBottomBarIcon[] = [
   { icon: svg, type: 'button', label: 'myButton', href: 'http://google.de' },
 ];
 
+
+const NavBarStyle = css`
+  position: fixed;
+  bottom: 12px;
+  margin: 0 12px;
+  width: 80%;
+
+  & > :first-child {
+    border-radius: 12px;
+  }
+
+`;
+
+
 export default function NavBarHandy() {
   return (
     <DesignWrapper>
@@ -40,10 +55,10 @@ export default function NavBarHandy() {
         </BottomBar>
       </DesignArea>
       <DesignArea title="FancyHandyNav">
-        <FancyHandyNav items={items} />
+        <FancyHandyNav outlined items={items} />
       </DesignArea>
       <DesignArea title="FancyHandyNav">
-        <FancyHandyNav externalStyle={{position:'fixed', bottom: '0', borderRadius: '12px'}} items={items2} themeType={'secondary'} themeTypeIcons='success' themeTypeSwitchList='primary' layer={2} />
+        <FancyHandyNav outlined outlinedBackgroundStrength={0.9} externalStyle={NavBarStyle} items={items2}  />
       </DesignArea>
     </DesignWrapper>
   );

@@ -17,6 +17,8 @@ interface IFancyHandyNav {
   themeTypeIcons?: keyof TUiColorsType;
   themeTypeSwitchList?: keyof TUiColorsType;
   layer?: TLayer;
+  outlined?: boolean;
+  outlinedBackgroundStrength?: number;
   externalStyle?: CSSProp;
   className?: string;
 }
@@ -50,8 +52,10 @@ export default function FancyHandyNav(props: IFancyHandyNav) {
         // The Navbar container
         <RawNav $externalStyle={externalStyle} className={props.className}>
           <BottomBar
+            outlined={props.outlined}
             themeType={themeType}
             layer={layer}
+            outlinedBackgroundStrength={props.outlinedBackgroundStrength}
             externalStyle={css`
               border-bottom: none;
             `}

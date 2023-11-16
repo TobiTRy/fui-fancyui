@@ -31,7 +31,7 @@ export const ContentWrapper = styled.div<IContentWrapper>`
     $isActive ? theme.accent[0] : getBackgroundColor({ theme, $themeType, $layer })};
   transition: all 0.3s ease-in-out;
   ${({ $disabled }) => $disabled && disabledStyle}
-  padding-bottom: ${spacing.xs + 2 + 'px'};
+  padding-bottom: ${spacing.xs  + 'px'};
   text-decoration: none;
 
   /* This is a media query that tests if the primary input mechanism of the device (e.g., mouse or touch screen) is capable of hovering  */
