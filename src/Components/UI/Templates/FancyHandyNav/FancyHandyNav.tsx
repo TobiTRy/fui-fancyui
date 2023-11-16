@@ -7,6 +7,7 @@ import FancyBottomBarIcon, { IFancyBottomBarIcon } from '../FancyBottomBarIcon/F
 import RawNav from '../../Atoms/RawNav/RawNav';
 import { TLayer } from '../../Design/color/generateColorSteps';
 import { TUiColorsType } from '../../Design/color/designColor';
+import { CSSProp, css } from 'styled-components';
 
 interface IFancyHandyNav {
   items?: IFancyBottomBarIcon[];
@@ -16,12 +17,14 @@ interface IFancyHandyNav {
   themeTypeIcons?: keyof TUiColorsType;
   themeTypeSwitchList?: keyof TUiColorsType;
   layer?: TLayer;
+  externalStyle?: CSSProp;
+  className?: string;
 }
 // --------------------------------------------------------------------------- //
 // ---------- A handyNavBar that can dynamicly generated via objects---------- //
 // --------------------------------------------------------------------------- //
 export default function FancyHandyNav(props: IFancyHandyNav) {
-  const { items, isVisible, wichIndexIsActive, themeType, themeTypeIcons, themeTypeSwitchList, layer } = props;
+  const { items, isVisible, wichIndexIsActive, themeType, themeTypeIcons, themeTypeSwitchList, layer, externalStyle } = props;
 
   // setup a global zustand store for the visibility and the active index
   const isVisibleState = useFancyHandyNavStore((state) => state.isVisible);
@@ -39,13 +42,18 @@ export default function FancyHandyNav(props: IFancyHandyNav) {
     setIsVisible(isVisible ?? true);
   }, [isVisible]);
 
-
   return (
     <>
       {isVisibleState && (
         // The Navbar container
-        <RawNav>
-          <BottomBar themeType={themeType} layer={layer} externalStyle={{borderBottom: 'none'}}>
+        <RawNav $externalStyle={externalStyle} className={props.className}>
+          <BottomBar
+            themeType={themeType}
+            layer={layer}
+            externalStyle={css`
+              border-bottom: none;
+            `}
+          >
             {/* The List with the items  */}
             <SwitchList whichIndexIsSelected={Number(stateWhichIsActive)} $themeType={themeTypeSwitchList} $indicatorWidth={'70%'}>
               {items?.map((item, index) => (

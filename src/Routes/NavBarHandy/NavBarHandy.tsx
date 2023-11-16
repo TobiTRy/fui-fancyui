@@ -43,7 +43,7 @@ export default function NavBarHandy() {
         <FancyHandyNav items={items} />
       </DesignArea>
       <DesignArea title="FancyHandyNav">
-        <FancyHandyNav  isVisible={false} items={items2} themeType={'secondary'} themeTypeIcons='success' themeTypeSwitchList='primary' layer={2} />
+        <FancyHandyNav externalStyle={{position:'fixed', bottom: '0', borderRadius: '12px'}} items={items2} themeType={'secondary'} themeTypeIcons='success' themeTypeSwitchList='primary' layer={2} />
       </DesignArea>
     </DesignWrapper>
   );
