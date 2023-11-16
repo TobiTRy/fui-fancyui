@@ -96,6 +96,37 @@ const meta = {
         step: 1,
       },
     },
+    externalStyle: {
+      description: 'The external style of the nav',
+      defaultValue: {
+        summary: '',
+      },
+      control: {
+        type: 'object',
+      },
+    },
+    outlined: {
+      description: 'Is the nav outlined',
+      defaultValue: {
+        summary: false,
+      },
+      control: {
+        type: 'boolean',
+      },
+    },
+    outlinedBackgroundStrength: {
+      description: 'The background strength of the nav',
+      defaultValue: {
+        summary: 0.9,
+      },
+      control: {
+        type: 'range',
+        min: 0,
+        max: 1,
+        step: 0.1,
+      },
+    },
+
 
 
   },
@@ -115,5 +146,10 @@ export const Primary: Story = {
     wichIndexIsActive: '0',
     themeType: 'primary',
     layer: 1,
+    externalStyle: '',
+    outlined: false,
+    outlinedBackgroundStrength: 0.9,
+    themeTypeIcons: 'secondary',
+    themeTypeSwitchList: 'accent',
   },
 };
