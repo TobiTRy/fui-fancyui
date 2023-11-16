@@ -6,7 +6,6 @@ export const StyledButton = styled.button`
   border: none;
   background-color: transparent;
   cursor: pointer;
-  outline: none;
   width: 100%;
 `
 
@@ -15,7 +14,6 @@ export const StyledAnchor = styled.a`
   border: none;
   background-color: transparent;
   cursor: pointer;
-  outline: none;
   width: 100%;
   text-decoration: none;
 `
