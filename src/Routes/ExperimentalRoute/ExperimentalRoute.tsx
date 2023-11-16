@@ -7,6 +7,11 @@ import { FancyBottomBarIcon, FancyButton, FancyCard, FancyChip, FancySVGAtom, Si
 import FancyContent from '../../Components/UI/Molecules/FancyContent/FancyContent';
 import BottomBarList from '../../Components/UI/Molecules/SwitchList/SwitchList';
 import Button from '../../Components/UI/Molecules/Button/Button';
+import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
+import ComponentAsWrapper from '../../Components/UI/Atoms/ComponentAsWrapper/ComponentAsWrapper';
+import ActionWrapper from '../../Components/UI/Atoms/ActionWrapper/ActionWrapper';
+import FancyActionWrapper from '../../Components/UI/Atoms/FancyActionWrapper/FancyActionWrapper';
+import BottomBarIcon from '../../Components/UI/Molecules/BottomBarIcon/BottomBarIcon';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -35,69 +40,71 @@ const values = [
   { label: 'test4', icon: Icon, itemKey: '4' },
 ];
 
+const CustomComponent = ({ children, test }: { children?: React.ReactNode; test?: string }) => {
+  return <span>{children}</span>;
+};
+
 export default function ExperimentalRoute() {
   const updateTheme = themeStore((state) => state.updateTheme);
   const switchTheme = themeStore((state) => state.switchTheme);
   const [isActive, setIsActive] = React.useState('');
   const [isLoading, setIsLoading] = React.useState(false);
 
-  //updateTheme({primary: '#ff0000', secondary: '#0000ff', accent: '#00ff00'})
-
   const removeToast = () => {
     console.log('remove');
   };
 
   return (
-    <div style={{ display: 'flex' }}>
-      <FancyChip label='Hhaa' textColor='secondary'/>
-      <FancyBottomBarIcon label="test" icon={Icon}  onClick={() => console.log('hi')} />
-      <FancyBottomBarIcon label="testREF" icon={Icon}  as='a' href='https://google.de' />
-      <FancyCard shadow>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}></div>
-        <FancyCard layer={1}>
-          <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-end' }}>
-            <FancyTextInput
-              label="test"
-              icon={svg}
-              value={isActive}
-              onChange={(e: ChangeEvent<HTMLInputElement>) => setIsActive(e.target.value)}
-            />
-            <FancyButton borderRadius="md" size="md" themeType="secondary" icon={reloadIcon} onClick={() => switchTheme()} />
-            <FancySVGAtom themeType="error">{reloadIcon}</FancySVGAtom>
-          </div>
-          <SingleToastMessage
-            toast={{
-              id: 1,
-              title: 'My Title of the titel ',
-              message: 'This is my toast message hjsadhjgdshjag.',
-              time: 50050,
-              themeType: 'success',
-            }}
-            remove={removeToast}
-          />
-        </FancyCard>
-      </FancyCard>
+    <DesignWrapper>
+      <DesignArea title="Test">
+        <div style={{ display: 'flex' }}>
+          <FancyChip label="Hhaa" textColor="secondary" />
+          <FancyBottomBarIcon label="test" icon={Icon}  />
+          <FancyBottomBarIcon label="testREF" icon={Icon} type='button' onClick={() => {console.log('')}} />
+          <FancyCard shadow>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}></div>
+            <FancyCard layer={1}>
+              <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-end' }}>
+                <FancyTextInput
+                  label="test"
+                  icon={svg}
+                  value={isActive}
+                  onChange={(e: ChangeEvent<HTMLInputElement>) => setIsActive(e.target.value)}
+                />
+                <FancyButton borderRadius="md" size="md" themeType="secondary" icon={reloadIcon} onClick={() => switchTheme()} />
+              </div>
+              <SingleToastMessage
+                toast={{
+                  id: 1,
+                  title: 'My Title of the titel ',
+                  message: 'This is my toast message hjsadhjgdshjag.',
+                  time: 50050,
+                  themeType: 'success',
+                }}
+                remove={removeToast}
+              />
+            </FancyCard>
+          </FancyCard>
 
-      {/* <Button>asas</Button>
-        <FancyButton label="Hi"></FancyButton>
-        <FancyContent flexDirection="column">
-          <FancyContent.Icon size="md">{Icon}</FancyContent.Icon>
-          <FancyContent.Text fontVariant={'smText'}>Aassas</FancyContent.Text>
-        </FancyContent> */}
-      {/* <FancyButton size='sm' themeType='transparent' hoverColor='accent' href="https://google.com" as='a' icon={Icon} label="hiii"></FancyButton>
-      <FancyButton themeType="transparent" textColor="secondary" textHover='accent' label="hiii"></FancyButton>
-      <FancyButton themeType="transparent" textColor="primary" label="hiii"></FancyButton> */}
-      <FancyButton
-        icon={Icon}
-        size="lg"
-        label='adsasas'
-        isLoading={isLoading}
-        onClick={() => setIsLoading(!isLoading)}
-        themeType="secondary"
-        outlined
-        borderRadius="sm"
-      />
-    </div>
+          <FancyButton
+            icon={Icon}
+            size="lg"
+            label="adsasas"
+            isLoading={isLoading}
+            onClick={() => setIsLoading(!isLoading)}
+            themeType="secondary"
+            outlined
+            borderRadius="sm"
+          />
+        </div>
+      </DesignArea>
+      <DesignArea title="Test">
+
+        <FancyBottomBarIcon icon={svg} label='Test' />
+    
+        <BottomBarIcon icon={svg} />
+      </DesignArea>
+    </DesignWrapper>
   );
 }
 

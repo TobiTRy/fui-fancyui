@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 
-interface IFancyBottomBarStaticStore {
+interface IFancyHandyNavStore {
   isVisible: boolean;
   setIsVisible: (isVisible: boolean) => void;
 
@@ -8,7 +8,7 @@ interface IFancyBottomBarStaticStore {
   setWhichIsActive: (whichIsActive: string) => void;
 }
 
-const useFancyBottomBarStaticStore = create<IFancyBottomBarStaticStore>((set, get) => ({
+const useFancyHandyNavStore = create<IFancyHandyNavStore>((set) => ({
   isVisible: true,
   setIsVisible: (isVisible: boolean) => set({ isVisible }),
 
@@ -16,4 +16,4 @@ const useFancyBottomBarStaticStore = create<IFancyBottomBarStaticStore>((set, ge
   setWhichIsActive: (whichIsActive: string) => set({ whichIsActive }),
 }));
 
-export default useFancyBottomBarStaticStore;
+export default useFancyHandyNavStore;

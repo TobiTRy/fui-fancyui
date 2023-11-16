@@ -2,9 +2,7 @@ import React from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
-import FancyBottomBarStatic from './FancyBottomBarStatic';
-import SVGChevronRight from '../../SVGIcons/SVGChevronRight';
-
+import FancyBottomBarStatic from './BottomBar';
 
 const meta = {
   component: FancyBottomBarStatic,
@@ -46,32 +44,5 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   render: (args) => <FancyBottomBarStatic {...args} />,
   args: {
-    buttons: [
-      {
-        id: '1',
-        icon: SVGChevronRight,
-        label: 'Home',
-        onClick: () => console.log('home'),
-      },
-      {
-        id: '2',
-        icon: SVGChevronRight,
-        label: 'Search',
-        onClick: () => console.log('search'),
-      },
-      {
-        id: '3',
-        icon: SVGChevronRight,
-        label: 'Profile',
-        onClick: () => console.log('profile'),
-      },
-      {
-        id: '4',
-        icon: SVGChevronRight,
-        label: 'Settings',
-        onClick: () => console.log('settings'),
-      },
-    ],
-
-  },
+  }
 };

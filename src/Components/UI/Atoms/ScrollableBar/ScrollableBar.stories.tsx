@@ -5,7 +5,7 @@ import SVGEyeCrossed from '../../SVGIcons/SVGEyeCrossed';
 
 // Import the component to be tested
 import ScrollableBar from './ScrollableBar';
-import { FancyBottomBarIcon } from '../FancyBottomBarIcon';
+import { FancyBottomBarIcon } from '../../Templates/FancyBottomBarIcon';
 
 // Define metadata for the story
 const meta = {

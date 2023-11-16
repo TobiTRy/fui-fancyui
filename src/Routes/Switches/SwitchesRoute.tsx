@@ -1,6 +1,6 @@
 import React from 'react';
 import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
-import { FancyBottomBarIcon } from '../../Components/UI/Atoms/FancyBottomBarIcon';
+import { FancyBottomBarIcon } from '../../Components/UI/Templates/FancyBottomBarIcon';
 import SwitchList from '../../Components/UI/Molecules/SwitchList/SwitchList';
 
 const Icon = (
@@ -14,15 +14,15 @@ export default function SwitchesRoute() {
     <DesignWrapper>
       <DesignArea title="Switches">
         <SwitchList indicatorType="underline" whichIndexIsSelected={0}>
-          <FancyBottomBarIcon label="test" icon={Icon} onClick={() => console.log('sdsdds')} />
-          <FancyBottomBarIcon label="test" icon={Icon} />
+          <FancyBottomBarIcon label="test" icon={Icon} isActive/>
+          <FancyBottomBarIcon label="test" icon={Icon} WrapperComponent={<a></a>} />
           <FancyBottomBarIcon label="test" icon={Icon} />
           <FancyBottomBarIcon label="test" icon={Icon} />
         </SwitchList>
       </DesignArea>
       <DesignArea title="Switches">
         <SwitchList indicatorType="underline" $direction="vertical">
-          <FancyBottomBarIcon label="test" icon={Icon} onClick={() => console.log('sdsdds')} />
+          <FancyBottomBarIcon label="test" icon={Icon}/>
           <FancyBottomBarIcon label="test" icon={Icon} />
           <FancyBottomBarIcon label="test" icon={Icon} />
           <FancyBottomBarIcon label="test" icon={Icon} />

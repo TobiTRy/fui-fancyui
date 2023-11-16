@@ -6,7 +6,7 @@ export { default as DateNumberAtom } from '../Components/UI/Atoms/DateNumberAtom
 export { default as DateOutput } from '../Components/UI/Atoms/DateOutput/DateOutput';
 export { default as DropDownSelect } from '../Components/UI/Atoms/DropDownSelect/DropDownSelect';
 export { default as EditBarModal } from '../Components/UI/Atoms/EditBarModal/EditBarModal';
-export { default as FancyBottomBarIcon } from '../Components/UI/Atoms/FancyBottomBarIcon/FancyBottomBarIcon';
+export { default as FancyBottomBarIcon } from '../Components/UI/Templates/FancyBottomBarIcon/FancyBottomBarIcon';
 export { default as FancyCard } from '../Components/UI/Atoms/FancyCard/FancyCard';
 export { default as FancyLine } from '../Components/UI/Atoms/FancyLine/FancyLine';
 export { default as FancyLI } from '../Components/UI/Atoms/FancyLI/FancyLI';
@@ -49,7 +49,7 @@ export { default as DateNumberWithStatus } from '../Components/UI/Molecules/Date
 export { default as DateOutputFromTo } from '../Components/UI/Molecules/DateOutputFromTo/DateOutputFromTo';
 export { default as DynamicBottomScrollBar } from '../Components/UI/Molecules/DynamicBottomScrollBar/DynamicBottomScrollBar';
 export { default as EditBar } from '../Components/UI/Molecules/EditBar/EditBar';
-export { default as FancyBottomBarStatic } from '../Components/UI/Molecules/FancyBottomBarStatic/FancyBottomBarStatic';
+export { default as BottomBar } from '../Components/UI/Molecules/BottomBar/BottomBar';
 export { default as FancyContentCard } from '../Components/UI/Molecules/FancyContentCard/FancyContentCard';
 export { default as FancyDropDownUL } from '../Components/UI/Molecules/FancyDropDownUL/FancyDropDownUL';
 export { default as FancySpeedDialButton } from '../Components/UI/Molecules/FancySpeedDailButton/FancySpeedDailButton';

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 
 import ScollAbleBar from '../../Atoms/ScrollableBar/ScrollableBar';
-import { FancyBottomBarIcon } from '../../Atoms/FancyBottomBarIcon';
-import { IFancyBottomBarIcon } from '../../Atoms/FancyBottomBarIcon/FancyBottomBarIcon.model';
+import { FancyBottomBarIcon } from '../../Templates/FancyBottomBarIcon';
+import { IFancyBottomBarIcon } from '../../Templates/FancyBottomBarIcon/FancyBottomBarIcon.model';
 
 // Define types for the component
 type TDynamicScrollBarProps = {
@@ -36,7 +36,7 @@ export default function DynamicBottomScrollBar(props: IBottomScrollbar) {
             <FancyBottomBarIcon
               key={i}
               {...item}
-              active={item.id === activeButton}
+              isActive={item.id === activeButton}
               onClick={() => {
                 if (item.as === 'a') {
                   item.href && window.open(item.href, '_blank');
@@ -55,7 +55,7 @@ export default function DynamicBottomScrollBar(props: IBottomScrollbar) {
           <FancyBottomBarIcon
             key={i}
             {...item}
-            active={item.id === activeButton}
+            isActive={item.id === activeButton}
             onClick={() => {
               if (item.as === 'a') {
                 item.href && window.open(item.href, '_blank');

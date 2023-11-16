@@ -1,7 +1,11 @@
 import React from 'react';
 
 import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';
-import StaticBottomBar from '../../Components/UI/Molecules/FancyBottomBarStatic/FancyBottomBarStatic';
+import BottomBar from '../../Components/UI/Molecules/BottomBar/BottomBar';
+import { FancyBottomBarIcon } from '../../lib';
+import FancyHandyNav from '../../Components/UI/Templates/FancyHandyNav/FancyHandyNav';
+import { IFancyBottomBarIcon } from '../../Components/UI/Templates/FancyBottomBarIcon/FancyBottomBarIcon';
+import { css } from 'styled-components';
 
 const svg = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -10,13 +14,51 @@ const svg = (
   </svg>
 );
 
+const clickHandler = (test: string) => console.log(test);
+
+const items: IFancyBottomBarIcon[] = [
+  { label: 'TRY', icon: svg, type: 'button', onClick: () => clickHandler('asas'), hideLabel: true },
+  { label: 'SOME', icon: svg, type: 'button', hideLabel: true },
+  { label: 'HOT', icon: svg, type: 'button', hideLabel: true },
+  { label: 'CHICKS', icon: svg, type: 'button', hideLabel: true },
+];
+const items2: IFancyBottomBarIcon[] = [
+  { icon: svg, type: 'button', label: 'myButton', onClick: () => clickHandler('asas') },
+  { icon: svg, type: 'button', label: 'myButton', href: 'http://google.de' },
+  { icon: svg, type: 'button', label: 'myButton', href: 'http://google.de' },
+  { icon: svg, type: 'button', label: 'myButton', href: 'http://google.de' },
+];
+
+
+const NavBarStyle = css`
+  position: fixed;
+  bottom: 12px;
+  margin: 0 12px;
+  width: 80%;
+
+  & > :first-child {
+    border-radius: 12px;
+  }
+
+`;
+
+
 export default function NavBarHandy() {
-
-
   return (
     <DesignWrapper>
       <DesignArea title="NavBarHandy">
-        <StaticBottomBar buttons={defaultProps.buttons} />
+        <BottomBar>
+          <FancyBottomBarIcon icon={svg} />
+          <FancyBottomBarIcon type="a" href="http://google.de" icon={svg} />
+          <FancyBottomBarIcon icon={svg} />
+          <FancyBottomBarIcon icon={svg} />
+        </BottomBar>
+      </DesignArea>
+      <DesignArea title="FancyHandyNav">
+        <FancyHandyNav outlined items={items} />
+      </DesignArea>
+      <DesignArea title="FancyHandyNav">
+        <FancyHandyNav outlined outlinedBackgroundStrength={0.9} externalStyle={NavBarStyle} items={items2}  />
       </DesignArea>
     </DesignWrapper>
   );

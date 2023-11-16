@@ -4,7 +4,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import SwitchList from './SwitchList';
 import SVGCheckMark from '../../SVGIcons/SVGCheckMark';
-import { FancyBottomBarIcon } from '../../Atoms/FancyBottomBarIcon';
+import { FancyBottomBarIcon } from '../../Templates/FancyBottomBarIcon';
 
 const meta = {
   component: SwitchList,

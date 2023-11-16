@@ -8,9 +8,9 @@ import { ItemWrapper, StyledList } from './SwitchList.style';
 type TSwitchActiveIndicator = Omit<IActiveSwitchIndicator, '$itemNumber'>;
 
 interface IBottomBarListProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   whichIndexIsSelected?: number;
-  handler?: (activeKey: number) => void;
+  activeItemHandler?: (activeKey: number) => void;
   indicatorType?: React.ComponentProps<typeof SwitchActiveIndicator>['$type'];
   externalStyle?: CSSProp;
 }
@@ -22,12 +22,12 @@ interface IKey  {
 // -------------- The Switch List Indicates wich item is active -------------- //
 // --------------------------------------------------------------------------- //
 export default function SwitchList(props: IBottomBarListProps & TSwitchActiveIndicator) {
-  const { children, whichIndexIsSelected, handler, indicatorType, externalStyle, $direction, ...indicatorProps  } = props;
+  const { children, whichIndexIsSelected, activeItemHandler, indicatorType, externalStyle, $direction, ...indicatorProps  } = props;
   const [currentActive, setCurrentActive] = useState('');
 
   const activeHandler = (uniqueKey: string) => {
     setCurrentActive(uniqueKey);
-    handler && handler(Number(uniqueKey));
+    activeItemHandler && activeItemHandler(Number(uniqueKey));
   };
 
   useEffect(() => {
