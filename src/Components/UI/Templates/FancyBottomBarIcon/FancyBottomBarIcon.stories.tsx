@@ -10,7 +10,7 @@ const meta = {
     docs: {
       description: {
         component:
-          'The FancyBottomBarIcon component is for displaying a fancy bottom bar icon, it can be used for displaying a navivation button in da navigation bar.',
+          'The FancyBottomBarIcon component is for displaying a fancy bottom bar icon, it can be used for displaying a navivation button in da navigation bar. <br/> It´s only the content wrapped in a ComponentAndActionWrapper component, so it can be used as a link or button or wrapped with the WrapperComponent prop in a e.g. NextJS Link Component . ',
       },
     },
   },
@@ -59,8 +59,18 @@ const meta = {
     icon: {
       control: { type: 'object' },
     },
+    WrapperComponent: {
+      control: { type: 'object' },
+      description: 'Provide a wrapper component like NextJS Link Component or a Custom component.  '
+    },
+    hideLabel:{
+      control: { type: 'boolean' },
+      description: 'Hide the label text. When The label is hidden, the icon will get bigger and the aria-label is putted to the icon.',
+      defaultValue: {
+        summary: false,
+      },
+    }
   },
-
   // Add tags to the story
   tags: ['autodocs'],
 } satisfies Meta<typeof FancyBottomBarIcon>;
