@@ -17,10 +17,10 @@ const svg = (
 const clickHandler = (test: string) => console.log(test);
 
 const items: IFancyBottomBarIcon[] = [
-  { label: 'TRY', icon: svg, type: 'button', onClick: () => clickHandler('asas') },
-  { label: 'SOME', icon: svg, type: 'button' },
-  { label: 'HOT', icon: svg, type: 'button' },
-  { label: 'CHICKS', icon: svg, type: 'button' },
+  { label: 'TRY', icon: svg, type: 'button', onClick: () => clickHandler('asas'), hideLabel: true },
+  { label: 'SOME', icon: svg, type: 'button', hideLabel: true },
+  { label: 'HOT', icon: svg, type: 'button', hideLabel: true },
+  { label: 'CHICKS', icon: svg, type: 'button', hideLabel: true },
 ];
 const items2: IFancyBottomBarIcon[] = [
   { icon: svg, type: 'button', label: 'myButton', onClick: () => clickHandler('asas') },
