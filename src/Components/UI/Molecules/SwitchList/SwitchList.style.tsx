@@ -1,6 +1,7 @@
 import { styled, CSSProp } from 'styled-components';
+import ULRaw from '../../Atoms/RawUL/RawUL';
 
-export const StyledList = styled.div<{ $externalStyle?: CSSProp; $direction?: 'horizontal' | 'vertical' }>`
+export const StyledList = styled(ULRaw)<{ $externalStyle?: CSSProp; $direction?: 'horizontal' | 'vertical' }>`
   display: flex;
   flex-direction: ${({ $direction }) => ($direction === 'vertical' ? 'column' : 'row')};
   justify-content: space-evenly;
@@ -8,7 +9,7 @@ export const StyledList = styled.div<{ $externalStyle?: CSSProp; $direction?: 'h
   ${({ $externalStyle }) => $externalStyle};
 `;
 
-export const ItemWrapper = styled.div`
+export const ItemWrapper = styled.li`
   position: relative;
   flex-grow: 1;
 `;
