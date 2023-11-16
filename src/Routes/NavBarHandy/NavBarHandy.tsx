@@ -15,11 +15,17 @@ const svg = (
 
 const clickHandler = (test: string) => console.log(test);
 
-const items:IFancyBottomBarIcon[] = [
-  { label: 'TRY', icon: svg, type: 'button', onClick: () => clickHandler('asas')},
-  { label: 'SOME', icon: svg,  type: 'button'},
+const items: IFancyBottomBarIcon[] = [
+  { label: 'TRY', icon: svg, type: 'button', onClick: () => clickHandler('asas') },
+  { label: 'SOME', icon: svg, type: 'button' },
   { label: 'HOT', icon: svg, type: 'button' },
-  { label: 'CHICKS', icon: svg, type: 'button'},
+  { label: 'CHICKS', icon: svg, type: 'button' },
+];
+const items2: IFancyBottomBarIcon[] = [
+  { icon: svg, type: 'button', label: 'myButton', onClick: () => clickHandler('asas') },
+  { icon: svg, type: 'button', label: 'myButton', href: 'http://google.de' },
+  { icon: svg, type: 'button', label: 'myButton', href: 'http://google.de' },
+  { icon: svg, type: 'button', label: 'myButton', href: 'http://google.de' },
 ];
 
 export default function NavBarHandy() {
@@ -27,13 +33,17 @@ export default function NavBarHandy() {
     <DesignWrapper>
       <DesignArea title="NavBarHandy">
         <BottomBar>
-          <FancyBottomBarIcon  icon={svg} />
-          <FancyBottomBarIcon type='a' href='http://google.de' icon={svg} />
-          <FancyBottomBarIcon  icon={svg} />
-          <FancyBottomBarIcon  icon={svg} />
-
+          <FancyBottomBarIcon icon={svg} />
+          <FancyBottomBarIcon type="a" href="http://google.de" icon={svg} />
+          <FancyBottomBarIcon icon={svg} />
+          <FancyBottomBarIcon icon={svg} />
         </BottomBar>
-        <FancyHandyNav items={items}/>
+      </DesignArea>
+      <DesignArea title="FancyHandyNav">
+        <FancyHandyNav items={items} />
+      </DesignArea>
+      <DesignArea title="FancyHandyNav">
+        <FancyHandyNav  isVisible={false} items={items2} themeType={'secondary'} themeTypeIcons='success' themeTypeSwitchList='primary' layer={2} />
       </DesignArea>
     </DesignWrapper>
   );
