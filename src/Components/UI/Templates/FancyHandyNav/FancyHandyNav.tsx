@@ -42,6 +42,8 @@ export default function FancyHandyNav(props: IFancyHandyNav) {
     setIsVisible(isVisible ?? true);
   }, [isVisible]);
 
+
+  console.log(stateWhichIsActive)
   return (
     <>
       {isVisibleState && (
@@ -62,8 +64,11 @@ export default function FancyHandyNav(props: IFancyHandyNav) {
                   themeType={themeTypeIcons}
                   layer={layer}
                   isActive={Number(stateWhichIsActive) === index}
-                  onClick={() => setWhichIsActiveState(`${index}`)}
                   {...item}
+                  onClick={() => {
+                    setWhichIsActiveState(index.toString())
+                    item.onClick && item.onClick()
+                  }}
                 />
               ))}
             </SwitchList>
