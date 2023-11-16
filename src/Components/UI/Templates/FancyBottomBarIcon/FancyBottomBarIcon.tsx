@@ -1,36 +1,26 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 
-import { ItemWrapper } from './FancyBottomBarIcon.style';
+import ComponentAndActionWrapper, { IComponentAndActionWrapper } from '../../Molecules/ComponentAndActionWrapper/ComponentAndActionWrapper';
 import BottomBarIcon from '../../Molecules/BottomBarIcon/BottomBarIcon';
-import ComponentAsWrapper from '../../Atoms/ComponentAsWrapper/ComponentAsWrapper';
-import FancyActionWrapper from '../../Atoms/FancyActionWrapper/FancyActionWrapper';
 
-type TAnchorProps = {
-  type?: 'a';
-  href: string; // `href` is mandatory for an anchor
-  onClick?: () => void; // More specific type for `onClick`
-};
 
-type TButtonProps = {
-  type: 'button';
-  onClick?: () => void; // More specific type for `onClick`
-  href?: never; // `href` should not be available for a button
-};
-
-export type IFancyBottomBarIcon = {
-  WrapperComponent?: React.ReactElement;
-} & React.ComponentProps<typeof BottomBarIcon> &
-  (TAnchorProps | TButtonProps);
+export type IFancyBottomBarIcon = ComponentProps<typeof BottomBarIcon> & IComponentAndActionWrapper;
+// --------------------------------------------------------------------------- //
+// ------ This Component Puts only the content and a wrapper together -------- //
+// --------------------------------------------------------------------------- //
 export default function FancyBottomBarIcon(props: IFancyBottomBarIcon) {
-  const { WrapperComponent, type, href, onClick, ...BottomBarProps } = props;
+  const { WrapperComponent, type, href, onClick, ...rest } = props;
 
-  const ContentWrapper = WrapperComponent ? (
-    <ComponentAsWrapper wrapper={WrapperComponent} children={<BottomBarIcon {...BottomBarProps} />} />
-  ) : type === 'button' ? (
-    <FancyActionWrapper as={'button'} onClick={onClick} children={<BottomBarIcon {...BottomBarProps} />} />
-  ) : (
-    <FancyActionWrapper as={'a'} href={href} onClick={onClick} children={<BottomBarIcon {...BottomBarProps} />} />
+  return (
+    <ComponentAndActionWrapper
+      WrapperComponent={WrapperComponent}
+      type={type ?? 'a'}
+      href={href}
+      onClick={() => {
+        onClick && onClick();
+      }}
+    >
+      <BottomBarIcon {...rest} />
+    </ComponentAndActionWrapper>
   );
-
-  return <ItemWrapper>{ContentWrapper}</ItemWrapper>;
 }
