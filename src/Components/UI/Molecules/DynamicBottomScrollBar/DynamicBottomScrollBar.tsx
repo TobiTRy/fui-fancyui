@@ -1,26 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 
 import ScollAbleBar from '../../Atoms/ScrollableBar/ScrollableBar';
-import { FancyBottomBarIcon } from '../../Templates/FancyBottomBarIcon';
-import { IFancyBottomBarIcon } from '../../Templates/FancyBottomBarIcon/FancyBottomBarIcon.model';
 
 // Define types for the component
 type TDynamicScrollBarProps = {
   scrollable?: boolean;
-  buttons?: IFancyBottomBarIcon[];
-};
-type IBottomScrollbar =  TDynamicScrollBarProps;
+  activateScrollbar?: boolean;
+  children?: React.ReactNode;
+}; 
 
 // Define the component
-export default function DynamicBottomScrollBar(props: IBottomScrollbar) {
-  // Destructure props
-  const { buttons, scrollable  } = props;
-  // Set state for active button
-  const [activeButton, setActiveButton] = useState('');
-
-  // Determine if scrollbar should be activated
-  const activateScrollbar = buttons?.length! > 4 ? true : false;
-
+export default function DynamicBottomScrollBar(props: TDynamicScrollBarProps) {
+  const { activateScrollbar, scrollable, children  } = props;
+  
   // Prevent body from scrolling when scrollbar is scrolling
   useEffect(() => {
     if (activateScrollbar) document.body.style.overflow = 'auto';
@@ -31,43 +23,11 @@ export default function DynamicBottomScrollBar(props: IBottomScrollbar) {
   return (
     <>
       {scrollable && activateScrollbar ? (
-        <ScollAbleBar>
-          {buttons?.map((item, i) => (
-            <FancyBottomBarIcon
-              key={i}
-              {...item}
-              isActive={item.id === activeButton}
-              onClick={() => {
-                if (item.as === 'a') {
-                  item.href && window.open(item.href, '_blank');
-                }
-                if (item.onClick) {
-                  const handler = item.onClick as () => void;
-                  handler();
-                }
-                setActiveButton(item.id!);
-              }}
-            />
-          ))}
+        <ScollAbleBar> 
+          {children}
         </ScollAbleBar>
       ) : (
-        buttons?.map((item, i) => (
-          <FancyBottomBarIcon
-            key={i}
-            {...item}
-            isActive={item.id === activeButton}
-            onClick={() => {
-              if (item.as === 'a') {
-                item.href && window.open(item.href, '_blank');
-              }
-              if (item.onClick) {
-                const handler = item.onClick as () => void;
-                handler();
-              }
-              setActiveButton(item.id!);
-            }}
-          />
-        ))
+        children
       )}
     </>
   );
