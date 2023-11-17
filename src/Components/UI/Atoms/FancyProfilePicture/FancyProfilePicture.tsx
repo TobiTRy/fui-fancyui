@@ -35,17 +35,18 @@ export interface IFancyProfilePicture {
   layer?: TLayer;
   themeType?: keyof TUiColorsType;
   letterLength?: number;
+  className?: string;
 }
 // --------------------------------------------------------------------------- //
 //  ProfilePicture component to render with  different sizes and border radius //
 // --------------------------------------------------------------------------- //
 export default function FancyProfilePicture(props: IFancyProfilePicture) {
-  const { src, rounded, size, alt, letterLength, ...placeholderProps } = { ...defaultProps, ...props };
+  const { src, rounded, size, alt, letterLength, className, ...placeholderProps } = { ...defaultProps, ...props };
 
   return src ? (
-    <StyledImage src={src} alt={alt} $rounded={rounded} $size={size} />
+    <StyledImage className={className} src={src} alt={alt} $rounded={rounded} $size={size} />
   ) : (
-    <Placeholder $rounded={rounded} $size={size} {...placeholderProps}>
+    <Placeholder className={className} $rounded={rounded} $size={size} {...placeholderProps}>
       <Typography type='smText' variant={getTextSize(size)}>
         {alt.substring(0, letterLength ?? 2).toUpperCase()}
         </Typography>
