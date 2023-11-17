@@ -1,6 +1,6 @@
 import Color from 'color';
 import { styled } from 'styled-components';
-import { borderRadius, fontSize } from '../../Design/design';
+import { borderRadius, fontSize } from '../../Design/designSizes';
 import { simpleColorTransition } from '../../Design/simpleTransition';
 import { TUiColorsType } from '../../Design/color/designColor';
 

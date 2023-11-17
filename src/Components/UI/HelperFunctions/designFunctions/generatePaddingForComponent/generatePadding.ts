@@ -1,4 +1,4 @@
-import { spacingPx } from '../../../Design/design';
+import { spacingPx } from '../../../Design/designSizes';
 
 export function generatePadding(offsetPx?: number, spacingLeftRightx2?: boolean) {
   const offset = offsetPx ? offsetPx : 0;

@@ -3,7 +3,7 @@ import { styled, css } from 'styled-components';
 
 import { TAlign } from '../../Atoms/AlignedInputLabel/AlignedInputLabel';
 import { AlignedInputLabel } from '../../Atoms/AlignedInputLabel/AlignedInputLabel';
-import { spacingPx } from '../../Design/design';
+import { spacingPx } from '../../Design/designSizes';
 
 import ProgressBar, { IProgressBar } from '../../Atoms/ProgressBar/ProgressBar';
 import { TUiColorsType } from '../../Design/color/designColor';

@@ -1,7 +1,7 @@
 import React, { forwardRef, useState } from 'react';
 import { styled } from 'styled-components';
 
-import { spacingPx, fontSize } from '../../Design/design';
+import { spacingPx, fontSize } from '../../Design/designSizes';
 import { TUiColorsType } from '../../Design/color/designColor';
 import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
 import { TLayer } from '../../Design/color/generateColorSteps';

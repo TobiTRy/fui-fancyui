@@ -1,5 +1,5 @@
 import { css } from 'styled-components';
-import { fontSizes } from '../../Design/design';
+import { fontSizes } from '../../Design/designSizes';
 import brakePoints from '../../Design/brakePoints';
 
 const nullifyStyle = css`

@@ -8,7 +8,7 @@ import { Typography } from '../../lib';
 
 import styled from 'styled-components';
 import FancyBar from '../../Components/UI/Atoms/FancyBox/FancyBox';
-import { borderRadius } from '../../Components/UI/Design/design';
+import { borderRadius } from '../../Components/UI/Design/designSizes';
 import Header from '../../Components/UI/Molecules/Header/Header';
 
 const Logo = () => (

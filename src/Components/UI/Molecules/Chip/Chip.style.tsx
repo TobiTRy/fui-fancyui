@@ -1,7 +1,7 @@
 import { css, styled } from 'styled-components';
 
 import { TUiColorsType } from '../../Design/color/designColor';
-import { borderRadius } from '../../Design/design';
+import { borderRadius } from '../../Design/designSizes';
 import generateThemeDesignForComponent from '../../HelperFunctions/designFunctions/generateThemeDesignForComponent/generateThemeDesignForComponent';
 import { IStyledChip } from './Chip';
 import IStyledPrefixAndOmitter from '../../Interface/IStyledPrefixAndOmiter.model';

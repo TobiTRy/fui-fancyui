@@ -1,5 +1,5 @@
 import { styled } from 'styled-components';
-import { borderRadius, spacingPx } from '../../Design/design';
+import { borderRadius, spacingPx } from '../../Design/designSizes';
 import { TUiColorsType } from '../../Design/color/designColor';
 import { tabSwitchSizes } from './TabSwitch';
 import { TLayer } from '../../Design/color/generateColorSteps';

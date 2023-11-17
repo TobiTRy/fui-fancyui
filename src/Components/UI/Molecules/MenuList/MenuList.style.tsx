@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 import { TUiColorsType } from '../../Design/color/designColor';
 import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
-import { borderRadius } from '../../Design/design';
+import { borderRadius } from '../../Design/designSizes';
 import { MenuListProps } from './MenuList';
 
 import IStyledPrefixAndOmitter from '../../Interface/IStyledPrefixAndOmiter.model';

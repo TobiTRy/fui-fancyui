@@ -1,6 +1,6 @@
 import { css } from "styled-components";
 
-import { spacingPx } from "../../Design/design";
+import { spacingPx } from "../../Design/designSizes";
 
 export const fancyBarStyle = css`
   display: flex;

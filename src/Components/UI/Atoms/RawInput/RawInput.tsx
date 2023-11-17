@@ -1,5 +1,5 @@
 import { styled } from 'styled-components';
-import { fontSize } from '../../Design/design';
+import { fontSize } from '../../Design/designSizes';
 import { TUiColorsType } from '../../Design/color/designColor';
 
 export type TRawInputAlign = 'left' | 'center';

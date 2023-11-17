@@ -1,7 +1,7 @@
 import React from 'react';
 import { css } from 'styled-components';
 
-import { borderRadius } from '../../Design/design';
+import { borderRadius } from '../../Design/designSizes';
 import Fieldset from '../../Atoms/Fieldset/Fieldset';
 import FancyBar from '../../Atoms/FancyBox/FancyBox';
 import TabSwitch, { tabSwitchSizes } from '../TabSwitch/TabSwitch';

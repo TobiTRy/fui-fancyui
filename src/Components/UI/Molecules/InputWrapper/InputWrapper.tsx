@@ -5,7 +5,7 @@ import { ErrorMessage, StyledInputWrapper, InputContainer } from './InputWrapper
 import FancyInputUnderline from '../../Atoms/InputUnderline/InputUnderline';
 
 import FancySVGAtom from '../../Atoms/FancySVGAtom/FancySVGAtom';
-import { spacingPx } from '../../Design/design';
+import { spacingPx } from '../../Design/designSizes';
 import { AnimatedInputLabel } from '../../Atoms/AnimatedLabel/AnimatedInputLabel';
 import { TRawInputAlign } from '../../Atoms/RawInput/RawInput';
 import { TUiColorsType } from '../../Design/color/designColor';

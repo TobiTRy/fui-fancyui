@@ -4,7 +4,7 @@ import IStyledPrefixAndPicker from '../../Interface/IStyledPrefixAndPicker.model
 import { TUiColorsType } from '../../Design/color/designColor';
 import { getTextColor } from '../../Design/color/colorCalculatorForComponet';
 import { IgenerateThemeForCard } from '../../HelperFunctions/designFunctions/generateThemeForCard/generateThemeForCard';
-import { spacingPx } from '../../Design/design';
+import { spacingPx } from '../../Design/designSizes';
 
 type IChipContainer = IStyledPrefixAndPicker<IgenerateThemeForCard> & { theme: TUiColorsType };
 export const InputLi = styled.li<IChipContainer>`

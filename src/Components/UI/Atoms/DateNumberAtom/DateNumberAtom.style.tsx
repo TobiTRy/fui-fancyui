@@ -1,6 +1,6 @@
 import { css, styled } from 'styled-components';
 import { IRange } from './DateNumberAtom';
-import { borderRadius } from '../../Design/design';
+import { borderRadius } from '../../Design/designSizes';
 import { disabledStyle } from '../../HelperFunctions/designFunctions/disableStyle';
 import { TUiColorsType } from '../../Design/color/designColor';
 import { TLayer } from '../../Design/color/generateColorSteps';

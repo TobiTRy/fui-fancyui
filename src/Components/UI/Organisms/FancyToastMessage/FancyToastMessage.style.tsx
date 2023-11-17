@@ -1,5 +1,5 @@
 import { styled } from 'styled-components';
-import { spacingPx } from "../../Design/design";
+import { spacingPx } from "../../Design/designSizes";
 
 export const ToastsWrapper = styled.div`
   position: fixed;

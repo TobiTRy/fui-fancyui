@@ -1,5 +1,5 @@
 import { css, styled } from 'styled-components';
-import { fontSize, spacingPx } from '../../Design/design';
+import { fontSize, spacingPx } from '../../Design/designSizes';
 import { TUiColorsType } from '../../Design/color/designColor';
 
 //the styling for each option item

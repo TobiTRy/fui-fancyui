@@ -1,6 +1,6 @@
 import { TUiColorsType } from "../../Design/color/designColor";
 import { TLayer } from "../../Design/color/generateColorSteps";
-import { borderRadius, spacingPx } from "../../Design/design";
+import { borderRadius, spacingPx } from "../../Design/designSizes";
 import {ITabSwitchDetailsLabelIcon , ITabSwitchDetailsChildren } from "../FancyTabSwitchButton/FancyTabSwitchButton.model";
 
 export interface ITabSwitchProps {

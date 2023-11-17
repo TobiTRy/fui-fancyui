@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
 import InputStatus from "../../Design/Interfaces/IStatus";
-import { spacingPx } from "../../Design/design";
+import { spacingPx } from "../../Design/designSizes";
 import { TUiColorsType } from '../../Design/color/designColor';
 
 

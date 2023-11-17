@@ -2,7 +2,7 @@ import React from 'react';
 import { styled } from 'styled-components';
 import Color from 'color';
 
-import { spacingPx, fontSize } from '../../Design/design';
+import { spacingPx, fontSize } from '../../Design/designSizes';
 import { simpleColorTransition } from '../../Design/simpleTransition';
 import { TUiColorsType } from '../../Design/color/designColor';
 import { TLayer } from '../../Design/color/generateColorSteps';

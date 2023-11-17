@@ -1,5 +1,5 @@
 import { styled, css } from 'styled-components';
-import { spacingPx } from '../../Design/design';
+import { spacingPx } from '../../Design/designSizes';
 import { boxShadow } from '../../Design/shadows';
 import { TUiColorsType } from '../../Design/color/designColor';
 

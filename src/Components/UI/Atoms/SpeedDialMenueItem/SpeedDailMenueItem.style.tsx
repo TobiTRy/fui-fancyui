@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { fontSize } from "../../Design/design";
+import { fontSize } from "../../Design/designSizes";
 import { textShadow } from "../../Design/shadows";
 import { TUiColorsType } from "../../Design/color/designColor";
 

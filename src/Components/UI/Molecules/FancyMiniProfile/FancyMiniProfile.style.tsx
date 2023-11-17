@@ -1,5 +1,5 @@
 import { styled, css } from 'styled-components';
-import { borderRadius, spacingPx } from '../../Design/design';
+import { borderRadius, spacingPx } from '../../Design/designSizes';
 import { TTextAlign } from './FancyMiniProfile';
 import { TUiColorsType } from '../../Design/color/designColor';
 import { TLayer } from '../../Design/color/generateColorSteps';

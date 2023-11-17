@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { spacingPx } from '../../Design/design';
+import { spacingPx } from '../../Design/designSizes';
 
 // Define the type for the spacing position
 export type TSpacingPosition = 'left' | 'right' | 'booth';

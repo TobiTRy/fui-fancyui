@@ -5,7 +5,7 @@ import Typography from '../../Atoms/Typography/Typography';
 import { TextWrapper, Wrapper } from './FancyMiniProfile.style';
 import { fontSizeVariants } from '../../Atoms/Typography/TypographyStyleVariants';
 
-import { spacingPx } from '../../Design/design';
+import { spacingPx } from '../../Design/designSizes';
 import { TUiColorsType } from '../../Design/color/designColor';
 import { TLayer } from '../../Design/color/generateColorSteps';
 

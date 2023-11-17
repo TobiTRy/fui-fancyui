@@ -1,5 +1,5 @@
 import { css } from 'styled-components';
-import { borderRadius } from '../../../Design/design';
+import { borderRadius } from '../../../Design/designSizes';
 
 export const generateBorderRadiusForComponent = (size?: 'sm' | 'md' | 'lg', rounded?: keyof typeof borderRadius) => {
   if (rounded) {

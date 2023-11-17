@@ -1,5 +1,5 @@
 import { css, styled } from 'styled-components';
-import { spacingPx } from '../../Design/design';
+import { spacingPx } from '../../Design/designSizes';
 import { TAlign, TAlignCheckbox } from './FancyCheckbox.model';
 
 

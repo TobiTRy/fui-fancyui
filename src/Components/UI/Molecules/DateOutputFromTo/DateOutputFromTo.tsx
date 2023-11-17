@@ -1,7 +1,7 @@
 import React from 'react';
 import { styled } from 'styled-components';
 import DateOutput from '../../Atoms/DateOutput/DateOutput';
-import { spacingPx } from '../../Design/design';
+import { spacingPx } from '../../Design/designSizes';
 import { TUiColorsType } from '../../Design/color/designColor';
 import { TLayer } from '../../Design/color/generateColorSteps';
 import FancyLine from '../../Atoms/FancyLine/FancyLine';

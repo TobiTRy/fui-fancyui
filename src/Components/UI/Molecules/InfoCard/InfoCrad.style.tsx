@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 
-import { borderRadius, spacingPx } from '../../Design/design';
+import { borderRadius, spacingPx } from '../../Design/designSizes';
 import { TSizes } from '../../Interface/TComponentSizes';
 
 const sizes = {

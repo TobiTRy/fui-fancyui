@@ -1,5 +1,5 @@
 import { styled } from 'styled-components';
-import { borderRadius } from '../../Design/design';
+import { borderRadius } from '../../Design/designSizes';
 
 //the wrapper of the color area (it wraps the color area and the color indicator)
 export const WrapperColorArea = styled.div`

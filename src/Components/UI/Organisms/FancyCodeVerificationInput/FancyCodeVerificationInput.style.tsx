@@ -1,6 +1,6 @@
 import { styled, css } from 'styled-components';
 
-import { fontSize, spacingPx } from '../../Design/design';
+import { fontSize, spacingPx } from '../../Design/designSizes';
 import { TUiColorsType } from '../../Design/color/designColor';
 
 export const WarpperComponent = styled.div`

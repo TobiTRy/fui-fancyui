@@ -3,7 +3,7 @@ import { styled } from 'styled-components';
 
 import DateNumberAtom from '../../Atoms/DateNumberAtom/DateNumberAtom';
 import AvilableDot, { IAvailableDot } from '../../Atoms/AvilableDot/AvailableDot';
-import { spacingPx } from '../../Design/design';
+import { spacingPx } from '../../Design/designSizes';
 import { IRange } from '../../Atoms/DateNumberAtom/DateNumberAtom';
 import { TLayer } from '../../Design/color/generateColorSteps';
 import { TUiColorsType } from '../../Design/color/designColor';

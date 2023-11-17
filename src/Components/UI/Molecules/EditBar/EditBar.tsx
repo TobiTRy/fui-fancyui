@@ -14,7 +14,7 @@ import { styled } from 'styled-components';
 //the second is for the settings
 
 import { IFancyBottomBarIcon  } from '../../Templates/FancyBottomBarIcon/FancyBottomBarIcon';
-import { spacingPx } from '../../Design/design';
+import { spacingPx } from '../../Design/designSizes';
 import EditBarModal from '../../Atoms/EditBarModal/EditBarModal';
 
 import DynamicBottomScrollBar from '../DynamicBottomScrollBar/DynamicBottomScrollBar';

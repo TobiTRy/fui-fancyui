@@ -1,5 +1,5 @@
 import { styled } from 'styled-components';
-import { spacingPx } from '../../Design/design';
+import { spacingPx } from '../../Design/designSizes';
 import { TUiColorsType } from '../../Design/color/designColor';
 
 export const Container = styled.div`

@@ -1,5 +1,5 @@
 import { styled, css } from 'styled-components';
-import { spacingPx } from '../../Design/design';
+import { spacingPx } from '../../Design/designSizes';
 
 // The Paginator Wrapper that wraps the hole components
 export const StyledPaginator = styled.div`

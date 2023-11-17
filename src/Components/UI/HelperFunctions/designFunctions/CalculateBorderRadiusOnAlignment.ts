@@ -1,5 +1,5 @@
 import { css } from 'styled-components';
-import { borderRadius } from '../../Design/design';
+import { borderRadius } from '../../Design/designSizes';
 
 export interface IAlignments {
   $alignHorizontal?: 'left' | 'center' | 'right';

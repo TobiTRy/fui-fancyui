@@ -1,7 +1,7 @@
 import { styled, css } from 'styled-components';
 import themeStore from '../../Design/color/themeStore';
 
-import { spacingPx } from '../../Design/design';
+import { spacingPx } from '../../Design/designSizes';
 import { TUiColorsType } from '../../Design/color/designColor';
 import { TLayer } from '../../Design/color/generateColorSteps';
 import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';

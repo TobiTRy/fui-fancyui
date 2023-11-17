@@ -1,5 +1,5 @@
 import { CSSProp, css, styled } from 'styled-components';
-import { borderRadius, spacingPx } from '../../Design/design';
+import { borderRadius, spacingPx } from '../../Design/designSizes';
 import { TSytemMessage } from '../../Design/color/designColor';
 import { sytemMessageIndicatorStyle } from '../../HelperFunctions/designFunctions/generateSytemIncicator';
 

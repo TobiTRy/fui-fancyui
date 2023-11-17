@@ -2,7 +2,7 @@ import React from 'react';
 import { css } from 'styled-components';
 
 import LoadingSVGArrows from '../../Atoms/LoadingSVGArrows/LoadingSVGArrows';
-import { borderRadius } from '../../Design/design';
+import { borderRadius } from '../../Design/designSizes';
 import Button, { IButtonProps } from '../../Molecules/Button/Button';
 import FancyContent from '../../Molecules/FancyContent/FancyContent';
 import { generateFancyButton } from './FancyButton.style';

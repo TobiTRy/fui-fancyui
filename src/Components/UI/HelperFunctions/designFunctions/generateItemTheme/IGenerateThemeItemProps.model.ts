@@ -1,6 +1,6 @@
 import { TUiColorsType } from "../../../Design/color/designColor";
 import { TLayer } from "../../../Design/color/generateColorSteps";
-import { borderRadius } from "../../../Design/design";
+import { borderRadius } from "../../../Design/designSizes";
 import IStyledPrefixAndOmiter from "../../../Interface/IStyledPrefixAndOmiter.model";
 
 

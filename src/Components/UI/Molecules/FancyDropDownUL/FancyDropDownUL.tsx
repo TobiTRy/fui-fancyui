@@ -4,7 +4,7 @@ import { animated, useSpring } from '@react-spring/web';
 import { StyledUL, WrapperUL } from './FancyDropDownUL.style';
 import { TUiColorsType } from '../../Design/color/designColor';
 import { TLayer } from '../../Design/color/generateColorSteps';
-import { borderRadius } from '../../Design/design';
+import { borderRadius } from '../../Design/designSizes';
 
 export interface IFancyUL {
   children: React.ReactNode;

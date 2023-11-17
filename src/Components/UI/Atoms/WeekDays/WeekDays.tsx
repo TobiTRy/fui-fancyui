@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { styled } from 'styled-components';
 
-import { spacingPx } from '../../Design/design';
+import { spacingPx } from '../../Design/designSizes';
 import Typography from '../Typography/Typography';
 import { TUiColorsType } from '../../Design/color/designColor';
 import { TLayer } from '../../Design/color/generateColorSteps';

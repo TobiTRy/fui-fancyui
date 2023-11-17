@@ -1,6 +1,6 @@
 import { styled, css } from 'styled-components';
 import { TUiColorsType } from '../../Design/color/designColor';
-import { spacingPx } from '../../Design/design';
+import { spacingPx } from '../../Design/designSizes';
 import { IActiveSwitchIndicator } from './SwitchActiveIndicator';
 import { generateBlob } from './utils/generateBlob';
 import { generateTopline, generateUnderline } from './utils/generateLines';

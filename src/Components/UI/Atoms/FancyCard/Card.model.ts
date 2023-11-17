@@ -1,6 +1,6 @@
 import { IRoundedEdges } from '../../HelperFunctions/designFunctions/edgeCaluculation';
-import { spacingPx } from '../../Design/design';
-import { borderRadius } from '../../Design/design';
+import { spacingPx } from '../../Design/designSizes';
+import { borderRadius } from '../../Design/designSizes';
 import { TUiColorsType } from '../../Design/color/designColor';
 import { TLayer } from '../../Design/color/generateColorSteps';
 

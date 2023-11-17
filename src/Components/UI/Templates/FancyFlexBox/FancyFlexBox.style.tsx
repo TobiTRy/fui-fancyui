@@ -1,5 +1,5 @@
 import  { styled, css } from "styled-components";
-import { spacingPx } from "../../Design/design";
+import { spacingPx } from "../../Design/designSizes";
 import { TStyleProps } from "./FancyFlexBox.model";
 import IStyledPrefixAndPicker from "../../Interface/IStyledPrefixAndPicker.model";
 

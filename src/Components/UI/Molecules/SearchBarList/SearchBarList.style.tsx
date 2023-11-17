@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { borderRadius } from "../../Design/design";
+import { borderRadius } from "../../Design/designSizes";
 
 // Styled component for the search bar list
 export const StyledSearchBarList = styled.div`

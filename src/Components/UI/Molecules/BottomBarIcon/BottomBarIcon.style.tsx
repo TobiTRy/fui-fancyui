@@ -5,7 +5,7 @@ import { TUiColorsType } from "../../Design/color/designColor";
 import { TLayer } from "../../Design/color/generateColorSteps";
 import { getBackgroundColor } from "../../Design/color/colorCalculatorForComponet";
 import { disabledStyle } from "../../HelperFunctions/designFunctions/disableStyle";
-import { spacingPx } from "../../Design/design";
+import { spacingPx } from "../../Design/designSizes";
 
 interface IContentWrapper {
   $isActive?: boolean;

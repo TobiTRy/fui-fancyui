@@ -1,7 +1,7 @@
 import React from 'react';
 import { styled } from 'styled-components';
 
-import { borderRadius, spacingPx } from '../../Design/design';
+import { borderRadius, spacingPx } from '../../Design/designSizes';
 import { boxShadow } from '../../Design/shadows';
 import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
 

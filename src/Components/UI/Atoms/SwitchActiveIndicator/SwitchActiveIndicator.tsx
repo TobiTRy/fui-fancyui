@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { TUiColorsType } from '../../Design/color/designColor';
-import { borderRadius, spacingPx } from '../../Design/design';
+import { borderRadius, spacingPx } from '../../Design/designSizes';
 import { TLayer } from '../../Design/color/generateColorSteps';
 import { ActiveSwitchIndicator, Wrapper } from './SwitchActiveIndicator.style';
 

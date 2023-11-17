@@ -1,7 +1,7 @@
 // Import necessary dependencies
 import React, { ReactElement } from 'react';
 import { styled } from 'styled-components';
-import { spacingPx } from '../../Design/design';
+import { spacingPx } from '../../Design/designSizes';
 import { FancyContentIcon } from './utils/FancyContentIcon';
 import { FancyContentDescription, FancyContentTitle } from './utils/FancyContentText';
 import IStyledPrefixAndPicker from '../../Interface/IStyledPrefixAndPicker.model';

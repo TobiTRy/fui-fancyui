@@ -3,7 +3,7 @@ import { getBackgroundColor } from "../../../Design/color/colorCalculatorForComp
 import colorTransparencyCalculator from "../../../Design/color/colorTransparencyCalculator";
 import { TUiColorsType } from "../../../Design/color/designColor";
 import { IActiveSwitchIndicator } from "../SwitchActiveIndicator";
-import { borderRadius } from "../../../Design/design";
+import { borderRadius } from "../../../Design/designSizes";
 
 // Define the function to generate a blob background for the active indicator
 type IGenerateBlob = Pick<IActiveSwitchIndicator, '$themeType' | '$outlined' | '$rounded' | '$layer'> & { theme: TUiColorsType };

@@ -1,4 +1,4 @@
-import { borderRadius } from '../../Design/design';
+import { borderRadius } from '../../Design/designSizes';
 
 // the border radius sizes
 type IBorderRadiusSizes = keyof typeof borderRadius;

@@ -1,5 +1,5 @@
 import { TypographyList } from "../../../Atoms/Typography/Typography";
-import { spacingPx } from "../../../Design/design";
+import { spacingPx } from "../../../Design/designSizes";
 
 // Define the sizes for the FancyContent component
 export const sizes = {

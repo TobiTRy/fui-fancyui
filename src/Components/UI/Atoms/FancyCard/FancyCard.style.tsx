@@ -2,7 +2,7 @@ import { styled } from 'styled-components';
 
 import { StyledCardProps } from './Card.model';
 import IStyledPrefixAndOmiter from '../../Interface/IStyledPrefixAndOmiter.model';
-import { spacingPx } from '../../Design/design';
+import { spacingPx } from '../../Design/designSizes';
 import edgeCalculation from '../../HelperFunctions/designFunctions/edgeCaluculation';
 
 import { TUiColorsType } from '../../Design/color/designColor';
