@@ -15,7 +15,6 @@ export const StyledDatePicker = styled(RawInput)<IRawInputWrapper & IDateInputPr
   color: ${({ value }) => (value ? '' : 'transparent')};
   transition: color 0.3s ease-in;
 
-
   /* This renders a Placerholder in Text when its needed */
   ${({placeholder, $themeType = 'secondary', $layer = 4, value, theme, align, }) => {
     if(placeholder && !value) {

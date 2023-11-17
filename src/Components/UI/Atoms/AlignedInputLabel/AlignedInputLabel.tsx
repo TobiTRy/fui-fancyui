@@ -5,13 +5,14 @@ import { spacingPx } from '../../Design/designSizes';
 import { TUiColorsType } from '../../Design/color/designColor';
 import { TLayer } from '../../Design/color/generateColorSteps';
 import { getTextColor } from '../../Design/color/colorCalculatorForComponet';
+import { TTheme } from '@/Components/UI/Design/color/themeStore';
 
 export type TAlign = 'left' | 'center';
 
 export interface IAlignedInputLabel {
   $align?: TAlign;
   $colorState?: 'error' | 'active' | 'default';
-  theme?: TUiColorsType;
+  theme?: TTheme;
   $themeType?: keyof TUiColorsType;
   $layer?: TLayer;
 }

@@ -1,7 +1,7 @@
 import Color from 'color';
 import { css } from 'styled-components';
-import checkThemeOrColor from './ckeckThemeOrColor';
 
+import checkThemeOrColor from './ckeckThemeOrColor';
 import { TUiColorsType, TthemeColorGroup } from './designColor';
 import { TTheme } from './themeStore';
 

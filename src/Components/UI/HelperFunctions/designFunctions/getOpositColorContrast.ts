@@ -8,15 +8,15 @@ const filpThemeColor = (isLightColor: boolean,) => {
   const theme = themeStore.getState().theme;
 
 
-  if(!isDarkTheme) return isLightColor ? theme['secondary'] : theme['primary'];
-  else return isLightColor ? theme['primary'] : theme['secondary'];
+  if(!isDarkTheme) return isLightColor ? theme.colors['secondary'] : theme.colors['primary'];
+  else return isLightColor ? theme.colors['primary'] : theme.colors['secondary'];
   
 };
 
 export const getOpositColorContrast = (color: keyof TUiColorsType, layer?: TLayer) => {
   const theme = themeStore.getState().theme;
 
-  const isCurrentColorLight = Color(theme[color][layer || 0]).isLight();
+  const isCurrentColorLight = Color(theme.colors[color][layer || 0]).isLight();
 
   const getFlipedColor = filpThemeColor(isCurrentColorLight);
 

@@ -1,12 +1,13 @@
 import { styled } from 'styled-components';
+
 import { fontSize } from '../../Design/designSizes';
-import { TUiColorsType } from '../../Design/color/designColor';
+import { TTheme } from '@/Components/UI/Design/color/themeStore';
 
 export type TRawInputAlign = 'left' | 'center';
 
 export interface IRawInput {
   $align?: TRawInputAlign;
-  theme?: TUiColorsType;
+  theme?: TTheme;
 }
 const RawInput = styled.input<IRawInput>`
   font-weight: 500;

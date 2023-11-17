@@ -4,6 +4,7 @@ import InputLabel from '../InputLabel/InputLabel';
 import { TUiColorsType } from '../../Design/color/designColor';
 import { TLayer } from '../../Design/color/generateColorSteps';
 import { getTextColor } from '../../Design/color/colorCalculatorForComponet';
+import { TTheme } from '@/Components/UI/Design/color/themeStore';
 
 const activeHandler = (align: string, $moveUp?: boolean) => {
   if (align !== 'center') {
@@ -36,7 +37,7 @@ export interface IAnimatedInputLabel {
   $colorState?: 'error' | 'active' | 'default';
   $themeType?: keyof TUiColorsType;
   $layer?: TLayer;
-  theme?: TUiColorsType;
+  theme?: TTheme;
 }
 // --------------------------------------------------------------------------- //
 // ---------- The input label wich hase some colors and an animation --------- //
