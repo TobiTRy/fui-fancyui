@@ -48,10 +48,10 @@ export default function NavBarHandy() {
     <DesignWrapper>
       <DesignArea title="NavBarHandy">
         <BottomBar>
-          <FancyBottomBarIcon icon={svg} />
-          <FancyBottomBarIcon type="a" href="http://google.de" icon={svg} />
-          <FancyBottomBarIcon icon={svg} />
-          <FancyBottomBarIcon icon={svg} />
+          <FancyBottomBarIcon icon={svg} label='hii'/>
+          <FancyBottomBarIcon type="a" href="http://google.de" icon={svg} label='hiii' />
+          <FancyBottomBarIcon icon={svg} type='button' label='Hii' />
+          <FancyBottomBarIcon icon={svg} label='hiii'/>
         </BottomBar>
       </DesignArea>
       <DesignArea title="FancyHandyNav">

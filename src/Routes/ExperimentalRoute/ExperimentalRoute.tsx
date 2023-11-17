@@ -102,7 +102,7 @@ export default function ExperimentalRoute() {
 
         <FancyBottomBarIcon icon={svg} label='Test' />
     
-        <BottomBarIcon icon={svg} />
+        <BottomBarIcon icon={svg} label='hiii' />
       </DesignArea>
     </DesignWrapper>
   );

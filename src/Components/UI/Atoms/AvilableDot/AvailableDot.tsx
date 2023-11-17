@@ -7,7 +7,7 @@ import { TUiColorsType } from '../../Design/color/designColor';
 // ---------- A little Circle that indicates if something is avilable -------- //
 // --------------------------------------------------------------------------- //
 export type IAvailableDot = 'completly' | 'partially' | 'not' | 'transparent';
-const AvailableDot = styled.div<{ $available?: IAvailableDot; theme: TUiColorsType }>`
+const AvailableDot = styled.div<{ $available?: IAvailableDot; theme?: TUiColorsType }>`
   width: 4px;
   height: 4px;
   border-radius: ${borderRadius.complete};

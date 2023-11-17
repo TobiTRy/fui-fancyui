@@ -12,15 +12,16 @@ interface IBottomBarIconProps {
   disabled?: boolean;
   themeType?: keyof TUiColorsType;
   layer?: TLayer;
+  id?: string;
 }
 // --------------------------------------------------------------------------- //
 // -------------------- Only a Bottombar Icon with Text  --------------------- //
 // --------------------------------------------------------------------------- //
 export default function BottomBarIcon(props: IBottomBarIconProps) {
-  const { icon, label, isActive, disabled, themeType, layer, hideLabel } = props;
+  const { icon, label, isActive, disabled, themeType, layer, hideLabel, id } = props;
 
   return (
-    <ContentWrapper $disabled={disabled} $isActive={isActive} $themeType={themeType} $layer={layer}>
+    <ContentWrapper id={id} $disabled={disabled} $isActive={isActive} $themeType={themeType} $layer={layer}>
       <FancyContent flexDirection="column" gapBetweenIcon="0">
         <FancyContent.Icon size={hideLabel ? 'xl' : 'md'} aria-label={hideLabel ? label : undefined}>
           {icon}

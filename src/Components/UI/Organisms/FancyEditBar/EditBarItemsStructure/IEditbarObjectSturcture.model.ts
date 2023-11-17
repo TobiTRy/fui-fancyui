@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { IFancyBottomBarIcon } from '../../../Templates/FancyBottomBarIcon/FancyBottomBarIcon.model';
+import { IFancyBottomBarIcon } from '../../../Templates/FancyBottomBarIcon/FancyBottomBarIcon';
 import FancyDropDownSelect from '../../FancyDropDownSelect/FancyDropDownSelect';
 import FancyTextInput from '../../FancyTextInput/FancyTextInput';
 import IFancyRangeSlider from '../../FancyRangeSlider/FancyRangeSlider.model';

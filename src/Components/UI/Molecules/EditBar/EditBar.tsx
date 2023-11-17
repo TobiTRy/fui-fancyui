@@ -13,12 +13,11 @@ import { styled } from 'styled-components';
 //the first bar is getting settings for the grouped bar
 //the second is for the settings
 
-import { IFancyBottomBarIcon  } from '../../Templates/FancyBottomBarIcon/FancyBottomBarIcon';
+import FancyBottomBarIcon, { IFancyBottomBarIcon } from '../../Templates/FancyBottomBarIcon/FancyBottomBarIcon';
 import { spacingPx } from '../../Design/designSizes';
 import EditBarModal from '../../Atoms/EditBarModal/EditBarModal';
 
 import DynamicBottomScrollBar from '../DynamicBottomScrollBar/DynamicBottomScrollBar';
-
 
 const Wrapper = styled.div`
   position: fixed;
@@ -51,7 +50,7 @@ export default function EditBar(props: IEditBar) {
   return (
     <Wrapper>
       {settings && (
-        <EditBarModal title='Test' spacingLeftRight={parseFloat(spacingPx.xl) * 2 + 'px' }>
+        <EditBarModal title="Test" spacingLeftRight={parseFloat(spacingPx.xl) * 2 + 'px'}>
           {(settings as React.ReactElement[]).map((item, index) => (
             <React.Fragment key={index}>{item}</React.Fragment>
           ))}
@@ -59,11 +58,19 @@ export default function EditBar(props: IEditBar) {
       )}
       {/* The second Bar that adapts to the activated button from the man bar */}
       {subSectionItems && (
-        <DynamicBottomScrollBar buttons={subSectionItems} scrollable={scrollable} />
+        <DynamicBottomScrollBar scrollable={scrollable} activateScrollbar={subSectionItems.length > 4}>
+          {sectionItems?.map((item, index) => (
+            <FancyBottomBarIcon key={index} {...item} />
+          ))}
+        </DynamicBottomScrollBar>
       )}
       {/* The Main Bar which always shown with the main settings */}
       {sectionItems && (
-        <DynamicBottomScrollBar buttons={sectionItems} scrollable={scrollable}  />
+        <DynamicBottomScrollBar scrollable={scrollable} activateScrollbar={sectionItems.length > 4}>
+          {subSectionItems?.map((item, index) => (
+            <FancyBottomBarIcon key={index} {...item} />
+          ))}
+        </DynamicBottomScrollBar>
       )}
     </Wrapper>
   );
