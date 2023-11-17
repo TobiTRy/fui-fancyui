@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { styled } from 'styled-components';
-import { fontSize, spacing } from '../../Design/design';
+import { fontSize, spacingPx } from '../../Design/design';
 import { TUiColorsType } from '../../Design/color/designColor';
 
 // Styled dropdown container
@@ -15,7 +15,7 @@ const DropDownContainer = styled.div<{theme: TUiColorsType}>`
 // Styled button to trigger the dropdown
 const DropDownTrigger = styled.div<{theme: TUiColorsType}>`
   background-color: ${({theme}) => theme.primary.main};
-  padding: ${spacing.xs + 2 + 'px'};
+  padding: ${spacingPx.sm};
   cursor: pointer;
   text-align: center;
 `;

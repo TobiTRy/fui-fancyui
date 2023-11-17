@@ -1,8 +1,14 @@
 import { styled } from 'styled-components';
 import InputStatus from "../../Design/Interfaces/IStatus";
-import { colorPalet, spacingPx } from "../../Design/design";
+import { spacingPx } from "../../Design/design";
+import { TUiColorsType } from '../../Design/color/designColor';
 
-export const InputWrapper = styled.div<{ $status?: Omit<InputStatus, 'isLoading'> }>`
+
+interface IInputWrapper {
+  $status?: Omit<InputStatus, 'isLoading'>;
+  theme: TUiColorsType;
+}
+export const InputWrapper = styled.div<IInputWrapper>`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -10,8 +16,8 @@ export const InputWrapper = styled.div<{ $status?: Omit<InputStatus, 'isLoading'
   gap: ${spacingPx.md};
 
   input {
-    ${({ $status }) =>
-      $status?.isError ? `border-color: ${colorPalet.red_light}` : $status?.isSucceed ? `border-color: ${colorPalet.green_light};` : ''};
+    ${({ $status, theme }) =>
+      $status?.isError ? `border-color: ${theme.error[0]}` : $status?.isSucceed ? `border-color: ${theme.success[0]};` : ''};
     transition: border-color 0.3s ease-in-out;
   }
 `;

@@ -1,6 +1,6 @@
 import { styled, css } from 'styled-components';
-import IStatus from '../../Design/Interfaces/IStatus';
-import { colorPalet, fontSize, spacingPx } from '../../Design/design';
+
+import { fontSize, spacingPx } from '../../Design/design';
 import { TUiColorsType } from '../../Design/color/designColor';
 
 export const WarpperComponent = styled.div`
@@ -24,10 +24,10 @@ export const Message = styled.div<{ $isError?: boolean; theme: TUiColorsType }>`
   overflow: hidden;
   opacity: 0;
 
-  ${({ $isError }) =>
+  ${({ $isError, theme }) =>
     $isError &&
     css`
-      color: ${colorPalet.red_light};
+      color: ${theme.error[0]};
       max-height: 100px;
       visibility: visible;
       opacity: 1;

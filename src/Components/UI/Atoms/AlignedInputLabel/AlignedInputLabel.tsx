@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 
 import InputLabel from '../InputLabel/InputLabel';
-import { colorPalet, spacingPx } from '../../Design/design';
+import { spacingPx } from '../../Design/design';
 import { TUiColorsType } from '../../Design/color/designColor';
 import { TLayer } from '../../Design/color/generateColorSteps';
 import { getTextColor } from '../../Design/color/colorCalculatorForComponet';
@@ -24,7 +24,7 @@ export const AlignedInputLabel = styled(InputLabel)<IAlignedInputLabel>`
   color: ${({ $colorState, theme, $themeType = 'secondary', $layer = 4 }) => {
     switch ($colorState) {
       case 'error':
-        return colorPalet.red_light;
+        return theme.error[0];
       case 'active':
         return theme.accent[0];
       default:

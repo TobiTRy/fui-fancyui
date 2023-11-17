@@ -1,6 +1,6 @@
 import React from 'react';
 import { styled } from 'styled-components';
-import { colorPalet } from '../../Design/design';
+
 import { ISVGAtomProps, IStyledSVGAtom, sizes } from './FancySVGAtom.model';
 import { TUiColorsType } from '../../Design/color/designColor';
 import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
@@ -17,7 +17,7 @@ const calcIconColor = ({ theme, $isActive, $errorMessage, $themeType, $layer }: 
   if (!$errorMessage) {
     return $isActive ? theme.accent[0] : getBackgroundColor({ theme, $themeType, $layer });
   } else {
-    return colorPalet.red_dark;
+    return theme.error[0];
   }
 };
 

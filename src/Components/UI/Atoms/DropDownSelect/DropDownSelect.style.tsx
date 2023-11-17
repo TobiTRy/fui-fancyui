@@ -1,5 +1,5 @@
 import { css, styled } from 'styled-components';
-import { fontSize, spacing, spacingPx } from '../../Design/design';
+import { fontSize, spacingPx } from '../../Design/design';
 import { TUiColorsType } from '../../Design/color/designColor';
 
 //the styling for each option item
@@ -29,7 +29,7 @@ export const SelectField = styled.select<ISelectField & { theme: TUiColorsType }
   font-weight: 500;
   user-select: none;
   appearance: none;
-  padding: 0px 0px ${spacing.xs + 2 + 'px'};
+  padding: 0px 0px ${spacingPx.sm};
   font-size: ${fontSize.md};
   background-color: transparent;
 

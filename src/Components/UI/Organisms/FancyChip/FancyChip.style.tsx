@@ -1,32 +1,38 @@
 import styled, { css } from 'styled-components';
-import { spacing, spacingPx } from '../../Design/design';
+import { spacingPx } from '../../Design/design';
 
 // Define the type for the spacing position
 export type TSpacingPosition = 'left' | 'right' | 'booth';
+
+const spacings = {
+  xs: parseFloat(spacingPx.xs),
+  sm: parseFloat(spacingPx.sm),
+  md: parseFloat(spacingPx.md),
+}
 
 export const sizes = {
   sm: {
     height: '24px',
     deleteButtonSize: '14px',
-    padding: spacing.xs,
-    paddingRight: spacing.xs,
-    paddingLeft: spacing.xs,
+    padding: spacings.xs,
+    paddingRight: spacings.xs,
+    paddingLeft: spacings.xs,
     icon: '14px',
   },
   md: {
     height: '32px',
     deleteButtonSize: '14px',
-    padding: spacing.sm,
-    paddingRight: spacing.sm,
-    paddingLeft: spacing.sm,
+    padding: spacings.sm,
+    paddingRight: spacings.sm,
+    paddingLeft: spacings.sm,
     icon: '18px',
   },
   lg: {
     height: '38px',
     deleteButtonSize: '14px',
-    padding: spacing.sm,
-    paddingRight: spacing.sm,
-    paddingLeft: spacing.md,
+    padding: spacings.sm,
+    paddingRight: spacings.sm,
+    paddingLeft: spacings.md,
     icon: '20px',
   },
 };
@@ -70,7 +76,7 @@ export const StyledXButton = styled.button<{ $size?: keyof typeof sizes }>`
   line-height: 1;
   display: flex;
   align-items: center;
-  margin-left: ${spacing.xs + 2 + 'px'};
+  margin-left: ${parseFloat(spacingPx.xs) + 2 + 'px'};
 
   svg {
     width: ${({ $size }) => ($size ? sizes[$size].deleteButtonSize : sizes.md.deleteButtonSize)};

@@ -5,7 +5,7 @@ import { TUiColorsType } from "../../Design/color/designColor";
 import { TLayer } from "../../Design/color/generateColorSteps";
 import { getBackgroundColor } from "../../Design/color/colorCalculatorForComponet";
 import { disabledStyle } from "../../HelperFunctions/designFunctions/disableStyle";
-import { spacing } from "../../Design/design";
+import { spacingPx } from "../../Design/design";
 
 interface IContentWrapper {
   $isActive?: boolean;
@@ -31,7 +31,7 @@ export const ContentWrapper = styled.div<IContentWrapper>`
     $isActive ? theme.accent[0] : getBackgroundColor({ theme, $themeType, $layer })};
   transition: all 0.3s ease-in-out;
   ${({ $disabled }) => $disabled && disabledStyle}
-  padding-bottom: ${spacing.xs  + 'px'};
+  padding-bottom: ${spacingPx.xs};
   text-decoration: none;
 
   /* This is a media query that tests if the primary input mechanism of the device (e.g., mouse or touch screen) is capable of hovering  */

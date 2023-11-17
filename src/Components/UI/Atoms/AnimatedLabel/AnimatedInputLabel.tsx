@@ -1,6 +1,5 @@
 import { styled, css } from 'styled-components';
 
-import { colorPalet } from '../../Design/design';
 import InputLabel from '../InputLabel/InputLabel';
 import { TUiColorsType } from '../../Design/color/designColor';
 import { TLayer } from '../../Design/color/generateColorSteps';
@@ -48,7 +47,7 @@ export const AnimatedInputLabel = styled(InputLabel)<IAnimatedInputLabel & { the
   color: ${({ $colorState, theme, $themeType = 'secondary', $layer = 4 }) => {
     switch ($colorState) {
       case 'error':
-        return colorPalet.red_light;
+        return theme.error[0];
       case 'active':
         return theme.accent[0];
       default:

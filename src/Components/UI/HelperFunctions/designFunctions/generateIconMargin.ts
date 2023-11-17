@@ -1,5 +1,5 @@
 import { css } from 'styled-components';
-import { spacing } from '../../Design/design';
+import { spacingPx } from '../../Design/design';
 import IStyledPrefixAndPicker from '../../Interface/IStyledPrefixAndPicker.model';
 
 export interface IcalcIconPaddingAsProps {
@@ -10,9 +10,9 @@ export interface IcalcIconPaddingAsProps {
 
 //this are the values between the icon and the edge of the button
 const paddingFromIcon = {
-  sm:  spacing.xs + 'px',
-  md: spacing.xs + 'px',
-  lg:  spacing.xs + 'px',
+  sm:  spacingPx.xs,
+  md: spacingPx.xs,
+  lg:  spacingPx.xs,
 };
 
 //this funktion handles the spacing between the icon and the text deepends on the alignment

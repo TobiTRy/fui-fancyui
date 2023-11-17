@@ -5,7 +5,7 @@ import { ErrorMessage, StyledInputWrapper, InputContainer } from './InputWrapper
 import FancyInputUnderline from '../../Atoms/InputUnderline/InputUnderline';
 
 import FancySVGAtom from '../../Atoms/FancySVGAtom/FancySVGAtom';
-import { spacing } from '../../Design/design';
+import { spacingPx } from '../../Design/design';
 import { AnimatedInputLabel } from '../../Atoms/AnimatedLabel/AnimatedInputLabel';
 import { TRawInputAlign } from '../../Atoms/RawInput/RawInput';
 import { TUiColorsType } from '../../Design/color/designColor';
@@ -14,7 +14,7 @@ import calcColorState from '../../Design/color/calcColorState';
 
 // Define the styles for the icon
 const iconStyle = css`
-  margin-right: ${spacing.xs + 2 + 'px'};
+  margin-right: ${parseFloat(spacingPx.xs) + 2 + 'px'};
   margin-bottom: 2px;
   transition: 0.5s;
   align-self: flex-end;

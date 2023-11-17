@@ -2,22 +2,22 @@ import React from 'react';
 import { styled } from 'styled-components';
 import Color from 'color';
 
-import { IUiColorsTypes, IUiColorsSystemMessageTypes, spacingPx, fontSize } from '../../Design/design';
+import { spacingPx, fontSize } from '../../Design/design';
 import { simpleColorTransition } from '../../Design/simpleTransition';
 import { TUiColorsType } from '../../Design/color/designColor';
 import { TLayer } from '../../Design/color/generateColorSteps';
 import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
 
-type FancyXButtonDesign = IUiColorsTypes | IUiColorsSystemMessageTypes;
+type FancyXButtonDesign = Exclude<keyof TUiColorsType, 'transparent'>;
 
 interface IStyledFancyXButton {
-  $themeType?: keyof TUiColorsType;
+  $themeType?: FancyXButtonDesign;
   $layer?: TLayer;
   theme: TUiColorsType;
 }
 
 const StyledFancyXButton = styled.button<IStyledFancyXButton>`
-  padding: 0 ${spacingPx.sm} 2px;
+  padding: 0 ${spacingPx.sm} ${spacingPx.xxs};
   background: none;
   color: ${({ $themeType = 'accent', theme, $layer }) => getBackgroundColor({ $themeType, theme, $layer })};
   border: none;

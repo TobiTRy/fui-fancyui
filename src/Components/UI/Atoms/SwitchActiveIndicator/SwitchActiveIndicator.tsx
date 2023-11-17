@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { TUiColorsType } from '../../Design/color/designColor';
-import { IBorderRadius, spacingPx } from '../../Design/design';
+import { borderRadius, spacingPx } from '../../Design/design';
 import { TLayer } from '../../Design/color/generateColorSteps';
 import { ActiveSwitchIndicator, Wrapper } from './SwitchActiveIndicator.style';
 
@@ -11,7 +11,7 @@ export interface IActiveSwitchIndicator {
   $layer?: TLayer;
   $tabSpacing?: keyof typeof spacingPx;
   $type?: 'bolb' | 'underline' | 'topline';
-  $rounded?: keyof IBorderRadius | string;
+  $rounded?: keyof typeof borderRadius | string;
   $outlined?: boolean;
   $direction?: 'horizontal' | 'vertical';
   $indicatorWidth?: string;

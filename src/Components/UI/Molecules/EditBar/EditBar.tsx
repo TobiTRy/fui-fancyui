@@ -13,8 +13,8 @@ import { styled } from 'styled-components';
 //the first bar is getting settings for the grouped bar
 //the second is for the settings
 
-import { IFancyBottomBarIcon } from '../../Templates/FancyBottomBarIcon/FancyBottomBarIcon.model';
-import { spacingPx, spacing } from '../../Design/design';
+import { IFancyBottomBarIcon  } from '../../Templates/FancyBottomBarIcon/FancyBottomBarIcon';
+import { spacingPx } from '../../Design/design';
 import EditBarModal from '../../Atoms/EditBarModal/EditBarModal';
 
 import DynamicBottomScrollBar from '../DynamicBottomScrollBar/DynamicBottomScrollBar';
@@ -51,7 +51,7 @@ export default function EditBar(props: IEditBar) {
   return (
     <Wrapper>
       {settings && (
-        <EditBarModal title='Test' spacingLeftRight={spacing.xl + spacing.xl + 'px' }>
+        <EditBarModal title='Test' spacingLeftRight={parseFloat(spacingPx.xl) * 2 + 'px' }>
           {(settings as React.ReactElement[]).map((item, index) => (
             <React.Fragment key={index}>{item}</React.Fragment>
           ))}

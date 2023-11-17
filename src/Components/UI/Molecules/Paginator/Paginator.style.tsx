@@ -1,5 +1,5 @@
 import { styled, css } from 'styled-components';
-import { spacing, spacingPx } from '../../Design/design';
+import { spacingPx } from '../../Design/design';
 
 // The Paginator Wrapper that wraps the hole components
 export const StyledPaginator = styled.div`
@@ -27,9 +27,9 @@ export const IconWrapper = styled.div<{ $align: 'left' | 'right' }>`
   ${({ $align }) =>
     $align === 'right'
       ? css`
-          margin-left: ${spacing.xs - 1 + 'px'};
+          margin-left: ${parseFloat(spacingPx.xs) - 1 + 'px'};
         `
       : css`
-          margin-right: ${spacing.xs - 1 + 'px'};
+          margin-right: ${parseFloat(spacingPx.xs) - 1 + 'px'};
         `}
 `;

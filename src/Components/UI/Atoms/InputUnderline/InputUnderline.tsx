@@ -1,7 +1,6 @@
 import React from 'react';
 import { styled, css } from 'styled-components';
 
-import { colorPalet } from '../../Design/design';
 import IStyledPrefixAndPicker from '../../Interface/IStyledPrefixAndPicker.model';
 import { TUiColorsType } from '../../Design/color/designColor';
 import { TLayer } from '../../Design/color/generateColorSteps';
@@ -30,7 +29,7 @@ const UnderLine = styled.i<IStyledUnderline & { theme: TUiColorsType }>`
     opacity: ${({ $isActive }) => ($isActive ? 1 : 0)};
     height: 100%;
     background: ${({ $colorState, theme }) => {
-      if ($colorState === 'error') return css`linear-gradient(90deg, ${colorPalet.red_dark}, ${colorPalet.red_light})`;
+      if ($colorState === 'error') return css`linear-gradient(90deg, ${theme.error[1]}, ${theme.error[0]})`;
       if ($colorState === 'active') return css`linear-gradient(90deg, ${theme.accent[1]}, ${theme.accent[0]})`;
       if ($colorState === 'default') return css`linear-gradient(90deg, ${theme.secondary[0]}, ${theme.secondary[4]})`;
     }};
