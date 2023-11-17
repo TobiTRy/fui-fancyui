@@ -25,6 +25,38 @@ const meta = {
       control: { type: 'select' },
       options: ['xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl'],
     },
+    src: {
+      control: { type: 'text' },
+      description: 'The source of the image.',
+    },
+    alt: {
+      control: { type: 'text' },
+      description: 'The alt text of the image is used as a placeholder if no image is provided.',
+      defaultValue: {
+        summary: 'Profile',
+      },
+    },
+    letterLength: {
+      control: { type: 'number' },
+      description: 'The amount of letters to be displayed in the placeholder.',
+      defaultValue: {
+        summary: 2,
+      },
+    },
+    layer: {
+      control: { type: 'range', min: 1, max: 10, step: 1 },
+      description: 'The layer of the image.',
+      defaultValue: {
+        summary: 3,
+      },
+    },
+    themeType: {
+      control: { type: 'select' },
+      description: 'The themeType of the image.',
+      defaultValue: {
+        summary: 'primary',
+      },
+    },
   },
 
   // Add tags to the story
@@ -43,12 +75,21 @@ export const Primary: Story = {
     src: 'https://avatars.githubusercontent.com/u/54409958?v=4',
     rounded: 'complete',
     size: 'md',
+    alt: 'Profile',
+    letterLength: 2,
+    layer: 3,
+    themeType: 'primary',
   },
-  parameters: {
-    docs: {
-      description: {
-        story: '',
-      },
-    },
+};
+
+export const Avatar: Story = {
+  render: (args) => <FancyProfilePicture {...args} />,
+  args: {
+    rounded: 'complete',
+    size: 'md',
+    alt: 'Profile',
+    letterLength: 2,
+    layer: 3,
+    themeType: 'primary',
   },
 };
