@@ -1,6 +1,7 @@
 import React from 'react';
 import { styled, keyframes, css, CSSProp } from 'styled-components';
-import { TUiColorsType } from '../../Design/color/designColor';
+
+import { TTheme } from '@/Components/UI/Design/color/themeStore';
 
 // Define keyframe animations for the spinner
 const spinner = keyframes`
@@ -58,7 +59,7 @@ const SpinnerContainer = styled.div<{ $size?: keyof typeof sizes }>`
 `;
 
 // Define a function to generate the border for the spinner
-const generateBorder = (size: string, theme: TUiColorsType): CSSProp => {
+const generateBorder = (size: string, theme: TTheme): CSSProp => {
   return css`
     border-top: ${size} solid transparent;
     border-right: ${size} solid ${theme.colors.accent[0]};
@@ -68,7 +69,7 @@ const generateBorder = (size: string, theme: TUiColorsType): CSSProp => {
 };
 
 // Define a styled component for the inner spinner
-const StyledInnerSpinner = styled.div<{ $size?: keyof typeof sizes; theme: TUiColorsType }>`
+const StyledInnerSpinner = styled.div<{ $size?: keyof typeof sizes; theme: TTheme }>`
   ${({ $size, theme }) => generateBorder($size ? sizes[$size].thicknessInner : sizes.md.thickness, theme)}
   animation: ${reverseSpinner} 2s infinite ease-in-out;
   border-radius: 50%;
@@ -77,7 +78,7 @@ const StyledInnerSpinner = styled.div<{ $size?: keyof typeof sizes; theme: TUiCo
 `;
 
 // Define a styled component for the outer spinner
-const StyledFancyLoadingSpinner = styled.div<{ $size?: keyof typeof sizes; $thickness?: string; theme: TUiColorsType }>`
+const StyledFancyLoadingSpinner = styled.div<{ $size?: keyof typeof sizes; $thickness?: string; theme: TTheme }>`
   ${({ $size, theme }) => generateBorder($size ? sizes[$size].thickness : sizes.md.thickness, theme)}
   position: absolute;
   animation: ${spinner} 2s infinite ease-in-out;

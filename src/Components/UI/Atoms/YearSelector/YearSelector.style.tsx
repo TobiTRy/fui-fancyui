@@ -1,17 +1,19 @@
 import { css, styled } from 'styled-components';
+
 import { TUiColorsType } from '../../Design/color/designColor';
 import { TLayer } from '../../Design/color/generateColorSteps';
 import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
+import { TTheme } from '@/Components/UI/Design/color/themeStore';
 
-export const StyledYearSelector = styled.div<{ theme: TUiColorsType; $themeType?: keyof TUiColorsType; $layer?: TLayer }>`
+export const StyledYearSelector = styled.div<{ theme: TTheme; $themeType?: keyof TUiColorsType; $layer?: TLayer }>`
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  color: ${({ theme, $layer, $themeType }) => ($themeType ? theme[$themeType][$layer ?? 0] : theme.colors.secondary[0])};
+  color: ${({ theme, $layer, $themeType }) => ($themeType ? theme.colors[$themeType][$layer ?? 0] : theme.colors.secondary[0])};
 `;
 
-export const StyledButton = styled.button<{ theme: TUiColorsType; $themeType?: keyof TUiColorsType; $layer?: TLayer }>`
+export const StyledButton = styled.button<{ theme: TTheme; $themeType?: keyof TUiColorsType; $layer?: TLayer }>`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,7 +24,7 @@ export const StyledButton = styled.button<{ theme: TUiColorsType; $themeType?: k
   cursor: pointer;
 `;
 
-export const SVGDesignCSS = css<{ theme: TUiColorsType }>`
+export const SVGDesignCSS = css<{ theme: TTheme }>`
   svg {
     path: {
       stroke: ${({ theme }) => theme.colors.secondary[0]};

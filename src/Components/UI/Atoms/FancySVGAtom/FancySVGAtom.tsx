@@ -4,9 +4,10 @@ import { styled } from 'styled-components';
 import { ISVGAtomProps, IStyledSVGAtom, sizes } from './FancySVGAtom.model';
 import { TUiColorsType } from '../../Design/color/designColor';
 import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
+import { TTheme } from '@/Components/UI/Design/color/themeStore';
 
 interface ICalcIconColor {
-  theme: TUiColorsType;
+  theme: TTheme;
   $isActive?: boolean;
   $errorMessage?: string | undefined;
   $themeType: keyof TUiColorsType;
@@ -21,7 +22,7 @@ const calcIconColor = ({ theme, $isActive, $errorMessage, $themeType, $layer }: 
   }
 };
 
-const StyledSVG = styled.i<IStyledSVGAtom & { theme: TUiColorsType }>`
+const StyledSVG = styled.i<IStyledSVGAtom & { theme: TTheme }>`
   display: flex;
   justify-content: center;
   font-style: normal;

@@ -1,6 +1,7 @@
 import { styled, css } from 'styled-components';
+
 import { boxShadow } from '../../Design/shadows';
-import { TUiColorsType } from '../../Design/color/designColor';
+import { TTheme } from '@/Components/UI/Design/color/themeStore';
 
 export const WrapperIndicator = styled.div<{ $isActive: boolean }>`
   position: absolute;
@@ -13,7 +14,7 @@ export const WrapperIndicator = styled.div<{ $isActive: boolean }>`
   pointer-events: none;
 `;
 
-export const Indicator = styled.div.attrs<{ $color: string, theme: TUiColorsType }>(({ $color }) => ({
+export const Indicator = styled.div.attrs<{ $color: string, theme: TTheme }>(({ $color }) => ({
   style: {
     backgroundColor: $color,
   },

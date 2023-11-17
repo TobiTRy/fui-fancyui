@@ -1,13 +1,12 @@
 import { styled } from 'styled-components';
-import { TUiColorsType } from '../../Design/color/designColor';
-import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
+
 import { borderRadius } from '../../Design/designSizes';
 import { MenuListProps } from './MenuList';
-
 import IStyledPrefixAndOmitter from '../../Interface/IStyledPrefixAndOmiter.model';
 import generateThemeForCard from '../../HelperFunctions/designFunctions/generateThemeForCard/generateThemeForCard';
+import { TTheme } from '@/Components/UI/Design/color/themeStore';
 
-type StyledMenuProps = IStyledPrefixAndOmitter<MenuListProps> & { theme: TUiColorsType };
+type StyledMenuProps = IStyledPrefixAndOmitter<MenuListProps> & { theme: TTheme };
 
 export const MenuContainer = styled.div<StyledMenuProps>`
   display: flex;

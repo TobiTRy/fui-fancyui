@@ -1,8 +1,10 @@
 import { styled } from 'styled-components';
+
 import { borderRadius, spacingPx } from '../../Design/designSizes';
 import { TUiColorsType } from '../../Design/color/designColor';
 import { tabSwitchSizes } from '../TabSwitch/TabSwitch';
 import { TLayer } from '../../Design/color/generateColorSteps';
+import { TTheme } from '@/Components/UI/Design/color/themeStore';
 
 // Define the interface for the styled-component
 export interface IFancyTabSwitchStyle {
@@ -14,7 +16,7 @@ export interface IFancyTabSwitchStyle {
   $rounded?: keyof typeof borderRadius;
   $padding?: keyof typeof tabSwitchSizes;
   $outlined?: boolean;
-  theme: TUiColorsType;
+  theme: TTheme;
   $layer?: TLayer;
   $themeType?: keyof TUiColorsType;
 }
@@ -23,7 +25,7 @@ export interface IFancyTabSwitchStyle {
 // ---------- The main UL element for the component ---------- //
 // ----------------------------------------------------------- //
 // Define the styled-component for the unordered list of the tab switch
-export const ULButtonSwitchList = styled.ul<IFancyTabSwitchStyle & { theme: TUiColorsType }>`
+export const ULButtonSwitchList = styled.ul<IFancyTabSwitchStyle & { theme: TTheme }>`
   display: ${({ $wide }) => ($wide ? 'grid' : 'inline-grid')};
   grid-auto-flow: ${({ $direction }) => ($direction === 'vertical' ? 'row' : 'column')};
   grid-auto-rows: 1fr;

@@ -1,5 +1,5 @@
 import { styled, css } from 'styled-components';
-import themeStore from '../../Design/color/themeStore';
+import themeStore, { TTheme } from '../../Design/color/themeStore';
 
 import { spacingPx } from '../../Design/designSizes';
 import { TUiColorsType } from '../../Design/color/designColor';
@@ -30,7 +30,7 @@ interface IListButtonStyle {
   $wide?: boolean;
   $textColor?: keyof TUiColorsType;
   $iconAlign?: 'left' | 'right';
-  theme: TUiColorsType;
+  theme: TTheme;
   $themeType?: keyof TUiColorsType;
   $layer?: TLayer;
   $size?: keyof typeof tabSwitchItemSizes;

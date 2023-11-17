@@ -1,12 +1,11 @@
 import { styled } from 'styled-components';
 
 import IStyledPrefixAndPicker from '../../Interface/IStyledPrefixAndPicker.model';
-import { TUiColorsType } from '../../Design/color/designColor';
 import { getTextColor } from '../../Design/color/colorCalculatorForComponet';
 import { IgenerateThemeForCard } from '../../HelperFunctions/designFunctions/generateThemeForCard/generateThemeForCard';
-import { spacingPx } from '../../Design/designSizes';
+import { TTheme } from '@/Components/UI/Design/color/themeStore';
 
-type IChipContainer = IStyledPrefixAndPicker<IgenerateThemeForCard> & { theme: TUiColorsType };
+type IChipContainer = IStyledPrefixAndPicker<IgenerateThemeForCard> & { theme: TTheme };
 export const InputLi = styled.li<IChipContainer>`
   display: flex;
   flex: 1;

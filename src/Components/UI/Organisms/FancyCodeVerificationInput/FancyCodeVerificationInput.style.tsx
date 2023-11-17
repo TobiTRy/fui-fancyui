@@ -2,6 +2,7 @@ import { styled, css } from 'styled-components';
 
 import { fontSize, spacingPx } from '../../Design/designSizes';
 import { TUiColorsType } from '../../Design/color/designColor';
+import { TTheme } from '@/Components/UI/Design/color/themeStore';
 
 export const WarpperComponent = styled.div`
   display: flex;
@@ -16,7 +17,7 @@ export const MessageContainer = styled.div`
   margin-top: ${spacingPx.sm};
 `;
 
-export const Message = styled.div<{ $isError?: boolean; theme: TUiColorsType }>`
+export const Message = styled.div<{ $isError?: boolean; theme: TTheme }>`
   color: ${({ theme }) => theme.colors.secondary[0]};
   font-size: ${fontSize.sm};
   max-height: 0;

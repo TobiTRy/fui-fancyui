@@ -1,7 +1,7 @@
 import React from 'react';
 import { styled, keyframes } from 'styled-components';
 
-import { TUiColorsType } from '../../Design/color/designColor';
+import { TTheme } from '@/Components/UI/Design/color/themeStore';
 
 // Define keyframe animation for the loading bar
 const loadingAnimation = keyframes`
@@ -22,7 +22,7 @@ const LoadingContainer = styled.div`
 `;
 
 // Define a styled component for the loading bar
-const LoadingBar = styled.div<{theme: TUiColorsType}>`
+const LoadingBar = styled.div<{theme: TTheme}>`
   position: absolute;
   left: -70%;
   height: 100%;

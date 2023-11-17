@@ -1,10 +1,12 @@
 import { css, styled } from 'styled-components';
+
 import { IRange } from './DateNumberAtom';
 import { borderRadius } from '../../Design/designSizes';
 import { disabledStyle } from '../../HelperFunctions/designFunctions/disableStyle';
 import { TUiColorsType } from '../../Design/color/designColor';
 import { TLayer } from '../../Design/color/generateColorSteps';
 import { getTextColor } from '../../Design/color/colorCalculatorForComponet';
+import { TTheme } from '@/Components/UI/Design/color/themeStore';
 
 // --------------------------------------------------------------------------- //
 // ----------------- The Style for one Day with diferent sates --------------- //
@@ -16,7 +18,7 @@ interface IStyledDay {
   $themeType?: keyof TUiColorsType;
   $layer?: TLayer;
 }
-export const StyledDay = styled.button<IStyledDay & { theme: TUiColorsType }>`
+export const StyledDay = styled.button<IStyledDay & { theme: TTheme }>`
   cursor: pointer;
   box-sizing: border-box;
   justify-content: center;

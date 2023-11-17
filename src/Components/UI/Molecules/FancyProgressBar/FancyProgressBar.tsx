@@ -4,13 +4,13 @@ import { styled, css } from 'styled-components';
 import { TAlign } from '../../Atoms/AlignedInputLabel/AlignedInputLabel';
 import { AlignedInputLabel } from '../../Atoms/AlignedInputLabel/AlignedInputLabel';
 import { spacingPx } from '../../Design/designSizes';
-
 import ProgressBar, { IProgressBar } from '../../Atoms/ProgressBar/ProgressBar';
 import { TUiColorsType } from '../../Design/color/designColor';
 import { TLayer } from '../../Design/color/generateColorSteps';
+import { TTheme } from '@/Components/UI/Design/color/themeStore';
 
 // Define a styled component for the progress bar wrapper
-const Wrapper = styled.div<{ $value?: number; theme: TUiColorsType }>`
+const Wrapper = styled.div<{ $value?: number; theme: TTheme }>`
   width: 100%;
   display: flex;
   gap: ${spacingPx.xxs};

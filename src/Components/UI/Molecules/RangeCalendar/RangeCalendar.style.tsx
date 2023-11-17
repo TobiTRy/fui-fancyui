@@ -1,8 +1,9 @@
 import { styled } from 'styled-components';
-import { spacingPx } from '../../Design/designSizes';
-import { TUiColorsType } from '../../Design/color/designColor';
 
-export const MonthContainer = styled.div<{ theme: TUiColorsType }>`
+import { spacingPx } from '../../Design/designSizes';
+import { TTheme } from '@/Components/UI/Design/color/themeStore';
+
+export const MonthContainer = styled.div<{ theme: TTheme }>`
   margin-top: ${spacingPx.md};
 
   h2 {

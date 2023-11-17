@@ -1,11 +1,13 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { styled } from 'styled-components';
+
 import Typography from '../Typography/Typography';
 import { TUiColorsType } from '../../Design/color/designColor';
 import { getBackgroundColor, getTextColor } from '../../Design/color/colorCalculatorForComponet';
 import { TLayer } from '../../Design/color/generateColorSteps';
+import { TTheme } from '@/Components/UI/Design/color/themeStore';
 
-const DateOutputButton = styled.button<{ $isActive?: boolean; theme: TUiColorsType; $themeType?: keyof TUiColorsType; $layer?: TLayer }>`
+const DateOutputButton = styled.button<{ $isActive?: boolean; theme: TTheme; $themeType?: keyof TUiColorsType; $layer?: TLayer }>`
   text-align: center;
   width: 100%;
   background-color: ${({ theme, $isActive, $themeType = 'primary', $layer = 2 }) =>

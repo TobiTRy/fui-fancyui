@@ -1,12 +1,14 @@
 import { styled } from 'styled-components';
+
 import InputStatus from "../../Design/Interfaces/IStatus";
 import { spacingPx } from "../../Design/designSizes";
 import { TUiColorsType } from '../../Design/color/designColor';
+import { TTheme } from '@/Components/UI/Design/color/themeStore';
 
 
 interface IInputWrapper {
   $status?: Omit<InputStatus, 'isLoading'>;
-  theme: TUiColorsType;
+  theme: TTheme;
 }
 export const InputWrapper = styled.div<IInputWrapper>`
   display: flex;

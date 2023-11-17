@@ -1,24 +1,24 @@
 import { styled, keyframes } from 'styled-components';
 
 import { borderRadius, fontSize, spacingPx } from '../../Design/designSizes';
-import { TUiColorsType } from '../../Design/color/designColor';
 import colorTransparencyCalculator from '../../Design/color/colorTransparencyCalculator';
 import { boxShadow } from '../../Design/shadows';
 import { TLayer } from '../../Design/color/generateColorSteps';
 import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
+import { TTheme } from '@/Components/UI/Design/color/themeStore';
 
 type ToastMessageProps = 'success' | 'warning' | 'error' | 'info';
 
 interface IToastMessage {
   $messageType: ToastMessageProps;
   $layer?: TLayer;
-  theme: TUiColorsType;
+  theme: TTheme;
 }
 
 interface TimerLineProps {
   $messageType: ToastMessageProps;
   $layer?: TLayer;
-  theme: TUiColorsType;
+  theme: TTheme;
   $time: number;
 }
 

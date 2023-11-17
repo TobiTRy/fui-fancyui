@@ -2,16 +2,15 @@ import React from 'react';
 import { styled } from 'styled-components';
 
 import { borderRadius, spacingPx } from '../../Design/designSizes';
-import { boxShadow } from '../../Design/shadows';
 import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
-
 import { TLayer } from '../../Design/color/generateColorSteps';
 import { TUiColorsType } from '../../Design/color/designColor';
+import { TTheme } from '../../Design/color/themeStore';
 
 
 interface IStyledSwipeUpContainer {
   $giveSpace: boolean;
-  theme: TUiColorsType;
+  theme: TTheme;
   $themeType?: keyof TUiColorsType;
   $layer?: TLayer;
 }

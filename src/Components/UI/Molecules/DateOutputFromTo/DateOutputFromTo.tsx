@@ -1,13 +1,15 @@
 import React from 'react';
 import { styled } from 'styled-components';
+
 import DateOutput from '../../Atoms/DateOutput/DateOutput';
 import { spacingPx } from '../../Design/designSizes';
 import { TUiColorsType } from '../../Design/color/designColor';
 import { TLayer } from '../../Design/color/generateColorSteps';
 import FancyLine from '../../Atoms/FancyLine/FancyLine';
+import { TTheme } from '@/Components/UI/Design/color/themeStore';
 
 // Define the styled component for the DateOutputFromTo component
-const StyledDateOutputFromTo = styled.div<{ theme: TUiColorsType; $themeType?: keyof TUiColorsType; $layer?: TLayer }>`
+const StyledDateOutputFromTo = styled.div<{ theme: TTheme; $themeType?: keyof TUiColorsType; $layer?: TLayer }>`
   position: relative;
   display: flex;
   width: 100%;

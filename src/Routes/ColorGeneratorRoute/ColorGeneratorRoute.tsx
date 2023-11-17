@@ -4,8 +4,9 @@ import styled, { css } from 'styled-components';
 import { Typography } from '../../lib';
 import themeStore from '../../Components/UI/Design/color/themeStore';
 import { TUiColorsType } from '../../Components/UI/Design/color/designColor';
+import { TTheme } from '@/Components/UI/Design/color/themeStore';
 
-const BackGroundBox = styled.div<{ theme: TUiColorsType }>`
+const BackGroundBox = styled.div<{ theme: TTheme }>`
   width: 200px;
   height: 200px;
   background-color: ${({ theme }) => theme.colors.primary[0]};

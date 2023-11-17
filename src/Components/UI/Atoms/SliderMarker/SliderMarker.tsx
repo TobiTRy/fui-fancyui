@@ -2,8 +2,8 @@ import React from 'react';
 import { styled } from 'styled-components';
 
 import { borderRadius } from '../../Design/designSizes';
-import { TUiColorsType } from '../../Design/color/designColor';
 import colorTransparencyCalculator from '../../Design/color/colorTransparencyCalculator';
+import { TTheme } from '@/Components/UI/Design/color/themeStore';
 
 export const WrapperMarker = styled.div`
   position: absolute;
@@ -17,7 +17,7 @@ export const WrapperMarker = styled.div`
   transform: translate(-2.5px);
 `;
 
-const Marker = styled.div<{ theme: TUiColorsType }>`
+const Marker = styled.div<{ theme: TTheme }>`
   box-sizing: border-box;
   position: relative;
   border: ${({ theme }) => `solid 1px ${theme.colors.primary[0]} `};

@@ -1,7 +1,8 @@
 import { createGlobalStyle } from 'styled-components';
-import { TUiColorsType } from './Components/UI/Design/color/designColor';
 
-const GlobalStyle = createGlobalStyle<{ theme: TUiColorsType }>`
+import { TTheme } from '@/Components/UI/Design/color/themeStore';
+
+const GlobalStyle = createGlobalStyle<{ theme: TTheme }>`
   body {
     margin: 0;
     padding: 0;

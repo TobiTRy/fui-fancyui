@@ -1,16 +1,16 @@
 import { styled } from "styled-components";
 
-
 import { TUiColorsType } from "../../Design/color/designColor";
 import { TLayer } from "../../Design/color/generateColorSteps";
 import { getBackgroundColor } from "../../Design/color/colorCalculatorForComponet";
 import { disabledStyle } from "../../HelperFunctions/designFunctions/disableStyle";
 import { spacingPx } from "../../Design/designSizes";
+import { TTheme } from "../../Design/color/themeStore";
 
 interface IContentWrapper {
   $isActive?: boolean;
   $disabled?: boolean;
-  theme: TUiColorsType;
+  theme: TTheme;
   $themeType?: keyof TUiColorsType;
   $layer?: TLayer;
 }

@@ -3,10 +3,10 @@ import { styled } from 'styled-components';
 import { FancyButton } from '../../Organisms/FancyButton';
 import { spacingPx } from '../../Design/designSizes';
 import { simpleColorTransition } from '../../Design/simpleTransition';
-import { TUiColorsType } from '../../Design/color/designColor';
+import { TTheme } from '@/Components/UI/Design/color/themeStore';
 
 // Define a styled component for the button wrapper
-export const ButtonWrapper = styled.div<{ $isActive: boolean, theme: TUiColorsType }>`
+export const ButtonWrapper = styled.div<{ $isActive: boolean, theme: TTheme }>`
   button {
     color: ${({$isActive, theme}) => $isActive && theme.colors.accent[0]};
     ${simpleColorTransition}

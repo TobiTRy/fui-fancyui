@@ -1,10 +1,12 @@
 import { styled, css } from 'styled-components';
+
 import { borderRadius, spacingPx } from '../../Design/designSizes';
 import { TTextAlign } from './FancyMiniProfile';
 import { TUiColorsType } from '../../Design/color/designColor';
 import { TLayer } from '../../Design/color/generateColorSteps';
 import getColorsForComponent from '../../Design/color/colorCalculatorForComponet';
 import { boxShadow } from '../../Design/shadows';
+import { TTheme } from '@/Components/UI/Design/color/themeStore';
 
 // this container wraps the whole component
 interface IWrapper {
@@ -12,7 +14,7 @@ interface IWrapper {
   $gapSpacing?: keyof typeof spacingPx;
   $themeType?: keyof TUiColorsType;
   $layer?: TLayer;
-  theme: TUiColorsType;
+  theme: TTheme;
   $shadow?: boolean;
 }
 export const Wrapper = styled.div<IWrapper>`

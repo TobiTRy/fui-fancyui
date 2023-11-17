@@ -1,7 +1,8 @@
 import { styled, css } from 'styled-components';
+
 import { spacingPx } from '../../Design/designSizes';
 import { boxShadow } from '../../Design/shadows';
-import { TUiColorsType } from '../../Design/color/designColor';
+import { TTheme } from '@/Components/UI/Design/color/themeStore';
 
 //this calculates the spacing from left and right or nothing
 const calcBarWidthandSpacing = (width?: string, spacingLeftRight?: string) => {
@@ -33,7 +34,7 @@ interface IWrapper {
   $secondBar?: boolean;
   $spacingLeftRight?: string;
 }
-export const Wrapper = styled.div<IWrapper & { theme: TUiColorsType }>`
+export const Wrapper = styled.div<IWrapper & { theme: TTheme }>`
   box-sizing: border-box;
   position: relative;
   padding: ${spacingPx.md};

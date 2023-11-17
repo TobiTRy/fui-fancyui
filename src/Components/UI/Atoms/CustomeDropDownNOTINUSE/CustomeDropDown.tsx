@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { styled } from 'styled-components';
+
 import { fontSize, spacingPx } from '../../Design/designSizes';
-import { TUiColorsType } from '../../Design/color/designColor';
+import { TTheme } from '@/Components/UI/Design/color/themeStore';
 
 // Styled dropdown container
-const DropDownContainer = styled.div<{theme: TUiColorsType}>`
+const DropDownContainer = styled.div<{theme: TTheme}>`
   position: relative;
   display: inline-block;
   font-size: ${fontSize.md};
@@ -13,7 +14,7 @@ const DropDownContainer = styled.div<{theme: TUiColorsType}>`
 `;
 
 // Styled button to trigger the dropdown
-const DropDownTrigger = styled.div<{theme: TUiColorsType}>`
+const DropDownTrigger = styled.div<{theme: TTheme}>`
   background-color: ${({theme}) => theme.colors.primary.main};
   padding: ${spacingPx.sm};
   cursor: pointer;
@@ -21,7 +22,7 @@ const DropDownTrigger = styled.div<{theme: TUiColorsType}>`
 `;
 
 // Styled dropdown menu
-const DropDownMenu = styled.div<{ $isOpen: boolean, theme: TUiColorsType }>`
+const DropDownMenu = styled.div<{ $isOpen: boolean, theme: TTheme }>`
   display: ${(props) => (props.$isOpen ? 'block' : 'none')};
   position: absolute;
   background-color: ${({theme}) => theme.colors.primary.main};;
@@ -31,7 +32,7 @@ const DropDownMenu = styled.div<{ $isOpen: boolean, theme: TUiColorsType }>`
 `;
 
 // Styled dropdown item
-const DropDownItem = styled.div<{theme: TUiColorsType}>`
+const DropDownItem = styled.div<{theme: TTheme}>`
   padding: 12px 16px;
   display: block;
   cursor: pointer;

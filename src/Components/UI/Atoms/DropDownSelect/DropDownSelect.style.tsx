@@ -1,6 +1,7 @@
 import { css, styled } from 'styled-components';
+
 import { fontSize, spacingPx } from '../../Design/designSizes';
-import { TUiColorsType } from '../../Design/color/designColor';
+import { TTheme } from '@/Components/UI/Design/color/themeStore';
 
 //the styling for each option item
 
@@ -10,7 +11,7 @@ interface ISelectField {
   $labelAlign?: 'center' | 'left';
   $disabledAndSelected?: boolean;
 }
-export const SelectField = styled.select<ISelectField & { theme: TUiColorsType }>`
+export const SelectField = styled.select<ISelectField & { theme: TTheme }>`
   position: relative;
   box-sizing: border-box;
   ${({ theme }) =>

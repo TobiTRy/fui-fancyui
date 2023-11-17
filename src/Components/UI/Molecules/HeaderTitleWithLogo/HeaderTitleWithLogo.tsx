@@ -6,6 +6,7 @@ import { spacingPx } from '../../Design/designSizes';
 import { TUiColorsType } from '../../Design/color/designColor';
 import { TLayer } from '../../Design/color/generateColorSteps';
 import { getTextColor } from '../../Design/color/colorCalculatorForComponet';
+import { TTheme } from '@/Components/UI/Design/color/themeStore';
 
 const Wrapper = styled.div`
   position: relative;
@@ -23,7 +24,7 @@ const LogoWrapper = styled.div`
   height: 100%;
 `;
 
-const StyledHeading = styled.a<{ theme: TUiColorsType; $themeType?: keyof TUiColorsType; $layer?: TLayer }>`
+const StyledHeading = styled.a<{ theme: TTheme; $themeType?: keyof TUiColorsType; $layer?: TLayer }>`
   display: flex;
   gap: ${spacingPx.sm};
   align-items: center;

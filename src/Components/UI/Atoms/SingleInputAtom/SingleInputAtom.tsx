@@ -5,6 +5,7 @@ import { spacingPx, fontSize } from '../../Design/designSizes';
 import { TUiColorsType } from '../../Design/color/designColor';
 import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
 import { TLayer } from '../../Design/color/generateColorSteps';
+import { TTheme } from '../../Design/color/themeStore';
 
 // the style for a single input
 interface StyledSingleInputProps {
@@ -13,7 +14,7 @@ interface StyledSingleInputProps {
   $themeType?: keyof TUiColorsType;
   $layer?: TLayer;
 }
-const StyledSingleInput = styled.input<StyledSingleInputProps & { theme: TUiColorsType }>`
+const StyledSingleInput = styled.input<StyledSingleInputProps & { theme: TTheme }>`
   aspect-ratio: 4/5;
   width: 1.5ch;
   font-size: ${fontSize.xxl};

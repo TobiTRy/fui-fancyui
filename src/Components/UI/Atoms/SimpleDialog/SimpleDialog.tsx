@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { styled } from 'styled-components';
 import { animated, useSpring } from '@react-spring/web';
+
 import { borderRadius, spacingPx } from '../../Design/designSizes';
 import { TUiColorsType } from '../../Design/color/designColor';
 import { TLayer } from '../../Design/color/generateColorSteps';
 import getColorsForComponent from '../../Design/color/colorCalculatorForComponet';
+import { TTheme } from '@/Components/UI/Design/color/themeStore';
 
 // Define the styled component for the dialog
-const StyledDialog = styled(animated.div)<{theme: TUiColorsType, $themeType?: keyof TUiColorsType, $layer?: TLayer}>`
+const StyledDialog = styled(animated.div)<{theme: TTheme, $themeType?: keyof TUiColorsType, $layer?: TLayer}>`
   position: fixed;
   top: 50%;
   left: 50%;

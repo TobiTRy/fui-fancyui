@@ -1,10 +1,10 @@
 import { css, styled } from 'styled-components';
 
-import { TUiColorsType } from '../../Design/color/designColor';
 import { borderRadius } from '../../Design/designSizes';
 import generateThemeDesignForComponent from '../../HelperFunctions/designFunctions/generateThemeDesignForComponent/generateThemeDesignForComponent';
-import { IStyledChip } from './Chip';
 import IStyledPrefixAndOmitter from '../../Interface/IStyledPrefixAndOmiter.model';
+import { IStyledChip } from './Chip';
+import { TTheme } from '@/Components/UI/Design/color/themeStore';
 
 const sizes = {
   sm: {
@@ -20,7 +20,7 @@ const sizes = {
 
 // Define the styled component for the chip
 type TChipSize = IStyledPrefixAndOmitter<IStyledChip, 'children' | 'onClick'>;
-export const StyledChip = styled.div<TChipSize & { theme: TUiColorsType }>`
+export const StyledChip = styled.div<TChipSize & { theme: TTheme }>`
   border: none;
   height: ${({ $size }) => ($size ? sizes[$size].height : sizes.md.height)};
   cursor: pointer;

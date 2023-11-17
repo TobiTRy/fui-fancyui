@@ -6,6 +6,7 @@ import { generateOutlineStyle } from './utils/generateOutlineStyle';
 
 import IStyledPrefixAndPicker from '../../../Interface/IStyledPrefixAndPicker.model';
 import { getSimpletColorThemeType } from '../getOpositColorThemeType';
+import { TTheme } from '@/Components/UI/Design/color/themeStore';
 
 export interface IGenerateThemeDesignForComponentProps {
   themeType?: keyof TUiColorsType;
@@ -19,7 +20,7 @@ export interface IGenerateThemeDesignForComponentProps {
   useSimpleTextColor?: boolean;
 }
 
-export type IGenerateThemeDesignForComponent = IStyledPrefixAndPicker<IGenerateThemeDesignForComponentProps> & { theme: TUiColorsType };
+export type IGenerateThemeDesignForComponent = IStyledPrefixAndPicker<IGenerateThemeDesignForComponentProps> & { theme: TTheme };
 // --------------------------------------------------------------------------- //
 // -------  The main function to generate a style for the components -- ------ //
 // --------------------------------------------------------------------------- //

@@ -1,9 +1,10 @@
 import styled, { css } from "styled-components";
+
 import { fontSize } from "../../Design/designSizes";
 import { textShadow } from "../../Design/shadows";
-import { TUiColorsType } from "../../Design/color/designColor";
+import { TTheme } from "@/Components/UI/Design/color/themeStore";
 
-export const MenuItem = styled.button<{theme: TUiColorsType}>`
+export const MenuItem = styled.button<{theme: TTheme}>`
   width: 100%;
   height: 100%;
   border-radius: 50%;
@@ -32,7 +33,7 @@ export const MenuItem = styled.button<{theme: TUiColorsType}>`
 `;
 
 
-export const Label = css<{ $isOpen: boolean, $labelAlign?: 'left' | 'right', theme: TUiColorsType }>`
+export const Label = css<{ $isOpen: boolean, $labelAlign?: 'left' | 'right', theme: TTheme }>`
   position: absolute;
   top: 50%;
   transform: translateY(-50%);

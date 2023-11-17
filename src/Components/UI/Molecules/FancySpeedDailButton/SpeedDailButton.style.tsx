@@ -1,7 +1,9 @@
 import { styled } from 'styled-components';
+
 import { spacingPx } from '../../Design/designSizes';
 import { boxShadow } from '../../Design/shadows';
 import { TUiColorsType } from '../../Design/color/designColor';
+import { TTheme } from '@/Components/UI/Design/color/themeStore';
 
 const SpeedDailButtonSize = 60;
 
@@ -19,7 +21,7 @@ export const SpeedDialContainer = styled.div`
   width: ${SpeedDailButtonSize + 'px'};
 `;
 
-export const Button = styled.button<{ $isOpen: boolean; theme: TUiColorsType }>`
+export const Button = styled.button<{ $isOpen: boolean; theme?: TTheme }>`
   position: relative;
   background-color: ${({ theme }) => theme.colors.accent[0]};
   color: ${({ theme }) => theme.colors.secondary[0]};
@@ -48,7 +50,7 @@ export const Button = styled.button<{ $isOpen: boolean; theme: TUiColorsType }>`
   }
 `;
 
-export const Ring = styled.div<{ $isOpen: boolean; theme: TUiColorsType }>`
+export const Ring = styled.div<{ $isOpen: boolean; theme?: TUiColorsType }>`
   position: absolute;
   height: ${SpeedDailButtonSize + 'px'};
   width: ${SpeedDailButtonSize + 'px'};

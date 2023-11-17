@@ -5,15 +5,15 @@ import IStyledPrefixAndOmiter from '../../Interface/IStyledPrefixAndOmiter.model
 import { spacingPx } from '../../Design/designSizes';
 import edgeCalculation from '../../HelperFunctions/designFunctions/edgeCaluculation';
 
-import { TUiColorsType } from '../../Design/color/designColor';
 import { boxShadow } from '../../Design/shadows';
 import getColorsForComponent from '../../Design/color/colorCalculatorForComponet';
+import { TTheme } from '@/Components/UI/Design/color/themeStore';
 
 
 // the converted $ styling props for the card
 type IStyledCard = IStyledPrefixAndOmiter<StyledCardProps>;
 //the main design of the card
-export const StyledCard = styled.div<IStyledCard & { theme: TUiColorsType }>`
+export const StyledCard = styled.div<IStyledCard & { theme: TTheme }>`
   ${({ theme, $themeType = 'primary', $layer, $textLayer }) =>
     getColorsForComponent({ theme, $themeType, $layer, $textLayer })}
   overflow: hidden;
