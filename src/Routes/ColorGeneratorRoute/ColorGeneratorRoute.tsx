@@ -18,13 +18,13 @@ const BackGroundBox = styled.div<{ theme: TUiColorsType }>`
 export default function ColorGeneratorRoute() {
   const theme = themeStore((state) => state.theme);
   //get keys of primary
-  const primaryKeys = Object?.keys(theme?.primary);
-  const accentKeys = Object?.keys(theme?.accent);
-  const secondaryKeys = Object?.keys(theme?.secondary);
-  const infoKeys = Object?.keys(theme?.info);
-  const warningKeys = Object?.keys(theme?.warning);
-  const errorKeys = Object?.keys(theme?.error);
-  const successKeys = Object?.keys(theme?.success);
+  const primaryKeys = Object?.keys(theme?.colors.primary);
+  const accentKeys = Object?.keys(theme?.colors.accent);
+  const secondaryKeys = Object?.keys(theme?.colors.secondary);
+  const infoKeys = Object?.keys(theme?.colors.info);
+  const warningKeys = Object?.keys(theme?.colors.warning);
+  const errorKeys = Object?.keys(theme?.colors.error);
+  const successKeys = Object?.keys(theme?.colors.success);
 
   return (
     <div style={{ display: 'flex' }}>
