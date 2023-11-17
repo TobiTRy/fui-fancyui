@@ -8,7 +8,7 @@ type TSpacings = keyof typeof spacingPx;
 type DesktopFontSizes = typeof fontSizes.desktop;
 type MobileFontSizes = typeof fontSizes.mobile;
 
-type TTheme = {
+export type TTheme = {
   colors: TUiColorsType;
   spacing: {
     [key in TSpacings]: string;
@@ -19,11 +19,11 @@ type TTheme = {
   fontSizes: {
     mobile: MobileFontSizes;
     desktop: DesktopFontSizes;
-  }
+  };
 };
 
 type ThemeState = {
-  theme: TUiColorsType;
+  theme: TTheme;
   isDarkTheme: boolean;
   switchTheme: () => void;
   updateTheme: (colors: IUiColorPops) => void;
@@ -31,22 +31,35 @@ type ThemeState = {
 
 // the store for the theme
 const themeStore = create<ThemeState>((set, get) => ({
-  theme: uiColors,
+  theme: {
+    colors: uiColors,
+    spacing: spacingPx,
+    borderRadius: borderRadius,
+    fontSizes: fontSizes,
+  },
   isDarkTheme: true,
   switchTheme: () => {
     regenerateUiColors(get().isDarkTheme);
-    set({
+    set((state) => ({
       isDarkTheme: !get().isDarkTheme,
       theme: {
-        ...uiColors,
-        primary: get().isDarkTheme ? uiColors.secondary : uiColors.primary,
-        secondary: get().isDarkTheme ? uiColors.primary : uiColors.secondary,
+        ...state.theme,
+        colors: {
+          ...uiColors,
+          primary: get().isDarkTheme ? uiColors.secondary : uiColors.primary,
+          secondary: get().isDarkTheme ? uiColors.primary : uiColors.secondary,
+        },
       },
-    });
+    }));
   },
   updateTheme: (colors) => {
     updateThemeColors(colors);
-    set({ theme: { ...uiColors } });
+    set((state) => ({
+      theme: {
+        ...state.theme,
+        colors: uiColors,
+      },
+    }));
   },
 }));
 
