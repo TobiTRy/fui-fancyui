@@ -23,7 +23,7 @@ export const ErrorMessage = styled.p<{theme: TUiColorsType}>`
   margin: 0;
   margin-top: ${spacingPx.xxs};
   font-size: ${fontSize.extrasm};
-  color: ${({theme}) => theme.error[0]};
+  color: ${({theme}) => theme.colors.error[0]};
 `;
 
 //the input/label/underline are all wrapped in thid container

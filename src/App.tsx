@@ -64,7 +64,7 @@ const OwnUl = styled.ul<{ theme: TUiColorsType }>`
 
   li {
     a {
-      color: ${({ theme }) => theme.secondary[0]};
+      color: ${({ theme }) => theme.colors.secondary[0]};
       text-decoration: none;
     }
   }

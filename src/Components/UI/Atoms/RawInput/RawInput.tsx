@@ -15,7 +15,7 @@ const RawInput = styled.input<IRawInput>`
   width: 100%;
   appearance: none;
   background-color: transparent;
-  color: ${({ theme }) => theme.secondary[0]};
+  color: ${({ theme }) => theme.colors.secondary[0]};
   text-align: ${({ $align }) => ($align !== 'center' ? 'left' : 'center')};
   border: none;
   outline: none;

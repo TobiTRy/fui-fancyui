@@ -17,7 +17,7 @@ export const InputWrapper = styled.div<IInputWrapper>`
 
   input {
     ${({ $status, theme }) =>
-      $status?.isError ? `border-color: ${theme.error[0]}` : $status?.isSucceed ? `border-color: ${theme.success[0]};` : ''};
+      $status?.isError ? `border-color: ${theme.colors.error[0]}` : $status?.isSucceed ? `border-color: ${theme.colors.success[0]};` : ''};
     transition: border-color 0.3s ease-in-out;
   }
 `;

@@ -8,12 +8,12 @@ import { TUiColorsType } from '../../Design/color/designColor';
 // Define a styled component for the button wrapper
 export const ButtonWrapper = styled.div<{ $isActive: boolean, theme: TUiColorsType }>`
   button {
-    color: ${({$isActive, theme}) => $isActive && theme.accent[0]};
+    color: ${({$isActive, theme}) => $isActive && theme.colors.accent[0]};
     ${simpleColorTransition}
     padding: ${spacingPx.sm};
 
     &:hover {
-      color: ${({$isActive, theme}) => $isActive && theme.accent[0]};
+      color: ${({$isActive, theme}) => $isActive && theme.colors.accent[0]};
     }
   }
 `;

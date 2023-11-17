@@ -7,7 +7,7 @@ import { TUiColorsType } from '../../Design/color/designColor';
 const StyledSwipeUpDash = styled.div<{theme: TUiColorsType}>`
     width: 50px;
     height: 3px;
-    background-color: ${({theme}) => theme.secondary[0]};
+    background-color: ${({theme}) => theme.colors.secondary[0]};
     border-radius: 3px;
 `;
 

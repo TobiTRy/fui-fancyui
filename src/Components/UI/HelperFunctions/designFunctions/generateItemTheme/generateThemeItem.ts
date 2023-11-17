@@ -21,7 +21,7 @@ const calcTextColor = ({ $textColor, $themeType, $outlined }: IcalcTextColor) =>
 
   //  if the userer profides a $textColor use this
   if ($textColor) return theme[$textColor][0];
-  if ($themeType === 'transparent') return theme.secondary[0];
+  if ($themeType === 'transparent') return theme.colors.secondary[0];
   if ($outlined) return theme[$themeType ?? 'secondary'][0];
 
   return getOpositColorContrast($themeType ?? 'secondary');
@@ -109,7 +109,7 @@ const generateNormal = (props: IGenerateNormalitem) => {
     padding: ${paddings[$size]};
 
     &:hover {
-      ${$themeType === 'transparent' ? 'color: ' + theme.secondary[1] : ''};
+      ${$themeType === 'transparent' ? 'color: ' + theme.colors.secondary[1] : ''};
       ${$themeType !== 'transparent' && boxShadow.sm};
       background-color: ${hoverBackgroundColorStyle};
     }

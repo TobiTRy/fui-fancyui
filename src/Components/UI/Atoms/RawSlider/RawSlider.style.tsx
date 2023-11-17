@@ -8,7 +8,7 @@ const DragableThumb = css<{theme: TUiColorsType}>`
   height: 30px;
   width: 30px;
   border-radius: 50%;
-  background: ${({theme}) => theme.accent[0]};
+  background: ${({theme}) => theme.colors.accent[0]};
   cursor: ew-resize;
   ${boxShadow.sm}
   transition: background 0.1s ease-in-out;
@@ -23,7 +23,7 @@ export const StyledRawSlider = styled.input<{theme: TUiColorsType, $themeType?: 
   margin: 10px 0 12px 0;
   background: ${({theme, $themeType = 'secondary', $layer = 4}) => getBackgroundColor({theme, $themeType, $layer})};
   border-radius: 5px;
-  background-image: ${({theme}) => `linear-gradient(90deg, ${theme.accent[0]}, ${theme.accent[1]})`};
+  background-image: ${({theme}) => `linear-gradient(90deg, ${theme.colors.accent[0]}, ${theme.colors.accent[1]})`};
   background-size: 70% 100%;
   background-repeat: no-repeat;
   outline: none;

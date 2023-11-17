@@ -24,9 +24,9 @@ export const AlignedInputLabel = styled(InputLabel)<IAlignedInputLabel>`
   color: ${({ $colorState, theme, $themeType = 'secondary', $layer = 4 }) => {
     switch ($colorState) {
       case 'error':
-        return theme.error[0];
+        return theme.colors.error[0];
       case 'active':
-        return theme.accent[0];
+        return theme.colors.accent[0];
       default:
         return getTextColor({ theme, $themeType, $textLayer: $layer });
     }

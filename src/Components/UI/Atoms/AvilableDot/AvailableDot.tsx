@@ -14,11 +14,11 @@ const AvailableDot = styled.div<{ $available?: IAvailableDot; theme?: TUiColorsT
   background-color: ${({ $available = 'completly', theme }) => {
     switch ($available) {
       case 'completly':
-        return  theme.success[0];
+        return  theme.colors.success[0];
       case 'partially':
-        return theme.warning[0];
+        return theme.colors.warning[0];
       case 'not':
-        return theme.error[0];
+        return theme.colors.error[0];
       case 'transparent':
         return 'transparent';
     }

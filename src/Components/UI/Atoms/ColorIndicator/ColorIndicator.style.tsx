@@ -19,8 +19,8 @@ export const Indicator = styled.div.attrs<{ $color: string, theme: TUiColorsType
   },
 }))<{ $isActive: boolean }>`
   border-radius: 50% 50% 50% 0;
-  border: 1.5px solid ${({theme}) => theme.secondary[0]};
-  background-color: ${({theme}) => theme.secondary[0]};
+  border: 1.5px solid ${({theme}) => theme.colors.secondary[0]};
+  background-color: ${({theme}) => theme.colors.secondary[0]};
   ${boxShadow.sm};
   position: absolute;
   top: ${({ $isActive }) => ($isActive ? '-105px' : '-5px')};

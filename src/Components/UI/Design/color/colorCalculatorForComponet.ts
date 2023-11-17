@@ -1,7 +1,9 @@
+import Color from 'color';
 import { css } from 'styled-components';
 import checkThemeOrColor from './ckeckThemeOrColor';
+
 import { TUiColorsType, TthemeColorGroup } from './designColor';
-import Color from 'color';
+import { TTheme } from './themeStore';
 
 // Define the types for the arguments that will be passed to the getBackgroundColor function
 type IGetBackgroundColor = Pick<IGetColorForComponent, '$themeType' | '$customColor' | '$layer' | 'theme'>;
@@ -18,11 +20,11 @@ export function getBackgroundColor({ theme, $themeType, $customColor, $layer }: 
   } 
   // If a theme type was provided and no valid custom color was set, use the corresponding color from the theme
   else if ($themeType) {
-    proviedColor = theme[$themeType][$layer ?? 0];
+    proviedColor = theme.colors[$themeType][$layer ?? 0];
   }
 
   // Return the background color as a styled-component CSS string
-  return proviedColor || theme.primary[0];
+  return proviedColor || theme.colors.primary[0];
 }
 
 // --------------------------------------------------------------------------- //
@@ -44,19 +46,19 @@ export function getTextColor({ theme, $themeType, $customTextColor, $textLayer, 
   } 
   // If the theme type is 'primary', use the corresponding secondary color from the theme
   else if ($themeType === 'primary' && turnColorTheme) {
-    proviedColor = theme.secondary[$textLayer ?? 0];
+    proviedColor = theme.colors.secondary[$textLayer ?? 0];
   } 
   // If the theme type is 'secondary', use the corresponding primary color from the theme
   else if ($themeType === 'secondary' && turnColorTheme) {
-    proviedColor = theme.primary[$textLayer ?? 0];
+    proviedColor = theme.colors.primary[$textLayer ?? 0];
   } 
   // If the theme type is 'accent', use the corresponding accent color from the theme
   else if ($themeType === 'accent') {
-    proviedColor = Color(theme.accent[$textLayer ?? 0]).isDark() ? theme.secondary[$textLayer ?? 0] : theme.primary[$textLayer ?? 0];
+    proviedColor = Color(theme.colors.accent[$textLayer ?? 0]).isDark() ? theme.colors.secondary[$textLayer ?? 0] : theme.colors.primary[$textLayer ?? 0];
   }
 
   // Return the text color as a styled-component CSS string
-  return proviedColor ?? theme[$themeType][$textLayer ?? 0];
+  return proviedColor ?? theme.colors[$themeType][$textLayer ?? 0];
 }
 
 
@@ -66,7 +68,7 @@ export function getTextColor({ theme, $themeType, $customTextColor, $textLayer, 
 
 // Define the types for the arguments that will be passed to the getColorsForComponent function
 type IGetColorForComponent = {
-  theme: TUiColorsType;
+  theme: TTheme;
   $themeType: keyof TUiColorsType;
   $customColor?: string | TthemeColorGroup;
   $customTextColor?: string | TthemeColorGroup;

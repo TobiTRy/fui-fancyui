@@ -25,7 +25,7 @@ interface IProgressBarFillProps {
 const ProgressBarFill = styled.div<IProgressBarFillProps>`
   height: 100%;
   width: ${({ width }) => width}%;
-  background-color: ${({ theme }) => theme.accent[0]};
+  background-color: ${({ theme }) => theme.colors.accent[0]};
   border-radius: ${borderRadius.complete} 0 0 ${borderRadius.complete};
   transition: width 0.2s ease-out;
 `;

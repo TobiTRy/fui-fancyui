@@ -10,8 +10,8 @@ const preview: Preview = {
     backgrounds: {
       default: 'dark',
       values: [
-        { name: 'light', value: themeStore.getState().theme.secondary[0] },
-        { name: 'dark', value: themeStore.getState().theme.primary[0] },
+        { name: 'light', value: themeStore.getState().theme.colors.secondary[0] },
+        { name: 'dark', value: themeStore.getState().theme.colors.primary[0] },
       ],
     },
     controls: {

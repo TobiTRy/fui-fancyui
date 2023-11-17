@@ -28,7 +28,7 @@ export const ContentWrapper = styled.div<IContentWrapper>`
   cursor: pointer;
   margin: 0 auto;
   color: ${({ $isActive, theme, $layer = 0, $themeType = 'secondary' }) =>
-    $isActive ? theme.accent[0] : getBackgroundColor({ theme, $themeType, $layer })};
+    $isActive ? theme.colors.accent[0] : getBackgroundColor({ theme, $themeType, $layer })};
   transition: all 0.3s ease-in-out;
   ${({ $disabled }) => $disabled && disabledStyle}
   padding-bottom: ${spacingPx.xs};
@@ -37,7 +37,7 @@ export const ContentWrapper = styled.div<IContentWrapper>`
   /* This is a media query that tests if the primary input mechanism of the device (e.g., mouse or touch screen) is capable of hovering  */
   @media (hover: hover) {
     &:hover {
-      color: ${({ $disabled, theme }) => !$disabled && theme.accent[0]};
+      color: ${({ $disabled, theme }) => !$disabled && theme.colors.accent[0]};
     }
   }
 `;

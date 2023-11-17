@@ -5,9 +5,9 @@ import { simpleColorTransition } from '../../Design/simpleTransition';
 import { TUiColorsType } from '../../Design/color/designColor';
 
 const colorCalculation = ({ theme, $isBright, $isDarkTheme }: { theme: TUiColorsType; $isBright: boolean; $isDarkTheme: boolean }) => {
-  if($isDarkTheme) return ($isBright ? theme.primary[0] : theme.secondary[0]);
+  if($isDarkTheme) return ($isBright ? theme.colors.primary[0] : theme.colors.secondary[0]);
 
-  return ($isBright ? theme.secondary[0] : theme.primary[0]);
+  return ($isBright ? theme.colors.secondary[0] : theme.colors.primary[0]);
 }
 
 
@@ -31,7 +31,7 @@ export const Content = styled.div<{ $isBright: boolean; theme: TUiColorsType, $i
   }
 
   &:active, &:hover {
-    color: ${({theme, $isBright, $isDarkTheme}) => ($isBright && $isDarkTheme) ? theme.primary[4] : theme.secondary[4] };
+    color: ${({theme, $isBright, $isDarkTheme}) => ($isBright && $isDarkTheme) ? theme.colors.primary[4] : theme.colors.secondary[4] };
   }
 `;
 

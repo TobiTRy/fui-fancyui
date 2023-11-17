@@ -23,8 +23,8 @@ export const StyledDay = styled.button<IStyledDay & { theme: TUiColorsType }>`
   align-items: center;
   border-radius: ${borderRadius.complete};
   color: ${({ $isCurrentDay, theme, $themeType = 'secondary', $layer }) =>
-    $isCurrentDay ? theme.accent[0] : getTextColor({ $themeType, $textLayer: $layer, theme })};
-  border: ${({ $selected, theme }) => ($selected ? `1px solid ${theme.accent[0]}` : `none`)};
+    $isCurrentDay ? theme.colors.accent[0] : getTextColor({ $themeType, $textLayer: $layer, theme })};
+  border: ${({ $selected, theme }) => ($selected ? `1px solid ${theme.colors.accent[0]}` : `none`)};
   background-color: transparent;
   padding: 0;
   width: 80%;
@@ -43,14 +43,14 @@ export const StyledDay = styled.button<IStyledDay & { theme: TUiColorsType }>`
 
   &:hover,
   &:active {
-    border: 1px solid ${({ theme }) => theme.accent[0]};
+    border: 1px solid ${({ theme }) => theme.colors.accent[0]};
   }
 
   ${({ $range, theme }) =>
     $range?.start &&
     css`
       border-radius: 40% 5px 5px 40%;
-      background-image: linear-gradient(to right, ${theme.accent[0]}, transparent);
+      background-image: linear-gradient(to right, ${theme.colors.accent[0]}, transparent);
       color: white;
     `}
 
@@ -58,14 +58,14 @@ export const StyledDay = styled.button<IStyledDay & { theme: TUiColorsType }>`
     $range?.end &&
     `
     border-radius: 5px 40% 40% 5px;
-    background-image: linear-gradient(to left, ${theme.accent[0]}, transparent);
+    background-image: linear-gradient(to left, ${theme.colors.accent[0]}, transparent);
     color: white;
   `}
 
   ${({ $range, theme }) =>
     $range?.inRange &&
     `
-    background-color: ${theme.accent[0]};
+    background-color: ${theme.colors.accent[0]};
     color: white;
   `}
 

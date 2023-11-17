@@ -19,6 +19,6 @@ export const WrapperSVG = styled.div<{theme: TUiColorsType}>`
   svg {
     width: 24px;
     height: 24px;
-    fill: ${({ theme }) => theme.secondary[0]};
+    fill: ${({ theme }) => theme.colors.secondary[0]};
   }
 `;

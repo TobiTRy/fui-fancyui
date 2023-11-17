@@ -8,13 +8,13 @@ const DropDownContainer = styled.div<{theme: TUiColorsType}>`
   position: relative;
   display: inline-block;
   font-size: ${fontSize.md};
-  color: ${({theme}) => theme.secondary.main};
+  color: ${({theme}) => theme.colors.secondary.main};
   user-select: none;
 `;
 
 // Styled button to trigger the dropdown
 const DropDownTrigger = styled.div<{theme: TUiColorsType}>`
-  background-color: ${({theme}) => theme.primary.main};
+  background-color: ${({theme}) => theme.colors.primary.main};
   padding: ${spacingPx.sm};
   cursor: pointer;
   text-align: center;
@@ -24,7 +24,7 @@ const DropDownTrigger = styled.div<{theme: TUiColorsType}>`
 const DropDownMenu = styled.div<{ $isOpen: boolean, theme: TUiColorsType }>`
   display: ${(props) => (props.$isOpen ? 'block' : 'none')};
   position: absolute;
-  background-color: ${({theme}) => theme.primary.main};;
+  background-color: ${({theme}) => theme.colors.primary.main};;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
@@ -37,7 +37,7 @@ const DropDownItem = styled.div<{theme: TUiColorsType}>`
   cursor: pointer;
 
   &:hover {
-    background-color: ${({theme}) => theme.accent.main};;
+    background-color: ${({theme}) => theme.colors.accent.main};;
   }
 `;
 

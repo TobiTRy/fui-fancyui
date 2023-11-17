@@ -25,11 +25,11 @@ const Wrapper = styled.div<{ $value?: number; theme: TUiColorsType }>`
     $value === 100 &&
     css`
       & label {
-        color: ${theme.accent[0]};
+        color: ${theme.colors.accent[0]};
       }
 
       & span {
-        color: ${theme.accent[0]};
+        color: ${theme.colors.accent[0]};
       }
     `}
 `;

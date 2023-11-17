@@ -6,7 +6,7 @@ import { TUiColorsType } from '../../Design/color/designColor';
 // --------------------------------------------------------------------------- //
 const InputLabel = styled.label<{theme?: TUiColorsType}>`
   width: 100%;
-  color: ${({theme}) => theme.secondary[1]};
+  color: ${({theme}) => theme.colors.secondary[1]};
   font-weight: bold;
   pointer-events: none;
   user-select: none;

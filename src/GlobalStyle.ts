@@ -5,8 +5,8 @@ const GlobalStyle = createGlobalStyle<{ theme: TUiColorsType }>`
   body {
     margin: 0;
     padding: 0;
-    background: ${({ theme }) => theme.primary[0]};
-    color: ${({ theme }) => theme.secondary[0]};
+    background: ${({ theme }) => theme.colors.primary[0]};
+    color: ${({ theme }) => theme.colors.secondary[0]};
     font-family: DMSans, Helvetica, Sans-Serif;
 
     .App {

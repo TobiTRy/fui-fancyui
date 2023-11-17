@@ -15,9 +15,9 @@ interface ICalcIconColor {
 
 const calcIconColor = ({ theme, $isActive, $errorMessage, $themeType, $layer }: ICalcIconColor): string => {
   if (!$errorMessage) {
-    return $isActive ? theme.accent[0] : getBackgroundColor({ theme, $themeType, $layer });
+    return $isActive ? theme.colors.accent[0] : getBackgroundColor({ theme, $themeType, $layer });
   } else {
-    return theme.error[0];
+    return theme.colors.error[0];
   }
 };
 

@@ -20,6 +20,6 @@ export const ContainerInputs = styled.div<{ theme: TUiColorsType }>`
     padding: 0;
     font-size: 0.8rem;
     text-transform: uppercase;
-    color: ${({ theme }) => theme.secondary[0]};
+    color: ${({ theme }) => theme.colors.secondary[0]};
   }
 `;

@@ -29,9 +29,9 @@ const UnderLine = styled.i<IStyledUnderline & { theme: TUiColorsType }>`
     opacity: ${({ $isActive }) => ($isActive ? 1 : 0)};
     height: 100%;
     background: ${({ $colorState, theme }) => {
-      if ($colorState === 'error') return css`linear-gradient(90deg, ${theme.error[1]}, ${theme.error[0]})`;
-      if ($colorState === 'active') return css`linear-gradient(90deg, ${theme.accent[1]}, ${theme.accent[0]})`;
-      if ($colorState === 'default') return css`linear-gradient(90deg, ${theme.secondary[0]}, ${theme.secondary[4]})`;
+      if ($colorState === 'error') return css`linear-gradient(90deg, ${theme.colors.error[1]}, ${theme.colors.error[0]})`;
+      if ($colorState === 'active') return css`linear-gradient(90deg, ${theme.colors.accent[1]}, ${theme.colors.accent[0]})`;
+      if ($colorState === 'default') return css`linear-gradient(90deg, ${theme.colors.secondary[0]}, ${theme.colors.secondary[4]})`;
     }};
 
     // Define the transition styles for the gradient overlay

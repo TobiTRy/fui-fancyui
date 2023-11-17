@@ -36,7 +36,7 @@ export const StyledChip = styled.div<TChipSize & { theme: TUiColorsType }>`
   ${({ $isActive, theme }) => {
     if ($isActive) {
       return css`
-        box-shadow: 0 0 0 1px ${theme.accent[0]};
+        box-shadow: 0 0 0 1px ${theme.colors.accent[0]};
       `;
     }
   }}

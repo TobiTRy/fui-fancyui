@@ -61,9 +61,9 @@ const SpinnerContainer = styled.div<{ $size?: keyof typeof sizes }>`
 const generateBorder = (size: string, theme: TUiColorsType): CSSProp => {
   return css`
     border-top: ${size} solid transparent;
-    border-right: ${size} solid ${theme.accent[0]};
+    border-right: ${size} solid ${theme.colors.accent[0]};
     border-bottom: ${size} solid transparent;
-    border-left: ${size} solid ${theme.accent[0]};
+    border-left: ${size} solid ${theme.colors.accent[0]};
   `;
 };
 
