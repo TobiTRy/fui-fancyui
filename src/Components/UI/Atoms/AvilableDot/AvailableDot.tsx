@@ -2,12 +2,13 @@ import { styled } from 'styled-components';
 
 import { borderRadius } from '../../Design/designSizes';
 import { TUiColorsType } from '../../Design/color/designColor';
+import { TTheme } from '../../Design/color/themeStore';
 
 // --------------------------------------------------------------------------- //
 // ---------- A little Circle that indicates if something is avilable -------- //
 // --------------------------------------------------------------------------- //
 export type IAvailableDot = 'completly' | 'partially' | 'not' | 'transparent';
-const AvailableDot = styled.div<{ $available?: IAvailableDot; theme?: TUiColorsType }>`
+const AvailableDot = styled.div<{ $available?: IAvailableDot; theme?: TTheme }>`
   width: 4px;
   height: 4px;
   border-radius: ${borderRadius.complete};
