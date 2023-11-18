@@ -1,7 +1,7 @@
 import React, { useState, createRef, useEffect } from 'react';
 
 import SingleInputAtom from '../../Atoms/SingleInputAtom/SingleInputAtom';
-import InputStatus from '../../Design/Interfaces/IStatus';
+import InputStatus from '../../Interface/IStatus';
 import { InputWrapper } from './SingleInputs.style';
 import { TUiColorsType } from '../../Design/color/designColor';
 import { TLayer } from '../../Design/color/generateColorSteps';

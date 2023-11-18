@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 
-import { ModalStatus } from '../../Interface/ModalStatus';
+import { TModalStatus } from '../../Interface/ModalStatus';
 import { IModal } from '../../Molecules/Modal/Modal';
 
 
@@ -9,7 +9,7 @@ type TModalConfig = Omit<IModal, 'id' | 'children' | 'status' | 'isOpen' >;
 type IModals = {
   id: string;
   children: React.ReactNode;
-  status: ModalStatus;
+  status: TModalStatus;
   config?: TModalConfig;
 };
 

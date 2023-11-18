@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
 
-import InputStatus from "../../Design/Interfaces/IStatus";
+import InputStatus from "../../Interface/IStatus";
 import { TTheme } from '@/Components/UI/Design/color/themeStore';
 
 

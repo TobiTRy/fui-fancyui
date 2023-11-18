@@ -8,7 +8,7 @@ import UseDelay from '../../HelperFunctions/hooks/UseDelay';
 import ScalingSection from '../ScalingSection/ScalingSection';
 import { Content, ContentBox, WrapperAnimated, WrapperContent, WrapperModal } from './SwipeUpModal.style';
 import { ISwipeUpModal } from './ISwipeUpModal.model';
-import { ModalStatus } from '../../Interface/ModalStatus';
+import { TModalStatus } from '../../Interface/ModalStatus';
 
 // --------------------------------------------------------------------------- //
 // ----------- The Modal Molecule the displays the complete modal - ---------- //
@@ -16,7 +16,7 @@ import { ModalStatus } from '../../Interface/ModalStatus';
 export default function SwipeUpModal(props: ISwipeUpModal) {
   const { children, isOpen, isCloseAble, isScalable, onClose, themeType, layer, backdrop = true } = { ...defaultProps, ...props };
 
-  const [statusModal, setStatusModal] = useState<ModalStatus>('closed');
+  const [statusModal, setStatusModal] = useState<TModalStatus>('closed');
   const [modalPosition, setModalPosition] = useState({ height: '100%' });
   const [initialHeight, setInitialHeight] = useState<number | undefined>();
   const { height } = useWindowDimensions();
