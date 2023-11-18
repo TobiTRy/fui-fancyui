@@ -1,7 +1,6 @@
 import { styled } from 'styled-components';
 
 import { borderRadius } from '../../Design/designSizes';
-import { TUiColorsType } from '../../Design/color/designColor';
 import { TTheme } from '../../Design/color/themeStore';
 
 // --------------------------------------------------------------------------- //
