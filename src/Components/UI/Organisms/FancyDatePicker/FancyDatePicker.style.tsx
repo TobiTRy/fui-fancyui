@@ -11,7 +11,7 @@ export const DatePickerContainer = styled.div<{ theme: TTheme; $themeType?: keyo
   flex-direction: column;
   align-items: center;
   ${({ theme, $themeType = 'primary', $layer = 1 }) => getColorsForComponent({ theme, $themeType, $layer })};
-  border-radius: ${borderRadius.xl};
+  border-radius: ${({theme}) => theme.borderRadius.xl};
   padding: 20px;
   width: 100%;
   box-sizing: border-box;

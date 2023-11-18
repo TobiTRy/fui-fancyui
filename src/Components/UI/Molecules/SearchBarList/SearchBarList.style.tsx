@@ -3,7 +3,7 @@ import { borderRadius } from "../../Design/designSizes";
 
 // Styled component for the search bar list
 export const StyledSearchBarList = styled.div`
-  border-radius: ${borderRadius.xl};
+  border-radius: ${({theme}) => theme.borderRadius.xl};
   z-index: 100;
 `;
 

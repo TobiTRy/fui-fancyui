@@ -13,6 +13,6 @@ export const SliderContainer = styled.div`
   height: 20px;
   background: linear-gradient(to right, red 0%, yellow 17%, lime 33%, cyan 50%, blue 67%, magenta 83%, red 100%);
   cursor: pointer;
-  border-radius: ${borderRadius.sm};
+  border-radius: ${({theme}) => theme.borderRadius.sm};
   user-select: none;
 `;

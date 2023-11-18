@@ -30,7 +30,7 @@ export const Container = styled.div<IToastMessage>`
   flex-direction: column;
   align-items: left;
   color: ${({ $messageType, theme, $layer = 5 }) => getBackgroundColor({$themeType: $messageType, theme, $layer}) }; //theme[$messageType]['5']
-  border-radius: ${borderRadius.sm};
+  border-radius: ${({theme}) => theme.borderRadius.sm};
   padding: ${({theme}) => theme.spacing.lg};
   background-color: ${({ theme }) => colorTransparencyCalculator(theme.colors.primary['0'], 0.95)};
   border-left: 4px solid ${({ $messageType, theme, $layer = 3}) => getBackgroundColor({$themeType: $messageType, theme, $layer})};

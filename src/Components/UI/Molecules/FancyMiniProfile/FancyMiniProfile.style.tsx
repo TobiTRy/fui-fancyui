@@ -24,7 +24,7 @@ export const Wrapper = styled.div<IWrapper>`
   gap: ${({ $gapSpacing }) => ($gapSpacing ? spacingPx[$gapSpacing] : ({theme}) => theme.spacing.xxs)};
   ${({ $themeType = 'primary', $layer = 2, theme }) => getColorsForComponent({ $themeType, $layer, theme })};
   ${({$shadow}) => $shadow && boxShadow.sm}
-  border-radius: ${borderRadius.complete};
+  border-radius: ${({theme}) => theme.borderRadius.complete};
 `;
 
 // this container wraps the texts (Heading, Subheading)

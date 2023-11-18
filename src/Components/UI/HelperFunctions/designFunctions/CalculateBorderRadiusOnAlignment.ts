@@ -45,11 +45,11 @@ const CalculateBorderRadiusOnAlignment = ({ $alignHorizontal, $alignVertical, $r
       bottom: 0;
       left: 50%;
       transform: translateX(-50%);
-      border-radius: ${borderRadius.md} ${borderRadius.md} 0 0;
+      border-radius: ${({theme}) => theme.borderRadius.md} ${({theme}) => theme.borderRadius.md} 0 0;
     `;
   } else {
     return css`
-      border-radius: ${borderRadius.md};
+      border-radius: ${({theme}) => theme.borderRadius.md};
     `;
   }
 };

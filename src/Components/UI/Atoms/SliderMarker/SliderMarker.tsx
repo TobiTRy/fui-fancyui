@@ -24,7 +24,7 @@ const Marker = styled.div<{ theme: TTheme }>`
   width: 100%;
   height: 100%;
   box-shadow: 0px 0px 1px 1px ${({ theme }) => colorTransparencyCalculator(theme.colors.secondary[0], 0.5)};
-  border-radius: ${borderRadius.sm};
+  border-radius: ${({theme}) => theme.borderRadius.sm};
 `;
 
 // --------------------------------------------------------------------------- //

@@ -2,21 +2,21 @@ import React, { ChangeEvent, useState } from 'react';
 import { styled, css } from 'styled-components';
 import FancyTextInput from '../../Organisms/FancyTextInput/FancyTextInput';
 
-import { spacingPx, borderRadius } from '../../Design/designSizes';
 import SVGSearch from '../../SVGIcons/SVGSearch';
 import FancySVGAtom from '../../Atoms/FancySVGAtom/FancySVGAtom';
 import { TRawInputAlign } from '../../Atoms/RawInput/RawInput';
 import { TUiColorsType } from '../../Design/color/designColor';
 import { TLayer } from '../../Design/color/generateColorSteps';
+import { TTheme } from '@/Components/UI/Design/color/themeStore';
 
 // Styled component for the search bar
-const StyledSearchBar = styled.div<{ $isActive?: boolean }>`
+const StyledSearchBar = styled.div<{ $isActive?: boolean, theme: TTheme }>`
   display: flex;
   align-items: center;
-  border-radius: ${({ $isActive }) =>
+  border-radius: ${({ $isActive, theme }) =>
     $isActive
-      ? `${borderRadius.lg} ${borderRadius.lg} 0px 0px`
-      : borderRadius.lg}; // Set the border radius based on whether the search bar list is active
+      ? `${theme.borderRadius.lg} ${theme.borderRadius.lg} 0px 0px`
+      : theme.borderRadius.lg}; // Set the border radius based on whether the search bar list is active
   gap: ${({theme}) => theme.spacing.sm};
   z-index: 1;
 

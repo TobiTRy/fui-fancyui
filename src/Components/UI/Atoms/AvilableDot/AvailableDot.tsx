@@ -1,6 +1,5 @@
 import { styled } from 'styled-components';
 
-import { borderRadius } from '../../Design/designSizes';
 import { TTheme } from '../../Design/color/themeStore';
 
 // --------------------------------------------------------------------------- //
@@ -10,7 +9,7 @@ export type IAvailableDot = 'completly' | 'partially' | 'not' | 'transparent';
 const AvailableDot = styled.div<{ $available?: IAvailableDot; theme?: TTheme }>`
   width: 4px;
   height: 4px;
-  border-radius: ${borderRadius.complete};
+  border-radius: ${({theme}) => theme.borderRadius.complete};
   background-color: ${({ $available = 'completly', theme }) => {
     switch ($available) {
       case 'completly':

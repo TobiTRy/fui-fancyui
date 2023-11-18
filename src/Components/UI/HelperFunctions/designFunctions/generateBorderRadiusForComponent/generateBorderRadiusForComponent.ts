@@ -12,15 +12,15 @@ export const generateBorderRadiusForComponent = (size?: 'sm' | 'md' | 'lg', roun
   switch (size) {
     case 'sm':
       return css`
-        border-radius: ${borderRadius.sm};
+        border-radius: ${({theme}) => theme.borderRadius.sm};
       `;
     case 'md':
       return css`
-        border-radius: ${borderRadius.md};
+        border-radius: ${({theme}) => theme.borderRadius.md};
       `;
     case 'lg':
       return css`
-        border-radius: ${borderRadius.lg};
+        border-radius: ${({theme}) => theme.borderRadius.lg};
       `;
     default:
       return css`

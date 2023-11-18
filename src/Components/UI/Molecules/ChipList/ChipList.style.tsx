@@ -20,7 +20,7 @@ export const generateChipListStyle = (size: 'sm' | 'md' | 'lg', sytemMessage?: T
   switch (size) {
     case 'sm':
       generatedStyle = css`
-        border-radius: ${borderRadius.xxl};
+        border-radius: ${({theme}) => theme.borderRadius.xxl};
         ul {
           padding: ${({theme}) => theme.spacing.md};
           gap: ${({theme}) => theme.spacing.sm};
@@ -29,7 +29,7 @@ export const generateChipListStyle = (size: 'sm' | 'md' | 'lg', sytemMessage?: T
       break;
     case 'md':
       generatedStyle = css`
-        border-radius: ${borderRadius.xxl};
+        border-radius: ${({theme}) => theme.borderRadius.xxl};
         ul {
           padding: ${({theme}) => theme.spacing.md};
           gap: ${({theme}) => theme.spacing.sm};
@@ -38,7 +38,7 @@ export const generateChipListStyle = (size: 'sm' | 'md' | 'lg', sytemMessage?: T
       break;
     case 'lg':
       generatedStyle = css`
-        border-radius: ${borderRadius.xxl};
+        border-radius: ${({theme}) => theme.borderRadius.xxl};
         ul {
           padding: ${({theme}) => theme.spacing.md};
           gap: ${({theme}) => theme.spacing.md};

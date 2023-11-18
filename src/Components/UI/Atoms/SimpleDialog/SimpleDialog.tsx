@@ -15,7 +15,7 @@ const StyledDialog = styled(animated.div)<{theme: TTheme, $themeType?: keyof TUi
   left: 50%;
   transform: translate(-50%, -50%);
   padding: ${({theme}) => theme.spacing.xl};
-  border-radius: ${borderRadius.lg};
+  border-radius: ${({theme}) => theme.borderRadius.lg};
   border: none;
   width: 70%;
   max-height: 85%;

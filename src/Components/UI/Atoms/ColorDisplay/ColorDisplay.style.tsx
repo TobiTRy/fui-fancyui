@@ -72,6 +72,6 @@ export const ColorDisplayContainer = styled.div.attrs(colorDisplayColor)<IColorD
   position: absolute;
   width: 100%;
   height: 100%;
-  border-radius: ${borderRadius.sm};
+  border-radius: ${({theme}) => theme.borderRadius.sm};
   z-index: 1;
 `;
