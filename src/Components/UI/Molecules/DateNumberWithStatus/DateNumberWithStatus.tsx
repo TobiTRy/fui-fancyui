@@ -3,12 +3,12 @@ import { styled } from 'styled-components';
 
 import DateNumberAtom from '../../Atoms/DateNumberAtom/DateNumberAtom';
 import AvilableDot, { IAvailableDot } from '../../Atoms/AvilableDot/AvailableDot';
-import { spacingPx } from '../../Design/designSizes';
 import { IRange } from '../../Atoms/DateNumberAtom/DateNumberAtom';
 import { TLayer } from '../../Design/color/generateColorSteps';
-import { TUiColorsType } from '../../Design/color/designColor';
+import { TUiColors } from '@/Components/UI/Interface/TUiColors';
+import { TTheme } from '@/Components/UI/Design/color/themeStore';
 
-const StyledDateNumberWithStatus = styled.div`
+const StyledDateNumberWithStatus = styled.div<{theme: TTheme}>`
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -26,7 +26,7 @@ interface IDateNumberWithStatus {
   isCurrentDay?: boolean;
   range?: IRange;
   onClick?: () => void;
-  themeType?: keyof TUiColorsType;
+  themeType?: TUiColors;
   layer?: TLayer;
 }
 export default function DateNumberWithStatus(props: IDateNumberWithStatus) {

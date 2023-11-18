@@ -2,7 +2,7 @@ import React from 'react';
 import { styled } from 'styled-components';
 
 import Typography from '../../Atoms/Typography/Typography';
-import { TUiColorsType } from '../../Design/color/designColor';
+import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '../../Design/color/generateColorSteps';
 import { getTextColor } from '../../Design/color/colorCalculatorForComponet';
 import { TTheme } from '@/Components/UI/Design/color/themeStore';
@@ -23,7 +23,7 @@ const LogoWrapper = styled.div`
   height: 100%;
 `;
 
-const StyledHeading = styled.a<{ theme: TTheme; $themeType?: keyof TUiColorsType; $layer?: TLayer }>`
+const StyledHeading = styled.a<{ theme: TTheme; $themeType?: TUiColors; $layer?: TLayer }>`
   display: flex;
   gap: ${({theme}) => theme.spacing.sm};
   align-items: center;
@@ -36,7 +36,7 @@ interface IHeaderTitleWithLogo {
   title?: React.ReactNode | string;
   logo?: React.ReactNode;
   linkTo?: string;
-  themeType?: keyof TUiColorsType;
+  themeType?: TUiColors;
   layer?: TLayer;
 }
 export default function HeaderTitleWithLogo(props: IHeaderTitleWithLogo) {

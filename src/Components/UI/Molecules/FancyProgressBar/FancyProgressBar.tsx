@@ -3,9 +3,9 @@ import { styled, css } from 'styled-components';
 
 import { TAlign } from '../../Atoms/AlignedInputLabel/AlignedInputLabel';
 import { AlignedInputLabel } from '../../Atoms/AlignedInputLabel/AlignedInputLabel';
-import { spacingPx } from '../../Design/designSizes';
+
 import ProgressBar, { IProgressBar } from '../../Atoms/ProgressBar/ProgressBar';
-import { TUiColorsType } from '../../Design/color/designColor';
+import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '../../Design/color/generateColorSteps';
 import { TTheme } from '@/Components/UI/Design/color/themeStore';
 
@@ -40,7 +40,7 @@ interface IFancyProgressBar extends IProgressBar {
   labelAlign?: TAlign;
   progressCount?: boolean;
   progressAlign?: TAlign;
-  themeType?: keyof TUiColorsType;
+  themeType?: TUiColors;
   textLayer?: TLayer;
   layer?: TLayer;
 }

@@ -2,7 +2,7 @@ import { styled, css } from 'styled-components';
 
 import { spacingPx } from '../../Design/designSizes';
 import { TTextAlign } from './FancyMiniProfile';
-import { TUiColorsType } from '../../Design/color/designColor';
+import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '../../Design/color/generateColorSteps';
 import getColorsForComponent from '../../Design/color/colorCalculatorForComponet';
 import { boxShadow } from '../../Design/shadows';
@@ -12,7 +12,7 @@ import { TTheme } from '@/Components/UI/Design/color/themeStore';
 interface IWrapper {
   $size?: keyof typeof spacingPx;
   $gapSpacing?: keyof typeof spacingPx;
-  $themeType?: keyof TUiColorsType;
+  $themeType?: TUiColors;
   $layer?: TLayer;
   theme: TTheme;
   $shadow?: boolean;

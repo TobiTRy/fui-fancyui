@@ -8,7 +8,7 @@ import useVisibleMonths from './helperFunctions/useVisibleMonths';
 import { IDisabledDateSettings } from '../MonthWithDays/IDisableDateSettings.model';
 import {IExternalMonthWithDays} from '../MonthWithDays/IExternalMonthWithDays.model';
 import { IDateArray } from './IDateArray.model';
-import { TUiColorsType } from '../../Design/color/designColor';
+import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '../../Design/color/generateColorSteps';
 
 
@@ -23,7 +23,7 @@ interface ICalendar {
   handleSwitchFromTo?: (change: 'from' | 'to') => void;
   disabledDateSetting?: IDisabledDateSettings;
   externalMonthsWithDays?: IExternalMonthWithDays[];
-  themeType?: keyof TUiColorsType;
+  themeType?: TUiColors;
   layer?: TLayer;
 }
 export default function RangeCalendar(props: ICalendar) {

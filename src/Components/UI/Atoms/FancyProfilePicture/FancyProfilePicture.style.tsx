@@ -1,8 +1,9 @@
 import { styled } from 'styled-components';
 
 import { IFancyProfilePicture } from './FancyProfilePicture';
-import { TUiColorsType } from '../../Design/color/designColor';
+import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '../../Design/color/generateColorSteps';
+import { TTheme } from '../../Design/color/themeStore';
 
 // Set the border based on the prop
 type TBorderRadius = IFancyProfilePicture['rounded'];
@@ -57,8 +58,8 @@ interface IPlaceholderProps {
   $size: TSize | string;
   $color?: string;
   $backgroundColor?: string;
-  theme?: TUiColorsType;
-  $themeType?: keyof TUiColorsType;
+  theme?: TTheme;
+  $themeType?: TUiColors;
   $layer?: TLayer;
 }
 

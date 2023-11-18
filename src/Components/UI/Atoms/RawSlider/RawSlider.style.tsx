@@ -1,7 +1,7 @@
 import { styled, css } from 'styled-components';
 
 import { boxShadow } from '../../Design/shadows';
-import { TUiColorsType } from '../../Design/color/designColor';
+import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '../../Design/color/generateColorSteps';
 import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
 import { TTheme } from '@/Components/UI/Design/color/themeStore';
@@ -17,7 +17,7 @@ const DragableThumb = css<{theme: TTheme}>`
   border: none;
 `;
 
-export const StyledRawSlider = styled.input<{theme: TTheme, $themeType?: keyof TUiColorsType; $layer?: TLayer;}>`
+export const StyledRawSlider = styled.input<{theme: TTheme, $themeType?: TUiColors; $layer?: TLayer;}>`
   -webkit-appearance: none;
   width: 100%;
   margin: 0;

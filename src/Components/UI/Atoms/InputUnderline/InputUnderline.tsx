@@ -2,7 +2,7 @@ import React from 'react';
 import { styled, css } from 'styled-components';
 
 import IStyledPrefixAndPicker from '../../Interface/IStyledPrefixAndPicker.model';
-import { TUiColorsType } from '../../Design/color/designColor';
+import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '../../Design/color/generateColorSteps';
 import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
 import { TTheme } from '@/Components/UI/Design/color/themeStore';
@@ -46,7 +46,7 @@ interface IFancyUnderline {
   colorState?: 'error' | 'active' | 'default';
   isActive?: boolean;
   autoWidth?: boolean;
-  themeType?: keyof TUiColorsType;
+  themeType?: TUiColors;
   layer?: TLayer;
 }
 // --------------------------------------------------------------------------- //

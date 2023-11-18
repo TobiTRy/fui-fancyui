@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { styled } from 'styled-components';
 
-import { spacingPx } from '../../Design/designSizes';
 import Typography from '../Typography/Typography';
-import { TUiColorsType } from '../../Design/color/designColor';
+import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '../../Design/color/generateColorSteps';
 import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
 import { TTheme } from '@/Components/UI/Design/color/themeStore';
 
-const WeekdaysConatiner = styled.div<{ theme: TTheme; $themeType?: keyof TUiColorsType; $layer?: TLayer }>`
+const WeekdaysConatiner = styled.div<{ theme: TTheme; $themeType?: TUiColors; $layer?: TLayer }>`
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   width: 100%;
@@ -25,7 +24,7 @@ const WeekdaysConatiner = styled.div<{ theme: TTheme; $themeType?: keyof TUiColo
 // ---------- This Atom creates a List of all Weekdas from Mo - Su ----------- //
 // --------------------------------------------------------------------------- //
 interface IWeekDays {
-  themeType?: keyof TUiColorsType;
+  themeType?: TUiColors;
   layer?: TLayer;
 }
 export default function WeekDays({ themeType, layer }: IWeekDays) {

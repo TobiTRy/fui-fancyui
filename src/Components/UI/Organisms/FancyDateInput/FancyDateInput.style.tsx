@@ -1,14 +1,14 @@
 import { css, styled } from "styled-components";
 import RawInput, { IRawInput } from "../../Atoms/RawInput/RawInput";
 import { getBackgroundColor } from "../../Design/color/colorCalculatorForComponet";
-import { TUiColorsType } from "../../Design/color/designColor";
 import { TLayer } from "../../Design/color/generateColorSteps";
 import { IDateInputProps } from "../../Molecules/DateInput/DateInput";
 import { simpleColorTransition } from "../../Design/simpleTransition";
+import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 
 interface IRawInputWrapper extends IRawInput {
   value?: string;
-  $themeType?: keyof TUiColorsType;
+  $themeType?: TUiColors;
   $layer?: TLayer;
 }
 export const StyledDatePicker = styled(RawInput)<IRawInputWrapper & IDateInputProps>`

@@ -1,4 +1,4 @@
-import { TUiColorsType } from "../../Design/color/designColor";
+import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from "../../Design/color/generateColorSteps";
 
 export type TTextAlign = 'left' | 'center' | 'right';
@@ -14,7 +14,7 @@ type WithoutLabel = {
 };
 
 export type IListDivider = {
-  themeType?: keyof TUiColorsType;
+  themeType?: TUiColors;
   layer?: TLayer;
   icon?: React.ReactNode;
 } & (WithLabel | WithoutLabel);

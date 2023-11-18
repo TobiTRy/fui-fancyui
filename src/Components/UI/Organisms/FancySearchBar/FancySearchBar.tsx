@@ -4,7 +4,7 @@ import { styled } from 'styled-components';
 import SearchBar from '../../Molecules/SearchBar/SearchBar';
 import SearchBarList from '../../Molecules/SearchBarList/SearchBarList';
 import { TLayer } from '../../Design/color/generateColorSteps';
-import { TUiColorsType } from '../../Design/color/designColor';
+import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 
 // Styled component for the entire search bar
 const StyledFancySearchBar = styled.div`
@@ -38,7 +38,7 @@ interface IFancySearchBar {
   children?: React.ReactNode;
   searchListWidth?: string;
   searchValue?: string;
-  themeType?: keyof TUiColorsType;
+  themeType?: TUiColors;
   layer?: TLayer;
 }
 

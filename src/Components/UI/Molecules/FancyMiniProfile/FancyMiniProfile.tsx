@@ -6,7 +6,7 @@ import { TextWrapper, Wrapper } from './FancyMiniProfile.style';
 import { fontSizeVariants } from '../../Atoms/Typography/TypographyStyleVariants';
 
 import { spacingPx } from '../../Design/designSizes';
-import { TUiColorsType } from '../../Design/color/designColor';
+import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '../../Design/color/generateColorSteps';
 
 // the interface for the different sizes
@@ -52,7 +52,7 @@ interface IFancyMiniprofile {
   subHeadingText?: string;
   imageURL?: string;
   size?: keyof typeof pillSettings;
-  themeType?: keyof TUiColorsType;
+  themeType?: TUiColors;
   layer?: TLayer;
   shadow?: boolean;
 }

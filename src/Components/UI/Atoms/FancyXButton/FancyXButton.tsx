@@ -2,14 +2,14 @@ import React from 'react';
 import { styled } from 'styled-components';
 import Color from 'color';
 
-import { spacingPx, fontSize } from '../../Design/designSizes';
+import { fontSize } from '../../Design/designSizes';
 import { simpleColorTransition } from '../../Design/simpleTransition';
-import { TUiColorsType } from '../../Design/color/designColor';
+import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '../../Design/color/generateColorSteps';
 import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
 import { TTheme } from '../../Design/color/themeStore';
 
-type FancyXButtonDesign = Exclude<keyof TUiColorsType, 'transparent'>;
+type FancyXButtonDesign = Exclude<TUiColors, 'transparent'>;
 
 interface IStyledFancyXButton {
   $themeType?: FancyXButtonDesign;

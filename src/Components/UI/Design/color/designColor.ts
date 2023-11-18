@@ -19,7 +19,7 @@ export type IUiColorNames = keyof typeof themeColors | 'transparent';
 
 export type TthemeColorGroup = { [key: string]: string };
 export type TUiColorsType = { [key in IUiColorNames]: TthemeColorGroup };
-export type TSytemMessage = Exclude<keyof TUiColorsType, 'primary' | 'secondary' | 'accent' | 'accentDarken' | 'transparent'>;
+export type TUiColorsSystemMessage = Exclude<keyof TUiColorsType, 'primary' | 'secondary' | 'accent' | 'accentDarken' | 'transparent'>;
 
 export let uiColors: TUiColorsType = {} as TUiColorsType;
 

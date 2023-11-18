@@ -1,7 +1,7 @@
 import { styled, css } from 'styled-components';
 import themeStore, { TTheme } from '../../Design/color/themeStore';
 
-import { TUiColorsType } from '../../Design/color/designColor';
+import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '../../Design/color/generateColorSteps';
 import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
 import { TypographyList } from '../../Atoms/Typography/Typography';
@@ -29,10 +29,10 @@ export const tabSwitchItemSizes = {
 //generates the style from the dynamic values of the tab
 interface IListButtonStyle {
   $wide?: boolean;
-  $textColor?: keyof TUiColorsType;
+  $textColor?: TUiColors;
   $iconAlign?: 'left' | 'right';
   theme: TTheme;
-  $themeType?: keyof TUiColorsType;
+  $themeType?: TUiColors;
   $layer?: TLayer;
   $size?: keyof typeof tabSwitchItemSizes;
   $hasLabel?: boolean;

@@ -3,14 +3,14 @@ import { styled } from 'styled-components';
 
 import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
 import { TLayer } from '../../Design/color/generateColorSteps';
-import { TUiColorsType } from '../../Design/color/designColor';
+import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 import { TTheme } from '../../Design/color/themeStore';
 
 
 interface IStyledSwipeUpContainer {
   $giveSpace: boolean;
   theme: TTheme;
-  $themeType?: keyof TUiColorsType;
+  $themeType?: TUiColors;
   $layer?: TLayer;
 }
 
@@ -37,7 +37,7 @@ interface ISwipeUpContainer {
   children: React.ReactNode;
   style?: { height: string };
   isScalable?: boolean;
-  themeType?: keyof TUiColorsType;
+  themeType?: TUiColors;
   layer?: TLayer;
 }
 export default function SwipeUpContainer({ children, isScalable = true, style, themeType, layer }: ISwipeUpContainer) {

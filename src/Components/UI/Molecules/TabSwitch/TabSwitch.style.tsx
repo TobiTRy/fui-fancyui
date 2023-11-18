@@ -1,11 +1,11 @@
 import { styled } from 'styled-components';
 
 import { borderRadius, spacingPx } from '../../Design/designSizes';
-import { TUiColorsType } from '../../Design/color/designColor';
 import { tabSwitchSizes } from './TabSwitch';
 import { TLayer } from '../../Design/color/generateColorSteps';
 import { TTheme } from '@/Components/UI/Design/color/themeStore';
 import { TBorderRadiusSizes } from '@/Components/UI/Interface/TBorderRadius';
+import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 
 // Define the interface for the styled-component
 export interface IFancyTabSwitchStyle {
@@ -19,7 +19,7 @@ export interface IFancyTabSwitchStyle {
   $outlined?: boolean;
   theme: TTheme;
   $layer?: TLayer;
-  $themeType?: keyof TUiColorsType;
+  $themeType?: TUiColors;
 }
 
 // ----------------------------------------------------------- //

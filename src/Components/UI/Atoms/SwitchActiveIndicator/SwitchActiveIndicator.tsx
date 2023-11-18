@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { TUiColorsType } from '../../Design/color/designColor';
+import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 import { spacingPx } from '../../Design/designSizes';
 import { TLayer } from '../../Design/color/generateColorSteps';
 import { ActiveSwitchIndicator, Wrapper } from './SwitchActiveIndicator.style';
@@ -8,7 +8,7 @@ import { TBorderRadiusSizes } from '@/Components/UI/Interface/TBorderRadius';
 
 export interface IActiveSwitchIndicator {
   $itemNumber: number;
-  $themeType?: keyof TUiColorsType;
+  $themeType?: TUiColors;
   $layer?: TLayer;
   $tabSpacing?: keyof typeof spacingPx;
   $type?: 'bolb' | 'underline' | 'topline';

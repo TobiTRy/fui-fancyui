@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 
 import InputLabel from '../InputLabel/InputLabel';
-import { TUiColorsType } from '../../Design/color/designColor';
+import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '../../Design/color/generateColorSteps';
 import { getTextColor } from '../../Design/color/colorCalculatorForComponet';
 import { TTheme } from '@/Components/UI/Design/color/themeStore';
@@ -12,7 +12,7 @@ export interface IAlignedInputLabel {
   $align?: TAlign;
   $colorState?: 'error' | 'active' | 'default';
   theme?: TTheme;
-  $themeType?: keyof TUiColorsType;
+  $themeType?: TUiColors;
   $layer?: TLayer;
 }
 //the aligned label is only with align left or centerd {align?: string; active?: boolean}

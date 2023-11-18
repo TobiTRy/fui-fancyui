@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
-import { getBackgroundColor, getTextColor } from '../../Design/color/colorCalculatorForComponet';
-import { TUiColorsType } from '../../Design/color/designColor';
+import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '../../Design/color/generateColorSteps';
 import { TTheme } from '@/Components/UI/Design/color/themeStore';
+import { getBackgroundColor, getTextColor } from '../../Design/color/colorCalculatorForComponet';
 
 type StyledMenuProps = {
-  $themeType?: keyof TUiColorsType;
+  $themeType?: TUiColors;
   $layer?: TLayer;
   theme: TTheme;
   as?: 'a' | 'button';

@@ -1,8 +1,8 @@
 import { css, styled } from 'styled-components';
 
-import { TSytemMessage } from '../../Design/color/designColor';
 import { sytemMessageIndicatorStyle } from '../../HelperFunctions/designFunctions/generateSytemIncicator';
 import themeStore from '@/Components/UI/Design/color/themeStore';
+import { TUiColorsSystemMessage } from '@/Components/UI/Interface/TUiColors';
 
 export const FancyBoxStyle = css``;
 
@@ -14,7 +14,7 @@ export const ChipContainer = styled.ul`
   padding: 0;
 `;
 
-export const generateChipListStyle = (size: 'sm' | 'md' | 'lg', sytemMessage?: TSytemMessage) => {
+export const generateChipListStyle = (size: 'sm' | 'md' | 'lg', sytemMessage?: TUiColorsSystemMessage) => {
   const styemIndicatorStyle = sytemMessageIndicatorStyle(sytemMessage);
   const getTheme = themeStore.getState().theme;
   let generatedStyle;

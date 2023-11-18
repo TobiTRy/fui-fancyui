@@ -3,12 +3,12 @@ import { styled } from 'styled-components';
 
 import RawInput, { TRawInputAlign } from '../../Atoms/RawInput/RawInput';
 import PasswordEye from '../../Atoms/PasswordEye/PasswordEye';
-import { TUiColorsType } from '../../Design/color/designColor';
+import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '../../Design/color/generateColorSteps';
 import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
 import { TTheme } from '@/Components/UI/Design/color/themeStore';
 
-const WrapperEye = styled.div<{ theme: TTheme; $themeType?: keyof TUiColorsType; $layer?: TLayer }>`
+const WrapperEye = styled.div<{ theme: TTheme; $themeType?: TUiColors; $layer?: TLayer }>`
   position: absolute;
   bottom: 6px;
   right: 4px;
@@ -22,7 +22,7 @@ export interface IPasswordInputProps extends Omit<InputHTMLAttributes<HTMLInputE
   value?: string;
   align?: TRawInputAlign;
   activeHandler?: (value: boolean) => void;
-  themeType?: keyof TUiColorsType;
+  themeType?: TUiColors;
   layer?: TLayer;
 }
 // --------------------------------------------------------------------------- //

@@ -1,9 +1,8 @@
 import { css, styled } from 'styled-components';
 
 import { IRange } from './DateNumberAtom';
-import { borderRadius } from '../../Design/designSizes';
 import { disabledStyle } from '../../HelperFunctions/designFunctions/disableStyle';
-import { TUiColorsType } from '../../Design/color/designColor';
+import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '../../Design/color/generateColorSteps';
 import { getTextColor } from '../../Design/color/colorCalculatorForComponet';
 import { TTheme } from '@/Components/UI/Design/color/themeStore';
@@ -15,7 +14,7 @@ interface IStyledDay {
   $range?: IRange;
   $isCurrentDay?: boolean;
   $selected?: boolean;
-  $themeType?: keyof TUiColorsType;
+  $themeType?: TUiColors;
   $layer?: TLayer;
 }
 export const StyledDay = styled.button<IStyledDay & { theme: TTheme }>`

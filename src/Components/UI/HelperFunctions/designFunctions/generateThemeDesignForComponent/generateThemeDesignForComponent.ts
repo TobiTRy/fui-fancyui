@@ -1,4 +1,4 @@
-import { TUiColorsType } from '../../../Design/color/designColor';
+import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '../../../Design/color/generateColorSteps';
 import { generateNormalStyle } from './utils/generateNormalStyle';
 import { generateTransparentStyle } from './utils/generateTransparentStyle';
@@ -9,10 +9,10 @@ import { getSimpletColorThemeType } from '../getOpositColorThemeType';
 import { TTheme } from '@/Components/UI/Design/color/themeStore';
 
 export interface IGenerateThemeDesignForComponentProps {
-  themeType?: keyof TUiColorsType;
-  hoverColor?: Exclude<keyof TUiColorsType, 'transparent'>;
-  textColor?: Exclude<keyof TUiColorsType, 'transparent'>;
-  textHover?: Exclude<keyof TUiColorsType, 'transparent'>;
+  themeType?: TUiColors;
+  hoverColor?: Exclude<TUiColors, 'transparent'>;
+  textColor?: Exclude<TUiColors, 'transparent'>;
+  textHover?: Exclude<TUiColors, 'transparent'>;
   layer?: TLayer;
   outlined?: boolean;
   backgroundStrength?: number;

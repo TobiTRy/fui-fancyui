@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 
-import { TUiColorsType } from "../../Design/color/designColor";
+import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from "../../Design/color/generateColorSteps";
 import { getBackgroundColor } from "../../Design/color/colorCalculatorForComponet";
 import { disabledStyle } from "../../HelperFunctions/designFunctions/disableStyle";
@@ -10,7 +10,7 @@ interface IContentWrapper {
   $isActive?: boolean;
   $disabled?: boolean;
   theme: TTheme;
-  $themeType?: keyof TUiColorsType;
+  $themeType?: TUiColors;
   $layer?: TLayer;
 }
 

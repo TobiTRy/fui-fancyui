@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { TUiColorsType } from '../../Design/color/designColor';
+import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '../../Design/color/generateColorSteps';
 import { StyledMenuItem } from './MenuItem.style';
 
@@ -9,7 +9,7 @@ type HTMLAnchorProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & { as: 'a'
 
 type MenueItemProps = {
   children?: React.ReactNode;
-  themeType?: keyof TUiColorsType;
+  themeType?: TUiColors;
   layer?: TLayer;
 } & (HTMLButtonProps | HTMLAnchorProps);
 // --------------------------------------------------------------------------- //

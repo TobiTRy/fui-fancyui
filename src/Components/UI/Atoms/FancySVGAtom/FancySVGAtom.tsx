@@ -2,7 +2,7 @@ import React from 'react';
 import { styled } from 'styled-components';
 
 import { ISVGAtomProps, IStyledSVGAtom, sizes } from './FancySVGAtom.model';
-import { TUiColorsType } from '../../Design/color/designColor';
+import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
 import { TTheme } from '@/Components/UI/Design/color/themeStore';
 
@@ -10,7 +10,7 @@ interface ICalcIconColor {
   theme: TTheme;
   $isActive?: boolean;
   $errorMessage?: string | undefined;
-  $themeType: keyof TUiColorsType;
+  $themeType: TUiColors;
   $layer?: number;
 }
 

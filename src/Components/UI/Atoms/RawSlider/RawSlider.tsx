@@ -1,7 +1,7 @@
 import React, { InputHTMLAttributes, useRef } from 'react';
 import { StyledRawSlider } from './RawSlider.style';
 import { TLayer } from '../../Design/color/generateColorSteps';
-import { TUiColorsType } from '../../Design/color/designColor';
+import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 
 
 
@@ -12,7 +12,7 @@ export interface IRawSlider extends InputHTMLAttributes<HTMLInputElement> {
   id?: string;
   activeHandler?: (value: boolean) => void;
   ref?: React.RefObject<HTMLInputElement>;
-  themeType?: keyof TUiColorsType;
+  themeType?: TUiColors;
   layer?: TLayer;
 }
 export default function RawSlider(props: IRawSlider) {

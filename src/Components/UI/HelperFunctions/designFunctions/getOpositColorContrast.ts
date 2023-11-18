@@ -1,5 +1,6 @@
 import Color from 'color';
-import { TUiColorsType } from '../../Design/color/designColor';
+
+import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '../../Design/color/generateColorSteps';
 import themeStore from '../../Design/color/themeStore';
 
@@ -13,7 +14,7 @@ const filpThemeColor = (isLightColor: boolean,) => {
   
 };
 
-export const getOpositColorContrast = (color: keyof TUiColorsType, layer?: TLayer) => {
+export const getOpositColorContrast = (color: TUiColors, layer?: TLayer) => {
   const theme = themeStore.getState().theme;
 
   const isCurrentColorLight = Color(theme.colors[color][layer || 0]).isLight();

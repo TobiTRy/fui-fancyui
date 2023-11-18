@@ -2,10 +2,9 @@ import { styled, css } from 'styled-components';
 
 import CalculateBorderRadiusOnAlignment from '../../HelperFunctions/designFunctions/CalculateBorderRadiusOnAlignment';
 import { IFancyUL } from './FancyDropDownUL';
-import { spacingPx } from '../../Design/designSizes';
 import IStyledPrefixAndPicker from '../../Interface/IStyledPrefixAndPicker.model';
 import { boxShadow } from '../../Design/shadows';
-import { TUiColorsType } from '../../Design/color/designColor';
+import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '../../Design/color/generateColorSteps';
 import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
 import { TTheme } from '@/Components/UI/Design/color/themeStore';
@@ -35,7 +34,7 @@ export const WrapperUL = styled.div<IStyledUL>`
 // --------------------------------------------------------------------------- //
 // ------------------- the UL for the items and the style -------------------- //
 // --------------------------------------------------------------------------- //
-export const StyledUL = styled.ul<{ theme: TTheme; $themeType?: keyof TUiColorsType; $layer?: TLayer }>`
+export const StyledUL = styled.ul<{ theme: TTheme; $themeType?: TUiColors; $layer?: TLayer }>`
   display: flex;
   flex-direction: column;
   box-sizing: border-box;

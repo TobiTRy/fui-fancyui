@@ -5,7 +5,7 @@ import FancyTextInput from '../../Organisms/FancyTextInput/FancyTextInput';
 import SVGSearch from '../../SVGIcons/SVGSearch';
 import FancySVGAtom from '../../Atoms/FancySVGAtom/FancySVGAtom';
 import { TRawInputAlign } from '../../Atoms/RawInput/RawInput';
-import { TUiColorsType } from '../../Design/color/designColor';
+import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '../../Design/color/generateColorSteps';
 import { TTheme } from '@/Components/UI/Design/color/themeStore';
 
@@ -31,7 +31,7 @@ interface ISearchBar {
   align?: TRawInputAlign;
   activeHandler?: (isActive: boolean) => void;
   handler?: (value: string) => void;
-  themeType?: keyof TUiColorsType;
+  themeType?: TUiColors;
   layer?: TLayer;
   placerholder?: string;
 }

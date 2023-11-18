@@ -1,16 +1,16 @@
 import React, { InputHTMLAttributes } from 'react';
 
 import { TRawInputAlign } from '../../Atoms/RawInput/RawInput';
-import { TUiColorsType } from '../../Design/color/designColor';
 import { TLayer } from '../../Design/color/generateColorSteps';
 import { StyledDatePicker } from '../../Organisms/FancyDateInput/FancyDateInput.style';
+import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 
 
 type NativeAttrs = Omit<InputHTMLAttributes<HTMLInputElement>, 'type' | 'value'>;
 export type IDateInputPropsWithNativeAttrs = IDateInputProps & NativeAttrs;
 export interface IDateInputProps {
   value?: string;
-  themeType?: keyof TUiColorsType;
+  themeType?: TUiColors;
   layer?: TLayer;
   activeHandler?: (value: boolean) => void;
   align?: TRawInputAlign;

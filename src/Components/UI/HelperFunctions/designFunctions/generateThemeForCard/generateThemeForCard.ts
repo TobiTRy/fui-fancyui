@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 
-import { TUiColorsType } from '../../../Design/color/designColor';
+import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '../../../Design/color/generateColorSteps';
 import IStyledPrefixAndPicker from '../../../Interface/IStyledPrefixAndPicker.model';
 import { getBackgroundColor } from '../../../Design/color/colorCalculatorForComponet';
@@ -10,7 +10,7 @@ import { TTheme } from '@/Components/UI/Design/color/themeStore';
 export interface IgenerateThemeForCard {
   outlined?: boolean;
   layer?: TLayer;
-  themeType?: keyof TUiColorsType;
+  themeType?: TUiColors;
   outlinedBackgroundStrength?: number;
 }
 
