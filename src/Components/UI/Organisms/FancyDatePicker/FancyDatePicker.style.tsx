@@ -17,9 +17,9 @@ export const DatePickerContainer = styled.div<{ theme: TTheme; $themeType?: keyo
   box-sizing: border-box;
 `;
 
-export const WrapperYearSelector = styled.div`
+export const WrapperYearSelector = styled.div<{theme: TTheme}>`
   width: 100%;
-  padding: ${({theme}) => theme.spacing.md} ${({theme}) => theme.spacing.md} ${({theme}) => theme.spacing.md};
+  padding: ${({theme}) => `${theme.spacing.md} ${theme.spacing.md} ${theme.spacing.md}`};
   box-sizing: border-box;
 `;
 
