@@ -57,7 +57,7 @@ export const SaturationGradient = styled.div`
 
 
 // ---------- The Marker ------- //
-export const WrapperMarker = styled.div`
+export const WrapperMarker = styled.div<{theme: TTheme}>`
   position: absolute;
   box-sizing: border-box;
   transform: translate(-50%, -50%);
