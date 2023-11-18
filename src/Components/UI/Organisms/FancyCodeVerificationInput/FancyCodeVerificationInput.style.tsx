@@ -14,7 +14,7 @@ export const MessageContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: ${spacingPx.sm};
+  margin-top: ${({theme}) => theme.spacing.sm};
 `;
 
 export const Message = styled.div<{ $isError?: boolean; theme: TTheme }>`

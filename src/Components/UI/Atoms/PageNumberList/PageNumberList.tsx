@@ -10,7 +10,7 @@ export const ButtonWrapper = styled.div<{ $isActive: boolean, theme: TTheme }>`
   button {
     color: ${({$isActive, theme}) => $isActive && theme.colors.accent[0]};
     ${simpleColorTransition}
-    padding: ${spacingPx.sm};
+    padding: ${({theme}) => theme.spacing.sm};
 
     &:hover {
       color: ${({$isActive, theme}) => $isActive && theme.colors.accent[0]};
@@ -20,7 +20,7 @@ export const ButtonWrapper = styled.div<{ $isActive: boolean, theme: TTheme }>`
 
 export const Wrapper = styled.div`
   display: flex;
-  gap: ${spacingPx.md};
+  gap: ${({theme}) => theme.spacing.md};
 `;
 
 

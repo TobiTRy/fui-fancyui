@@ -2,7 +2,6 @@ import React from 'react';
 import { styled } from 'styled-components';
 
 import Typography from '../../Atoms/Typography/Typography';
-import { spacingPx } from '../../Design/designSizes';
 import { TUiColorsType } from '../../Design/color/designColor';
 import { TLayer } from '../../Design/color/generateColorSteps';
 import { getTextColor } from '../../Design/color/colorCalculatorForComponet';
@@ -26,7 +25,7 @@ const LogoWrapper = styled.div`
 
 const StyledHeading = styled.a<{ theme: TTheme; $themeType?: keyof TUiColorsType; $layer?: TLayer }>`
   display: flex;
-  gap: ${spacingPx.sm};
+  gap: ${({theme}) => theme.spacing.sm};
   align-items: center;
   word-break: keep-all;
   text-decoration: none;

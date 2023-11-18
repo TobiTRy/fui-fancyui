@@ -15,7 +15,7 @@ export const InputWrapper = styled.div<IInputWrapper>`
   flex-wrap: wrap;
   justify-content: center;
   width: 100%;
-  gap: ${spacingPx.md};
+  gap: ${({theme}) => theme.spacing.md};
 
   input {
     ${({ $status, theme }) =>

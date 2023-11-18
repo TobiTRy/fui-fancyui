@@ -19,12 +19,12 @@ const StyledDateOutputFromTo = styled.div<{ theme: TTheme; $themeType?: keyof TU
 
   button:nth-child(1) {
     border-radius: 50px 0 0 50px;
-    padding: ${spacingPx.sm};
+    padding: ${({theme}) => theme.spacing.sm};
   }
 
   button:nth-child(3) {
     border-radius: 0 50px 50px 0;
-    padding: ${spacingPx.sm};
+    padding: ${({theme}) => theme.spacing.sm};
   }
 `;
 
@@ -66,7 +66,7 @@ export default function DateOutputFromTo({ whichIsSelecting, dateFrom, dateTo, h
         onClick={() => handleClickOnDateOutput('from')}
       />
       <VRWrapper>
-        <FancyLine direction='vertical' themeType={swapTheme} thickness='2px' margin={'´${spacingPx.sm}´'} />
+        <FancyLine direction='vertical' themeType={swapTheme} thickness='2px' margin={'´${({theme}) => theme.spacing.sm}´'} />
       </VRWrapper>
       <DateOutput
         themeType={themeType}

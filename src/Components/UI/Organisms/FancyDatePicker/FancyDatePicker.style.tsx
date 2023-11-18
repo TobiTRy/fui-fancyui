@@ -19,12 +19,12 @@ export const DatePickerContainer = styled.div<{ theme: TTheme; $themeType?: keyo
 
 export const WrapperYearSelector = styled.div`
   width: 100%;
-  padding: ${spacingPx.md} ${spacingPx.md} ${spacingPx.md};
+  padding: ${({theme}) => theme.spacing.md} ${({theme}) => theme.spacing.md} ${({theme}) => theme.spacing.md};
   box-sizing: border-box;
 `;
 
 export const WrapperWeekdays = styled.div<{ theme: TTheme, $themeType?: keyof TUiColorsType  }>`
   width: 100%;
   border-bottom: solid 1px ${({ theme, $themeType = 'secondary'  }) => getBackgroundColor({ theme, $themeType })};
-  padding-bottom: ${spacingPx.xxs};
+  padding-bottom: ${({theme}) => theme.spacing.xxs};
 `;

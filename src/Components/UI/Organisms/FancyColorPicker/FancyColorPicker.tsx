@@ -17,7 +17,7 @@ const Wrapper = styled.div`
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  gap: ${spacingPx.md};
+  gap: ${({theme}) => theme.spacing.md};
 `;
 
 // --------------------------------------------------------------------------- //

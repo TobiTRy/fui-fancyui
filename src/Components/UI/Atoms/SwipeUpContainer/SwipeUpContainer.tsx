@@ -25,7 +25,7 @@ const StyledSwipeUpContainer = styled.div<IStyledSwipeUpContainer>`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: ${({ $giveSpace }) => ($giveSpace ? spacingPx.lg : '0')};
+  padding-top: ${({ $giveSpace }) => ($giveSpace ? ({theme}) => theme.spacing.lg : '0')};
   z-index: 101;
   backdrop-filter: blur(4px);
   background-color: ${({ theme, $themeType = 'primary', $layer = 0}) => getBackgroundColor({theme, $themeType, $layer})};

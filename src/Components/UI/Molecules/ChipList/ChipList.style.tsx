@@ -22,8 +22,8 @@ export const generateChipListStyle = (size: 'sm' | 'md' | 'lg', sytemMessage?: T
       generatedStyle = css`
         border-radius: ${borderRadius.xxl};
         ul {
-          padding: ${spacingPx.md};
-          gap: ${spacingPx.sm};
+          padding: ${({theme}) => theme.spacing.md};
+          gap: ${({theme}) => theme.spacing.sm};
         }
       `;
       break;
@@ -31,8 +31,8 @@ export const generateChipListStyle = (size: 'sm' | 'md' | 'lg', sytemMessage?: T
       generatedStyle = css`
         border-radius: ${borderRadius.xxl};
         ul {
-          padding: ${spacingPx.md};
-          gap: ${spacingPx.sm};
+          padding: ${({theme}) => theme.spacing.md};
+          gap: ${({theme}) => theme.spacing.sm};
         }
       `;
       break;
@@ -40,8 +40,8 @@ export const generateChipListStyle = (size: 'sm' | 'md' | 'lg', sytemMessage?: T
       generatedStyle = css`
         border-radius: ${borderRadius.xxl};
         ul {
-          padding: ${spacingPx.md};
-          gap: ${spacingPx.md};
+          padding: ${({theme}) => theme.spacing.md};
+          gap: ${({theme}) => theme.spacing.md};
         }
       `;
   }

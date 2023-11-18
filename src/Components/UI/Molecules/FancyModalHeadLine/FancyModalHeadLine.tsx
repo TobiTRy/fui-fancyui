@@ -11,11 +11,11 @@ const StyledHeadLine = styled.div<{$alignCenter?: boolean}>`
   flex-direction: column;
   justify-content: center;
   width: 100%;
-  gap: ${spacingPx.xxs};
+  gap: ${({theme}) => theme.spacing.xxs};
   align-items: ${({ $alignCenter }) => $alignCenter ? 'center' : 'flex-start'}; 
 
   hr {
-    margin-top: ${spacingPx.xs};
+    margin-top: ${({theme}) => theme.spacing.xs};
     width: 100%;
   }
 `;

@@ -18,7 +18,7 @@ interface IStyledFancyXButton {
 }
 
 const StyledFancyXButton = styled.button<IStyledFancyXButton>`
-  padding: 0 ${spacingPx.sm} ${spacingPx.xxs};
+  padding: 0 ${({theme}) => theme.spacing.sm} ${({theme}) => theme.spacing.xxs};
   background: none;
   color: ${({ $themeType = 'accent', theme, $layer }) => getBackgroundColor({ $themeType, theme, $layer })};
   border: none;

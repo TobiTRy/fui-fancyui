@@ -1,12 +1,18 @@
-import { spacingPx } from '../../../Design/designSizes';
+import themeStore from '@/Components/UI/Design/color/themeStore';
 
 export function generatePadding(offsetPx?: number, spacingLeftRightx2?: boolean) {
   const offset = offsetPx ? offsetPx : 0;
+  const getSpacingFromTheme = themeStore.getState().theme.spacing;
 
   const small =
-    `${parseFloat(spacingPx.xs) * 1.75 + offset}px` + (spacingLeftRightx2 ? ` ${parseFloat(spacingPx.xs) * 3.5 + offset}px` : '');
-  const md = `${parseFloat(spacingPx.sm) * 1.25 + offset}px` + (spacingLeftRightx2 ? ` ${parseFloat(spacingPx.sm) * 2.5 + offset}px` : '');
-  const lg = `${parseFloat(spacingPx.sm) * 1.5 + offset}px` + (spacingLeftRightx2 ? ` ${parseFloat(spacingPx.md) * 2 + offset}px` : '');
+    `${parseFloat(getSpacingFromTheme.xs) * 1.75 + offset}px` +
+    (spacingLeftRightx2 ? ` ${parseFloat(getSpacingFromTheme.xs) * 3.5 + offset}px` : '');
+  const md =
+    `${parseFloat(getSpacingFromTheme.sm) * 1.25 + offset}px` +
+    (spacingLeftRightx2 ? ` ${parseFloat(getSpacingFromTheme.sm) * 2.5 + offset}px` : '');
+  const lg =
+    `${parseFloat(getSpacingFromTheme.sm) * 1.5 + offset}px` +
+    (spacingLeftRightx2 ? ` ${parseFloat(getSpacingFromTheme.md) * 2 + offset}px` : '');
 
   return { sm: small, md: md, lg: lg };
 }

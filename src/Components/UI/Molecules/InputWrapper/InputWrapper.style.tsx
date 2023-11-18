@@ -1,7 +1,7 @@
 import { styled, css } from 'styled-components';
 
 import { disabledStyle } from '../../HelperFunctions/designFunctions/disableStyle';
-import { spacingPx, fontSize } from '../../Design/designSizes';
+import { fontSize } from '../../Design/designSizes';
 import { TUiColorsType } from '../../Design/color/designColor';
 import { TLayer } from '../../Design/color/generateColorSteps';
 import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
@@ -23,7 +23,7 @@ export const ErrorMessage = styled.p<{theme: TTheme}>`
   grid-column: 2;
   grid-row: 2;
   margin: 0;
-  margin-top: ${spacingPx.xxs};
+  margin-top: ${({theme}) => theme.spacing.xxs};
   font-size: ${fontSize.extrasm};
   color: ${({theme}) => theme.colors.error[0]};
 `;
@@ -32,15 +32,15 @@ export const ErrorMessage = styled.p<{theme: TTheme}>`
 export const InputContainer = styled.div<{ $givePadding: boolean, theme: TTheme ,$themeType: keyof TUiColorsType, $layer: TLayer }>`
   width: 100%;
   grid-column: 2/3;
-  ${({ $givePadding }) =>
+  ${({ $givePadding, theme }) =>
     $givePadding &&
     css`
-      padding-top: ${parseFloat(spacingPx.lg) + 2 + 'px'};
+      padding-top: ${parseFloat(theme.spacing.lg) + 2 + 'px'};
     `};
   position: relative;
 
   input {
-    padding: 0px 0px ${parseFloat(spacingPx.xs) + 2 + 'px'};
+    padding: 0px 0px ${({theme}) => parseFloat(theme.spacing.xs) + 2 + 'px'};
   }
   
   svg {

@@ -14,8 +14,8 @@ const StyledDateNumberWithStatus = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: ${spacingPx.xs};
-  padding: ${spacingPx.xs};
+  gap: ${({theme}) => theme.spacing.xs};
+  padding: ${({theme}) => theme.spacing.xs};
 `;
 
 interface IDateNumberWithStatus {

@@ -1,20 +1,22 @@
 import { css } from 'styled-components';
 
-import { borderRadius, spacingPx } from '../../Design/designSizes';
+import { borderRadius } from '../../Design/designSizes';
 import { TSizes } from '../../Interface/TComponentSizes';
+import themeStore from '@/Components/UI/Design/color/themeStore';
 
+const getSpacingFromTheme = themeStore.getState().theme.spacing;
 const sizes = {
   sm: {
     borderRadius: borderRadius.sm,
-    padding: spacingPx.sm,
+    padding: getSpacingFromTheme.sm,
   },
   md: {
     borderRadius: borderRadius.md,
-    padding: spacingPx.md,
+    padding: getSpacingFromTheme.md,
   },
   lg: {
     borderRadius: borderRadius.lg,
-    padding: spacingPx.lg,
+    padding: getSpacingFromTheme.lg,
   },
 };
 

@@ -2,24 +2,25 @@ import React, { useRef, useState } from 'react';
 
 import { ItemWrapper, ULButtonSwitchList } from './TabSwitch.style';
 import FancyTabSwitchButton from '../FancyTabSwitchButton/FancyTabSwitchButton';
-import { borderRadius, spacingPx } from '../../Design/designSizes';
+import { borderRadius } from '../../Design/designSizes';
 import SwitchActiveIndicator from '../../Atoms/SwitchActiveIndicator/SwitchActiveIndicator';
 import { ITabSwitchProps } from './TabSwitch.model';
+import themeStore from '../../Design/color/themeStore';
 
 
 // Define the different sizes for the tab switch
+const getSpacingFromTheme = themeStore.getState().theme.spacing;
 export const tabSwitchSizes = {
   sm: {
     paddingComponent: '4px',
   },
   md: {
-    paddingComponent: spacingPx.xs,
+    paddingComponent: getSpacingFromTheme.xs,
   },
   lg: {
-    paddingComponent: spacingPx.sm,
+    paddingComponent: getSpacingFromTheme.sm,
   },
 };
-
 
 export default function TabSwitch(props: ITabSwitchProps) {
   const {
@@ -40,7 +41,7 @@ export default function TabSwitch(props: ITabSwitchProps) {
     iconAlign,
     activeColor,
   } = props;
-    // Define the state for the currently selected tab
+  // Define the state for the currently selected tab
   const buttonRefs = useRef<React.RefObject<HTMLDivElement>[]>(values.map(() => React.createRef<HTMLDivElement>()));
   const [currentSelected, setCurrentSelect] = useState(currentSelect);
 
@@ -51,7 +52,7 @@ export default function TabSwitch(props: ITabSwitchProps) {
     handler && handler(currentItem?.itemKey!);
   };
 
-  // This handles the navigation with the keyboard 
+  // This handles the navigation with the keyboard
   const handleKeyDown = (event: React.KeyboardEvent, itemKey: string) => {
     const currentIndex = values.findIndex((item) => item.itemKey === itemKey);
     let newIndex = -1;

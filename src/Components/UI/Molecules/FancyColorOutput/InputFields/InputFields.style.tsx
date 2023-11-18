@@ -6,7 +6,7 @@ import { TTheme } from '@/Components/UI/Design/color/themeStore';
 export const WrapperInputs = styled.div`
   display: flex;
   width: 100%;
-  gap: ${spacingPx.sm};
+  gap: ${({theme}) => theme.spacing.sm};
 `;
 
 export const ContainerInputs = styled.div<{ theme: TTheme }>`
@@ -14,7 +14,7 @@ export const ContainerInputs = styled.div<{ theme: TTheme }>`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  gap: ${spacingPx.xs};
+  gap: ${({theme}) => theme.spacing.xs};
 
   p {
     margin: 0;

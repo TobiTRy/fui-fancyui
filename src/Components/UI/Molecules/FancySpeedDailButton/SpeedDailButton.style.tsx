@@ -70,7 +70,7 @@ export const Ring = styled.div<{ $isOpen: boolean; theme?: TTheme }>`
 export const MenueItemWrapper = styled.div`
   position: absolute;
   left: 50%;
-  bottom: ${spacingPx.lg};
+  bottom: ${({theme}) => theme.spacing.lg};
   transform: translateX(-50%);
 `;
 

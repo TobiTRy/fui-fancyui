@@ -17,7 +17,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  gap: ${spacingPx.xl};
+  gap: ${({theme}) => theme.spacing.xl};
 `
 
 

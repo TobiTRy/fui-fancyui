@@ -4,11 +4,11 @@ import { spacingPx } from '../../Design/designSizes';
 import { TTheme } from '@/Components/UI/Design/color/themeStore';
 
 export const MonthContainer = styled.div<{ theme: TTheme }>`
-  margin-top: ${spacingPx.md};
+  margin-top: ${({theme}) => theme.spacing.md};
 
   h2 {
-    margin: ${spacingPx.sm};
-    margin-left: ${spacingPx.sm};
+    margin: ${({theme}) => theme.spacing.sm};
+    margin-left: ${({theme}) => theme.spacing.sm};
   }
 `;
 

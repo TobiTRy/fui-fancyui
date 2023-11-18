@@ -11,5 +11,5 @@ export const StyledFieldset = styled.fieldset<{ $disabled?: boolean }>`
 `;
 
 export const StyledLegend = styled.legend<{ alignLabel?: TalignLabel }>`
-  margin: 0 ${({ alignLabel }) => (alignLabel === 'center' ? 'auto' : '0')} ${spacingPx.xxs};
+  margin: 0 ${({ alignLabel }) => (alignLabel === 'center' ? 'auto' : '0')} ${({theme}) => theme.spacing.xxs};
 `;

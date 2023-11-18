@@ -21,7 +21,7 @@ export const Wrapper = styled.div<IWrapper>`
   display: inline-flex;
   align-items: center;
   padding: ${({ $size }) => ($size ? spacingPx[$size] : '')}; 
-  gap: ${({ $gapSpacing }) => ($gapSpacing ? spacingPx[$gapSpacing] : spacingPx.xxs)};
+  gap: ${({ $gapSpacing }) => ($gapSpacing ? spacingPx[$gapSpacing] : ({theme}) => theme.spacing.xxs)};
   ${({ $themeType = 'primary', $layer = 2, theme }) => getColorsForComponent({ $themeType, $layer, theme })};
   ${({$shadow}) => $shadow && boxShadow.sm}
   border-radius: ${borderRadius.complete};

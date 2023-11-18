@@ -14,10 +14,10 @@ import { styled } from 'styled-components';
 //the second is for the settings
 
 import FancyBottomBarIcon, { IFancyBottomBarIcon } from '../../Templates/FancyBottomBarIcon/FancyBottomBarIcon';
-import { spacingPx } from '../../Design/designSizes';
 import EditBarModal from '../../Atoms/EditBarModal/EditBarModal';
 
 import DynamicBottomScrollBar from '../DynamicBottomScrollBar/DynamicBottomScrollBar';
+import themeStore from '@/Components/UI/Design/color/themeStore';
 
 const Wrapper = styled.div`
   position: fixed;
@@ -45,12 +45,14 @@ interface IEditBar {
 // --------------------------------------------------------------------------- //
 export default function EditBar(props: IEditBar) {
   const { scrollable, subSectionItems, sectionItems, settings } = props;
+  const themeSpacing = themeStore((state) => state.theme.spacing);
+
 
   //TODO: GIVE BACK FROM THE DYANMIC BOTTOM BAR THE BUTTON WHICH IS ACTIVE
   return (
     <Wrapper>
       {settings && (
-        <EditBarModal title="Test" spacingLeftRight={parseFloat(spacingPx.xl) * 2 + 'px'}>
+        <EditBarModal title="Test" spacingLeftRight={parseFloat(themeSpacing.xl) * 2 + 'px'}>
           {(settings as React.ReactElement[]).map((item, index) => (
             <React.Fragment key={index}>{item}</React.Fragment>
           ))}

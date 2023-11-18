@@ -24,7 +24,7 @@ const StyledSingleInput = styled.input<StyledSingleInputProps & { theme: TTheme 
     ${({ $hasValue, theme, $themeType = 'secondary', $layer }) =>
       $hasValue ? theme.colors.accent[0] : getBackgroundColor({ theme, $themeType, $layer })};
   border-radius: 5px;
-  padding: ${spacingPx.xs};
+  padding: ${({theme}) => theme.spacing.xs};
   background-color: transparent;
   appearance: none;
   outline: none;

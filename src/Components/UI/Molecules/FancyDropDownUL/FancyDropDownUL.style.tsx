@@ -42,10 +42,10 @@ export const StyledUL = styled.ul<{ theme: TTheme; $themeType?: keyof TUiColorsT
   padding: 0;
   margin: 0;
   width: 100%;
-  padding: ${spacingPx.lg};
+  padding: ${({theme}) => theme.spacing.lg};
   background-color: ${({ theme, $themeType = 'primary', $layer = 1 }) => getBackgroundColor({theme, $themeType, $layer})};
   ${boxShadow.lg}
-  gap: ${spacingPx.xs};
+  gap: ${({theme}) => theme.spacing.xs};
   overflow: hidden;
 
   li {

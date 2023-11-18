@@ -12,7 +12,7 @@ const WeekdaysConatiner = styled.div<{ theme: TTheme; $themeType?: keyof TUiColo
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   width: 100%;
-  margin-bottom: ${spacingPx.xs};
+  margin-bottom: ${({theme}) => theme.spacing.xs};
   color: ${({ theme, $themeType, $layer }) => getBackgroundColor({ theme, $themeType: $themeType ?? 'secondary', $layer: $layer ?? 0 })};
 
   & > * {

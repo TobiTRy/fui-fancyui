@@ -57,7 +57,7 @@ const Overlay = styled.div<{ $position: string }>`
 const TextWrapper = styled.div<{ $position: string }>`
   position: absolute;
   z-index: 1;
-  padding: ${spacingPx.md};
+  padding: ${({theme}) => theme.spacing.md};
   pointer-events: none;
   ${textShadow.lg}
 

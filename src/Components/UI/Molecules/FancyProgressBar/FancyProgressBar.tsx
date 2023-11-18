@@ -13,11 +13,11 @@ import { TTheme } from '@/Components/UI/Design/color/themeStore';
 const Wrapper = styled.div<{ $value?: number; theme: TTheme }>`
   width: 100%;
   display: flex;
-  gap: ${spacingPx.xxs};
+  gap: ${({theme}) => theme.spacing.xxs};
   flex-direction: column;
 
   & span {
-    margin-top: ${spacingPx.xxs};
+    margin-top: ${({theme}) => theme.spacing.xxs};
   }
 
   /* if the value is full set the color to accent color */

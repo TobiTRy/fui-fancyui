@@ -9,7 +9,7 @@ export const Container = styled.div`
   grid-template-columns: 9fr 1fr;
   align-items: stretch;
   width: 100%;
-  gap: ${spacingPx.sm};
+  gap: ${({theme}) => theme.spacing.sm};
 `;
 
 export const WrapperSVG = styled.div<{theme: TTheme}>`
