@@ -1,27 +1,25 @@
 import { borderRadius } from '../../Design/designSizes';
+import { TBorderRadiusSizes } from '../../Interface/TBorderRadius';
 
-// the border radius sizes
-type IBorderRadiusSizes = keyof typeof borderRadius;
-
-// the edge can be a string, number or IBorderRadiusSizes
-type TEdge = IBorderRadiusSizes | string | number;
+// the edge can be a string, number or TBorderRadiusSizes
+type TEdge = TBorderRadiusSizes | string | number;
 
 // the rounded edges are an array of 4 values
 export type IRoundedEdges = [TEdge?, TEdge?, TEdge?, TEdge?];
 
-// check if value is typeof IBorderRadiusSizes
-const checkValueIsBorderRadius = (value: string | IBorderRadiusSizes | number) => {
-  //check if value is typeof IBorderRadiusSizes
-  if (borderRadius[value as IBorderRadiusSizes]) return true;
+// check if value is typeof TBorderRadiusSizes
+const checkValueIsBorderRadius = (value: string | TBorderRadiusSizes | number) => {
+  //check if value is typeof TBorderRadiusSizes
+  if (borderRadius[value as TBorderRadiusSizes]) return true;
   
   return false;
 };
 
 
-// get the value of the radius if it is a IBorderRadiusSizes
+// get the value of the radius if it is a TBorderRadiusSizes
 const getRadiusValue = (edge: TEdge): string => {
   if (checkValueIsBorderRadius(edge)) {
-    return `${borderRadius[edge as IBorderRadiusSizes]}`;
+    return `${borderRadius[edge as TBorderRadiusSizes]}`;
   }
   return `${edge}`;
 };

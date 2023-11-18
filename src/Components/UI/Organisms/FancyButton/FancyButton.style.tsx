@@ -2,7 +2,7 @@ import { css } from 'styled-components';
 
 import { generateBorderRadiusForComponent } from '../../HelperFunctions/designFunctions/generateBorderRadiusForComponent/generateBorderRadiusForComponent';
 import { generateComponentPadding } from '../../HelperFunctions/designFunctions/generatePaddingForComponent/generatepaddingForComponent';
-import { borderRadius } from '../../Design/designSizes';
+import { TBorderRadiusSizes } from '@/Components/UI/Interface/TBorderRadius';
 
 const generate1To1Button = ($size: 'sm' | 'md' | 'lg', $outlined?: boolean) => {
   //this makes the button a square (1/1) if there is no $label and a $icon
@@ -19,7 +19,7 @@ interface IGenerateFancyButton {
   $size?: 'sm' | 'md' | 'lg';
   $outlined?: boolean;
   $oneToOne?: boolean;
-  $borderRadius?: keyof typeof borderRadius;
+  $borderRadius?: TBorderRadiusSizes;
   $justifyContent?: 'flex-start' | 'flex-end' | 'center';
   $noPadding?: boolean;
 }

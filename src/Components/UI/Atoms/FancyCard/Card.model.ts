@@ -1,8 +1,8 @@
 import { IRoundedEdges } from '../../HelperFunctions/designFunctions/edgeCaluculation';
 import { spacingPx } from '../../Design/designSizes';
-import { borderRadius } from '../../Design/designSizes';
 import { TUiColorsType } from '../../Design/color/designColor';
 import { TLayer } from '../../Design/color/generateColorSteps';
+import { TBorderRadiusSizes } from '@/Components/UI/Interface/TBorderRadius';
 
 // the scaling types for the card
 type IScaling = '100%' | 'auto' | string;
@@ -14,7 +14,7 @@ export interface StyledCardProps {
   width?: IScaling;
   layer?: TLayer;
   shadow?: boolean;
-  radius?: keyof typeof borderRadius;
+  radius?: TBorderRadiusSizes;
   roundedEdges?: IRoundedEdges;
   padding?: keyof typeof spacingPx | false;
 }

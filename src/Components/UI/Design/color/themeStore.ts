@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 import { updateThemeColors, uiColors, IUiColorPops, TUiColorsType, regenerateUiColors } from './designColor';
 import { spacingPx, borderRadius, fontSizes } from '../designSizes';
+import { TBorderRadiusSizes } from '@/Components/UI/Interface/TBorderRadius';
 
 type TSpacings = keyof typeof spacingPx;
 
@@ -14,7 +15,7 @@ export type TTheme = {
     [key in TSpacings]: string;
   };
   borderRadius: {
-    [key in keyof typeof borderRadius]: string;
+    [key in TBorderRadiusSizes]: string;
   };
   fontSizes: {
     mobile: MobileFontSizes;

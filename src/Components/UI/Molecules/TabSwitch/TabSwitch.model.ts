@@ -1,6 +1,7 @@
 import { TUiColorsType } from "../../Design/color/designColor";
 import { TLayer } from "../../Design/color/generateColorSteps";
-import { borderRadius, spacingPx } from "../../Design/designSizes";
+import { spacingPx } from "../../Design/designSizes";
+import { TBorderRadiusSizes } from "@/Components/UI/Interface/TBorderRadius";
 import {ITabSwitchDetailsLabelIcon , ITabSwitchDetailsChildren } from "../FancyTabSwitchButton/FancyTabSwitchButton.model";
 
 export interface ITabSwitchProps {
@@ -12,7 +13,7 @@ export interface ITabSwitchProps {
   disabled?: boolean;
   tabSpacing?: keyof typeof spacingPx;
   values: ITabSwitchDetailsChildren[] & ITabSwitchDetailsLabelIcon[];
-  rounded?: keyof typeof borderRadius;
+  rounded?: TBorderRadiusSizes;
   direction?: 'horizontal' | 'vertical';
   outlined?: boolean;
   id?: string;

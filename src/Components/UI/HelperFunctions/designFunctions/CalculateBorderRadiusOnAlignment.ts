@@ -1,11 +1,11 @@
 import { css } from 'styled-components';
 
-import { borderRadius } from '../../Design/designSizes';
 import themeStore from '@/Components/UI/Design/color/themeStore';
+import { TBorderRadiusSizes } from '@/Components/UI/Interface/TBorderRadius';
 export interface IAlignments {
   $alignHorizontal?: 'left' | 'center' | 'right';
   $alignVertical?: 'top' | 'center' | 'bottom';
-  $rouned?: keyof typeof borderRadius;
+  $rouned?: TBorderRadiusSizes;
 }
 
 //this sets the Border on a element depending on the alignment

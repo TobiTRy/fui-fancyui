@@ -4,6 +4,7 @@ import { getBackgroundColor } from "../../../Design/color/colorCalculatorForComp
 import colorTransparencyCalculator from "../../../Design/color/colorTransparencyCalculator";
 import { IActiveSwitchIndicator } from "../SwitchActiveIndicator";
 import themeStore, { TTheme } from "@/Components/UI/Design/color/themeStore";
+import { TBorderRadiusSizes } from "@/Components/UI/Interface/TBorderRadius";
 
 // Define the function to generate a blob background for the active indicator
 type IGenerateBlob = Pick<IActiveSwitchIndicator, '$themeType' | '$outlined' | '$rounded' | '$layer'> & { theme: TTheme };
@@ -41,7 +42,7 @@ export const generateBlob = (props: IGenerateBlob) => {
   return css`
     top: 0;
     height: 100%;
-    border-radius: ${isRadiusKey ? borderRadius[$rounded as keyof typeof borderRadius] : $rounded};
+    border-radius: ${isRadiusKey ? borderRadius[$rounded as TBorderRadiusSizes] : $rounded};
     ${backgroundStyle}
   `;
 };

@@ -2,13 +2,13 @@ import React from 'react';
 import { css } from 'styled-components';
 
 import LoadingSVGArrows from '../../Atoms/LoadingSVGArrows/LoadingSVGArrows';
-import { borderRadius } from '../../Design/designSizes';
 import Button, { IButtonProps } from '../../Molecules/Button/Button';
 import FancyContent from '../../Molecules/FancyContent/FancyContent';
 import { generateFancyButton } from './FancyButton.style';
 
 import { IButton } from '../../Molecules/Button/Button';
 import { fontSizeVariants } from '../../Atoms/Typography/TypographyStyleVariants';
+import { TBorderRadiusSizes } from '@/Components/UI/Interface/TBorderRadius';
 
 const alignment = {
   left: 'flex-start' as const,
@@ -22,7 +22,7 @@ export type IFancyButtonProps = {
   align?: 'left' | 'right' | 'center';
   iconAlign?: 'left' | 'right';
   size?: 'sm' | 'md' | 'lg';
-  borderRadius?: keyof typeof borderRadius;
+  borderRadius?: TBorderRadiusSizes;
   oneToOne?: boolean;
   icon?: React.ReactNode;
   fontVariant?: keyof typeof fontSizeVariants;

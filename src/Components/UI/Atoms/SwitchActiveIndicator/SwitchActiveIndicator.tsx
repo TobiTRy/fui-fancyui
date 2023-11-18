@@ -1,9 +1,10 @@
 import React from 'react';
 
 import { TUiColorsType } from '../../Design/color/designColor';
-import { borderRadius, spacingPx } from '../../Design/designSizes';
+import { spacingPx } from '../../Design/designSizes';
 import { TLayer } from '../../Design/color/generateColorSteps';
 import { ActiveSwitchIndicator, Wrapper } from './SwitchActiveIndicator.style';
+import { TBorderRadiusSizes } from '@/Components/UI/Interface/TBorderRadius';
 
 export interface IActiveSwitchIndicator {
   $itemNumber: number;
@@ -11,7 +12,7 @@ export interface IActiveSwitchIndicator {
   $layer?: TLayer;
   $tabSpacing?: keyof typeof spacingPx;
   $type?: 'bolb' | 'underline' | 'topline';
-  $rounded?: keyof typeof borderRadius | string;
+  $rounded?: TBorderRadiusSizes | string;
   $outlined?: boolean;
   $direction?: 'horizontal' | 'vertical';
   $indicatorWidth?: string;

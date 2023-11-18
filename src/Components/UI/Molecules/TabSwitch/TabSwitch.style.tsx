@@ -5,6 +5,7 @@ import { TUiColorsType } from '../../Design/color/designColor';
 import { tabSwitchSizes } from './TabSwitch';
 import { TLayer } from '../../Design/color/generateColorSteps';
 import { TTheme } from '@/Components/UI/Design/color/themeStore';
+import { TBorderRadiusSizes } from '@/Components/UI/Interface/TBorderRadius';
 
 // Define the interface for the styled-component
 export interface IFancyTabSwitchStyle {
@@ -13,7 +14,7 @@ export interface IFancyTabSwitchStyle {
   $outlinedBackgroundStrength?: number;
   $tabSpacing?: keyof typeof spacingPx;
   $direction?: 'horizontal' | 'vertical';
-  $rounded?: keyof typeof borderRadius;
+  $rounded?: TBorderRadiusSizes;
   $padding?: keyof typeof tabSwitchSizes;
   $outlined?: boolean;
   theme: TTheme;
