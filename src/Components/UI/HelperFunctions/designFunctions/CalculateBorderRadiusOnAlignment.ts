@@ -1,6 +1,7 @@
 import { css } from 'styled-components';
-import { borderRadius } from '../../Design/designSizes';
 
+import { borderRadius } from '../../Design/designSizes';
+import themeStore from '@/Components/UI/Design/color/themeStore';
 export interface IAlignments {
   $alignHorizontal?: 'left' | 'center' | 'right';
   $alignVertical?: 'top' | 'center' | 'bottom';
@@ -9,6 +10,8 @@ export interface IAlignments {
 
 //this sets the Border on a element depending on the alignment
 const CalculateBorderRadiusOnAlignment = ({ $alignHorizontal, $alignVertical, $rouned }: IAlignments) => {
+  const borderRadius = themeStore.getState().theme.borderRadius;
+
   if ($alignHorizontal === 'left' && $alignVertical === 'top') {
     return css`
       top: 0;
@@ -45,11 +48,11 @@ const CalculateBorderRadiusOnAlignment = ({ $alignHorizontal, $alignVertical, $r
       bottom: 0;
       left: 50%;
       transform: translateX(-50%);
-      border-radius: ${({theme}) => theme.borderRadius.md} ${({theme}) => theme.borderRadius.md} 0 0;
+      border-radius: ${borderRadius.md} ${borderRadius.md} 0 0;
     `;
   } else {
     return css`
-      border-radius: ${({theme}) => theme.borderRadius.md};
+      border-radius: ${borderRadius.md};
     `;
   }
 };

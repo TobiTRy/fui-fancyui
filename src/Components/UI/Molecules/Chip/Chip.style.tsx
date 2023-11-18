@@ -1,6 +1,5 @@
 import { css, styled } from 'styled-components';
 
-import { borderRadius } from '../../Design/designSizes';
 import generateThemeDesignForComponent from '../../HelperFunctions/designFunctions/generateThemeDesignForComponent/generateThemeDesignForComponent';
 import IStyledPrefixAndOmitter from '../../Interface/IStyledPrefixAndOmiter.model';
 import { IStyledChip } from './Chip';

@@ -1,7 +1,6 @@
 import React from 'react';
 import { styled } from 'styled-components';
 
-import { borderRadius } from '../../Design/designSizes';
 import colorTransparencyCalculator from '../../Design/color/colorTransparencyCalculator';
 import { TTheme } from '@/Components/UI/Design/color/themeStore';
 

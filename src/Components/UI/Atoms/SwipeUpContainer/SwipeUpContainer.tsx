@@ -1,7 +1,6 @@
 import React from 'react';
 import { styled } from 'styled-components';
 
-import { borderRadius, spacingPx } from '../../Design/designSizes';
 import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
 import { TLayer } from '../../Design/color/generateColorSteps';
 import { TUiColorsType } from '../../Design/color/designColor';

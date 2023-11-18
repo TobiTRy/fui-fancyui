@@ -1,5 +1,6 @@
 import { styled } from 'styled-components';
-import { borderRadius } from '../../Design/designSizes';
+
+import { TTheme } from '../../Design/color/themeStore';
 
 //the wrapper of the color area (it wraps the color area and the color indicator)
 export const WrapperColorArea = styled.div`
@@ -9,7 +10,7 @@ export const WrapperColorArea = styled.div`
 `;
 
 // the color area container (it wraps all gradients and the marker)
-export const ColorAreaContainer = styled.div`
+export const ColorAreaContainer = styled.div<{theme: TTheme}>`
   overflow: hidden;
   position: relative;
   height: 100%;
@@ -22,6 +23,7 @@ export const ColorAreaContainer = styled.div`
 // ---------- The ColorArea Gradients ------- //
 interface IColorGradient {
   $hue: number;
+  theme: TTheme;
 }
 
 //the color gradient it shows the current color via the hue

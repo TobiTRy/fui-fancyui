@@ -1,6 +1,5 @@
 import { styled } from 'styled-components';
 
-import { borderRadius } from '../../Design/designSizes';
 import { MenuListProps } from './MenuList';
 import IStyledPrefixAndOmitter from '../../Interface/IStyledPrefixAndOmiter.model';
 import generateThemeForCard from '../../HelperFunctions/designFunctions/generateThemeForCard/generateThemeForCard';

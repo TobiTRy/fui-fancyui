@@ -3,7 +3,6 @@ import Color from 'color';
 
 import { disabledStyle } from '../disableStyle';
 import { generatePadding } from '../generatePaddingForComponent/generatePadding';
-import { borderRadius } from '../../../Design/designSizes';
 import { boxShadow } from '../../../Design/shadows';
 import themeStore from '../../../Design/color/themeStore';
 import { getBackgroundColor } from '../../../Design/color/colorCalculatorForComponet';

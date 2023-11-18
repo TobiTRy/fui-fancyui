@@ -1,6 +1,6 @@
 import { styled, keyframes } from 'styled-components';
 
-import { borderRadius, fontSize, spacingPx } from '../../Design/designSizes';
+import { fontSize } from '../../Design/designSizes';
 import colorTransparencyCalculator from '../../Design/color/colorTransparencyCalculator';
 import { boxShadow } from '../../Design/shadows';
 import { TLayer } from '../../Design/color/generateColorSteps';

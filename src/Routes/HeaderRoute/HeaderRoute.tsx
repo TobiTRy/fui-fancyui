@@ -30,29 +30,6 @@ const RightSlot = ({ onClick }: { onClick?: () => void }) => {
   );
 };
 
-const Slot = {
-  component: (
-    <FancySearchBar searchListWidth="80vw" layer={1}>
-      <FancyLoadingSpinner size="lg" />
-    </FancySearchBar>
-  ),
-  scale: 1,
-};
-
-interface More {
-  title: string;
-}
-const MoreContent = (props: More) => {
-  return (
-    <>
-      <div style={{ position: 'absolute', width: '100px', top: '44px', height: '100px' }}>More Content {props.title}</div>
-    </>
-  );
-};
-
-const headerTitele = {
-  component: <HeaderTitleWithLogo title="Let´sTryIt" />,
-};
 
 const HeaderContentWrapper = styled.div`
   display: flex;
@@ -64,7 +41,7 @@ const HeaderContentWrapper = styled.div`
 const HeaderContent = () => {
   return (
     <HeaderContentWrapper>
-      <HeaderTitleWithLogo title="Let´sTryIt" />
+      <HeaderTitleWithLogo title="Let´sTryIt" logo={<Logo/>}/>
       <FancySearchBar searchListWidth="80vw" layer={1}>
         <FancyLoadingSpinner size="lg" />
       </FancySearchBar>
@@ -81,11 +58,6 @@ const HeaderContent = () => {
 
 export default function HeaderRoute() {
   const [isOpen, setIsOpen] = useState(false);
-
-  const Slot2 = {
-    component: <RightSlot onClick={() => setIsOpen(!isOpen)} />,
-    scale: 1,
-  };
 
   return (
     <section>

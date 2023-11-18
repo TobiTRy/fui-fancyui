@@ -1,6 +1,5 @@
 import { styled } from 'styled-components';
 
-import { borderRadius, spacingPx } from '../../Design/designSizes';
 import { TUiColorsType } from '../../Design/color/designColor';
 import { TLayer } from '../../Design/color/generateColorSteps';
 import getColorsForComponent, { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';

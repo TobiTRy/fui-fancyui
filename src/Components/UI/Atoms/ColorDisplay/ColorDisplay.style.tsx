@@ -1,7 +1,7 @@
 import Color from 'color';
 import { styled } from 'styled-components';
 
-import { borderRadius, fontSize } from '../../Design/designSizes';
+import { fontSize } from '../../Design/designSizes';
 import { simpleColorTransition } from '../../Design/simpleTransition';
 import { TTheme } from '@/Components/UI/Design/color/themeStore';
 
