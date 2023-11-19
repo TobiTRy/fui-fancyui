@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyledFieldset, StyledLegend } from './Fieldset.style';
+import { TTypography } from '@/Components/UI/Interface/TTypography';
 import { Typography } from '../Typography';
-import { TypographyList } from '../Typography/Typography';
 
 export type TalignLabel = 'left' | 'center';
 
@@ -9,7 +9,7 @@ interface IFieldset {
   children?: React.ReactNode;
   label?: string;
   alignLabel?: TalignLabel;
-  fontVariantLegend?: keyof typeof TypographyList;
+  fontVariantLegend?: TTypography;
   $disabled?: boolean;
 }
 export default function Fieldset(props: IFieldset) {

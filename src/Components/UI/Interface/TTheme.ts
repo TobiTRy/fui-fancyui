@@ -1,9 +1,8 @@
 import { TUiColorsType } from "../Design/color/designColor";
-import {  spacingPx } from "../Design/designSizes";
 import { TFontSizes } from "./IFontSizes";
 import { TBorderRadiusSizes } from "./TBorderRadius";
+import { TSpacings } from "@/Components/UI/Interface/TSpacings";
 
-type TSpacings = keyof typeof spacingPx;
 
 //the structure for the theme object
 export type TTheme = {

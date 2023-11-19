@@ -3,20 +3,19 @@ import React from 'react';
 import FancyProfilePicture, { IFancyProfilePicture } from '../../Atoms/FancyProfilePicture/FancyProfilePicture';
 import Typography from '../../Atoms/Typography/Typography';
 import { TextWrapper, Wrapper } from './FancyMiniProfile.style';
-import { fontSizeVariants } from '../../Atoms/Typography/TypographyStyleVariants';
-
-import { spacingPx } from '../../Design/designSizes';
+import { TTypography } from '@/Components/UI/Interface/TTypography';
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '../../Design/color/generateColorSteps';
+import { TSpacings } from '../../Interface/TSpacings';
 
 // the interface for the different sizes
 interface IPillSettings {
   [key: string]: {
     imageSize: IFancyProfilePicture['size'];
-    padding: keyof typeof spacingPx | undefined;
-    textSize: keyof typeof fontSizeVariants;
-    paddingToEdge: keyof typeof spacingPx;
-    gapPictureAndText: keyof typeof spacingPx;
+    padding: TSpacings| undefined;
+    textSize: TTypography;
+    paddingToEdge: TSpacings;
+    gapPictureAndText: TSpacings;
   };
 }
 

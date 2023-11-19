@@ -1,7 +1,8 @@
 import { CSSProp } from 'styled-components';
 
-import Typography, { TypographyList } from '../../../Atoms/Typography/Typography';
+import Typography from '../../../Atoms/Typography/Typography';
 import { sizes } from './sizeSettings';
+import { TTypography } from '@/Components/UI/Interface/TTypography';
 
 type IFancyContentTextProps = {
   children?: React.ReactNode;
@@ -15,7 +16,7 @@ type IFancyContentTextWithSizeProps = IFancyContentTextProps & {
 };
 
 type IFancyContentTextWithFontVariantProps = IFancyContentTextProps & {
-  fontVariant?: keyof typeof TypographyList;
+  fontVariant?: TTypography;
   size?: never;
 };
 

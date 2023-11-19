@@ -1,8 +1,8 @@
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from "../../Design/color/generateColorSteps";
-import { spacingPx } from "../../Design/designSizes";
 import { TBorderRadiusSizes } from "@/Components/UI/Interface/TBorderRadius";
 import {ITabSwitchDetailsLabelIcon , ITabSwitchDetailsChildren } from "../FancyTabSwitchButton/FancyTabSwitchButton.model";
+import { TSpacings } from '../../Interface/TSpacings';
 
 export interface ITabSwitchProps {
   wide?: boolean;
@@ -11,7 +11,7 @@ export interface ITabSwitchProps {
   themeType?: TUiColors;
   layer?: TLayer;
   disabled?: boolean;
-  tabSpacing?: keyof typeof spacingPx;
+  tabSpacing?: TSpacings;
   values: ITabSwitchDetailsChildren[] & ITabSwitchDetailsLabelIcon[];
   rounded?: TBorderRadiusSizes;
   direction?: 'horizontal' | 'vertical';

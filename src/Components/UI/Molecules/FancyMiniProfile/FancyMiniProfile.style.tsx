@@ -7,11 +7,12 @@ import { TLayer } from '../../Design/color/generateColorSteps';
 import getColorsForComponent from '../../Design/color/colorCalculatorForComponet';
 import { boxShadow } from '../../Design/shadows';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
+import { TSpacings } from '@/Components/UI/Interface/TSpacings';
 
 // this container wraps the whole component
 interface IWrapper {
-  $size?: keyof typeof spacingPx;
-  $gapSpacing?: keyof typeof spacingPx;
+  $size?: TSpacings;
+  $gapSpacing?: TSpacings;
   $themeType?: TUiColors;
   $layer?: TLayer;
   theme: TTheme;
@@ -30,7 +31,7 @@ export const Wrapper = styled.div<IWrapper>`
 // this container wraps the texts (Heading, Subheading)
 interface ITextWrapper {
   $alignText?: TTextAlign;
-  $paddingToedge: keyof typeof spacingPx;
+  $paddingToedge: TSpacings;
 }
 export const TextWrapper = styled.div<ITextWrapper>`
   // if alignText is left, then the order of the text is reversed
