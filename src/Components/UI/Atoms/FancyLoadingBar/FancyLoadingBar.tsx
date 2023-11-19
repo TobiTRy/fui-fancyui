@@ -1,7 +1,7 @@
 import React from 'react';
 import { styled, keyframes } from 'styled-components';
 
-import { TTheme } from '@/Components/UI/Design/color/themeStore';
+import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 // Define keyframe animation for the loading bar
 const loadingAnimation = keyframes`

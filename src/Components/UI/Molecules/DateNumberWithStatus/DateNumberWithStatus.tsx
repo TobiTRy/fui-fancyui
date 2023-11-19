@@ -6,7 +6,7 @@ import AvilableDot, { IAvailableDot } from '../../Atoms/AvilableDot/AvailableDot
 import { IRange } from '../../Atoms/DateNumberAtom/DateNumberAtom';
 import { TLayer } from '../../Design/color/generateColorSteps';
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
-import { TTheme } from '@/Components/UI/Design/color/themeStore';
+import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 const StyledDateNumberWithStatus = styled.div<{theme: TTheme}>`
   box-sizing: border-box;

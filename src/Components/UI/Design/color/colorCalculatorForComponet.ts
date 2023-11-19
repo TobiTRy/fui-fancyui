@@ -3,7 +3,7 @@ import { css } from 'styled-components';
 
 import checkThemeOrColor from './ckeckThemeOrColor';
 import { TthemeColorGroup } from './designColor';
-import { TTheme } from './themeStore';
+import { TTheme } from '@/Components/UI/Interface/TTheme';
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 
 // Define the types for the arguments that will be passed to the getBackgroundColor function

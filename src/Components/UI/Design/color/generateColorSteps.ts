@@ -1,5 +1,5 @@
 import Color from 'color';
-import { IUiColorsTypes } from './designColor';
+import { TUiColors } from '../../Interface/TUiColors';
 
 // Function to adjust lightness
 function adjustLightness(color: Color, delta: number): Color {
@@ -57,7 +57,7 @@ type ColorSteps = {
 
 // this function generates a object with the color steps
 interface IGenerateColorSteps {
-  themeType: IUiColorsTypes;
+  themeType: TUiColors;
   color: string;
   pimaryColor: string;
 }

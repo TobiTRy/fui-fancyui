@@ -2,7 +2,7 @@ import { styled, css } from 'styled-components';
 
 import { fontSize, spacingPx } from '../../Design/designSizes';
 import { TUiColorsType } from '../../Design/color/designColor';
-import { TTheme } from '@/Components/UI/Design/color/themeStore';
+import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 export const WarpperComponent = styled.div`
   display: flex;

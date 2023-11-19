@@ -1,7 +1,7 @@
 import { css, styled } from 'styled-components';
 
 import { fontSize } from '../../Design/designSizes';
-import { TTheme } from '@/Components/UI/Design/color/themeStore';
+import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 //the styling for each option item
 

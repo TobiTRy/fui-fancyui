@@ -3,7 +3,7 @@ import { styled } from 'styled-components';
 
 import { fontSize } from '../../Design/designSizes';
 import { simpleColorTransition } from '../../Design/simpleTransition';
-import { TTheme } from '@/Components/UI/Design/color/themeStore';
+import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 const colorCalculation = ({ theme, $isBright, $isDarkTheme }: { theme: TTheme; $isBright: boolean; $isDarkTheme: boolean }) => {
   if($isDarkTheme) return ($isBright ? theme.colors.primary[0] : theme.colors.secondary[0]);

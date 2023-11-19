@@ -5,7 +5,7 @@ import IStyledPrefixAndPicker from '../../Interface/IStyledPrefixAndPicker.model
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '../../Design/color/generateColorSteps';
 import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
-import { TTheme } from '@/Components/UI/Design/color/themeStore';
+import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 // Define the styled component for the underline
 type IStyledUnderline = IStyledPrefixAndPicker<IFancyUnderline>;

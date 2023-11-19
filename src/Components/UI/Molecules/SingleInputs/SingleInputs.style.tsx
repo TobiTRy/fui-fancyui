@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 
 import InputStatus from "../../Interface/IStatus";
-import { TTheme } from '@/Components/UI/Design/color/themeStore';
+import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 
 interface IInputWrapper {

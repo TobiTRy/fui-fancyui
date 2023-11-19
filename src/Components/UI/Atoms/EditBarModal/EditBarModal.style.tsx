@@ -2,7 +2,7 @@ import { styled, css } from 'styled-components';
 
 import { spacingPx } from '../../Design/designSizes';
 import { boxShadow } from '../../Design/shadows';
-import { TTheme } from '@/Components/UI/Design/color/themeStore';
+import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 //this calculates the spacing from left and right or nothing
 const calcBarWidthandSpacing = (width?: string, spacingLeftRight?: string) => {

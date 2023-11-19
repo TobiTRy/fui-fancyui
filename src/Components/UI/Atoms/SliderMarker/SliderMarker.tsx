@@ -2,7 +2,7 @@ import React from 'react';
 import { styled } from 'styled-components';
 
 import colorTransparencyCalculator from '../../Design/color/colorTransparencyCalculator';
-import { TTheme } from '@/Components/UI/Design/color/themeStore';
+import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 export const WrapperMarker = styled.div`
   position: absolute;

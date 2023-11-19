@@ -6,7 +6,7 @@ import PasswordEye from '../../Atoms/PasswordEye/PasswordEye';
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '../../Design/color/generateColorSteps';
 import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
-import { TTheme } from '@/Components/UI/Design/color/themeStore';
+import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 const WrapperEye = styled.div<{ theme: TTheme; $themeType?: TUiColors; $layer?: TLayer }>`
   position: absolute;

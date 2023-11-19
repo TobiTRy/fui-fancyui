@@ -3,7 +3,7 @@ import { styled } from 'styled-components';
 import IStyledPrefixAndPicker from '../../Interface/IStyledPrefixAndPicker.model';
 import { getTextColor } from '../../Design/color/colorCalculatorForComponet';
 import { IgenerateThemeForCard } from '../../HelperFunctions/designFunctions/generateThemeForCard/generateThemeForCard';
-import { TTheme } from '@/Components/UI/Design/color/themeStore';
+import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 type IChipContainer = IStyledPrefixAndPicker<IgenerateThemeForCard> & { theme: TTheme };
 export const InputLi = styled.li<IChipContainer>`

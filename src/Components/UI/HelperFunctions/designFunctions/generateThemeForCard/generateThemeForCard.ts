@@ -5,7 +5,7 @@ import { TLayer } from '../../../Design/color/generateColorSteps';
 import IStyledPrefixAndPicker from '../../../Interface/IStyledPrefixAndPicker.model';
 import { getBackgroundColor } from '../../../Design/color/colorCalculatorForComponet';
 import colorTransparencyCalculator from '../../../Design/color/colorTransparencyCalculator';
-import { TTheme } from '@/Components/UI/Design/color/themeStore';
+import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 export interface IgenerateThemeForCard {
   outlined?: boolean;

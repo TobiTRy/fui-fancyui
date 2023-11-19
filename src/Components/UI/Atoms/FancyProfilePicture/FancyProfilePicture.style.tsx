@@ -3,7 +3,7 @@ import { styled } from 'styled-components';
 import { IFancyProfilePicture } from './FancyProfilePicture';
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '../../Design/color/generateColorSteps';
-import { TTheme } from '../../Design/color/themeStore';
+import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 // Set the border based on the prop
 type TBorderRadius = IFancyProfilePicture['rounded'];

@@ -5,7 +5,7 @@ import { disabledStyle } from '../../HelperFunctions/designFunctions/disableStyl
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '../../Design/color/generateColorSteps';
 import { getTextColor } from '../../Design/color/colorCalculatorForComponet';
-import { TTheme } from '@/Components/UI/Design/color/themeStore';
+import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 // --------------------------------------------------------------------------- //
 // ----------------- The Style for one Day with diferent sates --------------- //

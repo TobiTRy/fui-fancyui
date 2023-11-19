@@ -3,7 +3,7 @@ import { styled } from 'styled-components';
 import { FancyButton } from '../../Organisms/FancyButton';
 import { spacingPx } from '../../Design/designSizes';
 import { simpleColorTransition } from '../../Design/simpleTransition';
-import { TTheme } from '@/Components/UI/Design/color/themeStore';
+import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 // Define a styled component for the button wrapper
 export const ButtonWrapper = styled.div<{ $isActive: boolean, theme: TTheme }>`

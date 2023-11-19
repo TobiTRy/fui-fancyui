@@ -4,7 +4,7 @@ import { borderRadius, spacingPx } from '../../Design/designSizes';
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 import { tabSwitchSizes } from '../TabSwitch/TabSwitch';
 import { TLayer } from '../../Design/color/generateColorSteps';
-import { TTheme } from '@/Components/UI/Design/color/themeStore';
+import { TTheme } from '@/Components/UI/Interface/TTheme';
 import { TBorderRadiusSizes } from '@/Components/UI/Interface/TBorderRadius';
 
 // Define the interface for the styled-component

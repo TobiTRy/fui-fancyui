@@ -5,7 +5,7 @@ import colorTransparencyCalculator from '../../Design/color/colorTransparencyCal
 import { boxShadow } from '../../Design/shadows';
 import { TLayer } from '../../Design/color/generateColorSteps';
 import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
-import { TTheme } from '@/Components/UI/Design/color/themeStore';
+import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 type ToastMessageProps = 'success' | 'warning' | 'error' | 'info';
 

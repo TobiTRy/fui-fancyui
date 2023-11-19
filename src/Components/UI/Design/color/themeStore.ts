@@ -1,27 +1,9 @@
 import { create } from 'zustand';
-import { updateThemeColors, uiColors, IUiColorPops, TUiColorsType, regenerateUiColors } from './designColor';
+import { updateThemeColors, uiColors, IUiColorPops, regenerateUiColors } from './designColor';
 import { spacingPx, borderRadius, fontSizes } from '../designSizes';
-import { TBorderRadiusSizes } from '@/Components/UI/Interface/TBorderRadius';
+import { TTheme } from '../../Interface/TTheme';
 
-type TSpacings = keyof typeof spacingPx;
 
-// If you need to access specific types within FontSizes, you can use indexing
-type DesktopFontSizes = typeof fontSizes.desktop;
-type MobileFontSizes = typeof fontSizes.mobile;
-
-export type TTheme = {
-  colors: TUiColorsType;
-  spacing: {
-    [key in TSpacings]: string;
-  };
-  borderRadius: {
-    [key in TBorderRadiusSizes]: string;
-  };
-  fontSizes: {
-    mobile: MobileFontSizes;
-    desktop: DesktopFontSizes;
-  };
-};
 
 type ThemeState = {
   theme: TTheme;

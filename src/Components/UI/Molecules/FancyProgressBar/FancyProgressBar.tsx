@@ -7,7 +7,7 @@ import { AlignedInputLabel } from '../../Atoms/AlignedInputLabel/AlignedInputLab
 import ProgressBar, { IProgressBar } from '../../Atoms/ProgressBar/ProgressBar';
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '../../Design/color/generateColorSteps';
-import { TTheme } from '@/Components/UI/Design/color/themeStore';
+import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 // Define a styled component for the progress bar wrapper
 const Wrapper = styled.div<{ $value?: number; theme: TTheme }>`

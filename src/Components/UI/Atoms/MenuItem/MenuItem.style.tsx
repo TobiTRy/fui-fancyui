@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '../../Design/color/generateColorSteps';
-import { TTheme } from '@/Components/UI/Design/color/themeStore';
+import { TTheme } from '@/Components/UI/Interface/TTheme';
 import { getBackgroundColor, getTextColor } from '../../Design/color/colorCalculatorForComponet';
 
 type StyledMenuProps = {

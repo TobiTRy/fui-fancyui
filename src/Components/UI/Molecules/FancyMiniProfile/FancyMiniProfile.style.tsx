@@ -6,7 +6,7 @@ import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '../../Design/color/generateColorSteps';
 import getColorsForComponent from '../../Design/color/colorCalculatorForComponet';
 import { boxShadow } from '../../Design/shadows';
-import { TTheme } from '@/Components/UI/Design/color/themeStore';
+import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 // this container wraps the whole component
 interface IWrapper {

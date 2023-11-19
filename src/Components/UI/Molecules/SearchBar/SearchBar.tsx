@@ -7,7 +7,7 @@ import FancySVGAtom from '../../Atoms/FancySVGAtom/FancySVGAtom';
 import { TRawInputAlign } from '../../Atoms/RawInput/RawInput';
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '../../Design/color/generateColorSteps';
-import { TTheme } from '@/Components/UI/Design/color/themeStore';
+import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 // Styled component for the search bar
 const StyledSearchBar = styled.div<{ $isActive?: boolean, theme: TTheme }>`

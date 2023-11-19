@@ -5,7 +5,7 @@ import Typography from '../Typography/Typography';
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 import { getBackgroundColor, getTextColor } from '../../Design/color/colorCalculatorForComponet';
 import { TLayer } from '../../Design/color/generateColorSteps';
-import { TTheme } from '@/Components/UI/Design/color/themeStore';
+import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 const DateOutputButton = styled.button<{ $isActive?: boolean; theme: TTheme; $themeType?: TUiColors; $layer?: TLayer }>`
   text-align: center;

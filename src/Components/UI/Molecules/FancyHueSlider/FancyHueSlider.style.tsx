@@ -1,5 +1,6 @@
 import { styled } from 'styled-components';
-import { TTheme } from '../../Design/color/themeStore';
+
+import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 export const SliderWrapper = styled.div`
   width: 100%;

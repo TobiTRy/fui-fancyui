@@ -3,7 +3,7 @@ import { styled } from 'styled-components';
 import { TLayer } from '../../Design/color/generateColorSteps';
 import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
 import IStyledPrefixAndPicker from '../../Interface/IStyledPrefixAndPicker.model';
-import { TTheme } from '@/Components/UI/Design/color/themeStore';
+import { TTheme } from '@/Components/UI/Interface/TTheme';
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 
 type TStyledFancyLine = IStyledPrefixAndPicker<IFancyLine> & { theme?: TTheme };

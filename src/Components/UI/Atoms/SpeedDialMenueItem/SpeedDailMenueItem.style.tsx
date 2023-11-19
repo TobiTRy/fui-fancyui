@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 
 import { fontSize } from "../../Design/designSizes";
 import { textShadow } from "../../Design/shadows";
-import { TTheme } from "@/Components/UI/Design/color/themeStore";
+import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 export const MenuItem = styled.button<{theme: TTheme}>`
   width: 100%;

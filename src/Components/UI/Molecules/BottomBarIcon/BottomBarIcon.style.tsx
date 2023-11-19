@@ -4,7 +4,7 @@ import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from "../../Design/color/generateColorSteps";
 import { getBackgroundColor } from "../../Design/color/colorCalculatorForComponet";
 import { disabledStyle } from "../../HelperFunctions/designFunctions/disableStyle";
-import { TTheme } from "../../Design/color/themeStore";
+import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 interface IContentWrapper {
   $isActive?: boolean;

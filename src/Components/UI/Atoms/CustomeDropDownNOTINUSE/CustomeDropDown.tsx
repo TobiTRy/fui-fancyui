@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { styled } from 'styled-components';
 
 import { fontSize } from '../../Design/designSizes';
-import { TTheme } from '@/Components/UI/Design/color/themeStore';
+import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 // Styled dropdown container
 const DropDownContainer = styled.div<{theme: TTheme}>`

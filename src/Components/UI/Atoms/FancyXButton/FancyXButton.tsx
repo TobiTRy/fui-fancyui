@@ -7,7 +7,7 @@ import { simpleColorTransition } from '../../Design/simpleTransition';
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '../../Design/color/generateColorSteps';
 import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
-import { TTheme } from '../../Design/color/themeStore';
+import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 type FancyXButtonDesign = Exclude<TUiColors, 'transparent'>;
 

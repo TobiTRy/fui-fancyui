@@ -4,7 +4,7 @@ import { styled } from 'styled-components';
 import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
 import { TLayer } from '../../Design/color/generateColorSteps';
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
-import { TTheme } from '../../Design/color/themeStore';
+import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 
 interface IStyledSwipeUpContainer {

@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 
 import { spacingPx } from '../../Design/designSizes';
-import { TTheme } from '@/Components/UI/Design/color/themeStore';
+import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 export const Container = styled.div`
   box-sizing: border-box;
