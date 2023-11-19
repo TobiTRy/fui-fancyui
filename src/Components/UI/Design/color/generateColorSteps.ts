@@ -1,5 +1,5 @@
 import Color from 'color';
-import { TUiColors } from '../../Interface/TUiColors';
+import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 
 // Function to adjust lightness
 function adjustLightness(color: Color, delta: number): Color {
