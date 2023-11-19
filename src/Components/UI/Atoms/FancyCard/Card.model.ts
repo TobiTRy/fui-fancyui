@@ -3,6 +3,7 @@ import { spacingPx } from '../../Design/designSizes';
 import { TLayer } from '../../Design/color/generateColorSteps';
 import { TBorderRadiusSizes } from '@/Components/UI/Interface/TBorderRadius';
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
+import { TSpacings } from '@/Components/UI/Interface/TSpacings';
 
 // the scaling types for the card
 type IScaling = '100%' | 'auto' | string;
@@ -16,5 +17,5 @@ export interface StyledCardProps {
   shadow?: boolean;
   radius?: TBorderRadiusSizes;
   roundedEdges?: IRoundedEdges;
-  padding?: keyof typeof spacingPx | false;
+  padding?: TSpacings | false;
 }

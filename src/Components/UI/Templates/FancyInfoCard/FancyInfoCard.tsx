@@ -2,13 +2,13 @@ import React from 'react';
 
 import InfoCard from '../../Molecules/InfoCard/InfoCard';
 import FancyContent from '../../Molecules/FancyContent/FancyContent';
-import { TypographyList } from '../../Atoms/Typography/Typography';
+import { TTypography } from '@/Components/UI/Interface/TTypography';
 import { TSizes } from '../../Interface/TComponentSizes';
 
 type TSizeObj = {
   iconSize: TSizes;
-  title: keyof typeof TypographyList;
-  descriptionSize: keyof typeof TypographyList;
+  title: TTypography;
+  descriptionSize: TTypography;
 };
 
 type TSizesObject = {

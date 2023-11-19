@@ -4,11 +4,11 @@ import { Placeholder, StyledImage, TSize } from './FancyProfilePicture.style';
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '../../Design/color/generateColorSteps';
 import { Typography } from '../Typography';
-import { TypographyList } from '../Typography/Typography';
+import { TTypography } from '@/Components/UI/Interface/TTypography';
 
 
 // generate the text size based on the size prop 
-const getTextSize = (size: TSize | string): keyof typeof TypographyList => {
+const getTextSize = (size: TSize | string): TTypography => {
   switch (size) {
     case 'xxs':
     case 'xs':

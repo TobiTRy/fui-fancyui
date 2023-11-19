@@ -7,7 +7,7 @@ import FancyContent from '../../Molecules/FancyContent/FancyContent';
 import { generateFancyButton } from './FancyButton.style';
 
 import { IButton } from '../../Molecules/Button/Button';
-import { fontSizeVariants } from '../../Atoms/Typography/TypographyStyleVariants';
+import { TTypography } from '@/Components/UI/Interface/TTypography';
 import { TBorderRadiusSizes } from '@/Components/UI/Interface/TBorderRadius';
 
 const alignment = {
@@ -25,7 +25,7 @@ export type IFancyButtonProps = {
   borderRadius?: TBorderRadiusSizes;
   oneToOne?: boolean;
   icon?: React.ReactNode;
-  fontVariant?: keyof typeof fontSizeVariants;
+  fontVariant?: TTypography;
   noPadding?: boolean;
 };
 

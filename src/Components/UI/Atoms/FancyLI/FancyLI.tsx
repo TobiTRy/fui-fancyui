@@ -3,6 +3,7 @@ import { styled } from 'styled-components';
 
 import IStyledPrefixAndOmiter from '../../Interface/IStyledPrefixAndOmiter.model';
 import { spacingPx } from '../../Design/designSizes';
+import { TSpacings } from '../../Interface/TSpacings';
 
 type StyledFancyLi = IStyledPrefixAndOmiter<FancyLIProps, 'children'>;
 
@@ -19,7 +20,7 @@ const FancyLiItem = styled.li<StyledFancyLi>`
 interface FancyLIProps {
   aligned?: 'left' | 'center' | 'right';
   children?: React.ReactNode;
-  size?: keyof typeof spacingPx;
+  size?: TSpacings;
 }
 // --------------------------------------------------------------------------- //
 // ------------- The fancy LI Item that can dynamicly adjusted --------------- //

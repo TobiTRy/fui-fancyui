@@ -45,13 +45,13 @@ export type ISpeedDailMenueItem = TMenueButtonProps & TMenueItemProps;
 // ---------- Component that handles the Buttonlist and the opening ---------- //
 // --------------------------------------------------------------------------- //
 export default function SpeedDailMenueItem(props: ISpeedDailMenueItem) {
-  const { label, icon, hideLabel, labelAlign, isOpen, onClick, index } = props;
+  const { label, icon, hideLabel, isOpen, onClick, index } = props;
 
   return (
     <MenueItemContainer $isOpen={isOpen} $index={index || 0} >
       <MenuItem aria-label={label} onClick={onClick}>{icon}</MenuItem>
       {label && !hideLabel && (
-        <Typography type="inlineElement" variant="label" $isOpen={isOpen} $labelAlign={labelAlign} style={Label}>
+        <Typography type="inlineElement" variant="label" style={Label}>
           {label}
         </Typography>
       )}

@@ -6,13 +6,14 @@ import { TLayer } from '../../Design/color/generateColorSteps';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 import { TBorderRadiusSizes } from '@/Components/UI/Interface/TBorderRadius';
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
+import { TSpacings } from '../../Interface/TSpacings';
 
 // Define the interface for the styled-component
 export interface IFancyTabSwitchStyle {
   $transparent?: boolean;
   $wide?: boolean;
   $outlinedBackgroundStrength?: number;
-  $tabSpacing?: keyof typeof spacingPx;
+  $tabSpacing?: TSpacings;
   $direction?: 'horizontal' | 'vertical';
   $rounded?: TBorderRadiusSizes;
   $padding?: keyof typeof tabSwitchSizes;

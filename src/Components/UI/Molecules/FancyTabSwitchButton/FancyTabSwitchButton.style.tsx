@@ -4,22 +4,22 @@ import themeStore from '../../Design/color/themeStore';
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '../../Design/color/generateColorSteps';
 import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
-import { TypographyList } from '../../Atoms/Typography/Typography';
+import { TTypography } from '@/Components/UI/Interface/TTypography';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 
 const getSpacingFromTheme = themeStore.getState().theme.spacing;
 export const tabSwitchItemSizes = {
   sm: {
-    fontSize: 'smText' as keyof typeof TypographyList,
+    fontSize: 'smText' as TTypography,
     padding: getSpacingFromTheme.xs,
   },
   md: {
-    fontSize: 'content' as keyof typeof TypographyList,
+    fontSize: 'content' as TTypography,
     padding: getSpacingFromTheme.sm,
   },
   lg: {
-    fontSize: 'button' as keyof typeof TypographyList,
+    fontSize: 'button' as TTypography,
     padding: getSpacingFromTheme.md,
   },
 };
