@@ -5,8 +5,7 @@ import { TBorderRadiusSizes } from "./TBorderRadius";
 
 type TSpacings = keyof typeof spacingPx;
 
-
-
+//the structure for the theme object
 export type TTheme = {
   colors: TUiColorsType;
   spacing: {
