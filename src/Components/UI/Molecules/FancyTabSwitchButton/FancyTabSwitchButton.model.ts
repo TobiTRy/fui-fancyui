@@ -1,8 +1,5 @@
-import { TUiColorsType } from "../../Design/color/designColor";
+import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 import { tabSwitchItemSizes } from "./FancyTabSwitchButton.style";
-
-
-
 
 export interface ITabSwitchDetailsLabelIcon {
   itemKey: string;
@@ -21,7 +18,7 @@ export interface ITabSwitchButton {
   selected: boolean;
   onClick: (key: string) => void;
   wide?: boolean;
-  themeType?: keyof TUiColorsType;
+  themeType?: TUiColors;
   iconAlign?: 'left' | 'right';
   size?: keyof typeof tabSwitchItemSizes;
 }

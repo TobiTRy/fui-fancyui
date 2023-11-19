@@ -1,6 +1,6 @@
 import { ChangeEvent } from "react";
-import { TUiColorsType } from "../../Design/color/designColor";
 import { TLayer } from "../../Design/color/generateColorSteps";
+import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 
 interface IFancyRangeSlider {
   label?: string;
@@ -11,7 +11,7 @@ interface IFancyRangeSlider {
   max?: number;
   displayNumber?: boolean;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
-  themeType?: keyof TUiColorsType;
+  themeType?: TUiColors;
   layer?: TLayer;
   disabled?: boolean;
 }

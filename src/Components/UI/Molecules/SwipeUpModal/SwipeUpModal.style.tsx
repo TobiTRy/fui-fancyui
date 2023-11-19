@@ -1,5 +1,6 @@
 import { styled } from 'styled-components';
-import { TUiColorsType } from '../../Design/color/designColor';
+
+import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 export const WrapperModal = styled.div`
   display: flex;
@@ -20,9 +21,9 @@ export const WrapperAnimated = styled.div`
   width: 100%;
 `;
 
-export const ContentBox = styled.div<{ theme: TUiColorsType }>`
+export const ContentBox = styled.div<{ theme: TTheme }>`
   overflow-y: scroll;
-  color: ${({ theme }) => theme.secondary[0]};
+  color: ${({ theme }) => theme.colors.secondary[0]};
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

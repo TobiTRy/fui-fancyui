@@ -1,5 +1,5 @@
-import { IFancyBottomBarIcon } from '../../../Templates/FancyBottomBarIcon/FancyBottomBarIcon.model';
-import { ICategoryItem, IDropDown, IRangeSlider, ITab, ITextInput, InputSettings } from '../EditBarItemsStructure/IEditbarObjectSturcture.model';
+import { IFancyBottomBarIcon } from '../../../Templates/FancyBottomBarIcon/FancyBottomBarIcon';
+import { ICategoryItem, IDropDown, IRangeSlider, ITextInput, InputSettings } from '../EditBarItemsStructure/IEditbarObjectSturcture.model';
 
 import { FancyTextInput } from '../../FancyTextInput';
 import FancyDropDownSelect from '../../FancyDropDownSelect/FancyDropDownSelect';

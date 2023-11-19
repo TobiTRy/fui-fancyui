@@ -1,11 +1,11 @@
 import React from 'react';
+
 import SVGChevronLeft from '../../SVGIcons/SVGChevronLeft';
 import SVGChevronRight from '../../SVGIcons/SVGChevronRight';
-
 import { SVGDesignCSS, StyledButton, StyledYearSelector } from './YearSelector.style';
 import Typography from '../Typography/Typography';
 import { FancySVGAtom } from '../FancySVGAtom';
-import { TUiColorsType } from '../../Design/color/designColor';
+import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '../../Design/color/generateColorSteps';
 
 // --------------------------------------------------------------------------- //
@@ -13,7 +13,7 @@ import { TLayer } from '../../Design/color/generateColorSteps';
 // --------------------------------------------------------------------------- //
 interface IYearSelector {
   selectedYear: number;
-  themeType?: keyof TUiColorsType;
+  themeType?: TUiColors;
   layer?: TLayer;
   handler?: (change: number) => void;
 }

@@ -1,12 +1,13 @@
 import { styled, css } from 'styled-components';
-import { spacing, spacingPx } from '../../Design/design';
+
+import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 // The Paginator Wrapper that wraps the hole components
-export const StyledPaginator = styled.div`
+export const StyledPaginator = styled.div<{theme: TTheme}>`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  gap: ${spacingPx.xs};
+  gap: ${({theme}) => theme.spacing.xs};
   margin: 0 12px;
 `;
 
@@ -19,17 +20,22 @@ export const NumberList = styled.div`
 `;
 
 // A Icon Wraper that press thes spacing more to the outside (Look more centerd)
-export const IconWrapper = styled.div<{ $align: 'left' | 'right' }>`
+interface IIconWrapper {
+  $align: 'left' | 'right';
+  theme: TTheme;
+}
+
+export const IconWrapper = styled.div<IIconWrapper>`
   display: flex;
   flex-shrink: 0;
   aspect-ratio: 1/1;
 
-  ${({ $align }) =>
+  ${({ $align, theme }) =>
     $align === 'right'
       ? css`
-          margin-left: ${spacing.xs - 1 + 'px'};
+          margin-left: ${parseFloat(theme.spacing.xs) - 1 + 'px'};
         `
       : css`
-          margin-right: ${spacing.xs - 1 + 'px'};
+          margin-right: ${parseFloat(theme.spacing.xs) - 1 + 'px'};
         `}
 `;

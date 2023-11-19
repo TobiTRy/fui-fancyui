@@ -1,26 +1,26 @@
 import { styled } from 'styled-components';
 
 import { FancyButton } from '../../Organisms/FancyButton';
-import { spacingPx } from '../../Design/design';
+import { spacingPx } from '../../Design/designSizes';
 import { simpleColorTransition } from '../../Design/simpleTransition';
-import { TUiColorsType } from '../../Design/color/designColor';
+import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 // Define a styled component for the button wrapper
-export const ButtonWrapper = styled.div<{ $isActive: boolean, theme: TUiColorsType }>`
+export const ButtonWrapper = styled.div<{ $isActive: boolean, theme: TTheme }>`
   button {
-    color: ${({$isActive, theme}) => $isActive && theme.accent[0]};
+    color: ${({$isActive, theme}) => $isActive && theme.colors.accent[0]};
     ${simpleColorTransition}
-    padding: ${spacingPx.sm};
+    padding: ${({theme}) => theme.spacing.sm};
 
     &:hover {
-      color: ${({$isActive, theme}) => $isActive && theme.accent[0]};
+      color: ${({$isActive, theme}) => $isActive && theme.colors.accent[0]};
     }
   }
 `;
 
 export const Wrapper = styled.div`
   display: flex;
-  gap: ${spacingPx.md};
+  gap: ${({theme}) => theme.spacing.md};
 `;
 
 

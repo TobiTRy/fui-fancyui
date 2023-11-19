@@ -1,14 +1,16 @@
-import { CSSProp, css } from 'styled-components';
-import { TUiColorsType } from '../../../Design/color/designColor';
+import { css } from 'styled-components';
+
+import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '../../../Design/color/generateColorSteps';
 import IStyledPrefixAndPicker from '../../../Interface/IStyledPrefixAndPicker.model';
 import { getBackgroundColor } from '../../../Design/color/colorCalculatorForComponet';
 import colorTransparencyCalculator from '../../../Design/color/colorTransparencyCalculator';
+import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 export interface IgenerateThemeForCard {
   outlined?: boolean;
   layer?: TLayer;
-  themeType?: keyof TUiColorsType;
+  themeType?: TUiColors;
   outlinedBackgroundStrength?: number;
 }
 
@@ -34,7 +36,7 @@ const generateOutlineStyle = (props: TGenerateColorDesign) => {
 // -----------  The Main generator function to create a the square  ---------- //
 // --------------------------------------------------------------------------- //
 type TGenerateColorDesign = IStyledPrefixAndPicker<IgenerateThemeForCard> & {
-  theme: TUiColorsType;
+  theme: TTheme;
 };
 export default function generateThemeForCard(props: TGenerateColorDesign) {
   const { $themeType, theme, $outlined, $layer, $outlinedBackgroundStrength } = props;

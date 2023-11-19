@@ -3,18 +3,17 @@ import { css } from 'styled-components';
 
 import { ErrorMessage, StyledInputWrapper, InputContainer } from './InputWrapper.style';
 import FancyInputUnderline from '../../Atoms/InputUnderline/InputUnderline';
-
 import FancySVGAtom from '../../Atoms/FancySVGAtom/FancySVGAtom';
-import { spacing } from '../../Design/design';
 import { AnimatedInputLabel } from '../../Atoms/AnimatedLabel/AnimatedInputLabel';
 import { TRawInputAlign } from '../../Atoms/RawInput/RawInput';
-import { TUiColorsType } from '../../Design/color/designColor';
+import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '../../Design/color/generateColorSteps';
 import calcColorState from '../../Design/color/calcColorState';
+import themeStore from '../../Design/color/themeStore';
 
 // Define the styles for the icon
 const iconStyle = css`
-  margin-right: ${spacing.xs + 2 + 'px'};
+  margin-right: ${parseFloat(themeStore.getState().theme.spacing.xs) + 2 + 'px'};
   margin-bottom: 2px;
   transition: 0.5s;
   align-self: flex-end;
@@ -33,7 +32,7 @@ export interface IInputWrapper {
   errorMessage?: string;
   icon?: JSX.Element;
   value?: string | number | readonly string[] | undefined;
-  themeType?: keyof TUiColorsType;
+  themeType?: TUiColors;
   layer?: TLayer;
   align?: TRawInputAlign;
   autoWidth?: boolean;

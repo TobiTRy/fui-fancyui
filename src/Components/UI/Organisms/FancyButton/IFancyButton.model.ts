@@ -1,7 +1,4 @@
 import { ButtonHTMLAttributes } from "react";
-import { borderRadius } from "../../Design/design";
-import { TUiColorsType } from "../../Design/color/designColor";
-import { TLayer } from "../../Design/color/generateColorSteps";
 
 type NativeButtonAttributes = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type'>;
 

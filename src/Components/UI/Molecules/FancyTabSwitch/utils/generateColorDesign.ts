@@ -4,7 +4,7 @@ import { getBackgroundColor } from '../../../Design/color/colorCalculatorForComp
 import { tabSwitchSizes } from '../../TabSwitch/TabSwitch';
 import { IFancyTabSwitchStyle } from '../FancyTabSwitch.style';
 import colorTransparencyCalculator from '../../../Design/color/colorTransparencyCalculator';
-import { borderRadius } from '../../../Design/design';
+import { borderRadius } from '../../../Design/designSizes';
 
 const generateTransparentStyle = (props: TGenerateOutlineStyle) => {
   const { $padding, theme, $rounded } = props;

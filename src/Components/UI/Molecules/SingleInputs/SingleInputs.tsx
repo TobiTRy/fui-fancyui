@@ -1,9 +1,9 @@
 import React, { useState, createRef, useEffect } from 'react';
 
 import SingleInputAtom from '../../Atoms/SingleInputAtom/SingleInputAtom';
-import InputStatus from '../../Design/Interfaces/IStatus';
+import InputStatus from '../../Interface/IStatus';
 import { InputWrapper } from './SingleInputs.style';
-import { TUiColorsType } from '../../Design/color/designColor';
+import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '../../Design/color/generateColorSteps';
 
 interface IFancySingleInputsProps {
@@ -11,7 +11,7 @@ interface IFancySingleInputsProps {
   handler?: (value: string) => void;
   status?: Pick<InputStatus, 'isError' | 'isSucceed'>;
   automaticCase?: 'upper' | 'lower';
-  themeType?: keyof TUiColorsType;
+  themeType?: TUiColors;
   layer?: TLayer;
 }
 export default function SingleInputs(props: IFancySingleInputsProps) {

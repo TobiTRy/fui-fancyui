@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
-import { TUiColorsType } from "../../Design/color/designColor";
 
+import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 // a consistant style for the checkbox and the fake checkbox
 const checkboxStyles = css`
@@ -33,11 +33,11 @@ export const HidenCheckBox = styled.input`
 `;
 
 // the fake checkbox that is shown for better styling
-export const FakeCheckbox = styled.div<{ $checked: boolean, theme: TUiColorsType }>`
+export const FakeCheckbox = styled.div<{ $checked: boolean, theme: TTheme }>`
   position: absolute;
   top: 0;
   left: 0;
-  background-color: ${({theme}) => theme.primary[3]};
+  background-color: ${({theme}) => theme.colors.primary[3]};
   z-index: 1;
   ${checkboxStyles}
   box-sizing: border-box;
@@ -55,7 +55,7 @@ export const FakeCheckbox = styled.div<{ $checked: boolean, theme: TUiColorsType
     width: 20px;
     height: 20px;
     transform: translate(-50%, -50%);
-    fill: ${({theme}) => theme.accent[0]};
+    fill: ${({theme}) => theme.colors.accent[0]};
     display: ${({ $checked }) => ($checked ? 'block' : 'none')};
   }
 `;

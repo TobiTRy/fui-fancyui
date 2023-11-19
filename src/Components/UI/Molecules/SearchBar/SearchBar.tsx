@@ -2,22 +2,22 @@ import React, { ChangeEvent, useState } from 'react';
 import { styled, css } from 'styled-components';
 import FancyTextInput from '../../Organisms/FancyTextInput/FancyTextInput';
 
-import { spacingPx, borderRadius } from '../../Design/design';
 import SVGSearch from '../../SVGIcons/SVGSearch';
 import FancySVGAtom from '../../Atoms/FancySVGAtom/FancySVGAtom';
 import { TRawInputAlign } from '../../Atoms/RawInput/RawInput';
-import { TUiColorsType } from '../../Design/color/designColor';
+import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '../../Design/color/generateColorSteps';
+import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 // Styled component for the search bar
-const StyledSearchBar = styled.div<{ $isActive?: boolean }>`
+const StyledSearchBar = styled.div<{ $isActive?: boolean, theme: TTheme }>`
   display: flex;
   align-items: center;
-  border-radius: ${({ $isActive }) =>
+  border-radius: ${({ $isActive, theme }) =>
     $isActive
-      ? `${borderRadius.lg} ${borderRadius.lg} 0px 0px`
-      : borderRadius.lg}; // Set the border radius based on whether the search bar list is active
-  gap: ${spacingPx.sm};
+      ? `${theme.borderRadius.lg} ${theme.borderRadius.lg} 0px 0px`
+      : theme.borderRadius.lg}; // Set the border radius based on whether the search bar list is active
+  gap: ${({theme}) => theme.spacing.sm};
   z-index: 1;
 
   input {
@@ -31,7 +31,7 @@ interface ISearchBar {
   align?: TRawInputAlign;
   activeHandler?: (isActive: boolean) => void;
   handler?: (value: string) => void;
-  themeType?: keyof TUiColorsType;
+  themeType?: TUiColors;
   layer?: TLayer;
   placerholder?: string;
 }

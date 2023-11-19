@@ -1,13 +1,13 @@
 import React from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
-import { borderRadius } from '../../Design/design';
-import { TUiColorsType } from '../../Design/color/designColor';
+import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '../../Design/color/generateColorSteps';
 import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
+import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 // Define the styled component for the progress bar container
-const ProgressBarContainer = styled.div<{theme: TUiColorsType, $themeType?: keyof TUiColorsType; $layer?: TLayer }>`
+const ProgressBarContainer = styled.div<{theme: TTheme, $themeType?: TUiColors; $layer?: TLayer }>`
   width: 100%;
   height: 4px;
   background-color: ${({theme, $themeType = 'secondary', $layer = 4}) => getBackgroundColor({theme, $themeType, $layer})};
@@ -19,14 +19,14 @@ const ProgressBarContainer = styled.div<{theme: TUiColorsType, $themeType?: keyo
 // Define the interface for the progress bar fill props
 interface IProgressBarFillProps {
   width: number;
-  theme: TUiColorsType;
+  theme: TTheme;
 }
 // Define the styled component for the progress bar fill
 const ProgressBarFill = styled.div<IProgressBarFillProps>`
   height: 100%;
   width: ${({ width }) => width}%;
-  background-color: ${({ theme }) => theme.accent[0]};
-  border-radius: ${borderRadius.complete} 0 0 ${borderRadius.complete};
+  background-color: ${({ theme }) => theme.colors.accent[0]};
+  border-radius: ${({theme}) => theme.borderRadius.complete} 0 0 ${({theme}) => theme.borderRadius.complete};
   transition: width 0.2s ease-out;
 `;
 
@@ -35,7 +35,7 @@ export interface IProgressBar {
   progress?: number;
   maxValue?: number;
   id?: string;
-  themeType?: keyof TUiColorsType;
+  themeType?: TUiColors;
   layer?: TLayer;
 }
 // Define the ProgressBar component

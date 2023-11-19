@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 
-import { ModalStatus } from '../../Interface/ModalStatus';
+import { TModalStatus } from '../../Interface/ModalStatus';
 import {ISwipeUpModal} from '../../Molecules/SwipeUpModal/ISwipeUpModal.model';
 
 export type ModalSettings = Omit<ISwipeUpModal, 'isOpen' | 'children' | 'onClose'>;
@@ -8,7 +8,7 @@ export type ModalSettings = Omit<ISwipeUpModal, 'isOpen' | 'children' | 'onClose
 export interface IFancySwipeUpModal {
   id: string;
   children: React.ReactNode;
-  status: ModalStatus;
+  status: TModalStatus;
   config?: ModalSettings;
 }
 

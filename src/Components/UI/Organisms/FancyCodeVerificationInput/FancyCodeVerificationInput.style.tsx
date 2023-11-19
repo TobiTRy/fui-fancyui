@@ -1,7 +1,8 @@
 import { styled, css } from 'styled-components';
-import IStatus from '../../Design/Interfaces/IStatus';
-import { colorPalet, fontSize, spacingPx } from '../../Design/design';
+
+import { fontSize, spacingPx } from '../../Design/designSizes';
 import { TUiColorsType } from '../../Design/color/designColor';
+import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 export const WarpperComponent = styled.div`
   display: flex;
@@ -13,21 +14,21 @@ export const MessageContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: ${spacingPx.sm};
+  margin-top: ${({theme}) => theme.spacing.sm};
 `;
 
-export const Message = styled.div<{ $isError?: boolean; theme: TUiColorsType }>`
-  color: ${({ theme }) => theme.secondary[0]};
+export const Message = styled.div<{ $isError?: boolean; theme: TTheme }>`
+  color: ${({ theme }) => theme.colors.secondary[0]};
   font-size: ${fontSize.sm};
   max-height: 0;
   visibility: hidden;
   overflow: hidden;
   opacity: 0;
 
-  ${({ $isError }) =>
+  ${({ $isError, theme }) =>
     $isError &&
     css`
-      color: ${colorPalet.red_light};
+      color: ${theme.colors.error[0]};
       max-height: 100px;
       visibility: visible;
       opacity: 1;

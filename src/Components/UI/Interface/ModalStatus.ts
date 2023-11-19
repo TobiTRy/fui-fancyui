@@ -1,1 +1,1 @@
-export type ModalStatus = 'open' | 'closing' | 'closed';
+export type TModalStatus = 'open' | 'closing' | 'closed';

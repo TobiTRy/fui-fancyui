@@ -1,7 +1,7 @@
-import { TUiColorsType } from '../../Design/color/designColor';
+import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 import themeStore from '../../Design/color/themeStore';
 
-export const getSimpletColorThemeType = (themeType?: keyof TUiColorsType) => {
+export const getSimpletColorThemeType = (themeType?: TUiColors) => {
   const isDarkTheme = themeStore.getState().isDarkTheme;
 
   if (themeType === 'primary') {

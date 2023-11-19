@@ -1,13 +1,13 @@
 import { CSSProp } from "styled-components";
 import { TLayer } from "../../Design/color/generateColorSteps";
-import { TUiColorsType } from "../../Design/color/designColor";
+import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 
 
 type HTMLDivElementProps = Omit<React.HTMLAttributes<HTMLDivElement>, 'style'>;
 interface IFancyBox {
   outlined?: boolean;
   layer?: TLayer;
-  themeType?: keyof TUiColorsType;
+  themeType?: TUiColors;
   children?: React.ReactNode;
   outlinedBackgroundStrength?: number;
   externalStyle?: CSSProp;

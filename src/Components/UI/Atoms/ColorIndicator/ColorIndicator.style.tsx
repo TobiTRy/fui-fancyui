@@ -1,6 +1,7 @@
 import { styled, css } from 'styled-components';
+
 import { boxShadow } from '../../Design/shadows';
-import { TUiColorsType } from '../../Design/color/designColor';
+import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 export const WrapperIndicator = styled.div<{ $isActive: boolean }>`
   position: absolute;
@@ -13,14 +14,14 @@ export const WrapperIndicator = styled.div<{ $isActive: boolean }>`
   pointer-events: none;
 `;
 
-export const Indicator = styled.div.attrs<{ $color: string, theme: TUiColorsType }>(({ $color }) => ({
+export const Indicator = styled.div.attrs<{ $color: string, theme: TTheme }>(({ $color }) => ({
   style: {
     backgroundColor: $color,
   },
 }))<{ $isActive: boolean }>`
   border-radius: 50% 50% 50% 0;
-  border: 1.5px solid ${({theme}) => theme.secondary[0]};
-  background-color: ${({theme}) => theme.secondary[0]};
+  border: 1.5px solid ${({theme}) => theme.colors.secondary[0]};
+  background-color: ${({theme}) => theme.colors.secondary[0]};
   ${boxShadow.sm};
   position: absolute;
   top: ${({ $isActive }) => ($isActive ? '-105px' : '-5px')};

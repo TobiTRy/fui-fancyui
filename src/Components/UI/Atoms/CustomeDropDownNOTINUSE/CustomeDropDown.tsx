@@ -1,43 +1,44 @@
 import React, { useState } from 'react';
 import { styled } from 'styled-components';
-import { fontSize, spacing } from '../../Design/design';
-import { TUiColorsType } from '../../Design/color/designColor';
+
+import { fontSize } from '../../Design/designSizes';
+import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 // Styled dropdown container
-const DropDownContainer = styled.div<{theme: TUiColorsType}>`
+const DropDownContainer = styled.div<{theme: TTheme}>`
   position: relative;
   display: inline-block;
   font-size: ${fontSize.md};
-  color: ${({theme}) => theme.secondary.main};
+  color: ${({theme}) => theme.colors.secondary.main};
   user-select: none;
 `;
 
 // Styled button to trigger the dropdown
-const DropDownTrigger = styled.div<{theme: TUiColorsType}>`
-  background-color: ${({theme}) => theme.primary.main};
-  padding: ${spacing.xs + 2 + 'px'};
+const DropDownTrigger = styled.div<{theme: TTheme}>`
+  background-color: ${({theme}) => theme.colors.primary.main};
+  padding: ${({theme}) => theme.spacing.sm};
   cursor: pointer;
   text-align: center;
 `;
 
 // Styled dropdown menu
-const DropDownMenu = styled.div<{ $isOpen: boolean, theme: TUiColorsType }>`
+const DropDownMenu = styled.div<{ $isOpen: boolean, theme: TTheme }>`
   display: ${(props) => (props.$isOpen ? 'block' : 'none')};
   position: absolute;
-  background-color: ${({theme}) => theme.primary.main};;
+  background-color: ${({theme}) => theme.colors.primary.main};;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 `;
 
 // Styled dropdown item
-const DropDownItem = styled.div<{theme: TUiColorsType}>`
+const DropDownItem = styled.div<{theme: TTheme}>`
   padding: 12px 16px;
   display: block;
   cursor: pointer;
 
   &:hover {
-    background-color: ${({theme}) => theme.accent.main};;
+    background-color: ${({theme}) => theme.colors.accent.main};;
   }
 `;
 

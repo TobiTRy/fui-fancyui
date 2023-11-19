@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { CSSProp, css } from 'styled-components';
 
 import SwitchList from '../../Molecules/SwitchList/SwitchList';
 import useFancyHandyNavStore from './FancyHandyNav.store';
@@ -6,16 +7,14 @@ import BottomBar from '../../Molecules/BottomBar/BottomBar';
 import FancyBottomBarIcon, { IFancyBottomBarIcon } from '../FancyBottomBarIcon/FancyBottomBarIcon';
 import RawNav from '../../Atoms/RawNav/RawNav';
 import { TLayer } from '../../Design/color/generateColorSteps';
-import { TUiColorsType } from '../../Design/color/designColor';
-import { CSSProp, css } from 'styled-components';
-
+import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 interface IFancyHandyNav {
   items?: IFancyBottomBarIcon[];
   isVisible?: boolean;
   wichIndexIsActive?: string;
-  themeType?: keyof TUiColorsType;
-  themeTypeIcons?: keyof TUiColorsType;
-  themeTypeSwitchList?: keyof TUiColorsType;
+  themeType?: TUiColors;
+  themeTypeIcons?: TUiColors;
+  themeTypeSwitchList?: TUiColors;
   layer?: TLayer;
   outlined?: boolean;
   outlinedBackgroundStrength?: number;

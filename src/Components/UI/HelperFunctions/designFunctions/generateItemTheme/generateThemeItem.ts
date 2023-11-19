@@ -3,7 +3,6 @@ import Color from 'color';
 
 import { disabledStyle } from '../disableStyle';
 import { generatePadding } from '../generatePaddingForComponent/generatePadding';
-import { borderRadius } from '../../../Design/design';
 import { boxShadow } from '../../../Design/shadows';
 import themeStore from '../../../Design/color/themeStore';
 import { getBackgroundColor } from '../../../Design/color/colorCalculatorForComponet';
@@ -20,9 +19,9 @@ const calcTextColor = ({ $textColor, $themeType, $outlined }: IcalcTextColor) =>
   const theme = themeStore.getState().theme;
 
   //  if the userer profides a $textColor use this
-  if ($textColor) return theme[$textColor][0];
-  if ($themeType === 'transparent') return theme.secondary[0];
-  if ($outlined) return theme[$themeType ?? 'secondary'][0];
+  if ($textColor) return theme.colors[$textColor][0];
+  if ($themeType === 'transparent') return theme.colors.secondary[0];
+  if ($outlined) return theme.colors[$themeType ?? 'secondary'][0];
 
   return getOpositColorContrast($themeType ?? 'secondary');
 };
@@ -34,7 +33,7 @@ const generateBackgroundColor = (props: Pick<IGenerateThemeItem, '$themeType' | 
   if ($themeType === 'transparent') {
     return 'transparent';
   } else {
-    return theme[$themeType ?? 'primary'][$layer ?? 0];
+    return theme.colors[$themeType ?? 'primary'][$layer ?? 0];
   }
 };
 
@@ -60,7 +59,7 @@ const generateOutlined = (props: IGenerateOutlinedItem) => {
   const backgroundColor = Color(getButtonColor).alpha(0.1).hexa();
 
   const clacHoverColor = () => {
-    if ($textColor) return theme[$textColor][1];
+    if ($textColor) return theme.colors[$textColor][1];
     return getButtonColor;
   };
 
@@ -85,7 +84,7 @@ type IGenerateNormalitem = Pick<
   '$themeType' | '$size' | '$label' | '$hoverColor' | '$textColor' | '$outlined' | '$layer'
 >;
 const generateNormal = (props: IGenerateNormalitem) => {
-  const { $themeType, $size, $label, $hoverColor, $textColor, $outlined, $layer } = props;
+  const { $themeType, $size, $hoverColor, $textColor, $outlined, $layer } = props;
   const theme = themeStore.getState().theme;
 
   //reduce the padding with the border $size
@@ -97,7 +96,7 @@ const generateNormal = (props: IGenerateNormalitem) => {
   // generates the hover style for the button
   const hoverBackgroundColorStyle = () => {
     if ($themeType === 'transparent') return 'transparent';
-    if ($hoverColor) return theme[$hoverColor][1];
+    if ($hoverColor) return theme.colors[$hoverColor][1];
     return getBackgroundColor({ theme, $themeType: $themeType ?? 'accent', $layer: ($layer && $layer + 1) ?? 1 });
   };
 
@@ -109,7 +108,7 @@ const generateNormal = (props: IGenerateNormalitem) => {
     padding: ${paddings[$size]};
 
     &:hover {
-      ${$themeType === 'transparent' ? 'color: ' + theme.secondary[1] : ''};
+      ${$themeType === 'transparent' ? 'color: ' + theme.colors.secondary[1] : ''};
       ${$themeType !== 'transparent' && boxShadow.sm};
       background-color: ${hoverBackgroundColorStyle};
     }
@@ -118,10 +117,15 @@ const generateNormal = (props: IGenerateNormalitem) => {
 
 const generateBorderRadius = (props: Pick<IGenerateThemeItem, '$wide' | '$borderRadius' | '$size'>): string => {
   const { $wide, $borderRadius, $size } = props;
+  const borderRadius = themeStore.getState().theme.borderRadius;
+
+  // if border radius is provided use this
   if ($borderRadius) {
     return borderRadius[$borderRadius];
+    // if the button is wide use the lg border radius
   } else if ($wide) {
     return borderRadius.lg;
+    // else use the $size of the button to calculate the border radius
   } else {
     return borderRadius[$size];
   }
@@ -129,7 +133,7 @@ const generateBorderRadius = (props: Pick<IGenerateThemeItem, '$wide' | '$border
 
 //-----this funktion handles the button style on his conditions-----//
 const generateThemeItem = (props: IGenerateThemeItem) => {
-  const { $themeType, $outlined, $icon, $label, $wide, $borderRadius } = props;
+  const { $themeType, $outlined, $wide, $borderRadius } = props;
 
   let iconStyle, aspectRatio;
 
@@ -138,14 +142,6 @@ const generateThemeItem = (props: IGenerateThemeItem) => {
 
   //this claculates the borderradius depeend on if its a $wide button or not
   const borderRadius = generateBorderRadius({ $wide, $borderRadius, $size: props.$size });
-
-  //this makes the button a square (1/1) if there is no $label and a $icon
-  // if (Boolean(!$label) && $icon) {
-  //   aspectRatio = css`
-  //     aspect-ratio: 1/1;
-  //     justify-content: center;
-  //   `;
-  // }
 
   return css`
     display: inline-flex;

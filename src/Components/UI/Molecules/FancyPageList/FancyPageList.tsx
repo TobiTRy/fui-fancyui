@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { styled } from 'styled-components';
 
 import Paginator from '../Paginator/Paginator';
-import { spacingPx } from '../../Design/design';
+import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 // The List with dymaic spacing between items
 const StyledList = styled.div<{ $spacing?: string }>`
@@ -13,11 +13,11 @@ const StyledList = styled.div<{ $spacing?: string }>`
   gap: ${({ $spacing }) => $spacing ? $spacing : '0px'};
 `
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<{theme: TTheme}>`
   display: flex;
   flex-direction: column;
   width: 100%;
-  gap: ${spacingPx.xl};
+  gap: ${({theme}) => theme.spacing.xl};
 `
 
 

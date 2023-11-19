@@ -1,27 +1,28 @@
 import React from 'react';
 import { styled } from 'styled-components';
-import { colorPalet } from '../../Design/design';
+
 import { ISVGAtomProps, IStyledSVGAtom, sizes } from './FancySVGAtom.model';
-import { TUiColorsType } from '../../Design/color/designColor';
+import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
+import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 interface ICalcIconColor {
-  theme: TUiColorsType;
+  theme: TTheme;
   $isActive?: boolean;
   $errorMessage?: string | undefined;
-  $themeType: keyof TUiColorsType;
+  $themeType: TUiColors;
   $layer?: number;
 }
 
 const calcIconColor = ({ theme, $isActive, $errorMessage, $themeType, $layer }: ICalcIconColor): string => {
   if (!$errorMessage) {
-    return $isActive ? theme.accent[0] : getBackgroundColor({ theme, $themeType, $layer });
+    return $isActive ? theme.colors.accent[0] : getBackgroundColor({ theme, $themeType, $layer });
   } else {
-    return colorPalet.red_dark;
+    return theme.colors.error[0];
   }
 };
 
-const StyledSVG = styled.i<IStyledSVGAtom & { theme: TUiColorsType }>`
+const StyledSVG = styled.i<IStyledSVGAtom & { theme: TTheme }>`
   display: flex;
   justify-content: center;
   font-style: normal;

@@ -38,6 +38,9 @@ type Story = StoryObj<typeof meta>;
 // Define the primary story
 export const Primary: Story = {
   render: (args) => <AvailableDot {...args} />,
+  args: {
+    $available: 'completly',
+  },
   parameters: {
     docs: {
       description: {

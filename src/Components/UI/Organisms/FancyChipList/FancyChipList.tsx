@@ -2,16 +2,16 @@ import React, { KeyboardEvent, useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 import { Fieldset } from '../../Atoms/Fieldset';
-import { TSytemMessage, TUiColorsType } from '../../Design/color/designColor';
 import { TLayer } from '../../Design/color/generateColorSteps';
 import ChipList from '../../Molecules/ChipList/ChipList';
 import { FancyChip } from '../FancyChip';
 import { InputLi } from './FancyChipList.style';
+import { TUiColors, TUiColorsSystemMessage } from '@/Components/UI/Interface/TUiColors';
 
 // Defining the interface for the component's props
 export interface ChipListProps {
-  themeType?: Exclude<keyof TUiColorsType, 'transparent'>;
-  systemInformation?: TSytemMessage;
+  themeType?: Exclude<TUiColors, 'transparent'>;
+  systemInformation?: TUiColorsSystemMessage;
   layer?: TLayer;
   outlined?: boolean;
   chips?: string[];

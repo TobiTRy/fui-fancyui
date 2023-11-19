@@ -3,21 +3,21 @@ import { styled, css } from 'styled-components';
 
 import { TAlign } from '../../Atoms/AlignedInputLabel/AlignedInputLabel';
 import { AlignedInputLabel } from '../../Atoms/AlignedInputLabel/AlignedInputLabel';
-import { spacingPx } from '../../Design/design';
 
 import ProgressBar, { IProgressBar } from '../../Atoms/ProgressBar/ProgressBar';
-import { TUiColorsType } from '../../Design/color/designColor';
+import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '../../Design/color/generateColorSteps';
+import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 // Define a styled component for the progress bar wrapper
-const Wrapper = styled.div<{ $value?: number; theme: TUiColorsType }>`
+const Wrapper = styled.div<{ $value?: number; theme: TTheme }>`
   width: 100%;
   display: flex;
-  gap: ${spacingPx.xxs};
+  gap: ${({theme}) => theme.spacing.xxs};
   flex-direction: column;
 
   & span {
-    margin-top: ${spacingPx.xxs};
+    margin-top: ${({theme}) => theme.spacing.xxs};
   }
 
   /* if the value is full set the color to accent color */
@@ -25,11 +25,11 @@ const Wrapper = styled.div<{ $value?: number; theme: TUiColorsType }>`
     $value === 100 &&
     css`
       & label {
-        color: ${theme.accent[0]};
+        color: ${theme.colors.accent[0]};
       }
 
       & span {
-        color: ${theme.accent[0]};
+        color: ${theme.colors.accent[0]};
       }
     `}
 `;
@@ -40,7 +40,7 @@ interface IFancyProgressBar extends IProgressBar {
   labelAlign?: TAlign;
   progressCount?: boolean;
   progressAlign?: TAlign;
-  themeType?: keyof TUiColorsType;
+  themeType?: TUiColors;
   textLayer?: TLayer;
   layer?: TLayer;
 }

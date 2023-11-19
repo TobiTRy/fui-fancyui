@@ -1,14 +1,17 @@
 import { css } from "styled-components";
+
 import { getBackgroundColor } from "../../../Design/color/colorCalculatorForComponet";
 import colorTransparencyCalculator from "../../../Design/color/colorTransparencyCalculator";
-import { TUiColorsType } from "../../../Design/color/designColor";
 import { IActiveSwitchIndicator } from "../SwitchActiveIndicator";
-import { borderRadius } from "../../../Design/design";
+import themeStore from "@/Components/UI/Design/color/themeStore";
+import { TBorderRadiusSizes } from "@/Components/UI/Interface/TBorderRadius";
+import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 // Define the function to generate a blob background for the active indicator
-type IGenerateBlob = Pick<IActiveSwitchIndicator, '$themeType' | '$outlined' | '$rounded' | '$layer'> & { theme: TUiColorsType };
+type IGenerateBlob = Pick<IActiveSwitchIndicator, '$themeType' | '$outlined' | '$rounded' | '$layer'> & { theme: TTheme };
 export const generateBlob = (props: IGenerateBlob) => {
-  const { $themeType, theme, $rounded, $outlined, $layer } = props;
+  const { $themeType, theme, $rounded, $outlined, $layer } = props; 
+  const borderRadius = themeStore.getState().theme.borderRadius;
   let backgroundStyle;
 
   // Get the background color for the active indicator
@@ -40,7 +43,7 @@ export const generateBlob = (props: IGenerateBlob) => {
   return css`
     top: 0;
     height: 100%;
-    border-radius: ${isRadiusKey ? borderRadius[$rounded as keyof typeof borderRadius] : $rounded};
+    border-radius: ${isRadiusKey ? borderRadius[$rounded as TBorderRadiusSizes] : $rounded};
     ${backgroundStyle}
   `;
 };

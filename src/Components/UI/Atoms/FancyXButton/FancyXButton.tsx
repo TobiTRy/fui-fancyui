@@ -2,22 +2,23 @@ import React from 'react';
 import { styled } from 'styled-components';
 import Color from 'color';
 
-import { IUiColorsTypes, IUiColorsSystemMessageTypes, spacingPx, fontSize } from '../../Design/design';
+import { fontSize } from '../../Design/designSizes';
 import { simpleColorTransition } from '../../Design/simpleTransition';
-import { TUiColorsType } from '../../Design/color/designColor';
+import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '../../Design/color/generateColorSteps';
 import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
+import { TTheme } from '@/Components/UI/Interface/TTheme';
 
-type FancyXButtonDesign = IUiColorsTypes | IUiColorsSystemMessageTypes;
+type FancyXButtonDesign = Exclude<TUiColors, 'transparent'>;
 
 interface IStyledFancyXButton {
-  $themeType?: keyof TUiColorsType;
+  $themeType?: FancyXButtonDesign;
   $layer?: TLayer;
-  theme: TUiColorsType;
+  theme: TTheme;
 }
 
 const StyledFancyXButton = styled.button<IStyledFancyXButton>`
-  padding: 0 ${spacingPx.sm} 2px;
+  padding: 0 ${({theme}) => theme.spacing.sm} ${({theme}) => theme.spacing.xxs};
   background: none;
   color: ${({ $themeType = 'accent', theme, $layer }) => getBackgroundColor({ $themeType, theme, $layer })};
   border: none;

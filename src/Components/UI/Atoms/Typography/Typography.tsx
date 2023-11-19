@@ -1,65 +1,10 @@
 import React, { ReactNode } from 'react';
-import { styled, CSSProp, css } from 'styled-components';
+import { CSSProp, css } from 'styled-components';
 
-import { fontSizeVariants } from './TypographyStyleVariants';
+import { IStyledComponentProps, TypographyList } from './TypographyFontVariations.style';
+import themeStore from '../../Design/color/themeStore';
+import { generateFontVariants } from './TypographyStyleVariants';
 
-interface IComponentProps {
-  children?: ReactNode;
-  $variant?: CSSProp;
-  $style?: CSSProp;
-  className?: string;
-}
-
-export const TypographyList = {
-  h1: styled.h1<IComponentProps>`
-    ${(props) => props.$variant};
-    ${(props) => props.$style};
-  `,
-  h2: styled.h2<IComponentProps>`
-    ${(props) => props.$variant};
-    ${(props) => props.$style};
-  `,
-  h3: styled.h3<IComponentProps>`
-    ${(props) => props.$variant};
-    ${(props) => props.$style};
-  `,
-  h4: styled.h4<IComponentProps>`
-    ${(props) => props.$variant};
-    ${(props) => props.$style};
-  `,
-  h5: styled.h5<IComponentProps>`
-    ${(props) => props.$variant};
-    ${(props) => props.$style};
-  `,
-  h6: styled.h6<IComponentProps>`
-    ${(props) => props.$variant};
-    ${(props) => props.$style};
-  `,
-  label: styled.label<IComponentProps>`
-    ${(props) => props.$variant};
-    ${(props) => props.$style};
-  `,
-  button: styled.span<IComponentProps>`
-    ${(props) => props.$variant};
-    ${(props) => props.$style};
-  `,
-  inlineElement: styled.span<IComponentProps>`
-    ${(props) => props.$variant};
-    ${(props) => props.$style};
-  `,
-  content: styled.p<IComponentProps>`
-    ${(props) => props.$variant};
-    ${(props) => props.$style};
-  `,
-  smText: styled.p<IComponentProps>`
-    ${(props) => props.$variant};
-    ${(props) => props.$style};
-  `,
-  verysmText: styled.span<IComponentProps>`
-    ${(props) => props.$variant};
-    ${(props) => props.$style};
-  `,
-};
 
 const generateStyle = (externalStyle: CSSProp, fontWeight: 'normal' | 'bold' | undefined) => {
   return css`
@@ -68,29 +13,33 @@ const generateStyle = (externalStyle: CSSProp, fontWeight: 'normal' | 'bold' | u
   `;
 };
 
-export interface ITypography {
+export type ITypography = {
   type: keyof typeof TypographyList;
   variant?: keyof typeof TypographyList;
   children?: ReactNode;
   weight?: 'normal' | 'bold';
   style?: CSSProp;
-  [x: string]: any;
-  className?: string;
-}
+} & Omit<React.HTMLAttributes<HTMLElement>, 'style'>;
 // --------------------------------------------------------------------------- //
 // The Typography component can render differnet elements with different styles//
 // ------------- like a "h4 can have the style of a p" ----------------------- //
-export default function Typography({ type, variant, children, style, weight, className, ...htmlProps }: ITypography) {
+export default function Typography({ type, variant, children, style, weight, ...htmlProps }: ITypography) {
+  // get the theme font sizes
+  const themeFonts = themeStore((state) => state.theme.fontSizes);
+
   // generate the Typography component based on the type prop;
   // const Component = TypographyList[type] || TypographyList.content;
-  const Component = (TypographyList[type] || TypographyList.content) as React.FC<IComponentProps>;
+  const Component = (TypographyList[type] || TypographyList.content) as React.FC<IStyledComponentProps>;
 
   const mixedStyle = generateStyle(style, weight);
   // get the variant style based on the variant prop or the type prop;
-  const variantStyle = variant ? fontSizeVariants[variant] : fontSizeVariants[type] as CSSProp;
+  const fontVariants = generateFontVariants(themeFonts)
+
+  // get the variant style based on the variant prop or the type prop;
+  const variantStyle = variant ? fontVariants[variant] : (fontVariants[type] as CSSProp);
 
   return (
-    <Component $variant={variantStyle} $style={mixedStyle} className={className} {...htmlProps}>
+    <Component $variant={variantStyle} $style={mixedStyle} {...htmlProps}>
       {children}
     </Component>
   );

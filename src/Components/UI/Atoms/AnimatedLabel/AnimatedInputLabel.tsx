@@ -1,10 +1,11 @@
 import { styled, css } from 'styled-components';
 
-import { colorPalet } from '../../Design/design';
 import InputLabel from '../InputLabel/InputLabel';
 import { TUiColorsType } from '../../Design/color/designColor';
 import { TLayer } from '../../Design/color/generateColorSteps';
 import { getTextColor } from '../../Design/color/colorCalculatorForComponet';
+import { TTheme } from '@/Components/UI/Interface/TTheme';
+import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 
 const activeHandler = (align: string, $moveUp?: boolean) => {
   if (align !== 'center') {
@@ -35,9 +36,9 @@ export interface IAnimatedInputLabel {
   $align?: 'center' | 'left';
   $moveUp?: boolean;
   $colorState?: 'error' | 'active' | 'default';
-  $themeType?: keyof TUiColorsType;
+  $themeType?: TUiColors;
   $layer?: TLayer;
-  theme?: TUiColorsType;
+  theme?: TTheme;
 }
 // --------------------------------------------------------------------------- //
 // ---------- The input label wich hase some colors and an animation --------- //
@@ -48,9 +49,9 @@ export const AnimatedInputLabel = styled(InputLabel)<IAnimatedInputLabel & { the
   color: ${({ $colorState, theme, $themeType = 'secondary', $layer = 4 }) => {
     switch ($colorState) {
       case 'error':
-        return colorPalet.red_light;
+        return theme.colors.error[0];
       case 'active':
-        return theme.accent[0];
+        return theme.colors.accent[0];
       default:
         return getTextColor({ theme, $themeType, $textLayer: $layer });
     }

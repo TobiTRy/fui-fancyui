@@ -1,12 +1,13 @@
 import { createGlobalStyle } from 'styled-components';
-import { TUiColorsType } from './Components/UI/Design/color/designColor';
 
-const GlobalStyle = createGlobalStyle<{ theme: TUiColorsType }>`
+import { TTheme } from '@/Components/UI/Interface/TTheme';
+
+const GlobalStyle = createGlobalStyle<{ theme: TTheme }>`
   body {
     margin: 0;
     padding: 0;
-    background: ${({ theme }) => theme.primary[0]};
-    color: ${({ theme }) => theme.secondary[0]};
+    background: ${({ theme }) => theme.colors.primary[0]};
+    color: ${({ theme }) => theme.colors.secondary[0]};
     font-family: DMSans, Helvetica, Sans-Serif;
 
     .App {

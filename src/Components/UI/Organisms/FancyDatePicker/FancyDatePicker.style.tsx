@@ -1,29 +1,29 @@
 import { styled } from 'styled-components';
-import { borderRadius, spacingPx } from '../../Design/design';
-import { TUiColorsType } from '../../Design/color/designColor';
 
 import { TLayer } from '../../Design/color/generateColorSteps';
 import getColorsForComponent, { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
+import { TTheme } from '@/Components/UI/Interface/TTheme';
+import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 
-export const DatePickerContainer = styled.div<{ theme: TUiColorsType; $themeType?: keyof TUiColorsType; $layer?: TLayer }>`
+export const DatePickerContainer = styled.div<{ theme: TTheme; $themeType?: TUiColors; $layer?: TLayer }>`
   display: flex;
   flex-direction: column;
   align-items: center;
   ${({ theme, $themeType = 'primary', $layer = 1 }) => getColorsForComponent({ theme, $themeType, $layer })};
-  border-radius: ${borderRadius.xl};
+  border-radius: ${({theme}) => theme.borderRadius.xl};
   padding: 20px;
   width: 100%;
   box-sizing: border-box;
 `;
 
-export const WrapperYearSelector = styled.div`
+export const WrapperYearSelector = styled.div<{theme: TTheme}>`
   width: 100%;
-  padding: ${spacingPx.md} ${spacingPx.md} ${spacingPx.md};
+  padding: ${({theme}) => `${theme.spacing.md} ${theme.spacing.md} ${theme.spacing.md}`};
   box-sizing: border-box;
 `;
 
-export const WrapperWeekdays = styled.div<{ theme: TUiColorsType, $themeType?: keyof TUiColorsType  }>`
+export const WrapperWeekdays = styled.div<{ theme: TTheme, $themeType?: TUiColors  }>`
   width: 100%;
   border-bottom: solid 1px ${({ theme, $themeType = 'secondary'  }) => getBackgroundColor({ theme, $themeType })};
-  padding-bottom: ${spacingPx.xxs};
+  padding-bottom: ${({theme}) => theme.spacing.xxs};
 `;

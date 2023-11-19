@@ -1,17 +1,18 @@
 import Color from 'color';
 import { styled } from 'styled-components';
-import { borderRadius, fontSize } from '../../Design/design';
+
+import { fontSize } from '../../Design/designSizes';
 import { simpleColorTransition } from '../../Design/simpleTransition';
-import { TUiColorsType } from '../../Design/color/designColor';
+import { TTheme } from '@/Components/UI/Interface/TTheme';
 
-const colorCalculation = ({ theme, $isBright, $isDarkTheme }: { theme: TUiColorsType; $isBright: boolean; $isDarkTheme: boolean }) => {
-  if($isDarkTheme) return ($isBright ? theme.primary[0] : theme.secondary[0]);
+const colorCalculation = ({ theme, $isBright, $isDarkTheme }: { theme: TTheme; $isBright: boolean; $isDarkTheme: boolean }) => {
+  if($isDarkTheme) return ($isBright ? theme.colors.primary[0] : theme.colors.secondary[0]);
 
-  return ($isBright ? theme.secondary[0] : theme.primary[0]);
+  return ($isBright ? theme.colors.secondary[0] : theme.colors.primary[0]);
 }
 
 
-export const Content = styled.div<{ $isBright: boolean; theme: TUiColorsType, $isDarkTheme: boolean }>`
+export const Content = styled.div<{ $isBright: boolean; theme: TTheme, $isDarkTheme: boolean }>`
   position: absolute;
   width: 100%;
   height: 100%;
@@ -31,7 +32,7 @@ export const Content = styled.div<{ $isBright: boolean; theme: TUiColorsType, $i
   }
 
   &:active, &:hover {
-    color: ${({theme, $isBright, $isDarkTheme}) => ($isBright && $isDarkTheme) ? theme.primary[4] : theme.secondary[4] };
+    color: ${({theme, $isBright, $isDarkTheme}) => ($isBright && $isDarkTheme) ? theme.colors.primary[4] : theme.colors.secondary[4] };
   }
 `;
 
@@ -71,6 +72,6 @@ export const ColorDisplayContainer = styled.div.attrs(colorDisplayColor)<IColorD
   position: absolute;
   width: 100%;
   height: 100%;
-  border-radius: ${borderRadius.sm};
+  border-radius: ${({theme}) => theme.borderRadius.sm};
   z-index: 1;
 `;

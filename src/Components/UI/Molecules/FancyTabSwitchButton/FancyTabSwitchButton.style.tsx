@@ -1,24 +1,26 @@
 import { styled, css } from 'styled-components';
-import themeStore from '../../Design/color/themeStore';
 
-import { spacingPx } from '../../Design/design';
-import { TUiColorsType } from '../../Design/color/designColor';
+import themeStore from '../../Design/color/themeStore';
+import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '../../Design/color/generateColorSteps';
 import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
 import { TypographyList } from '../../Atoms/Typography/Typography';
+import { TTheme } from '@/Components/UI/Interface/TTheme';
 
+
+const getSpacingFromTheme = themeStore.getState().theme.spacing;
 export const tabSwitchItemSizes = {
   sm: {
     fontSize: 'smText' as keyof typeof TypographyList,
-    padding: spacingPx.xs,
+    padding: getSpacingFromTheme.xs,
   },
   md: {
     fontSize: 'content' as keyof typeof TypographyList,
-    padding: spacingPx.sm,
+    padding: getSpacingFromTheme.sm,
   },
   lg: {
     fontSize: 'button' as keyof typeof TypographyList,
-    padding: spacingPx.md,
+    padding: getSpacingFromTheme.md,
   },
 };
 
@@ -28,10 +30,10 @@ export const tabSwitchItemSizes = {
 //generates the style from the dynamic values of the tab
 interface IListButtonStyle {
   $wide?: boolean;
-  $textColor?: keyof TUiColorsType;
+  $textColor?: TUiColors;
   $iconAlign?: 'left' | 'right';
-  theme: TUiColorsType;
-  $themeType?: keyof TUiColorsType;
+  theme: TTheme;
+  $themeType?: TUiColors;
   $layer?: TLayer;
   $size?: keyof typeof tabSwitchItemSizes;
   $hasLabel?: boolean;
@@ -66,13 +68,13 @@ const generateIconAlignment = (props: Pick<IListButtonStyle, '$iconAlign'>) => {
     switch ($iconAlign) {
       case 'right':
         return css`
-          gap: ${spacingPx.xs};
+          gap: ${getSpacingFromTheme.xs};
           order: 1;
         `;
       default:
       case 'left':
         return css`
-          gap: ${spacingPx.xs};
+          gap: ${getSpacingFromTheme.xs};
         `;
     }
   };
@@ -110,7 +112,7 @@ const generateButtonStyle = (props: IListButtonStyle) => {
       cursor: pointer;
       user-select: none;
       padding: ${$wide
-        ? `${tabSwitchItemSizes[$size || 'sm'].padding} ${spacingPx.md}`
+        ? `${tabSwitchItemSizes[$size || 'sm'].padding} ${getSpacingFromTheme.md}`
         : `${tabSwitchItemSizes[$size || 'sm'].padding} ${parseInt(tabSwitchItemSizes[$size || 'sm'].padding) + 7 + 'px'}`};
       //handles the dynamic values
       ${generateDynamicTabStyle({ $themeType, $textColor, theme, $layer })}

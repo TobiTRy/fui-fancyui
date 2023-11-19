@@ -1,24 +1,24 @@
 import { styled, keyframes } from 'styled-components';
 
-import { borderRadius, fontSize, spacingPx } from '../../Design/design';
-import { TUiColorsType } from '../../Design/color/designColor';
+import { fontSize } from '../../Design/designSizes';
 import colorTransparencyCalculator from '../../Design/color/colorTransparencyCalculator';
 import { boxShadow } from '../../Design/shadows';
 import { TLayer } from '../../Design/color/generateColorSteps';
 import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
+import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 type ToastMessageProps = 'success' | 'warning' | 'error' | 'info';
 
 interface IToastMessage {
   $messageType: ToastMessageProps;
   $layer?: TLayer;
-  theme: TUiColorsType;
+  theme: TTheme;
 }
 
 interface TimerLineProps {
   $messageType: ToastMessageProps;
   $layer?: TLayer;
-  theme: TUiColorsType;
+  theme: TTheme;
   $time: number;
 }
 
@@ -30,9 +30,9 @@ export const Container = styled.div<IToastMessage>`
   flex-direction: column;
   align-items: left;
   color: ${({ $messageType, theme, $layer = 5 }) => getBackgroundColor({$themeType: $messageType, theme, $layer}) }; //theme[$messageType]['5']
-  border-radius: ${borderRadius.sm};
-  padding: ${spacingPx.lg};
-  background-color: ${({ theme }) => colorTransparencyCalculator(theme.primary['0'], 0.95)};
+  border-radius: ${({theme}) => theme.borderRadius.sm};
+  padding: ${({theme}) => theme.spacing.lg};
+  background-color: ${({ theme }) => colorTransparencyCalculator(theme.colors.primary['0'], 0.95)};
   border-left: 4px solid ${({ $messageType, theme, $layer = 3}) => getBackgroundColor({$themeType: $messageType, theme, $layer})};
   box-sizing: border-box;
   ${boxShadow.md}

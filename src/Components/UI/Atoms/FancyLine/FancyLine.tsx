@@ -1,10 +1,12 @@
 import { styled } from 'styled-components';
-import { TUiColorsType } from '../../Design/color/designColor';
+
 import { TLayer } from '../../Design/color/generateColorSteps';
 import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
 import IStyledPrefixAndPicker from '../../Interface/IStyledPrefixAndPicker.model';
+import { TTheme } from '@/Components/UI/Interface/TTheme';
+import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 
-type TStyledFancyLine = IStyledPrefixAndPicker<IFancyLine> & { theme?: TUiColorsType };
+type TStyledFancyLine = IStyledPrefixAndPicker<IFancyLine> & { theme?: TTheme };
 const StyledFancyLine = styled.hr<TStyledFancyLine>`
   background-color: ${({ theme, $themeType = 'accent', $layer }) => getBackgroundColor({ theme, $themeType, $layer })};
   display: block;
@@ -33,7 +35,7 @@ type IFancyLine = {
   direction?: 'horizontal' | 'vertical';
   thickness?: string;
   margin?: string;
-  themeType?: keyof TUiColorsType;
+  themeType?: TUiColors;
   layer?: TLayer;
 };
 // --------------------------------------------------------------------------- //

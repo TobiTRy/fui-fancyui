@@ -1,10 +1,11 @@
 // Import necessary dependencies
 import React, { ReactElement } from 'react';
 import { styled } from 'styled-components';
-import { spacingPx } from '../../Design/design';
+
 import { FancyContentIcon } from './utils/FancyContentIcon';
 import { FancyContentDescription, FancyContentTitle } from './utils/FancyContentText';
 import IStyledPrefixAndPicker from '../../Interface/IStyledPrefixAndPicker.model';
+import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 // Define the types for the Wrapper component
 type TWrapper = IStyledPrefixAndPicker<
@@ -13,30 +14,30 @@ type TWrapper = IStyledPrefixAndPicker<
 >;
 
 // Define the Wrapper component
-const Wrapper = styled.span<TWrapper>`
+const Wrapper = styled.span<TWrapper & {theme: TTheme}>`
   display: flex;
   flex-direction: ${({ $flexDirection }) => $flexDirection || 'row'};
   justify-content: ${({ $flexJustify }) => $flexJustify || 'center'};
   align-items: ${({ $flexAlign }) => $flexAlign || 'center'};
-  gap: ${({ $gapBetweenIcon }) => $gapBetweenIcon ?? spacingPx.xs};
+  gap: ${({ $gapBetweenIcon, theme }) => $gapBetweenIcon ?? theme.spacing.xs};
 
   .content {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    gap: ${({ $gapBetweenText }) => $gapBetweenText ?? spacingPx.xxs};
+    gap: ${({ $gapBetweenText, theme }) => $gapBetweenText ?? theme.spacing.xxs};
   }
 `;
 
 
 type TOnlyTextWrapper = IStyledPrefixAndPicker<IFancyContentProps, 'flexDirection' | 'gapBetweenText' | 'flexAlign' | 'flexJustify'>
-const OnlyTextWrapper = styled.div<TOnlyTextWrapper>`
+const OnlyTextWrapper = styled.div<TOnlyTextWrapper & {theme: TTheme}>`
   display: flex;
   flex-direction: ${({ $flexDirection }) => $flexDirection || 'column'};
   justify-content: ${({ $flexJustify }) => $flexJustify || 'center'};
   align-items: ${({ $flexAlign }) => $flexAlign || 'flex-start'};
-  gap: ${({ $gapBetweenText }) => $gapBetweenText ?? spacingPx.xxs};
+  gap: ${({ $gapBetweenText, theme }) => $gapBetweenText ?? theme.spacing.xxs};
 `
 
 // Define the props for the FancyContent component

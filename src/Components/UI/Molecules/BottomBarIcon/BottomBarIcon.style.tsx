@@ -1,17 +1,16 @@
 import { styled } from "styled-components";
 
-
-import { TUiColorsType } from "../../Design/color/designColor";
+import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from "../../Design/color/generateColorSteps";
 import { getBackgroundColor } from "../../Design/color/colorCalculatorForComponet";
 import { disabledStyle } from "../../HelperFunctions/designFunctions/disableStyle";
-import { spacing } from "../../Design/design";
+import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 interface IContentWrapper {
   $isActive?: boolean;
   $disabled?: boolean;
-  theme: TUiColorsType;
-  $themeType?: keyof TUiColorsType;
+  theme: TTheme;
+  $themeType?: TUiColors;
   $layer?: TLayer;
 }
 
@@ -28,16 +27,16 @@ export const ContentWrapper = styled.div<IContentWrapper>`
   cursor: pointer;
   margin: 0 auto;
   color: ${({ $isActive, theme, $layer = 0, $themeType = 'secondary' }) =>
-    $isActive ? theme.accent[0] : getBackgroundColor({ theme, $themeType, $layer })};
+    $isActive ? theme.colors.accent[0] : getBackgroundColor({ theme, $themeType, $layer })};
   transition: all 0.3s ease-in-out;
   ${({ $disabled }) => $disabled && disabledStyle}
-  padding-bottom: ${spacing.xs  + 'px'};
+  padding-bottom: ${({theme}) => theme.spacing.xs};
   text-decoration: none;
 
   /* This is a media query that tests if the primary input mechanism of the device (e.g., mouse or touch screen) is capable of hovering  */
   @media (hover: hover) {
     &:hover {
-      color: ${({ $disabled, theme }) => !$disabled && theme.accent[0]};
+      color: ${({ $disabled, theme }) => !$disabled && theme.colors.accent[0]};
     }
   }
 `;

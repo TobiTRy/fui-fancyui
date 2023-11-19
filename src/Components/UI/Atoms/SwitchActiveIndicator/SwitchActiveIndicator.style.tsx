@@ -1,9 +1,10 @@
 import { styled, css } from 'styled-components';
-import { TUiColorsType } from '../../Design/color/designColor';
-import { spacing } from '../../Design/design';
+
+import { spacingPx } from '../../Design/designSizes';
 import { IActiveSwitchIndicator } from './SwitchActiveIndicator';
 import { generateBlob } from './utils/generateBlob';
 import { generateTopline, generateUnderline } from './utils/generateLines';
+import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 // Define the function to calculate the current position of the active indicator
 type IClacCurrentPosition = Pick<IActiveSwitchIndicator, '$itemNumber' | '$tabSpacing' | '$direction'>;
@@ -14,7 +15,7 @@ const clacCurrentPosition = (props: IClacCurrentPosition) => {
   const itemPosition = ($itemNumber - 1) * 100 + '%';
 
   // Calculate the gap between the items
-  const gapSpacing = $tabSpacing ? ($itemNumber - 1) * spacing[$tabSpacing] : 0;
+  const gapSpacing = $tabSpacing ? ($itemNumber - 1) * parseFloat(spacingPx[$tabSpacing]) : 0;
 
   // Calculate the current position of the active indicator
   const currentPosition = $itemNumber
@@ -39,7 +40,7 @@ const clacCurrentPosition = (props: IClacCurrentPosition) => {
 // -------- Here is the main Generator Function of the activ indicator ------- //
 // --------------------------------------------------------------------------- //
 type TActiveSwitchIndicator = Pick<IActiveSwitchIndicator, '$layer' | '$rounded' | '$outlined' | '$themeType' | '$type' | '$indicatorWidth'  >;
-export const ActiveSwitchIndicator = styled.span<TActiveSwitchIndicator & { theme: TUiColorsType }>`
+export const ActiveSwitchIndicator = styled.span<TActiveSwitchIndicator & { theme?: TTheme }>`
   position: absolute;
   width: ${({ $indicatorWidth }) => $indicatorWidth ?? '100%'}; /* Set the width of the active indicator */
 

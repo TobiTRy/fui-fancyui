@@ -8,8 +8,8 @@ import { Typography } from '../../lib';
 
 import styled from 'styled-components';
 import FancyBar from '../../Components/UI/Atoms/FancyBox/FancyBox';
-import { borderRadius } from '../../Components/UI/Design/design';
 import Header from '../../Components/UI/Molecules/Header/Header';
+import themeStore from '@/Components/UI/Design/color/themeStore';
 
 const Logo = () => (
   <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" height="30" version="1.1" viewBox="0 0 96.37 64.15" fill="#ff9800f0">
@@ -30,29 +30,6 @@ const RightSlot = ({ onClick }: { onClick?: () => void }) => {
   );
 };
 
-const Slot = {
-  component: (
-    <FancySearchBar searchListWidth="80vw" layer={1}>
-      <FancyLoadingSpinner size="lg" />
-    </FancySearchBar>
-  ),
-  scale: 1,
-};
-
-interface More {
-  title: string;
-}
-const MoreContent = (props: More) => {
-  return (
-    <>
-      <div style={{ position: 'absolute', width: '100px', top: '44px', height: '100px' }}>More Content {props.title}</div>
-    </>
-  );
-};
-
-const headerTitele = {
-  component: <HeaderTitleWithLogo title="Let´sTryIt" />,
-};
 
 const HeaderContentWrapper = styled.div`
   display: flex;
@@ -64,7 +41,7 @@ const HeaderContentWrapper = styled.div`
 const HeaderContent = () => {
   return (
     <HeaderContentWrapper>
-      <HeaderTitleWithLogo title="Let´sTryIt" />
+      <HeaderTitleWithLogo title="Let´sTryIt" logo={<Logo/>}/>
       <FancySearchBar searchListWidth="80vw" layer={1}>
         <FancyLoadingSpinner size="lg" />
       </FancySearchBar>
@@ -82,20 +59,20 @@ const HeaderContent = () => {
 export default function HeaderRoute() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const Slot2 = {
-    component: <RightSlot onClick={() => setIsOpen(!isOpen)} />,
-    scale: 1,
-  };
-
   return (
     <section>
       <div style={{ marginTop: '40px' }}>
-        <FancyBar outlined layer={6} outlinedBackgroundStrength={0.95} externalStyle={{ padding: '5px 18px', borderRadius: '22px', width: '80%' }}>
+        <FancyBar
+          outlined
+          layer={6}
+          outlinedBackgroundStrength={0.95}
+          externalStyle={{ padding: '5px 18px', borderRadius: '22px', width: '80%' }}
+        >
           <HeaderContent />
         </FancyBar>
       </div>
       <div style={{ marginTop: '40px' }}>
-        <FancyBar externalStyle={{ borderRadius: borderRadius.lg, top: 0, width: '80%' }}>
+        <FancyBar externalStyle={{ borderRadius: themeStore.getState().theme.borderRadius.lg, top: 0, width: '80%' }}>
           <Typography type="h1">FancyBar</Typography>
         </FancyBar>
       </div>

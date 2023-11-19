@@ -1,12 +1,12 @@
 import { css, styled } from 'styled-components';
 
 import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
-import { TUiColorsType } from '../../Design/color/designColor';
 import IStyledPrefixAndPicker from '../../Interface/IStyledPrefixAndPicker.model';
 import { IListDivider } from './ListDivider.model';
+import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 // only a sepeation line
-type TStyledPrefixAndOmitter = IStyledPrefixAndPicker<IListDivider, 'themeType' | 'layer'> & { theme: TUiColorsType };
+type TStyledPrefixAndOmitter = IStyledPrefixAndPicker<IListDivider, 'themeType' | 'layer'> & { theme: TTheme };
 export const StyledI = styled.div<TStyledPrefixAndOmitter>`
   height: 1px;
   background-color: ${({ theme, $themeType, $layer }) =>
@@ -16,7 +16,7 @@ export const StyledI = styled.div<TStyledPrefixAndOmitter>`
 
 
 // the wrapper for the text and the line
-type TStyledTextDiv = IStyledPrefixAndPicker<IListDivider, 'themeType' | 'layer' | 'textAlignment'> & { theme: TUiColorsType };
+type TStyledTextDiv = IStyledPrefixAndPicker<IListDivider, 'themeType' | 'layer' | 'textAlignment'> & { theme: TTheme };
 export const StyledTextDiv = styled.div<TStyledTextDiv>`
   display: flex;
   color: ${({ $themeType, $layer, theme }) => getBackgroundColor({ $themeType: $themeType ?? 'secondary', $layer, theme })};

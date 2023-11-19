@@ -1,5 +1,5 @@
 import { css, styled } from 'styled-components';
-import { spacingPx } from '../../Design/design';
+import { spacingPx } from '../../Design/designSizes';
 import { TAlign, TAlignCheckbox } from './FancyCheckbox.model';
 
 
@@ -24,19 +24,19 @@ export const Wrapper = styled.div<{ $align?: TAlign; }>`
 export const LabelWrapper = styled.label<{ $align?: TAlignCheckbox; }>`
   display: flex;
   flex-direction: column;
-  gap: ${spacingPx.xxs};
+  gap: ${({theme}) => theme.spacing.xxs};
   ${({ $align }) =>
     $align === 'right'
       ? css`
-          margin-right: ${spacingPx.sm};
+          margin-right: ${({theme}) => theme.spacing.sm};
           order: 0;
         `
       : css`
-          margin-left: ${spacingPx.sm};
+          margin-left: ${({theme}) => theme.spacing.sm};
           order: 1;
         `};
 
   .description {
-    margin-left: ${spacingPx.xxs};
+    margin-left: ${({theme}) => theme.spacing.xxs};
   }
 `;

@@ -152,10 +152,10 @@ const BottomBarComponent = (args: React.ComponentProps<typeof FancyBox>) => {
 
   return (
     <FancyBox {...args} externalStyle={BottomBarStyle}>
-      <FancyBottomBarIcon icon={<SVGCheckMark />} label="Test" active={wichIsActive === '0'} onClick={() => setWichIsActive('0')}/>
-      <FancyBottomBarIcon icon={<SVGCheckMark />} label="Test" active={wichIsActive === '1'} onClick={() => setWichIsActive('1')}/>
-      <FancyBottomBarIcon icon={<SVGCheckMark />} label="Test" active={wichIsActive === '2'} onClick={() => setWichIsActive('2')}/>
-      <FancyBottomBarIcon icon={<SVGCheckMark />} label="Test" active={wichIsActive === '3'} onClick={() => setWichIsActive('3')}/>
+      <FancyBottomBarIcon icon={<SVGCheckMark />} label="Test" isActive={wichIsActive === '0'} onClick={() => setWichIsActive('0')}/>
+      <FancyBottomBarIcon icon={<SVGCheckMark />} label="Test" isActive={wichIsActive === '1'} onClick={() => setWichIsActive('1')}/>
+      <FancyBottomBarIcon icon={<SVGCheckMark />} label="Test" isActive={wichIsActive === '2'} onClick={() => setWichIsActive('2')}/>
+      <FancyBottomBarIcon icon={<SVGCheckMark />} label="Test" isActive={wichIsActive === '3'} onClick={() => setWichIsActive('3')}/>
     </FancyBox>
   );
 };

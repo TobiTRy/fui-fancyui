@@ -2,12 +2,12 @@ import React from 'react';
 import { styled } from 'styled-components';
 
 import { simpleColorTransition } from '../../Design/simpleTransition';
-import { TUiColorsType } from '../../Design/color/designColor';
+import { TTheme } from '@/Components/UI/Interface/TTheme';
 
-const StyledSwipeUpDash = styled.div<{theme: TUiColorsType}>`
+const StyledSwipeUpDash = styled.div<{theme: TTheme}>`
     width: 50px;
     height: 3px;
-    background-color: ${({theme}) => theme.secondary[0]};
+    background-color: ${({theme}) => theme.colors.secondary[0]};
     border-radius: 3px;
 `;
 

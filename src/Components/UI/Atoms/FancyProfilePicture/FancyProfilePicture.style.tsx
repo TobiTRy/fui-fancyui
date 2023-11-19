@@ -1,8 +1,9 @@
 import { styled } from 'styled-components';
 
 import { IFancyProfilePicture } from './FancyProfilePicture';
-import { TUiColorsType } from '../../Design/color/designColor';
+import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '../../Design/color/generateColorSteps';
+import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 // Set the border based on the prop
 type TBorderRadius = IFancyProfilePicture['rounded'];
@@ -57,8 +58,8 @@ interface IPlaceholderProps {
   $size: TSize | string;
   $color?: string;
   $backgroundColor?: string;
-  theme?: TUiColorsType;
-  $themeType?: keyof TUiColorsType;
+  theme?: TTheme;
+  $themeType?: TUiColors;
   $layer?: TLayer;
 }
 
@@ -69,8 +70,8 @@ export const Placeholder = styled.div<IPlaceholderProps>`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: ${({ $backgroundColor, theme, $layer }) => ($backgroundColor ? $backgroundColor : theme.primary[$layer ?? 2])};
-  color: ${({ $color, theme, $layer }) => ($color ? $color : theme.secondary[$layer ?? 1])};
+  background-color: ${({ $backgroundColor, theme, $layer }) => ($backgroundColor ? $backgroundColor : theme.colors.primary[$layer ?? 2])};
+  color: ${({ $color, theme, $layer }) => ($color ? $color : theme.colors.secondary[$layer ?? 1])};
   font-size: 1.5em;
   aspect-ratio: 1/1;
 `;

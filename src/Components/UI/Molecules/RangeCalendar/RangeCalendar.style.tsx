@@ -1,13 +1,14 @@
 import { styled } from 'styled-components';
-import { spacingPx } from '../../Design/design';
-import { TUiColorsType } from '../../Design/color/designColor';
 
-export const MonthContainer = styled.div<{ theme: TUiColorsType }>`
-  margin-top: ${spacingPx.md};
+import { spacingPx } from '../../Design/designSizes';
+import { TTheme } from '@/Components/UI/Interface/TTheme';
+
+export const MonthContainer = styled.div<{ theme: TTheme }>`
+  margin-top: ${({theme}) => theme.spacing.md};
 
   h2 {
-    margin: ${spacingPx.sm};
-    margin-left: ${spacingPx.sm};
+    margin: ${({theme}) => theme.spacing.sm};
+    margin-left: ${({theme}) => theme.spacing.sm};
   }
 `;
 

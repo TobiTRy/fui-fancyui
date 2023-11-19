@@ -1,6 +1,6 @@
-import { TUiColorsType } from "../../../Design/color/designColor";
+import { TBorderRadiusSizes } from "@/Components/UI/Interface/TBorderRadius";
+import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from "../../../Design/color/generateColorSteps";
-import { borderRadius } from "../../../Design/design";
 import IStyledPrefixAndOmiter from "../../../Interface/IStyledPrefixAndOmiter.model";
 
 
@@ -11,10 +11,10 @@ export type IGenerateThemeItemProps = {
   size: 'sm' | 'md' | 'lg';
   label?: string;
   wide?: boolean;
-  borderRadius?: keyof typeof borderRadius;
-  themeType?: keyof TUiColorsType;
-  textColor?: Exclude<keyof TUiColorsType, 'transparent'>;
-  hoverColor?: Exclude<keyof TUiColorsType, 'transparent'>;
+  borderRadius?: TBorderRadiusSizes;
+  themeType?: TUiColors;
+  textColor?: Exclude<TUiColors, 'transparent'>;
+  hoverColor?: Exclude<TUiColors, 'transparent'>;
   layer?: TLayer;
   align?: 'left' | 'right' | 'center';
 };

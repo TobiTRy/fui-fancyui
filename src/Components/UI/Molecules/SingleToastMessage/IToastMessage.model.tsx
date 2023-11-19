@@ -1,4 +1,4 @@
-import { TSystemMessageProps } from "../../Design/Interfaces/TSystemMessageProps";
+import { TSystemMessageProps } from "../../Interface/TSystemMessageProps";
 import { TLayer } from "../../Design/color/generateColorSteps";
 
 type IToastMessage = {

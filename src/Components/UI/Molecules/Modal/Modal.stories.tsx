@@ -3,7 +3,6 @@ import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
 import Modal from './Modal';
-import { ModalStatus } from '../../Interface/ModalStatus';
 
 
 const meta = {

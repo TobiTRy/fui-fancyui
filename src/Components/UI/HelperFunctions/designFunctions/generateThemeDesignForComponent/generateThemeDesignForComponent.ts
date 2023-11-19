@@ -1,4 +1,4 @@
-import { TUiColorsType } from '../../../Design/color/designColor';
+import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '../../../Design/color/generateColorSteps';
 import { generateNormalStyle } from './utils/generateNormalStyle';
 import { generateTransparentStyle } from './utils/generateTransparentStyle';
@@ -6,12 +6,13 @@ import { generateOutlineStyle } from './utils/generateOutlineStyle';
 
 import IStyledPrefixAndPicker from '../../../Interface/IStyledPrefixAndPicker.model';
 import { getSimpletColorThemeType } from '../getOpositColorThemeType';
+import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 export interface IGenerateThemeDesignForComponentProps {
-  themeType?: keyof TUiColorsType;
-  hoverColor?: Exclude<keyof TUiColorsType, 'transparent'>;
-  textColor?: Exclude<keyof TUiColorsType, 'transparent'>;
-  textHover?: Exclude<keyof TUiColorsType, 'transparent'>;
+  themeType?: TUiColors;
+  hoverColor?: Exclude<TUiColors, 'transparent'>;
+  textColor?: Exclude<TUiColors, 'transparent'>;
+  textHover?: Exclude<TUiColors, 'transparent'>;
   layer?: TLayer;
   outlined?: boolean;
   backgroundStrength?: number;
@@ -19,7 +20,7 @@ export interface IGenerateThemeDesignForComponentProps {
   useSimpleTextColor?: boolean;
 }
 
-export type IGenerateThemeDesignForComponent = IStyledPrefixAndPicker<IGenerateThemeDesignForComponentProps> & { theme: TUiColorsType };
+export type IGenerateThemeDesignForComponent = IStyledPrefixAndPicker<IGenerateThemeDesignForComponentProps> & { theme: TTheme };
 // --------------------------------------------------------------------------- //
 // -------  The main function to generate a style for the components -- ------ //
 // --------------------------------------------------------------------------- //

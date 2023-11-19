@@ -9,7 +9,7 @@ import FancyHueSlider from '../../Molecules/FancyHueSlider/FancyHueSlider';
 import FancyOpacitySlider from '../../Molecules/FancyOpacitySlider/FancyOpacitySlider';
 import FancyColorOutput from '../../Molecules/FancyColorOutput/FancyColorOutput';
 import { emitSelectedColorChange } from './colorPickerUtils';
-import { spacingPx } from '../../Design/design';
+import { spacingPx } from '../../Design/designSizes';
 import { IColorFormat } from '../../HelperFunctions/variables/colorFormats';
 
 const Wrapper = styled.div`
@@ -17,7 +17,7 @@ const Wrapper = styled.div`
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  gap: ${spacingPx.md};
+  gap: ${({theme}) => theme.spacing.md};
 `;
 
 // --------------------------------------------------------------------------- //

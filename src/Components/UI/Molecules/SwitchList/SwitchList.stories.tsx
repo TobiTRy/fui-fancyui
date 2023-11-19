@@ -24,7 +24,7 @@ const meta = {
       description: 'The index of the selected item.',
       type: { name: 'number' },
     },
-    handler: {
+    activeItemHandler: {
       description: 'A function that is called when the active item is changed.',
       type: { name: 'function' },
     },

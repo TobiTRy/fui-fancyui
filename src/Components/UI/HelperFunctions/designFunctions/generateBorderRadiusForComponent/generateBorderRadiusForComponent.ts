@@ -1,13 +1,16 @@
 import { css } from 'styled-components';
-import { borderRadius } from '../../../Design/design';
 
-export const generateBorderRadiusForComponent = (size?: 'sm' | 'md' | 'lg', rounded?: keyof typeof borderRadius) => {
+import themeStore from '@/Components/UI/Design/color/themeStore';
+import { TBorderRadiusSizes } from '@/Components/UI/Interface/TBorderRadius';
+
+export const generateBorderRadiusForComponent = (size?: 'sm' | 'md' | 'lg', rounded?: TBorderRadiusSizes) => {
+  const borderRadius = themeStore.getState().theme.borderRadius;
+
   if (rounded) {
     return css`
       border-radius: ${borderRadius[rounded]};
     `;
   }
-
 
   switch (size) {
     case 'sm':

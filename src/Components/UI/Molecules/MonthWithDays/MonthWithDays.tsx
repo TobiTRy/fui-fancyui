@@ -1,14 +1,14 @@
 import React, { useEffect, useMemo, useState } from 'react';
+
 import DateNumberWithStatus from '../DateNumberWithStatus/DateNumberWithStatus';
 import { DateNumber, DaysContainer } from './MonthWithDays.style';
 import { IDateArray } from '../RangeCalendar/IDateArray.model';
 import { IDisabledDateSettings } from './IDisableDateSettings.model';
 import Typography from '../../Atoms/Typography/Typography';
-
 import Day from './day.model';
 import createDaysOfMonth from './helperFunctions/createDaysOfMonth';
 import { IDateWithExternalState, IExternalMonthWithDays } from './IExternalMonthWithDays.model';
-import { TUiColorsType } from '../../Design/color/designColor';
+import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '../../Design/color/generateColorSteps';
 
 const getFirstDayOfMonth = (month: number, year: number): number => {
@@ -27,7 +27,7 @@ interface IMonthWithDays {
   selectedDates: IDateArray;
   externalMonthWithDays?: IExternalMonthWithDays;
   disabledDateSetting?: IDisabledDateSettings;
-  themeType?: keyof TUiColorsType;
+  themeType?: TUiColors;
   layer?: TLayer;
 }
 // --------------------------------------------------------------------------- //

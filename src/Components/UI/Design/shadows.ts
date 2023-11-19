@@ -20,19 +20,19 @@ export const textShadow = {
 export const boxShadow = {
   sm: css`
     ${() => {
-      const themeColor = colorTransparencyCalculator(themeStore.getState().theme.secondary[0], 0.05);
+      const themeColor = colorTransparencyCalculator(themeStore.getState().theme.colors.secondary[0], 0.05);
       return `box-shadow: 0 0 1px 1px ${themeColor}, 0 0 0.5px ${themeColor};`;
     }}
   `,
   md: css`
     ${() => {
-      const themeColor = colorTransparencyCalculator(themeStore.getState().theme.secondary[0], 0.1);
+      const themeColor = colorTransparencyCalculator(themeStore.getState().theme.colors.secondary[0], 0.1);
       return `box-shadow: 0 0 2px 1px ${themeColor}, 0 0 1px ${themeColor};`;
     }}
   `,
   lg: css`
     ${() => {
-      const themeColor = colorTransparencyCalculator(themeStore.getState().theme.secondary[0], 0.1);
+      const themeColor = colorTransparencyCalculator(themeStore.getState().theme.colors.secondary[0], 0.1);
       return `box-shadow: 1px 0 23px ${themeColor};`;
     }}
 

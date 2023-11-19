@@ -1,32 +1,42 @@
 import styled, { css } from 'styled-components';
-import { spacing, spacingPx } from '../../Design/design';
+
+import { TTheme } from '@/Components/UI/Interface/TTheme';
+import themeStore from '@/Components/UI/Design/color/themeStore';
 
 // Define the type for the spacing position
 export type TSpacingPosition = 'left' | 'right' | 'booth';
+
+
+const getSpacingFromTheme = themeStore.getState().theme.spacing;
+const spacings = {
+  xs: parseFloat(getSpacingFromTheme.xs),
+  sm: parseFloat(getSpacingFromTheme.sm),
+  md: parseFloat(getSpacingFromTheme.md),
+}
 
 export const sizes = {
   sm: {
     height: '24px',
     deleteButtonSize: '14px',
-    padding: spacing.xs,
-    paddingRight: spacing.xs,
-    paddingLeft: spacing.xs,
+    padding: spacings.xs,
+    paddingRight: spacings.xs,
+    paddingLeft: spacings.xs,
     icon: '14px',
   },
   md: {
     height: '32px',
     deleteButtonSize: '14px',
-    padding: spacing.sm,
-    paddingRight: spacing.sm,
-    paddingLeft: spacing.sm,
+    padding: spacings.sm,
+    paddingRight: spacings.sm,
+    paddingLeft: spacings.sm,
     icon: '18px',
   },
   lg: {
     height: '38px',
     deleteButtonSize: '14px',
-    padding: spacing.sm,
-    paddingRight: spacing.sm,
-    paddingLeft: spacing.md,
+    padding: spacings.sm,
+    paddingRight: spacings.sm,
+    paddingLeft: spacings.md,
     icon: '20px',
   },
 };
@@ -60,7 +70,11 @@ export const generateSpacing = ({ spacingPosition, size }: IGenerateSpacing) => 
 
 
 // Define the styled component for the X button
-export const StyledXButton = styled.button<{ $size?: keyof typeof sizes }>`
+interface IXButton {
+  $size?: keyof typeof sizes;
+  theme: TTheme;
+}
+export const StyledXButton = styled.button<IXButton>`
   border: none;
   background-color: transparent;
   cursor: pointer;
@@ -70,7 +84,7 @@ export const StyledXButton = styled.button<{ $size?: keyof typeof sizes }>`
   line-height: 1;
   display: flex;
   align-items: center;
-  margin-left: ${spacing.xs + 2 + 'px'};
+  margin-left: ${({theme}) => parseFloat(theme.spacing.xs) + 2 + 'px'};
 
   svg {
     width: ${({ $size }) => ($size ? sizes[$size].deleteButtonSize : sizes.md.deleteButtonSize)};
@@ -79,11 +93,11 @@ export const StyledXButton = styled.button<{ $size?: keyof typeof sizes }>`
 `;
 
 // Define the styled component for the wrapper image
-export const WrapperImage = styled.div`
+export const WrapperImage = styled.div<{theme: TTheme}>`
   height: 100%;
   aspect-ratio: 1/1;
   line-height: 0;
-  margin-right: ${spacingPx.xs};
+  margin-right: ${({theme}) => theme.spacing.xs};
   display: flex;
   align-items: center;
 

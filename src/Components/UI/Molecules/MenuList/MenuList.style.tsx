@@ -1,13 +1,11 @@
 import { styled } from 'styled-components';
-import { TUiColorsType } from '../../Design/color/designColor';
-import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
-import { borderRadius } from '../../Design/design';
-import { MenuListProps } from './MenuList';
 
+import { MenuListProps } from './MenuList';
 import IStyledPrefixAndOmitter from '../../Interface/IStyledPrefixAndOmiter.model';
 import generateThemeForCard from '../../HelperFunctions/designFunctions/generateThemeForCard/generateThemeForCard';
+import { TTheme } from '@/Components/UI/Interface/TTheme';
 
-type StyledMenuProps = IStyledPrefixAndOmitter<MenuListProps> & { theme: TUiColorsType };
+type StyledMenuProps = IStyledPrefixAndOmitter<MenuListProps> & { theme: TTheme };
 
 export const MenuContainer = styled.div<StyledMenuProps>`
   display: flex;
@@ -16,5 +14,5 @@ export const MenuContainer = styled.div<StyledMenuProps>`
   ${({ theme, $themeType, $layer, $outlined }) =>
     generateThemeForCard({ theme, $themeType: $themeType ?? 'primary', $layer: $layer ?? 2, $outlined })}
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-  border-radius: ${borderRadius.md};
+  border-radius: ${({theme}) => theme.borderRadius.md};
 `;

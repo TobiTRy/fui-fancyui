@@ -1,10 +1,9 @@
 import { css, styled } from 'styled-components';
 
-import { TUiColorsType } from '../../Design/color/designColor';
-import { borderRadius } from '../../Design/design';
 import generateThemeDesignForComponent from '../../HelperFunctions/designFunctions/generateThemeDesignForComponent/generateThemeDesignForComponent';
-import { IStyledChip } from './Chip';
 import IStyledPrefixAndOmitter from '../../Interface/IStyledPrefixAndOmiter.model';
+import { IStyledChip } from './Chip';
+import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 const sizes = {
   sm: {
@@ -20,7 +19,7 @@ const sizes = {
 
 // Define the styled component for the chip
 type TChipSize = IStyledPrefixAndOmitter<IStyledChip, 'children' | 'onClick'>;
-export const StyledChip = styled.div<TChipSize & { theme: TUiColorsType }>`
+export const StyledChip = styled.div<TChipSize & { theme: TTheme }>`
   border: none;
   height: ${({ $size }) => ($size ? sizes[$size].height : sizes.md.height)};
   cursor: pointer;
@@ -29,14 +28,14 @@ export const StyledChip = styled.div<TChipSize & { theme: TUiColorsType }>`
   align-items: center;
   line-height: 2;
   width: fit-content;
-  border-radius: ${borderRadius.xxxl};
+  border-radius: ${({theme}) => theme.borderRadius.xxxl};
   ${({ $outlined, $themeType = 'primary', $textColor = 'secondary', theme, $layer }) => 
     generateThemeDesignForComponent({ theme, $themeType, $layer: $layer ?? 3, $outlined, $textColor, $useSimpleTextColor: true })};
 
   ${({ $isActive, theme }) => {
     if ($isActive) {
       return css`
-        box-shadow: 0 0 0 1px ${theme.accent[0]};
+        box-shadow: 0 0 0 1px ${theme.colors.accent[0]};
       `;
     }
   }}

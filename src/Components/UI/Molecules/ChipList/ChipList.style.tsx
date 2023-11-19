@@ -1,7 +1,8 @@
-import { CSSProp, css, styled } from 'styled-components';
-import { borderRadius, spacingPx } from '../../Design/design';
-import { TSytemMessage } from '../../Design/color/designColor';
+import { css, styled } from 'styled-components';
+
 import { sytemMessageIndicatorStyle } from '../../HelperFunctions/designFunctions/generateSytemIncicator';
+import themeStore from '@/Components/UI/Design/color/themeStore';
+import { TUiColorsSystemMessage } from '@/Components/UI/Interface/TUiColors';
 
 export const FancyBoxStyle = css``;
 
@@ -13,35 +14,36 @@ export const ChipContainer = styled.ul`
   padding: 0;
 `;
 
-export const generateChipListStyle = (size: 'sm' | 'md' | 'lg', sytemMessage?: TSytemMessage) => {
+export const generateChipListStyle = (size: 'sm' | 'md' | 'lg', sytemMessage?: TUiColorsSystemMessage) => {
   const styemIndicatorStyle = sytemMessageIndicatorStyle(sytemMessage);
+  const getTheme = themeStore.getState().theme;
   let generatedStyle;
 
   switch (size) {
     case 'sm':
       generatedStyle = css`
-        border-radius: ${borderRadius.xxl};
+        border-radius: ${getTheme.borderRadius.xxl};
         ul {
-          padding: ${spacingPx.md};
-          gap: ${spacingPx.sm};
+          padding: ${getTheme.spacing.md};
+          gap: ${getTheme.spacing.sm};
         }
       `;
       break;
     case 'md':
       generatedStyle = css`
-        border-radius: ${borderRadius.xxl};
+        border-radius: ${getTheme.borderRadius.xxl};
         ul {
-          padding: ${spacingPx.md};
-          gap: ${spacingPx.sm};
+          padding: ${getTheme.spacing.md};
+          gap: ${getTheme.spacing.sm};
         }
       `;
       break;
     case 'lg':
       generatedStyle = css`
-        border-radius: ${borderRadius.xxl};
+        border-radius: ${getTheme.borderRadius.xxl};
         ul {
-          padding: ${spacingPx.md};
-          gap: ${spacingPx.md};
+          padding: ${getTheme.spacing.md};
+          gap: ${getTheme.spacing.md};
         }
       `;
   }
