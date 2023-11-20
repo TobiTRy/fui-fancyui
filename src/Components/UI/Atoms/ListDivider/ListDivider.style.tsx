@@ -14,22 +14,33 @@ export const StyledI = styled.div<TStyledPrefixAndOmitter>`
   margin: 8px 0;
 `;
 
-
 // the wrapper for the text and the line
-type TStyledTextDiv = IStyledPrefixAndPicker<IListDivider, 'themeType' | 'layer' | 'textAlignment'> & { theme: TTheme };
+type TStyledTextDiv = IStyledPrefixAndPicker<IListDivider, 'themeType' | 'layer' | 'textAlignment' | 'noLine'> & { theme: TTheme };
 export const StyledTextDiv = styled.div<TStyledTextDiv>`
   display: flex;
   color: ${({ $themeType, $layer, theme }) => getBackgroundColor({ $themeType: $themeType ?? 'secondary', $layer, theme })};
-  justify-content: center;
+
+  justify-content: ${({ $textAlignment }) => $textAlignment === 'left' ? 'flex-start' : $textAlignment === 'right' ? 'flex-end' : 'center'};
   align-items: center;
   margin: 2px 0;
 
   > span {
-    padding: 0 12px;
+    padding: ${({ $textAlignment }) => {
+      switch ($textAlignment) {
+        case 'left':
+          return '0 8px 0 20px';
+          case 'right':
+          return '0 20px 0 8px';
+        case 'center':
+          return '0 8px 0 8px';
+      }
+    }};
     flex-shrink: 0;
   }
+
   /* This aligns the left line  */
-  ${({ $textAlignment, $themeType, $layer, theme }) =>
+  ${({ $textAlignment, $themeType, $layer, theme, $noLine }) =>
+    !$noLine &&
     ($textAlignment === 'right' || $textAlignment === 'center') &&
     css`
       &:before {
@@ -41,7 +52,8 @@ export const StyledTextDiv = styled.div<TStyledTextDiv>`
     `}
 
   /* This aligns the right line  */
-  ${({ $textAlignment, $themeType, $layer, theme }) =>
+  ${({ $textAlignment, $themeType, $layer, theme, $noLine }) =>
+    !$noLine &&
     ($textAlignment === 'left' || $textAlignment === 'center') &&
     css`
       &:after {
