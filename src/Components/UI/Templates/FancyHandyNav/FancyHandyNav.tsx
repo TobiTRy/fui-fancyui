@@ -6,7 +6,7 @@ import useFancyHandyNavStore from './FancyHandyNav.store';
 import BottomBar from '../../Molecules/BottomBar/BottomBar';
 import FancyBottomBarIcon, { IFancyBottomBarIcon } from '../FancyBottomBarIcon/FancyBottomBarIcon';
 import RawNav from '../../Atoms/RawNav/RawNav';
-import { TLayer } from '../../Design/color/generateColorSteps';
+import { TLayer } from "@/Components/UI/Interface/TLayer";
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 interface IFancyHandyNav {
   items?: IFancyBottomBarIcon[];
@@ -36,12 +36,13 @@ export default function FancyHandyNav(props: IFancyHandyNav) {
   // Set the default values / initial values
   useEffect(() => {
     setWhichIsActiveState(wichIndexIsActive ?? '0');
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // handle the visibility of the nav
   useEffect(() => {
     setIsVisible(isVisible ?? true);
-  }, [isVisible]);
+  }, [isVisible, setIsVisible]);
 
 
   console.log(stateWhichIsActive)

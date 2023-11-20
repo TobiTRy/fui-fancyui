@@ -1,9 +1,8 @@
 import { styled } from 'styled-components';
 
-import { spacingPx } from '../../Design/designSizes';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 
-export const Container = styled.div`
+export const Container = styled.div<{theme: TTheme}>`
   box-sizing: border-box;
   display: grid;
   grid-template-columns: 9fr 1fr;

@@ -68,7 +68,7 @@ const colorDisplayColor = ({ color, opacity }: IColorDisplayColor) => {
   };
 };
 
-export const ColorDisplayContainer = styled.div.attrs(colorDisplayColor)<IColorDisplayColor>`
+export const ColorDisplayContainer = styled.div.attrs(colorDisplayColor)<IColorDisplayColor & {theme: TTheme}>`
   position: absolute;
   width: 100%;
   height: 100%;

@@ -1,10 +1,10 @@
 import { css } from "styled-components";
 
-import { spacingPx } from "../../Design/designSizes";
+import { TTheme } from "@/Components/UI/Interface/TTheme";
 
-export const fancyBarStyle = css`
+export const fancyBarStyle = css<{theme: TTheme}>`
   display: flex;
-  padding: ${ ({theme}) => theme.spacing.sm } ${ ({theme}) => theme.spacing.sm } ${ 0 } ${ ({theme}) => theme.spacing.sm };
+  padding: ${({theme}) => theme.spacing.sm + ' ' + theme.spacing.sm + ' ' + theme.spacing.sm + ' 0' };
   width: 100%;
 
 `

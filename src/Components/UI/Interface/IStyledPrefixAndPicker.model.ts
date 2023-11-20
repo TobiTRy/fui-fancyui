@@ -6,6 +6,7 @@ type RequiredKeysOfSubset<T, U extends StringKeys<T>> = {
 
 type OptionalKeysOfSubset<T, U extends StringKeys<T>> = Exclude<U, RequiredKeysOfSubset<T, U>>;
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type IStyledPrefixAndPicker<T extends Record<string, any>, U extends StringKeys<T> = StringKeys<T>> = {
     // Required properties
     [P in RequiredKeysOfSubset<T, U> as `$${P}`]: T[P];

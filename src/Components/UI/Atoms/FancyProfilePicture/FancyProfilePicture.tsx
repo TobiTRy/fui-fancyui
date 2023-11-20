@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Placeholder, StyledImage, TSize } from './FancyProfilePicture.style';
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
-import { TLayer } from '../../Design/color/generateColorSteps';
+import { TLayer } from "@/Components/UI/Interface/TLayer";
 import { Typography } from '../Typography';
 import { TTypography } from '@/Components/UI/Interface/TTypography';
 

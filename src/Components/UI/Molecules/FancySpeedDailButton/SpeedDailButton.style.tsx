@@ -1,9 +1,9 @@
 import { styled } from 'styled-components';
 
-import { spacingPx } from '../../Design/designSizes';
 import { boxShadow } from '../../Design/shadows';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 
+// eslint-disable-next-line react-refresh/only-export-components
 const SpeedDailButtonSize = 60;
 
 export const Wrapper = styled.div`
@@ -67,7 +67,7 @@ export const Ring = styled.div<{ $isOpen: boolean; theme?: TTheme }>`
   pointer-events: none;
 `;
 
-export const MenueItemWrapper = styled.div`
+export const MenueItemWrapper = styled.div<{theme: TTheme}>`
   position: absolute;
   left: 50%;
   bottom: ${({theme}) => theme.spacing.lg};

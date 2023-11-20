@@ -1,7 +1,7 @@
 import { css } from 'styled-components';
 
 import { getBackgroundColor } from '../../../Design/color/colorCalculatorForComponet';
-import { tabSwitchSizes } from '../../TabSwitch/TabSwitch';
+import { tabSwitchSizes } from '../../TabSwitch/TabSwitch.style';
 import { IFancyTabSwitchStyle } from '../FancyTabSwitch.style';
 import colorTransparencyCalculator from '../../../Design/color/colorTransparencyCalculator';
 import { borderRadius } from '../../../Design/designSizes';

@@ -1,10 +1,11 @@
 import { styled } from 'styled-components';
-import { TUiColorsType } from '../../Design/color/designColor';
+
+import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 // --------------------------------------------------------------------------- //
 // --------------- The main label design for the input elements -------------- //
 // --------------------------------------------------------------------------- //
-const InputLabel = styled.label<{theme?: TUiColorsType}>`
+const InputLabel = styled.label<{theme: TTheme}>`
   width: 100%;
   color: ${({theme}) => theme.colors.secondary[1]};
   font-weight: bold;

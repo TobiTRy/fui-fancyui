@@ -1,5 +1,5 @@
 import { TSystemMessageProps } from "../../Interface/TSystemMessageProps";
-import { TLayer } from "../../Design/color/generateColorSteps";
+import { TLayer } from "@/Components/UI/Interface/TLayer";
 
 type IToastMessage = {
   id: number;

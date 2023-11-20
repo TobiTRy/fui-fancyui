@@ -1,6 +1,5 @@
 import { styled } from 'styled-components';
 
-import { spacingPx } from '../../Design/designSizes';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 export const MonthContainer = styled.div<{ theme: TTheme }>`

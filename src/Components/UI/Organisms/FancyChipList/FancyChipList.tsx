@@ -2,7 +2,7 @@ import React, { KeyboardEvent, useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 import { Fieldset } from '../../Atoms/Fieldset';
-import { TLayer } from '../../Design/color/generateColorSteps';
+import { TLayer } from "@/Components/UI/Interface/TLayer";
 import ChipList from '../../Molecules/ChipList/ChipList';
 import { FancyChip } from '../FancyChip';
 import { InputLi } from './FancyChipList.style';
@@ -104,7 +104,7 @@ export default function FancyChipList(props: ChipListProps) {
             textColor="secondary"
             contentEditable={focusedChip === chip.id}
             tabIndex={0}
-            layer={Math.min(layer! + 2, 10) as TLayer}
+            layer={Math.min(layer ?? 1 + 2, 10) as TLayer}
             onDelete={deleteChip(chip.id)}
             outlined={outlined}
             onFocus={hanleChipFocus(chip.id)}

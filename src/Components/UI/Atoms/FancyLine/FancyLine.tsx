@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
 
-import { TLayer } from '../../Design/color/generateColorSteps';
+import { TLayer } from "@/Components/UI/Interface/TLayer";
 import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
 import IStyledPrefixAndPicker from '../../Interface/IStyledPrefixAndPicker.model';
 import { TTheme } from '@/Components/UI/Interface/TTheme';

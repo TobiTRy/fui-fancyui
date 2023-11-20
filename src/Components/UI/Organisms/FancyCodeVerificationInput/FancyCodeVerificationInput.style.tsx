@@ -1,7 +1,6 @@
 import { styled, css } from 'styled-components';
 
-import { fontSize, spacingPx } from '../../Design/designSizes';
-import { TUiColorsType } from '../../Design/color/designColor';
+import { fontSize } from '../../Design/designSizes';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 export const WarpperComponent = styled.div`
@@ -10,7 +9,7 @@ export const WarpperComponent = styled.div`
   align-items: center;
 `;
 
-export const MessageContainer = styled.div`
+export const MessageContainer = styled.div<{theme: TTheme}>`
   display: flex;
   flex-direction: column;
   align-items: center;

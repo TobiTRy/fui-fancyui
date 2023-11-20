@@ -6,7 +6,7 @@ import { SVGDesignCSS, StyledButton, StyledYearSelector } from './YearSelector.s
 import Typography from '../Typography/Typography';
 import { FancySVGAtom } from '../FancySVGAtom';
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
-import { TLayer } from '../../Design/color/generateColorSteps';
+import { TLayer } from "@/Components/UI/Interface/TLayer";
 
 // --------------------------------------------------------------------------- //
 // ---------- Here are the design variants for sizing and alignment ---------- //

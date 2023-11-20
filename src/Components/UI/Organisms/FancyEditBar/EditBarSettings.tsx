@@ -1,4 +1,4 @@
-import { InputSettings } from "./EditBarItemsStructure/IEditbarObjectSturcture.model";
+
 
 import sectionSectionBox from './EditBarItemsStructure/objectSettingsSection'
 

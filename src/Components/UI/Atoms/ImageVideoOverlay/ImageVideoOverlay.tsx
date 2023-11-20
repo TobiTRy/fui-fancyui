@@ -1,8 +1,8 @@
 import React from 'react';
 
 import { styled, css } from 'styled-components';
-import { spacingPx } from '../../Design/designSizes';
 import { textShadow } from '../../Design/shadows';
+import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 // Define the gradient options for the overlay
 const gradientOptions = {
@@ -15,7 +15,7 @@ const Wrapper = styled.div`
   position: relative;
   overflow: hidden;
   line-height: 0;
-  pointer-events: none; 
+  pointer-events: none;
 `;
 
 // Define a styled overlay component using styled-components
@@ -54,10 +54,10 @@ const Overlay = styled.div<{ $position: string }>`
 `;
 
 // Define a styled text wrapper component using styled-components
-const TextWrapper = styled.div<{ $position: string }>`
+const TextWrapper = styled.div<{ $position: string; theme: TTheme }>`
   position: absolute;
   z-index: 1;
-  padding: ${({theme}) => theme.spacing.md};
+  padding: ${({ theme }) => theme.spacing.md};
   pointer-events: none;
   ${textShadow.lg}
 

@@ -1,6 +1,5 @@
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
-import { TLayer } from '../../../Design/color/generateColorSteps';
-import { generateNormalStyle } from './utils/generateNormalStyle';
+import { TLayer } from "@/Components/UI/Interface/TLayer";import { generateNormalStyle } from './utils/generateNormalStyle';
 import { generateTransparentStyle } from './utils/generateTransparentStyle';
 import { generateOutlineStyle } from './utils/generateOutlineStyle';
 

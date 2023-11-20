@@ -9,7 +9,7 @@ import { IDisabledDateSettings } from '../MonthWithDays/IDisableDateSettings.mod
 import {IExternalMonthWithDays} from '../MonthWithDays/IExternalMonthWithDays.model';
 import { IDateArray } from './IDateArray.model';
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
-import { TLayer } from '../../Design/color/generateColorSteps';
+import { TLayer } from "@/Components/UI/Interface/TLayer";
 
 
 // --------------------------------------------------------------------------- //
@@ -66,7 +66,6 @@ export default function RangeCalendar(props: ICalendar) {
     } else {
       setExternalMonthsData([]);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedYear, externalMonthsWithDays]);
 
   return (

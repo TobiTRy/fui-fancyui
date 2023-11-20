@@ -4,7 +4,7 @@ import SingleInputAtom from '../../Atoms/SingleInputAtom/SingleInputAtom';
 import InputStatus from '../../Interface/IStatus';
 import { InputWrapper } from './SingleInputs.style';
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
-import { TLayer } from '../../Design/color/generateColorSteps';
+import { TLayer } from "@/Components/UI/Interface/TLayer";
 
 interface IFancySingleInputsProps {
   length?: number;

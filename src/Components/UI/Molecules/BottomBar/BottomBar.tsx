@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
-import { TLayer } from '../../Design/color/generateColorSteps';
+import { TLayer } from "@/Components/UI/Interface/TLayer";
 import { FancyBox } from '../../Atoms/FancyBox';
 import { CSSProp, css } from 'styled-components';
 import { fancyBarStyle } from './BottomBar.style';

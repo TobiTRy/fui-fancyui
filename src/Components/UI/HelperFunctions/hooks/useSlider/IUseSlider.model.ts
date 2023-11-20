@@ -21,6 +21,7 @@ export interface IMarkerPosition {
 }
 
 export interface IUseSliderReturn {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   sliderRef: React.MutableRefObject<any>;
   markerPosition: IMarkerPosition;
   handleInteractionStart: (event: React.MouseEvent<HTMLDivElement, MouseEvent> | React.TouchEvent<HTMLDivElement>) => void;

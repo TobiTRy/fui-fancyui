@@ -1,5 +1,5 @@
 import { CSSProp } from "styled-components";
-import { TLayer } from "../../Design/color/generateColorSteps";
+import { TLayer } from "@/Components/UI/Interface/TLayer";
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 
 

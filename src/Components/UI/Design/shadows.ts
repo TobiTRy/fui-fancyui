@@ -1,7 +1,6 @@
 import { css } from 'styled-components';
 import themeStore from './color/themeStore';
 import colorTransparencyCalculator from './color/colorTransparencyCalculator';
-import { TUiColorsType } from './color/designColor';
 
 //global text-shadow
 export const textShadow = {

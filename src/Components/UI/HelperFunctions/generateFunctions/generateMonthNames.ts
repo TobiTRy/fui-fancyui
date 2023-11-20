@@ -8,12 +8,12 @@ const generateMonthArray = (start?: number, end?: number) => {
     const temp = monthStart;
     monthStart = monthEnd;
     monthEnd = temp;
-  };
+  }
 
   const months = [];
   for (let i = monthStart; i <= monthEnd; i++) {
     months.push(i);
-  };
+  }
   return months;
 };
 

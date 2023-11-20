@@ -2,10 +2,11 @@ import { styled, css } from 'styled-components';
 
 import { boxShadow } from '../../Design/shadows';
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
-import { TLayer } from '../../Design/color/generateColorSteps';
+import { TLayer } from "@/Components/UI/Interface/TLayer";
 import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 
+// eslint-disable-next-line react-refresh/only-export-components
 const DragableThumb = css<{theme: TTheme}>`
   height: 30px;
   width: 30px;

@@ -3,10 +3,10 @@ import { styled } from 'styled-components';
 
 import IHeadLine from './FancyModalHeadLine.model';
 import Typography from '../../Atoms/Typography/Typography';
-import { spacingPx } from '../../Design/designSizes';
 import FancyLine from '../../Atoms/FancyLine/FancyLine';
+import { TTheme } from '@/Components/UI/Interface/TTheme';
 
-const StyledHeadLine = styled.div<{$alignCenter?: boolean}>`
+const StyledHeadLine = styled.div<{$alignCenter?: boolean, theme: TTheme}>`
   display: flex;
   flex-direction: column;
   justify-content: center;

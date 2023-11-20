@@ -78,10 +78,8 @@ export default meta;
 // Define the story object
 type Story = StoryObj<typeof meta>;
 
-
-
 type PropsType = React.ComponentProps<typeof FancyCodeVerificationInput>;
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+
 function HelperComponent(props: PropsType) {
   const [errorMessage, setErrorMessage] = React.useState('');
   const [isSuccess, setIsSuccess] = React.useState(false);

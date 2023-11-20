@@ -8,7 +8,7 @@ import IExternalYearWithMonths from '../../Molecules/MonthWithDays/IExternalMont
 import DateOutputFromTo from '../../Molecules/DateOutputFromTo/DateOutputFromTo';
 import { IDisabledDateSettings } from '../../Molecules/MonthWithDays/IDisableDateSettings.model';
 import { IDateArray } from '../../Molecules/RangeCalendar/IDateArray.model';
-import { TLayer } from '../../Design/color/generateColorSteps';
+import { TLayer } from "@/Components/UI/Interface/TLayer";
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 
 interface IFancyDatePicker {
@@ -43,7 +43,6 @@ export default function FancyDatePicker(props: IFancyDatePicker) {
     if (selectedYear) {
       setCurrentlySelectedYear(selectedYear);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedYear]);
 
   return (

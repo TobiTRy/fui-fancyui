@@ -1,20 +1,12 @@
 import React, { useRef } from 'react';
-import { styled } from 'styled-components';
-
-
-export const ScollAbleBar = styled.div`
-  display: flex;
-  width: 100%;
-  overflow-x: scroll;
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
-`;
+import { ScollAbleBar } from './SrollableBar.style';
 
 export interface IScrollableBar {
   children?: React.ReactNode;
 }
+// --------------------------------------------------------------------------- //
+// -------- Handles the overflow in the scrollbar  with mac variation -------- //
+// --------------------------------------------------------------------------- //
 export default function ScrollableBar(props: IScrollableBar) {
   const { children } = props ;
 

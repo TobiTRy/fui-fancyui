@@ -1,5 +1,7 @@
 import Color from 'color';
+
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
+import { TLayer } from '@/Components/UI/Interface/TLayer';
 
 // Function to adjust lightness
 function adjustLightness(color: Color, delta: number): Color {
@@ -49,7 +51,7 @@ function lightenColors({ pimaryColor, themeType, color }: IGenerateColorSteps) {
   }
 }
 
-export type TLayer = 10 | 9 | 8 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0;
+
 
 type ColorSteps = {
   [key in TLayer]: string;

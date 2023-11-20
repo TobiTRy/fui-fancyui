@@ -32,6 +32,7 @@ export default function Paginator(props: IPaginator) {
   // Memoize the PageNumberList component to avoid unnecessary re-renders
   const PageList = useMemo(
     () => PageNumberList({ totalPages, currentPage, onClick: pageHandler, pageLimits }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [totalPages, currentPage, onPageChange, pageLimits]
   );
 

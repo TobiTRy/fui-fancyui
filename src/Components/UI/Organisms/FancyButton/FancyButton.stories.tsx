@@ -114,7 +114,7 @@ export const Outlined: Story = {
   },
 };
 
-export const oneToOne: Story = {
+export const OneToOne: Story = {
   render: (args) => <FancyButton {...args} />,
   args: {
     icon: SVGChevronLeft,
