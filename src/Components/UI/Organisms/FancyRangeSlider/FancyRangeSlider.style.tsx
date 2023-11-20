@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
 import { AlignedInputLabel } from '../../Atoms/AlignedInputLabel/AlignedInputLabel';
-import { spacingPx } from '../../Design/designSizes';
+import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 export const RangeSliderContainer = styled.div`
   grid-row: 2/3;
@@ -23,7 +23,7 @@ export const Label = styled(AlignedInputLabel)`
   grid-column: 2/3;
 `;
 
-export const Icon = styled.div`
+export const Icon = styled.div<{theme: TTheme}>`
   grid-column: 1/2;
   grid-row: 2/3;
   margin-bottom: ${({theme}) => theme.spacing.xxs};

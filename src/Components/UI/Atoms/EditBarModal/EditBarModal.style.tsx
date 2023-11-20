@@ -1,6 +1,5 @@
 import { styled, css } from 'styled-components';
 
-import { spacingPx } from '../../Design/designSizes';
 import { boxShadow } from '../../Design/shadows';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 
@@ -45,7 +44,7 @@ export const Wrapper = styled.div<IWrapper & { theme: TTheme }>`
   ${boxShadow.sm}
 `;
 
-export const WrapperContent = styled.div`
+export const WrapperContent = styled.div<{theme: TTheme}>`
   width: 100%;
   display: flex;
   flex-direction: column;

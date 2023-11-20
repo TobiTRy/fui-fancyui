@@ -41,7 +41,7 @@ export default function FancyHandyNav(props: IFancyHandyNav) {
   // handle the visibility of the nav
   useEffect(() => {
     setIsVisible(isVisible ?? true);
-  }, [isVisible]);
+  }, [isVisible, setIsVisible]);
 
 
   console.log(stateWhichIsActive)

@@ -1,6 +1,5 @@
 import { styled } from 'styled-components';
 
-import { spacingPx } from '../../Design/designSizes';
 import { boxShadow } from '../../Design/shadows';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 
@@ -67,7 +66,7 @@ export const Ring = styled.div<{ $isOpen: boolean; theme?: TTheme }>`
   pointer-events: none;
 `;
 
-export const MenueItemWrapper = styled.div`
+export const MenueItemWrapper = styled.div<{theme: TTheme}>`
   position: absolute;
   left: 50%;
   bottom: ${({theme}) => theme.spacing.lg};

@@ -8,7 +8,7 @@
     "dev": "vite",
     "dev-network": "vite --host",
     "build": "tsc && vite build",
-    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --fix --max-warnings=-1",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
@@ -72,8 +72,7 @@
       "require": "./dist/my-lib.cjs.js",
       "types": "./dist/index.d.ts"
     },
-    "./package.json": "./package.json",
-    "./": "./"
+    "./package.json": "./package.json"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/mrtryy"

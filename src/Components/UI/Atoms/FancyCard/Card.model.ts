@@ -1,5 +1,4 @@
 import { IRoundedEdges } from '../../HelperFunctions/designFunctions/edgeCaluculation';
-import { spacingPx } from '../../Design/designSizes';
 import { TLayer } from '../../Design/color/generateColorSteps';
 import { TBorderRadiusSizes } from '@/Components/UI/Interface/TBorderRadius';
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';

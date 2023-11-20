@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react';
 
 import styled, { css } from 'styled-components';
@@ -6,15 +7,6 @@ import themeStore from '../../Components/UI/Design/color/themeStore';
 import { TUiColorsType } from '../../Components/UI/Design/color/designColor';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 
-const BackGroundBox = styled.div<{ theme: TTheme }>`
-  width: 200px;
-  height: 200px;
-  background-color: ${({ theme }) => theme.colors.primary[0]};
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-`;
 
 export default function ColorGeneratorRoute() {
   const theme = themeStore((state) => state.theme);

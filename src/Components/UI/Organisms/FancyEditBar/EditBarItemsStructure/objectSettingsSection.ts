@@ -3,6 +3,7 @@ import { ICategory } from './IEditbarObjectSturcture.model';
 
 //Dummy Category Box for demonstration
 //the item is build up with three categories [mainCategoryItems (Arry) ---> SubSectionItems(Object) ---> Settings ---> ]
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const dummyItem = [
   {
     //the CategoryItem is build up in SectionItem(displayed for the bar) and the SubsectionSettingItems

@@ -1,9 +1,8 @@
 import { styled } from 'styled-components';
 
-import { spacingPx } from '../../../Design/designSizes';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 
-export const WrapperInputs = styled.div`
+export const WrapperInputs = styled.div<{theme: TTheme}>`
   display: flex;
   width: 100%;
   gap: ${({theme}) => theme.spacing.sm};

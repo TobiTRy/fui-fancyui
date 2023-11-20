@@ -66,7 +66,6 @@ export default function RangeCalendar(props: ICalendar) {
     } else {
       setExternalMonthsData([]);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedYear, externalMonthsWithDays]);
 
   return (

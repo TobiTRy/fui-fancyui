@@ -32,7 +32,7 @@ export default function Paginator(props: IPaginator) {
   // Memoize the PageNumberList component to avoid unnecessary re-renders
   const PageList = useMemo(
     () => PageNumberList({ totalPages, currentPage, onClick: pageHandler, pageLimits }),
-    [totalPages, currentPage, onPageChange, pageLimits]
+    [totalPages, currentPage, onPageChange, pageLimits, pageHandler]
   );
 
   // Render the Paginator component with the appropriate props

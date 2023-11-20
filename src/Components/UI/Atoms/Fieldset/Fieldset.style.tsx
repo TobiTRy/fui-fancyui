@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 import { TalignLabel } from './Fieldset';
-import { spacingPx } from '../../Design/designSizes';
 import { disabledStyle } from '../../HelperFunctions/designFunctions/disableStyle';
+import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 export const StyledFieldset = styled.fieldset<{ $disabled?: boolean }>`
   border: none;
@@ -10,6 +10,6 @@ export const StyledFieldset = styled.fieldset<{ $disabled?: boolean }>`
   ${({ $disabled }) => $disabled && disabledStyle}
 `;
 
-export const StyledLegend = styled.legend<{ alignLabel?: TalignLabel }>`
+export const StyledLegend = styled.legend<{ alignLabel?: TalignLabel; theme: TTheme }>`
   margin: 0 ${({ alignLabel }) => (alignLabel === 'center' ? 'auto' : '0')} ${({theme}) => theme.spacing.xxs};
 `;

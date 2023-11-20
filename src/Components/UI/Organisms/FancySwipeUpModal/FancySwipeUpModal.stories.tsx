@@ -89,7 +89,7 @@ export default meta;
 // Define the story object
 type Story = StoryObj<typeof meta>;
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+
 function HelperComponent(props: React.ComponentProps<typeof FancySwipeUpModal> & Omit<ISwipeUpModal, 'onClose'>) {
   const { appendToDomID, children, ...configProps } = props;
   const openModal = useFancySwipeUpModalStore((state) => state.openSwipeUpModal);

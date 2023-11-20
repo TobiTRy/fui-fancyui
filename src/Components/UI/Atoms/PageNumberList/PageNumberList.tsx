@@ -1,7 +1,6 @@
 import { styled } from 'styled-components';
 
 import { FancyButton } from '../../Organisms/FancyButton';
-import { spacingPx } from '../../Design/designSizes';
 import { simpleColorTransition } from '../../Design/simpleTransition';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 
@@ -18,7 +17,7 @@ export const ButtonWrapper = styled.div<{ $isActive: boolean, theme: TTheme }>`
   }
 `;
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<{theme: TTheme}>`
   display: flex;
   gap: ${({theme}) => theme.spacing.md};
 `;

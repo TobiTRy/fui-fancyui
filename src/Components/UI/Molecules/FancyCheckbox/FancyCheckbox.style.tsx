@@ -1,6 +1,7 @@
 import { css, styled } from 'styled-components';
-import { spacingPx } from '../../Design/designSizes';
+
 import { TAlign, TAlignCheckbox } from './FancyCheckbox.model';
+import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 
 // wraps the whole component and handles the alignment
@@ -21,18 +22,18 @@ export const Wrapper = styled.div<{ $align?: TAlign; }>`
 
 // this wraps the label and the description
 // handle the order of the checkbox and label/description
-export const LabelWrapper = styled.label<{ $align?: TAlignCheckbox; }>`
+export const LabelWrapper = styled.label<{ $align?: TAlignCheckbox; theme: TTheme }>`
   display: flex;
   flex-direction: column;
   gap: ${({theme}) => theme.spacing.xxs};
-  ${({ $align }) =>
+  ${({ $align, theme }) =>
     $align === 'right'
       ? css`
-          margin-right: ${({theme}) => theme.spacing.sm};
+          margin-right: ${theme.spacing.sm};
           order: 0;
         `
       : css`
-          margin-left: ${({theme}) => theme.spacing.sm};
+          margin-left: ${theme.spacing.sm};
           order: 1;
         `};
 

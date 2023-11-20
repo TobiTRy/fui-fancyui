@@ -43,7 +43,6 @@ export default function FancyDatePicker(props: IFancyDatePicker) {
     if (selectedYear) {
       setCurrentlySelectedYear(selectedYear);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedYear]);
 
   return (

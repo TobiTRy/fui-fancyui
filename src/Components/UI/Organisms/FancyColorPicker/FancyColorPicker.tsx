@@ -9,10 +9,10 @@ import FancyHueSlider from '../../Molecules/FancyHueSlider/FancyHueSlider';
 import FancyOpacitySlider from '../../Molecules/FancyOpacitySlider/FancyOpacitySlider';
 import FancyColorOutput from '../../Molecules/FancyColorOutput/FancyColorOutput';
 import { emitSelectedColorChange } from './colorPickerUtils';
-import { spacingPx } from '../../Design/designSizes';
 import { IColorFormat } from '../../HelperFunctions/variables/colorFormats';
+import { TTheme } from '../../Interface/TTheme';
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<{theme: TTheme}>`
   width: 100%;
   box-sizing: border-box;
   display: flex;

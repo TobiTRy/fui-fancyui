@@ -1,7 +1,8 @@
 import { styled } from 'styled-components';
-import { spacingPx } from "../../Design/designSizes";
 
-export const ToastsWrapper = styled.div`
+import { TTheme } from '@/Components/UI/Interface/TTheme';
+
+export const ToastsWrapper = styled.div<{theme: TTheme}>`
   position: fixed;
   z-index: 1000;
   top: ${({theme}) => theme.spacing.md};

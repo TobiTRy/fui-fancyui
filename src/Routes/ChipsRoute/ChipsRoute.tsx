@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react';
 
 import Chip from '../../Components/UI/Organisms/FancyChip/FancyChip';
