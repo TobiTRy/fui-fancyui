@@ -64,6 +64,6 @@ export default function FancyHueSlider(props: IHueSlider) {
   );
 }
 
-const defaultProps:IHueSlider = {
+const defaultProps: IHueSlider = {
   hue: 0,
-}
+};

@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { styled } from 'styled-components';
 import SwipeUpDash from '../../Atoms/SwipeUpDash/SwipeUpDash';
 
@@ -27,5 +27,5 @@ export default function ScalingSection({ touchStart, touchMove, touchEnd, click 
     <SytledScalingSection onTouchStart={touchStart} onTouchMove={touchMove} onTouchEnd={touchEnd} onClick={click}>
       <SwipeUpDash />
     </SytledScalingSection>
-  )
+  );
 }

@@ -1,4 +1,4 @@
-import Color from "color";
+import Color from 'color';
 
 // --------------------------------------------------------------------------- //
 // ---------------- Define the interfaces for the useSlider Hook ------------- //

@@ -36,7 +36,6 @@ const meta = {
     labelAlign: {
       description: 'Align the label left or right',
     },
-
   },
   // Add tags to the story
   tags: ['autodocs'],
@@ -52,7 +51,7 @@ export const Primary: Story = {
   render: (args) => <SpeedDailMenueItem {...args} />,
   args: {
     label: 'Iam only a dummy',
-    icon: <SVGCheckMark/>,
+    icon: <SVGCheckMark />,
     isOpen: true,
     hideLabel: false,
     labelAlign: 'left',

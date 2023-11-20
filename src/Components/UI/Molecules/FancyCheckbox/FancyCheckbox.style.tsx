@@ -3,9 +3,8 @@ import { css, styled } from 'styled-components';
 import { TAlign, TAlignCheckbox } from './FancyCheckbox.model';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 
-
 // wraps the whole component and handles the alignment
-export const Wrapper = styled.div<{ $align?: TAlign; }>`
+export const Wrapper = styled.div<{ $align?: TAlign }>`
   position: relative;
   display: flex;
   justify-content: ${({ $align }) => {
@@ -25,7 +24,7 @@ export const Wrapper = styled.div<{ $align?: TAlign; }>`
 export const LabelWrapper = styled.label<{ $align?: TAlignCheckbox; theme: TTheme }>`
   display: flex;
   flex-direction: column;
-  gap: ${({theme}) => theme.spacing.xxs};
+  gap: ${({ theme }) => theme.spacing.xxs};
   ${({ $align, theme }) =>
     $align === 'right'
       ? css`
@@ -38,6 +37,6 @@ export const LabelWrapper = styled.label<{ $align?: TAlignCheckbox; theme: TThem
         `};
 
   .description {
-    margin-left: ${({theme}) => theme.spacing.xxs};
+    margin-left: ${({ theme }) => theme.spacing.xxs};
   }
 `;

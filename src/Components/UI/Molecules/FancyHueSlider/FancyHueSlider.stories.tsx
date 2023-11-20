@@ -11,7 +11,7 @@ const meta = {
     docs: {
       description: {
         component:
-          'Dumb-Comonent: The Color area that is uses for picking a color. <br> - The ColorIndicator works wehen the color is provides again',    
+          'Dumb-Comonent: The Color area that is uses for picking a color. <br> - The ColorIndicator works wehen the color is provides again',
       },
     },
   },
@@ -24,7 +24,6 @@ const meta = {
         max: 360,
       },
     },
-
   },
   tags: ['autodocs'],
 } satisfies Meta<typeof FancyHueSlider>;
@@ -34,11 +33,9 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
-  render: (args) => <FancyHueSlider {...args}/>,
+  render: (args) => <FancyHueSlider {...args} />,
   args: {
     hue: 0,
     color: Color('hsl(0, 100%, 50%)'),
-
   },
 };
-

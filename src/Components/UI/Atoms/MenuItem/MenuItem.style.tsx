@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
-import { TLayer } from "@/Components/UI/Interface/TLayer";
+import { TLayer } from '@/Components/UI/Interface/TLayer';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 import { getBackgroundColor, getTextColor } from '../../Design/color/colorCalculatorForComponet';
 
@@ -20,8 +20,7 @@ export const StyledMenuItem = styled.button<StyledMenuProps>`
   background-color: transparent;
   border: none;
   text-decoration: none;
-  color: ${({ theme, $themeType }) =>
-      getTextColor({ theme, $themeType: $themeType ?? 'secondary', $textLayer: 1 })};
+  color: ${({ theme, $themeType }) => getTextColor({ theme, $themeType: $themeType ?? 'secondary', $textLayer: 1 })};
 
   &:hover {
     background-color: ${({ theme, $themeType, $layer }) =>

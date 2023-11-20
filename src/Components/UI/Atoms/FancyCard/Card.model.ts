@@ -1,5 +1,5 @@
 import { IRoundedEdges } from '../../HelperFunctions/designFunctions/edgeCaluculation';
-import { TLayer } from "@/Components/UI/Interface/TLayer";
+import { TLayer } from '@/Components/UI/Interface/TLayer';
 import { TBorderRadiusSizes } from '@/Components/UI/Interface/TBorderRadius';
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 import { TSpacings } from '@/Components/UI/Interface/TSpacings';
@@ -8,7 +8,7 @@ import { TSpacings } from '@/Components/UI/Interface/TSpacings';
 type IScaling = '100%' | 'auto' | string;
 // the raw styling props for the card
 export interface StyledCardProps {
-  themeType?: TUiColors;  
+  themeType?: TUiColors;
   textLayer?: TLayer;
   height?: IScaling;
   width?: IScaling;

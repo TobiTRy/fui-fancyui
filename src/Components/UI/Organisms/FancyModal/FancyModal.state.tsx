@@ -3,8 +3,7 @@ import { create } from 'zustand';
 import { TModalStatus } from '../../Interface/ModalStatus';
 import { IModal } from '../../Molecules/Modal/Modal';
 
-
-type TModalConfig = Omit<IModal, 'id' | 'children' | 'status' | 'isOpen' >;
+type TModalConfig = Omit<IModal, 'id' | 'children' | 'status' | 'isOpen'>;
 
 type IModals = {
   id: string;
@@ -30,7 +29,7 @@ export const useFancyModalStore = create<IModalModule>((set) => ({
   // add a new modal to the state array
   openModal: (id, children, config) =>
     set((state) => ({
-      modals: [...state.modals, { id, children, status: 'open', config}],
+      modals: [...state.modals, { id, children, status: 'open', config }],
     })),
   // change the status of the modal to closing
   closeModal: (id) =>

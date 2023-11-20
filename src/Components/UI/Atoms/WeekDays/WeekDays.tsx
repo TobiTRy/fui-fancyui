@@ -3,7 +3,7 @@ import { styled } from 'styled-components';
 
 import Typography from '../Typography/Typography';
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
-import { TLayer } from "@/Components/UI/Interface/TLayer";
+import { TLayer } from '@/Components/UI/Interface/TLayer';
 import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 
@@ -11,7 +11,7 @@ const WeekdaysConatiner = styled.div<{ theme: TTheme; $themeType?: TUiColors; $l
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   width: 100%;
-  margin-bottom: ${({theme}) => theme.spacing.xs};
+  margin-bottom: ${({ theme }) => theme.spacing.xs};
   color: ${({ theme, $themeType, $layer }) => getBackgroundColor({ theme, $themeType: $themeType ?? 'secondary', $layer: $layer ?? 0 })};
 
   & > * {

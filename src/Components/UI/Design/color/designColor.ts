@@ -48,9 +48,9 @@ export const regenerateUiColors = (isDarkTheme: boolean) => {
     const generatedColor = generateColorSteps({
       themeType: color as IUiColorNames,
       color: uiColors[color as IUiColorNames]['0'],
-      pimaryColor: isDarkTheme ? themeColors.primary : themeColors.secondary // if the theme is dark, the primary color is the secondary color
+      pimaryColor: isDarkTheme ? themeColors.primary : themeColors.secondary, // if the theme is dark, the primary color is the secondary color
     });
-    
+
     uiColors = {
       ...uiColors,
       [color]: generatedColor,

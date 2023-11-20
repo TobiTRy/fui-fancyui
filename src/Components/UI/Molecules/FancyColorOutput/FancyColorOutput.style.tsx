@@ -2,16 +2,16 @@ import { styled } from 'styled-components';
 
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 
-export const Container = styled.div<{theme: TTheme}>`
+export const Container = styled.div<{ theme: TTheme }>`
   box-sizing: border-box;
   display: grid;
   grid-template-columns: 9fr 1fr;
   align-items: stretch;
   width: 100%;
-  gap: ${({theme}) => theme.spacing.sm};
+  gap: ${({ theme }) => theme.spacing.sm};
 `;
 
-export const WrapperSVG = styled.div<{theme: TTheme}>`
+export const WrapperSVG = styled.div<{ theme: TTheme }>`
   display: flex;
   align-items: center;
   justify-content: center;

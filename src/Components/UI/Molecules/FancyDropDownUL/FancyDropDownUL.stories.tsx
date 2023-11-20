@@ -10,7 +10,7 @@ const meta = {
     docs: {
       description: {
         component:
-          'Dumb-Comonent: The Color area that is uses for picking a color. <br> - The ColorIndicator works wehen the color is provides again',    
+          'Dumb-Comonent: The Color area that is uses for picking a color. <br> - The ColorIndicator works wehen the color is provides again',
       },
     },
   },
@@ -42,13 +42,15 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
-  render: (args) => <FancyDropDownUL {...args}/>,
+  render: (args) => <FancyDropDownUL {...args} />,
   args: {
-    children: <>
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
-    </>,
+    children: (
+      <>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+      </>
+    ),
     themeType: 'primary',
     layer: 5,
     isOpen: true,
@@ -57,4 +59,3 @@ export const Primary: Story = {
     alignVertical: 'top',
   },
 };
-

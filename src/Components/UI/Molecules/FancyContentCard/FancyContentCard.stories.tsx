@@ -10,13 +10,11 @@ const meta = {
     docs: {
       description: {
         component:
-          'Dumb-Comonent: The Color area that is uses for picking a color. <br> - The ColorIndicator works wehen the color is provides again',    
+          'Dumb-Comonent: The Color area that is uses for picking a color. <br> - The ColorIndicator works wehen the color is provides again',
       },
     },
   },
-  argTypes: {
-
-  },
+  argTypes: {},
   tags: ['autodocs'],
 } satisfies Meta<typeof FancyContentCard>;
 
@@ -33,4 +31,3 @@ export const Primary: Story = {
     title: 'My Fancy Product',
   },
 };
-

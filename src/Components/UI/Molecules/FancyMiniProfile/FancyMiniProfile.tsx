@@ -5,14 +5,14 @@ import Typography from '../../Atoms/Typography/Typography';
 import { TextWrapper, Wrapper } from './FancyMiniProfile.style';
 import { TTypography } from '@/Components/UI/Interface/TTypography';
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
-import { TLayer } from "@/Components/UI/Interface/TLayer";
+import { TLayer } from '@/Components/UI/Interface/TLayer';
 import { TSpacings } from '../../Interface/TSpacings';
 
 // the interface for the different sizes
 interface IPillSettings {
   [key: string]: {
     imageSize: IFancyProfilePicture['size'];
-    padding: TSpacings| undefined;
+    padding: TSpacings | undefined;
     textSize: TTypography;
     paddingToEdge: TSpacings;
     gapPictureAndText: TSpacings;
@@ -65,7 +65,13 @@ export default function FancyMiniProfile(props: IFancyMiniprofile) {
   const getSizeProps = pillSettings[size || 'sm'];
 
   return (
-    <Wrapper $size={getSizeProps.padding} $gapSpacing={getSizeProps.gapPictureAndText} $themeType={themeType} $layer={layer} $shadow={shadow}>
+    <Wrapper
+      $size={getSizeProps.padding}
+      $gapSpacing={getSizeProps.gapPictureAndText}
+      $themeType={themeType}
+      $layer={layer}
+      $shadow={shadow}
+    >
       {/* The Profile Picture */}
       <FancyProfilePicture rounded="complete" size={getSizeProps.imageSize} src={imageURL || ''} />
       {/* The wraper with the heading and subheading text  */}

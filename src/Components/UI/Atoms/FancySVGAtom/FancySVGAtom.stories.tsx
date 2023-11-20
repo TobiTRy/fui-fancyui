@@ -37,9 +37,6 @@ const meta = {
     isPassive: {
       control: { type: 'boolean' },
     },
-
-
-
   },
 
   // Add tags to the story
@@ -53,9 +50,11 @@ type Story = StoryObj<typeof meta>;
 
 // Define the primary story
 export const Primary: Story = {
-  render: (args) => <FancySVGAtom {...args}>
-    <SVGXCircle />
-  </FancySVGAtom>,
+  render: (args) => (
+    <FancySVGAtom {...args}>
+      <SVGXCircle />
+    </FancySVGAtom>
+  ),
   args: {
     isPassive: false,
     size: 'md',
@@ -63,7 +62,6 @@ export const Primary: Story = {
     errorMessage: '',
     layer: 1,
     isActive: true,
-
   },
   parameters: {
     docs: {

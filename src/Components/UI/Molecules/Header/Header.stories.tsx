@@ -36,7 +36,6 @@ const headerStyle = css`
   border-radius: 50px;
 `;
 
-
 export const Primary: Story = {
   render: (args) => (
     <Header {...args} externalStyle={headerStyle}>

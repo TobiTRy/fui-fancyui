@@ -55,7 +55,10 @@ const meta = {
     layer: {
       description: 'The layer of the button hover effect',
       control: {
-        type: 'range', min: 1, max: 10, step: 1,
+        type: 'range',
+        min: 1,
+        max: 10,
+        step: 1,
       },
       defaultValue: {
         summary: '3',

@@ -2,16 +2,14 @@ import React from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
-import FancyChipList from './FancyChipList'; 
+import FancyChipList from './FancyChipList';
 
 const meta = {
   component: FancyChipList,
   parameters: {
     docs: {
       description: {
-        component:
-          'Dumb-Comonent:  A Component that act like a tag list. It can be used to display tags/chips for some Informations.',
-          
+        component: 'Dumb-Comonent:  A Component that act like a tag list. It can be used to display tags/chips for some Informations.',
       },
     },
   },
@@ -50,7 +48,7 @@ const meta = {
     layer: {
       description: 'The Layer of the ChipList',
       control: {
-        type: 'select'
+        type: 'select',
       },
     },
     themeType: {
@@ -59,7 +57,6 @@ const meta = {
         type: 'select',
       },
     },
-
   },
   tags: ['autodocs'],
 } satisfies Meta<typeof FancyChipList>;
@@ -73,8 +70,5 @@ export const Primary: Story = {
     chips: ['12', '1212', '1212', '121221', '121212211', '12121212', '12121212'],
     size: 'md',
     label: 'ChipList',
-
-
-
   },
 };

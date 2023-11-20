@@ -10,7 +10,8 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component:  'SwipeUpContainer is only the container for the SwipeUpModal. <br> - The isScalable and the style prop is for the dynamicly changing height of the container. <br> - The real hieght of the container is the height of the children. '
+        component:
+          'SwipeUpContainer is only the container for the SwipeUpModal. <br> - The isScalable and the style prop is for the dynamicly changing height of the container. <br> - The real hieght of the container is the height of the children. ',
       },
     },
   },

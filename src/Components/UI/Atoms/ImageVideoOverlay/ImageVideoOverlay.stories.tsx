@@ -12,15 +12,14 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component: 'The ImageVideoOverlay is a Wrapper for the FancyVideo / FancyImage Component. It can be used to add a text overlay to the video. <br> - It recives textChildren as normal React nodes <br> - As children it recives the FancyVideo / FancyImage Component / or what do you fucking want',
+        component:
+          'The ImageVideoOverlay is a Wrapper for the FancyVideo / FancyImage Component. It can be used to add a text overlay to the video. <br> - It recives textChildren as normal React nodes <br> - As children it recives the FancyVideo / FancyImage Component / or what do you fucking want',
       },
     },
   },
 
   // Define arguments for the story
-  argTypes: {
-
-  },
+  argTypes: {},
 
   // Add tags to the story
   tags: ['autodocs'],
@@ -33,15 +32,18 @@ type Story = StoryObj<typeof meta>;
 
 // Define the primary story
 export const Primary: Story = {
-  render: (args) => <ImageVideoOverlay {...args}>
-    <FancyVideo src='https://www.w3schools.com/html/mov_bbb.mp4'/>
-  </ImageVideoOverlay>,
+  render: (args) => (
+    <ImageVideoOverlay {...args}>
+      <FancyVideo src="https://www.w3schools.com/html/mov_bbb.mp4" />
+    </ImageVideoOverlay>
+  ),
   args: {
     position: 'center',
-    textChildren: <>
-      <Typography type="h1">Hello World</Typography>
-    </>
-
+    textChildren: (
+      <>
+        <Typography type="h1">Hello World</Typography>
+      </>
+    ),
   },
   parameters: {
     docs: {

@@ -49,7 +49,8 @@ export default function FancyChip(props: TChipProps) {
   };
 
   // Calculate the spacing position for the chip
-  const getCalcPosition = clacPosition();3
+  const getCalcPosition = clacPosition();
+  3;
 
   // Render the Chip component with the appropriate props
   return (

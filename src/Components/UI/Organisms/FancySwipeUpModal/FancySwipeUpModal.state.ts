@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 
 import { TModalStatus } from '../../Interface/ModalStatus';
-import {ISwipeUpModal} from '../../Molecules/SwipeUpModal/ISwipeUpModal.model';
+import { ISwipeUpModal } from '../../Molecules/SwipeUpModal/ISwipeUpModal.model';
 
 export type ModalSettings = Omit<ISwipeUpModal, 'isOpen' | 'children' | 'onClose'>;
 
@@ -26,10 +26,11 @@ export const useFancySwipeUpModalStore = create<IFancySwipeUpModalStore>((set) =
   // the state array for the modals
   modals: [],
   // add a new modal to the state array
-  openSwipeUpModal: (id, children, config) => set((state) => {
-    console.log('openSwipeUpModal', id, children, config);
-    return { modals: [...state.modals, { children, id, status: 'open', config }] }
-  }),
+  openSwipeUpModal: (id, children, config) =>
+    set((state) => {
+      console.log('openSwipeUpModal', id, children, config);
+      return { modals: [...state.modals, { children, id, status: 'open', config }] };
+    }),
   // change the status of the modal to closing
   closeSwipeUpModal: (id) =>
     set((state) => ({

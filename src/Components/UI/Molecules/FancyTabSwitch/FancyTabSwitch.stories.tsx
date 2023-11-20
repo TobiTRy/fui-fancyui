@@ -10,8 +10,7 @@ const meta = {
     layout: 'centered',
     docs: {
       description: {
-        component:
-          'Dumb-Comonent: a Button that opens a SpeedDialMenue with a list of Buttons.',    
+        component: 'Dumb-Comonent: a Button that opens a SpeedDialMenue with a list of Buttons.',
       },
     },
   },
@@ -54,7 +53,10 @@ const meta = {
     layer: {
       description: 'The layer of the component.',
       control: {
-        type: 'range', min: 0, max: 10, step: 1,
+        type: 'range',
+        min: 0,
+        max: 10,
+        step: 1,
       },
     },
     activeColor: {
@@ -82,7 +84,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
-  render: (args) => <FancyTabSwitch {...args}/>,
+  render: (args) => <FancyTabSwitch {...args} />,
   args: {
     values: [
       { itemKey: '1', label: 'Tab 1' },
@@ -92,11 +94,12 @@ export const Primary: Story = {
 
     label: 'FancyTabSwitch',
     currentSelect: '2',
-    handler: () => {console.log('onChange')},
+    handler: () => {
+      console.log('onChange');
+    },
     themeType: 'primary',
     wide: true,
-    layer: 4, 
+    layer: 4,
     disabled: false,
-  }
+  },
 };
-

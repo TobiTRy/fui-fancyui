@@ -11,14 +11,12 @@ type TAnchorProps = {
 type TButtonProps = {
   type: 'button';
   onClick?: () => void; // More specific type for `onClick`
-  href?: string; 
-  
+  href?: string;
 };
 export type IComponentAndActionWrapper = {
   WrapperComponent?: React.ReactElement;
   children?: React.ReactNode;
 } & (TAnchorProps | TButtonProps);
-
 
 // --------------------------------------------------------------------------------- //
 //  The Component warps the chilirden in a Specific Action element or Custom element //

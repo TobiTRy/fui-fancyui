@@ -1,7 +1,7 @@
 interface IFancyModalHeadLine {
   title?: string;
   subTitle?: string;
-  alignCenter?: boolean 
+  alignCenter?: boolean;
   hr?: boolean;
 }
 

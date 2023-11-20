@@ -10,4 +10,3 @@ export const DateNumber = styled.span`
   cursor: pointer;
   box-sizing: border-box;
 `;
-

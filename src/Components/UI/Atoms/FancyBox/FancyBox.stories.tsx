@@ -84,9 +84,7 @@ type Story = StoryObj<typeof meta>;
 
 // Define the primary story
 export const Primary: Story = {
-  render: (args) => <FancyBox {...args} >
-    Hiii
-  </FancyBox>,
+  render: (args) => <FancyBox {...args}>Hiii</FancyBox>,
   args: {},
   parameters: {
     docs: {
@@ -145,25 +143,21 @@ const BottomBarStyle = css`
   border-radius: 12px 12px 0 0;
 `;
 
-const BottomBarComponent = (args: React.ComponentProps<typeof FancyBox>) => { 
+const BottomBarComponent = (args: React.ComponentProps<typeof FancyBox>) => {
   const [wichIsActive, setWichIsActive] = React.useState('0');
-  
-
 
   return (
     <FancyBox {...args} externalStyle={BottomBarStyle}>
-      <FancyBottomBarIcon icon={<SVGCheckMark />} label="Test" isActive={wichIsActive === '0'} onClick={() => setWichIsActive('0')}/>
-      <FancyBottomBarIcon icon={<SVGCheckMark />} label="Test" isActive={wichIsActive === '1'} onClick={() => setWichIsActive('1')}/>
-      <FancyBottomBarIcon icon={<SVGCheckMark />} label="Test" isActive={wichIsActive === '2'} onClick={() => setWichIsActive('2')}/>
-      <FancyBottomBarIcon icon={<SVGCheckMark />} label="Test" isActive={wichIsActive === '3'} onClick={() => setWichIsActive('3')}/>
+      <FancyBottomBarIcon icon={<SVGCheckMark />} label="Test" isActive={wichIsActive === '0'} onClick={() => setWichIsActive('0')} />
+      <FancyBottomBarIcon icon={<SVGCheckMark />} label="Test" isActive={wichIsActive === '1'} onClick={() => setWichIsActive('1')} />
+      <FancyBottomBarIcon icon={<SVGCheckMark />} label="Test" isActive={wichIsActive === '2'} onClick={() => setWichIsActive('2')} />
+      <FancyBottomBarIcon icon={<SVGCheckMark />} label="Test" isActive={wichIsActive === '3'} onClick={() => setWichIsActive('3')} />
     </FancyBox>
   );
 };
 
 export const BottomBar: Story = {
-  render: (args) => (
-    <BottomBarComponent {...args} />
-  ),
+  render: (args) => <BottomBarComponent {...args} />,
   args: {},
   parameters: {
     docs: {

@@ -10,8 +10,7 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component:
-          'The Typography component can render differnet elements with different styles',
+        component: 'The Typography component can render differnet elements with different styles',
       },
     },
   },
@@ -35,7 +34,6 @@ const meta = {
         type: 'text',
       },
     },
-
   },
   // Add tags to the story
   tags: ['autodocs'],

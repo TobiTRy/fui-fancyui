@@ -10,7 +10,7 @@ export default function MiniProfileroute() {
     <FancyCard>
       <DesignWrapper>
         <DesignArea title="MiniProfile">
-          <div style={{ display: 'flex', gap: '12px', }}>
+          <div style={{ display: 'flex', gap: '12px' }}>
             <FancyMiniProfile
               alignText="right"
               size={'sm'}
@@ -34,7 +34,7 @@ export default function MiniProfileroute() {
           </div>
         </DesignArea>
         <DesignArea title="MiniProfile">
-          <div style={{ display: 'flex', gap: '12px',}}>
+          <div style={{ display: 'flex', gap: '12px' }}>
             <FancyMiniProfile
               alignText="right"
               size={'md'}
@@ -58,7 +58,7 @@ export default function MiniProfileroute() {
           </div>
         </DesignArea>
         <DesignArea title="MiniProfile">
-          <div style={{ display: 'flex', gap: '12px'}}>
+          <div style={{ display: 'flex', gap: '12px' }}>
             <FancyMiniProfile
               alignText="right"
               size={'lg'}

@@ -9,64 +9,67 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component:
-          'Dumb-Comonent: A Progressbar with some Items Like Percent and Label',    
+        component: 'Dumb-Comonent: A Progressbar with some Items Like Percent and Label',
       },
     },
   },
   argTypes: {
-    label : {
+    label: {
       type: { name: 'string', required: false },
       description: 'The label for the Progressbar',
     },
-    labelAlign : {
+    labelAlign: {
       control: {
         type: 'radio',
       },
       description: 'The alignment of the label',
     },
-    progressAlign : {
+    progressAlign: {
       control: {
         type: 'radio',
       },
       description: 'The alignment of the progress',
     },
-    progressCount : {
+    progressCount: {
       type: { name: 'boolean', required: false },
       description: 'If the progress should be shown as a count',
     },
-    themeType : {
+    themeType: {
       control: {
         type: 'select',
       },
       description: 'The theme of the Progressbar',
     },
-    textLayer : {
+    textLayer: {
       control: {
-        type: 'range', min: 0, max: 10, step: 1,
+        type: 'range',
+        min: 0,
+        max: 10,
+        step: 1,
       },
       description: 'The layer of the text',
     },
-    layer : {
+    layer: {
       control: {
-        type: 'range', min: 0, max: 10, step: 1,
+        type: 'range',
+        min: 0,
+        max: 10,
+        step: 1,
       },
       description: 'The layer of the Progressbar',
     },
-    progress : {
+    progress: {
       type: { name: 'number', required: false },
       description: 'The progress of the Progressbar',
     },
-    maxValue : {
+    maxValue: {
       type: { name: 'number', required: false },
       description: 'The max value of the Progressbar',
     },
-    id : {
+    id: {
       type: { name: 'string', required: false },
       description: 'The id of the Progressbar',
     },
-
-  
   },
   tags: ['autodocs'],
 } satisfies Meta<typeof FancyProgressBar>;
@@ -76,7 +79,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
-  render: (args) => <FancyProgressBar {...args}/>,
+  render: (args) => <FancyProgressBar {...args} />,
   args: {
     label: 'Test',
     labelAlign: 'left',
@@ -87,6 +90,5 @@ export const Primary: Story = {
     progress: 50,
     maxValue: 100,
     id: 'test',
-  }
+  },
 };
-

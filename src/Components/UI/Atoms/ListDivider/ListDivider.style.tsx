@@ -20,7 +20,8 @@ export const StyledTextDiv = styled.div<TStyledTextDiv>`
   display: flex;
   color: ${({ $themeType, $layer, theme }) => getBackgroundColor({ $themeType: $themeType ?? 'secondary', $layer, theme })};
 
-  justify-content: ${({ $textAlignment }) => $textAlignment === 'left' ? 'flex-start' : $textAlignment === 'right' ? 'flex-end' : 'center'};
+  justify-content: ${({ $textAlignment }) =>
+    $textAlignment === 'left' ? 'flex-start' : $textAlignment === 'right' ? 'flex-end' : 'center'};
   align-items: center;
   margin: 2px 0;
 
@@ -29,7 +30,7 @@ export const StyledTextDiv = styled.div<TStyledTextDiv>`
       switch ($textAlignment) {
         case 'left':
           return '0 8px 0 20px';
-          case 'right':
+        case 'right':
           return '0 20px 0 8px';
         case 'center':
           return '0 8px 0 8px';

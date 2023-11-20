@@ -39,7 +39,10 @@ const clacCurrentPosition = (props: IClacCurrentPosition) => {
 // --------------------------------------------------------------------------- //
 // -------- Here is the main Generator Function of the activ indicator ------- //
 // --------------------------------------------------------------------------- //
-type TActiveSwitchIndicator = Pick<IActiveSwitchIndicator, '$layer' | '$rounded' | '$outlined' | '$themeType' | '$type' | '$indicatorWidth'  >;
+type TActiveSwitchIndicator = Pick<
+  IActiveSwitchIndicator,
+  '$layer' | '$rounded' | '$outlined' | '$themeType' | '$type' | '$indicatorWidth'
+>;
 export const ActiveSwitchIndicator = styled.span<TActiveSwitchIndicator & { theme?: TTheme }>`
   position: absolute;
   width: ${({ $indicatorWidth }) => $indicatorWidth ?? '100%'}; /* Set the width of the active indicator */
@@ -69,7 +72,7 @@ export const Wrapper = styled.i<IWrapper>`
   width: 100%;
   height: 100%;
   pointer-events: none;
-  cursor: pointer;  
+  cursor: pointer;
   transition: transform 0.2s ease;
   ${({ $itemNumber, $tabSpacing, $direction }) => clacCurrentPosition({ $itemNumber, $tabSpacing, $direction })}
 `;

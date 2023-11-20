@@ -4,7 +4,6 @@ import { StyledA, StyledImage } from './FancyImage.style';
 
 import aspectRatioValidation from '../../HelperFunctions/validations/aspectRatioValidation';
 
-
 // Define the props for the FancyImage component
 export interface IFancyImage {
   imageUrl: string;

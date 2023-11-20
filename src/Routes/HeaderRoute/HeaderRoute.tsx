@@ -31,7 +31,6 @@ const RightSlot = ({ onClick }: { onClick?: () => void }) => {
   );
 };
 
-
 const HeaderContentWrapper = styled.div`
   display: flex;
   align-items: center;
@@ -42,7 +41,7 @@ const HeaderContentWrapper = styled.div`
 const HeaderContent = () => {
   return (
     <HeaderContentWrapper>
-      <HeaderTitleWithLogo title="Let´sTryIt" logo={<Logo/>}/>
+      <HeaderTitleWithLogo title="Let´sTryIt" logo={<Logo />} />
       <FancySearchBar searchListWidth="80vw" layer={1}>
         <FancyLoadingSpinner size="lg" />
       </FancySearchBar>

@@ -18,7 +18,6 @@ export interface HSLAColor extends HSLColor {
   a: number;
 }
 
-
 export type ColorTypes =
   | {
       type: 'rgb';
@@ -44,7 +43,5 @@ export type ColorTypes =
       type: 'hexa';
       color: string;
     };
-
-
 
 export type ColorObject = RGBColor | RGBAColor | HSLColor | HSLAColor;

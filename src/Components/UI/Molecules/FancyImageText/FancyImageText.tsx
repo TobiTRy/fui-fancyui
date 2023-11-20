@@ -13,7 +13,7 @@ interface IImageWithTextProps extends IFancyImage {
 // ------------The Definition for the FancyImageText Component --------------- //
 // --------------------------------------------------------------------------- //
 export default function FancyImageText(props: IImageWithTextProps) {
-  const { position, ...restProps } = { ...defaultProps, ...props};
+  const { position, ...restProps } = { ...defaultProps, ...props };
 
   return (
     <ImageVideoOverlay position={position} textChildren={props.children}>

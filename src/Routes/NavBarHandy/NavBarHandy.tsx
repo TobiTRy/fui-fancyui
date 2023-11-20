@@ -30,7 +30,6 @@ const items2: IFancyBottomBarIcon[] = [
   { icon: svg, type: 'button', label: 'myButton', href: 'http://google.de' },
 ];
 
-
 const NavBarStyle = css`
   position: fixed;
   bottom: 12px;
@@ -40,26 +39,24 @@ const NavBarStyle = css`
   & > :first-child {
     border-radius: 12px;
   }
-
 `;
-
 
 export default function NavBarHandy() {
   return (
     <DesignWrapper>
       <DesignArea title="NavBarHandy">
         <BottomBar>
-          <FancyBottomBarIcon icon={svg} label='hii'/>
-          <FancyBottomBarIcon type="a" href="http://google.de" icon={svg} label='hiii' />
-          <FancyBottomBarIcon icon={svg} type='button' label='Hii' />
-          <FancyBottomBarIcon icon={svg} label='hiii'/>
+          <FancyBottomBarIcon icon={svg} label="hii" />
+          <FancyBottomBarIcon type="a" href="http://google.de" icon={svg} label="hiii" />
+          <FancyBottomBarIcon icon={svg} type="button" label="Hii" />
+          <FancyBottomBarIcon icon={svg} label="hiii" />
         </BottomBar>
       </DesignArea>
       <DesignArea title="FancyHandyNav">
         <FancyHandyNav outlined items={items} />
       </DesignArea>
       <DesignArea title="FancyHandyNav">
-        <FancyHandyNav outlined outlinedBackgroundStrength={0.9} externalStyle={NavBarStyle} items={items2}  />
+        <FancyHandyNav outlined outlinedBackgroundStrength={0.9} externalStyle={NavBarStyle} items={items2} />
       </DesignArea>
     </DesignWrapper>
   );

@@ -2,7 +2,7 @@ import { styled } from 'styled-components';
 
 import { IFancyProfilePicture } from './FancyProfilePicture';
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
-import { TLayer } from "@/Components/UI/Interface/TLayer";
+import { TLayer } from '@/Components/UI/Interface/TLayer';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 // Set the border based on the prop
@@ -52,7 +52,7 @@ export const StyledImage = styled.img<{ $rounded: TBorderRadius; $size: TSize | 
   aspect-ratio: 1/1;
 `;
 
-// Styled placeholder component for the profile picture  
+// Styled placeholder component for the profile picture
 interface IPlaceholderProps {
   $rounded: TBorderRadius;
   $size: TSize | string;

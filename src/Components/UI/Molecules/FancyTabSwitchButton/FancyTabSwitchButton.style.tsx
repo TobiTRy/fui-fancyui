@@ -2,11 +2,10 @@ import { styled, css } from 'styled-components';
 
 import themeStore from '../../Design/color/themeStore';
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
-import { TLayer } from "@/Components/UI/Interface/TLayer";
+import { TLayer } from '@/Components/UI/Interface/TLayer';
 import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
 import { TTypography } from '@/Components/UI/Interface/TTypography';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
-
 
 const getSpacingFromTheme = themeStore.getState().theme.spacing;
 export const tabSwitchItemSizes = {

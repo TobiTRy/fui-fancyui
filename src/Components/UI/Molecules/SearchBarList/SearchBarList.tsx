@@ -2,7 +2,7 @@ import React from 'react';
 
 import FancyCard from '../../Atoms/FancyCard/FancyCard';
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
-import { TLayer } from "@/Components/UI/Interface/TLayer";
+import { TLayer } from '@/Components/UI/Interface/TLayer';
 import { InnerCard, StyledSearchBarList } from './SearchBarList.style';
 
 // Props for the SearchBarList component

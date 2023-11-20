@@ -1,4 +1,4 @@
-import Color from "color";
+import Color from 'color';
 
 // this function checks if a color is valid
 export default function isColorValid(color: string) {

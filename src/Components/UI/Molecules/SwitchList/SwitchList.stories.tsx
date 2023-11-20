@@ -53,12 +53,12 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   render: (args) => (
     <SwitchList {...args}>
-      <FancyBottomBarIcon label='Test' icon={<SVGCheckMark/>}  />
-      <FancyBottomBarIcon label='Test' icon={<SVGCheckMark/>}  />
-      <FancyBottomBarIcon label='Test' icon={<SVGCheckMark/>}  />
+      <FancyBottomBarIcon label="Test" icon={<SVGCheckMark />} />
+      <FancyBottomBarIcon label="Test" icon={<SVGCheckMark />} />
+      <FancyBottomBarIcon label="Test" icon={<SVGCheckMark />} />
     </SwitchList>
   ),
   args: {
-    children: <></>
+    children: <></>,
   },
 };

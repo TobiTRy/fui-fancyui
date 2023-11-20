@@ -25,7 +25,7 @@ const meta = {
       options: ['bolb', 'underline'],
       defaultValue: {
         summary: 'bolb',
-      }
+      },
     },
     $direction: {
       description: 'The direction of the indicator where it should be moved horizontal or vertical',
@@ -35,7 +35,7 @@ const meta = {
       options: ['horizontal', 'vertical'],
       defaultValue: {
         summary: 'horizontal',
-      }
+      },
     },
     $itemNumber: {
       description: 'The itemnumber is to calc the position of the indicator for each item',
@@ -51,7 +51,7 @@ const meta = {
       options: ['sm', 'md', 'lg', 'xl', 'xxl', 'xxxl', 'complete'],
       defaultValue: {
         summary: 'md',
-      }
+      },
     },
     $tabSpacing: {
       description: 'The spacing is to calc with the offset the position of the indicator for each item',
@@ -60,8 +60,7 @@ const meta = {
       },
       defaultValue: {
         summary: '',
-      
-      }
+      },
     },
     $outlined: {
       description: 'The outlined is to set the border of the indicator',
@@ -70,7 +69,7 @@ const meta = {
       },
       defaultValue: {
         summary: false,
-      }
+      },
     },
     $themeType: {
       description: 'The themeType is to set the color of the indicator',
@@ -79,7 +78,7 @@ const meta = {
       },
       defaultValue: {
         summary: 'accent',
-      }
+      },
     },
   },
   // Add tags to the story

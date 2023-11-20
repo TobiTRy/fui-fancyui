@@ -3,22 +3,22 @@ import { styled } from 'styled-components';
 import { animated, useSpring } from '@react-spring/web';
 
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
-import { TLayer } from "@/Components/UI/Interface/TLayer";
+import { TLayer } from '@/Components/UI/Interface/TLayer';
 import getColorsForComponent from '../../Design/color/colorCalculatorForComponet';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 // Define the styled component for the dialog
-const StyledDialog = styled(animated.div)<{theme: TTheme, $themeType?: TUiColors, $layer?: TLayer}>`
+const StyledDialog = styled(animated.div)<{ theme: TTheme; $themeType?: TUiColors; $layer?: TLayer }>`
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  padding: ${({theme}) => theme.spacing.xl};
-  border-radius: ${({theme}) => theme.borderRadius.lg};
+  padding: ${({ theme }) => theme.spacing.xl};
+  border-radius: ${({ theme }) => theme.borderRadius.lg};
   border: none;
   width: 70%;
   max-height: 85%;
-  ${({theme, $themeType = 'primary', $layer = 1}) => getColorsForComponent({theme, $themeType, $layer})}
+  ${({ theme, $themeType = 'primary', $layer = 1 }) => getColorsForComponent({ theme, $themeType, $layer })}
   z-index: 1000;
 `;
 

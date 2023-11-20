@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 
@@ -8,7 +8,6 @@ const checkboxStyles = css`
   height: 20px;
   border-radius: 4px;
 `;
-
 
 // the real chekbox but its hidden and the fake one is shown
 export const HidenCheckBox = styled.input`
@@ -33,11 +32,11 @@ export const HidenCheckBox = styled.input`
 `;
 
 // the fake checkbox that is shown for better styling
-export const FakeCheckbox = styled.div<{ $checked: boolean, theme: TTheme }>`
+export const FakeCheckbox = styled.div<{ $checked: boolean; theme: TTheme }>`
   position: absolute;
   top: 0;
   left: 0;
-  background-color: ${({theme}) => theme.colors.primary[3]};
+  background-color: ${({ theme }) => theme.colors.primary[3]};
   z-index: 1;
   ${checkboxStyles}
   box-sizing: border-box;
@@ -55,7 +54,7 @@ export const FakeCheckbox = styled.div<{ $checked: boolean, theme: TTheme }>`
     width: 20px;
     height: 20px;
     transform: translate(-50%, -50%);
-    fill: ${({theme}) => theme.colors.accent[0]};
+    fill: ${({ theme }) => theme.colors.accent[0]};
     display: ${({ $checked }) => ($checked ? 'block' : 'none')};
   }
 `;
@@ -70,4 +69,3 @@ export const InputContainer = styled.div`
   height: 20px;
   flex-shrink: 0;
 `;
-

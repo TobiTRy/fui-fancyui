@@ -66,7 +66,6 @@ const meta = {
         summary: 1,
       },
     },
-    
   },
   // Add tags to the story
   tags: ['autodocs'],

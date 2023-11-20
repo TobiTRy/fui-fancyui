@@ -1,7 +1,7 @@
-import { styled } from "styled-components";
+import { styled } from 'styled-components';
 
-import { TTheme } from "../../Interface/TTheme";
-import colorTransparencyCalculator from "../../Design/color/colorTransparencyCalculator";
+import { TTheme } from '../../Interface/TTheme';
+import colorTransparencyCalculator from '../../Design/color/colorTransparencyCalculator';
 
 export const WrapperMarker = styled.div`
   position: absolute;
@@ -15,7 +15,6 @@ export const WrapperMarker = styled.div`
   transform: translate(-2.5px);
 `;
 
-
 export const Marker = styled.div<{ theme: TTheme }>`
   box-sizing: border-box;
   position: relative;
@@ -23,5 +22,5 @@ export const Marker = styled.div<{ theme: TTheme }>`
   width: 100%;
   height: 100%;
   box-shadow: 0px 0px 1px 1px ${({ theme }) => colorTransparencyCalculator(theme.colors.secondary[0], 0.5)};
-  border-radius: ${({theme}) => theme.borderRadius.sm};
+  border-radius: ${({ theme }) => theme.borderRadius.sm};
 `;

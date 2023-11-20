@@ -23,7 +23,10 @@ const meta = {
     layer: {
       description: 'The layer for the Modal',
       control: {
-        type: 'range', min: 0, max: 10, step: 1,
+        type: 'range',
+        min: 0,
+        max: 10,
+        step: 1,
       },
     },
     monthIdx: {
@@ -78,10 +81,12 @@ export const Primary: Story = {
     isRangePicking: false,
     themeType: 'primary',
     layer: 1,
-    selectedDates: [ new Date(2021, 0, 1), undefined ],
-    handleDateClick: () => {console.log('handleDateClick')},
+    selectedDates: [new Date(2021, 0, 1), undefined],
+    handleDateClick: () => {
+      console.log('handleDateClick');
+    },
     disabledDateSetting: {
-      disabledWeekdays: [ 1, 6 ],
+      disabledWeekdays: [1, 6],
       disableWeekends: true,
       disablePastDates: false,
     },

@@ -55,11 +55,9 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   args: {
     $moveUp: false,
-    $colorState: 'default', 
+    $colorState: 'default',
     $themeType: 'secondary',
     $layer: 4,
-
   },
-  render: (args) => (<HelperComponent {...args}/>
-  ),
+  render: (args) => <HelperComponent {...args} />,
 };

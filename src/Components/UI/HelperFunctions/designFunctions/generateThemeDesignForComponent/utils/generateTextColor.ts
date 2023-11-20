@@ -1,6 +1,6 @@
-import { getBackgroundColor } from "../../../../Design/color/colorCalculatorForComponet";
-import themeStore from "../../../../Design/color/themeStore";
-import { IGenerateThemeDesignForComponent } from "../generateThemeDesignForComponent";
+import { getBackgroundColor } from '../../../../Design/color/colorCalculatorForComponet';
+import themeStore from '../../../../Design/color/themeStore';
+import { IGenerateThemeDesignForComponent } from '../generateThemeDesignForComponent';
 
 // --------------------------------------------------------------------------- //
 // ------------- generate the text color for the components  ----------------- //
@@ -8,7 +8,7 @@ import { IGenerateThemeDesignForComponent } from "../generateThemeDesignForCompo
 export const generateTextColor = (props: Pick<IGenerateThemeDesignForComponent, '$themeType' | '$textColor' | '$layer'>) => {
   const { $themeType, $textColor, $layer } = props;
   const theme = themeStore.getState().theme;
-  
+
   // if the userer profides a $textColor use this
   if ($textColor) return theme.colors[$textColor][$layer ?? 0];
 

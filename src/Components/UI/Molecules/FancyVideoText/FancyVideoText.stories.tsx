@@ -10,8 +10,7 @@ const meta = {
     layout: 'centered',
     docs: {
       description: {
-        component:
-          'Dumb-Comonent: A FancyVideoText component. <br> It is a video with text on top.',    
+        component: 'Dumb-Comonent: A FancyVideoText component. <br> It is a video with text on top.',
       },
     },
   },
@@ -52,8 +51,6 @@ const meta = {
       description: 'If true, the image will be darkened.',
       type: { name: 'boolean' },
     },
-
-
   },
   tags: ['autodocs'],
 } satisfies Meta<typeof FancyVideoText>;
@@ -63,16 +60,12 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
-  render: (args) => <FancyVideoText {...args}/>,
+  render: (args) => <FancyVideoText {...args} />,
   args: {
     src: 'https://www.w3schools.com/html/mov_bbb.mp4',
     autoPlay: true,
     aspectRatio: '16/9',
     position: 'top-left',
-    children: [
-        <p>Top Right</p>,
-    ],
-
-  }
+    children: [<p>Top Right</p>],
+  },
 };
-

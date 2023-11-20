@@ -11,7 +11,7 @@ const meta = {
     docs: {
       description: {
         component:
-          'Dumb-Comonent: The Color area that is uses for picking a color. <br> - The ColorIndicator works wehen the color is provides again',    
+          'Dumb-Comonent: The Color area that is uses for picking a color. <br> - The ColorIndicator works wehen the color is provides again',
       },
     },
   },
@@ -25,7 +25,6 @@ const meta = {
     handler: {
       description: 'The handler that is called when the color changes and gives back the color',
     },
-
   },
   tags: ['autodocs'],
 } satisfies Meta<typeof FancyColorArea>;
@@ -41,4 +40,3 @@ export const Primary: Story = {
     handler: (color: Color) => console.log(color),
   },
 };
-

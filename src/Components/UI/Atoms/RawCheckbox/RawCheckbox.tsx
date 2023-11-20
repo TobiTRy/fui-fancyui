@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import { FakeCheckbox, HidenCheckBox, InputContainer  } from './RawCheckbox.style';
+import { FakeCheckbox, HidenCheckBox, InputContainer } from './RawCheckbox.style';
 import { IRawCheckboxProps } from './RawCheckbox.model';
 import SVGCheckMark from '../../SVGIcons/SVGCheckMark';
 

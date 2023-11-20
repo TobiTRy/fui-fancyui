@@ -5,9 +5,9 @@ import { TTheme } from '@/Components/UI/Interface/TTheme';
 // --------------------------------------------------------------------------- //
 // --------------- The main label design for the input elements -------------- //
 // --------------------------------------------------------------------------- //
-const InputLabel = styled.label<{theme: TTheme}>`
+const InputLabel = styled.label<{ theme: TTheme }>`
   width: 100%;
-  color: ${({theme}) => theme.colors.secondary[1]};
+  color: ${({ theme }) => theme.colors.secondary[1]};
   font-weight: bold;
   pointer-events: none;
   user-select: none;

@@ -4,7 +4,7 @@ import { styled } from 'styled-components';
 import { fontSize } from '../../Design/designSizes';
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
-import { TLayer } from "@/Components/UI/Interface/TLayer";
+import { TLayer } from '@/Components/UI/Interface/TLayer';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 // the style for a single input
@@ -24,7 +24,7 @@ const StyledSingleInput = styled.input<StyledSingleInputProps & { theme: TTheme 
     ${({ $hasValue, theme, $themeType = 'secondary', $layer }) =>
       $hasValue ? theme.colors.accent[0] : getBackgroundColor({ theme, $themeType, $layer })};
   border-radius: 5px;
-  padding: ${({theme}) => theme.spacing.xs};
+  padding: ${({ theme }) => theme.spacing.xs};
   background-color: transparent;
   appearance: none;
   outline: none;
@@ -41,27 +41,29 @@ interface ISingleInputAtomProps {
   themeType?: TUiColors;
   layer?: TLayer;
 }
-export const SingleInputAtom = forwardRef<HTMLInputElement, ISingleInputAtomProps>(({ value, onKeyDown, ariaLabel, themeType, layer }, ref) => {
-  const [isFocused, setIsFocused] = useState(false);
+export const SingleInputAtom = forwardRef<HTMLInputElement, ISingleInputAtomProps>(
+  ({ value, onKeyDown, ariaLabel, themeType, layer }, ref) => {
+    const [isFocused, setIsFocused] = useState(false);
 
-  return (
-    <StyledSingleInput
-      type="text"
-      $themeType={themeType}
-      $layer={layer}
-      maxLength={1}
-      value={value}
-      onKeyDown={onKeyDown}
-      ref={ref}
-      aria-label={ariaLabel}
-      // eslint-disable-next-line @typescript-eslint/no-empty-function
-      onChange={() => {}}
-      onFocus={() => setIsFocused(true)}
-      onBlur={() => setIsFocused(false)}
-      $hasValue={value.length > 0}
-      $isFocused={isFocused}
-    />
-  );
-});
+    return (
+      <StyledSingleInput
+        type="text"
+        $themeType={themeType}
+        $layer={layer}
+        maxLength={1}
+        value={value}
+        onKeyDown={onKeyDown}
+        ref={ref}
+        aria-label={ariaLabel}
+        // eslint-disable-next-line @typescript-eslint/no-empty-function
+        onChange={() => {}}
+        onFocus={() => setIsFocused(true)}
+        onBlur={() => setIsFocused(false)}
+        $hasValue={value.length > 0}
+        $isFocused={isFocused}
+      />
+    );
+  }
+);
 
 export default SingleInputAtom;

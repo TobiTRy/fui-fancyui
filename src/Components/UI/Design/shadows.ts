@@ -5,7 +5,7 @@ import colorTransparencyCalculator from './color/colorTransparencyCalculator';
 //global text-shadow
 export const textShadow = {
   sm: css`
-    text-shadow: 0 0 20px #0000009c;;
+    text-shadow: 0 0 20px #0000009c;
   `,
   md: css`
     text-shadow: 0 0 15px #19191980;
@@ -34,6 +34,5 @@ export const boxShadow = {
       const themeColor = colorTransparencyCalculator(themeStore.getState().theme.colors.secondary[0], 0.1);
       return `box-shadow: 1px 0 23px ${themeColor};`;
     }}
-
   `,
 };

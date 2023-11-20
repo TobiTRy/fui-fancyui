@@ -89,7 +89,6 @@ export default meta;
 // Define the story object
 type Story = StoryObj<typeof meta>;
 
-
 function HelperComponent(props: React.ComponentProps<typeof FancySwipeUpModal> & Omit<ISwipeUpModal, 'onClose'>) {
   const { appendToDomID, children, ...configProps } = props;
   const openModal = useFancySwipeUpModalStore((state) => state.openSwipeUpModal);

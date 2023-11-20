@@ -1,6 +1,8 @@
 import { styled } from 'styled-components';
 import { disabledStyle } from '../../HelperFunctions/designFunctions/disableStyle';
-import generateThemeDesignForComponent, { IGenerateThemeDesignForComponent } from '../../HelperFunctions/designFunctions/generateThemeDesignForComponent/generateThemeDesignForComponent';
+import generateThemeDesignForComponent, {
+  IGenerateThemeDesignForComponent,
+} from '../../HelperFunctions/designFunctions/generateThemeDesignForComponent/generateThemeDesignForComponent';
 import IStyledPrefixAndPicker from '../../Interface/IStyledPrefixAndPicker.model';
 import { IButtonProps } from './Button';
 
@@ -14,7 +16,9 @@ export const StyledButton = styled.button<IGenerateThemeDesignForComponent & ISt
   text-decoration: none;
   width: ${({ $wide }) => ($wide ? '100%' : 'fit-content')};
   min-width: fit-content;
-  transition: background-color 0.125s ease-in-out, color 0.125s ease-in-out;
+  transition:
+    background-color 0.125s ease-in-out,
+    color 0.125s ease-in-out;
 
   ${(props: IGenerateThemeDesignForComponent) => generateThemeDesignForComponent({ ...props, $backgroundState: 'hover' })};
 

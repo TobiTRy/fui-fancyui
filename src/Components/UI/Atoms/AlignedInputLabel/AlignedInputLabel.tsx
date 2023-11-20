@@ -8,7 +8,7 @@ import { IAlignedInputLabel } from './TalignedInputLabel.model';
 export const AlignedInputLabel = styled(InputLabel)<IAlignedInputLabel>`
   display: flex;
   align-items: flex-end;
-  margin-bottom: ${({theme}) => theme.spacing.xxs};
+  margin-bottom: ${({ theme }) => theme.spacing.xxs};
   justify-content: ${({ $align }) => ($align === 'left' ? 'flex-start' : $align === 'center' ? 'center' : 'flex-end')};
   color: ${({ $colorState, theme, $themeType = 'secondary', $layer = 4 }) => {
     switch ($colorState) {
@@ -21,6 +21,3 @@ export const AlignedInputLabel = styled(InputLabel)<IAlignedInputLabel>`
     }
   }};
 `;
-
-
-

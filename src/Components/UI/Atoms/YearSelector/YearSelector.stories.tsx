@@ -9,7 +9,7 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component:  'the year selector is a simple component to select a year'
+        component: 'the year selector is a simple component to select a year',
       },
     },
   },
@@ -30,7 +30,10 @@ const meta = {
     layer: {
       description: 'The layer of the year selector',
       control: {
-        type: 'range', min: 0, max: 10, step: 1,
+        type: 'range',
+        min: 0,
+        max: 10,
+        step: 1,
       },
     },
     handler: {
@@ -39,9 +42,6 @@ const meta = {
         type: 'function',
       },
     },
-
-
-
   },
   // Add tags to the story
   tags: ['autodocs'],

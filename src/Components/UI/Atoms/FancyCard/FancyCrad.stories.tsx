@@ -7,7 +7,7 @@ import FancyCard from './FancyCard';
 const meta = {
   title: 'components/ui/Atoms/FancyCard',
   component: FancyCard,
-  
+
   parameters: {
     docs: {
       description: {
@@ -59,7 +59,7 @@ export const Primary: Story = {
     </FancyCard>
   ),
   args: {
-    roundedEdges: ['sm', 'md', 'lg', 'xl',],
+    roundedEdges: ['sm', 'md', 'lg', 'xl'],
     shadow: true,
     themeType: 'primary',
     layer: 3,

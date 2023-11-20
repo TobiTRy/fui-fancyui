@@ -4,7 +4,6 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import Modal from './Modal';
 
-
 const meta = {
   component: Modal,
   parameters: {
@@ -36,10 +35,13 @@ const meta = {
     layer: {
       description: 'The layer of the component',
       control: {
-        type: 'range', min: 0, max: 10, step: 1,
+        type: 'range',
+        min: 0,
+        max: 10,
+        step: 1,
       },
     },
-    
+
     onClose: {
       description: 'The closeModal of the component',
       control: {
@@ -76,6 +78,8 @@ export const Primary: Story = {
     themeType: 'primary',
     layer: 0,
     id: 'Modal',
-    onClose: () => {console.log('closeModal')},
+    onClose: () => {
+      console.log('closeModal');
+    },
   },
 };

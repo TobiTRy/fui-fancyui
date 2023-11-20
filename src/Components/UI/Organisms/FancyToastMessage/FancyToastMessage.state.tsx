@@ -14,7 +14,7 @@ export const useFancyToastMessageStore = create<ToastMessageStore>((set) => ({
   toastQueue: [],
   addToast: (toast) =>
     set((state) => ({
-      toastQueue: [...state.toastQueue, {...toast, id: Date.now(), time: toast.time || 5000}],
+      toastQueue: [...state.toastQueue, { ...toast, id: Date.now(), time: toast.time || 5000 }],
     })),
   removeToast: (id) =>
     set((state) => ({

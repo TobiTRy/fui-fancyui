@@ -28,7 +28,7 @@ export default preview;
 const switchTheme = () => {
   themeStore.getState().switchTheme();
   return themeStore.getState().theme;
-}
+};
 
 export const decorators = [
   withThemeFromJSXProvider({

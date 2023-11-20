@@ -1,4 +1,3 @@
-
 const generateYearOptions = (start?: number, end?: number) => {
   const startYear = start || 0;
   const endYear = end || 11;

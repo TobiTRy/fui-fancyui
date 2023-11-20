@@ -5,7 +5,7 @@ import { IFancyUL } from './FancyDropDownUL';
 import IStyledPrefixAndPicker from '../../Interface/IStyledPrefixAndPicker.model';
 import { boxShadow } from '../../Design/shadows';
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
-import { TLayer } from "@/Components/UI/Interface/TLayer";
+import { TLayer } from '@/Components/UI/Interface/TLayer';
 import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 
@@ -41,10 +41,10 @@ export const StyledUL = styled.ul<{ theme: TTheme; $themeType?: TUiColors; $laye
   padding: 0;
   margin: 0;
   width: 100%;
-  padding: ${({theme}) => theme.spacing.lg};
-  background-color: ${({ theme, $themeType = 'primary', $layer = 1 }) => getBackgroundColor({theme, $themeType, $layer})};
+  padding: ${({ theme }) => theme.spacing.lg};
+  background-color: ${({ theme, $themeType = 'primary', $layer = 1 }) => getBackgroundColor({ theme, $themeType, $layer })};
   ${boxShadow.lg}
-  gap: ${({theme}) => theme.spacing.xs};
+  gap: ${({ theme }) => theme.spacing.xs};
   overflow: hidden;
 
   li {

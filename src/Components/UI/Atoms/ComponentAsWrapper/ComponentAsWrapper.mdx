@@ -44,9 +44,7 @@ For example, in a library's modal component, you could allow users to specify th
 
 ```jsx
 // In your modal component file
-<ComponentAsWrapper wrapper={userDefinedWrapper}>
-  {modalContent}
-</ComponentAsWrapper>
+<ComponentAsWrapper wrapper={userDefinedWrapper}>{modalContent}</ComponentAsWrapper>
 ```
 
 This makes `ComponentAsWrapper` a powerful tool for building flexible and reusable component libraries.

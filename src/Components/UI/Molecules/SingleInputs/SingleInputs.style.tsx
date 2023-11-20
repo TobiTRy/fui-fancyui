@@ -1,8 +1,7 @@
 import { styled } from 'styled-components';
 
-import InputStatus from "../../Interface/IStatus";
+import InputStatus from '../../Interface/IStatus';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
-
 
 interface IInputWrapper {
   $status?: Omit<InputStatus, 'isLoading'>;
@@ -13,7 +12,7 @@ export const InputWrapper = styled.div<IInputWrapper>`
   flex-wrap: wrap;
   justify-content: center;
   width: 100%;
-  gap: ${({theme}) => theme.spacing.md};
+  gap: ${({ theme }) => theme.spacing.md};
 
   input {
     ${({ $status, theme }) =>

@@ -11,10 +11,9 @@ export type IRoundedEdges = [TEdge?, TEdge?, TEdge?, TEdge?];
 const checkValueIsBorderRadius = (value: string | TBorderRadiusSizes | number) => {
   //check if value is typeof TBorderRadiusSizes
   if (borderRadius[value as TBorderRadiusSizes]) return true;
-  
+
   return false;
 };
-
 
 // get the value of the radius if it is a TBorderRadiusSizes
 const getRadiusValue = (edge: TEdge): string => {
@@ -31,7 +30,7 @@ const edgeCalculation = (edges?: IRoundedEdges): string | undefined => {
   if (!edges?.length) return;
 
   //check edges are valid
-  const validEdges = edges.filter(edge => edge !== undefined) as TEdge[];
+  const validEdges = edges.filter((edge) => edge !== undefined) as TEdge[];
 
   switch (validEdges.length) {
     // if one value is given, all edges are the same

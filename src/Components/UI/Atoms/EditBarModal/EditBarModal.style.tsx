@@ -36,18 +36,18 @@ interface IWrapper {
 export const Wrapper = styled.div<IWrapper & { theme: TTheme }>`
   box-sizing: border-box;
   position: relative;
-  padding: ${({theme}) => theme.spacing.md};
+  padding: ${({ theme }) => theme.spacing.md};
   z-index: 99;
   ${({ $width, $spacingLeftRight }) => calcBarWidthandSpacing($width, $spacingLeftRight)};
-  background-color: ${({theme}) => theme.colors.primary[1]};
+  background-color: ${({ theme }) => theme.colors.primary[1]};
   border-radius: 12px 12px 0px 0px;
   ${boxShadow.sm}
 `;
 
-export const WrapperContent = styled.div<{theme: TTheme}>`
+export const WrapperContent = styled.div<{ theme: TTheme }>`
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: ${({theme}) => theme.spacing.md};
+  gap: ${({ theme }) => theme.spacing.md};
 `;

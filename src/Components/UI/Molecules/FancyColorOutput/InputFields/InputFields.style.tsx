@@ -2,10 +2,10 @@ import { styled } from 'styled-components';
 
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 
-export const WrapperInputs = styled.div<{theme: TTheme}>`
+export const WrapperInputs = styled.div<{ theme: TTheme }>`
   display: flex;
   width: 100%;
-  gap: ${({theme}) => theme.spacing.sm};
+  gap: ${({ theme }) => theme.spacing.sm};
 `;
 
 export const ContainerInputs = styled.div<{ theme: TTheme }>`
@@ -13,7 +13,7 @@ export const ContainerInputs = styled.div<{ theme: TTheme }>`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  gap: ${({theme}) => theme.spacing.xs};
+  gap: ${({ theme }) => theme.spacing.xs};
 
   p {
     margin: 0;

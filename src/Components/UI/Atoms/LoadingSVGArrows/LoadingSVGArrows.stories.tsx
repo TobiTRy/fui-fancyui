@@ -53,11 +53,12 @@ const meta = {
       },
     },
     isPassive: {
-      description: 'Passive mode is when when the color should adapt from the parent component, otherwise it can used interative with (active, error, colors) ',
+      description:
+        'Passive mode is when when the color should adapt from the parent component, otherwise it can used interative with (active, error, colors) ',
       control: {
         type: 'boolean',
       },
-    },  
+    },
   },
 
   // Add tags to the story
@@ -77,7 +78,6 @@ export const Primary: Story = {
     isPassive: false,
     themeType: 'accent',
     layer: 1,
-
   },
   parameters: {
     docs: {

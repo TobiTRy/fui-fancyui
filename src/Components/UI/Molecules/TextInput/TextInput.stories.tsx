@@ -22,9 +22,8 @@ const meta = {
     },
     align: {
       description: 'The alignment of the text.',
-      control: { type: 'select'},
-    }, 
-
+      control: { type: 'select' },
+    },
   },
   // Add tags to the story
   tags: ['autodocs'],
@@ -38,7 +37,5 @@ type Story = StoryObj<typeof meta>;
 // Define the primary story
 export const Primary: Story = {
   render: (args) => <TextInput {...args} />,
-  args: {
-
-  },
+  args: {},
 };

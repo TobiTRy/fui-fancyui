@@ -9,8 +9,7 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component:
-          'Dumb-Comonent: The main HeadLineComponent for the heading for the modals and other components',    
+        component: 'Dumb-Comonent: The main HeadLineComponent for the heading for the modals and other components',
       },
     },
   },
@@ -48,7 +47,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
-  render: (args) => <FancyModalHeadLine {...args}/>,
+  render: (args) => <FancyModalHeadLine {...args} />,
   args: {
     alignCenter: true,
     title: 'Title',
@@ -56,4 +55,3 @@ export const Primary: Story = {
     hr: true,
   },
 };
-

@@ -51,8 +51,6 @@ function lightenColors({ pimaryColor, themeType, color }: IGenerateColorSteps) {
   }
 }
 
-
-
 type ColorSteps = {
   [key in TLayer]: string;
 };

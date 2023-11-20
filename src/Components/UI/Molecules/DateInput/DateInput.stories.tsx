@@ -9,11 +9,10 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component:
-          'Dumb-Comonent: The DateInput is a component that allows the user to select a date from a calendar.',
+        component: 'Dumb-Comonent: The DateInput is a component that allows the user to select a date from a calendar.',
       },
     },
-  },  
+  },
   argTypes: {
     type: {
       description: 'The type of the input.',

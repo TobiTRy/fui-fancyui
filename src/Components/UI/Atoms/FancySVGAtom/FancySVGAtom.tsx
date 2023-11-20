@@ -44,7 +44,10 @@ const StyledSVG = styled.i<IStyledSVGAtom & { theme: TTheme }>`
 // --------- This is a wrapper for SVGs to wrap them and style them ---------- //
 // --------------------------------------------------------------------------- //
 export default function FancySVGAtom(props: ISVGAtomProps) {
-  const { children, isPassive, size, isActive, errorMessage, externalStyle, themeType, layer, ...htmlProps } = { ...defaultProps, ...props };
+  const { children, isPassive, size, isActive, errorMessage, externalStyle, themeType, layer, ...htmlProps } = {
+    ...defaultProps,
+    ...props,
+  };
 
   return (
     <StyledSVG

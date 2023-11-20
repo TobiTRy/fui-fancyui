@@ -8,7 +8,7 @@ export interface IScrollableBar {
 // -------- Handles the overflow in the scrollbar  with mac variation -------- //
 // --------------------------------------------------------------------------- //
 export default function ScrollableBar(props: IScrollableBar) {
-  const { children } = props ;
+  const { children } = props;
 
   const scrollAbleBar = useRef<HTMLDivElement>(null);
 
@@ -17,14 +17,13 @@ export default function ScrollableBar(props: IScrollableBar) {
     if (/Mac/i.test(navigator.userAgent)) {
       return;
     }
-  
+
     const box = scrollAbleBar.current;
     box!.scrollLeft += e.deltaY < 0 ? -30 : 30;
   };
   return (
     <ScollAbleBar onWheel={horizontalScrollingHandler} ref={scrollAbleBar}>
-      { children }
+      {children}
     </ScollAbleBar>
   );
 }
-

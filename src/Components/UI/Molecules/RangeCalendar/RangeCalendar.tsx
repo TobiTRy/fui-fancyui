@@ -6,11 +6,10 @@ import useSelectedDates from './helperFunctions/useSelectedDates';
 import useVisibleMonths from './helperFunctions/useVisibleMonths';
 
 import { IDisabledDateSettings } from '../MonthWithDays/IDisableDateSettings.model';
-import {IExternalMonthWithDays} from '../MonthWithDays/IExternalMonthWithDays.model';
+import { IExternalMonthWithDays } from '../MonthWithDays/IExternalMonthWithDays.model';
 import { IDateArray } from './IDateArray.model';
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
-import { TLayer } from "@/Components/UI/Interface/TLayer";
-
+import { TLayer } from '@/Components/UI/Interface/TLayer';
 
 // --------------------------------------------------------------------------- //
 // -------- The main calenader wich can select a date, or date range ---------- //

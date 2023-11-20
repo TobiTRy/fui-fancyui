@@ -30,8 +30,8 @@ const meta = {
       control: { type: 'function' },
     },
     layer: {
-      control: { type: 'range', min: 0, max: 10, step: 1}
-    }
+      control: { type: 'range', min: 0, max: 10, step: 1 },
+    },
   },
 
   // Add tags to the story
@@ -50,7 +50,9 @@ export const Primary: Story = {
     date: new Date(),
     themeType: 'primary',
     isActive: true,
-    onClick: () => { console.log('clicked') },
+    onClick: () => {
+      console.log('clicked');
+    },
   },
   parameters: {
     docs: {

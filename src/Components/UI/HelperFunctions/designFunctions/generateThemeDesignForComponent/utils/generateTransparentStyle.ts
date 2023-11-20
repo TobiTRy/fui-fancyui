@@ -4,8 +4,6 @@ import { IGenerateThemeDesignForComponent } from '../generateThemeDesignForCompo
 import { generateStateStyle } from './generateHoverActiveColor';
 import { generateTextColor } from './generateTextColor';
 
-
-
 type TGenerateTransparentStyle = Pick<
   IGenerateThemeDesignForComponent,
   '$outlined' | 'theme' | '$layer' | '$backgroundStrength' | '$backgroundState' | '$hoverColor' | '$textColor' | '$textHover'
@@ -16,11 +14,10 @@ type TGenerateTransparentStyle = Pick<
 export const generateTransparentStyle = (props: TGenerateTransparentStyle) => {
   const { $backgroundState, $textColor, $backgroundStrength = 0.3, $layer, $textHover } = props;
 
-
   return css`
     color: ${generateTextColor({ $layer, $themeType: $textColor })};
     ${$backgroundState !== 'active' && 'background-color: transparent'};
     /* This generate the hover / active style if its needed */
-    ${$backgroundState && generateStateStyle({ ...props, $backgroundStrength, $textHover: $textHover, $textColor: $textColor})}
+    ${$backgroundState && generateStateStyle({ ...props, $backgroundStrength, $textHover: $textHover, $textColor: $textColor })}
   `;
 };

@@ -29,7 +29,10 @@ const meta = {
     layer: {
       description: 'The layer of the week days',
       control: {
-        type: 'range', min: 0, max: 10, step: 1,
+        type: 'range',
+        min: 0,
+        max: 10,
+        step: 1,
       },
       defaultValue: {
         summary: 0,
@@ -47,9 +50,8 @@ type Story = StoryObj<typeof meta>;
 
 // Define the primary story
 export const Primary: Story = {
-  render: (args) => <WeekDays {...args}/>,
-  args: {
-  },
+  render: (args) => <WeekDays {...args} />,
+  args: {},
   parameters: {
     docs: {
       description: {

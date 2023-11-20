@@ -5,7 +5,6 @@ import type { Meta, StoryObj } from '@storybook/react';
 import SearchBarList from './SearchBarList';
 
 const meta = {
-  
   component: SearchBarList,
   parameters: {
     docs: {
@@ -31,10 +30,12 @@ const meta = {
     layer: {
       description: 'The layer of the search bar list.',
       control: {
-        type: 'range', min: 0, max: 10, step: 1,
+        type: 'range',
+        min: 0,
+        max: 10,
+        step: 1,
       },
     },
-    
   },
   tags: ['autodocs'],
 } satisfies Meta<typeof SearchBarList>;

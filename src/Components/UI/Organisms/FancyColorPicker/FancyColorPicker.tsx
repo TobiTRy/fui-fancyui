@@ -12,12 +12,12 @@ import { emitSelectedColorChange } from './colorPickerUtils';
 import { IColorFormat } from '../../HelperFunctions/variables/colorFormats';
 import { TTheme } from '../../Interface/TTheme';
 
-const Wrapper = styled.div<{theme: TTheme}>`
+const Wrapper = styled.div<{ theme: TTheme }>`
   width: 100%;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  gap: ${({theme}) => theme.spacing.md};
+  gap: ${({ theme }) => theme.spacing.md};
 `;
 
 // --------------------------------------------------------------------------- //
@@ -33,11 +33,14 @@ interface IColorPicker {
   inputColor?: string;
   handler?: (color: string) => void;
 }
-export default function FanyColorPicker(props: IColorPicker)  {
-  const { colorArea, hueSlider, opacitySlider, colorOutput, outputFormat, displayColor, inputColor, handler } = {...defaultProps, ...props};
+export default function FanyColorPicker(props: IColorPicker) {
+  const { colorArea, hueSlider, opacitySlider, colorOutput, outputFormat, displayColor, inputColor, handler } = {
+    ...defaultProps,
+    ...props,
+  };
 
   const [displayColorValue, setDisplayColorValue] = useState<Color | string>(Color(inputColor ? inputColor : 'hsl(0, 100%, 50%)'));
-  const [rawColor, setRawColor] = useState(Color('hsl(0, 100%, 50%)'))
+  const [rawColor, setRawColor] = useState(Color('hsl(0, 100%, 50%)'));
   const [opacity, setOpacity] = useState(1);
   const [hue, setHue] = useState(0);
   const [colorType, setColorType] = useState<IColorFormat>('hsl');
@@ -58,7 +61,7 @@ export default function FanyColorPicker(props: IColorPicker)  {
 
   useEffect(() => {
     setRawColor(Color(rawColor).hue(hue));
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hue]);
 
   useEffect(() => {
@@ -66,7 +69,7 @@ export default function FanyColorPicker(props: IColorPicker)  {
       setRawColor(Color(inputColor));
       setOpacity(Color(inputColor).alpha());
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

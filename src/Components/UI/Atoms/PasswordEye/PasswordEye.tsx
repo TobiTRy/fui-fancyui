@@ -9,7 +9,6 @@ interface IPasswordEye {
   onClick?: () => void;
 }
 export default function PasswordEye({ isShow, onClick }: IPasswordEye) {
-  
   const clickHandler = () => {
     onClick && onClick();
   };
@@ -18,10 +17,14 @@ export default function PasswordEye({ isShow, onClick }: IPasswordEye) {
     <i onClick={clickHandler}>
       {isShow ? (
         // the eye icon for the password type toggle
-        <FancySVGAtom size="sm" isPassive={true}>{SVGEyeOpen}</FancySVGAtom>
+        <FancySVGAtom size="sm" isPassive={true}>
+          {SVGEyeOpen}
+        </FancySVGAtom>
       ) : (
         // the crossed out eye icon for the password type toggle
-        <FancySVGAtom size="sm" isPassive={true}>{SVGEyeCrossed}</FancySVGAtom>
+        <FancySVGAtom size="sm" isPassive={true}>
+          {SVGEyeCrossed}
+        </FancySVGAtom>
       )}
     </i>
   );

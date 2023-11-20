@@ -23,11 +23,11 @@ export const Label = styled(AlignedInputLabel)`
   grid-column: 2/3;
 `;
 
-export const Icon = styled.div<{theme: TTheme}>`
+export const Icon = styled.div<{ theme: TTheme }>`
   grid-column: 1/2;
   grid-row: 2/3;
-  margin-bottom: ${({theme}) => theme.spacing.xxs};
-  margin-right: ${({theme}) => theme.spacing.sm};
+  margin-bottom: ${({ theme }) => theme.spacing.xxs};
+  margin-right: ${({ theme }) => theme.spacing.sm};
   display: flex;
   align-items: center;
 `;

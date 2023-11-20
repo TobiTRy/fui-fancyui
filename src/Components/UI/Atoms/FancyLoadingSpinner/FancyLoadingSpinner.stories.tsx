@@ -16,8 +16,7 @@ const meta = {
   },
 
   // Define arguments for the story
-  argTypes: {
-  },
+  argTypes: {},
 
   // Add tags to the story
   tags: ['autodocs'],
@@ -31,9 +30,7 @@ type Story = StoryObj<typeof meta>;
 // Define the primary story
 export const Primary: Story = {
   render: (args) => <FancyLoadingSpinner {...args} />,
-  args: {
-
-  },
+  args: {},
   parameters: {
     docs: {
       description: {

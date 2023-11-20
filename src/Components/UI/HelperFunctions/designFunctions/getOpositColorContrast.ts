@@ -1,17 +1,15 @@
 import Color from 'color';
 
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
-import { TLayer } from "@/Components/UI/Interface/TLayer";
+import { TLayer } from '@/Components/UI/Interface/TLayer';
 import themeStore from '../../Design/color/themeStore';
 
-const filpThemeColor = (isLightColor: boolean,) => {
+const filpThemeColor = (isLightColor: boolean) => {
   const isDarkTheme = themeStore.getState().isDarkTheme;
   const theme = themeStore.getState().theme;
 
-
-  if(!isDarkTheme) return isLightColor ? theme.colors['secondary'] : theme.colors['primary'];
+  if (!isDarkTheme) return isLightColor ? theme.colors['secondary'] : theme.colors['primary'];
   else return isLightColor ? theme.colors['primary'] : theme.colors['secondary'];
-  
 };
 
 export const getOpositColorContrast = (color: TUiColors, layer?: TLayer) => {

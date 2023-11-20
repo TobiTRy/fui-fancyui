@@ -13,15 +13,12 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component:
-          'A ScrollableBar component, when the content is too wide to fit in the screen, it will be scrollable',
+        component: 'A ScrollableBar component, when the content is too wide to fit in the screen, it will be scrollable',
       },
     },
   },
   // Define arguments for the story
-  argTypes: {
-
-  },
+  argTypes: {},
 
   // Add tags to the story
   tags: ['autodocs'],
@@ -34,18 +31,17 @@ type Story = StoryObj<typeof meta>;
 
 // Define the primary story
 export const Primary: Story = {
-  render: (args) => <ScrollableBar {...args}>
-    <FancyBottomBarIcon icon={SVGEyeCrossed} label='Test'  />
-    <FancyBottomBarIcon icon={SVGEyeCrossed} label='Test'  />
-    <FancyBottomBarIcon icon={SVGEyeCrossed} label='Test'  />
-    <FancyBottomBarIcon icon={SVGEyeCrossed} label='Test'  />
-    <FancyBottomBarIcon icon={SVGEyeCrossed} label='Test'  />
-    <FancyBottomBarIcon icon={SVGEyeCrossed} label='Test'  />
-  </ScrollableBar>,
-  args: {
-    
-
-  },
+  render: (args) => (
+    <ScrollableBar {...args}>
+      <FancyBottomBarIcon icon={SVGEyeCrossed} label="Test" />
+      <FancyBottomBarIcon icon={SVGEyeCrossed} label="Test" />
+      <FancyBottomBarIcon icon={SVGEyeCrossed} label="Test" />
+      <FancyBottomBarIcon icon={SVGEyeCrossed} label="Test" />
+      <FancyBottomBarIcon icon={SVGEyeCrossed} label="Test" />
+      <FancyBottomBarIcon icon={SVGEyeCrossed} label="Test" />
+    </ScrollableBar>
+  ),
+  args: {},
   parameters: {
     docs: {
       description: {

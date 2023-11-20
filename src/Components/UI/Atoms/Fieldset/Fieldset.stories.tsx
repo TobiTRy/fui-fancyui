@@ -16,10 +16,7 @@ const meta = {
   },
 
   // Define arguments for the story
-  argTypes: {
-    
-
-  },
+  argTypes: {},
 
   // Add tags to the story
   tags: ['autodocs'],
@@ -32,16 +29,16 @@ type Story = StoryObj<typeof meta>;
 
 // Define the primary story
 export const Primary: Story = {
-  render: (args) => <Fieldset {...args}>
-    <p>Some text</p>
-    <p>Iam the Content of the Fieldset</p>
-  </Fieldset>,
+  render: (args) => (
+    <Fieldset {...args}>
+      <p>Some text</p>
+      <p>Iam the Content of the Fieldset</p>
+    </Fieldset>
+  ),
   args: {
     alignLabel: 'left',
     label: 'This is a label',
     fontVariantLegend: 'h3',
-
-
   },
   parameters: {
     docs: {

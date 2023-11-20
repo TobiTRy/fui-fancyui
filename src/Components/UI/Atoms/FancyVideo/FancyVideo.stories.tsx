@@ -38,7 +38,6 @@ const meta = {
     poster: {
       control: { type: 'text' },
     },
-
   },
 
   // Add tags to the story
@@ -52,14 +51,13 @@ type Story = StoryObj<typeof meta>;
 
 // Define the primary story
 export const Primary: Story = {
-  render: (args) => <FancyVideo {...args}/>,
+  render: (args) => <FancyVideo {...args} />,
   args: {
     aspectRatio: '16/9',
     src: 'https://www.w3schools.com/html/mov_bbb.mp4',
     controls: true,
     loop: false,
     muted: false,
-
   },
   parameters: {
     docs: {

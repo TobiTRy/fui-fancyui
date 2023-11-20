@@ -4,7 +4,6 @@ import { useFancyModalStore } from './FancyModal.state';
 import Modal from '../../Molecules/Modal/Modal';
 import FancyPortal from '../../HelperFunctions/FancyPortal';
 
-
 // ---------- How to use the Module ------- //
 //--- use it
 // Append this module to the root of the app you dont need to pass any props
@@ -14,7 +13,6 @@ import FancyPortal from '../../HelperFunctions/FancyPortal';
 //--- close modal
 // when you want to close the modal with a custom button just use the closeModal function with the "ID" of the modal
 // useModalModuleStore.closeModal('id')
-
 
 // --------------------------------------------------------------------------- //
 // ----------------- The modalModule to build up a Moadal  ------------------- //
@@ -44,12 +42,7 @@ export default function FancyModal({ appendToDomID }: IFancyModal) {
       {/* ----- The FancModal Ports the Modal out of the root div in the spearte "modal" div ----- */}
       <FancyPortal appendToID={appendToDomID}>
         {modals.map((modal, key) => (
-          <Modal
-            key={key}
-            isOpen={modal.status === 'open'}
-            onClose={() => closeModalHandler(modal.id)}
-            {...modal.config}
-          >
+          <Modal key={key} isOpen={modal.status === 'open'} onClose={() => closeModalHandler(modal.id)} {...modal.config}>
             {/* ----- The Content of the Modal ----- */}
             {modal.children}
           </Modal>

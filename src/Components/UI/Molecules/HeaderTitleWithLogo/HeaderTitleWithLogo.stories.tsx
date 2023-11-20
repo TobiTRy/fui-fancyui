@@ -10,8 +10,7 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component:
-          'Dumb-Comonent: A simple HeaderTitleWithLogo component that can be used to provied a title and a Logo.',    
+        component: 'Dumb-Comonent: A simple HeaderTitleWithLogo component that can be used to provied a title and a Logo.',
       },
     },
   },
@@ -25,7 +24,10 @@ const meta = {
     layer: {
       description: 'The layer of the component',
       control: {
-        type: 'range', min: 0, max: 10, step: 1,
+        type: 'range',
+        min: 0,
+        max: 10,
+        step: 1,
       },
     },
     linkTo: {
@@ -34,20 +36,18 @@ const meta = {
         type: 'text',
       },
     },
-
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof HeaderTitleWithLogo >;
+} satisfies Meta<typeof HeaderTitleWithLogo>;
 
 export default meta;
 
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
-  render: (args) => <HeaderTitleWithLogo {...args}/>,
+  render: (args) => <HeaderTitleWithLogo {...args} />,
   args: {
     title: 'Title',
-    logo: <SVGCheckMark/>,
-  }
+    logo: <SVGCheckMark />,
+  },
 };
-

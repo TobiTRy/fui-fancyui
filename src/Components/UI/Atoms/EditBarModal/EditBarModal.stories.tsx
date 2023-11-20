@@ -32,7 +32,6 @@ const meta = {
     spacingLeftRight: {
       control: { type: 'text' },
     },
-
   },
 
   // Add tags to the story
@@ -51,7 +50,6 @@ export const Primary: Story = {
     align: 'center',
     title: 'Edit Bar',
     width: '100%',
-
   },
   parameters: {
     docs: {

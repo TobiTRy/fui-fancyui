@@ -47,7 +47,6 @@ export default function EditBar(props: IEditBar) {
   const { scrollable, subSectionItems, sectionItems, settings } = props;
   const themeSpacing = themeStore((state) => state.theme.spacing);
 
-
   //TODO: GIVE BACK FROM THE DYANMIC BOTTOM BAR THE BUTTON WHICH IS ACTIVE
   return (
     <Wrapper>
@@ -61,17 +60,13 @@ export default function EditBar(props: IEditBar) {
       {/* The second Bar that adapts to the activated button from the man bar */}
       {subSectionItems && (
         <DynamicBottomScrollBar scrollable={scrollable} activateScrollbar={subSectionItems.length > 4}>
-          {sectionItems?.map((item, index) => (
-            <FancyBottomBarIcon key={index} {...item} />
-          ))}
+          {sectionItems?.map((item, index) => <FancyBottomBarIcon key={index} {...item} />)}
         </DynamicBottomScrollBar>
       )}
       {/* The Main Bar which always shown with the main settings */}
       {sectionItems && (
         <DynamicBottomScrollBar scrollable={scrollable} activateScrollbar={sectionItems.length > 4}>
-          {subSectionItems?.map((item, index) => (
-            <FancyBottomBarIcon key={index} {...item} />
-          ))}
+          {subSectionItems?.map((item, index) => <FancyBottomBarIcon key={index} {...item} />)}
         </DynamicBottomScrollBar>
       )}
     </Wrapper>

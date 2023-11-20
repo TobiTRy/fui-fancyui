@@ -1,7 +1,7 @@
 import { CSSProp } from 'styled-components';
 import IStyledPrefixAndOmiter from '../../Interface/IStyledPrefixAndOmiter.model';
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
-import { TLayer } from "@/Components/UI/Interface/TLayer";
+import { TLayer } from '@/Components/UI/Interface/TLayer';
 
 export const sizes = {
   xs: '14px',
@@ -23,7 +23,7 @@ export type ISVGAtom = {
   errorMessage?: string;
   themeType?: TUiColors;
   layer?: TLayer;
-}
+};
 
 export type ISVGAtomProps = ISVGAtom & Omit<React.HTMLAttributes<HTMLElement>, 'style'>;
 

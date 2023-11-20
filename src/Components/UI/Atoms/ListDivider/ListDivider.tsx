@@ -4,7 +4,6 @@ import { StyledI, StyledTextDiv } from './ListDivider.style';
 import FancyContent from '../../Molecules/FancyContent/FancyContent';
 import { IListDivider } from './ListDivider.model';
 
-
 // --------------------------------------------------------------------------- //
 // ------- A Divider that displays only a line or line with informations ----- //
 // --------------------------------------------------------------------------- //

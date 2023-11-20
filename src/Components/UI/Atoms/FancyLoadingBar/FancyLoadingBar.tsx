@@ -22,12 +22,12 @@ const LoadingContainer = styled.div`
 `;
 
 // Define a styled component for the loading bar
-const LoadingBar = styled.div<{theme: TTheme}>`
+const LoadingBar = styled.div<{ theme: TTheme }>`
   position: absolute;
   left: -70%;
   height: 100%;
   width: 70%;
-  background-image: linear-gradient(90deg, transparent, ${({theme}) => theme.colors.accent[0]}, transparent);
+  background-image: linear-gradient(90deg, transparent, ${({ theme }) => theme.colors.accent[0]}, transparent);
   animation: ${loadingAnimation} 3s ease-in-out infinite; // Set the animation duration to 3s
 `;
 

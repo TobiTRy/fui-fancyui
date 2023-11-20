@@ -33,7 +33,6 @@ const meta = {
         type: 'number',
       },
     },
-
   },
   // Add tags to the story
   tags: ['autodocs'],

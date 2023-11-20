@@ -1,5 +1,5 @@
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
-import { tabSwitchItemSizes } from "./FancyTabSwitchButton.style";
+import { tabSwitchItemSizes } from './FancyTabSwitchButton.style';
 
 export interface ITabSwitchDetailsLabelIcon {
   itemKey: string;
@@ -12,7 +12,6 @@ export interface ITabSwitchDetailsChildren {
   children?: React.ReactNode;
 }
 
-
 export interface ITabSwitchButton {
   disabled?: boolean;
   selected: boolean;
@@ -23,4 +22,4 @@ export interface ITabSwitchButton {
   size?: keyof typeof tabSwitchItemSizes;
 }
 
-export type ITabSwitchButtonProps =  ITabSwitchButton & ITabSwitchDetailsChildren & ITabSwitchDetailsLabelIcon;  
+export type ITabSwitchButtonProps = ITabSwitchButton & ITabSwitchDetailsChildren & ITabSwitchDetailsLabelIcon;

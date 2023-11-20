@@ -1,4 +1,4 @@
-import { HTMLAttributes } from "react";
+import { HTMLAttributes } from 'react';
 
 // the props that will be passed to the input element
 type NativeAttrs = Omit<HTMLAttributes<HTMLInputElement>, 'type'>;
