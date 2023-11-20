@@ -1,7 +1,8 @@
 import { HTMLAttributes } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { AlignedInputLabel, IAlignedInputLabel } from './AlignedInputLabel';
+import { AlignedInputLabel } from './AlignedInputLabel';
+import { IAlignedInputLabel } from './TalignedInputLabel.model';
 import Typography from '../Typography/Typography';
 
 //This is a helper component to show the styled component in the story

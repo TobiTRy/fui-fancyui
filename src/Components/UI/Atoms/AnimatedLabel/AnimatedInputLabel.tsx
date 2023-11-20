@@ -2,10 +2,8 @@ import { styled, css } from 'styled-components';
 
 import InputLabel from '../InputLabel/InputLabel';
 import { TUiColorsType } from '../../Design/color/designColor';
-import { TLayer } from '@/Components/UI/Interface/TLayer';
 import { getTextColor } from '../../Design/color/colorCalculatorForComponet';
-import { TTheme } from '@/Components/UI/Interface/TTheme';
-import { TUiColors } from '@/Components/UI/Interface/TUiColors';
+import { IAnimatedInputLabel } from './TAnimatedInputLabel.model';
 
 const activeHandler = (align: string, $moveUp?: boolean) => {
   if (align !== 'center') {
@@ -32,17 +30,11 @@ const activeHandler = (align: string, $moveUp?: boolean) => {
   }
 };
 
-export interface IAnimatedInputLabel {
-  $align?: 'center' | 'left';
-  $moveUp?: boolean;
-  $colorState?: 'error' | 'active' | 'default';
-  $themeType?: TUiColors;
-  $layer?: TLayer;
-  theme?: TTheme;
-}
+
 // --------------------------------------------------------------------------- //
 // ---------- The input label wich hase some colors and an animation --------- //
 // --------------------------------------------------------------------------- //
+// eslint-disable-next-line react-refresh/only-export-components
 export const AnimatedInputLabel = styled(InputLabel)<IAnimatedInputLabel & { theme?: TUiColorsType }>`
   position: absolute;
   padding: 12px 0 5px;
@@ -59,3 +51,5 @@ export const AnimatedInputLabel = styled(InputLabel)<IAnimatedInputLabel & { the
 
   ${({ $align, $moveUp }) => activeHandler($align!, $moveUp)};
 `;
+
+export default AnimatedInputLabel;

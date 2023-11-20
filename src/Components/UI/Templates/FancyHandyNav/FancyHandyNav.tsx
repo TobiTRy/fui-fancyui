@@ -44,7 +44,6 @@ export default function FancyHandyNav(props: IFancyHandyNav) {
     setIsVisible(isVisible ?? true);
   }, [isVisible, setIsVisible]);
 
-  console.log(stateWhichIsActive);
   return (
     <>
       {isVisibleState && (

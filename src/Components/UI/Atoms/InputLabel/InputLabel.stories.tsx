@@ -1,5 +1,6 @@
 // Import necessary dependencies
 import { Meta, StoryObj } from '@storybook/react';
+import themeStore from '../../Design/color/themeStore';
 
 // Import the component to be tested
 import InputLabel from './InputLabel';
@@ -29,7 +30,9 @@ type Story = StoryObj<typeof meta>;
 // Define the primary story
 export const Primary: Story = {
   render: () => <InputLabel>Label</InputLabel>,
-
+  args: {
+    theme: themeStore.getState().theme,
+  },
   parameters: {
     docs: {
       description: {

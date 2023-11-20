@@ -1,7 +1,8 @@
 import React, { HTMLAttributes } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { AnimatedInputLabel, IAnimatedInputLabel } from './AnimatedInputLabel';
+import { AnimatedInputLabel } from './AnimatedInputLabel';
+import { IAnimatedInputLabel } from './TAnimatedInputLabel.model';
 import Typography from '../Typography/Typography';
 
 // This is a helper component to show the styled component in the story
