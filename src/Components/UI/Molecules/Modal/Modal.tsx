@@ -3,7 +3,7 @@ import React, { ReactNode, useEffect, useState } from 'react';
 import SimpleDialog from '../../Atoms/SimpleDialog/SimpleDialog';
 import BackDrop from '../../Atoms/BackDrop/BackDrop';
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
-import { TLayer } from '../../Design/color/generateColorSteps';
+import { TLayer } from "@/Components/UI/Interface/TLayer";
 
 // --------------------------------------------------------------------------- //
 // ------  The main Modal Component to comstomize the Head/Bottomline  ------- //

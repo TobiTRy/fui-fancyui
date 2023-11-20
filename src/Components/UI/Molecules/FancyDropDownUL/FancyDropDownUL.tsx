@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from 'react';
 import { animated, useSpring } from '@react-spring/web';
 import { StyledUL, WrapperUL } from './FancyDropDownUL.style';
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
-import { TLayer } from '../../Design/color/generateColorSteps';
+import { TLayer } from "@/Components/UI/Interface/TLayer";
 import { TBorderRadiusSizes } from '@/Components/UI/Interface/TBorderRadius';
 
 export interface IFancyUL {

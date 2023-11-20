@@ -9,7 +9,7 @@ import Day from './day.model';
 import createDaysOfMonth from './helperFunctions/createDaysOfMonth';
 import { IDateWithExternalState, IExternalMonthWithDays } from './IExternalMonthWithDays.model';
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
-import { TLayer } from '../../Design/color/generateColorSteps';
+import { TLayer } from "@/Components/UI/Interface/TLayer";
 
 const getFirstDayOfMonth = (month: number, year: number): number => {
   return new Date(year, month - 1, 1).getDay() || 7;

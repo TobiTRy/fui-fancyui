@@ -1,12 +1,12 @@
 import React from 'react';
 import { styled, css } from 'styled-components';
 
-import { TAlign } from '../../Atoms/AlignedInputLabel/AlignedInputLabel';
+import { TAlign } from '../../Atoms/AlignedInputLabel/TalignedInputLabel.model';
 import { AlignedInputLabel } from '../../Atoms/AlignedInputLabel/AlignedInputLabel';
 
 import ProgressBar, { IProgressBar } from '../../Atoms/ProgressBar/ProgressBar';
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
-import { TLayer } from '../../Design/color/generateColorSteps';
+import { TLayer } from "@/Components/UI/Interface/TLayer";
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 // Define a styled component for the progress bar wrapper

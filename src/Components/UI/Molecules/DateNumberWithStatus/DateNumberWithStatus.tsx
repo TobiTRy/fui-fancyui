@@ -4,7 +4,7 @@ import { styled } from 'styled-components';
 import DateNumberAtom from '../../Atoms/DateNumberAtom/DateNumberAtom';
 import AvilableDot, { IAvailableDot } from '../../Atoms/AvilableDot/AvailableDot';
 import { IRange } from '../../Atoms/DateNumberAtom/DateNumberAtom';
-import { TLayer } from '../../Design/color/generateColorSteps';
+import { TLayer } from "@/Components/UI/Interface/TLayer";
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 

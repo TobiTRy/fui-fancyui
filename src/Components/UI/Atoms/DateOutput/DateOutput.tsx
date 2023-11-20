@@ -4,7 +4,7 @@ import { styled } from 'styled-components';
 import Typography from '../Typography/Typography';
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 import { getBackgroundColor, getTextColor } from '../../Design/color/colorCalculatorForComponet';
-import { TLayer } from '../../Design/color/generateColorSteps';
+import { TLayer } from "@/Components/UI/Interface/TLayer";
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 const DateOutputButton = styled.button<{ $isActive?: boolean; theme: TTheme; $themeType?: TUiColors; $layer?: TLayer }>`

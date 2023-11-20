@@ -3,7 +3,7 @@ import { CSSProp } from 'styled-components';
 
 import { sizes } from '../FancyContent/utils/sizeSettings';
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
-import { TLayer } from '../../Design/color/generateColorSteps';
+import { TLayer } from "@/Components/UI/Interface/TLayer";
 import { StyledChip } from './Chip.style';
 
 export interface IStyledChip {

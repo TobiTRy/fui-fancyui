@@ -1,6 +1,6 @@
 import React from 'react';
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
-import { TLayer } from '../../Design/color/generateColorSteps';
+import { TLayer } from "@/Components/UI/Interface/TLayer";
 import FancyContent from '../FancyContent/FancyContent';
 import { ContentWrapper } from './BottomBarIcon.style';
 

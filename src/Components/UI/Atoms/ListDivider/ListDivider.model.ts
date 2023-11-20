@@ -1,5 +1,5 @@
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
-import { TLayer } from "../../Design/color/generateColorSteps";
+import { TLayer } from "@/Components/UI/Interface/TLayer";
 
 export type TTextAlign = 'left' | 'center' | 'right';
 

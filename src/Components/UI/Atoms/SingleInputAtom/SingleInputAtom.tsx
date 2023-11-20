@@ -4,7 +4,7 @@ import { styled } from 'styled-components';
 import { fontSize } from '../../Design/designSizes';
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
-import { TLayer } from '../../Design/color/generateColorSteps';
+import { TLayer } from "@/Components/UI/Interface/TLayer";
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 // the style for a single input
