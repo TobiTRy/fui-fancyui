@@ -15,8 +15,13 @@ jobs:
     - name: Install Dependencies
       run: npm install
 
-    - name: Check Formatting
-      run: npx prettier --check .
+    - name: Auto-format with Prettier
+      run: |
+        npx prettier --write .
+        git config --global user.name 'PiplineFormater'
+        git config --global user.email 'PiplineFormater@PiplineFormater.alpha'
+        git commit -am "Apply Prettier formatting" || true
+        git push
 
     - name: Run Linters
       run: npm run lint
