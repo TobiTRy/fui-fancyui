@@ -58,6 +58,7 @@ export default function FanyColorPicker(props: IColorPicker)  {
 
   useEffect(() => {
     setRawColor(Color(rawColor).hue(hue));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hue]);
 
   useEffect(() => {
@@ -65,6 +66,7 @@ export default function FanyColorPicker(props: IColorPicker)  {
       setRawColor(Color(inputColor));
       setOpacity(Color(inputColor).alpha());
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

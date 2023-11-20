@@ -3,6 +3,7 @@ import { styled } from 'styled-components';
 import { boxShadow } from '../../Design/shadows';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 
+// eslint-disable-next-line react-refresh/only-export-components
 const SpeedDailButtonSize = 60;
 
 export const Wrapper = styled.div`

@@ -1,15 +1,5 @@
-// PopoverContainer.ts
-import styled from 'styled-components';
-
-export const PopoverContainer = styled.div<{ $isVisible: boolean;}>`
-  position: fixed;
-  z-index: 100;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  display: ${(props) => (props.$isVisible ? 'block' : 'none')};
-`;
-
-// Popover.tsx
 import React, { useState, useLayoutEffect, useRef } from 'react';
+import { PopoverContainer } from './Popover.style';
 
 type PopoverProps = {
   buttonRef: React.RefObject<HTMLDivElement>;
@@ -92,6 +82,7 @@ const Popover: React.FC<PopoverProps> = ({
       document.removeEventListener('click', handleClickOutside, true);
       window.removeEventListener('resize', updatePosition);
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isVisible, buttonRef, xOffset, yOffset, content]);
 
   return (

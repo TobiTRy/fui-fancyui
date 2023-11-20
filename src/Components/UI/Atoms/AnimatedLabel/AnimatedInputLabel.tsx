@@ -59,5 +59,3 @@ export const AnimatedInputLabel = styled(InputLabel)<IAnimatedInputLabel & { the
 
   ${({ $align, $moveUp }) => activeHandler($align!, $moveUp)};
 `;
-
-export default AnimatedInputLabel;

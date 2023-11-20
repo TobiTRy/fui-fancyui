@@ -1,12 +1,26 @@
 import { styled } from 'styled-components';
 
 import { borderRadius, spacingPx } from '../../Design/designSizes';
-import { tabSwitchSizes } from './TabSwitch';
 import { TLayer } from "@/Components/UI/Interface/TLayer";
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 import { TBorderRadiusSizes } from '@/Components/UI/Interface/TBorderRadius';
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 import { TSpacings } from '../../Interface/TSpacings';
+import themeStore from '../../Design/color/themeStore';
+
+// Define the different sizes for the tab switch
+const getSpacingFromTheme = themeStore.getState().theme.spacing;
+export const tabSwitchSizes = {
+  sm: {
+    paddingComponent: '4px',
+  },
+  md: {
+    paddingComponent: getSpacingFromTheme.xs,
+  },
+  lg: {
+    paddingComponent: getSpacingFromTheme.sm,
+  },
+};
 
 // Define the interface for the styled-component
 export interface IFancyTabSwitchStyle {
@@ -42,7 +56,6 @@ export const ULButtonSwitchList = styled.ul<IFancyTabSwitchStyle & { theme: TThe
     /* Selects all direct children of the parent */
     min-width: 0; 
   }
-
 `;
 
 // ----------------------------------- //
@@ -55,3 +68,5 @@ export const ItemWrapper = styled.li`
   width: 100%;
   list-style: none;
 `;
+
+

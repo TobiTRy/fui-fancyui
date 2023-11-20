@@ -1,8 +1,25 @@
 import styled, { css } from "styled-components";
 
 import { fontSize } from "../../Design/designSizes";
-import { textShadow } from "../../Design/shadows";
+import { boxShadow, textShadow } from "../../Design/shadows";
 import { TTheme } from '@/Components/UI/Interface/TTheme';
+
+export const MenueItemContainer = styled.div<{ $isOpen?: boolean; $index: number }>`
+  position: absolute;
+  left: 50%;
+  border-radius: 50%;
+  bottom: ${({ $index }) => `calc(${($index + 1) * 60}px)`};
+  opacity: ${({ $isOpen }) => ($isOpen ? 1 : 0)};
+  transform: ${({ $isOpen }) => ($isOpen ? 'translateY(0) scale(1) translateX(-50%)' : `translateY(50px) scale(0) translateX(-50%)`)};
+  transition: transform 0.25s ease-in-out, opacity 0.25s ease-in-out;
+  transition-delay: ${({ $isOpen, $index }) => ($isOpen ? 0.1 * $index : 0.1 * (2 - $index))}s;
+  pointer-events: ${({ $isOpen }) => ($isOpen ? 'auto' : 'none')};
+  transform: translate(-50%);
+  height: 40px;
+  width: 40px;
+  ${boxShadow.sm};
+`;
+
 
 export const MenuItem = styled.button<{theme: TTheme}>`
   width: 100%;

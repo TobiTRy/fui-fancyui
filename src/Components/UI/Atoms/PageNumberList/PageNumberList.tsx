@@ -1,27 +1,5 @@
-import { styled } from 'styled-components';
-
 import { FancyButton } from '../../Organisms/FancyButton';
-import { simpleColorTransition } from '../../Design/simpleTransition';
-import { TTheme } from '@/Components/UI/Interface/TTheme';
-
-// Define a styled component for the button wrapper
-export const ButtonWrapper = styled.div<{ $isActive: boolean, theme: TTheme }>`
-  button {
-    color: ${({$isActive, theme}) => $isActive && theme.colors.accent[0]};
-    ${simpleColorTransition}
-    padding: ${({theme}) => theme.spacing.sm};
-
-    &:hover {
-      color: ${({$isActive, theme}) => $isActive && theme.colors.accent[0]};
-    }
-  }
-`;
-
-export const Wrapper = styled.div<{theme: TTheme}>`
-  display: flex;
-  gap: ${({theme}) => theme.spacing.md};
-`;
-
+import { ButtonWrapper, Wrapper } from './PageNumberList.style';
 
 // Define a function to generate an array of page numbers to display
 const generateNumbers = (totalPages: number, currentPage: number, pageLimit = 3) => {

@@ -2,7 +2,7 @@ import React from 'react'
 import { styled } from 'styled-components';
 import SwipeUpDash from '../../Atoms/SwipeUpDash/SwipeUpDash';
 
-export const SytledScalingSection = styled.div`
+const SytledScalingSection = styled.div`
   position: sticky;
   height: 30px;
   top: 0;

@@ -36,6 +36,7 @@ export default function FancyHandyNav(props: IFancyHandyNav) {
   // Set the default values / initial values
   useEffect(() => {
     setWhichIsActiveState(wichIndexIsActive ?? '0');
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // handle the visibility of the nav

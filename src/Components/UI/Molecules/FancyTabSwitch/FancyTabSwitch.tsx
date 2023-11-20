@@ -4,7 +4,8 @@ import { css } from 'styled-components';
 import { borderRadius } from '../../Design/designSizes';
 import Fieldset from '../../Atoms/Fieldset/Fieldset';
 import FancyBar from '../../Atoms/FancyBox/FancyBox';
-import TabSwitch, { tabSwitchSizes } from '../TabSwitch/TabSwitch';
+import TabSwitch from '../TabSwitch/TabSwitch';
+import { tabSwitchSizes } from '../TabSwitch/TabSwitch.style';
 import { ITabSwitchProps } from '../TabSwitch/TabSwitch.model';
 
 // Define the main FancyTabSwitch component

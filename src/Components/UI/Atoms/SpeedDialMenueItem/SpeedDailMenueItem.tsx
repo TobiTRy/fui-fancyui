@@ -1,27 +1,7 @@
 import React from 'react';
-import { styled } from 'styled-components';
 
 import { Typography } from '../Typography';
-import { Label, MenuItem } from './SpeedDailMenueItem.style';
-import { boxShadow } from '../../Design/shadows';
-
-
-export const MenueItemContainer = styled.div<{ $isOpen?: boolean; $index: number }>`
-  position: absolute;
-  left: 50%;
-  border-radius: 50%;
-  bottom: ${({ $index }) => `calc(${($index + 1) * 60}px)`};
-  opacity: ${({ $isOpen }) => ($isOpen ? 1 : 0)};
-  transform: ${({ $isOpen }) => ($isOpen ? 'translateY(0) scale(1) translateX(-50%)' : `translateY(50px) scale(0) translateX(-50%)`)};
-  transition: transform 0.25s ease-in-out, opacity 0.25s ease-in-out;
-  transition-delay: ${({ $isOpen, $index }) => ($isOpen ? 0.1 * $index : 0.1 * (2 - $index))}s;
-  pointer-events: ${({ $isOpen }) => ($isOpen ? 'auto' : 'none')};
-  transform: translate(-50%);
-  height: 40px;
-  width: 40px;
-  ${boxShadow.sm};
-`;
-
+import { Label, MenuItem, MenueItemContainer } from './SpeedDailMenueItem.style';
 
 //the props only for the button
 export type TMenueButtonProps = {
@@ -30,7 +10,6 @@ export type TMenueButtonProps = {
   index?: number;
   onClick?: () => void;
 }
-
 
 // the props for the complete component
 export type TMenueItemProps = {

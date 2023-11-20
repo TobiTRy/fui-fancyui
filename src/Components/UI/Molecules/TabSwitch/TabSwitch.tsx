@@ -1,27 +1,14 @@
 import React, { useRef, useState } from 'react';
 
-import { ItemWrapper, ULButtonSwitchList } from './TabSwitch.style';
+import { ItemWrapper, ULButtonSwitchList, tabSwitchSizes } from './TabSwitch.style';
 import FancyTabSwitchButton from '../FancyTabSwitchButton/FancyTabSwitchButton';
 import { borderRadius } from '../../Design/designSizes';
 import SwitchActiveIndicator from '../../Atoms/SwitchActiveIndicator/SwitchActiveIndicator';
 import { ITabSwitchProps } from './TabSwitch.model';
-import themeStore from '../../Design/color/themeStore';
 
-
-// Define the different sizes for the tab switch
-const getSpacingFromTheme = themeStore.getState().theme.spacing;
-export const tabSwitchSizes = {
-  sm: {
-    paddingComponent: '4px',
-  },
-  md: {
-    paddingComponent: getSpacingFromTheme.xs,
-  },
-  lg: {
-    paddingComponent: getSpacingFromTheme.sm,
-  },
-};
-
+// --------------------------------------------------------------------------- //
+// ------------ The tap SwitchComponent to slect specifc values -------------- //
+// --------------------------------------------------------------------------- //
 export default function TabSwitch(props: ITabSwitchProps) {
   const {
     values,
