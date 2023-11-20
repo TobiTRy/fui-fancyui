@@ -16,5 +16,7 @@ type WithoutLabel = {
 export type IListDivider = {
   themeType?: TUiColors;
   layer?: TLayer;
+  noLine?: boolean;
+  bold?: boolean;
   icon?: React.ReactNode;
 } & (WithLabel | WithoutLabel);

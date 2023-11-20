@@ -9,16 +9,16 @@ import { IListDivider } from './ListDivider.model';
 // ------- A Divider that displays only a line or line with informations ----- //
 // --------------------------------------------------------------------------- //
 export default function ListDivider(props: IListDivider) {
-  const { label, textAlignment = 'center', themeType, layer, icon } = props;
+  const { label, textAlignment = 'center', themeType, layer, bold, icon, noLine } = props;
 
   return (
     <>
       {/* Render a Seperator(Divider) with a optional label and icon  */}
       {label ? (
-        <StyledTextDiv $textAlignment={textAlignment} tabIndex={0} $themeType={themeType} $layer={layer}>
+        <StyledTextDiv $textAlignment={textAlignment} $noLine={noLine} tabIndex={0} $themeType={themeType} $layer={layer}>
           <FancyContent>
             {label && (
-              <FancyContent.Title fontVariant="inlineElement" bold={false}>
+              <FancyContent.Title fontVariant="inlineElement" bold={bold ?? false}>
                 {label}
               </FancyContent.Title>
             )}
