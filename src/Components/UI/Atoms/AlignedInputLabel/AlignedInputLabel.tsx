@@ -5,6 +5,7 @@ import { getTextColor } from '../../Design/color/colorCalculatorForComponet';
 import { IAlignedInputLabel } from './TalignedInputLabel.model';
 
 //the aligned label is only with align left or centerd {align?: string; active?: boolean}
+// eslint-disable-next-line react-refresh/only-export-components
 export const AlignedInputLabel = styled(InputLabel)<IAlignedInputLabel>`
   display: flex;
   align-items: flex-end;
