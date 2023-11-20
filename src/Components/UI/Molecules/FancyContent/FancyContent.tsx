@@ -32,7 +32,7 @@ const Wrapper = styled.span<TWrapper & {theme: TTheme}>`
 
 
 type TOnlyTextWrapper = IStyledPrefixAndPicker<IFancyContentProps, 'flexDirection' | 'gapBetweenText' | 'flexAlign' | 'flexJustify'>
-const OnlyTextWrapper = styled.div<TOnlyTextWrapper & {theme: TTheme}>`
+const OnlyTextWrapper = styled.span<TOnlyTextWrapper & {theme: TTheme}>`
   display: flex;
   flex-direction: ${({ $flexDirection }) => $flexDirection || 'column'};
   justify-content: ${({ $flexJustify }) => $flexJustify || 'center'};
@@ -77,7 +77,7 @@ function FancyContent(props: IFancyContentProps) {
       $gapBetweenIcon={gapBetweenIcon}
     >
       {iconElement}
-      {contentGroup.length > 0 && <div className="content">{contentGroup}</div>}
+      {contentGroup.length > 0 && <span className="content">{contentGroup}</span>}
     </Wrapper>
   ) : (
     <OnlyTextWrapper>{children}</OnlyTextWrapper>
