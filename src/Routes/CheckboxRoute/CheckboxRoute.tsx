@@ -7,6 +7,14 @@ import { FancyCard } from '../../lib';
 import RawRadio from '@/Components/UI/Atoms/RawRadio/RawRadio';
 import FancyRadio from '@/Components/UI/Organisms/FancyRadio/FancyRadio';
 import CustomRadio from '@/Components/UI/Atoms/RawRadio/RawRadio';
+import FancyRadioList from '@/Components/UI/Templates/FancyRadioList/FancyRadioList';
+
+const itemList = [
+  { title: 'Test1', description: 'Test1', key: '1' },
+  { title: 'Test2', description: 'Test2', key: '2' },
+  { title: 'Test3', description: 'Test3', key: '3' },
+  { title: 'Test4', description: 'Test4', key: '4' },
+];
 
 export default function CheckboxRoute() {
   const [checked, setChecked] = useState(false);
@@ -62,23 +70,10 @@ export default function CheckboxRoute() {
           ></FancyRadio>
 
           <div>
-            <RawRadio
-              id="radio1"
-              name="customRadio"
-              value="option1"
-              label="Option 1"
-              checked={selectedValue === 'option1'}
-              onChange={handleChange}
-            />
-            <CustomRadio
-              id="radio2"
-              name="customRadio"
-              value="option2"
-              label="Option 2"
-              checked={selectedValue === 'option2'}
-              onChange={handleChange}
-            />
+            <RawRadio id="radio1" name="customRadio" value="option1" checked={selectedValue === 'option1'} onChange={handleChange} />
+            <CustomRadio id="radio2" name="customRadio" value="option2" checked={selectedValue === 'option2'} onChange={handleChange} />
           </div>
+          <FancyRadioList name='hii' items={itemList} />
         </DesignArea>
       </DesignWrapper>
     </FancyCard>
