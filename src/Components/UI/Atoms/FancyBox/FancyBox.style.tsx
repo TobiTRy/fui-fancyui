@@ -7,7 +7,7 @@ import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 // the styled-component for the FancyBar
 type IStyledFancyBox = IStyledPrefixAndPicker<IFancyBoxProps> & { theme: TTheme };
-export const StyledFancyBar = styled.div<IStyledFancyBox>`
+export const StyledFancyBox = styled.div<IStyledFancyBox>`
   box-sizing: border-box;
   ${({ $themeType, theme, $layer, $outlined, $outlinedBackgroundStrength }) =>
     generateThemeForCard({ $themeType, theme, $outlined, $layer, $outlinedBackgroundStrength })};
