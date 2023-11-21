@@ -15,7 +15,7 @@ export default function FancyCheckbox(props: IFancyCheckboxProps) {
   const pickedId = props.id ? props.id : id;
 
   return (
-    <FancySelectWrapper 
+    <FancySelectWrapper
       id={pickedId}
       label={label}
       description={description}

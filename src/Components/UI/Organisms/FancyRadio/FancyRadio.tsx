@@ -7,7 +7,7 @@ type TFancyRadioProps = Omit<React.ComponentProps<typeof FancySelectWrapper>, 'i
 export default function FancyRadio(props: TFancyRadioProps) {
   const { align, alignInput, label, description, ...inputProps } = props;
   const id = useId();
-  
+
   const pickedId = props.id ? props.id : id;
 
   return (
