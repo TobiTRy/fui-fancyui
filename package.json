@@ -8,15 +8,24 @@
     "dev": "vite",
     "dev-network": "vite --host",
     "build": "tsc && vite build",
-    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --fix --max-warnings=-1",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --fix --max-warnings=-1",
+    "checkFormat": "prettier --check .",
+    "format": "prettier --write .",
+    "predeploy": "npm run lint && npm run build && npm run checkFormat"
   },
   "lint-staged": {
-    "*.ts": ["eslint --fix", "prettier --write"],
-    "*.tsx": ["eslint --fix", "prettier --write"]
+    "*.ts": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.tsx": [
+      "eslint --fix",
+      "prettier --write"
+    ]
   },
   "dependencies": {
     "@react-spring/web": "^9.7.3",
