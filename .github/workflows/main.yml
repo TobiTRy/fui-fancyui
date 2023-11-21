@@ -6,24 +6,17 @@ jobs:
   lint-and-format:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '20' # Specify your Node.js version here
+      - uses: actions/checkout@v2
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20' # Specify your Node.js version here
 
-    - name: Install Dependencies
-      run: npm install
+      - name: Install Dependencies
+        run: npm install
 
-    - name: Auto-format with Prettier
-      run: |
-        npx prettier --write .
-        git config --global user.name 'PiplineFormater'
-        git config --global user.email 'PiplineFormater@PiplineFormater.alpha'
-        git commit -am "Apply Prettier formatting" || true
-        git push
+      - name: Auto-format with Prettier
+        run: npx prettier --write .
 
-    - name: Run Linters
-      run: npm run lint
+      - name: Run Linters
+        run: npm run lint
