@@ -14,5 +14,5 @@ export const MenuContainer = styled.div<StyledMenuProps>`
   ${({ theme, $themeType, $layer, $outlined }) =>
     generateThemeForCard({ theme, $themeType: $themeType ?? 'primary', $layer: $layer ?? 2, $outlined })}
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-  border-radius: ${({theme}) => theme.borderRadius.md};
+  border-radius: ${({ theme }) => theme.borderRadius.md};
 `;

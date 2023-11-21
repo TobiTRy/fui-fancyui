@@ -9,7 +9,7 @@ export type TMenueButtonProps = {
   icon: string | number | JSX.Element;
   index?: number;
   onClick?: () => void;
-}
+};
 
 // the props for the complete component
 export type TMenueItemProps = {
@@ -27,8 +27,10 @@ export default function SpeedDailMenueItem(props: ISpeedDailMenueItem) {
   const { label, icon, hideLabel, isOpen, onClick, index } = props;
 
   return (
-    <MenueItemContainer $isOpen={isOpen} $index={index || 0} >
-      <MenuItem aria-label={label} onClick={onClick}>{icon}</MenuItem>
+    <MenueItemContainer $isOpen={isOpen} $index={index || 0}>
+      <MenuItem aria-label={label} onClick={onClick}>
+        {icon}
+      </MenuItem>
       {label && !hideLabel && (
         <Typography type="inlineElement" variant="label" style={Label}>
           {label}

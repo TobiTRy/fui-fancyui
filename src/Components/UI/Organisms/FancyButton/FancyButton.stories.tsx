@@ -10,9 +10,7 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component:
-          'Dumb-Comonent:  This component is a button with a lot of props to change the style.',
-          
+        component: 'Dumb-Comonent:  This component is a button with a lot of props to change the style.',
       },
     },
   },
@@ -26,7 +24,10 @@ const meta = {
     layer: {
       description: 'This prop will change the layer of the bar',
       control: {
-        type: 'range', min: 0, max: 10, step: 1,
+        type: 'range',
+        min: 0,
+        max: 10,
+        step: 1,
       },
     },
     outlined: {
@@ -42,7 +43,7 @@ const meta = {
       },
       defaultValue: {
         summary: 'left',
-      }
+      },
     },
     borderRadius: {
       description: 'This prop will change the borderRadius of the button',
@@ -74,7 +75,6 @@ const meta = {
         type: 'boolean',
       },
     },
-
   },
   tags: ['autodocs'],
 } satisfies Meta<typeof FancyButton>;

@@ -18,7 +18,6 @@ import IModalBottomLine, { IBottomLineButton } from './ModalBottomLine.model';
 //   },
 // ];
 
-
 const StyledModalBottomLine = styled.div`
   display: flex;
   flex-direction: column;

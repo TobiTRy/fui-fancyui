@@ -7,12 +7,12 @@ type TDynamicScrollBarProps = {
   scrollable?: boolean;
   activateScrollbar?: boolean;
   children?: React.ReactNode;
-}; 
+};
 
 // Define the component
 export default function DynamicBottomScrollBar(props: TDynamicScrollBarProps) {
-  const { activateScrollbar, scrollable, children  } = props;
-  
+  const { activateScrollbar, scrollable, children } = props;
+
   // Prevent body from scrolling when scrollbar is scrolling
   useEffect(() => {
     if (activateScrollbar) document.body.style.overflow = 'auto';
@@ -20,15 +20,5 @@ export default function DynamicBottomScrollBar(props: TDynamicScrollBarProps) {
   }, []);
 
   // Render the component
-  return (
-    <>
-      {scrollable && activateScrollbar ? (
-        <ScollAbleBar> 
-          {children}
-        </ScollAbleBar>
-      ) : (
-        children
-      )}
-    </>
-  );
+  return <>{scrollable && activateScrollbar ? <ScollAbleBar>{children}</ScollAbleBar> : children}</>;
 }

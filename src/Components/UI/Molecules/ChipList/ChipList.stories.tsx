@@ -10,9 +10,7 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component:
-          'Dumb-Comonent: A Chiplist with Chips. It can be used to display tags/chips for some Informations',
-          
+        component: 'Dumb-Comonent: A Chiplist with Chips. It can be used to display tags/chips for some Informations',
       },
     },
   },
@@ -25,7 +23,7 @@ const meta = {
       },
       defaultValue: {
         summary: 'md',
-      }
+      },
     },
     outlined: {
       description: 'If the ChipList should be outlined',
@@ -36,7 +34,7 @@ const meta = {
     layer: {
       description: 'The Layer of the ChipList',
       control: {
-        type: 'select'
+        type: 'select',
       },
     },
     themeType: {
@@ -46,7 +44,7 @@ const meta = {
       },
       defaultValue: {
         summary: 'primary',
-      }
+      },
     },
     systemMessage: {
       description: 'The SystemMessage of the ChipList',
@@ -62,14 +60,14 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
-  render: (args) => <ChipList {...args} >
-    <FancyChip label="Test" />
-    <FancyChip label="Test" />
-    <FancyChip label="Test" />
-    <FancyChip label="Test" />
-    <FancyChip label="Test" />
-
-  </ChipList>,
-  args: {
-  },
+  render: (args) => (
+    <ChipList {...args}>
+      <FancyChip label="Test" />
+      <FancyChip label="Test" />
+      <FancyChip label="Test" />
+      <FancyChip label="Test" />
+      <FancyChip label="Test" />
+    </ChipList>
+  ),
+  args: {},
 };

@@ -10,8 +10,7 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component:
-          'Dumb-Comonent: Opacity Slider for pick the opacity of a color',    
+        component: 'Dumb-Comonent: Opacity Slider for pick the opacity of a color',
       },
     },
   },
@@ -22,7 +21,10 @@ const meta = {
     opacity: {
       description: 'The opacity for the opacity slider',
       control: {
-        type: 'number', min: 0, max: 1, step: 0.01,
+        type: 'number',
+        min: 0,
+        max: 1,
+        step: 0.01,
       },
     },
     handler: {
@@ -31,7 +33,6 @@ const meta = {
         type: 'function',
       },
     },
-
   },
   tags: ['autodocs'],
 } satisfies Meta<typeof FancyOpacitySlider>;
@@ -41,11 +42,9 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
-  render: (args) => <FancyOpacitySlider {...args}/>,
+  render: (args) => <FancyOpacitySlider {...args} />,
   args: {
     color: Color('#ff0000'),
     opacity: 0.5,
-
   },
 };
-

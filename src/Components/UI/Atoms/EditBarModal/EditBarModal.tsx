@@ -1,9 +1,8 @@
 import React from 'react';
 import { IEditBarModal } from './IEditbarModal.model';
-import { Wrapper,  WrapperContent } from './EditBarModal.style';
+import { Wrapper, WrapperContent } from './EditBarModal.style';
 
 import { FancyModalHeadLine } from '../../Molecules/FancyModalHeadLine';
-
 
 export default function EditBarModal(props: IEditBarModal) {
   const { children, width, spacingLeftRight, title } = props;
@@ -11,9 +10,7 @@ export default function EditBarModal(props: IEditBarModal) {
   return (
     <Wrapper $spacingLeftRight={spacingLeftRight} $width={width}>
       <FancyModalHeadLine title={title} />
-      <WrapperContent>
-        {children}
-      </WrapperContent>
+      <WrapperContent>{children}</WrapperContent>
     </Wrapper>
   );
 }

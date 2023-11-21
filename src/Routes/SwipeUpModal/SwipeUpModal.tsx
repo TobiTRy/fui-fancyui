@@ -22,12 +22,11 @@ export default function SwipeUpModal() {
         <FancyTextInput label="Email" />
         <FancyButton onClick={() => closeModal('modalTest')} label="Close Modal"></FancyButton>
       </div>,
-    {
-      isCloseAble: false,
-      isScalable: true,
-    }
-    )
-
+      {
+        isCloseAble: false,
+        isScalable: true,
+      }
+    );
   };
 
   return (
@@ -35,7 +34,6 @@ export default function SwipeUpModal() {
       <DesignArea title="Swipe Up Modals">
         <FancyButton onClick={() => openModalHandler()} label="Open Modal"></FancyButton>
         <FancyButton onClick={() => setIsVisible(false)} label="Close Modal "></FancyButton>
-
 
         {/* <FancySwipeUpModal appendToDomID="modal">
           <div style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>

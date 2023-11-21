@@ -10,8 +10,7 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component:
-          'Dumb-Component: Its a Divider that displays only a line or line with informations',
+        component: 'Dumb-Component: Its a Divider that displays only a line or line with informations',
       },
     },
   },
@@ -38,7 +37,6 @@ const meta = {
         summary: '3',
       },
     },
-
   },
   // Add tags to the story
   tags: ['autodocs'],
@@ -51,17 +49,12 @@ type Story = StoryObj<typeof meta>;
 
 // Define the primary story
 export const Primary: Story = {
-  render: (args) => (
-    <ListDivider {...args}/>
-  ),
-  args: {  
-  },
+  render: (args) => <ListDivider {...args} />,
+  args: {},
 };
 export const WithText: Story = {
-  render: (args) => (
-    <ListDivider {...args}/>
-  ),
-  args: {  
+  render: (args) => <ListDivider {...args} />,
+  args: {
     label: 'Some Text',
   },
 };

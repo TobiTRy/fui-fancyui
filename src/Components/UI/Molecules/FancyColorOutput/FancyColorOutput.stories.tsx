@@ -3,7 +3,7 @@ import Color from 'color';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
-import  FancyColorOutput from './FancyColorOutput';
+import FancyColorOutput from './FancyColorOutput';
 
 const meta = {
   component: FancyColorOutput,
@@ -11,7 +11,7 @@ const meta = {
     docs: {
       description: {
         component:
-          'Dumb-Comonent: The Color area that is uses for picking a color. <br> - The ColorIndicator works wehen the color is provides again',    
+          'Dumb-Comonent: The Color area that is uses for picking a color. <br> - The ColorIndicator works wehen the color is provides again',
       },
     },
   },
@@ -53,7 +53,5 @@ export const Primary: Story = {
     colorTypeHandler: (colorType: string) => console.log(colorType),
     handler: (color: Color) => console.log(color),
     handlerOpacity: (opacity: number) => console.log(opacity),
-    
   },
 };
-

@@ -41,26 +41,28 @@ type Story = StoryObj<typeof meta>;
 
 // Define the primary story
 export const Primary: Story = {
-  render: (args) => <FancyGrid {...args}>
-    <FancyGrid.Item gridSpace={6}>
-      <FancyButton label='Ji' wide/>
-    </FancyGrid.Item>
-    <FancyGrid.Item gridSpace={6}>
-      <FancyButton label='Ji' wide/>
-    </FancyGrid.Item>
-    <FancyGrid.Item gridSpace={12}>
-      <FancyButton label='Ji' wide/>
-    </FancyGrid.Item>
-    <FancyGrid.Item gridSpace={4}>
-      <FancyButton label='Ji' wide/>
-    </FancyGrid.Item>
-    <FancyGrid.Item gridSpace={4}>
-      <FancyButton label='Ji' wide/>
-    </FancyGrid.Item>
-    <FancyGrid.Item gridSpace={4}>
-      <FancyButton label='Ji' wide/>
-    </FancyGrid.Item>
-  </FancyGrid>,
+  render: (args) => (
+    <FancyGrid {...args}>
+      <FancyGrid.Item gridSpace={6}>
+        <FancyButton label="Ji" wide />
+      </FancyGrid.Item>
+      <FancyGrid.Item gridSpace={6}>
+        <FancyButton label="Ji" wide />
+      </FancyGrid.Item>
+      <FancyGrid.Item gridSpace={12}>
+        <FancyButton label="Ji" wide />
+      </FancyGrid.Item>
+      <FancyGrid.Item gridSpace={4}>
+        <FancyButton label="Ji" wide />
+      </FancyGrid.Item>
+      <FancyGrid.Item gridSpace={4}>
+        <FancyButton label="Ji" wide />
+      </FancyGrid.Item>
+      <FancyGrid.Item gridSpace={4}>
+        <FancyButton label="Ji" wide />
+      </FancyGrid.Item>
+    </FancyGrid>
+  ),
   args: {
     grid: 12,
     space: '12px',

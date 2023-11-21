@@ -5,7 +5,7 @@ import Color from 'color';
 import { fontSize } from '../../Design/designSizes';
 import { simpleColorTransition } from '../../Design/simpleTransition';
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
-import { TLayer } from "@/Components/UI/Interface/TLayer";
+import { TLayer } from '@/Components/UI/Interface/TLayer';
 import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 
@@ -18,7 +18,7 @@ interface IStyledFancyXButton {
 }
 
 const StyledFancyXButton = styled.button<IStyledFancyXButton>`
-  padding: 0 ${({theme}) => theme.spacing.sm} ${({theme}) => theme.spacing.xxs};
+  padding: 0 ${({ theme }) => theme.spacing.sm} ${({ theme }) => theme.spacing.xxs};
   background: none;
   color: ${({ $themeType = 'accent', theme, $layer }) => getBackgroundColor({ $themeType, theme, $layer })};
   border: none;

@@ -10,14 +10,12 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component:  'SwipeUpDash is a simple horizontal line'
+        component: 'SwipeUpDash is a simple horizontal line',
       },
     },
   },
   // Define arguments for the story
-  argTypes: {
-
-  },
+  argTypes: {},
   // Add tags to the story
   tags: ['autodocs'],
 } satisfies Meta<typeof SwipeUpDash>;
@@ -30,9 +28,7 @@ type Story = StoryObj<typeof meta>;
 // Define the primary story
 export const Primary: Story = {
   render: (args) => <SwipeUpDash {...args} />,
-  args: {
-
-  },
+  args: {},
   parameters: {
     docs: {
       description: {

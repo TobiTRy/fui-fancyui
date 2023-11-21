@@ -1,4 +1,3 @@
-
 export type IBottomLineButton = {
   title: string;
   onClick: () => void;

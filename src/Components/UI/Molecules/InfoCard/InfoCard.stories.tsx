@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import InfoCard from './InfoCard';
 
-
 const meta = {
   component: InfoCard,
   parameters: {
@@ -22,10 +21,13 @@ const meta = {
     layer: {
       description: 'The layer of the component',
       control: {
-        type: 'range', min: 0, max: 10, step: 1,
+        type: 'range',
+        min: 0,
+        max: 10,
+        step: 1,
       },
     },
-    outlined : {
+    outlined: {
       description: 'The component has a outline style',
       control: {
         type: 'boolean',
@@ -34,16 +36,18 @@ const meta = {
         summary: false,
       },
     },
-    outlinedBackgroundStrength : {
+    outlinedBackgroundStrength: {
       description: 'The background strength of the outline',
       control: {
-        type: 'range', min: 0, max: 1, step: 0.01,
+        type: 'range',
+        min: 0,
+        max: 1,
+        step: 0.01,
       },
       defaultValue: {
         summary: 10,
       },
     },
-
   },
   tags: ['autodocs'],
 } satisfies Meta<typeof InfoCard>;

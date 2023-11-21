@@ -7,7 +7,6 @@ import themeStore from '../../Components/UI/Design/color/themeStore';
 import { TUiColorsType } from '../../Components/UI/Design/color/designColor';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 
-
 export default function ColorGeneratorRoute() {
   const theme = themeStore((state) => state.theme);
   //get keys of primary

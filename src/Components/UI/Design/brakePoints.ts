@@ -5,6 +5,4 @@ const brakePoints = {
   xl: 1200,
 };
 
-
 export default brakePoints;
-

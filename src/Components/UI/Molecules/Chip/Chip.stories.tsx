@@ -9,8 +9,7 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component:
-          'Dumb-Comonent:  A Simple Chip Component you can put everything in.',    
+        component: 'Dumb-Comonent:  A Simple Chip Component you can put everything in.',
       },
     },
   },
@@ -20,7 +19,7 @@ const meta = {
       control: {
         type: 'select',
       },
-    }, 
+    },
     themeType: {
       description: 'The theme type of the button.',
       control: {
@@ -54,13 +53,19 @@ const meta = {
     textLayer: {
       description: 'The text layer of the button.',
       control: {
-        type: 'range', min: 1, max: 10, step: 1,
+        type: 'range',
+        min: 1,
+        max: 10,
+        step: 1,
       },
     },
     layer: {
       description: 'The layer of the button.',
       control: {
-        type: 'range', min: 1, max: 10, step: 1,
+        type: 'range',
+        min: 1,
+        max: 10,
+        step: 1,
       },
     },
   },

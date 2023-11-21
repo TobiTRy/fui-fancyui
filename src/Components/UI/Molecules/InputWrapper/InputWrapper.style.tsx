@@ -3,7 +3,7 @@ import { styled, css } from 'styled-components';
 import { disabledStyle } from '../../HelperFunctions/designFunctions/disableStyle';
 import { fontSize } from '../../Design/designSizes';
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
-import { TLayer } from "@/Components/UI/Interface/TLayer";
+import { TLayer } from '@/Components/UI/Interface/TLayer';
 import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 
@@ -19,17 +19,17 @@ export const StyledInputWrapper = styled.div<{ disabled?: boolean; $autoWidth?: 
 `;
 
 //the style for the error message
-export const ErrorMessage = styled.p<{theme: TTheme}>`
+export const ErrorMessage = styled.p<{ theme: TTheme }>`
   grid-column: 2;
   grid-row: 2;
   margin: 0;
-  margin-top: ${({theme}) => theme.spacing.xxs};
+  margin-top: ${({ theme }) => theme.spacing.xxs};
   font-size: ${fontSize.extrasm};
-  color: ${({theme}) => theme.colors.error[0]};
+  color: ${({ theme }) => theme.colors.error[0]};
 `;
 
 //the input/label/underline are all wrapped in thid container
-export const InputContainer = styled.div<{ $givePadding: boolean, theme: TTheme ,$themeType: TUiColors, $layer: TLayer }>`
+export const InputContainer = styled.div<{ $givePadding: boolean; theme: TTheme; $themeType: TUiColors; $layer: TLayer }>`
   width: 100%;
   grid-column: 2/3;
   ${({ $givePadding, theme }) =>
@@ -40,9 +40,9 @@ export const InputContainer = styled.div<{ $givePadding: boolean, theme: TTheme 
   position: relative;
 
   input {
-    padding: 0px 0px ${({theme}) => parseFloat(theme.spacing.xs) + 2 + 'px'};
+    padding: 0px 0px ${({ theme }) => parseFloat(theme.spacing.xs) + 2 + 'px'};
   }
-  
+
   svg {
     color: ${({ theme, $themeType, $layer }) => getBackgroundColor({ theme, $themeType, $layer })};
   }

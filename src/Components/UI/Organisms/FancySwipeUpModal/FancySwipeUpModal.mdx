@@ -7,25 +7,25 @@ The FancySwipeUpModal is now powered by the `useFancySwipeUpStore`. This enhance
 ### Initial Setup
 
 1. **Render the Main Component in the Base File**:
-   
+
    Place `<FancySwipeUpModal />` at the desired location in your main file.
 
 2. **Specify the DOM Element for Rendering**:
-   
-   Create a DOM element where the modal will be rendered. For instance: 
-   
+
+   Create a DOM element where the modal will be rendered. For instance:
+
    ```html
    <div id="modal"></div>
    ```
 
 3. **Connect the Modal to the DOM**:
-   
+
    Pass the `appendToDomID` prop to the modal component. For instance, `appendToDomID="modal"`. This ties the modal to the specified DOM element. Configuration settings are now managed by the store, simplifying the overall process.
 
 ### Using the Modal
 
 1. **Import the Store in the Component**:
-   
+
    First, you need to import the `useFancySwipeUpModalStore` within the component where you intend to trigger the modal.
 
    ```javascript

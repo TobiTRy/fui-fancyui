@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState, useRef } from 'react';
 
 interface IUseDelay {
   children: React.ReactNode;
@@ -6,8 +6,8 @@ interface IUseDelay {
   delay?: number;
 }
 
-export default function UseDelay({children, externalStateBool ,delay}: IUseDelay) {
-  const [mountState, setMountState] = useState<boolean>(false)
+export default function UseDelay({ children, externalStateBool, delay }: IUseDelay) {
+  const [mountState, setMountState] = useState<boolean>(false);
   const timeoutId = useRef<NodeJS.Timeout | null>(null); // Keep track of the timeout
 
   const delayHandler = () => {
@@ -17,14 +17,14 @@ export default function UseDelay({children, externalStateBool ,delay}: IUseDelay
     }
 
     if (externalStateBool) {
-      setMountState(true)
+      setMountState(true);
     } else {
       // Set a new timeout
       timeoutId.current = setTimeout(() => {
         setMountState(false); // Set state to false instead of toggling
       }, delay || 250);
     }
-  }
+  };
 
   useEffect(() => {
     delayHandler();
@@ -33,13 +33,9 @@ export default function UseDelay({children, externalStateBool ,delay}: IUseDelay
       if (timeoutId.current !== null) {
         clearTimeout(timeoutId.current);
       }
-    }
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [externalStateBool])
+  }, [externalStateBool]);
 
-  return (
-    <>
-      {(mountState)  ? children : null}
-    </>
-  )
+  return <>{mountState ? children : null}</>;
 }

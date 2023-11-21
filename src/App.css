@@ -2,12 +2,10 @@ html {
   background-color: black;
 }
 
-
 section {
   padding: 1rem;
   position: relative;
 }
-
 
 ::-webkit-scrollbar {
   width: 4px;

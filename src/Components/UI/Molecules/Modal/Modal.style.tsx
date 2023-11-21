@@ -12,4 +12,4 @@ export const CloseButtonWrapper = styled.div`
   position: absolute;
   top: 2px;
   right: 0;
-`
+`;

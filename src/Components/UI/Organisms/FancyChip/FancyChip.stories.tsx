@@ -10,8 +10,7 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component:
-          'Dumb-Comonent:  A chip is a component that displays a label and optionally an icon / image and delete button. ',    
+        component: 'Dumb-Comonent:  A chip is a component that displays a label and optionally an icon / image and delete button. ',
       },
     },
   },
@@ -21,7 +20,7 @@ const meta = {
       control: {
         type: 'select',
       },
-    }, 
+    },
     themeType: {
       description: 'The theme type of the button.',
       control: {
@@ -61,13 +60,19 @@ const meta = {
     textLayer: {
       description: 'The text layer of the button.',
       control: {
-        type: 'range', min: 1, max: 10, step: 1,
+        type: 'range',
+        min: 1,
+        max: 10,
+        step: 1,
       },
     },
     layer: {
       description: 'The layer of the button.',
       control: {
-        type: 'range', min: 1, max: 10, step: 1,
+        type: 'range',
+        min: 1,
+        max: 10,
+        step: 1,
       },
     },
     image: {
@@ -111,7 +116,6 @@ export const WithDelete: Story = {
   },
 };
 
-
 export const WithImage: Story = {
   render: (args) => <FancyChip {...args} />,
   args: {
@@ -122,8 +126,10 @@ export const WithImage: Story = {
     outlined: false,
     themeType: 'primary',
     isActive: false,
-    image: "https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg",
-    onDelete: () =>{console.log('DELETE')},
+    image: 'https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg',
+    onDelete: () => {
+      console.log('DELETE');
+    },
   },
 };
 
@@ -137,6 +143,8 @@ export const WithIcon: Story = {
     themeType: 'primary',
     isActive: false,
     icon: SVGChevronLeft,
-    onDelete: () =>{console.log('DELETE')},
+    onDelete: () => {
+      console.log('DELETE');
+    },
   },
 };

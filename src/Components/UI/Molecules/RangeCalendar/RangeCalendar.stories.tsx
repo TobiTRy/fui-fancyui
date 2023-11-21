@@ -84,8 +84,8 @@ export const Primary: Story = {
           {
             date: 3,
             isAvilable: 'transparent',
-          }
-        ]
+          },
+        ],
       },
       {
         monthIdx: 11,
@@ -101,10 +101,9 @@ export const Primary: Story = {
           {
             date: 2,
             isAvilable: 'transparent',
-          }
-        ]
-      }
-
+          },
+        ],
+      },
     ],
     disabledDateSetting: {
       disabledWeekdays: [1, 6],

@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 
 import { borderRadius, spacingPx } from '../../Design/designSizes';
-import { TLayer } from "@/Components/UI/Interface/TLayer";
+import { TLayer } from '@/Components/UI/Interface/TLayer';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 import { TBorderRadiusSizes } from '@/Components/UI/Interface/TBorderRadius';
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
@@ -54,7 +54,7 @@ export const ULButtonSwitchList = styled.ul<IFancyTabSwitchStyle & { theme: TThe
   padding: 0;
   & > * {
     /* Selects all direct children of the parent */
-    min-width: 0; 
+    min-width: 0;
   }
 `;
 
@@ -68,5 +68,3 @@ export const ItemWrapper = styled.li`
   width: 100%;
   list-style: none;
 `;
-
-

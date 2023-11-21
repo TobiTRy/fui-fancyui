@@ -1,6 +1,6 @@
 /* eslint-disable react-refresh/only-export-components */
-import { ReactNode } from "react";
-import styled, { CSSProp } from "styled-components";
+import { ReactNode } from 'react';
+import styled, { CSSProp } from 'styled-components';
 
 export interface IStyledComponentProps {
   children?: ReactNode;
@@ -27,7 +27,6 @@ const StyledContent = styled(BaseStyledComponent).attrs({ as: 'p' })``;
 const StyledSmText = styled(BaseStyledComponent).attrs({ as: 'p' })``;
 const StyledVerySmText = styled(BaseStyledComponent).attrs({ as: 'span' })``;
 
-
 // Export the list of typography components
 export const TypographyList = {
   h1: StyledH1,
@@ -43,4 +42,3 @@ export const TypographyList = {
   smText: StyledSmText,
   verysmText: StyledVerySmText,
 };
-

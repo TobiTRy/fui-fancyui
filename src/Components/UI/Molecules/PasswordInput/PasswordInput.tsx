@@ -4,7 +4,7 @@ import { styled } from 'styled-components';
 import RawInput, { TRawInputAlign } from '../../Atoms/RawInput/RawInput';
 import PasswordEye from '../../Atoms/PasswordEye/PasswordEye';
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
-import { TLayer } from "@/Components/UI/Interface/TLayer";
+import { TLayer } from '@/Components/UI/Interface/TLayer';
 import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 

@@ -26,14 +26,15 @@ const SingleToastMessage = forwardRef<HTMLDivElement, ISingleToastMessage>((prop
     return () => clearTimeout(timer);
   }, [id, time, remove]);
 
-
   return (
     <Container ref={ref} $messageType={themeType}>
       <Headline>
-        <Typography type='content' variant='h5'>{title}</Typography>
-        <FancyXButton onClick={() => remove(id)} themeType={themeType} layer={layer || 5}/>
+        <Typography type="content" variant="h5">
+          {title}
+        </Typography>
+        <FancyXButton onClick={() => remove(id)} themeType={themeType} layer={layer || 5} />
       </Headline>
-      <Typography type='content'>{message}</Typography>
+      <Typography type="content">{message}</Typography>
       <TimerLine $time={time!} $messageType={themeType} />
     </Container>
   );

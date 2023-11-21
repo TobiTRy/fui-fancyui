@@ -37,7 +37,7 @@ export const useFancyEditBarStore = create<EditBarModuleStore>((set) => ({
   //The State for the second bar items they currently set
   secondCurrentItems: null,
   setSecondCurrentItems: (items) => set(() => ({ secondCurrentItems: items })),
-  
+
   //The State for the active setting
   activeSetting: null,
   setActiveSetting: (setting) => set(() => ({ activeSetting: setting })),

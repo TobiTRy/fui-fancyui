@@ -65,13 +65,13 @@ export default function InputsRoute() {
   `;
 
   return (
-    <FancyCard> 
+    <FancyCard>
       <DesignWrapper>
         <DesignArea title="Password Input">
           <FancyNumberInput label="Text" onChange={testHandler2} value={test} placeholder="test45454554" errorMessage="Hiii" />
         </DesignArea>
         <DesignArea title="Password Input">
-          <FancyPasswordInput themeType='primary' label="Password" value={password} onChange={testHandler5} align="left" />
+          <FancyPasswordInput themeType="primary" label="Password" value={password} onChange={testHandler5} align="left" />
           <FancyPasswordInput icon={svg} label="Password" value={password} onChange={testHandler5} align="center" />
         </DesignArea>
         <DesignArea title="Text Input">
@@ -125,7 +125,7 @@ export default function InputsRoute() {
           <FancyDateDropDown type="year" label="Year" onChange={testHandler3} />
         </DesignArea>
         <DesignArea title="Range Slider">
-          <FancyRangeSlider label="Slider"  value={Number(test)} onChange={testHandler4} />
+          <FancyRangeSlider label="Slider" value={Number(test)} onChange={testHandler4} />
           <FancyRangeSlider icon={svg} label="Slider" value={Number(test)} onChange={testHandler4} align="center" displayNumber={true} />
         </DesignArea>
       </DesignWrapper>

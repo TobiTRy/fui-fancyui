@@ -18,7 +18,7 @@ export default function FancyRangeSlider(props: IFancyRangeSlider) {
   const [toutched, setToutched] = useState(false);
 
   const id = useId();
-  
+
   const colorStateLabel = calcColorState({ type: 'label', isActive: isActive || toutched, value });
 
   // this function is called when the slider is moved
@@ -38,7 +38,13 @@ export default function FancyRangeSlider(props: IFancyRangeSlider) {
       {/* Icon for the left side of the slider */}
       {icon && (
         <Icon>
-          <FancySVGAtom isActive={isActive} size="lg" themeType={themeType} layer={layer} externalStyle={{transition: 'color 0.3s ease-in-out'}}>
+          <FancySVGAtom
+            isActive={isActive}
+            size="lg"
+            themeType={themeType}
+            layer={layer}
+            externalStyle={{ transition: 'color 0.3s ease-in-out' }}
+          >
             {icon}
           </FancySVGAtom>
         </Icon>

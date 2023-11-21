@@ -6,13 +6,12 @@ import { simpleColorTransition } from '../../Design/simpleTransition';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 const colorCalculation = ({ theme, $isBright, $isDarkTheme }: { theme: TTheme; $isBright: boolean; $isDarkTheme: boolean }) => {
-  if($isDarkTheme) return ($isBright ? theme.colors.primary[0] : theme.colors.secondary[0]);
+  if ($isDarkTheme) return $isBright ? theme.colors.primary[0] : theme.colors.secondary[0];
 
-  return ($isBright ? theme.colors.secondary[0] : theme.colors.primary[0]);
-}
+  return $isBright ? theme.colors.secondary[0] : theme.colors.primary[0];
+};
 
-
-export const Content = styled.div<{ $isBright: boolean; theme: TTheme, $isDarkTheme: boolean }>`
+export const Content = styled.div<{ $isBright: boolean; theme: TTheme; $isDarkTheme: boolean }>`
   position: absolute;
   width: 100%;
   height: 100%;
@@ -24,15 +23,16 @@ export const Content = styled.div<{ $isBright: boolean; theme: TTheme, $isDarkTh
   z-index: 2;
   gap: 3px;
   font-size: ${fontSize.sm};
-  color: ${({theme, $isBright, $isDarkTheme}) => colorCalculation({theme, $isBright, $isDarkTheme})};
+  color: ${({ theme, $isBright, $isDarkTheme }) => colorCalculation({ theme, $isBright, $isDarkTheme })};
   ${simpleColorTransition}
 
   p {
     user-select: none;
   }
 
-  &:active, &:hover {
-    color: ${({theme, $isBright, $isDarkTheme}) => ($isBright && $isDarkTheme) ? theme.colors.primary[4] : theme.colors.secondary[4] };
+  &:active,
+  &:hover {
+    color: ${({ theme, $isBright, $isDarkTheme }) => ($isBright && $isDarkTheme ? theme.colors.primary[4] : theme.colors.secondary[4])};
   }
 `;
 
@@ -68,10 +68,10 @@ const colorDisplayColor = ({ color, opacity }: IColorDisplayColor) => {
   };
 };
 
-export const ColorDisplayContainer = styled.div.attrs(colorDisplayColor)<IColorDisplayColor & {theme: TTheme}>`
+export const ColorDisplayContainer = styled.div.attrs(colorDisplayColor)<IColorDisplayColor & { theme: TTheme }>`
   position: absolute;
   width: 100%;
   height: 100%;
-  border-radius: ${({theme}) => theme.borderRadius.sm};
+  border-radius: ${({ theme }) => theme.borderRadius.sm};
   z-index: 1;
 `;

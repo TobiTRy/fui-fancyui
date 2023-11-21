@@ -3,7 +3,7 @@ import { styled } from 'styled-components';
 
 import SearchBar from '../../Molecules/SearchBar/SearchBar';
 import SearchBarList from '../../Molecules/SearchBarList/SearchBarList';
-import { TLayer } from "@/Components/UI/Interface/TLayer";
+import { TLayer } from '@/Components/UI/Interface/TLayer';
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 
 // Styled component for the entire search bar
@@ -64,7 +64,9 @@ export default function FancySearchBar(props: IFancySearchBar) {
         <SearchBar activeHandler={activeHandler} searchValue={searchValue} handler={searchValueHandler} />
         {/* The search bar list */}
         <WrapperList $width={searchListWidth}>
-          <SearchBarList isActive={isActive} themeType={themeType} layer={layer}>{children}</SearchBarList>
+          <SearchBarList isActive={isActive} themeType={themeType} layer={layer}>
+            {children}
+          </SearchBarList>
         </WrapperList>
       </WrapperListInput>
     </StyledFancySearchBar>

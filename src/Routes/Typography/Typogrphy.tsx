@@ -5,13 +5,14 @@ import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';
 import FancyCard from '../../Components/UI/Atoms/FancyCard/FancyCard';
 
 export default function Typogrphy() {
-
   return (
     <FancyCard>
       <DesignWrapper>
         <DesignArea title="Typography">
           <div style={{ flexDirection: 'column' }}>
-            <Typography type="h1" variant='inlineElement' weight={'bold'}>h1. Heading Lorem ipsum dolor sit amet, </Typography>
+            <Typography type="h1" variant="inlineElement" weight={'bold'}>
+              h1. Heading Lorem ipsum dolor sit amet,{' '}
+            </Typography>
             <Typography type="h1">h1. Heading Heading Lorem ipsum dolor sit amet,</Typography>
             <Typography type="h2">h2. Headin Heading Lorem ipsum dolor sit amet, </Typography>
             <Typography type="h3">h3. Heading Heading Lorem ipsum dolor sit amet, </Typography>
@@ -28,8 +29,7 @@ export default function Typogrphy() {
           </div>
         </DesignArea>
         <DesignArea title="Typography">
-          <div style={{ flexDirection: 'column' }}>
-          </div>
+          <div style={{ flexDirection: 'column' }}></div>
         </DesignArea>
       </DesignWrapper>
     </FancyCard>

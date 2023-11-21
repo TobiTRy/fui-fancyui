@@ -14,7 +14,7 @@ type TWrapper = IStyledPrefixAndPicker<
 >;
 
 // Define the Wrapper component
-const Wrapper = styled.span<TWrapper & {theme: TTheme}>`
+const Wrapper = styled.span<TWrapper & { theme: TTheme }>`
   display: flex;
   flex-direction: ${({ $flexDirection }) => $flexDirection || 'row'};
   justify-content: ${({ $flexJustify }) => $flexJustify || 'center'};
@@ -30,15 +30,14 @@ const Wrapper = styled.span<TWrapper & {theme: TTheme}>`
   }
 `;
 
-
-type TOnlyTextWrapper = IStyledPrefixAndPicker<IFancyContentProps, 'flexDirection' | 'gapBetweenText' | 'flexAlign' | 'flexJustify'>
-const OnlyTextWrapper = styled.span<TOnlyTextWrapper & {theme: TTheme}>`
+type TOnlyTextWrapper = IStyledPrefixAndPicker<IFancyContentProps, 'flexDirection' | 'gapBetweenText' | 'flexAlign' | 'flexJustify'>;
+const OnlyTextWrapper = styled.span<TOnlyTextWrapper & { theme: TTheme }>`
   display: flex;
   flex-direction: ${({ $flexDirection }) => $flexDirection || 'column'};
   justify-content: ${({ $flexJustify }) => $flexJustify || 'center'};
   align-items: ${({ $flexAlign }) => $flexAlign || 'flex-start'};
   gap: ${({ $gapBetweenText, theme }) => $gapBetweenText ?? theme.spacing.xxs};
-`
+`;
 
 // Define the props for the FancyContent component
 interface IFancyContentProps {
@@ -66,7 +65,6 @@ function FancyContent(props: IFancyContentProps) {
       }
     }
   });
-
 
   return iconElement ? (
     <Wrapper

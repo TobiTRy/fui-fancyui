@@ -1,1 +1,1 @@
-export type TSystemMessageProps = 'success' | 'warning' | 'error' | 'info'
+export type TSystemMessageProps = 'success' | 'warning' | 'error' | 'info';

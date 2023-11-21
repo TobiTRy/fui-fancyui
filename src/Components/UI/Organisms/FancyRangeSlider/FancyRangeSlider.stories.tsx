@@ -45,7 +45,10 @@ const meta = {
     layer: {
       description: 'The layer of the input',
       control: {
-        type: 'range ', min: 1, max: 10, step: 1,
+        type: 'range ',
+        min: 1,
+        max: 10,
+        step: 1,
       },
       defaultValue: {
         summary: '4',
@@ -102,8 +105,6 @@ const meta = {
         summary: false,
       },
     },
-
-
   },
   // Add tags to the story
   tags: ['autodocs'],

@@ -1,5 +1,4 @@
-import { TUiColorsType } from "../Design/color/designColor";
-
+import { TUiColorsType } from '../Design/color/designColor';
 
 export type TUiColors = keyof TUiColorsType;
 export type TUiColorsMain = Extract<TUiColors, 'primary' | 'secondary' | 'accent'>;

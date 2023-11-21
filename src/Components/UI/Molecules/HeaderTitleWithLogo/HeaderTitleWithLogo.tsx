@@ -3,7 +3,7 @@ import { styled } from 'styled-components';
 
 import Typography from '../../Atoms/Typography/Typography';
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
-import { TLayer } from "@/Components/UI/Interface/TLayer";
+import { TLayer } from '@/Components/UI/Interface/TLayer';
 import { getTextColor } from '../../Design/color/colorCalculatorForComponet';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 
@@ -25,11 +25,11 @@ const LogoWrapper = styled.div`
 
 const StyledHeading = styled.a<{ theme: TTheme; $themeType?: TUiColors; $layer?: TLayer }>`
   display: flex;
-  gap: ${({theme}) => theme.spacing.sm};
+  gap: ${({ theme }) => theme.spacing.sm};
   align-items: center;
   word-break: keep-all;
   text-decoration: none;
-  color: ${({ theme, $themeType = 'secondary', $layer }) => getTextColor({ theme, $themeType, $textLayer: $layer, })};
+  color: ${({ theme, $themeType = 'secondary', $layer }) => getTextColor({ theme, $themeType, $textLayer: $layer })};
 `;
 
 interface IHeaderTitleWithLogo {

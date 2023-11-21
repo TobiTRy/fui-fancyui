@@ -1,4 +1,3 @@
-
 # FancyGrid Component Documentation
 
 `FancyGrid` is a custom grid layout components. It's built using styled-components and is designed to be both flexible and responsive.
@@ -14,6 +13,7 @@ Before using `FancyGrid`, make sure you have React, TypeScript, and styled-compo
 The `FancyGrid` container establishes the grid layout.
 
 **Props**:
+
 - `grid`: Specifies the number of columns in the grid (e.g., 12).
 - `space`: Sets the spacing between grid items (e.g., "2px").
 
@@ -33,28 +33,21 @@ const MyComponent = () => {
 
 ### FancyGrid.Item
 
-`FancyGrid.Item` represents individual items within the `FancyGrid`. 
+`FancyGrid.Item` represents individual items within the `FancyGrid`.
 
 **Props**:
+
 - `gridSpace`: Determines the number of columns the item should span.
 
 **Example**:
 
 ```jsx
 <FancyGrid grid={12} space="2px">
-  <FancyGrid.Item gridSpace={4}>
-    {/* Content for the first item */}
-  </FancyGrid.Item>
-  <FancyGrid.Item gridSpace={4}>
-    {/* Content for the second item */}
-  </FancyGrid.Item>
-  <FancyGrid.Item gridSpace={4}>
-    {/* Content for the third item */}
-  </FancyGrid.Item>
+  <FancyGrid.Item gridSpace={4}>{/* Content for the first item */}</FancyGrid.Item>
+  <FancyGrid.Item gridSpace={4}>{/* Content for the second item */}</FancyGrid.Item>
+  <FancyGrid.Item gridSpace={4}>{/* Content for the third item */}</FancyGrid.Item>
   {/* Since the grid limit is reached, the next item starts on a new line */}
-  <FancyGrid.Item gridSpace={12}>
-    {/* Content for the fourth item */}
-  </FancyGrid.Item>
+  <FancyGrid.Item gridSpace={12}>{/* Content for the fourth item */}</FancyGrid.Item>
 </FancyGrid>
 ```
 

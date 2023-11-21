@@ -19,7 +19,6 @@ const items2: IFancyBottomBarIcon[] = [
   { icon: svg, type: 'button', label: 'myButton', href: 'http://google.de' },
 ];
 
-
 // Define metadata for the story
 const meta = {
   component: FancyHandyNav,
@@ -126,9 +125,6 @@ const meta = {
         step: 0.1,
       },
     },
-
-
-
   },
 } satisfies Meta<typeof FancyHandyNav>;
 
@@ -139,7 +135,7 @@ type Story = StoryObj<typeof meta>;
 
 // Define the primary story
 export const Primary: Story = {
-  render: (args) => <FancyHandyNav {...args}/>,
+  render: (args) => <FancyHandyNav {...args} />,
   args: {
     items: items2,
     isVisible: true,

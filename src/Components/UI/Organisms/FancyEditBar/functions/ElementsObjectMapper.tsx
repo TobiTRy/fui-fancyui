@@ -15,14 +15,14 @@ const settingsToJSXMapper = (itemObject: InputSettings) => {
 
   switch (settingsType) {
     case 'textInput':
-        return <FancyTextInput {...(inputProps as ITextInput)} />;
+      return <FancyTextInput {...(inputProps as ITextInput)} />;
     case 'dropDown':
-        return <FancyDropDownSelect {...(inputProps as IDropDown)} />;
+      return <FancyDropDownSelect {...(inputProps as IDropDown)} />;
     case 'slider':
-        return <FancyRangeSlider {...(inputProps as IRangeSlider)} />;
+      return <FancyRangeSlider {...(inputProps as IRangeSlider)} />;
     case 'tab':
-        return <FancyTabSwitch {...(inputProps as ITabSwitchProps)} />;
-}
+      return <FancyTabSwitch {...(inputProps as ITabSwitchProps)} />;
+  }
 };
 
 // --------------------------------------------------------------------------- //

@@ -61,15 +61,15 @@ const meta = {
     },
     WrapperComponent: {
       control: { type: 'object' },
-      description: 'Provide a wrapper component like NextJS Link Component or a Custom component.  '
+      description: 'Provide a wrapper component like NextJS Link Component or a Custom component.  ',
     },
-    hideLabel:{
+    hideLabel: {
       control: { type: 'boolean' },
       description: 'Hide the label text. When The label is hidden, the icon will get bigger and the aria-label is putted to the icon.',
       defaultValue: {
         summary: false,
       },
-    }
+    },
   },
   // Add tags to the story
   tags: ['autodocs'],

@@ -57,5 +57,4 @@ const CalculateBorderRadiusOnAlignment = ({ $alignHorizontal, $alignVertical, $r
   }
 };
 
-
 export default CalculateBorderRadiusOnAlignment;

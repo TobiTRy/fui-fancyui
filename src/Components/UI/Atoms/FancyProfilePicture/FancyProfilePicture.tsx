@@ -2,12 +2,11 @@ import React from 'react';
 
 import { Placeholder, StyledImage, TSize } from './FancyProfilePicture.style';
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
-import { TLayer } from "@/Components/UI/Interface/TLayer";
+import { TLayer } from '@/Components/UI/Interface/TLayer';
 import { Typography } from '../Typography';
 import { TTypography } from '@/Components/UI/Interface/TTypography';
 
-
-// generate the text size based on the size prop 
+// generate the text size based on the size prop
 const getTextSize = (size: TSize | string): TTypography => {
   switch (size) {
     case 'xxs':
@@ -25,7 +24,7 @@ const getTextSize = (size: TSize | string): TTypography => {
     default:
       return 'h4';
   }
-}
+};
 
 export interface IFancyProfilePicture {
   src?: string;
@@ -47,9 +46,9 @@ export default function FancyProfilePicture(props: IFancyProfilePicture) {
     <StyledImage className={className} src={src} alt={alt} $rounded={rounded} $size={size} />
   ) : (
     <Placeholder className={className} $rounded={rounded} $size={size} {...placeholderProps}>
-      <Typography type='smText' variant={getTextSize(size)}>
+      <Typography type="smText" variant={getTextSize(size)}>
         {alt.substring(0, letterLength ?? 2).toUpperCase()}
-        </Typography>
+      </Typography>
     </Placeholder>
   );
 }

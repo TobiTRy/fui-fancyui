@@ -30,7 +30,6 @@ const meta = {
       description: 'A function to handle the click event.',
       type: { name: 'function' },
     },
-
   },
   tags: ['autodocs'],
 } satisfies Meta<typeof ScalingSection>;
@@ -41,7 +40,5 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   render: (args) => <ScalingSection {...args} />,
-  args: {
-
-  },
+  args: {},
 };

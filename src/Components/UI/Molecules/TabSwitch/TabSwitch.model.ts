@@ -1,7 +1,7 @@
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
-import { TLayer } from "@/Components/UI/Interface/TLayer";
-import { TBorderRadiusSizes } from "@/Components/UI/Interface/TBorderRadius";
-import {ITabSwitchDetailsLabelIcon , ITabSwitchDetailsChildren } from "../FancyTabSwitchButton/FancyTabSwitchButton.model";
+import { TLayer } from '@/Components/UI/Interface/TLayer';
+import { TBorderRadiusSizes } from '@/Components/UI/Interface/TBorderRadius';
+import { ITabSwitchDetailsLabelIcon, ITabSwitchDetailsChildren } from '../FancyTabSwitchButton/FancyTabSwitchButton.model';
 import { TSpacings } from '../../Interface/TSpacings';
 
 export interface ITabSwitchProps {

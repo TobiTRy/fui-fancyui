@@ -39,7 +39,10 @@ const meta = {
     layer: {
       description: 'The layer of the search bar.',
       control: {
-        type: 'range', min: 0, max: 10, step: 1,
+        type: 'range',
+        min: 0,
+        max: 10,
+        step: 1,
       },
       defaultValue: {
         summary: 4,
@@ -52,7 +55,6 @@ const meta = {
         summary: 'Search',
       },
     },
-    
   },
   tags: ['autodocs'],
 } satisfies Meta<typeof SearchBar>;

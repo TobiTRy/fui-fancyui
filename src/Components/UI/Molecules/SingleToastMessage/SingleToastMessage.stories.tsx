@@ -26,7 +26,6 @@ const meta = {
       description: 'The toast message to display.',
     },
   },
-
 } satisfies Meta<typeof HelperComponent>;
 
 export default meta;

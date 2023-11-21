@@ -1,7 +1,4 @@
-
-
-import sectionSectionBox from './EditBarItemsStructure/objectSettingsSection'
-
+import sectionSectionBox from './EditBarItemsStructure/objectSettingsSection';
 
 // --------------------------------------------------------------------------- //
 // ---------- Here are the design variants for sizing and alignment ---------- //
@@ -15,8 +12,6 @@ export const mainSectionCreator = (sectionFor: 'header' | 'sectionBox' | 'backgr
       return sectionSectionBox;
     case 'background':
 
-      //return sectionBackground;
+    //return sectionBackground;
   }
-}
-
-
+};

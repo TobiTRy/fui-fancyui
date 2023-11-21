@@ -1,4 +1,4 @@
-import buttonSettings, {groupButtons} from './ButtonSettings';
+import buttonSettings, { groupButtons } from './ButtonSettings';
 import { ICategory } from './IEditbarObjectSturcture.model';
 
 //Dummy Category Box for demonstration
@@ -30,8 +30,7 @@ const dummyItem = [
             align: 'center',
           },
         ],
-      }
-
+      },
     },
   },
 ];

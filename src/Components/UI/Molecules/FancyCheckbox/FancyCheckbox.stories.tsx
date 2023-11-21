@@ -4,15 +4,12 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import FancyCheckbox from './FancyCheckbox';
 
-
 const meta = {
   component: FancyCheckbox,
   parameters: {
     docs: {
       description: {
-        component:
-          'Dumb-Comonent:  This component is a button with a lot of props to change the style.',
-          
+        component: 'Dumb-Comonent:  This component is a button with a lot of props to change the style.',
       },
     },
   },
@@ -41,7 +38,6 @@ const meta = {
         type: 'select',
       },
     },
-
   },
   tags: ['autodocs'],
 } satisfies Meta<typeof FancyCheckbox>;
@@ -56,6 +52,5 @@ export const Primary: Story = {
     description: 'Description',
     align: 'left',
     alignCheckbox: 'left',
-
   },
 };

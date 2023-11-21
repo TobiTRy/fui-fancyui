@@ -29,7 +29,10 @@ const meta = {
     layer: {
       description: 'The layer of the button hover effect',
       control: {
-        type: 'range', min: 1, max: 10, step: 1,
+        type: 'range',
+        min: 1,
+        max: 10,
+        step: 1,
       },
       defaultValue: {
         summary: '3',
@@ -47,10 +50,11 @@ type Story = StoryObj<typeof meta>;
 
 // Define the primary story
 export const Primary: Story = {
-  render: (args) => <MenuList {...args}>
-    <p>Some Content</p>
-    {args.children}
-  </MenuList>,
-  args: {
-  },
+  render: (args) => (
+    <MenuList {...args}>
+      <p>Some Content</p>
+      {args.children}
+    </MenuList>
+  ),
+  args: {},
 };

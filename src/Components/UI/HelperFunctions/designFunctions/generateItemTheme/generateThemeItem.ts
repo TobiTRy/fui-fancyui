@@ -9,7 +9,6 @@ import { getBackgroundColor } from '../../../Design/color/colorCalculatorForComp
 import { getOpositColorContrast } from '../getOpositColorContrast';
 import { IGenerateThemeItem } from './IGenerateThemeItemProps.model';
 
-
 // ------------------------------------------------------------------ //
 // ---------- Here are the helper functions for the $themeType --------- //
 // ------------------------------------------------------------------ //

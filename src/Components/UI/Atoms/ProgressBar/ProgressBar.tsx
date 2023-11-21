@@ -2,15 +2,15 @@ import React from 'react';
 import { styled } from 'styled-components';
 
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
-import { TLayer } from "@/Components/UI/Interface/TLayer";
+import { TLayer } from '@/Components/UI/Interface/TLayer';
 import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 // Define the styled component for the progress bar container
-const ProgressBarContainer = styled.div<{theme: TTheme, $themeType?: TUiColors; $layer?: TLayer }>`
+const ProgressBarContainer = styled.div<{ theme: TTheme; $themeType?: TUiColors; $layer?: TLayer }>`
   width: 100%;
   height: 4px;
-  background-color: ${({theme, $themeType = 'secondary', $layer = 4}) => getBackgroundColor({theme, $themeType, $layer})};
+  background-color: ${({ theme, $themeType = 'secondary', $layer = 4 }) => getBackgroundColor({ theme, $themeType, $layer })};
   border-radius: 10px;
   overflow: hidden;
   position: relative;
@@ -26,7 +26,7 @@ const ProgressBarFill = styled.div<IProgressBarFillProps>`
   height: 100%;
   width: ${({ width }) => width}%;
   background-color: ${({ theme }) => theme.colors.accent[0]};
-  border-radius: ${({theme}) => theme.borderRadius.complete} 0 0 ${({theme}) => theme.borderRadius.complete};
+  border-radius: ${({ theme }) => theme.borderRadius.complete} 0 0 ${({ theme }) => theme.borderRadius.complete};
   transition: width 0.2s ease-out;
 `;
 
@@ -42,10 +42,18 @@ export interface IProgressBar {
 export default function ProgressBar({ progress = 0, maxValue = 100, id, themeType, layer }: IProgressBar) {
   // Calculate the width of the progress bar fill
   const width = (progress / maxValue) * 100;
-  
+
   // Render the ProgressBar component with the appropriate props
   return (
-    <ProgressBarContainer id={id} role="progressbar" $themeType={themeType} $layer={layer} aria-valuenow={progress} aria-valuemin={0} aria-valuemax={maxValue}>
+    <ProgressBarContainer
+      id={id}
+      role="progressbar"
+      $themeType={themeType}
+      $layer={layer}
+      aria-valuenow={progress}
+      aria-valuemin={0}
+      aria-valuemax={maxValue}
+    >
       <ProgressBarFill width={width} />
     </ProgressBarContainer>
   );

@@ -11,7 +11,6 @@ const meta = {
       description: {
         component:
           'Smart-Comonent:  This component shows a bar with icons and labels. <br> It is handled by a store to show and hide the bar and to (set/get) the active button.',
-          
       },
     },
   },
@@ -31,7 +30,10 @@ const meta = {
     layer: {
       description: 'This prop will change the layer of the bar',
       control: {
-        type: 'range', min: 0, max: 10, step: 1,
+        type: 'range',
+        min: 0,
+        max: 10,
+        step: 1,
       },
     },
   },
@@ -43,6 +45,5 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   render: (args) => <FancyBottomBarStatic {...args} />,
-  args: {
-  }
+  args: {},
 };

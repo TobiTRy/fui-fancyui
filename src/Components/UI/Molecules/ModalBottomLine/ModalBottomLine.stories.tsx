@@ -13,9 +13,7 @@ const meta = {
       },
     },
   },
-  argTypes: {
-
-  },
+  argTypes: {},
   tags: ['autodocs'],
 } satisfies Meta<typeof ModalBottomLine>;
 
@@ -25,7 +23,5 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   render: (args) => <ModalBottomLine {...args} />,
-  args: {
-
-  },
+  args: {},
 };

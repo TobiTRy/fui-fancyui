@@ -6,18 +6,18 @@ import SVGSearch from '../../SVGIcons/SVGSearch';
 import FancySVGAtom from '../../Atoms/FancySVGAtom/FancySVGAtom';
 import { TRawInputAlign } from '../../Atoms/RawInput/RawInput';
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
-import { TLayer } from "@/Components/UI/Interface/TLayer";
+import { TLayer } from '@/Components/UI/Interface/TLayer';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 // Styled component for the search bar
-const StyledSearchBar = styled.div<{ $isActive?: boolean, theme: TTheme }>`
+const StyledSearchBar = styled.div<{ $isActive?: boolean; theme: TTheme }>`
   display: flex;
   align-items: center;
   border-radius: ${({ $isActive, theme }) =>
     $isActive
       ? `${theme.borderRadius.lg} ${theme.borderRadius.lg} 0px 0px`
       : theme.borderRadius.lg}; // Set the border radius based on whether the search bar list is active
-  gap: ${({theme}) => theme.spacing.sm};
+  gap: ${({ theme }) => theme.spacing.sm};
   z-index: 1;
 
   input {

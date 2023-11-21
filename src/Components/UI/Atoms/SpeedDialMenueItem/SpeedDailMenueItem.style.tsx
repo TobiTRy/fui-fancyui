@@ -1,7 +1,7 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 
-import { fontSize } from "../../Design/designSizes";
-import { boxShadow, textShadow } from "../../Design/shadows";
+import { fontSize } from '../../Design/designSizes';
+import { boxShadow, textShadow } from '../../Design/shadows';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 export const MenueItemContainer = styled.div<{ $isOpen?: boolean; $index: number }>`
@@ -11,7 +11,9 @@ export const MenueItemContainer = styled.div<{ $isOpen?: boolean; $index: number
   bottom: ${({ $index }) => `calc(${($index + 1) * 60}px)`};
   opacity: ${({ $isOpen }) => ($isOpen ? 1 : 0)};
   transform: ${({ $isOpen }) => ($isOpen ? 'translateY(0) scale(1) translateX(-50%)' : `translateY(50px) scale(0) translateX(-50%)`)};
-  transition: transform 0.25s ease-in-out, opacity 0.25s ease-in-out;
+  transition:
+    transform 0.25s ease-in-out,
+    opacity 0.25s ease-in-out;
   transition-delay: ${({ $isOpen, $index }) => ($isOpen ? 0.1 * $index : 0.1 * (2 - $index))}s;
   pointer-events: ${({ $isOpen }) => ($isOpen ? 'auto' : 'none')};
   transform: translate(-50%);
@@ -20,13 +22,12 @@ export const MenueItemContainer = styled.div<{ $isOpen?: boolean; $index: number
   ${boxShadow.sm};
 `;
 
-
-export const MenuItem = styled.button<{theme: TTheme}>`
+export const MenuItem = styled.button<{ theme: TTheme }>`
   width: 100%;
   height: 100%;
   border-radius: 50%;
   padding: 0;
-  color: ${({theme}) => theme.colors.secondary[0]};
+  color: ${({ theme }) => theme.colors.secondary[0]};
   cursor: pointer;
   font-size: ${fontSize.md};
   border: none;
@@ -35,7 +36,7 @@ export const MenuItem = styled.button<{theme: TTheme}>`
   align-items: center;
   justify-content: center;
   z-index: 2;
-  background-color: ${({theme}) =>  theme.colors.primary[2]};
+  background-color: ${({ theme }) => theme.colors.primary[2]};
   transition: 150ms ease-in-out;
 
   svg {
@@ -45,22 +46,24 @@ export const MenuItem = styled.button<{theme: TTheme}>`
 
   &:hover {
     transform: scale(1.01);
-    background-color: ${({theme}) => theme.colors.accent[2]};
+    background-color: ${({ theme }) => theme.colors.accent[2]};
   }
 `;
 
-
-export const Label = css<{ $isOpen: boolean, $labelAlign?: 'left' | 'right', theme: TTheme }>`
+export const Label = css<{ $isOpen: boolean; $labelAlign?: 'left' | 'right'; theme: TTheme }>`
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  color: ${({theme}) => theme.colors.secondary[0]};
+  color: ${({ theme }) => theme.colors.secondary[0]};
   display: ${({ $isOpen }) => ($isOpen ? 'inline' : 'none')};
   opacity: ${({ $isOpen }) => ($isOpen ? 1 : 0)};
-  transition: opacity 0.5s ease-in-out, right 0.3s ease, left 0.3s ease;
+  transition:
+    opacity 0.5s ease-in-out,
+    right 0.3s ease,
+    left 0.3s ease;
   ${textShadow.md}
   white-space: nowrap;
-  
+
   ${({ $labelAlign }) =>
     $labelAlign === 'right'
       ? css`

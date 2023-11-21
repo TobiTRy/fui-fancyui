@@ -1,1 +1,1 @@
-export { default as AdaptInputs } from "./AdaptInputs";
+export { default as AdaptInputs } from './AdaptInputs';

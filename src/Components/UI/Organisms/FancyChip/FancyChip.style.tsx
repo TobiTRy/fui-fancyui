@@ -6,13 +6,12 @@ import themeStore from '@/Components/UI/Design/color/themeStore';
 // Define the type for the spacing position
 export type TSpacingPosition = 'left' | 'right' | 'booth';
 
-
 const getSpacingFromTheme = themeStore.getState().theme.spacing;
 const spacings = {
   xs: parseFloat(getSpacingFromTheme.xs),
   sm: parseFloat(getSpacingFromTheme.sm),
   md: parseFloat(getSpacingFromTheme.md),
-}
+};
 
 export const sizes = {
   sm: {
@@ -67,8 +66,6 @@ export const generateSpacing = ({ spacingPosition, size }: IGenerateSpacing) => 
   }
 };
 
-
-
 // Define the styled component for the X button
 interface IXButton {
   $size?: keyof typeof sizes;
@@ -84,7 +81,7 @@ export const StyledXButton = styled.button<IXButton>`
   line-height: 1;
   display: flex;
   align-items: center;
-  margin-left: ${({theme}) => parseFloat(theme.spacing.xs) + 2 + 'px'};
+  margin-left: ${({ theme }) => parseFloat(theme.spacing.xs) + 2 + 'px'};
 
   svg {
     width: ${({ $size }) => ($size ? sizes[$size].deleteButtonSize : sizes.md.deleteButtonSize)};
@@ -93,11 +90,11 @@ export const StyledXButton = styled.button<IXButton>`
 `;
 
 // Define the styled component for the wrapper image
-export const WrapperImage = styled.div<{theme: TTheme}>`
+export const WrapperImage = styled.div<{ theme: TTheme }>`
   height: 100%;
   aspect-ratio: 1/1;
   line-height: 0;
-  margin-right: ${({theme}) => theme.spacing.xs};
+  margin-right: ${({ theme }) => theme.spacing.xs};
   display: flex;
   align-items: center;
 

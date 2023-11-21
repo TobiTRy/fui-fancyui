@@ -3,7 +3,7 @@ import { styled, css } from 'styled-components';
 import { spacingPx } from '../../Design/designSizes';
 import { TTextAlign } from './FancyMiniProfile';
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
-import { TLayer } from "@/Components/UI/Interface/TLayer";
+import { TLayer } from '@/Components/UI/Interface/TLayer';
 import getColorsForComponent from '../../Design/color/colorCalculatorForComponet';
 import { boxShadow } from '../../Design/shadows';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
@@ -21,11 +21,11 @@ interface IWrapper {
 export const Wrapper = styled.div<IWrapper>`
   display: inline-flex;
   align-items: center;
-  padding: ${({ $size }) => ($size ? spacingPx[$size] : '')}; 
-  gap: ${({ $gapSpacing }) => ($gapSpacing ? spacingPx[$gapSpacing] : ({theme}) => theme.spacing.xxs)};
+  padding: ${({ $size }) => ($size ? spacingPx[$size] : '')};
+  gap: ${({ $gapSpacing }) => ($gapSpacing ? spacingPx[$gapSpacing] : ({ theme }) => theme.spacing.xxs)};
   ${({ $themeType = 'primary', $layer = 2, theme }) => getColorsForComponent({ $themeType, $layer, theme })};
-  ${({$shadow}) => $shadow && boxShadow.sm}
-  border-radius: ${({theme}) => theme.borderRadius.complete};
+  ${({ $shadow }) => $shadow && boxShadow.sm}
+  border-radius: ${({ theme }) => theme.borderRadius.complete};
 `;
 
 // this container wraps the texts (Heading, Subheading)

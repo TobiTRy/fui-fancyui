@@ -11,13 +11,11 @@ type TFancyMenuProps = {
 // --- The FancyList is a Template with Anchor the Menue Item and Divider ---- //
 // --------------------------------------------------------------------------- //
 function FancyMenu(props: TFancyMenuProps) {
-  const { children, ...menueListProps} = props;
+  const { children, ...menueListProps } = props;
   return <MenuList {...menueListProps}>{children}</MenuList>;
 }
 
 FancyMenu.Item = FancyMenuItem;
 FancyMenu.Divider = ListDivider;
-
-
 
 export default FancyMenu;

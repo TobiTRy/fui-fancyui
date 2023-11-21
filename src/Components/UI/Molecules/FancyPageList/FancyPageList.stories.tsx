@@ -9,8 +9,7 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component:
-          'Smart-Comonent: A Page List for a List of Elements with a Paginator',    
+        component: 'Smart-Comonent: A Page List for a List of Elements with a Paginator',
       },
     },
   },
@@ -49,7 +48,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
-  render: (args) => <FancyPageList {...args}/>,
+  render: (args) => <FancyPageList {...args} />,
   args: {
     elements: [
       <p>Test</p>,
@@ -64,7 +63,5 @@ export const Primary: Story = {
       <p>Test4</p>,
     ],
     itemsPerPage: 3,
-
   },
 };
-

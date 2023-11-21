@@ -4,7 +4,7 @@ import { styled } from 'styled-components';
 import Typography from '../Typography/Typography';
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 import { getBackgroundColor, getTextColor } from '../../Design/color/colorCalculatorForComponet';
-import { TLayer } from "@/Components/UI/Interface/TLayer";
+import { TLayer } from '@/Components/UI/Interface/TLayer';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 const DateOutputButton = styled.button<{ $isActive?: boolean; theme: TTheme; $themeType?: TUiColors; $layer?: TLayer }>`
@@ -14,7 +14,8 @@ const DateOutputButton = styled.button<{ $isActive?: boolean; theme: TTheme; $th
     $isActive
       ? getBackgroundColor({ theme, $themeType, $layer: $layer ? $layer + 1 : 3 })
       : getBackgroundColor({ theme, $themeType, $layer: $layer ? $layer : 2 })};
-  color: ${({ theme, $themeType = 'secondary', $layer = 1 }) => getTextColor({ theme, $themeType, $textLayer: $layer, turnColorTheme: true })};
+  color: ${({ theme, $themeType = 'secondary', $layer = 1 }) =>
+    getTextColor({ theme, $themeType, $textLayer: $layer, turnColorTheme: true })};
   border: none;
   cursor: pointer;
 

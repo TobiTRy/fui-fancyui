@@ -3,7 +3,7 @@ import { styled } from 'styled-components';
 
 import DateOutput from '../../Atoms/DateOutput/DateOutput';
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
-import { TLayer } from "@/Components/UI/Interface/TLayer";
+import { TLayer } from '@/Components/UI/Interface/TLayer';
 import FancyLine from '../../Atoms/FancyLine/FancyLine';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 
@@ -18,12 +18,12 @@ const StyledDateOutputFromTo = styled.div<{ theme: TTheme; $themeType?: TUiColor
 
   button:nth-child(1) {
     border-radius: 50px 0 0 50px;
-    padding: ${({theme}) => theme.spacing.sm};
+    padding: ${({ theme }) => theme.spacing.sm};
   }
 
   button:nth-child(3) {
     border-radius: 0 50px 50px 0;
-    padding: ${({theme}) => theme.spacing.sm};
+    padding: ${({ theme }) => theme.spacing.sm};
   }
 `;
 
@@ -47,7 +47,7 @@ interface IDateOutputFromTo {
 }
 // Define the DateOutputFromTo component
 export default function DateOutputFromTo({ whichIsSelecting, dateFrom, dateTo, handler, themeType, layer }: IDateOutputFromTo) {
-  const swapTheme = (themeType === 'primary' ? 'secondary' : 'primary');
+  const swapTheme = themeType === 'primary' ? 'secondary' : 'primary';
 
   // Define the click handler for the DateOutput component
   const handleClickOnDateOutput = (which: 'from' | 'to') => {
@@ -65,7 +65,7 @@ export default function DateOutputFromTo({ whichIsSelecting, dateFrom, dateTo, h
         onClick={() => handleClickOnDateOutput('from')}
       />
       <VRWrapper>
-        <FancyLine direction='vertical' themeType={swapTheme} thickness='2px' margin={'´${({theme}) => theme.spacing.sm}´'} />
+        <FancyLine direction="vertical" themeType={swapTheme} thickness="2px" margin={'´${({theme}) => theme.spacing.sm}´'} />
       </VRWrapper>
       <DateOutput
         themeType={themeType}

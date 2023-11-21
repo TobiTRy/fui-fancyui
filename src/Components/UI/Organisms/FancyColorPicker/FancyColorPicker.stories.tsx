@@ -10,7 +10,8 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component: 'Smart-Comonent: A Color Picker component to pick a color from a color area, hue slider, opacity slider and color output',
+        component:
+          'Smart-Comonent: A Color Picker component to pick a color from a color area, hue slider, opacity slider and color output',
       },
     },
   },
@@ -43,7 +44,7 @@ const meta = {
     outputFormat: {
       description: 'The output color format',
       control: { type: 'radio' },
-      options: ["hsl", "hex", "rgb", "rgba", "hsla", "hexa"],
+      options: ['hsl', 'hex', 'rgb', 'rgba', 'hsla', 'hexa'],
     },
   },
   // Add tags to the story

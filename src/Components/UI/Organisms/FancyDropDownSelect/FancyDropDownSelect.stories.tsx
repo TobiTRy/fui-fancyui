@@ -144,6 +144,5 @@ export const Primary: Story = {
     label: 'Label',
     placeholder: 'Placeholder',
     values: ['test1', 'test2', 'test3'],
-
   },
 };

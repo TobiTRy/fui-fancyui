@@ -11,11 +11,7 @@ const ActionWrapper: React.FC<TActionWrapperProps> = (props) => {
   const { children, ...restProps } = props;
 
   // Conditionally render the 'a' or 'button' element
-  return restProps.as === 'a' ? (
-    <a {...restProps}>{children}</a>
-  ) : (
-    <button {...restProps}>{children}</button>
-  );
+  return restProps.as === 'a' ? <a {...restProps}>{children}</a> : <button {...restProps}>{children}</button>;
 };
 
 export default ActionWrapper;

@@ -13,6 +13,7 @@ Ensure that `FancyGrid` is already set up in your project, as `FancyGrid.Item` i
 `FancyGrid.Item` is used within the `FancyGrid` container and requires the `FancyGrid` component to be properly functioning.
 
 **Props**:
+
 - `gridSpace`: Specifies the number of columns the item should span within the grid.
 
 **Example**:
@@ -23,12 +24,8 @@ import FancyGrid from './FancyGrid';
 const MyComponent = () => {
   return (
     <FancyGrid grid={12} space="2px">
-      <FancyGrid.Item gridSpace={6}>
-        {/* Content for a half-width item */}
-      </FancyGrid.Item>
-      <FancyGrid.Item gridSpace={6}>
-        {/* Content for another half-width item */}
-      </FancyGrid.Item>
+      <FancyGrid.Item gridSpace={6}>{/* Content for a half-width item */}</FancyGrid.Item>
+      <FancyGrid.Item gridSpace={6}>{/* Content for another half-width item */}</FancyGrid.Item>
     </FancyGrid>
   );
 };

@@ -24,7 +24,10 @@ const meta = {
     layer: {
       description: 'The layer of the component',
       control: {
-        type: 'range', min: 0, max: 10, step: 1,
+        type: 'range',
+        min: 0,
+        max: 10,
+        step: 1,
       },
     },
     isActive: {
@@ -96,6 +99,5 @@ export const Primary: Story = {
     label: 'Label',
     align: 'left',
     icon: <SVGCheckMark />,
-
   },
 };

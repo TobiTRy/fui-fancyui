@@ -3,11 +3,11 @@ import { styled } from 'styled-components';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 export const MonthContainer = styled.div<{ theme: TTheme }>`
-  margin-top: ${({theme}) => theme.spacing.md};
+  margin-top: ${({ theme }) => theme.spacing.md};
 
   h2 {
-    margin: ${({theme}) => theme.spacing.sm};
-    margin-left: ${({theme}) => theme.spacing.sm};
+    margin: ${({ theme }) => theme.spacing.sm};
+    margin-left: ${({ theme }) => theme.spacing.sm};
   }
 `;
 

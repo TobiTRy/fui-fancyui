@@ -20,10 +20,7 @@ const meta = {
     },
   },
   // Define arguments for the story
-  argTypes: {
-
-
-  },
+  argTypes: {},
   // Add tags to the story
 } satisfies Meta<typeof HelperComponent>;
 
@@ -47,7 +44,7 @@ function HelperComponent(props: React.ComponentProps<typeof FancyModal> & Omit<I
         </div>
       ),
       configProps || {
-        isCloseAble: false
+        isCloseAble: false,
       }
     );
   };

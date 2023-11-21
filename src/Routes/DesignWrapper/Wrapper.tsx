@@ -12,7 +12,7 @@ export const DesignWrapper = styled.section`
   align-items: center;
 `;
 
-const Area = styled.div<{ $style: CSSProp, theme: TTheme }>`
+const Area = styled.div<{ $style: CSSProp; theme: TTheme }>`
   width: 90%;
   display: flex;
   flex-direction: column;

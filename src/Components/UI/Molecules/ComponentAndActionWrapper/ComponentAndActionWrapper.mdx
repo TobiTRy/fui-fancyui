@@ -24,7 +24,7 @@ import MyCustomWrapper from './path/to/MyCustomWrapper';
 
 <ComponentAndActionWrapper WrapperComponent={<MyCustomWrapper />}>
   <p>Content to be wrapped</p>
-</ComponentAndActionWrapper>
+</ComponentAndActionWrapper>;
 ```
 
 ### As a Button
@@ -63,7 +63,13 @@ function Navbar() {
         About Us
       </ComponentAndActionWrapper>
 
-      <ComponentAndActionWrapper WrapperComponent={<Link href="/contact" passHref><a>Contact</a></Link>}>
+      <ComponentAndActionWrapper
+        WrapperComponent={
+          <Link href="/contact" passHref>
+            <a>Contact</a>
+          </Link>
+        }
+      >
         <p>Contact Page</p>
       </ComponentAndActionWrapper>
     </nav>
@@ -74,4 +80,7 @@ export default Navbar;
 ```
 
 In this Navbar example, we're using `ComponentAndActionWrapper` to handle an anchor tag, a button, and a Next.js `Link` component. This showcases the component's flexibility in handling various UI elements, making it a valuable asset for building interactive and responsive web applications.
+
+```
+
 ```

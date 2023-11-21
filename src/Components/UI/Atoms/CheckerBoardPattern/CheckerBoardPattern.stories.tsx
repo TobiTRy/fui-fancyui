@@ -10,16 +10,13 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component:
-          'The CheckerBoardPattern component is a Gradient pattern that can be used as a background for other components.',
+        component: 'The CheckerBoardPattern component is a Gradient pattern that can be used as a background for other components.',
       },
     },
-
   },
 
   // Define arguments for the story
-  argTypes: {
-  },
+  argTypes: {},
 
   // Add tags to the story
   tags: ['autodocs'],

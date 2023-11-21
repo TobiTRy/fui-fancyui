@@ -25,7 +25,7 @@ const meta = {
       },
       defaultValue: {
         summary: '',
-      }
+      },
     },
     align: {
       description: 'Alignment of the label',
@@ -34,7 +34,7 @@ const meta = {
       },
       defaultValue: {
         summary: 'left',
-      }
+      },
     },
     disabled: {
       description: 'Disable the input',
@@ -43,7 +43,7 @@ const meta = {
       },
       defaultValue: {
         summary: false,
-      }
+      },
     },
     themeType: {
       description: 'Theme type of the input',
@@ -52,16 +52,19 @@ const meta = {
       },
       defaultValue: {
         summary: 'secondary',
-      }
+      },
     },
     layer: {
       description: 'Layer of the input',
       control: {
-        type: 'range', min: 0, max: 10, step: 1,
+        type: 'range',
+        min: 0,
+        max: 10,
+        step: 1,
       },
       defaultValue: {
         summary: 4,
-      }
+      },
     },
     errorMessage: {
       description: 'Error message to be displayed',
@@ -70,7 +73,7 @@ const meta = {
       },
       defaultValue: {
         summary: '',
-      }
+      },
     },
     activeHandler: {
       description: 'Handler for the input',
@@ -85,7 +88,7 @@ const meta = {
       },
       defaultValue: {
         summary: '',
-      }
+      },
     },
     icon: {
       description: 'Icon for the input',
@@ -97,7 +100,7 @@ const meta = {
       },
       defaultValue: {
         summary: false,
-      }
+      },
     },
     value: {
       description: 'Value of the input',
@@ -112,7 +115,7 @@ const meta = {
       },
       defaultValue: {
         summary: 'date',
-      }
+      },
     },
   },
   // Add tags to the story
@@ -138,7 +141,6 @@ export const Primary: Story = {
     icon: <SVGCheckMark />,
     activeHandler: (value: boolean) => console.log(value),
   },
-  
 };
 
 export const WithError: Story = {

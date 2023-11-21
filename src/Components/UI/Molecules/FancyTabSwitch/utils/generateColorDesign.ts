@@ -50,7 +50,6 @@ const generateOutlineStyle = (props: TGenerateOutlineStyle) => {
   `;
 };
 
-
 // --------------------------------------------------------------------------- //
 // -----------  The Main generator function to create a the square  ---------- //
 // --------------------------------------------------------------------------- //

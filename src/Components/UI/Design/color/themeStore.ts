@@ -3,8 +3,6 @@ import { updateThemeColors, uiColors, IUiColorPops, regenerateUiColors } from '.
 import { spacingPx, borderRadius, fontSizes } from '../designSizes';
 import { TTheme } from '../../Interface/TTheme';
 
-
-
 type ThemeState = {
   theme: TTheme;
   isDarkTheme: boolean;

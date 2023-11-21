@@ -1,5 +1,6 @@
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
-import { TLayer } from "@/Components/UI/Interface/TLayer";import { generateNormalStyle } from './utils/generateNormalStyle';
+import { TLayer } from '@/Components/UI/Interface/TLayer';
+import { generateNormalStyle } from './utils/generateNormalStyle';
 import { generateTransparentStyle } from './utils/generateTransparentStyle';
 import { generateOutlineStyle } from './utils/generateOutlineStyle';
 
@@ -24,15 +25,33 @@ export type IGenerateThemeDesignForComponent = IStyledPrefixAndPicker<IGenerateT
 // -------  The main function to generate a style for the components -- ------ //
 // --------------------------------------------------------------------------- //
 export default function generateThemeDesignForComponent(props: IGenerateThemeDesignForComponent) {
-  const { $themeType, theme, $outlined, $layer, $backgroundStrength, $backgroundState, $hoverColor, $textColor, $useSimpleTextColor, $textHover } =
-    props;
+  const {
+    $themeType,
+    theme,
+    $outlined,
+    $layer,
+    $backgroundStrength,
+    $backgroundState,
+    $hoverColor,
+    $textColor,
+    $useSimpleTextColor,
+    $textHover,
+  } = props;
 
   const calcTextColor = $useSimpleTextColor ? ($textColor ? $textColor : getSimpletColorThemeType($themeType)) : $textColor;
 
   if ($themeType === 'transparent') {
     return generateTransparentStyle({ theme, $backgroundState, $hoverColor, $layer, $textColor: calcTextColor, $textHover });
   } else if ($outlined) {
-    return generateOutlineStyle({ $themeType, theme, $backgroundStrength, $backgroundState, $hoverColor, $textColor: calcTextColor, $layer });
+    return generateOutlineStyle({
+      $themeType,
+      theme,
+      $backgroundStrength,
+      $backgroundState,
+      $hoverColor,
+      $textColor: calcTextColor,
+      $layer,
+    });
   } else {
     return generateNormalStyle({ $themeType, theme, $layer, $backgroundState, $textColor: calcTextColor, $hoverColor });
   }

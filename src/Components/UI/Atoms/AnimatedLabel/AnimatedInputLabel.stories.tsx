@@ -1,7 +1,8 @@
 import React, { HTMLAttributes } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { AnimatedInputLabel, IAnimatedInputLabel } from './AnimatedInputLabel';
+import { AnimatedInputLabel } from './AnimatedInputLabel';
+import { IAnimatedInputLabel } from './TAnimatedInputLabel.model';
 import Typography from '../Typography/Typography';
 
 // This is a helper component to show the styled component in the story
@@ -55,11 +56,9 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   args: {
     $moveUp: false,
-    $colorState: 'default', 
+    $colorState: 'default',
     $themeType: 'secondary',
     $layer: 4,
-
   },
-  render: (args) => (<HelperComponent {...args}/>
-  ),
+  render: (args) => <HelperComponent {...args} />,
 };

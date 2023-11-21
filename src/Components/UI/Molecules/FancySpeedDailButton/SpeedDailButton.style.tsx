@@ -55,22 +55,25 @@ export const Ring = styled.div<{ $isOpen: boolean; theme?: TTheme }>`
   width: ${SpeedDailButtonSize + 'px'};
   border-bottom: 1.5px solid ${({ theme }) => theme.colors.accent[0]};
   border-top: 1.5px solid ${({ theme }) => theme.colors.accent[0]};
-  border-left:  solid transparent;
-  border-right:  solid transparent;
+  border-left: solid transparent;
+  border-right: solid transparent;
   border-radius: 50%;
   z-index: 49;
   top: 50%;
   right: 50%;
-  transform: ${({ $isOpen }) => ($isOpen ? 'translate(50%, -50%) scale(1.12) rotate(125deg)' : 'translate(50%, -50%) scale(0.9) rotate(20deg)')};
+  transform: ${({ $isOpen }) =>
+    $isOpen ? 'translate(50%, -50%) scale(1.12) rotate(125deg)' : 'translate(50%, -50%) scale(0.9) rotate(20deg)'};
   opacity: ${({ $isOpen }) => ($isOpen ? 1 : 0)};
-  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  transition:
+    opacity 0.3s ease-in-out,
+    transform 0.3s ease-in-out;
   pointer-events: none;
 `;
 
-export const MenueItemWrapper = styled.div<{theme: TTheme}>`
+export const MenueItemWrapper = styled.div<{ theme: TTheme }>`
   position: absolute;
   left: 50%;
-  bottom: ${({theme}) => theme.spacing.lg};
+  bottom: ${({ theme }) => theme.spacing.lg};
   transform: translateX(-50%);
 `;
 
@@ -81,7 +84,9 @@ export const MenueItemContainer = styled.div<{ $isOpen: boolean; $index: number 
   bottom: ${({ $index }) => `calc(${($index + 1) * 60}px)`};
   opacity: ${({ $isOpen }) => ($isOpen ? 1 : 0)};
   transform: ${({ $isOpen }) => ($isOpen ? 'translateY(0) scale(1) translateX(-50%)' : `translateY(50px) scale(0) translateX(-50%)`)};
-  transition: transform 0.25s ease-in-out, opacity 0.25s ease-in-out;
+  transition:
+    transform 0.25s ease-in-out,
+    opacity 0.25s ease-in-out;
   transition-delay: ${({ $isOpen, $index }) => ($isOpen ? 0.1 * $index : 0.1 * (2 - $index))}s;
   pointer-events: ${({ $isOpen }) => ($isOpen ? 'auto' : 'none')};
   transform: translate(-50%);

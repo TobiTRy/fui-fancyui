@@ -10,8 +10,7 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component:
-          'Dumb-Comonent: It handles the simple Conentent of a component. Like for a Button or Chip etc.',    
+        component: 'Dumb-Comonent: It handles the simple Conentent of a component. Like for a Button or Chip etc.',
       },
     },
   },
@@ -34,7 +33,6 @@ const meta = {
         type: 'select',
       },
     },
-
   },
   tags: ['autodocs'],
 } satisfies Meta<typeof FancyContent>;
@@ -44,16 +42,13 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
-  render: (args) => <FancyContent {...args}>
-    <FancyContent.Icon>
-      <SVGCheckMark />
-    </FancyContent.Icon>
-    <FancyContent.Title>
-      Text
-    </FancyContent.Title>
-  </FancyContent>,
-  args: {
-
-  },
+  render: (args) => (
+    <FancyContent {...args}>
+      <FancyContent.Icon>
+        <SVGCheckMark />
+      </FancyContent.Icon>
+      <FancyContent.Title>Text</FancyContent.Title>
+    </FancyContent>
+  ),
+  args: {},
 };
-

@@ -1,10 +1,10 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 // Styled component for the search bar list
-export const StyledSearchBarList = styled.div<{theme: TTheme}>`
-  border-radius: ${({theme}) => theme.borderRadius.xl};
+export const StyledSearchBarList = styled.div<{ theme: TTheme }>`
+  border-radius: ${({ theme }) => theme.borderRadius.xl};
   z-index: 100;
 `;
 

@@ -1,7 +1,7 @@
 import { css } from 'styled-components';
 
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
-import { TLayer } from "@/Components/UI/Interface/TLayer";
+import { TLayer } from '@/Components/UI/Interface/TLayer';
 import IStyledPrefixAndPicker from '../../../Interface/IStyledPrefixAndPicker.model';
 import { getBackgroundColor } from '../../../Design/color/colorCalculatorForComponet';
 import colorTransparencyCalculator from '../../../Design/color/colorTransparencyCalculator';
@@ -41,8 +41,6 @@ type TGenerateColorDesign = IStyledPrefixAndPicker<IgenerateThemeForCard> & {
 export default function generateThemeForCard(props: TGenerateColorDesign) {
   const { $themeType, theme, $outlined, $layer, $outlinedBackgroundStrength } = props;
   let outlinedStyle, backgroundColor;
-
-
 
   // generate the outlined style if the outlined prop is true else generate only the background color
   if ($outlined) {

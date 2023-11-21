@@ -9,13 +9,11 @@ import { boxShadow } from '../../Design/shadows';
 import getColorsForComponent from '../../Design/color/colorCalculatorForComponet';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 
-
 // the converted $ styling props for the card
 type IStyledCard = IStyledPrefixAndOmiter<StyledCardProps>;
 //the main design of the card
 export const StyledCard = styled.div<IStyledCard & { theme: TTheme }>`
-  ${({ theme, $themeType = 'primary', $layer, $textLayer }) =>
-    getColorsForComponent({ theme, $themeType, $layer, $textLayer })}
+  ${({ theme, $themeType = 'primary', $layer, $textLayer }) => getColorsForComponent({ theme, $themeType, $layer, $textLayer })}
   overflow: hidden;
   width: ${({ $width }) => $width};
   height: ${({ $height }) => $height};

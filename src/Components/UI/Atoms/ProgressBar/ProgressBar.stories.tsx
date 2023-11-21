@@ -45,7 +45,6 @@ const meta = {
         step: 1,
       },
     },
-
   },
 
   // Add tags to the story

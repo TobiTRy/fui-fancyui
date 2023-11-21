@@ -7,7 +7,6 @@ import generateDayNumbers from '../../../HelperFunctions/generateFunctions/gener
 
 // this function creates the options for the dropdown day month and year
 const generateOptions = (type: DateType, dateLimits?: [number, number]) => {
-
   const limitStart = dateLimits ? dateLimits[0] : undefined;
   const limitEnd = dateLimits ? dateLimits[1] : undefined;
 
@@ -39,8 +38,6 @@ const generateOptions = (type: DateType, dateLimits?: [number, number]) => {
     }
   }
 };
-
-
 
 type DateType = 'year' | 'month' | 'day';
 interface IFancyDateDropDown extends IFancyDropDownSelect {

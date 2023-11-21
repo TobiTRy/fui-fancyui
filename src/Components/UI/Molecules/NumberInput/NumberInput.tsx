@@ -33,25 +33,25 @@ export default function NumberInput(props: INumberInput) {
   const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
       e.preventDefault();
-  
+
       const currentValue = Number(inputValue) || 0;
       let newValue = e.key === 'ArrowUp' ? currentValue + step : currentValue - step;
-  
+
       // Round to the number of decimal places in `step`
       const numDecimalPlaces = step.toString().split('.')[1]?.length || 0;
       newValue = Number(newValue.toFixed(numDecimalPlaces));
-  
+
       // Update the fake event object to pass to the onChange handler
       const fakeEvent = {
         target: {
           value: newValue.toString(),
         },
       } as ChangeEvent<HTMLInputElement>;
-  
+
       updateValue(newValue.toString(), fakeEvent);
     }
   };
-  
+
   // Update the value and call the onChange handler
   const updateValue = (newValue: string, e?: ChangeEvent<HTMLInputElement>) => {
     let adjustedValue = newValue;
@@ -64,19 +64,19 @@ export default function NumberInput(props: INumberInput) {
 
     // Update the state
     setInputValue(adjustedValue);
-  
+
     // Call the onChange handler if provided
     if (onChange && e) {
       e.target.value = adjustedValue;
       onChange(e);
     }
   };
-  
+
   return (
     <StyledNumberInput
       id={id}
       type="text"
-      value={inputValue !== null ? inputValue : ""}
+      value={inputValue !== null ? inputValue : ''}
       onChange={handleChange}
       onKeyDown={handleKeyDown}
       onFocus={() => activeHandler && activeHandler(true)}

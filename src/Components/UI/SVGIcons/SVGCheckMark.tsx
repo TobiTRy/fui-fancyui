@@ -4,5 +4,4 @@ const SVGCheckMark = () => (
   </svg>
 );
 
-
 export default SVGCheckMark;

@@ -3,11 +3,11 @@ import { styled, css } from 'styled-components';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 // The Paginator Wrapper that wraps the hole components
-export const StyledPaginator = styled.div<{theme: TTheme}>`
+export const StyledPaginator = styled.div<{ theme: TTheme }>`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  gap: ${({theme}) => theme.spacing.xs};
+  gap: ${({ theme }) => theme.spacing.xs};
   margin: 0 12px;
 `;
 

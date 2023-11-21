@@ -1,5 +1,5 @@
-import { ChangeEvent } from "react";
-import { TLayer } from "@/Components/UI/Interface/TLayer";
+import { ChangeEvent } from 'react';
+import { TLayer } from '@/Components/UI/Interface/TLayer';
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 
 interface IFancyRangeSlider {

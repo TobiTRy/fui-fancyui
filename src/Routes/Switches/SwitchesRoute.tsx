@@ -14,7 +14,7 @@ export default function SwitchesRoute() {
     <DesignWrapper>
       <DesignArea title="Switches">
         <SwitchList indicatorType="underline" whichIndexIsSelected={0}>
-          <FancyBottomBarIcon label="test" icon={Icon} isActive/>
+          <FancyBottomBarIcon label="test" icon={Icon} isActive />
           <FancyBottomBarIcon label="test" icon={Icon} WrapperComponent={<a></a>} />
           <FancyBottomBarIcon label="test" icon={Icon} />
           <FancyBottomBarIcon label="test" icon={Icon} />
@@ -22,7 +22,7 @@ export default function SwitchesRoute() {
       </DesignArea>
       <DesignArea title="Switches">
         <SwitchList indicatorType="underline" $direction="vertical">
-          <FancyBottomBarIcon label="test" icon={Icon}/>
+          <FancyBottomBarIcon label="test" icon={Icon} />
           <FancyBottomBarIcon label="test" icon={Icon} />
           <FancyBottomBarIcon label="test" icon={Icon} />
           <FancyBottomBarIcon label="test" icon={Icon} />

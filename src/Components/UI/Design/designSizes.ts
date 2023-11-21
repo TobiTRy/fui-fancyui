@@ -5,7 +5,7 @@ export const spacingPx = {
   md: 12 + 'px',
   lg: 16 + 'px',
   xl: 24 + 'px',
-  xxl: 32+ 'px',
+  xxl: 32 + 'px',
 };
 
 export const fontSize = {
@@ -65,8 +65,3 @@ export const borderRadius = {
   xxxl: '48px',
   complete: '50px',
 };
-
-
-
-
-

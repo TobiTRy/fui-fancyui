@@ -16,8 +16,7 @@ const meta = {
     },
   },
   // Define arguments for the story
-  argTypes: {
-  },
+  argTypes: {},
 
   // Add tags to the story
   tags: ['autodocs'],

@@ -3,7 +3,7 @@ import { css, styled } from 'styled-components';
 import { IRange } from './DateNumberAtom';
 import { disabledStyle } from '../../HelperFunctions/designFunctions/disableStyle';
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
-import { TLayer } from "@/Components/UI/Interface/TLayer";
+import { TLayer } from '@/Components/UI/Interface/TLayer';
 import { getTextColor } from '../../Design/color/colorCalculatorForComponet';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 
@@ -22,7 +22,7 @@ export const StyledDay = styled.button<IStyledDay & { theme: TTheme }>`
   box-sizing: border-box;
   justify-content: center;
   align-items: center;
-  border-radius: ${({theme}) => theme.borderRadius.complete};
+  border-radius: ${({ theme }) => theme.borderRadius.complete};
   color: ${({ $isCurrentDay, theme, $themeType = 'secondary', $layer }) =>
     $isCurrentDay ? theme.colors.accent[0] : getTextColor({ $themeType, $textLayer: $layer, theme })};
   border: ${({ $selected, theme }) => ($selected ? `1px solid ${theme.colors.accent[0]}` : `none`)};

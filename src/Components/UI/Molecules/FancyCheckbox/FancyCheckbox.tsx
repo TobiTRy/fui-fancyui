@@ -10,9 +10,9 @@ import themeStore from '../../Design/color/themeStore';
 // -------------------- A simple Checkbox with a Label ----------------------- //
 // --------------------------------------------------------------------------- //
 export default function FancyCheckbox(props: IFancyCheckboxProps) {
-  const { label, onChange, defaultChecked, align, alignCheckbox, description, ...rest } = {...defaultProps, ...props };
+  const { label, onChange, defaultChecked, align, alignCheckbox, description, ...rest } = { ...defaultProps, ...props };
   const theme = themeStore.getState().theme;
-  
+
   const id = useId();
   const pickedId = props.id ? props.id : id;
 

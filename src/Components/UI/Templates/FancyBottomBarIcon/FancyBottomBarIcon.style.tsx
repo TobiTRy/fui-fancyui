@@ -1,6 +1,5 @@
 import { styled } from 'styled-components';
 
-
 // Define the styled component for the item wrapper
 export const ItemWrapper = styled.div`
   flex: 1 0 64px;

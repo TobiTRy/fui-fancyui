@@ -16,7 +16,6 @@ const FancyLiItem = styled.li<StyledFancyLi>`
   padding: ${({ $size }) => $size && spacingPx[$size]};
 `;
 
-
 interface FancyLIProps {
   aligned?: 'left' | 'center' | 'right';
   children?: React.ReactNode;
@@ -26,7 +25,7 @@ interface FancyLIProps {
 // ------------- The fancy LI Item that can dynamicly adjusted --------------- //
 // --------------------------------------------------------------------------- //
 export default function FancyLI(props: FancyLIProps) {
-  const { children, size, aligned } = {...defaultProps, ...props};
+  const { children, size, aligned } = { ...defaultProps, ...props };
 
   return (
     <FancyLiItem $size={size} $aligned={aligned}>
@@ -35,7 +34,7 @@ export default function FancyLI(props: FancyLIProps) {
   );
 }
 
-const defaultProps:FancyLIProps = {
+const defaultProps: FancyLIProps = {
   size: 'md',
   aligned: 'left',
 };

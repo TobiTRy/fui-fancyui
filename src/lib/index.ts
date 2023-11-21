@@ -42,8 +42,6 @@ export { default as AnimatedInputLabel } from '@/Components/UI/Atoms/AnimatedLab
 export { default as FancyBar } from '@/Components/UI/Atoms/FancyBox/FancyBox';
 export { default as ActionWrapper } from '@/Components/UI/Atoms/ActionWrapper/ActionWrapper';
 
-
-
 // ---------- Molecules ------- //
 export { default as DateInput } from '@/Components/UI/Molecules/DateInput/DateInput';
 export { default as DateNumberWithStatus } from '@/Components/UI/Molecules/DateNumberWithStatus/DateNumberWithStatus';

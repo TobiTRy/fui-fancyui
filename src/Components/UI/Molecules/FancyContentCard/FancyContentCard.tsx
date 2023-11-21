@@ -19,9 +19,7 @@ const ContentWrapper = styled.div`
   text-align: left;
 `;
 
-const ImageWrapper = styled.div`
-
-`;
+const ImageWrapper = styled.div``;
 
 const InnerCard = styled.div`
   display: flex;

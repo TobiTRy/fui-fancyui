@@ -52,7 +52,10 @@ const meta = {
     layer: {
       description: 'The layer of the modal.',
       control: {
-        type: 'range', min: 0, max: 10, step: 1, 
+        type: 'range',
+        min: 0,
+        max: 10,
+        step: 1,
       },
       defaultValue: {
         summary: 0,

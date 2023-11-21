@@ -10,8 +10,7 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component:
-          'A FancyImage component is a styled image component that can be used to display images in a fancy way.',
+        component: 'A FancyImage component is a styled image component that can be used to display images in a fancy way.',
       },
     },
   },
@@ -30,7 +29,6 @@ const meta = {
     link: {
       control: { type: 'text' },
     },
-
   },
 
   // Add tags to the story
@@ -51,7 +49,6 @@ export const Primary: Story = {
     alt: 'Fannncy',
     darken: false,
     link: 'https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg',
-
   },
   parameters: {
     docs: {

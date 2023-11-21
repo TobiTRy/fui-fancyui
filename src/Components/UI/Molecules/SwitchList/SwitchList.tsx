@@ -4,7 +4,6 @@ import { CSSProp } from 'styled-components';
 import SwitchActiveIndicator, { IActiveSwitchIndicator } from '../../Atoms/SwitchActiveIndicator/SwitchActiveIndicator';
 import { ItemWrapper, StyledList } from './SwitchList.style';
 
-
 type TSwitchActiveIndicator = Omit<IActiveSwitchIndicator, '$itemNumber'>;
 
 interface IBottomBarListProps {
@@ -15,14 +14,14 @@ interface IBottomBarListProps {
   externalStyle?: CSSProp;
 }
 
-interface IKey  {
+interface IKey {
   $uniquekey: string;
-} 
+}
 // --------------------------------------------------------------------------- //
 // -------------- The Switch List Indicates wich item is active -------------- //
 // --------------------------------------------------------------------------- //
 export default function SwitchList(props: IBottomBarListProps & TSwitchActiveIndicator) {
-  const { children, whichIndexIsSelected, activeItemHandler, indicatorType, externalStyle, $direction, ...indicatorProps  } = props;
+  const { children, whichIndexIsSelected, activeItemHandler, indicatorType, externalStyle, $direction, ...indicatorProps } = props;
   const [currentActive, setCurrentActive] = useState('');
 
   const activeHandler = (uniqueKey: string) => {
@@ -42,16 +41,23 @@ export default function SwitchList(props: IBottomBarListProps & TSwitchActiveInd
           const uniqueKey = `${index + 1}`;
 
           // Clone the child and add the uniqueKey prop
-          const clonedChild = React.cloneElement(child as React.ReactElement<IKey>, { '$uniquekey': uniqueKey });
+          const clonedChild = React.cloneElement(child as React.ReactElement<IKey>, { $uniquekey: uniqueKey });
 
           return (
             <ItemWrapper key={uniqueKey} onClick={() => activeHandler(uniqueKey)}>
               {clonedChild}
-              {index === 0 && <SwitchActiveIndicator $direction={$direction} $itemNumber={Number(currentActive)} $type={indicatorType ?? 'underline'} {...indicatorProps} />}
+              {index === 0 && (
+                <SwitchActiveIndicator
+                  $direction={$direction}
+                  $itemNumber={Number(currentActive)}
+                  $type={indicatorType ?? 'underline'}
+                  {...indicatorProps}
+                />
+              )}
             </ItemWrapper>
           );
         }
-        return child; 
+        return child;
       })}
     </StyledList>
   );

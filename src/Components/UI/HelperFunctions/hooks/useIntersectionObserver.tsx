@@ -9,9 +9,9 @@ const useIntersectionObserver = (): [MutableRefObject<HTMLDivElement | null>, bo
     if (observer.current) {
       observer.current.disconnect();
     }
-    
+
     observer.current = new IntersectionObserver(
-      ([entry]) => setIsInView(entry.isIntersecting),
+      ([entry]) => setIsInView(entry.isIntersecting)
       //{ threshold: 1 }
     );
 
@@ -24,7 +24,7 @@ const useIntersectionObserver = (): [MutableRefObject<HTMLDivElement | null>, bo
         observer.current.disconnect();
       }
     };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ref.current]);
 
   return [ref, isInView];

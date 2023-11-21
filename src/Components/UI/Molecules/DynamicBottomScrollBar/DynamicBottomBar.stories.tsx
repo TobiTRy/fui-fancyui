@@ -12,8 +12,7 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component:
-          'Dumb-Comonent: This component renders only a wrapper that handles a scrollable bottom bar without style',
+        component: 'Dumb-Comonent: This component renders only a wrapper that handles a scrollable bottom bar without style',
       },
     },
   },
@@ -35,19 +34,20 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
-  render: (args) => <DynamicBottomScrollBar {...args}/>,
+  render: (args) => <DynamicBottomScrollBar {...args} />,
   args: {
     scrollable: true,
-    children: <>
-      <FancyBottomBarIcon icon={<SVGCheckMark/>} label='Hiii'/>
-      <FancyBottomBarIcon icon={<SVGCheckMark/>} label='Hiii'/>
-      <FancyBottomBarIcon icon={<SVGCheckMark/>} label='Hiii'/>
-      <FancyBottomBarIcon icon={<SVGCheckMark/>} label='Hiii'/>
-      <FancyBottomBarIcon icon={<SVGCheckMark/>} label='Hiii'/>
-      <FancyBottomBarIcon icon={<SVGCheckMark/>} label='Hiii'/>
-      <FancyBottomBarIcon icon={<SVGCheckMark/>} label='Hiii'/>
-      <FancyBottomBarIcon icon={<SVGCheckMark/>} label='Hiii'/>
-    </>
+    children: (
+      <>
+        <FancyBottomBarIcon icon={<SVGCheckMark />} label="Hiii" />
+        <FancyBottomBarIcon icon={<SVGCheckMark />} label="Hiii" />
+        <FancyBottomBarIcon icon={<SVGCheckMark />} label="Hiii" />
+        <FancyBottomBarIcon icon={<SVGCheckMark />} label="Hiii" />
+        <FancyBottomBarIcon icon={<SVGCheckMark />} label="Hiii" />
+        <FancyBottomBarIcon icon={<SVGCheckMark />} label="Hiii" />
+        <FancyBottomBarIcon icon={<SVGCheckMark />} label="Hiii" />
+        <FancyBottomBarIcon icon={<SVGCheckMark />} label="Hiii" />
+      </>
+    ),
   },
-  
 };

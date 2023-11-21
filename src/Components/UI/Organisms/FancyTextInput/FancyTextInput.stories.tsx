@@ -6,7 +6,6 @@ import FancyTextInput from './FancyTextInput';
 
 import SVGCheckMark from '../../SVGIcons/SVGCheckMark';
 
-
 // Define metadata for the story
 const meta = {
   component: FancyTextInput,
@@ -94,7 +93,5 @@ export const Primary: Story = {
     label: 'Label',
     errorMessage: '',
     icon: <SVGCheckMark />,
-
-
   },
 };

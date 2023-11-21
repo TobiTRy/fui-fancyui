@@ -60,8 +60,15 @@ export default function ExperimentalRoute() {
       <DesignArea title="Test">
         <div style={{ display: 'flex' }}>
           <FancyChip label="Hhaa" textColor="secondary" />
-          <FancyBottomBarIcon label="test" icon={Icon}  />
-          <FancyBottomBarIcon label="testREF" icon={Icon} type='button' onClick={() => {console.log('')}} />
+          <FancyBottomBarIcon label="test" icon={Icon} />
+          <FancyBottomBarIcon
+            label="testREF"
+            icon={Icon}
+            type="button"
+            onClick={() => {
+              console.log('');
+            }}
+          />
           <FancyCard shadow>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}></div>
             <FancyCard layer={1}>
@@ -100,10 +107,9 @@ export default function ExperimentalRoute() {
         </div>
       </DesignArea>
       <DesignArea title="Test">
+        <FancyBottomBarIcon icon={svg} label="Test" />
 
-        <FancyBottomBarIcon icon={svg} label='Test' />
-    
-        <BottomBarIcon icon={svg} label='hiii' />
+        <BottomBarIcon icon={svg} label="hiii" />
       </DesignArea>
     </DesignWrapper>
   );

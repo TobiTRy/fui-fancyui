@@ -10,8 +10,7 @@ const meta = {
     layout: 'centered',
     docs: {
       description: {
-        component:
-          'Smart-Comonent: a Button that opens a SpeedDialMenue with a list of Buttons.',    
+        component: 'Smart-Comonent: a Button that opens a SpeedDialMenue with a list of Buttons.',
       },
     },
   },
@@ -20,7 +19,6 @@ const meta = {
       description: 'The alignment of the label',
       control: { type: 'radio' },
     },
-
   },
   tags: ['autodocs'],
 } satisfies Meta<typeof FancySpeedDialButton>;
@@ -30,7 +28,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
-  render: (args) => <FancySpeedDialButton {...args}/>,
+  render: (args) => <FancySpeedDialButton {...args} />,
   args: {
     items: [
       {
@@ -44,6 +42,5 @@ export const Primary: Story = {
     ],
     hideLabel: false,
     labelAlign: 'right',
-  }
+  },
 };
-

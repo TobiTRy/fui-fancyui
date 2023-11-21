@@ -1,7 +1,7 @@
 type StringKeys<T> = Extract<keyof T, string>;
 
 type RequiredKeys<T> = {
-  [K in StringKeys<T>]: undefined extends T[K] ? never : K
+  [K in StringKeys<T>]: undefined extends T[K] ? never : K;
 }[StringKeys<T>];
 
 type OptionalKeys<T> = Exclude<StringKeys<T>, RequiredKeys<T>>;
@@ -12,13 +12,11 @@ type OptionalKeysAfterOmit<T, U extends StringKeys<T>> = Exclude<OptionalKeys<T>
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type IStyledPrefixAndOmitter<T extends Record<string, any>, U extends StringKeys<T> = never> = {
-    // Required properties after omitting
-    [P in RequiredKeysAfterOmit<T, U> as `$${P}`]: T[P];
+  // Required properties after omitting
+  [P in RequiredKeysAfterOmit<T, U> as `$${P}`]: T[P];
 } & {
-    // Optional properties after omitting
-    [P in OptionalKeysAfterOmit<T, U> as `$${P}`]? : T[P];
+  // Optional properties after omitting
+  [P in OptionalKeysAfterOmit<T, U> as `$${P}`]?: T[P];
 };
-
-
 
 export default IStyledPrefixAndOmitter;

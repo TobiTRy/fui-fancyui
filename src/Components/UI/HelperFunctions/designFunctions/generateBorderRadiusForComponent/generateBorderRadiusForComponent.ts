@@ -26,7 +26,6 @@ export const generateBorderRadiusForComponent = (size?: 'sm' | 'md' | 'lg', roun
         border-radius: ${borderRadius.lg};
       `;
     default:
-      return css`
-      `;
+      return css``;
   }
 };

@@ -4,7 +4,6 @@ import { Meta, StoryObj } from '@storybook/react';
 // Import the component to be tested
 import FancySearchBar from './FancySearchBar';
 
-
 import { FancyLoadingSpinner } from '../../Atoms/FancyLoadingSpinner';
 
 // Define metadata for the story
@@ -52,14 +51,15 @@ const meta = {
     layer: {
       description: 'The layer of the input',
       control: {
-        type: 'range', min: 1, max: 10, step: 1,
+        type: 'range',
+        min: 1,
+        max: 10,
+        step: 1,
       },
       defaultValue: {
         summary: '4',
       },
     },
-
-
   },
   // Add tags to the story
   tags: ['autodocs'],
@@ -77,7 +77,6 @@ export const Primary: Story = {
     handlerSearchValue: (value: string) => console.log(value),
     searchListWidth: '100%',
     layer: 2,
-    children: (<FancyLoadingSpinner size='lg'/>),
+    children: <FancyLoadingSpinner size="lg" />,
   },
-  
 };

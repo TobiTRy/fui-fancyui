@@ -10,8 +10,7 @@ const meta = {
     layout: 'centered',
     docs: {
       description: {
-        component:
-          'Only a backdrop for some components with a onclick listener',
+        component: 'Only a backdrop for some components with a onclick listener',
       },
     },
   },
@@ -29,5 +28,5 @@ export const Primary: Story = {
   render: (args) => <BackDrop {...args} />,
   args: {
     isOpen: true,
-  }
+  },
 };

@@ -9,8 +9,7 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component:
-          'Dumb-Comonent: A MiniProfile component is show a small profile with a picture, name and a short description.',    
+        component: 'Dumb-Comonent: A MiniProfile component is show a small profile with a picture, name and a short description.',
       },
     },
   },
@@ -24,7 +23,10 @@ const meta = {
     layer: {
       description: 'The layer of the component',
       control: {
-        type: 'range', min: 0, max: 10, step: 1,
+        type: 'range',
+        min: 0,
+        max: 10,
+        step: 1,
       },
     },
     size: {
@@ -55,7 +57,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
-  render: (args) => <FancyMiniProfile {...args}/>,
+  render: (args) => <FancyMiniProfile {...args} />,
   args: {
     alignText: 'right',
     headingText: 'Hans',
@@ -67,4 +69,3 @@ export const Primary: Story = {
     shadow: true,
   },
 };
-

@@ -40,7 +40,6 @@ const meta = {
       type: { name: 'number' },
       defaultValue: { summary: 3 },
     },
-
   },
   tags: ['autodocs'],
 } satisfies Meta<typeof Paginator>;

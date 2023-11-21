@@ -1,5 +1,4 @@
-import styled from "styled-components";
-
+import styled from 'styled-components';
 
 export const StyledButton = styled.button`
   padding: 0;
@@ -7,7 +6,7 @@ export const StyledButton = styled.button`
   background-color: transparent;
   cursor: pointer;
   width: 100%;
-`
+`;
 
 export const StyledAnchor = styled.a`
   padding: 0;
@@ -16,4 +15,4 @@ export const StyledAnchor = styled.a`
   cursor: pointer;
   width: 100%;
   text-decoration: none;
-`
+`;

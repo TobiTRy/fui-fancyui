@@ -19,5 +19,5 @@ export const languagesEditBarEN = {
     strength: { label: 'Strength' },
     color: { label: 'Color' },
     background: { label: 'Background' },
-  }  
+  },
 };

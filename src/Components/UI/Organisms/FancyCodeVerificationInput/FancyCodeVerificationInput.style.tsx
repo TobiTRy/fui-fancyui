@@ -9,11 +9,11 @@ export const WarpperComponent = styled.div`
   align-items: center;
 `;
 
-export const MessageContainer = styled.div<{theme: TTheme}>`
+export const MessageContainer = styled.div<{ theme: TTheme }>`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: ${({theme}) => theme.spacing.sm};
+  margin-top: ${({ theme }) => theme.spacing.sm};
 `;
 
 export const Message = styled.div<{ $isError?: boolean; theme: TTheme }>`
