@@ -101,6 +101,7 @@ export { default as FancyDateInput } from '@/Components/UI/Organisms/FancyDateIn
 export { default as FancyDateDropDown } from '@/Components/UI/Templates/Inputs/FancyDateDropDown/FancyDateDropDown';
 export { default as FancyToastMessage } from '@/Components/UI/Organisms/FancyToastMessage/FancyToastMessage';
 export { default as FancyEditBar } from '@/Components/UI/Organisms/FancyEditBar/FancyEditBar';
+export { default as FancyRadio } from '@/Components/UI/Organisms/FancyRadio/FancyRadio';
 
 // ---------- Templates ------- //
 export { default as FancyInfoCard } from '@/Components/UI/Templates/FancyInfoCard/FancyInfoCard';
