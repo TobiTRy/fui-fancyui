@@ -104,7 +104,7 @@ export default function FancyChipList(props: ChipListProps) {
             textColor="secondary"
             contentEditable={focusedChip === chip.id}
             tabIndex={0}
-            layer={Math.min(layer ?? 1 + 2, 10) as TLayer}
+            layer={Math.min((layer ?? 1) + 2, 10) as TLayer}
             onDelete={deleteChip(chip.id)}
             outlined={outlined}
             onFocus={hanleChipFocus(chip.id)}
