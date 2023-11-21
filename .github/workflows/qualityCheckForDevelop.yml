@@ -1,6 +1,8 @@
-name: Code Quality Check into Branch
+name: Code Quality Check into Develop Branch
 
-on: [push, pull_request]
+on:
+  pull_request:
+    branches: [develop]
 
 jobs:
   lint-and-format:
@@ -10,9 +12,9 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Set up Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v1
         with:
-          node-version: '20' # Specify your Node.js version here
+          node-version: '20'
 
       - name: Install Dependencies
         run: npm install
