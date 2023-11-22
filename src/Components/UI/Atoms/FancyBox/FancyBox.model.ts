@@ -2,7 +2,7 @@ import { CSSProp } from 'styled-components';
 import { TLayer } from '@/Components/UI/Interface/TLayer';
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 
-type HTMLDivElementProps = Omit<React.HTMLAttributes<HTMLDivElement>, 'style'>;
+type HTMLDivElementProps = Omit<React.AllHTMLAttributes<HTMLDivElement>, 'style'>;
 interface IFancyBox {
   outlined?: boolean;
   layer?: TLayer;
