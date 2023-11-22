@@ -1,4 +1,5 @@
 import React, { useId } from 'react';
+import { CSSProp } from 'styled-components';
 
 import themeStore from '../../Design/color/themeStore';
 import { TAlign, TAlignCheckbox } from '../FancyCheckbox/FancyCheckbox.model';
@@ -15,16 +16,17 @@ interface IFancySelectWrapperProps {
   description?: string;
   id?: string;
   inputElement?: React.ReactNode;
+  externalStyle?: CSSProp;
 }
 export default function FancySelectWrapper(props: IFancySelectWrapperProps) {
-  const { label, align, alignInput, description, inputElement } = { ...defaultProps, ...props };
+  const { label, align, alignInput, description, inputElement, externalStyle } = { ...defaultProps, ...props };
   const getTheme = themeStore((state) => state.theme);
 
   const id = useId();
   const pickedId = props.id ? props.id : id;
 
   return (
-    <Wrapper $align={align}>
+    <Wrapper $align={align} $externalStyle={externalStyle}>
       {/* The label and description */}
       {(label || description) && (
         <LabelWrapper $align={alignInput} htmlFor={pickedId}>
