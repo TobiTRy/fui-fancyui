@@ -1,10 +1,10 @@
-import { css, styled } from 'styled-components';
+import { CSSProp, css, styled } from 'styled-components';
 
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 import { TAlign, TAlignCheckbox } from '../FancyCheckbox/FancyCheckbox.model';
 
 // wraps the whole component and handles the alignment
-export const Wrapper = styled.div<{ $align?: TAlign }>`
+export const Wrapper = styled.div<{ $align?: TAlign; $externalStyle: CSSProp }>`
   position: relative;
   display: flex;
   justify-content: ${({ $align }) => {
@@ -17,6 +17,7 @@ export const Wrapper = styled.div<{ $align?: TAlign }>`
         return 'center';
     }
   }};
+  ${({ $externalStyle }) => $externalStyle}
 `;
 
 // this wraps the label and the description
