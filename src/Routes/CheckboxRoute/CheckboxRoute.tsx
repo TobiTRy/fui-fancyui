@@ -10,10 +10,10 @@ import CustomRadio from '@/Components/UI/Atoms/RawRadio/RawRadio';
 import FancyRadioList from '@/Components/UI/Templates/FancyRadioList/FancyRadioList';
 
 const itemList = [
-  { title: 'Test1', description: 'Test1', key: '1' },
-  { title: 'Test2', description: 'Test2', key: '2' },
-  { title: 'Test3', description: 'Test3', key: '3' },
-  { title: 'Test4', description: 'Test4', key: '4' },
+  { title: 'Test1', description: 'Test1', itemKey: '1' },
+  { title: 'Test2', description: 'Test2', itemKey: '2' },
+  { title: 'Test3', description: 'Test3', itemKey: '3' },
+  { title: 'Test4', description: 'Test4', itemKey: '4' },
 ];
 
 export default function CheckboxRoute() {
