@@ -5,13 +5,14 @@ import RawRadio from '@/Components/UI/Atoms/RawRadio/RawRadio';
 
 type TFancyRadioProps = Omit<React.ComponentProps<typeof FancySelectWrapper>, 'inputElement'> & React.ComponentProps<typeof RawRadio>;
 export default function FancyRadio(props: TFancyRadioProps) {
-  const { align, alignInput, label, description, ...inputProps } = props;
+  const { align, alignInput, label, description, externalStyle, ...inputProps } = props;
   const id = useId();
 
   const pickedId = props.id ? props.id : id;
 
   return (
     <FancySelectWrapper
+      externalStyle={externalStyle}
       id={pickedId}
       label={label}
       description={description}
