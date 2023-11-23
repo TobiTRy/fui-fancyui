@@ -4,7 +4,8 @@ import FancySelectWrapper from '@/Components/UI/Molecules/FancySelectWrapper/Fan
 import RawRadio from '@/Components/UI/Atoms/RawRadio/RawRadio';
 
 type TFancyRadioProps = Omit<React.ComponentProps<typeof FancySelectWrapper>, 'inputElement'> & React.ComponentProps<typeof RawRadio>;
-export default function FancyRadio(props: TFancyRadioProps) {
+
+const FancyRadio = React.forwardRef<HTMLDivElement, TFancyRadioProps>((props, ref) => {
   const { align, alignInput, label, description, externalStyle, ...inputProps } = props;
   const id = useId();
 
@@ -21,4 +22,6 @@ export default function FancyRadio(props: TFancyRadioProps) {
       inputElement={<RawRadio {...inputProps} id={pickedId} />}
     />
   );
-}
+});
+
+export default FancyRadio;
