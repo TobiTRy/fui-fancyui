@@ -10,12 +10,12 @@ type TRawRadioProp = {
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 } & React.InputHTMLAttributes<HTMLInputElement>;
 export default function RawRadio(props: TRawRadioProp) {
-  const { id, name, value, checked, onChange, ...inputProps } = props;
+  const { id, name, value, checked, onChange, tabIndex, ...inputProps } = props;
 
   return (
-    <RadioWrapper>
-      <StyledRadio checked={checked} />
-      <HiddenRadio id={id} name={name} value={value} checked={checked} onChange={onChange} tabIndex={0} {...inputProps} />
+    <RadioWrapper tabIndex={tabIndex} role="radio">
+      <StyledRadio checked={checked} aria-hidden={true} />
+      <HiddenRadio id={id} name={name} value={value} checked={checked} onChange={onChange} {...inputProps} />
     </RadioWrapper>
   );
 }
