@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 
 import FancyRadio from '@/Components/UI/Organisms/FancyRadio/FancyRadio';
 import FancyListBox from '../../Organisms/FancyListBox/FancyListBox';
@@ -19,6 +19,7 @@ interface FancyRadioListProps {
 export default function FancyRadioList(props: FancyRadioListProps) {
   const { items, name, handler } = props;
   const [currentItem, setCurrentSelect] = useState('');
+  const buttonRefs = useRef<React.RefObject<HTMLDivElement>[]>(items.map(() => React.createRef<HTMLDivElement>()));
 
   // Define the function to handle the selection of a tab
   const radioChangeHandler = (position: string) => {
@@ -42,31 +43,32 @@ export default function FancyRadioList(props: FancyRadioListProps) {
     if (newIndex !== -1) {
       const newPosition = items[newIndex].itemKey;
       radioChangeHandler(newPosition);
+      buttonRefs.current[newIndex].current?.focus();
     }
   };
   return (
-    <FancyListBox>
-      {items.map((item, index) => {
-        console.log(item);
-        return (
-          <>
-            <FancyListBox.Item key={index}>
-              <FancyRadio
-                name={name}
-                id={item.itemKey}
-                value={item.title}
-                label={item.title}
-                description={item.description}
-                checked={currentItem === item.itemKey}
-                onChange={() => radioChangeHandler(item.itemKey)}
-                externalStyle={{ width: '100%' }}
-                onKeyDown={(event) => handleKeyDown(event, item.itemKey)}
-              />
-            </FancyListBox.Item>
-            {items.length - 1 !== index && <FancyLine themeType="primary" layer={3} />}
-          </>
-        );
-      })}
+    <FancyListBox role="radiogroup">
+      {items.map((item, index) => (
+        <>
+          <FancyListBox.Item key={index}>
+            <FancyRadio
+              name={name}
+              id={item.itemKey}
+              value={item.title}
+              ref={buttonRefs.current[index]}
+              label={item.title}
+              description={item.description}
+              checked={currentItem === item.itemKey}
+              onChange={() => radioChangeHandler(item.itemKey)}
+              externalStyle={{ width: '100%' }}
+              onKeyDown={(event) => handleKeyDown(event, item.itemKey)}
+              aria-checked={item.itemKey === currentItem}
+              tabIndex={item.itemKey === currentItem ? 0 : -1}
+            />
+          </FancyListBox.Item>
+          {items.length - 1 !== index && <FancyLine themeType="primary" layer={3} />}
+        </>
+      ))}
     </FancyListBox>
   );
 }
