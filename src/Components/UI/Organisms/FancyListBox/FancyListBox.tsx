@@ -4,12 +4,12 @@ import { FancyBox } from '@/Components/UI/Atoms/FancyBox';
 import FancyListBoxItem from './FancyListBoxItem';
 import { FancyBoxStyle } from './FancyListBox.style';
 
-interface FancyListBoxProps {
+type FancyListBoxProps = {
   children?: React.ReactNode;
-}
-export default function FancyListBox({ children }: FancyListBoxProps) {
+} & React.HTMLAttributes<HTMLDivElement>;
+export default function FancyListBox({ children, ...htmlProps }: FancyListBoxProps) {
   return (
-    <FancyBox as="ul" externalStyle={FancyBoxStyle}>
+    <FancyBox as="ul" externalStyle={FancyBoxStyle} {...htmlProps}>
       {children}
     </FancyBox>
   );
