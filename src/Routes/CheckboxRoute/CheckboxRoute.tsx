@@ -73,7 +73,7 @@ export default function CheckboxRoute() {
             <RawRadio id="radio1" name="customRadio" value="option1" checked={selectedValue === 'option1'} onChange={handleChange} />
             <CustomRadio id="radio2" name="customRadio" value="option2" checked={selectedValue === 'option2'} onChange={handleChange} />
           </div>
-          <FancyRadioList name="hii" items={itemList} />
+          <FancyRadioList label="YAAAA MOOIIIN" name="hii" items={itemList} />
         </DesignArea>
       </DesignWrapper>
     </FancyCard>

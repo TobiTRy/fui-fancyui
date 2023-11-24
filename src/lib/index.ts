@@ -37,7 +37,7 @@ export { default as FancyLoadingBar } from '@/Components/UI/Atoms/FancyLoadingBa
 export { default as ProgressBar } from '@/Components/UI/Atoms/ProgressBar/ProgressBar';
 export { default as FancyProfilePicture } from '@/Components/UI/Atoms/FancyProfilePicture/FancyProfilePicture';
 export { default as RawCheckbox } from '@/Components/UI/Atoms/RawCheckbox/RawCheckbox';
-export { default as Fieldset } from '@/Components/UI/Atoms/Fieldset/Fieldset';
+export { default as Fieldset } from '@/Components/UI/Molecules/Fieldset/Fieldset';
 export { default as AnimatedInputLabel } from '@/Components/UI/Atoms/AnimatedLabel/AnimatedInputLabel';
 export { default as FancyBar } from '@/Components/UI/Atoms/FancyBox/FancyBox';
 export { default as ActionWrapper } from '@/Components/UI/Atoms/ActionWrapper/ActionWrapper';

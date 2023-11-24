@@ -4,6 +4,7 @@ import { disabledStyle } from '../../HelperFunctions/designFunctions/disableStyl
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 export const StyledFieldset = styled.fieldset<{ $disabled?: boolean }>`
+  width: 100%;
   border: none;
   padding: 0;
   margin: 0;
@@ -11,5 +12,5 @@ export const StyledFieldset = styled.fieldset<{ $disabled?: boolean }>`
 `;
 
 export const StyledLegend = styled.legend<{ alignLabel?: TalignLabel; theme: TTheme }>`
-  margin: 0 ${({ alignLabel }) => (alignLabel === 'center' ? 'auto' : '0')} ${({ theme }) => theme.spacing.xxs};
+  margin: 0 ${({ alignLabel }) => (alignLabel === 'center' ? 'auto' : '0')} ${({ theme }) => theme.spacing.xs};
 `;
