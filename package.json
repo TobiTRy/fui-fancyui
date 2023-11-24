@@ -19,11 +19,11 @@
   },
   "lint-staged": {
     "*.ts": [
-      "eslint --fix",
+      "eslint src --ext ts,tsx --report-unused-disable-directives --fix --max-warnings=-1",
       "prettier --write"
     ],
     "*.tsx": [
-      "eslint --fix",
+      "eslint src --ext ts,tsx --report-unused-disable-directives --fix --max-warnings=-1",
       "prettier --write"
     ]
   },
