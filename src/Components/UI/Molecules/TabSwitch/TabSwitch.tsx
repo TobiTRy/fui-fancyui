@@ -22,7 +22,6 @@ export default function TabSwitch(props: ITabSwitchProps) {
     rounded,
     direction,
     outlined,
-    id,
     currentSelect,
     handler,
     iconAlign,
