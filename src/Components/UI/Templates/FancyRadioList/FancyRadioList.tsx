@@ -1,8 +1,9 @@
 import React, { useRef, useState } from 'react';
 
 import FancyRadio from '@/Components/UI/Organisms/FancyRadio/FancyRadio';
-import FancyListBox from '../../Organisms/FancyListBox/FancyListBox';
-import { FancyLine } from '../../Atoms/FancyLine';
+import { FancyListBox } from '@/Components/UI/Organisms/FancyListBox';
+import { FancyLine } from '@/Components/UI/Atoms/FancyLine';
+import { Fieldset } from '@/Components/UI/Molecules/Fieldset';
 
 interface Item {
   title: string;
@@ -10,14 +11,14 @@ interface Item {
   itemKey: string;
 }
 
-interface FancyRadioListProps {
+type FancyRadioListProps = {
   items: Item[];
   name: string;
   handler?: (itemKey: string) => void;
-}
+} & Omit<React.ComponentProps<typeof Fieldset>, 'children'>;
 
 export default function FancyRadioList(props: FancyRadioListProps) {
-  const { items, name, handler } = props;
+  const { items, name, handler, ...fieldSetProps } = props;
   const [currentItem, setCurrentSelect] = useState('1');
   const buttonRefs = useRef<React.RefObject<HTMLDivElement>[]>(items.map(() => React.createRef<HTMLDivElement>()));
 
@@ -48,28 +49,30 @@ export default function FancyRadioList(props: FancyRadioListProps) {
     }
   };
   return (
-    <FancyListBox role="radiogroup" tabIndex={0}>
-      {items.map((item, index) => (
-        <React.Fragment key={index}>
-          <FancyListBox.Item>
-            <FancyRadio
-              name={name}
-              id={item.itemKey}
-              value={item.title}
-              ref={buttonRefs.current[index]}
-              label={item.title}
-              description={item.description}
-              checked={currentItem === item.itemKey}
-              onClick={() => radioChangeHandler(item.itemKey)}
-              onKeyDown={(e) => handleKeyDown(e, item.itemKey)}
-              externalStyle={{ width: '100%' }}
-              aria-checked={item.itemKey === currentItem}
-              tabIndex={item.itemKey === currentItem ? 0 : -1}
-            />
-          </FancyListBox.Item>
-          {items.length - 1 !== index && <FancyLine themeType="primary" layer={3} />}
-        </React.Fragment>
-      ))}
-    </FancyListBox>
+    <Fieldset {...fieldSetProps}>
+      <FancyListBox role="radiogroup" tabIndex={0}>
+        {items.map((item, index) => (
+          <React.Fragment key={index}>
+            <FancyListBox.Item>
+              <FancyRadio
+                name={name}
+                id={item.itemKey}
+                value={item.title}
+                ref={buttonRefs.current[index]}
+                label={item.title}
+                description={item.description}
+                checked={currentItem === item.itemKey}
+                onClick={() => radioChangeHandler(item.itemKey)}
+                onKeyDown={(e) => handleKeyDown(e, item.itemKey)}
+                externalStyle={{ width: '100%' }}
+                aria-checked={item.itemKey === currentItem}
+                tabIndex={item.itemKey === currentItem ? 0 : -1}
+              />
+            </FancyListBox.Item>
+            {items.length - 1 !== index && <FancyLine themeType="primary" layer={3} />}
+          </React.Fragment>
+        ))}
+      </FancyListBox>
+    </Fieldset>
   );
 }
