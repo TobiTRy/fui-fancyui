@@ -18,7 +18,7 @@ interface FancyRadioListProps {
 
 export default function FancyRadioList(props: FancyRadioListProps) {
   const { items, name, handler } = props;
-  const [currentItem, setCurrentSelect] = useState('');
+  const [currentItem, setCurrentSelect] = useState('1');
   const buttonRefs = useRef<React.RefObject<HTMLDivElement>[]>(items.map(() => React.createRef<HTMLDivElement>()));
 
   // Define the function to handle the selection of a tab
@@ -30,8 +30,9 @@ export default function FancyRadioList(props: FancyRadioListProps) {
   };
 
   // This handles the navigation with the keyboard
-  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>, itemKey: string) => {
+  const handleKeyDown = (event: React.KeyboardEvent, itemKey: string) => {
     const currentIndex = items.findIndex((item) => item.itemKey === itemKey);
+
     let newIndex = -1;
 
     if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
@@ -47,10 +48,10 @@ export default function FancyRadioList(props: FancyRadioListProps) {
     }
   };
   return (
-    <FancyListBox role="radiogroup">
+    <FancyListBox role="radiogroup" tabIndex={0}>
       {items.map((item, index) => (
-        <>
-          <FancyListBox.Item key={index}>
+        <React.Fragment key={index}>
+          <FancyListBox.Item>
             <FancyRadio
               name={name}
               id={item.itemKey}
@@ -59,15 +60,15 @@ export default function FancyRadioList(props: FancyRadioListProps) {
               label={item.title}
               description={item.description}
               checked={currentItem === item.itemKey}
-              onChange={() => radioChangeHandler(item.itemKey)}
+              onClick={() => radioChangeHandler(item.itemKey)}
+              onKeyDown={(e) => handleKeyDown(e, item.itemKey)}
               externalStyle={{ width: '100%' }}
-              onKeyDown={(event) => handleKeyDown(event, item.itemKey)}
               aria-checked={item.itemKey === currentItem}
               tabIndex={item.itemKey === currentItem ? 0 : -1}
             />
           </FancyListBox.Item>
           {items.length - 1 !== index && <FancyLine themeType="primary" layer={3} />}
-        </>
+        </React.Fragment>
       ))}
     </FancyListBox>
   );
