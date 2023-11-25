@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Fieldset } from '@/Components/UI/Molecules/Fieldset';
-import { FancyListBox } from '@/Components/UI/Organisms/FancyListBox';
+import { FancyListBox } from '@/Components/UI/Molecules/FancyListBox';
 import { FancyLine } from '@/Components/UI/Atoms/FancyLine';
 
 type TFieldSetProps = React.ComponentProps<typeof Fieldset>;

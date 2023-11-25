@@ -6,7 +6,8 @@ import { FancyBoxStyle } from './FancyListBox.style';
 
 type FancyListBoxProps = {
   children?: React.ReactNode;
-} & React.HTMLAttributes<HTMLDivElement>;
+} & React.HTMLAttributes<HTMLDivElement> &
+  React.ComponentProps<typeof FancyBox>;
 // --------------------------------------------------------------------------- //
 // ---------- The FancyListBox is only a Styled list with items  ------------- //
 // --------------------------------------------------------------------------- //

@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 
 import FancyRadio from '@/Components/UI/Organisms/FancyRadio/FancyRadio';
-import { FancyListBox } from '@/Components/UI/Organisms/FancyListBox';
+import { FancyListBox } from '@/Components/UI/Molecules/FancyListBox';
 import { FancyLine } from '@/Components/UI/Atoms/FancyLine';
 import { Fieldset } from '@/Components/UI/Molecules/Fieldset';
 
