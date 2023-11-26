@@ -41,6 +41,7 @@ export { default as Fieldset } from '@/Components/UI/Molecules/Fieldset/Fieldset
 export { default as AnimatedInputLabel } from '@/Components/UI/Atoms/AnimatedLabel/AnimatedInputLabel';
 export { default as FancyBar } from '@/Components/UI/Atoms/FancyBox/FancyBox';
 export { default as ActionWrapper } from '@/Components/UI/Atoms/ActionWrapper/ActionWrapper';
+export { default as RawRadio } from '@/Components/UI/Atoms/RawRadio/RawRadio';
 
 // ---------- Molecules ------- //
 export { default as DateInput } from '@/Components/UI/Molecules/DateInput/DateInput';
