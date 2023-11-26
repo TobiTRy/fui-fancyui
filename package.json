@@ -12,7 +12,7 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "prepare": "husky install",
-    "lint": "eslint src --ext ts,tsx,mdx --report-unused-disable-directives --fix --max-warnings=-1",
+    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --fix --max-warnings=-1",
     "checkFormat": "prettier --check .",
     "format": "prettier --write .",
     "predeploy": "npm run lint && npm run checkFormat && npm run build"
