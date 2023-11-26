@@ -15,17 +15,10 @@ type TFancyBoxSet = TFieldSetProps & TFancyListProps & { displayLine?: boolean }
 // ----- The FancyBoxSet to render the ListBox with a Fieldset and a Line ---- //
 // --------------------------------------------------------------------------- //
 export default function FancyBoxSet(props: TFancyBoxSet) {
-  const {
-    label,
-    alignLabel,
-    fontVariantLegend,
-    disabled,
-    children,
-    themeType,
-    displayLine,
-    layer = 1,
-    ...HTMLProps
-  } = { ...defaultProp, ...props };
+  const { label, alignLabel, fontVariantLegend, disabled, children, themeType, displayLine, layer, ...HTMLProps } = {
+    ...defaultProp,
+    ...props,
+  };
 
   // is needed to get the length of the children for displaying the line
   const childArray = React.Children.toArray(children);
