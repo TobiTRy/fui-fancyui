@@ -9,7 +9,7 @@ import FancyContent from '../FancyContent/FancyContent';
 // --------------------------------------------------------------------------- //
 // -------------------- A simple Checkbox with a Label ----------------------- //
 // --------------------------------------------------------------------------- //
-interface IFancySelectWrapperProps {
+export interface IFancySelectWrapperProps {
   label?: string;
   align?: TAlign;
   alignInput?: TAlignCheckbox;
