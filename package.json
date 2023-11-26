@@ -12,18 +12,22 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "prepare": "husky install",
-    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --fix --max-warnings=-1",
+    "lint": "eslint src --ext ts,tsx,mdx --report-unused-disable-directives --fix --max-warnings=-1",
     "checkFormat": "prettier --check .",
     "format": "prettier --write .",
     "predeploy": "npm run lint && npm run checkFormat && npm run build"
   },
   "lint-staged": {
     "*.ts": [
-      "eslint src --ext ts,tsx --report-unused-disable-directives --fix --max-warnings=-1",
+      "eslint src --ext ts --report-unused-disable-directives --fix --max-warnings=-1",
       "prettier --write"
     ],
     "*.tsx": [
-      "eslint src --ext ts,tsx --report-unused-disable-directives --fix --max-warnings=-1",
+      "eslint src --ext tsx --report-unused-disable-directives --fix --max-warnings=-1",
+      "prettier --write"
+    ],
+    "*.mdx": [
+      "eslint src --ext ts,tsx,mdx --report-unused-disable-directives --fix --max-warnings=-1",
       "prettier --write"
     ]
   },
