@@ -31,15 +31,9 @@
     ]
   },
   "dependencies": {
-    "@react-spring/web": "^9.7.3",
-    "@types/color": "^3.0.3",
     "@types/react-router-dom": "^5.3.3",
-    "@types/uuid": "^9.0.6",
-    "color": "^4.2.3",
     "react-router-dom": "^6.14.1",
-    "uuid": "^9.0.1",
-    "vite-plugin-dts": "^3.1.1",
-    "zustand": "^4.3.9"
+    "vite-plugin-dts": "^3.1.1"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "^7.5.2",
@@ -76,7 +70,13 @@
   "peerDependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "styled-components": "^6.0.7"
+    "styled-components": "^6.0.7",
+    "zustand": "^4.3.9",
+    "color": "^4.2.3",
+    "uuid": "^9.0.1",
+    "@react-spring/web": "^9.7.3",
+    "@types/color": "^3.0.3",
+    "@types/uuid": "^9.0.6"
   },
   "files": [
     "dist"
