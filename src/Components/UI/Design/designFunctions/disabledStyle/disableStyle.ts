@@ -7,3 +7,5 @@ export const disabledStyle = () => {
     filter: brightness(0.9);
   `;
 };
+
+export default disabledStyle;

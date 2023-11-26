@@ -5,7 +5,7 @@ import { TTextAlign } from './FancyMiniProfile';
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '@/Components/UI/Interface/TLayer';
 import getColorsForComponent from '../../Design/color/colorCalculatorForComponet';
-import { boxShadow } from '../../Design/shadows';
+import { boxShadow } from '../../Design/shadows/shadows';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 import { TSpacings } from '@/Components/UI/Interface/TSpacings';
 

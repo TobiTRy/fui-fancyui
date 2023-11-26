@@ -20,7 +20,7 @@ export default function FancyTabSwitch(props: ITabSwitchProps & { label?: string
 
   /* Generate the unordered list for the tab switch */
   return (
-    <Fieldset label={label} $disabled={disabled}>
+    <Fieldset label={label} disabled={disabled}>
       <FancyBar
         {...tabSwitchProps}
         outlined={outlined}

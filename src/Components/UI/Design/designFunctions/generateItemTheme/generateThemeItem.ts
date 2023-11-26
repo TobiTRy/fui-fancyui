@@ -1,11 +1,11 @@
 import { css } from 'styled-components';
 import Color from 'color';
 
-import { disabledStyle } from '../disableStyle';
+import { disabledStyle } from '../disabledStyle/disableStyle';
 import { generatePadding } from '../generatePaddingForComponent/generatePadding';
-import { boxShadow } from '../../../Design/shadows';
-import themeStore from '../../../Design/color/themeStore';
-import { getBackgroundColor } from '../../../Design/color/colorCalculatorForComponet';
+import { boxShadow } from '../../shadows/shadows';
+import themeStore from '../../color/themeStore';
+import { getBackgroundColor } from '../../color/colorCalculatorForComponet';
 import { getOpositColorContrast } from '../getOpositColorContrast';
 import { IGenerateThemeItem } from './IGenerateThemeItemProps.model';
 

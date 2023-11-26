@@ -1,6 +1,6 @@
 import { styled, css } from 'styled-components';
 
-import { disabledStyle } from '../../HelperFunctions/designFunctions/disableStyle';
+import { disabledStyle } from '../../Design/designFunctions/disabledStyle/disableStyle';
 import { fontSize } from '../../Design/designSizes';
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '@/Components/UI/Interface/TLayer';

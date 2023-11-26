@@ -2,8 +2,9 @@ import { CSSProp } from 'styled-components';
 import { TLayer } from '@/Components/UI/Interface/TLayer';
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 
-type HTMLDivElementProps = Omit<React.AllHTMLAttributes<HTMLDivElement>, 'style'>;
+type HTMLDivElementProps = Omit<React.HTMLAttributes<HTMLDivElement>, 'style'>;
 interface IFancyBox {
+  as?: keyof JSX.IntrinsicElements;
   outlined?: boolean;
   layer?: TLayer;
   themeType?: TUiColors;

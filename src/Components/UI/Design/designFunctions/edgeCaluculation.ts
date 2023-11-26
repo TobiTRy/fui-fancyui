@@ -1,4 +1,4 @@
-import { borderRadius } from '../../Design/designSizes';
+import { borderRadius } from '../designSizes';
 import { TBorderRadiusSizes } from '../../Interface/TBorderRadius';
 
 // the edge can be a string, number or TBorderRadiusSizes

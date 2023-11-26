@@ -3,7 +3,7 @@ import { styled } from 'styled-components';
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '@/Components/UI/Interface/TLayer';
 import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
-import { disabledStyle } from '../../HelperFunctions/designFunctions/disableStyle';
+import { disabledStyle } from '../../Design/designFunctions/disabledStyle/disableStyle';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 interface IContentWrapper {

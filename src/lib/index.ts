@@ -55,7 +55,6 @@ export { default as FancyDropDownUL } from '@/Components/UI/Molecules/FancyDropD
 export { default as FancySpeedDialButton } from '@/Components/UI/Molecules/FancySpeedDailButton/FancySpeedDailButton';
 export { default as InputWrapper } from '@/Components/UI/Molecules/InputWrapper/InputWrapper';
 export { default as Modal } from '@/Components/UI/Molecules/Modal/Modal';
-export { default as ModalBottomLine } from '@/Components/UI/Molecules/ModalBottomLine/ModalBottomLine';
 export { default as MonthWithDays } from '@/Components/UI/Molecules/MonthWithDays/MonthWithDays';
 export { default as NumberInput } from '@/Components/UI/Molecules/NumberInput/NumberInput';
 export { default as PasswordInput } from '@/Components/UI/Molecules/PasswordInput/PasswordInput';
@@ -111,3 +110,16 @@ export { default as FancyGrid } from '@/Components/UI/Templates/FancyGrid/FancyG
 export { default as FancyGridItem } from '@/Components/UI/Templates/FancyGrid/FancyGridItem/FancyGridItem';
 export { default as FancyBoxSet } from '@/Components/UI/Organisms/FancyBoxSet/FancyBoxSet';
 export { default as FancyRadioList } from '@/Components/UI/Templates/FancyRadioList/FancyRadioList';
+
+// ---------- Utils ------- //
+export { default as FancyPopover } from '@/Components/UI/HelperFunctions/FancyPopover/FancyPopover';
+export { default as UseDelay } from '@/Components/UI/HelperFunctions/hooks/useDelay/UseDelay';
+export { default as FancyPortal } from '@/Components/UI/HelperFunctions/FancyPortal/FancyPortal';
+export { default as useIntersectionObserver } from '@/Components/UI/HelperFunctions/hooks/useIntersectionObserver/useIntersectionObserver';
+export { default as useWindowDimensions } from '@/Components/UI/HelperFunctions/hooks/useWindowDimensions/useWindowDimensions';
+
+// ---------- ThemeGenerators ------- //
+export { default as generateThemeForCard } from '@/Components/UI/Design/designFunctions/generateThemeForCard/generateThemeForCard';
+export { default as disabledStyle } from '@/Components/UI/Design/designFunctions/disabledStyle/disableStyle';
+export { default as generateBorderRadiusForComponent } from '@/Components/UI/Design/designFunctions/generateBorderRadiusForComponent/generateBorderRadiusForComponent';
+export { default as shadows } from '@/Components/UI/Design/shadows/shadows';

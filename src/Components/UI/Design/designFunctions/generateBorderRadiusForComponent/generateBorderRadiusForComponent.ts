@@ -29,3 +29,5 @@ export const generateBorderRadiusForComponent = (size?: 'sm' | 'md' | 'lg', roun
       return css``;
   }
 };
+
+export default generateBorderRadiusForComponent;

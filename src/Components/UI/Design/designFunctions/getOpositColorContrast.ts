@@ -2,7 +2,7 @@ import Color from 'color';
 
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '@/Components/UI/Interface/TLayer';
-import themeStore from '../../Design/color/themeStore';
+import themeStore from '../color/themeStore';
 
 const filpThemeColor = (isLightColor: boolean) => {
   const isDarkTheme = themeStore.getState().isDarkTheme;

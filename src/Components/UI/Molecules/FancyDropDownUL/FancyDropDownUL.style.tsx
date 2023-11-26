@@ -1,9 +1,9 @@
 import { styled, css } from 'styled-components';
 
-import CalculateBorderRadiusOnAlignment from '../../HelperFunctions/designFunctions/CalculateBorderRadiusOnAlignment';
+import CalculateBorderRadiusOnAlignment from '../../Design/designFunctions/CalculateBorderRadiusOnAlignment';
 import { IFancyUL } from './FancyDropDownUL';
 import IStyledPrefixAndPicker from '../../Interface/IStyledPrefixAndPicker.model';
-import { boxShadow } from '../../Design/shadows';
+import { boxShadow } from '../../Design/shadows/shadows';
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '@/Components/UI/Interface/TLayer';
 import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';

@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 import { TUiColors } from '@/Components/UI/Interface/TUiColors';
-import themeStore from '../../Design/color/themeStore';
+import themeStore from '../color/themeStore';
 
 type TUiColorsSystemMessageIndicator = Exclude<TUiColors, 'primary' | 'secondary' | 'accent' | 'accentDarken' | 'transparent'>;
 
