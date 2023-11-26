@@ -28,6 +28,9 @@
     ],
     "*.mdx": [
       "prettier --write"
+    ],
+    "*.yml": [
+      "prettier --write"
     ]
   },
   "dependencies": {
