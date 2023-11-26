@@ -27,7 +27,6 @@
       "prettier --write"
     ],
     "*.mdx": [
-      "eslint src --ext ts,tsx,mdx --report-unused-disable-directives --fix --max-warnings=-1",
       "prettier --write"
     ]
   },
