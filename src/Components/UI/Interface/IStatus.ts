@@ -1,3 +1,3 @@
-type InputStatus = { isError: boolean; isSucceed: boolean; isLoading: boolean };
+type IStatus = { isError: boolean; isSucceed: boolean; isLoading: boolean };
 
-export default InputStatus;
+export default IStatus;
