@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { ChangeEvent } from 'react';
 
-import themeStore from '../../Components/UI/Design/color/themeStore';
+import themeStore from '../../Components/UI/Design/color/themeStore/themeStore';
 import { FancyTextInput } from '../../Components/UI/Organisms/FancyTextInput';
 import { FancyBottomBarIcon, FancyButton, FancyCard, FancyChip, FancySVGAtom, SingleToastMessage } from '../../lib';
 

@@ -1,5 +1,5 @@
 import { css } from 'styled-components';
-import themeStore from '../color/themeStore';
+import themeStore from '../color/themeStore/themeStore';
 import { TUiColorsSystemMessage } from '@/Components/UI/Interface/TUiColors';
 
 export function systemMessageIndicatorStyle(systemMessage?: TUiColorsSystemMessage) {

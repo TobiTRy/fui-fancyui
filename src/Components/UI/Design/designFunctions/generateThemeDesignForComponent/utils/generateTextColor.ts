@@ -1,5 +1,5 @@
 import { getBackgroundColor } from '../../../color/colorCalculatorForComponet';
-import themeStore from '../../../color/themeStore';
+import themeStore from '../../../color/themeStore/themeStore';
 import { IGenerateThemeDesignForComponent } from '../generateThemeDesignForComponent';
 
 // --------------------------------------------------------------------------- //

@@ -3,7 +3,7 @@ import { css } from 'styled-components';
 import { getBackgroundColor } from '../../../Design/color/colorCalculatorForComponet';
 import colorTransparencyCalculator from '../../../Design/color/colorTransparencyCalculator';
 import { IActiveSwitchIndicator } from '../SwitchActiveIndicator';
-import themeStore from '@/Components/UI/Design/color/themeStore';
+import themeStore from '@/Components/UI/Design/color/themeStore/themeStore';
 import { TBorderRadiusSizes } from '@/Components/UI/Interface/TBorderRadius';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 

@@ -1,6 +1,6 @@
 import { css, styled } from 'styled-components';
 
-import themeStore from '@/Components/UI/Design/color/themeStore';
+import themeStore from '@/Components/UI/Design/color/themeStore/themeStore';
 import { systemMessageIndicatorStyle } from '@/Components/UI/Design/designFunctions/generateSytemIncicator';
 import { TUiColorsSystemMessage } from '@/Components/UI/Interface/TUiColorsSystemMessage';
 

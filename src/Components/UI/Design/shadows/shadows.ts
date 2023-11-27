@@ -1,5 +1,5 @@
 import { css } from 'styled-components';
-import themeStore from '../color/themeStore';
+import themeStore from '../color/themeStore/themeStore';
 import colorTransparencyCalculator from '../color/colorTransparencyCalculator';
 
 //global text-shadow

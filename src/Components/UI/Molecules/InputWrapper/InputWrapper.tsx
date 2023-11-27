@@ -9,7 +9,7 @@ import { TRawInputAlign } from '../../Atoms/RawInput/RawInput';
 import { TThemeTypes } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '@/Components/UI/Interface/TLayer';
 import calcColorState from '../../Design/color/calcColorState';
-import themeStore from '../../Design/color/themeStore';
+import themeStore from '../../Design/color/themeStore/themeStore';
 
 // Define the styles for the icon
 const iconStyle = css`

@@ -10,7 +10,7 @@ import { Typography } from '../../lib';
 import styled from 'styled-components';
 import FancyBar from '../../Components/UI/Atoms/FancyBox/FancyBox';
 import Header from '../../Components/UI/Molecules/Header/Header';
-import themeStore from '@/Components/UI/Design/color/themeStore';
+import themeStore from '@/Components/UI/Design/color/themeStore/themeStore';
 
 const Logo = () => (
   <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" height="30" version="1.1" viewBox="0 0 96.37 64.15" fill="#ff9800f0">
