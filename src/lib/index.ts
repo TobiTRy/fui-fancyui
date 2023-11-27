@@ -126,3 +126,6 @@ export { default as shadows } from '@/Components/UI/Design/shadows/shadows';
 
 // ---------- Interfaces ------- //
 export * from '@/Components/UI/Interface';
+
+// ---------- Store ------- //
+export { default as themeStore } from '@/Components/UI/Design/color/themeStore/themeStore';
