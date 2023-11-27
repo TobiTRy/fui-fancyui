@@ -1,7 +1,7 @@
 // Import necessary dependencies
 import { Meta, StoryObj } from '@storybook/react';
 
-import SVGEyeCrossed from '../../SVGIcons/SVGEyeCrossed';
+import SVGEyeCrossed from '../../SVGIcons/SVGEyeCrossed/SVGEyeCrossed';
 
 // Import the component to be tested
 import ScrollableBar from './ScrollableBar';

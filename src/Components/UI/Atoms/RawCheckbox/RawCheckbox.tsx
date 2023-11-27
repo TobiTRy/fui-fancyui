@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import { FakeCheckbox, HidenCheckBox, InputContainer } from './RawCheckbox.style';
 import { IRawCheckboxProps } from './RawCheckbox.model';
-import SVGCheckMark from '../../SVGIcons/SVGCheckMark';
+import SVGCheckMark from '../../SVGIcons/SVGCheckMark/SVGCheckMark';
 
 // --------------------------------------------------------------------------- //
 // -------------------- A simple Checkbox with a Label ----------------------- //

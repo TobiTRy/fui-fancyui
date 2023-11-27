@@ -1,6 +1,6 @@
 // Import necessary dependencies
 import { Meta, StoryObj } from '@storybook/react';
-import SVGCheckMark from '../../SVGIcons/SVGCheckMark';
+import SVGCheckMark from '../../SVGIcons/SVGCheckMark/SVGCheckMark';
 // Import the component to be tested
 import FancyBottomBarIcon from './FancyBottomBarIcon';
 // Define metadata for the story

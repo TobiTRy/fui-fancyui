@@ -1,7 +1,7 @@
 import React from 'react';
 
-import SVGChevronLeft from '../../SVGIcons/SVGChevronLeft';
-import SVGChevronRight from '../../SVGIcons/SVGChevronRight';
+import SVGChevronLeft from '../../SVGIcons/SVGChevronLeft/SVGChevronLeft';
+import SVGChevronRight from '../../SVGIcons/SVGChevronRight/SVGChevronRight';
 import { SVGDesignCSS, StyledButton, StyledYearSelector } from './YearSelector.style';
 import Typography from '../Typography/Typography';
 import { FancySVGAtom } from '../FancySVGAtom';

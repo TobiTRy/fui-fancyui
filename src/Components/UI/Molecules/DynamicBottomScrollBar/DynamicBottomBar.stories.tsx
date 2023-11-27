@@ -3,7 +3,7 @@ import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
 import DynamicBottomScrollBar from './DynamicBottomScrollBar';
-import SVGCheckMark from '../../SVGIcons/SVGCheckMark';
+import SVGCheckMark from '../../SVGIcons/SVGCheckMark/SVGCheckMark';
 import { FancyBottomBarIcon } from '../../Templates/FancyBottomBarIcon';
 
 const meta = {

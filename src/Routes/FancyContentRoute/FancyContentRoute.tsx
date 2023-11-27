@@ -2,7 +2,7 @@ import React from 'react';
 
 import FancyContent from '../../Components/UI/Molecules/FancyContent/FancyContent';
 
-import SVGCheckMark from '../../Components/UI/SVGIcons/SVGCheckMark';
+import SVGCheckMark from '../../Components/UI/SVGIcons/SVGCheckMark/SVGCheckMark';
 import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
 
 export default function FancyContentRoute() {

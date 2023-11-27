@@ -8,7 +8,7 @@ import Popover from '../../Components/UI/HelperFunctions/FancyPopover/Popover';
 import FancyPopover from '../../Components/UI/HelperFunctions/FancyPopover/FancyPopover';
 import FancyMenueItem from '../../Components/UI/Templates/FancyMenueComponent/FancyMenuItem/FancyMenuItem';
 import FancyMenuList from '../../Components/UI/Templates/FancyMenueComponent/FancyMenu/FancyMenu';
-import SVGCheckMark from '@/Components/UI/SVGIcons/SVGCheckMark';
+import SVGCheckMark from '@/Components/UI/SVGIcons/SVGCheckMark/SVGCheckMark';
 
 export default function MenueRoute() {
   const [isPopoverVisible, setPopoverVisible] = useState(false);

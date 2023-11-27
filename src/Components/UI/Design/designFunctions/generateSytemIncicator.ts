@@ -2,7 +2,7 @@ import { css } from 'styled-components';
 import themeStore from '../color/themeStore';
 import { TUiColorsSystemMessage } from '@/Components/UI/Interface/TUiColors';
 
-export function sytemMessageIndicatorStyle(systemMessage?: TUiColorsSystemMessage) {
+export function systemMessageIndicatorStyle(systemMessage?: TUiColorsSystemMessage) {
   const theme = themeStore.getState().theme;
 
   if (systemMessage)

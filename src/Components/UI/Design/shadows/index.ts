@@ -1,1 +1,1 @@
-export { default as shadows } from './shadows';
+export * from './shadows';

@@ -4,7 +4,7 @@ import { Meta, StoryObj } from '@storybook/react';
 // Import the component to be tested
 import FancyPasswordInput from './FancyPasswordInput';
 
-import SVGCheckMark from '../../SVGIcons/SVGCheckMark';
+import SVGCheckMark from '../../SVGIcons/SVGCheckMark/SVGCheckMark';
 
 // Define metadata for the story
 const meta = {
