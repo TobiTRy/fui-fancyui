@@ -6,7 +6,8 @@ import { TLayer } from '@/Components/UI/Interface/TLayer';
 import ChipList from '../../Molecules/ChipList/ChipList';
 import { FancyChip } from '../FancyChip';
 import { InputLi } from './FancyChipList.style';
-import { TUiColors, TUiColorsSystemMessage } from '@/Components/UI/Interface/TUiColors';
+import { TUiColors } from '@/Components/UI/Interface/TUiColors';
+import { TUiColorsSystemMessage } from '@/Components/UI/Interface/TUiColorsSystemMessage';
 
 // Defining the interface for the component's props
 export interface ChipListProps {

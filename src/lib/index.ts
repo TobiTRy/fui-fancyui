@@ -123,3 +123,6 @@ export { default as generateThemeForCard } from '@/Components/UI/Design/designFu
 export { default as disabledStyle } from '@/Components/UI/Design/designFunctions/disabledStyle/disableStyle';
 export { default as generateBorderRadiusForComponent } from '@/Components/UI/Design/designFunctions/generateBorderRadiusForComponent/generateBorderRadiusForComponent';
 export { default as shadows } from '@/Components/UI/Design/shadows/shadows';
+
+// ---------- Interfaces ------- //
+export * from '@/Components/UI/Interface';

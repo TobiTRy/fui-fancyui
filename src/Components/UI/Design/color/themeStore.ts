@@ -1,7 +1,8 @@
 import { create } from 'zustand';
 import { updateThemeColors, uiColors, IUiColorPops, regenerateUiColors } from './designColor';
 import { spacingPx, borderRadius, fontSizes } from '../designSizes';
-import { TTheme } from '../../Interface/TTheme';
+import { TTheme } from '@/Components/UI/Interface/TTheme';
+import { breakpoints } from '@/Components/UI/Design/brakePoints';
 
 type ThemeState = {
   theme: TTheme;
@@ -17,6 +18,7 @@ const themeStore = create<ThemeState>((set, get) => ({
     spacing: spacingPx,
     borderRadius: borderRadius,
     fontSizes: fontSizes,
+    breakpoints: breakpoints,
   },
   isDarkTheme: true,
   switchTheme: () => {

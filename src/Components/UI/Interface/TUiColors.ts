@@ -1,5 +1,4 @@
-import { TUiColorsType } from '../Design/color/designColor';
+import { TUiColorsType } from './TUiColorsType';
 
 export type TUiColors = keyof TUiColorsType;
 export type TUiColorsMain = Extract<TUiColors, 'primary' | 'secondary' | 'accent'>;
-export type TUiColorsSystemMessage = Extract<TUiColors, 'success' | 'error' | 'info' | 'warning'>;
