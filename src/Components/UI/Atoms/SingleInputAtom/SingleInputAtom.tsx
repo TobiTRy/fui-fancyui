@@ -2,7 +2,7 @@ import React, { forwardRef, useState } from 'react';
 import { styled } from 'styled-components';
 
 import { fontSize } from '../../Design/designSizes';
-import { TUiColors } from '@/Components/UI/Interface/TUiColors';
+import { TThemeTypes } from '@/Components/UI/Interface/TUiColors';
 import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
 import { TLayer } from '@/Components/UI/Interface/TLayer';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
@@ -11,7 +11,7 @@ import { TTheme } from '@/Components/UI/Interface/TTheme';
 interface StyledSingleInputProps {
   $hasValue: boolean;
   $isFocused: boolean;
-  $themeType?: TUiColors;
+  $themeType?: TThemeTypes;
   $layer?: TLayer;
 }
 const StyledSingleInput = styled.input<StyledSingleInputProps & { theme: TTheme }>`
@@ -38,7 +38,7 @@ interface ISingleInputAtomProps {
   value: string;
   ariaLabel?: string;
   onKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
-  themeType?: TUiColors;
+  themeType?: TThemeTypes;
   layer?: TLayer;
 }
 export const SingleInputAtom = forwardRef<HTMLInputElement, ISingleInputAtomProps>(

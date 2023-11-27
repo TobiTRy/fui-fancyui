@@ -3,11 +3,11 @@ import React from 'react';
 import { FancyBox } from '@/Components/UI/Atoms/FancyBox';
 import { TLayer } from '@/Components/UI/Interface/TLayer';
 import { ChipContainer, generateChipListStyle } from './ChipList.style';
-import { TUiColors } from '@/Components/UI/Interface/TUiColors';
+import { TThemeTypes } from '@/Components/UI/Interface/TUiColors';
 import { TUiColorsSystemMessage } from '@/Components/UI/Interface/TUiColorsSystemMessage';
 
 export interface ChipListProps {
-  themeType?: Exclude<TUiColors, 'transparent'>;
+  themeType?: Exclude<TThemeTypes, 'transparent'>;
   layer?: TLayer;
   outlined?: boolean;
   children?: React.ReactNode;

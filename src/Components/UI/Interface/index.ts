@@ -9,6 +9,4 @@ export * from './TSystemMessageProps';
 export * from './TTheme';
 export * from './TTypography';
 export * from './TUiColors';
-export * from './TUIColorNames';
 export * from './TUiColorsType';
-export * from './TUiColorsSystemMessage';

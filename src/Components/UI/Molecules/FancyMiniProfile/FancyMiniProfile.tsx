@@ -4,7 +4,7 @@ import FancyProfilePicture, { IFancyProfilePicture } from '../../Atoms/FancyProf
 import Typography from '../../Atoms/Typography/Typography';
 import { TextWrapper, Wrapper } from './FancyMiniProfile.style';
 import { TTypography } from '@/Components/UI/Interface/TTypography';
-import { TUiColors } from '@/Components/UI/Interface/TUiColors';
+import { TThemeTypes } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '@/Components/UI/Interface/TLayer';
 import { TSpacings } from '../../Interface/TSpacings';
 
@@ -51,7 +51,7 @@ interface IFancyMiniprofile {
   subHeadingText?: string;
   imageURL?: string;
   size?: keyof typeof pillSettings;
-  themeType?: TUiColors;
+  themeType?: TThemeTypes;
   layer?: TLayer;
   shadow?: boolean;
 }

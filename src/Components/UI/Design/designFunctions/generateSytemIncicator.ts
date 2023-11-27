@@ -1,10 +1,8 @@
 import { css } from 'styled-components';
-import { TUiColors } from '@/Components/UI/Interface/TUiColors';
 import themeStore from '../color/themeStore';
+import { TUiColorsSystemMessage } from '@/Components/UI/Interface/TUiColors';
 
-type TUiColorsSystemMessageIndicator = Exclude<TUiColors, 'primary' | 'secondary' | 'accent' | 'accentDarken' | 'transparent'>;
-
-export function sytemMessageIndicatorStyle(systemMessage?: TUiColorsSystemMessageIndicator) {
+export function sytemMessageIndicatorStyle(systemMessage?: TUiColorsSystemMessage) {
   const theme = themeStore.getState().theme;
 
   if (systemMessage)

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Placeholder, StyledImage, TSize } from './FancyProfilePicture.style';
-import { TUiColors } from '@/Components/UI/Interface/TUiColors';
+import { TThemeTypes } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '@/Components/UI/Interface/TLayer';
 import { Typography } from '../Typography';
 import { TTypography } from '@/Components/UI/Interface/TTypography';
@@ -32,7 +32,7 @@ export interface IFancyProfilePicture {
   size?: TSize | string;
   alt?: string;
   layer?: TLayer;
-  themeType?: TUiColors;
+  themeType?: TThemeTypes;
   letterLength?: number;
   className?: string;
 }

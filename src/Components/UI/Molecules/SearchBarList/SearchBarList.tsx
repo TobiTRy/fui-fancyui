@@ -1,7 +1,7 @@
 import React from 'react';
 
 import FancyCard from '../../Atoms/FancyCard/FancyCard';
-import { TUiColors } from '@/Components/UI/Interface/TUiColors';
+import { TThemeTypes } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '@/Components/UI/Interface/TLayer';
 import { InnerCard, StyledSearchBarList } from './SearchBarList.style';
 
@@ -9,7 +9,7 @@ import { InnerCard, StyledSearchBarList } from './SearchBarList.style';
 interface ISearchBarList {
   isActive?: boolean;
   children?: React.ReactNode;
-  themeType?: TUiColors;
+  themeType?: TThemeTypes;
   layer?: TLayer;
 }
 // The SearchBarList component

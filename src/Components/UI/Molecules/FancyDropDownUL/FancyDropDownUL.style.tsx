@@ -4,7 +4,7 @@ import CalculateBorderRadiusOnAlignment from '../../Design/designFunctions/Calcu
 import { IFancyUL } from './FancyDropDownUL';
 import IStyledPrefixAndPicker from '../../Interface/IStyledPrefixAndPicker.model';
 import { boxShadow } from '../../Design/shadows/shadows';
-import { TUiColors } from '@/Components/UI/Interface/TUiColors';
+import { TThemeTypes } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '@/Components/UI/Interface/TLayer';
 import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
@@ -34,7 +34,7 @@ export const WrapperUL = styled.div<IStyledUL>`
 // --------------------------------------------------------------------------- //
 // ------------------- the UL for the items and the style -------------------- //
 // --------------------------------------------------------------------------- //
-export const StyledUL = styled.ul<{ theme: TTheme; $themeType?: TUiColors; $layer?: TLayer }>`
+export const StyledUL = styled.ul<{ theme: TTheme; $themeType?: TThemeTypes; $layer?: TLayer }>`
   display: flex;
   flex-direction: column;
   box-sizing: border-box;

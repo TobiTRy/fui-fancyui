@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { TUiColors } from '@/Components/UI/Interface/TUiColors';
+import { TThemeTypes } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '@/Components/UI/Interface/TLayer';
 import { FancyBox } from '../../Atoms/FancyBox';
 import { CSSProp, css } from 'styled-components';
@@ -11,7 +11,7 @@ import { fancyBarStyle } from './BottomBar.style';
 // --------------  use the store to controle the bar from outside ------------ //
 type TBottomBar = {
   isVisible?: boolean;
-  themeType?: TUiColors;
+  themeType?: TThemeTypes;
   layer?: TLayer;
   externalStyle?: CSSProp;
   children?: React.ReactNode;

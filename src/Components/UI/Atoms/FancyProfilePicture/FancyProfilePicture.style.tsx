@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 
 import { IFancyProfilePicture } from './FancyProfilePicture';
-import { TUiColors } from '@/Components/UI/Interface/TUiColors';
+import { TThemeTypes } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '@/Components/UI/Interface/TLayer';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 
@@ -59,7 +59,7 @@ interface IPlaceholderProps {
   $color?: string;
   $backgroundColor?: string;
   theme?: TTheme;
-  $themeType?: TUiColors;
+  $themeType?: TThemeTypes;
   $layer?: TLayer;
 }
 

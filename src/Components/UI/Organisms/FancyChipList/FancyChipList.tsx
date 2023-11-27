@@ -6,12 +6,12 @@ import { TLayer } from '@/Components/UI/Interface/TLayer';
 import ChipList from '../../Molecules/ChipList/ChipList';
 import { FancyChip } from '../FancyChip';
 import { InputLi } from './FancyChipList.style';
-import { TUiColors } from '@/Components/UI/Interface/TUiColors';
+import { TThemeTypes } from '@/Components/UI/Interface/TUiColors';
 import { TUiColorsSystemMessage } from '@/Components/UI/Interface/TUiColorsSystemMessage';
 
 // Defining the interface for the component's props
 export interface ChipListProps {
-  themeType?: Exclude<TUiColors, 'transparent'>;
+  themeType?: Exclude<TThemeTypes, 'transparent'>;
   systemInformation?: TUiColorsSystemMessage;
   layer?: TLayer;
   outlined?: boolean;

@@ -6,7 +6,7 @@ import FancyInputUnderline from '../../Atoms/InputUnderline/InputUnderline';
 import FancySVGAtom from '../../Atoms/FancySVGAtom/FancySVGAtom';
 import { AnimatedInputLabel } from '../../Atoms/AnimatedLabel/AnimatedInputLabel';
 import { TRawInputAlign } from '../../Atoms/RawInput/RawInput';
-import { TUiColors } from '@/Components/UI/Interface/TUiColors';
+import { TThemeTypes } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '@/Components/UI/Interface/TLayer';
 import calcColorState from '../../Design/color/calcColorState';
 import themeStore from '../../Design/color/themeStore';
@@ -32,7 +32,7 @@ export interface IInputWrapper {
   errorMessage?: string;
   icon?: JSX.Element;
   value?: string | number | readonly string[] | undefined;
-  themeType?: TUiColors;
+  themeType?: TThemeTypes;
   layer?: TLayer;
   align?: TRawInputAlign;
   autoWidth?: boolean;

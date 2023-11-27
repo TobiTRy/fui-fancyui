@@ -5,7 +5,7 @@ import SVGChevronRight from '../../SVGIcons/SVGChevronRight';
 import { SVGDesignCSS, StyledButton, StyledYearSelector } from './YearSelector.style';
 import Typography from '../Typography/Typography';
 import { FancySVGAtom } from '../FancySVGAtom';
-import { TUiColors } from '@/Components/UI/Interface/TUiColors';
+import { TThemeTypes } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '@/Components/UI/Interface/TLayer';
 
 // --------------------------------------------------------------------------- //
@@ -13,7 +13,7 @@ import { TLayer } from '@/Components/UI/Interface/TLayer';
 // --------------------------------------------------------------------------- //
 interface IYearSelector {
   selectedYear: number;
-  themeType?: TUiColors;
+  themeType?: TThemeTypes;
   layer?: TLayer;
   handler?: (change: number) => void;
 }

@@ -1,13 +1,13 @@
 import React from 'react';
 import { styled } from 'styled-components';
 
-import { TUiColors } from '@/Components/UI/Interface/TUiColors';
+import { TThemeTypes } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '@/Components/UI/Interface/TLayer';
 import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 // Define the styled component for the progress bar container
-const ProgressBarContainer = styled.div<{ theme: TTheme; $themeType?: TUiColors; $layer?: TLayer }>`
+const ProgressBarContainer = styled.div<{ theme: TTheme; $themeType?: TThemeTypes; $layer?: TLayer }>`
   width: 100%;
   height: 4px;
   background-color: ${({ theme, $themeType = 'secondary', $layer = 4 }) => getBackgroundColor({ theme, $themeType, $layer })};
@@ -35,7 +35,7 @@ export interface IProgressBar {
   progress?: number;
   maxValue?: number;
   id?: string;
-  themeType?: TUiColors;
+  themeType?: TThemeTypes;
   layer?: TLayer;
 }
 // Define the ProgressBar component

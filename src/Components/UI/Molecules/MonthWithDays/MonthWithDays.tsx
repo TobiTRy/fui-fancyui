@@ -8,7 +8,7 @@ import Typography from '../../Atoms/Typography/Typography';
 import Day from './day.model';
 import createDaysOfMonth from './helperFunctions/createDaysOfMonth';
 import { IDateWithExternalState, IExternalMonthWithDays } from './IExternalMonthWithDays.model';
-import { TUiColors } from '@/Components/UI/Interface/TUiColors';
+import { TThemeTypes } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '@/Components/UI/Interface/TLayer';
 
 const getFirstDayOfMonth = (month: number, year: number): number => {
@@ -27,7 +27,7 @@ interface IMonthWithDays {
   selectedDates: IDateArray;
   externalMonthWithDays?: IExternalMonthWithDays;
   disabledDateSetting?: IDisabledDateSettings;
-  themeType?: TUiColors;
+  themeType?: TThemeTypes;
   layer?: TLayer;
 }
 // --------------------------------------------------------------------------- //

@@ -1,4 +1,4 @@
-import { TUiColors } from '@/Components/UI/Interface/TUiColors';
+import { TThemeTypes } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '@/Components/UI/Interface/TLayer';
 
 export type TTextAlign = 'left' | 'center' | 'right';
@@ -14,7 +14,7 @@ type WithoutLabel = {
 };
 
 export type IListDivider = {
-  themeType?: TUiColors;
+  themeType?: TThemeTypes;
   layer?: TLayer;
   noLine?: boolean;
   bold?: boolean;

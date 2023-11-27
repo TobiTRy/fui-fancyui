@@ -5,7 +5,7 @@ import { TAlign } from '../../Atoms/AlignedInputLabel/TalignedInputLabel.model';
 import { AlignedInputLabel } from '../../Atoms/AlignedInputLabel/AlignedInputLabel';
 
 import ProgressBar, { IProgressBar } from '../../Atoms/ProgressBar/ProgressBar';
-import { TUiColors } from '@/Components/UI/Interface/TUiColors';
+import { TThemeTypes } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '@/Components/UI/Interface/TLayer';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 
@@ -40,7 +40,7 @@ interface IFancyProgressBar extends IProgressBar {
   labelAlign?: TAlign;
   progressCount?: boolean;
   progressAlign?: TAlign;
-  themeType?: TUiColors;
+  themeType?: TThemeTypes;
   textLayer?: TLayer;
   layer?: TLayer;
 }
