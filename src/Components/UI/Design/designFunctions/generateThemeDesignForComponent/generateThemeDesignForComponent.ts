@@ -4,8 +4,8 @@ import { generateNormalStyle } from './utils/generateNormalStyle';
 import { generateTransparentStyle } from './utils/generateTransparentStyle';
 import { generateOutlineStyle } from './utils/generateOutlineStyle';
 
-import IStyledPrefixAndPicker from '../../../Interface/IStyledPrefixAndPicker.model';
-import { getSimpletColorThemeType } from '../getOpositColorThemeType';
+import IStyledPrefixAndPicker from '@/Components/UI/Interface/IStyledPrefixAndPicker.model';
+import { getSimpleColorThemeType } from '@/Components/UI/Design/designFunctions/getSimpleColorThemeType';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 export interface IGenerateThemeDesignForComponentProps {
@@ -38,7 +38,7 @@ export default function generateThemeDesignForComponent(props: IGenerateThemeDes
     $textHover,
   } = props;
 
-  const calcTextColor = $useSimpleTextColor ? ($textColor ? $textColor : getSimpletColorThemeType($themeType)) : $textColor;
+  const calcTextColor = $useSimpleTextColor ? ($textColor ? $textColor : getSimpleColorThemeType($themeType)) : $textColor;
 
   if ($themeType === 'transparent') {
     return generateTransparentStyle({ theme, $backgroundState, $hoverColor, $layer, $textColor: calcTextColor, $textHover });
