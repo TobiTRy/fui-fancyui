@@ -2,7 +2,7 @@
   "name": "@mrtryy/fancyuilibary",
   "description": "FancyUI Libary",
   "private": false,
-  "version": "0.1.128",
+  "version": "0.1.129",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -93,6 +93,8 @@
       "require": "./dist/my-lib.cjs.js",
       "types": "./dist/index.d.ts"
     },
+    "./atoms": "./dist/atoms/index.ts",
+
     "./package.json": "./package.json"
   },
   "publishConfig": {
