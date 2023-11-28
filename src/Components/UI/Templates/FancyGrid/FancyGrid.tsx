@@ -1,7 +1,9 @@
 // FancyGrid.tsx
 import React from 'react';
 import { styled } from 'styled-components';
+
 import FancyGridItem from './FancyGridItem/FancyGridItem';
+import IStyledPrefixAndOmitter from '@/Components/UI/Interface/IStyledPrefixAndOmiter.model';
 
 interface FancyGridProps {
   grid?: number;
@@ -9,11 +11,11 @@ interface FancyGridProps {
   children?: React.ReactNode;
 }
 
-const GridContainer = styled.div<FancyGridProps>`
+const GridContainer = styled.div<IStyledPrefixAndOmitter<FancyGridProps, 'children'>>`
   display: grid;
   width: 100%;
-  grid-template-columns: repeat(${(props) => props.grid}, 1fr);
-  grid-gap: ${(props) => props.space};
+  grid-template-columns: repeat(${(props) => props.$grid}, 1fr);
+  grid-gap: ${(props) => props.$space};
 `;
 
 // --------------------------------------------------------------------------- //
@@ -22,7 +24,7 @@ const GridContainer = styled.div<FancyGridProps>`
 function FancyGrid(props: FancyGridProps) {
   const { children, grid = 12, space } = props;
   return (
-    <GridContainer grid={grid} space={space}>
+    <GridContainer $grid={grid} $space={space}>
       {children}
     </GridContainer>
   );
