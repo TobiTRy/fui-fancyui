@@ -3,7 +3,6 @@ import React, { ChangeEvent } from 'react';
 
 import themeStore from '../../Components/UI/Design/color/themeStore/themeStore';
 import { FancyTextInput } from '../../Components/UI/Organisms/FancyTextInput';
-import { FancyBottomBarIcon, FancyButton, FancyCard, FancyChip, FancySVGAtom, SingleToastMessage } from '../../lib';
 
 import FancyContent from '../../Components/UI/Molecules/FancyContent/FancyContent';
 import BottomBarList from '../../Components/UI/Molecules/SwitchList/SwitchList';
@@ -13,6 +12,11 @@ import ComponentAsWrapper from '../../Components/UI/Atoms/ComponentAsWrapper/Com
 import ActionWrapper from '../../Components/UI/Atoms/ActionWrapper/ActionWrapper';
 import FancyActionWrapper from '../../Components/UI/Atoms/FancyActionWrapper/FancyActionWrapper';
 import BottomBarIcon from '../../Components/UI/Molecules/BottomBarIcon/BottomBarIcon';
+import FancyBottomBarIcon from '@/Components/UI/Templates/FancyBottomBarIcon/FancyBottomBarIcon';
+import { FancyButton } from '@/Components/UI/Organisms/FancyButton';
+import { SingleToastMessage } from '@/Components/UI/Molecules/SingleToastMessage';
+import { FancyCard } from '@/Components/UI/Atoms/FancyCard';
+import { FancyChip } from '@/Components/UI/Organisms/FancyChip';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">

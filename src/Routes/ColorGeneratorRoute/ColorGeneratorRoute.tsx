@@ -2,7 +2,7 @@
 import React from 'react';
 
 import styled, { css } from 'styled-components';
-import { Typography } from '../../lib';
+
 import themeStore from '../../Components/UI/Design/color/themeStore/themeStore';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 

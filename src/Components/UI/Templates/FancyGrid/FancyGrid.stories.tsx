@@ -24,7 +24,7 @@ const meta = {
         type: 'number',
       },
     },
-    space: {
+    gap: {
       description: 'The layer of the modal',
       defaultValue: '0',
       control: {
@@ -65,6 +65,6 @@ export const Primary: Story = {
   ),
   args: {
     grid: 12,
-    space: '12px',
+    gap: '12px',
   },
 };

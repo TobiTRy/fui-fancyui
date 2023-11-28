@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 
 import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
 import FancyCheckbox from '../../Components/UI/Molecules/FancyCheckbox/FancyCheckbox';
-import { FancyCard } from '../../lib';
+import { FancyCard } from '@/Components/UI/Atoms/FancyCard';
 import RawRadio from '@/Components/UI/Atoms/RawRadio/RawRadio';
 import FancyRadio from '@/Components/UI/Organisms/FancyRadio/FancyRadio';
 import CustomRadio from '@/Components/UI/Atoms/RawRadio/RawRadio';
