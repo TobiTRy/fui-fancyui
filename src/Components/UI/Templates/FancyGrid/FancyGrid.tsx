@@ -7,7 +7,7 @@ import IStyledPrefixAndOmitter from '@/Components/UI/Interface/IStyledPrefixAndO
 
 interface FancyGridProps {
   grid?: number;
-  space?: string;
+  space?: number;
   children?: React.ReactNode;
 }
 
