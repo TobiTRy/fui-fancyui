@@ -7,14 +7,14 @@ import BottomBar from '../../Molecules/BottomBar/BottomBar';
 import FancyBottomBarIcon, { IFancyBottomBarIcon } from '../FancyBottomBarIcon/FancyBottomBarIcon';
 import RawNav from '../../Atoms/RawNav/RawNav';
 import { TLayer } from '@/Components/UI/Interface/TLayer';
-import { TUiColors } from '@/Components/UI/Interface/TUiColors';
+import { TThemeTypes } from '@/Components/UI/Interface/TUiColors';
 interface IFancyHandyNav {
   items?: IFancyBottomBarIcon[];
   isVisible?: boolean;
   wichIndexIsActive?: string;
-  themeType?: TUiColors;
-  themeTypeIcons?: TUiColors;
-  themeTypeSwitchList?: TUiColors;
+  themeType?: TThemeTypes;
+  themeTypeIcons?: TThemeTypes;
+  themeTypeSwitchList?: TThemeTypes;
   layer?: TLayer;
   outlined?: boolean;
   outlinedBackgroundStrength?: number;

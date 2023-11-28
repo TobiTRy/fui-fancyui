@@ -22,7 +22,6 @@ export default function TabSwitch(props: ITabSwitchProps) {
     rounded,
     direction,
     outlined,
-    id,
     currentSelect,
     handler,
     iconAlign,
@@ -67,7 +66,6 @@ export default function TabSwitch(props: ITabSwitchProps) {
       $direction={direction}
       role="radiogroup"
       $layer={layer}
-      id={id}
     >
       {/* Generate a list item for each switch value */}
       {values.map((item, i) => (

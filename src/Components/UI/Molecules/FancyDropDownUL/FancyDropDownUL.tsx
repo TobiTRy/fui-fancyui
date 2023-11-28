@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 
 import { animated, useSpring } from '@react-spring/web';
 import { StyledUL, WrapperUL } from './FancyDropDownUL.style';
-import { TUiColors } from '@/Components/UI/Interface/TUiColors';
+import { TThemeTypes } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '@/Components/UI/Interface/TLayer';
 import { TBorderRadiusSizes } from '@/Components/UI/Interface/TBorderRadius';
 
@@ -12,7 +12,7 @@ export interface IFancyUL {
   isOpen?: boolean;
   alignHorizontal?: 'left' | 'center' | 'right';
   alignVertical?: 'top' | 'center' | 'bottom';
-  themeType?: TUiColors;
+  themeType?: TThemeTypes;
   layer?: TLayer;
   $rouned?: TBorderRadiusSizes;
 }

@@ -4,11 +4,11 @@ import { getBackgroundColor } from '../../Design/color/colorCalculatorForCompone
 import { TLayer } from '@/Components/UI/Interface/TLayer';
 import { IDateInputProps } from '../../Molecules/DateInput/DateInput';
 import { simpleColorTransition } from '../../Design/simpleTransition';
-import { TUiColors } from '@/Components/UI/Interface/TUiColors';
+import { TThemeTypes } from '@/Components/UI/Interface/TUiColors';
 
 interface IRawInputWrapper extends IRawInput {
   value?: string;
-  $themeType?: TUiColors;
+  $themeType?: TThemeTypes;
   $layer?: TLayer;
 }
 export const StyledDatePicker = styled(RawInput)<IRawInputWrapper & IDateInputProps>`

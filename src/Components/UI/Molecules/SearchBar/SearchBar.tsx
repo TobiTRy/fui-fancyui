@@ -2,10 +2,10 @@ import React, { ChangeEvent, useState } from 'react';
 import { styled, css } from 'styled-components';
 import FancyTextInput from '../../Organisms/FancyTextInput/FancyTextInput';
 
-import SVGSearch from '../../SVGIcons/SVGSearch';
+import SVGSearch from '../../SVGIcons/SVGSearch/SVGSearch';
 import FancySVGAtom from '../../Atoms/FancySVGAtom/FancySVGAtom';
 import { TRawInputAlign } from '../../Atoms/RawInput/RawInput';
-import { TUiColors } from '@/Components/UI/Interface/TUiColors';
+import { TThemeTypes } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '@/Components/UI/Interface/TLayer';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 
@@ -31,7 +31,7 @@ interface ISearchBar {
   align?: TRawInputAlign;
   activeHandler?: (isActive: boolean) => void;
   handler?: (value: string) => void;
-  themeType?: TUiColors;
+  themeType?: TThemeTypes;
   layer?: TLayer;
   placerholder?: string;
 }

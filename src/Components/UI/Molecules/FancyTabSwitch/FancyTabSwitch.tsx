@@ -2,7 +2,7 @@ import React from 'react';
 import { css } from 'styled-components';
 
 import { borderRadius } from '../../Design/designSizes';
-import Fieldset from '../../Atoms/Fieldset/Fieldset';
+import Fieldset from '../Fieldset/Fieldset';
 import FancyBar from '../../Atoms/FancyBox/FancyBox';
 import TabSwitch from '../TabSwitch/TabSwitch';
 import { tabSwitchSizes } from '../TabSwitch/TabSwitch.style';
@@ -20,7 +20,7 @@ export default function FancyTabSwitch(props: ITabSwitchProps & { label?: string
 
   /* Generate the unordered list for the tab switch */
   return (
-    <Fieldset label={label} $disabled={disabled}>
+    <Fieldset label={label} disabled={disabled}>
       <FancyBar
         {...tabSwitchProps}
         outlined={outlined}

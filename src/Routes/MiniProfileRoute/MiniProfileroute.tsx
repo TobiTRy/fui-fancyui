@@ -3,7 +3,7 @@ import React from 'react';
 import FancyMiniProfile from '../../Components/UI/Molecules/FancyMiniProfile/FancyMiniProfile';
 
 import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';
-import { FancyCard } from '../../lib';
+import { FancyCard } from '@/Components/UI/Atoms/FancyCard';
 
 export default function MiniProfileroute() {
   return (

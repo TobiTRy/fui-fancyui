@@ -2,13 +2,13 @@ import React from 'react';
 import { styled } from 'styled-components';
 
 import DateOutput from '../../Atoms/DateOutput/DateOutput';
-import { TUiColors } from '@/Components/UI/Interface/TUiColors';
+import { TThemeTypes } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '@/Components/UI/Interface/TLayer';
 import FancyLine from '../../Atoms/FancyLine/FancyLine';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 // Define the styled component for the DateOutputFromTo component
-const StyledDateOutputFromTo = styled.div<{ theme: TTheme; $themeType?: TUiColors; $layer?: TLayer }>`
+const StyledDateOutputFromTo = styled.div<{ theme: TTheme; $themeType?: TThemeTypes; $layer?: TLayer }>`
   position: relative;
   display: flex;
   width: 100%;
@@ -42,7 +42,7 @@ interface IDateOutputFromTo {
   dateTo?: Date;
   handler?: (wich: 'from' | 'to') => void;
   whichIsSelecting?: 'from' | 'to';
-  themeType?: TUiColors;
+  themeType?: TThemeTypes;
   layer?: TLayer;
 }
 // Define the DateOutputFromTo component

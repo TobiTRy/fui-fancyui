@@ -1,7 +1,7 @@
 import React, { InputHTMLAttributes, useRef } from 'react';
 import { StyledRawSlider } from './RawSlider.style';
 import { TLayer } from '@/Components/UI/Interface/TLayer';
-import { TUiColors } from '@/Components/UI/Interface/TUiColors';
+import { TThemeTypes } from '@/Components/UI/Interface/TUiColors';
 
 // --------------------------------------------------------------------------- //
 // ------------ Here is createt the Slider Atom (Range Slider) --------------- //
@@ -10,7 +10,7 @@ export interface IRawSlider extends InputHTMLAttributes<HTMLInputElement> {
   id?: string;
   activeHandler?: (value: boolean) => void;
   ref?: React.RefObject<HTMLInputElement>;
-  themeType?: TUiColors;
+  themeType?: TThemeTypes;
   layer?: TLayer;
 }
 export default function RawSlider(props: IRawSlider) {

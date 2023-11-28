@@ -1,11 +1,11 @@
 import { css, styled } from 'styled-components';
 
-import { TUiColors } from '@/Components/UI/Interface/TUiColors';
+import { TThemeTypes } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '@/Components/UI/Interface/TLayer';
 import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 
-export const StyledYearSelector = styled.div<{ theme: TTheme; $themeType?: TUiColors; $layer?: TLayer }>`
+export const StyledYearSelector = styled.div<{ theme: TTheme; $themeType?: TThemeTypes; $layer?: TLayer }>`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -13,7 +13,7 @@ export const StyledYearSelector = styled.div<{ theme: TTheme; $themeType?: TUiCo
   color: ${({ theme, $layer, $themeType }) => ($themeType ? theme.colors[$themeType][$layer ?? 0] : theme.colors.secondary[0])};
 `;
 
-export const StyledButton = styled.button<{ theme: TTheme; $themeType?: TUiColors; $layer?: TLayer }>`
+export const StyledButton = styled.button<{ theme: TTheme; $themeType?: TThemeTypes; $layer?: TLayer }>`
   display: flex;
   justify-content: center;
   align-items: center;

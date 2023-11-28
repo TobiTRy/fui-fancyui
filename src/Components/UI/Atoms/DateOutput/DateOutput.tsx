@@ -2,12 +2,12 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { styled } from 'styled-components';
 
 import Typography from '../Typography/Typography';
-import { TUiColors } from '@/Components/UI/Interface/TUiColors';
+import { TThemeTypes } from '@/Components/UI/Interface/TUiColors';
 import { getBackgroundColor, getTextColor } from '../../Design/color/colorCalculatorForComponet';
 import { TLayer } from '@/Components/UI/Interface/TLayer';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 
-const DateOutputButton = styled.button<{ $isActive?: boolean; theme: TTheme; $themeType?: TUiColors; $layer?: TLayer }>`
+const DateOutputButton = styled.button<{ $isActive?: boolean; theme: TTheme; $themeType?: TThemeTypes; $layer?: TLayer }>`
   text-align: center;
   width: 100%;
   background-color: ${({ theme, $isActive, $themeType = 'primary', $layer = 2 }) =>
@@ -29,7 +29,7 @@ interface IDateOutput {
   date?: Date;
   isActive?: boolean;
   onClick?: () => void;
-  themeType?: TUiColors;
+  themeType?: TThemeTypes;
   layer?: TLayer;
 }
 export default function DateOutput({ date = new Date(), isActive, onClick, themeType, layer }: IDateOutput) {

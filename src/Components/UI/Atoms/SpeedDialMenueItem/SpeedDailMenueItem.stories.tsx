@@ -1,7 +1,7 @@
 // Import necessary dependencies
 import { Meta, StoryObj } from '@storybook/react';
 
-import SVGCheckMark from '../../SVGIcons/SVGCheckMark';
+import SVGCheckMark from '../../SVGIcons/SVGCheckMark/SVGCheckMark';
 
 // Import the component to be tested
 import SpeedDailMenueItem from './SpeedDailMenueItem';

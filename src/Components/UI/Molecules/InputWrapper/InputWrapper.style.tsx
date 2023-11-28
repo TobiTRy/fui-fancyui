@@ -1,8 +1,8 @@
 import { styled, css } from 'styled-components';
 
-import { disabledStyle } from '../../HelperFunctions/designFunctions/disableStyle';
+import { disabledStyle } from '../../Design/designFunctions/disabledStyle/disableStyle';
 import { fontSize } from '../../Design/designSizes';
-import { TUiColors } from '@/Components/UI/Interface/TUiColors';
+import { TThemeTypes } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '@/Components/UI/Interface/TLayer';
 import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
@@ -29,7 +29,7 @@ export const ErrorMessage = styled.p<{ theme: TTheme }>`
 `;
 
 //the input/label/underline are all wrapped in thid container
-export const InputContainer = styled.div<{ $givePadding: boolean; theme: TTheme; $themeType: TUiColors; $layer: TLayer }>`
+export const InputContainer = styled.div<{ $givePadding: boolean; theme: TTheme; $themeType: TThemeTypes; $layer: TLayer }>`
   width: 100%;
   grid-column: 2/3;
   ${({ $givePadding, theme }) =>

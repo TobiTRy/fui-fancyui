@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyledDay } from './DateNumberAtom.style';
 import Typography from '../Typography/Typography';
-import { TUiColors } from '@/Components/UI/Interface/TUiColors';
+import { TThemeTypes } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '@/Components/UI/Interface/TLayer';
 
 export type IRange = { start?: boolean; end?: boolean; inRange?: boolean };
@@ -13,7 +13,7 @@ interface IDay {
   onClick?: () => void;
   range?: IRange;
   isCurrentDay?: boolean;
-  themeType?: TUiColors;
+  themeType?: TThemeTypes;
   layer?: TLayer;
 }
 // --------------------------------------------------------------------------- //

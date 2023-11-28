@@ -3,9 +3,8 @@ import React from 'react';
 
 import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';
 import BottomBar from '../../Components/UI/Molecules/BottomBar/BottomBar';
-import { FancyBottomBarIcon } from '../../lib';
 import FancyHandyNav from '../../Components/UI/Templates/FancyHandyNav/FancyHandyNav';
-import { IFancyBottomBarIcon } from '../../Components/UI/Templates/FancyBottomBarIcon/FancyBottomBarIcon';
+import FancyBottomBarIcon, { IFancyBottomBarIcon } from '../../Components/UI/Templates/FancyBottomBarIcon/FancyBottomBarIcon';
 import { css } from 'styled-components';
 
 const svg = (

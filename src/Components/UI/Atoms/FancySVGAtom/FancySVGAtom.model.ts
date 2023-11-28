@@ -1,6 +1,6 @@
 import { CSSProp } from 'styled-components';
 import IStyledPrefixAndOmiter from '../../Interface/IStyledPrefixAndOmiter.model';
-import { TUiColors } from '@/Components/UI/Interface/TUiColors';
+import { TThemeTypes } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '@/Components/UI/Interface/TLayer';
 
 export const sizes = {
@@ -21,7 +21,7 @@ export type ISVGAtom = {
   isPassive?: boolean;
   isActive?: boolean;
   errorMessage?: string;
-  themeType?: TUiColors;
+  themeType?: TThemeTypes;
   layer?: TLayer;
 };
 

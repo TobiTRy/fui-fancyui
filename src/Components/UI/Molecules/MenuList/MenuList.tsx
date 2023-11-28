@@ -1,12 +1,12 @@
 import React from 'react';
 
-import { TUiColors } from '@/Components/UI/Interface/TUiColors';
+import { TThemeTypes } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '@/Components/UI/Interface/TLayer';
 import { MenuContainer } from './MenuList.style';
 
 export interface MenuListProps {
   children?: React.ReactNode;
-  themeType?: TUiColors;
+  themeType?: TThemeTypes;
   layer?: TLayer;
   outlined?: boolean;
 }

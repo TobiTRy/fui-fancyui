@@ -1,16 +1,17 @@
 import { css } from 'styled-components';
-import brakePoints from '../../Design/brakePoints';
-import { TFontSizes } from '../../Interface/IFontSizes';
+
+import { TFontSizes } from '@/Components/UI/Interface/IFontSizes';
+import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 const nullifyStyle = css`
   margin: 0;
 `;
 
 // Hilfsfunktion für den Medien-Query
-const responsiveFontSize = (mobileSize: string, desktopSize: string) => css`
+const responsiveFontSize = (mobileSize: string, desktopSize: string) => css<{ theme?: TTheme }>`
   font-size: ${mobileSize};
 
-  @media (min-width: ${brakePoints.md + 'px'}) {
+  @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
     font-size: ${desktopSize};
   }
 `;

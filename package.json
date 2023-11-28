@@ -2,7 +2,7 @@
   "name": "@mrtryy/fancyuilibary",
   "description": "FancyUI Libary",
   "private": false,
-  "version": "0.1.12117",
+  "version": "0.1.129",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -15,28 +15,31 @@
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --fix --max-warnings=-1",
     "checkFormat": "prettier --check .",
     "format": "prettier --write .",
-    "predeploy": "npm run lint && npm run build && npm run checkFormat"
+    "predeploy": "npm run lint && npm run checkFormat && npm run build"
   },
   "lint-staged": {
     "*.ts": [
-      "eslint --fix",
+      "eslint src --ext ts --report-unused-disable-directives --fix --max-warnings=-1",
       "prettier --write"
     ],
     "*.tsx": [
-      "eslint --fix",
+      "eslint src --ext tsx --report-unused-disable-directives --fix --max-warnings=-1",
+      "prettier --write"
+    ],
+    "*.mdx": [
+      "prettier --write"
+    ],
+    "*.yml": [
+      "prettier --write"
+    ],
+    "*.json": [
       "prettier --write"
     ]
   },
   "dependencies": {
-    "@react-spring/web": "^9.7.3",
-    "@types/color": "^3.0.3",
     "@types/react-router-dom": "^5.3.3",
-    "@types/uuid": "^9.0.6",
-    "color": "^4.2.3",
     "react-router-dom": "^6.14.1",
-    "uuid": "^9.0.1",
-    "vite-plugin-dts": "^3.1.1",
-    "zustand": "^4.3.9"
+    "vite-plugin-dts": "^3.1.1"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "^7.5.2",
@@ -73,18 +76,24 @@
   "peerDependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "styled-components": "^6.0.7"
+    "styled-components": "^6.0.7",
+    "zustand": "^4.3.9",
+    "color": "^4.2.3",
+    "uuid": "^9.0.1",
+    "@react-spring/web": "^9.7.3",
+    "@types/color": "^3.0.3",
+    "@types/uuid": "^9.0.6"
   },
   "files": [
     "dist"
   ],
-  "main": "./dist/my-lib.umd.js",
-  "module": "./dist/my-lib.es.js",
+  "main": "./dist/fui.umd.js",
+  "module": "./dist/fui.es.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/my-lib.es.js",
-      "require": "./dist/my-lib.cjs.js",
+      "import": "./dist/fui.es.js",
+      "require": "./dist/fui.cjs.js",
       "types": "./dist/index.d.ts"
     },
     "./package.json": "./package.json"

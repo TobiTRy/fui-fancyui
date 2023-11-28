@@ -1,7 +1,7 @@
 import React from 'react';
 import { CSSProp } from 'styled-components';
 
-import { IgenerateThemeForCard } from '../../HelperFunctions/designFunctions/generateThemeForCard/generateThemeForCard';
+import { IgenerateThemeForCard } from '../../Design/designFunctions/generateThemeForCard/generateThemeForCard';
 import { StyledHeader } from './Header.style';
 
 type THeaderProps = IgenerateThemeForCard & {

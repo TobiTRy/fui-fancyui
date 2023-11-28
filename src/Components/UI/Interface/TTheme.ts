@@ -1,7 +1,8 @@
-import { TUiColorsType } from '../Design/color/designColor';
 import { TFontSizes } from './IFontSizes';
 import { TBorderRadiusSizes } from './TBorderRadius';
-import { TSpacings } from '@/Components/UI/Interface/TSpacings';
+import { TUiColorsType } from './TUiColorsType';
+import { TSpacings } from './TSpacings';
+import { breakpoints } from '@/Components/UI/Design/brakePoints';
 
 //the structure for the theme object
 export type TTheme = {
@@ -13,4 +14,7 @@ export type TTheme = {
     [key in TBorderRadiusSizes]: string;
   };
   fontSizes: TFontSizes;
+  breakpoints: {
+    [key in keyof typeof breakpoints]: string;
+  };
 };

@@ -1,5 +1,7 @@
+import { TUiColorsType } from '@/Components/UI/Interface/TUiColorsType';
 import generateColorSteps from './generateColorSteps';
 import isColorValid from './isColorValid';
+import { TThemeTypes } from '../../Interface';
 
 const themeColors = {
   primary: '#131825',
@@ -15,11 +17,9 @@ const themeColors = {
 // success: '#22C390',
 themeColors.accentDarken = themeColors.accent;
 
-export type IUiColorNames = keyof typeof themeColors | 'transparent';
+export { themeColors };
 
 export type TthemeColorGroup = { [key: string]: string };
-export type TUiColorsType = { [key in IUiColorNames]: TthemeColorGroup };
-export type TUiColorsSystemMessage = Exclude<keyof TUiColorsType, 'primary' | 'secondary' | 'accent' | 'accentDarken' | 'transparent'>;
 
 export let uiColors: TUiColorsType = {} as TUiColorsType;
 
@@ -28,8 +28,8 @@ export function initialGenerateUiColors() {
   for (const color in themeColors) {
     // generate the color steps for the color
     const generatedColor = generateColorSteps({
-      themeType: color as IUiColorNames,
-      color: themeColors[color as IUiColorNames],
+      themeType: color as TThemeTypes,
+      color: themeColors[color as TThemeTypes],
       pimaryColor: themeColors.secondary,
     });
     uiColors = {
@@ -46,8 +46,8 @@ export const regenerateUiColors = (isDarkTheme: boolean) => {
   for (const color in uiColors) {
     // generate the color steps for the color
     const generatedColor = generateColorSteps({
-      themeType: color as IUiColorNames,
-      color: uiColors[color as IUiColorNames]['0'],
+      themeType: color as TThemeTypes,
+      color: uiColors[color as TThemeTypes]['0'],
       pimaryColor: isDarkTheme ? themeColors.primary : themeColors.secondary, // if the theme is dark, the primary color is the secondary color
     });
 
@@ -61,14 +61,14 @@ export const regenerateUiColors = (isDarkTheme: boolean) => {
 // this function updates the theme colors with a incomming object
 // { 'primary': '#131825', 'accent': '#F17C12', 'secondary': '#f0f0ef' }
 export type IUiColorPops = {
-  [key in IUiColorNames]?: string;
+  [key in TThemeTypes]?: string;
 };
 // this function updates the theme colors with a incomming object and generates the new colors
 export const updateThemeColors = (colorObject: IUiColorPops) => {
   let error: undefined | string;
   // check if the color is valid
   for (const key in colorObject) {
-    const typedkey = key as IUiColorNames;
+    const typedkey = key as TThemeTypes;
     if (!isColorValid(themeColors[typedkey])) {
       error = 'The color ' + typedkey + ' is not valid';
       break;

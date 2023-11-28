@@ -4,7 +4,7 @@ import { css } from 'styled-components';
 import checkThemeOrColor from './ckeckThemeOrColor';
 import { TthemeColorGroup } from './designColor';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
-import { TUiColors } from '@/Components/UI/Interface/TUiColors';
+import { TThemeTypes } from '@/Components/UI/Interface/TUiColors';
 
 // Define the types for the arguments that will be passed to the getBackgroundColor function
 type IGetBackgroundColor = Pick<IGetColorForComponent, '$themeType' | '$customColor' | '$layer' | 'theme'>;
@@ -77,7 +77,7 @@ export function getTextColor({
 // Define the types for the arguments that will be passed to the getColorsForComponent function
 type IGetColorForComponent = {
   theme: TTheme;
-  $themeType: TUiColors;
+  $themeType: TThemeTypes;
   $customColor?: string | TthemeColorGroup;
   $customTextColor?: string | TthemeColorGroup;
   $layer?: number;

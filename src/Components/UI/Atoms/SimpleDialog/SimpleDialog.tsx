@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { styled } from 'styled-components';
 import { animated, useSpring } from '@react-spring/web';
 
-import { TUiColors } from '@/Components/UI/Interface/TUiColors';
+import { TThemeTypes } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '@/Components/UI/Interface/TLayer';
 import getColorsForComponent from '../../Design/color/colorCalculatorForComponet';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 // Define the styled component for the dialog
-const StyledDialog = styled(animated.div)<{ theme: TTheme; $themeType?: TUiColors; $layer?: TLayer }>`
+const StyledDialog = styled(animated.div)<{ theme: TTheme; $themeType?: TThemeTypes; $layer?: TLayer }>`
   position: fixed;
   top: 50%;
   left: 50%;
@@ -26,7 +26,7 @@ const StyledDialog = styled(animated.div)<{ theme: TTheme; $themeType?: TUiColor
 interface ISimpleDialog {
   isOpen: boolean;
   children: React.ReactNode;
-  themeType?: TUiColors;
+  themeType?: TThemeTypes;
   layer?: TLayer;
 }
 

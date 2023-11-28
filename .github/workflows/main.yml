@@ -17,8 +17,15 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Ceck Prettier Formatting
+      - name: Check Prettier Formatting
         run: npx prettier --check .
 
       - name: Run ESLint
         run: npm run lint
+
+      - name: Run Build
+        run: npm run build
+
+      - name: Fail if Previous Steps Failed
+        if: ${{ failure() }}
+        run: exit 1

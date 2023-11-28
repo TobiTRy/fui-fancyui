@@ -1,4 +1,4 @@
-import { TUiColors } from '@/Components/UI/Interface/TUiColors';
+import { TThemeTypes } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '@/Components/UI/Interface/TLayer';
 import { TBorderRadiusSizes } from '@/Components/UI/Interface/TBorderRadius';
 import { ITabSwitchDetailsLabelIcon, ITabSwitchDetailsChildren } from '../FancyTabSwitchButton/FancyTabSwitchButton.model';
@@ -7,8 +7,8 @@ import { TSpacings } from '../../Interface/TSpacings';
 export interface ITabSwitchProps {
   wide?: boolean;
   size?: 'sm' | 'md' | 'lg';
-  textColor?: TUiColors;
-  themeType?: TUiColors;
+  textColor?: TThemeTypes;
+  themeType?: TThemeTypes;
   layer?: TLayer;
   disabled?: boolean;
   tabSpacing?: TSpacings;
@@ -19,6 +19,6 @@ export interface ITabSwitchProps {
   id?: string;
   currentSelect?: string;
   iconAlign?: 'left' | 'right';
-  activeColor?: TUiColors;
+  activeColor?: TThemeTypes;
   handler?: (value: string) => void;
 }

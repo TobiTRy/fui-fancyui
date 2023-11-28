@@ -1,16 +1,17 @@
 import React, { KeyboardEvent, useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
-import { Fieldset } from '../../Atoms/Fieldset';
+import { Fieldset } from '../../Molecules/Fieldset';
 import { TLayer } from '@/Components/UI/Interface/TLayer';
 import ChipList from '../../Molecules/ChipList/ChipList';
 import { FancyChip } from '../FancyChip';
 import { InputLi } from './FancyChipList.style';
-import { TUiColors, TUiColorsSystemMessage } from '@/Components/UI/Interface/TUiColors';
+import { TThemeTypes } from '@/Components/UI/Interface/TUiColors';
+import { TUiColorsSystemMessage } from '@/Components/UI/Interface/TUiColorsSystemMessage';
 
 // Defining the interface for the component's props
 export interface ChipListProps {
-  themeType?: Exclude<TUiColors, 'transparent'>;
+  themeType?: Exclude<TThemeTypes, 'transparent'>;
   systemInformation?: TUiColorsSystemMessage;
   layer?: TLayer;
   outlined?: boolean;
@@ -104,7 +105,7 @@ export default function FancyChipList(props: ChipListProps) {
             textColor="secondary"
             contentEditable={focusedChip === chip.id}
             tabIndex={0}
-            layer={Math.min(layer ?? 1 + 2, 10) as TLayer}
+            layer={Math.min((layer ?? 1) + 2, 10) as TLayer}
             onDelete={deleteChip(chip.id)}
             outlined={outlined}
             onFocus={hanleChipFocus(chip.id)}

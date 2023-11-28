@@ -1,0 +1,53 @@
+# FancyListBox Component
+
+`FancyListBox` is a simple, styled list component designed to be used in React applications. It utilizes a `FancyBox` component to render a list (`ul`) and accepts `FancyListBoxItem` components as children.
+
+## Usage
+
+To use `FancyListBox`, import it into your React component and then use `FancyListBox.Item` to add list items.
+
+```jsx
+import FancyListBox from './path/to/FancyListBox';
+
+const MyComponent = () => (
+  <FancyListBox>
+    <FancyListBox.Item>Item 1</FancyListBox.Item>
+    <FancyListBox.Item>Item 2</FancyListBox.Item>
+    // More items...
+  </FancyListBox>
+);
+```
+
+## Props
+
+`FancyListBox` accepts the following props:
+
+- `children`: ReactNode - The items to be displayed in the list.
+- `...htmlProps`: HTMLAttributes - Any other standard HTML attributes for a div element.
+
+---
+
+# FancyListBoxItem Component
+
+`FancyListBoxItem` is used within `FancyListBox` to render individual list items. It is a styled `li` element.
+
+## Usage
+
+`FancyListBoxItem` is used as a child of `FancyListBox`.
+
+```jsx
+<FancyListBox.Item>Item 1</FancyListBox.Item>
+```
+
+## Props
+
+`FancyListBoxItem` accepts the following props:
+
+- `children`: ReactNode - The content of the list item.
+- `externalStyle`: CSSProp - Optional external styles to be applied to the list item.
+
+---
+
+## Styling
+
+Both `FancyListBox` and `FancyListBoxItem` can be styled using styled-components. `FancyListBox` applies its styles through `FancyBoxStyle`, and `FancyListBoxItem` uses `StyledLi` for styling, which can be customized via the `externalStyle` prop.

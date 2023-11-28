@@ -1,6 +1,6 @@
 import { css, styled } from 'styled-components';
 
-import generateThemeDesignForComponent from '../../HelperFunctions/designFunctions/generateThemeDesignForComponent/generateThemeDesignForComponent';
+import generateThemeDesignForComponent from '../../Design/designFunctions/generateThemeDesignForComponent/generateThemeDesignForComponent';
 import IStyledPrefixAndOmitter from '../../Interface/IStyledPrefixAndOmiter.model';
 import { IStyledChip } from './Chip';
 import { TTheme } from '@/Components/UI/Interface/TTheme';

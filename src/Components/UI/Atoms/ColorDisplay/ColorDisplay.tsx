@@ -5,9 +5,9 @@ import Typography from '../Typography/Typography';
 import copyToClipboard from '../../HelperFunctions/copyToClipBoard';
 import CheckerBoardPattern from '../CheckerBoardPattern/CheckerBoardPattern';
 import { ColorDisplayContainer, Wrapper, Content, WrapperSVG } from './ColorDisplay.style';
-import ClipBoardIcon from '../../SVGIcons/SVGClipBoardIcon';
-import ClipBoardIconCheck from '../../SVGIcons/SVGClipBoardIconChecked';
-import themeStore from '../../Design/color/themeStore';
+import ClipBoardIcon from '../../SVGIcons/SVGClipBoardIcon/SVGClipBoardIcon';
+import ClipBoardIconCheck from '../../SVGIcons/SVGClipBoardIconChecked/SVGClipBoardIconChecked';
+import themeStore from '../../Design/color/themeStore/themeStore';
 
 // --------------------------------------------------------------------------- //
 // ----- The main ColorDisplay Component for display the color in a box ------ //

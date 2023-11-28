@@ -9,7 +9,7 @@ import DateOutputFromTo from '../../Molecules/DateOutputFromTo/DateOutputFromTo'
 import { IDisabledDateSettings } from '../../Molecules/MonthWithDays/IDisableDateSettings.model';
 import { IDateArray } from '../../Molecules/RangeCalendar/IDateArray.model';
 import { TLayer } from '@/Components/UI/Interface/TLayer';
-import { TUiColors } from '@/Components/UI/Interface/TUiColors';
+import { TThemeTypes } from '@/Components/UI/Interface/TUiColors';
 
 interface IFancyDatePicker {
   rangeCalendar?: boolean;
@@ -17,7 +17,7 @@ interface IFancyDatePicker {
   selectedYear?: number;
   disabledDateSetting?: IDisabledDateSettings;
   externalData?: IExternalYearWithMonths;
-  themeType?: TUiColors;
+  themeType?: TThemeTypes;
   layer?: TLayer;
 }
 

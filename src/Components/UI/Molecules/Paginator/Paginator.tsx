@@ -1,18 +1,18 @@
 import React, { useMemo } from 'react';
 
-import SVGChevronLeft from '../../SVGIcons/SVGChevronLeft';
-import SVGChevronRight from '../../SVGIcons/SVGChevronRight';
+import SVGChevronLeft from '../../SVGIcons/SVGChevronLeft/SVGChevronLeft';
+import SVGChevronRight from '../../SVGIcons/SVGChevronRight/SVGChevronRight';
 
 import FancyButton from '../../Organisms/FancyButton/FancyButton';
 import { IconWrapper, NumberList, StyledPaginator } from './Paginator.style';
 import PageNumberList from '../../Atoms/PageNumberList/PageNumberList';
-import { TUiColors } from '@/Components/UI/Interface/TUiColors';
+import { TThemeTypes } from '@/Components/UI/Interface/TUiColors';
 
 // Define the props for the Paginator component
 interface IPaginator {
   currentPage?: number;
   totalPages: number;
-  themeType?: TUiColors;
+  themeType?: TThemeTypes;
   outlinedButton?: boolean;
   onPageChange: (page: number) => void;
   pageLimits?: number;

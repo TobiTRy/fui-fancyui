@@ -1,5 +1,5 @@
 import React from 'react';
-import { TUiColors } from '@/Components/UI/Interface/TUiColors';
+import { TThemeTypes } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '@/Components/UI/Interface/TLayer';
 import FancyContent from '../FancyContent/FancyContent';
 import { ContentWrapper } from './BottomBarIcon.style';
@@ -10,7 +10,7 @@ interface IBottomBarIconProps {
   hideLabel?: boolean;
   isActive?: boolean;
   disabled?: boolean;
-  themeType?: TUiColors;
+  themeType?: TThemeTypes;
   layer?: TLayer;
   id?: string;
 }
