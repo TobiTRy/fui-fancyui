@@ -84,13 +84,13 @@
   "files": [
     "dist"
   ],
-  "main": "./dist/my-lib.umd.js",
-  "module": "./dist/my-lib.es.js",
+  "main": "./dist/fui.umd.js",
+  "module": "./dist/fui.es.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/my-lib.es.js",
-      "require": "./dist/my-lib.cjs.js",
+      "import": "./dist/fui.es.js",
+      "require": "./dist/fui.cjs.js",
       "types": "./dist/index.d.ts"
     },
     "./package.json": "./package.json"
