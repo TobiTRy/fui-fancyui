@@ -110,6 +110,7 @@ export { default as FancyGrid } from '@/Components/UI/Templates/FancyGrid/FancyG
 export { default as FancyGridItem } from '@/Components/UI/Templates/FancyGrid/FancyGridItem/FancyGridItem';
 export { default as FancyBoxSet } from '@/Components/UI/Organisms/FancyBoxSet/FancyBoxSet';
 export { default as FancyRadioList } from '@/Components/UI/Templates/FancyRadioList/FancyRadioList';
+export { default as FancyFlexBox } from '@/Components/UI/Templates/FancyFlexBox/FancyFlexBox';
 
 // ---------- Utils ------- //
 export { default as FancyPopover } from '@/Components/UI/HelperFunctions/FancyPopover/FancyPopover';
