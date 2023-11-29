@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import FancyUL, { IFancyUL } from '../../Molecules/FancyDropDownUL/FancyDropDownUL';
-import UseDelay from '../../HelperFunctions/hooks/useDelay/UseDelay';
+import UseDelay from '../../../utils/hooks/useDelay/UseDelay';
 import { TLayer } from '@/Components/UI/Interface/TLayer';
 import { TThemeTypes } from '@/Components/UI/Interface/TUiColors';
 

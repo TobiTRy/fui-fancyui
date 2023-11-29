@@ -5,8 +5,8 @@ import FancyButton from '../../Organisms/FancyButton/FancyButton';
 import colorTransformator from './ColorTransformator';
 import { Container, WrapperSVG } from './FancyColorOutput.style';
 import InputFields from './InputFields/InputFields';
-import colorFormats from '../../HelperFunctions/variables/colorFormats';
-import { IColorFormat } from '../../HelperFunctions/variables/colorFormats';
+import colorFormats from '../../../utils/variables/colorFormats';
+import { IColorFormat } from '../../../utils/variables/colorFormats';
 
 //Icon for the Switch Button
 const Svg = (

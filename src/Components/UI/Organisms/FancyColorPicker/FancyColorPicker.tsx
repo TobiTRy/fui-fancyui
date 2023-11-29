@@ -9,7 +9,7 @@ import FancyHueSlider from '../../Molecules/FancyHueSlider/FancyHueSlider';
 import FancyOpacitySlider from '../../Molecules/FancyOpacitySlider/FancyOpacitySlider';
 import FancyColorOutput from '../../Molecules/FancyColorOutput/FancyColorOutput';
 import { emitSelectedColorChange } from './colorPickerUtils';
-import { IColorFormat } from '../../HelperFunctions/variables/colorFormats';
+import { IColorFormat } from '../../../utils/variables/colorFormats';
 import { TTheme } from '../../Interface/TTheme';
 
 const Wrapper = styled.div<{ theme: TTheme }>`

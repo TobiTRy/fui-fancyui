@@ -4,7 +4,7 @@ import { FancyRadio } from '@/Components/UI/Organisms/FancyRadio';
 import { FancyListBox } from '@/Components/UI/Molecules/FancyListBox';
 import { FancyLine } from '@/Components/Atoms/FancyLine';
 import { Fieldset } from '@/Components/UI/Molecules/Fieldset';
-import { clampLayer } from '@/Components/UI/HelperFunctions/clampLayer';
+import { clampLayer } from '@/Components/utils/clampLayer';
 import { FancyRadioListProps } from './FancyRadioList.model';
 
 // --------------------------------------------------------------------------- //

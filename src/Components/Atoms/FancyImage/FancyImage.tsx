@@ -2,7 +2,7 @@ import React from 'react';
 
 import { StyledA, StyledImage } from './FancyImage.style';
 
-import aspectRatioValidation from '../../UI/HelperFunctions/validations/aspectRatioValidation';
+import aspectRatioValidation from '../../utils/validations/aspectRatioValidation';
 
 // Define the props for the FancyImage component
 export interface IFancyImage {

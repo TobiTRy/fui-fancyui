@@ -114,11 +114,11 @@ export { default as FancyFlexBox } from '@/Components/UI/Templates/FancyFlexBox/
 export { default as FancyHandyNav } from '@/Components/UI/Templates/FancyHandyNav/FancyHandyNav';
 
 // ---------- Utils ------- //
-export { default as FancyPopover } from '@/Components/UI/HelperFunctions/FancyPopover/FancyPopover';
-export { default as UseDelay } from '@/Components/UI/HelperFunctions/hooks/useDelay/UseDelay';
-export { default as FancyPortal } from '@/Components/UI/HelperFunctions/FancyPortal/FancyPortal';
-export { default as useIntersectionObserver } from '@/Components/UI/HelperFunctions/hooks/useIntersectionObserver/useIntersectionObserver';
-export { default as useWindowDimensions } from '@/Components/UI/HelperFunctions/hooks/useWindowDimensions/useWindowDimensions';
+export { default as FancyPopover } from '@/Components/utils/FancyPopover/FancyPopover';
+export { default as UseDelay } from '@/Components/utils/hooks/useDelay/UseDelay';
+export { default as FancyPortal } from '@/Components/utils/FancyPortal/FancyPortal';
+export { default as useIntersectionObserver } from '@/Components/utils/hooks/useIntersectionObserver/useIntersectionObserver';
+export { default as useWindowDimensions } from '@/Components/utils/hooks/useWindowDimensions/useWindowDimensions';
 
 // ---------- ThemeGenerators ------- //
 export { default as generateThemeForCard } from '@/Components/Design/designFunctions/generateThemeForCard/generateThemeForCard';
