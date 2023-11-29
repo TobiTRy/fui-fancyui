@@ -2,13 +2,13 @@
 
 import React from 'react';
 
-import FancySwipeUpModal from '../../Components/UI/Organisms/FancySwipeUpModal/FancySwipeUpModal';
-import FancyButton from '../../Components/UI/Organisms/FancyButton/FancyButton';
+import FancySwipeUpModal from '../../Components/Organisms/FancySwipeUpModal/FancySwipeUpModal';
+import FancyButton from '../../Components/Organisms/FancyButton/FancyButton';
 
-import { FancyTextInput } from '../../Components/UI/Organisms/FancyTextInput';
+import { FancyTextInput } from '../../Components/Organisms/FancyTextInput';
 
 import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';
-import { useFancySwipeUpModalStore } from '../../Components/UI/Organisms/FancySwipeUpModal/FancySwipeUpModal.state';
+import { useFancySwipeUpModalStore } from '../../Components/Organisms/FancySwipeUpModal/FancySwipeUpModal.state';
 
 export default function SwipeUpModal() {
   const [isVisible, setIsVisible] = React.useState(false);

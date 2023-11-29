@@ -1,6 +1,6 @@
 import React, { ChangeEvent, useState } from 'react';
 import { styled, css } from 'styled-components';
-import FancyTextInput from '../../UI/Organisms/FancyTextInput/FancyTextInput';
+import FancyTextInput from '../../Organisms/FancyTextInput/FancyTextInput';
 
 import SVGSearch from '../../SVGIcons/SVGSearch/SVGSearch';
 import FancySVGAtom from '../../Atoms/FancySVGAtom/FancySVGAtom';

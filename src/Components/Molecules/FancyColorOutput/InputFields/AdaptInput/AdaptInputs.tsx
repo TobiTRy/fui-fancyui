@@ -1,5 +1,5 @@
 import React from 'react';
-import { FancyNumberInput } from '../../../../UI/Organisms/FancyNumberInput';
+import { FancyNumberInput } from '../../../../Organisms/FancyNumberInput';
 
 //the attribiutes for each color input
 const colorLettersObject = [

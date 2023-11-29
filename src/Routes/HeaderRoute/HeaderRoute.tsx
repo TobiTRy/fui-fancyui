@@ -4,7 +4,7 @@ import HeaderTitleWithLogo from '../../Components/Molecules/HeaderTitleWithLogo/
 
 import FancyLoadingSpinner from '../../Components/Atoms/FancyLoadingSpinner/FancyLoadingSpinner';
 import FancyMiniProfile from '../../Components/Molecules/FancyMiniProfile/FancyMiniProfile';
-import FancySearchBar from '../../Components/UI/Organisms/FancySearchBar/FancySearchBar';
+import FancySearchBar from '../../Components/Organisms/FancySearchBar/FancySearchBar';
 
 import styled from 'styled-components';
 import FancyBar from '../../Components/Atoms/FancyBox/FancyBox';

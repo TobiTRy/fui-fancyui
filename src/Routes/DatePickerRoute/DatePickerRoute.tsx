@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react';
 
-import FancyDatePicker from '../../Components/UI/Organisms/FancyDatePicker/FancyDatePicker';
+import FancyDatePicker from '../../Components/Organisms/FancyDatePicker/FancyDatePicker';
 
 import FancyDateDropDown from '../../Components/UI/Templates/Inputs/FancyDateDropDown/FancyDateDropDown';
 import IExternalYearWithMonths from '../../Components/Molecules/MonthWithDays/IExternalMonthWithDays.model';

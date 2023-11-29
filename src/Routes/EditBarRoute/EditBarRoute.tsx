@@ -1,7 +1,7 @@
 import React from 'react';
 
-import FancyEditBar from '../../Components/UI/Organisms/FancyEditBar/FancyEditBar';
-import FancButton from '../../Components/UI/Organisms/FancyButton/FancyButton';
+import FancyEditBar from '../../Components/Organisms/FancyEditBar/FancyEditBar';
+import FancButton from '../../Components/Organisms/FancyButton/FancyButton';
 import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';
 
 export default function EditBarRoute() {

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import FancyBoxSet from '@/Components/UI/Organisms/FancyBoxSet/FancyBoxSet';
+import FancyBoxSet from '@/Components/Organisms/FancyBoxSet/FancyBoxSet';
 import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
 
 export default function FancyBoxSetRoute() {

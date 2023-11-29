@@ -3,7 +3,7 @@ import { Meta, StoryObj } from '@storybook/react';
 
 // Import the component to be tested
 import FancyGrid from './FancyGrid';
-import { FancyButton } from '../../Organisms/FancyButton';
+import { FancyButton } from '../../../Organisms/FancyButton';
 
 // Define metadata for the story
 const meta = {

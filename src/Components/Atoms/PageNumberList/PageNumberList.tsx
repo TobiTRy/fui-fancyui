@@ -1,4 +1,4 @@
-import { FancyButton } from '../../UI/Organisms/FancyButton';
+import { FancyButton } from '../../Organisms/FancyButton';
 import { ButtonWrapper, Wrapper } from './PageNumberList.style';
 
 // Define a function to generate an array of page numbers to display

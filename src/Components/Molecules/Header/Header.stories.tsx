@@ -4,7 +4,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import Header from './Header';
 import { HeaderTitleWithLogo } from '../HeaderTitleWithLogo';
-import { FancySearchBar } from '../../UI/Organisms/FancySearchBar';
+import { FancySearchBar } from '../../Organisms/FancySearchBar';
 import { FancyMiniProfile } from '../FancyMiniProfile';
 import { css } from 'styled-components';
 

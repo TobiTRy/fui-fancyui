@@ -1,5 +1,5 @@
 import React from 'react';
-import ColorPicker from '../../Components/UI/Organisms/FancyColorPicker/FancyColorPicker';
+import ColorPicker from '../../Components/Organisms/FancyColorPicker/FancyColorPicker';
 
 import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';
 

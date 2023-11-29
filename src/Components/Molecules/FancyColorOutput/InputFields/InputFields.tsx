@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { ColorTypes } from '../FancyColorOutput.model';
-import { FancyTextInput } from '../../../UI/Organisms/FancyTextInput';
+import { FancyTextInput } from '../../../Organisms/FancyTextInput';
 import AdaptInputs from './AdaptInput/AdaptInputs';
 import { ContainerInputs, WrapperInputs } from './InputFields.style';
 import Typography from '../../../Atoms/Typography/Typography';

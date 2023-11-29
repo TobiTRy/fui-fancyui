@@ -4,7 +4,7 @@ import './App.css';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
-import { useFancyModalStore } from './Components/UI/Organisms/FancyModal/FancyModal.state';
+import { useFancyModalStore } from './Components/Organisms/FancyModal/FancyModal.state';
 
 import SwipeUpModal from './Routes/SwipeUpModal/SwipeUpModal';
 import SingleNumberInputRoute from './Routes/SingleNumberInputRoute/SingleNumberInputRoute';

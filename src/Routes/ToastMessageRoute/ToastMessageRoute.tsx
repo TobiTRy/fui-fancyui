@@ -1,8 +1,8 @@
 import React from 'react';
-import FancyToastMessage from '../../Components/UI/Organisms/FancyToastMessage/FancyToastMessage';
-import FancyButton from '../../Components/UI/Organisms/FancyButton/FancyButton';
+import FancyToastMessage from '../../Components/Organisms/FancyToastMessage/FancyToastMessage';
+import FancyButton from '../../Components/Organisms/FancyButton/FancyButton';
 
-import { useFancyToastMessageStore } from '../../Components/UI/Organisms/FancyToastMessage/FancyToastMessage.state';
+import { useFancyToastMessageStore } from '../../Components/Organisms/FancyToastMessage/FancyToastMessage.state';
 
 const messageType = ['success', 'warning', 'error'];
 

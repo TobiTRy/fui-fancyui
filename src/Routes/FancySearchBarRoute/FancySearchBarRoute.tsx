@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import FancySearchBar from '../../Components/UI/Organisms/FancySearchBar/FancySearchBar';
+import FancySearchBar from '../../Components/Organisms/FancySearchBar/FancySearchBar';
 
 import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';
 import { styled } from 'styled-components';

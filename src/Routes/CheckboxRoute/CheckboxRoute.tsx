@@ -5,7 +5,7 @@ import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
 import FancyCheckbox from '../../Components/Molecules/FancyCheckbox/FancyCheckbox';
 import { FancyCard } from '@/Components/Atoms/FancyCard';
 import RawRadio from '@/Components/Atoms/RawRadio/RawRadio';
-import FancyRadio from '@/Components/UI/Organisms/FancyRadio/FancyRadio';
+import FancyRadio from '@/Components/Organisms/FancyRadio/FancyRadio';
 import CustomRadio from '@/Components/Atoms/RawRadio/RawRadio';
 import FancyRadioList from '@/Components/UI/Templates/FancyRadioList/FancyRadioList';
 
