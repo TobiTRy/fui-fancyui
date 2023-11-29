@@ -34,7 +34,7 @@ import ChipsRoute from './Routes/ChipsRoute/ChipsRoute';
 import CheckboxRoute from './Routes/CheckboxRoute/CheckboxRoute';
 import ColorGeneratorRoute from './Routes/ColorGeneratorRoute/ColorGeneratorRoute';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
-import themeStore from './Components/UI/Design/color/themeStore/themeStore';
+import themeStore from './Components/Design/color/themeStore/themeStore';
 import GlobalStyle from './GlobalStyle';
 import FancyContentRoute from './Routes/FancyContentRoute/FancyContentRoute';
 import { FancyModal, FancySwipeUpModal } from './lib';

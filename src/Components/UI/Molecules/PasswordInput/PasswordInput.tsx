@@ -5,7 +5,7 @@ import RawInput, { TRawInputAlign } from '../../Atoms/RawInput/RawInput';
 import PasswordEye from '../../Atoms/PasswordEye/PasswordEye';
 import { TThemeTypes } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '@/Components/UI/Interface/TLayer';
-import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
+import { getBackgroundColor } from '../../../Design/color/colorCalculatorForComponet';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 const WrapperEye = styled.div<{ theme: TTheme; $themeType?: TThemeTypes; $layer?: TLayer }>`

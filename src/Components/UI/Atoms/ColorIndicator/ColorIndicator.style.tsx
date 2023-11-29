@@ -1,6 +1,6 @@
 import { styled, css } from 'styled-components';
 
-import { boxShadow } from '../../Design/shadows/shadows';
+import { boxShadow } from '../../../Design/shadows/shadows';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 export const WrapperIndicator = styled.div<{ $isActive: boolean }>`

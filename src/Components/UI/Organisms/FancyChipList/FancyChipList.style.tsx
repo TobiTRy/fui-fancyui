@@ -1,8 +1,8 @@
 import { styled } from 'styled-components';
 
 import IStyledPrefixAndPicker from '../../Interface/IStyledPrefixAndPicker.model';
-import { getTextColor } from '../../Design/color/colorCalculatorForComponet';
-import { IgenerateThemeForCard } from '../../Design/designFunctions/generateThemeForCard/generateThemeForCard';
+import { getTextColor } from '../../../Design/color/colorCalculatorForComponet';
+import { IgenerateThemeForCard } from '../../../Design/designFunctions/generateThemeForCard/generateThemeForCard';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 type IChipContainer = IStyledPrefixAndPicker<IgenerateThemeForCard> & { theme: TTheme };

@@ -1,10 +1,10 @@
 import { css, styled } from 'styled-components';
 
 import { IRange } from './DateNumberAtom';
-import { disabledStyle } from '../../Design/designFunctions/disabledStyle/disableStyle';
+import { disabledStyle } from '../../../Design/designFunctions/disabledStyle/disableStyle';
 import { TThemeTypes } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '@/Components/UI/Interface/TLayer';
-import { getTextColor } from '../../Design/color/colorCalculatorForComponet';
+import { getTextColor } from '../../../Design/color/colorCalculatorForComponet';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 // --------------------------------------------------------------------------- //

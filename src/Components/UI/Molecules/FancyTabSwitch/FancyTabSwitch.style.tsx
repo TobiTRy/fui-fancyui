@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
 
-import { borderRadius, spacingPx } from '../../Design/designSizes';
+import { borderRadius, spacingPx } from '../../../Design/designSizes';
 import { TThemeTypes } from '@/Components/UI/Interface/TUiColors';
 import { tabSwitchSizes } from '../TabSwitch/TabSwitch.style';
 import { TLayer } from '@/Components/UI/Interface/TLayer';

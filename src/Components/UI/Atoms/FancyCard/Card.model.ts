@@ -1,4 +1,4 @@
-import { IRoundedEdges } from '../../Design/designFunctions/edgeCaluculation';
+import { IRoundedEdges } from '../../../Design/designFunctions/edgeCaluculation';
 import { TLayer } from '@/Components/UI/Interface/TLayer';
 import { TBorderRadiusSizes } from '@/Components/UI/Interface/TBorderRadius';
 import { TThemeTypes } from '@/Components/UI/Interface/TUiColors';

@@ -1,4 +1,4 @@
-import themeStore from '@/Components/UI/Design/color/themeStore/themeStore';
+import themeStore from '@/Components/Design/color/themeStore/themeStore';
 
 export function generatePadding(offsetPx?: number, spacingLeftRightx2?: boolean) {
   const offset = offsetPx ? offsetPx : 0;

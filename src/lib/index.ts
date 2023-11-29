@@ -121,13 +121,13 @@ export { default as useIntersectionObserver } from '@/Components/UI/HelperFuncti
 export { default as useWindowDimensions } from '@/Components/UI/HelperFunctions/hooks/useWindowDimensions/useWindowDimensions';
 
 // ---------- ThemeGenerators ------- //
-export { default as generateThemeForCard } from '@/Components/UI/Design/designFunctions/generateThemeForCard/generateThemeForCard';
-export { default as disabledStyle } from '@/Components/UI/Design/designFunctions/disabledStyle/disableStyle';
-export { default as generateBorderRadiusForComponent } from '@/Components/UI/Design/designFunctions/generateBorderRadiusForComponent/generateBorderRadiusForComponent';
-export { default as shadows } from '@/Components/UI/Design/shadows/shadows';
+export { default as generateThemeForCard } from '@/Components/Design/designFunctions/generateThemeForCard/generateThemeForCard';
+export { default as disabledStyle } from '@/Components/Design/designFunctions/disabledStyle/disableStyle';
+export { default as generateBorderRadiusForComponent } from '@/Components/Design/designFunctions/generateBorderRadiusForComponent/generateBorderRadiusForComponent';
+export { default as shadows } from '@/Components/Design/shadows/shadows';
 
 // ---------- Interfaces ------- //
 export * from '@/Components/UI/Interface';
 
 // ---------- Store ------- //
-export { default as themeStore } from '@/Components/UI/Design/color/themeStore/themeStore';
+export { default as themeStore } from '@/Components/Design/color/themeStore/themeStore';

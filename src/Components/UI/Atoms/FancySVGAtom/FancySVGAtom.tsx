@@ -3,7 +3,7 @@ import { styled } from 'styled-components';
 
 import { ISVGAtomProps, IStyledSVGAtom, sizes } from './FancySVGAtom.model';
 import { TThemeTypes } from '@/Components/UI/Interface/TUiColors';
-import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
+import { getBackgroundColor } from '../../../Design/color/colorCalculatorForComponet';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 interface ICalcIconColor {

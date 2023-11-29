@@ -17,7 +17,7 @@ import FancyBottomBarIcon, { IFancyBottomBarIcon } from '../../Templates/FancyBo
 import EditBarModal from '../../Atoms/EditBarModal/EditBarModal';
 
 import DynamicBottomScrollBar from '../DynamicBottomScrollBar/DynamicBottomScrollBar';
-import themeStore from '@/Components/UI/Design/color/themeStore/themeStore';
+import themeStore from '@/Components/Design/color/themeStore/themeStore';
 
 const Wrapper = styled.div`
   position: fixed;

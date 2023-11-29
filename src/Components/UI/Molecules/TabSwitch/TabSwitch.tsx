@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 
 import { ItemWrapper, ULButtonSwitchList, tabSwitchSizes } from './TabSwitch.style';
 import FancyTabSwitchButton from '../FancyTabSwitchButton/FancyTabSwitchButton';
-import { borderRadius } from '../../Design/designSizes';
+import { borderRadius } from '../../../Design/designSizes';
 import SwitchActiveIndicator from '../../Atoms/SwitchActiveIndicator/SwitchActiveIndicator';
 import { ITabSwitchProps } from './TabSwitch.model';
 

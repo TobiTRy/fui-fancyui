@@ -4,7 +4,7 @@ import { styled } from 'styled-components';
 import Typography from '../../Atoms/Typography/Typography';
 import { TThemeTypes } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '@/Components/UI/Interface/TLayer';
-import { getTextColor } from '../../Design/color/colorCalculatorForComponet';
+import { getTextColor } from '../../../Design/color/colorCalculatorForComponet';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 const Wrapper = styled.div`

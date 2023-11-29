@@ -5,7 +5,7 @@ import { generateTransparentStyle } from './utils/generateTransparentStyle';
 import { generateOutlineStyle } from './utils/generateOutlineStyle';
 
 import IStyledPrefixAndPicker from '@/Components/UI/Interface/IStyledPrefixAndPicker.model';
-import { getSimpleColorThemeType } from '@/Components/UI/Design/designFunctions/getSimpleColorThemeType';
+import { getSimpleColorThemeType } from '@/Components/Design/designFunctions/getSimpleColorThemeType';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 export interface IGenerateThemeDesignForComponentProps {

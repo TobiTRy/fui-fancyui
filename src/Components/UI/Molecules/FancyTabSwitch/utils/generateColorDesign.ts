@@ -1,10 +1,10 @@
 import { css } from 'styled-components';
 
-import { getBackgroundColor } from '../../../Design/color/colorCalculatorForComponet';
+import { getBackgroundColor } from '../../../../Design/color/colorCalculatorForComponet';
 import { tabSwitchSizes } from '../../TabSwitch/TabSwitch.style';
 import { IFancyTabSwitchStyle } from '../FancyTabSwitch.style';
-import colorTransparencyCalculator from '../../../Design/color/colorTransparencyCalculator';
-import { borderRadius } from '../../../Design/designSizes';
+import colorTransparencyCalculator from '../../../../Design/color/colorTransparencyCalculator';
+import { borderRadius } from '../../../../Design/designSizes';
 
 const generateTransparentStyle = (props: TGenerateOutlineStyle) => {
   const { $padding, theme, $rounded } = props;

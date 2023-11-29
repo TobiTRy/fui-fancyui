@@ -2,7 +2,7 @@ import { css, styled } from 'styled-components';
 
 import { TThemeTypes } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '@/Components/UI/Interface/TLayer';
-import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
+import { getBackgroundColor } from '../../../Design/color/colorCalculatorForComponet';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 export const StyledYearSelector = styled.div<{ theme: TTheme; $themeType?: TThemeTypes; $layer?: TLayer }>`

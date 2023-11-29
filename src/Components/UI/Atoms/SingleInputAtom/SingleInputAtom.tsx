@@ -1,9 +1,9 @@
 import React, { forwardRef, useState } from 'react';
 import { styled } from 'styled-components';
 
-import { fontSize } from '../../Design/designSizes';
+import { fontSize } from '../../../Design/designSizes';
 import { TThemeTypes } from '@/Components/UI/Interface/TUiColors';
-import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
+import { getBackgroundColor } from '../../../Design/color/colorCalculatorForComponet';
 import { TLayer } from '@/Components/UI/Interface/TLayer';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 

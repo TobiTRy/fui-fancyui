@@ -2,11 +2,11 @@ import React from 'react';
 import { styled } from 'styled-components';
 import Color from 'color';
 
-import { fontSize } from '../../Design/designSizes';
-import { simpleColorTransition } from '../../Design/simpleTransition';
+import { fontSize } from '../../../Design/designSizes';
+import { simpleColorTransition } from '../../../Design/simpleTransition';
 import { TThemeTypesNotTrasparent } from '@/Components/UI/Interface/TUiColors';
 import { TLayer } from '@/Components/UI/Interface/TLayer';
-import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
+import { getBackgroundColor } from '../../../Design/color/colorCalculatorForComponet';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 type FancyXButtonDesign = TThemeTypesNotTrasparent;

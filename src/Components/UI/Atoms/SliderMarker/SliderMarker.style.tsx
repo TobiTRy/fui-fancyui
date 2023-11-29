@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 
 import { TTheme } from '../../Interface/TTheme';
-import colorTransparencyCalculator from '../../Design/color/colorTransparencyCalculator';
+import colorTransparencyCalculator from '../../../Design/color/colorTransparencyCalculator';
 
 export const WrapperMarker = styled.div`
   position: absolute;

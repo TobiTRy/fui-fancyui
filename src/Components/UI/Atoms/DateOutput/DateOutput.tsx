@@ -3,7 +3,7 @@ import { styled } from 'styled-components';
 
 import Typography from '../Typography/Typography';
 import { TThemeTypes } from '@/Components/UI/Interface/TUiColors';
-import { getBackgroundColor, getTextColor } from '../../Design/color/colorCalculatorForComponet';
+import { getBackgroundColor, getTextColor } from '../../../Design/color/colorCalculatorForComponet';
 import { TLayer } from '@/Components/UI/Interface/TLayer';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 

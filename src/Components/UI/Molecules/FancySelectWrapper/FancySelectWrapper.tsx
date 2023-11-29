@@ -1,7 +1,7 @@
 import React, { useId } from 'react';
 import { CSSProp } from 'styled-components';
 
-import themeStore from '../../Design/color/themeStore/themeStore';
+import themeStore from '../../../Design/color/themeStore/themeStore';
 import { TAlign, TAlignCheckbox } from '../FancyCheckbox/FancyCheckbox.model';
 import { LabelWrapper, Wrapper } from './FancySelectWrapper.style';
 import FancyContent from '../FancyContent/FancyContent';

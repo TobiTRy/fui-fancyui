@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 
 import InputLabel from '../InputLabel/InputLabel';
-import { getTextColor } from '../../Design/color/colorCalculatorForComponet';
+import { getTextColor } from '../../../Design/color/colorCalculatorForComponet';
 import { IAlignedInputLabel } from './TalignedInputLabel.model';
 
 //the aligned label is only with align left or centerd {align?: string; active?: boolean}

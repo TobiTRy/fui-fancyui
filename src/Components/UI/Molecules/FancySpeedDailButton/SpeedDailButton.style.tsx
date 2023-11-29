@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
 
-import { boxShadow } from '../../Design/shadows/shadows';
+import { boxShadow } from '../../../Design/shadows/shadows';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 // eslint-disable-next-line react-refresh/only-export-components

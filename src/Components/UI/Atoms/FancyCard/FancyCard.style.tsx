@@ -2,11 +2,11 @@ import { styled } from 'styled-components';
 
 import { StyledCardProps } from './Card.model';
 import IStyledPrefixAndOmiter from '../../Interface/IStyledPrefixAndOmiter.model';
-import { spacingPx } from '../../Design/designSizes';
-import edgeCalculation from '../../Design/designFunctions/edgeCaluculation';
+import { spacingPx } from '../../../Design/designSizes';
+import edgeCalculation from '../../../Design/designFunctions/edgeCaluculation';
 
-import { boxShadow } from '../../Design/shadows/shadows';
-import getColorsForComponent from '../../Design/color/colorCalculatorForComponet';
+import { boxShadow } from '../../../Design/shadows/shadows';
+import getColorsForComponent from '../../../Design/color/colorCalculatorForComponet';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 // the converted $ styling props for the card
