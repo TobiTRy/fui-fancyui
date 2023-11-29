@@ -1,9 +1,9 @@
 import React, { KeyboardEvent, useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
-import { Fieldset } from '../../Molecules/Fieldset';
+import { Fieldset } from '../../../Molecules/Fieldset';
 import { TLayer } from '@/Components/Interface/TLayer';
-import ChipList from '../../Molecules/ChipList/ChipList';
+import ChipList from '../../../Molecules/ChipList/ChipList';
 import { FancyChip } from '../FancyChip';
 import { InputLi } from './FancyChipList.style';
 import { TThemeTypes } from '@/Components/Interface/TUiColors';

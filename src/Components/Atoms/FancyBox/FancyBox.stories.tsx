@@ -4,8 +4,8 @@ import { Meta, StoryObj } from '@storybook/react';
 // Import the component to be tested
 import FancyBox from './FancyBox';
 import { css } from 'styled-components';
-import { FancyMiniProfile } from '../../UI/Molecules/FancyMiniProfile';
-import { HeaderTitleWithLogo } from '../../UI/Molecules/HeaderTitleWithLogo';
+import { FancyMiniProfile } from '../../Molecules/FancyMiniProfile';
+import { HeaderTitleWithLogo } from '../../Molecules/HeaderTitleWithLogo';
 import { FancyBottomBarIcon } from '../../UI/Templates/FancyBottomBarIcon';
 import SVGCheckMark from '../../SVGIcons/SVGCheckMark/SVGCheckMark';
 import React from 'react';

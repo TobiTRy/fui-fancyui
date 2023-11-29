@@ -1,6 +1,6 @@
 import React from 'react';
 
-import FancyTabSwitch from '../../Components/UI/Molecules/FancyTabSwitch/FancyTabSwitch';
+import FancyTabSwitch from '../../Components/Molecules/FancyTabSwitch/FancyTabSwitch';
 import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';
 import { css } from 'styled-components';
 import { FancyCard } from '@/Components/Atoms/FancyCard';

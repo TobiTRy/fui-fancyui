@@ -3,7 +3,7 @@ import { Meta, StoryObj } from '@storybook/react';
 
 // Import the component to be tested
 import FancyDatePicker from './FancyDatePicker';
-import { IDateArray } from '../../Molecules/RangeCalendar/IDateArray.model';
+import { IDateArray } from '../../../Molecules/RangeCalendar/IDateArray.model';
 
 // Define metadata for the story
 const meta = {

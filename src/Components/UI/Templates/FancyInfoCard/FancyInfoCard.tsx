@@ -1,7 +1,7 @@
 import React from 'react';
 
-import InfoCard from '../../Molecules/InfoCard/InfoCard';
-import FancyContent from '../../Molecules/FancyContent/FancyContent';
+import InfoCard from '../../../Molecules/InfoCard/InfoCard';
+import FancyContent from '../../../Molecules/FancyContent/FancyContent';
 import { TTypography } from '@/Components/Interface/TTypography';
 import { TSizes } from '../../../Interface/TComponentSizes';
 

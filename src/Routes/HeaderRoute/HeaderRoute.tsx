@@ -1,14 +1,14 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { useState } from 'react';
-import HeaderTitleWithLogo from '../../Components/UI/Molecules/HeaderTitleWithLogo/HeaderTitleWithLogo';
+import HeaderTitleWithLogo from '../../Components/Molecules/HeaderTitleWithLogo/HeaderTitleWithLogo';
 
 import FancyLoadingSpinner from '../../Components/Atoms/FancyLoadingSpinner/FancyLoadingSpinner';
-import FancyMiniProfile from '../../Components/UI/Molecules/FancyMiniProfile/FancyMiniProfile';
+import FancyMiniProfile from '../../Components/Molecules/FancyMiniProfile/FancyMiniProfile';
 import FancySearchBar from '../../Components/UI/Organisms/FancySearchBar/FancySearchBar';
 
 import styled from 'styled-components';
 import FancyBar from '../../Components/Atoms/FancyBox/FancyBox';
-import Header from '../../Components/UI/Molecules/Header/Header';
+import Header from '../../Components/Molecules/Header/Header';
 import themeStore from '@/Components/Design/color/themeStore/themeStore';
 import { Typography } from '@/Components/Atoms/Typography';
 

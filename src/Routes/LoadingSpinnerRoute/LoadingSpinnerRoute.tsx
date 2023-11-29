@@ -4,7 +4,7 @@ import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
 
 import FancyLoadingSpinner from '../../Components/Atoms/FancyLoadingSpinner/FancyLoadingSpinner';
 import FancyLoadingBar from '../../Components/Atoms/FancyLoadingBar/FancyLoadingBar';
-import ProgressBar from '../../Components/UI/Molecules/FancyProgressBar/FancyProgressBar'; // Corrected the import name
+import ProgressBar from '../../Components/Molecules/FancyProgressBar/FancyProgressBar'; // Corrected the import name
 import { FancyCard } from '@/Components/Atoms/FancyCard';
 
 export default function LoadingSpinnerRoute() {

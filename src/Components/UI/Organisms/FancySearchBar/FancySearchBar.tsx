@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { styled } from 'styled-components';
 
-import SearchBar from '../../Molecules/SearchBar/SearchBar';
-import SearchBarList from '../../Molecules/SearchBarList/SearchBarList';
+import SearchBar from '../../../Molecules/SearchBar/SearchBar';
+import SearchBarList from '../../../Molecules/SearchBarList/SearchBarList';
 import { TLayer } from '@/Components/Interface/TLayer';
 import { TThemeTypes } from '@/Components/Interface/TUiColors';
 

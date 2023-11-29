@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { StyledI, StyledTextDiv } from './ListDivider.style';
-import FancyContent from '../../UI/Molecules/FancyContent/FancyContent';
+import FancyContent from '../../Molecules/FancyContent/FancyContent';
 import { IListDivider } from './ListDivider.model';
 
 // --------------------------------------------------------------------------- //

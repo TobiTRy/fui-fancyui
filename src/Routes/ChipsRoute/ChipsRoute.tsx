@@ -6,7 +6,7 @@ import Chip from '../../Components/UI/Organisms/FancyChip/FancyChip';
 import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
 import ClipBoardIconCheck from '../../Components/SVGIcons/SVGClipBoardIconChecked/SVGClipBoardIconChecked';
 import { FancyCard } from '@/Components/Atoms/FancyCard';
-import ChipList from '../../Components/UI/Molecules/ChipList/ChipList';
+import ChipList from '../../Components/Molecules/ChipList/ChipList';
 import FancyChipList from '../../Components/UI/Organisms/FancyChipList/FancyChipList';
 
 const chipList = ['12', '1212', '1212', '121221', '121212211', '12121212', '12121212'];

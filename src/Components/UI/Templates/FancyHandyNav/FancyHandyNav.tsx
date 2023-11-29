@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { CSSProp, css } from 'styled-components';
 
-import SwitchList from '../../Molecules/SwitchList/SwitchList';
+import SwitchList from '../../../Molecules/SwitchList/SwitchList';
 import useFancyHandyNavStore from './FancyHandyNav.store';
-import BottomBar from '../../Molecules/BottomBar/BottomBar';
+import BottomBar from '../../../Molecules/BottomBar/BottomBar';
 import FancyBottomBarIcon, { IFancyBottomBarIcon } from '../FancyBottomBarIcon/FancyBottomBarIcon';
 import RawNav from '../../../Atoms/RawNav/RawNav';
 import { TLayer } from '@/Components/Interface/TLayer';

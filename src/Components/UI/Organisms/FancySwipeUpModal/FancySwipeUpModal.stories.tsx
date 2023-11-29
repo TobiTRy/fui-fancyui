@@ -7,7 +7,7 @@ import FancySwipeUpModal from './FancySwipeUpModal';
 import { FancyButton } from '../FancyButton';
 import { useFancySwipeUpModalStore } from './FancySwipeUpModal.state';
 import { FancyTextInput } from '../FancyTextInput';
-import { ISwipeUpModal } from '../../Molecules/SwipeUpModal/ISwipeUpModal.model';
+import { ISwipeUpModal } from '../../../Molecules/SwipeUpModal/ISwipeUpModal.model';
 
 // Define metadata for the story
 const meta = {

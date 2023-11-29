@@ -1,9 +1,9 @@
 import React, { useId, useState } from 'react';
 
-import InputWrapper from '../../Molecules/InputWrapper/InputWrapper';
+import InputWrapper from '../../../Molecules/InputWrapper/InputWrapper';
 import DropDownSelect, { IDropDownSelect } from '../../../Atoms/DropDownSelect/DropDownSelect';
 
-import { IInputWrapperUserInputProps } from '../../Molecules/InputWrapper/InputWrapper';
+import { IInputWrapperUserInputProps } from '../../../Molecules/InputWrapper/InputWrapper';
 
 export type IFancyDropDownSelect = Omit<IInputWrapperUserInputProps, 'InputElement'> & IDropDownSelect;
 

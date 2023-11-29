@@ -2,11 +2,11 @@ import React from 'react';
 import { css } from 'styled-components';
 
 import LoadingSVGArrows from '../../../Atoms/LoadingSVGArrows/LoadingSVGArrows';
-import Button, { IButtonProps } from '../../Molecules/Button/Button';
-import FancyContent from '../../Molecules/FancyContent/FancyContent';
+import Button, { IButtonProps } from '../../../Molecules/Button/Button';
+import FancyContent from '../../../Molecules/FancyContent/FancyContent';
 import { generateFancyButton } from './FancyButton.style';
 
-import { IButton } from '../../Molecules/Button/Button';
+import { IButton } from '../../../Molecules/Button/Button';
 import { TTypography } from '@/Components/Interface/TTypography';
 import { TBorderRadiusSizes } from '@/Components/Interface/TBorderRadius';
 

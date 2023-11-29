@@ -1,7 +1,7 @@
 import React from 'react';
 
 import MenuItem from '../../../../Atoms/MenuItem/MenuItem';
-import FancyContent from '../../../Molecules/FancyContent/FancyContent';
+import FancyContent from '../../../../Molecules/FancyContent/FancyContent';
 
 type TFancyMenueItemProps = {
   label?: string;

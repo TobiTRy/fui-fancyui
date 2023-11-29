@@ -2,8 +2,8 @@
 import React from 'react';
 
 import FancyImage from '../../Components/Atoms/FancyImage/FancyImage';
-import FancyImageText from '../../Components/UI/Molecules/FancyImageText/FancyImageText';
-import FancyVideoText from '../../Components/UI/Molecules/FancyVideoText/FancyVideoText';
+import FancyImageText from '../../Components/Molecules/FancyImageText/FancyImageText';
+import FancyVideoText from '../../Components/Molecules/FancyVideoText/FancyVideoText';
 import Typography from '../../Components/Atoms/Typography/Typography';
 
 import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';

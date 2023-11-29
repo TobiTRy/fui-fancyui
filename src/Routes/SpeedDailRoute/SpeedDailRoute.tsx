@@ -1,6 +1,6 @@
 import React from 'react';
 
-import FancySpeedDialButton from '../../Components/UI/Molecules/FancySpeedDailButton/FancySpeedDailButton';
+import FancySpeedDialButton from '../../Components/Molecules/FancySpeedDailButton/FancySpeedDailButton';
 
 import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';
 import { css } from 'styled-components';

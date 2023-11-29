@@ -1,7 +1,7 @@
 import React, { useId, useState } from 'react';
 
-import DateInput, { IDateInputPropsWithNativeAttrs } from '../../Molecules/DateInput/DateInput';
-import InputWrapper, { IInputWrapperUserInputProps } from '../../Molecules/InputWrapper/InputWrapper';
+import DateInput, { IDateInputPropsWithNativeAttrs } from '../../../Molecules/DateInput/DateInput';
+import InputWrapper, { IInputWrapperUserInputProps } from '../../../Molecules/InputWrapper/InputWrapper';
 
 type IFancyDateInput = Omit<IInputWrapperUserInputProps, 'InputElement'> & IDateInputPropsWithNativeAttrs;
 // --------------------------------------------------------------------------- //

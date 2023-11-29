@@ -1,9 +1,9 @@
 import React, { useRef, useState } from 'react';
 
 import { FancyRadio } from '@/Components/UI/Organisms/FancyRadio';
-import { FancyListBox } from '@/Components/UI/Molecules/FancyListBox';
+import { FancyListBox } from '@/Components/Molecules/FancyListBox';
 import { FancyLine } from '@/Components/Atoms/FancyLine';
-import { Fieldset } from '@/Components/UI/Molecules/Fieldset';
+import { Fieldset } from '@/Components/Molecules/Fieldset';
 import { clampLayer } from '@/Components/utils/clampLayer';
 import { FancyRadioListProps } from './FancyRadioList.model';
 
