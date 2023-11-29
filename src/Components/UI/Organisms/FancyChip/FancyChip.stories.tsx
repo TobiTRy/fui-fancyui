@@ -3,7 +3,7 @@ import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
 import FancyChip from './FancyChip';
-import SVGChevronLeft from '../../SVGIcons/SVGChevronLeft/SVGChevronLeft';
+import SVGChevronLeft from '../../../SVGIcons/SVGChevronLeft/SVGChevronLeft';
 
 const meta = {
   component: FancyChip,

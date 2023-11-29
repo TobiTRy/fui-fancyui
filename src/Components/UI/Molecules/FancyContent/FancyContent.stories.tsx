@@ -1,5 +1,5 @@
 import React from 'react';
-import SVGCheckMark from '../../SVGIcons/SVGCheckMark/SVGCheckMark';
+import SVGCheckMark from '../../../SVGIcons/SVGCheckMark/SVGCheckMark';
 
 import type { Meta, StoryObj } from '@storybook/react';
 

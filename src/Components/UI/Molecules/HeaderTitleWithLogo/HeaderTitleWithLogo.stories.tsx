@@ -3,7 +3,7 @@ import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
 import HeaderTitleWithLogo from './HeaderTitleWithLogo';
-import SVGCheckMark from '../../SVGIcons/SVGCheckMark/SVGCheckMark';
+import SVGCheckMark from '../../../SVGIcons/SVGCheckMark/SVGCheckMark';
 
 const meta = {
   component: HeaderTitleWithLogo,

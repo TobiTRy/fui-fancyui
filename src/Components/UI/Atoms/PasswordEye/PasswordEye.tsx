@@ -1,7 +1,7 @@
 import React from 'react';
 
-import SVGEyeCrossed from '../../SVGIcons/SVGEyeCrossed/SVGEyeCrossed';
-import SVGEyeOpen from '../../SVGIcons/SVGEyeOpen/SVGEyeOpen';
+import SVGEyeCrossed from '../../../SVGIcons/SVGEyeCrossed/SVGEyeCrossed';
+import SVGEyeOpen from '../../../SVGIcons/SVGEyeOpen/SVGEyeOpen';
 import FancySVGAtom from '../FancySVGAtom/FancySVGAtom';
 
 interface IPasswordEye {

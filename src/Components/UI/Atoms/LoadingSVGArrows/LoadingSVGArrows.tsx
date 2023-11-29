@@ -1,7 +1,7 @@
 import React from 'react';
 
 import styled, { keyframes } from 'styled-components';
-import SVGLoadingArrows from '../../SVGIcons/SVGLoadingArrows/SVGLoadingArrows';
+import SVGLoadingArrows from '../../../SVGIcons/SVGLoadingArrows/SVGLoadingArrows';
 import { ISVGAtomProps } from '../FancySVGAtom/FancySVGAtom.model';
 
 const loadingAnimation = keyframes`
