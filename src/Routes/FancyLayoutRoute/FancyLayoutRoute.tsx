@@ -1,8 +1,8 @@
 import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
 
 import FancyLine from '../../Components/Atoms/FancyLine/FancyLine';
-import FancyFlexBox from '../../Components/UI/Templates/FancyFlexBox/FancyFlexBox';
-import FancyGrid from '../../Components/UI/Templates/FancyGrid/FancyGrid';
+import FancyFlexBox from '../../Components/Templates/FancyFlexBox/FancyFlexBox';
+import FancyGrid from '../../Components/Templates/FancyGrid/FancyGrid';
 import { FancyButton } from '../../lib';
 
 export default function FancyLayoutRoute() {

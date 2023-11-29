@@ -6,8 +6,8 @@ import { FancyButton } from '../../lib';
 import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
 import Popover from '../../Components/utils/FancyPopover/Popover';
 import FancyPopover from '../../Components/utils/FancyPopover/FancyPopover';
-import FancyMenueItem from '../../Components/UI/Templates/FancyMenueComponent/FancyMenuItem/FancyMenuItem';
-import FancyMenuList from '../../Components/UI/Templates/FancyMenueComponent/FancyMenu/FancyMenu';
+import FancyMenueItem from '../../Components/Templates/FancyMenueComponent/FancyMenuItem/FancyMenuItem';
+import FancyMenuList from '../../Components/Templates/FancyMenueComponent/FancyMenu/FancyMenu';
 import SVGCheckMark from '@/Components/SVGIcons/SVGCheckMark/SVGCheckMark';
 
 export default function MenueRoute() {

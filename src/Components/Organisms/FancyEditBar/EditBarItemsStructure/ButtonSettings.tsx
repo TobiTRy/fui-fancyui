@@ -1,7 +1,7 @@
 import editBarIcons from './EditBarIcons';
 import { languagesEditBarEN } from '../languagesEditBar';
 const language = languagesEditBarEN;
-import { IFancyBottomBarIcon } from '../../../UI/Templates/FancyBottomBarIcon/FancyBottomBarIcon';
+import { IFancyBottomBarIcon } from '../../../Templates/FancyBottomBarIcon/FancyBottomBarIcon';
 import { useEditBarStore } from '../../../Molecules/EditBar/EditBar.state';
 
 const setActiveBarItem = useEditBarStore.getState().setActiveEditbarItem;

@@ -1,8 +1,8 @@
 import React from 'react';
 
 import FancyMenuItem from '../FancyMenuItem/FancyMenuItem';
-import ListDivider from '../../../../Atoms/ListDivider/ListDivider';
-import MenuList from '../../../../Molecules/MenuList/MenuList';
+import ListDivider from '../../../Atoms/ListDivider/ListDivider';
+import MenuList from '../../../Molecules/MenuList/MenuList';
 
 type TFancyMenuProps = {
   children?: React.ReactNode;

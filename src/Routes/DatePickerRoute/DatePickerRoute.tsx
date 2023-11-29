@@ -3,7 +3,7 @@ import React from 'react';
 
 import FancyDatePicker from '../../Components/Organisms/FancyDatePicker/FancyDatePicker';
 
-import FancyDateDropDown from '../../Components/UI/Templates/Inputs/FancyDateDropDown/FancyDateDropDown';
+import FancyDateDropDown from '../../Components/Templates/Inputs/FancyDateDropDown/FancyDateDropDown';
 import IExternalYearWithMonths from '../../Components/Molecules/MonthWithDays/IExternalMonthWithDays.model';
 import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
 import { FancyCard } from '@/Components/Atoms/FancyCard';

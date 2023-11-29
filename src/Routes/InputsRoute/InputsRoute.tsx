@@ -8,7 +8,7 @@ import FancyDropDownSelect from '../../Components/Organisms/FancyDropDownSelect/
 import FancyDateInput from '../../Components/Organisms/FancyDateInput/FancyDateInput';
 
 import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';
-import FancyDateDropDown from '../../Components/UI/Templates/Inputs/FancyDateDropDown/FancyDateDropDown';
+import FancyDateDropDown from '../../Components/Templates/Inputs/FancyDateDropDown/FancyDateDropDown';
 import { css } from 'styled-components';
 import { FancyCard } from '@/Components/Atoms/FancyCard';
 

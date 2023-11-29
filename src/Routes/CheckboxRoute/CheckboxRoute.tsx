@@ -7,7 +7,7 @@ import { FancyCard } from '@/Components/Atoms/FancyCard';
 import RawRadio from '@/Components/Atoms/RawRadio/RawRadio';
 import FancyRadio from '@/Components/Organisms/FancyRadio/FancyRadio';
 import CustomRadio from '@/Components/Atoms/RawRadio/RawRadio';
-import FancyRadioList from '@/Components/UI/Templates/FancyRadioList/FancyRadioList';
+import FancyRadioList from '@/Components/Templates/FancyRadioList/FancyRadioList';
 
 const itemList = [
   { title: 'Test1', description: 'Test1', itemKey: '1' },

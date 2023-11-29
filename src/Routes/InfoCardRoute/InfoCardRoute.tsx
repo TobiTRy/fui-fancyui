@@ -2,7 +2,7 @@ import React from 'react';
 
 import InfoCard from '../../Components/Molecules/InfoCard/InfoCard';
 import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
-import FancyInfoCard from '../../Components/UI/Templates/FancyInfoCard/FancyInfoCard';
+import FancyInfoCard from '../../Components/Templates/FancyInfoCard/FancyInfoCard';
 import SVGCheckMark from '../../Components/SVGIcons/SVGCheckMark/SVGCheckMark';
 
 export default function InfoCardRoute() {

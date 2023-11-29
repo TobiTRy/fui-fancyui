@@ -6,7 +6,7 @@ export { default as DateNumberAtom } from '@/Components/Atoms/DateNumberAtom/Dat
 export { default as DateOutput } from '@/Components/Atoms/DateOutput/DateOutput';
 export { default as DropDownSelect } from '@/Components/Atoms/DropDownSelect/DropDownSelect';
 export { default as EditBarModal } from '@/Components/Atoms/EditBarModal/EditBarModal';
-export { default as FancyBottomBarIcon } from '@/Components/UI/Templates/FancyBottomBarIcon/FancyBottomBarIcon';
+export { default as FancyBottomBarIcon } from '@/Components/Templates/FancyBottomBarIcon/FancyBottomBarIcon';
 export { default as FancyCard } from '@/Components/Atoms/FancyCard/FancyCard';
 export { default as FancyLine } from '@/Components/Atoms/FancyLine/FancyLine';
 export { default as FancyLI } from '@/Components/Atoms/FancyLI/FancyLI';
@@ -98,20 +98,20 @@ export { default as FancyModal } from '@/Components/Organisms/FancyModal/FancyMo
 export { default as FancyCodeVerificationInput } from '@/Components/Organisms/FancyCodeVerificationInput/FancyCodeVerificationInput';
 export { default as FancySwipeUpModal } from '@/Components/Organisms/FancySwipeUpModal/FancySwipeUpModal';
 export { default as FancyDateInput } from '@/Components/Organisms/FancyDateInput/FancyDateInput';
-export { default as FancyDateDropDown } from '@/Components/UI/Templates/Inputs/FancyDateDropDown/FancyDateDropDown';
+export { default as FancyDateDropDown } from '@/Components/Templates/Inputs/FancyDateDropDown/FancyDateDropDown';
 export { default as FancyToastMessage } from '@/Components/Organisms/FancyToastMessage/FancyToastMessage';
 export { default as FancyEditBar } from '@/Components/Organisms/FancyEditBar/FancyEditBar';
 export { default as FancyRadio } from '@/Components/Organisms/FancyRadio/FancyRadio';
 
 // ---------- Templates ------- //
-export { default as FancyInfoCard } from '@/Components/UI/Templates/FancyInfoCard/FancyInfoCard';
-export { default as FancyMenu } from '@/Components/UI/Templates/FancyMenueComponent/FancyMenu/FancyMenu';
-export { default as FancyGrid } from '@/Components/UI/Templates/FancyGrid/FancyGrid';
-export { default as FancyGridItem } from '@/Components/UI/Templates/FancyGrid/FancyGridItem/FancyGridItem';
+export { default as FancyInfoCard } from '@/Components/Templates/FancyInfoCard/FancyInfoCard';
+export { default as FancyMenu } from '@/Components/Templates/FancyMenueComponent/FancyMenu/FancyMenu';
+export { default as FancyGrid } from '@/Components/Templates/FancyGrid/FancyGrid';
+export { default as FancyGridItem } from '@/Components/Templates/FancyGrid/FancyGridItem/FancyGridItem';
 export { default as FancyBoxSet } from '@/Components/Organisms/FancyBoxSet/FancyBoxSet';
-export { default as FancyRadioList } from '@/Components/UI/Templates/FancyRadioList/FancyRadioList';
-export { default as FancyFlexBox } from '@/Components/UI/Templates/FancyFlexBox/FancyFlexBox';
-export { default as FancyHandyNav } from '@/Components/UI/Templates/FancyHandyNav/FancyHandyNav';
+export { default as FancyRadioList } from '@/Components/Templates/FancyRadioList/FancyRadioList';
+export { default as FancyFlexBox } from '@/Components/Templates/FancyFlexBox/FancyFlexBox';
+export { default as FancyHandyNav } from '@/Components/Templates/FancyHandyNav/FancyHandyNav';
 
 // ---------- Utils ------- //
 export { default as FancyPopover } from '@/Components/utils/FancyPopover/FancyPopover';

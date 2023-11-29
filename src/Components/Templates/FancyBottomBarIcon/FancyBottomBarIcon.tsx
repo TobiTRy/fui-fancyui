@@ -1,9 +1,7 @@
 import React, { ComponentProps } from 'react';
 
-import ComponentAndActionWrapper, {
-  IComponentAndActionWrapper,
-} from '../../../Molecules/ComponentAndActionWrapper/ComponentAndActionWrapper';
-import BottomBarIcon from '../../../Molecules/BottomBarIcon/BottomBarIcon';
+import ComponentAndActionWrapper, { IComponentAndActionWrapper } from '../../Molecules/ComponentAndActionWrapper/ComponentAndActionWrapper';
+import BottomBarIcon from '../../Molecules/BottomBarIcon/BottomBarIcon';
 
 export type IFancyBottomBarIcon = ComponentProps<typeof BottomBarIcon> & IComponentAndActionWrapper;
 // --------------------------------------------------------------------------- //

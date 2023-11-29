@@ -1,9 +1,9 @@
 import React from 'react';
 
-import FancyDropDownSelect, { IFancyDropDownSelect } from '../../../../Organisms/FancyDropDownSelect/FancyDropDownSelect';
-import generateYearZone from '../../../../utils/generateFunctions/generateYearZone';
-import generateMonthNames from '../../../../utils/generateFunctions/generateMonthNames';
-import generateDayNumbers from '../../../../utils/generateFunctions/generateDayNumbers';
+import FancyDropDownSelect, { IFancyDropDownSelect } from '../../../Organisms/FancyDropDownSelect/FancyDropDownSelect';
+import generateYearZone from '../../../utils/generateFunctions/generateYearZone';
+import generateMonthNames from '../../../utils/generateFunctions/generateMonthNames';
+import generateDayNumbers from '../../../utils/generateFunctions/generateDayNumbers';
 
 // this function creates the options for the dropdown day month and year
 const generateOptions = (type: DateType, dateLimits?: [number, number]) => {

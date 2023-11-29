@@ -1,6 +1,6 @@
 import React from 'react';
 import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
-import { FancyBottomBarIcon } from '../../Components/UI/Templates/FancyBottomBarIcon';
+import { FancyBottomBarIcon } from '../../Components/Templates/FancyBottomBarIcon';
 import SwitchList from '../../Components/Molecules/SwitchList/SwitchList';
 
 const Icon = (
