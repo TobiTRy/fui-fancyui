@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { TThemeTypes } from '@/Components/UI/Interface/TUiColors';
-import { TLayer } from '@/Components/UI/Interface/TLayer';
+import { TThemeTypes } from '@/Components/Interface/TUiColors';
+import { TLayer } from '@/Components/Interface/TLayer';
 import { ActiveSwitchIndicator, Wrapper } from './SwitchActiveIndicator.style';
-import { TBorderRadiusSizes } from '@/Components/UI/Interface/TBorderRadius';
-import { TSpacings } from '@/Components/UI/Interface/TSpacings';
+import { TBorderRadiusSizes } from '@/Components/Interface/TBorderRadius';
+import { TSpacings } from '@/Components/Interface/TSpacings';
 
 export interface IActiveSwitchIndicator {
   $itemNumber: number;

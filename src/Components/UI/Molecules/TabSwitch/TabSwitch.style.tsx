@@ -1,11 +1,11 @@
 import { styled } from 'styled-components';
 
 import { borderRadius, spacingPx } from '../../../Design/designSizes';
-import { TLayer } from '@/Components/UI/Interface/TLayer';
-import { TTheme } from '@/Components/UI/Interface/TTheme';
-import { TBorderRadiusSizes } from '@/Components/UI/Interface/TBorderRadius';
-import { TThemeTypes } from '@/Components/UI/Interface/TUiColors';
-import { TSpacings } from '../../Interface/TSpacings';
+import { TLayer } from '@/Components/Interface/TLayer';
+import { TTheme } from '@/Components/Interface/TTheme';
+import { TBorderRadiusSizes } from '@/Components/Interface/TBorderRadius';
+import { TThemeTypes } from '@/Components/Interface/TUiColors';
+import { TSpacings } from '../../../Interface/TSpacings';
 import themeStore from '../../../Design/color/themeStore/themeStore';
 
 // Define the different sizes for the tab switch

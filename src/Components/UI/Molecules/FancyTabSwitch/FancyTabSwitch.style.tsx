@@ -1,12 +1,12 @@
 import { styled } from 'styled-components';
 
 import { borderRadius, spacingPx } from '../../../Design/designSizes';
-import { TThemeTypes } from '@/Components/UI/Interface/TUiColors';
+import { TThemeTypes } from '@/Components/Interface/TUiColors';
 import { tabSwitchSizes } from '../TabSwitch/TabSwitch.style';
-import { TLayer } from '@/Components/UI/Interface/TLayer';
-import { TTheme } from '@/Components/UI/Interface/TTheme';
-import { TBorderRadiusSizes } from '@/Components/UI/Interface/TBorderRadius';
-import { TSpacings } from '../../Interface/TSpacings';
+import { TLayer } from '@/Components/Interface/TLayer';
+import { TTheme } from '@/Components/Interface/TTheme';
+import { TBorderRadiusSizes } from '@/Components/Interface/TBorderRadius';
+import { TSpacings } from '../../../Interface/TSpacings';
 
 // Define the interface for the styled-component
 export interface IFancyTabSwitchStyle {

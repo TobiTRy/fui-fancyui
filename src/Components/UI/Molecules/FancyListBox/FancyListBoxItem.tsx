@@ -1,7 +1,7 @@
 import { styled, CSSProp } from 'styled-components';
 
 import { RawLI } from '@/Components/Atoms/RawLI';
-import { TTheme } from '@/Components/UI/Interface/TTheme';
+import { TTheme } from '@/Components/Interface/TTheme';
 
 // handle the distances between the items and the edeges of the list
 const StyledLi = styled(RawLI)<{ $externalStyle?: CSSProp; theme: TTheme }>`

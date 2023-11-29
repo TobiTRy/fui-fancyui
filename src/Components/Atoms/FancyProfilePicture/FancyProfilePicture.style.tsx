@@ -1,9 +1,9 @@
 import { styled } from 'styled-components';
 
 import { IFancyProfilePicture } from './FancyProfilePicture';
-import { TThemeTypes } from '@/Components/UI/Interface/TUiColors';
-import { TLayer } from '@/Components/UI/Interface/TLayer';
-import { TTheme } from '@/Components/UI/Interface/TTheme';
+import { TThemeTypes } from '@/Components/Interface/TUiColors';
+import { TLayer } from '@/Components/Interface/TLayer';
+import { TTheme } from '@/Components/Interface/TTheme';
 
 // Set the border based on the prop
 type TBorderRadius = IFancyProfilePicture['rounded'];

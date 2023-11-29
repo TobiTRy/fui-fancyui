@@ -1,9 +1,9 @@
 import { styled } from 'styled-components';
 
-import IStyledPrefixAndPicker from '../../Interface/IStyledPrefixAndPicker.model';
+import IStyledPrefixAndPicker from '../../../Interface/IStyledPrefixAndPicker.model';
 import { getTextColor } from '../../../Design/color/colorCalculatorForComponet';
 import { IgenerateThemeForCard } from '../../../Design/designFunctions/generateThemeForCard/generateThemeForCard';
-import { TTheme } from '@/Components/UI/Interface/TTheme';
+import { TTheme } from '@/Components/Interface/TTheme';
 
 type IChipContainer = IStyledPrefixAndPicker<IgenerateThemeForCard> & { theme: TTheme };
 export const InputLi = styled.li<IChipContainer>`

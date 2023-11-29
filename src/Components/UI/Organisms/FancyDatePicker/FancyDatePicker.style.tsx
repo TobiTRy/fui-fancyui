@@ -1,9 +1,9 @@
 import { styled } from 'styled-components';
 
-import { TLayer } from '@/Components/UI/Interface/TLayer';
+import { TLayer } from '@/Components/Interface/TLayer';
 import getColorsForComponent, { getBackgroundColor } from '../../../Design/color/colorCalculatorForComponet';
-import { TTheme } from '@/Components/UI/Interface/TTheme';
-import { TThemeTypes } from '@/Components/UI/Interface/TUiColors';
+import { TTheme } from '@/Components/Interface/TTheme';
+import { TThemeTypes } from '@/Components/Interface/TUiColors';
 
 export const DatePickerContainer = styled.div<{ theme: TTheme; $themeType?: TThemeTypes; $layer?: TLayer }>`
   display: flex;

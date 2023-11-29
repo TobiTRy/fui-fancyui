@@ -127,7 +127,7 @@ export { default as generateBorderRadiusForComponent } from '@/Components/Design
 export { default as shadows } from '@/Components/Design/shadows/shadows';
 
 // ---------- Interfaces ------- //
-export * from '@/Components/UI/Interface';
+export * from '@/Components/Interface';
 
 // ---------- Store ------- //
 export { default as themeStore } from '@/Components/Design/color/themeStore/themeStore';

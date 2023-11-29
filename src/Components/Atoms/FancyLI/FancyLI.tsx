@@ -1,9 +1,9 @@
 import React from 'react';
 import { styled } from 'styled-components';
 
-import IStyledPrefixAndOmiter from '../../UI/Interface/IStyledPrefixAndOmiter.model';
+import IStyledPrefixAndOmiter from '../../Interface/IStyledPrefixAndOmiter.model';
 import { spacingPx } from '../../Design/designSizes';
-import { TSpacings } from '../../UI/Interface/TSpacings';
+import { TSpacings } from '../../Interface/TSpacings';
 
 type StyledFancyLi = IStyledPrefixAndOmiter<FancyLIProps, 'children'>;
 

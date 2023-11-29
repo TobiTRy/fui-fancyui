@@ -1,7 +1,7 @@
 import { css } from 'styled-components';
 
 import themeStore from '@/Components/Design/color/themeStore/themeStore';
-import { TBorderRadiusSizes } from '@/Components/UI/Interface/TBorderRadius';
+import { TBorderRadiusSizes } from '@/Components/Interface/TBorderRadius';
 export interface IAlignments {
   $alignHorizontal?: 'left' | 'center' | 'right';
   $alignVertical?: 'top' | 'center' | 'bottom';

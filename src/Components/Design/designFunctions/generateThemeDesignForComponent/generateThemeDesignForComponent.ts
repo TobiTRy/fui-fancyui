@@ -1,12 +1,12 @@
-import { TThemeTypes, TThemeTypesNotTrasparent } from '@/Components/UI/Interface/TUiColors';
-import { TLayer } from '@/Components/UI/Interface/TLayer';
+import { TThemeTypes, TThemeTypesNotTrasparent } from '@/Components/Interface/TUiColors';
+import { TLayer } from '@/Components/Interface/TLayer';
 import { generateNormalStyle } from './utils/generateNormalStyle';
 import { generateTransparentStyle } from './utils/generateTransparentStyle';
 import { generateOutlineStyle } from './utils/generateOutlineStyle';
 
-import IStyledPrefixAndPicker from '@/Components/UI/Interface/IStyledPrefixAndPicker.model';
+import IStyledPrefixAndPicker from '@/Components/Interface/IStyledPrefixAndPicker.model';
 import { getSimpleColorThemeType } from '@/Components/Design/designFunctions/getSimpleColorThemeType';
-import { TTheme } from '@/Components/UI/Interface/TTheme';
+import { TTheme } from '@/Components/Interface/TTheme';
 
 export interface IGenerateThemeDesignForComponentProps {
   themeType?: TThemeTypes;

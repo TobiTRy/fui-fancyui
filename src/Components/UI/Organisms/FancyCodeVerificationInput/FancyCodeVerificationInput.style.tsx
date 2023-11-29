@@ -1,7 +1,7 @@
 import { styled, css } from 'styled-components';
 
 import { fontSize } from '../../../Design/designSizes';
-import { TTheme } from '@/Components/UI/Interface/TTheme';
+import { TTheme } from '@/Components/Interface/TTheme';
 
 export const WarpperComponent = styled.div`
   display: flex;

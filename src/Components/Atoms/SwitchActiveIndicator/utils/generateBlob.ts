@@ -4,8 +4,8 @@ import { getBackgroundColor } from '../../../Design/color/colorCalculatorForComp
 import colorTransparencyCalculator from '../../../Design/color/colorTransparencyCalculator';
 import { IActiveSwitchIndicator } from '../SwitchActiveIndicator';
 import themeStore from '@/Components/Design/color/themeStore/themeStore';
-import { TBorderRadiusSizes } from '@/Components/UI/Interface/TBorderRadius';
-import { TTheme } from '@/Components/UI/Interface/TTheme';
+import { TBorderRadiusSizes } from '@/Components/Interface/TBorderRadius';
+import { TTheme } from '@/Components/Interface/TTheme';
 
 // Define the function to generate a blob background for the active indicator
 type IGenerateBlob = Pick<IActiveSwitchIndicator, '$themeType' | '$outlined' | '$rounded' | '$layer'> & { theme: TTheme };

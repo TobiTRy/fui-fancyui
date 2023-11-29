@@ -2,7 +2,7 @@ import { css } from 'styled-components';
 
 import { generateBorderRadiusForComponent } from '../../../Design/designFunctions/generateBorderRadiusForComponent/generateBorderRadiusForComponent';
 import { generateComponentPadding } from '../../../Design/designFunctions/generatePaddingForComponent/generatepaddingForComponent';
-import { TBorderRadiusSizes } from '@/Components/UI/Interface/TBorderRadius';
+import { TBorderRadiusSizes } from '@/Components/Interface/TBorderRadius';
 
 const generate1To1Button = ($size: 'sm' | 'md' | 'lg', $outlined?: boolean) => {
   //this makes the button a square (1/1) if there is no $label and a $icon

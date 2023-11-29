@@ -2,8 +2,8 @@ import React from 'react';
 import { CSSProp } from 'styled-components';
 
 import { sizes } from '../FancyContent/utils/sizeSettings';
-import { TThemeTypes, TThemeTypesNotTrasparent } from '@/Components/UI/Interface/TUiColors';
-import { TLayer } from '@/Components/UI/Interface/TLayer';
+import { TThemeTypes, TThemeTypesNotTrasparent } from '@/Components/Interface/TUiColors';
+import { TLayer } from '@/Components/Interface/TLayer';
 import { StyledChip } from './Chip.style';
 
 export interface IStyledChip {

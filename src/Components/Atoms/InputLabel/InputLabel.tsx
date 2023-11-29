@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
 
-import { TTheme } from '@/Components/UI/Interface/TTheme';
+import { TTheme } from '@/Components/Interface/TTheme';
 
 // --------------------------------------------------------------------------- //
 // --------------- The main label design for the input elements -------------- //

@@ -1,7 +1,7 @@
 import { CSSProp } from 'styled-components';
-import IStyledPrefixAndOmiter from '../../UI/Interface/IStyledPrefixAndOmiter.model';
-import { TThemeTypes } from '@/Components/UI/Interface/TUiColors';
-import { TLayer } from '@/Components/UI/Interface/TLayer';
+import IStyledPrefixAndOmiter from '../../Interface/IStyledPrefixAndOmiter.model';
+import { TThemeTypes } from '@/Components/Interface/TUiColors';
+import { TLayer } from '@/Components/Interface/TLayer';
 
 export const sizes = {
   xs: '14px',

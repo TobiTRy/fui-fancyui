@@ -5,8 +5,8 @@ import SVGChevronRight from '../../SVGIcons/SVGChevronRight/SVGChevronRight';
 import { SVGDesignCSS, StyledButton, StyledYearSelector } from './YearSelector.style';
 import Typography from '../Typography/Typography';
 import { FancySVGAtom } from '../FancySVGAtom';
-import { TThemeTypes } from '@/Components/UI/Interface/TUiColors';
-import { TLayer } from '@/Components/UI/Interface/TLayer';
+import { TThemeTypes } from '@/Components/Interface/TUiColors';
+import { TLayer } from '@/Components/Interface/TLayer';
 
 // --------------------------------------------------------------------------- //
 // ---------- Here are the design variants for sizing and alignment ---------- //

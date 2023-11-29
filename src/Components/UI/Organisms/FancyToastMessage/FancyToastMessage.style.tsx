@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
 
-import { TTheme } from '@/Components/UI/Interface/TTheme';
+import { TTheme } from '@/Components/Interface/TTheme';
 
 export const ToastsWrapper = styled.div<{ theme: TTheme }>`
   position: fixed;

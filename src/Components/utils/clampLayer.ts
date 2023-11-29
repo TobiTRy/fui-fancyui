@@ -1,4 +1,4 @@
-import { TLayer } from '@/Components/UI/Interface/TLayer';
+import { TLayer } from '@/Components/Interface/TLayer';
 
 export function clampLayer(layer: number) {
   // limit layer to minimal 0

@@ -1,7 +1,7 @@
-import { TBorderRadiusSizes } from '@/Components/UI/Interface/TBorderRadius';
-import { TThemeTypes, TThemeTypesNotTrasparent } from '@/Components/UI/Interface/TUiColors';
-import { TLayer } from '@/Components/UI/Interface/TLayer';
-import IStyledPrefixAndOmiter from '../../../UI/Interface/IStyledPrefixAndOmiter.model';
+import { TBorderRadiusSizes } from '@/Components/Interface/TBorderRadius';
+import { TThemeTypes, TThemeTypesNotTrasparent } from '@/Components/Interface/TUiColors';
+import { TLayer } from '@/Components/Interface/TLayer';
+import IStyledPrefixAndOmiter from '../../../Interface/IStyledPrefixAndOmiter.model';
 
 export type IGenerateThemeItemProps = {
   outlined?: boolean;

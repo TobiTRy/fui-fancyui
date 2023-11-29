@@ -3,10 +3,10 @@ import React from 'react';
 import FancyProfilePicture, { IFancyProfilePicture } from '../../../Atoms/FancyProfilePicture/FancyProfilePicture';
 import Typography from '../../../Atoms/Typography/Typography';
 import { TextWrapper, Wrapper } from './FancyMiniProfile.style';
-import { TTypography } from '@/Components/UI/Interface/TTypography';
-import { TThemeTypes } from '@/Components/UI/Interface/TUiColors';
-import { TLayer } from '@/Components/UI/Interface/TLayer';
-import { TSpacings } from '../../Interface/TSpacings';
+import { TTypography } from '@/Components/Interface/TTypography';
+import { TThemeTypes } from '@/Components/Interface/TUiColors';
+import { TLayer } from '@/Components/Interface/TLayer';
+import { TSpacings } from '../../../Interface/TSpacings';
 
 // the interface for the different sizes
 interface IPillSettings {

@@ -2,10 +2,10 @@ import React, { forwardRef, useState } from 'react';
 import { styled } from 'styled-components';
 
 import { fontSize } from '../../Design/designSizes';
-import { TThemeTypes } from '@/Components/UI/Interface/TUiColors';
+import { TThemeTypes } from '@/Components/Interface/TUiColors';
 import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
-import { TLayer } from '@/Components/UI/Interface/TLayer';
-import { TTheme } from '@/Components/UI/Interface/TTheme';
+import { TLayer } from '@/Components/Interface/TLayer';
+import { TTheme } from '@/Components/Interface/TTheme';
 
 // the style for a single input
 interface StyledSingleInputProps {

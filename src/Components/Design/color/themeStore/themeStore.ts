@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import { updateThemeColors, uiColors, IUiColorPops, regenerateUiColors } from '../designColor';
 import { spacingPx, borderRadius, fontSizes } from '../../designSizes';
-import { TTheme } from '@/Components/UI/Interface/TTheme';
+import { TTheme } from '@/Components/Interface/TTheme';
 import { breakpoints } from '@/Components/Design/brakePoints';
 
 type ThemeState = {

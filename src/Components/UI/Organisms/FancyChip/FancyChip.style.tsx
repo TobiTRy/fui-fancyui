@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import { TTheme } from '@/Components/UI/Interface/TTheme';
+import { TTheme } from '@/Components/Interface/TTheme';
 import themeStore from '@/Components/Design/color/themeStore/themeStore';
 
 // Define the type for the spacing position

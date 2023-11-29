@@ -1,5 +1,5 @@
 import themeStore from '@/Components/Design/color/themeStore/themeStore';
-import { TTypography } from '@/Components/UI/Interface/TTypography';
+import { TTypography } from '@/Components/Interface/TTypography';
 
 const getSpacingFromTheme = themeStore.getState().theme.spacing;
 

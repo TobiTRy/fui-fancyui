@@ -3,7 +3,7 @@ import { disabledStyle } from '../../../Design/designFunctions/disabledStyle/dis
 import generateThemeDesignForComponent, {
   IGenerateThemeDesignForComponent,
 } from '../../../Design/designFunctions/generateThemeDesignForComponent/generateThemeDesignForComponent';
-import IStyledPrefixAndPicker from '../../Interface/IStyledPrefixAndPicker.model';
+import IStyledPrefixAndPicker from '../../../Interface/IStyledPrefixAndPicker.model';
 import { IButtonProps } from './Button';
 
 export const StyledButton = styled.button<IGenerateThemeDesignForComponent & IStyledPrefixAndPicker<IButtonProps>>`

@@ -1,7 +1,7 @@
-import { TUiColorsType } from '@/Components/UI/Interface/TUiColorsType';
+import { TUiColorsType } from '@/Components/Interface/TUiColorsType';
 import generateColorSteps from './generateColorSteps';
 import isColorValid from './isColorValid';
-import { TThemeTypes } from '../../UI/Interface';
+import { TThemeTypes } from '../../Interface';
 
 const themeColors = {
   primary: '#131825',

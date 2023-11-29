@@ -2,9 +2,9 @@ import React from 'react';
 import { styled } from 'styled-components';
 
 import { ISVGAtomProps, IStyledSVGAtom, sizes } from './FancySVGAtom.model';
-import { TThemeTypes } from '@/Components/UI/Interface/TUiColors';
+import { TThemeTypes } from '@/Components/Interface/TUiColors';
 import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
-import { TTheme } from '@/Components/UI/Interface/TTheme';
+import { TTheme } from '@/Components/Interface/TTheme';
 
 interface ICalcIconColor {
   theme: TTheme;

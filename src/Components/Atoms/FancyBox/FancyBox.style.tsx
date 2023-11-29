@@ -1,9 +1,9 @@
 import { styled } from 'styled-components';
 
 import generateThemeForCard from '../../Design/designFunctions/generateThemeForCard/generateThemeForCard';
-import IStyledPrefixAndPicker from '../../UI/Interface/IStyledPrefixAndPicker.model';
+import IStyledPrefixAndPicker from '../../Interface/IStyledPrefixAndPicker.model';
 import { IFancyBoxProps } from './FancyBox.model';
-import { TTheme } from '@/Components/UI/Interface/TTheme';
+import { TTheme } from '@/Components/Interface/TTheme';
 
 // the styled-component for the FancyBar
 type IStyledFancyBox = IStyledPrefixAndPicker<IFancyBoxProps> & { theme: TTheme };

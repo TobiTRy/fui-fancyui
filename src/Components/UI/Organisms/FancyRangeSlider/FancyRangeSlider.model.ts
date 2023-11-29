@@ -1,6 +1,6 @@
 import { ChangeEvent } from 'react';
-import { TLayer } from '@/Components/UI/Interface/TLayer';
-import { TThemeTypes } from '@/Components/UI/Interface/TUiColors';
+import { TLayer } from '@/Components/Interface/TLayer';
+import { TThemeTypes } from '@/Components/Interface/TUiColors';
 
 interface IFancyRangeSlider {
   label?: string;

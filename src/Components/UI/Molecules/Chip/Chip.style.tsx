@@ -1,9 +1,9 @@
 import { css, styled } from 'styled-components';
 
 import generateThemeDesignForComponent from '../../../Design/designFunctions/generateThemeDesignForComponent/generateThemeDesignForComponent';
-import IStyledPrefixAndOmitter from '../../Interface/IStyledPrefixAndOmiter.model';
+import IStyledPrefixAndOmitter from '../../../Interface/IStyledPrefixAndOmiter.model';
 import { IStyledChip } from './Chip';
-import { TTheme } from '@/Components/UI/Interface/TTheme';
+import { TTheme } from '@/Components/Interface/TTheme';
 
 const sizes = {
   sm: {

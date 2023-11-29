@@ -2,8 +2,8 @@ import React from 'react';
 
 import InfoCard from '../../Molecules/InfoCard/InfoCard';
 import FancyContent from '../../Molecules/FancyContent/FancyContent';
-import { TTypography } from '@/Components/UI/Interface/TTypography';
-import { TSizes } from '../../Interface/TComponentSizes';
+import { TTypography } from '@/Components/Interface/TTypography';
+import { TSizes } from '../../../Interface/TComponentSizes';
 
 type TSizeObj = {
   iconSize: TSizes;

@@ -4,7 +4,7 @@ import { spacingPx } from '../../Design/designSizes';
 import { IActiveSwitchIndicator } from './SwitchActiveIndicator';
 import { generateBlob } from './utils/generateBlob';
 import { generateTopline, generateUnderline } from './utils/generateLines';
-import { TTheme } from '@/Components/UI/Interface/TTheme';
+import { TTheme } from '@/Components/Interface/TTheme';
 
 // Define the function to calculate the current position of the active indicator
 type IClacCurrentPosition = Pick<IActiveSwitchIndicator, '$itemNumber' | '$tabSpacing' | '$direction'>;

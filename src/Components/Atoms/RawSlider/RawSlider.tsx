@@ -1,7 +1,7 @@
 import React, { InputHTMLAttributes, useRef } from 'react';
 import { StyledRawSlider } from './RawSlider.style';
-import { TLayer } from '@/Components/UI/Interface/TLayer';
-import { TThemeTypes } from '@/Components/UI/Interface/TUiColors';
+import { TLayer } from '@/Components/Interface/TLayer';
+import { TThemeTypes } from '@/Components/Interface/TUiColors';
 
 // --------------------------------------------------------------------------- //
 // ------------ Here is createt the Slider Atom (Range Slider) --------------- //

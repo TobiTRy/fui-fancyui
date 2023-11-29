@@ -2,9 +2,9 @@ import React, { useEffect, useRef } from 'react';
 
 import { animated, useSpring } from '@react-spring/web';
 import { StyledUL, WrapperUL } from './FancyDropDownUL.style';
-import { TThemeTypes } from '@/Components/UI/Interface/TUiColors';
-import { TLayer } from '@/Components/UI/Interface/TLayer';
-import { TBorderRadiusSizes } from '@/Components/UI/Interface/TBorderRadius';
+import { TThemeTypes } from '@/Components/Interface/TUiColors';
+import { TLayer } from '@/Components/Interface/TLayer';
+import { TBorderRadiusSizes } from '@/Components/Interface/TBorderRadius';
 
 export interface IFancyUL {
   children: React.ReactNode;

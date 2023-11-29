@@ -8,8 +8,8 @@ import IExternalYearWithMonths from '../../Molecules/MonthWithDays/IExternalMont
 import DateOutputFromTo from '../../Molecules/DateOutputFromTo/DateOutputFromTo';
 import { IDisabledDateSettings } from '../../Molecules/MonthWithDays/IDisableDateSettings.model';
 import { IDateArray } from '../../Molecules/RangeCalendar/IDateArray.model';
-import { TLayer } from '@/Components/UI/Interface/TLayer';
-import { TThemeTypes } from '@/Components/UI/Interface/TUiColors';
+import { TLayer } from '@/Components/Interface/TLayer';
+import { TThemeTypes } from '@/Components/Interface/TUiColors';
 
 interface IFancyDatePicker {
   rangeCalendar?: boolean;

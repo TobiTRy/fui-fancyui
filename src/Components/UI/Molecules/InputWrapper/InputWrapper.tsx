@@ -6,8 +6,8 @@ import FancyInputUnderline from '../../../Atoms/InputUnderline/InputUnderline';
 import FancySVGAtom from '../../../Atoms/FancySVGAtom/FancySVGAtom';
 import { AnimatedInputLabel } from '../../../Atoms/AnimatedLabel/AnimatedInputLabel';
 import { TRawInputAlign } from '../../../Atoms/RawInput/RawInput';
-import { TThemeTypes } from '@/Components/UI/Interface/TUiColors';
-import { TLayer } from '@/Components/UI/Interface/TLayer';
+import { TThemeTypes } from '@/Components/Interface/TUiColors';
+import { TLayer } from '@/Components/Interface/TLayer';
 import calcColorState from '../../../Design/color/calcColorState';
 import themeStore from '../../../Design/color/themeStore/themeStore';
 

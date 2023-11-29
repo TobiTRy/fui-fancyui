@@ -1,7 +1,7 @@
 import React from 'react';
 import { styled, CSSProp } from 'styled-components';
 
-import { TTheme } from '@/Components/UI/Interface/TTheme';
+import { TTheme } from '@/Components/Interface/TTheme';
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const DesignWrapper = styled.section`

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { StyledFieldset, StyledLegend } from './Fieldset.style';
-import { TTypography } from '@/Components/UI/Interface/TTypography';
+import { TTypography } from '@/Components/Interface/TTypography';
 import { Typography } from '@/Components/Atoms/Typography';
 
 export type TalignLabel = 'left' | 'center';

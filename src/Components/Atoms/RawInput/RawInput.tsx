@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 
 import { fontSize } from '../../Design/designSizes';
-import { TTheme } from '@/Components/UI/Interface/TTheme';
+import { TTheme } from '@/Components/Interface/TTheme';
 
 export type TRawInputAlign = 'left' | 'center';
 
