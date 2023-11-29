@@ -2,10 +2,10 @@ import React from 'react';
 import Color from 'color';
 
 import useSlider from '../../HelperFunctions/hooks/useSlider/useSilder';
-import SliderMarker from '../../Atoms/SliderMarker/SliderMarker';
+import SliderMarker from '../../../Atoms/SliderMarker/SliderMarker';
 import { Wrapper, SliderContainer, OpacityGradient } from './FancyOpacitySlider.style';
-import CheckerboardPattern from '../../Atoms/CheckerBoardPattern/CheckerBoardPattern';
-import ColorIndicator from '../../Atoms/ColorIndicator/ColorIndicator';
+import CheckerboardPattern from '../../../Atoms/CheckerBoardPattern/CheckerBoardPattern';
+import ColorIndicator from '../../../Atoms/ColorIndicator/ColorIndicator';
 
 //define the min and max value for the opacity
 const minOpacity = 0;

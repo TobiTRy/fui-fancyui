@@ -1,6 +1,6 @@
 import React, { InputHTMLAttributes } from 'react';
 
-import RawInput, { TRawInputAlign } from '../../Atoms/RawInput/RawInput';
+import RawInput, { TRawInputAlign } from '../../../Atoms/RawInput/RawInput';
 
 export interface ITextInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'type'> {
   value?: string | number;

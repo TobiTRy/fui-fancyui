@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { FancyBox } from '@/Components/UI/Atoms/FancyBox';
+import { FancyBox } from '@/Components/Atoms/FancyBox';
 import { FancyListBoxItem } from './FancyListBoxItem';
 import { FancyBoxStyle } from './FancyListBox.style';
 

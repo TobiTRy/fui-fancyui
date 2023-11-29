@@ -2,15 +2,15 @@
 import { useState } from 'react';
 import HeaderTitleWithLogo from '../../Components/UI/Molecules/HeaderTitleWithLogo/HeaderTitleWithLogo';
 
-import FancyLoadingSpinner from '../../Components/UI/Atoms/FancyLoadingSpinner/FancyLoadingSpinner';
+import FancyLoadingSpinner from '../../Components/Atoms/FancyLoadingSpinner/FancyLoadingSpinner';
 import FancyMiniProfile from '../../Components/UI/Molecules/FancyMiniProfile/FancyMiniProfile';
 import FancySearchBar from '../../Components/UI/Organisms/FancySearchBar/FancySearchBar';
 
 import styled from 'styled-components';
-import FancyBar from '../../Components/UI/Atoms/FancyBox/FancyBox';
+import FancyBar from '../../Components/Atoms/FancyBox/FancyBox';
 import Header from '../../Components/UI/Molecules/Header/Header';
 import themeStore from '@/Components/Design/color/themeStore/themeStore';
-import { Typography } from '@/Components/UI/Atoms/Typography';
+import { Typography } from '@/Components/Atoms/Typography';
 
 const Logo = () => (
   <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" height="30" version="1.1" viewBox="0 0 96.37 64.15" fill="#ff9800f0">

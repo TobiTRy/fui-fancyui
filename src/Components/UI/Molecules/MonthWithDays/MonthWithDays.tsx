@@ -4,7 +4,7 @@ import DateNumberWithStatus from '../DateNumberWithStatus/DateNumberWithStatus';
 import { DateNumber, DaysContainer } from './MonthWithDays.style';
 import { IDateArray } from '../RangeCalendar/IDateArray.model';
 import { IDisabledDateSettings } from './IDisableDateSettings.model';
-import Typography from '../../Atoms/Typography/Typography';
+import Typography from '../../../Atoms/Typography/Typography';
 import Day from './day.model';
 import createDaysOfMonth from './helperFunctions/createDaysOfMonth';
 import { IDateWithExternalState, IExternalMonthWithDays } from './IExternalMonthWithDays.model';

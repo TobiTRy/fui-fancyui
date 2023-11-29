@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
-import YearSelector from '../../Atoms/YearSelector/YearSelector';
-import WeekDays from '../../Atoms/WeekDays/WeekDays';
+import YearSelector from '../../../Atoms/YearSelector/YearSelector';
+import WeekDays from '../../../Atoms/WeekDays/WeekDays';
 import RangeCalendar from '../../Molecules/RangeCalendar/RangeCalendar';
 import { DatePickerContainer, WrapperWeekdays, WrapperYearSelector } from './FancyDatePicker.style';
 import IExternalYearWithMonths from '../../Molecules/MonthWithDays/IExternalMonthWithDays.model';

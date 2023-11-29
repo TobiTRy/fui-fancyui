@@ -1,6 +1,6 @@
 import React from 'react';
 
-import FancyBox from '../../Atoms/FancyBox/FancyBox';
+import FancyBox from '../../../Atoms/FancyBox/FancyBox';
 import { generateInfoCardStyle } from './InfoCrad.style';
 
 type TInfoCardProps = React.ComponentProps<typeof FancyBox> & {

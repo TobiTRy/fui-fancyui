@@ -5,7 +5,7 @@ import SwitchList from '../../Molecules/SwitchList/SwitchList';
 import useFancyHandyNavStore from './FancyHandyNav.store';
 import BottomBar from '../../Molecules/BottomBar/BottomBar';
 import FancyBottomBarIcon, { IFancyBottomBarIcon } from '../FancyBottomBarIcon/FancyBottomBarIcon';
-import RawNav from '../../Atoms/RawNav/RawNav';
+import RawNav from '../../../Atoms/RawNav/RawNav';
 import { TLayer } from '@/Components/UI/Interface/TLayer';
 import { TThemeTypes } from '@/Components/UI/Interface/TUiColors';
 interface IFancyHandyNav {

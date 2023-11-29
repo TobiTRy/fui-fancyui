@@ -3,7 +3,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import Color from 'color';
 import { styled } from 'styled-components';
 
-import ColorDisplay from '../../Atoms/ColorDisplay/ColorDisplay';
+import ColorDisplay from '../../../Atoms/ColorDisplay/ColorDisplay';
 import ColorArea from '../../Molecules/FancyColorArea/FancyColorArea';
 import FancyHueSlider from '../../Molecules/FancyHueSlider/FancyHueSlider';
 import FancyOpacitySlider from '../../Molecules/FancyOpacitySlider/FancyOpacitySlider';

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-import ScollAbleBar from '../../Atoms/ScrollableBar/ScrollableBar';
+import ScollAbleBar from '../../../Atoms/ScrollableBar/ScrollableBar';
 
 // Define types for the component
 type TDynamicScrollBarProps = {

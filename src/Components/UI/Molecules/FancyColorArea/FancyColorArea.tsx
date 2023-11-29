@@ -11,7 +11,7 @@ import {
   SaturationGradient,
   CurrentColorArea,
 } from './FancyColorArea.style';
-import ColorIndicator from '../../Atoms/ColorIndicator/ColorIndicator';
+import ColorIndicator from '../../../Atoms/ColorIndicator/ColorIndicator';
 
 //this function calculates the current color to a position using the HSV Color Type
 //HSV can be better used for merging Lightness and Saturation (L: 100 and S:100) = Full Color

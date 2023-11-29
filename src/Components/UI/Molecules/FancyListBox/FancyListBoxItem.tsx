@@ -1,6 +1,6 @@
 import { styled, CSSProp } from 'styled-components';
 
-import { RawLI } from '@/Components/UI/Atoms/RawLI';
+import { RawLI } from '@/Components/Atoms/RawLI';
 import { TTheme } from '@/Components/UI/Interface/TTheme';
 
 // handle the distances between the items and the edeges of the list

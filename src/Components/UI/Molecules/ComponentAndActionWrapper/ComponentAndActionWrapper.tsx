@@ -1,6 +1,6 @@
 import React from 'react';
-import ComponentAsWrapper from '../../Atoms/ComponentAsWrapper/ComponentAsWrapper';
-import FancyActionWrapper from '../../Atoms/FancyActionWrapper/FancyActionWrapper';
+import ComponentAsWrapper from '../../../Atoms/ComponentAsWrapper/ComponentAsWrapper';
+import FancyActionWrapper from '../../../Atoms/FancyActionWrapper/FancyActionWrapper';
 
 type TAnchorProps = {
   type?: 'a';

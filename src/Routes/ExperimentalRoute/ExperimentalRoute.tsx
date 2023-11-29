@@ -8,14 +8,14 @@ import FancyContent from '../../Components/UI/Molecules/FancyContent/FancyConten
 import BottomBarList from '../../Components/UI/Molecules/SwitchList/SwitchList';
 import Button from '../../Components/UI/Molecules/Button/Button';
 import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
-import ComponentAsWrapper from '../../Components/UI/Atoms/ComponentAsWrapper/ComponentAsWrapper';
-import ActionWrapper from '../../Components/UI/Atoms/ActionWrapper/ActionWrapper';
-import FancyActionWrapper from '../../Components/UI/Atoms/FancyActionWrapper/FancyActionWrapper';
+import ComponentAsWrapper from '../../Components/Atoms/ComponentAsWrapper/ComponentAsWrapper';
+import ActionWrapper from '../../Components/Atoms/ActionWrapper/ActionWrapper';
+import FancyActionWrapper from '../../Components/Atoms/FancyActionWrapper/FancyActionWrapper';
 import BottomBarIcon from '../../Components/UI/Molecules/BottomBarIcon/BottomBarIcon';
 import FancyBottomBarIcon from '@/Components/UI/Templates/FancyBottomBarIcon/FancyBottomBarIcon';
 import { FancyButton } from '@/Components/UI/Organisms/FancyButton';
 import { SingleToastMessage } from '@/Components/UI/Molecules/SingleToastMessage';
-import { FancyCard } from '@/Components/UI/Atoms/FancyCard';
+import { FancyCard } from '@/Components/Atoms/FancyCard';
 import { FancyChip } from '@/Components/UI/Organisms/FancyChip';
 
 const Icon = (

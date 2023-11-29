@@ -4,7 +4,7 @@ import { Meta, StoryObj } from '@storybook/react';
 // Import the component to be tested
 import FancySearchBar from './FancySearchBar';
 
-import { FancyLoadingSpinner } from '../../Atoms/FancyLoadingSpinner';
+import { FancyLoadingSpinner } from '../../../Atoms/FancyLoadingSpinner';
 
 // Define metadata for the story
 const meta = {

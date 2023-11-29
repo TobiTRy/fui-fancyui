@@ -5,7 +5,7 @@ import SVGChevronRight from '../../../SVGIcons/SVGChevronRight/SVGChevronRight';
 
 import FancyButton from '../../Organisms/FancyButton/FancyButton';
 import { IconWrapper, NumberList, StyledPaginator } from './Paginator.style';
-import PageNumberList from '../../Atoms/PageNumberList/PageNumberList';
+import PageNumberList from '../../../Atoms/PageNumberList/PageNumberList';
 import { TThemeTypes } from '@/Components/UI/Interface/TUiColors';
 
 // Define the props for the Paginator component

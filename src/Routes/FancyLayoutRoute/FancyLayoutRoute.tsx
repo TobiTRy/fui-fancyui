@@ -1,6 +1,6 @@
 import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
 
-import FancyLine from '../../Components/UI/Atoms/FancyLine/FancyLine';
+import FancyLine from '../../Components/Atoms/FancyLine/FancyLine';
 import FancyFlexBox from '../../Components/UI/Templates/FancyFlexBox/FancyFlexBox';
 import FancyGrid from '../../Components/UI/Templates/FancyGrid/FancyGrid';
 import { FancyButton } from '../../lib';

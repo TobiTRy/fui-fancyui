@@ -3,7 +3,7 @@ import React from 'react';
 import FancyTabSwitch from '../../Components/UI/Molecules/FancyTabSwitch/FancyTabSwitch';
 import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';
 import { css } from 'styled-components';
-import { FancyCard } from '@/Components/UI/Atoms/FancyCard';
+import { FancyCard } from '@/Components/Atoms/FancyCard';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">

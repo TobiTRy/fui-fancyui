@@ -1,6 +1,6 @@
 import React, { HTMLAttributes, useId } from 'react';
 
-import Typography from '../../Atoms/Typography/Typography';
+import Typography from '../../../Atoms/Typography/Typography';
 import FancyContent from '../FancyContent/FancyContent';
 import { ITabSwitchButtonProps } from './FancyTabSwitchButton.model';
 import { SwitchButtonStyle } from './FancyTabSwitchButton.style';

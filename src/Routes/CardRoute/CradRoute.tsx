@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Card from '../../Components/UI/Atoms/FancyCard/FancyCard';
+import Card from '../../Components/Atoms/FancyCard/FancyCard';
 import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
 import FancyContentCard from '../../Components/UI/Molecules/FancyContentCard/FancyContentCard';
 import { css } from 'styled-components';

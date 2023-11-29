@@ -1,7 +1,7 @@
 import React, { useId } from 'react';
 
 import FancySelectWrapper from '@/Components/UI/Molecules/FancySelectWrapper/FancySelectWrapper';
-import { RawRadio } from '@/Components/UI/Atoms/RawRadio';
+import { RawRadio } from '@/Components/Atoms/RawRadio';
 
 export type TFancyRadioProps = Omit<React.ComponentProps<typeof FancySelectWrapper>, 'inputElement'> &
   React.ComponentProps<typeof RawRadio>;

@@ -1,6 +1,6 @@
 import React, { useState, createRef, useEffect } from 'react';
 
-import SingleInputAtom from '../../Atoms/SingleInputAtom/SingleInputAtom';
+import SingleInputAtom from '../../../Atoms/SingleInputAtom/SingleInputAtom';
 import IStatus from '../../Interface/IStatus';
 import { InputWrapper } from './SingleInputs.style';
 import { TThemeTypes } from '@/Components/UI/Interface/TUiColors';
