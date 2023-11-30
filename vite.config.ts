@@ -19,7 +19,7 @@ export default defineConfig({
   build: {
     lib: {
       entry: path.resolve(__dirname, 'src/lib/index.ts'),
-      name: 'MyLib',
+      name: 'FUI',
       formats: ['es', 'umd'],
       fileName: (format) => `fui.${format}.js`,
     },
