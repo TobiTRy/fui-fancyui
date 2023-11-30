@@ -1,7 +1,7 @@
 import React from 'react';
 import { styled } from 'styled-components';
 
-import Typography from '../../Atoms/Typography/Typography';
+import Typography from '../../atoms/Typography/Typography';
 import { TThemeTypes } from '@/Components/Interface/TUiColors';
 import { TLayer } from '@/Components/Interface/TLayer';
 import { getTextColor } from '../../Design/color/colorCalculatorForComponet';

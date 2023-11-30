@@ -2,7 +2,7 @@ import React from 'react';
 
 import { TThemeTypes } from '@/Components/Interface/TUiColors';
 import { TLayer } from '@/Components/Interface/TLayer';
-import { FancyBox } from '../../Atoms/FancyBox';
+import { FancyBox } from '../../atoms/FancyBox';
 import { CSSProp, css } from 'styled-components';
 import { fancyBarStyle } from './BottomBar.style';
 

@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { animated, useTransition } from '@react-spring/web';
 
 import useWindowDimensions from '../../utils/hooks/useWindowDimensions/useWindowDimensions';
-import SwipeUpContainer from '../../Atoms/SwipeUpContainer/SwipeUpContainer';
-import BackDrop from '../../Atoms/BackDrop/BackDrop';
+import SwipeUpContainer from '../../atoms/SwipeUpContainer/SwipeUpContainer';
+import BackDrop from '../../atoms/BackDrop/BackDrop';
 import UseDelay from '../../utils/hooks/useDelay/UseDelay';
 import ScalingSection from '../ScalingSection/ScalingSection';
 import { Content, ContentBox, WrapperAnimated, WrapperContent, WrapperModal } from './SwipeUpModal.style';

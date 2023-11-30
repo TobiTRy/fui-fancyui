@@ -1,5 +1,5 @@
-import { IRange } from '../../Atoms/DateNumberAtom/DateNumberAtom';
-import { IAvailableDot } from '../../Atoms/AvilableDot/AvailableDot';
+import { IRange } from '../../atoms/DateNumberAtom/DateNumberAtom';
+import { IAvailableDot } from '../../atoms/AvilableDot/AvailableDot';
 
 interface Day {
   number: number;

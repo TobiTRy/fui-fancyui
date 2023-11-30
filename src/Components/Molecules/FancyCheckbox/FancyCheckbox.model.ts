@@ -1,4 +1,4 @@
-import { IRawCheckboxProps } from '../../Atoms/RawCheckbox/RawCheckbox.model';
+import { IRawCheckboxProps } from '../../atoms/RawCheckbox/RawCheckbox.model';
 
 // the incoming props custom for the RawCheckbox component
 export type TAlign = 'left' | 'right' | 'center';

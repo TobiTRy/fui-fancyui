@@ -1,9 +1,9 @@
 import React, { ChangeEvent, useId, useState } from 'react';
 
-import RawSlider from '../../Atoms/RawSlider/RawSlider';
+import RawSlider from '../../atoms/RawSlider/RawSlider';
 import FancyNumberInput from '../FancyNumberInput/FancyNumberInput';
 import { StyledInputWrapper } from '../../Molecules/InputWrapper/InputWrapper.style';
-import FancySVGAtom from '../../Atoms/FancySVGAtom/FancySVGAtom';
+import FancySVGAtom from '../../atoms/FancySVGAtom/FancySVGAtom';
 import { Label, NumberContainer, RangeSliderContainer, Icon } from './FancyRangeSlider.style';
 import IFancyRangeSlider from './FancyRangeSlider.model';
 import calcColorState from '../../Design/color/calcColorState';

@@ -1,8 +1,8 @@
 import React from 'react';
-import Typography from '../../Components/Atoms/Typography/Typography';
+import Typography from '../../Components/atoms/Typography/Typography';
 
 import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';
-import FancyCard from '../../Components/Atoms/FancyCard/FancyCard';
+import FancyCard from '../../Components/atoms/FancyCard/FancyCard';
 
 export default function Typogrphy() {
   return (

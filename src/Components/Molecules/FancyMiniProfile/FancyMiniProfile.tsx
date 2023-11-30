@@ -1,7 +1,7 @@
 import React from 'react';
 
-import FancyProfilePicture, { IFancyProfilePicture } from '../../Atoms/FancyProfilePicture/FancyProfilePicture';
-import Typography from '../../Atoms/Typography/Typography';
+import FancyProfilePicture, { IFancyProfilePicture } from '../../atoms/FancyProfilePicture/FancyProfilePicture';
+import Typography from '../../atoms/Typography/Typography';
 import { TextWrapper, Wrapper } from './FancyMiniProfile.style';
 import { TTypography } from '@/Components/Interface/TTypography';
 import { TThemeTypes } from '@/Components/Interface/TUiColors';

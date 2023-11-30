@@ -2,8 +2,8 @@ import React from 'react';
 import { styled } from 'styled-components';
 
 import IHeadLine from './FancyModalHeadLine.model';
-import Typography from '../../Atoms/Typography/Typography';
-import FancyLine from '../../Atoms/FancyLine/FancyLine';
+import Typography from '../../atoms/Typography/Typography';
+import FancyLine from '../../atoms/FancyLine/FancyLine';
 import { TTheme } from '@/Components/Interface/TTheme';
 
 const StyledHeadLine = styled.div<{ $alignCenter?: boolean; theme: TTheme }>`

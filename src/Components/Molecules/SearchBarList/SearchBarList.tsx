@@ -1,6 +1,6 @@
 import React from 'react';
 
-import FancyCard from '../../Atoms/FancyCard/FancyCard';
+import FancyCard from '../../atoms/FancyCard/FancyCard';
 import { TThemeTypes } from '@/Components/Interface/TUiColors';
 import { TLayer } from '@/Components/Interface/TLayer';
 import { InnerCard, StyledSearchBarList } from './SearchBarList.style';

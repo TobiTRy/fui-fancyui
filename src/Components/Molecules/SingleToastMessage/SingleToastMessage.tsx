@@ -3,8 +3,8 @@ import React, { forwardRef, useEffect } from 'react';
 // Import necessary components and interfaces
 import IToastMessage from './IToastMessage.model';
 import { Container, TimerLine, Headline } from './SingleToastMessage.style';
-import Typography from '../../Atoms/Typography/Typography';
-import FancyXButton from '../../Atoms/FancyXButton/FancyXButton';
+import Typography from '../../atoms/Typography/Typography';
+import FancyXButton from '../../atoms/FancyXButton/FancyXButton';
 
 // Define the interface for the component
 interface ISingleToastMessage {

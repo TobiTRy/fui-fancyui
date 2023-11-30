@@ -1,10 +1,10 @@
 import React from 'react';
 import { styled, css } from 'styled-components';
 
-import { TAlign } from '../../Atoms/AlignedInputLabel/TalignedInputLabel.model';
-import { AlignedInputLabel } from '../../Atoms/AlignedInputLabel/AlignedInputLabel';
+import { TAlign } from '../../atoms/AlignedInputLabel/TalignedInputLabel.model';
+import { AlignedInputLabel } from '../../atoms/AlignedInputLabel/AlignedInputLabel';
 
-import ProgressBar, { IProgressBar } from '../../Atoms/ProgressBar/ProgressBar';
+import ProgressBar, { IProgressBar } from '../../atoms/ProgressBar/ProgressBar';
 import { TThemeTypes } from '@/Components/Interface/TUiColors';
 import { TLayer } from '@/Components/Interface/TLayer';
 import { TTheme } from '@/Components/Interface/TTheme';

@@ -1,6 +1,6 @@
 import React, { InputHTMLAttributes } from 'react';
 
-import { TRawInputAlign } from '../../Atoms/RawInput/RawInput';
+import { TRawInputAlign } from '../../atoms/RawInput/RawInput';
 import { TLayer } from '@/Components/Interface/TLayer';
 import { StyledDatePicker } from '../../Organisms/FancyDateInput/FancyDateInput.style';
 import { TThemeTypes } from '@/Components/Interface/TUiColors';

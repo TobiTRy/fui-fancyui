@@ -4,7 +4,7 @@ import { ColorTypes } from '../FancyColorOutput.model';
 import { FancyTextInput } from '../../../Organisms/FancyTextInput';
 import AdaptInputs from './AdaptInput/AdaptInputs';
 import { ContainerInputs, WrapperInputs } from './InputFields.style';
-import Typography from '../../../Atoms/Typography/Typography';
+import Typography from '../../../atoms/Typography/Typography';
 
 // --------------------------------------------------------------------------- //
 // --The main InputFiels component to render a input for each type of color -- //

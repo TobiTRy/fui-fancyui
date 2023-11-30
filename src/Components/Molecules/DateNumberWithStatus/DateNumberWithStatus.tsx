@@ -1,9 +1,9 @@
 import React from 'react';
 import { styled } from 'styled-components';
 
-import DateNumberAtom from '../../Atoms/DateNumberAtom/DateNumberAtom';
-import AvilableDot, { IAvailableDot } from '../../Atoms/AvilableDot/AvailableDot';
-import { IRange } from '../../Atoms/DateNumberAtom/DateNumberAtom';
+import DateNumberAtom from '../../atoms/DateNumberAtom/DateNumberAtom';
+import AvilableDot, { IAvailableDot } from '../../atoms/AvilableDot/AvailableDot';
+import { IRange } from '../../atoms/DateNumberAtom/DateNumberAtom';
 import { TLayer } from '@/Components/Interface/TLayer';
 import { TThemeTypes } from '@/Components/Interface/TUiColors';
 import { TTheme } from '@/Components/Interface/TTheme';

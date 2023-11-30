@@ -2,10 +2,10 @@ import React from 'react';
 
 import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
 
-import FancyLoadingSpinner from '../../Components/Atoms/FancyLoadingSpinner/FancyLoadingSpinner';
-import FancyLoadingBar from '../../Components/Atoms/FancyLoadingBar/FancyLoadingBar';
+import FancyLoadingSpinner from '../../Components/atoms/FancyLoadingSpinner/FancyLoadingSpinner';
+import FancyLoadingBar from '../../Components/atoms/FancyLoadingBar/FancyLoadingBar';
 import ProgressBar from '../../Components/Molecules/FancyProgressBar/FancyProgressBar'; // Corrected the import name
-import { FancyCard } from '@/Components/Atoms/FancyCard';
+import { FancyCard } from '@/Components/atoms/FancyCard';
 
 export default function LoadingSpinnerRoute() {
   const [progress, setProgress] = React.useState(0);

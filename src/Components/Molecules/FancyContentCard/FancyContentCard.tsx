@@ -1,7 +1,7 @@
 import React from 'react';
 
-import FancyCard from '../../Atoms/FancyCard/FancyCard';
-import Typography from '../../Atoms/Typography/Typography';
+import FancyCard from '../../atoms/FancyCard/FancyCard';
+import Typography from '../../atoms/Typography/Typography';
 import { styled } from 'styled-components';
 
 interface IContentCardProps {

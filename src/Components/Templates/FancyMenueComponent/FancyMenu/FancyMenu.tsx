@@ -1,7 +1,7 @@
 import React from 'react';
 
 import FancyMenuItem from '../FancyMenuItem/FancyMenuItem';
-import ListDivider from '../../../Atoms/ListDivider/ListDivider';
+import ListDivider from '../../../atoms/ListDivider/ListDivider';
 import MenuList from '../../../Molecules/MenuList/MenuList';
 
 type TFancyMenuProps = {

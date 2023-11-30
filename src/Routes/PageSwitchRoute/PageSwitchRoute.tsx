@@ -3,7 +3,7 @@ import React from 'react';
 import FancyPageList from '../../Components/Molecules/FancyPageList/FancyPageList';
 import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';
 import { styled } from 'styled-components';
-import { FancyCard } from '@/Components/Atoms/FancyCard';
+import { FancyCard } from '@/Components/atoms/FancyCard';
 
 const StyledDiv = styled.div`
   display: flex;

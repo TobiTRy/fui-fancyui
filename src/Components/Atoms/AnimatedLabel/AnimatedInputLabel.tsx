@@ -1,6 +1,6 @@
 import { styled, css } from 'styled-components';
 
-import InputLabel from '@/Components/Atoms/InputLabel/InputLabel';
+import InputLabel from '@/Components/atoms/InputLabel/InputLabel';
 import { IAnimatedInputLabel } from './TAnimatedInputLabel.model';
 
 import { getTextColor } from '@/Components/Design/color/colorCalculatorForComponet';

@@ -1,7 +1,7 @@
 import React from 'react';
 
-import FancyImage, { IFancyImage } from '../../Atoms/FancyImage/FancyImage';
-import ImageVideoOverlay, { TPositions } from '../../Atoms/ImageVideoOverlay/ImageVideoOverlay';
+import FancyImage, { IFancyImage } from '../../atoms/FancyImage/FancyImage';
+import ImageVideoOverlay, { TPositions } from '../../atoms/ImageVideoOverlay/ImageVideoOverlay';
 
 // Define the props for the FancyImageText component
 interface IImageWithTextProps extends IFancyImage {

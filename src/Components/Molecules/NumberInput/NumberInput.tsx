@@ -1,6 +1,6 @@
 import React, { InputHTMLAttributes, useState, useEffect, KeyboardEvent, ChangeEvent } from 'react';
 import StyledNumberInput from './NumberInput.styled';
-import { TRawInputAlign } from '../../Atoms/RawInput/RawInput';
+import { TRawInputAlign } from '../../atoms/RawInput/RawInput';
 
 export interface INumberInput extends InputHTMLAttributes<HTMLInputElement> {
   autoWidth?: boolean;

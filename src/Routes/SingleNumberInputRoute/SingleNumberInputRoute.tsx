@@ -2,7 +2,7 @@ import React from 'react';
 
 import FancySingleInputs from '../../Components/Organisms/FancyCodeVerificationInput/FancyCodeVerificationInput';
 import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
-import { FancyCard } from '@/Components/Atoms/FancyCard';
+import { FancyCard } from '@/Components/atoms/FancyCard';
 
 // the home route for the single number Input
 export default function SingleNumberInputRoute() {

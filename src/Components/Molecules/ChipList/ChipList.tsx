@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { FancyBox } from '@/Components/Atoms/FancyBox';
+import { FancyBox } from '@/Components/atoms/FancyBox';
 import { TLayer } from '@/Components/Interface/TLayer';
 import { ChipContainer, generateChipListStyle } from './ChipList.style';
 import { TThemeTypes } from '@/Components/Interface/TUiColors';

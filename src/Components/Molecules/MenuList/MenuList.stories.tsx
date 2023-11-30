@@ -6,7 +6,7 @@ import MenuList from './MenuList';
 
 // Define metadata for the story
 const meta = {
-  title: 'components/ui/Atoms/MenuList',
+  title: 'components/atoms/MenuList',
   component: MenuList,
   parameters: {
     docs: {

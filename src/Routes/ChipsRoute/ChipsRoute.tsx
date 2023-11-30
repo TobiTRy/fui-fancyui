@@ -5,7 +5,7 @@ import Chip from '../../Components/Organisms/FancyChip/FancyChip';
 
 import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
 import ClipBoardIconCheck from '../../Components/SVGIcons/SVGClipBoardIconChecked/SVGClipBoardIconChecked';
-import { FancyCard } from '@/Components/Atoms/FancyCard';
+import { FancyCard } from '@/Components/atoms/FancyCard';
 import ChipList from '../../Components/Molecules/ChipList/ChipList';
 import FancyChipList from '../../Components/Organisms/FancyChipList/FancyChipList';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import FancyProfilePicture from '../../Components/Atoms/FancyProfilePicture/FancyProfilePicture';
+import FancyProfilePicture from '../../Components/atoms/FancyProfilePicture/FancyProfilePicture';
 
 import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';
 

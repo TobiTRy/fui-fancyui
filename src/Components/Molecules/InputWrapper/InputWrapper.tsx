@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { css } from 'styled-components';
 
 import { ErrorMessage, StyledInputWrapper, InputContainer } from './InputWrapper.style';
-import FancyInputUnderline from '../../Atoms/InputUnderline/InputUnderline';
-import FancySVGAtom from '../../Atoms/FancySVGAtom/FancySVGAtom';
-import { AnimatedInputLabel } from '../../Atoms/AnimatedLabel/AnimatedInputLabel';
-import { TRawInputAlign } from '../../Atoms/RawInput/RawInput';
+import FancyInputUnderline from '../../atoms/InputUnderline/InputUnderline';
+import FancySVGAtom from '../../atoms/FancySVGAtom/FancySVGAtom';
+import { AnimatedInputLabel } from '../../atoms/AnimatedLabel/AnimatedInputLabel';
+import { TRawInputAlign } from '../../atoms/RawInput/RawInput';
 import { TThemeTypes } from '@/Components/Interface/TUiColors';
 import { TLayer } from '@/Components/Interface/TLayer';
 import calcColorState from '../../Design/color/calcColorState';

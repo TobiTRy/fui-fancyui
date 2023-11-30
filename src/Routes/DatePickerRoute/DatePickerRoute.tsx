@@ -6,7 +6,7 @@ import FancyDatePicker from '../../Components/Organisms/FancyDatePicker/FancyDat
 import FancyDateDropDown from '../../Components/Templates/Inputs/FancyDateDropDown/FancyDateDropDown';
 import IExternalYearWithMonths from '../../Components/Molecules/MonthWithDays/IExternalMonthWithDays.model';
 import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
-import { FancyCard } from '@/Components/Atoms/FancyCard';
+import { FancyCard } from '@/Components/atoms/FancyCard';
 
 const externalYears: IExternalYearWithMonths = {
   2023: [

@@ -7,7 +7,7 @@ import SVGCheckMark from '../../SVGIcons/SVGCheckMark/SVGCheckMark';
 import SpeedDailMenueItem from './SpeedDailMenueItem';
 // Define metadata for the story
 const meta = {
-  title: 'components/ui/Atoms/SpeedDailMenueItem',
+  title: 'components/atoms/SpeedDailMenueItem',
   component: SpeedDailMenueItem,
   parameters: {
     docs: {

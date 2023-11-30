@@ -1,4 +1,4 @@
-import { IAvailableDot } from '../../Atoms/AvilableDot/AvailableDot';
+import { IAvailableDot } from '../../atoms/AvilableDot/AvailableDot';
 
 export type IDateWithExternalState = {
   date: number;

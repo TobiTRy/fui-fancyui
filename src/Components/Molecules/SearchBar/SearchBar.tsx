@@ -3,8 +3,8 @@ import { styled, css } from 'styled-components';
 import FancyTextInput from '../../Organisms/FancyTextInput/FancyTextInput';
 
 import SVGSearch from '../../SVGIcons/SVGSearch/SVGSearch';
-import FancySVGAtom from '../../Atoms/FancySVGAtom/FancySVGAtom';
-import { TRawInputAlign } from '../../Atoms/RawInput/RawInput';
+import FancySVGAtom from '../../atoms/FancySVGAtom/FancySVGAtom';
+import { TRawInputAlign } from '../../atoms/RawInput/RawInput';
 import { TThemeTypes } from '@/Components/Interface/TUiColors';
 import { TLayer } from '@/Components/Interface/TLayer';
 import { TTheme } from '@/Components/Interface/TTheme';

@@ -7,7 +7,7 @@ import SVGCheckMark from '../../SVGIcons/SVGCheckMark/SVGCheckMark';
 import { FancyBottomBarIcon } from '../../Templates/FancyBottomBarIcon';
 
 const meta = {
-  title: 'components/ui/Molecules/DynamicBottomScrollBar',
+  title: 'components/Molecules/DynamicBottomScrollBar',
   component: DynamicBottomScrollBar,
   parameters: {
     docs: {

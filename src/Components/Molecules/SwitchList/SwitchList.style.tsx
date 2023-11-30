@@ -1,5 +1,5 @@
 import { styled, CSSProp } from 'styled-components';
-import ULRaw from '../../Atoms/RawUL/RawUL';
+import ULRaw from '../../atoms/RawUL/RawUL';
 
 export const StyledList = styled(ULRaw)<{ $externalStyle?: CSSProp; $direction?: 'horizontal' | 'vertical' }>`
   display: flex;

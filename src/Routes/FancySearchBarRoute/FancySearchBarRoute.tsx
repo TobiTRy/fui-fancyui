@@ -4,7 +4,7 @@ import FancySearchBar from '../../Components/Organisms/FancySearchBar/FancySearc
 
 import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';
 import { styled } from 'styled-components';
-import { FancyCard } from '@/Components/Atoms/FancyCard';
+import { FancyCard } from '@/Components/atoms/FancyCard';
 
 const users = [
   {

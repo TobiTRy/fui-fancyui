@@ -1,8 +1,8 @@
 import React, { InputHTMLAttributes, useState } from 'react';
 import { styled } from 'styled-components';
 
-import RawInput, { TRawInputAlign } from '../../Atoms/RawInput/RawInput';
-import PasswordEye from '../../Atoms/PasswordEye/PasswordEye';
+import RawInput, { TRawInputAlign } from '../../atoms/RawInput/RawInput';
+import PasswordEye from '../../atoms/PasswordEye/PasswordEye';
 import { TThemeTypes } from '@/Components/Interface/TUiColors';
 import { TLayer } from '@/Components/Interface/TLayer';
 import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';

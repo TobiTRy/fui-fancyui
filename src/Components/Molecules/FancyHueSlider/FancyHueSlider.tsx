@@ -2,8 +2,8 @@ import React from 'react';
 import Color from 'color';
 
 import useSlider from '../../utils/hooks/useSlider/useSilder';
-import SliderMarker from '../../Atoms/SliderMarker/SliderMarker';
-import ColorIndicator from '../../Atoms/ColorIndicator/ColorIndicator';
+import SliderMarker from '../../atoms/SliderMarker/SliderMarker';
+import ColorIndicator from '../../atoms/ColorIndicator/ColorIndicator';
 import { SliderContainer, SliderWrapper } from './FancyHueSlider.style';
 
 //define the min and max hue value for the slider

@@ -1,6 +1,6 @@
 import { CSSProp } from 'styled-components';
 
-import Typography from '../../../Atoms/Typography/Typography';
+import Typography from '../../../atoms/Typography/Typography';
 import { sizes } from './sizeSettings';
 import { TTypography } from '@/Components/Interface/TTypography';
 

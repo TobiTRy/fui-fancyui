@@ -1,3 +1,3 @@
-import { TypographyList } from '@/Components/Atoms/Typography/TypographyFontVariations.style';
+import { TypographyList } from '@/Components/atoms/Typography/TypographyFontVariations.style';
 
 export type TTypography = keyof typeof TypographyList;
