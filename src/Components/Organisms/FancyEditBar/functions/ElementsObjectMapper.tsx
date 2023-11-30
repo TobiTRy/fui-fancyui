@@ -1,4 +1,4 @@
-import { IFancyBottomBarIcon } from '../../../Templates/FancyBottomBarIcon/FancyBottomBarIcon';
+import { IFancyBottomBarIcon } from '../../../templates/FancyBottomBarIcon/FancyBottomBarIcon';
 import { ICategoryItem, IDropDown, IRangeSlider, ITextInput, InputSettings } from '../EditBarItemsStructure/IEditbarObjectSturcture.model';
 
 import { FancyTextInput } from '../../FancyTextInput';

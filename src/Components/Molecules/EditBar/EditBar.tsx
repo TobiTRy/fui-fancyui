@@ -13,7 +13,7 @@ import { styled } from 'styled-components';
 //the first bar is getting settings for the grouped bar
 //the second is for the settings
 
-import FancyBottomBarIcon, { IFancyBottomBarIcon } from '../../Templates/FancyBottomBarIcon/FancyBottomBarIcon';
+import FancyBottomBarIcon, { IFancyBottomBarIcon } from '../../templates/FancyBottomBarIcon/FancyBottomBarIcon';
 import EditBarModal from '../../atoms/EditBarModal/EditBarModal';
 
 import DynamicBottomScrollBar from '../DynamicBottomScrollBar/DynamicBottomScrollBar';

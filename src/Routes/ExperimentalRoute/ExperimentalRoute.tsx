@@ -12,7 +12,7 @@ import ComponentAsWrapper from '../../Components/atoms/ComponentAsWrapper/Compon
 import ActionWrapper from '../../Components/atoms/ActionWrapper/ActionWrapper';
 import FancyActionWrapper from '../../Components/atoms/FancyActionWrapper/FancyActionWrapper';
 import BottomBarIcon from '../../Components/molecules/BottomBarIcon/BottomBarIcon';
-import FancyBottomBarIcon from '@/Components/Templates/FancyBottomBarIcon/FancyBottomBarIcon';
+import FancyBottomBarIcon from '@/Components/templates/FancyBottomBarIcon/FancyBottomBarIcon';
 import { FancyButton } from '@/Components/organisms/FancyButton';
 import { SingleToastMessage } from '@/Components/molecules/SingleToastMessage';
 import { FancyCard } from '@/Components/atoms/FancyCard';
