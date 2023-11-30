@@ -1,9 +1,9 @@
 import { styled, css } from 'styled-components';
 
-import { boxShadow } from '../../design/shadows/shadows';
+import { boxShadow } from '../../design/designFunctions/shadows/shadows';
 import { TThemeTypes } from '@/Components/Interface/TUiColors';
 import { TLayer } from '@/Components/Interface/TLayer';
-import { getBackgroundColor } from '../../design/color/colorCalculatorForComponet';
+import { getBackgroundColor } from '../../design/color/colorCalculatorForComponent/colorCalculatorForComponet';
 import { TTheme } from '@/Components/Interface/TTheme';
 
 // eslint-disable-next-line react-refresh/only-export-components

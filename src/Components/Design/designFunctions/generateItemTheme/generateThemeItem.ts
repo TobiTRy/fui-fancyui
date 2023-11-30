@@ -3,9 +3,9 @@ import Color from 'color';
 
 import { disabledStyle } from '../disabledStyle/disableStyle';
 import { generatePadding } from '../generatePaddingForComponent/generatePadding';
-import { boxShadow } from '../../shadows/shadows';
-import themeStore from '../../color/themeStore/themeStore';
-import { getBackgroundColor } from '../../color/colorCalculatorForComponet';
+import { boxShadow } from '../shadows/shadows';
+import themeStore from '../../theme/themeStore/themeStore';
+import { getBackgroundColor } from '../../color/colorCalculatorForComponent/colorCalculatorForComponet';
 import { getOpositColorContrast } from '../getOpositColorContrast';
 import { IGenerateThemeItem } from './IGenerateThemeItemProps.model';
 

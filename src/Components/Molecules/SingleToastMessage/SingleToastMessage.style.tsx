@@ -1,10 +1,10 @@
 import { styled, keyframes } from 'styled-components';
 
-import { fontSize } from '../../design/designSizes';
-import colorTransparencyCalculator from '../../design/color/colorTransparencyCalculator';
-import { boxShadow } from '../../design/shadows/shadows';
+import { fontSize } from '../../design/theme/designSizes';
+import colorTransparencyCalculator from '../../design/color/colorTransparencyCalculator/colorTransparencyCalculator';
+import { boxShadow } from '../../design/designFunctions/shadows/shadows';
 import { TLayer } from '@/Components/Interface/TLayer';
-import { getBackgroundColor } from '../../design/color/colorCalculatorForComponet';
+import { getBackgroundColor } from '../../design/color/colorCalculatorForComponent/colorCalculatorForComponet';
 import { TTheme } from '@/Components/Interface/TTheme';
 
 type ToastMessageProps = 'success' | 'warning' | 'error' | 'info';

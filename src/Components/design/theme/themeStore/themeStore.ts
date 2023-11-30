@@ -1,8 +1,8 @@
 import { create } from 'zustand';
 import { updateThemeColors, uiColors, IUiColorPops, regenerateUiColors } from '../designColor';
-import { spacingPx, borderRadius, fontSizes } from '../../designSizes';
+import { spacingPx, borderRadius, fontSizes } from '../designSizes';
 import { TTheme } from '@/Components/Interface/TTheme';
-import { breakpoints } from '@/Components/design/brakePoints';
+import { breakpoints } from '@/Components/design/theme/brakePoints';
 
 type ThemeState = {
   theme: TTheme;

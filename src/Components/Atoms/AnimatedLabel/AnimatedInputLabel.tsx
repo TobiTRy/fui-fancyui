@@ -3,7 +3,7 @@ import { styled, css } from 'styled-components';
 import InputLabel from '@/Components/atoms/InputLabel/InputLabel';
 import { IAnimatedInputLabel } from './TAnimatedInputLabel.model';
 
-import { getTextColor } from '@/Components/design/color/colorCalculatorForComponet';
+import { getTextColor } from '@/Components/design/color/colorCalculatorForComponent/colorCalculatorForComponet';
 import { TTheme } from '@/Components/Interface/TTheme';
 
 const activeHandler = (align: string, $moveUp?: boolean) => {

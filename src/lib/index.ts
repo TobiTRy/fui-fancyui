@@ -124,10 +124,10 @@ export { default as useWindowDimensions } from '@/Components/utils/hooks/useWind
 export { default as generateThemeForCard } from '@/Components/design/designFunctions/generateThemeForCard/generateThemeForCard';
 export { default as disabledStyle } from '@/Components/design/designFunctions/disabledStyle/disableStyle';
 export { default as generateBorderRadiusForComponent } from '@/Components/design/designFunctions/generateBorderRadiusForComponent/generateBorderRadiusForComponent';
-export { default as shadows } from '@/Components/design/shadows/shadows';
+export { default as shadows } from '@/Components/design/designFunctions/shadows/shadows';
 
 // ---------- Interfaces ------- //
 export * from '@/Components/Interface';
 
 // ---------- Store ------- //
-export { default as themeStore } from '@/Components/design/color/themeStore/themeStore';
+export { default as themeStore } from '@/Components/design/theme/themeStore/themeStore';

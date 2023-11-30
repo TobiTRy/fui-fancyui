@@ -3,8 +3,8 @@ import { css } from 'styled-components';
 import { TThemeTypes } from '@/Components/Interface/TUiColors';
 import { TLayer } from '@/Components/Interface/TLayer';
 import IStyledPrefixAndPicker from '../../../Interface/IStyledPrefixAndPicker.model';
-import { getBackgroundColor } from '../../color/colorCalculatorForComponet';
-import colorTransparencyCalculator from '../../color/colorTransparencyCalculator';
+import { getBackgroundColor } from '../../color/colorCalculatorForComponent/colorCalculatorForComponet';
+import colorTransparencyCalculator from '../../color/colorTransparencyCalculator/colorTransparencyCalculator';
 import { TTheme } from '@/Components/Interface/TTheme';
 
 export interface IgenerateThemeForCard {

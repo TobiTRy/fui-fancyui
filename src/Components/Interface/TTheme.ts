@@ -2,7 +2,7 @@ import { TFontSizes } from './IFontSizes';
 import { TBorderRadiusSizes } from './TBorderRadius';
 import { TUiColorsType } from './TUiColorsType';
 import { TSpacings } from './TSpacings';
-import { breakpoints } from '@/Components/design/brakePoints';
+import { breakpoints } from '@/Components/design/theme/brakePoints';
 
 //the structure for the theme object
 export type TTheme = {

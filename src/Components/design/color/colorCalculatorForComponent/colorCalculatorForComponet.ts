@@ -1,8 +1,8 @@
 import Color from 'color';
 import { css } from 'styled-components';
 
-import checkThemeOrColor from './ckeckThemeOrColor';
-import { TthemeColorGroup } from './designColor';
+import checkThemeOrColor from '../checkThemeOrColor/ckeckThemeOrColor';
+import { TthemeColorGroup } from '../../theme/designColor';
 import { TTheme } from '@/Components/Interface/TTheme';
 import { TThemeTypes } from '@/Components/Interface/TUiColors';
 

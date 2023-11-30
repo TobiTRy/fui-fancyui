@@ -1,6 +1,6 @@
 import { styled, css } from 'styled-components';
 
-import { spacingPx } from '../../design/designSizes';
+import { spacingPx } from '../../design/theme/designSizes';
 import { IActiveSwitchIndicator } from './SwitchActiveIndicator';
 import { generateBlob } from './utils/generateBlob';
 import { generateTopline, generateUnderline } from './utils/generateLines';

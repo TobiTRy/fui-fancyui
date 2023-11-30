@@ -1,5 +1,5 @@
-import { TthemeColorGroup } from './designColor';
-import isColorValid from './isColorValid';
+import { TthemeColorGroup } from '../../theme/designColor';
+import isColorValid from '../isColorValid/isColorValid';
 
 //this check if a incomming color is a theme or a color and returns the color
 function isTthemeColorGroup(color: string | TthemeColorGroup): color is TthemeColorGroup {

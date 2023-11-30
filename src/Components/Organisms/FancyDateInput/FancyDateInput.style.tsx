@@ -1,9 +1,9 @@
 import { css, styled } from 'styled-components';
 import RawInput, { IRawInput } from '../../atoms/RawInput/RawInput';
-import { getBackgroundColor } from '../../design/color/colorCalculatorForComponet';
+import { getBackgroundColor } from '../../design/color/colorCalculatorForComponent/colorCalculatorForComponet';
 import { TLayer } from '@/Components/Interface/TLayer';
 import { IDateInputProps } from '../../molecules/DateInput/DateInput';
-import { simpleColorTransition } from '../../design/simpleTransition';
+import { simpleColorTransition } from '../../design/designFunctions/simpleTransition';
 import { TThemeTypes } from '@/Components/Interface/TUiColors';
 
 interface IRawInputWrapper extends IRawInput {

@@ -4,7 +4,7 @@ import { styled } from 'styled-components';
 import Typography from '../Typography/Typography';
 import { TThemeTypes } from '@/Components/Interface/TUiColors';
 import { TLayer } from '@/Components/Interface/TLayer';
-import { getBackgroundColor } from '../../design/color/colorCalculatorForComponet';
+import { getBackgroundColor } from '../../design/color/colorCalculatorForComponent/colorCalculatorForComponet';
 import { TTheme } from '@/Components/Interface/TTheme';
 
 const WeekdaysConatiner = styled.div<{ theme: TTheme; $themeType?: TThemeTypes; $layer?: TLayer }>`
