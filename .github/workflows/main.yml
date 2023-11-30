@@ -20,8 +20,10 @@ jobs:
       - name: Check Prettier Formatting
         run: npx prettier --check .
 
-      - name: Run ESLint
-        run: npm run lint
+      - name: Run Lint Check
+        run: |
+          eslint . --no-cache
+          npm run lint
 
       - name: Run Build
         run: npm run build
