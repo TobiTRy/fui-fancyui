@@ -6,7 +6,7 @@ import { StyledInputWrapper } from '../../molecules/InputWrapper/InputWrapper.st
 import FancySVGAtom from '../../atoms/FancySVGAtom/FancySVGAtom';
 import { Label, NumberContainer, RangeSliderContainer, Icon } from './FancyRangeSlider.style';
 import IFancyRangeSlider from './FancyRangeSlider.model';
-import calcColorState from '../../design/color/calcColorState/calcColorState';
+import calcColorState from '../../../design/color/calcColorState/calcColorState';
 
 // --------------------------------------------------------------------------- //
 // -------------------- The main FancySlider Component ----------------------- //

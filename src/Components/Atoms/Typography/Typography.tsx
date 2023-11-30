@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 import { CSSProp, css } from 'styled-components';
 
 import { IStyledComponentProps, TypographyList } from './TypographyFontVariations.style';
-import themeStore from '../../design/theme/themeStore/themeStore';
+import themeStore from '../../../design/theme/themeStore/themeStore';
 import { generateFontVariants } from './TypographyStyleVariants';
 
 const generateStyle = (externalStyle: CSSProp, fontWeight: 'normal' | 'bold' | undefined) => {

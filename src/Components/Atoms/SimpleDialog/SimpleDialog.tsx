@@ -4,7 +4,7 @@ import { animated, useSpring } from '@react-spring/web';
 
 import { TThemeTypes } from '@/interface/TUiColors';
 import { TLayer } from '@/interface/TLayer';
-import getColorsForComponent from '../../design/color/colorCalculatorForComponent/colorCalculatorForComponet';
+import getColorsForComponent from '../../../design/color/colorCalculatorForComponent/colorCalculatorForComponet';
 import { TTheme } from '@/interface/TTheme';
 
 // Define the styled component for the dialog

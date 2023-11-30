@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
 import { TalignLabel } from './Fieldset';
-import { disabledStyle } from '../../design/designFunctions/disabledStyle/disableStyle';
+import { disabledStyle } from '../../../design/designFunctions/disabledStyle/disableStyle';
 import { TTheme } from '@/interface/TTheme';
 
 export const StyledFieldset = styled.fieldset<{ $disabled?: boolean }>`

@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 
 import { TLayer } from '@/interface/TLayer';
-import { getBackgroundColor } from '../../design/color/colorCalculatorForComponent/colorCalculatorForComponet';
+import { getBackgroundColor } from '../../../design/color/colorCalculatorForComponent/colorCalculatorForComponet';
 import IStyledPrefixAndPicker from '../../../interface/IStyledPrefixAndPicker.model';
 import { TTheme } from '@/interface/TTheme';
 import { TThemeTypes } from '@/interface/TUiColors';

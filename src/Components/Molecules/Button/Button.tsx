@@ -1,7 +1,7 @@
 import React from 'react';
 import { CSSProp } from 'styled-components';
 
-import { IGenerateThemeDesignForComponentProps } from '../../design/designFunctions/generateThemeDesignForComponent/generateThemeDesignForComponent';
+import { IGenerateThemeDesignForComponentProps } from '../../../design/designFunctions/generateThemeDesignForComponent/generateThemeDesignForComponent';
 import { StyledButton } from './Button.style';
 
 export type IButtonProps = {

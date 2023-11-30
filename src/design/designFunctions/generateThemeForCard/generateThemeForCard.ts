@@ -2,7 +2,7 @@ import { css } from 'styled-components';
 
 import { TThemeTypes } from '@/interface/TUiColors';
 import { TLayer } from '@/interface/TLayer';
-import IStyledPrefixAndPicker from '../../../../interface/IStyledPrefixAndPicker.model';
+import IStyledPrefixAndPicker from '../../../interface/IStyledPrefixAndPicker.model';
 import { getBackgroundColor } from '../../color/colorCalculatorForComponent/colorCalculatorForComponet';
 import colorTransparencyCalculator from '../../color/colorTransparencyCalculator/colorTransparencyCalculator';
 import { TTheme } from '@/interface/TTheme';

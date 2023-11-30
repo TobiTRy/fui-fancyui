@@ -1,9 +1,9 @@
 import { css } from 'styled-components';
 
-import { getBackgroundColor } from '../../../design/color/colorCalculatorForComponent/colorCalculatorForComponet';
-import colorTransparencyCalculator from '../../../design/color/colorTransparencyCalculator/colorTransparencyCalculator';
+import { getBackgroundColor } from '../../../../design/color/colorCalculatorForComponent/colorCalculatorForComponet';
+import colorTransparencyCalculator from '../../../../design/color/colorTransparencyCalculator/colorTransparencyCalculator';
 import { IActiveSwitchIndicator } from '../SwitchActiveIndicator';
-import themeStore from '@/components/design/theme/themeStore/themeStore';
+import themeStore from '@/design/theme/themeStore/themeStore';
 import { TBorderRadiusSizes } from '@/interface/TBorderRadius';
 import { TTheme } from '@/interface/TTheme';
 

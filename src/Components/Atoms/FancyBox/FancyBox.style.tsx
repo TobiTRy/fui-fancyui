@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
 
-import generateThemeForCard from '../../design/designFunctions/generateThemeForCard/generateThemeForCard';
+import generateThemeForCard from '../../../design/designFunctions/generateThemeForCard/generateThemeForCard';
 import IStyledPrefixAndPicker from '../../../interface/IStyledPrefixAndPicker.model';
 import { IFancyBoxProps } from './FancyBox.model';
 import { TTheme } from '@/interface/TTheme';

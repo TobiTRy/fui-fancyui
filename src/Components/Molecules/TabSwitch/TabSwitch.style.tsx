@@ -1,12 +1,12 @@
 import { styled } from 'styled-components';
 
-import { borderRadius, spacingPx } from '../../design/theme/designSizes';
+import { borderRadius, spacingPx } from '../../../design/theme/designSizes';
 import { TLayer } from '@/interface/TLayer';
 import { TTheme } from '@/interface/TTheme';
 import { TBorderRadiusSizes } from '@/interface/TBorderRadius';
 import { TThemeTypes } from '@/interface/TUiColors';
 import { TSpacings } from '../../../interface/TSpacings';
-import themeStore from '../../design/theme/themeStore/themeStore';
+import themeStore from '../../../design/theme/themeStore/themeStore';
 
 // Define the different sizes for the tab switch
 const getSpacingFromTheme = themeStore.getState().theme.spacing;

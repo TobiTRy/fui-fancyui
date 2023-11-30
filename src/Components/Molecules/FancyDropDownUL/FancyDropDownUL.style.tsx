@@ -1,12 +1,12 @@
 import { styled, css } from 'styled-components';
 
-import CalculateBorderRadiusOnAlignment from '../../design/designFunctions/CalculateBorderRadiusOnAlignment';
+import CalculateBorderRadiusOnAlignment from '../../../design/designFunctions/CalculateBorderRadiusOnAlignment';
 import { IFancyUL } from './FancyDropDownUL';
 import IStyledPrefixAndPicker from '../../../interface/IStyledPrefixAndPicker.model';
-import { boxShadow } from '../../design/designFunctions/shadows/shadows';
+import { boxShadow } from '../../../design/designFunctions/shadows/shadows';
 import { TThemeTypes } from '@/interface/TUiColors';
 import { TLayer } from '@/interface/TLayer';
-import { getBackgroundColor } from '../../design/color/colorCalculatorForComponent/colorCalculatorForComponet';
+import { getBackgroundColor } from '../../../design/color/colorCalculatorForComponent/colorCalculatorForComponet';
 import { TTheme } from '@/interface/TTheme';
 
 // --------------------------------------------------------------------------- //

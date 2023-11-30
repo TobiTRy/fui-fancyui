@@ -2,8 +2,8 @@ import { styled } from 'styled-components';
 
 import { TThemeTypes } from '@/interface/TUiColors';
 import { TLayer } from '@/interface/TLayer';
-import { getBackgroundColor } from '../../design/color/colorCalculatorForComponent/colorCalculatorForComponet';
-import { disabledStyle } from '../../design/designFunctions/disabledStyle/disableStyle';
+import { getBackgroundColor } from '../../../design/color/colorCalculatorForComponent/colorCalculatorForComponet';
+import { disabledStyle } from '../../../design/designFunctions/disabledStyle/disableStyle';
 import { TTheme } from '@/interface/TTheme';
 
 interface IContentWrapper {

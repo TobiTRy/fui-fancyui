@@ -1,6 +1,4 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import './App.css';
-
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
@@ -34,7 +32,7 @@ import ChipsRoute from './Routes/ChipsRoute/ChipsRoute';
 import CheckboxRoute from './Routes/CheckboxRoute/CheckboxRoute';
 import ColorGeneratorRoute from './Routes/ColorGeneratorRoute/ColorGeneratorRoute';
 import { TTheme } from '@/interface/TTheme';
-import themeStore from './components/design/theme/themeStore/themeStore';
+import themeStore from './design/theme/themeStore/themeStore';
 import GlobalStyle from './GlobalStyle';
 import FancyContentRoute from './Routes/FancyContentRoute/FancyContentRoute';
 import { FancyModal, FancySwipeUpModal } from './lib';

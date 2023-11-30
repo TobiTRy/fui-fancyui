@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { TThemeTypes } from '@/interface/TUiColors';
 import { TLayer } from '@/interface/TLayer';
 import { TTheme } from '@/interface/TTheme';
-import { getBackgroundColor, getTextColor } from '../../design/color/colorCalculatorForComponent/colorCalculatorForComponet';
+import { getBackgroundColor, getTextColor } from '../../../design/color/colorCalculatorForComponent/colorCalculatorForComponet';
 
 type StyledMenuProps = {
   $themeType?: TThemeTypes;

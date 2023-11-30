@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { styled, css } from 'styled-components';
-import { textShadow } from '../../design/designFunctions/shadows/shadows';
+import { textShadow } from '../../../design/designFunctions/shadows/shadows';
 import { TTheme } from '@/interface/TTheme';
 
 // Define the gradient options for the overlay
