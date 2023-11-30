@@ -1,6 +1,6 @@
 import React from 'react';
-import { TThemeTypes } from '@/components/Interface/TUiColors';
-import { TLayer } from '@/components/Interface/TLayer';
+import { TThemeTypes } from '@/components/core/interface/TUiColors';
+import { TLayer } from '@/components/core/interface/TLayer';
 import FancyContent from '../FancyContent/FancyContent';
 import { ContentWrapper } from './BottomBarIcon.style';
 

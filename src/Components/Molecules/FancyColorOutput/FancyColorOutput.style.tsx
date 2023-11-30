@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
 
-import { TTheme } from '@/components/Interface/TTheme';
+import { TTheme } from '@/components/core/interface/TTheme';
 
 export const Container = styled.div<{ theme: TTheme }>`
   box-sizing: border-box;

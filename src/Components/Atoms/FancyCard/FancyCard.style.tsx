@@ -1,13 +1,13 @@
 import { styled } from 'styled-components';
 
 import { StyledCardProps } from './Card.model';
-import IStyledPrefixAndOmiter from '../../Interface/IStyledPrefixAndOmiter.model';
+import IStyledPrefixAndOmiter from '../../core/interface/IStyledPrefixAndOmiter.model';
 import { spacingPx } from '../../design/theme/designSizes';
 import edgeCalculation from '../../design/designFunctions/edgeCaluculation';
 
 import { boxShadow } from '../../design/designFunctions/shadows/shadows';
 import getColorsForComponent from '../../design/color/colorCalculatorForComponent/colorCalculatorForComponet';
-import { TTheme } from '@/components/Interface/TTheme';
+import { TTheme } from '@/components/core/interface/TTheme';
 
 // the converted $ styling props for the card
 type IStyledCard = IStyledPrefixAndOmiter<StyledCardProps>;

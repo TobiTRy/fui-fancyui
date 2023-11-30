@@ -1,5 +1,5 @@
 import { styled } from 'styled-components';
-import { TTheme } from '../../Interface/TTheme';
+import { TTheme } from '../../core/interface/TTheme';
 
 export const RadioWrapper = styled.div`
   position: relative;

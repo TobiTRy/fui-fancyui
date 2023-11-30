@@ -1,6 +1,6 @@
 import { CSSProp } from 'styled-components';
-import { TLayer } from '@/components/Interface/TLayer';
-import { TThemeTypes } from '@/components/Interface/TUiColors';
+import { TLayer } from '@/components/core/interface/TLayer';
+import { TThemeTypes } from '@/components/core/interface/TUiColors';
 
 type HTMLDivElementProps = Omit<React.HTMLAttributes<HTMLDivElement>, 'style'>;
 interface IFancyBox {

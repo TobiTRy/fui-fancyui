@@ -1,11 +1,11 @@
 import { styled, css } from 'styled-components';
 
 import themeStore from '../../design/theme/themeStore/themeStore';
-import { TThemeTypes } from '@/components/Interface/TUiColors';
-import { TLayer } from '@/components/Interface/TLayer';
+import { TThemeTypes } from '@/components/core/interface/TUiColors';
+import { TLayer } from '@/components/core/interface/TLayer';
 import { getBackgroundColor } from '../../design/color/colorCalculatorForComponent/colorCalculatorForComponet';
-import { TTypography } from '@/components/Interface/TTypography';
-import { TTheme } from '@/components/Interface/TTheme';
+import { TTypography } from '@/components/core/interface/TTypography';
+import { TTheme } from '@/components/core/interface/TTheme';
 
 const getSpacingFromTheme = themeStore.getState().theme.spacing;
 export const tabSwitchItemSizes = {

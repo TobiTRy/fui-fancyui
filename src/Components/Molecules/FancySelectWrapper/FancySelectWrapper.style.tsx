@@ -1,6 +1,6 @@
 import { CSSProp, css, styled } from 'styled-components';
 
-import { TTheme } from '@/components/Interface/TTheme';
+import { TTheme } from '@/components/core/interface/TTheme';
 import { TAlign, TAlignCheckbox } from '../FancyCheckbox/FancyCheckbox.model';
 
 // wraps the whole component and handles the alignment

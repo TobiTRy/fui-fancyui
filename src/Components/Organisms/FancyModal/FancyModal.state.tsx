@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 
-import { TModalStatus } from '../../Interface/TModalStatus';
+import { TModalStatus } from '../../core/interface/TModalStatus';
 import { IModal } from '../../molecules/Modal/Modal';
 
 type TModalConfig = Omit<IModal, 'id' | 'children' | 'status' | 'isOpen'>;

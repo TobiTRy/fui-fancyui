@@ -2,10 +2,10 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { styled } from 'styled-components';
 
 import Typography from '../Typography/Typography';
-import { TThemeTypes } from '@/components/Interface/TUiColors';
+import { TThemeTypes } from '@/components/core/interface/TUiColors';
 import { getBackgroundColor, getTextColor } from '../../design/color/colorCalculatorForComponent/colorCalculatorForComponet';
-import { TLayer } from '@/components/Interface/TLayer';
-import { TTheme } from '@/components/Interface/TTheme';
+import { TLayer } from '@/components/core/interface/TLayer';
+import { TTheme } from '@/components/core/interface/TTheme';
 
 const DateOutputButton = styled.button<{ $isActive?: boolean; theme: TTheme; $themeType?: TThemeTypes; $layer?: TLayer }>`
   text-align: center;

@@ -1,7 +1,7 @@
 import { css, styled } from 'styled-components';
 
 import themeStore from '@/components/design/theme/themeStore/themeStore';
-import { TUiColorsSystemMessage } from '@/components/Interface/TUiColorsSystemMessage';
+import { TUiColorsSystemMessage } from '@/components/core/interface/TUiColorsSystemMessage';
 import { generateSystemIndicatorStyle } from '@/components/design/designFunctions/generateSystemIndicatorStyle';
 
 export const FancyBoxStyle = css``;

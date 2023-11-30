@@ -1,10 +1,10 @@
 import React from 'react';
 
 import { FancyBox } from '@/components/atoms/FancyBox';
-import { TLayer } from '@/components/Interface/TLayer';
+import { TLayer } from '@/components/core/interface/TLayer';
 import { ChipContainer, generateChipListStyle } from './ChipList.style';
-import { TThemeTypes } from '@/components/Interface/TUiColors';
-import { TUiColorsSystemMessage } from '@/components/Interface/TUiColorsSystemMessage';
+import { TThemeTypes } from '@/components/core/interface/TUiColors';
+import { TUiColorsSystemMessage } from '@/components/core/interface/TUiColorsSystemMessage';
 
 export interface ChipListProps {
   themeType?: Exclude<TThemeTypes, 'transparent'>;

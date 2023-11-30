@@ -1,8 +1,8 @@
 import React from 'react';
 import { StyledDay } from './DateNumberAtom.style';
 import Typography from '../Typography/Typography';
-import { TThemeTypes } from '@/components/Interface/TUiColors';
-import { TLayer } from '@/components/Interface/TLayer';
+import { TThemeTypes } from '@/components/core/interface/TUiColors';
+import { TLayer } from '@/components/core/interface/TLayer';
 
 export type IRange = { start?: boolean; end?: boolean; inRange?: boolean };
 

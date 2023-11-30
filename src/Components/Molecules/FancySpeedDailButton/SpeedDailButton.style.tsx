@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 
 import { boxShadow } from '../../design/designFunctions/shadows/shadows';
-import { TTheme } from '@/components/Interface/TTheme';
+import { TTheme } from '@/components/core/interface/TTheme';
 
 // eslint-disable-next-line react-refresh/only-export-components
 const SpeedDailButtonSize = 60;

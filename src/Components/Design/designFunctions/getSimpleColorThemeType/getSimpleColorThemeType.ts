@@ -1,4 +1,4 @@
-import { TThemeTypes } from '@/components/Interface/TUiColors';
+import { TThemeTypes } from '@/components/core/interface/TUiColors';
 import themeStore from '../../theme/themeStore/themeStore';
 
 const getSimpleColorThemeType = (themeType?: TThemeTypes) => {

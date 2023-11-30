@@ -2,8 +2,8 @@ import React, { ReactNode, useEffect, useState } from 'react';
 
 import SimpleDialog from '../../atoms/SimpleDialog/SimpleDialog';
 import BackDrop from '../../atoms/BackDrop/BackDrop';
-import { TThemeTypes } from '@/components/Interface/TUiColors';
-import { TLayer } from '@/components/Interface/TLayer';
+import { TThemeTypes } from '@/components/core/interface/TUiColors';
+import { TLayer } from '@/components/core/interface/TLayer';
 
 // --------------------------------------------------------------------------- //
 // ------  The main Modal Component to comstomize the Head/Bottomline  ------- //

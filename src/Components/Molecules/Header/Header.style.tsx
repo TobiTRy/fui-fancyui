@@ -1,8 +1,8 @@
 import { CSSProp, styled } from 'styled-components';
 
-import IStyledPrefixAndPicker from '../../Interface/IStyledPrefixAndPicker.model';
+import IStyledPrefixAndPicker from '../../core/interface/IStyledPrefixAndPicker.model';
 import generateThemeForCard, { IgenerateThemeForCard } from '../../design/designFunctions/generateThemeForCard/generateThemeForCard';
-import { TTheme } from '@/components/Interface/TTheme';
+import { TTheme } from '@/components/core/interface/TTheme';
 
 type TStyledHeader = IStyledPrefixAndPicker<IgenerateThemeForCard> & { theme: TTheme; $externalStyle?: CSSProp };
 export const StyledHeader = styled.header<TStyledHeader>`

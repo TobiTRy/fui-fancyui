@@ -6,8 +6,8 @@ import useFancyHandyNavStore from './FancyHandyNav.store';
 import BottomBar from '../../molecules/BottomBar/BottomBar';
 import FancyBottomBarIcon, { IFancyBottomBarIcon } from '../FancyBottomBarIcon/FancyBottomBarIcon';
 import RawNav from '../../atoms/RawNav/RawNav';
-import { TLayer } from '@/components/Interface/TLayer';
-import { TThemeTypes } from '@/components/Interface/TUiColors';
+import { TLayer } from '@/components/core/interface/TLayer';
+import { TThemeTypes } from '@/components/core/interface/TUiColors';
 interface IFancyHandyNav {
   items?: IFancyBottomBarIcon[];
   isVisible?: boolean;

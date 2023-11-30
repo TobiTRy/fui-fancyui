@@ -1,7 +1,7 @@
 import Color from 'color';
 
-import { TThemeTypes } from '@/components/Interface/TUiColors';
-import { TLayer } from '@/components/Interface/TLayer';
+import { TThemeTypes } from '@/components/core/interface/TUiColors';
+import { TLayer } from '@/components/core/interface/TLayer';
 
 // Function to adjust lightness
 function adjustLightness(color: Color, delta: number): Color {

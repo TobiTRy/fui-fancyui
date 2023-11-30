@@ -1,4 +1,4 @@
-import { TThemeTypes } from '@/components/Interface/TUiColors';
+import { TThemeTypes } from '@/components/core/interface/TUiColors';
 import { tabSwitchItemSizes } from './FancyTabSwitchButton.style';
 
 export interface ITabSwitchDetailsLabelIcon {

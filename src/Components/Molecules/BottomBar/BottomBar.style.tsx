@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 
-import { TTheme } from '@/components/Interface/TTheme';
+import { TTheme } from '@/components/core/interface/TTheme';
 
 export const fancyBarStyle = css<{ theme?: TTheme }>`
   display: flex;

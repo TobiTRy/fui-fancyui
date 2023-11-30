@@ -3,8 +3,8 @@ import { css } from 'styled-components';
 
 import checkThemeOrColor from '../checkThemeOrColor/ckeckThemeOrColor';
 import { TthemeColorGroup } from '../../theme/designColor';
-import { TTheme } from '@/components/Interface/TTheme';
-import { TThemeTypes } from '@/components/Interface/TUiColors';
+import { TTheme } from '@/components/core/interface/TTheme';
+import { TThemeTypes } from '@/components/core/interface/TUiColors';
 
 // Define the types for the arguments that will be passed to the getBackgroundColor function
 type IGetBackgroundColor = Pick<IGetColorForComponent, '$themeType' | '$customColor' | '$layer' | 'theme'>;

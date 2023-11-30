@@ -4,10 +4,10 @@ import Color from 'color';
 
 import { fontSize } from '../../design/theme/designSizes';
 import { simpleColorTransition } from '../../design/designFunctions/simpleTransition';
-import { TThemeTypesNotTrasparent } from '@/components/Interface/TUiColors';
-import { TLayer } from '@/components/Interface/TLayer';
+import { TThemeTypesNotTrasparent } from '@/components/core/interface/TUiColors';
+import { TLayer } from '@/components/core/interface/TLayer';
 import { getBackgroundColor } from '../../design/color/colorCalculatorForComponent/colorCalculatorForComponet';
-import { TTheme } from '@/components/Interface/TTheme';
+import { TTheme } from '@/components/core/interface/TTheme';
 
 type FancyXButtonDesign = TThemeTypesNotTrasparent;
 

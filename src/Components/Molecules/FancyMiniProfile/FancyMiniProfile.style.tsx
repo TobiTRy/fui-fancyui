@@ -2,12 +2,12 @@ import { styled, css } from 'styled-components';
 
 import { spacingPx } from '../../design/theme/designSizes';
 import { TTextAlign } from './FancyMiniProfile';
-import { TThemeTypes } from '@/components/Interface/TUiColors';
-import { TLayer } from '@/components/Interface/TLayer';
+import { TThemeTypes } from '@/components/core/interface/TUiColors';
+import { TLayer } from '@/components/core/interface/TLayer';
 import getColorsForComponent from '../../design/color/colorCalculatorForComponent/colorCalculatorForComponet';
 import { boxShadow } from '../../design/designFunctions/shadows/shadows';
-import { TTheme } from '@/components/Interface/TTheme';
-import { TSpacings } from '@/components/Interface/TSpacings';
+import { TTheme } from '@/components/core/interface/TTheme';
+import { TSpacings } from '@/components/core/interface/TSpacings';
 
 // this container wraps the whole component
 interface IWrapper {

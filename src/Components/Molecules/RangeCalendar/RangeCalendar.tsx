@@ -8,8 +8,8 @@ import useVisibleMonths from './helperFunctions/useVisibleMonths';
 import { IDisabledDateSettings } from '../MonthWithDays/IDisableDateSettings.model';
 import { IExternalMonthWithDays } from '../MonthWithDays/IExternalMonthWithDays.model';
 import { IDateArray } from './IDateArray.model';
-import { TThemeTypes } from '@/components/Interface/TUiColors';
-import { TLayer } from '@/components/Interface/TLayer';
+import { TThemeTypes } from '@/components/core/interface/TUiColors';
+import { TLayer } from '@/components/core/interface/TLayer';
 
 // --------------------------------------------------------------------------- //
 // -------- The main calenader wich can select a date, or date range ---------- //

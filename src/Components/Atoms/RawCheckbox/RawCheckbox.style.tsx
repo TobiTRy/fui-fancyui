@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import { TTheme } from '@/components/Interface/TTheme';
+import { TTheme } from '@/components/core/interface/TTheme';
 
 // a consistant style for the checkbox and the fake checkbox
 const checkboxStyles = css`
