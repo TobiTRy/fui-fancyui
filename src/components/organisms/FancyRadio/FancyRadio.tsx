@@ -24,7 +24,7 @@ const FancyRadio = React.forwardRef<HTMLDivElement, TFancyRadioProps>((props, re
         description={description}
         align={align}
         alignInput={alignInput}
-        inputElement={<RawRadio name={name} checked={checked} value={value} id={pickedId} />}
+        inputElement={<RawRadio name={name} checked={checked} value={value} id={pickedId} readOnly />}
       />
     </div>
   );
