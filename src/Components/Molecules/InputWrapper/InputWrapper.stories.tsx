@@ -3,7 +3,7 @@ import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
 import InputWrapper from './InputWrapper';
-import SVGCheckMark from '../../SVGIcons/SVGCheckMark/SVGCheckMark';
+import SVGCheckMark from '../../icons/SVGCheckMark/SVGCheckMark';
 
 const meta = {
   component: InputWrapper,

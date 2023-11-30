@@ -1,7 +1,7 @@
 // Import necessary dependencies
 import { Meta, StoryObj } from '@storybook/react';
 
-import SVGXCircle from '../../SVGIcons/SVGXCircle/SVGXCircle';
+import SVGXCircle from '../../icons/SVGXCircle/SVGXCircle';
 
 // Import the component to be tested
 import FancySVGAtom from './FancySVGAtom';

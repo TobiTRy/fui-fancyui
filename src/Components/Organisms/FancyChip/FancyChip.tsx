@@ -1,7 +1,7 @@
 import React from 'react';
 import { css } from 'styled-components';
 
-import SVGXCircle from '../../SVGIcons/SVGXCircle/SVGXCircle';
+import SVGXCircle from '../../icons/SVGXCircle/SVGXCircle';
 import FancyContent from '../../molecules/FancyContent/FancyContent';
 
 import { StyledXButton, TSpacingPosition, WrapperImage, generateSpacing } from './FancyChip.style';

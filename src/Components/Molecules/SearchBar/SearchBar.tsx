@@ -2,7 +2,7 @@ import React, { ChangeEvent, useState } from 'react';
 import { styled, css } from 'styled-components';
 import FancyTextInput from '../../organisms/FancyTextInput/FancyTextInput';
 
-import SVGSearch from '../../SVGIcons/SVGSearch/SVGSearch';
+import SVGSearch from '../../icons/SVGSearch/SVGSearch';
 import FancySVGAtom from '../../atoms/FancySVGAtom/FancySVGAtom';
 import { TRawInputAlign } from '../../atoms/RawInput/RawInput';
 import { TThemeTypes } from '@/Components/Interface/TUiColors';

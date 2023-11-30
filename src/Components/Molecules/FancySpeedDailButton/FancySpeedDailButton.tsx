@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { Button, MenueItemWrapper, Ring, SpeedDialContainer, Wrapper } from './SpeedDailButton.style';
 import SpeedDailMenueItem, { TMenueItemProps, TMenueButtonProps } from '../../atoms/SpeedDialMenueItem/SpeedDailMenueItem';
-import SVGPlus from '../../SVGIcons/SVGPlus/SVGPlus';
+import SVGPlus from '../../icons/SVGPlus/SVGPlus';
 
 export type ISpeedail = {
   items?: TMenueButtonProps[];

@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 
-import SVGChevronLeft from '../../SVGIcons/SVGChevronLeft/SVGChevronLeft';
-import SVGChevronRight from '../../SVGIcons/SVGChevronRight/SVGChevronRight';
+import SVGChevronLeft from '../../icons/SVGChevronLeft/SVGChevronLeft';
+import SVGChevronRight from '../../icons/SVGChevronRight/SVGChevronRight';
 
 import FancyButton from '../../organisms/FancyButton/FancyButton';
 import { IconWrapper, NumberList, StyledPaginator } from './Paginator.style';

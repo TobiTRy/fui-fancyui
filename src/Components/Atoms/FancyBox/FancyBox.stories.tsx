@@ -7,7 +7,7 @@ import { css } from 'styled-components';
 import { FancyMiniProfile } from '../../molecules/FancyMiniProfile';
 import { HeaderTitleWithLogo } from '../../molecules/HeaderTitleWithLogo';
 import { FancyBottomBarIcon } from '../../Templates/FancyBottomBarIcon';
-import SVGCheckMark from '../../SVGIcons/SVGCheckMark/SVGCheckMark';
+import SVGCheckMark from '../../icons/SVGCheckMark/SVGCheckMark';
 import React from 'react';
 import { FancySearchBar } from '../../organisms/FancySearchBar';
 

@@ -4,7 +4,7 @@ import { Meta, StoryObj } from '@storybook/react';
 // Import the component to be tested
 import FancyTabSwitchButton from './FancyTabSwitchButton';
 
-import SVGCheckMark from '../../SVGIcons/SVGCheckMark/SVGCheckMark';
+import SVGCheckMark from '../../icons/SVGCheckMark/SVGCheckMark';
 
 // fix for building ... because storybook is not able to handle the default export
 const HelperComponent = (props: React.ComponentProps<typeof FancyTabSwitchButton>) => <FancyTabSwitchButton {...props} />;

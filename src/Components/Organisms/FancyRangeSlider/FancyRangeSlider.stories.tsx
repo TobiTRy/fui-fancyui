@@ -2,7 +2,7 @@
 import { Meta, StoryObj } from '@storybook/react';
 
 // Import the component to be tested
-import SVGCheckMark from '../../SVGIcons/SVGCheckMark/SVGCheckMark';
+import SVGCheckMark from '../../icons/SVGCheckMark/SVGCheckMark';
 
 import FancyRangeSlider from './FancyRangeSlider';
 
