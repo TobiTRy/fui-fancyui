@@ -1,6 +1,6 @@
 import React from 'react';
 
-import FancyMiniProfile from '../../Components/Molecules/FancyMiniProfile/FancyMiniProfile';
+import FancyMiniProfile from '../../Components/molecules/FancyMiniProfile/FancyMiniProfile';
 
 import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';
 import { FancyCard } from '@/Components/atoms/FancyCard';

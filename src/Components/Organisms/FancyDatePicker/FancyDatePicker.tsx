@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react';
 
 import YearSelector from '../../atoms/YearSelector/YearSelector';
 import WeekDays from '../../atoms/WeekDays/WeekDays';
-import RangeCalendar from '../../Molecules/RangeCalendar/RangeCalendar';
+import RangeCalendar from '../../molecules/RangeCalendar/RangeCalendar';
 import { DatePickerContainer, WrapperWeekdays, WrapperYearSelector } from './FancyDatePicker.style';
-import IExternalYearWithMonths from '../../Molecules/MonthWithDays/IExternalMonthWithDays.model';
-import DateOutputFromTo from '../../Molecules/DateOutputFromTo/DateOutputFromTo';
-import { IDisabledDateSettings } from '../../Molecules/MonthWithDays/IDisableDateSettings.model';
-import { IDateArray } from '../../Molecules/RangeCalendar/IDateArray.model';
+import IExternalYearWithMonths from '../../molecules/MonthWithDays/IExternalMonthWithDays.model';
+import DateOutputFromTo from '../../molecules/DateOutputFromTo/DateOutputFromTo';
+import { IDisabledDateSettings } from '../../molecules/MonthWithDays/IDisableDateSettings.model';
+import { IDateArray } from '../../molecules/RangeCalendar/IDateArray.model';
 import { TLayer } from '@/Components/Interface/TLayer';
 import { TThemeTypes } from '@/Components/Interface/TUiColors';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import FancyContent from '../../Components/Molecules/FancyContent/FancyContent';
+import FancyContent from '../../Components/molecules/FancyContent/FancyContent';
 
 import SVGCheckMark from '../../Components/SVGIcons/SVGCheckMark/SVGCheckMark';
 import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';

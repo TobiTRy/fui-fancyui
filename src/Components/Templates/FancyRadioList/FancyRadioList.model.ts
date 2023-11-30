@@ -1,5 +1,5 @@
-import { FancyListBox } from '@/Components/Molecules/FancyListBox';
-import { Fieldset } from '@/Components/Molecules/Fieldset';
+import { FancyListBox } from '@/Components/molecules/FancyListBox';
+import { Fieldset } from '@/Components/molecules/Fieldset';
 
 export interface FancyRadioListItem {
   title: string;

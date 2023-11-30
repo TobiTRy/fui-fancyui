@@ -4,17 +4,17 @@ import React, { ChangeEvent } from 'react';
 import themeStore from '../../Components/Design/color/themeStore/themeStore';
 import { FancyTextInput } from '../../Components/Organisms/FancyTextInput';
 
-import FancyContent from '../../Components/Molecules/FancyContent/FancyContent';
-import BottomBarList from '../../Components/Molecules/SwitchList/SwitchList';
-import Button from '../../Components/Molecules/Button/Button';
+import FancyContent from '../../Components/molecules/FancyContent/FancyContent';
+import BottomBarList from '../../Components/molecules/SwitchList/SwitchList';
+import Button from '../../Components/molecules/Button/Button';
 import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
 import ComponentAsWrapper from '../../Components/atoms/ComponentAsWrapper/ComponentAsWrapper';
 import ActionWrapper from '../../Components/atoms/ActionWrapper/ActionWrapper';
 import FancyActionWrapper from '../../Components/atoms/FancyActionWrapper/FancyActionWrapper';
-import BottomBarIcon from '../../Components/Molecules/BottomBarIcon/BottomBarIcon';
+import BottomBarIcon from '../../Components/molecules/BottomBarIcon/BottomBarIcon';
 import FancyBottomBarIcon from '@/Components/Templates/FancyBottomBarIcon/FancyBottomBarIcon';
 import { FancyButton } from '@/Components/Organisms/FancyButton';
-import { SingleToastMessage } from '@/Components/Molecules/SingleToastMessage';
+import { SingleToastMessage } from '@/Components/molecules/SingleToastMessage';
 import { FancyCard } from '@/Components/atoms/FancyCard';
 import { FancyChip } from '@/Components/Organisms/FancyChip';
 

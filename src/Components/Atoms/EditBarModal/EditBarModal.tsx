@@ -2,7 +2,7 @@ import React from 'react';
 import { IEditBarModal } from './IEditbarModal.model';
 import { Wrapper, WrapperContent } from './EditBarModal.style';
 
-import { FancyModalHeadLine } from '../../Molecules/FancyModalHeadLine';
+import { FancyModalHeadLine } from '../../molecules/FancyModalHeadLine';
 
 export default function EditBarModal(props: IEditBarModal) {
   const { children, width, spacingLeftRight, title } = props;

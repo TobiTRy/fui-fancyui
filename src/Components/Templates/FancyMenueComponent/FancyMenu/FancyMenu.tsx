@@ -2,7 +2,7 @@ import React from 'react';
 
 import FancyMenuItem from '../FancyMenuItem/FancyMenuItem';
 import ListDivider from '../../../atoms/ListDivider/ListDivider';
-import MenuList from '../../../Molecules/MenuList/MenuList';
+import MenuList from '../../../molecules/MenuList/MenuList';
 
 type TFancyMenuProps = {
   children?: React.ReactNode;

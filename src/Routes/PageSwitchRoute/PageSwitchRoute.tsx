@@ -1,6 +1,6 @@
 import React from 'react';
 
-import FancyPageList from '../../Components/Molecules/FancyPageList/FancyPageList';
+import FancyPageList from '../../Components/molecules/FancyPageList/FancyPageList';
 import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';
 import { styled } from 'styled-components';
 import { FancyCard } from '@/Components/atoms/FancyCard';

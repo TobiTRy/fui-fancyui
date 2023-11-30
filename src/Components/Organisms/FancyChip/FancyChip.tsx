@@ -2,11 +2,11 @@ import React from 'react';
 import { css } from 'styled-components';
 
 import SVGXCircle from '../../SVGIcons/SVGXCircle/SVGXCircle';
-import FancyContent from '../../Molecules/FancyContent/FancyContent';
+import FancyContent from '../../molecules/FancyContent/FancyContent';
 
 import { StyledXButton, TSpacingPosition, WrapperImage, generateSpacing } from './FancyChip.style';
-import Chip from '../../Molecules/Chip/Chip';
-import { IStyledChip } from '../../Molecules/Chip/Chip';
+import Chip from '../../molecules/Chip/Chip';
+import { IStyledChip } from '../../molecules/Chip/Chip';
 
 export type TChipProps = {
   label?: string;

@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { Fieldset } from '@/Components/Molecules/Fieldset';
-import { FancyListBox } from '@/Components/Molecules/FancyListBox';
+import { Fieldset } from '@/Components/molecules/Fieldset';
+import { FancyListBox } from '@/Components/molecules/FancyListBox';
 import { FancyLine } from '@/Components/atoms/FancyLine';
 import { TLayer } from '@/Components/Interface/TLayer';
 

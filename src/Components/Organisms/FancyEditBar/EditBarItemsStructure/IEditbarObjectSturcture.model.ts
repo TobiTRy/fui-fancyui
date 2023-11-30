@@ -4,7 +4,7 @@ import { IFancyBottomBarIcon } from '../../../Templates/FancyBottomBarIcon/Fancy
 import FancyDropDownSelect from '../../FancyDropDownSelect/FancyDropDownSelect';
 import FancyTextInput from '../../FancyTextInput/FancyTextInput';
 import IFancyRangeSlider from '../../FancyRangeSlider/FancyRangeSlider.model';
-import { ITabSwitchProps } from '../../../Molecules/TabSwitch/TabSwitch.model';
+import { ITabSwitchProps } from '../../../molecules/TabSwitch/TabSwitch.model';
 
 // --------------------------------------------------------------------------- //
 // ---------- thes interfaces map the strings and JSX Item together ---------- //

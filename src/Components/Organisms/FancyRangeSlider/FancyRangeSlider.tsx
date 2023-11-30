@@ -2,7 +2,7 @@ import React, { ChangeEvent, useId, useState } from 'react';
 
 import RawSlider from '../../atoms/RawSlider/RawSlider';
 import FancyNumberInput from '../FancyNumberInput/FancyNumberInput';
-import { StyledInputWrapper } from '../../Molecules/InputWrapper/InputWrapper.style';
+import { StyledInputWrapper } from '../../molecules/InputWrapper/InputWrapper.style';
 import FancySVGAtom from '../../atoms/FancySVGAtom/FancySVGAtom';
 import { Label, NumberContainer, RangeSliderContainer, Icon } from './FancyRangeSlider.style';
 import IFancyRangeSlider from './FancyRangeSlider.model';

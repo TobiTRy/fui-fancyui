@@ -4,8 +4,8 @@ import { ICategoryItem, IDropDown, IRangeSlider, ITextInput, InputSettings } fro
 import { FancyTextInput } from '../../FancyTextInput';
 import FancyDropDownSelect from '../../FancyDropDownSelect/FancyDropDownSelect';
 import FancyRangeSlider from '../../FancyRangeSlider/FancyRangeSlider';
-import FancyTabSwitch from '../../../Molecules/FancyTabSwitch/FancyTabSwitch';
-import { ITabSwitchProps } from '../../../Molecules/TabSwitch/TabSwitch.model';
+import FancyTabSwitch from '../../../molecules/FancyTabSwitch/FancyTabSwitch';
+import { ITabSwitchProps } from '../../../molecules/TabSwitch/TabSwitch.model';
 
 // --------------------------------------------------------------------------- //
 // --------- Give back a Element of the the specified item string ------------ //

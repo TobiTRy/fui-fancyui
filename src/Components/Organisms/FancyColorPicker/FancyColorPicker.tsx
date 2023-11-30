@@ -4,10 +4,10 @@ import Color from 'color';
 import { styled } from 'styled-components';
 
 import ColorDisplay from '../../atoms/ColorDisplay/ColorDisplay';
-import ColorArea from '../../Molecules/FancyColorArea/FancyColorArea';
-import FancyHueSlider from '../../Molecules/FancyHueSlider/FancyHueSlider';
-import FancyOpacitySlider from '../../Molecules/FancyOpacitySlider/FancyOpacitySlider';
-import FancyColorOutput from '../../Molecules/FancyColorOutput/FancyColorOutput';
+import ColorArea from '../../molecules/FancyColorArea/FancyColorArea';
+import FancyHueSlider from '../../molecules/FancyHueSlider/FancyHueSlider';
+import FancyOpacitySlider from '../../molecules/FancyOpacitySlider/FancyOpacitySlider';
+import FancyColorOutput from '../../molecules/FancyColorOutput/FancyColorOutput';
 import { emitSelectedColorChange } from './colorPickerUtils';
 import { IColorFormat } from '../../utils/variables/colorFormats';
 import { TTheme } from '../../Interface/TTheme';

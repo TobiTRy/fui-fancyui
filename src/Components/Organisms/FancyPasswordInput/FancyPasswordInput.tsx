@@ -1,7 +1,7 @@
 import React, { useId, useState } from 'react';
-import PasswordInput, { IPasswordInputProps } from '../../Molecules/PasswordInput/PasswordInput';
+import PasswordInput, { IPasswordInputProps } from '../../molecules/PasswordInput/PasswordInput';
 
-import InputWrapper, { IInputWrapperUserInputProps } from '../../Molecules/InputWrapper/InputWrapper';
+import InputWrapper, { IInputWrapperUserInputProps } from '../../molecules/InputWrapper/InputWrapper';
 type IFancyTextInputProps = IPasswordInputProps & Omit<IInputWrapperUserInputProps, 'InputElement'>;
 
 // --------------------------------------------------------------------------- //

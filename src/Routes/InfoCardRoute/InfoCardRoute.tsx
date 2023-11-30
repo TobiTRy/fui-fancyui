@@ -1,6 +1,6 @@
 import React from 'react';
 
-import InfoCard from '../../Components/Molecules/InfoCard/InfoCard';
+import InfoCard from '../../Components/molecules/InfoCard/InfoCard';
 import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
 import FancyInfoCard from '../../Components/Templates/FancyInfoCard/FancyInfoCard';
 import SVGCheckMark from '../../Components/SVGIcons/SVGCheckMark/SVGCheckMark';
