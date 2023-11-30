@@ -1,6 +1,6 @@
 import { TLayer } from '@/interface/TLayer';
 
-export function clampLayer(layer: number) {
+export default function clampLayer(layer: number) {
   // limit layer to minimal 0
   if (layer < 0) {
     return 0 as TLayer;

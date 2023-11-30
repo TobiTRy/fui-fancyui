@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Color from 'color';
 
 import Typography from '../Typography/Typography';
-import copyToClipboard from '../../utils/functions/copyToClipBoard';
+import copyToClipboard from '../../utils/functions/copyToClipBoard/copyToClipBoard';
 import CheckerBoardPattern from '../CheckerBoardPattern/CheckerBoardPattern';
 import { ColorDisplayContainer, Wrapper, Content, WrapperSVG } from './ColorDisplay.style';
 import ClipBoardIcon from '../../icons/SVGClipBoardIcon/SVGClipBoardIcon';
