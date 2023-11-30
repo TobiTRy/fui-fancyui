@@ -2,9 +2,9 @@ import Color from 'color';
 
 import { TThemeTypes } from '@/interface/TUiColors';
 import { TLayer } from '@/interface/TLayer';
-import themeStore from '../theme/themeStore/themeStore';
+import themeStore from '../../theme/themeStore/themeStore';
 
-const filpThemeColor = (isLightColor: boolean) => {
+const filpColor = (isLightColor: boolean) => {
   const isDarkTheme = themeStore.getState().isDarkTheme;
   const theme = themeStore.getState().theme;
 
@@ -12,12 +12,12 @@ const filpThemeColor = (isLightColor: boolean) => {
   else return isLightColor ? theme.colors['primary'] : theme.colors['secondary'];
 };
 
-export const getOpositColorContrast = (color: TThemeTypes, layer?: TLayer) => {
+export default function flipThemeColor(color: TThemeTypes, layer?: TLayer) {
   const theme = themeStore.getState().theme;
 
   const isCurrentColorLight = Color(theme.colors[color][layer || 0]).isLight();
 
-  const getFlipedColor = filpThemeColor(isCurrentColorLight);
+  const getFlipedColor = filpColor(isCurrentColorLight);
 
   return getFlipedColor[layer || 0];
-};
+}

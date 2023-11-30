@@ -3,7 +3,7 @@ import RawInput, { IRawInput } from '../../atoms/RawInput/RawInput';
 import { getBackgroundColor } from '../../../design/color/colorCalculatorForComponent/colorCalculatorForComponet';
 import { TLayer } from '@/interface/TLayer';
 import { IDateInputProps } from '../../molecules/DateInput/DateInput';
-import { simpleColorTransition } from '../../../design/designFunctions/simpleTransition';
+import simpleColorTransition from '../../../design/designFunctions/simpleColorTransition/simpleTransition';
 import { TThemeTypes } from '@/interface/TUiColors';
 
 interface IRawInputWrapper extends IRawInput {

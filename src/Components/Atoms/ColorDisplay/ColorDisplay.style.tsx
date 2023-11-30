@@ -2,7 +2,7 @@ import Color from 'color';
 import { styled } from 'styled-components';
 
 import { fontSize } from '../../../design/theme/designSizes';
-import { simpleColorTransition } from '../../../design/designFunctions/simpleTransition';
+import simpleColorTransition from '../../../design/designFunctions/simpleColorTransition/simpleTransition';
 import { TTheme } from '@/interface/TTheme';
 
 const colorCalculation = ({ theme, $isBright, $isDarkTheme }: { theme: TTheme; $isBright: boolean; $isDarkTheme: boolean }) => {

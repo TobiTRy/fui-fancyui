@@ -9,7 +9,7 @@ export interface IAlignments {
 }
 
 //this sets the Border on a element depending on the alignment
-const CalculateBorderRadiusOnAlignment = ({ $alignHorizontal, $alignVertical, $rouned }: IAlignments) => {
+const calcBorderRadiusOnAlignment = ({ $alignHorizontal, $alignVertical, $rouned }: IAlignments) => {
   const borderRadius = themeStore.getState().theme.borderRadius;
 
   if ($alignHorizontal === 'left' && $alignVertical === 'top') {
@@ -48,7 +48,7 @@ const CalculateBorderRadiusOnAlignment = ({ $alignHorizontal, $alignVertical, $r
       bottom: 0;
       left: 50%;
       transform: translateX(-50%);
-      border-radius: ${borderRadius.md} ${borderRadius.md} 0 0;
+      border-radius: ${borderRadius[$rouned || 'md']} ${borderRadius[$rouned || 'md']} 0 0;
     `;
   } else {
     return css`
@@ -57,4 +57,4 @@ const CalculateBorderRadiusOnAlignment = ({ $alignHorizontal, $alignVertical, $r
   }
 };
 
-export default CalculateBorderRadiusOnAlignment;
+export default calcBorderRadiusOnAlignment;

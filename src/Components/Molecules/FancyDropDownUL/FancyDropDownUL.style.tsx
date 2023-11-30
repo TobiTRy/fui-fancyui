@@ -1,6 +1,6 @@
 import { styled, css } from 'styled-components';
 
-import CalculateBorderRadiusOnAlignment from '../../../design/designFunctions/CalculateBorderRadiusOnAlignment';
+import calcBorderRadiusOnAlignment from '../../../design/designFunctions/calcBorderRadiusOnAlignment/calcBorderRadiusOnAlignment';
 import { IFancyUL } from './FancyDropDownUL';
 import IStyledPrefixAndPicker from '../../../interface/IStyledPrefixAndPicker.model';
 import { boxShadow } from '../../../design/designFunctions/shadows/shadows';
@@ -15,7 +15,7 @@ import { TTheme } from '@/interface/TTheme';
 type IStyledUL = IStyledPrefixAndPicker<IFancyUL, 'width' | 'alignHorizontal' | 'alignVertical'>;
 const generateWrapperUL = (props: IStyledUL) => {
   const { $width, $alignHorizontal, $alignVertical } = props;
-  const setBorderRadius = CalculateBorderRadiusOnAlignment({ $alignHorizontal, $alignVertical });
+  const setBorderRadius = calcBorderRadiusOnAlignment({ $alignHorizontal, $alignVertical });
 
   return css`
     ${setBorderRadius};

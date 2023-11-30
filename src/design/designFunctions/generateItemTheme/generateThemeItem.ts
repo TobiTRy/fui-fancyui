@@ -6,7 +6,7 @@ import { generatePadding } from '../generatePaddingForComponent/generatePadding'
 import { boxShadow } from '../shadows/shadows';
 import themeStore from '../../theme/themeStore/themeStore';
 import { getBackgroundColor } from '../../color/colorCalculatorForComponent/colorCalculatorForComponet';
-import { getOpositColorContrast } from '../getOpositColorContrast';
+import flipThemeColor from '../flipThemeColor/flipThemeColor';
 import { IGenerateThemeItem } from './IGenerateThemeItemProps.model';
 
 // ------------------------------------------------------------------ //
@@ -22,7 +22,7 @@ const calcTextColor = ({ $textColor, $themeType, $outlined }: IcalcTextColor) =>
   if ($themeType === 'transparent') return theme.colors.secondary[0];
   if ($outlined) return theme.colors[$themeType ?? 'secondary'][0];
 
-  return getOpositColorContrast($themeType ?? 'secondary');
+  return flipThemeColor($themeType ?? 'secondary');
 };
 
 const generateBackgroundColor = (props: Pick<IGenerateThemeItem, '$themeType' | '$layer'>) => {
