@@ -22,7 +22,7 @@ jobs:
 
       - name: Run Lint Check
         run: |
-          eslint . --no-cache
+          npx eslint . --no-cache
           npm run lint
 
       - name: Run Build
