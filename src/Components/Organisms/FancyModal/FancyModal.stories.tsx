@@ -11,7 +11,7 @@ import { FancyTextInput } from '../FancyTextInput';
 // Define metadata for the story
 const meta = {
   component: HelperComponent,
-  title: 'Components/UI/Organisms/FancyModal',
+  title: 'components/ui/organisms/FancyModal',
   parameters: {
     docs: {
       description: {
