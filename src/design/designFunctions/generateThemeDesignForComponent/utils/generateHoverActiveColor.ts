@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
-import { getBackgroundColor } from '../../../color/colorCalculatorForComponent/colorCalculatorForComponet';
-import colorTransparencyCalculator from '../../../color/colorTransparencyCalculator/colorTransparencyCalculator';
+import { getBackgroundColor } from '../../colorCalculatorForComponent/colorCalculatorForComponet';
+import colorTransparencyCalculator from '../../colorTransparencyCalculator/colorTransparencyCalculator';
 import { IGenerateThemeDesignForComponent } from '../generateThemeDesignForComponent';
 import { TLayer } from '@/interface/TLayer';
 type TGenerateOutlinedHoverStyle = Pick<

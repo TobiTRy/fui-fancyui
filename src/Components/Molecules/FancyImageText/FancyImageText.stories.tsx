@@ -19,10 +19,6 @@ const meta = {
       description: 'Darken the image',
       type: { name: 'boolean' },
     },
-    link: {
-      description: 'Link when the image is clicked',
-      type: { name: 'string' },
-    },
   },
   tags: ['autodocs'],
 } satisfies Meta<typeof FancyImageText>;
@@ -42,7 +38,6 @@ export const Primary: Story = {
     imageUrl: 'https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg',
     aspectRatio: '1/1', // e.g. "16/9"
     darken: false,
-    link: 'https://www.google.com',
     alt: 'This is an image',
   },
 };

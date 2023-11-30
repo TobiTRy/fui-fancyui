@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 
-import { getBackgroundColor } from '../../../../design/color/colorCalculatorForComponent/colorCalculatorForComponet';
+import { getBackgroundColor } from '../../../../design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponet';
 import { IActiveSwitchIndicator } from '../SwitchActiveIndicator';
 import { TTheme } from '@/interface/TTheme';
 

@@ -1,9 +1,9 @@
 import { css } from 'styled-components';
 
-import { getBackgroundColor } from '../../../../design/color/colorCalculatorForComponent/colorCalculatorForComponet';
+import { getBackgroundColor } from '../../../../design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponet';
 import { tabSwitchSizes } from '../../TabSwitch/TabSwitch.style';
 import { IFancyTabSwitchStyle } from '../FancyTabSwitch.style';
-import colorTransparencyCalculator from '../../../../design/color/colorTransparencyCalculator/colorTransparencyCalculator';
+import colorTransparencyCalculator from '../../../../design/designFunctions/colorTransparencyCalculator/colorTransparencyCalculator';
 import { borderRadius } from '../../../../design/theme/designSizes';
 
 const generateTransparentStyle = (props: TGenerateOutlineStyle) => {

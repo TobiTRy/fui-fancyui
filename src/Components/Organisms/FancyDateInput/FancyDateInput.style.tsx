@@ -1,6 +1,6 @@
 import { css, styled } from 'styled-components';
 import RawInput, { IRawInput } from '../../atoms/RawInput/RawInput';
-import { getBackgroundColor } from '../../../design/color/colorCalculatorForComponent/colorCalculatorForComponet';
+import { getBackgroundColor } from '../../../design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponet';
 import { TLayer } from '@/interface/TLayer';
 import { IDateInputProps } from '../../molecules/DateInput/DateInput';
 import simpleColorTransition from '../../../design/designFunctions/simpleColorTransition/simpleTransition';

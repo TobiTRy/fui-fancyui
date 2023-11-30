@@ -1,6 +1,6 @@
 import { css, styled } from 'styled-components';
 
-import { getBackgroundColor } from '../../../design/color/colorCalculatorForComponent/colorCalculatorForComponet';
+import { getBackgroundColor } from '../../../design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponet';
 import IStyledPrefixAndPicker from '../../../interface/IStyledPrefixAndPicker.model';
 import { IListDivider } from './ListDivider.model';
 import { TTheme } from '@/interface/TTheme';

@@ -6,7 +6,7 @@ import { fontSize } from '../../../design/theme/designSizes';
 import simpleColorTransition from '../../../design/designFunctions/simpleColorTransition/simpleTransition';
 import { TThemeTypesNotTrasparent } from '@/interface/TUiColors';
 import { TLayer } from '@/interface/TLayer';
-import { getBackgroundColor } from '../../../design/color/colorCalculatorForComponent/colorCalculatorForComponet';
+import { getBackgroundColor } from '../../../design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponet';
 import { TTheme } from '@/interface/TTheme';
 
 type FancyXButtonDesign = TThemeTypesNotTrasparent;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { styled } from 'styled-components';
 
-import { getBackgroundColor } from '../../../design/color/colorCalculatorForComponent/colorCalculatorForComponet';
+import { getBackgroundColor } from '../../../design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponet';
 import { TLayer } from '@/interface/TLayer';
 import { TThemeTypes } from '@/interface/TUiColors';
 import { TTheme } from '@/interface/TTheme';

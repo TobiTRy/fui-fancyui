@@ -7,7 +7,7 @@ import ChipList from '../../molecules/ChipList/ChipList';
 import { FancyChip } from '../FancyChip';
 import { InputLi } from './FancyChipList.style';
 import { TThemeTypes } from '@/interface/TUiColors';
-import { TUiColorsSystemMessage } from '@/interface/TUiColorsSystemMessage';
+import { TUiColorsSystemMessage } from '@/interface/TUiColors';
 
 // Defining the interface for the component's props
 export interface ChipListProps {

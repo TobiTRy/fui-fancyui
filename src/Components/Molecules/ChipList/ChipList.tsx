@@ -4,7 +4,7 @@ import { FancyBox } from '@/components/atoms/FancyBox';
 import { TLayer } from '@/interface/TLayer';
 import { ChipContainer, generateChipListStyle } from './ChipList.style';
 import { TThemeTypes } from '@/interface/TUiColors';
-import { TUiColorsSystemMessage } from '@/interface/TUiColorsSystemMessage';
+import { TUiColorsSystemMessage } from '@/interface/TUiColors';
 
 export interface ChipListProps {
   themeType?: Exclude<TThemeTypes, 'transparent'>;

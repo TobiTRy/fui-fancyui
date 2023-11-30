@@ -114,9 +114,9 @@ export { default as FancyFlexBox } from '@/components/templates/FancyFlexBox/Fan
 export { default as FancyHandyNav } from '@/components/templates/FancyHandyNav/FancyHandyNav';
 
 // ---------- Utils ------- //
-export { default as FancyPopover } from '@/components/utils/FancyPopover/FancyPopover';
-export { default as UseDelay } from '@/components/utils/hooks/useDelay/UseDelay';
-export { default as FancyPortal } from '@/components/utils/FancyPortal/FancyPortal';
+export { default as FancyPopover } from '@/components/utils/components/FancyPopover/FancyPopover';
+export { default as UseDelay } from '@/components/utils/components/UseDelay/UseDelay';
+export { default as FancyPortal } from '@/components/utils/components/FancyPortal/FancyPortal';
 export { default as useIntersectionObserver } from '@/components/utils/hooks/useIntersectionObserver/useIntersectionObserver';
 export { default as useWindowDimensions } from '@/components/utils/hooks/useWindowDimensions/useWindowDimensions';
 

@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 import { themeStore } from '@/design/theme/themeStore';
-import colorTransparencyCalculator from '@/design/color/colorTransparencyCalculator/colorTransparencyCalculator';
+import colorTransparencyCalculator from '@/design/designFunctions/colorTransparencyCalculator/colorTransparencyCalculator';
 
 //global text-shadow
 export const textShadow = {

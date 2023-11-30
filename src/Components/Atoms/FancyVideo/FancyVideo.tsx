@@ -1,6 +1,7 @@
 import React from 'react';
 import { styled } from 'styled-components';
-import aspectRatioValidation from '../../utils/validations/aspectRatioValidation';
+
+import { isAspectRatioValid } from '@/components/utils/validations/isAspectRatioValid';
 
 // Define a styled video component using styled-components
 const StyledVideo = styled.video<{ $aspectRatio?: string; $darken?: boolean }>`
@@ -29,7 +30,7 @@ export default function FancyVideo(props: IFancyVideo) {
   const { src, controls, autoPlay, loop, muted, poster, aspectRatio, darken = true } = props;
 
   // Validate the aspect ratio if it is provided
-  if (aspectRatio && !aspectRatioValidation(aspectRatio)) {
+  if (aspectRatio && !isAspectRatioValid(aspectRatio)) {
     throw new Error('The aspect ratio is not valid. Please use the format "16/9"');
   }
 

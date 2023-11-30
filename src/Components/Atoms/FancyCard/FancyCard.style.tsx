@@ -6,7 +6,7 @@ import { spacingPx } from '../../../design/theme/designSizes';
 import edgeCalculation from '../../../design/designFunctions/edgeCalculation/edgeCalculation';
 
 import { boxShadow } from '../../../design/designFunctions/shadows/shadows';
-import getColorsForComponent from '../../../design/color/colorCalculatorForComponent/colorCalculatorForComponet';
+import getColorsForComponent from '../../../design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponet';
 import { TTheme } from '@/interface/TTheme';
 
 // the converted $ styling props for the card

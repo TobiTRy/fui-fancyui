@@ -8,7 +8,7 @@ import { AnimatedInputLabel } from '../../atoms/AnimatedLabel/AnimatedInputLabel
 import { TRawInputAlign } from '../../atoms/RawInput/RawInput';
 import { TThemeTypes } from '@/interface/TUiColors';
 import { TLayer } from '@/interface/TLayer';
-import calcColorState from '../../../design/color/calcColorState/calcColorState';
+import calcColorState from '../../../design/designFunctions/calcColorState/calcColorState';
 import themeStore from '../../../design/theme/themeStore/themeStore';
 
 // Define the styles for the icon

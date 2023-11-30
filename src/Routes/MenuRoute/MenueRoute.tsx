@@ -4,8 +4,8 @@ import React, { useRef, useState } from 'react';
 import { FancyButton } from '../../lib';
 
 import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
-import Popover from '../../components/utils/FancyPopover/Popover';
-import FancyPopover from '../../components/utils/FancyPopover/FancyPopover';
+import Popover from '../../components/utils/components/FancyPopover/Popover';
+import FancyPopover from '../../components/utils/components/FancyPopover/FancyPopover';
 import FancyMenueItem from '../../components/templates/FancyMenueComponent/FancyMenuItem/FancyMenuItem';
 import FancyMenuList from '../../components/templates/FancyMenueComponent/FancyMenu/FancyMenu';
 import SVGCheckMark from '@/components/icons/SVGCheckMark/SVGCheckMark';

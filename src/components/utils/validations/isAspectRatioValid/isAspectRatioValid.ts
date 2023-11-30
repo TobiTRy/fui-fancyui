@@ -1,4 +1,4 @@
-export default function aspectRatioValidation(aspectRatio: string) {
+export default function isAspectRatioValid(aspectRatio: string) {
   if (!/^(\d+)(?:\s*\/\s*)(\d+)$/.test(aspectRatio)) {
     console.warn("Invalid aspect ratio provided. Please use the format 'width/height'.");
     return false;

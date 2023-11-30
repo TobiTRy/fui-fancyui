@@ -7,10 +7,3 @@ export const StyledImage = styled.img<{ $darken?: boolean; $aspectRatio?: string
   ${({ $aspectRatio }) => ($aspectRatio ? `aspect-ratio: ${$aspectRatio};` : '')}
   filter: ${({ $darken }) => ($darken ? 'brightness(0.5)' : 'none')};
 `;
-
-export const StyledA = styled.a`
-  width: 100%;
-  height: 100%;
-  display: block;
-  pointer-events: auto;
-`;
