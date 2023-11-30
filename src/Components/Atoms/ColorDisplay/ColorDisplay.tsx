@@ -7,7 +7,7 @@ import CheckerBoardPattern from '../CheckerBoardPattern/CheckerBoardPattern';
 import { ColorDisplayContainer, Wrapper, Content, WrapperSVG } from './ColorDisplay.style';
 import ClipBoardIcon from '../../icons/SVGClipBoardIcon/SVGClipBoardIcon';
 import ClipBoardIconCheck from '../../icons/SVGClipBoardIconChecked/SVGClipBoardIconChecked';
-import themeStore from '../../Design/color/themeStore/themeStore';
+import themeStore from '../../design/color/themeStore/themeStore';
 
 // --------------------------------------------------------------------------- //
 // ----- The main ColorDisplay Component for display the color in a box ------ //

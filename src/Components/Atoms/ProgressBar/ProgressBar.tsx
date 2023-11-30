@@ -3,7 +3,7 @@ import { styled } from 'styled-components';
 
 import { TThemeTypes } from '@/Components/Interface/TUiColors';
 import { TLayer } from '@/Components/Interface/TLayer';
-import { getBackgroundColor } from '../../Design/color/colorCalculatorForComponet';
+import { getBackgroundColor } from '../../design/color/colorCalculatorForComponet';
 import { TTheme } from '@/Components/Interface/TTheme';
 
 // Define the styled component for the progress bar container

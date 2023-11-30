@@ -1,3 +1,3 @@
-import { spacingPx } from '../Design/designSizes';
+import { spacingPx } from '../design/designSizes';
 
 export type TSpacings = keyof typeof spacingPx;

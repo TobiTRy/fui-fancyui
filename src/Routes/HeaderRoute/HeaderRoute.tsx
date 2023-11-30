@@ -9,7 +9,7 @@ import FancySearchBar from '../../Components/organisms/FancySearchBar/FancySearc
 import styled from 'styled-components';
 import FancyBar from '../../Components/atoms/FancyBox/FancyBox';
 import Header from '../../Components/molecules/Header/Header';
-import themeStore from '@/Components/Design/color/themeStore/themeStore';
+import themeStore from '@/Components/design/color/themeStore/themeStore';
 import { Typography } from '@/Components/atoms/Typography';
 
 const Logo = () => (

@@ -1,7 +1,7 @@
 import React from 'react';
 import { styled } from 'styled-components';
 
-import { simpleColorTransition } from '../../Design/simpleTransition';
+import { simpleColorTransition } from '../../design/simpleTransition';
 import { TTheme } from '@/Components/Interface/TTheme';
 
 const StyledSwipeUpDash = styled.div<{ theme: TTheme }>`

@@ -1,6 +1,6 @@
 // Import necessary dependencies
 import { Meta, StoryObj } from '@storybook/react';
-import themeStore from '../../Design/color/themeStore/themeStore';
+import themeStore from '../../design/color/themeStore/themeStore';
 
 // Import the component to be tested
 import InputLabel from './InputLabel';

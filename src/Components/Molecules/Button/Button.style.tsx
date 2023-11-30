@@ -1,8 +1,8 @@
 import { styled } from 'styled-components';
-import { disabledStyle } from '../../Design/designFunctions/disabledStyle/disableStyle';
+import { disabledStyle } from '../../design/designFunctions/disabledStyle/disableStyle';
 import generateThemeDesignForComponent, {
   IGenerateThemeDesignForComponent,
-} from '../../Design/designFunctions/generateThemeDesignForComponent/generateThemeDesignForComponent';
+} from '../../design/designFunctions/generateThemeDesignForComponent/generateThemeDesignForComponent';
 import IStyledPrefixAndPicker from '../../Interface/IStyledPrefixAndPicker.model';
 import { IButtonProps } from './Button';
 

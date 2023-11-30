@@ -1,3 +1,3 @@
-import { TthemeColorGroup, themeColors } from '@/Components/Design/color/designColor';
+import { TthemeColorGroup, themeColors } from '@/Components/design/color/designColor';
 
 export type TUiColorsType = { [key in keyof typeof themeColors | 'transparent']: TthemeColorGroup };

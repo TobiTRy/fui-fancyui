@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
 import { TTheme } from '@/Components/Interface/TTheme';
-import { simpleColorTransition } from '../../Design/simpleTransition';
+import { simpleColorTransition } from '../../design/simpleTransition';
 
 // Define a styled component for the button wrapper
 export const ButtonWrapper = styled.div<{ $isActive: boolean; theme: TTheme }>`

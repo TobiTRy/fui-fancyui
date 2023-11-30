@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 
-import themeStore from '@/Components/Design/color/themeStore/themeStore';
+import themeStore from '@/Components/design/color/themeStore/themeStore';
 import { TBorderRadiusSizes } from '@/Components/Interface/TBorderRadius';
 
 export const generateBorderRadiusForComponent = (size?: 'sm' | 'md' | 'lg', rounded?: TBorderRadiusSizes) => {

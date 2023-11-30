@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { styled } from 'styled-components';
 
-import { fontSize } from '../../Design/designSizes';
+import { fontSize } from '../../design/designSizes';
 import { TTheme } from '@/Components/Interface/TTheme';
 
 // Styled dropdown container

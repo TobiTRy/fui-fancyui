@@ -1,7 +1,7 @@
 import { css } from 'styled-components';
 
 import { TSizes } from '../../Interface/TComponentSizes';
-import themeStore from '@/Components/Design/color/themeStore/themeStore';
+import themeStore from '@/Components/design/color/themeStore/themeStore';
 
 const getTheme = themeStore.getState().theme;
 const sizes = {

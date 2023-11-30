@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
-import { fontSize } from '../../Design/designSizes';
-import { boxShadow, textShadow } from '../../Design/shadows/shadows';
+import { fontSize } from '../../design/designSizes';
+import { boxShadow, textShadow } from '../../design/shadows/shadows';
 import { TTheme } from '@/Components/Interface/TTheme';
 
 export const MenueItemContainer = styled.div<{ $isOpen?: boolean; $index: number }>`

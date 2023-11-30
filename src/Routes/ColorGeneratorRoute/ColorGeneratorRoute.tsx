@@ -3,7 +3,7 @@ import React from 'react';
 
 import styled, { css } from 'styled-components';
 
-import themeStore from '../../Components/Design/color/themeStore/themeStore';
+import themeStore from '../../Components/design/color/themeStore/themeStore';
 import { TTheme } from '@/Components/Interface/TTheme';
 
 export default function ColorGeneratorRoute() {
