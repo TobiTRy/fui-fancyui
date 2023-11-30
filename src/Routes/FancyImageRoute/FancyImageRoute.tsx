@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react';
 
-import FancyImage from '../../Components/atoms/FancyImage/FancyImage';
-import FancyImageText from '../../Components/molecules/FancyImageText/FancyImageText';
-import FancyVideoText from '../../Components/molecules/FancyVideoText/FancyVideoText';
-import Typography from '../../Components/atoms/Typography/Typography';
+import FancyImage from '../../components/atoms/FancyImage/FancyImage';
+import FancyImageText from '../../components/molecules/FancyImageText/FancyImageText';
+import FancyVideoText from '../../components/molecules/FancyVideoText/FancyVideoText';
+import Typography from '../../components/atoms/Typography/Typography';
 
 import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';
 import { css } from 'styled-components';

@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
 
-import { TTheme } from '@/Components/Interface/TTheme';
+import { TTheme } from '@/components/Interface/TTheme';
 
 export const MonthContainer = styled.div<{ theme: TTheme }>`
   margin-top: ${({ theme }) => theme.spacing.md};

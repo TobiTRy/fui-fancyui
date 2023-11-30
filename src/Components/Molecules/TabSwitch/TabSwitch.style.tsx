@@ -1,10 +1,10 @@
 import { styled } from 'styled-components';
 
 import { borderRadius, spacingPx } from '../../design/theme/designSizes';
-import { TLayer } from '@/Components/Interface/TLayer';
-import { TTheme } from '@/Components/Interface/TTheme';
-import { TBorderRadiusSizes } from '@/Components/Interface/TBorderRadius';
-import { TThemeTypes } from '@/Components/Interface/TUiColors';
+import { TLayer } from '@/components/Interface/TLayer';
+import { TTheme } from '@/components/Interface/TTheme';
+import { TBorderRadiusSizes } from '@/components/Interface/TBorderRadius';
+import { TThemeTypes } from '@/components/Interface/TUiColors';
 import { TSpacings } from '../../Interface/TSpacings';
 import themeStore from '../../design/theme/themeStore/themeStore';
 

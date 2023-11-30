@@ -3,7 +3,7 @@ import { css, styled } from 'styled-components';
 import generateThemeDesignForComponent from '../../design/designFunctions/generateThemeDesignForComponent/generateThemeDesignForComponent';
 import IStyledPrefixAndOmitter from '../../Interface/IStyledPrefixAndOmiter.model';
 import { IStyledChip } from './Chip';
-import { TTheme } from '@/Components/Interface/TTheme';
+import { TTheme } from '@/components/Interface/TTheme';
 
 const sizes = {
   sm: {

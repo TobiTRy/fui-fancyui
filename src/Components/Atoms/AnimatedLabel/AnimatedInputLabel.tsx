@@ -1,10 +1,10 @@
 import { styled, css } from 'styled-components';
 
-import InputLabel from '@/Components/atoms/InputLabel/InputLabel';
+import InputLabel from '@/components/atoms/InputLabel/InputLabel';
 import { IAnimatedInputLabel } from './TAnimatedInputLabel.model';
 
-import { getTextColor } from '@/Components/design/color/colorCalculatorForComponent/colorCalculatorForComponet';
-import { TTheme } from '@/Components/Interface/TTheme';
+import { getTextColor } from '@/components/design/color/colorCalculatorForComponent/colorCalculatorForComponet';
+import { TTheme } from '@/components/Interface/TTheme';
 
 const activeHandler = (align: string, $moveUp?: boolean) => {
   if (align !== 'center') {

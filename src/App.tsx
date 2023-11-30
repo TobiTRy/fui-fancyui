@@ -4,7 +4,7 @@ import './App.css';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
-import { useFancyModalStore } from './Components/organisms/FancyModal/FancyModal.state';
+import { useFancyModalStore } from './components/organisms/FancyModal/FancyModal.state';
 
 import SwipeUpModal from './Routes/SwipeUpModal/SwipeUpModal';
 import SingleNumberInputRoute from './Routes/SingleNumberInputRoute/SingleNumberInputRoute';
@@ -33,8 +33,8 @@ import MiniProfileroute from './Routes/MiniProfileRoute/MiniProfileroute';
 import ChipsRoute from './Routes/ChipsRoute/ChipsRoute';
 import CheckboxRoute from './Routes/CheckboxRoute/CheckboxRoute';
 import ColorGeneratorRoute from './Routes/ColorGeneratorRoute/ColorGeneratorRoute';
-import { TTheme } from '@/Components/Interface/TTheme';
-import themeStore from './Components/design/theme/themeStore/themeStore';
+import { TTheme } from '@/components/Interface/TTheme';
+import themeStore from './components/design/theme/themeStore/themeStore';
 import GlobalStyle from './GlobalStyle';
 import FancyContentRoute from './Routes/FancyContentRoute/FancyContentRoute';
 import { FancyModal, FancySwipeUpModal } from './lib';

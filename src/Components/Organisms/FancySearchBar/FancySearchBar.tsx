@@ -3,8 +3,8 @@ import { styled } from 'styled-components';
 
 import SearchBar from '../../molecules/SearchBar/SearchBar';
 import SearchBarList from '../../molecules/SearchBarList/SearchBarList';
-import { TLayer } from '@/Components/Interface/TLayer';
-import { TThemeTypes } from '@/Components/Interface/TUiColors';
+import { TLayer } from '@/components/Interface/TLayer';
+import { TThemeTypes } from '@/components/Interface/TUiColors';
 
 // Styled component for the entire search bar
 const StyledFancySearchBar = styled.div`

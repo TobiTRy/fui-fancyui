@@ -7,7 +7,7 @@ import edgeCalculation from '../../design/designFunctions/edgeCaluculation';
 
 import { boxShadow } from '../../design/designFunctions/shadows/shadows';
 import getColorsForComponent from '../../design/color/colorCalculatorForComponent/colorCalculatorForComponet';
-import { TTheme } from '@/Components/Interface/TTheme';
+import { TTheme } from '@/components/Interface/TTheme';
 
 // the converted $ styling props for the card
 type IStyledCard = IStyledPrefixAndOmiter<StyledCardProps>;

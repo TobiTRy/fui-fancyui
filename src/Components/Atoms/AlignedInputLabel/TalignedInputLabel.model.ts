@@ -1,6 +1,6 @@
-import { TLayer } from '@/Components/Interface/TLayer';
-import { TTheme } from '@/Components/Interface/TTheme';
-import { TThemeTypes } from '@/Components/Interface/TUiColors';
+import { TLayer } from '@/components/Interface/TLayer';
+import { TTheme } from '@/components/Interface/TTheme';
+import { TThemeTypes } from '@/components/Interface/TUiColors';
 
 export type TAlign = 'left' | 'center';
 

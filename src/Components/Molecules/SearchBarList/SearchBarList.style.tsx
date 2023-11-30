@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { TTheme } from '@/Components/Interface/TTheme';
+import { TTheme } from '@/components/Interface/TTheme';
 
 // Styled component for the search bar list
 export const StyledSearchBarList = styled.div<{ theme: TTheme }>`

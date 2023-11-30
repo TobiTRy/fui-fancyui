@@ -4,11 +4,11 @@ import React, { useRef, useState } from 'react';
 import { FancyButton } from '../../lib';
 
 import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
-import Popover from '../../Components/utils/FancyPopover/Popover';
-import FancyPopover from '../../Components/utils/FancyPopover/FancyPopover';
-import FancyMenueItem from '../../Components/templates/FancyMenueComponent/FancyMenuItem/FancyMenuItem';
-import FancyMenuList from '../../Components/templates/FancyMenueComponent/FancyMenu/FancyMenu';
-import SVGCheckMark from '@/Components/icons/SVGCheckMark/SVGCheckMark';
+import Popover from '../../components/utils/FancyPopover/Popover';
+import FancyPopover from '../../components/utils/FancyPopover/FancyPopover';
+import FancyMenueItem from '../../components/templates/FancyMenueComponent/FancyMenuItem/FancyMenuItem';
+import FancyMenuList from '../../components/templates/FancyMenueComponent/FancyMenu/FancyMenu';
+import SVGCheckMark from '@/components/icons/SVGCheckMark/SVGCheckMark';
 
 export default function MenueRoute() {
   const [isPopoverVisible, setPopoverVisible] = useState(false);

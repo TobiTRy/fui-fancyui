@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
-import { TTheme } from '@/Components/Interface/TTheme';
+import { TTheme } from '@/components/Interface/TTheme';
 
 const GlobalStyle = createGlobalStyle<{ theme: TTheme }>`
   body {

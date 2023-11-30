@@ -1,22 +1,22 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { ChangeEvent } from 'react';
 
-import themeStore from '../../Components/design/theme/themeStore/themeStore';
-import { FancyTextInput } from '../../Components/organisms/FancyTextInput';
+import themeStore from '../../components/design/theme/themeStore/themeStore';
+import { FancyTextInput } from '../../components/organisms/FancyTextInput';
 
-import FancyContent from '../../Components/molecules/FancyContent/FancyContent';
-import BottomBarList from '../../Components/molecules/SwitchList/SwitchList';
-import Button from '../../Components/molecules/Button/Button';
+import FancyContent from '../../components/molecules/FancyContent/FancyContent';
+import BottomBarList from '../../components/molecules/SwitchList/SwitchList';
+import Button from '../../components/molecules/Button/Button';
 import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
-import ComponentAsWrapper from '../../Components/atoms/ComponentAsWrapper/ComponentAsWrapper';
-import ActionWrapper from '../../Components/atoms/ActionWrapper/ActionWrapper';
-import FancyActionWrapper from '../../Components/atoms/FancyActionWrapper/FancyActionWrapper';
-import BottomBarIcon from '../../Components/molecules/BottomBarIcon/BottomBarIcon';
-import FancyBottomBarIcon from '@/Components/templates/FancyBottomBarIcon/FancyBottomBarIcon';
-import { FancyButton } from '@/Components/organisms/FancyButton';
-import { SingleToastMessage } from '@/Components/molecules/SingleToastMessage';
-import { FancyCard } from '@/Components/atoms/FancyCard';
-import { FancyChip } from '@/Components/organisms/FancyChip';
+import ComponentAsWrapper from '../../components/atoms/ComponentAsWrapper/ComponentAsWrapper';
+import ActionWrapper from '../../components/atoms/ActionWrapper/ActionWrapper';
+import FancyActionWrapper from '../../components/atoms/FancyActionWrapper/FancyActionWrapper';
+import BottomBarIcon from '../../components/molecules/BottomBarIcon/BottomBarIcon';
+import FancyBottomBarIcon from '@/components/templates/FancyBottomBarIcon/FancyBottomBarIcon';
+import { FancyButton } from '@/components/organisms/FancyButton';
+import { SingleToastMessage } from '@/components/molecules/SingleToastMessage';
+import { FancyCard } from '@/components/atoms/FancyCard';
+import { FancyChip } from '@/components/organisms/FancyChip';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">

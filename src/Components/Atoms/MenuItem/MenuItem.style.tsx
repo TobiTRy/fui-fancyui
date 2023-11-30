@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-import { TThemeTypes } from '@/Components/Interface/TUiColors';
-import { TLayer } from '@/Components/Interface/TLayer';
-import { TTheme } from '@/Components/Interface/TTheme';
+import { TThemeTypes } from '@/components/Interface/TUiColors';
+import { TLayer } from '@/components/Interface/TLayer';
+import { TTheme } from '@/components/Interface/TTheme';
 import { getBackgroundColor, getTextColor } from '../../design/color/colorCalculatorForComponent/colorCalculatorForComponet';
 
 type StyledMenuProps = {

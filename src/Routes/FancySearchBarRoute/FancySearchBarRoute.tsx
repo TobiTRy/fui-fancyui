@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 
-import FancySearchBar from '../../Components/organisms/FancySearchBar/FancySearchBar';
+import FancySearchBar from '../../components/organisms/FancySearchBar/FancySearchBar';
 
 import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';
 import { styled } from 'styled-components';
-import { FancyCard } from '@/Components/atoms/FancyCard';
+import { FancyCard } from '@/components/atoms/FancyCard';
 
 const users = [
   {

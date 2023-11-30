@@ -1,6 +1,6 @@
-import { TBorderRadiusSizes } from '@/Components/Interface/TBorderRadius';
-import { TThemeTypes, TThemeTypesNotTrasparent } from '@/Components/Interface/TUiColors';
-import { TLayer } from '@/Components/Interface/TLayer';
+import { TBorderRadiusSizes } from '@/components/Interface/TBorderRadius';
+import { TThemeTypes, TThemeTypesNotTrasparent } from '@/components/Interface/TUiColors';
+import { TLayer } from '@/components/Interface/TLayer';
 import IStyledPrefixAndOmiter from '../../../Interface/IStyledPrefixAndOmiter.model';
 
 export type IGenerateThemeItemProps = {

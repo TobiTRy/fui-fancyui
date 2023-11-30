@@ -1,11 +1,11 @@
 import { styled } from 'styled-components';
 
 import { borderRadius, spacingPx } from '../../design/theme/designSizes';
-import { TThemeTypes } from '@/Components/Interface/TUiColors';
+import { TThemeTypes } from '@/components/Interface/TUiColors';
 import { tabSwitchSizes } from '../TabSwitch/TabSwitch.style';
-import { TLayer } from '@/Components/Interface/TLayer';
-import { TTheme } from '@/Components/Interface/TTheme';
-import { TBorderRadiusSizes } from '@/Components/Interface/TBorderRadius';
+import { TLayer } from '@/components/Interface/TLayer';
+import { TTheme } from '@/components/Interface/TTheme';
+import { TBorderRadiusSizes } from '@/components/Interface/TBorderRadius';
 import { TSpacings } from '../../Interface/TSpacings';
 
 // Define the interface for the styled-component

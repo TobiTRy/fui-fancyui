@@ -4,10 +4,10 @@ import CalculateBorderRadiusOnAlignment from '../../design/designFunctions/Calcu
 import { IFancyUL } from './FancyDropDownUL';
 import IStyledPrefixAndPicker from '../../Interface/IStyledPrefixAndPicker.model';
 import { boxShadow } from '../../design/designFunctions/shadows/shadows';
-import { TThemeTypes } from '@/Components/Interface/TUiColors';
-import { TLayer } from '@/Components/Interface/TLayer';
+import { TThemeTypes } from '@/components/Interface/TUiColors';
+import { TLayer } from '@/components/Interface/TLayer';
 import { getBackgroundColor } from '../../design/color/colorCalculatorForComponent/colorCalculatorForComponet';
-import { TTheme } from '@/Components/Interface/TTheme';
+import { TTheme } from '@/components/Interface/TTheme';
 
 // --------------------------------------------------------------------------- //
 // ------- the generator function for the Wrapper of the UL ------------------ //

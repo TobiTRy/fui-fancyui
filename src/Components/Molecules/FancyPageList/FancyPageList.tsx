@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { styled } from 'styled-components';
 
 import Paginator from '../Paginator/Paginator';
-import { TTheme } from '@/Components/Interface/TTheme';
+import { TTheme } from '@/components/Interface/TTheme';
 
 // The List with dymaic spacing between items
 const StyledList = styled.div<{ $spacing?: string }>`

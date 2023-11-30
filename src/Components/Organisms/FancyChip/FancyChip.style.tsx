@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
-import { TTheme } from '@/Components/Interface/TTheme';
-import themeStore from '@/Components/design/theme/themeStore/themeStore';
+import { TTheme } from '@/components/Interface/TTheme';
+import themeStore from '@/components/design/theme/themeStore/themeStore';
 
 // Define the type for the spacing position
 export type TSpacingPosition = 'left' | 'right' | 'booth';

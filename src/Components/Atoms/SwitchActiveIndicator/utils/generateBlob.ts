@@ -3,9 +3,9 @@ import { css } from 'styled-components';
 import { getBackgroundColor } from '../../../design/color/colorCalculatorForComponent/colorCalculatorForComponet';
 import colorTransparencyCalculator from '../../../design/color/colorTransparencyCalculator/colorTransparencyCalculator';
 import { IActiveSwitchIndicator } from '../SwitchActiveIndicator';
-import themeStore from '@/Components/design/theme/themeStore/themeStore';
-import { TBorderRadiusSizes } from '@/Components/Interface/TBorderRadius';
-import { TTheme } from '@/Components/Interface/TTheme';
+import themeStore from '@/components/design/theme/themeStore/themeStore';
+import { TBorderRadiusSizes } from '@/components/Interface/TBorderRadius';
+import { TTheme } from '@/components/Interface/TTheme';
 
 // Define the function to generate a blob background for the active indicator
 type IGenerateBlob = Pick<IActiveSwitchIndicator, '$themeType' | '$outlined' | '$rounded' | '$layer'> & { theme: TTheme };

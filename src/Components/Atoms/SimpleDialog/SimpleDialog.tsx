@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { styled } from 'styled-components';
 import { animated, useSpring } from '@react-spring/web';
 
-import { TThemeTypes } from '@/Components/Interface/TUiColors';
-import { TLayer } from '@/Components/Interface/TLayer';
+import { TThemeTypes } from '@/components/Interface/TUiColors';
+import { TLayer } from '@/components/Interface/TLayer';
 import getColorsForComponent from '../../design/color/colorCalculatorForComponent/colorCalculatorForComponet';
-import { TTheme } from '@/Components/Interface/TTheme';
+import { TTheme } from '@/components/Interface/TTheme';
 
 // Define the styled component for the dialog
 const StyledDialog = styled(animated.div)<{ theme: TTheme; $themeType?: TThemeTypes; $layer?: TLayer }>`

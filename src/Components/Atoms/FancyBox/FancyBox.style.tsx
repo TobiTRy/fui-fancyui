@@ -3,7 +3,7 @@ import { styled } from 'styled-components';
 import generateThemeForCard from '../../design/designFunctions/generateThemeForCard/generateThemeForCard';
 import IStyledPrefixAndPicker from '../../Interface/IStyledPrefixAndPicker.model';
 import { IFancyBoxProps } from './FancyBox.model';
-import { TTheme } from '@/Components/Interface/TTheme';
+import { TTheme } from '@/components/Interface/TTheme';
 
 // the styled-component for the FancyBar
 type IStyledFancyBox = IStyledPrefixAndPicker<IFancyBoxProps> & { theme: TTheme };

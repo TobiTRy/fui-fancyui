@@ -1,7 +1,7 @@
 import { css } from 'styled-components';
 
-import { TFontSizes } from '@/Components/Interface/IFontSizes';
-import { TTheme } from '@/Components/Interface/TTheme';
+import { TFontSizes } from '@/components/Interface/IFontSizes';
+import { TTheme } from '@/components/Interface/TTheme';
 
 const nullifyStyle = css`
   margin: 0;

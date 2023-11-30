@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { styled } from 'styled-components';
 
 import Typography from '../Typography/Typography';
-import { TThemeTypes } from '@/Components/Interface/TUiColors';
-import { TLayer } from '@/Components/Interface/TLayer';
+import { TThemeTypes } from '@/components/Interface/TUiColors';
+import { TLayer } from '@/components/Interface/TLayer';
 import { getBackgroundColor } from '../../design/color/colorCalculatorForComponent/colorCalculatorForComponet';
-import { TTheme } from '@/Components/Interface/TTheme';
+import { TTheme } from '@/components/Interface/TTheme';
 
 const WeekdaysConatiner = styled.div<{ theme: TTheme; $themeType?: TThemeTypes; $layer?: TLayer }>`
   display: grid;

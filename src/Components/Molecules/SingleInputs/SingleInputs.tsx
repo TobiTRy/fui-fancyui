@@ -3,8 +3,8 @@ import React, { useState, createRef, useEffect } from 'react';
 import SingleInputAtom from '../../atoms/SingleInputAtom/SingleInputAtom';
 import IStatus from '../../Interface/IStatus';
 import { InputWrapper } from './SingleInputs.style';
-import { TThemeTypes } from '@/Components/Interface/TUiColors';
-import { TLayer } from '@/Components/Interface/TLayer';
+import { TThemeTypes } from '@/components/Interface/TUiColors';
+import { TLayer } from '@/components/Interface/TLayer';
 
 interface IFancySingleInputsProps {
   length?: number;

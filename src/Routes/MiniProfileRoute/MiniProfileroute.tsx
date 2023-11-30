@@ -1,9 +1,9 @@
 import React from 'react';
 
-import FancyMiniProfile from '../../Components/molecules/FancyMiniProfile/FancyMiniProfile';
+import FancyMiniProfile from '../../components/molecules/FancyMiniProfile/FancyMiniProfile';
 
 import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';
-import { FancyCard } from '@/Components/atoms/FancyCard';
+import { FancyCard } from '@/components/atoms/FancyCard';
 
 export default function MiniProfileroute() {
   return (

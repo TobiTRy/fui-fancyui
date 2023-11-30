@@ -4,9 +4,9 @@ import { styled } from 'styled-components';
 import DateNumberAtom from '../../atoms/DateNumberAtom/DateNumberAtom';
 import AvilableDot, { IAvailableDot } from '../../atoms/AvilableDot/AvailableDot';
 import { IRange } from '../../atoms/DateNumberAtom/DateNumberAtom';
-import { TLayer } from '@/Components/Interface/TLayer';
-import { TThemeTypes } from '@/Components/Interface/TUiColors';
-import { TTheme } from '@/Components/Interface/TTheme';
+import { TLayer } from '@/components/Interface/TLayer';
+import { TThemeTypes } from '@/components/Interface/TUiColors';
+import { TTheme } from '@/components/Interface/TTheme';
 
 const StyledDateNumberWithStatus = styled.div<{ theme: TTheme }>`
   box-sizing: border-box;

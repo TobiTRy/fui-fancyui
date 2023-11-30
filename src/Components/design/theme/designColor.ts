@@ -1,4 +1,4 @@
-import { TUiColorsType } from '@/Components/Interface/TUiColorsType';
+import { TUiColorsType } from '@/components/Interface/TUiColorsType';
 import generateColorSteps from './generateColorSteps';
 import isColorValid from '../color/isColorValid/isColorValid';
 import { TThemeTypes } from '../../Interface';

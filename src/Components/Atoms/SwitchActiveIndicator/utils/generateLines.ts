@@ -2,7 +2,7 @@ import { css } from 'styled-components';
 
 import { getBackgroundColor } from '../../../design/color/colorCalculatorForComponent/colorCalculatorForComponet';
 import { IActiveSwitchIndicator } from '../SwitchActiveIndicator';
-import { TTheme } from '@/Components/Interface/TTheme';
+import { TTheme } from '@/components/Interface/TTheme';
 
 const generateLine = ({ theme, $themeType = 'accent', $layer }: IGenerateLine) => {
   const backgroundColor = getBackgroundColor({ theme, $themeType, $layer });

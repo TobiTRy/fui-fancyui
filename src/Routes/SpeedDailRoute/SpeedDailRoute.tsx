@@ -1,10 +1,10 @@
 import React from 'react';
 
-import FancySpeedDialButton from '../../Components/molecules/FancySpeedDailButton/FancySpeedDailButton';
+import FancySpeedDialButton from '../../components/molecules/FancySpeedDailButton/FancySpeedDailButton';
 
 import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';
 import { css } from 'styled-components';
-import { FancyCard } from '@/Components/atoms/FancyCard';
+import { FancyCard } from '@/components/atoms/FancyCard';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">

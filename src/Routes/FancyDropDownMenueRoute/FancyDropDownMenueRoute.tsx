@@ -1,8 +1,8 @@
 import React from 'react';
 
-import FancyDropDownMenue from '../../Components/organisms/FancyDropDownMenue/FancyDropDownMenue';
+import FancyDropDownMenue from '../../components/organisms/FancyDropDownMenue/FancyDropDownMenue';
 import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
-import FancyButton from '../../Components/organisms/FancyButton/FancyButton';
+import FancyButton from '../../components/organisms/FancyButton/FancyButton';
 
 export default function FancyDropDownMenueRoute() {
   const [isOpen, setIsOpen] = React.useState(false);

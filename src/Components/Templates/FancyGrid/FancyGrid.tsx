@@ -3,7 +3,7 @@ import React from 'react';
 import { styled } from 'styled-components';
 
 import FancyGridItem from './FancyGridItem/FancyGridItem';
-import IStyledPrefixAndOmitter from '@/Components/Interface/IStyledPrefixAndOmiter.model';
+import IStyledPrefixAndOmitter from '@/components/Interface/IStyledPrefixAndOmiter.model';
 
 interface FancyGridProps {
   grid?: number;

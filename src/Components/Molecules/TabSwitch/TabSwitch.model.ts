@@ -1,6 +1,6 @@
-import { TThemeTypes } from '@/Components/Interface/TUiColors';
-import { TLayer } from '@/Components/Interface/TLayer';
-import { TBorderRadiusSizes } from '@/Components/Interface/TBorderRadius';
+import { TThemeTypes } from '@/components/Interface/TUiColors';
+import { TLayer } from '@/components/Interface/TLayer';
+import { TBorderRadiusSizes } from '@/components/Interface/TBorderRadius';
 import { ITabSwitchDetailsLabelIcon, ITabSwitchDetailsChildren } from '../FancyTabSwitchButton/FancyTabSwitchButton.model';
 import { TSpacings } from '../../Interface/TSpacings';
 

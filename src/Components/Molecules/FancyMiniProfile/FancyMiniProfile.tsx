@@ -3,9 +3,9 @@ import React from 'react';
 import FancyProfilePicture, { IFancyProfilePicture } from '../../atoms/FancyProfilePicture/FancyProfilePicture';
 import Typography from '../../atoms/Typography/Typography';
 import { TextWrapper, Wrapper } from './FancyMiniProfile.style';
-import { TTypography } from '@/Components/Interface/TTypography';
-import { TThemeTypes } from '@/Components/Interface/TUiColors';
-import { TLayer } from '@/Components/Interface/TLayer';
+import { TTypography } from '@/components/Interface/TTypography';
+import { TThemeTypes } from '@/components/Interface/TUiColors';
+import { TLayer } from '@/components/Interface/TLayer';
 import { TSpacings } from '../../Interface/TSpacings';
 
 // the interface for the different sizes

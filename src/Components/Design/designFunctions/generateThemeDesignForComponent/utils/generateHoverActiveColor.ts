@@ -2,7 +2,7 @@ import { css } from 'styled-components';
 import { getBackgroundColor } from '../../../color/colorCalculatorForComponent/colorCalculatorForComponet';
 import colorTransparencyCalculator from '../../../color/colorTransparencyCalculator/colorTransparencyCalculator';
 import { IGenerateThemeDesignForComponent } from '../generateThemeDesignForComponent';
-import { TLayer } from '@/Components/Interface/TLayer';
+import { TLayer } from '@/components/Interface/TLayer';
 type TGenerateOutlinedHoverStyle = Pick<
   IGenerateThemeDesignForComponent,
   '$themeType' | 'theme' | '$layer' | '$backgroundStrength' | '$hoverColor'

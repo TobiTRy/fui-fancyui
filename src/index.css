@@ -1,25 +1,25 @@
 @font-face {
   font-family: 'JakartaSans';
-  src: url(./Components/Design/JakartaSans.ttf) format('truetype');
+  src: url(./components/design/JakartaSans.ttf) format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'DMSans';
-  src: url(./Components/Design/DMSans-Regular.ttf) format('truetype');
+  src: url(./components/design/DMSans-Regular.ttf) format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'Inter';
-  src: url(./Components/Design/Inter.ttf) format('truetype');
+  src: url(./components/design/Inter.ttf) format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'Poopins';
-  src: url(./Components/Design/Poppins-Regular.ttf) format('truetype');
+  src: url(./components/design//Poppins-Regular.ttf) format('truetype');
   font-weight: normal;
   font-style: normal;
 }

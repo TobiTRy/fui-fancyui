@@ -2,12 +2,12 @@
 import React, { useState } from 'react';
 
 import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
-import FancyCheckbox from '../../Components/molecules/FancyCheckbox/FancyCheckbox';
-import { FancyCard } from '@/Components/atoms/FancyCard';
-import RawRadio from '@/Components/atoms/RawRadio/RawRadio';
-import FancyRadio from '@/Components/organisms/FancyRadio/FancyRadio';
-import CustomRadio from '@/Components/atoms/RawRadio/RawRadio';
-import FancyRadioList from '@/Components/templates/FancyRadioList/FancyRadioList';
+import FancyCheckbox from '../../components/molecules/FancyCheckbox/FancyCheckbox';
+import { FancyCard } from '@/components/atoms/FancyCard';
+import RawRadio from '@/components/atoms/RawRadio/RawRadio';
+import FancyRadio from '@/components/organisms/FancyRadio/FancyRadio';
+import CustomRadio from '@/components/atoms/RawRadio/RawRadio';
+import FancyRadioList from '@/components/templates/FancyRadioList/FancyRadioList';
 
 const itemList = [
   { title: 'Test1', description: 'Test1', itemKey: '1' },

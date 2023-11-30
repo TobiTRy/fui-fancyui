@@ -3,7 +3,7 @@ import { styled } from 'styled-components';
 import { MenuListProps } from './MenuList';
 import IStyledPrefixAndOmitter from '../../Interface/IStyledPrefixAndOmiter.model';
 import generateThemeForCard from '../../design/designFunctions/generateThemeForCard/generateThemeForCard';
-import { TTheme } from '@/Components/Interface/TTheme';
+import { TTheme } from '@/components/Interface/TTheme';
 
 type StyledMenuProps = IStyledPrefixAndOmitter<MenuListProps> & { theme: TTheme };
 

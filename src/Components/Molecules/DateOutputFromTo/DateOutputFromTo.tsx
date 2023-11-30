@@ -2,10 +2,10 @@ import React from 'react';
 import { styled } from 'styled-components';
 
 import DateOutput from '../../atoms/DateOutput/DateOutput';
-import { TThemeTypes } from '@/Components/Interface/TUiColors';
-import { TLayer } from '@/Components/Interface/TLayer';
+import { TThemeTypes } from '@/components/Interface/TUiColors';
+import { TLayer } from '@/components/Interface/TLayer';
 import FancyLine from '../../atoms/FancyLine/FancyLine';
-import { TTheme } from '@/Components/Interface/TTheme';
+import { TTheme } from '@/components/Interface/TTheme';
 
 // Define the styled component for the DateOutputFromTo component
 const StyledDateOutputFromTo = styled.div<{ theme: TTheme; $themeType?: TThemeTypes; $layer?: TLayer }>`

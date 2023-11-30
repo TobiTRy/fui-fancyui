@@ -2,7 +2,7 @@ import React from 'react';
 
 import InfoCard from '../../molecules/InfoCard/InfoCard';
 import FancyContent from '../../molecules/FancyContent/FancyContent';
-import { TTypography } from '@/Components/Interface/TTypography';
+import { TTypography } from '@/components/Interface/TTypography';
 import { TSizes } from '../../Interface/TComponentSizes';
 
 type TSizeObj = {

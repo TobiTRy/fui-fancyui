@@ -2,9 +2,9 @@
 import React from 'react';
 
 import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';
-import BottomBar from '../../Components/molecules/BottomBar/BottomBar';
-import FancyHandyNav from '../../Components/templates/FancyHandyNav/FancyHandyNav';
-import FancyBottomBarIcon, { IFancyBottomBarIcon } from '../../Components/templates/FancyBottomBarIcon/FancyBottomBarIcon';
+import BottomBar from '../../components/molecules/BottomBar/BottomBar';
+import FancyHandyNav from '../../components/templates/FancyHandyNav/FancyHandyNav';
+import FancyBottomBarIcon, { IFancyBottomBarIcon } from '../../components/templates/FancyBottomBarIcon/FancyBottomBarIcon';
 import { css } from 'styled-components';
 
 const svg = (

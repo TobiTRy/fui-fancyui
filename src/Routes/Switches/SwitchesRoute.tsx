@@ -1,7 +1,7 @@
 import React from 'react';
 import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
-import { FancyBottomBarIcon } from '../../Components/templates/FancyBottomBarIcon';
-import SwitchList from '../../Components/molecules/SwitchList/SwitchList';
+import { FancyBottomBarIcon } from '../../components/templates/FancyBottomBarIcon';
+import SwitchList from '../../components/molecules/SwitchList/SwitchList';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">

@@ -1,5 +1,5 @@
 import { styled } from 'styled-components';
-import { TTheme } from '@/Components/Interface/TTheme';
+import { TTheme } from '@/components/Interface/TTheme';
 import { simpleColorTransition } from '../../design/designFunctions/simpleTransition';
 
 // Define a styled component for the button wrapper
