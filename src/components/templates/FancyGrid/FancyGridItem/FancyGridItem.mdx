@@ -1,0 +1,46 @@
+# FancyGrid.Item Component Documentation
+
+`FancyGrid.Item` is a subcomponent of the `FancyGrid` component, designed for creating and managing individual items within the `FancyGrid` layout in React applications. It's built using styled-components and allows for responsive and flexible item placement within the grid.
+
+## Installation
+
+Ensure that `FancyGrid` is already set up in your project, as `FancyGrid.Item` is a part of it. Also, make sure React, TypeScript, and styled-components are installed.
+
+## Usage
+
+### Basic Use of FancyGrid.Item
+
+`FancyGrid.Item` is used within the `FancyGrid` container and requires the `FancyGrid` component to be properly functioning.
+
+**Props**:
+
+- `gridSpace`: Specifies the number of columns the item should span within the grid.
+
+**Example**:
+
+```jsx
+import FancyGrid from './FancyGrid';
+
+const MyComponent = () => {
+  return (
+    <FancyGrid grid={12} space="2px">
+      <FancyGrid.Item gridSpace={6}>{/* Content for a half-width item */}</FancyGrid.Item>
+      <FancyGrid.Item gridSpace={6}>{/* Content for another half-width item */}</FancyGrid.Item>
+    </FancyGrid>
+  );
+};
+```
+
+In this example, each `FancyGrid.Item` spans half the width of the grid (6 out of 12 columns).
+
+### Responsive Design
+
+`FancyGrid.Item` can be used to create responsive layouts within `FancyGrid`. Adjust the `gridSpace` prop based on the desired responsiveness of your layout.
+
+### Customization
+
+`FancyGrid.Item` can be customized further by passing additional styling props or by extending its styled component for more specific design needs.
+
+---
+
+This documentation provides guidance on using the `FancyGrid.Item` component within the `FancyGrid` layout. It's designed to be flexible and easy to integrate into various types of grid-based layouts in React applications.
