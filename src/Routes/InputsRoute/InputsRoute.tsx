@@ -1,11 +1,11 @@
 import React, { ChangeEvent, useState } from 'react';
 
-import FancyPasswordInput from '../../Components/Organisms/FancyPasswordInput/FancyPasswordInput';
-import FancyTextInput from '../../Components/Organisms/FancyTextInput/FancyTextInput';
-import FancyRangeSlider from '../../Components/Organisms/FancyRangeSlider/FancyRangeSlider';
-import FancyNumberInput from '../../Components/Organisms/FancyNumberInput/FancyNumberInput';
-import FancyDropDownSelect from '../../Components/Organisms/FancyDropDownSelect/FancyDropDownSelect';
-import FancyDateInput from '../../Components/Organisms/FancyDateInput/FancyDateInput';
+import FancyPasswordInput from '../../Components/organisms/FancyPasswordInput/FancyPasswordInput';
+import FancyTextInput from '../../Components/organisms/FancyTextInput/FancyTextInput';
+import FancyRangeSlider from '../../Components/organisms/FancyRangeSlider/FancyRangeSlider';
+import FancyNumberInput from '../../Components/organisms/FancyNumberInput/FancyNumberInput';
+import FancyDropDownSelect from '../../Components/organisms/FancyDropDownSelect/FancyDropDownSelect';
+import FancyDateInput from '../../Components/organisms/FancyDateInput/FancyDateInput';
 
 import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';
 import FancyDateDropDown from '../../Components/Templates/Inputs/FancyDateDropDown/FancyDateDropDown';

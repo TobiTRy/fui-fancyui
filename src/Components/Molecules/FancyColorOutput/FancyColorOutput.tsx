@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import Color from 'color';
 
-import FancyButton from '../../Organisms/FancyButton/FancyButton';
+import FancyButton from '../../organisms/FancyButton/FancyButton';
 import colorTransformator from './ColorTransformator';
 import { Container, WrapperSVG } from './FancyColorOutput.style';
 import InputFields from './InputFields/InputFields';

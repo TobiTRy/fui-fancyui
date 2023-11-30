@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 
-import { FancyRadio } from '@/Components/Organisms/FancyRadio';
+import { FancyRadio } from '@/Components/organisms/FancyRadio';
 import { FancyListBox } from '@/Components/molecules/FancyListBox';
 import { FancyLine } from '@/Components/atoms/FancyLine';
 import { Fieldset } from '@/Components/molecules/Fieldset';

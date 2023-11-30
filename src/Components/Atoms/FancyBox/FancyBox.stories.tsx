@@ -9,7 +9,7 @@ import { HeaderTitleWithLogo } from '../../molecules/HeaderTitleWithLogo';
 import { FancyBottomBarIcon } from '../../Templates/FancyBottomBarIcon';
 import SVGCheckMark from '../../SVGIcons/SVGCheckMark/SVGCheckMark';
 import React from 'react';
-import { FancySearchBar } from '../../Organisms/FancySearchBar';
+import { FancySearchBar } from '../../organisms/FancySearchBar';
 
 // Define metadata for the story
 const meta = {

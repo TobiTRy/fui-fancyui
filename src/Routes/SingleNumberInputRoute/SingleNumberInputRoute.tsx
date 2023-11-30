@@ -1,6 +1,6 @@
 import React from 'react';
 
-import FancySingleInputs from '../../Components/Organisms/FancyCodeVerificationInput/FancyCodeVerificationInput';
+import FancySingleInputs from '../../Components/organisms/FancyCodeVerificationInput/FancyCodeVerificationInput';
 import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
 import { FancyCard } from '@/Components/atoms/FancyCard';
 

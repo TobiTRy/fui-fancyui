@@ -3,7 +3,7 @@ import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
 import ChipList from './ChipList';
-import FancyChip from '../../Organisms/FancyChip/FancyChip';
+import FancyChip from '../../organisms/FancyChip/FancyChip';
 
 const meta = {
   component: ChipList,

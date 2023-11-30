@@ -2,7 +2,7 @@
 import React, { ChangeEvent } from 'react';
 
 import themeStore from '../../Components/Design/color/themeStore/themeStore';
-import { FancyTextInput } from '../../Components/Organisms/FancyTextInput';
+import { FancyTextInput } from '../../Components/organisms/FancyTextInput';
 
 import FancyContent from '../../Components/molecules/FancyContent/FancyContent';
 import BottomBarList from '../../Components/molecules/SwitchList/SwitchList';
@@ -13,10 +13,10 @@ import ActionWrapper from '../../Components/atoms/ActionWrapper/ActionWrapper';
 import FancyActionWrapper from '../../Components/atoms/FancyActionWrapper/FancyActionWrapper';
 import BottomBarIcon from '../../Components/molecules/BottomBarIcon/BottomBarIcon';
 import FancyBottomBarIcon from '@/Components/Templates/FancyBottomBarIcon/FancyBottomBarIcon';
-import { FancyButton } from '@/Components/Organisms/FancyButton';
+import { FancyButton } from '@/Components/organisms/FancyButton';
 import { SingleToastMessage } from '@/Components/molecules/SingleToastMessage';
 import { FancyCard } from '@/Components/atoms/FancyCard';
-import { FancyChip } from '@/Components/Organisms/FancyChip';
+import { FancyChip } from '@/Components/organisms/FancyChip';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">

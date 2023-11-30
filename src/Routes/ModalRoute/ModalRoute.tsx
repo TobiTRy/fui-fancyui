@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react';
 
-import FancyModal from '../../Components/Organisms/FancyModal/FancyModal';
-import { useFancyModalStore } from '../../Components/Organisms/FancyModal/FancyModal.state';
-import FancyButton from '../../Components/Organisms/FancyButton/FancyButton';
+import FancyModal from '../../Components/organisms/FancyModal/FancyModal';
+import { useFancyModalStore } from '../../Components/organisms/FancyModal/FancyModal.state';
+import FancyButton from '../../Components/organisms/FancyButton/FancyButton';
 
 export default function ModalRoute() {
   const createModal = useFancyModalStore((state) => state.openModal);
