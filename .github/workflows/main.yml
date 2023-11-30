@@ -21,9 +21,7 @@ jobs:
         run: npx prettier --check .
 
       - name: Run Lint Check
-        run: |
-          npx eslint . --no-cache
-          npm run lint
+        run: npm run lint
 
       - name: Run Build
         run: npm run build
