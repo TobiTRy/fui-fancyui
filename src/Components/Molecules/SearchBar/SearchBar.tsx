@@ -5,9 +5,9 @@ import FancyTextInput from '../../organisms/FancyTextInput/FancyTextInput';
 import SVGSearch from '../../icons/SVGSearch/SVGSearch';
 import FancySVGAtom from '../../atoms/FancySVGAtom/FancySVGAtom';
 import { TRawInputAlign } from '../../atoms/RawInput/RawInput';
-import { TThemeTypes } from '@/components/core/interface/TUiColors';
-import { TLayer } from '@/components/core/interface/TLayer';
-import { TTheme } from '@/components/core/interface/TTheme';
+import { TThemeTypes } from '@/interface/TUiColors';
+import { TLayer } from '@/interface/TLayer';
+import { TTheme } from '@/interface/TTheme';
 
 // Styled component for the search bar
 const StyledSearchBar = styled.div<{ $isActive?: boolean; theme: TTheme }>`

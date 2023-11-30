@@ -1,10 +1,10 @@
 import { styled } from 'styled-components';
 
-import { TThemeTypes } from '@/components/core/interface/TUiColors';
-import { TLayer } from '@/components/core/interface/TLayer';
+import { TThemeTypes } from '@/interface/TUiColors';
+import { TLayer } from '@/interface/TLayer';
 import { getBackgroundColor } from '../../design/color/colorCalculatorForComponent/colorCalculatorForComponet';
 import { disabledStyle } from '../../design/designFunctions/disabledStyle/disableStyle';
-import { TTheme } from '@/components/core/interface/TTheme';
+import { TTheme } from '@/interface/TTheme';
 
 interface IContentWrapper {
   $isActive?: boolean;

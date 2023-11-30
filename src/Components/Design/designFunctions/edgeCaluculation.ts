@@ -1,5 +1,5 @@
 import { borderRadius } from '../theme/designSizes';
-import { TBorderRadiusSizes } from '../../core/interface/TBorderRadius';
+import { TBorderRadiusSizes } from '../../../interface/TBorderRadius';
 
 // the edge can be a string, number or TBorderRadiusSizes
 type TEdge = TBorderRadiusSizes | string | number;

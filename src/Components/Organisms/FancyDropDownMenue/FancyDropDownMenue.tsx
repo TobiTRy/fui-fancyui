@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 
 import FancyUL, { IFancyUL } from '../../molecules/FancyDropDownUL/FancyDropDownUL';
 import UseDelay from '../../utils/hooks/useDelay/UseDelay';
-import { TLayer } from '@/components/core/interface/TLayer';
-import { TThemeTypes } from '@/components/core/interface/TUiColors';
+import { TLayer } from '@/interface/TLayer';
+import { TThemeTypes } from '@/interface/TUiColors';
 
 // --------------------------------------------------------------------------- //
 // ------------ The main component that renders the dropdown menu ------------ //

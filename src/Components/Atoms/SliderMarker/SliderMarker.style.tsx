@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
 
-import { TTheme } from '../../core/interface/TTheme';
+import { TTheme } from '../../../interface/TTheme';
 import colorTransparencyCalculator from '../../design/color/colorTransparencyCalculator/colorTransparencyCalculator';
 
 export const WrapperMarker = styled.div`

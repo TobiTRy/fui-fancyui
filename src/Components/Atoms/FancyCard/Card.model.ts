@@ -1,8 +1,8 @@
 import { IRoundedEdges } from '../../design/designFunctions/edgeCaluculation';
-import { TLayer } from '@/components/core/interface/TLayer';
-import { TBorderRadiusSizes } from '@/components/core/interface/TBorderRadius';
-import { TThemeTypes } from '@/components/core/interface/TUiColors';
-import { TSpacings } from '@/components/core/interface/TSpacings';
+import { TLayer } from '@/interface/TLayer';
+import { TBorderRadiusSizes } from '@/interface/TBorderRadius';
+import { TThemeTypes } from '@/interface/TUiColors';
+import { TSpacings } from '@/interface/TSpacings';
 
 // the scaling types for the card
 type IScaling = '100%' | 'auto' | string;

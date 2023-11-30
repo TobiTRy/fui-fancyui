@@ -1,5 +1,5 @@
-import { TThemeTypes } from '@/components/core/interface/TUiColors';
-import { TLayer } from '@/components/core/interface/TLayer';
+import { TThemeTypes } from '@/interface/TUiColors';
+import { TLayer } from '@/interface/TLayer';
 
 export interface ISwipeUpModal {
   isOpen?: boolean;

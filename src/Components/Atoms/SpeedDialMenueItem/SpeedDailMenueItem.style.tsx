@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 import { fontSize } from '../../design/theme/designSizes';
 import { boxShadow, textShadow } from '../../design/designFunctions/shadows/shadows';
-import { TTheme } from '@/components/core/interface/TTheme';
+import { TTheme } from '@/interface/TTheme';
 
 export const MenueItemContainer = styled.div<{ $isOpen?: boolean; $index: number }>`
   position: absolute;

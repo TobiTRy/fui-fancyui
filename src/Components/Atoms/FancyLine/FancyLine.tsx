@@ -1,10 +1,10 @@
 import { styled } from 'styled-components';
 
-import { TLayer } from '@/components/core/interface/TLayer';
+import { TLayer } from '@/interface/TLayer';
 import { getBackgroundColor } from '../../design/color/colorCalculatorForComponent/colorCalculatorForComponet';
-import IStyledPrefixAndPicker from '../../core/interface/IStyledPrefixAndPicker.model';
-import { TTheme } from '@/components/core/interface/TTheme';
-import { TThemeTypes } from '@/components/core/interface/TUiColors';
+import IStyledPrefixAndPicker from '../../../interface/IStyledPrefixAndPicker.model';
+import { TTheme } from '@/interface/TTheme';
+import { TThemeTypes } from '@/interface/TUiColors';
 
 type TStyledFancyLine = IStyledPrefixAndPicker<IFancyLine> & { theme?: TTheme };
 const StyledFancyLine = styled.hr<TStyledFancyLine>`

@@ -4,7 +4,7 @@ import { styled } from 'styled-components';
 import IHeadLine from './FancyModalHeadLine.model';
 import Typography from '../../atoms/Typography/Typography';
 import FancyLine from '../../atoms/FancyLine/FancyLine';
-import { TTheme } from '@/components/core/interface/TTheme';
+import { TTheme } from '@/interface/TTheme';
 
 const StyledHeadLine = styled.div<{ $alignCenter?: boolean; theme: TTheme }>`
   display: flex;

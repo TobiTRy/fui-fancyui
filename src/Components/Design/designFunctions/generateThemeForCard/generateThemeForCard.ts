@@ -1,11 +1,11 @@
 import { css } from 'styled-components';
 
-import { TThemeTypes } from '@/components/core/interface/TUiColors';
-import { TLayer } from '@/components/core/interface/TLayer';
-import IStyledPrefixAndPicker from '../../../core/interface/IStyledPrefixAndPicker.model';
+import { TThemeTypes } from '@/interface/TUiColors';
+import { TLayer } from '@/interface/TLayer';
+import IStyledPrefixAndPicker from '../../../../interface/IStyledPrefixAndPicker.model';
 import { getBackgroundColor } from '../../color/colorCalculatorForComponent/colorCalculatorForComponet';
 import colorTransparencyCalculator from '../../color/colorTransparencyCalculator/colorTransparencyCalculator';
-import { TTheme } from '@/components/core/interface/TTheme';
+import { TTheme } from '@/interface/TTheme';
 
 export interface IgenerateThemeForCard {
   outlined?: boolean;

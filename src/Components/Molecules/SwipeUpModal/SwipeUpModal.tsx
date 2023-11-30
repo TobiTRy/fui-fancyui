@@ -8,7 +8,7 @@ import UseDelay from '../../utils/hooks/useDelay/UseDelay';
 import ScalingSection from '../ScalingSection/ScalingSection';
 import { Content, ContentBox, WrapperAnimated, WrapperContent, WrapperModal } from './SwipeUpModal.style';
 import { ISwipeUpModal } from './ISwipeUpModal.model';
-import { TModalStatus } from '../../core/interface/TModalStatus';
+import { TModalStatus } from '../../../interface/TModalStatus';
 
 // --------------------------------------------------------------------------- //
 // ----------- The Modal Molecule the displays the complete modal - ---------- //

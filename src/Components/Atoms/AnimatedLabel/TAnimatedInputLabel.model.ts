@@ -1,6 +1,6 @@
-import { TLayer } from '@/components/core/interface/TLayer';
-import { TTheme } from '@/components/core/interface/TTheme';
-import { TThemeTypes } from '@/components/core/interface/TUiColors';
+import { TLayer } from '@/interface/TLayer';
+import { TTheme } from '@/interface/TTheme';
+import { TThemeTypes } from '@/interface/TUiColors';
 
 export interface IAnimatedInputLabel {
   $align?: 'center' | 'left';

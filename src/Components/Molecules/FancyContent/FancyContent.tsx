@@ -4,8 +4,8 @@ import { styled } from 'styled-components';
 
 import { FancyContentIcon } from './utils/FancyContentIcon';
 import { FancyContentDescription, FancyContentTitle } from './utils/FancyContentText';
-import IStyledPrefixAndPicker from '../../core/interface/IStyledPrefixAndPicker.model';
-import { TTheme } from '@/components/core/interface/TTheme';
+import IStyledPrefixAndPicker from '../../../interface/IStyledPrefixAndPicker.model';
+import { TTheme } from '@/interface/TTheme';
 
 // Define the types for the Wrapper component
 type TWrapper = IStyledPrefixAndPicker<

@@ -1,9 +1,9 @@
 import { styled } from 'styled-components';
 
 import { MenuListProps } from './MenuList';
-import IStyledPrefixAndOmitter from '../../core/interface/IStyledPrefixAndOmiter.model';
+import IStyledPrefixAndOmitter from '../../../interface/IStyledPrefixAndOmiter.model';
 import generateThemeForCard from '../../design/designFunctions/generateThemeForCard/generateThemeForCard';
-import { TTheme } from '@/components/core/interface/TTheme';
+import { TTheme } from '@/interface/TTheme';
 
 type StyledMenuProps = IStyledPrefixAndOmitter<MenuListProps> & { theme: TTheme };
 

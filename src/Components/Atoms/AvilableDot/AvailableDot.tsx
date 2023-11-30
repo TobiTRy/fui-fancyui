@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
 
-import { TTheme } from '@/components/core/interface/TTheme';
+import { TTheme } from '@/interface/TTheme';
 
 // --------------------------------------------------------------------------- //
 // ---------- A little Circle that indicates if something is avilable -------- //

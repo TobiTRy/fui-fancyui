@@ -33,7 +33,7 @@ import MiniProfileroute from './Routes/MiniProfileRoute/MiniProfileroute';
 import ChipsRoute from './Routes/ChipsRoute/ChipsRoute';
 import CheckboxRoute from './Routes/CheckboxRoute/CheckboxRoute';
 import ColorGeneratorRoute from './Routes/ColorGeneratorRoute/ColorGeneratorRoute';
-import { TTheme } from '@/components/core/interface/TTheme';
+import { TTheme } from '@/interface/TTheme';
 import themeStore from './components/design/theme/themeStore/themeStore';
 import GlobalStyle from './GlobalStyle';
 import FancyContentRoute from './Routes/FancyContentRoute/FancyContentRoute';

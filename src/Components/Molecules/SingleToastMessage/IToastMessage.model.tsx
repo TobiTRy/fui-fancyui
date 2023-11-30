@@ -1,5 +1,5 @@
-import { TSystemMessageProps } from '../../core/interface/TSystemMessageProps';
-import { TLayer } from '@/components/core/interface/TLayer';
+import { TSystemMessageProps } from '../../../interface/TSystemMessageProps';
+import { TLayer } from '@/interface/TLayer';
 
 type IToastMessage = {
   id: number;

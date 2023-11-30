@@ -1,8 +1,8 @@
-import { TThemeTypes } from '@/components/core/interface/TUiColors';
-import { TLayer } from '@/components/core/interface/TLayer';
-import { TBorderRadiusSizes } from '@/components/core/interface/TBorderRadius';
+import { TThemeTypes } from '@/interface/TUiColors';
+import { TLayer } from '@/interface/TLayer';
+import { TBorderRadiusSizes } from '@/interface/TBorderRadius';
 import { ITabSwitchDetailsLabelIcon, ITabSwitchDetailsChildren } from '../FancyTabSwitchButton/FancyTabSwitchButton.model';
-import { TSpacings } from '../../core/interface/TSpacings';
+import { TSpacings } from '../../../interface/TSpacings';
 
 export interface ITabSwitchProps {
   wide?: boolean;

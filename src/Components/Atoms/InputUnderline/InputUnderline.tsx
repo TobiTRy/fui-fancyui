@@ -1,11 +1,11 @@
 import React from 'react';
 import { styled, css } from 'styled-components';
 
-import IStyledPrefixAndPicker from '../../core/interface/IStyledPrefixAndPicker.model';
-import { TThemeTypes } from '@/components/core/interface/TUiColors';
-import { TLayer } from '@/components/core/interface/TLayer';
+import IStyledPrefixAndPicker from '../../../interface/IStyledPrefixAndPicker.model';
+import { TThemeTypes } from '@/interface/TUiColors';
+import { TLayer } from '@/interface/TLayer';
 import { getBackgroundColor } from '../../design/color/colorCalculatorForComponent/colorCalculatorForComponet';
-import { TTheme } from '@/components/core/interface/TTheme';
+import { TTheme } from '@/interface/TTheme';
 
 // Define the styled component for the underline
 type IStyledUnderline = IStyledPrefixAndPicker<IFancyUnderline>;

@@ -1,10 +1,10 @@
 import React from 'react';
 
 import { Placeholder, StyledImage, TSize } from './FancyProfilePicture.style';
-import { TThemeTypes } from '@/components/core/interface/TUiColors';
-import { TLayer } from '@/components/core/interface/TLayer';
+import { TThemeTypes } from '@/interface/TUiColors';
+import { TLayer } from '@/interface/TLayer';
 import { Typography } from '../Typography';
-import { TTypography } from '@/components/core/interface/TTypography';
+import { TTypography } from '@/interface/TTypography';
 
 // generate the text size based on the size prop
 const getTextSize = (size: TSize | string): TTypography => {

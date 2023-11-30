@@ -2,7 +2,7 @@ import React from 'react';
 
 import { InnerCard, StyledCard } from './FancyCard.style';
 import { StyledCardProps } from './Card.model';
-import { TLayer } from '@/components/core/interface/TLayer';
+import { TLayer } from '@/interface/TLayer';
 
 // --------------------------------------------------------------------------- //
 // ---------- The card is there to wrapp some content or components ---------- //

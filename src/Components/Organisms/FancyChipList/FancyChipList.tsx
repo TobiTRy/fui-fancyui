@@ -2,12 +2,12 @@ import React, { KeyboardEvent, useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 import { Fieldset } from '../../molecules/Fieldset';
-import { TLayer } from '@/components/core/interface/TLayer';
+import { TLayer } from '@/interface/TLayer';
 import ChipList from '../../molecules/ChipList/ChipList';
 import { FancyChip } from '../FancyChip';
 import { InputLi } from './FancyChipList.style';
-import { TThemeTypes } from '@/components/core/interface/TUiColors';
-import { TUiColorsSystemMessage } from '@/components/core/interface/TUiColorsSystemMessage';
+import { TThemeTypes } from '@/interface/TUiColors';
+import { TUiColorsSystemMessage } from '@/interface/TUiColorsSystemMessage';
 
 // Defining the interface for the component's props
 export interface ChipListProps {

@@ -1,10 +1,10 @@
 import React, { useState, createRef, useEffect } from 'react';
 
 import SingleInputAtom from '../../atoms/SingleInputAtom/SingleInputAtom';
-import IStatus from '../../core/interface/IStatus';
+import IStatus from '../../../interface/IStatus';
 import { InputWrapper } from './SingleInputs.style';
-import { TThemeTypes } from '@/components/core/interface/TUiColors';
-import { TLayer } from '@/components/core/interface/TLayer';
+import { TThemeTypes } from '@/interface/TUiColors';
+import { TLayer } from '@/interface/TLayer';
 
 interface IFancySingleInputsProps {
   length?: number;

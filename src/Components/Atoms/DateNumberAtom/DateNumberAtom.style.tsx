@@ -2,10 +2,10 @@ import { css, styled } from 'styled-components';
 
 import { IRange } from './DateNumberAtom';
 import { disabledStyle } from '../../design/designFunctions/disabledStyle/disableStyle';
-import { TThemeTypes } from '@/components/core/interface/TUiColors';
-import { TLayer } from '@/components/core/interface/TLayer';
+import { TThemeTypes } from '@/interface/TUiColors';
+import { TLayer } from '@/interface/TLayer';
 import { getTextColor } from '../../design/color/colorCalculatorForComponent/colorCalculatorForComponet';
-import { TTheme } from '@/components/core/interface/TTheme';
+import { TTheme } from '@/interface/TTheme';
 
 // --------------------------------------------------------------------------- //
 // ----------------- The Style for one Day with diferent sates --------------- //

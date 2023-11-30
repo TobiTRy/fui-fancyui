@@ -4,7 +4,7 @@ import InputLabel from '@/components/atoms/InputLabel/InputLabel';
 import { IAnimatedInputLabel } from './TAnimatedInputLabel.model';
 
 import { getTextColor } from '@/components/design/color/colorCalculatorForComponent/colorCalculatorForComponet';
-import { TTheme } from '@/components/core/interface/TTheme';
+import { TTheme } from '@/interface/TTheme';
 
 const activeHandler = (align: string, $moveUp?: boolean) => {
   if (align !== 'center') {

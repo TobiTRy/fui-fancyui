@@ -1,5 +1,5 @@
 import { styled } from 'styled-components';
-import IStyledPrefixAndPicker from '../../../core/interface/IStyledPrefixAndPicker.model';
+import IStyledPrefixAndPicker from '../../../../interface/IStyledPrefixAndPicker.model';
 
 interface FancyGridItemProps {
   gridSpace: number;

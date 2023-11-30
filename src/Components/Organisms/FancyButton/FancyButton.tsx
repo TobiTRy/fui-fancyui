@@ -7,8 +7,8 @@ import FancyContent from '../../molecules/FancyContent/FancyContent';
 import { generateFancyButton } from './FancyButton.style';
 
 import { IButton } from '../../molecules/Button/Button';
-import { TTypography } from '@/components/core/interface/TTypography';
-import { TBorderRadiusSizes } from '@/components/core/interface/TBorderRadius';
+import { TTypography } from '@/interface/TTypography';
+import { TBorderRadiusSizes } from '@/interface/TBorderRadius';
 
 const alignment = {
   left: 'flex-start' as const,

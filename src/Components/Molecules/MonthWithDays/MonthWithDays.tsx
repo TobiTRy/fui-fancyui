@@ -8,8 +8,8 @@ import Typography from '../../atoms/Typography/Typography';
 import Day from './day.model';
 import createDaysOfMonth from './helperFunctions/createDaysOfMonth';
 import { IDateWithExternalState, IExternalMonthWithDays } from './IExternalMonthWithDays.model';
-import { TThemeTypes } from '@/components/core/interface/TUiColors';
-import { TLayer } from '@/components/core/interface/TLayer';
+import { TThemeTypes } from '@/interface/TUiColors';
+import { TLayer } from '@/interface/TLayer';
 
 const getFirstDayOfMonth = (month: number, year: number): number => {
   return new Date(year, month - 1, 1).getDay() || 7;

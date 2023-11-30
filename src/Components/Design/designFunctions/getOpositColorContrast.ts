@@ -1,7 +1,7 @@
 import Color from 'color';
 
-import { TThemeTypes } from '@/components/core/interface/TUiColors';
-import { TLayer } from '@/components/core/interface/TLayer';
+import { TThemeTypes } from '@/interface/TUiColors';
+import { TLayer } from '@/interface/TLayer';
 import themeStore from '../theme/themeStore/themeStore';
 
 const filpThemeColor = (isLightColor: boolean) => {

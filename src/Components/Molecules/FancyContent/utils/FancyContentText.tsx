@@ -2,7 +2,7 @@ import { CSSProp } from 'styled-components';
 
 import Typography from '../../../atoms/Typography/Typography';
 import { sizes } from './sizeSettings';
-import { TTypography } from '@/components/core/interface/TTypography';
+import { TTypography } from '@/interface/TTypography';
 
 type IFancyContentTextProps = {
   children?: React.ReactNode;

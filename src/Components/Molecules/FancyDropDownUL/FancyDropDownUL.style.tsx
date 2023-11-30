@@ -2,12 +2,12 @@ import { styled, css } from 'styled-components';
 
 import CalculateBorderRadiusOnAlignment from '../../design/designFunctions/CalculateBorderRadiusOnAlignment';
 import { IFancyUL } from './FancyDropDownUL';
-import IStyledPrefixAndPicker from '../../core/interface/IStyledPrefixAndPicker.model';
+import IStyledPrefixAndPicker from '../../../interface/IStyledPrefixAndPicker.model';
 import { boxShadow } from '../../design/designFunctions/shadows/shadows';
-import { TThemeTypes } from '@/components/core/interface/TUiColors';
-import { TLayer } from '@/components/core/interface/TLayer';
+import { TThemeTypes } from '@/interface/TUiColors';
+import { TLayer } from '@/interface/TLayer';
 import { getBackgroundColor } from '../../design/color/colorCalculatorForComponent/colorCalculatorForComponet';
-import { TTheme } from '@/components/core/interface/TTheme';
+import { TTheme } from '@/interface/TTheme';
 
 // --------------------------------------------------------------------------- //
 // ------- the generator function for the Wrapper of the UL ------------------ //
