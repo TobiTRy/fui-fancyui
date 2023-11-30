@@ -120,11 +120,12 @@ export { default as FancyPortal } from '@/components/utils/components/FancyPorta
 export { default as useIntersectionObserver } from '@/components/utils/hooks/useIntersectionObserver/useIntersectionObserver';
 export { default as useWindowDimensions } from '@/components/utils/hooks/useWindowDimensions/useWindowDimensions';
 
-// ---------- ThemeGenerators ------- //
+// ---------- Design ------- //
 export { default as generateThemeForCard } from '@/design/designFunctions/generateThemeForCard/generateThemeForCard';
 export { default as disabledStyle } from '@/design/designFunctions/disabledStyle/disableStyle';
 export { default as generateBorderRadiusForComponent } from '@/design/designFunctions/generateBorderRadiusForComponent/generateBorderRadiusForComponent';
 export { default as shadows } from '@/design/designFunctions/shadows/shadows';
+export { default as getSimpleColorThemeType } from '@/design/designFunctions/getSimpleColorThemeType/getSimpleColorThemeType';
 
 // ---------- Interfaces ------- //
 export * from '@/interface';
