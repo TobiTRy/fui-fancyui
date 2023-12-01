@@ -1,5 +1,5 @@
 import Color from 'color';
-import isColorValid from '../../../components/utils/validations/isColorValid/isColorValid';
+import isColorValid from '../../../utils/validations/isColorValid/isColorValid';
 
 const colorTransparencyCalculator = (color: string, transparency: number) => {
   if (transparency > 1 || transparency < 0) throw new Error('transparency must be between 0 and 1');

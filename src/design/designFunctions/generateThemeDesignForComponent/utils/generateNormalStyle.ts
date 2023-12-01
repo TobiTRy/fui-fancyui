@@ -1,5 +1,5 @@
 import { css } from 'styled-components';
-import { getBackgroundColor, getTextColor } from '../../colorCalculatorForComponent/colorCalculatorForComponet';
+import { getBackgroundColor, getTextColor } from '../../colorCalculatorForComponent/colorCalculatorForComponent';
 import { IGenerateThemeDesignForComponent } from '../generateThemeDesignForComponent';
 import { generateStateStyle } from './generateHoverActiveColor';
 

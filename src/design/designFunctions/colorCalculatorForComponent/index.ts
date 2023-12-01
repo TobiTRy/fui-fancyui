@@ -1,3 +1,3 @@
-export { getBackgroundColor } from './colorCalculatorForComponet';
-export { getTextColor } from './colorCalculatorForComponet';
-export { default as getColorsForComponent } from './colorCalculatorForComponet';
+export { getBackgroundColor } from './colorCalculatorForComponent';
+export { getTextColor } from './colorCalculatorForComponent';
+export { default as getColorsForComponent } from './colorCalculatorForComponent';

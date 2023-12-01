@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import useIntersectionObserver from '../../../utils/hooks/useIntersectionObserver/useIntersectionObserver';
+import useIntersectionObserver from '../../../../utils/hooks/useIntersectionObserver/useIntersectionObserver';
 
 // the hook for handle the visible months and add the next and previous months
 export default function useVisibleMonths(isScrolled: boolean) {

@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 
 import IStyledPrefixAndPicker from '../../../interface/IStyledPrefixAndPicker.model';
-import { getTextColor } from '../../../design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponet';
+import { getTextColor } from '../../../design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponent';
 import { IgenerateThemeForCard } from '../../../design/designFunctions/generateThemeForCard/generateThemeForCard';
 import { TTheme } from '@/interface/TTheme';
 

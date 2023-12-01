@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { StyledImage } from './FancyImage.style';
-import { isAspectRatioValid } from '@/components/utils/validations/isAspectRatioValid';
+import { isAspectRatioValid } from '@/utils/validations/isAspectRatioValid';
 
 // Define the props for the FancyImage component
 export interface IFancyImage {

@@ -5,7 +5,7 @@ import { disabledStyle } from '../disabledStyle/disableStyle';
 import { generatePadding } from '../generatePaddingForComponent/generatePadding';
 import { boxShadow } from '../shadows/shadows';
 import themeStore from '../../theme/themeStore/themeStore';
-import { getBackgroundColor } from '../colorCalculatorForComponent/colorCalculatorForComponet';
+import { getBackgroundColor } from '../colorCalculatorForComponent/colorCalculatorForComponent';
 import flipThemeColor from '../flipThemeColor/flipThemeColor';
 import { IGenerateThemeItem } from './IGenerateThemeItemProps.model';
 

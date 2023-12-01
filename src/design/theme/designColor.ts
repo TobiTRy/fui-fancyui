@@ -1,6 +1,6 @@
 import { TUiColorsType } from '@/interface/TUiColorsType';
 import generateColorSteps from './generateColorSteps';
-import isColorValid from '../../components/utils/validations/isColorValid/isColorValid';
+import isColorValid from '../../utils/validations/isColorValid/isColorValid';
 import { TThemeTypes } from '../../interface';
 
 const themeColors = {

@@ -1,5 +1,5 @@
 import { css } from 'styled-components';
-import { getBackgroundColor } from '../../colorCalculatorForComponent/colorCalculatorForComponet';
+import { getBackgroundColor } from '../../colorCalculatorForComponent/colorCalculatorForComponent';
 import colorTransparencyCalculator from '../../colorTransparencyCalculator/colorTransparencyCalculator';
 import { IGenerateThemeDesignForComponent } from '../generateThemeDesignForComponent';
 import { TLayer } from '@/interface/TLayer';

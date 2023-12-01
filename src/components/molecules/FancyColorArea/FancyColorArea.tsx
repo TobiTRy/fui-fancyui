@@ -1,7 +1,7 @@
 import React from 'react';
 import Color from 'color';
 
-import useSlider from '../../utils/hooks/useSlider/useSilder';
+import useSlider from '../../../utils/hooks/useSlider/useSilder';
 import {
   WrapperColorArea,
   ColorAreaContainer,

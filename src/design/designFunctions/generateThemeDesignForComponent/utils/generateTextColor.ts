@@ -1,4 +1,4 @@
-import { getBackgroundColor } from '../../colorCalculatorForComponent/colorCalculatorForComponet';
+import { getBackgroundColor } from '../../colorCalculatorForComponent/colorCalculatorForComponent';
 import themeStore from '../../../theme/themeStore/themeStore';
 import { IGenerateThemeDesignForComponent } from '../generateThemeDesignForComponent';
 

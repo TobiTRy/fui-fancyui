@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 
-import { getBackgroundColor } from '../../../../design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponet';
+import { getBackgroundColor } from '../../../../design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponent';
 import colorTransparencyCalculator from '../../../../design/designFunctions/colorTransparencyCalculator/colorTransparencyCalculator';
 import { IActiveSwitchIndicator } from '../SwitchActiveIndicator';
 import themeStore from '@/design/theme/themeStore/themeStore';

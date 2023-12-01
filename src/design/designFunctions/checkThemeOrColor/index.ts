@@ -1,1 +1,1 @@
-export { default as checkThemeOrColor } from './ckeckThemeOrColor';
+export { default as checkThemeOrColor } from './checkThemeOrColor';

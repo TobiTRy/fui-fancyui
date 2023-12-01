@@ -4,7 +4,7 @@ import Typography from '../../atoms/Typography/Typography';
 import FancyContent from '../FancyContent/FancyContent';
 import { ITabSwitchButtonProps } from './FancyTabSwitchButton.model';
 import { SwitchButtonStyle } from './FancyTabSwitchButton.style';
-import { leftRightToFlex } from '../../utils/functions/leftRightToFlex';
+import { leftRightToFlex } from '../../../utils/functions/leftRightToFlex';
 
 // ------------------------------------------------------------------ //
 // ------------- main component for the tab (li item) --------------- //

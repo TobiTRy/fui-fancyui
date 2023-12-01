@@ -4,7 +4,7 @@ import { fontSize } from '../../../design/theme/designSizes';
 import colorTransparencyCalculator from '../../../design/designFunctions/colorTransparencyCalculator/colorTransparencyCalculator';
 import { boxShadow } from '../../../design/designFunctions/shadows/shadows';
 import { TLayer } from '@/interface/TLayer';
-import { getBackgroundColor } from '../../../design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponet';
+import { getBackgroundColor } from '../../../design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponent';
 import { TTheme } from '@/interface/TTheme';
 
 type ToastMessageProps = 'success' | 'warning' | 'error' | 'info';

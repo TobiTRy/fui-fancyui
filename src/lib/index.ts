@@ -114,18 +114,27 @@ export { default as FancyFlexBox } from '@/components/templates/FancyFlexBox/Fan
 export { default as FancyHandyNav } from '@/components/templates/FancyHandyNav/FancyHandyNav';
 
 // ---------- Utils ------- //
-export { default as FancyPopover } from '@/components/utils/components/FancyPopover/FancyPopover';
-export { default as UseDelay } from '@/components/utils/components/UseDelay/UseDelay';
-export { default as FancyPortal } from '@/components/utils/components/FancyPortal/FancyPortal';
-export { default as useIntersectionObserver } from '@/components/utils/hooks/useIntersectionObserver/useIntersectionObserver';
-export { default as useWindowDimensions } from '@/components/utils/hooks/useWindowDimensions/useWindowDimensions';
+export { default as FancyPopover } from '@/utils/components/FancyPopover/FancyPopover';
+export { default as UseDelay } from '@/utils/components/UseDelay/UseDelay';
+export { default as FancyPortal } from '@/utils/components/FancyPortal/FancyPortal';
+export { default as useIntersectionObserver } from '@/utils/hooks/useIntersectionObserver/useIntersectionObserver';
+export { default as useWindowDimensions } from '@/utils/hooks/useWindowDimensions/useWindowDimensions';
 
 // ---------- Design ------- //
-export { default as generateThemeForCard } from '@/design/designFunctions/generateThemeForCard/generateThemeForCard';
+export { default as calcBorderRadiusOnAlignment } from '@/design/designFunctions/calcBorderRadiusOnAlignment/calcBorderRadiusOnAlignment';
+export { default as calcColorState } from '@/design/designFunctions/calcColorState/calcColorState';
+export { default as checkThemeOrColor } from '@/design/designFunctions/checkThemeOrColor/checkThemeOrColor';
+export { getColorsForComponent, getBackgroundColor, getTextColor } from '@/design/designFunctions/colorCalculatorForComponent';
+export { default as colorTransparencyCalculator } from '@/design/designFunctions/colorTransparencyCalculator/colorTransparencyCalculator';
 export { default as disabledStyle } from '@/design/designFunctions/disabledStyle/disableStyle';
+export { default as flipThemeColor } from '@/design/designFunctions/flipThemeColor/flipThemeColor';
 export { default as generateBorderRadiusForComponent } from '@/design/designFunctions/generateBorderRadiusForComponent/generateBorderRadiusForComponent';
-export { default as shadows } from '@/design/designFunctions/shadows/shadows';
+export { default as generateThemeItem } from '@/design/designFunctions/generateItemTheme/generateThemeItem';
+export { default as generateSystemIndicatorStyle } from '@/design/designFunctions/generateSystemIndicatorStyle/generateSystemIndicatorStyle';
+export { default as generateThemeDesignForComponent } from '@/design/designFunctions/generateThemeDesignForComponent/generateThemeDesignForComponent';
+export { default as generateThemeForCard } from '@/design/designFunctions/generateThemeForCard/generateThemeForCard';
 export { default as getSimpleColorThemeType } from '@/design/designFunctions/getSimpleColorThemeType/getSimpleColorThemeType';
+export { default as shadows } from '@/design/designFunctions/shadows/shadows';
 
 // ---------- Interfaces ------- //
 export * from '@/interface';

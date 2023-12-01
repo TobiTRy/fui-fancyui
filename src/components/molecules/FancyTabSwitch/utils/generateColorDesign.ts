@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 
-import { getBackgroundColor } from '../../../../design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponet';
+import { getBackgroundColor } from '../../../../design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponent';
 import { tabSwitchSizes } from '../../TabSwitch/TabSwitch.style';
 import { IFancyTabSwitchStyle } from '../FancyTabSwitch.style';
 import colorTransparencyCalculator from '../../../../design/designFunctions/colorTransparencyCalculator/colorTransparencyCalculator';
