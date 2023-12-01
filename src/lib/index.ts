@@ -113,7 +113,7 @@ export { default as FancyRadioList } from '@/components/templates/FancyRadioList
 export { default as FancyFlexBox } from '@/components/templates/FancyFlexBox/FancyFlexBox';
 export { default as FancyHandyNav } from '@/components/templates/FancyHandyNav/FancyHandyNav';
 
-// ---------- Utils ------- //
+// ---------- Utils/Hooks ------- //
 export { default as FancyPopover } from '@/utils/components/FancyPopover/FancyPopover';
 export { default as UseDelay } from '@/utils/components/UseDelay/UseDelay';
 export { default as FancyPortal } from '@/utils/components/FancyPortal/FancyPortal';
