@@ -62,8 +62,8 @@ export default function InputWrapper(props: IInputWrapper) {
   const [isInitial, setIsInitial] = useState(false);
 
   // Calculate the color state for the label and underline
-  const colorStateLabel = calcColorState({ type: 'label', isActive, errorMessage, value, placeholder });
-  const colorStateUnderline = calcColorState({ type: 'underline', isActive, errorMessage, value, placeholder });
+  const colorStateLabel = calcColorState({ type: 'text', isActive, errorMessage, value, placeholder });
+  const colorStateUnderline = calcColorState({ type: 'item', isActive, errorMessage, value, placeholder });
 
   // Set the initial state of the input field
   useEffect(() => {

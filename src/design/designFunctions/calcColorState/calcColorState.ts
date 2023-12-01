@@ -1,5 +1,5 @@
 interface IColorState {
-  type: 'underline' | 'label';
+  type: 'item' | 'text';
   isActive?: boolean;
   errorMessage?: string;
   value?: string | number | readonly string[] | undefined;
@@ -10,7 +10,7 @@ interface IColorState {
 const calcColorState = ({ type, isActive, errorMessage, value, placeholder }: IColorState) => {
   if (errorMessage) return 'error';
   if (isActive) return 'active';
-  if (value && type !== 'underline') return 'active';
+  if (value && type !== 'item') return 'active';
   if (placeholder) return 'default';
   return 'default';
 };

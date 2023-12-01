@@ -19,7 +19,7 @@ export default function FancyRangeSlider(props: IFancyRangeSlider) {
 
   const id = useId();
 
-  const colorStateLabel = calcColorState({ type: 'label', isActive: isActive || toutched, value });
+  const colorStateLabel = calcColorState({ type: 'text', isActive: isActive || toutched, value });
 
   // this function is called when the slider is moved
   const changeHandler = (e: ChangeEvent<HTMLInputElement>) => {
