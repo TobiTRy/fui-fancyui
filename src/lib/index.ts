@@ -132,3 +132,13 @@ export * from '@/interface';
 
 // ---------- Store ------- //
 export { default as themeStore } from '@/design/theme/themeStore/themeStore';
+
+// ---------- SVGs ------- //
+export { default as SVGClipBoardIcon } from '@/components/icons/SVGClipBoardIcon/SVGClipBoardIcon';
+export { default as SVGClipBoardIconChecked } from '@/components/icons/SVGClipBoardIconChecked/SVGClipBoardIconChecked';
+export { default as SVGEyeCrossed } from '@/components/icons/SVGEyeCrossed/SVGEyeCrossed';
+export { default as SVGEyeOpen } from '@/components/icons/SVGEyeOpen/SVGEyeOpen';
+export { default as SVGLoadingArrows } from '@/components/icons/SVGLoadingArrows/SVGLoadingArrows';
+export { default as SVGPlus } from '@/components/icons/SVGPlus/SVGPlus';
+export { default as SVGSearch } from '@/components/icons/SVGSearch/SVGSearch';
+export { default as SVGXCircle } from '@/components/icons/SVGXCircle/SVGXCircle';
