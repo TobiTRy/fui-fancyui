@@ -115,7 +115,7 @@ export { default as FancyHandyNav } from '@/components/templates/FancyHandyNav/F
 
 // ---------- Utils/Hooks ------- //
 export { default as FancyPopover } from '@/components/shared/FancyPopover/FancyPopover';
-export { default as UseDelay } from '@/components/shared/UseDelay/UseDelay';
+export { default as Delay } from '@/components/shared/Delay/Delay';
 export { default as FancyPortal } from '@/components/shared/FancyPortal/FancyPortal';
 export { default as useIntersectionObserver } from '@/utils/hooks/useIntersectionObserver/useIntersectionObserver';
 export { default as useWindowDimensions } from '@/utils/hooks/useWindowDimensions/useWindowDimensions';

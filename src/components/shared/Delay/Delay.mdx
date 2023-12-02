@@ -1,6 +1,6 @@
-# UseDelay Component
+# Delay Component
 
-The `UseDelay` component is a React component designed to delay the rendering of its children based on an external boolean state and a specified delay time.
+The `Delay` component is a React component designed to delay the rendering of its children based on an external boolean state and a specified delay time.
 
 ## Props
 
@@ -14,7 +14,7 @@ The component accepts the following props:
 
 ```jsx
 import React, { useState } from 'react';
-import UseDelay from './UseDelay';
+import Delay from './Delay';
 
 function Example() {
   const [show, setShow] = useState(false);
@@ -22,15 +22,15 @@ function Example() {
   return (
     <div>
       <button onClick={() => setShow(!show)}>Toggle</button>
-      <UseDelay externalStateBool={show} delay={500}>
+      <Delay externalStateBool={show} delay={500}>
         <div>Delayed content</div>
-      </UseDelay>
+      </Delay>
     </div>
   );
 }
 ```
 
-In this example, the content within `UseDelay` will render only after the `show` state becomes true and after a delay of 500 milliseconds.
+In this example, the content within `Delay` will render only after the `show` state becomes true and after a delay of 500 milliseconds.
 
 ## Implementation Details
 

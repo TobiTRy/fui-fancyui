@@ -1,12 +1,12 @@
 import React, { useEffect, useState, useRef } from 'react';
 
-interface IUseDelay {
+interface IDelay {
   children: React.ReactNode;
   externalStateBool?: boolean;
   delay?: number;
 }
 
-export default function UseDelay({ children, externalStateBool, delay }: IUseDelay) {
+export default function Delay({ children, externalStateBool, delay }: IDelay) {
   const [mountState, setMountState] = useState<boolean>(false);
   const timeoutId = useRef<NodeJS.Timeout | null>(null); // Keep track of the timeout
 

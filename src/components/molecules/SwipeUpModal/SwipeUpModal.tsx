@@ -4,7 +4,7 @@ import { animated, useTransition } from '@react-spring/web';
 import useWindowDimensions from '../../../utils/hooks/useWindowDimensions/useWindowDimensions';
 import SwipeUpContainer from '../../atoms/SwipeUpContainer/SwipeUpContainer';
 import BackDrop from '../../atoms/BackDrop/BackDrop';
-import UseDelay from '../../shared/UseDelay/UseDelay';
+import Delay from '../../shared/Delay/Delay';
 import ScalingSection from '../ScalingSection/ScalingSection';
 import { Content, ContentBox, WrapperAnimated, WrapperContent, WrapperModal } from './SwipeUpModal.style';
 import { ISwipeUpModal } from './ISwipeUpModal.model';
@@ -91,7 +91,7 @@ export default function SwipeUpModal(props: ISwipeUpModal) {
   }, [isOpen]);
 
   return (
-    <UseDelay externalStateBool={statusModal === 'open'}>
+    <Delay externalStateBool={statusModal === 'open'}>
       <WrapperModal>
         {openTransition(
           (styles, item) =>
@@ -121,7 +121,7 @@ export default function SwipeUpModal(props: ISwipeUpModal) {
         )}
         {backdrop && <BackDrop isOpen={statusModal === 'open'} onClick={() => closeModal('intercation')} />}
       </WrapperModal>
-    </UseDelay>
+    </Delay>
   );
 }
 

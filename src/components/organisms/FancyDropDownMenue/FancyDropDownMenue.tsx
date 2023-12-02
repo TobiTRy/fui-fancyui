@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import FancyUL, { IFancyUL } from '../../molecules/FancyDropDownUL/FancyDropDownUL';
-import UseDelay from '../../shared/UseDelay/UseDelay';
+import Delay from '../../shared/Delay/Delay';
 import { TLayer } from '@/interface/TLayer';
 import { TThemeTypes } from '@/interface/TUiColors';
 
@@ -31,10 +31,10 @@ export default function FancyDropDownMenue(props: IFancyDropDownMenue) {
     }
   }, [isOpen]);
 
-  // This component returns the FancyUL component wrapped in a UseDelay component
+  // This component returns the FancyUL component wrapped in a Delay component
   return fristRender ? (
-    <UseDelay delay={600} externalStateBool={isOpenState}>
+    <Delay delay={600} externalStateBool={isOpenState}>
       <FancyUL isOpen={isOpen} {...props} />
-    </UseDelay>
+    </Delay>
   ) : null;
 }
