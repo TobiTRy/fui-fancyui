@@ -1,3 +1,6 @@
+// --------------------------------------------------------------------------- //
+// ------------------- function to copy to the Clipboard --------------------- //
+// --------------------------------------------------------------------------- //
 const copyToClipboard = async (value: string) => {
   // Create a textarea element
   const textarea = document.createElement('textarea');
