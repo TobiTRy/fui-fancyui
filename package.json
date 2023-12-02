@@ -2,16 +2,15 @@
   "name": "@mrtryy/fancyuilibary",
   "description": "FancyUI Libary",
   "private": false,
-  "version": "0.1.130",
+  "version": "0.1.159",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "dev-network": "vite --host",
-    "build": "tsc && vite build",
+    "build": "tsc --p ./tsconfig-build.json && vite build",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "prepare": "husky install",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --fix --max-warnings=-1",
     "checkFormat": "prettier --check .",
     "format": "prettier --write .",
@@ -89,13 +88,12 @@
     "dist"
   ],
   "sideEffects": false,
-  "main": "./dist/fui.umd.js",
-  "module": "./dist/fui.es.js",
-  "types": "./dist/index.d.ts",
+  "main": "dist/lib/index.js",
+  "types": "dist/lib/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/fui.es.js",
-      "require": "./dist/fui.cjs.js",
+      "import": "./dist/lib/index.js",
+      "require": "./dist/lib/index.js",
       "types": "./dist/index.d.ts"
     },
     "./package.json": "./package.json"

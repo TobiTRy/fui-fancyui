@@ -19,16 +19,19 @@ export default defineConfig({
   ],
   build: {
     copyPublicDir: false,
-    minify: true,
+
     lib: {
-      entry: path.resolve(__dirname, 'src/lib/index.ts'),
-      name: 'FUI',
-      formats: ['es', 'umd'],
-      fileName: (format) => `fui.${format}.js`,
+      entry: path.resolve(__dirname, './lib/index.ts'),
+      formats: ['es'],
     },
     rollupOptions: {
-      external: ['react', 'react-dom', 'styled-components'],
+      external: ['react', 'react-dom', 'styled-components', '@react-spring/web', 'react/jsx-runtime', 'color'],
       output: {
+        preserveModulesRoot: 'src',
+        preserveModules: true,
+        entryFileNames: ({ name: fileName }) => {
+          return `${fileName}.js`;
+        },
         globals: {
           react: 'React',
           'react-dom': 'ReactDOM',

@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useRef, useState } from 'react';
 
-import { FancyButton } from '../../lib';
+import { FancyButton } from '../../../lib';
 
 import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
 import Popover from '../../utils/components/FancyPopover/Popover';

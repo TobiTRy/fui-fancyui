@@ -35,7 +35,7 @@ import { TTheme } from '@/interface/TTheme';
 import themeStore from './design/theme/themeStore/themeStore';
 import GlobalStyle from './GlobalStyle';
 import FancyContentRoute from './Routes/FancyContentRoute/FancyContentRoute';
-import { FancyModal, FancySwipeUpModal } from './lib';
+import { FancyModal, FancySwipeUpModal } from '../lib';
 import SwitchesRoute from './Routes/Switches/SwitchesRoute';
 import MenueRoute from './Routes/MenuRoute/MenueRoute';
 import InfoCardRoute from './Routes/InfoCardRoute/InfoCardRoute';
