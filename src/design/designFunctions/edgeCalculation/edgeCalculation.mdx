@@ -1,0 +1,32 @@
+# `edgeCalculation` Function
+
+The `edgeCalculation` function is designed to compute the border-radius values for UI elements based on an array of up to four values. This function supports various types of inputs for the radius values, including predefined sizes from a theme, string, or number.
+
+## Input/Output
+
+### Input
+
+- **edges** (`IRoundedEdges`, optional): An array of up to four elements, each representing the border-radius for a corresponding edge (top, right, bottom, left). Each edge can be a `TBorderRadiusSizes`, `string`, or `number`.
+
+### Output
+
+- **Return Value**: A string representing the calculated border-radius values for each edge. The output format is suitable for CSS styling.
+
+## Example Usage
+
+```jsx
+import React from 'react';
+import { edgeCalculation } from 'path-to-edgeCalculation';
+
+const BoxComponent = () => {
+  const borderRadius = edgeCalculation(['small', 10, 'medium', 'large']);
+
+  return <div style={{ borderRadius: borderRadius }}>Styled Box</div>;
+};
+
+export default BoxComponent;
+```
+
+In this example, `edgeCalculation` is used to determine the border-radius for a `div` element. The array passed to `edgeCalculation` includes a mix of predefined size keys ('small', 'medium', 'large') and direct values (10), demonstrating the function's flexibility.
+
+Note: Ensure that the `borderRadius` object from your theme and the `TBorderRadiusSizes` type are correctly set up to use this function effectively.

@@ -1,0 +1,34 @@
+# `generateBorderRadiusForComponent` Function
+
+The `generateBorderRadiusForComponent` function is designed to generate CSS for the border-radius property of a component. It utilizes the `themeStore` to access predefined border-radius values and applies them based on the specified size or custom rounded value.
+
+## Input/Output
+
+### Input
+
+- **size** (`'sm' | 'md' | 'lg'`, optional): Specifies the predefined size of the border-radius ('small', 'medium', 'large').
+- **rounded** (`TBorderRadiusSizes`, optional): Custom border-radius size defined in the `TBorderRadius` type.
+
+### Output
+
+- **Return Value**: A CSS snippet (`css` from 'styled-components') setting the border-radius of the component.
+
+## Example Usage
+
+```jsx
+import React from 'react';
+import styled from 'styled-components';
+import { generateBorderRadiusForComponent } from 'path-to-generateBorderRadiusForComponent';
+
+const StyledDiv = styled.div`
+  ${generateBorderRadiusForComponent('md')}
+`;
+
+const ExampleComponent = () => {
+  return <StyledDiv>Content with medium border radius</StyledDiv>;
+};
+
+export default ExampleComponent;
+```
+
+This example shows how to use the `generateBorderRadiusForComponent` function to apply a medium border-radius to a styled `div` component in a React application.

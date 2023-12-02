@@ -1,0 +1,46 @@
+# `generateThemeItem` Component
+
+`generateThemeItem` is a comprehensive utility function designed for generating styled-components styles for UI elements, particularly buttons. It integrates several aspects like background color, text color, padding, border, and hover effects based on a set of props defined in the `IGenerateThemeItem` interface.
+
+## Input/Output
+
+### Input
+
+- **$themeType** (`string`): Specifies the theme type of the button.
+- **$outlined** (`boolean`): Determines if the button is outlined.
+- **$wide** (`boolean`): If true, the button is styled to be wide.
+- **$borderRadius** (`string`): Specifies the border radius.
+- **$size**, **$textColor**, **$label**, **$layer**, etc.: Various other props affecting size, color, label, layer, etc.
+
+### Output
+
+- **Return Value**: A styled-components CSS template literal.
+
+## Example Usage
+
+```jsx
+import React from 'react';
+import styled from 'styled-components';
+import { generateThemeItem } from 'path-to-generateThemeItem';
+
+const CustomButton = styled.button`
+  ${generateThemeItem({
+    $themeType: 'primary',
+    $outlined: false,
+    $wide: false,
+    $borderRadius: 'md',
+    $size: 'medium',
+    $textColor: 'white',
+    $label: 'Button Label',
+    $layer: 0,
+  })}
+`;
+
+const ExampleComponent = () => {
+  return <CustomButton>Click Me</CustomButton>;
+};
+
+export default ExampleComponent;
+```
+
+In this example, `CustomButton` is a styled button component that uses the `generateThemeItem` function to apply styles based on the given props. The styles include theme type, button size, border radius, text color, and other characteristics.

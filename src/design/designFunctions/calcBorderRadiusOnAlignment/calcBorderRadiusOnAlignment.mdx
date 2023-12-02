@@ -1,0 +1,37 @@
+# `calcBorderRadiusOnAlignment` Component
+
+The `calcBorderRadiusOnAlignment` function is designed to set the border radius on an element based on its alignment properties. This function is a part of a styled-components setup and leverages CSS-in-JS.
+
+## Input/Output
+
+### Input
+
+- **$alignHorizontal** (`'left' | 'center' | 'right'`, optional): Specifies the horizontal alignment of the element.
+- **$alignVertical** (`'top' | 'center' | 'bottom'`, optional): Specifies the vertical alignment of the element.
+- **$rouned** (`TBorderRadiusSizes`, optional): Specifies the border radius size.
+
+### Output
+
+- **Return Value**: A CSS snippet (from `styled-components`) that sets the border radius based on the given alignment properties.
+
+## Example Usage
+
+```jsx
+import React from 'react';
+import styled from 'styled-components';
+import { calcBorderRadiusOnAlignment } from 'path-to-calcBorderRadiusOnAlignment';
+
+const StyledDiv = styled.div`
+  ${(props) => calcBorderRadiusOnAlignment(props)}
+`;
+
+const ExampleComponent = () => (
+  <StyledDiv $alignHorizontal="left" $alignVertical="top" $rouned="lg">
+    Content
+  </StyledDiv>
+);
+
+export default ExampleComponent;
+```
+
+In this example, `calcBorderRadiusOnAlignment` is used in a styled component to dynamically set the border radius based on the alignment properties of the element.

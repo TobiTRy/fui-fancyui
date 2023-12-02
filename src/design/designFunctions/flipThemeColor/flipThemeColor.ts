@@ -8,16 +8,23 @@ const filpColor = (isLightColor: boolean) => {
   const isDarkTheme = themeStore.getState().isDarkTheme;
   const theme = themeStore.getState().theme;
 
-  if (!isDarkTheme) return isLightColor ? theme.colors['secondary'] : theme.colors['primary'];
-  else return isLightColor ? theme.colors['primary'] : theme.colors['secondary'];
+  // If the theme is not dark, return the appropriate color based on the isLightColor parameter
+  if (!isDarkTheme) {
+    return isLightColor ? theme.colors['secondary'] : theme.colors['primary'];
+  } else {
+    // If the theme is dark, return the appropriate color based on the isLightColor parameter
+    return isLightColor ? theme.colors['primary'] : theme.colors['secondary'];
+  }
 };
 
 export default function flipThemeColor(color: TThemeTypes, layer?: TLayer) {
   const theme = themeStore.getState().theme;
 
+  // Check if the current color is light or dark
   const isCurrentColorLight = Color(theme.colors[color][layer || 0]).isLight();
 
-  const getFlipedColor = filpColor(isCurrentColorLight);
+  // Get the flipped color based on the current color's lightness
+  const getFlippedColor = filpColor(isCurrentColorLight);
 
-  return getFlipedColor[layer || 0];
+  return getFlippedColor[layer || 0];
 }
