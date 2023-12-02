@@ -100,6 +100,5 @@
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/mrtryy"
-  },
-  "prepack": "json -f package.json -I -e \"delete this.devDependencies; delete this.dependencies\""
+  }
 }
