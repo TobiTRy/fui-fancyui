@@ -4,7 +4,7 @@ import { animated, useTransition } from '@react-spring/web';
 import useWindowDimensions from '../../../utils/hooks/useWindowDimensions/useWindowDimensions';
 import SwipeUpContainer from '../../atoms/SwipeUpContainer/SwipeUpContainer';
 import BackDrop from '../../atoms/BackDrop/BackDrop';
-import UseDelay from '../../../utils/components/UseDelay/UseDelay';
+import UseDelay from '../../shared/UseDelay/UseDelay';
 import ScalingSection from '../ScalingSection/ScalingSection';
 import { Content, ContentBox, WrapperAnimated, WrapperContent, WrapperModal } from './SwipeUpModal.style';
 import { ISwipeUpModal } from './ISwipeUpModal.model';

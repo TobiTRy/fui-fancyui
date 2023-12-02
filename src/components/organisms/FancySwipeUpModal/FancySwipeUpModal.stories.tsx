@@ -11,7 +11,6 @@ import { ISwipeUpModal } from '../../molecules/SwipeUpModal/ISwipeUpModal.model'
 
 // Define metadata for the story
 const meta = {
-  title: 'components/ui/organisms/FancySwipeUpModal',
   component: HelperComponent,
   parameters: {
     docs: {
