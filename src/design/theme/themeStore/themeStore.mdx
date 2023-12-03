@@ -1,0 +1,50 @@
+# `themeStore` Component
+
+The `themeStore` component is a state management store created using Zustand, specifically for managing and updating theme settings in a user interface. This store encompasses various theme-related states such as color schemes, spacing, border radius, font sizes, and responsive breakpoints.
+
+## Structure
+
+The store contains the following state and functions:
+
+### State
+
+- **theme** (`TTheme`): Represents the current theme settings.
+- **isDarkTheme** (`boolean`): Indicates whether the dark theme is active.
+
+### Functions
+
+- **switchTheme** (`() => void`): Toggles between light and dark themes.
+- **updateTheme** (`(colors: IUiColorPops) => void`): Updates the theme colors.
+
+## Accessing Store Elements
+
+Each element of the store can be accessed individually:
+
+```jsx
+const theme = themeStore((state) => state.theme);
+const isDarkTheme = themeStore((state) => state.isDarkTheme);
+const switchTheme = themeStore((state) => state.switchTheme);
+const updateTheme = themeStore((state) => state.updateTheme);
+```
+
+## Example Usage
+
+```jsx
+import React from 'react';
+import { themeStore } from 'path-to-themeStore';
+
+const ExampleComponent = () => {
+  const theme = themeStore((state) => state.theme);
+  const switchTheme = themeStore((state) => state.switchTheme);
+
+  return (
+    <div style={{ backgroundColor: theme.colors.primary[0] }}>
+      <button onClick={switchTheme}>Switch Theme</button>
+    </div>
+  );
+};
+
+export default ExampleComponent;
+```
+
+In this example, the `themeStore` is used in a React component to access the theme and the `switchTheme` function. The component includes a button that toggles the theme between light and dark modes, with the background color of the component dynamically set according to the current theme colors.
