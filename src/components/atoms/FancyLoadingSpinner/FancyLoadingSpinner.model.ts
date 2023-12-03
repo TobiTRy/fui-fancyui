@@ -10,18 +10,17 @@ import { TLayer } from '@/interface/TLayer';
 // ------------------------------------------------- //
 // Define a function to generate the border for the spinner
 interface IGenerateBorder {
-  size: string;
+  $size: string;
   theme: TTheme;
-  themeType?: TThemeTypesNotTransparent;
-  layer?: TLayer;
+  $themeType?: TThemeTypesNotTransparent;
+  $layer?: TLayer;
 }
-
-const generateBorder = ({ size, theme }: IGenerateBorder): CSSProp => {
+const generateBorder = ({ $size, theme, $layer, $themeType = 'accent' }: IGenerateBorder): CSSProp => {
   return css`
-    border-top: ${size} solid transparent;
-    border-right: ${size} solid ${theme.colors.accent[0]};
-    border-bottom: ${size} solid transparent;
-    border-left: ${size} solid ${theme.colors.accent[0]};
+    border-top: ${$size} solid transparent;
+    border-right: ${$size} solid ${theme.colors[$themeType][$layer || 0]};
+    border-bottom: ${$size} solid transparent;
+    border-left: ${$size} solid ${theme.colors.accent[$themeType][$layer || 0]};
   `;
 };
 
@@ -49,9 +48,16 @@ export const SpinnerContainer = styled.div<{ $size?: keyof typeof sizes }>`
   justify-content: center;
 `;
 
+interface IStyledFancyLoadingSpinner {
+  $size: keyof typeof sizes;
+  theme: TTheme;
+  $themeType?: TThemeTypesNotTransparent;
+  $layer?: TLayer;
+}
 // Define a styled component for the inner spinner
-export const StyledInnerSpinner = styled.div<{ $size?: keyof typeof sizes; theme: TTheme }>`
-  ${({ $size, theme }) => generateBorder({ size: $size ? sizes[$size].thicknessInner : sizes.md.thickness, theme })}
+export const StyledInnerSpinner = styled.div<IStyledFancyLoadingSpinner>`
+  ${({ $size, theme, $themeType, $layer }) =>
+    generateBorder({ $size: $size ? sizes[$size].thicknessInner : sizes.md.thickness, theme, $themeType, $layer })}
   animation: ${reverseSpinner} 2s infinite ease-in-out;
   border-radius: 50%;
   width: 80%;
@@ -59,8 +65,9 @@ export const StyledInnerSpinner = styled.div<{ $size?: keyof typeof sizes; theme
 `;
 
 // Define a styled component for the outer spinner
-export const StyledFancyLoadingSpinner = styled.div<{ $size?: keyof typeof sizes; $thickness?: string; theme: TTheme }>`
-  ${({ $size, theme }) => generateBorder({ size: $size ? sizes[$size].thickness : sizes.md.thickness, theme })}
+export const StyledFancyLoadingSpinner = styled.div<IStyledFancyLoadingSpinner>`
+  ${({ $size, theme, $themeType, $layer }) =>
+    generateBorder({ $size: $size ? sizes[$size].thickness : sizes.md.thickness, theme, $themeType, $layer })}
   position: absolute;
   animation: ${spinner} 2s infinite ease-in-out;
   border-radius: 50%;

@@ -1,7 +1,7 @@
 import { css, styled } from 'styled-components';
 
-import { getBackgroundColor } from '../../../design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponent';
-import IStyledPrefixAndPicker from '../../../interface/IStyledPrefixAndPicker.model';
+import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponent';
+import IStyledPrefixAndPicker from '@/interface/IStyledPrefixAndPicker.model';
 import { IListDivider } from './ListDivider.model';
 import { TTheme } from '@/interface/TTheme';
 

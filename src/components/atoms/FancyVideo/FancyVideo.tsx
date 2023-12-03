@@ -3,15 +3,6 @@ import { styled } from 'styled-components';
 
 import { isAspectRatioValid } from '@/utils/validations/isAspectRatioValid';
 
-// Define a styled video component using styled-components
-const StyledVideo = styled.video<{ $aspectRatio?: string; $darken?: boolean }>`
-  object-fit: cover;
-  width: 100%;
-  height: auto;
-  ${({ $aspectRatio }) => ($aspectRatio ? `aspect-ratio: ${$aspectRatio};` : '')}
-  filter: ${({ $darken }) => ($darken ? 'brightness(0.5)' : 'none')};
-`;
-
 // Define the props for the FancyVideo component
 export interface IFancyVideo {
   src: string;
@@ -49,3 +40,14 @@ export default function FancyVideo(props: IFancyVideo) {
     </StyledVideo>
   );
 }
+
+// ------------------------------------------- //
+// ------- The style for the component ------- //
+// ------------------------------------------- //
+const StyledVideo = styled.video<{ $aspectRatio?: string; $darken?: boolean }>`
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+  ${({ $aspectRatio }) => ($aspectRatio ? `aspect-ratio: ${$aspectRatio};` : '')}
+  filter: ${({ $darken }) => ($darken ? 'brightness(0.5)' : 'none')};
+`;

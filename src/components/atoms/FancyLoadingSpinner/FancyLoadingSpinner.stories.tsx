@@ -16,7 +16,31 @@ const meta = {
   },
 
   // Define arguments for the story
-  argTypes: {},
+  argTypes: {
+    themeType: {
+      description: 'The theme type of the component.',
+      control: {
+        type: 'select',
+        options: ['primary', 'secondary', 'accent', 'neutral'],
+      },
+    },
+    size: {
+      description: 'The size of the component.',
+      control: {
+        type: 'select',
+        options: ['xs', 'sm', 'md', 'lg', 'xl'],
+      },
+    },
+    layer: {
+      description: 'The layer of the component.',
+      control: {
+        type: 'range',
+        min: 0,
+        max: 10,
+        step: 1,
+      },
+    },
+  },
 
   // Add tags to the story
   tags: ['autodocs'],
@@ -30,7 +54,11 @@ type Story = StoryObj<typeof meta>;
 // Define the primary story
 export const Primary: Story = {
   render: (args) => <FancyLoadingSpinner {...args} />,
-  args: {},
+  args: {
+    themeType: 'accent',
+    size: 'md',
+    layer: 0,
+  },
   parameters: {
     docs: {
       description: {
