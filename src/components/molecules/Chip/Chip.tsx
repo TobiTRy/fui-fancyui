@@ -2,15 +2,16 @@ import React from 'react';
 import { CSSProp } from 'styled-components';
 
 import { sizes } from '../FancyContent/utils/sizeSettings';
-import { TThemeTypes, TThemeTypesNotTrasparent } from '@/interface/TUiColors';
+import { TThemeTypes } from '@/interface/TUiColors';
 import { TLayer } from '@/interface/TLayer';
 import { StyledChip } from './Chip.style';
+import { TThemeTypesNotTransparent } from '@/interface/TThemeTypesNotTransparent';
 
 export interface IStyledChip {
   size?: keyof typeof sizes;
   outlined?: boolean;
   themeType?: TThemeTypes;
-  textColor?: TThemeTypesNotTrasparent;
+  textColor?: TThemeTypesNotTransparent;
   layer?: TLayer;
   textLayer?: TLayer;
   isActive?: boolean;

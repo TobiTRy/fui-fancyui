@@ -4,12 +4,12 @@ import Color from 'color';
 
 import { fontSize } from '../../../design/theme/designSizes';
 import simpleColorTransition from '../../../design/designFunctions/simpleColorTransition/simpleTransition';
-import { TThemeTypesNotTrasparent } from '@/interface/TUiColors';
+import { TThemeTypesNotTransparent } from '@/interface/TThemeTypesNotTransparent';
 import { TLayer } from '@/interface/TLayer';
 import { getBackgroundColor } from '../../../design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponent';
 import { TTheme } from '@/interface/TTheme';
 
-type FancyXButtonDesign = TThemeTypesNotTrasparent;
+type FancyXButtonDesign = TThemeTypesNotTransparent;
 
 interface IStyledFancyXButton {
   $themeType?: FancyXButtonDesign;

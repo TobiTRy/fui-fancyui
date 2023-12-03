@@ -1,11 +1,31 @@
 import { styled } from 'styled-components';
 
 import { TLayer } from '@/interface/TLayer';
-import { getBackgroundColor } from '../../../design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponent';
-import IStyledPrefixAndPicker from '../../../interface/IStyledPrefixAndPicker.model';
+import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponent';
+import IStyledPrefixAndPicker from '@/interface/IStyledPrefixAndPicker.model';
 import { TTheme } from '@/interface/TTheme';
 import { TThemeTypes } from '@/interface/TUiColors';
 
+type IFancyLine = {
+  direction?: 'horizontal' | 'vertical';
+  thickness?: string;
+  margin?: string;
+  themeType?: TThemeTypes;
+  layer?: TLayer;
+};
+// --------------------------------------------------------------------------- //
+// ------------ A dynamic line (vertical/horizontal) for better UX/UI  ------- //
+// --------------------------------------------------------------------------- //
+export default function FancyLine(props: IFancyLine) {
+  const { direction, thickness, margin, themeType, layer } = props;
+  return (
+    <StyledFancyLine $direction={direction ?? 'horizontal'} $thickness={thickness} $margin={margin} $themeType={themeType} $layer={layer} />
+  );
+}
+
+// ------------------------------------------- //
+// ------- The style for the component ------- //
+// ------------------------------------------- //
 type TStyledFancyLine = IStyledPrefixAndPicker<IFancyLine> & { theme?: TTheme };
 const StyledFancyLine = styled.hr<TStyledFancyLine>`
   background-color: ${({ theme, $themeType = 'accent', $layer }) => getBackgroundColor({ theme, $themeType, $layer })};
@@ -30,20 +50,3 @@ const StyledFancyLine = styled.hr<TStyledFancyLine>`
     filter: blur(0.5px);
   }
 `;
-
-type IFancyLine = {
-  direction?: 'horizontal' | 'vertical';
-  thickness?: string;
-  margin?: string;
-  themeType?: TThemeTypes;
-  layer?: TLayer;
-};
-// --------------------------------------------------------------------------- //
-// ------------ A dynamic line (vertical/horizontal) for better UX/UI  ------- //
-// --------------------------------------------------------------------------- //
-export default function FancyLine(props: IFancyLine) {
-  const { direction, thickness, margin, themeType, layer } = props;
-  return (
-    <StyledFancyLine $direction={direction ?? 'horizontal'} $thickness={thickness} $margin={margin} $themeType={themeType} $layer={layer} />
-  );
-}

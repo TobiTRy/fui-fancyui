@@ -1,11 +1,12 @@
 import { styled } from 'styled-components';
 
-import generateThemeForCard from '../../../design/designFunctions/generateThemeForCard/generateThemeForCard';
-import IStyledPrefixAndPicker from '../../../interface/IStyledPrefixAndPicker.model';
-import { IFancyBoxProps } from './FancyBox.model';
+import generateThemeForCard from '@/design/designFunctions/generateThemeForCard/generateThemeForCard';
+import IStyledPrefixAndPicker from '@/interface/IStyledPrefixAndPicker.model';
 import { TTheme } from '@/interface/TTheme';
 
-// the styled-component for the FancyBar
+import { IFancyBoxProps } from './FancyBox.model';
+
+// the fancy box that gets the style from the theme
 type IStyledFancyBox = IStyledPrefixAndPicker<IFancyBoxProps> & { theme: TTheme };
 export const StyledFancyBox = styled.div<IStyledFancyBox>`
   box-sizing: border-box;

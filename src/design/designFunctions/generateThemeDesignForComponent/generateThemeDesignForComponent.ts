@@ -1,4 +1,4 @@
-import { TThemeTypes, TThemeTypesNotTrasparent } from '@/interface/TUiColors';
+import { TThemeTypes } from '@/interface/TUiColors';
 import { TLayer } from '@/interface/TLayer';
 import { generateNormalStyle } from './utils/generateNormalStyle';
 import { generateTransparentStyle } from './utils/generateTransparentStyle';
@@ -7,12 +7,13 @@ import { generateOutlineStyle } from './utils/generateOutlineStyle';
 import IStyledPrefixAndPicker from '@/interface/IStyledPrefixAndPicker.model';
 import { getSimpleColorThemeType } from '@/design/designFunctions/getSimpleColorThemeType';
 import { TTheme } from '@/interface/TTheme';
+import { TThemeTypesNotTransparent } from '@/interface/TThemeTypesNotTransparent';
 
 export interface IGenerateThemeDesignForComponentProps {
   themeType?: TThemeTypes;
-  hoverColor?: TThemeTypesNotTrasparent;
-  textColor?: TThemeTypesNotTrasparent;
-  textHover?: TThemeTypesNotTrasparent;
+  hoverColor?: TThemeTypesNotTransparent;
+  textColor?: TThemeTypesNotTransparent;
+  textHover?: TThemeTypesNotTransparent;
   layer?: TLayer;
   outlined?: boolean;
   backgroundStrength?: number;

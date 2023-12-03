@@ -1,6 +1,7 @@
 import { css } from 'styled-components';
-import themeStore from '../../theme/themeStore/themeStore';
-import { TUiColorsSystemMessage } from '@/interface/TUiColors';
+
+import { themeStore } from '@/design/theme/themeStore';
+import { TUiColorsSystemMessage } from '@/interface/TUiColorsSystemMessage';
 
 export default function generateSystemIndicatorStyle(systemMessage?: TUiColorsSystemMessage) {
   const theme = themeStore.getState().theme;

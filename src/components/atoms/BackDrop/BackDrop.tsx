@@ -24,7 +24,9 @@ export default function BackDrop({ isOpen, onClick }: IBackDrop) {
   return shouldRender ? <BackdropContainer as={animated.div} style={fade} onClick={onClick} /> : null;
 }
 
-// ---------- The style for the component ------- //
+// ------------------------------------------- //
+// ------- The style for the component ------- //
+// ------------------------------------------- //
 const BackdropContainer = styled.div`
   position: fixed;
   top: 0;

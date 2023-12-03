@@ -1,20 +1,9 @@
 import React from 'react';
 import { styled } from 'styled-components';
 
-import IStyledPrefixAndOmiter from '../../../interface/IStyledPrefixAndOmiter.model';
-import { spacingPx } from '../../../design/theme/designSizes';
-import { TSpacings } from '../../../interface/TSpacings';
-
-type StyledFancyLi = IStyledPrefixAndOmiter<FancyLIProps, 'children'>;
-
-const FancyLiItem = styled.li<StyledFancyLi>`
-  list-style: none;
-  display: flex;
-  align-items: center;
-  width: 100%;
-  justify-content: ${({ $aligned }) => $aligned};
-  padding: ${({ $size }) => $size && spacingPx[$size]};
-`;
+import IStyledPrefixAndOmiter from '@/interface/IStyledPrefixAndOmiter.model';
+import { TSpacings } from '@/interface/TSpacings';
+import { TTheme } from '@/interface/TTheme';
 
 interface FancyLIProps {
   aligned?: 'left' | 'center' | 'right';
@@ -38,3 +27,16 @@ const defaultProps: FancyLIProps = {
   size: 'md',
   aligned: 'left',
 };
+
+// ------------------------------------------- //
+// ------- The style for the component ------- //
+// ------------------------------------------- //
+type StyledFancyLi = IStyledPrefixAndOmiter<FancyLIProps, 'children'> & { theme: TTheme };
+const FancyLiItem = styled.li<StyledFancyLi>`
+  list-style: none;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: ${({ $aligned }) => $aligned};
+  padding: ${({ theme, $size }) => $size && theme.spacing[$size]};
+`;

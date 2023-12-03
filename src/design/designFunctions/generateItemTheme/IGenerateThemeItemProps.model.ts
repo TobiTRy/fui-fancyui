@@ -1,7 +1,8 @@
 import { TBorderRadiusSizes } from '@/interface/TBorderRadius';
-import { TThemeTypes, TThemeTypesNotTrasparent } from '@/interface/TUiColors';
+import { TThemeTypes } from '@/interface/TUiColors';
 import { TLayer } from '@/interface/TLayer';
 import IStyledPrefixAndOmiter from '../../../interface/IStyledPrefixAndOmiter.model';
+import { TThemeTypesNotTransparent } from '@/interface/TThemeTypesNotTransparent';
 
 export type IGenerateThemeItemProps = {
   outlined?: boolean;
@@ -12,8 +13,8 @@ export type IGenerateThemeItemProps = {
   wide?: boolean;
   borderRadius?: TBorderRadiusSizes;
   themeType?: TThemeTypes;
-  textColor?: TThemeTypesNotTrasparent;
-  hoverColor?: TThemeTypesNotTrasparent;
+  textColor?: TThemeTypesNotTransparent;
+  hoverColor?: TThemeTypesNotTransparent;
   layer?: TLayer;
   align?: 'left' | 'right' | 'center';
 };
