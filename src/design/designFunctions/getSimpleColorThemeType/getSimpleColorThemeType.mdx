@@ -1,0 +1,39 @@
+# `getSimpleColorThemeType` Function
+
+The `getSimpleColorThemeType` function is a utility for determining a simplified color theme type. It considers the application's current theme mode (dark or light) and an optional `themeType` input to output a simplified color theme. The function uses `themeStore` to check if the current theme is dark.
+
+## Input/Output
+
+### Input
+
+- **themeType** (`"transparent" | "primary" | "accent" | "accentDarken" | "secondary" | "info" | "success" | "warning" | "error"`, optional): Specifies the desired theme type.
+
+### Output
+
+- **Return Value**: A string representing the simplified color theme type. This will be either 'primary' or 'secondary', determined by the current theme mode and the provided `themeType`.
+
+## Example Usage
+
+```jsx
+import React from 'react';
+import { getSimpleColorThemeType } from 'path-to-getSimpleColorThemeType';
+
+const ExampleComponent = () => {
+  // Example with 'primary' theme type
+  const simpleColorThemeTypePrimary = getSimpleColorThemeType('primary');
+
+  // Example with 'success' theme type
+  const simpleColorThemeTypeSuccess = getSimpleColorThemeType('success');
+
+  return (
+    <div>
+      <p>Simple Color Theme Type (Primary): {simpleColorThemeTypePrimary}</p>
+      <p>Simple Color Theme Type (Success): {simpleColorThemeTypeSuccess}</p>
+    </div>
+  );
+};
+
+export default ExampleComponent;
+```
+
+This example demonstrates how to use the `getSimpleColorThemeType` function in a React component with different `themeType` inputs. It calculates the simple color theme type for 'primary' and 'success' themes and displays the results.
