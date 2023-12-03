@@ -52,23 +52,23 @@ export const StyledDay = styled.button<IStyledDay & { theme: TTheme }>`
     css`
       border-radius: 40% 5px 5px 40%;
       background-image: linear-gradient(to right, ${theme.colors.accent[0]}, transparent);
-      color: white;
+      color: ${theme.colors.secondary[0]};
     `}
 
   ${({ $range, theme }) =>
     $range?.end &&
-    `
-    border-radius: 5px 40% 40% 5px;
-    background-image: linear-gradient(to left, ${theme.colors.accent[0]}, transparent);
-    color: white;
-  `}
+    css`
+      border-radius: 5px 40% 40% 5px;
+      background-image: linear-gradient(to left, ${theme.colors.accent[0]}, transparent);
+      color: ${theme.colors.secondary[0]};
+    `}
 
   ${({ $range, theme }) =>
     $range?.inRange &&
-    `
-    background-color: ${theme.colors.accent[0]};
-    color: white;
-  `}
+    css`
+      background-color: ${theme.colors.accent[0]};
+      color: ${theme.colors.secondary[0]};
+    `}
 
   &:disabled {
     ${disabledStyle}

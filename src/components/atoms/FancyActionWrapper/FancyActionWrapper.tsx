@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ComponentAsWrapper from '../ComponentAsWrapper/ComponentAsWrapper';
+import ComponentAsWrapper from '@/components/atoms/ComponentAsWrapper/ComponentAsWrapper';
 import { StyledAnchor, StyledButton } from './FancyActionWrapper.style';
 
 // Define types for button and anchor attributes
@@ -12,7 +12,9 @@ type IFancyActionWrapper = {
   children: React.ReactNode;
   WrapperComponent?: React.ReactElement;
 } & (TNativeButtonProps | TNativeAnchorProps);
-
+// --------------------------------------------------------------------------- //
+// ---- FancyActionWrapper that wrapps the cildren in a "a" tag or button ---- //
+// --------------------------------------------------------------------------- //
 export default function FancyActionWrapper(props: IFancyActionWrapper) {
   const { children, WrapperComponent, ...HTMLProps } = props;
 

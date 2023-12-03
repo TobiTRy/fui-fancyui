@@ -5,6 +5,7 @@ import { fontSize } from '../../../design/theme/designSizes';
 import simpleColorTransition from '../../../design/designFunctions/simpleColorTransition/simpleTransition';
 import { TTheme } from '@/interface/TTheme';
 
+// calculate color on the isBright and isDarkTheme props
 const colorCalculation = ({ theme, $isBright, $isDarkTheme }: { theme: TTheme; $isBright: boolean; $isDarkTheme: boolean }) => {
   if ($isDarkTheme) return $isBright ? theme.colors.primary[0] : theme.colors.secondary[0];
 
@@ -53,11 +54,11 @@ export const Wrapper = styled.div<{ $fullHeight?: boolean }>`
   touch-action: manipulation;
 `;
 
+// ---------- ColorCalculation for the color and the opacity ------- //
 interface IColorDisplayColor {
   color?: string;
   opacity?: number;
 }
-
 const colorDisplayColor = ({ color, opacity }: IColorDisplayColor) => {
   const checkOpacity = opacity === undefined ? 1 : opacity;
   const transformedColor = Color(color).rgb().alpha(checkOpacity);

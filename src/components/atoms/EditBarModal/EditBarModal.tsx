@@ -1,9 +1,12 @@
 import React from 'react';
+
 import { IEditBarModal } from './IEditbarModal.model';
 import { Wrapper, WrapperContent } from './EditBarModal.style';
+import { FancyModalHeadLine } from '@/components/molecules/FancyModalHeadLine';
 
-import { FancyModalHeadLine } from '../../molecules/FancyModalHeadLine';
-
+// --------------------------------------------------------------------------- //
+// --- The editbarModal is a Wapper that displays the content and a title ---- //
+// --------------------------------------------------------------------------- //
 export default function EditBarModal(props: IEditBarModal) {
   const { children, width, spacingLeftRight, title } = props;
 

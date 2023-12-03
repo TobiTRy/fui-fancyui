@@ -1,13 +1,16 @@
 import React from 'react';
+import Color from 'color';
 
 import { Indicator, WrapperIndicator } from './ColorIndicator.style';
-import Color from 'color';
 
 interface IColorIndicator {
   position?: { x?: number | string; y?: number | string };
   color: string;
   isActive: boolean;
 }
+// --------------------------------------------------------------------------- //
+// ---------- The colorIndicator to displays the color in a bubble  ---------- //
+// --------------------------------------------------------------------------- //
 export default function ColorIndicator({ position, color, isActive }: IColorIndicator) {
   const positionTop = position?.y ?? '50%';
   const positionLeft = position?.x ?? '50%';
