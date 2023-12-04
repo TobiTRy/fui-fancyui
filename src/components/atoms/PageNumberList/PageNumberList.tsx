@@ -1,4 +1,4 @@
-import { FancyButton } from '../../organisms/FancyButton';
+import { FancyButton } from '@/components/organisms/FancyButton';
 import { ButtonWrapper, Wrapper } from './PageNumberList.style';
 import { generateNumbers } from './utils/generateNumbers';
 

@@ -1,6 +1,6 @@
 import { css, styled } from 'styled-components';
 
-import generateThemeDesignForComponent from '@/design/designFunctions/generateThemeDesignForComponent/generateThemeDesignForComponent';
+import { generateThemeDesignForComponent } from '@/design/designFunctions/generateThemeDesignForComponent';
 import IStyledPrefixAndOmitter from '@/interface/IStyledPrefixAndOmiter.model';
 
 import { TTheme } from '@/interface/TTheme';

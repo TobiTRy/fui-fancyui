@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { IFancyBottomBarIcon } from '../../templates/FancyBottomBarIcon/FancyBottomBarIcon';
+import { IFancyBottomBarIcon } from '@/components/templates/FancyBottomBarIcon/FancyBottomBarIcon';
 import { ICategoryItem } from './EditBarItemsStructure/IEditbarObjectSturcture.model';
 
 // --------------------------------------------------------------------------- //

@@ -1,9 +1,10 @@
 import { css, styled } from 'styled-components';
 
-import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponent';
+import { TTheme } from '@/interface/TTheme';
 import IStyledPrefixAndPicker from '@/interface/IStyledPrefixAndPicker.model';
 import { IListDivider } from './ListDivider.model';
-import { TTheme } from '@/interface/TTheme';
+
+import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponent';
 
 // only a sepeation line
 type TStyledPrefixAndOmitter = IStyledPrefixAndPicker<IListDivider, 'themeType' | 'layer'> & { theme: TTheme };

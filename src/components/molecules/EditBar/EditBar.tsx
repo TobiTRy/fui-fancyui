@@ -14,10 +14,10 @@ import { styled } from 'styled-components';
 //the second is for the settings
 
 import FancyBottomBarIcon, { IFancyBottomBarIcon } from '@/components/templates/FancyBottomBarIcon/FancyBottomBarIcon';
-import EditBarModal from '@/components/atoms/EditBarModal/EditBarModal';
+import { EditBarModal } from '@/components/atoms/EditBarModal';
 
 import { DynamicBottomScrollBar } from '@/components/molecules/DynamicBottomScrollBar';
-import themeStore from '@/design/theme/themeStore/themeStore';
+import { themeStore } from '@/design/theme/themeStore';
 
 const Wrapper = styled.div`
   position: fixed;

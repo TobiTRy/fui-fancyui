@@ -14,3 +14,5 @@ export const generateComponentPadding = (props: IGenerateComponentPadding) => {
     padding: ${padding[size]};
   `;
 };
+
+export default generateComponentPadding;

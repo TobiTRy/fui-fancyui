@@ -1,4 +1,5 @@
 import Color from 'color';
+
 import { useEffect, useMemo, useState } from 'react';
 
 import { FancyButton } from '@/components/organisms/FancyButton';

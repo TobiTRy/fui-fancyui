@@ -1,13 +1,14 @@
-import React, { InputHTMLAttributes, useState } from 'react';
+import { InputHTMLAttributes, useState } from 'react';
 import { styled } from 'styled-components';
 
-import RawInput from '../../atoms/RawInput/RawInput';
-import PasswordEye from '../../atoms/PasswordEye/PasswordEye';
 import { TThemeTypes } from '@/interface/TThemeTypes';
 import { TLayer } from '@/interface/TLayer';
-import { getBackgroundColor } from '../../../design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponent';
 import { TTheme } from '@/interface/TTheme';
 import { TTextAlignLC } from '@/interface/TTextAlignLC';
+
+import { RawInput } from '@/components/atoms/RawInput';
+import { PasswordEye } from '@/components/atoms/PasswordEye';
+import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent';
 
 const WrapperEye = styled.div<{ theme: TTheme; $themeType?: TThemeTypes; $layer?: TLayer }>`
   position: absolute;

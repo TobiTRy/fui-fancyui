@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
 
-import generateThemeForCard from '@/design/designFunctions/generateThemeForCard/generateThemeForCard';
+import { generateThemeForCard } from '@/design/designFunctions/generateThemeForCard';
 
 import { MenuListProps } from './MenuList';
 import IStyledPrefixAndOmitter from '@/interface/IStyledPrefixAndPicker.model';

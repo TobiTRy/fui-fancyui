@@ -1,4 +1,3 @@
-import React from 'react';
 import Color from 'color';
 
 import type { Meta, StoryObj } from '@storybook/react';

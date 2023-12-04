@@ -1,8 +1,6 @@
-import React from 'react';
-
-import SVGEyeCrossed from '../../icons/SVGEyeCrossed/SVGEyeCrossed';
-import SVGEyeOpen from '../../icons/SVGEyeOpen/SVGEyeOpen';
-import FancySVGAtom from '../FancySVGAtom/FancySVGAtom';
+import { SVGEyeCrossed } from '@/components/icons/SVGEyeCrossed';
+import { SVGEyeOpen } from '@/components/icons/SVGEyeOpen';
+import { FancySVGAtom } from '@/components/atoms/FancySVGAtom';
 
 interface IPasswordEye {
   isShow?: boolean;

@@ -42,6 +42,7 @@ export { default as FancyBar } from '@/components/atoms/FancyBox/FancyBox';
 export { default as ActionWrapper } from '@/components/atoms/ActionWrapper/ActionWrapper';
 export { default as RawRadio } from '@/components/atoms/RawRadio/RawRadio';
 export { default as LoadingSVGArrows } from '@/components/atoms/LoadingSVGArrows/LoadingSVGArrows';
+export { default as SwitchActiveIndicator } from '@/components/atoms/SwitchActiveIndicator/SwitchActiveIndicator';
 
 // ---------- Molecules ------- //
 export { default as DateInput } from '@/components/molecules/DateInput/DateInput';

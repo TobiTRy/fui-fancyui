@@ -1,5 +1,6 @@
 import { CSSProp } from 'styled-components';
-import IStyledPrefixAndOmiter from '../../../interface/IStyledPrefixAndOmiter.model';
+
+import IStyledPrefixAndOmiter from '@/interface/IStyledPrefixAndOmiter.model';
 import { TThemeTypes } from '@/interface/TThemeTypes';
 import { TLayer } from '@/interface/TLayer';
 

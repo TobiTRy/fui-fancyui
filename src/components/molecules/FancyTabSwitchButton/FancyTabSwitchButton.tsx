@@ -1,10 +1,10 @@
 import React, { HTMLAttributes, useId } from 'react';
 
-import Typography from '../../atoms/Typography/Typography';
-import FancyContent from '../FancyContent/FancyContent';
+import { Typography } from '@/components/atoms/Typography';
+import { FancyContent } from '@/components/molecules/FancyContent';
 import { ITabSwitchButtonProps } from './FancyTabSwitchButton.model';
 import { SwitchButtonStyle } from './FancyTabSwitchButton.style';
-import { leftRightToFlex } from '../../../utils/functions/leftRightToFlex';
+import { leftRightToFlex } from '@/utils/functions/leftRightToFlex';
 
 // ------------------------------------------------------------------ //
 // ------------- main component for the tab (li item) --------------- //

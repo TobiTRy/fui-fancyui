@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { CSSProp } from 'styled-components';
 
-import SwitchActiveIndicator, { IActiveSwitchIndicator } from '../../atoms/SwitchActiveIndicator/SwitchActiveIndicator';
+import SwitchActiveIndicator, { IActiveSwitchIndicator } from '@/components/atoms/SwitchActiveIndicator/SwitchActiveIndicator';
 import { ItemWrapper, StyledList } from './SwitchList.style';
 
 type TSwitchActiveIndicator = Omit<IActiveSwitchIndicator, '$itemNumber'>;

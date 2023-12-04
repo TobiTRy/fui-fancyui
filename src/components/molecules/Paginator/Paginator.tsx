@@ -1,11 +1,11 @@
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 
-import SVGChevronLeft from '../../icons/SVGChevronLeft/SVGChevronLeft';
-import SVGChevronRight from '../../icons/SVGChevronRight/SVGChevronRight';
+import { SVGChevronLeft } from '@/components/icons/SVGChevronLeft';
+import { SVGChevronRight } from '@/components/icons/SVGChevronRight';
 
-import FancyButton from '../../organisms/FancyButton/FancyButton';
+import { FancyButton } from '@/components/organisms/FancyButton';
 import { IconWrapper, NumberList, StyledPaginator } from './Paginator.style';
-import PageNumberList from '../../atoms/PageNumberList/PageNumberList';
+import { PageNumberList } from '@/components/atoms/PageNumberList';
 import { TThemeTypes } from '@/interface/TThemeTypes';
 
 // Define the props for the Paginator component

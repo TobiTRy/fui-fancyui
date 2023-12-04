@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { ISVGAtomProps } from './FancySVGAtom.model';
 import { StyledSVG } from './FancySVGAtom.style';
 

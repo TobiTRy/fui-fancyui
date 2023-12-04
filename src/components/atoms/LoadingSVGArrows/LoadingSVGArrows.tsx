@@ -1,8 +1,8 @@
 import React from 'react';
 
 import styled, { keyframes } from 'styled-components';
-import SVGLoadingArrows from '../../icons/SVGLoadingArrows/SVGLoadingArrows';
-import { ISVGAtomProps } from '../FancySVGAtom/FancySVGAtom.model';
+import { SVGLoadingArrows } from '@/components/icons/SVGLoadingArrows';
+import { ISVGAtomProps } from '@/components/atoms/FancySVGAtom/FancySVGAtom.model';
 
 interface ILoadingSVGArrowsProps {
   isLoading?: boolean;

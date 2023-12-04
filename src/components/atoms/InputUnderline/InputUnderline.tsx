@@ -1,11 +1,12 @@
 import React from 'react';
 import { styled, css } from 'styled-components';
 
-import IStyledPrefixAndPicker from '@/interface/IStyledPrefixAndPicker.model';
 import { TThemeTypes } from '@/interface/TThemeTypes';
+import IStyledPrefixAndPicker from '@/interface/IStyledPrefixAndPicker.model';
 import { TLayer } from '@/interface/TLayer';
-import { getBackgroundColor } from '../../../design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponent';
 import { TTheme } from '@/interface/TTheme';
+
+import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponent';
 
 // Define the props for the FancyInputUnderline component
 interface IFancyUnderline {

@@ -1,6 +1,6 @@
 import { ReactNode, useEffect } from 'react';
 
-import ScollAbleBar from '@/components/atoms/ScrollableBar/ScrollableBar';
+import { ScrollableBar } from '@/components/atoms/ScrollableBar';
 
 // Define types for the component
 type TDynamicScrollBarProps = {
@@ -21,5 +21,5 @@ export default function DynamicBottomScrollBar(props: TDynamicScrollBarProps) {
   }, []);
 
   // Render the component
-  return <>{scrollable && activateScrollbar ? <ScollAbleBar>{children}</ScollAbleBar> : children}</>;
+  return <>{scrollable && activateScrollbar ? <ScrollableBar>{children}</ScrollableBar> : children}</>;
 }

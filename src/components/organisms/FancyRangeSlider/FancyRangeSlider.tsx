@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useId, useState } from 'react';
+import { ChangeEvent, useId, useState } from 'react';
 
 import { RawSlider } from '@/components/atoms/RawSlider';
 import { FancyNumberInput } from '@/components/organisms/FancyNumberInput';

@@ -1,7 +1,8 @@
 import { styled, CSSProp } from 'styled-components';
-import ULRaw from '../../atoms/RawUL/RawUL';
 
-export const StyledList = styled(ULRaw)<{ $externalStyle?: CSSProp; $direction?: 'horizontal' | 'vertical' }>`
+import { RawUL } from '@/components/atoms/RawUL';
+
+export const StyledList = styled(RawUL)<{ $externalStyle?: CSSProp; $direction?: 'horizontal' | 'vertical' }>`
   display: flex;
   flex-direction: ${({ $direction }) => ($direction === 'vertical' ? 'column' : 'row')};
   justify-content: space-evenly;

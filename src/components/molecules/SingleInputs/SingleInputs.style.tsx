@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
 
-import IStatus from '../../../interface/IStatus';
+import { IStatus } from '@/interface/IStatus';
 import { TTheme } from '@/interface/TTheme';
 
 interface IInputWrapper {

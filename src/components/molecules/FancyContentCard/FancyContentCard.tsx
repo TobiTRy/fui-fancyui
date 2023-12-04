@@ -1,6 +1,7 @@
+import { styled } from 'styled-components';
+
 import { FancyCard } from '@/components/atoms/FancyCard';
 import { Typography } from '@/components/atoms/Typography';
-import { styled } from 'styled-components';
 
 interface IContentCardProps {
   image?: string;
@@ -17,8 +18,6 @@ const ContentWrapper = styled.div`
   text-align: left;
 `;
 
-const ImageWrapper = styled.div``;
-
 const InnerCard = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -30,9 +29,9 @@ export default function FancyContentCard(props: IContentCardProps) {
   return (
     <FancyCard padding={false}>
       <InnerCard>
-        <ImageWrapper>
+        <div>
           <img src={image} alt="product" />
-        </ImageWrapper>
+        </div>
         <ContentWrapper>
           <Typography type="h3" variant="h3">
             {title}

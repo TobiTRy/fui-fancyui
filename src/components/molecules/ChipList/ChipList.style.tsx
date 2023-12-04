@@ -1,6 +1,6 @@
 import { css, styled } from 'styled-components';
 
-import themeStore from '@/design/theme/themeStore/themeStore';
+import { themeStore } from '@/design/theme/themeStore';
 import { TUiColorsSystemMessage } from '@/interface/TUiColorsSystemMessage';
 import { generateSystemIndicatorStyle } from '@/design/designFunctions/generateSystemIndicatorStyle';
 

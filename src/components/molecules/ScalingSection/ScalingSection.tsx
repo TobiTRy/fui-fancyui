@@ -1,5 +1,6 @@
 import React, { TouchEvent } from 'react';
 import { styled } from 'styled-components';
+
 import { SwipeUpDash } from '@/components/atoms/SwipeUpDash';
 
 // --------------------------------------------------------------------------- //

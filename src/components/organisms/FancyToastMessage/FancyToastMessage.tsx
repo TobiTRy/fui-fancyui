@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import { useTransition, animated } from '@react-spring/web';
 
 import { useFancyToastMessageStore } from './FancyToastMessage.state';
-import SingleToastMessage from '@/components/molecules/SingleToastMessage/SingleToastMessage';
+import { SingleToastMessage } from '@/components/molecules/SingleToastMessage';
 import IToastMessage from '@/components/molecules/SingleToastMessage/IToastMessage.model';
 
 import { ToastsWrapper } from './FancyToastMessage.style';

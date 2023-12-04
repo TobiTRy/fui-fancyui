@@ -1,1 +1,1 @@
-export { default } from './SVGEyeCrossed';
+export { default as SVGEyeCrossed } from './SVGEyeCrossed';

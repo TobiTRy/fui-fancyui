@@ -3,7 +3,7 @@ import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
 import FancyButton from './FancyButton';
-import SVGChevronLeft from '../../icons/SVGChevronLeft/SVGChevronLeft';
+import { SVGChevronLeft } from '@/components/icons/SVGChevronLeft';
 
 const meta = {
   component: FancyButton,

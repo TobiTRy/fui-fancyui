@@ -1,6 +1,7 @@
 import { styled } from 'styled-components';
-import RawInput from '../../atoms/RawInput/RawInput';
-import IStyledPrefixAndPicker from '../../../interface/IStyledPrefixAndPicker.model';
+
+import { RawInput } from '@/components/atoms/RawInput';
+import IStyledPrefixAndPicker from '@/interface/IStyledPrefixAndPicker.model';
 import { INumberInput } from './NumberInput';
 
 type IStyledNumberInput = IStyledPrefixAndPicker<INumberInput, 'align'>;

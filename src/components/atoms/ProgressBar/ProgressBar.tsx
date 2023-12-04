@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { TThemeTypes } from '@/interface/TThemeTypes';
 import { TLayer } from '@/interface/TLayer';
 import { ProgressBarContainer, ProgressBarFill } from './ProgressBar.style';

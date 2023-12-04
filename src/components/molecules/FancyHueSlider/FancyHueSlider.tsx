@@ -2,7 +2,7 @@ import Color from 'color';
 
 import useSlider from '@/utils/hooks/useSlider/useSilder';
 import { SliderMarker } from '@/components/atoms/SliderMarker';
-import ColorIndicator from '@/components/atoms/ColorIndicator/ColorIndicator';
+import { ColorIndicator } from '@/components/atoms/ColorIndicator';
 
 import { SliderContainer, SliderWrapper } from './FancyHueSlider.style';
 import { colorToPositionHue, positionToColorHue } from './utils/calcPosition';

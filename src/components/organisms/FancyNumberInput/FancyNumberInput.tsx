@@ -1,4 +1,4 @@
-import React, { useId, useState } from 'react';
+import { useId, useState } from 'react';
 
 import NumberInput, { INumberInput } from '@/components/molecules/NumberInput/NumberInput';
 import InputWrapper from '@/components/molecules/InputWrapper/InputWrapper';

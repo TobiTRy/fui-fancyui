@@ -1,8 +1,7 @@
-import React from 'react';
-
-import { StyledI, StyledTextDiv } from './ListDivider.style';
-import FancyContent from '../../molecules/FancyContent/FancyContent';
 import { IListDivider } from './ListDivider.model';
+
+import { FancyContent } from '@/components/molecules/FancyContent';
+import { StyledI, StyledTextDiv } from './ListDivider.style';
 
 // --------------------------------------------------------------------------- //
 // ------- A Divider that displays only a line or line with informations ----- //

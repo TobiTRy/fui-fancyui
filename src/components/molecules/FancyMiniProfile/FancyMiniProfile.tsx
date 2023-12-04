@@ -1,4 +1,4 @@
-import FancyProfilePicture from '@/components/atoms/FancyProfilePicture/FancyProfilePicture';
+import { FancyProfilePicture } from '@/components/atoms/FancyProfilePicture';
 import { Typography } from '@/components/atoms/Typography';
 
 import { TTextAlignLR } from '@/interface/TTextAlignLR';

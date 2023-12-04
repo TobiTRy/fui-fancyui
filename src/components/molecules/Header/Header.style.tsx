@@ -1,6 +1,6 @@
 import { CSSProp, styled } from 'styled-components';
 
-import generateThemeForCard from '@/design/designFunctions/generateThemeForCard/generateThemeForCard';
+import { generateThemeForCard } from '@/design/designFunctions/generateThemeForCard';
 
 import { TTheme } from '@/interface/TTheme';
 import IStyledPrefixAndPicker from '@/interface/IStyledPrefixAndPicker.model';

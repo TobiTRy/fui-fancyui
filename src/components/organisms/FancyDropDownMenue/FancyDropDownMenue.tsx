@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import FancyUL, { IFancyUL } from '@/components/molecules/FancyDropDownUL/FancyDropDownUL';
 import { Delay } from '@/components/shared/Delay';

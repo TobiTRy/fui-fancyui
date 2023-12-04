@@ -2,7 +2,7 @@ import { TThemeTypes } from '@/interface/TThemeTypes';
 import { TLayer } from '@/interface/TLayer';
 import { TBorderRadiusSizes } from '@/interface/TBorderRadius';
 import { ITabSwitchDetailsLabelIcon, ITabSwitchDetailsChildren } from '../FancyTabSwitchButton/FancyTabSwitchButton.model';
-import { TSpacings } from '../../../interface/TSpacings';
+import { TSpacings } from '@/interface/TSpacings';
 
 export interface ITabSwitchProps {
   wide?: boolean;

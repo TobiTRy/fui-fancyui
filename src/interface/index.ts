@@ -16,3 +16,4 @@ export * from './TUiColorsType';
 export * from './TTextAlignLR';
 export * from './TTextAlignLC';
 export * from './TTextAlignLRC';
+export * from './IStatus';

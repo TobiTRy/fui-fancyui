@@ -1,7 +1,7 @@
 import React, { ReactNode, useEffect, useState } from 'react';
 
-import SimpleDialog from '../../atoms/SimpleDialog/SimpleDialog';
-import BackDrop from '../../atoms/BackDrop/BackDrop';
+import { SimpleDialog } from '@/components/atoms/SimpleDialog';
+import { BackDrop } from '@/components/atoms/BackDrop';
 import { TThemeTypes } from '@/interface/TThemeTypes';
 import { TLayer } from '@/interface/TLayer';
 

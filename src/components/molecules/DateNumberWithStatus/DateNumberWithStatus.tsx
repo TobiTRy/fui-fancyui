@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 
-import DateNumberAtom from '@/components/atoms/DateNumberAtom/DateNumberAtom';
-import AvilableDot from '@/components/atoms/AvilableDot/AvailableDot';
+import { DateNumberAtom } from '@/components/atoms/DateNumberAtom';
+import { AvilableDot } from '@/components/atoms/AvilableDot';
 import { IAvailableDot } from '@/components/atoms/AvilableDot';
 
 import { TLayer } from '@/interface/TLayer';

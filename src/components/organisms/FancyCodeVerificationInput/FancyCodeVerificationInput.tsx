@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-import SingleInputs from '@/components/molecules/SingleInputs/SingleInputs';
+import { SingleInputs } from '@/components/molecules/SingleInputs';
 import { Typography } from '@/components/atoms/Typography';
 
 import { Container, WarpperComponent, Message, MessageContainer } from './FancyCodeVerificationInput.style';

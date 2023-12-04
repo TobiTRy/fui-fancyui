@@ -1,7 +1,9 @@
 import React from 'react';
+
 import { TThemeTypes } from '@/interface/TThemeTypes';
 import { TLayer } from '@/interface/TLayer';
-import FancyContent from '../FancyContent/FancyContent';
+
+import { FancyContent } from '@/components/molecules/FancyContent';
 import { ContentWrapper } from './BottomBarIcon.style';
 
 interface IBottomBarIconProps {
