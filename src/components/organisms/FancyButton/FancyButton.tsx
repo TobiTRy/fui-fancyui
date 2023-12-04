@@ -1,9 +1,9 @@
 import React from 'react';
 import { css } from 'styled-components';
 
-import LoadingSVGArrows from '../../atoms/LoadingSVGArrows/LoadingSVGArrows';
-import Button from '@/components/molecules/Button/Button';
-import FancyContent from '../../molecules/FancyContent/FancyContent';
+import { Button } from '@/components/molecules/Button';
+import { FancyContent } from '@/components/molecules/FancyContent';
+import { LoadingSVGArrows } from '@/components/atoms/LoadingSVGArrows';
 import { generateFancyButton } from './FancyButton.style';
 
 import { TTypography } from '@/interface/TTypography';

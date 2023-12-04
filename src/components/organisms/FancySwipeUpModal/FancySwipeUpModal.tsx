@@ -1,7 +1,5 @@
-import React from 'react';
-
-import SwipeUpModal from '../../molecules/SwipeUpModal/SwipeUpModal';
-import FancyPortal from '../../shared/FancyPortal/FancyPortal';
+import SwipeUpModal from '@/components/molecules/SwipeUpModal/SwipeUpModal';
+import FancyPortal from '@/components/shared/FancyPortal/FancyPortal';
 
 import { useFancySwipeUpModalStore } from './FancySwipeUpModal.state';
 

@@ -1,5 +1,5 @@
-import DateOutput from '@/components/atoms/DateOutput/DateOutput';
-import FancyLine from '@/components/atoms/FancyLine/FancyLine';
+import { DateOutput } from '@/components/atoms/DateOutput';
+import { FancyLine } from '@/components/atoms/FancyLine';
 
 import { TThemeTypes } from '@/interface/TThemeTypes';
 import { TLayer } from '@/interface/TLayer';

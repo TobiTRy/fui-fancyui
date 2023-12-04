@@ -1,6 +1,7 @@
 import React from 'react';
-import ComponentAsWrapper from '../../atoms/ComponentAsWrapper/ComponentAsWrapper';
-import FancyActionWrapper from '../../atoms/FancyActionWrapper/FancyActionWrapper';
+
+import { ComponentAsWrapper } from '@/components/atoms/ComponentAsWrapper';
+import { FancyActionWrapper } from '@/components/atoms/FancyActionWrapper';
 
 type TAnchorProps = {
   type?: 'a';
@@ -13,11 +14,11 @@ type TButtonProps = {
   onClick?: () => void; // More specific type for `onClick`
   href?: string;
 };
+
 export type IComponentAndActionWrapper = {
   WrapperComponent?: React.ReactElement;
   children?: React.ReactNode;
 } & (TAnchorProps | TButtonProps);
-
 // --------------------------------------------------------------------------------- //
 //  The Component warps the chilirden in a Specific Action element or Custom element //
 // -------------------------------------------------------------------------------- //

@@ -1,6 +1,7 @@
 import { styled, css } from 'styled-components';
+
 import { TStyleProps } from './FancyFlexBox.model';
-import IStyledPrefixAndPicker from '../../../interface/IStyledPrefixAndPicker.model';
+import IStyledPrefixAndPicker from '@/interface/IStyledPrefixAndPicker.model';
 import { TTheme } from '@/interface/TTheme';
 
 const generateFlexSytles = (props: TStyledFlexBoxProps & { theme?: TTheme }) => {

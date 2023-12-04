@@ -1,6 +1,6 @@
 import { useId, useState } from 'react';
 
-import InputWrapper from '../../molecules/InputWrapper/InputWrapper';
+import { InputWrapper } from '@/components/molecules/InputWrapper';
 import DropDownSelect, { IDropDownSelect } from '@/components/atoms/DropDownSelect/DropDownSelect';
 import { IInputWrapperUserInputProps } from '@/components/molecules/InputWrapper/IInputWrapper.model';
 

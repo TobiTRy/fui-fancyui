@@ -1,13 +1,14 @@
 import React, { ChangeEvent, useId, useState } from 'react';
 
-import RawSlider from '../../atoms/RawSlider/RawSlider';
-import FancyNumberInput from '../FancyNumberInput/FancyNumberInput';
-import { StyledInputWrapper } from '../../molecules/InputWrapper/InputWrapper.style';
-import FancySVGAtom from '../../atoms/FancySVGAtom/FancySVGAtom';
-import { Label, NumberContainer, RangeSliderContainer, Icon } from './FancyRangeSlider.style';
-import IFancyRangeSlider from './FancyRangeSlider.model';
-import calcColorState from '../../../design/designFunctions/calcColorState/calcColorState';
+import { RawSlider } from '@/components/atoms/RawSlider';
+import { FancyNumberInput } from '@/components/organisms/FancyNumberInput';
+import { StyledInputWrapper } from '@/components/molecules/InputWrapper/InputWrapper.style';
 
+import { FancySVGAtom } from '@/components/atoms/FancySVGAtom';
+import { calcColorState } from '@/design/designFunctions/calcColorState';
+
+import IFancyRangeSlider from './FancyRangeSlider.model';
+import { Label, NumberContainer, RangeSliderContainer, Icon } from './FancyRangeSlider.style';
 // --------------------------------------------------------------------------- //
 // -------------------- The main FancySlider Component ----------------------- //
 // --------------------------------------------------------------------------- //

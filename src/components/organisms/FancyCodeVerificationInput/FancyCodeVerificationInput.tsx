@@ -1,12 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-import SingleInputs from '../../molecules/SingleInputs/SingleInputs';
-import { Container, WarpperComponent, Message, MessageContainer } from './FancyCodeVerificationInput.style';
-import { Typography } from '../../atoms/Typography';
+import SingleInputs from '@/components/molecules/SingleInputs/SingleInputs';
+import { Typography } from '@/components/atoms/Typography';
 
-// --------------------------------------------------------------------------- //
-// -The main FancySinlgeInput Componet wich handle the apicall and the sattus- //
-// --------------------------------------------------------------------------- //
+import { Container, WarpperComponent, Message, MessageContainer } from './FancyCodeVerificationInput.style';
+
 interface IFancySingleInputs {
   length?: number;
   errorMessage?: string;
@@ -15,6 +13,9 @@ interface IFancySingleInputs {
   automaticCase?: 'upper' | 'lower';
   debounceTime?: number;
 }
+// --------------------------------------------------------------------------- //
+// -The main FancySinlgeInput Componet wich handle the apicall and the sattus- //
+// --------------------------------------------------------------------------- //
 export default function FancyCodeVerificationInput(props: IFancySingleInputs) {
   const { length, errorMessage, isSuccess, handler, automaticCase, debounceTime } = { ...defaultProps, ...props };
   const [inputValue, setInputValue] = useState('');

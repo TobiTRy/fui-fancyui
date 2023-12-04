@@ -7,6 +7,7 @@ import { TTextAlignLC } from '@/interface/TTextAlignLC';
 
 type NativeAttrs = Omit<InputHTMLAttributes<HTMLInputElement>, 'type' | 'value'>;
 export type IDateInputPropsWithNativeAttrs = IDateInputProps & NativeAttrs;
+
 export interface IDateInputProps {
   value?: string;
   themeType?: TThemeTypes;

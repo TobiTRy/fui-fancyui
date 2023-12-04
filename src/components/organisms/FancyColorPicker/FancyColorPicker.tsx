@@ -1,28 +1,18 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 import Color from 'color';
 import { styled } from 'styled-components';
 
-import ColorDisplay from '../../atoms/ColorDisplay/ColorDisplay';
-import ColorArea from '../../molecules/FancyColorArea/FancyColorArea';
-import FancyHueSlider from '../../molecules/FancyHueSlider/FancyHueSlider';
-import FancyOpacitySlider from '../../molecules/FancyOpacitySlider/FancyOpacitySlider';
-import FancyColorOutput from '../../molecules/FancyColorOutput/FancyColorOutput';
+import { TTheme } from '@/interface/TTheme';
 import { emitSelectedColorChange } from './colorPickerUtils';
-import { IColorFormat } from '../../../utils/variables/colorFormats';
-import { TTheme } from '../../../interface/TTheme';
+import { IColorFormat } from '@/utils/variables/colorFormat/colorFormats';
 
-const Wrapper = styled.div<{ theme: TTheme }>`
-  width: 100%;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  gap: ${({ theme }) => theme.spacing.md};
-`;
+import ColorDisplay from '@/components/atoms/ColorDisplay/ColorDisplay';
+import ColorArea from '@/components/molecules/FancyColorArea/FancyColorArea';
+import FancyHueSlider from '@/components/molecules/FancyHueSlider/FancyHueSlider';
+import FancyOpacitySlider from '@/components/molecules/FancyOpacitySlider/FancyOpacitySlider';
+import FancyColorOutput from '@/components//molecules/FancyColorOutput/FancyColorOutput';
 
-// --------------------------------------------------------------------------- //
-// ------------------- The main ColorPicker Component ------------------------ //
-// --------------------------------------------------------------------------- //
 interface IColorPicker {
   outputFormat?: IColorFormat;
   colorArea?: boolean;
@@ -33,6 +23,9 @@ interface IColorPicker {
   inputColor?: string;
   handler?: (color: string) => void;
 }
+// --------------------------------------------------------------------------- //
+// ------------------- The main ColorPicker Component ------------------------ //
+// --------------------------------------------------------------------------- //
 export default function FanyColorPicker(props: IColorPicker) {
   const { colorArea, hueSlider, opacitySlider, colorOutput, outputFormat, displayColor, inputColor, handler } = {
     ...defaultProps,
@@ -101,3 +94,14 @@ const defaultProps: IColorPicker = {
   displayColor: true,
   inputColor: '#000',
 };
+
+// ------------------------------------------- //
+// ------- The style for the component ------- //
+// ------------------------------------------- //
+const Wrapper = styled.div<{ theme: TTheme }>`
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: ${({ theme }) => theme.spacing.md};
+`;

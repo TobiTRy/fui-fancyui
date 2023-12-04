@@ -1,24 +1,24 @@
 import React from 'react';
 import { css } from 'styled-components';
 
-import SVGXCircle from '../../icons/SVGXCircle/SVGXCircle';
-import FancyContent from '../../molecules/FancyContent/FancyContent';
+import { SVGXCircle } from '@/components/icons/SVGXCircle';
+import { FancyContent } from '@/components/molecules/FancyContent';
+import { Chip } from '@/components/molecules/Chip';
+import { IChipProps } from '@/components/molecules/Chip/IChip.model';
 
 import { StyledXButton, TSpacingPosition, WrapperImage, generateSpacing } from './FancyChip.style';
-import Chip from '../../molecules/Chip/Chip';
-import { IStyledChip } from '../../molecules/Chip/Chip';
 
-export type TChipProps = {
+export type TFancyChipProps = {
   label?: string;
   isActive?: boolean;
   icon?: React.ReactNode;
   image?: string;
   onDelete?: () => void;
-} & IStyledChip &
+} & IChipProps &
   React.HTMLAttributes<HTMLDivElement>;
 
 // Define the Chip component
-export default function FancyChip(props: TChipProps) {
+export default function FancyChip(props: TFancyChipProps) {
   const {
     label,
     onDelete,

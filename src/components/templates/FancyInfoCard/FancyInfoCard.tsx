@@ -1,38 +1,9 @@
 import React from 'react';
 
-import InfoCard from '../../molecules/InfoCard/InfoCard';
-import FancyContent from '../../molecules/FancyContent/FancyContent';
-import { TTypography } from '@/interface/TTypography';
-import { TSizes } from '../../../interface/TComponentSizes';
+import { InfoCard } from '@/components/molecules/InfoCard';
+import { FancyContent } from '@/components/molecules/FancyContent';
 
-type TSizeObj = {
-  iconSize: TSizes;
-  title: TTypography;
-  descriptionSize: TTypography;
-};
-
-type TSizesObject = {
-  [K in TSizes]: TSizeObj;
-};
-
-// the template for the sizes
-const sizes: TSizesObject = {
-  sm: {
-    iconSize: 'md',
-    title: 'h6',
-    descriptionSize: 'smText',
-  },
-  md: {
-    iconSize: 'lg',
-    title: 'h5',
-    descriptionSize: 'content',
-  },
-  lg: {
-    iconSize: 'lg',
-    title: 'h4',
-    descriptionSize: 'button',
-  },
-};
+import { sizes } from './sizeSettings';
 
 type TFancyInfoCardProps = {
   title?: string;

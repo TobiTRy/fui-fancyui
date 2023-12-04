@@ -1,5 +1,5 @@
 // Import necessary dependencies
-import React, { ReactElement } from 'react';
+import React, { ReactElement, ReactNode } from 'react';
 
 import { FancyContentIcon } from './utils/FancyContentIcon';
 import { FancyContentDescription, FancyContentTitle } from './utils/FancyContentText';
@@ -12,7 +12,7 @@ export interface IFancyContentProps {
   flexAlign?: 'flex-start' | 'flex-end' | 'center' | 'stretch' | 'baseline';
   gapBetweenText?: string;
   gapBetweenIcon?: string;
-  children?: React.ReactNode;
+  children?: ReactNode;
 }
 // --------------------------------------------------------------------------- //
 // ------- The conent Components handles the Content of The componets -------- //

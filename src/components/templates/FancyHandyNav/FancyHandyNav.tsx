@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react';
 import { CSSProp, css } from 'styled-components';
 
-import SwitchList from '../../molecules/SwitchList/SwitchList';
 import useFancyHandyNavStore from './FancyHandyNav.store';
-import BottomBar from '../../molecules/BottomBar/BottomBar';
-import FancyBottomBarIcon, { IFancyBottomBarIcon } from '../FancyBottomBarIcon/FancyBottomBarIcon';
-import RawNav from '../../atoms/RawNav/RawNav';
-import { TLayer } from '@/interface/TLayer';
 import { TThemeTypes } from '@/interface/TThemeTypes';
+import { TLayer } from '@/interface/TLayer';
+
+import FancyBottomBarIcon, { IFancyBottomBarIcon } from '@/components/templates/FancyBottomBarIcon/FancyBottomBarIcon';
+import { RawNav } from '@/components/atoms/RawNav';
+import { BottomBar } from '@/components/molecules/BottomBar';
+import { SwitchList } from '@/components/molecules/SwitchList';
 
 interface IFancyHandyNav {
   items?: IFancyBottomBarIcon[];

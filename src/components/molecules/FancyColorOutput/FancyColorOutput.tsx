@@ -1,13 +1,15 @@
 import Color from 'color';
 import { useEffect, useMemo, useState } from 'react';
 
-import FancyButton from '@/components/organisms/FancyButton/FancyButton';
+import { FancyButton } from '@/components/organisms/FancyButton';
 import { SVGDoubleChevron } from '@/components/icons/SVGDoubleChevron';
-import colorFormats, { IColorFormat } from '@/utils/variables/colorFormats';
-import colorTransformator from './ColorTransformator';
+
 import { Container, WrapperSVG } from './FancyColorOutput.style';
-import InputFields from './InputFields/InputFields';
+import { InputFields } from '@/components/molecules/FancyColorOutput/InputFields';
 import { ColorTypeLetters } from './FancyColorOutput.model';
+
+import colorFormats, { IColorFormat } from '@/utils/variables/colorFormat/colorFormats';
+import colorTransformator from './utils/ColorTransformator';
 
 // --------------------------------------------------------------------------- //
 // -- The main FancyColorOutput Component to displays and change the values -- //

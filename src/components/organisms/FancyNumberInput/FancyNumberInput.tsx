@@ -1,6 +1,7 @@
 import React, { useId, useState } from 'react';
-import NumberInput, { INumberInput } from '../../molecules/NumberInput/NumberInput';
-import InputWrapper from '../../molecules/InputWrapper/InputWrapper';
+
+import NumberInput, { INumberInput } from '@/components/molecules/NumberInput/NumberInput';
+import InputWrapper from '@/components/molecules/InputWrapper/InputWrapper';
 import { IInputWrapperUserInputProps } from '@/components/molecules/InputWrapper/IInputWrapper.model';
 
 type IFancyNumberInput = INumberInput & IInputWrapperUserInputProps & { autoWidth?: boolean };

@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 
-import { TModalStatus } from '../../../interface/TModalStatus';
-import { ISwipeUpModal } from '../../molecules/SwipeUpModal/ISwipeUpModal.model';
+import { TModalStatus } from '@/interface/TModalStatus';
+import { ISwipeUpModal } from '@/components/molecules/SwipeUpModal/ISwipeUpModal.model';
 
 export type ModalSettings = Omit<ISwipeUpModal, 'isOpen' | 'children' | 'onClose'>;
 

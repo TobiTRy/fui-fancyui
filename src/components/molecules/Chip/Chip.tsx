@@ -1,28 +1,11 @@
 import React from 'react';
-import { CSSProp } from 'styled-components';
 
-import { TThemeTypes } from '@/interface/TThemeTypes';
-import { TLayer } from '@/interface/TLayer';
 import { StyledChip } from './Chip.style';
-import { TThemeTypesNotTransparent } from '@/interface/TThemeTypesNotTransparent';
-import { sizes } from '@/components/molecules/FancyContent/utils/sizeSettings';
-
-export interface IStyledChip {
-  size?: keyof typeof sizes;
-  outlined?: boolean;
-  themeType?: TThemeTypes;
-  textColor?: TThemeTypesNotTransparent;
-  layer?: TLayer;
-  textLayer?: TLayer;
-  isActive?: boolean;
-  onClick?: () => void;
-  externalStyle?: CSSProp;
-  children?: React.ReactNode;
-}
+import { IChipProps } from './IChip.model';
 // --------------------------------------------------------------------------- //
 // --------------- A Simple chip you can put everthing in it  ---------------- //
 // --------------------------------------------------------------------------- //
-type TChipProps = IStyledChip & React.HTMLAttributes<HTMLDivElement>;
+type TChipProps = IChipProps & React.HTMLAttributes<HTMLDivElement>;
 export default function Chip(props: TChipProps) {
   const { size, outlined, themeType, textColor, layer, textLayer, isActive, externalStyle, ...htmlProps } = props;
 

@@ -1,8 +1,6 @@
-import React from 'react';
-
 import { useFancyModalStore } from './FancyModal.state';
-import Modal from '../../molecules/Modal/Modal';
-import FancyPortal from '../../shared/FancyPortal/FancyPortal';
+import { Modal } from '@/components/molecules/Modal';
+import { FancyPortal } from '@/components/shared/FancyPortal';
 
 // ---------- How to use the Module ------- //
 //--- use it

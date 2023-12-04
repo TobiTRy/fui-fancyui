@@ -41,6 +41,7 @@ export { default as AnimatedInputLabel } from '@/components/atoms/AnimatedLabel/
 export { default as FancyBar } from '@/components/atoms/FancyBox/FancyBox';
 export { default as ActionWrapper } from '@/components/atoms/ActionWrapper/ActionWrapper';
 export { default as RawRadio } from '@/components/atoms/RawRadio/RawRadio';
+export { default as LoadingSVGArrows } from '@/components/atoms/LoadingSVGArrows/LoadingSVGArrows';
 
 // ---------- Molecules ------- //
 export { default as DateInput } from '@/components/molecules/DateInput/DateInput';
@@ -88,6 +89,9 @@ export { default as FancyContent } from '@/components/molecules/FancyContent/Fan
 export { default as InfoCard } from '@/components/molecules/InfoCard/InfoCard';
 export { default as ComponentAndActionWrapper } from '@/components/molecules/ComponentAndActionWrapper/ComponentAndActionWrapper';
 export { default as FancySelectWrapper } from '@/components/molecules/FancySelectWrapper/FancySelectWrapper';
+export { default as Button } from '@/components/molecules/Button/Button';
+export { default as Chip } from '@/components/molecules/Chip/Chip';
+export { default as BottomBarIcon } from '@/components/molecules/BottomBarIcon/BottomBarIcon';
 
 // ---------- Organisms ------- //
 export { default as FancyColorPicker } from '@/components/organisms/FancyColorPicker/FancyColorPicker';

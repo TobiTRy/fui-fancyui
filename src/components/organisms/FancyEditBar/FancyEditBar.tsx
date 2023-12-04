@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import EditBar from '../../molecules/EditBar/EditBar';
+
+import EditBar from '@/components/molecules/EditBar/EditBar';
 import { mainSectionCreator } from './EditBarSettings';
-import { useEditBarStore } from '../../molecules/EditBar/EditBar.state';
+import { useEditBarStore } from '@/components/molecules/EditBar/EditBar.state';
 
 import { ICategory } from './EditBarItemsStructure/IEditbarObjectSturcture.model';
 import { useFancyEditBarStore } from './FancyEditBar.state';

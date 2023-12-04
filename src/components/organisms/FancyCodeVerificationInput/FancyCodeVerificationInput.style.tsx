@@ -1,6 +1,6 @@
 import { styled, css } from 'styled-components';
 
-import { fontSize } from '../../../design/theme/designSizes';
+import { fontSize } from '@/design/theme/designSizes';
 import { TTheme } from '@/interface/TTheme';
 
 export const WarpperComponent = styled.div`

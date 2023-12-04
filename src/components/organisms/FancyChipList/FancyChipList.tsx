@@ -1,31 +1,14 @@
 import React, { KeyboardEvent, useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
-import { Fieldset } from '../../molecules/Fieldset';
 import { TLayer } from '@/interface/TLayer';
-import ChipList from '../../molecules/ChipList/ChipList';
-import { FancyChip } from '../FancyChip';
+
+import { Fieldset } from '@/components/molecules/Fieldset';
+import { ChipList } from '@/components/molecules/ChipList';
+import { FancyChip } from '@/components/organisms/FancyChip';
+
 import { InputLi } from './FancyChipList.style';
-import { TThemeTypes } from '@/interface/TThemeTypes';
-import { TUiColorsSystemMessage } from '@/interface/TUiColorsSystemMessage';
-
-// Defining the interface for the component's props
-export interface ChipListProps {
-  themeType?: Exclude<TThemeTypes, 'transparent'>;
-  systemInformation?: TUiColorsSystemMessage;
-  layer?: TLayer;
-  outlined?: boolean;
-  chips?: string[];
-  inputPlaceholder?: string;
-  label?: string;
-  size?: 'sm' | 'md' | 'lg';
-}
-
-// Define the type for the chips with an id and label
-type TChip = {
-  id: string;
-  label: string;
-};
+import { ChipListProps, TChip } from './FancyChipListProps.model';
 
 // The FancyChipList component definition
 export default function FancyChipList(props: ChipListProps) {

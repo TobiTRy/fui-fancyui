@@ -10,14 +10,6 @@ interface FancyGridProps {
   gap?: string;
   children?: React.ReactNode;
 }
-
-const GridContainer = styled.div<IStyledPrefixAndOmitter<FancyGridProps, 'children'>>`
-  display: grid;
-  width: 100%;
-  grid-template-columns: repeat(${(props) => props.$grid}, 1fr);
-  grid-gap: ${(props) => props.$gap};
-`;
-
 // --------------------------------------------------------------------------- //
 // ------- The FancyGrid to allocate the grid and give the items space ------- //
 // --------------------------------------------------------------------------- //
@@ -33,3 +25,13 @@ function FancyGrid(props: FancyGridProps) {
 FancyGrid.Item = FancyGridItem;
 
 export default FancyGrid;
+
+// ------------------------------------------- //
+// ------- The style for the component ------- //
+// ------------------------------------------- //
+const GridContainer = styled.div<IStyledPrefixAndOmitter<FancyGridProps, 'children'>>`
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(${(props) => props.$grid}, 1fr);
+  grid-gap: ${(props) => props.$gap};
+`;

@@ -1,5 +1,6 @@
 import { styled } from 'styled-components';
-import { AlignedInputLabel } from '../../atoms/AlignedInputLabel/AlignedInputLabel';
+
+import { AlignedInputLabel } from '@/components/atoms/AlignedInputLabel';
 import { TTheme } from '@/interface/TTheme';
 
 export const RangeSliderContainer = styled.div`

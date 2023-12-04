@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react';
 
-import YearSelector from '../../atoms/YearSelector/YearSelector';
-import WeekDays from '../../atoms/WeekDays/WeekDays';
-import RangeCalendar from '../../molecules/RangeCalendar/RangeCalendar';
-import { DatePickerContainer, WrapperWeekdays, WrapperYearSelector } from './FancyDatePicker.style';
-import IExternalYearWithMonths from '../../molecules/MonthWithDays/utils/Interfaces/IExternalMonthWithDays.model';
-import DateOutputFromTo from '../../molecules/DateOutputFromTo/DateOutputFromTo';
-import { IDisabledDateSettings } from '../../molecules/MonthWithDays/utils/Interfaces/IDisableDateSettings.model';
-import { IDateArray } from '../../molecules/RangeCalendar/IDateArray.model';
 import { TLayer } from '@/interface/TLayer';
 import { TThemeTypes } from '@/interface/TThemeTypes';
+import { IDisabledDateSettings } from '@/components/molecules/MonthWithDays/utils/Interfaces/IDisableDateSettings.model';
+
+import { YearSelector } from '@/components/atoms/YearSelector';
+import { WeekDays } from '@/components/atoms/WeekDays';
+import { RangeCalendar } from '@/components/molecules/RangeCalendar';
+import IExternalYearWithMonths from '@/components/molecules/MonthWithDays/utils/Interfaces/IExternalMonthWithDays.model';
+import { DateOutputFromTo } from '@/components/molecules/DateOutputFromTo';
+import { IDateArray } from '@/components/molecules/RangeCalendar/IDateArray.model';
+
+import { DatePickerContainer, WrapperWeekdays, WrapperYearSelector } from './FancyDatePicker.style';
 
 interface IFancyDatePicker {
   rangeCalendar?: boolean;
@@ -20,7 +22,9 @@ interface IFancyDatePicker {
   themeType?: TThemeTypes;
   layer?: TLayer;
 }
-
+// --------------------------------------------------------------------------- //
+// --------- A Datepicker thats really fancy with some advanced logic -------- //
+// --------------------------------------------------------------------------- //
 export default function FancyDatePicker(props: IFancyDatePicker) {
   const { rangeCalendar, handler, selectedYear, disabledDateSetting, externalData, themeType, layer } = { ...defaultProps, ...props };
   const [selectedDate, setSelectedDate] = useState<IDateArray>([new Date(), new Date()]);
