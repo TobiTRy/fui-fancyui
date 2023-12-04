@@ -2,8 +2,9 @@ import { css, styled } from 'styled-components';
 
 import generateThemeDesignForComponent from '@/design/designFunctions/generateThemeDesignForComponent/generateThemeDesignForComponent';
 import IStyledPrefixAndOmitter from '@/interface/IStyledPrefixAndOmiter.model';
-import { IStyledChip } from './Chip';
+
 import { TTheme } from '@/interface/TTheme';
+import { IChipProps } from './IChip.model';
 
 const sizes = {
   sm: {
@@ -18,7 +19,7 @@ const sizes = {
 };
 
 // Define the styled component for the chip
-type TChipSize = IStyledPrefixAndOmitter<IStyledChip, 'children' | 'onClick'>;
+type TChipSize = IStyledPrefixAndOmitter<IChipProps, 'children' | 'onClick'>;
 export const StyledChip = styled.div<TChipSize & { theme: TTheme }>`
   border: none;
   height: ${({ $size }) => ($size ? sizes[$size].height : sizes.md.height)};
