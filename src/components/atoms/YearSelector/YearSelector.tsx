@@ -1,12 +1,12 @@
 import React from 'react';
 
-import SVGChevronLeft from '../../icons/SVGChevronLeft/SVGChevronLeft';
-import SVGChevronRight from '../../icons/SVGChevronRight/SVGChevronRight';
-import { SVGDesignCSS, StyledButton, StyledYearSelector } from './YearSelector.style';
-import Typography from '../Typography/Typography';
-import { FancySVGAtom } from '../FancySVGAtom';
 import { TThemeTypes } from '@/interface/TThemeTypes';
 import { TLayer } from '@/interface/TLayer';
+import { SVGChevronLeft } from '@/components/icons/SVGChevronLeft';
+import { SVGChevronRight } from '@/components/icons/SVGChevronRight';
+import { FancySVGAtom } from '@/components/atoms/FancySVGAtom';
+import { Typography } from '@/components/atoms/Typography';
+import { SVGDesignCSS, StyledButton, StyledYearSelector } from './YearSelector.style';
 
 // --------------------------------------------------------------------------- //
 // ---------- Here are the design variants for sizing and alignment ---------- //

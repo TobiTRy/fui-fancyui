@@ -1,4 +1,5 @@
 import React, { InputHTMLAttributes, useRef } from 'react';
+
 import { StyledRawSlider } from './RawSlider.style';
 import { TLayer } from '@/interface/TLayer';
 import { TThemeTypes } from '@/interface/TThemeTypes';

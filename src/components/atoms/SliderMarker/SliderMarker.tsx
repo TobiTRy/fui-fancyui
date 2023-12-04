@@ -14,7 +14,7 @@ export default function SliderMarker({ position, children }: ISliderMarker) {
     <WrapperMarker style={{ left: `${position}` }}>
       <Marker>
         {/* the children can use to display something in the marker like the color indicator that moves with the marker */}
-        {children && children}
+        {children}
       </Marker>
     </WrapperMarker>
   );

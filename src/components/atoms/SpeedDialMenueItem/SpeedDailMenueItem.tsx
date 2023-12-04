@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Typography } from '../Typography';
+import { Typography } from '@/components/atoms/Typography';
 import { Label, MenuItem, MenueItemContainer } from './SpeedDailMenueItem.style';
 
 //the props only for the button

@@ -1,11 +1,11 @@
 import { styled, css } from 'styled-components';
 
-import { spacingPx } from '../../../design/theme/designSizes';
+import { spacingPx } from '@/design/theme/designSizes';
 import { TTextAlign } from './FancyMiniProfile';
 import { TThemeTypes } from '@/interface/TThemeTypes';
 import { TLayer } from '@/interface/TLayer';
-import getColorsForComponent from '../../../design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponent';
-import { boxShadow } from '../../../design/designFunctions/shadows/shadows';
+import { getColorsForComponent } from '@/design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponent';
+import { boxShadow } from '@/design/designFunctions/shadows/shadows';
 import { TTheme } from '@/interface/TTheme';
 import { TSpacings } from '@/interface/TSpacings';
 

@@ -1,25 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { styled } from 'styled-components';
 
-import Typography from '../Typography/Typography';
 import { TThemeTypes } from '@/interface/TThemeTypes';
 import { TLayer } from '@/interface/TLayer';
-import { getBackgroundColor } from '../../../design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponent';
+import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponent';
 import { TTheme } from '@/interface/TTheme';
+import { Typography } from '@/components/atoms/Typography';
 
-const WeekdaysConatiner = styled.div<{ theme: TTheme; $themeType?: TThemeTypes; $layer?: TLayer }>`
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  width: 100%;
-  margin-bottom: ${({ theme }) => theme.spacing.xs};
-  color: ${({ theme, $themeType, $layer }) => getBackgroundColor({ theme, $themeType: $themeType ?? 'secondary', $layer: $layer ?? 0 })};
-
-  & > * {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-`;
 // --------------------------------------------------------------------------- //
 // ---------- This Atom creates a List of all Weekdas from Mo - Su ----------- //
 // --------------------------------------------------------------------------- //
@@ -49,3 +36,20 @@ export default function WeekDays({ themeType, layer }: IWeekDays) {
     </WeekdaysConatiner>
   );
 }
+
+// ------------------------------------------- //
+// ------- The style for the component ------- //
+// ------------------------------------------- //
+const WeekdaysConatiner = styled.div<{ theme: TTheme; $themeType?: TThemeTypes; $layer?: TLayer }>`
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  width: 100%;
+  margin-bottom: ${({ theme }) => theme.spacing.xs};
+  color: ${({ theme, $themeType, $layer }) => getBackgroundColor({ theme, $themeType: $themeType ?? 'secondary', $layer: $layer ?? 0 })};
+
+  & > * {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+`;

@@ -16,7 +16,7 @@ export { default as PasswordEye } from '@/components/atoms/PasswordEye/PasswordE
 export { default as RawSlider } from '@/components/atoms/RawSlider/RawSlider';
 export { default as ScrollableBar } from '@/components/atoms/ScrollableBar/ScrollableBar';
 export { default as SimpleDialog } from '@/components/atoms/SimpleDialog/SimpleDialog';
-export { default as SingleInputAtom } from '@/components/atoms/SingleInputAtom/SingleInputAtom';
+export { default as SingleInput } from '@/components/atoms/SingleInput/SingleInput';
 export { default as Slot } from '@/components/atoms/Slot/Slot';
 export { default as SwipeUpContainer } from '@/components/atoms/SwipeUpContainer/SwipeUpContainer';
 export { default as SwipeUpDash } from '@/components/atoms/SwipeUpDash/SwipeUpDash';

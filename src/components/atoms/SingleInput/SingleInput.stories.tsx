@@ -2,7 +2,7 @@
 import { Meta, StoryObj } from '@storybook/react';
 
 // Import the component to be tested
-import { SingleInputAtom } from './SingleInputAtom';
+import { SingleInputAtom } from './SingleInput';
 
 // fix for building ... because storybook is not able to handle the default export
 const HelperComponent = (props: React.ComponentProps<typeof SingleInputAtom>) => <SingleInputAtom {...props} />;
