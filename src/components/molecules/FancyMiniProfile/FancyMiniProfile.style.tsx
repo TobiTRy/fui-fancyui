@@ -1,13 +1,13 @@
 import { styled, css } from 'styled-components';
 
-import { spacingPx } from '@/design/theme/designSizes';
-import { TTextAlign } from './FancyMiniProfile';
 import { TThemeTypes } from '@/interface/TThemeTypes';
 import { TLayer } from '@/interface/TLayer';
-import { getColorsForComponent } from '@/design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponent';
-import { boxShadow } from '@/design/designFunctions/shadows/shadows';
 import { TTheme } from '@/interface/TTheme';
 import { TSpacings } from '@/interface/TSpacings';
+import { TTextAlignLR } from '@/interface/TTextAlignLR';
+
+import { getColorsForComponent } from '@/design/designFunctions/colorCalculatorForComponent';
+import { boxShadow } from '@/design/designFunctions/shadows/shadows';
 
 // this container wraps the whole component
 interface IWrapper {
@@ -21,8 +21,8 @@ interface IWrapper {
 export const Wrapper = styled.div<IWrapper>`
   display: inline-flex;
   align-items: center;
-  padding: ${({ $size }) => ($size ? spacingPx[$size] : '')};
-  gap: ${({ $gapSpacing }) => ($gapSpacing ? spacingPx[$gapSpacing] : ({ theme }) => theme.spacing.xxs)};
+  padding: ${({ $size, theme }) => ($size ? theme.spacing[$size] : '')};
+  gap: ${({ $gapSpacing, theme }) => ($gapSpacing ? theme.spacing[$gapSpacing] : ({ theme }) => theme.spacing.xxs)};
   ${({ $themeType = 'primary', $layer = 2, theme }) => getColorsForComponent({ $themeType, $layer, theme })};
   ${({ $shadow }) => $shadow && boxShadow.sm}
   border-radius: ${({ theme }) => theme.borderRadius.complete};
@@ -30,20 +30,21 @@ export const Wrapper = styled.div<IWrapper>`
 
 // this container wraps the texts (Heading, Subheading)
 interface ITextWrapper {
-  $alignText?: TTextAlign;
+  $alignText?: TTextAlignLR;
   $paddingToedge: TSpacings;
+  theme: TTheme;
 }
 export const TextWrapper = styled.div<ITextWrapper>`
   // if alignText is left, then the order of the text is reversed
-  ${({ $alignText, $paddingToedge }) =>
+  ${({ $alignText, $paddingToedge, theme }) =>
     $alignText === 'left'
       ? css`
           order: -1;
           text-align: right;
-          margin-left: ${spacingPx[$paddingToedge]};
+          margin-left: ${theme.spacing[$paddingToedge]};
         `
       : css`
-          margin-right: ${spacingPx[$paddingToedge]};
+          margin-right: ${theme.spacing[$paddingToedge]};
         `}
   gap: 1px;
   display: flex;

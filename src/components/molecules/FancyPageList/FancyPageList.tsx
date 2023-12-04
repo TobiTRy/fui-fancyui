@@ -1,24 +1,8 @@
 import React, { useState } from 'react';
 import { styled } from 'styled-components';
 
-import Paginator from '../Paginator/Paginator';
+import { Paginator } from '@/components/molecules/Paginator';
 import { TTheme } from '@/interface/TTheme';
-
-// The List with dymaic spacing between items
-const StyledList = styled.div<{ $spacing?: string }>`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: ${({ $spacing }) => ($spacing ? $spacing : '0px')};
-`;
-
-const Wrapper = styled.div<{ theme: TTheme }>`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  gap: ${({ theme }) => theme.spacing.xl};
-`;
 
 // Define the props for the FancyPageList component
 interface IFancyPageList {
@@ -68,3 +52,22 @@ export default function FancyPageList(props: IFancyPageList) {
 const defaultProps = {
   itemsPerPage: 20,
 };
+
+// ------------------------------------------- //
+// ------- The style for the component ------- //
+// ------------------------------------------- //
+// The List with dymaic spacing between items
+const StyledList = styled.div<{ $spacing?: string }>`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: ${({ $spacing }) => ($spacing ? $spacing : '0px')};
+`;
+
+const Wrapper = styled.div<{ theme: TTheme }>`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: ${({ theme }) => theme.spacing.xl};
+`;

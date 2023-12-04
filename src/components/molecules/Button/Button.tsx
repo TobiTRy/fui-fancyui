@@ -1,22 +1,8 @@
 import React from 'react';
-import { CSSProp } from 'styled-components';
 
-import { IGenerateThemeDesignForComponentProps } from '../../../design/designFunctions/generateThemeDesignForComponent/generateThemeDesignForComponent';
 import { StyledButton } from './Button.style';
+import { IButton } from './Button.model';
 
-export type IButtonProps = {
-  size?: 'sm' | 'md' | 'lg';
-  wide?: boolean;
-  children?: React.ReactNode;
-  externalStyle?: CSSProp;
-  disabled?: boolean;
-} & IGenerateThemeDesignForComponentProps;
-
-type ButtonHTML = React.ButtonHTMLAttributes<HTMLButtonElement>;
-type AnchorHTML = React.AnchorHTMLAttributes<HTMLAnchorElement>;
-
-// Using conditional type based on the 'as' prop
-export type IButton = IButtonProps & (({ as?: 'button' } & ButtonHTML) | ({ as: 'a' } & AnchorHTML));
 // --------------------------------------------------------------------------- //
 // --------------- A normal Button with Style from the Theme ----------------- //
 // --------------------------------------------------------------------------- //
@@ -42,8 +28,8 @@ export default function Button(props: IButton) {
   );
 }
 
-const defaultProps: IButtonProps & IGenerateThemeDesignForComponentProps = {
+const defaultProps = {
   themeType: 'accent' as const,
   size: 'md',
-  layer: 0,
+  layer: 0 as const,
 };

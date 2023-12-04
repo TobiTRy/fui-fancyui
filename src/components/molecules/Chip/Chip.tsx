@@ -1,11 +1,11 @@
 import React from 'react';
 import { CSSProp } from 'styled-components';
 
-import { sizes } from '../FancyContent/utils/sizeSettings';
 import { TThemeTypes } from '@/interface/TThemeTypes';
 import { TLayer } from '@/interface/TLayer';
 import { StyledChip } from './Chip.style';
 import { TThemeTypesNotTransparent } from '@/interface/TThemeTypesNotTransparent';
+import { sizes } from '@/components/molecules/FancyContent/utils/sizeSettings';
 
 export interface IStyledChip {
   size?: keyof typeof sizes;
@@ -19,7 +19,6 @@ export interface IStyledChip {
   externalStyle?: CSSProp;
   children?: React.ReactNode;
 }
-
 // --------------------------------------------------------------------------- //
 // --------------- A Simple chip you can put everthing in it  ---------------- //
 // --------------------------------------------------------------------------- //

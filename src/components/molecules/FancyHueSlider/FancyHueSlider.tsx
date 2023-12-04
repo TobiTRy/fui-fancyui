@@ -1,42 +1,20 @@
-import React from 'react';
 import Color from 'color';
 
-import useSlider from '../../../utils/hooks/useSlider/useSilder';
-import SliderMarker from '../../atoms/SliderMarker/SliderMarker';
-import ColorIndicator from '../../atoms/ColorIndicator/ColorIndicator';
+import useSlider from '@/utils/hooks/useSlider/useSilder';
+import { SliderMarker } from '@/components/atoms/SliderMarker';
+import ColorIndicator from '@/components/atoms/ColorIndicator/ColorIndicator';
+
 import { SliderContainer, SliderWrapper } from './FancyHueSlider.style';
+import { colorToPositionHue, positionToColorHue } from './utils/calcPosition';
 
-//define the min and max hue value for the slider
-const minHue = 0;
-const maxHue = 359.9; // 360 is red again, 360degree is the same as 0 degree
-
-//calculate the hue from the position of the marker from the slider
-const positionToColorHue = (clientX: number, rect: DOMRect) => {
-  const x = clientX - rect.left;
-  const hue = (x / rect.width) * (maxHue - minHue);
-
-  return Math.min(Math.max(hue, minHue), maxHue);
-};
-
-//calculate the position of the slider from the hue value
-const colorToPositionHue = (color: Color) => {
-  if (!color) return { x: 0, y: 0 };
-  //get the hue value from the current color
-  const hue = Color(color).hsl().object().h;
-  //calculate the percentage of the hue value
-  const huePercentage = ((hue - minHue) / (maxHue - minHue)) * 100;
-
-  return { x: huePercentage, y: 0 };
-};
-
-// --------------------------------------------------------------------------- //
-// --------  The main HueSlider Component to calulates the hue --------------- //
-// --------------------------------------------------------------------------- //
 interface IHueSlider {
   handler?: (hue: number) => void;
   hue?: number;
   color?: Color;
 }
+// --------------------------------------------------------------------------- //
+// --------  The main HueSlider Component to calulates the hue --------------- //
+// --------------------------------------------------------------------------- //
 export default function FancyHueSlider(props: IHueSlider) {
   const { handler, hue, color } = { ...defaultProps, ...props };
   //give back the new hue value to the parent component

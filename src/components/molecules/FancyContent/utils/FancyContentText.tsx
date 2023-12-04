@@ -1,29 +1,11 @@
-import { CSSProp } from 'styled-components';
-
-import Typography from '../../../atoms/Typography/Typography';
+import { Typography } from '@/components/atoms/Typography';
+import { TTextProps } from './TFancyTextVariant.model';
 import { sizes } from './sizeSettings';
-import { TTypography } from '@/interface/TTypography';
 
-type IFancyContentTextProps = {
-  children?: React.ReactNode;
-  bold?: boolean;
-  className?: string;
-  externalStyle?: CSSProp;
-};
-
-type IFancyContentTextWithSizeProps = IFancyContentTextProps & {
-  size?: 'sm' | 'md' | 'lg';
-  fontVariant?: never;
-};
-
-type IFancyContentTextWithFontVariantProps = IFancyContentTextProps & {
-  fontVariant?: TTypography;
-  size?: never;
-};
-
-export function FancyContentTitle(
-  props: IFancyContentTextProps & (IFancyContentTextWithFontVariantProps | IFancyContentTextWithSizeProps)
-) {
+// --------------------------------------------------------------------------- //
+// ----------------- The Title for the FancyContent component ---------------- //
+// --------------------------------------------------------------------------- //
+export function FancyContentTitle(props: TTextProps) {
   const { size, bold = true, fontVariant, children, className, externalStyle } = props;
 
   return (
@@ -39,9 +21,10 @@ export function FancyContentTitle(
   );
 }
 
-export function FancyContentDescription(
-  props: IFancyContentTextProps & (IFancyContentTextWithFontVariantProps | IFancyContentTextWithSizeProps)
-) {
+// --------------------------------------------------------------------------- //
+// -------------- The description for the FancyContent component ------------- //
+// --------------------------------------------------------------------------- //
+export function FancyContentDescription(props: TTextProps) {
   const { size, bold, fontVariant, children, className, externalStyle } = props;
 
   return (

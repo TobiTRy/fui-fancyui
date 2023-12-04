@@ -1,10 +1,11 @@
 import { styled } from 'styled-components';
-import { disabledStyle } from '../../../design/designFunctions/disabledStyle/disableStyle';
+
+import { disabledStyle } from '@/design/designFunctions/disabledStyle/disableStyle';
 import generateThemeDesignForComponent, {
   IGenerateThemeDesignForComponent,
-} from '../../../design/designFunctions/generateThemeDesignForComponent/generateThemeDesignForComponent';
-import IStyledPrefixAndPicker from '../../../interface/IStyledPrefixAndPicker.model';
-import { IButtonProps } from './Button';
+} from '@/design/designFunctions/generateThemeDesignForComponent/generateThemeDesignForComponent';
+import IStyledPrefixAndPicker from '@/interface/IStyledPrefixAndPicker.model';
+import { IButtonProps } from './Button.model';
 
 export const StyledButton = styled.button<IGenerateThemeDesignForComponent & IStyledPrefixAndPicker<IButtonProps>>`
   display: inline-flex;

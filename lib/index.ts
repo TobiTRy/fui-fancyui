@@ -17,7 +17,6 @@ export { default as RawSlider } from '@/components/atoms/RawSlider/RawSlider';
 export { default as ScrollableBar } from '@/components/atoms/ScrollableBar/ScrollableBar';
 export { default as SimpleDialog } from '@/components/atoms/SimpleDialog/SimpleDialog';
 export { default as SingleInput } from '@/components/atoms/SingleInput/SingleInput';
-export { default as Slot } from '@/components/atoms/Slot/Slot';
 export { default as SwipeUpContainer } from '@/components/atoms/SwipeUpContainer/SwipeUpContainer';
 export { default as SwipeUpDash } from '@/components/atoms/SwipeUpDash/SwipeUpDash';
 export { default as Typography } from '@/components/atoms/Typography/Typography';
@@ -85,7 +84,9 @@ export { default as FancyMiniProfile } from '@/components/molecules/FancyMiniPro
 export { default as FancyCheckbox } from '@/components/molecules/FancyCheckbox/FancyCheckbox';
 export { default as FancyChip } from '@/components/organisms/FancyChip/FancyChip';
 export { default as Header } from '@/components/molecules/Header/Header';
+export { default as FancyContent } from '@/components/molecules/FancyContent/FancyContent';
 export { default as InfoCard } from '@/components/molecules/InfoCard/InfoCard';
+export { default as ComponentAndActionWrapper } from '@/components/molecules/ComponentAndActionWrapper/ComponentAndActionWrapper';
 
 // ---------- Organisms ------- //
 export { default as FancyColorPicker } from '@/components/organisms/FancyColorPicker/FancyColorPicker';

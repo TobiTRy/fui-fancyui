@@ -14,7 +14,9 @@ export interface ChipListProps {
   size?: 'sm' | 'md' | 'lg';
   systemMessage?: TUiColorsSystemMessage;
 }
-
+// --------------------------------------------------------------------------- //
+// ---------- The Chiplist is a wrapper for the chips to list them  ---------- //
+// --------------------------------------------------------------------------- //
 export default function ChipList(props: ChipListProps) {
   const { themeType = 'primary', layer = 1, outlined = false, children, size, systemMessage } = props;
 

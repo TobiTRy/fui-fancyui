@@ -13,3 +13,6 @@ export * from './TTypography';
 export * from './TUiColorNames';
 export * from './TThemeTypes';
 export * from './TUiColorsType';
+export * from './TTextAlignLR';
+export * from './TTextAlignLC';
+export * from './TTextAlignLRC';

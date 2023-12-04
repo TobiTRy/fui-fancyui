@@ -1,14 +1,15 @@
-import React from 'react';
+import { ReactNode } from 'react';
 
-import FancyImage, { IFancyImage } from '../../atoms/FancyImage/FancyImage';
-import ImageVideoOverlay, { TPositions } from '../../atoms/ImageVideoOverlay/ImageVideoOverlay';
+import { FancyImage } from '@/components/atoms/FancyImage';
+import { IFancyImage } from '@/components/atoms/FancyImage/FancyImage';
+import { ImageVideoOverlay } from '@/components/atoms/ImageVideoOverlay';
+import { TPositions } from '@/components/atoms/ImageVideoOverlay/ImageVideoOverlay';
 
 // Define the props for the FancyImageText component
 interface IImageWithTextProps extends IFancyImage {
-  children?: React.ReactNode;
+  children?: ReactNode;
   position?: TPositions;
 }
-
 // --------------------------------------------------------------------------- //
 // ------------The Definition for the FancyImageText Component --------------- //
 // --------------------------------------------------------------------------- //

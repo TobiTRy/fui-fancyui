@@ -1,5 +1,6 @@
 import { css } from 'styled-components';
-import { TTheme } from '../../../interface/TTheme';
+
+import { TTheme } from '@/interface/TTheme';
 
 export const FancyBoxStyle = css<{ theme: TTheme }>`
   display: flex;

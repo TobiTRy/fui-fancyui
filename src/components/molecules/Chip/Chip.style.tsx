@@ -1,7 +1,7 @@
 import { css, styled } from 'styled-components';
 
-import generateThemeDesignForComponent from '../../../design/designFunctions/generateThemeDesignForComponent/generateThemeDesignForComponent';
-import IStyledPrefixAndOmitter from '../../../interface/IStyledPrefixAndOmiter.model';
+import generateThemeDesignForComponent from '@/design/designFunctions/generateThemeDesignForComponent/generateThemeDesignForComponent';
+import IStyledPrefixAndOmitter from '@/interface/IStyledPrefixAndOmiter.model';
 import { IStyledChip } from './Chip';
 import { TTheme } from '@/interface/TTheme';
 

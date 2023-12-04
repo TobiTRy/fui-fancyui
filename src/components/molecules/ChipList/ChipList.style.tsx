@@ -2,10 +2,7 @@ import { css, styled } from 'styled-components';
 
 import themeStore from '@/design/theme/themeStore/themeStore';
 import { TUiColorsSystemMessage } from '@/interface/TUiColorsSystemMessage';
-
 import { generateSystemIndicatorStyle } from '@/design/designFunctions/generateSystemIndicatorStyle';
-
-export const FancyBoxStyle = css``;
 
 export const ChipContainer = styled.ul`
   display: flex;
@@ -15,6 +12,13 @@ export const ChipContainer = styled.ul`
   padding: 0;
 `;
 
+/**
+ * Generates the style for the ChipList component.
+ *
+ * @param size - The size of the ChipList ('sm', 'md', 'lg').
+ * @param sytemMessage - Optional system message color for the ChipList.
+ * @returns The generated style object for the ChipList.
+ */
 export const generateChipListStyle = (size: 'sm' | 'md' | 'lg', sytemMessage?: TUiColorsSystemMessage) => {
   const styemIndicatorStyle = generateSystemIndicatorStyle(sytemMessage);
   const getTheme = themeStore.getState().theme;

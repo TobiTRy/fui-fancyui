@@ -1,4 +1,4 @@
-import { FancySVGAtom } from '../../../atoms/FancySVGAtom';
+import { FancySVGAtom } from '@/components/atoms/FancySVGAtom';
 
 interface IFancyContentIconProps {
   children?: React.ReactNode;

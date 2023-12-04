@@ -1,46 +1,12 @@
 // Import necessary dependencies
 import React, { ReactElement } from 'react';
-import { styled } from 'styled-components';
 
 import { FancyContentIcon } from './utils/FancyContentIcon';
 import { FancyContentDescription, FancyContentTitle } from './utils/FancyContentText';
-import IStyledPrefixAndPicker from '../../../interface/IStyledPrefixAndPicker.model';
-import { TTheme } from '@/interface/TTheme';
-
-// Define the types for the Wrapper component
-type TWrapper = IStyledPrefixAndPicker<
-  IFancyContentProps,
-  'flexDirection' | 'flexAlign' | 'flexJustify' | 'gapBetweenText' | 'gapBetweenIcon'
->;
-
-// Define the Wrapper component
-const Wrapper = styled.span<TWrapper & { theme: TTheme }>`
-  display: flex;
-  flex-direction: ${({ $flexDirection }) => $flexDirection || 'row'};
-  justify-content: ${({ $flexJustify }) => $flexJustify || 'center'};
-  align-items: ${({ $flexAlign }) => $flexAlign || 'center'};
-  gap: ${({ $gapBetweenIcon, theme }) => $gapBetweenIcon ?? theme.spacing.xs};
-
-  .content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    gap: ${({ $gapBetweenText, theme }) => $gapBetweenText ?? theme.spacing.xxs};
-  }
-`;
-
-type TOnlyTextWrapper = IStyledPrefixAndPicker<IFancyContentProps, 'flexDirection' | 'gapBetweenText' | 'flexAlign' | 'flexJustify'>;
-const OnlyTextWrapper = styled.span<TOnlyTextWrapper & { theme: TTheme }>`
-  display: flex;
-  flex-direction: ${({ $flexDirection }) => $flexDirection || 'column'};
-  justify-content: ${({ $flexJustify }) => $flexJustify || 'center'};
-  align-items: ${({ $flexAlign }) => $flexAlign || 'flex-start'};
-  gap: ${({ $gapBetweenText, theme }) => $gapBetweenText ?? theme.spacing.xxs};
-`;
+import { OnlyTextWrapper, Wrapper } from './FancyContent.style';
 
 // Define the props for the FancyContent component
-interface IFancyContentProps {
+export interface IFancyContentProps {
   flexDirection?: 'row' | 'row-reverse' | 'column' | 'column-reverse';
   flexJustify?: 'flex-start' | 'flex-end' | 'center' | 'space-between' | 'space-around' | 'space-evenly';
   flexAlign?: 'flex-start' | 'flex-end' | 'center' | 'stretch' | 'baseline';

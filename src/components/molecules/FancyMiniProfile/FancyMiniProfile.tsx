@@ -1,52 +1,15 @@
-import React from 'react';
+import FancyProfilePicture from '@/components/atoms/FancyProfilePicture/FancyProfilePicture';
+import { Typography } from '@/components/atoms/Typography';
 
-import FancyProfilePicture, { IFancyProfilePicture } from '../../atoms/FancyProfilePicture/FancyProfilePicture';
-import Typography from '../../atoms/Typography/Typography';
-import { TextWrapper, Wrapper } from './FancyMiniProfile.style';
-import { TTypography } from '@/interface/TTypography';
+import { TTextAlignLR } from '@/interface/TTextAlignLR';
 import { TThemeTypes } from '@/interface/TThemeTypes';
 import { TLayer } from '@/interface/TLayer';
-import { TSpacings } from '../../../interface/TSpacings';
 
-// the interface for the different sizes
-interface IPillSettings {
-  [key: string]: {
-    imageSize: IFancyProfilePicture['size'];
-    padding: TSpacings | undefined;
-    textSize: TTypography;
-    paddingToEdge: TSpacings;
-    gapPictureAndText: TSpacings;
-  };
-}
+import { pillSettings } from './sizeSettings';
+import { TextWrapper, Wrapper } from './FancyMiniProfile.style';
 
-// the stettings for the different sizes
-const pillSettings: IPillSettings = {
-  sm: {
-    imageSize: 'xs',
-    padding: undefined,
-    textSize: 'verysmText',
-    paddingToEdge: 'lg',
-    gapPictureAndText: 'sm',
-  },
-  md: {
-    imageSize: 'xs',
-    padding: 'xs',
-    textSize: 'smText',
-    paddingToEdge: 'lg',
-    gapPictureAndText: 'sm',
-  },
-  lg: {
-    imageSize: 'sm',
-    padding: 'xs',
-    textSize: 'h5',
-    paddingToEdge: 'xl',
-    gapPictureAndText: 'sm',
-  },
-};
-
-export type TTextAlign = 'left' | 'right';
 interface IFancyMiniprofile {
-  alignText?: TTextAlign;
+  alignText?: TTextAlignLR;
   headingText?: string;
   subHeadingText?: string;
   imageURL?: string;

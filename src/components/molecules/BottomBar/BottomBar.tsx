@@ -1,14 +1,11 @@
 import React from 'react';
+import { CSSProp, css } from 'styled-components';
 
 import { TThemeTypes } from '@/interface/TThemeTypes';
 import { TLayer } from '@/interface/TLayer';
-import { FancyBox } from '../../atoms/FancyBox';
-import { CSSProp, css } from 'styled-components';
+import { FancyBox } from '@/components/atoms/FancyBox';
 import { fancyBarStyle } from './BottomBar.style';
 
-// --------------------------------------------------------------------------- //
-// ------------------ The Bottom Bar for the mobile navigation --------------- //
-// --------------  use the store to controle the bar from outside ------------ //
 type TBottomBar = {
   isVisible?: boolean;
   themeType?: TThemeTypes;
@@ -16,6 +13,9 @@ type TBottomBar = {
   externalStyle?: CSSProp;
   children?: React.ReactNode;
 } & React.ComponentProps<typeof FancyBox>;
+// --------------------------------------------------------------------------- //
+// ------------------ The Bottom Bar for the mobile navigation --------------- //
+// --------------  use the store to controle the bar from outside ------------ //
 export default function BottomBar(props: TBottomBar) {
   const { isVisible, externalStyle, children, ...bottomBarProps } = { ...defaultProps, ...props };
 
@@ -36,6 +36,7 @@ export default function BottomBar(props: TBottomBar) {
   );
 }
 
+// default props for the bottom bar
 const defaultProps: TBottomBar = {
   isVisible: true,
 };

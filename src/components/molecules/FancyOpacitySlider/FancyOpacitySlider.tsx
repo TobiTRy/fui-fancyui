@@ -1,32 +1,13 @@
-import React from 'react';
 import Color from 'color';
 
-import useSlider from '../../../utils/hooks/useSlider/useSilder';
-import SliderMarker from '../../atoms/SliderMarker/SliderMarker';
+import useSlider from '@/utils/hooks/useSlider/useSilder';
+
+import SliderMarker from '@/components/atoms/SliderMarker/SliderMarker';
+import { ColorIndicator } from '@/components/atoms/ColorIndicator';
+import { CheckerBoardPattern } from '@/components/atoms/CheckerBoardPattern';
+
+import { colorToPositionOpacity, positionToColorOpacity } from './utils/calcPosition';
 import { Wrapper, SliderContainer, OpacityGradient } from './FancyOpacitySlider.style';
-import CheckerboardPattern from '../../atoms/CheckerBoardPattern/CheckerBoardPattern';
-import ColorIndicator from '../../atoms/ColorIndicator/ColorIndicator';
-
-//define the min and max value for the opacity
-const minOpacity = 0;
-const maxOpacity = 1;
-
-// calculate the color from the position on the slider
-const positionToColorOpacity = (clientX: number, rect: DOMRect) => {
-  const x = clientX - rect.left;
-  //calculate the opacity from the marker position
-  const opacity = (x / rect.width) * (maxOpacity - minOpacity);
-
-  return Math.min(Math.max(opacity, minOpacity), maxOpacity);
-};
-
-// calculate the position from the color on the slider
-const colorToPositionOpacity = (color: Color) => {
-  const alpha = color.alpha(); // alpha values are set from 0.01 to 1
-  const x = alpha * 100;
-
-  return { x, y: 0 };
-};
 
 // --------------------------------------------------------------------------- //
 // ------- The main FancyOpacitySlider Component to calclulates the opacity ------- //
@@ -61,7 +42,7 @@ export default function FancyOpacitySlider({ color, opacity, handler }: IOpacity
         <OpacityGradient $color={color.toString()} />
 
         {/* the checkerboard pattern to display the transperancy*/}
-        <CheckerboardPattern />
+        <CheckerBoardPattern />
       </SliderContainer>
     </Wrapper>
   );
