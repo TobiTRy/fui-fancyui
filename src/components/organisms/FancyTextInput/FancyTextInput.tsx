@@ -1,6 +1,8 @@
 import React, { useId, useState } from 'react';
-import TextInput, { ITextInputProps } from '../../molecules/TextInput/TextInput';
-import InputWrapper, { IInputWrapperUserInputProps } from '../../molecules/InputWrapper/InputWrapper';
+
+import TextInput, { ITextInputProps } from '@/components/molecules/TextInput/TextInput';
+import { IInputWrapperUserInputProps } from '@/components/molecules/InputWrapper/IInputWrapper.model';
+import InputWrapper from '@/components/molecules/InputWrapper/InputWrapper';
 
 type IFancyTextInputProps = ITextInputProps & Omit<IInputWrapperUserInputProps, 'InputElement'>;
 // --------------------------------------------------------------------------- //

@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import IToastMessage from '../../molecules/SingleToastMessage/IToastMessage.model';
+import IToastMessage from '@/components/molecules/SingleToastMessage/IToastMessage.model';
 
 //omit id from IToastMessage because the store will add the id
 type IToastMessageProps = Omit<IToastMessage, 'id'>;

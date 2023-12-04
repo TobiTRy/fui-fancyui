@@ -1,46 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import { css } from 'styled-components';
+import { useEffect, useState } from 'react';
 
 import { calcColorState } from '@/design/designFunctions/calcColorState';
-import { themeStore } from '@/design/theme/themeStore';
 
-import { ErrorMessage, StyledInputWrapper, InputContainer } from './InputWrapper.style';
-import { InputUnderline } from '@/components/atoms/InputUnderline';
-import { FancySVGAtom } from '@/components/atoms/FancySVGAtom';
 import { AnimatedInputLabel } from '@/components/atoms/AnimatedLabel';
+import { FancySVGAtom } from '@/components/atoms/FancySVGAtom';
+import { InputUnderline } from '@/components/atoms/InputUnderline';
 
-import { TThemeTypes } from '@/interface/TThemeTypes';
-import { TLayer } from '@/interface/TLayer';
-import { TTextAlignLC } from '@/interface/TTextAlignLC';
+import { IInputWrapper } from './IInputWrapper.model';
+import { ErrorMessage, InputContainer, StyledInputWrapper, iconStyle } from './InputWrapper.style';
 
-// Define the styles for the icon
-const iconStyle = css`
-  margin-right: ${parseFloat(themeStore.getState().theme.spacing.xs) + 2 + 'px'};
-  margin-bottom: 2px;
-  transition: 0.5s;
-  align-self: flex-end;
-`;
-
-// Define the interface for the color state
-
-// Define the props for the InputWrapper component
-export type IInputWrapperUserInputProps = Omit<IInputWrapper, 'children' | 'id' | 'underline' | 'autoWidth' | 'value'>;
-export interface IInputWrapper {
-  id: string;
-  isActive?: boolean;
-  label?: string;
-  disabled?: boolean;
-  InputElement?: React.ReactNode;
-  errorMessage?: string;
-  icon?: JSX.Element;
-  value?: string | number | readonly string[] | undefined;
-  themeType?: TThemeTypes;
-  layer?: TLayer;
-  align?: TTextAlignLC;
-  autoWidth?: boolean;
-  underline?: boolean;
-  placeholder?: string;
-}
 // --------------------------------------------------------------------------- //
 // ------ The Wrapper for the inputs that give him some extra features  ------ //
 // ------------------ like a Label icon errormessage ------------------------- //

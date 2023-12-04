@@ -1,15 +1,17 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
-import DateNumberWithStatus from '../DateNumberWithStatus/DateNumberWithStatus';
-import { DateNumber, DaysContainer } from './MonthWithDays.style';
-import { IDateArray } from '../RangeCalendar/IDateArray.model';
-import { IDisabledDateSettings } from './IDisableDateSettings.model';
-import Typography from '../../atoms/Typography/Typography';
-import Day from './day.model';
-import createDaysOfMonth from './helperFunctions/createDaysOfMonth';
-import { IDateWithExternalState, IExternalMonthWithDays } from './IExternalMonthWithDays.model';
-import { TThemeTypes } from '@/interface/TThemeTypes';
 import { TLayer } from '@/interface/TLayer';
+import Day from './utils/Interfaces/IDay.model';
+import { IDateWithExternalState, IExternalMonthWithDays } from './utils/Interfaces/IExternalMonthWithDays.model';
+import { IDateArray } from '@/components/molecules/RangeCalendar/IDateArray.model';
+import { IDisabledDateSettings } from './utils/Interfaces/IDisableDateSettings.model';
+
+import { TThemeTypes } from '@/interface/TThemeTypes';
+import { Typography } from '@/components/atoms/Typography';
+
+import { DateNumberWithStatus } from '@/components/molecules/DateNumberWithStatus';
+import { DateNumber, DaysContainer } from './MonthWithDays.style';
+import createDaysOfMonth from './utils/createDaysOfMonth';
 
 const getFirstDayOfMonth = (month: number, year: number): number => {
   return new Date(year, month - 1, 1).getDay() || 7;

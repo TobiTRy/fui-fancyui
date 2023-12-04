@@ -1,10 +1,10 @@
 import React, { useState, createRef, useEffect } from 'react';
 
-import SingleInputAtom from '../../atoms/SingleInput/SingleInput';
-import IStatus from '../../../interface/IStatus';
+import IStatus from '@/interface/IStatus';
 import { InputWrapper } from './SingleInputs.style';
 import { TThemeTypes } from '@/interface/TThemeTypes';
 import { TLayer } from '@/interface/TLayer';
+import { SingleInput } from '@/components/atoms/SingleInput';
 
 interface IFancySingleInputsProps {
   length?: number;
@@ -133,7 +133,7 @@ export default function SingleInputs(props: IFancySingleInputsProps) {
   return (
     <InputWrapper onPaste={handlePaste} $status={status}>
       {values.map((value, index) => (
-        <SingleInputAtom
+        <SingleInput
           key={index}
           ref={refs[index]}
           value={value}

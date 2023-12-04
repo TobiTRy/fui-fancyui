@@ -1,12 +1,13 @@
 import { styled } from 'styled-components';
 
 import DateNumberAtom from '@/components/atoms/DateNumberAtom/DateNumberAtom';
-import AvilableDot, { IAvailableDot } from '@/components/atoms/AvilableDot/AvailableDot';
-import { IRange } from '@/components/atoms/DateNumberAtom/DateNumberAtom';
+import AvilableDot from '@/components/atoms/AvilableDot/AvailableDot';
+import { IAvailableDot } from '@/components/atoms/AvilableDot';
 
 import { TLayer } from '@/interface/TLayer';
 import { TThemeTypes } from '@/interface/TThemeTypes';
 import { TTheme } from '@/interface/TTheme';
+import { IRange } from '@/components/atoms/DateNumberAtom/IDateNumberAtom.model';
 
 interface IDateNumberWithStatus {
   isAvailable?: IAvailableDot;
@@ -36,7 +37,7 @@ export default function DateNumberWithStatus(props: IDateNumberWithStatus) {
         layer={layer}
         themeType={themeType}
       />
-      <AvilableDot $available={disabled ? 'transparent' : isAvailable!} />
+      <AvilableDot $available={disabled ? 'transparent' : isAvailable} />
     </StyledDateNumberWithStatus>
   );
 }

@@ -14,7 +14,7 @@ interface ISingleInputAtomProps {
   themeType?: TThemeTypes;
   layer?: TLayer;
 }
-const SingleInputAtom = forwardRef<HTMLInputElement, ISingleInputAtomProps>((props, ref) => {
+const SingleInput = forwardRef<HTMLInputElement, ISingleInputAtomProps>((props, ref) => {
   const { value, ariaLabel, onKeyDown, themeType, layer } = props;
   const [isFocused, setIsFocused] = useState(false);
 
@@ -38,4 +38,4 @@ const SingleInputAtom = forwardRef<HTMLInputElement, ISingleInputAtomProps>((pro
   );
 });
 
-export default SingleInputAtom;
+export default SingleInput;

@@ -142,6 +142,7 @@ export { default as shadows } from '@/design/designFunctions/shadows/shadows';
 export * from '@/interface';
 export type { default as IGenerateThemeForCardProps } from '@/design/designFunctions/generateThemeForCard/IGenerateThemeForCardProps';
 export type { default as IGenerateThemeDesignForComponentProps } from '@/design/designFunctions/generateThemeDesignForComponent/IGenerateThemeDesignForComponentProps';
+export type { IAvailableDot } from '@/components/atoms/AvilableDot/IAvailableDot.model';
 
 // ---------- Store ------- //
 export { default as themeStore } from '@/design/theme/themeStore/themeStore';

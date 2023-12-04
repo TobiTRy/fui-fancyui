@@ -1,11 +1,11 @@
 import { styled } from 'styled-components';
 
 import { TTheme } from '@/interface/TTheme';
+import { IAvailableDot } from './IAvailableDot.model';
 
 // --------------------------------------------------------------------------- //
 // ---------- A little Circle that indicates if something is avilable -------- //
 // --------------------------------------------------------------------------- //
-export type IAvailableDot = 'completly' | 'partially' | 'not' | 'transparent';
 const AvailableDot = styled.div<{ $available?: IAvailableDot; theme?: TTheme }>`
   width: 4px;
   height: 4px;

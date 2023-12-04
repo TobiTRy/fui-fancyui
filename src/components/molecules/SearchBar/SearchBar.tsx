@@ -1,29 +1,14 @@
-import React, { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import { styled, css } from 'styled-components';
-import FancyTextInput from '../../organisms/FancyTextInput/FancyTextInput';
 
-import SVGSearch from '../../icons/SVGSearch/SVGSearch';
-import FancySVGAtom from '../../atoms/FancySVGAtom/FancySVGAtom';
+import { FancyTextInput } from '@/components/organisms/FancyTextInput';
+import { SVGSearch } from '@/components/icons/SVGSearch';
+import { FancySVGAtom } from '@/components/atoms/FancySVGAtom';
 import { TThemeTypes } from '@/interface/TThemeTypes';
+
 import { TLayer } from '@/interface/TLayer';
 import { TTheme } from '@/interface/TTheme';
 import { TTextAlignLC } from '@/interface/TTextAlignLC';
-
-// Styled component for the search bar
-const StyledSearchBar = styled.div<{ $isActive?: boolean; theme: TTheme }>`
-  display: flex;
-  align-items: center;
-  border-radius: ${({ $isActive, theme }) =>
-    $isActive
-      ? `${theme.borderRadius.lg} ${theme.borderRadius.lg} 0px 0px`
-      : theme.borderRadius.lg}; // Set the border radius based on whether the search bar list is active
-  gap: ${({ theme }) => theme.spacing.sm};
-  z-index: 1;
-
-  input {
-    padding: 0 0 4px;
-  }
-`;
 
 // Props for the SearchBar component
 interface ISearchBar {
@@ -35,7 +20,9 @@ interface ISearchBar {
   layer?: TLayer;
   placerholder?: string;
 }
-// The SearchBar component
+// --------------------------------------------------------------------------- //
+// ---------- Seachbar like for a header to search something  ---------------- //
+// --------------------------------------------------------------------------- //
 export default function SearchBar(props: ISearchBar) {
   const { activeHandler, handler, searchValue, align, themeType, layer } = { ...defaultProps, ...props };
   const [isActive, setIsActive] = useState(false); // The state for the isActive state of the search bar
@@ -79,3 +66,22 @@ export default function SearchBar(props: ISearchBar) {
 const defaultProps = {
   align: 'center',
 };
+
+// ------------------------------------------- //
+// ------- The style for the component ------- //
+// ------------------------------------------- //
+// Styled component for the search bar
+const StyledSearchBar = styled.div<{ $isActive?: boolean; theme: TTheme }>`
+  display: flex;
+  align-items: center;
+  border-radius: ${({ $isActive, theme }) =>
+    $isActive
+      ? `${theme.borderRadius.lg} ${theme.borderRadius.lg} 0px 0px`
+      : theme.borderRadius.lg}; // Set the border radius based on whether the search bar list is active
+  gap: ${({ theme }) => theme.spacing.sm};
+  z-index: 1;
+
+  input {
+    padding: 0 0 4px;
+  }
+`;

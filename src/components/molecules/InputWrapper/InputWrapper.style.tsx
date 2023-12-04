@@ -48,3 +48,11 @@ export const InputContainer = styled.div<{ $givePadding: boolean; theme: TTheme;
     color: ${({ theme, $themeType, $layer }) => getBackgroundColor({ theme, $themeType, $layer })};
   }
 `;
+
+// Define the styles for the icon
+export const iconStyle = css<{ theme: TTheme }>`
+  margin-right: ${({ theme }) => parseFloat(theme.spacing.xs) + 2 + 'px'};
+  margin-bottom: 2px;
+  transition: 0.5s;
+  align-self: flex-end;
+`;

@@ -1,19 +1,17 @@
 import React, { useEffect, useState, useRef } from 'react';
+
 import { MonthContainer, StyledCalendar } from './RangeCalendar.style';
 
 import MonthWithDays from '../MonthWithDays/MonthWithDays';
 import useSelectedDates from './helperFunctions/useSelectedDates';
 import useVisibleMonths from './helperFunctions/useVisibleMonths';
 
-import { IDisabledDateSettings } from '../MonthWithDays/IDisableDateSettings.model';
-import { IExternalMonthWithDays } from '../MonthWithDays/IExternalMonthWithDays.model';
+import { IDisabledDateSettings } from '../MonthWithDays/utils/Interfaces/IDisableDateSettings.model';
+import { IExternalMonthWithDays } from '../MonthWithDays/utils/Interfaces/IExternalMonthWithDays.model';
 import { IDateArray } from './IDateArray.model';
 import { TThemeTypes } from '@/interface/TThemeTypes';
 import { TLayer } from '@/interface/TLayer';
 
-// --------------------------------------------------------------------------- //
-// -------- The main calenader wich can select a date, or date range ---------- //
-// --------------------------------------------------------------------------- //
 interface ICalendar {
   selectedYear?: number;
   rangeCalendar: boolean;
@@ -25,6 +23,9 @@ interface ICalendar {
   themeType?: TThemeTypes;
   layer?: TLayer;
 }
+// --------------------------------------------------------------------------- //
+// -------- The main calenader wich can select a date, or date range --------- //
+// --------------------------------------------------------------------------- //
 export default function RangeCalendar(props: ICalendar) {
   const {
     selectedYear = new Date().getFullYear(),

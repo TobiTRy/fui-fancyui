@@ -1,11 +1,13 @@
 import { css, styled } from 'styled-components';
 
-import { IRange } from './DateNumberAtom';
-import { disabledStyle } from '../../../design/designFunctions/disabledStyle/disableStyle';
+import { disabledStyle } from '@/design/designFunctions/disabledStyle/disableStyle';
+import { getTextColor } from '@/design/designFunctions/colorCalculatorForComponent';
+
 import { TThemeTypes } from '@/interface/TThemeTypes';
 import { TLayer } from '@/interface/TLayer';
-import { getTextColor } from '../../../design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponent';
 import { TTheme } from '@/interface/TTheme';
+
+import { IRange } from './IDateNumberAtom.model';
 
 // --------------------------------------------------------------------------- //
 // ----------------- The Style for one Day with diferent sates --------------- //

@@ -2,10 +2,10 @@ import React, { useMemo } from 'react';
 import { useTransition, animated } from '@react-spring/web';
 
 import { useFancyToastMessageStore } from './FancyToastMessage.state';
-import SingleToastMessage from '../../molecules/SingleToastMessage/SingleToastMessage';
-import { ToastsWrapper } from './FancyToastMessage.style';
-import IToastMessage from '../../molecules/SingleToastMessage/IToastMessage.model';
+import SingleToastMessage from '@/components/molecules/SingleToastMessage/SingleToastMessage';
+import IToastMessage from '@/components/molecules/SingleToastMessage/IToastMessage.model';
 
+import { ToastsWrapper } from './FancyToastMessage.style';
 //this comonent should be used as overlay in the application to make sure the toast messages are always displaey on top
 
 // to use this component in the application you have to add this component to the dom (Main Component) of the application

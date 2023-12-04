@@ -1,4 +1,4 @@
-import Day from '../../MonthWithDays/day.model';
+import Day from '../../MonthWithDays/utils/Interfaces/IDay.model';
 
 import { IDateOnlyArray } from '../IDateArray.model';
 type DateArray = Date[] | (Date | undefined)[];
