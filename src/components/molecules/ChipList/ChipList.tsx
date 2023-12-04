@@ -3,7 +3,7 @@ import React from 'react';
 import { FancyBox } from '@/components/atoms/FancyBox';
 import { TLayer } from '@/interface/TLayer';
 import { ChipContainer, generateChipListStyle } from './ChipList.style';
-import { TThemeTypes } from '@/interface/TUiColors';
+import { TThemeTypes } from '@/interface/TThemeTypes';
 import { TUiColorsSystemMessage } from '@/interface/TUiColorsSystemMessage';
 
 export interface ChipListProps {

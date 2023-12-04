@@ -3,7 +3,7 @@ import { styled } from 'styled-components';
 
 import RawInput, { TRawInputAlign } from '../../atoms/RawInput/RawInput';
 import PasswordEye from '../../atoms/PasswordEye/PasswordEye';
-import { TThemeTypes } from '@/interface/TUiColors';
+import { TThemeTypes } from '@/interface/TThemeTypes';
 import { TLayer } from '@/interface/TLayer';
 import { getBackgroundColor } from '../../../design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponent';
 import { TTheme } from '@/interface/TTheme';

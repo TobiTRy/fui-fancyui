@@ -5,7 +5,7 @@ import DateNumberAtom from '../../atoms/DateNumberAtom/DateNumberAtom';
 import AvilableDot, { IAvailableDot } from '../../atoms/AvilableDot/AvailableDot';
 import { IRange } from '../../atoms/DateNumberAtom/DateNumberAtom';
 import { TLayer } from '@/interface/TLayer';
-import { TThemeTypes } from '@/interface/TUiColors';
+import { TThemeTypes } from '@/interface/TThemeTypes';
 import { TTheme } from '@/interface/TTheme';
 
 const StyledDateNumberWithStatus = styled.div<{ theme: TTheme }>`

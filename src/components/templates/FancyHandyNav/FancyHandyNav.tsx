@@ -7,7 +7,7 @@ import BottomBar from '../../molecules/BottomBar/BottomBar';
 import FancyBottomBarIcon, { IFancyBottomBarIcon } from '../FancyBottomBarIcon/FancyBottomBarIcon';
 import RawNav from '../../atoms/RawNav/RawNav';
 import { TLayer } from '@/interface/TLayer';
-import { TThemeTypes } from '@/interface/TUiColors';
+import { TThemeTypes } from '@/interface/TThemeTypes';
 
 interface IFancyHandyNav {
   items?: IFancyBottomBarIcon[];

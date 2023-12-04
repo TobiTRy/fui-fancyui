@@ -6,7 +6,7 @@ import { TLayer } from '@/interface/TLayer';
 import ChipList from '../../molecules/ChipList/ChipList';
 import { FancyChip } from '../FancyChip';
 import { InputLi } from './FancyChipList.style';
-import { TThemeTypes } from '@/interface/TUiColors';
+import { TThemeTypes } from '@/interface/TThemeTypes';
 import { TUiColorsSystemMessage } from '@/interface/TUiColorsSystemMessage';
 
 // Defining the interface for the component's props

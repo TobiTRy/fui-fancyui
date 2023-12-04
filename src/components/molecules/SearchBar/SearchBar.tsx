@@ -5,7 +5,7 @@ import FancyTextInput from '../../organisms/FancyTextInput/FancyTextInput';
 import SVGSearch from '../../icons/SVGSearch/SVGSearch';
 import FancySVGAtom from '../../atoms/FancySVGAtom/FancySVGAtom';
 import { TRawInputAlign } from '../../atoms/RawInput/RawInput';
-import { TThemeTypes } from '@/interface/TUiColors';
+import { TThemeTypes } from '@/interface/TThemeTypes';
 import { TLayer } from '@/interface/TLayer';
 import { TTheme } from '@/interface/TTheme';
 

@@ -9,7 +9,7 @@ import DateOutputFromTo from '../../molecules/DateOutputFromTo/DateOutputFromTo'
 import { IDisabledDateSettings } from '../../molecules/MonthWithDays/IDisableDateSettings.model';
 import { IDateArray } from '../../molecules/RangeCalendar/IDateArray.model';
 import { TLayer } from '@/interface/TLayer';
-import { TThemeTypes } from '@/interface/TUiColors';
+import { TThemeTypes } from '@/interface/TThemeTypes';
 
 interface IFancyDatePicker {
   rangeCalendar?: boolean;

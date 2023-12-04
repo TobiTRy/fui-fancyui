@@ -11,5 +11,5 @@ export * from './TSystemMessageProps';
 export * from './TTheme';
 export * from './TTypography';
 export * from './TUiColorNames';
-export * from './TUiColors';
+export * from './TThemeTypes';
 export * from './TUiColorsType';

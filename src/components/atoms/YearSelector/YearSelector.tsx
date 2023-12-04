@@ -5,7 +5,7 @@ import SVGChevronRight from '../../icons/SVGChevronRight/SVGChevronRight';
 import { SVGDesignCSS, StyledButton, StyledYearSelector } from './YearSelector.style';
 import Typography from '../Typography/Typography';
 import { FancySVGAtom } from '../FancySVGAtom';
-import { TThemeTypes } from '@/interface/TUiColors';
+import { TThemeTypes } from '@/interface/TThemeTypes';
 import { TLayer } from '@/interface/TLayer';
 
 // --------------------------------------------------------------------------- //

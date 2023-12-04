@@ -4,7 +4,7 @@ import { getBackgroundColor } from '../../../design/designFunctions/colorCalcula
 import { TLayer } from '@/interface/TLayer';
 import { IDateInputProps } from '../../molecules/DateInput/DateInput';
 import simpleColorTransition from '../../../design/designFunctions/simpleColorTransition/simpleTransition';
-import { TThemeTypes } from '@/interface/TUiColors';
+import { TThemeTypes } from '@/interface/TThemeTypes';
 
 interface IRawInputWrapper extends IRawInput {
   value?: string;

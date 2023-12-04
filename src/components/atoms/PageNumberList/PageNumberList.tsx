@@ -1,44 +1,6 @@
 import { FancyButton } from '../../organisms/FancyButton';
 import { ButtonWrapper, Wrapper } from './PageNumberList.style';
-
-// Define a function to generate an array of page numbers to display
-const generateNumbers = (totalPages: number, currentPage: number, pageLimit = 3) => {
-  const numbers: (number | string)[] = [];
-
-  let startPage = currentPage - Math.floor(pageLimit / 2);
-  let endPage = currentPage + Math.floor(pageLimit / 2);
-
-  if (pageLimit % 2 === 0) {
-    startPage += 1; // If pageLimit is even, favor showing one less page before the current page
-  }
-
-  // Adjust if the range goes outside the total pages
-  if (startPage < 1) {
-    endPage += Math.abs(startPage) + 1;
-    startPage = 1;
-  }
-
-  if (endPage > totalPages) {
-    startPage -= endPage - totalPages;
-    endPage = totalPages;
-  }
-
-  startPage = Math.max(startPage, 1);
-
-  if (startPage > 1) {
-    numbers.push('...');
-  }
-
-  for (let i = startPage; i <= endPage; i++) {
-    numbers.push(i);
-  }
-
-  if (endPage < totalPages) {
-    numbers.push('...');
-  }
-
-  return numbers;
-};
+import { generateNumbers } from './utils/generateNumbers';
 
 // Define the props for the PageNumberList component
 interface IPageNumberList {

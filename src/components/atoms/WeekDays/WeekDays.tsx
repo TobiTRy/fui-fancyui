@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { styled } from 'styled-components';
 
 import Typography from '../Typography/Typography';
-import { TThemeTypes } from '@/interface/TUiColors';
+import { TThemeTypes } from '@/interface/TThemeTypes';
 import { TLayer } from '@/interface/TLayer';
 import { getBackgroundColor } from '../../../design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponent';
 import { TTheme } from '@/interface/TTheme';

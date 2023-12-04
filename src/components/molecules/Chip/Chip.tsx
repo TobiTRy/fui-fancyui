@@ -2,7 +2,7 @@ import React from 'react';
 import { CSSProp } from 'styled-components';
 
 import { sizes } from '../FancyContent/utils/sizeSettings';
-import { TThemeTypes } from '@/interface/TUiColors';
+import { TThemeTypes } from '@/interface/TThemeTypes';
 import { TLayer } from '@/interface/TLayer';
 import { StyledChip } from './Chip.style';
 import { TThemeTypesNotTransparent } from '@/interface/TThemeTypesNotTransparent';

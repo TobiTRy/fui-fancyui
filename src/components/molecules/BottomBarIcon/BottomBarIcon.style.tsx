@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
 
-import { TThemeTypes } from '@/interface/TUiColors';
+import { TThemeTypes } from '@/interface/TThemeTypes';
 import { TLayer } from '@/interface/TLayer';
 import { getBackgroundColor } from '../../../design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponent';
 import { disabledStyle } from '../../../design/designFunctions/disabledStyle/disableStyle';

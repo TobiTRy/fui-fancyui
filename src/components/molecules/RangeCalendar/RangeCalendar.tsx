@@ -8,7 +8,7 @@ import useVisibleMonths from './helperFunctions/useVisibleMonths';
 import { IDisabledDateSettings } from '../MonthWithDays/IDisableDateSettings.model';
 import { IExternalMonthWithDays } from '../MonthWithDays/IExternalMonthWithDays.model';
 import { IDateArray } from './IDateArray.model';
-import { TThemeTypes } from '@/interface/TUiColors';
+import { TThemeTypes } from '@/interface/TThemeTypes';
 import { TLayer } from '@/interface/TLayer';
 
 // --------------------------------------------------------------------------- //

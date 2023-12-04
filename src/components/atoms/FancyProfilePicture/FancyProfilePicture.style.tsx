@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
 
-import { TThemeTypes } from '@/interface/TUiColors';
+import { TThemeTypes } from '@/interface/TThemeTypes';
 import { TLayer } from '@/interface/TLayer';
 import { TTheme } from '@/interface/TTheme';
 import { TBorderRadius, TSize, getBorderRadius, getSize } from './sizeSettings';

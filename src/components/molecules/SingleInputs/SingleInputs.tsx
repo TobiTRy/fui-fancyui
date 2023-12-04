@@ -3,7 +3,7 @@ import React, { useState, createRef, useEffect } from 'react';
 import SingleInputAtom from '../../atoms/SingleInputAtom/SingleInputAtom';
 import IStatus from '../../../interface/IStatus';
 import { InputWrapper } from './SingleInputs.style';
-import { TThemeTypes } from '@/interface/TUiColors';
+import { TThemeTypes } from '@/interface/TThemeTypes';
 import { TLayer } from '@/interface/TLayer';
 
 interface IFancySingleInputsProps {

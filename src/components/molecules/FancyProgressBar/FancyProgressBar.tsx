@@ -5,7 +5,7 @@ import { TAlign } from '../../atoms/AlignedInputLabel/TalignedInputLabel.model';
 import { AlignedInputLabel } from '../../atoms/AlignedInputLabel/AlignedInputLabel';
 
 import ProgressBar, { IProgressBar } from '../../atoms/ProgressBar/ProgressBar';
-import { TThemeTypes } from '@/interface/TUiColors';
+import { TThemeTypes } from '@/interface/TThemeTypes';
 import { TLayer } from '@/interface/TLayer';
 import { TTheme } from '@/interface/TTheme';
 

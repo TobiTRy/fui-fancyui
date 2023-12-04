@@ -4,7 +4,7 @@ import FancyProfilePicture, { IFancyProfilePicture } from '../../atoms/FancyProf
 import Typography from '../../atoms/Typography/Typography';
 import { TextWrapper, Wrapper } from './FancyMiniProfile.style';
 import { TTypography } from '@/interface/TTypography';
-import { TThemeTypes } from '@/interface/TUiColors';
+import { TThemeTypes } from '@/interface/TThemeTypes';
 import { TLayer } from '@/interface/TLayer';
 import { TSpacings } from '../../../interface/TSpacings';
 

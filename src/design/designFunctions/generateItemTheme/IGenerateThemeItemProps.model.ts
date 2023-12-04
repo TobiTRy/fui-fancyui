@@ -1,5 +1,5 @@
 import { TBorderRadiusSizes } from '@/interface/TBorderRadius';
-import { TThemeTypes } from '@/interface/TUiColors';
+import { TThemeTypes } from '@/interface/TThemeTypes';
 import { TLayer } from '@/interface/TLayer';
 import IStyledPrefixAndOmiter from '../../../interface/IStyledPrefixAndOmiter.model';
 import { TThemeTypesNotTransparent } from '@/interface/TThemeTypesNotTransparent';

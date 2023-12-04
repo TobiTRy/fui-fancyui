@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 
-import { TThemeTypes } from '@/interface/TUiColors';
+import { TThemeTypes } from '@/interface/TThemeTypes';
 import { TLayer } from '@/interface/TLayer';
 import IStyledPrefixAndPicker from '../../../interface/IStyledPrefixAndPicker.model';
 import { getBackgroundColor } from '../colorCalculatorForComponent/colorCalculatorForComponent';

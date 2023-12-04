@@ -2,7 +2,7 @@ import React from 'react';
 import { styled } from 'styled-components';
 
 import DateOutput from '../../atoms/DateOutput/DateOutput';
-import { TThemeTypes } from '@/interface/TUiColors';
+import { TThemeTypes } from '@/interface/TThemeTypes';
 import { TLayer } from '@/interface/TLayer';
 import FancyLine from '../../atoms/FancyLine/FancyLine';
 import { TTheme } from '@/interface/TTheme';

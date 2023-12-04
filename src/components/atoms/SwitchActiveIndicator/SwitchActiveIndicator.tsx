@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { TThemeTypes } from '@/interface/TUiColors';
+import { TThemeTypes } from '@/interface/TThemeTypes';
 import { TLayer } from '@/interface/TLayer';
 import { ActiveSwitchIndicator, Wrapper } from './SwitchActiveIndicator.style';
 import { TBorderRadiusSizes } from '@/interface/TBorderRadius';

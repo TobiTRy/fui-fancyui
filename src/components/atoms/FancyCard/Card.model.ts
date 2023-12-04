@@ -1,7 +1,7 @@
 import { IRoundedEdges } from '../../../design/designFunctions/edgeCalculation/edgeCalculation';
 import { TLayer } from '@/interface/TLayer';
 import { TBorderRadiusSizes } from '@/interface/TBorderRadius';
-import { TThemeTypes } from '@/interface/TUiColors';
+import { TThemeTypes } from '@/interface/TThemeTypes';
 import { TSpacings } from '@/interface/TSpacings';
 
 // the scaling types for the card

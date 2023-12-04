@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 
 import { borderRadius, spacingPx } from '../../../design/theme/designSizes';
-import { TThemeTypes } from '@/interface/TUiColors';
+import { TThemeTypes } from '@/interface/TThemeTypes';
 import { tabSwitchSizes } from '../TabSwitch/TabSwitch.style';
 import { TLayer } from '@/interface/TLayer';
 import { TTheme } from '@/interface/TTheme';

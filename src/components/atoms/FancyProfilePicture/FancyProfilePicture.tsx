@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Placeholder, StyledImage } from './FancyProfilePicture.style';
-import { TThemeTypes } from '@/interface/TUiColors';
+import { TThemeTypes } from '@/interface/TThemeTypes';
 import { TLayer } from '@/interface/TLayer';
 import { Typography } from '../Typography';
 import { TTypography } from '@/interface/TTypography';

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { TThemeTypes } from '@/interface/TUiColors';
+import { TThemeTypes } from '@/interface/TThemeTypes';
 import { TLayer } from '@/interface/TLayer';
 import { FancyBox } from '../../atoms/FancyBox';
 import { CSSProp, css } from 'styled-components';

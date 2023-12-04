@@ -3,7 +3,7 @@ import { styled } from 'styled-components';
 
 import { getBackgroundColor } from '../../../design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponent';
 import { TLayer } from '@/interface/TLayer';
-import { TThemeTypes } from '@/interface/TUiColors';
+import { TThemeTypes } from '@/interface/TThemeTypes';
 import { TTheme } from '@/interface/TTheme';
 
 interface IStyledSwipeUpContainer {

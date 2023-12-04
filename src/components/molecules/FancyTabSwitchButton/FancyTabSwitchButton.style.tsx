@@ -1,7 +1,7 @@
 import { styled, css } from 'styled-components';
 
 import themeStore from '../../../design/theme/themeStore/themeStore';
-import { TThemeTypes } from '@/interface/TUiColors';
+import { TThemeTypes } from '@/interface/TThemeTypes';
 import { TLayer } from '@/interface/TLayer';
 import { getBackgroundColor } from '../../../design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponent';
 import { TTypography } from '@/interface/TTypography';

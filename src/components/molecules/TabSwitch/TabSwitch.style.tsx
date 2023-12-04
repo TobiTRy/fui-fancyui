@@ -4,7 +4,7 @@ import { borderRadius, spacingPx } from '../../../design/theme/designSizes';
 import { TLayer } from '@/interface/TLayer';
 import { TTheme } from '@/interface/TTheme';
 import { TBorderRadiusSizes } from '@/interface/TBorderRadius';
-import { TThemeTypes } from '@/interface/TUiColors';
+import { TThemeTypes } from '@/interface/TThemeTypes';
 import { TSpacings } from '../../../interface/TSpacings';
 import themeStore from '../../../design/theme/themeStore/themeStore';
 

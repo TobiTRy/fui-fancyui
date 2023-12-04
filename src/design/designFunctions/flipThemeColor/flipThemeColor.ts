@@ -1,6 +1,6 @@
 import Color from 'color';
 
-import { TThemeTypes } from '@/interface/TUiColors';
+import { TThemeTypes } from '@/interface/TThemeTypes';
 import { TLayer } from '@/interface/TLayer';
 import themeStore from '../../theme/themeStore/themeStore';
 

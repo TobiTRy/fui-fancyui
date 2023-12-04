@@ -2,7 +2,7 @@ import React from 'react';
 import { styled, css } from 'styled-components';
 
 import IStyledPrefixAndPicker from '@/interface/IStyledPrefixAndPicker.model';
-import { TThemeTypes } from '@/interface/TUiColors';
+import { TThemeTypes } from '@/interface/TThemeTypes';
 import { TLayer } from '@/interface/TLayer';
 import { getBackgroundColor } from '../../../design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponent';
 import { TTheme } from '@/interface/TTheme';
