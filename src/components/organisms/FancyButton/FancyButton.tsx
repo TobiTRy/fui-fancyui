@@ -2,13 +2,13 @@ import React from 'react';
 import { css } from 'styled-components';
 
 import LoadingSVGArrows from '../../atoms/LoadingSVGArrows/LoadingSVGArrows';
-import Button, { IButtonProps } from '../../molecules/Button/Button';
+import Button from '@/components/molecules/Button/Button';
 import FancyContent from '../../molecules/FancyContent/FancyContent';
 import { generateFancyButton } from './FancyButton.style';
 
-import { IButton } from '../../molecules/Button/Button';
 import { TTypography } from '@/interface/TTypography';
 import { TBorderRadiusSizes } from '@/interface/TBorderRadius';
+import { IButton, IButtonProps } from '@/components/molecules/Button/Button.model';
 
 const alignment = {
   left: 'flex-start' as const,
