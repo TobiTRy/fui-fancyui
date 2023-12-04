@@ -1,12 +1,14 @@
-import React from 'react';
+import { ComponentProps } from 'react';
 
-import FancyBox from '../../atoms/FancyBox/FancyBox';
+import { FancyBox } from '@/components/atoms/FancyBox';
 import { generateInfoCardStyle } from './InfoCrad.style';
 
-type TInfoCardProps = React.ComponentProps<typeof FancyBox> & {
+type TInfoCardProps = ComponentProps<typeof FancyBox> & {
   size?: 'sm' | 'md' | 'lg';
 };
-
+// --------------------------------------------------------------------------- //
+// ---------- A simple Infocard that can displayed on the page --------------- //
+// --------------------------------------------------------------------------- //
 export default function InfoCard(props: TInfoCardProps) {
   const { size, children, ...fancyBoxProps } = props;
 

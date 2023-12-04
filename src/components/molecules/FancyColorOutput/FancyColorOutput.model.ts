@@ -18,6 +18,19 @@ export interface HSLAColor extends HSLColor {
   a: number;
 }
 
+// this interfaces is used to match the input "names" (r, g, b, a, h, s, l)
+// to update the changed value in the color object
+export interface ColorTypeLetters {
+  [key: string]: number | string;
+  r: number;
+  g: number;
+  b: number;
+  a: number;
+  h: number;
+  s: number;
+  l: number;
+}
+
 export type ColorTypes =
   | {
       type: 'rgb';

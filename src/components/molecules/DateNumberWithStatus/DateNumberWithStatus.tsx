@@ -1,22 +1,12 @@
-import React from 'react';
 import { styled } from 'styled-components';
 
-import DateNumberAtom from '../../atoms/DateNumberAtom/DateNumberAtom';
-import AvilableDot, { IAvailableDot } from '../../atoms/AvilableDot/AvailableDot';
-import { IRange } from '../../atoms/DateNumberAtom/DateNumberAtom';
+import DateNumberAtom from '@/components/atoms/DateNumberAtom/DateNumberAtom';
+import AvilableDot, { IAvailableDot } from '@/components/atoms/AvilableDot/AvailableDot';
+import { IRange } from '@/components/atoms/DateNumberAtom/DateNumberAtom';
+
 import { TLayer } from '@/interface/TLayer';
 import { TThemeTypes } from '@/interface/TThemeTypes';
 import { TTheme } from '@/interface/TTheme';
-
-const StyledDateNumberWithStatus = styled.div<{ theme: TTheme }>`
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: ${({ theme }) => theme.spacing.xs};
-  padding: ${({ theme }) => theme.spacing.xs};
-`;
 
 interface IDateNumberWithStatus {
   isAvailable?: IAvailableDot;
@@ -29,6 +19,9 @@ interface IDateNumberWithStatus {
   themeType?: TThemeTypes;
   layer?: TLayer;
 }
+// --------------------------------------------------------------------------- //
+//A Simple Number with the AvilableDot to indicate something is busy or free...//
+// --------------------------------------------------------------------------- //
 export default function DateNumberWithStatus(props: IDateNumberWithStatus) {
   const { isAvailable, disabled, dateNumber, isSelected, onClick, range, isCurrentDay, layer, themeType } = props;
 
@@ -47,3 +40,16 @@ export default function DateNumberWithStatus(props: IDateNumberWithStatus) {
     </StyledDateNumberWithStatus>
   );
 }
+
+// ------------------------------------------- //
+// ------- The style for the component ------- //
+// ------------------------------------------- //
+const StyledDateNumberWithStatus = styled.div<{ theme: TTheme }>`
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: ${({ theme }) => theme.spacing.xs};
+  padding: ${({ theme }) => theme.spacing.xs};
+`;

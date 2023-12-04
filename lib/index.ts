@@ -87,6 +87,7 @@ export { default as Header } from '@/components/molecules/Header/Header';
 export { default as FancyContent } from '@/components/molecules/FancyContent/FancyContent';
 export { default as InfoCard } from '@/components/molecules/InfoCard/InfoCard';
 export { default as ComponentAndActionWrapper } from '@/components/molecules/ComponentAndActionWrapper/ComponentAndActionWrapper';
+export { default as FancySelectWrapper } from '@/components/molecules/FancySelectWrapper/FancySelectWrapper';
 
 // ---------- Organisms ------- //
 export { default as FancyColorPicker } from '@/components/organisms/FancyColorPicker/FancyColorPicker';
@@ -139,6 +140,8 @@ export { default as shadows } from '@/design/designFunctions/shadows/shadows';
 
 // ---------- Interfaces ------- //
 export * from '@/interface';
+export type { default as IGenerateThemeForCardProps } from '@/design/designFunctions/generateThemeForCard/IGenerateThemeForCardProps';
+export type { default as IGenerateThemeDesignForComponentProps } from '@/design/designFunctions/generateThemeDesignForComponent/IGenerateThemeDesignForComponentProps';
 
 // ---------- Store ------- //
 export { default as themeStore } from '@/design/theme/themeStore/themeStore';

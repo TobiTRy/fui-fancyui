@@ -4,7 +4,7 @@ import { TThemeTypes } from '@/interface/TThemeTypes';
 import { TTheme } from '@/interface/TTheme';
 import { TLayer } from '@/interface/TLayer';
 import IStyledPrefixAndPicker from '@/interface/IStyledPrefixAndPicker.model';
-import calcBorderRadiusOnAlignment from '@/design/designFunctions/calcBorderRadiusOnAlignment/calcBorderRadiusOnAlignment';
+import { calcBorderRadiusOnAlignment } from '@/design/designFunctions/calcBorderRadiusOnAlignment';
 import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponent';
 import { boxShadow } from '@/design/designFunctions/shadows/shadows';
 import { IFancyUL } from './FancyDropDownUL';

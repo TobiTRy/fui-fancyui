@@ -1,4 +1,4 @@
-import React, { useId, useState } from 'react';
+import { useId, useState } from 'react';
 import PasswordInput, { IPasswordInputProps } from '../../molecules/PasswordInput/PasswordInput';
 
 import InputWrapper, { IInputWrapperUserInputProps } from '../../molecules/InputWrapper/InputWrapper';

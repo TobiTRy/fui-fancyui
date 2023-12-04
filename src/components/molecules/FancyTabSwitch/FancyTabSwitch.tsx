@@ -1,14 +1,16 @@
-import React from 'react';
 import { css } from 'styled-components';
 
-import { borderRadius } from '../../../design/theme/designSizes';
-import Fieldset from '../Fieldset/Fieldset';
-import FancyBar from '../../atoms/FancyBox/FancyBox';
-import TabSwitch from '../TabSwitch/TabSwitch';
-import { tabSwitchSizes } from '../TabSwitch/TabSwitch.style';
-import { ITabSwitchProps } from '../TabSwitch/TabSwitch.model';
+import { Fieldset } from '@/components/molecules/Fieldset';
+import { borderRadius } from '@/design/theme/designSizes';
+import { TabSwitch } from '@/components/molecules/TabSwitch';
+import { FancyBox } from '@/components/atoms/FancyBox';
 
-// Define the main FancyTabSwitch component
+import { tabSwitchSizes } from '@/components/molecules/TabSwitch/TabSwitch.style';
+import { ITabSwitchProps } from '@/components/molecules/TabSwitch/TabSwitch.model';
+
+// --------------------------------------------------------------------------- //
+// -----  The FancyTabswich has more advanced features like Label etc. ------- //
+// --------------------------------------------------------------------------- //
 export default function FancyTabSwitch(props: ITabSwitchProps & { label?: string }) {
   const { values, label, layer, themeType, size, disabled, outlined, rounded, wide, ...tabSwitchProps } = props;
 
@@ -21,7 +23,7 @@ export default function FancyTabSwitch(props: ITabSwitchProps & { label?: string
   /* Generate the unordered list for the tab switch */
   return (
     <Fieldset label={label} disabled={disabled}>
-      <FancyBar
+      <FancyBox
         {...tabSwitchProps}
         outlined={outlined}
         layer={layer}
@@ -42,7 +44,7 @@ export default function FancyTabSwitch(props: ITabSwitchProps & { label?: string
           wide={wide}
           {...tabSwitchProps}
         />
-      </FancyBar>
+      </FancyBox>
     </Fieldset>
   );
 }

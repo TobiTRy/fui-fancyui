@@ -1,5 +1,6 @@
 import { CSSProp } from 'styled-components';
-import { IGenerateThemeDesignForComponentProps } from '@/design/designFunctions/generateThemeDesignForComponent/generateThemeDesignForComponent';
+
+import { IGenerateThemeDesignForComponentProps } from '@/design/designFunctions/generateThemeDesignForComponent';
 
 export type IButtonProps = {
   size?: 'sm' | 'md' | 'lg';

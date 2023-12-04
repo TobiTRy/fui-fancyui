@@ -1,4 +1,4 @@
-import React, { useId, useState } from 'react';
+import { useId, useState } from 'react';
 
 import InputWrapper from '../../molecules/InputWrapper/InputWrapper';
 import DropDownSelect, { IDropDownSelect } from '../../atoms/DropDownSelect/DropDownSelect';

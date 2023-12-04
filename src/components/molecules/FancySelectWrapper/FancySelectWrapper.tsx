@@ -1,14 +1,11 @@
 import React, { useId } from 'react';
 import { CSSProp } from 'styled-components';
 
-import themeStore from '../../../design/theme/themeStore/themeStore';
-import { TAlign, TAlignCheckbox } from '../FancyCheckbox/FancyCheckbox.model';
+import { themeStore } from '@/design/theme/themeStore';
 import { LabelWrapper, Wrapper } from './FancySelectWrapper.style';
-import FancyContent from '../FancyContent/FancyContent';
+import { TAlign, TAlignCheckbox } from '@/components/molecules/FancyCheckbox/FancyCheckbox.model';
+import { FancyContent } from '@/components/molecules/FancyContent';
 
-// --------------------------------------------------------------------------- //
-// -------------------- A simple Checkbox with a Label ----------------------- //
-// --------------------------------------------------------------------------- //
 export interface IFancySelectWrapperProps {
   label?: string;
   align?: TAlign;
@@ -18,6 +15,9 @@ export interface IFancySelectWrapperProps {
   inputElement?: React.ReactNode;
   externalStyle?: CSSProp;
 }
+// --------------------------------------------------------------------------- //
+// - A simple Checkbox/Radio Wrapper  that provides a label and description -- //
+// --------------------------------------------------------------------------- //
 export default function FancySelectWrapper(props: IFancySelectWrapperProps) {
   const { label, align, alignInput, description, inputElement, externalStyle } = { ...defaultProps, ...props };
   const getTheme = themeStore((state) => state.theme);

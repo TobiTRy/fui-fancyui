@@ -1,11 +1,11 @@
 import React, { useEffect, useRef } from 'react';
 import { animated, useSpring } from '@react-spring/web';
 
-import { StyledUL, WrapperUL } from './FancyDropDownUL.style';
 import { TThemeTypes } from '@/interface/TThemeTypes';
 import { TLayer } from '@/interface/TLayer';
 import { TBorderRadiusSizes } from '@/interface/TBorderRadius';
 
+import { StyledUL, WrapperUL } from './FancyDropDownUL.style';
 export interface IFancyUL {
   children: React.ReactNode;
   width?: string;

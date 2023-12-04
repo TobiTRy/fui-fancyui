@@ -1,15 +1,16 @@
-import React, { useEffect } from 'react';
+import { ReactNode, useEffect } from 'react';
 
-import ScollAbleBar from '../../atoms/ScrollableBar/ScrollableBar';
+import ScollAbleBar from '@/components/atoms/ScrollableBar/ScrollableBar';
 
 // Define types for the component
 type TDynamicScrollBarProps = {
   scrollable?: boolean;
   activateScrollbar?: boolean;
-  children?: React.ReactNode;
+  children?: ReactNode;
 };
-
-// Define the component
+// --------------------------------------------------------------------------- //
+// ------ The dynamic scrollbar gives the items a overvlow in y on prop ------ //
+// --------------------------------------------------------------------------- //
 export default function DynamicBottomScrollBar(props: TDynamicScrollBarProps) {
   const { activateScrollbar, scrollable, children } = props;
 

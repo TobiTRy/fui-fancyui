@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { css } from 'styled-components';
 
+import { calcColorState } from '@/design/designFunctions/calcColorState';
+import { themeStore } from '@/design/theme/themeStore';
+
 import { ErrorMessage, StyledInputWrapper, InputContainer } from './InputWrapper.style';
-import FancyInputUnderline from '../../atoms/InputUnderline/InputUnderline';
-import FancySVGAtom from '../../atoms/FancySVGAtom/FancySVGAtom';
-import { AnimatedInputLabel } from '../../atoms/AnimatedLabel/AnimatedInputLabel';
-import { TRawInputAlign } from '../../atoms/RawInput/RawInput';
+import { InputUnderline } from '@/components/atoms/InputUnderline';
+import { FancySVGAtom } from '@/components/atoms/FancySVGAtom';
+import { AnimatedInputLabel } from '@/components/atoms/AnimatedLabel';
+
 import { TThemeTypes } from '@/interface/TThemeTypes';
 import { TLayer } from '@/interface/TLayer';
-import calcColorState from '../../../design/designFunctions/calcColorState/calcColorState';
-import themeStore from '../../../design/theme/themeStore/themeStore';
+import { TTextAlignLC } from '@/interface/TTextAlignLC';
 
 // Define the styles for the icon
 const iconStyle = css`
@@ -34,7 +36,7 @@ export interface IInputWrapper {
   value?: string | number | readonly string[] | undefined;
   themeType?: TThemeTypes;
   layer?: TLayer;
-  align?: TRawInputAlign;
+  align?: TTextAlignLC;
   autoWidth?: boolean;
   underline?: boolean;
   placeholder?: string;
@@ -99,7 +101,7 @@ export default function InputWrapper(props: IInputWrapper) {
         )}
         {/* Render the underline for the input field if the underline prop is true */}
         {underline && (
-          <FancyInputUnderline
+          <InputUnderline
             colorState={colorStateUnderline === 'error' ? 'error' : 'active'}
             themeType={themeType}
             layer={layer}

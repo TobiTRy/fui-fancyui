@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { FancyCard } from '@/components/atoms/FancyCard';
 import { Typography } from '@/components/atoms/Typography';
 import { styled } from 'styled-components';

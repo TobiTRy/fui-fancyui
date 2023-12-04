@@ -1,10 +1,11 @@
 import React, { InputHTMLAttributes } from 'react';
 
-import RawInput, { TRawInputAlign } from '../../atoms/RawInput/RawInput';
+import RawInput from '../../atoms/RawInput/RawInput';
+import { TTextAlignLC } from 'lib';
 
 export interface ITextInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'type'> {
   value?: string | number;
-  align?: TRawInputAlign;
+  align?: TTextAlignLC;
   activeHandler?: (value: boolean) => void;
 }
 

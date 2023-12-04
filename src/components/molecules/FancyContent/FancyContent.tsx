@@ -53,4 +53,5 @@ FancyContent.Icon = FancyContentIcon;
 FancyContent.Title = FancyContentTitle;
 FancyContent.Description = FancyContentDescription;
 
+// Export the main component is needed here for the storybook to work 🤦‍♂️
 export default FancyContent;

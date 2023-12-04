@@ -1,12 +1,13 @@
 import React, { InputHTMLAttributes, useState } from 'react';
 import { styled } from 'styled-components';
 
-import RawInput, { TRawInputAlign } from '../../atoms/RawInput/RawInput';
+import RawInput from '../../atoms/RawInput/RawInput';
 import PasswordEye from '../../atoms/PasswordEye/PasswordEye';
 import { TThemeTypes } from '@/interface/TThemeTypes';
 import { TLayer } from '@/interface/TLayer';
 import { getBackgroundColor } from '../../../design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponent';
 import { TTheme } from '@/interface/TTheme';
+import { TTextAlignLC } from '@/interface/TTextAlignLC';
 
 const WrapperEye = styled.div<{ theme: TTheme; $themeType?: TThemeTypes; $layer?: TLayer }>`
   position: absolute;
@@ -20,7 +21,7 @@ const WrapperEye = styled.div<{ theme: TTheme; $themeType?: TThemeTypes; $layer?
 
 export interface IPasswordInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'type'> {
   value?: string;
-  align?: TRawInputAlign;
+  align?: TTextAlignLC;
   activeHandler?: (value: boolean) => void;
   themeType?: TThemeTypes;
   layer?: TLayer;

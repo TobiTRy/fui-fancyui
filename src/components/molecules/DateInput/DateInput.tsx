@@ -1,9 +1,9 @@
-import React, { InputHTMLAttributes } from 'react';
+import { InputHTMLAttributes } from 'react';
 
-import { TRawInputAlign } from '../../atoms/RawInput/RawInput';
 import { TLayer } from '@/interface/TLayer';
-import { StyledDatePicker } from '../../organisms/FancyDateInput/FancyDateInput.style';
+import { StyledDatePicker } from '@/components/organisms/FancyDateInput/FancyDateInput.style';
 import { TThemeTypes } from '@/interface/TThemeTypes';
+import { TTextAlignLC } from '@/interface/TTextAlignLC';
 
 type NativeAttrs = Omit<InputHTMLAttributes<HTMLInputElement>, 'type' | 'value'>;
 export type IDateInputPropsWithNativeAttrs = IDateInputProps & NativeAttrs;
@@ -12,11 +12,11 @@ export interface IDateInputProps {
   themeType?: TThemeTypes;
   layer?: TLayer;
   activeHandler?: (value: boolean) => void;
-  align?: TRawInputAlign;
+  align?: TTextAlignLC;
   type?: 'week' | 'date' | 'month' | 'time' | 'datetime-local' | 'datetime';
 }
 // --------------------------------------------------------------------------- //
-// ---------- Here are the design variants for sizing and alignment ---------- //
+// -------------- A simple date input for all kind of types ------------------ //
 // --------------------------------------------------------------------------- //
 export default function DateInput(props: IDateInputProps & NativeAttrs) {
   const { value, activeHandler, align, themeType, layer, type, ...htmlInputProps } = props;

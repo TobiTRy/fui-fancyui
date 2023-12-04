@@ -2,11 +2,10 @@ import { styled } from 'styled-components';
 
 import { fontSize } from '@/design/theme/designSizes';
 import { TTheme } from '@/interface/TTheme';
-
-export type TRawInputAlign = 'left' | 'center';
+import { TTextAlignLC } from '@/interface/TTextAlignLC';
 
 export interface IRawInput {
-  $align?: TRawInputAlign;
+  $align?: TTextAlignLC;
   theme?: TTheme;
 }
 const RawInput = styled.input<IRawInput>`

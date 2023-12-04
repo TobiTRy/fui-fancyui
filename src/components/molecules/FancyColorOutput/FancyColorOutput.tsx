@@ -1,34 +1,13 @@
-import React, { useState, useEffect, useMemo } from 'react';
 import Color from 'color';
+import { useEffect, useMemo, useState } from 'react';
 
-import FancyButton from '../../organisms/FancyButton/FancyButton';
+import FancyButton from '@/components/organisms/FancyButton/FancyButton';
+import { SVGDoubleChevron } from '@/components/icons/SVGDoubleChevron';
+import colorFormats, { IColorFormat } from '@/utils/variables/colorFormats';
 import colorTransformator from './ColorTransformator';
 import { Container, WrapperSVG } from './FancyColorOutput.style';
 import InputFields from './InputFields/InputFields';
-import colorFormats from '../../../utils/variables/colorFormats';
-import { IColorFormat } from '../../../utils/variables/colorFormats';
-
-//Icon for the Switch Button
-const Svg = (
-  <WrapperSVG>
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" viewBox="0 0 24 24">
-      <path d="M7.5 18.234a.988.988 0 0 1-.648-.242l-6-5.25A.995.995 0 0 1 .516 12c0-.285.125-.555.336-.742l6-5.25a.988.988 0 0 1 1.39.094.988.988 0 0 1-.094 1.39L2.996 12l5.152 4.508a.985.985 0 0 1-.648 1.727Zm9 0a.985.985 0 0 1-.648-1.726L21.004 12l-5.152-4.508a.988.988 0 0 1-.094-1.39c.36-.41.98-.45 1.39-.094l6 5.25a.982.982 0 0 1 .336.742.982.982 0 0 1-.336.742l-6 5.25a.988.988 0 0 1-.648.242Zm0 0" />
-    </svg>
-  </WrapperSVG>
-);
-
-// this interfaces is used to match the input "names" (r, g, b, a, h, s, l)
-// to update the changed value in the color object
-interface ColorTypeLetters {
-  [key: string]: number | string;
-  r: number;
-  g: number;
-  b: number;
-  a: number;
-  h: number;
-  s: number;
-  l: number;
-}
+import { ColorTypeLetters } from './FancyColorOutput.model';
 
 // --------------------------------------------------------------------------- //
 // -- The main FancyColorOutput Component to displays and change the values -- //
@@ -106,7 +85,18 @@ export default function FancyColorOutput(props: IFancyColorOutput) {
       {/* this Component renders the Input fields for the color and opacity */}
       <InputFields currentColorObject={transformedColorObject} handler={handleInputChange} />
       {/* Switch Button this switches the color format */}
-      <FancyButton onClick={handleFormatChange} outlined={true} icon={Svg} wide={true} size="sm" themeType="accent"></FancyButton>
+      <FancyButton
+        onClick={handleFormatChange}
+        outlined={true}
+        wide={true}
+        size="sm"
+        themeType="accent"
+        icon={
+          <WrapperSVG>
+            <SVGDoubleChevron />
+          </WrapperSVG>
+        }
+      />
     </Container>
   );
 }

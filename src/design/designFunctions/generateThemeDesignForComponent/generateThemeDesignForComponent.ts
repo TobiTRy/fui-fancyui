@@ -1,25 +1,11 @@
-import { TThemeTypes } from '@/interface/TThemeTypes';
-import { TLayer } from '@/interface/TLayer';
+import { IGenerateThemeDesignForComponentProps } from './IGenerateThemeDesignForComponentProps';
 import { generateNormalStyle } from './utils/generateNormalStyle';
-import { generateTransparentStyle } from './utils/generateTransparentStyle';
 import { generateOutlineStyle } from './utils/generateOutlineStyle';
+import { generateTransparentStyle } from './utils/generateTransparentStyle';
 
-import IStyledPrefixAndPicker from '@/interface/IStyledPrefixAndPicker.model';
 import { getSimpleColorThemeType } from '@/design/designFunctions/getSimpleColorThemeType';
+import IStyledPrefixAndPicker from '@/interface/IStyledPrefixAndPicker.model';
 import { TTheme } from '@/interface/TTheme';
-import { TThemeTypesNotTransparent } from '@/interface/TThemeTypesNotTransparent';
-
-export interface IGenerateThemeDesignForComponentProps {
-  themeType?: TThemeTypes;
-  hoverColor?: TThemeTypesNotTransparent;
-  textColor?: TThemeTypesNotTransparent;
-  textHover?: TThemeTypesNotTransparent;
-  layer?: TLayer;
-  outlined?: boolean;
-  backgroundStrength?: number;
-  backgroundState?: 'hover' | 'active';
-  useSimpleTextColor?: boolean;
-}
 
 export type IGenerateThemeDesignForComponent = IStyledPrefixAndPicker<IGenerateThemeDesignForComponentProps> & { theme: TTheme };
 // --------------------------------------------------------------------------- //

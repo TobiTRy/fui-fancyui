@@ -4,10 +4,10 @@ import FancyTextInput from '../../organisms/FancyTextInput/FancyTextInput';
 
 import SVGSearch from '../../icons/SVGSearch/SVGSearch';
 import FancySVGAtom from '../../atoms/FancySVGAtom/FancySVGAtom';
-import { TRawInputAlign } from '../../atoms/RawInput/RawInput';
 import { TThemeTypes } from '@/interface/TThemeTypes';
 import { TLayer } from '@/interface/TLayer';
 import { TTheme } from '@/interface/TTheme';
+import { TTextAlignLC } from '@/interface/TTextAlignLC';
 
 // Styled component for the search bar
 const StyledSearchBar = styled.div<{ $isActive?: boolean; theme: TTheme }>`
@@ -28,7 +28,7 @@ const StyledSearchBar = styled.div<{ $isActive?: boolean; theme: TTheme }>`
 // Props for the SearchBar component
 interface ISearchBar {
   searchValue?: string;
-  align?: TRawInputAlign;
+  align?: TTextAlignLC;
   activeHandler?: (isActive: boolean) => void;
   handler?: (value: string) => void;
   themeType?: TThemeTypes;
@@ -67,7 +67,7 @@ export default function SearchBar(props: ISearchBar) {
       <FancyTextInput
         value={searchValue}
         placeholder="Search"
-        align={align as TRawInputAlign}
+        align={align as TTextAlignLC}
         aria-label="Searchbar"
         activeHandler={focusHandler}
         onChange={onChangeValueHandler}

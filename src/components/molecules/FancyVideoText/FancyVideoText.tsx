@@ -1,7 +1,7 @@
 import React from 'react';
 
-import VideoAtom, { IFancyVideo } from '../../atoms/FancyVideo/FancyVideo';
-import ImageVideoOverlay, { TPositions } from '../../atoms/ImageVideoOverlay/ImageVideoOverlay';
+import VideoAtom, { IFancyVideo } from '@/components/atoms/FancyVideo/FancyVideo';
+import ImageVideoOverlay, { TPositions } from '@/components/atoms/ImageVideoOverlay/ImageVideoOverlay';
 
 // Define the props for the FancyVideoText component
 interface IFancyVideoTextProps extends IFancyVideo {

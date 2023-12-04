@@ -1,27 +1,11 @@
-import { styled, css } from 'styled-components';
+import { css, styled } from 'styled-components';
 
-import themeStore from '../../../design/theme/themeStore/themeStore';
-import { TThemeTypes } from '@/interface/TThemeTypes';
+import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent';
+import { themeStore } from '@/design/theme/themeStore';
 import { TLayer } from '@/interface/TLayer';
-import { getBackgroundColor } from '../../../design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponent';
-import { TTypography } from '@/interface/TTypography';
 import { TTheme } from '@/interface/TTheme';
-
-const getSpacingFromTheme = themeStore.getState().theme.spacing;
-export const tabSwitchItemSizes = {
-  sm: {
-    fontSize: 'smText' as TTypography,
-    padding: getSpacingFromTheme.xs,
-  },
-  md: {
-    fontSize: 'content' as TTypography,
-    padding: getSpacingFromTheme.sm,
-  },
-  lg: {
-    fontSize: 'button' as TTypography,
-    padding: getSpacingFromTheme.md,
-  },
-};
+import { TThemeTypes } from '@/interface/TThemeTypes';
+import { tabSwitchItemSizes } from './sizeSettings';
 
 // ------------------------------------------------------------------ //
 // ----------- the helperfunctions for the style generate ----------- //
@@ -62,6 +46,7 @@ const generateDynamicTabStyle = (props: TGenerateDynamicTabStyle) => {
 //this functions hold litle childs for the label
 const generateIconAlignment = (props: Pick<IListButtonStyle, '$iconAlign'>) => {
   const { $iconAlign } = props;
+  const getSpacingFromTheme = themeStore.getState().theme.spacing;
 
   const getAlignment = () => {
     switch ($iconAlign) {
@@ -92,6 +77,7 @@ const generateIconAlignment = (props: Pick<IListButtonStyle, '$iconAlign'>) => {
 // ------------------------------------------------------------------ //
 const generateButtonStyle = (props: IListButtonStyle) => {
   const { $wide, $textColor, theme, $layer, $themeType, $iconAlign, $size, $hasIcon, $hasLabel } = props;
+  const getSpacingFromTheme = themeStore.getState().theme.spacing;
 
   return css`
     list-style: none;

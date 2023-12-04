@@ -1,44 +1,22 @@
-import React from 'react';
-import { styled } from 'styled-components';
+import { ReactNode } from 'react';
 
-import Typography from '../../atoms/Typography/Typography';
-import { TThemeTypes } from '@/interface/TThemeTypes';
+import { Typography } from '@/components/atoms/Typography';
+
 import { TLayer } from '@/interface/TLayer';
-import { getTextColor } from '../../../design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponent';
-import { TTheme } from '@/interface/TTheme';
+import { TThemeTypes } from '@/interface/TThemeTypes';
 
-const Wrapper = styled.div`
-  position: relative;
-  display: flex;
-  align-items: center;
-  height: 100%;
-  width: 100%;
-  box-sizing: border-box;
-`;
-
-const LogoWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-`;
-
-const StyledHeading = styled.a<{ theme: TTheme; $themeType?: TThemeTypes; $layer?: TLayer }>`
-  display: flex;
-  gap: ${({ theme }) => theme.spacing.sm};
-  align-items: center;
-  word-break: keep-all;
-  text-decoration: none;
-  color: ${({ theme, $themeType = 'secondary', $layer }) => getTextColor({ theme, $themeType, $textLayer: $layer })};
-`;
+import { LogoWrapper, StyledHeading, Wrapper } from './HeaderTitleWithLogo.style';
 
 interface IHeaderTitleWithLogo {
-  title?: React.ReactNode | string;
-  logo?: React.ReactNode;
+  title?: ReactNode | string;
+  logo?: ReactNode;
   linkTo?: string;
   themeType?: TThemeTypes;
   layer?: TLayer;
 }
+// --------------------------------------------------------------------------- //
+// -------- A Header Template for the Logo and the Title of a header --------- //
+// --------------------------------------------------------------------------- //
 export default function HeaderTitleWithLogo(props: IHeaderTitleWithLogo) {
   const { title, logo, linkTo, themeType, layer } = { ...defaultProps, ...props };
 

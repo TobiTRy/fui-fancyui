@@ -1,14 +1,16 @@
 import React from 'react';
 import { CSSProp } from 'styled-components';
 
-import { IgenerateThemeForCard } from '../../../design/designFunctions/generateThemeForCard/generateThemeForCard';
 import { StyledHeader } from './Header.style';
+import { IGenerateThemeForCardProps } from '@/design/designFunctions/generateThemeForCard';
 
-type THeaderProps = IgenerateThemeForCard & {
+type THeaderProps = IGenerateThemeForCardProps & {
   children?: React.ReactNode;
   externalStyle?: CSSProp;
 } & React.HTMLAttributes<HTMLHeadingElement>;
-
+// --------------------------------------------------------------------------- //
+// -------------- A Simple header that can complettly customized ------------- //
+// --------------------------------------------------------------------------- //
 export default function Header(props: THeaderProps) {
   const { themeType, layer, outlined, outlinedBackgroundStrength, children, externalStyle } = props;
   return (

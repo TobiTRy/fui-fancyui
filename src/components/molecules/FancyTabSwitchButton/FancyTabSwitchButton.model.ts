@@ -1,5 +1,5 @@
 import { TThemeTypes } from '@/interface/TThemeTypes';
-import { tabSwitchItemSizes } from './FancyTabSwitchButton.style';
+import { tabSwitchItemSizes } from './sizeSettings';
 
 export interface ITabSwitchDetailsLabelIcon {
   itemKey: string;

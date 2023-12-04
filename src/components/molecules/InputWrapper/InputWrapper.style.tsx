@@ -1,10 +1,11 @@
 import { styled, css } from 'styled-components';
 
-import { disabledStyle } from '../../../design/designFunctions/disabledStyle/disableStyle';
-import { fontSize } from '../../../design/theme/designSizes';
+import { fontSize } from '@/design/theme/designSizes';
+import { disabledStyle } from '@/design/designFunctions/disabledStyle';
+import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent';
+
 import { TThemeTypes } from '@/interface/TThemeTypes';
 import { TLayer } from '@/interface/TLayer';
-import { getBackgroundColor } from '../../../design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponent';
 import { TTheme } from '@/interface/TTheme';
 
 export const StyledInputWrapper = styled.div<{ disabled?: boolean; $autoWidth?: boolean }>`

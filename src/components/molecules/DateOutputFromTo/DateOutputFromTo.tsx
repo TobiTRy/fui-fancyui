@@ -1,40 +1,10 @@
-import React from 'react';
-import { styled } from 'styled-components';
+import DateOutput from '@/components/atoms/DateOutput/DateOutput';
+import FancyLine from '@/components/atoms/FancyLine/FancyLine';
 
-import DateOutput from '../../atoms/DateOutput/DateOutput';
 import { TThemeTypes } from '@/interface/TThemeTypes';
 import { TLayer } from '@/interface/TLayer';
-import FancyLine from '../../atoms/FancyLine/FancyLine';
-import { TTheme } from '@/interface/TTheme';
 
-// Define the styled component for the DateOutputFromTo component
-const StyledDateOutputFromTo = styled.div<{ theme: TTheme; $themeType?: TThemeTypes; $layer?: TLayer }>`
-  position: relative;
-  display: flex;
-  width: 100%;
-  height: auto;
-  justify-content: space-around;
-  align-items: stretch;
-
-  button:nth-child(1) {
-    border-radius: 50px 0 0 50px;
-    padding: ${({ theme }) => theme.spacing.sm};
-  }
-
-  button:nth-child(3) {
-    border-radius: 0 50px 50px 0;
-    padding: ${({ theme }) => theme.spacing.sm};
-  }
-`;
-
-// Define the styled component for the VRWrapper
-const VRWrapper = styled.div`
-  position: absolute;
-  height: 100%;
-  flex: 1;
-  display: flex;
-  align-items: center; // this center the FancyVR vertically
-`;
+import { StyledDateOutputFromTo, VRWrapper } from './DateOutputFromTo.style';
 
 // Define the props for the DateOutputFromTo component
 interface IDateOutputFromTo {
@@ -45,16 +15,18 @@ interface IDateOutputFromTo {
   themeType?: TThemeTypes;
   layer?: TLayer;
 }
-// Define the DateOutputFromTo component
+// --------------------------------------------------------------------------- //
+// ---------- The dateOutput hanles the date display from and to ------------ //
+// --------------------------------------------------------------------------- //
 export default function DateOutputFromTo({ whichIsSelecting, dateFrom, dateTo, handler, themeType, layer }: IDateOutputFromTo) {
+  // swap the themeType for opposite components
   const swapTheme = themeType === 'primary' ? 'secondary' : 'primary';
 
-  // Define the click handler for the DateOutput component
+  // Define the click handler that handles the click on the DateOutput
   const handleClickOnDateOutput = (which: 'from' | 'to') => {
     handler && handler(which);
   };
 
-  // Render the DateOutputFromTo component with the appropriate props
   return (
     <StyledDateOutputFromTo>
       <DateOutput
