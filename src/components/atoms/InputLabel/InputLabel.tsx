@@ -7,7 +7,7 @@ import { TTheme } from '@/interface/TTheme';
 // --------------------------------------------------------------------------- //
 const InputLabel = styled.label<{ theme: TTheme }>`
   width: 100%;
-  color: ${({ theme }) => theme.colors.secondary[1]};
+  color: ${({ theme }) => theme.colors.secondary[1]}; //TODO: BUILD IN LAYER
   font-weight: bold;
   pointer-events: none;
   user-select: none;

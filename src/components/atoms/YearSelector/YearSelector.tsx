@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { TThemeTypes } from '@/interface/TThemeTypes';
 import { TLayer } from '@/interface/TLayer';
 import { SVGChevronLeft } from '@/components/icons/SVGChevronLeft';

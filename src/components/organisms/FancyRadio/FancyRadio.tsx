@@ -6,6 +6,7 @@ import { RawRadio } from '@/components/atoms/RawRadio';
 export type TFancyRadioProps = Omit<React.ComponentProps<typeof FancySelectWrapper>, 'inputElement'> &
   React.ComponentProps<typeof RawRadio>;
 
+//TODO: ADD DOCUMENTATION
 // --------------------------------------------------------------------------- //
 // --- The FancyRadio is a RadioInput with a Label and description porp   ---- //
 // --------------------------------------------------------------------------- //

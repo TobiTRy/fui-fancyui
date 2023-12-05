@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import { MonthContainer, StyledCalendar } from './RangeCalendar.style';
 
@@ -6,11 +6,11 @@ import MonthWithDays from '../MonthWithDays/MonthWithDays';
 import useSelectedDates from './helperFunctions/useSelectedDates';
 import useVisibleMonths from './helperFunctions/useVisibleMonths';
 
+import { TLayer } from '@/interface/TLayer';
+import { TThemeTypes } from '@/interface/TThemeTypes';
 import { IDisabledDateSettings } from '../MonthWithDays/utils/Interfaces/IDisableDateSettings.model';
 import { IExternalMonthWithDays } from '../MonthWithDays/utils/Interfaces/IExternalMonthWithDays.model';
 import { IDateArray } from './IDateArray.model';
-import { TThemeTypes } from '@/interface/TThemeTypes';
-import { TLayer } from '@/interface/TLayer';
 
 interface ICalendar {
   selectedYear?: number;

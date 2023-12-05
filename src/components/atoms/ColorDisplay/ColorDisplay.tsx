@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Color from 'color';
 
-import Typography from '../Typography/Typography';
-import copyToClipboard from '../../../utils/functions/copyToClipBoard/copyToClipBoard';
-import CheckerBoardPattern from '../CheckerBoardPattern/CheckerBoardPattern';
+import { themeStore } from '@/design/theme/themeStore';
+
+import { copyToClipBoard } from '@/utils/functions/copyToClipBoard';
+import { CheckerBoardPattern } from '@/components/atoms/CheckerBoardPattern';
+import { SVGClipBoardIcon } from '@/components/icons/SVGClipBoardIcon';
+import { Typography } from '@/components/atoms/Typography';
+import { SVGClipBoardIconChecked } from '@/components/icons/SVGClipBoardIconChecked';
+
 import { ColorDisplayContainer, Wrapper, Content, WrapperSVG } from './ColorDisplay.style';
-import ClipBoardIcon from '../../icons/SVGClipBoardIcon/SVGClipBoardIcon';
-import ClipBoardIconCheck from '../../icons/SVGClipBoardIconChecked/SVGClipBoardIconChecked';
-import themeStore from '../../../design/theme/themeStore/themeStore';
 
 // --------------------------------------------------------------------------- //
 // ----- The main ColorDisplay Component for display the color in a box ------ //
@@ -26,7 +28,7 @@ export default function ColorDisplay({ color, opacity, showText, fullHeight }: I
   const isBright = Color(color).isLight() && opacity > 0.5;
 
   const copyValue = () => {
-    copyToClipboard(color.toString())
+    copyToClipBoard(color.toString())
       .then(() => {
         setCopyd(true);
         setTimeout(() => setCopyd(false), 1000);
@@ -40,7 +42,7 @@ export default function ColorDisplay({ color, opacity, showText, fullHeight }: I
     <Wrapper $fullHeight={fullHeight} onClick={copyValue}>
       <Content $isBright={isBright} $isDarkTheme={isDarkTheme}>
         {showText && <Typography type="content">{color.toString()}</Typography>}
-        <WrapperSVG>{copyd ? <ClipBoardIconCheck /> : <ClipBoardIcon />}</WrapperSVG>
+        <WrapperSVG>{copyd ? <SVGClipBoardIconChecked /> : <SVGClipBoardIcon />}</WrapperSVG>
       </Content>
       <ColorDisplayContainer color={color.toString()} opacity={opacity} />
       <CheckerBoardPattern />

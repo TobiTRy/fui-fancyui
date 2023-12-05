@@ -1,6 +1,5 @@
-import React from 'react';
-
 import styled, { keyframes } from 'styled-components';
+
 import { SVGLoadingArrows } from '@/components/icons/SVGLoadingArrows';
 import { ISVGAtomProps } from '@/components/atoms/FancySVGAtom/FancySVGAtom.model';
 

@@ -1,6 +1,6 @@
 import { useId } from 'react';
 
-import RawCheckbox from '@/components/atoms/RawCheckbox/RawCheckbox';
+import { RawCheckbox } from '@/components/atoms/RawCheckbox';
 import { FancySelectWrapper } from '@/components/molecules/FancySelectWrapper';
 
 import { IFancyCheckboxProps } from './FancyCheckbox.model';

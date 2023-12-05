@@ -19,7 +19,7 @@ interface IFancyUnderline {
 // --------------------------------------------------------------------------- //
 // --------- The underline for the input components with state style --------- //
 // --------------------------------------------------------------------------- //
-export default function FancyInputUnderline(props: IFancyUnderline) {
+export default function InputUnderline(props: IFancyUnderline) {
   const { colorState = 'default', isActive, autoWidth, layer = 4, themeType } = props;
 
   // Render the FancyInputUnderline component with the appropriate props

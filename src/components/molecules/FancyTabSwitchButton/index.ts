@@ -1,1 +1,1 @@
-export { default as TabSwitchItem } from './FancyTabSwitchButton';
+export { default as FancyTabSwitchButton } from './FancyTabSwitchButton';

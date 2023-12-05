@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { animated, useTransition } from '@react-spring/web';
 
-import useWindowDimensions from '../../../utils/hooks/useWindowDimensions/useWindowDimensions';
-import SwipeUpContainer from '../../atoms/SwipeUpContainer/SwipeUpContainer';
-import BackDrop from '../../atoms/BackDrop/BackDrop';
-import Delay from '../../shared/Delay/Delay';
-import ScalingSection from '../ScalingSection/ScalingSection';
+import { useWindowDimensions } from '@/utils/hooks/useWindowDimensions';
+import { SwipeUpContainer } from '@/components/atoms/SwipeUpContainer';
+import { BackDrop } from '@/components/atoms/BackDrop';
+import { Delay } from '@/components/shared/Delay';
+import { ScalingSection } from '@/components/molecules/ScalingSection';
+
 import { Content, ContentBox, WrapperAnimated, WrapperContent, WrapperModal } from './SwipeUpModal.style';
 import { ISwipeUpModal } from './ISwipeUpModal.model';
-import { TModalStatus } from '../../../interface/TModalStatus';
+import { TModalStatus } from '@/interface/TModalStatus';
 
 // --------------------------------------------------------------------------- //
 // ----------- The Modal Molecule the displays the complete modal - ---------- //

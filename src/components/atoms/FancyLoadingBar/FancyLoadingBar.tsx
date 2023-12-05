@@ -1,7 +1,17 @@
-import React from 'react';
 import { styled, keyframes } from 'styled-components';
 
 import { TTheme } from '@/interface/TTheme';
+
+// ----------------------------------------------------- //
+// ------------------ A Loadingbar --------------------- //
+// ----------------------------------------------------- //
+export default function FancyLoadingBar() {
+  return (
+    <LoadingContainer>
+      <LoadingBar />
+    </LoadingContainer>
+  );
+}
 
 // Define keyframe animation for the loading bar
 const loadingAnimation = keyframes`
@@ -30,14 +40,3 @@ const LoadingBar = styled.div<{ theme: TTheme }>`
   background-image: linear-gradient(90deg, transparent, ${({ theme }) => theme.colors.accent[0]}, transparent);
   animation: ${loadingAnimation} 3s ease-in-out infinite; // Set the animation duration to 3s
 `;
-
-// ----------------------------------------------------- //
-// ------------------ A Loadingbar --------------------- //
-// ----------------------------------------------------- //
-export default function FancyLoadingBar() {
-  return (
-    <LoadingContainer>
-      <LoadingBar />
-    </LoadingContainer>
-  );
-}

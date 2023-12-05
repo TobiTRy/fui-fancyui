@@ -3,7 +3,7 @@ import { styled } from 'styled-components';
 import { StyledCardProps } from './Card.model';
 import IStyledPrefixAndOmiter from '@/interface/IStyledPrefixAndOmiter.model';
 import { spacingPx } from '@/design/theme/designSizes';
-import edgeCalculation from '@/design/designFunctions/edgeCalculation/edgeCalculation';
+import { edgeCalculation } from '@/design/designFunctions/edgeCalculation';
 
 import { boxShadow } from '@/design/designFunctions/shadows/shadows';
 import { getColorsForComponent } from '@/design/designFunctions/colorCalculatorForComponent';

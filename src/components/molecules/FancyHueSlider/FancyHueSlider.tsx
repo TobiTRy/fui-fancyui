@@ -1,6 +1,6 @@
 import Color from 'color';
 
-import useSlider from '@/utils/hooks/useSlider/useSilder';
+import { useSlider } from '@/utils/hooks/useSlider';
 import { SliderMarker } from '@/components/atoms/SliderMarker';
 import { ColorIndicator } from '@/components/atoms/ColorIndicator';
 

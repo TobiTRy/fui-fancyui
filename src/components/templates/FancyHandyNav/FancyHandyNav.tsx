@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { CSSProp, css } from 'styled-components';
 
 import useFancyHandyNavStore from './FancyHandyNav.store';

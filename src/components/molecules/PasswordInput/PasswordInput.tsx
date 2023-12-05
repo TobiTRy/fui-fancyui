@@ -10,16 +10,6 @@ import { RawInput } from '@/components/atoms/RawInput';
 import { PasswordEye } from '@/components/atoms/PasswordEye';
 import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent';
 
-const WrapperEye = styled.div<{ theme: TTheme; $themeType?: TThemeTypes; $layer?: TLayer }>`
-  position: absolute;
-  bottom: 6px;
-  right: 4px;
-
-  svg {
-    color: ${({ theme, $themeType = 'secondary', $layer = 4 }) => getBackgroundColor({ theme, $themeType, $layer })};
-  }
-`;
-
 export interface IPasswordInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'type'> {
   value?: string;
   align?: TTextAlignLC;
@@ -56,3 +46,16 @@ export default function PasswordInput(props: IPasswordInputProps) {
     </>
   );
 }
+
+// --------------------------------------------------------------------------- //
+// --------------------- The style for the component ------------------------- //
+// --------------------------------------------------------------------------- //
+const WrapperEye = styled.div<{ theme: TTheme; $themeType?: TThemeTypes; $layer?: TLayer }>`
+  position: absolute;
+  bottom: 6px;
+  right: 4px;
+
+  svg {
+    color: ${({ theme, $themeType = 'secondary', $layer = 4 }) => getBackgroundColor({ theme, $themeType, $layer })};
+  }
+`;

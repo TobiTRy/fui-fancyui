@@ -13,14 +13,6 @@ import { DateNumberWithStatus } from '@/components/molecules/DateNumberWithStatu
 import { DateNumber, DaysContainer } from './MonthWithDays.style';
 import createDaysOfMonth from './utils/createDaysOfMonth';
 
-const getFirstDayOfMonth = (month: number, year: number): number => {
-  return new Date(year, month - 1, 1).getDay() || 7;
-};
-
-const getDaysInMonth = (month: number, year: number): number => {
-  return new Date(year, month, 0).getDate();
-};
-
 interface IMonthWithDays {
   monthIdx: number;
   year: number;
@@ -97,3 +89,15 @@ export default function MonthWithDays(props: IMonthWithDays) {
     </div>
   );
 }
+
+// --------------------------------------------------------------------------- //
+// ------------------------ Some helperfunctions ----------------------------- //
+// --------------------------------------------------------------------------- //
+
+const getFirstDayOfMonth = (month: number, year: number): number => {
+  return new Date(year, month - 1, 1).getDay() || 7;
+};
+
+const getDaysInMonth = (month: number, year: number): number => {
+  return new Date(year, month, 0).getDate();
+};

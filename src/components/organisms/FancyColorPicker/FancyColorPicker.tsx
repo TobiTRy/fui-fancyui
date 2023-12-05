@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useState } from 'react';
-
 import Color from 'color';
 import { styled } from 'styled-components';
 

@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 import { useTransition, animated } from '@react-spring/web';
 
 import { useFancyToastMessageStore } from './FancyToastMessage.state';

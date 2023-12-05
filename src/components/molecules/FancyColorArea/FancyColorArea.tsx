@@ -1,7 +1,7 @@
 import Color from 'color';
 
 import { ColorIndicator } from '@/components/atoms/ColorIndicator';
-import useSlider from '@/utils/hooks/useSlider/useSilder';
+import { useSlider } from '@/utils/hooks/useSlider';
 import {
   ColorAreaContainer,
   CurrentColorArea,

@@ -5,26 +5,6 @@ import { Typography } from '../Typography';
 import { TTypography } from '@/interface/TTypography';
 import { TSize } from './sizeSettings';
 
-// generate the text size based on the size prop
-const getTextSize = (size: TSize | string): TTypography => {
-  switch (size) {
-    case 'xxs':
-    case 'xs':
-      return 'smText';
-    case 'sm':
-      return 'h6';
-    case 'md':
-      return 'h3';
-    case 'lg':
-      return 'h2';
-    case 'xl':
-    case 'xxl':
-      return 'h1';
-    default:
-      return 'h4';
-  }
-};
-
 export interface IFancyProfilePicture {
   src?: string;
   rounded?: 'sm' | 'md' | 'lg' | 'complete';
@@ -55,4 +35,24 @@ export default function FancyProfilePicture(props: IFancyProfilePicture) {
 const defaultProps = {
   size: 'md',
   alt: 'Profile',
+};
+
+// generate the text size based on the size prop
+const getTextSize = (size: TSize | string): TTypography => {
+  switch (size) {
+    case 'xxs':
+    case 'xs':
+      return 'smText';
+    case 'sm':
+      return 'h6';
+    case 'md':
+      return 'h3';
+    case 'lg':
+      return 'h2';
+    case 'xl':
+    case 'xxl':
+      return 'h1';
+    default:
+      return 'h4';
+  }
 };

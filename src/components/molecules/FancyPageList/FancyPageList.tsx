@@ -13,7 +13,6 @@ interface IFancyPageList {
   buttonDesign?: 'accent' | 'primary' | 'transparent';
   outlinedButton?: boolean;
 }
-
 // --------------------------------------------------------------------------- //
 // ------- This Component renders a Paginator with the specific list --------- //
 // --------------------------------------------------------------------------- //

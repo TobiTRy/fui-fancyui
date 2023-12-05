@@ -5,9 +5,6 @@ import { BackDrop } from '@/components/atoms/BackDrop';
 import { TThemeTypes } from '@/interface/TThemeTypes';
 import { TLayer } from '@/interface/TLayer';
 
-// --------------------------------------------------------------------------- //
-// ------  The main Modal Component to comstomize the Head/Bottomline  ------- //
-// --------------------------------------------------------------------------- //
 export interface IModal {
   id?: string;
   children?: ReactNode;
@@ -18,6 +15,9 @@ export interface IModal {
   themeType?: TThemeTypes;
   layer?: TLayer;
 }
+// --------------------------------------------------------------------------- //
+// ------  The main Modal Component to comstomize the Head/Bottomline  ------- //
+// --------------------------------------------------------------------------- //
 export default function Modal(props: IModal) {
   const { id, children, isOpen, onClose, isCloseable, themeType, layer, backDrop = true } = props;
   const [modalVisible, setModalVisible] = useState(false);

@@ -2,15 +2,8 @@ import React, { ReactNode } from 'react';
 import { CSSProp, css } from 'styled-components';
 
 import { IStyledComponentProps, TypographyList } from './TypographyFontVariations.style';
-import themeStore from '@/design/theme/themeStore/themeStore';
+import { themeStore } from '@/design/theme/themeStore';
 import { generateFontVariants } from './TypographyStyleVariants';
-
-const generateStyle = (externalStyle: CSSProp, fontWeight: 'normal' | 'bold' | undefined) => {
-  return css`
-    font-weight: ${fontWeight};
-    ${externalStyle};
-  `;
-};
 
 export type ITypography = {
   type?: keyof typeof TypographyList;
@@ -44,3 +37,11 @@ export default function Typography({ type, variant, children, style, weight, ...
     </Component>
   );
 }
+
+// generate the style for the component
+const generateStyle = (externalStyle: CSSProp, fontWeight: 'normal' | 'bold' | undefined) => {
+  return css`
+    font-weight: ${fontWeight};
+    ${externalStyle};
+  `;
+};

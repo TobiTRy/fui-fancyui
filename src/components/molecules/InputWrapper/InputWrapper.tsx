@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { calcColorState } from '@/design/designFunctions/calcColorState';
 
-import { AnimatedInputLabel } from '@/components/atoms/AnimatedLabel';
+import { AnimatedInputLabel } from '@/components/atoms/AnimatedInputLabel';
 import { FancySVGAtom } from '@/components/atoms/FancySVGAtom';
 import { InputUnderline } from '@/components/atoms/InputUnderline';
 

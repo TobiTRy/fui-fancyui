@@ -4,9 +4,6 @@ import { StyledRawSlider } from './RawSlider.style';
 import { TLayer } from '@/interface/TLayer';
 import { TThemeTypes } from '@/interface/TThemeTypes';
 
-// --------------------------------------------------------------------------- //
-// ------------ Here is createt the Slider Atom (Range Slider) --------------- //
-// --------------------------------------------------------------------------- //
 export interface IRawSlider extends InputHTMLAttributes<HTMLInputElement> {
   id?: string;
   activeHandler?: (value: boolean) => void;
@@ -14,6 +11,9 @@ export interface IRawSlider extends InputHTMLAttributes<HTMLInputElement> {
   themeType?: TThemeTypes;
   layer?: TLayer;
 }
+// --------------------------------------------------------------------------- //
+// ------------ Here is createt the Slider Atom (Range Slider) --------------- //
+// --------------------------------------------------------------------------- //
 export default function RawSlider(props: IRawSlider) {
   const { disabled, id, max, min, value, ref, activeHandler, themeType, layer, ...htmlProps } = props;
   const inputSlider = useRef<HTMLInputElement | null>(null);

@@ -1,1 +1,1 @@
-export { default as SpeedDialMenueItem } from './SpeedDailMenueItem';
+export { default as SpeedDailMenueItem } from './SpeedDailMenueItem';
