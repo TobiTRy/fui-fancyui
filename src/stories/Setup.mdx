@@ -1,0 +1,122 @@
+# 🚀 Setup Guide for Fancy UI Library (FUI)
+
+Get ready to elevate your UI game with the `Fancy UI Library (FUI)`! 🌟 Let's dive into the setup process.
+
+## Step 1: Install the Party Guests 📦
+
+Kick things off by inviting `FancyUILibary (FUI)`:
+
+```bash
+npm install @mrtryy/fancyuilibary
+```
+
+`FUI` pairs perfectly with `styled-components`, so let's add them to the mix:
+
+```bash
+npm install styled-components
+```
+
+`FancyUILibary` is crafted with `StyledComponents` and it relies on the `ThemeProvider` for its vibrant colors. 🌈
+
+## Step 2: Set Up the ThemeProvider with Global Style 🎨
+
+Now, let's set the stage with the `ThemeProvider`, and integrate the `GlobalStyle` for a consistent look across your application:
+
+```javascript
+import { themeStore } from "@mrtryy/fancyuilibary";
+import { ThemeProvider, createGlobalStyle } from "styled-components";
+import { TTheme } from '@mrtryy/fancyuilibary';
+import { scrollbar }  from '@mrtryy/fancyuilibary'; /
+
+// Define your Global Style
+const GlobalStyle = createGlobalStyle<{ theme: TTheme; }>`
+  body {
+    margin: 0;
+    padding: 0;
+    background: ${({ theme }) => theme.colors.primary[0]};
+    color: ${({ theme }) => theme.colors.secondary[0]};
+    font-family: DMSans, Helvetica, Sans-Serif;
+  }
+  ${scrollbar};
+`;
+
+// ThemeStoreProvider with integrated Global Style
+interface IThemeStoreProvider {
+  children?: React.ReactNode;
+}
+
+export default function ThemeStoreProvider({ children }: IThemeStoreProvider) {
+  const theme = themeStore((state) => state.theme);
+  return (
+    <ThemeProvider theme={theme}>
+      <GlobalStyle theme={theme} />
+      {children}
+    </ThemeProvider>
+  );
+}
+```
+
+## Step 3: Creating Fancy Applications 🌟
+
+Let's bring our Fancy UI to life! 🎉
+
+### For Next.js (v13+):
+
+Next.js has its own unique setup requirements:
+
+1. **Update the Next.js Config:**
+
+   Make sure your `next.config.js` includes these settings:
+
+   ```javascript
+   const nextConfig = {
+     compiler: {
+       styledComponents: true,
+     },
+     transpilePackages: ['@mrtryy/fancyuilibary'],
+   };
+   ```
+
+2. **Styled-Components Registry Setup:**
+
+   This is crucial for ensuring `styled-components` work correctly on the client-side:
+
+   ```javascript
+   'use client';
+
+   import React, { useState } from 'react';
+   import { useServerInsertedHTML } from 'next/navigation';
+   import { ServerStyleSheet, StyleSheetManager } from 'styled-components';
+
+   export default function StyledComponentsRegistry({ children }) {
+     const [styledComponentsStyleSheet] = useState(() => new ServerStyleSheet());
+
+     useServerInsertedHTML(() => {
+       const styles = styledComponentsStyleSheet.getStyleElement();
+       styledComponentsStyleSheet.instance.clearTag();
+       return <>{styles}</>;
+     });
+
+     if (typeof window !== 'undefined') return <>{children}</>;
+
+     return <StyleSheetManager sheet={styledComponentsStyleSheet.instance}>{children}</StyleSheetManager>;
+   }
+   ```
+
+3. **Layout Configuration:**
+
+   Your layout should now be wrapped with the `StyledComponentsRegistry` and `ThemeStoreProvider`:
+
+   ```javascript
+   <StyledComponentsRegistry>
+     <ThemeStoreProvider>{children}</ThemeStoreProvider>
+   </StyledComponentsRegistry>
+   ```
+
+Congratulations! You're all set to create fabulous, styled applications with `Fancy UI Library`. 🚀
+
+Enjoy your coding journey! 🎉
+
+## Special Setup for Next.js (v13+)
+
+If you're using Next.js (v13+), there are some additional steps required. Check out the [Next.js Setup Guide for Fancy UI Library](./SetupNext.mdx) for detailed instructions.
