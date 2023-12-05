@@ -165,6 +165,7 @@ export { default as generateThemeDesignForComponent } from '@/design/designFunct
 export { default as generateThemeForCard } from '@/design/designFunctions/generateThemeForCard/generateThemeForCard';
 export { default as getSimpleColorThemeType } from '@/design/designFunctions/getSimpleColorThemeType/getSimpleColorThemeType';
 export { default as shadows } from '@/design/designFunctions/shadows/shadows';
+export { default as scrollbar } from '@/design/theme/globalStyle/scrollbar/scrollbar';
 
 // ---------- Interfaces ------- //
 export * from '@/interface';
