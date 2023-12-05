@@ -1,1 +1,1 @@
-export { generateComponentPadding } from './generatepaddingComponent';
+export { generateComponentPadding } from './generateComponentPadding';
