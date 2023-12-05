@@ -3,7 +3,6 @@ import React from 'react';
 import { FancyFlexBoxProps } from './FancyFlexBox.model';
 import { StyledFlexBox, StyledInlineFlexBox } from './FancyFlexBox.style';
 
-//TODO: ADD DOCUMENTATION
 // --------------------------------------------------------------------------- //
 // ------------ A layout component that helps align with flex box ------------ //
 // --------------------------------------------------------------------------- //
