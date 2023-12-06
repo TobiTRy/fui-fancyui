@@ -61,7 +61,7 @@ export default function FancyHandyNav(props: IFancyHandyNav) {
             `}
           >
             {/* The List with the items  */}
-            <SwitchList whichIndexIsSelected={Number(stateWhichIsActive)} $themeType={themeTypeSwitchList} $indicatorWidth={'70%'}>
+            <SwitchList whichIndexIsSelected={Number(stateWhichIsActive)} themeType={themeTypeSwitchList} indicatorWidth={'70%'}>
               {items?.map((item, index) => (
                 <FancyBottomBarIcon
                   key={index}
