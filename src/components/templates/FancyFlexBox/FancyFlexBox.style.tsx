@@ -21,7 +21,3 @@ type TStyledFlexBoxProps = IStyledPrefixAndPicker<TStyleProps>;
 export const StyledFlexBox = styled.div<TStyledFlexBoxProps>`
   ${(props: TStyledFlexBoxProps) => generateFlexSytles({ ...props })}
 `;
-
-export const StyledInlineFlexBox = styled.span<TStyledFlexBoxProps>`
-  ${(props: TStyledFlexBoxProps) => generateFlexSytles({ ...props })}
-`;

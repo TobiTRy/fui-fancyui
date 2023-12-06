@@ -5,8 +5,8 @@ export type TStyleProps = {
   gap?: string;
 };
 
-export type FancyFlexBoxProps = {
+export type FancyFlexBoxProps<T extends React.ElementType> = {
   children?: React.ReactNode;
   separator?: React.ReactNode;
-  inline?: boolean;
+  as?: T;
 } & TStyleProps;

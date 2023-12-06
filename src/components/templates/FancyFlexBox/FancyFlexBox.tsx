@@ -1,16 +1,16 @@
 import React from 'react';
 
 import { FancyFlexBoxProps } from './FancyFlexBox.model';
-import { StyledFlexBox, StyledInlineFlexBox } from './FancyFlexBox.style';
+import { StyledFlexBox } from './FancyFlexBox.style';
 
 // --------------------------------------------------------------------------- //
 // ------------ A layout component that helps align with flex box ------------ //
 // --------------------------------------------------------------------------- //
-export default function FancyFlexBox(props: FancyFlexBoxProps) {
-  const { children, inline, separator, ...flexAligns } = props;
+export default function FancyFlexBox<T extends React.ElementType = 'div'>(props: FancyFlexBoxProps<T>) {
+  const { children, separator, ...flexAligns } = props;
 
   // Determine which container to use based on the inline prop.
-  const Container = inline ? StyledInlineFlexBox : StyledFlexBox;
+  const Container = StyledFlexBox;
 
   // Modify the children components to include a separator if specified.
   const modifiedChilds = separator

@@ -7,7 +7,7 @@ FancyFlexBox is a versatile layout component that utilizes the power of CSS flex
 The component accepts the following props:
 
 - `children`: ReactNode - The child elements you want to display inside the flex container.
-- `inline`: boolean - If true, the container will use inline-flex instead of flex.
+- `as`: React.ElementType like 'ul' 'li' ... - If its provided the wrapper becomes this element for better semantic.
 - `separator`: ReactNode - An optional separator to be placed between each child element.
 - `flexAlign`: string - Aligns items along the cross axis. Defaults to 'flex-start'.
 - `flexDirection`: string - Specifies the direction of the flex items. Defaults to 'row'.
