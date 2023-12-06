@@ -60,63 +60,6 @@ export default function ThemeStoreProvider({ children }: IThemeStoreProvider) {
 
 Let's bring our Fancy UI to life! 🎉
 
-### For Next.js (v13+):
-
-Next.js has its own unique setup requirements:
-
-1. **Update the Next.js Config:**
-
-   Make sure your `next.config.js` includes these settings:
-
-   ```javascript
-   const nextConfig = {
-     compiler: {
-       styledComponents: true,
-     },
-     transpilePackages: ['@mrtryy/fancyuilibary'],
-   };
-   ```
-
-2. **Styled-Components Registry Setup:**
-
-   This is crucial for ensuring `styled-components` work correctly on the client-side:
-
-   ```javascript
-   'use client';
-
-   import React, { useState } from 'react';
-   import { useServerInsertedHTML } from 'next/navigation';
-   import { ServerStyleSheet, StyleSheetManager } from 'styled-components';
-
-   export default function StyledComponentsRegistry({ children }) {
-     const [styledComponentsStyleSheet] = useState(() => new ServerStyleSheet());
-
-     useServerInsertedHTML(() => {
-       const styles = styledComponentsStyleSheet.getStyleElement();
-       styledComponentsStyleSheet.instance.clearTag();
-       return <>{styles}</>;
-     });
-
-     if (typeof window !== 'undefined') return <>{children}</>;
-
-     return <StyleSheetManager sheet={styledComponentsStyleSheet.instance}>{children}</StyleSheetManager>;
-   }
-   ```
-
-3. **Layout Configuration:**
-
-   Your layout should now be wrapped with the `StyledComponentsRegistry` and `ThemeStoreProvider`:
-
-   ```javascript
-   <StyledComponentsRegistry>
-     <ThemeStoreProvider>{children}</ThemeStoreProvider>
-   </StyledComponentsRegistry>
-   ```
-
-Congratulations! You're all set to create fabulous, styled applications with `Fancy UI Library`. 🚀
-
-Enjoy your coding journey! 🎉
-
 ## Special Setup for Next.js (v13+)
 
-If you're using Next.js (v13+), there are some additional steps required. Check out the [Next.js Setup Guide for Fancy UI Library](./SetupNext.mdx) for detailed instructions.
+If you're using Next.js (v13+), there are some additional steps required. Check out the [Next.js Setup Guide for Fancy UI Library](./?path=/docs/stories-setupnext--docs) for detailed instructions.
