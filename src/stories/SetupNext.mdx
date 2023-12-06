@@ -4,13 +4,13 @@ This guide is specifically for integrating `Fancy UI Library (FUI)` with Next.js
 
 ### Main Setup Guide
 
-For general setup instructions, head back to the [Main Setup Guide for Fancy UI Library](./Setup.mdx).
+For general setup instructions, head back to the [Main Setup Guide for Fancy UI Library](./?path=/docs/stories-setup--docs/).
 
 ## Next.js Specific Steps 🚀
 
 ### Step 1: Tweak the Next.js Config
 
-First, modify your `next.config.js` with these special settings:
+First, modify your `next.config.js` with these special settings: [Docu form Styled-Components](https://styled-components.com/docs/advanced#next.js).
 
 ```javascript
 const nextConfig = {
@@ -27,7 +27,7 @@ This configuration enables support for `styled-components` and ensures that the 
 
 ### Step 2: Set Up the Styled-Components Registry
 
-Next.js, especially in version 13 and above, handles server-side rendering a bit differently. To ensure `styled-components` work correctly in both client and server environments, set up a `StyledComponentsRegistry`:
+Next.js, especially in version 13 and above, handles server-side rendering a bit differently. To ensure `styled-components` work correctly in both client and server environments, set up a `StyledComponentsRegistry`: [Docu from NextJS](https://nextjs.org/docs/app/building-your-application/styling/css-in-js#configuring-css-in-js-in-app).
 
 ```javascript
 'use client';
