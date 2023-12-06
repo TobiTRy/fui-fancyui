@@ -108,6 +108,7 @@ export { default as FancyTabSwitchButton } from '@/components/molecules/FancyTab
 export { default as MenuList } from '@/components/molecules/MenuList/MenuList';
 export { default as SwitchList } from '@/components/molecules/SwitchList/SwitchList';
 export { default as TabSwitch } from '@/components/molecules/TabSwitch/TabSwitch';
+export { default as FancyNavBar } from '@/components/molecules/FancyNavBar/FancyNavBar';
 
 // ---------- Organisms ------- //
 export { default as FancyColorPicker } from '@/components/organisms/FancyColorPicker/FancyColorPicker';
