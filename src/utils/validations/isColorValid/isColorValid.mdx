@@ -1,0 +1,89 @@
+# isColorValid Function Documentation
+
+## Overview
+
+The `isColorValid` function checks if a given string is a valid color representation. It uses the `Color` library for validation and logs warnings for invalid inputs.
+
+## Function Signature
+
+```typescript
+export default function isColorValid(color: string): boolean;
+```
+
+## Parameters
+
+- `color: string`: The color string to validate.
+
+## Returns
+
+- `boolean`: Returns `true` if the color is valid, `false` otherwise.
+
+## Description
+
+This function performs the following checks:
+
+1. **Type Check**: Ensures the input is a string, logs a warning if not.
+2. **Empty String Check**: Checks if the input is not an empty string, logs a warning if it is.
+3. **Color Validation**: Uses the `Color` library to validate the color string, logs a warning for invalid color formats.
+
+### Console Warnings
+
+- If the input is not a string, it logs `"Input is not a string."`
+- If the input is an empty string, it logs `"Input is an empty string."`
+- If the color format is invalid, it logs `"Invalid color format."`
+
+## Examples
+
+### Example 1: Valid Color String
+
+```javascript
+const isValid = isColorValid('rgb(255, 255, 255)');
+// isValid is true
+```
+
+### Example 2: Invalid Color String
+
+```javascript
+const isValid = isColorValid('notacolor');
+// isValid is false, logs warning: "Invalid color format."
+```
+
+### Example 3: Non-String Input
+
+```javascript
+const isValid = isColorValid(123);
+// isValid is false, logs warning: "Input is not a string."
+```
+
+### Example 4: Empty String
+
+```javascript
+const isValid = isColorValid('');
+// isValid is false, logs warning: "Input is an empty string."
+```
+
+## Source Code
+
+```javascript
+import Color from 'color';
+
+export default function isColorValid(color: string) {
+  if (typeof color !== 'string') {
+    console.warn('Input is not a string.');
+    return false;
+  }
+
+  if (!color.trim()) {
+    console.warn('Input is an empty string.');
+    return false;
+  }
+
+  try {
+    Color(color);
+    return true;
+  } catch {
+    console.warn('Invalid color format.');
+    return false;
+  }
+}
+```
