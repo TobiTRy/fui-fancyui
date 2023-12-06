@@ -6,11 +6,8 @@ import { StyledFlexBox } from './FancyFlexBox.style';
 // --------------------------------------------------------------------------- //
 // ------------ A layout component that helps align with flex box ------------ //
 // --------------------------------------------------------------------------- //
-export default function FancyFlexBox<T extends React.ElementType = 'div'>(props: FancyFlexBoxProps<T>) {
-  const { children, separator, ...flexAligns } = props;
-
-  // Determine which container to use based on the inline prop.
-  const Container = StyledFlexBox;
+export default function FancyFlexBox(props: FancyFlexBoxProps) {
+  const { children, separator, externalStyle, ...flexAlign } = props;
 
   // Modify the children components to include a separator if specified.
   const modifiedChilds = separator
@@ -27,13 +24,15 @@ export default function FancyFlexBox<T extends React.ElementType = 'div'>(props:
 
   // Render the flexbox container with the modified children components and flex alignment props.
   return (
-    <Container
-      $flexAlign={flexAligns.flexAlign}
-      $flexDirection={flexAligns.flexDirection}
-      $flexJustify={flexAligns.flexJustify}
-      $gap={flexAligns.gap}
+    <StyledFlexBox
+      as={flexAlign.as ?? 'div'}
+      $flexAlign={flexAlign.flexAlign}
+      $flexDirection={flexAlign.flexDirection}
+      $flexJustify={flexAlign.flexJustify}
+      $gap={flexAlign.gap}
+      $externalStyle={externalStyle}
     >
       {modifiedChilds}
-    </Container>
+    </StyledFlexBox>
   );
 }
