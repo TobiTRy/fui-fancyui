@@ -16,6 +16,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
+    "outDir": "dist",
     "jsx": "react-jsx",
     /* Linting */
     "strict": true,
@@ -23,6 +24,6 @@
     "noUnusedParameters": false,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src/**/*", "dist/index.d.ts", "vite.config.ts", ".eslintrc.cjs"],
+  "include": ["src/**/*", "dist/index.d.ts", "vite.config.ts", ".eslintrc.cjs", "lib"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

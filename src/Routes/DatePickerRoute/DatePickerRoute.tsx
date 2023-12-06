@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react';
 
-import FancyDatePicker from '../../Components/UI/Organisms/FancyDatePicker/FancyDatePicker';
+import FancyDatePicker from '../../components/organisms/FancyDatePicker/FancyDatePicker';
 
-import FancyDateDropDown from '../../Components/UI/Templates/Inputs/FancyDateDropDown/FancyDateDropDown';
-import IExternalYearWithMonths from '../../Components/UI/Molecules/MonthWithDays/IExternalMonthWithDays.model';
+import FancyDateDropDown from '../../components/templates/Inputs/FancyDateDropDown/FancyDateDropDown';
+import IExternalYearWithMonths from '../../components/molecules/MonthWithDays/utils/Interfaces/IExternalMonthWithDays.model';
 import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
-import { FancyCard } from '@/Components/UI/Atoms/FancyCard';
+import { FancyCard } from '@/components/atoms/FancyCard';
 
 const externalYears: IExternalYearWithMonths = {
   2023: [

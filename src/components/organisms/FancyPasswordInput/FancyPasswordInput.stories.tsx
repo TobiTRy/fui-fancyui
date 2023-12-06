@@ -1,0 +1,102 @@
+// Import necessary dependencies
+import { Meta, StoryObj } from '@storybook/react';
+
+// Import the component to be tested
+import FancyPasswordInput from './FancyPasswordInput';
+
+import SVGCheckMark from '../../icons/SVGCheckMark/SVGCheckMark';
+
+// Define metadata for the story
+const meta = {
+  component: FancyPasswordInput,
+  parameters: {
+    docs: {
+      description: {
+        component: 'Dumb-Comonent: The FancyPasswordInput Comonent with surrounding icon, label and underline',
+      },
+    },
+  },
+  // Define arguments for the story
+  argTypes: {
+    value: {
+      description: 'The value of the input',
+      control: {
+        type: 'text',
+      },
+    },
+    align: {
+      description: 'The alignment of the input',
+      control: {
+        type: 'select',
+      },
+      defaultValue: {
+        summary: 'left',
+      },
+    },
+    themeType: {
+      description: 'The theme of the input',
+      control: {
+        type: 'select',
+      },
+      defaultValue: {
+        summary: 'secondary',
+      },
+    },
+    layer: {
+      description: 'The layer of the input',
+      control: {
+        type: 'select',
+      },
+      defaultValue: {
+        summary: '4',
+      },
+    },
+    label: {
+      description: 'The label of the input',
+      control: {
+        type: 'text',
+      },
+    },
+    icon: {
+      description: 'The icon of the input',
+      defaultValue: {
+        summary: 'none',
+      },
+    },
+    isActive: {
+      description: 'Is the input focused',
+      control: {
+        type: 'boolean',
+      },
+      defaultValue: {
+        summary: false,
+      },
+    },
+    errorMessage: {
+      description: 'The error message of the input',
+      control: {
+        type: 'text',
+      },
+    },
+  },
+  // Add tags to the story
+  tags: ['autodocs'],
+} satisfies Meta<typeof FancyPasswordInput>;
+
+// Export the metadata
+export default meta;
+// Define the story object
+type Story = StoryObj<typeof meta>;
+
+// Define the primary story
+export const Primary: Story = {
+  render: (args) => <FancyPasswordInput {...args} />,
+  args: {
+    align: 'left',
+    themeType: 'secondary',
+    layer: 4,
+    label: 'Password',
+    icon: <SVGCheckMark />,
+    isActive: false,
+  },
+};

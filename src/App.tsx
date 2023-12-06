@@ -1,10 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import './App.css';
-
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
-import { useFancyModalStore } from './Components/UI/Organisms/FancyModal/FancyModal.state';
+import { useFancyModalStore } from './components/organisms/FancyModal/FancyModal.state';
 
 import SwipeUpModal from './Routes/SwipeUpModal/SwipeUpModal';
 import SingleNumberInputRoute from './Routes/SingleNumberInputRoute/SingleNumberInputRoute';
@@ -33,11 +31,11 @@ import MiniProfileroute from './Routes/MiniProfileRoute/MiniProfileroute';
 import ChipsRoute from './Routes/ChipsRoute/ChipsRoute';
 import CheckboxRoute from './Routes/CheckboxRoute/CheckboxRoute';
 import ColorGeneratorRoute from './Routes/ColorGeneratorRoute/ColorGeneratorRoute';
-import { TTheme } from '@/Components/UI/Interface/TTheme';
-import themeStore from './Components/UI/Design/color/themeStore/themeStore';
+import { TTheme } from '@/interface/TTheme';
+import themeStore from './design/theme/themeStore/themeStore';
 import GlobalStyle from './GlobalStyle';
 import FancyContentRoute from './Routes/FancyContentRoute/FancyContentRoute';
-import { FancyModal, FancySwipeUpModal } from './lib';
+import { FancyModal, FancySwipeUpModal } from '../lib';
 import SwitchesRoute from './Routes/Switches/SwitchesRoute';
 import MenueRoute from './Routes/MenuRoute/MenueRoute';
 import InfoCardRoute from './Routes/InfoCardRoute/InfoCardRoute';

@@ -1,14 +1,14 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useRef, useState } from 'react';
 
-import { FancyButton } from '../../lib';
+import { FancyButton } from '../../../lib';
 
 import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
-import Popover from '../../Components/UI/HelperFunctions/FancyPopover/Popover';
-import FancyPopover from '../../Components/UI/HelperFunctions/FancyPopover/FancyPopover';
-import FancyMenueItem from '../../Components/UI/Templates/FancyMenueComponent/FancyMenuItem/FancyMenuItem';
-import FancyMenuList from '../../Components/UI/Templates/FancyMenueComponent/FancyMenu/FancyMenu';
-import SVGCheckMark from '@/Components/UI/SVGIcons/SVGCheckMark/SVGCheckMark';
+import Popover from '../../components/shared/FancyPopover/Popover';
+import FancyPopover from '../../components/shared/FancyPopover/FancyPopover';
+import FancyMenueItem from '../../components/templates/FancyMenueComponent/FancyMenuItem/FancyMenuItem';
+import FancyMenuList from '../../components/templates/FancyMenueComponent/FancyMenu/FancyMenu';
+import SVGCheckMark from '@/components/icons/SVGCheckMark/SVGCheckMark';
 
 export default function MenueRoute() {
   const [isPopoverVisible, setPopoverVisible] = useState(false);

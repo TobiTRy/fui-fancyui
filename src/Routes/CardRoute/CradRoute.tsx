@@ -1,8 +1,8 @@
 import React from 'react';
 
-import Card from '../../Components/UI/Atoms/FancyCard/FancyCard';
+import Card from '../../components/atoms/FancyCard/FancyCard';
 import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
-import FancyContentCard from '../../Components/UI/Molecules/FancyContentCard/FancyContentCard';
+import FancyContentCard from '../../components/molecules/FancyContentCard/FancyContentCard';
 import { css } from 'styled-components';
 
 export default function CradRoute() {

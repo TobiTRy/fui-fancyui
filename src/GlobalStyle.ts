@@ -1,6 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
+import { scrollbar } from '@/design/theme/globalStyle/scrollbar/index';
 
-import { TTheme } from '@/Components/UI/Interface/TTheme';
+import { TTheme } from '@/interface/TTheme';
 
 const GlobalStyle = createGlobalStyle<{ theme: TTheme }>`
   body {
@@ -10,14 +11,16 @@ const GlobalStyle = createGlobalStyle<{ theme: TTheme }>`
     color: ${({ theme }) => theme.colors.secondary[0]};
     font-family: DMSans, Helvetica, Sans-Serif;
 
+    
     .App {
       position: relative;
       height: 100vh;
       width: 100%;
       overflow-y: auto;
-      color: white;
     };
+    
   }
+  ${scrollbar};
 `;
 
 export default GlobalStyle;

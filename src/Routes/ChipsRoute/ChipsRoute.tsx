@@ -1,13 +1,13 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react';
 
-import Chip from '../../Components/UI/Organisms/FancyChip/FancyChip';
+import Chip from '../../components/organisms/FancyChip/FancyChip';
 
 import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
-import ClipBoardIconCheck from '../../Components/UI/SVGIcons/SVGClipBoardIconChecked/SVGClipBoardIconChecked';
-import { FancyCard } from '@/Components/UI/Atoms/FancyCard';
-import ChipList from '../../Components/UI/Molecules/ChipList/ChipList';
-import FancyChipList from '../../Components/UI/Organisms/FancyChipList/FancyChipList';
+import ClipBoardIconCheck from '../../components/icons/SVGClipBoardIconChecked/SVGClipBoardIconChecked';
+import { FancyCard } from '@/components/atoms/FancyCard';
+import ChipList from '../../components/molecules/ChipList/ChipList';
+import FancyChipList from '../../components/organisms/FancyChipList/FancyChipList';
 
 const chipList = ['12', '1212', '1212', '121221', '121212211', '12121212', '12121212'];
 

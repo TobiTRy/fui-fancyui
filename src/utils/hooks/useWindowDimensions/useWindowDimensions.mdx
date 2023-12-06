@@ -1,0 +1,44 @@
+# useWindowDimensions Hook
+
+The `useWindowDimensions` hook is a custom React hook that provides the dimensions of the window. It returns the current window width and height, and updates these values whenever the window is resized.
+
+## Return Value
+
+The hook returns an object containing two properties:
+
+- `width`: `number` - The current width of the window.
+- `height`: `number` - The current height of the window.
+
+## Usage
+
+```jsx
+import React from 'react';
+import useWindowDimensions from './useWindowDimensions';
+
+function ExampleComponent() {
+  const { width, height } = useWindowDimensions();
+
+  return (
+    <div>
+      Window width: {width}px, height: {height}px
+    </div>
+  );
+}
+```
+
+In this example, the component displays the current window width and height. These values are updated in real-time as the window is resized.
+
+## Implementation Details
+
+- The hook initializes the `windowDimensions` state using the `getWindowDimensions` function.
+- `getWindowDimensions` retrieves the current `innerWidth` and `innerHeight` of the window.
+- The `useEffect` hook sets up an event listener on the window for the 'resize' event.
+- The `handleResize` function within `useEffect` updates the `windowDimensions` state whenever the window size changes.
+- The event listener is cleaned up when the component is unmounted to prevent memory leaks.
+
+## Notes
+
+- This hook can be useful in responsive designs where the component behavior or layout depends on the window size.
+- The hook ensures performance efficiency by only re-rendering components when necessary (i.e., when the window size changes).
+
+This hook provides a simple and efficient way to access and respond to changes in the window's dimensions, making it a valuable tool in developing responsive web applications.

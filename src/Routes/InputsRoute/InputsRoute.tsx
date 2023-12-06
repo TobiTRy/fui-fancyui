@@ -1,16 +1,15 @@
 import React, { ChangeEvent, useState } from 'react';
-
-import FancyPasswordInput from '../../Components/UI/Organisms/FancyPasswordInput/FancyPasswordInput';
-import FancyTextInput from '../../Components/UI/Organisms/FancyTextInput/FancyTextInput';
-import FancyRangeSlider from '../../Components/UI/Organisms/FancyRangeSlider/FancyRangeSlider';
-import FancyNumberInput from '../../Components/UI/Organisms/FancyNumberInput/FancyNumberInput';
-import FancyDropDownSelect from '../../Components/UI/Organisms/FancyDropDownSelect/FancyDropDownSelect';
-import FancyDateInput from '../../Components/UI/Organisms/FancyDateInput/FancyDateInput';
-
-import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';
-import FancyDateDropDown from '../../Components/UI/Templates/Inputs/FancyDateDropDown/FancyDateDropDown';
 import { css } from 'styled-components';
-import { FancyCard } from '@/Components/UI/Atoms/FancyCard';
+
+import FancyPasswordInput from '../../components/organisms/FancyPasswordInput/FancyPasswordInput';
+import FancyTextInput from '../../components/organisms/FancyTextInput/FancyTextInput';
+import FancyRangeSlider from '../../components/organisms/FancyRangeSlider/FancyRangeSlider';
+import FancyNumberInput from '../../components/organisms/FancyNumberInput/FancyNumberInput';
+import FancyDropDownSelect from '../../components/organisms/FancyDropDownSelect/FancyDropDownSelect';
+import FancyDateInput from '../../components/organisms/FancyDateInput/FancyDateInput';
+import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';
+import FancyDateDropDown from '../../components/templates/Inputs/FancyDateDropDown/FancyDateDropDown';
+import { FancyCard } from '@/components/atoms/FancyCard';
 
 const svg = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">

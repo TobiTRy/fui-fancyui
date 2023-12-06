@@ -1,0 +1,40 @@
+# `calcColorState` Component
+
+The `calcColorState` component is a utility function designed to determine the color state of UI elements based on specific variations. It takes an object conforming to the `IColorState` interface as input and returns a string indicating the color state.
+
+## Input/Output
+
+### Input
+
+- **type** (`'item' | 'text'`): Specifies the type of the UI element.
+- **isActive** (`boolean`, optional): Indicates if the element is currently active.
+- **errorMessage** (`string`, optional): Any error message associated with the element.
+- **value** (`string | number | readonly string[] | undefined`, optional): The value of the element.
+- **placeholder** (`string`, optional): A placeholder text for the element.
+
+### Output
+
+- **Return Value**: A string representing the color state, which can be 'error', 'active', or 'default'.
+
+## Example Usage
+
+```jsx
+import React from 'react';
+import { calcColorState } from 'path-to-calcColorState';
+
+const ExampleComponent = () => {
+  const colorState = calcColorState({
+    type: 'text',
+    isActive: true,
+    errorMessage: '',
+    value: 'Hello',
+    placeholder: 'Enter text',
+  });
+
+  return <div>Color State: {colorState}</div>;
+};
+
+export default ExampleComponent;
+```
+
+This example demonstrates how to use the `calcColorState` function in a React component. It calculates the color state based on the provided props and displays the result.

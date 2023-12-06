@@ -1,0 +1,85 @@
+# Custom Scrollbar Style in MDX with Styled-Components
+
+This document explains how to import and use a custom scrollbar style in your React components using styled-components. The style is defined using the `css` helper from styled-components and can be imported into any component.
+
+## Installation
+
+Ensure you have `styled-components` installed in your project. If not, you can install it via npm:
+
+```bash
+npm install styled-components
+```
+
+## Scrollbar Style
+
+The `scrollbar` style is defined as follows:
+
+```javascript
+import { css } from 'styled-components';
+
+const scrollbar = css`
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+    border-radius: 12px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #3d3d3da9;
+    border-radius: 12px;
+    border: 1px solid transparent;
+    background-clip: content-box;
+  }
+`;
+
+export default scrollbar;
+```
+
+## Usage
+
+To use the custom scrollbar style in your component, follow these steps:
+
+1. **Import the Style**: First, import the `scrollbar` style into your component.
+
+   ```javascript
+   import scrollbar from './path/to/scrollbar';
+   ```
+
+2. **Apply the Style**: Use the imported `scrollbar` style with a styled component or the `createGlobalStyle` utility.
+
+   - **With a Styled Component**:
+
+     ```javascript
+     import styled from 'styled-components';
+
+     const StyledComponent = styled.div`
+       ${scrollbar}// Your other styles
+     `;
+     ```
+
+   - **With Global Style**:
+
+     ```javascript
+     import { createGlobalStyle } from 'styled-components';
+
+     const GlobalStyle = createGlobalStyle`
+       ${scrollbar}
+       // Other global styles
+     `;
+
+     // In your App component
+     const App = () => (
+       <>
+         <GlobalStyle />
+         {/* rest of your app */}
+       </>
+     );
+     ```
+
+## Browser Compatibility
+
+This custom scrollbar style targets WebKit browsers like Chrome, Safari, and newer versions of Edge. For other browsers, the default scrollbar style will be applied.

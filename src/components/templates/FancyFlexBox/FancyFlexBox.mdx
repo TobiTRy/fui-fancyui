@@ -1,0 +1,36 @@
+# FancyFlexBox Component
+
+FancyFlexBox is a versatile layout component that utilizes the power of CSS flexbox to help align and structure your UI elements with ease. It's built to be flexible and efficient, with additional features like inline-flex and separators between children elements.
+
+## Props
+
+The component accepts the following props:
+
+- `children`: ReactNode - The child elements you want to display inside the flex container.
+- `inline`: boolean - If true, the container will use inline-flex instead of flex.
+- `separator`: ReactNode - An optional separator to be placed between each child element.
+- `flexAlign`: string - Aligns items along the cross axis. Defaults to 'flex-start'.
+- `flexDirection`: string - Specifies the direction of the flex items. Defaults to 'row'.
+- `flexJustify`: string - Justifies content along the main axis. Defaults to 'flex-start'.
+- `gap`: string/number - The gap between each child element, defaults to theme's xxs spacing.
+
+## Usage
+
+Below is a simple example to illustrate how to use the FancyFlexBox component.
+
+```jsx
+<FancyFlexBox flexJustify="center" flexAlign="center" gap="md">
+  <div>Your content here</div>
+  <div>More content</div>
+</FancyFlexBox>
+```
+
+This example creates a flex container with its items centered both vertically and horizontally, and a medium gap between each item.
+
+## StyledFlexBox and StyledInlineFlexBox
+
+These are styled components for the flex and inline-flex containers respectively. They accept all the props of `FancyFlexBox` and can be used to create custom flex containers with additional styling.
+
+---
+
+For more advanced usage and customization, refer to the source code of the component and the styled component files.

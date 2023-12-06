@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';
-import FancyButton from '../../Components/UI/Organisms/FancyButton/FancyButton';
+import FancyButton from '../../components/organisms/FancyButton/FancyButton';
 import { css } from 'styled-components';
 
 const Icon = (

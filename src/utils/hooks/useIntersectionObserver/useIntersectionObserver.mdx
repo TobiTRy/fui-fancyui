@@ -1,0 +1,39 @@
+# useIntersectionObserver Hook
+
+The `useIntersectionObserver` hook is a custom React hook designed to detect when an element is visible within the viewport using the Intersection Observer API. This hook provides a simple way to monitor the visibility of a component or element.
+
+## Return Values
+
+The hook returns an array containing two items:
+
+1. `ref`: `MutableRefObject<HTMLDivElement | null>` - A React ref that should be attached to the element you want to observe.
+2. `isInView`: `boolean` - A state that indicates whether the observed element is currently visible within the viewport.
+
+## Usage
+
+```jsx
+import React from 'react';
+import useIntersectionObserver from './useIntersectionObserver';
+
+function ExampleComponent() {
+  const [ref, isInView] = useIntersectionObserver();
+
+  return <div ref={ref}>{isInView ? 'In Viewport' : 'Not in Viewport'}</div>;
+}
+```
+
+In this example, the text 'In Viewport' is displayed when the `div` is in the viewport, and 'Not in Viewport' when it is not.
+
+## Implementation Details
+
+- The hook uses a `useRef` hook to create a reference (`ref`) for the DOM element that will be observed.
+- A state `isInView` is used to track the visibility of the element.
+- The Intersection Observer API is used to detect when the observed element enters or leaves the viewport.
+- The observer is attached to the element referred to by `ref`.
+- The observer is disconnected in the cleanup function of the `useEffect` to avoid memory leaks.
+
+## Notes
+
+- The hook should be used in components that need to respond to their visibility in the viewport, such as lazy loading images or triggering animations.
+
+This hook simplifies the process of detecting when an element is in the viewport and can be used in various scenarios, such as animations, lazy loading of content, or any other actions that depend on the visibility of elements.

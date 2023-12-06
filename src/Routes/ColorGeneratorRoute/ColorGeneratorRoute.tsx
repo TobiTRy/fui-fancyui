@@ -3,8 +3,8 @@ import React from 'react';
 
 import styled, { css } from 'styled-components';
 
-import themeStore from '../../Components/UI/Design/color/themeStore/themeStore';
-import { TTheme } from '@/Components/UI/Interface/TTheme';
+import themeStore from '../../design/theme/themeStore/themeStore';
+import { TTheme } from '@/interface/TTheme';
 
 export default function ColorGeneratorRoute() {
   const theme = themeStore((state) => state.theme);

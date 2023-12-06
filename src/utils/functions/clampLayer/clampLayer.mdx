@@ -1,0 +1,40 @@
+# clampLayer Function
+
+The `clampLayer` function is a utility function designed to clamp a given layer number within a specified range. It ensures that the layer value is constrained between 0 and 10.
+
+## Parameters
+
+- `layer`: `number` - The layer number to be clamped.
+
+## Return Value
+
+- Returns a `TLayer` type value, which is the clamped layer number.
+
+## Usage
+
+```jsx
+import clampLayer from './clampLayer';
+
+function ExampleComponent() {
+  const layer = 12;
+  const clampedLayer = clampLayer(layer);
+
+  return <div>The clamped layer value is: {clampedLayer}</div>;
+}
+```
+
+In this example, `clampLayer` is used to ensure that the `layer` value does not exceed the defined range (0 to 10). If `layer` is greater than 10, it is clamped to 10. If it's less than 0, it's clamped to 0.
+
+## Implementation Details
+
+- The function checks if the `layer` parameter is less than 0 and, if true, returns 0.
+- If `layer` is greater than 10, the function returns 10.
+- If `layer` falls within the 0 to 10 range, it returns the `layer` value as is.
+- The function uses `TLayer` typecasting to ensure that the return type is consistent with the defined `TLayer` type.
+
+## Notes
+
+- The `TLayer` type is assumed to be a custom type defined elsewhere in the codebase.
+- This utility function can be used in scenarios where layer values need to be maintained within a specific range, such as in graphical interfaces or layer-based UI elements.
+
+The `clampLayer` function offers a simple and effective way to manage layer values, ensuring they remain within a designated range, which is particularly useful in graphical and UI applications where layering is significant.

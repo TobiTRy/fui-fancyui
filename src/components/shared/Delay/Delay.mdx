@@ -1,0 +1,48 @@
+# Delay Component
+
+The `Delay` component is a React component designed to delay the rendering of its children based on an external boolean state and a specified delay time.
+
+## Props
+
+The component accepts the following props:
+
+- `children`: `React.ReactNode` - The content to be rendered after the delay.
+- `externalStateBool` (optional): `boolean` - An external boolean state that influences the rendering behavior.
+- `delay` (optional): `number` - The delay time in milliseconds before rendering the children. Defaults to 250 ms if not specified.
+
+## Usage
+
+```jsx
+import React, { useState } from 'react';
+import Delay from './Delay';
+
+function Example() {
+  const [show, setShow] = useState(false);
+
+  return (
+    <div>
+      <button onClick={() => setShow(!show)}>Toggle</button>
+      <Delay externalStateBool={show} delay={500}>
+        <div>Delayed content</div>
+      </Delay>
+    </div>
+  );
+}
+```
+
+In this example, the content within `Delay` will render only after the `show` state becomes true and after a delay of 500 milliseconds.
+
+## Implementation Details
+
+- The component uses a `useState` hook to manage the internal mount state.
+- The `useEffect` hook listens for changes in the `externalStateBool` and handles the delay logic.
+- A `setTimeout` is used to delay the state update which controls the rendering of children.
+- The component ensures any ongoing timeout is cleared when the component is unmounted or when the `externalStateBool` changes, to prevent memory leaks.
+
+## Notes
+
+- The component is designed to handle changes in the external boolean state gracefully, resetting the timer if the state changes.
+- If the `externalStateBool` is true, the content is rendered immediately without delay.
+- When `externalStateBool` is false, the content rendering is delayed by the specified `delay` time.
+
+This component can be useful in scenarios where conditional rendering is required based on certain conditions, allowing for a smoother user experience by delaying the rendering of components.

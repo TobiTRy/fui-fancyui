@@ -1,0 +1,53 @@
+# isAspectRatioValid Function Documentation
+
+## Overview
+
+The `isAspectRatioValid` function is designed to validate aspect ratio strings. It ensures that the aspect ratio is provided in a valid `width/height` format and that neither width nor height is zero.
+
+## Function Signature
+
+```typescript
+export default function isAspectRatioValid(aspectRatio: string): boolean;
+```
+
+## Parameters
+
+- `aspectRatio: string`: A string representing the aspect ratio. It should be in the format of `width/height`.
+
+## Returns
+
+- `boolean`: Returns `true` if the aspect ratio is valid, `false` otherwise.
+
+## Description
+
+The function performs the following checks:
+
+1. **Regex Validation**: It uses a regular expression to check if the input string matches the `width/height` format.
+2. **Zero Check**: It ensures that neither the width nor the height is zero.
+
+### Invalid Aspect Ratio Warning
+
+If the aspect ratio does not match the expected format or contains zeros, the function logs a warning message to the console and returns `false`.
+
+## Examples
+
+### Example 1: Valid Aspect Ratio
+
+```javascript
+const isValid = isAspectRatioValid('16/9');
+// isValid is true
+```
+
+### Example 2: Invalid Aspect Ratio Format
+
+```javascript
+const isValid = isAspectRatioValid('16-9');
+// isValid is false, logs warning: "Invalid aspect ratio provided. Please use the format 'width/height'."
+```
+
+### Example 3: Zero in Aspect Ratio
+
+```javascript
+const isValid = isAspectRatioValid('0/9');
+// isValid is false, logs warning: "Invalid aspect ratio provided. Please use the format value should be not '0'."
+```

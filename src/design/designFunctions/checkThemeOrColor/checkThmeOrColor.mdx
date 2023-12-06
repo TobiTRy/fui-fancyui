@@ -1,0 +1,46 @@
+# `checkThemeOrColor` Function
+
+The `checkThemeOrColor` function is designed to determine whether a given input is a color value or a theme color group, and then returns the appropriate color string. It's an essential utility for handling theming and color validation in your application.
+
+## Input/Output
+
+### Input
+
+- **color** (`string | TthemeColorGroup`, optional): The color input, which can be a string representing a color or a `TthemeColorGroup` object.
+
+### Output
+
+- **Return Value**: A string representing the valid color, or an empty string if the input is invalid.
+
+## Dependencies
+
+- `TthemeColorGroup` from `'../../theme/designColor'`: A type representing the theme color groups.
+- `isColorValid` from `'../../../utils/validations/isColorValid/isColorValid'`: A utility function to validate color strings.
+
+## Example Usage
+
+```jsx
+import React from 'react';
+import { checkThemeOrColor } from 'path-to-checkThemeOrColor';
+
+const ExampleComponent = () => {
+  const color = checkThemeOrColor('blue'); // Assuming 'blue' is a valid color or theme color group
+  const invalidColor = checkThemeOrColor('invalid-color'); // Example of an invalid color
+
+  return (
+    <div>
+      <div>Valid Color: {color}</div>
+      <div>Invalid Color: {invalidColor}</div>
+    </div>
+  );
+};
+
+export default ExampleComponent;
+```
+
+This example demonstrates how the `checkThemeOrColor` function can be used in a React component to validate color inputs. It provides outputs based on the validity of the provided colors.
+
+```
+
+This documentation gives a clear overview of the function, its input/output structure, dependencies, and a practical example of its usage in a React component context.
+```
