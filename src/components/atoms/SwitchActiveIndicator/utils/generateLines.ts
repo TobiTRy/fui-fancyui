@@ -3,6 +3,7 @@ import { css } from 'styled-components';
 import { getBackgroundColor } from '../../../../design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponent';
 import { IActiveSwitchIndicator } from '../SwitchActiveIndicator';
 import { TTheme } from '@/interface/TTheme';
+import IStyledPrefixAndPicker from '@/interface/IStyledPrefixAndPicker.model';
 
 const generateLine = ({ theme, $themeType = 'accent', $layer }: IGenerateLine) => {
   const backgroundColor = getBackgroundColor({ theme, $themeType, $layer });
@@ -15,7 +16,7 @@ const generateLine = ({ theme, $themeType = 'accent', $layer }: IGenerateLine) =
 };
 
 // Define the function to generate an underline for the active indicator
-type IGenerateLine = Pick<IActiveSwitchIndicator, '$themeType' | '$layer'> & { theme: TTheme };
+type IGenerateLine = IStyledPrefixAndPicker<IActiveSwitchIndicator, 'themeType' | 'layer'> & { theme: TTheme };
 export const generateUnderline = ({ theme, $themeType = 'accent', $layer }: IGenerateLine) => {
   // Get the background color for the active indicator
   const line = generateLine({ theme, $themeType, $layer });

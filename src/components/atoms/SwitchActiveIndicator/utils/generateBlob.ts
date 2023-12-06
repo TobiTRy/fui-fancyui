@@ -1,14 +1,15 @@
 import { css } from 'styled-components';
 
-import { getBackgroundColor } from '../../../../design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponent';
-import colorTransparencyCalculator from '../../../../design/designFunctions/colorTransparencyCalculator/colorTransparencyCalculator';
+import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent';
+import colorTransparencyCalculator from '@/design/designFunctions/colorTransparencyCalculator/colorTransparencyCalculator';
 import { IActiveSwitchIndicator } from '../SwitchActiveIndicator';
 import themeStore from '@/design/theme/themeStore/themeStore';
 import { TBorderRadiusSizes } from '@/interface/TBorderRadius';
 import { TTheme } from '@/interface/TTheme';
+import IStyledPrefixAndPicker from '@/interface/IStyledPrefixAndPicker.model';
 
 // Define the function to generate a blob background for the active indicator
-type IGenerateBlob = Pick<IActiveSwitchIndicator, '$themeType' | '$outlined' | '$rounded' | '$layer'> & { theme: TTheme };
+type IGenerateBlob = IStyledPrefixAndPicker<IActiveSwitchIndicator, 'themeType' | 'outlined' | 'rounded' | 'layer'> & { theme: TTheme };
 export const generateBlob = (props: IGenerateBlob) => {
   const { $themeType, theme, $rounded, $outlined, $layer } = props;
   const borderRadius = themeStore.getState().theme.borderRadius;

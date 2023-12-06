@@ -5,24 +5,31 @@ import { TBorderRadiusSizes } from '@/interface/TBorderRadius';
 import { TSpacings } from '@/interface/TSpacings';
 
 export interface IActiveSwitchIndicator {
-  $itemNumber: number;
-  $themeType?: TThemeTypes;
-  $layer?: TLayer;
-  $tabSpacing?: TSpacings;
-  $type?: 'bolb' | 'underline' | 'topline';
-  $rounded?: TBorderRadiusSizes | string;
-  $outlined?: boolean;
-  $direction?: 'horizontal' | 'vertical';
-  $indicatorWidth?: string;
+  itemNumber: number;
+  themeType?: TThemeTypes;
+  layer?: TLayer;
+  tabSpacing?: TSpacings;
+  type?: 'bolb' | 'underline' | 'topline';
+  rounded?: TBorderRadiusSizes | string;
+  outlined?: boolean;
+  direction?: 'horizontal' | 'vertical';
+  indicatorWidth?: string;
 }
 // --------------------------------------------------------------------------- //
 // -------- Create a Incator for wich Item in a Switch List ist activ  ------- //
 // --------------------------------------------------------------------------- //
 export default function SwitchActiveIndicator(props: IActiveSwitchIndicator) {
-  const { $itemNumber, $tabSpacing, $direction, ...switchProps } = props;
+  const { itemNumber, tabSpacing, direction, ...switchProps } = props;
   return (
-    <Wrapper $itemNumber={$itemNumber} $tabSpacing={$tabSpacing} $direction={$direction}>
-      <ActiveSwitchIndicator {...switchProps} />
+    <Wrapper $itemNumber={itemNumber} $tabSpacing={tabSpacing} $direction={direction}>
+      <ActiveSwitchIndicator
+        $indicatorWidth={switchProps.indicatorWidth}
+        $themeType={switchProps.themeType}
+        $layer={switchProps.layer}
+        $outlined={switchProps.outlined}
+        $rounded={switchProps.rounded}
+        $type={switchProps.type}
+      />
     </Wrapper>
   );
 }
