@@ -4,7 +4,9 @@ import React from 'react';
 import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';
 import BottomBar from '../../components/molecules/BottomBar/BottomBar';
 import FancyHandyNav from '../../components/templates/FancyHandyNav/FancyHandyNav';
-import FancyBottomBarIcon, { IFancyBottomBarIcon } from '../../components/templates/FancyBottomBarIcon/FancyBottomBarIcon';
+import FancyBottomBarIcon, {
+  IFancyBottomBarIcon,
+} from '../../components/templates/FancyBottomBarIcon/FancyBottomBarIcon';
 import { css } from 'styled-components';
 
 const svg = (

@@ -6,7 +6,14 @@ import { generateTextColor } from './generateTextColor';
 
 type TGenerateTransparentStyle = Pick<
   IGenerateThemeDesignForComponent,
-  '$outlined' | 'theme' | '$layer' | '$backgroundStrength' | '$backgroundState' | '$hoverColor' | '$textColor' | '$textHover'
+  | '$outlined'
+  | 'theme'
+  | '$layer'
+  | '$backgroundStrength'
+  | '$backgroundState'
+  | '$hoverColor'
+  | '$textColor'
+  | '$textHover'
 >;
 // --------------------------------------------------------------------------- //
 // ---------- generates a transparent background ---------- //
@@ -18,6 +25,7 @@ export const generateTransparentStyle = (props: TGenerateTransparentStyle) => {
     color: ${generateTextColor({ $layer, $themeType: $textColor })};
     ${$backgroundState !== 'active' && 'background-color: transparent'};
     /* This generate the hover / active style if its needed */
-    ${$backgroundState && generateStateStyle({ ...props, $backgroundStrength, $textHover: $textHover, $textColor: $textColor })}
+    ${$backgroundState &&
+    generateStateStyle({ ...props, $backgroundStrength, $textHover: $textHover, $textColor: $textColor })}
   `;
 };

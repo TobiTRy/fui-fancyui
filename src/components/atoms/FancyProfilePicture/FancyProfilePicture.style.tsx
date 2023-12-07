@@ -31,7 +31,8 @@ export const Placeholder = styled.div<IPlaceholderProps>`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: ${({ $backgroundColor, theme, $layer }) => ($backgroundColor ? $backgroundColor : theme.colors.primary[$layer ?? 2])};
+  background-color: ${({ $backgroundColor, theme, $layer }) =>
+    $backgroundColor ? $backgroundColor : theme.colors.primary[$layer ?? 2]};
   color: ${({ $color, theme, $layer }) => ($color ? $color : theme.colors.secondary[$layer ?? 1])};
   font-size: 1.5em;
   aspect-ratio: 1/1;

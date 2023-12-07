@@ -10,7 +10,8 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component: 'Dumb-Comonent: A simple HeaderTitleWithLogo component that can be used to provied a title and a Logo.',
+        component:
+          'Dumb-Comonent: A simple HeaderTitleWithLogo component that can be used to provied a title and a Logo.',
       },
     },
   },

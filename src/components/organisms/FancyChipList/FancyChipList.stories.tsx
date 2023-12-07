@@ -9,7 +9,8 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component: 'Dumb-Comonent:  A Component that act like a tag list. It can be used to display tags/chips for some Informations.',
+        component:
+          'Dumb-Comonent:  A Component that act like a tag list. It can be used to display tags/chips for some Informations.',
       },
     },
   },

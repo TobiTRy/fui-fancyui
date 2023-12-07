@@ -21,7 +21,8 @@ interface IFancyProgressBar extends IProgressBar {
 // ---------- The Progressbar with some Items Like Percent and Label --------- //
 // --------------------------------------------------------------------------- //
 export default function FancyProgressBar(props: IFancyProgressBar) {
-  const { progress, maxValue, id, label, labelAlign, progressAlign, progressCount, themeType, layer, textLayer } = props;
+  const { progress, maxValue, id, label, labelAlign, progressAlign, progressCount, themeType, layer, textLayer } =
+    props;
 
   return (
     <Wrapper $value={progress}>

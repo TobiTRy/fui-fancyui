@@ -10,7 +10,8 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component: 'A FancyImage component is a styled image component that can be used to display images in a fancy way.',
+        component:
+          'A FancyImage component is a styled image component that can be used to display images in a fancy way.',
       },
     },
   },

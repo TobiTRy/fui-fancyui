@@ -42,7 +42,8 @@ export const StyledUL = styled.ul<{ theme: TTheme; $themeType?: TThemeTypes; $la
   margin: 0;
   width: 100%;
   padding: ${({ theme }) => theme.spacing.lg};
-  background-color: ${({ theme, $themeType = 'primary', $layer = 1 }) => getBackgroundColor({ theme, $themeType, $layer })};
+  background-color: ${({ theme, $themeType = 'primary', $layer = 1 }) =>
+    getBackgroundColor({ theme, $themeType, $layer })};
   ${boxShadow.lg}
   gap: ${({ theme }) => theme.spacing.xs};
   overflow: hidden;

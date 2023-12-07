@@ -29,7 +29,9 @@ function lightenColors({ pimaryColor, themeType, color }: IGenerateColorSteps) {
   const isPrimaryColorDark = Color(pimaryColor).isDark();
 
   // if the color is dark, mirror the degreeSteps
-  const modifiedForBirigthnesDegreeSteps = !isPrimaryColorDark ? systemMessagesSteps : systemMessagesSteps.map((step) => -step);
+  const modifiedForBirigthnesDegreeSteps = !isPrimaryColorDark
+    ? systemMessagesSteps
+    : systemMessagesSteps.map((step) => -step);
 
   switch (themeType) {
     case 'primary':

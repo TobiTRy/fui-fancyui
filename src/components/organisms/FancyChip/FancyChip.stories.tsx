@@ -10,7 +10,8 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component: 'Dumb-Comonent:  A chip is a component that displays a label and optionally an icon / image and delete button. ',
+        component:
+          'Dumb-Comonent:  A chip is a component that displays a label and optionally an icon / image and delete button. ',
       },
     },
   },

@@ -10,7 +10,8 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component: 'The FancyProfilePicture component is a fancy profile picture that can be dynamicly adjusted in size and roundedness.',
+        component:
+          'The FancyProfilePicture component is a fancy profile picture that can be dynamicly adjusted in size and roundedness.',
       },
     },
   },

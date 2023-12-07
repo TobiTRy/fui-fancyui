@@ -155,7 +155,11 @@ export { default as useWindowDimensions } from '@/utils/hooks/useWindowDimension
 export { default as calcBorderRadiusOnAlignment } from '@/design/designFunctions/calcBorderRadiusOnAlignment/calcBorderRadiusOnAlignment';
 export { default as calcColorState } from '@/design/designFunctions/calcColorState/calcColorState';
 export { default as checkThemeOrColor } from '@/design/designFunctions/checkThemeOrColor/checkThemeOrColor';
-export { getColorsForComponent, getBackgroundColor, getTextColor } from '@/design/designFunctions/colorCalculatorForComponent';
+export {
+  getColorsForComponent,
+  getBackgroundColor,
+  getTextColor,
+} from '@/design/designFunctions/colorCalculatorForComponent';
 export { default as colorTransparencyCalculator } from '@/design/designFunctions/colorTransparencyCalculator/colorTransparencyCalculator';
 export { default as disabledStyle } from '@/design/designFunctions/disabledStyle/disableStyle';
 export { default as flipThemeColor } from '@/design/designFunctions/flipThemeColor/flipThemeColor';

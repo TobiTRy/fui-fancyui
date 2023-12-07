@@ -92,7 +92,9 @@ export default function TabSwitch(props: ITabSwitchProps) {
               outlined={outlined}
               // the radius of the switch indicator is adjusted for good looks with minus the padding of the switch
               rounded={
-                rounded ? parseInt(borderRadius[rounded]) - parseInt(tabSwitchSizes[size || 'sm'].paddingComponent) + 'px' : undefined
+                rounded
+                  ? parseInt(borderRadius[rounded]) - parseInt(tabSwitchSizes[size || 'sm'].paddingComponent) + 'px'
+                  : undefined
               }
               type={themeType !== 'transparent' ? 'bolb' : 'underline'}
               itemNumber={Number(currentSelected)}

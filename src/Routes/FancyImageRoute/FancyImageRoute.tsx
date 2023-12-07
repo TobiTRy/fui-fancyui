@@ -18,7 +18,12 @@ export default function FancyImageRoute() {
           flex-direction: column;
         `}
       >
-        <FancyVideoText src="https://www.w3schools.com/html/mov_bbb.mp4" autoPlay={true} aspectRatio="16/9" position="top-right">
+        <FancyVideoText
+          src="https://www.w3schools.com/html/mov_bbb.mp4"
+          autoPlay={true}
+          aspectRatio="16/9"
+          position="top-right"
+        >
           <Typography type="h1">Top Right</Typography>
           <Typography type="h2">Top Right sub an more</Typography>
         </FancyVideoText>

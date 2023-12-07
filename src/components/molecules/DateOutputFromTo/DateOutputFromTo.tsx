@@ -18,7 +18,14 @@ interface IDateOutputFromTo {
 // --------------------------------------------------------------------------- //
 // ---------- The dateOutput hanles the date display from and to ------------ //
 // --------------------------------------------------------------------------- //
-export default function DateOutputFromTo({ whichIsSelecting, dateFrom, dateTo, handler, themeType, layer }: IDateOutputFromTo) {
+export default function DateOutputFromTo({
+  whichIsSelecting,
+  dateFrom,
+  dateTo,
+  handler,
+  themeType,
+  layer,
+}: IDateOutputFromTo) {
   // swap the themeType for opposite components
   const swapTheme = themeType === 'primary' ? 'secondary' : 'primary';
 
@@ -37,7 +44,12 @@ export default function DateOutputFromTo({ whichIsSelecting, dateFrom, dateTo, h
         onClick={() => handleClickOnDateOutput('from')}
       />
       <VRWrapper>
-        <FancyLine direction="vertical" themeType={swapTheme} thickness="2px" margin={'´${({theme}) => theme.spacing.sm}´'} />
+        <FancyLine
+          direction="vertical"
+          themeType={swapTheme}
+          thickness="2px"
+          margin={'´${({theme}) => theme.spacing.sm}´'}
+        />
       </VRWrapper>
       <DateOutput
         themeType={themeType}

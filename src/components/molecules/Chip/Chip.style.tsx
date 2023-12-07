@@ -31,7 +31,14 @@ export const StyledChip = styled.div<TChipSize & { theme: TTheme }>`
   width: fit-content;
   border-radius: ${({ theme }) => theme.borderRadius.xxxl};
   ${({ $outlined, $themeType = 'primary', $textColor = 'secondary', theme, $layer }) =>
-    generateThemeDesignForComponent({ theme, $themeType, $layer: $layer ?? 3, $outlined, $textColor, $useSimpleTextColor: true })};
+    generateThemeDesignForComponent({
+      theme,
+      $themeType,
+      $layer: $layer ?? 3,
+      $outlined,
+      $textColor,
+      $useSimpleTextColor: true,
+    })};
 
   ${({ $isActive, theme }) => {
     if ($isActive) {

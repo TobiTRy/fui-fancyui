@@ -45,6 +45,7 @@ const StyledFancyXButton = styled.button<IStyledFancyXButton>`
   ${simpleColorTransition}
 
   &:hover {
-    color: ${({ $themeType = 'accent', $layer, theme }) => Color(getBackgroundColor({ $themeType, $layer, theme })).darken(0.1).hex()};
+    color: ${({ $themeType = 'accent', $layer, theme }) =>
+      Color(getBackgroundColor({ $themeType, $layer, theme })).darken(0.1).hex()};
   }
 `;

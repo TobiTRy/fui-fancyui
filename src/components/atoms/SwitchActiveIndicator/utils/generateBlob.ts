@@ -9,7 +9,9 @@ import { TTheme } from '@/interface/TTheme';
 import IStyledPrefixAndPicker from '@/interface/IStyledPrefixAndPicker.model';
 
 // Define the function to generate a blob background for the active indicator
-type IGenerateBlob = IStyledPrefixAndPicker<IActiveSwitchIndicator, 'themeType' | 'outlined' | 'rounded' | 'layer'> & { theme: TTheme };
+type IGenerateBlob = IStyledPrefixAndPicker<IActiveSwitchIndicator, 'themeType' | 'outlined' | 'rounded' | 'layer'> & {
+  theme: TTheme;
+};
 export const generateBlob = (props: IGenerateBlob) => {
   const { $themeType, theme, $rounded, $outlined, $layer } = props;
   const borderRadius = themeStore.getState().theme.borderRadius;

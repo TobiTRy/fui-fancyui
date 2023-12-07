@@ -16,7 +16,8 @@ export const InputLi = styled.li<IChipContainer>`
     padding: 5px;
     font-size: 14px;
     background-color: transparent;
-    color: ${({ $themeType, theme }) => getTextColor({ $themeType: $themeType ?? 'primary', theme, turnColorTheme: true })};
+    color: ${({ $themeType, theme }) =>
+      getTextColor({ $themeType: $themeType ?? 'primary', theme, turnColorTheme: true })};
 
     &:focus {
       outline: none;

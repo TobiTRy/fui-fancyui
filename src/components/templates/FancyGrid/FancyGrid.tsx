@@ -31,7 +31,9 @@ export default FancyGrid;
 // ------------------------------------------- //
 // ------- The style for the component ------- //
 // ------------------------------------------- //
-const GridContainer = styled.div<IStyledPrefixAndOmitter<FancyGridProps, 'children' | 'as'> & { as?: React.ElementType }>`
+const GridContainer = styled.div<
+  IStyledPrefixAndOmitter<FancyGridProps, 'children' | 'as'> & { as?: React.ElementType }
+>`
   display: grid;
   width: 100%;
   grid-template-columns: repeat(${(props) => props.$grid}, 1fr);

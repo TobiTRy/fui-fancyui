@@ -31,7 +31,9 @@ export default function FanyColorPicker(props: IColorPicker) {
     ...props,
   };
 
-  const [displayColorValue, setDisplayColorValue] = useState<Color | string>(Color(inputColor ? inputColor : 'hsl(0, 100%, 50%)'));
+  const [displayColorValue, setDisplayColorValue] = useState<Color | string>(
+    Color(inputColor ? inputColor : 'hsl(0, 100%, 50%)')
+  );
   const [rawColor, setRawColor] = useState(Color('hsl(0, 100%, 50%)'));
   const [opacity, setOpacity] = useState(1);
   const [hue, setHue] = useState(0);

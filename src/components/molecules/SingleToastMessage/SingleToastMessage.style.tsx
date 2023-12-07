@@ -34,7 +34,8 @@ export const Container = styled.div<IToastMessage>`
   border-radius: ${({ theme }) => theme.borderRadius.sm};
   padding: ${({ theme }) => theme.spacing.lg};
   background-color: ${({ theme }) => colorTransparencyCalculator(theme.colors.primary['0'], 0.95)};
-  border-left: 4px solid ${({ $messageType, theme, $layer = 3 }) => getBackgroundColor({ $themeType: $messageType, theme, $layer })};
+  border-left: 4px solid
+    ${({ $messageType, theme, $layer = 3 }) => getBackgroundColor({ $themeType: $messageType, theme, $layer })};
   box-sizing: border-box;
   ${boxShadow.md}
 `;
@@ -65,6 +66,7 @@ export const TimerLine = styled.div<TimerLineProps>`
   left: 0;
   height: 2px;
   width: 100%;
-  background-color: ${({ $messageType, theme, $layer = 3 }) => getBackgroundColor({ $themeType: $messageType, theme, $layer })};
+  background-color: ${({ $messageType, theme, $layer = 3 }) =>
+    getBackgroundColor({ $themeType: $messageType, theme, $layer })};
   animation: ${() => timerAnimation} ${({ $time }) => $time - 300}ms linear forwards;
 `;

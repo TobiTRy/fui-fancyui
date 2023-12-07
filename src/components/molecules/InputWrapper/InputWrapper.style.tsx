@@ -30,7 +30,12 @@ export const ErrorMessage = styled.p<{ theme: TTheme }>`
 `;
 
 //the input/label/underline are all wrapped in thid container
-export const InputContainer = styled.div<{ $givePadding: boolean; theme: TTheme; $themeType: TThemeTypes; $layer: TLayer }>`
+export const InputContainer = styled.div<{
+  $givePadding: boolean;
+  theme: TTheme;
+  $themeType: TThemeTypes;
+  $layer: TLayer;
+}>`
   width: 100%;
   grid-column: 2/3;
   ${({ $givePadding, theme }) =>

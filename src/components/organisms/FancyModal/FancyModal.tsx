@@ -40,7 +40,12 @@ export default function FancyModal({ appendToDomID }: IFancyModal) {
       {/* ----- The FancModal Ports the Modal out of the root div in the spearte "modal" div ----- */}
       <FancyPortal appendToID={appendToDomID}>
         {modals.map((modal, key) => (
-          <Modal key={key} isOpen={modal.status === 'open'} onClose={() => closeModalHandler(modal.id)} {...modal.config}>
+          <Modal
+            key={key}
+            isOpen={modal.status === 'open'}
+            onClose={() => closeModalHandler(modal.id)}
+            {...modal.config}
+          >
             {/* ----- The Content of the Modal ----- */}
             {modal.children}
           </Modal>

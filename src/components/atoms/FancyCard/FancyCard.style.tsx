@@ -13,7 +13,8 @@ import { TTheme } from '@/interface/TTheme';
 type IStyledCard = IStyledPrefixAndOmiter<StyledCardProps>;
 //the main design of the card
 export const StyledCard = styled.div<IStyledCard & { theme: TTheme }>`
-  ${({ theme, $themeType = 'primary', $layer, $textLayer }) => getColorsForComponent({ theme, $themeType, $layer, $textLayer })}
+  ${({ theme, $themeType = 'primary', $layer, $textLayer }) =>
+    getColorsForComponent({ theme, $themeType, $layer, $textLayer })}
   overflow: hidden;
   width: ${({ $width }) => $width};
   height: ${({ $height }) => $height};

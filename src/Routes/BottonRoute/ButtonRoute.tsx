@@ -45,7 +45,11 @@ export default function ButtonRoute() {
       <DesignArea title="Outlined Buttons" style={backgroundColor}>
         <FancyButton label="Button" themeType="primary" outlined />
         <FancyButton label="Button" themeType="secondary" outlined />
-        <FancyButton label="Butto jjsjkd jkjdjkbs jkj kskjdj j jsjkdj njk jksjd jbsbjkjkf n" themeType="accent" outlined />
+        <FancyButton
+          label="Butto jjsjkd jkjdjkbs jkj kskjdj j jsjkdj njk jksjd jbsbjkjkf n"
+          themeType="accent"
+          outlined
+        />
         <FancyButton label="Button" themeType="transparent" outlined />
       </DesignArea>
       <DesignArea title="Outlined Buttons" style={backgroundColor}>
@@ -69,7 +73,14 @@ export default function ButtonRoute() {
           themeType="primary"
           outlined
         />
-        <FancyButton icon={Icon} label="Button" isLoading={isLoading} onClick={() => setIsLoading(false)} themeType="secondary" outlined />
+        <FancyButton
+          icon={Icon}
+          label="Button"
+          isLoading={isLoading}
+          onClick={() => setIsLoading(false)}
+          themeType="secondary"
+          outlined
+        />
       </DesignArea>
       <DesignArea title="1:1 Buttons" style={backgroundColor}>
         <FancyButton

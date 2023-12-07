@@ -10,7 +10,8 @@ const generateTransparentStyle = (props: TGenerateOutlineStyle) => {
   const { $padding, theme, $rounded } = props;
 
   const getPaddings = $padding ? parseInt(tabSwitchSizes[$padding].paddingComponent) : 0;
-  const calcPadding = Math.max(0, getPaddings - 1.5) + 'px ' + (getPaddings + parseInt(borderRadius[$rounded ?? 'sm'])) + 'px';
+  const calcPadding =
+    Math.max(0, getPaddings - 1.5) + 'px ' + (getPaddings + parseInt(borderRadius[$rounded ?? 'sm'])) + 'px';
 
   return css`
     overflow: hidden;
@@ -46,7 +47,9 @@ const generateOutlineStyle = (props: TGenerateOutlineStyle) => {
     box-sizing: border-box;
     background-color: ${generateSlightBackgroundColor};
     border: 1.5px solid ${backgroundColor};
-    padding: ${$padding ? parseInt(tabSwitchSizes[$padding].paddingComponent) - 1.5 + 'px' : '0'}; // 1.5px is the border width
+    padding: ${$padding
+      ? parseInt(tabSwitchSizes[$padding].paddingComponent) - 1.5 + 'px'
+      : '0'}; // 1.5px is the border width
   `;
 };
 
@@ -63,7 +66,15 @@ export default function generateColorDesign(props: TGenerateColorDesign) {
 
   // generate the outlined style if the outlined prop is true else generate only the background color
   if ($outlined) {
-    outlinedStyle = generateOutlineStyle({ $outlined, $padding, $themeType, theme, $rounded, $layer, $outlinedBackgroundStrength });
+    outlinedStyle = generateOutlineStyle({
+      $outlined,
+      $padding,
+      $themeType,
+      theme,
+      $rounded,
+      $layer,
+      $outlinedBackgroundStrength,
+    });
   } else {
     backgroundColor = getBackgroundColor({ theme, $themeType: $themeType ?? 'primary', $layer: $layer ?? 3 });
   }

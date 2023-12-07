@@ -7,7 +7,9 @@ import FancyTabSwitchButton from './FancyTabSwitchButton';
 import SVGCheckMark from '../../icons/SVGCheckMark/SVGCheckMark';
 
 // fix for building ... because storybook is not able to handle the default export
-const HelperComponent = (props: React.ComponentProps<typeof FancyTabSwitchButton>) => <FancyTabSwitchButton {...props} />;
+const HelperComponent = (props: React.ComponentProps<typeof FancyTabSwitchButton>) => (
+  <FancyTabSwitchButton {...props} />
+);
 HelperComponent.displayName = 'FancyTabSwitchButton';
 
 // Define metadata for the story

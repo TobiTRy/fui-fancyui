@@ -83,7 +83,13 @@ export default function ExperimentalRoute() {
                   value={isActive}
                   onChange={(e: ChangeEvent<HTMLInputElement>) => setIsActive(e.target.value)}
                 />
-                <FancyButton borderRadius="md" size="md" themeType="secondary" icon={reloadIcon} onClick={() => switchTheme()} />
+                <FancyButton
+                  borderRadius="md"
+                  size="md"
+                  themeType="secondary"
+                  icon={reloadIcon}
+                  onClick={() => switchTheme()}
+                />
               </div>
               <SingleToastMessage
                 toast={{

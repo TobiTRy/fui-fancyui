@@ -45,7 +45,8 @@ const WeekdaysConatiner = styled.div<{ theme: TTheme; $themeType?: TThemeTypes; 
   grid-template-columns: repeat(7, 1fr);
   width: 100%;
   margin-bottom: ${({ theme }) => theme.spacing.xs};
-  color: ${({ theme, $themeType, $layer }) => getBackgroundColor({ theme, $themeType: $themeType ?? 'secondary', $layer: $layer ?? 0 })};
+  color: ${({ theme, $themeType, $layer }) =>
+    getBackgroundColor({ theme, $themeType: $themeType ?? 'secondary', $layer: $layer ?? 0 })};
 
   & > * {
     display: flex;

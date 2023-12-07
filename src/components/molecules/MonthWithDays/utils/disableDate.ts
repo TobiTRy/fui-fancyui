@@ -11,7 +11,9 @@ export const disableDate = (date: Date, disabledDateSetting?: IDisabledDateSetti
   const isPast = date.getTime() < Date.now();
   const isDisabledDay = disabledWeekdays?.includes(dateDay);
   const disableSpecificDates =
-    (disablePastDates ? isPast : false) || (disableWeekends ? isWeekend : false) || (disabledWeekdays ? !!isDisabledDay : false);
+    (disablePastDates ? isPast : false) ||
+    (disableWeekends ? isWeekend : false) ||
+    (disabledWeekdays ? !!isDisabledDay : false);
 
   return disableSpecificDates;
 };

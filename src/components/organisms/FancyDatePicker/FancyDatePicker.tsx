@@ -26,7 +26,10 @@ interface IFancyDatePicker {
 // --------- A Datepicker thats really fancy with some advanced logic -------- //
 // --------------------------------------------------------------------------- //
 export default function FancyDatePicker(props: IFancyDatePicker) {
-  const { rangeCalendar, handler, selectedYear, disabledDateSetting, externalData, themeType, layer } = { ...defaultProps, ...props };
+  const { rangeCalendar, handler, selectedYear, disabledDateSetting, externalData, themeType, layer } = {
+    ...defaultProps,
+    ...props,
+  };
   const [selectedDate, setSelectedDate] = useState<IDateArray>([new Date(), new Date()]);
   const [currentlySelectedFromOrTo, setCurrentlySelectedFromOrTo] = useState<'from' | 'to'>('from');
   const [currentlySelectedYear, setCurrentlySelectedYear] = useState<number>(new Date().getFullYear());

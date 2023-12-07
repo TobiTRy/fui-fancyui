@@ -30,7 +30,12 @@ export const generateFancyButton = (props: IGenerateFancyButton) => {
   return css`
     justify-content: ${$justifyContent ?? 'center'};
     ${generateBorderRadiusForComponent($size, $borderRadius)};
-    ${!$noPadding && generateComponentPadding({ size: $size ?? 'md', borderThinkness: $outlined ? 1.2 : 0, doublePaddingLeftRight: true })};
+    ${!$noPadding &&
+    generateComponentPadding({
+      size: $size ?? 'md',
+      borderThinkness: $outlined ? 1.2 : 0,
+      doublePaddingLeftRight: true,
+    })};
     ${$oneToOne && generate1To1Button($size ?? 'md', $outlined)};
   `;
 };

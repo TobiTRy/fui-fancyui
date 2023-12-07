@@ -7,7 +7,9 @@ import { getSimpleColorThemeType } from '@/design/designFunctions/getSimpleColor
 import IStyledPrefixAndPicker from '@/interface/IStyledPrefixAndPicker.model';
 import { TTheme } from '@/interface/TTheme';
 
-export type IGenerateThemeDesignForComponent = IStyledPrefixAndPicker<IGenerateThemeDesignForComponentProps> & { theme: TTheme };
+export type IGenerateThemeDesignForComponent = IStyledPrefixAndPicker<IGenerateThemeDesignForComponentProps> & {
+  theme: TTheme;
+};
 // --------------------------------------------------------------------------- //
 // -------  The main function to generate a style for the components -- ------ //
 // --------------------------------------------------------------------------- //
@@ -25,10 +27,21 @@ export default function generateThemeDesignForComponent(props: IGenerateThemeDes
     $textHover,
   } = props;
 
-  const calcTextColor = $useSimpleTextColor ? ($textColor ? $textColor : getSimpleColorThemeType($themeType)) : $textColor;
+  const calcTextColor = $useSimpleTextColor
+    ? $textColor
+      ? $textColor
+      : getSimpleColorThemeType($themeType)
+    : $textColor;
 
   if ($themeType === 'transparent') {
-    return generateTransparentStyle({ theme, $backgroundState, $hoverColor, $layer, $textColor: calcTextColor, $textHover });
+    return generateTransparentStyle({
+      theme,
+      $backgroundState,
+      $hoverColor,
+      $layer,
+      $textColor: calcTextColor,
+      $textHover,
+    });
   } else if ($outlined) {
     return generateOutlineStyle({
       $themeType,

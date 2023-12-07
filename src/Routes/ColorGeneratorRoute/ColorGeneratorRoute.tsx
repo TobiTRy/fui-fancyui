@@ -21,38 +21,73 @@ export default function ColorGeneratorRoute() {
     <div style={{ display: 'flex' }}>
       <div>
         {primaryKeys?.map((color, index) => {
-          return <div key={index} style={{ width: '100px', height: '100px', backgroundColor: theme.colors.primary![color] }}></div>;
+          return (
+            <div
+              key={index}
+              style={{ width: '100px', height: '100px', backgroundColor: theme.colors.primary![color] }}
+            ></div>
+          );
         })}
       </div>
       <div>
         {accentKeys?.map((color, index) => {
-          return <div key={index} style={{ width: '100px', height: '100px', backgroundColor: theme.colors.accent![color] }}></div>;
+          return (
+            <div
+              key={index}
+              style={{ width: '100px', height: '100px', backgroundColor: theme.colors.accent![color] }}
+            ></div>
+          );
         })}
       </div>
       <div>
         {infoKeys?.map((color, index) => {
-          return <div key={index} style={{ width: '100px', height: '100px', backgroundColor: theme.colors.accent![color] }}></div>;
+          return (
+            <div
+              key={index}
+              style={{ width: '100px', height: '100px', backgroundColor: theme.colors.accent![color] }}
+            ></div>
+          );
         })}
       </div>
 
       <div>
         {secondaryKeys?.map((color, index) => {
-          return <div key={index} style={{ width: '100px', height: '100px', backgroundColor: theme.colors.secondary![color] }}></div>;
+          return (
+            <div
+              key={index}
+              style={{ width: '100px', height: '100px', backgroundColor: theme.colors.secondary![color] }}
+            ></div>
+          );
         })}
       </div>
       <div>
         {warningKeys?.map((color, index) => {
-          return <div key={index} style={{ width: '100px', height: '100px', backgroundColor: theme.colors.warning![color] }}></div>;
+          return (
+            <div
+              key={index}
+              style={{ width: '100px', height: '100px', backgroundColor: theme.colors.warning![color] }}
+            ></div>
+          );
         })}
       </div>
       <div>
         {errorKeys?.map((color, index) => {
-          return <div key={index} style={{ width: '100px', height: '100px', backgroundColor: theme.colors.error![color] }}></div>;
+          return (
+            <div
+              key={index}
+              style={{ width: '100px', height: '100px', backgroundColor: theme.colors.error![color] }}
+            ></div>
+          );
         })}
       </div>
       <div>
         {successKeys?.map((color, index) => {
-          return <div key={index} style={{ width: '100px', height: '100px', backgroundColor: theme.colors.success![color] }}></div>;
+          return (
+            <div
+              key={index}
+              style={{ width: '100px', height: '100px', backgroundColor: theme.colors.success![color] }}
+            ></div>
+          );
         })}
       </div>
     </div>

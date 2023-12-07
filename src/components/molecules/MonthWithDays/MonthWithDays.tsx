@@ -28,8 +28,17 @@ interface IMonthWithDays {
 // --------- This Component generates a single month with the dates ---------- //
 // --------------------------------------------------------------------------- //
 export default function MonthWithDays(props: IMonthWithDays) {
-  const { monthIdx, year, handleDateClick, selectedDates, isRangePicking, disabledDateSetting, externalMonthWithDays, layer, themeType } =
-    props;
+  const {
+    monthIdx,
+    year,
+    handleDateClick,
+    selectedDates,
+    isRangePicking,
+    disabledDateSetting,
+    externalMonthWithDays,
+    layer,
+    themeType,
+  } = props;
   const [monthDays, setMonthDays] = useState<IDateWithExternalState[]>([]);
 
   // Create the days of the month and memoize them
@@ -78,7 +87,11 @@ export default function MonthWithDays(props: IMonthWithDays) {
             layer={layer}
             disabled={day.disabled}
             dateNumber={day.number}
-            isCurrentDay={day.number === new Date().getDate() && monthIdx === new Date().getMonth() && year === new Date().getFullYear()}
+            isCurrentDay={
+              day.number === new Date().getDate() &&
+              monthIdx === new Date().getMonth() &&
+              year === new Date().getFullYear()
+            }
             isSelected={day.isSelected}
             range={day.range}
             isAvailable={day.isAvilable || 'completly'}

@@ -12,7 +12,10 @@ interface ICard extends StyledCardProps {
   layer?: TLayer;
 }
 export default function FancyCard(props: ICard) {
-  const { children, height, width, radius, padding, roundedEdges, layer, shadow, themeType, textLayer } = { ...defaultProps, ...props };
+  const { children, height, width, radius, padding, roundedEdges, layer, shadow, themeType, textLayer } = {
+    ...defaultProps,
+    ...props,
+  };
 
   return (
     <StyledCard

@@ -22,7 +22,10 @@ interface IFancyMiniprofile {
 // ------ The MiniProfile rendes a image with a heading and description ------ //
 // --------------------------------------------------------------------------- //
 export default function FancyMiniProfile(props: IFancyMiniprofile) {
-  const { alignText, size, imageURL, headingText, subHeadingText, themeType, layer, shadow } = { ...defaultProps, ...props };
+  const { alignText, size, imageURL, headingText, subHeadingText, themeType, layer, shadow } = {
+    ...defaultProps,
+    ...props,
+  };
 
   //get the settings from the picked size
   const getSizeProps = pillSettings[size || 'sm'];

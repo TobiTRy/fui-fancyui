@@ -32,7 +32,12 @@ export default function YearSelector({ selectedYear, handler, themeType, layer }
       <Typography type="content" variant="h3" tabIndex={0}>
         {selectedYear}
       </Typography>
-      <StyledButton aria-label="one year forward" onClick={() => handleYearChange(1)} $themeType={themeType} $layer={layer}>
+      <StyledButton
+        aria-label="one year forward"
+        onClick={() => handleYearChange(1)}
+        $themeType={themeType}
+        $layer={layer}
+      >
         <FancySVGAtom isPassive={true} externalStyle={SVGDesignCSS}>
           {SVGChevronRight}
         </FancySVGAtom>

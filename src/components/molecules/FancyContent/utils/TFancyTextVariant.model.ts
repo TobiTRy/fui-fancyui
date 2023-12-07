@@ -22,4 +22,5 @@ type IFancyContentTextWithFontVariantProps = IFancyContentTextProps & {
  * Represents the type definition for the `TTextProps` type.
  * This type is a combination of `IFancyContentTextProps` and either `IFancyContentTextWithFontVariantProps` or `IFancyContentTextWithSizeProps`.
  */
-export type TTextProps = IFancyContentTextProps & (IFancyContentTextWithFontVariantProps | IFancyContentTextWithSizeProps);
+export type TTextProps = IFancyContentTextProps &
+  (IFancyContentTextWithFontVariantProps | IFancyContentTextWithSizeProps);

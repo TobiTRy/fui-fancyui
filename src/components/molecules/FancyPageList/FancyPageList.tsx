@@ -17,7 +17,10 @@ interface IFancyPageList {
 // ------- This Component renders a Paginator with the specific list --------- //
 // --------------------------------------------------------------------------- //
 export default function FancyPageList(props: IFancyPageList) {
-  const { itemsPerPage, elements, spacingBetweenItems, buttonDesign, outlinedButton, pageLimits } = { ...defaultProps, ...props };
+  const { itemsPerPage, elements, spacingBetweenItems, buttonDesign, outlinedButton, pageLimits } = {
+    ...defaultProps,
+    ...props,
+  };
 
   const [currentPage, setCurrentPage] = useState(1);
 

@@ -21,7 +21,8 @@ const switchValues1 = [
   {
     itemKey: '2',
     value: 'Tab 1',
-    label: 'Tab 1 asksk aklsaklskl klaskl aklas aklkl  asuiasuiui uiasui asiuui asuiausi u asasuaui suaiausu asuusau isasuus ',
+    label:
+      'Tab 1 asksk aklsaklskl klaskl aklas aklkl  asuiasuiui uiasui asiuui asuiausi u asasuaui suaiausu asuusau isasuus ',
     icon: Icon,
   },
   { itemKey: '3', value: 'Tab 3', label: 'Tab 3', icon: Icon },

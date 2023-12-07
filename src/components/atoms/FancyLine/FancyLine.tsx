@@ -19,7 +19,13 @@ type IFancyLine = {
 export default function FancyLine(props: IFancyLine) {
   const { direction, thickness, margin, themeType, layer } = props;
   return (
-    <StyledFancyLine $direction={direction ?? 'horizontal'} $thickness={thickness} $margin={margin} $themeType={themeType} $layer={layer} />
+    <StyledFancyLine
+      $direction={direction ?? 'horizontal'}
+      $thickness={thickness}
+      $margin={margin}
+      $themeType={themeType}
+      $layer={layer}
+    />
   );
 }
 
@@ -44,7 +50,8 @@ const StyledFancyLine = styled.hr<TStyledFancyLine>`
     align-self: stretch;
     width: ${({ $direction, $thickness }) => ($direction === 'vertical' ? $thickness || '1px' : '')};
     height: ${({ $direction, $thickness }) => ($direction === 'horizontal' ? $thickness || '1px' : '')};
-    background-color: ${({ theme, $themeType = 'accent', $layer }) => getBackgroundColor({ theme, $themeType, $layer })};
+    background-color: ${({ theme, $themeType = 'accent', $layer }) =>
+      getBackgroundColor({ theme, $themeType, $layer })};
     border: 0;
     padding: 0;
     filter: blur(0.5px);

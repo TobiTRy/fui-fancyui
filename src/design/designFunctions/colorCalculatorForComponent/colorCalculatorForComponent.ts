@@ -85,7 +85,14 @@ type IGetColorForComponent = {
 };
 
 // Define the getColorsForComponent function
-export function getColorsForComponent({ theme, $themeType, $customColor, $customTextColor, $layer, $textLayer }: IGetColorForComponent) {
+export function getColorsForComponent({
+  theme,
+  $themeType,
+  $customColor,
+  $customTextColor,
+  $layer,
+  $textLayer,
+}: IGetColorForComponent) {
   // Get the background color and text color using the getBackgroundColor and getTextColor functions
   const backgroundColor = getBackgroundColor({ theme, $themeType, $customColor, $layer });
   const textColor = getTextColor({ theme, $themeType, $customTextColor, $textLayer, turnColorTheme: true });

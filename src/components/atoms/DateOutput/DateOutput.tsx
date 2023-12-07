@@ -52,7 +52,12 @@ export default function DateOutput({ date = new Date(), isActive, onClick, theme
 // --------------------------------------------------------------------------- //
 // --------------------- The style for the component ------------------------- //
 // --------------------------------------------------------------------------- //
-const DateOutputButton = styled.button<{ $isActive?: boolean; theme: TTheme; $themeType?: TThemeTypes; $layer?: TLayer }>`
+const DateOutputButton = styled.button<{
+  $isActive?: boolean;
+  theme: TTheme;
+  $themeType?: TThemeTypes;
+  $layer?: TLayer;
+}>`
   text-align: center;
   width: 100%;
   background-color: ${({ theme, $isActive, $themeType = 'primary', $layer = 2 }) =>

@@ -5,7 +5,9 @@ import { IGenerateThemeDesignForComponent } from '../generateThemeDesignForCompo
 // --------------------------------------------------------------------------- //
 // ------------- generate the text color for the components  ----------------- //
 // --------------------------------------------------------------------------- //
-export const generateTextColor = (props: Pick<IGenerateThemeDesignForComponent, '$themeType' | '$textColor' | '$layer'>) => {
+export const generateTextColor = (
+  props: Pick<IGenerateThemeDesignForComponent, '$themeType' | '$textColor' | '$layer'>
+) => {
   const { $themeType, $textColor, $layer } = props;
   const theme = themeStore.getState().theme;
 

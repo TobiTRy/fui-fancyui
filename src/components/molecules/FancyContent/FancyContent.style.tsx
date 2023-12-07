@@ -27,7 +27,10 @@ export const Wrapper = styled.span<TWrapper & { theme: TTheme }>`
   }
 `;
 
-type TOnlyTextWrapper = IStyledPrefixAndPicker<IFancyContentProps, 'flexDirection' | 'gapBetweenText' | 'flexAlign' | 'flexJustify'>;
+type TOnlyTextWrapper = IStyledPrefixAndPicker<
+  IFancyContentProps,
+  'flexDirection' | 'gapBetweenText' | 'flexAlign' | 'flexJustify'
+>;
 export const OnlyTextWrapper = styled.span<TOnlyTextWrapper & { theme: TTheme }>`
   display: flex;
   flex-direction: ${({ $flexDirection }) => $flexDirection || 'column'};

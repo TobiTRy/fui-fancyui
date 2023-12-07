@@ -15,7 +15,8 @@ export interface IDropDownSelect extends Omit<HTMLAttributes<HTMLSelectElement>,
 // ---------------- the blank drop down select ---------------------- //
 // ------------------------------------------------------------------ //
 export default function DropDownSelect(props: IDropDownSelect) {
-  const { values, value, placeholder, children, align, onChange, activeHandler, emptySelect, ...htmlInputProps } = props;
+  const { values, value, placeholder, children, align, onChange, activeHandler, emptySelect, ...htmlInputProps } =
+    props;
 
   return (
     <SelectField

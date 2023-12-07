@@ -13,7 +13,10 @@ import { ChipListProps, TChip } from './FancyChipListProps.model';
 // The FancyChipList component definition
 export default function FancyChipList(props: ChipListProps) {
   // Destructure props and provide default values from defaultProps
-  const { themeType, layer, outlined, chips, inputPlaceholder, label, size, systemInformation } = { ...defaultProps, ...props };
+  const { themeType, layer, outlined, chips, inputPlaceholder, label, size, systemInformation } = {
+    ...defaultProps,
+    ...props,
+  };
 
   // State to hold chips with unique identifiers and input values
   const [chipsWithKeys, setChipsWithKeys] = useState<TChip[]>([]);

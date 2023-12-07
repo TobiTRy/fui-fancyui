@@ -24,7 +24,15 @@ const generateHoverColor = (props: TGenerateOutlinedHoverStyle) => {
 
 type TGenerateStateStyle = Pick<
   IGenerateThemeDesignForComponent,
-  '$themeType' | 'theme' | '$layer' | '$backgroundStrength' | '$hoverColor' | '$backgroundState' | '$outlined' | '$textHover' | '$textColor'
+  | '$themeType'
+  | 'theme'
+  | '$layer'
+  | '$backgroundStrength'
+  | '$hoverColor'
+  | '$backgroundState'
+  | '$outlined'
+  | '$textHover'
+  | '$textColor'
 >;
 // --------------------------------------------------------------------------- //
 // ---------- this function handles wich style should apply ------------------ //

@@ -19,7 +19,12 @@ const colorTransformator = (color: Color, opacity: number, formatIdx: number): C
       const rgbaColor = colorObject.rgb().object();
       return {
         type: 'rgba' as const,
-        color: { r: Math.round(rgbaColor.r), g: Math.round(rgbaColor.g), b: Math.round(rgbaColor.b), a: opacity } as RGBAColor,
+        color: {
+          r: Math.round(rgbaColor.r),
+          g: Math.round(rgbaColor.g),
+          b: Math.round(rgbaColor.b),
+          a: opacity,
+        } as RGBAColor,
       };
     }
     case 'hsl': {
@@ -33,7 +38,12 @@ const colorTransformator = (color: Color, opacity: number, formatIdx: number): C
       const hslaColor = colorObject.hsl().object();
       return {
         type: 'hsla' as const,
-        color: { h: Math.round(hslaColor.h), s: Math.round(hslaColor.s), l: Math.round(hslaColor.l), a: opacity } as HSLAColor,
+        color: {
+          h: Math.round(hslaColor.h),
+          s: Math.round(hslaColor.s),
+          l: Math.round(hslaColor.l),
+          a: opacity,
+        } as HSLAColor,
       };
     }
     case 'hex':

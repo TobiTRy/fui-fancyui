@@ -14,7 +14,8 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component: 'A ScrollableBar component, when the content is too wide to fit in the screen, it will be scrollable',
+        component:
+          'A ScrollableBar component, when the content is too wide to fit in the screen, it will be scrollable',
       },
     },
   },

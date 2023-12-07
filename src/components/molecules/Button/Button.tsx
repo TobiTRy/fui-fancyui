@@ -5,10 +5,11 @@ import { IButton } from './Button.model';
 // --------------- A normal Button with Style from the Theme ----------------- //
 // --------------------------------------------------------------------------- //
 export default function Button(props: IButton) {
-  const { children, wide, themeType, layer, textColor, hoverColor, outlined, externalStyle, textHover, ...htmlProps } = {
-    ...defaultProps,
-    ...props,
-  };
+  const { children, wide, themeType, layer, textColor, hoverColor, outlined, externalStyle, textHover, ...htmlProps } =
+    {
+      ...defaultProps,
+      ...props,
+    };
   return (
     <StyledButton
       $wide={wide}

@@ -13,7 +13,19 @@ import { Label, NumberContainer, RangeSliderContainer, Icon } from './FancyRange
 // -------------------- The main FancySlider Component ----------------------- //
 // --------------------------------------------------------------------------- //
 export default function FancyRangeSlider(props: IFancyRangeSlider) {
-  const { label, align, icon, value, min, max, displayNumber, onChange, themeType, layer = 4, disabled } = { ...defaultProps, ...props };
+  const {
+    label,
+    align,
+    icon,
+    value,
+    min,
+    max,
+    displayNumber,
+    onChange,
+    themeType,
+    layer = 4,
+    disabled,
+  } = { ...defaultProps, ...props };
 
   const [isActive, setIsActive] = useState(false);
   const [toutched, setToutched] = useState(false);

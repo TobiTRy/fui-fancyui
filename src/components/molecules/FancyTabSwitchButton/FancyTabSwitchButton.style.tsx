@@ -98,7 +98,9 @@ const generateButtonStyle = (props: IListButtonStyle) => {
       user-select: none;
       padding: ${$wide
         ? `${tabSwitchItemSizes[$size || 'sm'].padding} ${getSpacingFromTheme.md}`
-        : `${tabSwitchItemSizes[$size || 'sm'].padding} ${parseInt(tabSwitchItemSizes[$size || 'sm'].padding) + 7 + 'px'}`};
+        : `${tabSwitchItemSizes[$size || 'sm'].padding} ${
+            parseInt(tabSwitchItemSizes[$size || 'sm'].padding) + 7 + 'px'
+          }`};
       //handles the dynamic values
       ${generateDynamicTabStyle({ $themeType, $textColor, theme, $layer })}
       // generates underlying childs in this element

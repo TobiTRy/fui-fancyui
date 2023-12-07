@@ -9,7 +9,8 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component: 'The ColorDisplay component is for displaying a color with a text label and the color and it can be copyd on click',
+        component:
+          'The ColorDisplay component is for displaying a color with a text label and the color and it can be copyd on click',
       },
     },
   },

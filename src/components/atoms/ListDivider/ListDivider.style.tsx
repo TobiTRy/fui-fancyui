@@ -16,10 +16,13 @@ export const StyledI = styled.div<TStyledPrefixAndOmitter>`
 `;
 
 // the wrapper for the text and the line
-type TStyledTextDiv = IStyledPrefixAndPicker<IListDivider, 'themeType' | 'layer' | 'textAlignment' | 'noLine'> & { theme: TTheme };
+type TStyledTextDiv = IStyledPrefixAndPicker<IListDivider, 'themeType' | 'layer' | 'textAlignment' | 'noLine'> & {
+  theme: TTheme;
+};
 export const StyledTextDiv = styled.div<TStyledTextDiv>`
   display: flex;
-  color: ${({ $themeType, $layer, theme }) => getBackgroundColor({ $themeType: $themeType ?? 'secondary', $layer, theme })};
+  color: ${({ $themeType, $layer, theme }) =>
+    getBackgroundColor({ $themeType: $themeType ?? 'secondary', $layer, theme })};
 
   justify-content: ${({ $textAlignment }) =>
     $textAlignment === 'left' ? 'flex-start' : $textAlignment === 'right' ? 'flex-end' : 'center'};

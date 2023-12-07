@@ -60,7 +60,8 @@ export default function FancySearchBarRoute() {
   const searchHandler = (searchValue: string) => {
     const lowerSearchValue = searchValue.toLowerCase();
     const getUser = users.filter(
-      (user) => user.name.toLowerCase().includes(lowerSearchValue) || user.username.toLowerCase().includes(lowerSearchValue)
+      (user) =>
+        user.name.toLowerCase().includes(lowerSearchValue) || user.username.toLowerCase().includes(lowerSearchValue)
     );
     setSearchValue(searchValue);
     setSearchedUsers(getUser);

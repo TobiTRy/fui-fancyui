@@ -9,7 +9,8 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component: 'Dumb-Comonent: A MiniProfile component is show a small profile with a picture, name and a short description.',
+        component:
+          'Dumb-Comonent: A MiniProfile component is show a small profile with a picture, name and a short description.',
       },
     },
   },

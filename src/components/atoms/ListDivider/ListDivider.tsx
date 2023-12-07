@@ -13,7 +13,13 @@ export default function ListDivider(props: IListDivider) {
     <>
       {/* Render a Seperator(Divider) with a optional label and icon  */}
       {label ? (
-        <StyledTextDiv $textAlignment={textAlignment} $noLine={noLine} tabIndex={0} $themeType={themeType} $layer={layer}>
+        <StyledTextDiv
+          $textAlignment={textAlignment}
+          $noLine={noLine}
+          tabIndex={0}
+          $themeType={themeType}
+          $layer={layer}
+        >
           <FancyContent>
             {label && (
               <FancyContent.Title fontVariant="inlineElement" bold={bold ?? false}>
