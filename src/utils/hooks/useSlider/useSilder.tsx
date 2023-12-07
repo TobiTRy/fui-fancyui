@@ -145,7 +145,8 @@ const useSlider = ({
 
     if (!color)
       type === 'hue'
-        ? (color = Color({ h: hue, s: 100, l: 50 }))
+        ? // eslint-disable-next-line react-hooks/exhaustive-deps
+          (color = Color({ h: hue, s: 100, l: 50 }))
         : (color = Color({ r: 255, g: 255, b: 255 }).alpha(1));
 
     const rect = sliderRef.current.getBoundingClientRect();
