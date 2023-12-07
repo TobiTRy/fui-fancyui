@@ -1,28 +1,27 @@
 import React, { useEffect, useState } from 'react';
-import { CSSProp } from 'styled-components';
+import { css } from 'styled-components';
 
-import SwitchActiveIndicator, { IActiveSwitchIndicator } from '@/components/atoms/SwitchActiveIndicator/SwitchActiveIndicator';
-import { ItemWrapper, StyledList } from './SwitchList.style';
+import { SwitchActiveIndicator } from '@/components/atoms/SwitchActiveIndicator';
 import { FancyFlexBox } from '@/components/templates/FancyFlexBox';
+import { TSwitchList } from './SwitchList.model';
+import { generateListItemStyle } from './SwitchList.style';
 
-type TSwitchActiveIndicator = Omit<IActiveSwitchIndicator, 'itemNumber'>;
-
-interface IBottomBarListProps {
-  children?: React.ReactNode;
-  whichIndexIsSelected?: number;
-  activeItemHandler?: (activeKey: number) => void;
-  indicatorType?: React.ComponentProps<typeof SwitchActiveIndicator>['type'];
-  externalStyle?: CSSProp;
-}
-
-interface IKey {
-  $uniquekey: string;
-}
 // --------------------------------------------------------------------------- //
 // -------------- The Switch List Indicates wich item is active -------------- //
 // --------------------------------------------------------------------------- //
-export default function SwitchList(props: IBottomBarListProps & TSwitchActiveIndicator) {
-  const { children, whichIndexIsSelected, activeItemHandler, indicatorType, externalStyle, direction, ...indicatorProps } = props;
+export default function SwitchList(props: TSwitchList) {
+  // the incoming props
+  const {
+    children,
+    whichIndexIsSelected,
+    activeItemHandler,
+    externalStyle,
+    switchIndicator,
+    flexBoxProps,
+    hoverStyle,
+    activeStyle,
+  } = props;
+
   const [currentActive, setCurrentActive] = useState('');
 
   const activeHandler = (uniqueKey: string) => {
@@ -30,38 +29,51 @@ export default function SwitchList(props: IBottomBarListProps & TSwitchActiveInd
     activeItemHandler && activeItemHandler(Number(uniqueKey));
   };
 
+  // Set the current active item if the whichIndexIsSelected prop changes
   useEffect(() => {
     setCurrentActive(`${whichIndexIsSelected ? whichIndexIsSelected + 1 : 1}`);
   }, [whichIndexIsSelected]);
 
   return (
-    <FancyFlexBox externalStyle={externalStyle} flexDirection={direction === 'vertical' ? 'column' : 'row'}>
-      <StyledList $externalStyle={externalStyle} $direction={direction}>
-        {React.Children.map(children, (child, index) => {
-          if (React.isValidElement(child)) {
-            // Generate a unique key (or use any other unique identifier logic)
-            const uniqueKey = `${index + 1}`;
+    <FancyFlexBox
+      externalStyle={css`
+        ${externalStyle} height: 100%;
+      `}
+      flexDirection={switchIndicator?.direction === 'vertical' ? 'column' : 'row'}
+      as="ul"
+    >
+      {/* The Item Of the List */}
+      {React.Children.map(children, (child, index) => {
+        if (React.isValidElement(child)) {
+          // Generate a unique key (or use any other unique identifier logic)
+          const uniqueKey = `${index + 1}`;
 
-            // Clone the child and add the uniqueKey prop
-            const clonedChild = React.cloneElement(child as React.ReactElement<IKey>);
-
-            return (
-              <ItemWrapper key={uniqueKey} onClick={() => activeHandler(uniqueKey)}>
-                {clonedChild}
-                {index === 0 && (
-                  <SwitchActiveIndicator
-                    direction={direction}
-                    type={indicatorType ?? 'underline'}
-                    {...indicatorProps}
-                    itemNumber={Number(currentActive)}
-                  />
-                )}
-              </ItemWrapper>
-            );
-          }
-          return child;
-        })}
-      </StyledList>
+          return (
+            <FancyFlexBox
+              externalStyle={generateListItemStyle({
+                isActive: currentActive === uniqueKey,
+                hoverStyle,
+                activeStyle,
+              })}
+              key={uniqueKey}
+              {...flexBoxProps}
+              as={'li'}
+              onClick={() => activeHandler(uniqueKey)}
+            >
+              {child}
+              {index === 0 && (
+                <SwitchActiveIndicator
+                  direction={switchIndicator?.direction}
+                  type={switchIndicator?.type ?? 'underline'}
+                  itemNumber={Number(currentActive)}
+                  {...switchIndicator}
+                />
+              )}
+            </FancyFlexBox>
+          );
+        }
+        return child;
+      })}
     </FancyFlexBox>
   );
 }
