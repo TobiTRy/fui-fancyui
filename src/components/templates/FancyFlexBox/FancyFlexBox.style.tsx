@@ -12,7 +12,7 @@ const generateFlexSytles = (props: TStyledFlexBoxProps) => {
     flex-direction: ${$flexDirection ?? 'row'};
     justify-content: ${$flexJustify ?? 'flex-start'};
     align-items: ${$flexAlign ?? 'flex-start'};
-    gap: ${$gap ?? 0};
+    gap: ${$gap};
   `;
 };
 
