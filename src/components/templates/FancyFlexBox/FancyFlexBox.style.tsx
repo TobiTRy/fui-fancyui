@@ -1,12 +1,10 @@
 import { styled, css } from 'styled-components';
 
 import { TStyleProps } from './FancyFlexBox.model';
-
-import { TTheme } from '@/interface/TTheme';
 import IStyledPrefixAndOmitter from '@/interface/IStyledPrefixAndOmiter.model';
 
-const generateFlexSytles = (props: TStyledFlexBoxProps & { theme?: TTheme }) => {
-  const { $flexDirection, $flexJustify, $flexAlign, $gap, theme } = props;
+const generateFlexSytles = (props: TStyledFlexBoxProps) => {
+  const { $flexDirection, $flexJustify, $flexAlign, $gap } = props;
 
   return css`
     display: flex;
@@ -14,7 +12,7 @@ const generateFlexSytles = (props: TStyledFlexBoxProps & { theme?: TTheme }) => 
     flex-direction: ${$flexDirection ?? 'row'};
     justify-content: ${$flexJustify ?? 'flex-start'};
     align-items: ${$flexAlign ?? 'flex-start'};
-    gap: ${$gap ?? theme!.spacing.xxs};
+    gap: ${$gap ?? 0};
   `;
 };
 
