@@ -18,7 +18,7 @@ const generateFlexSytles = (props: TStyledFlexBoxProps & { theme?: TTheme }) => 
   `;
 };
 
-type TStyledFlexBoxProps = IStyledPrefixAndOmitter<TStyleProps, 'as'>;
+type TStyledFlexBoxProps = IStyledPrefixAndOmitter<TStyleProps>;
 export const StyledFlexBox = styled.div<TStyledFlexBoxProps & { as: React.ElementType }>`
   padding: 0;
   margin: 0;
