@@ -37,7 +37,8 @@ export default function SwitchList(props: TSwitchList) {
   return (
     <FancyFlexBox
       externalStyle={css`
-        ${externalStyle} height: 100%;
+        height: 100%;
+        ${externalStyle};
       `}
       flexDirection={switchIndicator?.direction === 'vertical' ? 'column' : 'row'}
       as="ul"
@@ -50,11 +51,14 @@ export default function SwitchList(props: TSwitchList) {
 
           return (
             <FancyFlexBox
-              externalStyle={generateListItemStyle({
-                isActive: currentActive === uniqueKey,
-                hoverStyle,
-                activeStyle,
-              })}
+              externalStyle={css`
+                ${generateListItemStyle({
+                  isActive: currentActive === uniqueKey,
+                  hoverStyle,
+                  activeStyle,
+                })}
+                padding-bottom: 2px;
+              `}
               key={uniqueKey}
               {...flexBoxProps}
               as={'li'}

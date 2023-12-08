@@ -13,6 +13,8 @@ import themeStore from '@/design/theme/themeStore/themeStore';
 import { Typography } from '@/components/atoms/Typography';
 
 import { FancyHeader } from '@/components/organisms/FancyHeader';
+import { SwitchList } from '@/components/molecules/SwitchList';
+import { FancyGrid } from '@/components/templates/FancyGrid';
 
 const Logo = () => (
   <svg
@@ -70,24 +72,43 @@ export default function HeaderRoute() {
 
   return (
     <section>
-      <FancyHeader>
-        <FancyHeader.Nav>
-          {/* <FancyHeader.Nav.Ul>
-
-            <Typography type='content'>mooin</Typography>
-            <Typography type='content'>mooin</Typography>
-            <Typography type='content'>mooin</Typography>
-            <Typography type='content'>mooin</Typography>
-          </FancyHeader.Nav.Ul> */}
-          <FancyHeader.Nav.SwitchIndicatorList>
-            <Typography type="content">mooin</Typography>
-            <Typography type="content">mooin</Typography>
-            <Typography type="content">mooin</Typography>
-            <Typography type="content">mooin</Typography>
-          </FancyHeader.Nav.SwitchIndicatorList>
-        </FancyHeader.Nav>
-        <Typography type="h1">mooin</Typography>
+      <FancyHeader externalStyle={{ height: '44px' }}>
+        <FancyGrid>
+          <FancyGrid.Item gridSpace={4}>
+            <FancyHeader.Logo>
+              <FancyHeader.Logo.Image
+                aspectRatio="1/1"
+                imageUrl="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
+              ></FancyHeader.Logo.Image>
+              <FancyHeader.Logo.Icon>
+                <Logo></Logo>
+              </FancyHeader.Logo.Icon>
+              <FancyHeader.Logo.Title type="h3">Mooiin</FancyHeader.Logo.Title>
+            </FancyHeader.Logo>
+          </FancyGrid.Item>
+          <FancyGrid.Item gridSpace={4}>
+            <FancyHeader.Nav externalStyle={{ width: '30%' }}>
+              <SwitchList flexBoxProps={{ flexAlign: 'center', flexJustify: 'center' }}>
+                <Typography type="content">mooin</Typography>
+                <Typography type="content">mooin</Typography>
+                <Typography type="content">mooin</Typography>
+                <Typography type="content">mooin</Typography>
+              </SwitchList>
+            </FancyHeader.Nav>
+          </FancyGrid.Item>
+          <FancyGrid.Item gridSpace={4}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end' }}>
+              <FancyMiniProfile
+                size={'sm'}
+                alignText="left"
+                headingText="@TobiTRy"
+                imageURL="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
+              />
+            </div>
+          </FancyGrid.Item>
+        </FancyGrid>
       </FancyHeader>
+
       <div style={{ marginTop: '40px' }}>
         <FancyBar
           outlined

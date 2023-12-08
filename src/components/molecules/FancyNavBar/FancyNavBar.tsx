@@ -2,8 +2,6 @@ import React from 'react';
 import { CSSProp, css } from 'styled-components';
 
 import { RawNav } from '@/components/atoms/RawNav';
-import { FlexBoxTemplateNav } from '@/components/molecules/FancyNavBar/utils/FlexBoxTemplateNav';
-import { SwitchIndicatorList } from './utils/SwitchIndicatorList';
 
 type TFancyNavBar = {
   children?: React.ReactNode;
@@ -26,6 +24,3 @@ export default function FancyNavBar(props: TFancyNavBar) {
     </RawNav>
   );
 }
-
-FancyNavBar.SwitchIndicatorList = SwitchIndicatorList;
-FancyNavBar.Ul = FlexBoxTemplateNav;
