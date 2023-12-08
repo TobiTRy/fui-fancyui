@@ -72,6 +72,7 @@ export default function TabSwitchRoute() {
               label="test"
               outlined
               rounded="xxl"
+              themeType="secondary"
               layer={3}
               values={switchValues1}
               currentSelect={test}
@@ -82,6 +83,7 @@ export default function TabSwitchRoute() {
               values={switchValues1}
               themeType="transparent"
               size="sm"
+              indicatorType="underline"
               rounded="md"
               currentSelect={test}
               handler={(id: string) => setTest(id)}
@@ -94,6 +96,7 @@ export default function TabSwitchRoute() {
               rounded="complete"
               size="sm"
               themeType="transparent"
+              layer={3}
               values={switchValues1}
               currentSelect={test}
               handler={(id: string) => setTest(id)}
@@ -125,6 +128,7 @@ export default function TabSwitchRoute() {
               direction="vertical"
               values={switchValues}
               rounded={'xl'}
+              layer={3}
               currentSelect={test}
               handler={(id: string) => setTest(id)}
             />
@@ -132,6 +136,7 @@ export default function TabSwitchRoute() {
               label="test"
               wide
               values={switchValues}
+              layer={2}
               rounded={'xl'}
               currentSelect={test}
               handler={(id: string) => setTest(id)}

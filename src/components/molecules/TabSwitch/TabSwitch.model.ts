@@ -6,6 +6,7 @@ import {
   ITabSwitchDetailsChildren,
 } from '../FancyTabSwitchButton/FancyTabSwitchButton.model';
 import { TSpacings } from '@/interface/TSpacings';
+import { IActiveSwitchIndicator } from '@/components/atoms/SwitchActiveIndicator/SwitchActiveIndicator';
 
 export interface ITabSwitchProps {
   wide?: boolean;
@@ -18,6 +19,7 @@ export interface ITabSwitchProps {
   values: ITabSwitchDetailsChildren[] & ITabSwitchDetailsLabelIcon[];
   rounded?: TBorderRadiusSizes;
   direction?: 'horizontal' | 'vertical';
+  indicatorType?: IActiveSwitchIndicator['type'];
   outlined?: boolean;
   id?: string;
   currentSelect?: string;

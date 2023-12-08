@@ -1,4 +1,4 @@
-import { css, styled } from 'styled-components';
+import { CSSProp, css, styled } from 'styled-components';
 
 import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent';
 import { themeStore } from '@/design/theme/themeStore';
@@ -21,6 +21,7 @@ interface IListButtonStyle {
   $size?: keyof typeof tabSwitchItemSizes;
   $hasLabel?: boolean;
   $hasIcon?: boolean;
+  $externalStyle?: CSSProp;
 }
 
 type TGenerateDynamicTabStyle = Pick<IListButtonStyle, '$textColor' | '$layer' | 'theme' | '$themeType'>;
@@ -115,4 +116,5 @@ const generateButtonStyle = (props: IListButtonStyle) => {
 
 export const SwitchButtonStyle = styled.div<IListButtonStyle>`
   ${generateButtonStyle}
+  ${({ $externalStyle }) => $externalStyle}
 `;

@@ -23,6 +23,7 @@ const FancyTabSwitchButton = React.forwardRef<HTMLDivElement, IFancyTabSwitchBut
     label,
     icon,
     children,
+    externalStyle,
     ...HTMLProps
   } = props;
 
@@ -38,6 +39,7 @@ const FancyTabSwitchButton = React.forwardRef<HTMLDivElement, IFancyTabSwitchBut
       $iconAlign={iconAlign}
       $hasIcon={Boolean(icon)}
       $hasLabel={Boolean(label)}
+      $externalStyle={externalStyle}
       {...HTMLProps}
     >
       <input

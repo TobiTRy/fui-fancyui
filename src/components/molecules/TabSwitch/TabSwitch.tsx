@@ -1,10 +1,12 @@
 import React, { useRef, useState } from 'react';
+import { css } from 'styled-components';
 
 import { ItemWrapper, ULButtonSwitchList, tabSwitchSizes } from './TabSwitch.style';
 import { FancyTabSwitchButton } from '@/components/molecules/FancyTabSwitchButton';
 import { borderRadius } from '@/design/theme/designSizes';
 import { SwitchActiveIndicator } from '@/components/atoms/SwitchActiveIndicator';
 import { ITabSwitchProps } from './TabSwitch.model';
+import { TTheme } from 'lib';
 
 // --------------------------------------------------------------------------- //
 // ------------ The tap SwitchComponent to slect specifc values -------------- //
@@ -26,6 +28,7 @@ export default function TabSwitch(props: ITabSwitchProps) {
     handler,
     iconAlign,
     activeColor,
+    indicatorType,
   } = props;
   // Define the state for the currently selected tab
   const buttonRefs = useRef<React.RefObject<HTMLDivElement>[]>(values.map(() => React.createRef<HTMLDivElement>()));
@@ -69,7 +72,19 @@ export default function TabSwitch(props: ITabSwitchProps) {
     >
       {/* Generate a list item for each switch value */}
       {values.map((item, i) => (
-        <ItemWrapper key={item.itemKey}>
+        <ItemWrapper
+          key={item.itemKey}
+          externalStyle={
+            (indicatorType === 'underline' &&
+              css<{ theme: TTheme }>`
+                padding-bottom: ${({ theme }) => theme.spacing.xxs};
+              `) ||
+            (indicatorType === 'topline' &&
+              css<{ theme: TTheme }>`
+                padding-top: ${({ theme }) => theme.spacing.xxs};
+              `)
+          }
+        >
           {/* Generate the button for the switch item */}
           <FancyTabSwitchButton
             disabled={disabled}
@@ -88,7 +103,6 @@ export default function TabSwitch(props: ITabSwitchProps) {
           {/* Generate the switch active indicator wich is a blob or underline */}
           {i === 0 && (
             <SwitchActiveIndicator
-              layer={layer}
               outlined={outlined}
               // the radius of the switch indicator is adjusted for good looks with minus the padding of the switch
               rounded={
@@ -96,7 +110,7 @@ export default function TabSwitch(props: ITabSwitchProps) {
                   ? parseInt(borderRadius[rounded]) - parseInt(tabSwitchSizes[size || 'sm'].paddingComponent) + 'px'
                   : undefined
               }
-              type={themeType !== 'transparent' ? 'bolb' : 'underline'}
+              type={indicatorType ?? 'bolb'}
               itemNumber={Number(currentSelected)}
               themeType={activeColor}
               direction={direction}

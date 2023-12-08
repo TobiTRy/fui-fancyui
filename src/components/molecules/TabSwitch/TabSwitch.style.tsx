@@ -1,4 +1,4 @@
-import { styled } from 'styled-components';
+import { CSSProp, styled } from 'styled-components';
 
 import { borderRadius, spacingPx } from '@/design/theme/designSizes';
 import { themeStore } from '@/design/theme/themeStore';
@@ -63,9 +63,10 @@ export const ULButtonSwitchList = styled.ul<IFancyTabSwitchStyle & { theme: TThe
 // ---------- Other styled  ---------- //
 // ----------------------------------- //
 // Define the styled-component for the list item wrapper
-export const ItemWrapper = styled.li`
+export const ItemWrapper = styled.li<{ externalStyle?: CSSProp }>`
   position: relative;
   height: 100%;
   width: 100%;
   list-style: none;
+  ${({ externalStyle }) => externalStyle}
 `;
