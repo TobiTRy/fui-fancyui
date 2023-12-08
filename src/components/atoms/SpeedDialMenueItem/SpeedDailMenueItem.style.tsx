@@ -47,7 +47,7 @@ export const MenuItem = styled.button<{ theme: TTheme }>`
 
   &:hover {
     transform: scale(1.01);
-    background-color: ${({ theme }) => theme.colors.accent[2]};
+    background-color: ${({ theme }) => theme.colors.primary[4]};
   }
 `;
 
