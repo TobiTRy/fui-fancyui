@@ -88,7 +88,7 @@ export default function HeaderRoute() {
           </FancyGrid.Item>
           <FancyGrid.Item gridSpace={1} flexJustify="center" flexAlign="center">
             <FancyHeader.Nav>
-              <SwitchList flexBoxProps={{ flexAlign: 'center', flexJustify: 'center' }}>
+              <SwitchList spacing='lg' flexBoxProps={{ flexAlign: 'center', flexJustify: 'center' }}>
                 <Typography type="content">mooin</Typography>
                 <Typography type="content">mooin</Typography>
                 <Typography type="content">mooin</Typography>
