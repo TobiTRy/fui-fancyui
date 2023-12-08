@@ -72,9 +72,9 @@ export default function HeaderRoute() {
 
   return (
     <section>
-      <FancyHeader externalStyle={{ height: '44px' }}>
-        <FancyGrid>
-          <FancyGrid.Item gridSpace={4}>
+      <FancyHeader externalStyle={{ height: '44px', padding: '0 12px' }}>
+        <FancyGrid grid={3}>
+          <FancyGrid.Item gridSpace={1} flexAlign="center" flexJustify="flex-start">
             <FancyHeader.Logo>
               <FancyHeader.Logo.Image
                 aspectRatio="1/1"
@@ -86,8 +86,8 @@ export default function HeaderRoute() {
               <FancyHeader.Logo.Title type="h3">Mooiin</FancyHeader.Logo.Title>
             </FancyHeader.Logo>
           </FancyGrid.Item>
-          <FancyGrid.Item gridSpace={4}>
-            <FancyHeader.Nav externalStyle={{ width: '30%' }}>
+          <FancyGrid.Item gridSpace={1} flexJustify="center" flexAlign="center">
+            <FancyHeader.Nav>
               <SwitchList flexBoxProps={{ flexAlign: 'center', flexJustify: 'center' }}>
                 <Typography type="content">mooin</Typography>
                 <Typography type="content">mooin</Typography>
@@ -96,7 +96,7 @@ export default function HeaderRoute() {
               </SwitchList>
             </FancyHeader.Nav>
           </FancyGrid.Item>
-          <FancyGrid.Item gridSpace={4}>
+          <FancyGrid.Item gridSpace={1} flexJustify="flex-end" flexAlign="center">
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end' }}>
               <FancyMiniProfile
                 size={'sm'}
