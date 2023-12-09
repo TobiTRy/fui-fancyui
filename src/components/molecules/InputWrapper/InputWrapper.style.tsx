@@ -55,6 +55,7 @@ export const InputContainer = styled.div<{
 `;
 
 // Define the styles for the icon
+// eslint-disable-next-line react-refresh/only-export-components
 export const iconStyle = css<{ theme: TTheme }>`
   margin-right: ${({ theme }) => parseFloat(theme.spacing.xs) + 2 + 'px'};
   margin-bottom: 2px;

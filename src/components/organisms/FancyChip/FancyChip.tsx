@@ -6,7 +6,8 @@ import { FancyContent } from '@/components/molecules/FancyContent';
 import { Chip } from '@/components/molecules/Chip';
 import { IChipProps } from '@/components/molecules/Chip/IChip.model';
 
-import { StyledXButton, TSpacingPosition, WrapperImage, generateSpacing } from './FancyChip.style';
+import { StyledXButton, TSpacingPosition, WrapperImage } from './FancyChip.style';
+import { generateSpacing } from '@/components/organisms/FancyChip/utils/generateSpacings';
 
 export type TFancyChipProps = {
   label?: string;

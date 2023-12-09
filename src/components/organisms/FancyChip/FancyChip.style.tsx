@@ -1,70 +1,10 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 import { TTheme } from '@/interface/TTheme';
-import { themeStore } from '@/design/theme/themeStore';
+import { sizes } from '@/components/organisms/FancyChip/sizeSettings';
 
 // Define the type for the spacing position
 export type TSpacingPosition = 'left' | 'right' | 'booth';
-
-const getSpacingFromTheme = themeStore.getState().theme.spacing;
-const spacings = {
-  xs: parseFloat(getSpacingFromTheme.xs),
-  sm: parseFloat(getSpacingFromTheme.sm),
-  md: parseFloat(getSpacingFromTheme.md),
-};
-
-export const sizes = {
-  sm: {
-    height: '24px',
-    deleteButtonSize: '14px',
-    padding: spacings.xs,
-    paddingRight: spacings.xs,
-    paddingLeft: spacings.xs,
-    icon: '14px',
-  },
-  md: {
-    height: '32px',
-    deleteButtonSize: '14px',
-    padding: spacings.sm,
-    paddingRight: spacings.sm,
-    paddingLeft: spacings.sm,
-    icon: '18px',
-  },
-  lg: {
-    height: '38px',
-    deleteButtonSize: '14px',
-    padding: spacings.sm,
-    paddingRight: spacings.sm,
-    paddingLeft: spacings.md,
-    icon: '20px',
-  },
-};
-
-// Define a function to generate the spacing based on the spacing position
-interface IGenerateSpacing {
-  spacingPosition?: TSpacingPosition;
-  size?: keyof typeof sizes;
-}
-export const generateSpacing = ({ spacingPosition, size }: IGenerateSpacing) => {
-  const pickedSize = size ? size : 'md';
-
-  switch (spacingPosition) {
-    case 'left':
-      return css`
-        padding-left: ${sizes[pickedSize].paddingLeft + 2 + 'px'};
-      `;
-    case 'right':
-      return css`
-        padding-right: ${sizes[pickedSize].paddingRight + 2 + 'px'};
-      `;
-    case 'booth':
-      return css`
-        padding: 0 ${sizes[pickedSize].padding + 2 + 'px'};
-      `;
-    default:
-      return null;
-  }
-};
 
 // Define the styled component for the X button
 interface IXButton {
