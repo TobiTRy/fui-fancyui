@@ -1,39 +1,19 @@
-import { styled } from 'styled-components';
+import { CSSProp, styled } from 'styled-components';
 
-import { TThemeTypes } from '@/interface/TThemeTypes';
-import { TLayer } from '@/interface/TLayer';
-import { TTheme } from '@/interface/TTheme';
-import { TBorderRadius, TSize, getBorderRadius, getSize } from './sizeSettings';
+import { TgetBorderRadiusViaSize, getBorderRadiusViaSize } from '@/design/designFunctions/getBorderRadiusViaSize';
+import { TSize, getSize } from '@/components/molecules/TextAvatar/utils/getSize';
 
 // Styled img component
-export const StyledImage = styled.img<{ $rounded: TBorderRadius; $size: TSize | string }>`
-  border-radius: ${({ $rounded }) => getBorderRadius($rounded)};
+type TStyledImageProps = {
+  $rounded: TgetBorderRadiusViaSize;
+  $size: TSize | string;
+  $externalStyle?: CSSProp;
+};
+export const StyledImage = styled.img<TStyledImageProps>`
+  border-radius: ${({ $rounded }) => getBorderRadiusViaSize($rounded)};
   width: ${({ $size }) => getSize($size)};
   height: ${({ $size }) => getSize($size)};
   object-fit: cover;
   aspect-ratio: 1/1;
-`;
-
-// Styled placeholder component for the profile picture
-interface IPlaceholderProps {
-  $rounded: TBorderRadius;
-  $size: TSize | string;
-  $color?: string;
-  $backgroundColor?: string;
-  theme?: TTheme;
-  $themeType?: TThemeTypes;
-  $layer?: TLayer;
-}
-export const Placeholder = styled.div<IPlaceholderProps>`
-  border-radius: ${({ $rounded }) => getBorderRadius($rounded)};
-  width: ${({ $size }) => getSize($size)};
-  height: ${({ $size }) => getSize($size)};
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: ${({ $backgroundColor, theme, $layer }) =>
-    $backgroundColor ? $backgroundColor : theme.colors.primary[$layer ?? 2]};
-  color: ${({ $color, theme, $layer }) => ($color ? $color : theme.colors.secondary[$layer ?? 1])};
-  font-size: 1.5em;
-  aspect-ratio: 1/1;
+  ${({ $externalStyle }) => $externalStyle}
 `;

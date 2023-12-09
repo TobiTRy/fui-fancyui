@@ -1,58 +1,26 @@
-import { Placeholder, StyledImage } from './FancyProfilePicture.style';
-import { TThemeTypes } from '@/interface/TThemeTypes';
-import { TLayer } from '@/interface/TLayer';
-import { Typography } from '../Typography';
-import { TTypography } from '@/interface/TTypography';
-import { TSize } from './sizeSettings';
+import { CSSProp } from 'styled-components';
 
-export interface IFancyProfilePicture {
-  src?: string;
+import { StyledImage } from './FancyProfilePicture.style';
+import { TextAvatar } from '@/components/molecules/TextAvatar';
+import { TSize } from '@/components/molecules/TextAvatar/utils/getSize';
+
+type TtextAvatarSettings = React.ComponentProps<typeof TextAvatar>;
+
+export type IFancyProfilePicture = {
   rounded?: 'sm' | 'md' | 'lg' | 'complete';
   size?: TSize | string;
-  alt?: string;
-  layer?: TLayer;
-  themeType?: TThemeTypes;
-  letterLength?: number;
-  className?: string;
-}
+  externalStyle?: CSSProp;
+  textAvatarSettings?: Omit<TtextAvatarSettings, 'text'>;
+} & React.ImgHTMLAttributes<HTMLImageElement> 
 // --------------------------------------------------------------------------- //
 //  ProfilePicture component to render with  different sizes and border radius //
 // --------------------------------------------------------------------------- //
 export default function FancyProfilePicture(props: IFancyProfilePicture) {
-  const { src, rounded, size, alt, letterLength, className, ...placeholderProps } = { ...defaultProps, ...props };
+  const { rounded = 'md', size = 'md', alt, externalStyle, textAvatarSettings, ...htmlProps } = props;
 
-  return src ? (
-    <StyledImage className={className} src={src} alt={alt} $rounded={rounded} $size={size} />
+  return 'src' in htmlProps ? (
+    <StyledImage $rounded={rounded} $size={size} $externalStyle={externalStyle} alt={alt} {...htmlProps} />
   ) : (
-    <Placeholder className={className} $rounded={rounded} $size={size} {...placeholderProps}>
-      <Typography type="smText" variant={getTextSize(size)}>
-        {alt.substring(0, letterLength ?? 2).toUpperCase()}
-      </Typography>
-    </Placeholder>
+    <TextAvatar {...textAvatarSettings} rounded={rounded} size={size} text={alt} externalStyle={externalStyle}/>
   );
 }
-
-const defaultProps = {
-  size: 'md',
-  alt: 'Profile',
-};
-
-// generate the text size based on the size prop
-const getTextSize = (size: TSize | string): TTypography => {
-  switch (size) {
-    case 'xxs':
-    case 'xs':
-      return 'smText';
-    case 'sm':
-      return 'h6';
-    case 'md':
-      return 'h3';
-    case 'lg':
-      return 'h2';
-    case 'xl':
-    case 'xxl':
-      return 'h1';
-    default:
-      return 'h4';
-  }
-};
