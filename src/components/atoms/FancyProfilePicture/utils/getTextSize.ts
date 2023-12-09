@@ -1,7 +1,5 @@
-
-import { TSize } from "@/components/molecules/TextAvatar/utils/getSize";
-import { TTypography } from "@/interface/TTypography";
-
+import { TSize } from '@/components/molecules/TextAvatar/utils/getSize';
+import { TTypography } from '@/interface/TTypography';
 
 // generate the text size based on the size prop
 export const getTextSize = (size: TSize | string): TTypography => {

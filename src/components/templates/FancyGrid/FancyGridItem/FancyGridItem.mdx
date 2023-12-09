@@ -26,12 +26,8 @@ import FancyGridItem from './FancyGridItem';
 const MyComponent = () => {
   return (
     <FancyGrid grid={12} gap="10px">
-      <FancyGridItem gridSpace={6}>
-        {/* Content for a half-width item */}
-      </FancyGridItem>
-      <FancyGridItem gridSpace={6}>
-        {/* Content for another half-width item */}
-      </FancyGridItem>
+      <FancyGridItem gridSpace={6}>{/* Content for a half-width item */}</FancyGridItem>
+      <FancyGridItem gridSpace={6}>{/* Content for another half-width item */}</FancyGridItem>
     </FancyGrid>
   );
 };
@@ -47,12 +43,12 @@ In this example, each `FancyGridItem` spans half the width of the grid, taking u
 
 ```jsx
 const itemBreakpoints = [
-  { breakpoint: '768px', gridSize: 1 } // At screens smaller than 768px, the item takes one column.
+  { breakpoint: '768px', gridSize: 1 }, // At screens smaller than 768px, the item takes one column.
 ];
 
 <FancyGridItem gridSpace={3} breakpoints={itemBreakpoints}>
   {/* Content */}
-</FancyGridItem>
+</FancyGridItem>;
 ```
 
 In this example, the item will span 3 columns by default, but on screens smaller than 768px, it will take up only 1 column, adapting to a mobile view.

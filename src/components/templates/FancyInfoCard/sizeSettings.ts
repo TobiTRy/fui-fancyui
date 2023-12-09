@@ -1,4 +1,4 @@
-import { TComponentSizes} from '@/interface/TComponentSizes';
+import { TComponentSizes } from '@/interface/TComponentSizes';
 import { TTypography } from '@/interface/TTypography';
 
 type TSizeObj = {

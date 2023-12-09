@@ -1,2 +1,2 @@
-export { getBorderRadiusViaSize }  from './getBorderRadiusViaSize';
-export type { TgetBorderRadiusViaSize }  from './getBorderRadiusViaSize';
+export { getBorderRadiusViaSize } from './getBorderRadiusViaSize';
+export type { TgetBorderRadiusViaSize } from './getBorderRadiusViaSize';

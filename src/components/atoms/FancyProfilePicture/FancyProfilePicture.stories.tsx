@@ -41,7 +41,7 @@ const meta = {
       control: { type: 'text' },
       description: 'The externalStyle of the image.',
     },
-    textAvatarSettings:{
+    textAvatarSettings: {
       control: { type: 'object' },
       description: 'The textAvatarSettings of the image, the props of the AvatarTextImage component.',
     },

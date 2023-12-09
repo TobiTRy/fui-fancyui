@@ -20,7 +20,7 @@ export interface IActiveSwitchIndicator {
 // -------- Create a Incator for wich Item in a Switch List ist activ  ------- //
 // --------------------------------------------------------------------------- //
 export default function SwitchActiveIndicator(props: IActiveSwitchIndicator) {
-  const { itemNumber, tabSpacing, direction, className ,...switchProps } = props;
+  const { itemNumber, tabSpacing, direction, className, ...switchProps } = props;
   return (
     <Wrapper $itemNumber={itemNumber} className={className} $tabSpacing={tabSpacing} $direction={direction}>
       <ActiveSwitchIndicator

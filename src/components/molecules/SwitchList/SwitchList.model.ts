@@ -18,7 +18,7 @@ interface IBottomBarListProps {
   gap?: TSpacings;
 }
 
-type TFlexBoxOmitGap = Omit<TFancyFlexBoxProps, 'gap'>
+type TFlexBoxOmitGap = Omit<TFancyFlexBoxProps, 'gap'>;
 
 // the props for the SwitchList component with the props for the SwitchActiveIndicator component and the FancyFlexBox component
 export type TSwitchList = IBottomBarListProps &

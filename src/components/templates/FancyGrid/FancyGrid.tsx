@@ -5,7 +5,6 @@ import { CSSProp, styled } from 'styled-components';
 import FancyGridItem from './FancyGridItem/FancyGridItem';
 import IStyledPrefixAndOmitter from '@/interface/IStyledPrefixAndOmiter.model';
 
-
 export interface ICustomBreakpoint {
   breakpoint: string; // Breakpoint-Größe, z.B. '768px'
   gridSize: number; // Anzahl der Spalten für diesen Breakpoint
@@ -49,13 +48,13 @@ const GridContainer = styled.div<
   ${({ $externalStyle }) => $externalStyle}
 
   ${({ $breakpoints }) =>
-  $breakpoints &&
-  $breakpoints.map(
-    (breakpoint) => `
+    $breakpoints &&
+    $breakpoints.map(
+      (breakpoint) => `
       @media (min-width: ${breakpoint.breakpoint}) {
         grid-template-columns: repeat(${breakpoint.gridSize}, 1fr);
         ${breakpoint.gap ? `grid-gap: ${breakpoint.gap};` : ''}
       }
     `
-  )}
+    )}
 `;

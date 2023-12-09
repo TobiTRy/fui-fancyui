@@ -12,7 +12,7 @@ export type IFancyImage = {
 // -------------- The Definition for the FancyImage Component ---------------- //
 // --------------------------------------------------------------------------- //
 export default function FancyImage(props: IFancyImage) {
-  const {  aspectRatio, darken, externalStyle, ...imgProps } = props;
+  const { aspectRatio, darken, externalStyle, ...imgProps } = props;
 
   // Validate the aspect ratio if it is provided
   if (aspectRatio && !isAspectRatioValid(aspectRatio)) {
@@ -20,7 +20,5 @@ export default function FancyImage(props: IFancyImage) {
   }
 
   // Render the image with the provided props
-  return (
-    <StyledImage $darken={darken} $aspectRatio={aspectRatio}$externalStyle={externalStyle} {...imgProps} />
-  );
+  return <StyledImage $darken={darken} $aspectRatio={aspectRatio} $externalStyle={externalStyle} {...imgProps} />;
 }

@@ -73,7 +73,7 @@ export default function HeaderRoute() {
   return (
     <section>
       <FancyHeader externalStyle={{ height: '44px', padding: '0 12px' }}>
-        <FancyGrid grid={8} gap='12px'>
+        <FancyGrid grid={8} gap="12px">
           <FancyGrid.Item gridSpace={2} flexAlign="center" flexJustify="flex-start">
             <FancyHeader.Logo>
               <FancyHeader.Logo.Image
@@ -88,7 +88,7 @@ export default function HeaderRoute() {
           </FancyGrid.Item>
           <FancyGrid.Item gridSpace={4} flexJustify="flex-start" flexAlign="center">
             <FancyHeader.Nav>
-              <SwitchList  flexBoxProps={{ flexAlign: 'center', flexJustify: 'center' }} hoverStyle>
+              <SwitchList flexBoxProps={{ flexAlign: 'center', flexJustify: 'center' }} hoverStyle>
                 <Typography type="content">mooin</Typography>
                 <Typography type="content">mooin</Typography>
                 <Typography type="content">mooin</Typography>

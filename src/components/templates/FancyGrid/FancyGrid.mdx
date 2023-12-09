@@ -63,13 +63,9 @@ const MyComponent = () => {
 import FancyGrid, { FancyGridItem } from './FancyGrid';
 
 const MyComponent = () => {
-  const gridBreakpoints = [
-    { breakpoint: '768px', gridSize: 4, gap: '5px' }
-  ];
+  const gridBreakpoints = [{ breakpoint: '768px', gridSize: 4, gap: '5px' }];
 
-  const itemBreakpoints = [
-    { breakpoint: '768px', gridSize: 1 }
-  ];
+  const itemBreakpoints = [{ breakpoint: '768px', gridSize: 1 }];
 
   return (
     <FancyGrid grid={12} gap="10px" breakpoints={gridBreakpoints}>

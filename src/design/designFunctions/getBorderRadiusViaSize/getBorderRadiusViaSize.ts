@@ -1,4 +1,4 @@
-import { TComponentSizes } from "@/interface/TComponentSizes";
+import { TComponentSizes } from '@/interface/TComponentSizes';
 
 export type TgetBorderRadiusViaSize = TComponentSizes | 'complete';
 export const getBorderRadiusViaSize = (borderRadius: TgetBorderRadiusViaSize) => {

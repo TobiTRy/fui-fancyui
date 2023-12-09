@@ -8,7 +8,6 @@ import { getSize } from '@/components/molecules/TextAvatar/utils/getSize';
 import { TTextAvatarProps } from '@/components/molecules/TextAvatar/TextAvatar.model';
 import { getTextColor } from '@/design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponent';
 
-
 // Styled placeholder component for the profile picture
 type TPlaceholderProps = IStyledPrefixAndOmitter<TTextAvatarProps, 'text' | 'letterLength' | 'fontSizes'>;
 export const Placeholder = styled.div<TPlaceholderProps & { theme: TTheme }>`

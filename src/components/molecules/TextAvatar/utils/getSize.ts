@@ -1,4 +1,3 @@
-
 // Set size based on prop
 export type TSize = 'sm' | 'md' | 'lg' | 'xxs' | 'xs' | 'xl' | 'xxl' | 'complete';
 const sizeConfig: Record<TSize | string, string> = {
@@ -20,4 +19,3 @@ export const getSize = (size: TSize | string) => {
   // Return the size from the config or default if not found
   return sizeConfig[size] || sizeConfig['default'];
 };
-

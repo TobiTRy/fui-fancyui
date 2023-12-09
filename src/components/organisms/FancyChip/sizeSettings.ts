@@ -1,4 +1,4 @@
-import { themeStore } from "@/design/theme/themeStore";
+import { themeStore } from '@/design/theme/themeStore';
 
 const getSpacingFromTheme = themeStore.getState().theme.spacing;
 const spacings = {
@@ -6,7 +6,6 @@ const spacings = {
   sm: parseFloat(getSpacingFromTheme.sm),
   md: parseFloat(getSpacingFromTheme.md),
 };
-
 
 export const sizes = {
   sm: {

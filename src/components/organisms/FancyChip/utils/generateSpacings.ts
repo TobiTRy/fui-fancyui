@@ -1,7 +1,7 @@
-import { css } from "styled-components";
+import { css } from 'styled-components';
 
-import { TSpacingPosition } from "@/components/organisms/FancyChip/FancyChip.style";
-import { sizes } from "@/components/organisms/FancyChip/sizeSettings";
+import { TSpacingPosition } from '@/components/organisms/FancyChip/FancyChip.style';
+import { sizes } from '@/components/organisms/FancyChip/sizeSettings';
 
 // Define a function to generate the spacing based on the spacing position
 interface IGenerateSpacing {

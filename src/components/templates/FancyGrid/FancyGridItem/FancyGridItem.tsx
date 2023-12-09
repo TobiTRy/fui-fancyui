@@ -4,7 +4,6 @@ import IStyledPrefixAndPicker from '@/interface/IStyledPrefixAndPicker.model';
 import { FancyFlexBox } from '@/components/templates/FancyFlexBox';
 import { ICustomBreakpoint } from '@/components/templates/FancyGrid/FancyGrid';
 
-
 type FancyGridItemProps = {
   gridSpace: number;
   children?: React.ReactNode;
@@ -14,7 +13,7 @@ type FancyGridItemProps = {
 // ------------ The FancyGrid Item to get the space for the item - ----------- //
 // --------------------------------------------------------------------------- //
 export default function FancyGridItem(props: FancyGridItemProps) {
-  const { gridSpace, children, breakpoints,...flexBoxProps } = props;
+  const { gridSpace, children, breakpoints, ...flexBoxProps } = props;
 
   return (
     <GridItem $gridSpace={gridSpace} $breakpoints={breakpoints}>

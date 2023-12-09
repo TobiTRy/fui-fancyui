@@ -10,7 +10,7 @@ export default function FancyLayoutRoute() {
     <DesignWrapper>
       <DesignArea title="Fancy Grid" style={{ height: '100%', width: '100%' }}>
         <FancyGrid grid={6} gap="1rem">
-          <FancyGrid.Item gridSpace={3} breakpoints={[{breakpoint: '500px', gridSize: 6 }]}>
+          <FancyGrid.Item gridSpace={3} breakpoints={[{ breakpoint: '500px', gridSize: 6 }]}>
             <FancyButton label="Ji" wide />
           </FancyGrid.Item>
           <FancyGrid.Item gridSpace={3}>

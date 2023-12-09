@@ -8,7 +8,6 @@ import { FancyFlexBox } from '@/components/templates/FancyFlexBox';
 import { TSwitchList } from './SwitchList.model';
 import { generateListItemStyle } from './SwitchList.style';
 
-
 // --------------------------------------------------------------------------- //
 // -------------- The Switch List Indicates wich item is active -------------- //
 // --------------------------------------------------------------------------- //
@@ -27,7 +26,7 @@ export default function SwitchList(props: TSwitchList) {
   } = props;
 
   const [currentActive, setCurrentActive] = useState('');
-  const theme = themeStore(state => state.theme)
+  const theme = themeStore((state) => state.theme);
 
   const activeHandler = (uniqueKey: string) => {
     setCurrentActive(uniqueKey);
@@ -44,7 +43,6 @@ export default function SwitchList(props: TSwitchList) {
       externalStyle={css`
         height: 100%;
         ${externalStyle};
-
       `}
       gap={gap && theme.spacing[gap]}
       flexDirection={switchIndicator?.direction === 'vertical' ? 'column' : 'row'}
@@ -74,7 +72,7 @@ export default function SwitchList(props: TSwitchList) {
               {child}
               {index === 0 && (
                 <SwitchActiveIndicator
-                  className='switch-indicator'
+                  className="switch-indicator"
                   direction={switchIndicator?.direction}
                   type={switchIndicator?.type ?? 'underline'}
                   itemNumber={Number(currentActive)}
