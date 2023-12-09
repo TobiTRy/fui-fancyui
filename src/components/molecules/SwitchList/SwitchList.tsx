@@ -73,6 +73,7 @@ export default function SwitchList(props: TSwitchList) {
               {child}
               {index === 0 && (
                 <SwitchActiveIndicator
+                  className='switch-indicator'
                   direction={switchIndicator?.direction}
                   type={switchIndicator?.type ?? 'underline'}
                   itemNumber={Number(currentActive)}
