@@ -17,7 +17,7 @@ const meta = {
   },
   // Define arguments for the story
   argTypes: {
-    $type: {
+    type: {
       description: 'The type of the indicator, it can be a bolb or a underline',
       control: {
         type: 'radio',
@@ -27,7 +27,7 @@ const meta = {
         summary: 'bolb',
       },
     },
-    $direction: {
+    direction: {
       description: 'The direction of the indicator where it should be moved horizontal or vertical',
       control: {
         type: 'radio',
@@ -37,13 +37,13 @@ const meta = {
         summary: 'horizontal',
       },
     },
-    $itemNumber: {
+    itemNumber: {
       description: 'The itemnumber is to calc the position of the indicator for each item',
       control: {
         type: 'number',
       },
     },
-    $rounded: {
+    rounded: {
       description: 'The rounded is to set the border-radius of the indicator',
       control: {
         type: 'select',
@@ -53,7 +53,7 @@ const meta = {
         summary: 'md',
       },
     },
-    $tabSpacing: {
+    tabSpacing: {
       description: 'The spacing is to calc with the offset the position of the indicator for each item',
       control: {
         type: 'select',
@@ -62,7 +62,7 @@ const meta = {
         summary: '',
       },
     },
-    $outlined: {
+    outlined: {
       description: 'The outlined is to set the border of the indicator',
       control: {
         type: 'boolean',
@@ -71,7 +71,7 @@ const meta = {
         summary: false,
       },
     },
-    $themeType: {
+    themeType: {
       description: 'The themeType is to set the color of the indicator',
       control: {
         type: 'select',
@@ -94,13 +94,13 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   render: (args) => <SwitchActiveIndicator {...args} />,
   args: {
-    $itemNumber: 1,
-    $tabSpacing: 'md',
-    $type: 'bolb',
-    $rounded: 'md',
-    $outlined: false,
-    $direction: 'horizontal',
-    $themeType: 'accent',
+    itemNumber: 1,
+    tabSpacing: 'md',
+    type: 'bolb',
+    rounded: 'md',
+    outlined: false,
+    direction: 'horizontal',
+    themeType: 'accent',
   },
   parameters: {
     docs: {
