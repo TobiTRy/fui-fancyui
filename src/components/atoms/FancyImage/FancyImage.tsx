@@ -3,18 +3,16 @@ import { isAspectRatioValid } from '@/utils/validations/isAspectRatioValid';
 import { CSSProp } from 'styled-components';
 
 // Define the props for the FancyImage component
-export interface IFancyImage {
-  imageUrl: string;
+export type IFancyImage = {
   aspectRatio?: string; // e.g. "16/9"
   darken?: boolean;
-  alt?: string;
   externalStyle?: CSSProp;
-}
+} & React.ImgHTMLAttributes<HTMLImageElement>;
 // --------------------------------------------------------------------------- //
 // -------------- The Definition for the FancyImage Component ---------------- //
 // --------------------------------------------------------------------------- //
 export default function FancyImage(props: IFancyImage) {
-  const { imageUrl, aspectRatio, darken, alt, externalStyle } = props;
+  const {  aspectRatio, darken, externalStyle, ...imgProps } = props;
 
   // Validate the aspect ratio if it is provided
   if (aspectRatio && !isAspectRatioValid(aspectRatio)) {
@@ -23,6 +21,6 @@ export default function FancyImage(props: IFancyImage) {
 
   // Render the image with the provided props
   return (
-    <StyledImage src={imageUrl} $darken={darken} $aspectRatio={aspectRatio} alt={alt} $externalStyle={externalStyle} />
+    <StyledImage $darken={darken} $aspectRatio={aspectRatio}$externalStyle={externalStyle} {...imgProps} />
   );
 }
