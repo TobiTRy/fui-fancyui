@@ -28,18 +28,15 @@ const meta = {
       description: 'A function that is called when the active item is changed.',
       type: { name: 'function' },
     },
-    indicatorType: {
-      description: 'The type of the active indicator.',
-      control: {
-        type: 'select',
-      },
-      defaultValue: {
-        summary: 'underline',
-      },
-    },
     externalStyle: {
       description: 'The external style of the SwitchList.',
       type: { name: 'string' },
+    },
+    switchIndicator: {
+      description: 'The switch indicator of the SwitchList. The Props of the SwitchActiveIndicator.',
+    },
+    flexBoxProps: {
+      description: 'The flex box props of the SwitchList. The Props of the FancyFlexBox.',
     },
   },
 
@@ -59,6 +56,14 @@ export const Primary: Story = {
     </SwitchList>
   ),
   args: {
+    flexBoxProps: {
+      flexJustify: 'space-between',
+      flexAlign: 'center',
+    },
+    switchIndicator: {
+      direction: 'horizontal',
+    },
+
     children: <></>,
   },
 };
