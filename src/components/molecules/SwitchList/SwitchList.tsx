@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { css } from 'styled-components';
 
+import { themeStore } from '@/design/theme/themeStore';
+
 import { SwitchActiveIndicator } from '@/components/atoms/SwitchActiveIndicator';
 import { FancyFlexBox } from '@/components/templates/FancyFlexBox';
 import { TSwitchList } from './SwitchList.model';
 import { generateListItemStyle } from './SwitchList.style';
-import { themeStore } from '@/design/theme/themeStore';
 
 
 // --------------------------------------------------------------------------- //

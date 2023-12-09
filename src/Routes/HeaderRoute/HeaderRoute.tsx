@@ -73,12 +73,12 @@ export default function HeaderRoute() {
   return (
     <section>
       <FancyHeader externalStyle={{ height: '44px', padding: '0 12px' }}>
-        <FancyGrid grid={3}>
-          <FancyGrid.Item gridSpace={1} flexAlign="center" flexJustify="flex-start">
+        <FancyGrid grid={8} gap='12px'>
+          <FancyGrid.Item gridSpace={2} flexAlign="center" flexJustify="flex-start">
             <FancyHeader.Logo>
               <FancyHeader.Logo.Image
                 aspectRatio="1/1"
-                imageUrl="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
+                src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
               ></FancyHeader.Logo.Image>
               <FancyHeader.Logo.Icon>
                 <Logo></Logo>
@@ -86,9 +86,9 @@ export default function HeaderRoute() {
               <FancyHeader.Logo.Title type="h3">Mooiin</FancyHeader.Logo.Title>
             </FancyHeader.Logo>
           </FancyGrid.Item>
-          <FancyGrid.Item gridSpace={1} flexJustify="center" flexAlign="center">
+          <FancyGrid.Item gridSpace={4} flexJustify="flex-start" flexAlign="center">
             <FancyHeader.Nav>
-              <SwitchList spacing='lg' flexBoxProps={{ flexAlign: 'center', flexJustify: 'center' }}>
+              <SwitchList  flexBoxProps={{ flexAlign: 'center', flexJustify: 'center' }} hoverStyle>
                 <Typography type="content">mooin</Typography>
                 <Typography type="content">mooin</Typography>
                 <Typography type="content">mooin</Typography>
@@ -96,7 +96,7 @@ export default function HeaderRoute() {
               </SwitchList>
             </FancyHeader.Nav>
           </FancyGrid.Item>
-          <FancyGrid.Item gridSpace={1} flexJustify="flex-end" flexAlign="center">
+          <FancyGrid.Item gridSpace={2} flexJustify="flex-end" flexAlign="center">
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end' }}>
               <FancyMiniProfile
                 size={'sm'}

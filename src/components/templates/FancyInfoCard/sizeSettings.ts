@@ -1,14 +1,14 @@
-import { TSizes } from '@/interface/TComponentSizes';
+import { TComponentSizes} from '@/interface/TComponentSizes';
 import { TTypography } from '@/interface/TTypography';
 
 type TSizeObj = {
-  iconSize: TSizes;
+  iconSize: TComponentSizes;
   title: TTypography;
   descriptionSize: TTypography;
 };
 
 type TSizesObject = {
-  [K in TSizes]: TSizeObj;
+  [K in TComponentSizes]: TSizeObj;
 };
 
 // the template for the sizes
