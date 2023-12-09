@@ -1,18 +1,8 @@
-import { styled, CSSProp, css } from 'styled-components';
+import { css } from 'styled-components';
 
-import { RawUL } from '@/components/atoms/RawUL';
-import { TTheme } from '@/interface/TTheme';
 import { simpleColorTransition } from '@/design/designFunctions/simpleColorTransition';
 import { themeStore } from '@/design/theme/themeStore';
-
-//TODO: Remove this later
-export const StyledList = styled(RawUL)<{ $externalStyle?: CSSProp; $direction?: 'horizontal' | 'vertical' }>`
-  display: flex;
-  flex-direction: ${({ $direction }) => ($direction === 'vertical' ? 'column' : 'row')};
-  justify-content: space-evenly;
-  width: 100%;
-  ${({ $externalStyle }) => $externalStyle};
-`;
+import { TTheme } from '@/interface/TTheme';
 
 export const ListItemStyle = css<{ theme: TTheme; active: boolean }>`
   position: relative;
@@ -39,10 +29,14 @@ export const generateListItemStyle = (props: IgenerateListItemStyle) => {
     flex-grow: 1;
     height: 100%;
     color: ${isActive !== undefined && (isActive ? theme.colors.accent[0] : theme.colors.secondary[0])};
-    ${simpleColorTransition}
     ${hoverStyle &&
     css`
-      &:hover {
+      & > *:not(.switch-indicator) {
+        ${simpleColorTransition}
+      }
+
+      & > *:hover {
+        ${simpleColorTransition}
         color: ${theme.colors.accent[0]};
       }
     `}
