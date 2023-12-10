@@ -1,9 +1,9 @@
 import { create } from 'zustand';
 
 import { TModalStatus } from '@/interface/TModalStatus';
-import { IModal } from '@/components/molecules/Modal/Modal';
+import { TModal } from '@/components/molecules/Modal/Modal';
 
-type TModalConfig = Omit<IModal, 'id' | 'children' | 'status' | 'isOpen'>;
+type TModalConfig = Omit<TModal, 'id' | 'children' | 'status' | 'isOpen'>;
 
 type IModals = {
   id: string;
