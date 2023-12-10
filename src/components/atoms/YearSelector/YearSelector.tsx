@@ -14,8 +14,11 @@ interface IYearSelector {
   themeType?: TThemeTypes;
   layer?: TLayer;
   handler?: (change: number) => void;
+  altTextLeftArrow?: string;
+  altTextRightArrow?: string;
 }
-export default function YearSelector({ selectedYear, handler, themeType, layer }: IYearSelector) {
+export default function YearSelector(props: IYearSelector) {
+  const { selectedYear, themeType, layer, handler, altTextLeftArrow, altTextRightArrow } = props;
   // update the year and call the handler if the year changes
   const handleYearChange = (change: number) => {
     const calcCurrentYear = selectedYear + change;
@@ -24,7 +27,12 @@ export default function YearSelector({ selectedYear, handler, themeType, layer }
 
   return (
     <StyledYearSelector $layer={layer} $themeType={themeType}>
-      <StyledButton aria-label="a year back" onClick={() => handleYearChange(-1)} $themeType={themeType} $layer={layer}>
+      <StyledButton
+        aria-label={altTextLeftArrow || 'a year back'}
+        onClick={() => handleYearChange(-1)}
+        $themeType={themeType}
+        $layer={layer}
+      >
         <FancySVGAtom isPassive={true} externalStyle={SVGDesignCSS}>
           {SVGChevronLeft}
         </FancySVGAtom>
@@ -33,7 +41,7 @@ export default function YearSelector({ selectedYear, handler, themeType, layer }
         {selectedYear}
       </Typography>
       <StyledButton
-        aria-label="one year forward"
+        aria-label={altTextRightArrow || 'one year forward'}
         onClick={() => handleYearChange(1)}
         $themeType={themeType}
         $layer={layer}
