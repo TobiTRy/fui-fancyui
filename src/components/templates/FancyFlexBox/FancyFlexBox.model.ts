@@ -13,6 +13,7 @@ export type TStyleProps = {
 // Props specific to FancyFlexBox
 export type TFancyFlexBoxProps = {
   separator?: React.ReactNode;
+  fitBox?: boolean;
 } & TStyleProps;
 
 // Props for dynamic element type
