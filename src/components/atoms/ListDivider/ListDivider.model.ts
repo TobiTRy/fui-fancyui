@@ -20,4 +20,5 @@ export type IListDivider = {
   noLine?: boolean;
   bold?: boolean;
   icon?: React.ReactNode;
-} & (WithLabel | WithoutLabel) & HTMLAttributes<HTMLDivElement>;
+} & (WithLabel | WithoutLabel) &
+  HTMLAttributes<HTMLDivElement>;

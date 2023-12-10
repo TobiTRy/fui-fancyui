@@ -28,7 +28,6 @@ export default function InputWrapper({
   layer = 4,
   themeType = 'secondary',
 }: IInputWrapper) {
-  
   const [isInitial, setIsInitial] = useState(false);
 
   // Calculate the color state for the label and underline

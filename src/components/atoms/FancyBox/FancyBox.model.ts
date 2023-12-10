@@ -15,5 +15,4 @@ interface IFancyBox {
   externalStyle?: CSSProp;
 }
 
-
 export type IFancyBoxProps<T extends ElementType> = IFancyBox & HTMLDivElementProps<T>;

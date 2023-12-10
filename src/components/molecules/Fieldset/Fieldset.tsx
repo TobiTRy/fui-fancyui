@@ -12,7 +12,7 @@ type TFieldset = {
   alignLabel?: TTextAlignLC;
   fontVariantLegend?: TTypography;
   disabled?: boolean;
-} & HTMLAttributes<HTMLFieldSetElement>
+} & HTMLAttributes<HTMLFieldSetElement>;
 // --------------------------------------------------------------------------- //
 // ---- A Fieldset that Provides a Label and a Fieldset for some childs ------ //
 // --------------------------------------------------------------------------- //
