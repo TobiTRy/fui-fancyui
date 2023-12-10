@@ -1,11 +1,11 @@
-import { styled } from 'styled-components';
 import Color from 'color';
+import { styled } from 'styled-components';
 
 import { fontSize } from '@/design/theme/designSizes';
 import { simpleColorTransition } from '@/design/designFunctions/simpleColorTransition';
 import { TThemeTypesNotTransparent } from '@/interface/TThemeTypesNotTransparent';
 import { TLayer } from '@/interface/TLayer';
-import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponent';
+import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent';
 import { TTheme } from '@/interface/TTheme';
 
 // --------------------------------------------------------------------------- //
