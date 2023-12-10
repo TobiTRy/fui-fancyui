@@ -5,7 +5,7 @@ import { TLayer } from '@/interface/TLayer';
 import { TThemeTypes } from '@/interface/TThemeTypes';
 
 type HTMLDivElementProps<T extends ElementType = 'div'> = Omit<React.HTMLAttributes<T>, 'style'>;
-interface IFancyBox {
+export interface IFancyBox {
   as?: ElementType;
   outlined?: boolean;
   layer?: TLayer;
