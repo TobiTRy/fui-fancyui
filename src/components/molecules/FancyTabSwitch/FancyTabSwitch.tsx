@@ -8,18 +8,21 @@ import { FancyBox } from '@/components/atoms/FancyBox';
 import { tabSwitchSizes } from '@/components/molecules/TabSwitch/TabSwitch.style';
 import { ITabSwitchProps } from '@/components/molecules/TabSwitch/TabSwitch.model';
 
+
+const calcPadding = (size: ITabSwitchProps['size'], outlined?: boolean) => {
+  if (outlined) {
+    return parseInt(tabSwitchSizes[size || 'sm'].paddingComponent) - 1.5 + 'px';
+  }
+  return size ? tabSwitchSizes[size].paddingComponent : '0';
+}
+
 // --------------------------------------------------------------------------- //
 // -----  The FancyTabswich has more advanced features like Label etc. ------- //
 // --------------------------------------------------------------------------- //
 export default function FancyTabSwitch(props: ITabSwitchProps & { label?: string }) {
   const { values, label, layer, themeType, size, disabled, outlined, rounded, wide, ...tabSwitchProps } = props;
 
-  const clacPadding = outlined
-    ? parseInt(tabSwitchSizes[size || 'sm'].paddingComponent) - 1.5 + 'px'
-    : size
-      ? tabSwitchSizes[size].paddingComponent
-      : '0';
-
+  const clacPadding = calcPadding(size, outlined)
   /* Generate the unordered list for the tab switch */
   return (
     <Fieldset label={label} disabled={disabled}>
