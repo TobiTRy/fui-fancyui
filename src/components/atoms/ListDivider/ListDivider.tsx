@@ -7,7 +7,7 @@ import { StyledI, StyledTextDiv } from './ListDivider.style';
 // ------- A Divider that displays only a line or line with informations ----- //
 // --------------------------------------------------------------------------- //
 export default function ListDivider(props: IListDivider) {
-  const { label, textAlignment = 'center', themeType, layer, bold, icon, noLine } = props;
+  const { label, textAlignment = 'center', themeType, layer, bold, icon, noLine, ...htmlProps } = props;
 
   return (
     <>
@@ -16,9 +16,10 @@ export default function ListDivider(props: IListDivider) {
         <StyledTextDiv
           $textAlignment={textAlignment}
           $noLine={noLine}
-          tabIndex={0}
+          tabIndex={htmlProps.tabIndex ?? 0}
           $themeType={themeType}
           $layer={layer}
+          {...htmlProps}
         >
           <FancyContent>
             {label && (
@@ -31,7 +32,7 @@ export default function ListDivider(props: IListDivider) {
         </StyledTextDiv>
       ) : (
         // Render a Seperator(Divider) only a line
-        <StyledI role="separator" />
+        <StyledI role="separator" {...htmlProps} />
       )}
     </>
   );
