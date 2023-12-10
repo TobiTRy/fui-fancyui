@@ -1,4 +1,4 @@
-import React from 'react';
+import { HTMLAttributes, ReactNode } from 'react';
 
 import { TTextAlignLC } from '@/interface/TTextAlignLC';
 import { TTypography } from '@/interface/TTypography';
@@ -6,17 +6,17 @@ import { TTypography } from '@/interface/TTypography';
 import { StyledFieldset, StyledLegend } from './Fieldset.style';
 import { Typography } from '@/components/atoms/Typography';
 
-interface IFieldset {
-  children?: React.ReactNode;
+type TFieldset = {
+  children?: ReactNode;
   label?: string;
   alignLabel?: TTextAlignLC;
   fontVariantLegend?: TTypography;
   disabled?: boolean;
-}
+} & HTMLAttributes<HTMLFieldSetElement>
 // --------------------------------------------------------------------------- //
 // ---- A Fieldset that Provides a Label and a Fieldset for some childs ------ //
 // --------------------------------------------------------------------------- //
-export default function Fieldset(props: IFieldset) {
+export default function Fieldset(props: TFieldset) {
   const { children, label, alignLabel, fontVariantLegend, disabled } = props;
 
   return (
