@@ -4,7 +4,7 @@ import { generateThemeForCard } from '@/design/designFunctions/generateThemeForC
 import IStyledPrefixAndPicker from '@/interface/IStyledPrefixAndPicker.model';
 import { TTheme } from '@/interface/TTheme';
 
-import { IFancyBox} from './FancyBox.model';
+import { IFancyBox } from './FancyBox.model';
 
 // the fancy box that gets the style from the theme
 type IStyledFancyBox = IStyledPrefixAndPicker<IFancyBox> & { theme: TTheme };
