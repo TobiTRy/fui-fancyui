@@ -16,8 +16,8 @@ interface IInputLabel {
 
 const InputLabel = styled.label<IInputLabel>`
   width: 100%;
-  color: ${({ theme, $layer = 1, $themeType = 'secondary' }) =>
-    getTextColor({ theme, $themeType, $textLayer: $layer })};
+  color: ${({ theme, $layer, $themeType }) =>
+    getTextColor({ theme, $themeType: $themeType ?? 'secondary', $textLayer: $layer ?? 1 })};
   font-weight: bold;
   pointer-events: none;
   user-select: none;
