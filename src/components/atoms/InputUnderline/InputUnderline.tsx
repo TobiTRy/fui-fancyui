@@ -1,26 +1,23 @@
-import React from 'react';
-import { styled, css } from 'styled-components';
+import { HTMLAttributes } from 'react';
 
-import { TThemeTypes } from '@/interface/TThemeTypes';
-import IStyledPrefixAndPicker from '@/interface/IStyledPrefixAndPicker.model';
 import { TLayer } from '@/interface/TLayer';
-import { TTheme } from '@/interface/TTheme';
+import { TThemeTypes } from '@/interface/TThemeTypes';
 
-import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponent';
+import { UnderLine } from '@/components/atoms/InputUnderline/InputUnderline.style';
 
 // Define the props for the FancyInputUnderline component
-interface IFancyUnderline {
+export type TFancyUnderline = {
   colorState?: 'error' | 'active' | 'default';
   isActive?: boolean;
   autoWidth?: boolean;
   themeType?: TThemeTypes;
   layer?: TLayer;
-}
+} & HTMLAttributes<HTMLElement>;
 // --------------------------------------------------------------------------- //
 // --------- The underline for the input components with state style --------- //
 // --------------------------------------------------------------------------- //
-export default function InputUnderline(props: IFancyUnderline) {
-  const { colorState = 'default', isActive, autoWidth, layer = 4, themeType } = props;
+export default function InputUnderline(props: TFancyUnderline) {
+  const { colorState = 'default', isActive, autoWidth, layer = 4, themeType, ...htmlProps } = props;
 
   // Render the FancyInputUnderline component with the appropriate props
   return (
@@ -30,50 +27,7 @@ export default function InputUnderline(props: IFancyUnderline) {
       $layer={layer}
       $isActive={isActive}
       $autoWidth={autoWidth}
+      {...htmlProps}
     />
   );
 }
-
-// ------------------------------------------- //
-// ------- The style for the component ------- //
-// ------------------------------------------- //
-// Define the styled component for the underline
-type IStyledUnderline = IStyledPrefixAndPicker<IFancyUnderline>;
-const UnderLine = styled.i<IStyledUnderline & { theme: TTheme }>`
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  height: 2px;
-  border-radius: 5px;
-  background: ${({ theme, $themeType = 'secondary', $layer }) => getBackgroundColor({ theme, $themeType, $layer })};
-  overflow: hidden;
-  width: 100%;
-
-  // Define the styles for the gradient overlay
-  &::before {
-    content: '';
-    width: 100%;
-    border-radius: 5px;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    opacity: ${({ $isActive }) => ($isActive ? 1 : 0)};
-    height: 100%;
-    background: ${({ $colorState, theme }) => {
-      switch ($colorState) {
-        case 'error':
-          return css`linear-gradient(90deg, ${theme.colors.error[1]}, ${theme.colors.error[0]})`;
-        case 'active':
-          return css`linear-gradient(90deg, ${theme.colors.accent[1]}, ${theme.colors.accent[0]})`;
-        case 'default':
-          return css`linear-gradient(90deg, ${theme.colors.secondary[0]}, ${theme.colors.secondary[4]})`;
-        default:
-          return '';
-      }
-    }};
-
-    // Define the transition styles for the gradient overlay
-    transition: 0.25s;
-    transition-timing-function: cubic-bezier(0.46, 0.03, 0.52, 0.96);
-  }
-`;
