@@ -2,23 +2,20 @@ import React from 'react';
 import { styled } from 'styled-components';
 
 import { isAspectRatioValid } from '@/utils/validations/isAspectRatioValid';
+import { FancyVideoSource } from '@/components/atoms/FancyVideo/FancyVideoSource';
 
 // Define the props for the FancyVideo component
-export interface IFancyVideo {
-  src: string;
-  controls?: boolean;
+export type TFancyVideo = {
   autoPlay?: boolean;
-  loop?: boolean;
   muted?: boolean;
-  poster?: string;
   aspectRatio?: string; // e.g. "16/9"
   darken?: boolean;
-}
+} & React.VideoHTMLAttributes<HTMLVideoElement>;
 // --------------------------------------------------------------------------- //
 // -------------- The Definition for the FancyVideo Component ---------------- //
 // --------------------------------------------------------------------------- //
-export default function FancyVideo(props: IFancyVideo) {
-  const { src, controls, autoPlay, loop, muted, poster, aspectRatio, darken = true } = props;
+export default function FancyVideo(props: TFancyVideo) {
+  const { autoPlay, muted, aspectRatio, darken, ...htmlProps } = props;
 
   // Validate the aspect ratio if it is provided
   if (aspectRatio && !isAspectRatioValid(aspectRatio)) {
@@ -27,19 +24,13 @@ export default function FancyVideo(props: IFancyVideo) {
 
   // Render the video with the appropriate props
   return (
-    <StyledVideo
-      controls={controls}
-      autoPlay={autoPlay}
-      $aspectRatio={aspectRatio}
-      loop={loop}
-      muted={autoPlay ? true : muted}
-      poster={poster}
-      $darken={darken}
-    >
-      <source src={src} type="video/mp4" />
+    <StyledVideo $aspectRatio={aspectRatio} muted={autoPlay ? true : muted} $darken={darken} {...htmlProps}>
+      {props.children}
     </StyledVideo>
   );
 }
+
+FancyVideo.Source = FancyVideoSource;
 
 // ------------------------------------------- //
 // ------- The style for the component ------- //
