@@ -19,7 +19,7 @@ export const Placeholder = styled.div<TPlaceholderProps & { theme: TTheme }>`
   align-items: center;
   background-color: ${({ $backgroundColor, theme, $layer, $themeType }) =>
     $backgroundColor ? $backgroundColor : theme.colors[$themeType ?? 'primary'][$layer ?? 2]};
-  color: ${({ $color, theme, $layer = 1, $themeType = 'secondary' }) =>
+  color: ${({ $color, theme, $layer = 1, $themeType = 'primary' }) =>
     getTextColor({ theme, $themeType, $textLayer: $layer, $customTextColor: $color, turnColorTheme: true })};
   font-size: 1.5em;
   aspect-ratio: 1/1;
