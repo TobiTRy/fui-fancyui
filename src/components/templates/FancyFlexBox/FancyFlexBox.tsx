@@ -1,4 +1,5 @@
 import React from 'react';
+import { css } from 'styled-components';
 
 import { TFancyFlexBoxProps, TDynamicElementProps } from './FancyFlexBox.model';
 import { StyledFlexBox } from './FancyFlexBox.style';
@@ -6,10 +7,10 @@ import { StyledFlexBox } from './FancyFlexBox.style';
 // --------------------------------------------------------------------------- //
 // ------------ A layout component that helps align with flex box ------------ //
 // --------------------------------------------------------------------------- //
-export default function FancyFlexBox<T extends React.ElementType = 'div'>(
-  props: TDynamicElementProps<T> & TFancyFlexBoxProps
-) {
-  const { children, separator, externalStyle, flexAlign, flexDirection, flexJustify, gap, as, ...htmlElProps } = props;
+export type TFancyFlexBox<T extends React.ElementType = 'div'> = TDynamicElementProps<T> & TFancyFlexBoxProps;
+export default function FancyFlexBox<T extends React.ElementType = 'div'>(props: TFancyFlexBox<T>) {
+  const { children, separator, externalStyle, flexAlign, flexDirection, flexJustify, fitBox, gap, as, ...htmlElProps } =
+    props;
 
   // Modify the children components to include a separator if specified.
   const modifiedChilds = separator
@@ -32,7 +33,13 @@ export default function FancyFlexBox<T extends React.ElementType = 'div'>(
       $flexDirection={flexDirection}
       $flexJustify={flexJustify}
       $gap={gap}
-      $externalStyle={externalStyle}
+      $externalStyle={css`
+        ${fitBox &&
+        css`
+          height: 100%;
+        `}
+        ${externalStyle}
+      `}
       {...htmlElProps}
     >
       {modifiedChilds}
