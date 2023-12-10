@@ -15,6 +15,9 @@ import { Typography } from '@/components/atoms/Typography';
 import { FancyHeader } from '@/components/organisms/FancyHeader';
 import { SwitchList } from '@/components/molecules/SwitchList';
 import { FancyGrid } from '@/components/templates/FancyGrid';
+import { FancyMenu } from '@/components/templates/FancyMenueComponent/FancyMenu';
+import { FancyPopover } from '@/components/shared/FancyPopover';
+import { FancyFlexBox } from '@/components/templates/FancyFlexBox';
 
 const Logo = () => (
   <svg
@@ -36,7 +39,7 @@ const RightSlot = ({ onClick }: { onClick?: () => void }) => {
       <FancyMiniProfile
         alignText="left"
         headingText="@TobiTRy"
-        imageURL="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
+        src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
       />
     </div>
   );
@@ -60,7 +63,7 @@ const HeaderContent = () => {
         <FancyMiniProfile
           alignText="left"
           headingText="@TobiTRy"
-          imageURL="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
+          src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
         />
       </div>
     </HeaderContentWrapper>
@@ -72,39 +75,51 @@ export default function HeaderRoute() {
 
   return (
     <section>
+      <FancyFlexBox className="hii"></FancyFlexBox>
       <FancyHeader externalStyle={{ height: '44px', padding: '0 12px' }}>
         <FancyGrid grid={8} gap="12px">
-          <FancyGrid.Item gridSpace={2} flexAlign="center" flexJustify="flex-start">
-            <FancyHeader.Logo>
-              <FancyHeader.Logo.Image
-                aspectRatio="1/1"
-                src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
-              ></FancyHeader.Logo.Image>
-              <FancyHeader.Logo.Icon>
-                <Logo></Logo>
-              </FancyHeader.Logo.Icon>
-              <FancyHeader.Logo.Title type="h3">Mooiin</FancyHeader.Logo.Title>
-            </FancyHeader.Logo>
+          <FancyGrid.Item gridSpace={2}>
+            <FancyGrid.Item.FlexBox flexAlign="center" flexJustify="flex-start" className={'mooiiin'}>
+              <FancyHeader.Logo>
+                <FancyHeader.Logo.Icon>
+                  <Logo></Logo>
+                </FancyHeader.Logo.Icon>
+                <FancyHeader.Logo.Title type="h3">Mooiin</FancyHeader.Logo.Title>
+              </FancyHeader.Logo>
+            </FancyGrid.Item.FlexBox>
           </FancyGrid.Item>
-          <FancyGrid.Item gridSpace={4} flexJustify="flex-start" flexAlign="center">
-            <FancyHeader.Nav>
-              <SwitchList flexBoxProps={{ flexAlign: 'center', flexJustify: 'center' }} hoverStyle>
-                <Typography type="content">mooin</Typography>
-                <Typography type="content">mooin</Typography>
-                <Typography type="content">mooin</Typography>
-                <Typography type="content">mooin</Typography>
-              </SwitchList>
-            </FancyHeader.Nav>
+          <FancyGrid.Item gridSpace={4}>
+            <FancyGrid.Item.FlexBox flexAlign="center" flexJustify="center">
+              <FancyHeader.Nav>
+                <SwitchList flexBoxProps={{ flexAlign: 'center', flexJustify: 'center' }} hoverStyle>
+                  <Typography type="content">mooin</Typography>
+                  <Typography type="content">mooin</Typography>
+                  <Typography type="content">mooin</Typography>
+                  <Typography type="content">mooin</Typography>
+                </SwitchList>
+              </FancyHeader.Nav>
+            </FancyGrid.Item.FlexBox>
           </FancyGrid.Item>
-          <FancyGrid.Item gridSpace={2} flexJustify="flex-end" flexAlign="center">
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end' }}>
-              <FancyMiniProfile
-                size={'sm'}
-                alignText="left"
-                headingText="@TobiTRy"
-                imageURL="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
-              />
-            </div>
+          <FancyGrid.Item gridSpace={2}>
+            <FancyGrid.Item.FlexBox flexAlign="center" flexJustify="flex-end">
+              <FancyPopover
+                offsetY={5}
+                contentComponent={
+                  <FancyMenu>
+                    <FancyMenu.Item label="HIii"></FancyMenu.Item>
+                    <FancyMenu.Item label="Hiii"></FancyMenu.Item>
+                  </FancyMenu>
+                }
+                refComponent={
+                  <FancyMiniProfile
+                    size={'sm'}
+                    alignText="left"
+                    headingText="@TobiTRy"
+                    src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
+                  />
+                }
+              ></FancyPopover>
+            </FancyGrid.Item.FlexBox>
           </FancyGrid.Item>
         </FancyGrid>
       </FancyHeader>
