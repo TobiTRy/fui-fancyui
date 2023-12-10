@@ -1,4 +1,4 @@
-import React, { InputHTMLAttributes, useState, useEffect, KeyboardEvent, ChangeEvent } from 'react';
+import { InputHTMLAttributes, useState, useEffect, KeyboardEvent, ChangeEvent } from 'react';
 import StyledNumberInput from './NumberInput.styled';
 import { TTextAlignLC } from '@/interface/TTextAlignLC';
 
@@ -9,6 +9,8 @@ export interface INumberInput extends InputHTMLAttributes<HTMLInputElement> {
   step?: number;
   activeHandler?: (value: boolean) => void;
 }
+
+//TODO: REFACTOR THIS
 
 export default function NumberInput(props: INumberInput) {
   const { value, onChange, activeHandler, align, id, autoWidth, max, min, step = 1, ...moreHTMLProps } = props;
