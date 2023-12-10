@@ -1,6 +1,5 @@
 // ---------- atoms ------- //
 export { default as BackDrop } from '@/components/atoms/BackDrop/BackDrop';
-export { default as ColorDisplay } from '@/components/atoms/ColorDisplay/ColorDisplay';
 export { default as ColorIndicator } from '@/components/atoms/ColorIndicator/ColorIndicator';
 export { default as DateNumberAtom } from '@/components/atoms/DateNumberAtom/DateNumberAtom';
 export { default as DateOutput } from '@/components/atoms/DateOutput/DateOutput';
@@ -43,7 +42,6 @@ export { default as ActionWrapper } from '@/components/atoms/ActionWrapper/Actio
 export { default as RawRadio } from '@/components/atoms/RawRadio/RawRadio';
 export { default as LoadingSVGArrows } from '@/components/atoms/LoadingSVGArrows/LoadingSVGArrows';
 export { default as SwitchActiveIndicator } from '@/components/atoms/SwitchActiveIndicator/SwitchActiveIndicator';
-export { default as ComponentAsWrapper } from '@/components/atoms/ComponentAsWrapper/ComponentAsWrapper';
 export { default as FancyActionWrapper } from '@/components/atoms/FancyActionWrapper/FancyActionWrapper';
 export { default as ListDivider } from '@/components/atoms/ListDivider/ListDivider';
 export { default as MenuItem } from '@/components/atoms/MenuItem/MenuItem';
@@ -75,6 +73,7 @@ export { default as SearchBarList } from '@/components/molecules/SearchBarList/S
 export { default as SingleInputs } from '@/components/molecules/SingleInputs/SingleInputs';
 export { default as SingleToastMessage } from '@/components/molecules/SingleToastMessage/SingleToastMessage';
 export { default as SwipeUpModal } from '@/components/molecules/SwipeUpModal/SwipeUpModal';
+export { default as ColorDisplay } from '@/components/molecules/ColorDisplay/ColorDisplay';
 export { default as TextInput } from '@/components/molecules/TextInput/TextInput';
 export { default as FancyOpacitySlider } from '@/components/molecules/FancyOpacitySlider/FancyOpacitySlider';
 export { default as FancyButton } from '@/components/organisms/FancyButton/FancyButton';
@@ -147,6 +146,7 @@ export { default as FancyBottomBarIcon } from '@/components/templates/FancyBotto
 // ---------- Utils/Hooks ------- //
 export { default as FancyPopover } from '@/components/shared/FancyPopover/FancyPopover';
 export { default as Delay } from '@/components/shared/Delay/Delay';
+export { default as ComponentAsWrapper } from '@/components/shared/ComponentAsWrapper/ComponentAsWrapper';
 export { default as FancyPortal } from '@/components/shared/FancyPortal/FancyPortal';
 export { default as useIntersectionObserver } from '@/utils/hooks/useIntersectionObserver/useIntersectionObserver';
 export { default as useWindowDimensions } from '@/utils/hooks/useWindowDimensions/useWindowDimensions';
