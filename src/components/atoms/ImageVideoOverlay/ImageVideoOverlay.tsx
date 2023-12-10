@@ -15,7 +15,7 @@ interface IImageVideoOverlay {
 // ----------- The Definition for the ImageVideoOverlay Component ------------ //
 // --------------------------------------------------------------------------- //
 export default function ImageVideoOverlay(props: IImageVideoOverlay) {
-  const { children, position, textChildren } = { ...defaultProps, ...props };
+  const { children, position = 'top-right', textChildren } = props;
 
   return (
     <Wrapper>
@@ -26,8 +26,3 @@ export default function ImageVideoOverlay(props: IImageVideoOverlay) {
     </Wrapper>
   );
 }
-
-// Define the default props for the ImageVideoOverlay component
-const defaultProps = {
-  position: 'top-right',
-};
