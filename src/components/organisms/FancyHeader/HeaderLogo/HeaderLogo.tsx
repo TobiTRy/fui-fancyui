@@ -5,6 +5,17 @@ import LogoImage from '@/components/organisms/FancyHeader/HeaderLogo/LogoImage/L
 import LogoIcon from '@/components/organisms/FancyHeader/HeaderLogo/LogoIcon/LogoIcon';
 import LogoTitle from '@/components/organisms/FancyHeader/HeaderLogo/LogoTitle/LogoTitle';
 
+type THeaderLogo = {
+  children?: React.ReactNode;
+} & React.HTMLAttributes<HTMLDivElement>;
+export default function HeaderLogo(props: THeaderLogo) {
+  return <StyledLogoWrapper {...props} />;
+}
+
+HeaderLogo.Image = LogoImage;
+HeaderLogo.Icon = LogoIcon;
+HeaderLogo.Title = LogoTitle;
+
 const StyledLogoWrapper = styled.div`
   display: flex;
   align-items: center;
@@ -15,14 +26,3 @@ const StyledLogoWrapper = styled.div`
   box-sizing: border-box;
   gap: 8px;
 `;
-
-interface IHeaderLogo {
-  children?: React.ReactNode;
-}
-export default function HeaderLogo({ children }: IHeaderLogo) {
-  return <StyledLogoWrapper>{children}</StyledLogoWrapper>;
-}
-
-HeaderLogo.Image = LogoImage;
-HeaderLogo.Icon = LogoIcon;
-HeaderLogo.Title = LogoTitle;
