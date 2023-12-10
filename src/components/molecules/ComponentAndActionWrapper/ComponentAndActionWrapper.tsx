@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ComponentAsWrapper } from '@/components/atoms/ComponentAsWrapper';
+import { ComponentAsWrapper } from '@/components/shared/ComponentAsWrapper';
 import { FancyActionWrapper } from '@/components/atoms/FancyActionWrapper';
 
 type TAnchorProps = {
