@@ -1,3 +1,4 @@
+import { HTMLAttributes } from 'react';
 import { styled } from 'styled-components';
 
 import { TLayer } from '@/interface/TLayer';
@@ -12,12 +13,13 @@ type IFancyLine = {
   margin?: string;
   themeType?: TThemeTypes;
   layer?: TLayer;
-};
+} & HTMLAttributes<HTMLHRElement>;
 // --------------------------------------------------------------------------- //
 // ------------ A dynamic line (vertical/horizontal) for better UX/UI  ------- //
 // --------------------------------------------------------------------------- //
 export default function FancyLine(props: IFancyLine) {
-  const { direction, thickness, margin, themeType, layer } = props;
+  const { direction, thickness, margin, themeType, layer, ...htmlProps } = props;
+
   return (
     <StyledFancyLine
       $direction={direction ?? 'horizontal'}
@@ -25,6 +27,7 @@ export default function FancyLine(props: IFancyLine) {
       $margin={margin}
       $themeType={themeType}
       $layer={layer}
+      {...htmlProps}
     />
   );
 }
