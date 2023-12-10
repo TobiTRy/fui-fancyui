@@ -6,7 +6,7 @@ import { RawNav } from '@/components/atoms/RawNav';
 type TFancyNavBar = {
   children?: React.ReactNode;
   externalStyle?: CSSProp;
-};
+} & React.HTMLAttributes<HTMLElement>;
 
 export default function FancyNavBar(props: TFancyNavBar) {
   const { children, externalStyle } = props;
