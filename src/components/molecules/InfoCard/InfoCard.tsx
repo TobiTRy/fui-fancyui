@@ -1,10 +1,12 @@
 import { ComponentProps } from 'react';
 
+import { TComponentSizes } from '@/interface/TComponentSizes'
+;
 import { FancyBox } from '@/components/atoms/FancyBox';
 import { generateInfoCardStyle } from './InfoCrad.style';
 
 type TInfoCardProps = ComponentProps<typeof FancyBox> & {
-  size?: 'sm' | 'md' | 'lg';
+  size?: TComponentSizes;
 };
 // --------------------------------------------------------------------------- //
 // ---------- A simple Infocard that can displayed on the page --------------- //
