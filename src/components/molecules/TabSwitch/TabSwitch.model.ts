@@ -7,10 +7,11 @@ import {
 } from '../FancyTabSwitchButton/FancyTabSwitchButton.model';
 import { TSpacings } from '@/interface/TSpacings';
 import { IActiveSwitchIndicator } from '@/components/atoms/SwitchActiveIndicator/SwitchActiveIndicator';
+import { TComponentSizes } from '@/interface/TComponentSizes';
 
 export interface ITabSwitchProps {
   wide?: boolean;
-  size?: 'sm' | 'md' | 'lg';
+  size?: TComponentSizes;
   textColor?: TThemeTypes;
   themeType?: TThemeTypes;
   layer?: TLayer;
