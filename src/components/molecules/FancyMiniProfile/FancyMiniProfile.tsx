@@ -8,24 +8,21 @@ import { TLayer } from '@/interface/TLayer';
 import { pillSettings } from './sizeSettings';
 import { TextWrapper, Wrapper } from './FancyMiniProfile.style';
 
-interface IFancyMiniprofile {
+type TFancyMiniprofile = {
   alignText?: TTextAlignLR;
   headingText?: string;
   subHeadingText?: string;
-  imageURL?: string;
+  src?: string;
   size?: keyof typeof pillSettings;
   themeType?: TThemeTypes;
   layer?: TLayer;
   shadow?: boolean;
-}
+} & React.HTMLAttributes<HTMLDivElement>;
 // --------------------------------------------------------------------------- //
 // ------ The MiniProfile rendes a image with a heading and description ------ //
 // --------------------------------------------------------------------------- //
-export default function FancyMiniProfile(props: IFancyMiniprofile) {
-  const { alignText, size, imageURL, headingText, subHeadingText, themeType, layer, shadow } = {
-    ...defaultProps,
-    ...props,
-  };
+export default function FancyMiniProfile(props: TFancyMiniprofile) {
+  const { alignText, size, src, headingText, subHeadingText, themeType, layer, shadow, ...htmlProps } = props;
 
   //get the settings from the picked size
   const getSizeProps = pillSettings[size || 'sm'];
@@ -37,9 +34,10 @@ export default function FancyMiniProfile(props: IFancyMiniprofile) {
       $themeType={themeType}
       $layer={layer}
       $shadow={shadow}
+      {...htmlProps}
     >
       {/* The Profile Picture */}
-      <FancyProfilePicture rounded="complete" size={getSizeProps.imageSize} src={imageURL || ''} />
+      <FancyProfilePicture rounded="complete" size={getSizeProps.imageSize} src={src || ''} />
       {/* The wraper with the heading and subheading text  */}
       <TextWrapper $alignText={alignText} $paddingToedge={getSizeProps.paddingToEdge}>
         {headingText && (
@@ -56,7 +54,3 @@ export default function FancyMiniProfile(props: IFancyMiniprofile) {
     </Wrapper>
   );
 }
-
-const defaultProps: IFancyMiniprofile = {
-  size: 'sm',
-};
