@@ -8,7 +8,7 @@ import FancyContent from '../../components/molecules/FancyContent/FancyContent';
 import BottomBarList from '../../components/molecules/SwitchList/SwitchList';
 import Button from '../../components/molecules/Button/Button';
 import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
-import ComponentAsWrapper from '../../components/atoms/ComponentAsWrapper/ComponentAsWrapper';
+import ComponentAsWrapper from '../../components/shared/ComponentAsWrapper/ComponentAsWrapper';
 import ActionWrapper from '../../components/atoms/ActionWrapper/ActionWrapper';
 import FancyActionWrapper from '../../components/atoms/FancyActionWrapper/FancyActionWrapper';
 import BottomBarIcon from '../../components/molecules/BottomBarIcon/BottomBarIcon';

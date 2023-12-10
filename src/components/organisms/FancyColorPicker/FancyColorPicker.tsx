@@ -6,7 +6,7 @@ import { TTheme } from '@/interface/TTheme';
 import { emitSelectedColorChange } from './colorPickerUtils';
 import { IColorFormat } from '@/utils/variables/colorFormat/colorFormats';
 
-import ColorDisplay from '@/components/atoms/ColorDisplay/ColorDisplay';
+import ColorDisplay from '@/components/molecules/ColorDisplay/ColorDisplay';
 import ColorArea from '@/components/molecules/FancyColorArea/FancyColorArea';
 import FancyHueSlider from '@/components/molecules/FancyHueSlider/FancyHueSlider';
 import FancyOpacitySlider from '@/components/molecules/FancyOpacitySlider/FancyOpacitySlider';
