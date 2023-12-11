@@ -177,6 +177,7 @@ export * from '@/interface';
 export type { default as IGenerateThemeForCardProps } from '@/design/designFunctions/generateThemeForCard/IGenerateThemeForCardProps';
 export type { default as IGenerateThemeDesignForComponentProps } from '@/design/designFunctions/generateThemeDesignForComponent/IGenerateThemeDesignForComponentProps';
 export type { IAvailableDot } from '@/components/atoms/AvilableDot/IAvailableDot.model';
+export type { IFancyBox } from '@/components/atoms/FancyBox/FancyBox.model';
 
 // ---------- Store ------- //
 export { default as themeStore } from '@/design/theme/themeStore/themeStore';
