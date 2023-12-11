@@ -6,6 +6,7 @@ import { TLayer } from '@/interface/TLayer';
 import { Fieldset } from '@/components/molecules/Fieldset';
 import { ChipList } from '@/components/molecules/ChipList';
 import { FancyChip } from '@/components/organisms/FancyChip';
+import useChip from '@/components/organisms/FancyChipList/useChip.hook';
 
 import { InputLi } from './FancyChipList.style';
 import { ChipListProps, TChip } from './FancyChipListProps.model';
@@ -19,44 +20,9 @@ export default function FancyChipList(props: ChipListProps) {
   };
 
   // State to hold chips with unique identifiers and input values
-  const [chipsWithKeys, setChipsWithKeys] = useState<TChip[]>([]);
   const [inputValue, setInputValue] = useState('');
-  const [focusedChip, setFocusedChip] = useState('');
-
-  // Effect to initialize chipsWithKeys state when the chips prop changes
-  useEffect(() => {
-    setChipsWithKeys(chips!.map((label) => ({ id: uuidv4(), label })));
-  }, [chips]);
-
-  // Function to add a new chip
-  const addChip = (label: string) => {
-    setChipsWithKeys((prev) => [...prev, { id: uuidv4(), label }]);
-  };
-
-  // Function to delete a chip, curried to provide the chip id
-  const deleteChip = (chipToDelete: string) => () => {
-    setChipsWithKeys(chipsWithKeys.filter((chip) => chip.id !== chipToDelete));
-  };
-
-  // Function to set the focused chip
-  const hanleChipFocus = (chipId: string) => () => {
-    setFocusedChip(chipId);
-  };
-
-  // Function to update the label of a chip
-  const updateChipLabel = (chipId: string, newLabel: string) => {
-    setChipsWithKeys((prev) => prev.map((chip) => (chip.id === chipId ? { ...chip, label: newLabel } : chip)));
-  };
-
-  // Function to handle editing of a chip label through keyboard events
-  const handleChipEdit = (chipId: string) => (e: React.KeyboardEvent<HTMLDivElement>) => {
-    if ((e.key === 'Enter' || e.key === ',') && chipId === focusedChip) {
-      e.preventDefault();
-      updateChipLabel(chipId, (e.target as HTMLDivElement).innerText);
-      setFocusedChip('');
-      (e.target as HTMLDivElement).blur();
-    }
-  };
+  const { chipsWithKeys, addChip, handleChipEdit, deleteChip, hanleChipFocus, editabledChip, removeLastChip } =
+    useChip(chips);
 
   // Function to handle input keydown events for adding and removing chips
   const handleInputKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
@@ -68,8 +34,8 @@ export default function FancyChipList(props: ChipListProps) {
     } else if (event.key === 'Backspace' && !val && chipsWithKeys.length) {
       // On backspace, if input is empty, remove the last chip and add its label to the input
       const lastChip = chipsWithKeys[chipsWithKeys.length - 1];
-      setChipsWithKeys((prev) => prev.slice(0, -1));
       setInputValue(lastChip.label);
+      removeLastChip();
     }
   };
 
@@ -88,8 +54,7 @@ export default function FancyChipList(props: ChipListProps) {
             key={index}
             size={size}
             label={chip.label}
-            textColor="secondary"
-            contentEditable={focusedChip === chip.id}
+            contentEditable={editabledChip === chip.id}
             tabIndex={0}
             layer={Math.min((layer ?? 1) + 2, 10) as TLayer}
             onDelete={deleteChip(chip.id)}
