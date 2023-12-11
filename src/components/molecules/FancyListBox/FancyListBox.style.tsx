@@ -1,8 +1,10 @@
-import { css } from 'styled-components';
+import { CSSProp, css } from 'styled-components';
 
 import { TTheme } from '@/interface/TTheme';
 
-export const FancyBoxStyle = css<{ theme: TTheme }>`
+export const generateFancyBoxStyle = (externalStyle?: CSSProp) => css<{ theme: TTheme }>`
+  padding: 0;
+  margin: 0;
   display: flex;
   flex-direction: column;
   gap: ${({ theme }) => theme.spacing.md};
@@ -10,4 +12,5 @@ export const FancyBoxStyle = css<{ theme: TTheme }>`
   width: 100%;
   border-radius: ${({ theme }) => theme.borderRadius.xl};
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  ${externalStyle}
 `;
