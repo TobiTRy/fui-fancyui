@@ -42,7 +42,7 @@ const GridItem = styled.div<TGirdItemProps & { as: React.ElementType }>`
     $breakpoints &&
     $breakpoints.map(
       (breakpoint) => css`
-        @media (min-width: ${breakpoint.breakpoint}) {
+        @media (${breakpoint.breakpoint}) {
           grid-column: span ${breakpoint.gridSize};
         }
       `

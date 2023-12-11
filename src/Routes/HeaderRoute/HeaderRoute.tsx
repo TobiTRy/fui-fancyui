@@ -18,6 +18,7 @@ import { FancyGrid } from '@/components/templates/FancyGrid';
 import { FancyMenu } from '@/components/templates/FancyMenueComponent/FancyMenu';
 import { FancyPopover } from '@/components/shared/FancyPopover';
 import { FancyFlexBox } from '@/components/templates/FancyFlexBox';
+import { breakPointStyle } from '@/Routes/HeaderRoute/breakPointStyle';
 
 const Logo = () => (
   <svg
@@ -73,21 +74,32 @@ const HeaderContent = () => {
 export default function HeaderRoute() {
   const [isOpen, setIsOpen] = useState(false);
 
+  console.log(breakPointStyle);
+
   return (
     <section>
       <FancyFlexBox className="hii"></FancyFlexBox>
       <FancyHeader externalStyle={{ height: '44px', padding: '0 12px' }}>
         <FancyGrid grid={8} gap="12px">
-          <FancyGrid.Item gridSpace={2}>
-            <FancyGrid.Item.FlexBox flexAlign="center" flexJustify="flex-start" className={'mooiiin'}>
-              <FancyHeader.Logo>
-                <FancyHeader.Logo.Icon>
+          <FancyGrid.Item gridSpace={1}>
+            <FancyGrid.Item.FlexBox
+              flexAlign="center"
+              flexJustify="flex-start"
+              className={'mooiiin'}
+              externalStyle={breakPointStyle}
+            >
+              <FancyHeader.Logo className="logo">
+                <FancyHeader.Logo.Icon className="logo_icon">
                   <Logo></Logo>
                 </FancyHeader.Logo.Icon>
-                <FancyHeader.Logo.Title type="h3">Mooiin</FancyHeader.Logo.Title>
+
+                <FancyHeader.Logo.Title type="h3" className="logo_text">
+                  Mooiin
+                </FancyHeader.Logo.Title>
               </FancyHeader.Logo>
             </FancyGrid.Item.FlexBox>
           </FancyGrid.Item>
+
           <FancyGrid.Item gridSpace={4}>
             <FancyGrid.Item.FlexBox flexAlign="center" flexJustify="center">
               <FancyHeader.Nav>
@@ -113,8 +125,8 @@ export default function HeaderRoute() {
                 refComponent={
                   <FancyMiniProfile
                     size={'sm'}
+                    headingText="mooin"
                     alignText="left"
-                    headingText="@TobiTRy"
                     src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
                   />
                 }
