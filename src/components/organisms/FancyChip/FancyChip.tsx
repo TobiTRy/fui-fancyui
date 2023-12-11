@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react';
 import { css } from 'styled-components';
 
@@ -26,11 +27,6 @@ export default function FancyChip(props: TFancyChipProps) {
     icon,
     image,
     size,
-    outlined,
-    themeType,
-    layer,
-    textColor,
-    textLayer,
     isActive,
     externalStyle,
     ...HTMLAttributes
@@ -58,17 +54,12 @@ export default function FancyChip(props: TFancyChipProps) {
     <Chip
       size={size}
       isActive={isActive}
-      outlined={outlined}
-      themeType={themeType}
-      textColor={textColor}
-      layer={layer}
-      textLayer={textLayer}
       onClick={props.onClick}
       externalStyle={css`
         ${externalStyle}
         ${generateSpacing({ spacingPosition: getCalcPosition, size: size })}
       `}
-      {...HTMLAttributes}
+      // {...HTMLAttributes}
     >
       {image && (
         <WrapperImage>
