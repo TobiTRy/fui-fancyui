@@ -39,18 +39,20 @@ export default function FancyMiniProfile(props: TFancyMiniprofile) {
       {/* The Profile Picture */}
       <FancyProfilePicture rounded="complete" size={getSizeProps.imageSize} src={src || ''} />
       {/* The wraper with the heading and subheading text  */}
-      <TextWrapper $alignText={alignText} $paddingToedge={getSizeProps.paddingToEdge}>
-        {headingText && (
-          <Typography type="inlineElement" variant={getSizeProps.textSize} weight="bold">
-            {headingText}
-          </Typography>
-        )}
-        {subHeadingText && (
-          <Typography type="inlineElement" variant={getSizeProps.textSize}>
-            {subHeadingText}
-          </Typography>
-        )}
-      </TextWrapper>
+      {(headingText || subHeadingText) && (
+        <TextWrapper $alignText={alignText} $paddingToedge={getSizeProps.paddingToEdge}>
+          {headingText && (
+            <Typography type="inlineElement" variant={getSizeProps.textSize} weight="bold">
+              {headingText}
+            </Typography>
+          )}
+          {subHeadingText && (
+            <Typography type="inlineElement" variant={getSizeProps.textSize}>
+              {subHeadingText}
+            </Typography>
+          )}
+        </TextWrapper>
+      )}
     </Wrapper>
   );
 }
