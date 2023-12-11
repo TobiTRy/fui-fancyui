@@ -11,7 +11,7 @@ import { TSpacings } from '@/interface/TSpacings';
 
 // Define the different sizes for the tab switch
 const getSpacingFromTheme = themeStore.getState().theme.spacing;
-// eslint-disable-next-line react-refresh/only-export-components
+
 export const tabSwitchSizes = {
   sm: {
     paddingComponent: '4px',
