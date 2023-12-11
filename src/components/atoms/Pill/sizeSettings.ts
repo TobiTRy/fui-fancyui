@@ -1,14 +1,16 @@
-//import { TComponentSizes } from "@/interface/TComponentSizes";
+export const sizes = {
+  sm: {
+    padding: 'xs',
+  },
+  md: {
+    padding: 'xs',
 
-// const sizes:Record<TComponentSizes, string> = {
-//   sm: {
+  },
+  lg: {
+    padding: 'xs',
+  },
 
-//   },
-//   md: {
+}
 
-//   },
-//   lg: {
 
-//   }
 
-// }

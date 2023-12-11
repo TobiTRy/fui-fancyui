@@ -1,14 +1,24 @@
-import React from 'react';
+import { StyledPill } from '@/components/atoms/Pill/Pill.style';
+import { sizes } from './sizeSettings';
+import { TBorderRadiusSizes } from '@/interface/TBorderRadiusSizes';
 
-import { FancyBox, IFancyBox } from '@/components/atoms/FancyBox';
-
-type TPill = IFancyBox;
+type TPill = {
+  size?: keyof typeof sizes;
+  borderRadius?: TBorderRadiusSizes;
+} & React.ComponentProps<typeof StyledPill>;
 export default function Pill(props: TPill) {
-  const { themeType, outlined, layer, externalStyle, children } = props;
+  const { themeType, outlined, layer, externalStyle, size, children, ...htmlProps } = props;
 
   return (
-    <FancyBox themeType={themeType} outlined={outlined} layer={layer} externalStyle={externalStyle}>
+    <StyledPill
+      themeType={themeType}
+      outlined={outlined}
+      layer={layer || 3}
+      $size={size}
+      externalStyle={externalStyle}
+      {...htmlProps}
+    >
       {children}
-    </FancyBox>
+    </StyledPill>
   );
 }
