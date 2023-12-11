@@ -8,7 +8,7 @@ import { getTextColor } from '@/design/designFunctions/colorCalculatorForCompone
 // --------------------------------------------------------------------------- //
 // --------------- The main label design for the input elements -------------- //
 // --------------------------------------------------------------------------- //
-interface IInputLabel {
+export interface IInputLabel {
   theme: TTheme;
   $layer?: TLayer;
   $themeType?: TThemeTypesNotTransparent;

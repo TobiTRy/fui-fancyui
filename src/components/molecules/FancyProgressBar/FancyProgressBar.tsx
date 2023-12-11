@@ -2,7 +2,7 @@ import { TLayer } from '@/interface/TLayer';
 import { TThemeTypes } from '@/interface/TThemeTypes';
 
 import ProgressBar, { IProgressBar } from '@/components/atoms/ProgressBar/ProgressBar';
-import { AlignedInputLabel } from '@/components/atoms/AlignedInputLabel/AlignedInputLabel';
+import { AlignedInputLabel } from '@/components/atoms/AlignedInputLabel';
 import { TAlign } from '@/components/atoms/AlignedInputLabel/TalignedInputLabel.model';
 
 import { Wrapper } from './FancyProgressBar.style';
