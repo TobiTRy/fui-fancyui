@@ -1,6 +1,5 @@
 import { css, styled } from 'styled-components';
 
-import { generateThemeDesignForComponent } from '@/design/designFunctions/generateThemeDesignForComponent';
 import IStyledPrefixAndOmitter from '@/interface/IStyledPrefixAndOmiter.model';
 
 import { TTheme } from '@/interface/TTheme';
@@ -30,15 +29,7 @@ export const StyledChip = styled.div<TChipSize & { theme: TTheme }>`
   line-height: 2;
   width: fit-content;
   border-radius: ${({ theme }) => theme.borderRadius.xxxl};
-  ${({ $outlined, $themeType = 'primary', $textColor = 'secondary', theme, $layer }) =>
-    generateThemeDesignForComponent({
-      theme,
-      $themeType,
-      $layer: $layer ?? 3,
-      $outlined,
-      $textColor,
-      $useSimpleTextColor: true,
-    })};
+
 
   ${({ $isActive, theme }) => {
     if ($isActive) {
@@ -50,3 +41,13 @@ export const StyledChip = styled.div<TChipSize & { theme: TTheme }>`
 
   ${({ $externalStyle }) => $externalStyle}
 `;
+
+  /* ${({ $outlined, $themeType = 'primary', $textColor = 'secondary', theme, $layer }) =>
+    generateThemeDesignForComponent({
+      theme,
+      $themeType,
+      $layer: $layer ?? 3,
+      $outlined,
+      $textColor,
+      $useSimpleTextColor: true,
+    })}; */

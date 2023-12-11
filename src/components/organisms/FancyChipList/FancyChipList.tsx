@@ -1,5 +1,4 @@
-import React, { KeyboardEvent, useEffect, useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
+import React, { KeyboardEvent, useState } from 'react';
 
 import { TLayer } from '@/interface/TLayer';
 
@@ -9,7 +8,7 @@ import { FancyChip } from '@/components/organisms/FancyChip';
 import useChip from '@/components/organisms/FancyChipList/useChip.hook';
 
 import { InputLi } from './FancyChipList.style';
-import { ChipListProps, TChip } from './FancyChipListProps.model';
+import { ChipListProps } from './FancyChipListProps.model';
 
 // The FancyChipList component definition
 export default function FancyChipList(props: ChipListProps) {
@@ -56,9 +55,9 @@ export default function FancyChipList(props: ChipListProps) {
             label={chip.label}
             contentEditable={editabledChip === chip.id}
             tabIndex={0}
-            layer={Math.min((layer ?? 1) + 2, 10) as TLayer}
+            //layer={Math.min((layer ?? 1) + 2, 10) as TLayer}
             onDelete={deleteChip(chip.id)}
-            outlined={outlined}
+            //outlined={outlined}
             onFocus={hanleChipFocus(chip.id)}
             onKeyDown={handleChipEdit(chip.id)}
           ></FancyChip>
