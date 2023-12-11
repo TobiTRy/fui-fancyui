@@ -30,13 +30,13 @@ export default function FancyBoxSet(props: TFancyBoxSet) {
       {/* The FancyListbox gives the style */}
       <FancyListBox themeType={themeType} layer={layer} {...HTMLProps}>
         {childArray.map((child, i) => (
-          <>
+          <React.Fragment key={i}>
             {/* Merge the Item with the FancyLine to Seperate the items  */}
             <FancyListBox.Item>{child}</FancyListBox.Item>
             {displayLine && childArray.length - 1 !== i && (
               <FancyLine themeType={themeType ?? 'primary'} layer={Math.min(layer ? layer + 2 : 2, 10) as TLayer} />
             )}
-          </>
+          </React.Fragment>
         ))}
       </FancyListBox>
     </Fieldset>
