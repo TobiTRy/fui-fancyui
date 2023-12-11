@@ -4,13 +4,8 @@ export const sizes = {
   },
   md: {
     padding: 'xs',
-
   },
   lg: {
     padding: 'xs',
   },
-
-}
-
-
-
+};

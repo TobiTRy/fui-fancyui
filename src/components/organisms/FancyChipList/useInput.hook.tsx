@@ -1,4 +1,3 @@
-
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const useInput = (initialValue: string) => {
   const [value, setValue] = React.useState(initialValue);
@@ -11,4 +10,4 @@ const useInput = (initialValue: string) => {
     value,
     onChange,
   };
-}
+};

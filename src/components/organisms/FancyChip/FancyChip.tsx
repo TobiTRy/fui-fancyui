@@ -21,16 +21,7 @@ export type TFancyChipProps = {
 
 // Define the Chip component
 export default function FancyChip(props: TFancyChipProps) {
-  const {
-    label,
-    onDelete,
-    icon,
-    image,
-    size,
-    isActive,
-    externalStyle,
-    ...HTMLAttributes
-  } = {
+  const { label, onDelete, icon, image, size, isActive, externalStyle, ...HTMLAttributes } = {
     ...defaultProps,
     ...props,
   };

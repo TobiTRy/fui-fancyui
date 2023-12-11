@@ -63,7 +63,7 @@ export default function ExperimentalRoute() {
 
   return (
     <DesignWrapper>
-      <Pill size='sm'>Mooin</Pill>
+      <Pill size="sm">Mooin</Pill>
       <DesignArea title="Test">
         <FancyNumberInput />
 

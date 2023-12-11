@@ -24,7 +24,7 @@ const useChip = (chips?: string[]) => {
 
   const removeLastChip = () => {
     setChipsWithKeys((prev) => prev.slice(0, -1));
-  }
+  };
 
   // Function to set the focused chip
   const hanleChipFocus = (chipId: string) => () => {

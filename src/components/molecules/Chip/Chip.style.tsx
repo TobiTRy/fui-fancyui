@@ -30,7 +30,6 @@ export const StyledChip = styled.div<TChipSize & { theme: TTheme }>`
   width: fit-content;
   border-radius: ${({ theme }) => theme.borderRadius.xxxl};
 
-
   ${({ $isActive, theme }) => {
     if ($isActive) {
       return css`
@@ -42,7 +41,7 @@ export const StyledChip = styled.div<TChipSize & { theme: TTheme }>`
   ${({ $externalStyle }) => $externalStyle}
 `;
 
-  /* ${({ $outlined, $themeType = 'primary', $textColor = 'secondary', theme, $layer }) =>
+/* ${({ $outlined, $themeType = 'primary', $textColor = 'secondary', theme, $layer }) =>
     generateThemeDesignForComponent({
       theme,
       $themeType,

@@ -8,11 +8,10 @@ import Pill from '@/components/atoms/Pill/Pill';
 // --------------------------------------------------------------------------- //
 type TChipProps = IChipProps & React.ComponentProps<typeof Pill>;
 export default function Chip(props: TChipProps) {
-  const { size, outlined, themeType, layer,  isActive, externalStyle, ...htmlProps } = props;
+  const { size, outlined, themeType, layer, isActive, externalStyle, ...htmlProps } = props;
 
   return (
     <>
-
       {/* <StyledChip
         $isActive={isActive}
         $size={size}
