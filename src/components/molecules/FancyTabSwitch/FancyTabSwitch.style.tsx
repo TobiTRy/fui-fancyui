@@ -5,7 +5,7 @@ import { TThemeTypes } from '@/interface/TThemeTypes';
 import { tabSwitchSizes } from '@/components/molecules/TabSwitch/TabSwitch.style';
 import { TLayer } from '@/interface/TLayer';
 import { TTheme } from '@/interface/TTheme';
-import { TBorderRadiusSizes } from '@/interface/TBorderRadius';
+import { TBorderRadiusSizes } from '@/interface/TBorderRadiusSizes';
 import { TSpacings } from '@/interface/TSpacings';
 
 // Define the interface for the styled-component

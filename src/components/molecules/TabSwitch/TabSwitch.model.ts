@@ -1,6 +1,6 @@
 import { TThemeTypes } from '@/interface/TThemeTypes';
 import { TLayer } from '@/interface/TLayer';
-import { TBorderRadiusSizes } from '@/interface/TBorderRadius';
+import { TBorderRadiusSizes } from '@/interface/TBorderRadiusSizes';
 import {
   ITabSwitchDetailsLabelIcon,
   ITabSwitchDetailsChildren,

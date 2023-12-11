@@ -4,7 +4,7 @@ import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForC
 import colorTransparencyCalculator from '@/design/designFunctions/colorTransparencyCalculator/colorTransparencyCalculator';
 import { IActiveSwitchIndicator } from '../SwitchActiveIndicator';
 import themeStore from '@/design/theme/themeStore/themeStore';
-import { TBorderRadiusSizes } from '@/interface/TBorderRadius';
+import { TBorderRadiusSizes } from '@/interface/TBorderRadiusSizes';
 import { TTheme } from '@/interface/TTheme';
 import IStyledPrefixAndPicker from '@/interface/IStyledPrefixAndPicker.model';
 

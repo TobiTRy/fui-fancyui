@@ -7,7 +7,7 @@ import { LoadingSVGArrows } from '@/components/atoms/LoadingSVGArrows';
 import { generateFancyButton } from './FancyButton.style';
 
 import { TTypography } from '@/interface/TTypography';
-import { TBorderRadiusSizes } from '@/interface/TBorderRadius';
+import { TBorderRadiusSizes } from '@/interface/TBorderRadiusSizes';
 import { IButton, IButtonProps } from '@/components/molecules/Button/Button.model';
 
 const alignment = {

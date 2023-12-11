@@ -1,7 +1,7 @@
 import { TThemeTypes } from '@/interface/TThemeTypes';
 import { TLayer } from '@/interface/TLayer';
 import { ActiveSwitchIndicator, Wrapper } from './SwitchActiveIndicator.style';
-import { TBorderRadiusSizes } from '@/interface/TBorderRadius';
+import { TBorderRadiusSizes } from '@/interface/TBorderRadiusSizes';
 import { TSpacings } from '@/interface/TSpacings';
 
 export interface IActiveSwitchIndicator {

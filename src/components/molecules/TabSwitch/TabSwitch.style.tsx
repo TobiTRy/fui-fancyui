@@ -5,7 +5,7 @@ import { themeStore } from '@/design/theme/themeStore';
 
 import { TLayer } from '@/interface/TLayer';
 import { TTheme } from '@/interface/TTheme';
-import { TBorderRadiusSizes } from '@/interface/TBorderRadius';
+import { TBorderRadiusSizes } from '@/interface/TBorderRadiusSizes';
 import { TThemeTypes } from '@/interface/TThemeTypes';
 import { TSpacings } from '@/interface/TSpacings';
 
