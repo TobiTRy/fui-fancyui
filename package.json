@@ -11,28 +11,28 @@
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --fix --max-warnings=-1",
-    "checkFormat": "prettier --check .",
-    "format": "prettier --write .",
+    "lint": "npx eslint src --ext ts,tsx --report-unused-disable-directives --fix --max-warnings=-1",
+    "checkFormat": "npx prettier --check .",
+    "format": "npx prettier --write .",
     "predeploy": "npm run lint && npm run build && npm run checkFormat "
   },
   "lint-staged": {
     "*.ts": [
-      "eslint src --ext ts --report-unused-disable-directives --fix --max-warnings=-1",
-      "prettier --write"
+      "npx eslint src --ext ts --report-unused-disable-directives --fix --max-warnings=-1",
+      "npm run format"
     ],
     "*.tsx": [
-      "eslint src --ext tsx --report-unused-disable-directives --fix --max-warnings=-1",
-      "prettier --write"
+      "npx eslint src --ext tsx --report-unused-disable-directives --fix --max-warnings=-1",
+      "npm run format"
     ],
     "*.mdx": [
-      "prettier --write"
+      "npm run format"
     ],
     "*.yml": [
-      "prettier --write"
+      "npm run format"
     ],
     "*.json": [
-      "prettier --write"
+      "npm run format"
     ]
   },
   "dependencies": {
@@ -58,7 +58,7 @@
     "@typescript-eslint/eslint-plugin": "^5.61.0",
     "@typescript-eslint/parser": "^5.61.0",
     "@vitejs/plugin-react-swc": "^3.3.2",
-    "eslint": "^8.44.0",
+    "eslint": "^8.55.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.1",
     "eslint-plugin-storybook": "^0.6.15",
