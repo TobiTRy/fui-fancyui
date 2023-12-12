@@ -3,13 +3,11 @@ import { FancyBox } from '@/components/atoms/FancyBox';
 import { sizes } from './sizeSettings';
 import { TTheme } from '@/interface/TTheme';
 import { TBorderRadiusSizes } from '@/interface/TBorderRadiusSizes';
+import IStyledPrefixAndPicker from '@/interface/IStyledPrefixAndPicker.model';
+import { TPill } from '@/components/atoms/Pill/Pill';
 
-type TPill = {
-  $size?: keyof typeof sizes;
-  $borderRadius?: TBorderRadiusSizes;
-  $isActive?: boolean;
-};
-export const StyledPill = styled(FancyBox)<TPill & { theme: TTheme }>`
+type StyledPillProps = IStyledPrefixAndPicker<TPill>;
+export const StyledPill = styled(FancyBox)<StyledPillProps & { theme: TTheme }>`
   border-radius: ${({ theme, $borderRadius }) => theme.borderRadius[$borderRadius || 'complete']};
   border: none;
   display: flex;

@@ -6,7 +6,7 @@ import Pill from '@/components/atoms/Pill/Pill';
 // --------------------------------------------------------------------------- //
 // --------------- A Simple chip you can put everthing in it  ---------------- //
 // --------------------------------------------------------------------------- //
-type TChipProps = IChipProps & React.ComponentProps<typeof Pill>;
+export type TChipProps = IChipProps & React.ComponentProps<typeof Pill>;
 export default function Chip(props: TChipProps) {
   const { size, outlined, themeType, layer, isActive, externalStyle, ...htmlProps } = props;
 
@@ -37,7 +37,6 @@ export default function Chip(props: TChipProps) {
       <Pill
         outlined={outlined}
         role={props.onClick ? 'button' : undefined}
-        tabIndex={0}
         themeType={themeType}
         layer={layer}
         externalStyle={externalStyle}
