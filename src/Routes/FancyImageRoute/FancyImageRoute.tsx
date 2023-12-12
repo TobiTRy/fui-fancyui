@@ -29,7 +29,7 @@ export default function FancyImageRoute() {
         </FancyVideoText>
 
         <FancyImageText
-          imageUrl="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
+          src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
           aspectRatio="1/1"
           alt="Fannncy"
         >
