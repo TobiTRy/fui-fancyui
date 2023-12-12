@@ -4,7 +4,7 @@ import { CSSProp } from 'styled-components';
 import { TLayer } from '@/interface/TLayer';
 import { TThemeTypes } from '@/interface/TThemeTypes';
 
-type HTMLDivElementProps<T extends ElementType = 'div'> = Omit<React.HTMLAttributes<T>, 'style'>;
+
 export interface IFancyBox {
   as?: ElementType;
   outlined?: boolean;
@@ -15,4 +15,4 @@ export interface IFancyBox {
   externalStyle?: CSSProp;
 }
 
-export type IFancyBoxProps<T extends ElementType> = IFancyBox & HTMLDivElementProps<T>;
+export type IFancyBoxProps<T extends ElementType = 'div'> = IFancyBox & Omit<React.HTMLAttributes<T>, 'style'>;
