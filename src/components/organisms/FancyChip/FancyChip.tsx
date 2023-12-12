@@ -9,6 +9,7 @@ import { IChipProps } from '@/components/molecules/Chip/IChip.model';
 
 import { StyledXButton, TSpacingPosition, WrapperImage } from './FancyChip.style';
 import { generateSpacing } from '@/components/organisms/FancyChip/utils/generateSpacings';
+import { TChipProps } from '@/components/molecules/Chip/Chip';
 
 export type TFancyChipProps = {
   label?: string;
@@ -16,8 +17,7 @@ export type TFancyChipProps = {
   icon?: React.ReactNode;
   image?: string;
   onDelete?: () => void;
-} & IChipProps &
-  React.HTMLAttributes<HTMLDivElement>;
+} & TChipProps;
 
 // Define the Chip component
 export default function FancyChip(props: TFancyChipProps) {
@@ -38,19 +38,17 @@ export default function FancyChip(props: TFancyChipProps) {
 
   // Calculate the spacing position for the chip
   const getCalcPosition = clacPosition();
-  3;
 
   // Render the Chip component with the appropriate props
   return (
     <Chip
       size={size}
       isActive={isActive}
-      onClick={props.onClick}
       externalStyle={css`
         ${externalStyle}
         ${generateSpacing({ spacingPosition: getCalcPosition, size: size })}
       `}
-      // {...HTMLAttributes}
+      {...HTMLAttributes}
     >
       {image && (
         <WrapperImage>

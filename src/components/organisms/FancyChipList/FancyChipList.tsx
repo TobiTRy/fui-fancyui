@@ -13,15 +13,23 @@ import { ChipListProps } from './FancyChipListProps.model';
 // The FancyChipList component definition
 export default function FancyChipList(props: ChipListProps) {
   // Destructure props and provide default values from defaultProps
-  const { themeType, layer, outlined, chips, inputPlaceholder, label, size, systemInformation } = {
+  const { themeType, layer, chips, inputPlaceholder, label, size, systemInformation } = {
     ...defaultProps,
     ...props,
   };
 
   // State to hold chips with unique identifiers and input values
   const [inputValue, setInputValue] = useState('');
-  const { chipsWithKeys, addChip, handleChipEdit, deleteChip, hanleChipFocus, editabledChip, removeLastChip } =
-    useChip(chips);
+  const {
+    chipsWithKeys,
+    addChip,
+    handleChipEdit,
+    deleteChip,
+    handleChipFocus,
+    handleClick,
+    editabledChip,
+    removeLastChip,
+  } = useChip(chips);
 
   // Function to handle input keydown events for adding and removing chips
   const handleInputKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
@@ -43,7 +51,6 @@ export default function FancyChipList(props: ChipListProps) {
     setInputValue(event.target.value);
   };
 
-  // The component's JSX structure for rendering
   return (
     <Fieldset label={label} fontVariantLegend="button">
       <ChipList themeType={themeType} layer={layer} outlined={true} size={size} systemMessage={systemInformation}>
@@ -58,7 +65,8 @@ export default function FancyChipList(props: ChipListProps) {
             //layer={Math.min((layer ?? 1) + 2, 10) as TLayer}
             onDelete={deleteChip(chip.id)}
             //outlined={outlined}
-            onFocus={hanleChipFocus(chip.id)}
+            onFocus={handleChipFocus(chip.id)}
+            onClick={handleClick}
             onKeyDown={handleChipEdit(chip.id)}
           ></FancyChip>
         ))}

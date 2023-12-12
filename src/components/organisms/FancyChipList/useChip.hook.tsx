@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { TChip } from '@/components/organisms/FancyChipList/FancyChipListProps.model';
+import { setLastLetterPositionContentEditable } from '@/components/organisms/FancyChipList/utils/setLastLetterPositionContentEditable';
 
 const useChip = (chips?: string[]) => {
   const [chipsWithKeys, setChipsWithKeys] = useState<TChip[]>([]);
@@ -27,8 +28,15 @@ const useChip = (chips?: string[]) => {
   };
 
   // Function to set the focused chip
-  const hanleChipFocus = (chipId: string) => () => {
+  const handleChipFocus = (chipId: string) => () => {
     setFocusedChip(chipId);
+    setEditabledChip('');
+  };
+
+  const handleClick = () => (e: React.MouseEvent<HTMLDivElement>) => {
+    console.log('click');
+    const target = e.target;
+    setLastLetterPositionContentEditable(target as HTMLElement);
   };
 
   // Function to update the label of a chip
@@ -36,15 +44,21 @@ const useChip = (chips?: string[]) => {
     setChipsWithKeys((prev) => prev.map((chip) => (chip.id === chipId ? { ...chip, label: newLabel } : chip)));
   };
 
+  console.log('focusedChip', focusedChip);
   // Function to handle editing of a chip label through keyboard events
   const handleChipEdit = (chipId: string) => (e: React.KeyboardEvent<HTMLDivElement>) => {
     // If the user pressed the enter key, confirm the edit and remove focus
-    if (e.key === 'Enter' && focusedChip) {
+    if (e.key === 'Enter' && focusedChip && !editabledChip) {
+      e.preventDefault();
       setEditabledChip(focusedChip);
+      const target = e.target as HTMLInputElement;
+      setLastLetterPositionContentEditable(target);
+      return;
     } else if ((e.key === 'Enter' || e.key === ',') && chipId === focusedChip) {
       e.preventDefault();
       updateChipLabel(chipId, (e.target as HTMLDivElement).innerText);
       setFocusedChip('');
+      setEditabledChip('');
       (e.target as HTMLDivElement).blur();
     }
   };
@@ -53,11 +67,12 @@ const useChip = (chips?: string[]) => {
     addChip,
     handleChipEdit,
     deleteChip,
-    hanleChipFocus,
+    handleChipFocus,
     focusedChip,
     editabledChip,
     chipsWithKeys,
     removeLastChip,
+    handleClick,
   };
 };
 
