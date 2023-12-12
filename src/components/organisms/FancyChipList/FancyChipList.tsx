@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { KeyboardEvent, useState } from 'react';
 
 import { TLayer } from '@/interface/TLayer';
@@ -67,7 +68,7 @@ export default function FancyChipList(props: ChipListProps) {
             //outlined={outlined}
             onFocus={handleChipFocus(chip.id)}
             onClick={handleClick}
-            onKeyDown={handleChipEdit(chip.id)}
+            //onKeyDown={handleChipEdit(chip.id)}
           ></FancyChip>
         ))}
         <InputLi>

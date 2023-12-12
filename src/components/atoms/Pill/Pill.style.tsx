@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { css, styled } from 'styled-components';
 import { FancyBox } from '@/components/atoms/FancyBox';
 import { sizes } from './sizeSettings';
