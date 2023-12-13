@@ -18,7 +18,6 @@ import { SingleToastMessage } from '@/components/molecules/SingleToastMessage';
 import { FancyCard } from '@/components/atoms/FancyCard';
 import { FancyChip } from '@/components/organisms/FancyChip';
 import { FancyNumberInput } from '@/components/organisms/FancyNumberInput';
-import Pill from '@/components/atoms/Pill/Pill';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -63,7 +62,6 @@ export default function ExperimentalRoute() {
 
   return (
     <DesignWrapper>
-      <Pill size="sm">Mooin</Pill>
       <DesignArea title="Test">
         <FancyNumberInput />
 
