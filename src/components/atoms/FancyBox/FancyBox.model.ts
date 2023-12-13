@@ -4,7 +4,6 @@ import { CSSProp } from 'styled-components';
 import { TLayer } from '@/interface/TLayer';
 import { TThemeTypes } from '@/interface/TThemeTypes';
 
-
 export interface IFancyBox {
   as?: ElementType;
   outlined?: boolean;
