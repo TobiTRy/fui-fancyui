@@ -4,12 +4,14 @@ import React from 'react';
 import { IChipProps } from './IChip.model';
 
 import { FancyBox } from '@/components/atoms/FancyBox';
+import { FancyPill } from '@/components/atoms/FancyPill';
+import { IFancyPillProps } from '@/components/atoms/FancyPill/FancyPill.model';
 // --------------------------------------------------------------------------- //
 // --------------- A Simple chip you can put everthing in it  ---------------- //
 // --------------------------------------------------------------------------- //
-export type TChipProps = IChipProps & React.ComponentProps<typeof FancyBox>;
+export type TChipProps = IChipProps & IFancyPillProps;
 export default function Chip(props: TChipProps) {
-  //const { size, outlined, themeType, layer, isActive, externalStyle, ...htmlProps } = props;
+  const { size, outlined, themeType, layer, isActive, externalStyle, ...htmlProps } = props;
 
   return (
     <>
@@ -35,7 +37,18 @@ export default function Chip(props: TChipProps) {
       >
         {props.children}
       </StyledChip> */}
-
+      <FancyPill
+        isActive={isActive}
+        //$size={size}
+        outlined={outlined}
+        themeType={themeType}
+        layer={layer}
+        externalStyle={externalStyle}
+        role={props.onClick ? 'button' : undefined}
+        tabIndex={0}
+        {...htmlProps}
+      ></FancyPill>
+      <FancyBox onClick={props.onClick}></FancyBox>
     </>
   );
 }
