@@ -24,4 +24,5 @@ export const StyledFancyPill = styled.div<ISytledFancyPill>`
   }
 
   ${({ $isActive }) => $isActive && focusStyle}
+  ${({ $externalStyle }) => $externalStyle};
 `;
