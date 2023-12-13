@@ -5,7 +5,7 @@ export { default as DateNumberAtom } from '@/components/atoms/DateNumberAtom/Dat
 export { default as DateOutput } from '@/components/atoms/DateOutput/DateOutput';
 export { default as DropDownSelect } from '@/components/atoms/DropDownSelect/DropDownSelect';
 export { default as EditBarModal } from '@/components/atoms/EditBarModal/EditBarModal';
-
+export { default as FancyPill } from '@/components/atoms/FancyPill/FancyPill';
 export { default as FancyCard } from '@/components/atoms/FancyCard/FancyCard';
 export { default as FancyLine } from '@/components/atoms/FancyLine/FancyLine';
 export { default as FancyLI } from '@/components/atoms/FancyLI/FancyLI';
@@ -160,6 +160,7 @@ export {
   getBackgroundColor,
   getTextColor,
 } from '@/design/designFunctions/colorCalculatorForComponent';
+export { default as focusStyle } from '@/design/designFunctions/focusStyle/focusStyle';
 export { default as colorTransparencyCalculator } from '@/design/designFunctions/colorTransparencyCalculator/colorTransparencyCalculator';
 export { default as disabledStyle } from '@/design/designFunctions/disabledStyle/disableStyle';
 export { default as flipThemeColor } from '@/design/designFunctions/flipThemeColor/flipThemeColor';
