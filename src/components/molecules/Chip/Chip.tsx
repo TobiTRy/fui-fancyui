@@ -11,7 +11,7 @@ import { IFancyPillProps } from '@/components/atoms/FancyPill/FancyPill.model';
 // --------------------------------------------------------------------------- //
 export type TChipProps = IChipProps & IFancyPillProps;
 export default function Chip(props: TChipProps) {
-  const { size, outlined, themeType, layer, isActive, externalStyle, ...htmlProps } = props;
+  const { size, outlined, themeType, layer, isActive, externalStyle, children, ...htmlProps } = props;
 
   return (
     <>
@@ -47,8 +47,9 @@ export default function Chip(props: TChipProps) {
         role={props.onClick ? 'button' : undefined}
         tabIndex={0}
         {...htmlProps}
-      ></FancyPill>
-      <FancyBox onClick={props.onClick}></FancyBox>
+      >
+        {children}
+      </FancyPill>
     </>
   );
 }
