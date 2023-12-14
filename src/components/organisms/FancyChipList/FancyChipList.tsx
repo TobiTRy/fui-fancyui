@@ -10,6 +10,7 @@ import useChip from '@/components/organisms/FancyChipList/useChip.hook';
 import { InputLi } from './FancyChipList.style';
 import { ChipListProps } from './FancyChipListProps.model';
 import { Chip } from '@/components/molecules/Chip';
+import FancyChip from '@/components/templates/FancyChip/FancyChip';
 
 // The FancyChipList component definition
 export default function FancyChipList(props: ChipListProps) {
@@ -55,6 +56,7 @@ export default function FancyChipList(props: ChipListProps) {
   return (
     <Fieldset label={label} fontVariantLegend="button">
       <ChipList themeType={themeType} layer={layer} outlined={true} size={size} systemMessage={systemInformation}>
+        <FancyChip image='https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg'  label='Hiii' onDelete={() => console.log('assa')} />
         {/* // Mapping through each chip in the state to render a FancyChip */}
         {chipsWithKeys.map((chip, index) => (
           <Chip
@@ -62,7 +64,6 @@ export default function FancyChipList(props: ChipListProps) {
             contentEditable={editabledChip === chip.id}
             tabIndex={0}
             layer={Math.min((layer ?? 1) + 2, 10) as TLayer}
-            onDelete={deleteChip(chip.id)}
             outlined={outlined}
             onFocus={handleChipFocus(chip.id)}
             onClick={handleClick}

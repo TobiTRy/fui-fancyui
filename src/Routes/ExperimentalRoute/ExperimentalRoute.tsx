@@ -15,8 +15,7 @@ import BottomBarIcon from '../../components/molecules/BottomBarIcon/BottomBarIco
 import FancyBottomBarIcon from '@/components/templates/FancyBottomBarIcon/FancyBottomBarIcon';
 import { FancyButton } from '@/components/organisms/FancyButton';
 import { SingleToastMessage } from '@/components/molecules/SingleToastMessage';
-import { FancyCard } from '@/components/atoms/FancyCard';
-import { FancyChip } from '@/components/organisms/FancyChip';
+
 import { FancyNumberInput } from '@/components/organisms/FancyNumberInput';
 
 const Icon = (

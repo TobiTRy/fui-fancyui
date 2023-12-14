@@ -44,9 +44,8 @@ const useChip = (chips?: string[]) => {
     setChipsWithKeys((prev) => prev.map((chip) => (chip.id === chipId ? { ...chip, label: newLabel } : chip)));
   };
 
-  console.log('focusedChip', focusedChip);
   // Function to handle editing of a chip label through keyboard events
-  const handleChipEdit = (chipId: string, e: React.KeyboardEvent<React.ElementType>) => {
+  const handleChipEdit = (chipId: string, e: React.KeyboardEvent<HTMLDivElement>) => {
     // If the user pressed the enter key, confirm the edit and remove focus
     if (e.key === 'Enter' && focusedChip && !editabledChip) {
       e.preventDefault();

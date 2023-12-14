@@ -92,7 +92,6 @@ export { default as Paginator } from '@/components/molecules/Paginator/Paginator
 export { default as FancyProgressBar } from '@/components/molecules/FancyProgressBar/FancyProgressBar';
 export { default as FancyMiniProfile } from '@/components/molecules/FancyMiniProfile/FancyMiniProfile';
 export { default as FancyCheckbox } from '@/components/molecules/FancyCheckbox/FancyCheckbox';
-export { default as FancyChip } from '@/components/organisms/FancyChip/FancyChip';
 export { default as Header } from '@/components/molecules/Header/Header';
 export { default as FancyContent } from '@/components/molecules/FancyContent/FancyContent';
 export { default as InfoCard } from '@/components/molecules/InfoCard/InfoCard';
