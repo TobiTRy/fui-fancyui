@@ -4,11 +4,12 @@ import { TLayer } from '@/interface/TLayer';
 
 import { Fieldset } from '@/components/molecules/Fieldset';
 import { ChipList } from '@/components/molecules/ChipList';
-import { FancyChip } from '@/components/organisms/FancyChip';
+
 import useChip from '@/components/organisms/FancyChipList/useChip.hook';
 
 import { InputLi } from './FancyChipList.style';
 import { ChipListProps } from './FancyChipListProps.model';
+import { Chip } from '@/components/molecules/Chip';
 
 // The FancyChipList component definition
 export default function FancyChipList(props: ChipListProps) {
@@ -56,7 +57,7 @@ export default function FancyChipList(props: ChipListProps) {
       <ChipList themeType={themeType} layer={layer} outlined={true} size={size} systemMessage={systemInformation}>
         {/* // Mapping through each chip in the state to render a FancyChip */}
         {chipsWithKeys.map((chip, index) => (
-          <FancyChip
+          <Chip
             key={index}
             contentEditable={editabledChip === chip.id}
             tabIndex={0}
@@ -67,15 +68,15 @@ export default function FancyChipList(props: ChipListProps) {
             onClick={handleClick}
             onKeyDown={(e) => handleChipEdit(chip.id, e)}
           >
-            <FancyChip.Img src='https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg'/>
+            <Chip.Img src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg" />
 
-            <FancyChip.Content>
-              <FancyChip.Content.Title bold={false} fontVariant="content">
+            <Chip.Content>
+              <Chip.Content.Title bold={false} fontVariant="content">
                 {chip.label}
-              </FancyChip.Content.Title>
-            </FancyChip.Content>
-            <FancyChip.DeleteButton onClick={deleteChip(chip.id)} />
-          </FancyChip>
+              </Chip.Content.Title>
+            </Chip.Content>
+            <Chip.DeleteButton onClick={deleteChip(chip.id)} />
+          </Chip>
         ))}
         <InputLi>
           <input
