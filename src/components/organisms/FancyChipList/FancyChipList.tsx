@@ -56,7 +56,11 @@ export default function FancyChipList(props: ChipListProps) {
   return (
     <Fieldset label={label} fontVariantLegend="button">
       <ChipList themeType={themeType} layer={layer} outlined={true} size={size} systemMessage={systemInformation}>
-        <FancyChip image='https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg'  label='Hiii' onDelete={() => console.log('assa')} />
+        <FancyChip
+          image="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
+          label="Hiii"
+          onDelete={() => console.log('assa')}
+        />
         {/* // Mapping through each chip in the state to render a FancyChip */}
         {chipsWithKeys.map((chip, index) => (
           <Chip

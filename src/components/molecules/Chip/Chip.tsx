@@ -14,7 +14,6 @@ export type TChipProps = IChipProps & IFancyPillProps;
 export default function Chip(props: TChipProps) {
   const { outlined, themeType, layer, isActive, externalStyle, children, ...htmlProps } = props;
 
-  
   return (
     <RawLI>
       <FancyPill
@@ -34,7 +33,6 @@ export default function Chip(props: TChipProps) {
   );
 }
 
-
 Chip.DeleteButton = ChipDeleteButton;
-Chip.Img = ChipImg
-Chip.Content = FancyContent
+Chip.Img = ChipImg;
+Chip.Content = FancyContent;

@@ -1,4 +1,3 @@
-
 import { CSSProp } from 'styled-components';
 
 import { TLayer } from '@/interface/TLayer';
@@ -14,4 +13,4 @@ export interface IFancyPill {
   isActive?: boolean;
 }
 
-export type IFancyPillProps= IFancyPill & React.HTMLAttributes<HTMLDivElement>;
+export type IFancyPillProps = IFancyPill & React.HTMLAttributes<HTMLDivElement>;

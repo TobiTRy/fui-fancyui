@@ -6,7 +6,6 @@ import { TChipProps } from '@/components/molecules/Chip/Chip';
 import { TSpacingPosition, generateSpacing } from '@/components/templates/FancyChip/utils/generateSpacings';
 import { sizes } from '@/components/templates/FancyChip/sizeSettings';
 
-
 type TFancyChip = {
   image?: string;
   label?: string;
@@ -15,7 +14,7 @@ type TFancyChip = {
   sizes?: keyof typeof sizes;
 } & TChipProps;
 export default function FancyChip(props: TFancyChip) {
-  const { label, icon, image, onDelete, layer = 3, themeType, sizes, externalStyle,...htmlProps } = props;
+  const { label, icon, image, onDelete, layer = 3, themeType, sizes, externalStyle, ...htmlProps } = props;
 
   // Define a function to calculate the spacing position for the chip
   const clacPosition = (): TSpacingPosition => {
@@ -30,7 +29,7 @@ export default function FancyChip(props: TFancyChip) {
   // Calculate the spacing position for the chip
   const getCalcPosition = clacPosition();
 
-  console.log('getCalcPosition', getCalcPosition)
+  console.log('getCalcPosition', getCalcPosition);
 
   return (
     <Chip
@@ -43,15 +42,17 @@ export default function FancyChip(props: TFancyChip) {
       `}
       {...htmlProps}
     >
-
       {image && <Chip.Img src={image} />}
-      {label || icon && (
-        <Chip.Content>
-          {icon && <Chip.Content.Icon>{icon}</Chip.Content.Icon>}
-          <Chip.Content.Title bold={false} fontVariant='content'>{label}</Chip.Content.Title>
-        </Chip.Content>
-      )}
-     {onDelete && <Chip.DeleteButton />}
+      {label ||
+        (icon && (
+          <Chip.Content>
+            {icon && <Chip.Content.Icon>{icon}</Chip.Content.Icon>}
+            <Chip.Content.Title bold={false} fontVariant="content">
+              {label}
+            </Chip.Content.Title>
+          </Chip.Content>
+        ))}
+      {onDelete && <Chip.DeleteButton />}
     </Chip>
   );
 }
