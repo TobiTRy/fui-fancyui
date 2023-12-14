@@ -1,8 +1,8 @@
 import { css } from 'styled-components';
 
-import { sizes } from '@/components/molecules/Chip/sizeSettings';
+import { sizes } from '@/components/templates/FancyChip/sizeSettings';
 
-type TSpacingPosition = 'left' | 'right' | 'booth';
+export type TSpacingPosition = 'left' | 'right' | 'booth';
 
 // Define a function to generate the spacing based on the spacing position
 interface IGenerateSpacing {
