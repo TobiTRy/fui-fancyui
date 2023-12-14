@@ -1,5 +1,5 @@
 import React from 'react';
-import { sizes } from '@/components/molecules/Chip/sizeSettings';
+import { sizes } from '@/components/templates/FancyChip/sizeSettings';
 import { TTheme } from '@/interface/TTheme';
 import { styled } from 'styled-components';
 import { SVGXCircle } from '@/components/icons/SVGXCircle';
@@ -9,7 +9,7 @@ type IXButtonProps = {
   size?: keyof typeof sizes;
   children?: React.ReactNode;
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
-export default function ChipXButton(props: IXButtonProps) {
+export default function ChipDeleteButton(props: IXButtonProps) {
   const { size, onClick, children, 'aria-label': ariaLabel, ...htmlProps } = props;
 
   return (

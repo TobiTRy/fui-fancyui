@@ -6,11 +6,10 @@ import { FancyImage } from '@/components/atoms/FancyImage';
 
 type IFancyChipImgProps = React.ComponentProps<typeof FancyImage>;
 export default function ChipImg(props: IFancyChipImgProps) {
-  const { ...fancyImgaeProps } = props;
 
   return (
     <WrapperImage>
-      <FancyImage alt="chip" {...fancyImgaeProps} />
+      <FancyImage alt="chip" {...props} />
     </WrapperImage>
   );
 }
