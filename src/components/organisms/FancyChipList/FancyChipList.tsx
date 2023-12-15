@@ -2,16 +2,14 @@ import React, { KeyboardEvent, useState } from 'react';
 
 import { TLayer } from '@/interface/TLayer';
 
-import { Fieldset } from '@/components/molecules/Fieldset';
 import { ChipList } from '@/components/molecules/ChipList';
+import { Fieldset } from '@/components/molecules/Fieldset';
 
 import useChip from '@/components/organisms/FancyChipList/useChip.hook';
 
+import FancyChip from '@/components/templates/FancyChip/FancyChip';
 import { InputLi } from './FancyChipList.style';
 import { ChipListProps } from './FancyChipListProps.model';
-import { Chip } from '@/components/molecules/Chip';
-import FancyChip from '@/components/templates/FancyChip/FancyChip';
-import { SVGCheckMark } from '@/components/icons/SVGCheckMark';
 
 // The FancyChipList component definition
 export default function FancyChipList(props: ChipListProps) {
