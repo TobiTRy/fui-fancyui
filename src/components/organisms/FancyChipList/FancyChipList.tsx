@@ -11,11 +11,12 @@ import { InputLi } from './FancyChipList.style';
 import { ChipListProps } from './FancyChipListProps.model';
 import { Chip } from '@/components/molecules/Chip';
 import FancyChip from '@/components/templates/FancyChip/FancyChip';
+import { SVGCheckMark } from '@/components/icons/SVGCheckMark';
 
 // The FancyChipList component definition
 export default function FancyChipList(props: ChipListProps) {
   // Destructure props and provide default values from defaultProps
-  const { themeType, layer, chips, inputPlaceholder, outlined, label, size, systemInformation } = {
+  const { themeType, layer, chips, inputPlaceholder, outlined, label, size, editable, systemInformation } = {
     ...defaultProps,
     ...props,
   };
@@ -53,35 +54,29 @@ export default function FancyChipList(props: ChipListProps) {
     setInputValue(event.target.value);
   };
 
+
   return (
     <Fieldset label={label} fontVariantLegend="button">
       <ChipList themeType={themeType} layer={layer} outlined={true} size={size} systemMessage={systemInformation}>
-        <FancyChip
-          image="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
-          label="Hiii"
-          onDelete={() => console.log('assa')}
-        />
         {/* // Mapping through each chip in the state to render a FancyChip */}
         {chipsWithKeys.map((chip, index) => (
-          <Chip
-            key={index}
-            contentEditable={editabledChip === chip.id}
-            tabIndex={0}
-            layer={Math.min((layer ?? 1) + 2, 10) as TLayer}
-            outlined={outlined}
-            onFocus={handleChipFocus(chip.id)}
-            onClick={handleClick}
-            onKeyDown={(e) => handleChipEdit(chip.id, e)}
-          >
-            <Chip.Img src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg" />
-
-            <Chip.Content>
-              <Chip.Content.Title bold={false} fontVariant="content">
-                {chip.label}
-              </Chip.Content.Title>
-            </Chip.Content>
-            <Chip.DeleteButton onClick={deleteChip(chip.id)} />
-          </Chip>
+          <>
+            <FancyChip
+              role='textbox'
+              aria-aria-readonly={!editable}
+              key={index}
+              contentEditable={editabledChip === chip.id}
+              tabIndex={0}
+              layer={Math.min((layer ?? 1) + 2, 10) as TLayer}
+              outlined={outlined}
+              onFocus={handleChipFocus(chip.id)}
+              onDoubleClick={(e) => handleClick(e, chip.id)}
+              onKeyDown={(e) => handleChipEdit(chip.id, e)}
+              image="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
+              label={chip.label}
+              onDelete={deleteChip(chip.id)}
+            />
+          </>
         ))}
         <InputLi>
           <input

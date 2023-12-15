@@ -1,13 +1,13 @@
 import { css } from 'styled-components';
 
-import { sizes } from '@/components/templates/FancyChip/sizeSettings';
+import { sizesSettings } from '@/components/molecules/Chip/sizeSettings';
 
 export type TSpacingPosition = 'left' | 'right' | 'booth';
 
 // Define a function to generate the spacing based on the spacing position
 interface IGenerateSpacing {
   spacingPosition?: TSpacingPosition;
-  size?: keyof typeof sizes;
+  size?: keyof typeof sizesSettings;
 }
 export const generateSpacing = ({ spacingPosition, size }: IGenerateSpacing) => {
   const pickedSize = size ? size : 'md';
@@ -15,15 +15,15 @@ export const generateSpacing = ({ spacingPosition, size }: IGenerateSpacing) => 
   switch (spacingPosition) {
     case 'left':
       return css`
-        padding-left: ${sizes[pickedSize].paddingLeft + 2 + 'px'};
+        padding-left: ${sizesSettings[pickedSize].paddingLeft + 2 + 'px'};
       `;
     case 'right':
       return css`
-        padding-right: ${sizes[pickedSize].paddingRight + 2 + 'px'};
+        padding-right: ${sizesSettings[pickedSize].paddingRight + 2 + 'px'};
       `;
     case 'booth':
       return css`
-        padding: 0 ${sizes[pickedSize].padding + 2 + 'px'};
+        padding: 0 ${sizesSettings[pickedSize].padding + 2 + 'px'};
       `;
     default:
       return null;
