@@ -16,7 +16,7 @@ export default function ChipImg(props: IFancyChipImgProps) {
 // Define the styled component for the wrapper image
 export const WrapperImage = styled.div<{ theme: TTheme }>`
   aspect-ratio: 1/1;
-  height: 20px;
+  height: 100%;
 
   img {
     height: 100%; /* Ensures the image doesn't exceed the container's width */

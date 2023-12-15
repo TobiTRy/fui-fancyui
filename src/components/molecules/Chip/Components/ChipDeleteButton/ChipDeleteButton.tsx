@@ -1,12 +1,12 @@
 import React from 'react';
-import { sizes } from '@/components/templates/FancyChip/sizeSettings';
+import { sizesSettings } from '@/components/molecules/Chip/sizeSettings';
 import { TTheme } from '@/interface/TTheme';
 import { styled } from 'styled-components';
 import { SVGXCircle } from '@/components/icons/SVGXCircle';
 import RawButton from '@/components/atoms/RawButton/RawButton';
 
 type IXButtonProps = {
-  size?: keyof typeof sizes;
+  size?: keyof typeof sizesSettings;
   children?: React.ReactNode;
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
 export default function ChipDeleteButton(props: IXButtonProps) {
@@ -28,7 +28,7 @@ export default function ChipDeleteButton(props: IXButtonProps) {
 }
 
 interface IXButton {
-  $size?: keyof typeof sizes;
+  $size?: keyof typeof sizesSettings;
   theme: TTheme;
 }
 export const StyledXButton = styled(RawButton)<IXButton>`
@@ -43,7 +43,7 @@ export const StyledXButton = styled(RawButton)<IXButton>`
   align-items: center;
 
   svg {
-    width: ${({ $size }) => ($size ? sizes[$size].deleteButtonSize : sizes.md.deleteButtonSize)};
-    height: ${({ $size }) => ($size ? sizes[$size].deleteButtonSize : sizes.md.deleteButtonSize)};
+    width: ${({ $size }) => ($size ? sizesSettings[$size].deleteButtonSize : sizesSettings.md.deleteButtonSize)};
+    height: ${({ $size }) => ($size ? sizesSettings[$size].deleteButtonSize : sizesSettings.md.deleteButtonSize)};
   }
 `;
