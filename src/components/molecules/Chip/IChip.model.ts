@@ -6,7 +6,6 @@ import { sizesSettings } from '@/components/molecules/Chip/sizeSettings';
 export interface IChipProps {
   size?: keyof typeof sizesSettings;
   isActive?: boolean;
-  onClick?: () => void;
   externalStyle?: CSSProp;
   children?: React.ReactNode;
 }

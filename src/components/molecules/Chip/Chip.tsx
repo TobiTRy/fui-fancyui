@@ -25,10 +25,8 @@ export default function Chip(props: TChipProps) {
       layer={layer}
       externalStyle={css`
         height: ${sizesSettings[size].height};
-        gap: 4px;
         ${externalStyle}
       `}
-      role={props.onClick ? 'button' : undefined}
       tabIndex={0}
       {...htmlProps}
     >

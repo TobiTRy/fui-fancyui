@@ -12,6 +12,7 @@ export interface ChipListProps {
   inputPlaceholder?: string;
   label?: string;
   size?: 'sm' | 'md' | 'lg';
+  editable?: boolean;
 }
 
 // Define the type for the chips with an id and label
