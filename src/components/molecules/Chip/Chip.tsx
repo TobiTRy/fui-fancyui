@@ -6,30 +6,34 @@ import { RawLI } from '@/components/atoms/RawLI';
 import ChipDeleteButton from './Components/ChipDeleteButton/ChipDeleteButton';
 import ChipImg from '@/components/molecules/Chip/Components/ChipImg/ChipImg';
 import { FancyContent } from '@/components/molecules/FancyContent';
+import { css } from 'styled-components';
+import { sizesSettings } from '@/components/molecules/Chip/sizeSettings';
 
 // --------------------------------------------------------------------------- //
 // --------------- A Simple chip you can put everthing in it  ---------------- //
 // --------------------------------------------------------------------------- //
 export type TChipProps = IChipProps & IFancyPillProps;
 export default function Chip(props: TChipProps) {
-  const { outlined, themeType, layer, isActive, externalStyle, children, ...htmlProps } = props;
+  const { outlined, themeType, size = 'md', layer, isActive, externalStyle, children, ...htmlProps } = props;
 
   return (
-    <RawLI>
-      <FancyPill
-        isActive={isActive}
-        onBlur={props.onBlur}
-        outlined={outlined}
-        themeType={themeType}
-        layer={layer}
-        externalStyle={externalStyle}
-        role={props.onClick ? 'button' : undefined}
-        tabIndex={0}
-        {...htmlProps}
-      >
-        {children}
-      </FancyPill>
-    </RawLI>
+    <FancyPill
+      isActive={isActive}
+      onBlur={props.onBlur}
+      outlined={outlined}
+      themeType={themeType}
+      layer={layer}
+      externalStyle={css`
+        height: ${sizesSettings[size].height};
+        gap: 4px;
+        ${externalStyle}
+      `}
+      role={props.onClick ? 'button' : undefined}
+      tabIndex={0}
+      {...htmlProps}
+    >
+      {children}
+    </FancyPill>
   );
 }
 
