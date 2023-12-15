@@ -33,8 +33,9 @@ const useChip = (chips?: string[]) => {
     setEditabledChip('');
   };
 
-  const handleClick = () => (e: React.MouseEvent<HTMLDivElement>) => {
-    console.log('click');
+  const handleClick = (e: React.MouseEvent<HTMLDivElement>, chipId: string) => {
+    setFocusedChip(chipId);
+    setEditabledChip(focusedChip);
     const target = e.target;
     setLastLetterPositionContentEditable(target as HTMLElement);
   };
