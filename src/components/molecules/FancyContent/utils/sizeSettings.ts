@@ -17,7 +17,7 @@ export const sizes = {
   },
   lg: {
     fontSizeDescription: 'button' as TTypography,
-    fontSizeTitle: 'button' as TTypography,
+    fontSizeTitle: 'h3' as TTypography,
     padding: getSpacingFromTheme.md,
   },
 };

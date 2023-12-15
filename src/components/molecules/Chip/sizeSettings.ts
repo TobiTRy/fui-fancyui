@@ -9,23 +9,23 @@ const spacings = {
 
 export const sizesSettings = {
   sm: {
-    height: '18px',
-    deleteButtonSize: '12px',
+    height: '16px',
+    deleteButtonSize: '10px',
     padding: spacings.xs,
     paddingRight: spacings.xs,
     paddingLeft: spacings.xs,
     icon: '50%',
   },
   md: {
-    height: '24px',
-    deleteButtonSize: '14px',
+    height: '22px',
+    deleteButtonSize: '12px',
     padding: spacings.sm,
     paddingRight: spacings.sm,
     paddingLeft: spacings.sm,
     icon: '18px',
   },
   lg: {
-    height: '32px',
+    height: '28px',
     deleteButtonSize: '14px',
     padding: spacings.sm,
     paddingRight: spacings.sm,

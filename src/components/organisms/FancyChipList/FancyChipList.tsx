@@ -54,7 +54,6 @@ export default function FancyChipList(props: ChipListProps) {
     setInputValue(event.target.value);
   };
 
-
   return (
     <Fieldset label={label} fontVariantLegend="button">
       <ChipList themeType={themeType} layer={layer} outlined={true} size={size} systemMessage={systemInformation}>
@@ -62,7 +61,7 @@ export default function FancyChipList(props: ChipListProps) {
         {chipsWithKeys.map((chip, index) => (
           <>
             <FancyChip
-              role='textbox'
+              role="textbox"
               aria-aria-readonly={!editable}
               key={index}
               contentEditable={editabledChip === chip.id}
