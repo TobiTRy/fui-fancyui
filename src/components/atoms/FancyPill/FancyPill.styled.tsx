@@ -9,12 +9,7 @@ import { focusStyle } from '@/design/designFunctions/focusStyle';
 
 type ISytledFancyPill = IStyledPrefixAndPicker<IFancyPill> & { theme: TTheme };
 export const StyledFancyPill = styled.div<ISytledFancyPill>`
-  border: none;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   outline: none;
-
   border-radius: ${({ theme }) => theme.borderRadius.complete};
   ${({ $themeType, theme, $layer, $outlined, $outlinedBackgroundStrength }) =>
     generateThemeForCard({ $themeType, theme, $outlined, $layer, $outlinedBackgroundStrength })};
