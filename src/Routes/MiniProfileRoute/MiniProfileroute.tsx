@@ -1,6 +1,7 @@
 import React from 'react';
 
 import FancyMiniProfile from '../../components/molecules/FancyMiniProfile/FancyMiniProfile';
+import MiniProfile from '@/components/molecules/MiniProfile/MiniProfile';
 
 import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';
 import { FancyCard } from '@/components/atoms/FancyCard';
@@ -11,6 +12,7 @@ export default function MiniProfileroute() {
       <DesignWrapper>
         <DesignArea title="MiniProfile">
           <div style={{ display: 'flex', gap: '12px' }}>
+          <MiniProfile/>
             <FancyMiniProfile
               alignText="right"
               size={'sm'}

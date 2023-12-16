@@ -23,6 +23,8 @@ export default function Chip(props: TChipProps) {
       themeType={themeType}
       layer={layer}
       externalStyle={css`
+        display: inline-flex;
+        align-items: center;
         height: ${sizesSettings[size].height};
         ${externalStyle}
       `}
