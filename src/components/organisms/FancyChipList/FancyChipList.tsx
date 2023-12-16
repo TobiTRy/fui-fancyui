@@ -1,7 +1,6 @@
 import React, { KeyboardEvent, useState } from 'react';
 
 import { TLayer } from '@/interface/TLayer';
-
 import { ChipList } from '@/components/molecules/ChipList';
 import { Fieldset } from '@/components/molecules/Fieldset';
 
@@ -57,10 +56,10 @@ export default function FancyChipList(props: ChipListProps) {
       <ChipList themeType={themeType} layer={layer} outlined={true} size={size} systemMessage={systemInformation}>
         {/* // Mapping through each chip in the state to render a FancyChip */}
         {chipsWithKeys.map((chip, index) => (
-          <>
+          <li>             
             <FancyChip
               role="textbox"
-              aria-aria-readonly={!editable}
+              aria-readonly={!editable}
               key={index}
               contentEditable={editabledChip === chip.id}
               tabIndex={0}
@@ -69,11 +68,10 @@ export default function FancyChipList(props: ChipListProps) {
               onFocus={handleChipFocus(chip.id)}
               onDoubleClick={(e) => handleClick(e, chip.id)}
               onKeyDown={(e) => handleChipEdit(chip.id, e)}
-              image="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
               label={chip.label}
               onDelete={deleteChip(chip.id)}
             />
-          </>
+          </li>
         ))}
         <InputLi>
           <input
@@ -81,7 +79,7 @@ export default function FancyChipList(props: ChipListProps) {
             onChange={handleInputChange}
             onKeyDown={handleInputKeyDown}
             placeholder={inputPlaceholder}
-            style={{ width: inputValue ? inputValue.length + 'ch' : '', flexGrow: inputValue ? '' : '1' }}
+            style={{ flexGrow: inputValue ? '' : '1' }}
           />
         </InputLi>
       </ChipList>

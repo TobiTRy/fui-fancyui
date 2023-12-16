@@ -12,8 +12,8 @@ export const InputLi = styled.li<IChipContainer>`
   flex: 1;
 
   input {
+    height: auto;
     border: none;
-    padding: 5px;
     font-size: 14px;
     background-color: transparent;
     color: ${({ $themeType, theme }) =>
@@ -21,7 +21,6 @@ export const InputLi = styled.li<IChipContainer>`
 
     &:focus {
       outline: none;
-      width: 1ch;
     }
   }
 `;

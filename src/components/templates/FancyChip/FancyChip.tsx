@@ -14,7 +14,7 @@ type TFancyChip = {
   size?: keyof typeof sizesSettings;
 } & TChipProps;
 export default function FancyChip(props: TFancyChip) {
-  const { label, icon, image, onDelete, layer = 3, themeType, size = 'md', externalStyle, ...htmlProps } = props;
+  const { label, icon, image, onDelete, layer = 3, themeType, size = 'sm', externalStyle, ...htmlProps } = props;
 
   // Define a function to calculate the spacing position for the chip
   const clacPosition = (): TSpacingPosition => {
@@ -43,8 +43,8 @@ export default function FancyChip(props: TFancyChip) {
     >
       {image && <Chip.Img src={image} />}
       {(label || icon) && (
-        <Chip.Content>
-          {icon && <Chip.Content.Icon>{icon}</Chip.Content.Icon>}
+        <Chip.Content >
+          {icon && <Chip.Content.Icon size={size}>{icon}</Chip.Content.Icon>}
           <Chip.Content.Title size={size} bold={false}>
             {label}
           </Chip.Content.Title>
