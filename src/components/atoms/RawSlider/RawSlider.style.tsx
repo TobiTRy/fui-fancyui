@@ -23,7 +23,7 @@ export const StyledRawSlider = styled.input<{ theme: TTheme; $themeType?: TTheme
   margin: 0;
   height: 4px;
   margin: 10px 0 12px 0;
-  background: ${({ theme, $themeType = 'secondary', $layer = 4 }) => getBackgroundColor({ theme, $themeType, $layer })};
+  background: ${({ theme, $themeType = 'secondary', $layer = 3 }) => getBackgroundColor({ theme, $themeType, $layer })};
   border-radius: 5px;
   background-image: ${({ theme }) => `linear-gradient(90deg, ${theme.colors.accent[0]}, ${theme.colors.accent[1]})`};
   background-size: 70% 100%;

@@ -38,6 +38,7 @@
 
 
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const globalSizes = {
   xxs: {
     padding: '4px',
