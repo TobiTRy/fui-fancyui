@@ -42,7 +42,7 @@ function FancyContent(props: TFancyContentProps & React.HTMLAttributes<HTMLSpanE
       $flexDirection={flexDirection}
       $flexJustify={flexJustify}
       $gapBetweenText={gapBetweenText}
-      {...htmlProps}  
+      {...htmlProps}
     >
       {children}
     </OnlyTextWrapper>

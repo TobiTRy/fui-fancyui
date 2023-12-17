@@ -43,7 +43,7 @@ export default function FancyChip(props: TFancyChip) {
     >
       {image && <Chip.Img src={image} />}
       {(label || icon) && (
-        <Chip.Content >
+        <Chip.Content>
           {icon && <Chip.Content.Icon size={size}>{icon}</Chip.Content.Icon>}
           <Chip.Content.Title size={size} bold={false}>
             {label}

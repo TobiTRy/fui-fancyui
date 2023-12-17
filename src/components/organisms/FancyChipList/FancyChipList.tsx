@@ -56,7 +56,7 @@ export default function FancyChipList(props: ChipListProps) {
       <ChipList themeType={themeType} layer={layer} outlined={true} size={size} systemMessage={systemInformation}>
         {/* // Mapping through each chip in the state to render a FancyChip */}
         {chipsWithKeys.map((chip, index) => (
-          <li>             
+          <li>
             <FancyChip
               role="textbox"
               aria-readonly={!editable}

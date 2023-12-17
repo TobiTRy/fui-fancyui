@@ -116,7 +116,6 @@ export default function TabSwitchRoute() {
               outlined
               rounded="complete"
               size="sm"
- 
               layer={3}
               values={switchValues1}
               currentSelect={test}

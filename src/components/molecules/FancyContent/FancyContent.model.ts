@@ -5,5 +5,4 @@ export type TFancyContentProps = {
   gapBetweenText?: string;
   gapBetweenIcon?: string;
   children?: React.ReactNode;
-}
-
+};

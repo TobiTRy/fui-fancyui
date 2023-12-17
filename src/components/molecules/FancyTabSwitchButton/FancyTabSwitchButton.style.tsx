@@ -71,9 +71,10 @@ export const SwitchButtonStyle = styled.div<IListButtonStyle>`
     text-align: center;
     cursor: pointer;
     user-select: none;
-    padding: ${({$size, theme}) => `${tabSwitchItemSizes[$size || 'sm'].padding} ${theme.spacing.md}` } ;
-    color: ${({theme, $textColor = 'secondary', $layer}) => getBackgroundColor({ theme, $themeType: $textColor, $layer })};
-    ${({$hasIcon, $hasLabel, $iconAlign}) => $hasIcon && $hasLabel && generateIconAlignment({ $iconAlign })}
+    padding: ${({ $size, theme }) => `${tabSwitchItemSizes[$size || 'sm'].padding} ${theme.spacing.md}`};
+    color: ${({ theme, $textColor = 'secondary', $layer }) =>
+      getBackgroundColor({ theme, $themeType: $textColor, $layer })};
+    ${({ $hasIcon, $hasLabel, $iconAlign }) => $hasIcon && $hasLabel && generateIconAlignment({ $iconAlign })}
   }
 
   input {

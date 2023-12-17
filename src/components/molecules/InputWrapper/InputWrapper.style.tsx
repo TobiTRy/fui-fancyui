@@ -43,7 +43,7 @@ export const InputContainer = styled.div<{
     css`
       padding-top: ${parseFloat(theme.spacing.lg) + 2 + 'px'};
     `};
-    
+
   position: relative;
 
   input {

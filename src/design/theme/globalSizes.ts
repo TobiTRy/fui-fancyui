@@ -1,6 +1,3 @@
-
-
-
 // - **XXS (Extra Extra Small)**
 //   - **Padding/Margin**: 4px (0.5x base unit)
 //   - **Font Size**: 10px or 12px
@@ -35,8 +32,6 @@
 //   - **Padding/Margin**: 40px (5x base unit)
 //   - **Font Size**: 24px or larger
 //   - **Element Size**: 64px or more (e.g., major screen elements, large icons)
-
-
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const globalSizes = {
@@ -75,4 +70,4 @@ const globalSizes = {
     fontSize: '24px',
     elementSize: '64px',
   },
-}
+};

@@ -8,7 +8,6 @@ import { FancyBox } from '@/components/atoms/FancyBox';
 import { tabSwitchSizes } from '@/components/molecules/TabSwitch/TabSwitch.style';
 import { ITabSwitchProps } from '@/components/molecules/TabSwitch/TabSwitch.model';
 
-
 // --------------------------------------------------------------------------- //
 // -----  The FancyTabswich has more advanced features like Label etc. ------- //
 // --------------------------------------------------------------------------- //
@@ -27,7 +26,7 @@ export default function FancyTabSwitch(props: ITabSwitchProps & { label?: string
           border-radius: ${rounded && borderRadius[rounded]};
           overflow: hidden;
           background-color: ${themeType === 'transparent' && 'transparent'};
-          border:  ${themeType === 'transparent' && 'solid 1.5px transparent'};
+          border: ${themeType === 'transparent' && 'solid 1.5px transparent'};
           width: ${wide ? '100%' : 'fit-content'};
         `}
       >

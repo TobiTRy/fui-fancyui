@@ -1,9 +1,8 @@
 import { css } from 'styled-components';
-import { themeStore } from "@/design/theme/themeStore";
-import { TComponentSizes } from "@/interface/TComponentSizes";
+import { themeStore } from '@/design/theme/themeStore';
+import { TComponentSizes } from '@/interface/TComponentSizes';
 
 export type TSpacingPosition = 'left' | 'right' | 'booth';
-
 
 const getSpacingFromTheme = themeStore.getState().theme.spacing;
 const sizesSettings = {
@@ -22,7 +21,7 @@ const sizesSettings = {
     paddingRight: getSpacingFromTheme.sm,
     paddingLeft: getSpacingFromTheme.md,
   },
-}
+};
 
 // Define a function to generate the spacing based on the spacing position
 interface IGenerateSpacing {

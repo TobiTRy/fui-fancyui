@@ -1,4 +1,3 @@
-
 export const sizesSettings = {
   sm: {
     height: '16px',
