@@ -52,7 +52,7 @@ export default function TabSwitchRoute() {
     <>
       <FancyTabSwitch
         label="test"
-        size="md"
+        size="sm"
         values={switchValues1}
         rounded={'xxxl'}
         currentSelect={test}
@@ -70,8 +70,29 @@ export default function TabSwitchRoute() {
               wide
               size="sm"
               label="test"
-              outlined
               rounded="xxl"
+              themeType="secondary"
+              layer={3}
+              values={switchValues1}
+              currentSelect={test}
+              handler={(id: string) => setTest(id)}
+            />
+            <FancyTabSwitch
+              wide
+              size="md"
+              label="test"
+              rounded="xxl"
+              themeType="secondary"
+              layer={3}
+              values={switchValues1}
+              currentSelect={test}
+              handler={(id: string) => setTest(id)}
+            />
+            <FancyTabSwitch
+              wide
+              size="lg"
+              label="test"
+              rounded="xxxl"
               themeType="secondary"
               layer={3}
               values={switchValues1}
@@ -95,7 +116,7 @@ export default function TabSwitchRoute() {
               outlined
               rounded="complete"
               size="sm"
-              themeType="transparent"
+ 
               layer={3}
               values={switchValues1}
               currentSelect={test}

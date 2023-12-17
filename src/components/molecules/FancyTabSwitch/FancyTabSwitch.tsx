@@ -8,20 +8,13 @@ import { FancyBox } from '@/components/atoms/FancyBox';
 import { tabSwitchSizes } from '@/components/molecules/TabSwitch/TabSwitch.style';
 import { ITabSwitchProps } from '@/components/molecules/TabSwitch/TabSwitch.model';
 
-const calcPadding = (size: ITabSwitchProps['size'], outlined?: boolean) => {
-  if (outlined) {
-    return parseInt(tabSwitchSizes[size || 'sm'].paddingComponent) - 1.5 + 'px';
-  }
-  return size ? tabSwitchSizes[size].paddingComponent : '0';
-};
 
 // --------------------------------------------------------------------------- //
 // -----  The FancyTabswich has more advanced features like Label etc. ------- //
 // --------------------------------------------------------------------------- //
 export default function FancyTabSwitch(props: ITabSwitchProps & { label?: string }) {
-  const { values, label, layer, themeType, size, disabled, outlined, rounded, wide, ...tabSwitchProps } = props;
+  const { values, label, layer = 3, themeType, size, disabled, outlined, rounded, wide, ...tabSwitchProps } = props;
 
-  const clacPadding = calcPadding(size, outlined);
   /* Generate the unordered list for the tab switch */
   return (
     <Fieldset label={label} disabled={disabled}>
@@ -30,10 +23,11 @@ export default function FancyTabSwitch(props: ITabSwitchProps & { label?: string
         outlined={outlined}
         layer={layer}
         externalStyle={css`
-          padding: ${clacPadding};
+          padding: ${size ? tabSwitchSizes[size].paddingComponent : '0'};
           border-radius: ${rounded && borderRadius[rounded]};
           overflow: hidden;
           background-color: ${themeType === 'transparent' && 'transparent'};
+          border:  ${themeType === 'transparent' && 'solid 1.5px transparent'};
           width: ${wide ? '100%' : 'fit-content'};
         `}
       >
@@ -44,6 +38,7 @@ export default function FancyTabSwitch(props: ITabSwitchProps & { label?: string
           rounded={rounded}
           themeType={themeType}
           wide={wide}
+          size={size}
           {...tabSwitchProps}
         />
       </FancyBox>
