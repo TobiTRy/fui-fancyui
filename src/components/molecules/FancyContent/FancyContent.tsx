@@ -1,24 +1,16 @@
 // Import necessary dependencies
-import React, { ReactElement, ReactNode } from 'react';
+import React, { ReactElement } from 'react';
 
 import { FancyContentIcon } from './utils/FancyContentIcon';
 import { FancyContentDescription, FancyContentTitle } from './utils/FancyContentText';
 import { OnlyTextWrapper, Wrapper } from './FancyContent.style';
+import { TFancyContentProps } from '@/components/molecules/FancyContent/FancyContent.model';
 
-// Define the props for the FancyContent component
-export interface IFancyContentProps {
-  flexDirection?: 'row' | 'row-reverse' | 'column' | 'column-reverse';
-  flexJustify?: 'flex-start' | 'flex-end' | 'center' | 'space-between' | 'space-around' | 'space-evenly';
-  flexAlign?: 'flex-start' | 'flex-end' | 'center' | 'stretch' | 'baseline';
-  gapBetweenText?: string;
-  gapBetweenIcon?: string;
-  children?: ReactNode;
-}
 // --------------------------------------------------------------------------- //
 // ------- The conent Components handles the Content of The componets -------- //
 // -------------------like for a button or chip etc. ------------------------ //
-function FancyContent(props: IFancyContentProps) {
-  const { children, flexAlign, flexDirection, flexJustify, gapBetweenText, gapBetweenIcon } = props;
+function FancyContent(props: TFancyContentProps & React.HTMLAttributes<HTMLSpanElement>) {
+  const { children, flexAlign, flexDirection, flexJustify, gapBetweenText, gapBetweenIcon, ...htmlProps } = props;
   let iconElement: ReactElement | null = null;
   const contentGroup: ReactElement[] = [];
 
@@ -39,12 +31,21 @@ function FancyContent(props: IFancyContentProps) {
       $flexJustify={flexJustify}
       $gapBetweenText={gapBetweenText}
       $gapBetweenIcon={gapBetweenIcon}
+      {...htmlProps}
     >
       {iconElement}
       {contentGroup.length > 0 && <span className="content">{contentGroup}</span>}
     </Wrapper>
   ) : (
-    <OnlyTextWrapper>{children}</OnlyTextWrapper>
+    <OnlyTextWrapper
+      $flexAlign={flexAlign}
+      $flexDirection={flexDirection}
+      $flexJustify={flexJustify}
+      $gapBetweenText={gapBetweenText}
+      {...htmlProps}  
+    >
+      {children}
+    </OnlyTextWrapper>
   );
 }
 
