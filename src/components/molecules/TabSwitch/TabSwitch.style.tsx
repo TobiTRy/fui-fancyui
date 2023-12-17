@@ -3,10 +3,8 @@ import { CSSProp, styled } from 'styled-components';
 import { borderRadius, spacingPx } from '@/design/theme/designSizes';
 import { themeStore } from '@/design/theme/themeStore';
 
-import { TLayer } from '@/interface/TLayer';
 import { TTheme } from '@/interface/TTheme';
 import { TBorderRadiusSizes } from '@/interface/TBorderRadiusSizes';
-import { TThemeTypes } from '@/interface/TThemeTypes';
 import { TSpacings } from '@/interface/TSpacings';
 
 // Define the different sizes for the tab switch
@@ -15,29 +13,22 @@ const getSpacingFromTheme = themeStore.getState().theme.spacing;
 // eslint-disable-next-line react-refresh/only-export-components
 export const tabSwitchSizes = {
   sm: {
-    paddingComponent: '4px',
+    paddingComponent: '0',
   },
   md: {
-    paddingComponent: getSpacingFromTheme.xs,
+    paddingComponent: getSpacingFromTheme.xxs,
   },
   lg: {
-    paddingComponent: getSpacingFromTheme.sm,
+    paddingComponent: getSpacingFromTheme.xs,
   },
 };
 
 // Define the interface for the styled-component
 export interface IFancyTabSwitchStyle {
-  $transparent?: boolean;
   $wide?: boolean;
-  $outlinedBackgroundStrength?: number;
   $tabSpacing?: TSpacings;
   $direction?: 'horizontal' | 'vertical';
   $rounded?: TBorderRadiusSizes;
-  $padding?: keyof typeof tabSwitchSizes;
-  $outlined?: boolean;
-  theme: TTheme;
-  $layer?: TLayer;
-  $themeType?: TThemeTypes;
 }
 
 // ----------------------------------------------------------- //
@@ -65,10 +56,10 @@ export const ULButtonSwitchList = styled.ul<IFancyTabSwitchStyle & { theme: TThe
 // ---------- Other styled  ---------- //
 // ----------------------------------- //
 // Define the styled-component for the list item wrapper
-export const ItemWrapper = styled.li<{ externalStyle?: CSSProp }>`
+export const ItemWrapper = styled.li<{ $externalStyle?: CSSProp }>`
   position: relative;
   height: 100%;
   width: 100%;
   list-style: none;
-  ${({ externalStyle }) => externalStyle}
+  ${({ $externalStyle }) => $externalStyle}
 `;

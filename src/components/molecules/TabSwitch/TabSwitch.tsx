@@ -1,12 +1,10 @@
 import React, { useRef, useState } from 'react';
-import { css } from 'styled-components';
 
 import { ItemWrapper, ULButtonSwitchList, tabSwitchSizes } from './TabSwitch.style';
 import { FancyTabSwitchButton } from '@/components/molecules/FancyTabSwitchButton';
 import { borderRadius } from '@/design/theme/designSizes';
 import { SwitchActiveIndicator } from '@/components/atoms/SwitchActiveIndicator';
 import { ITabSwitchProps } from './TabSwitch.model';
-import { TTheme } from 'lib';
 
 // --------------------------------------------------------------------------- //
 // ------------ The tap SwitchComponent to slect specifc values -------------- //
@@ -14,8 +12,6 @@ import { TTheme } from 'lib';
 export default function TabSwitch(props: ITabSwitchProps) {
   const {
     values,
-    layer,
-    themeType,
     textColor,
     size,
     wide,
@@ -63,28 +59,13 @@ export default function TabSwitch(props: ITabSwitchProps) {
     <ULButtonSwitchList
       $tabSpacing={tabSpacing}
       $rounded={rounded}
-      $themeType={themeType}
       $wide={wide}
-      $outlined={outlined}
       $direction={direction}
       role="radiogroup"
-      $layer={layer}
     >
       {/* Generate a list item for each switch value */}
       {values.map((item, i) => (
-        <ItemWrapper
-          key={item.itemKey}
-          externalStyle={
-            (indicatorType === 'underline' &&
-              css<{ theme: TTheme }>`
-                padding-bottom: ${({ theme }) => theme.spacing.xxs};
-              `) ||
-            (indicatorType === 'topline' &&
-              css<{ theme: TTheme }>`
-                padding-top: ${({ theme }) => theme.spacing.xxs};
-              `)
-          }
-        >
+        <ItemWrapper key={item.itemKey}>
           {/* Generate the button for the switch item */}
           <FancyTabSwitchButton
             disabled={disabled}
