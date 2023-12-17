@@ -13,6 +13,12 @@ export default function MiniProfileroute() {
         <DesignArea title="MiniProfile">
           <div style={{ display: 'flex', gap: '12px' }}>
           <MiniProfile/>
+
+          </div>
+        </DesignArea>
+        <DesignArea title="MiniProfile">
+          <div style={{ display: 'flex', gap: '12px' }}>
+          <MiniProfile/>
             <FancyMiniProfile
               alignText="right"
               size={'sm'}
