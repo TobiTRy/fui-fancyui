@@ -30,9 +30,9 @@ export default function ButtonRoute() {
         <FancyButton label="Button" themeType="primary" size="sm" wide={false} borderRadius={'lg'} />
       </DesignArea>
       <DesignArea title="Button Types in wide" style={backgroundColor}>
-        <FancyButton label="Button" themeType="primary" wide />
-        <FancyButton label="Button" themeType="primary" wide />
-        <FancyButton label="Button" themeType="secondary" wide />
+        <FancyButton label="Button" size='sm' themeType="primary" wide />
+        <FancyButton label="Button" size='md' themeType="primary" wide />
+        <FancyButton label="Button" size='lg' themeType="secondary" wide />
         <FancyButton label="Button" themeType="accent" wide borderRadius="complete" align="center" />
         <FancyButton label="Button" themeType="transparent" wide align="center" hoverColor="accent" />
       </DesignArea>
