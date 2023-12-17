@@ -43,10 +43,11 @@ export const InputContainer = styled.div<{
     css`
       padding-top: ${parseFloat(theme.spacing.lg) + 2 + 'px'};
     `};
+    
   position: relative;
 
   input {
-    padding: 0px 0px ${({ theme }) => parseFloat(theme.spacing.xs) + 2 + 'px'};
+    padding: 0px 0px ${({ theme }) => parseFloat(theme.spacing.xs) + 'px'};
   }
 
   svg {

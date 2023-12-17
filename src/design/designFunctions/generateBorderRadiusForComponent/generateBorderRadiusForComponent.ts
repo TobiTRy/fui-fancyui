@@ -23,7 +23,7 @@ export const generateBorderRadiusForComponent = (size?: 'sm' | 'md' | 'lg', roun
       `;
     case 'lg':
       return css`
-        border-radius: ${borderRadius.lg};
+        border-radius: ${borderRadius.xl};
       `;
     default:
       return css``;

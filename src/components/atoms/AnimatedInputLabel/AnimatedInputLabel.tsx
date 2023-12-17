@@ -39,7 +39,7 @@ const activeHandler = (align: string, $moveUp?: boolean) => {
       left: 0;
       ${$moveUp
         ? css`
-            transform: translateY(-20px);
+            transform: translateY(-24px);
           `
         : ''}
     `;
@@ -50,7 +50,7 @@ const activeHandler = (align: string, $moveUp?: boolean) => {
       text-align: center;
       ${$moveUp
         ? css`
-            transform: translateY(-20px) translate(-50%);
+            transform: translateY(-24px) translate(-50%);
           `
         : 'transform: translate(-50%);'};
     `;

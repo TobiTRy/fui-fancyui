@@ -1,11 +1,14 @@
 export const sizeSettings = {
   sm: {
-    image: '26px'
+    image: '24px',
+    gapImageText: '4px'
   },
   md: {
-    image: '32px'
+    image: '32px',
+    gapImageText: '6px'
   },
   lg: {
-    image: '40px'
+    image: '40px',
+    gapImageText: '8px'
   },
 }
