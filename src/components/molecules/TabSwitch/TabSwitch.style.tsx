@@ -19,7 +19,7 @@ export const tabSwitchSizes = {
     paddingComponent: getSpacingFromTheme.xxs,
   },
   lg: {
-    paddingComponent: getSpacingFromTheme.xs,
+    paddingComponent: getSpacingFromTheme.xxs,
   },
 };
 

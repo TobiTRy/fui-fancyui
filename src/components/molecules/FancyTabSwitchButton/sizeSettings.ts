@@ -9,10 +9,10 @@ export const tabSwitchItemSizes = {
   },
   md: {
     fontSize: 'content' as TTypography,
-    padding: getSpacingFromTheme.sm,
+    padding: getSpacingFromTheme.xs,
   },
   lg: {
     fontSize: 'button' as TTypography,
-    padding: getSpacingFromTheme.md,
+    padding: getSpacingFromTheme.sm,
   },
 };

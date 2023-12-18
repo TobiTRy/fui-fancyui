@@ -75,6 +75,7 @@ export const SwitchButtonStyle = styled.div<IListButtonStyle>`
     color: ${({ theme, $textColor = 'secondary', $layer }) =>
       getBackgroundColor({ theme, $themeType: $textColor, $layer })};
     ${({ $hasIcon, $hasLabel, $iconAlign }) => $hasIcon && $hasLabel && generateIconAlignment({ $iconAlign })}
+    will-change: transform; // ís needed for safari to prevent icons jumping tested on the iphone 18.12.23 newest versions
   }
 
   input {
