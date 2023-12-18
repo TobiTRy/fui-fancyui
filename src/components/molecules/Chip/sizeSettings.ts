@@ -1,17 +1,14 @@
 export const sizesSettings = {
   sm: {
-    height: '16px',
-    deleteButtonSize: '10px',
-    icon: '50%',
+    height: '24px',
+    deleteButtonSize: '12px',
   },
   md: {
-    height: '22px',
-    deleteButtonSize: '12px',
-    icon: '18px',
+    height: '32px',
+    deleteButtonSize: '16px',
   },
   lg: {
-    height: '28px',
-    deleteButtonSize: '14px',
-    icon: '22px',
+    height: '40px',
+    deleteButtonSize: '18px',
   },
 };

@@ -16,7 +16,7 @@ export const Wrapper = styled.span<TWrapper & { theme: TTheme }>`
   flex-direction: ${({ $flexDirection }) => $flexDirection || 'row'};
   justify-content: ${({ $flexJustify }) => $flexJustify || 'center'};
   align-items: ${({ $flexAlign }) => $flexAlign || 'center'};
-  gap: ${({ $gapBetweenIcon, theme }) => $gapBetweenIcon ?? theme.spacing.xs};
+  gap: ${({ $gapBetweenIcon, theme }) => $gapBetweenIcon ?? theme.spacing.xxs};
 
   .content {
     display: flex;

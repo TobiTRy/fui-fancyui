@@ -12,14 +12,14 @@ const sizesSettings = {
     paddingLeft: getSpacingFromTheme.xs,
   },
   md: {
-    padding: getSpacingFromTheme.sm,
+    padding: getSpacingFromTheme.xs,
     paddingRight: getSpacingFromTheme.xs,
     paddingLeft: getSpacingFromTheme.sm,
   },
   lg: {
     padding: getSpacingFromTheme.sm,
     paddingRight: getSpacingFromTheme.sm,
-    paddingLeft: getSpacingFromTheme.md,
+    paddingLeft: getSpacingFromTheme.xs,
   },
 };
 
@@ -34,15 +34,15 @@ export const generateSpacing = ({ spacingPosition, size }: IGenerateSpacing) => 
   switch (spacingPosition) {
     case 'left':
       return css`
-        padding-left: ${parseFloat(sizesSettings[pickedSize].paddingLeft) + 2 + 'px'};
+        padding-left: ${parseFloat(sizesSettings[pickedSize].paddingLeft) + 'px'};
       `;
     case 'right':
       return css`
-        padding-right: ${parseFloat(sizesSettings[pickedSize].paddingRight) + 2 + 'px'};
+        padding-right: ${parseFloat(sizesSettings[pickedSize].paddingRight) + 'px'};
       `;
     case 'booth':
       return css`
-        padding: 0 ${parseFloat(sizesSettings[pickedSize].padding) + 2 + 'px'};
+        padding: 0 ${parseFloat(sizesSettings[pickedSize].padding) + 'px'};
       `;
     default:
       return null;

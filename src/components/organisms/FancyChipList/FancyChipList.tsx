@@ -56,11 +56,10 @@ export default function FancyChipList(props: ChipListProps) {
       <ChipList themeType={themeType} layer={layer} outlined={true} size={size} systemMessage={systemInformation}>
         {/* // Mapping through each chip in the state to render a FancyChip */}
         {chipsWithKeys.map((chip, index) => (
-          <li>
+          <li key={index}>
             <FancyChip
               role="textbox"
               aria-readonly={!editable}
-              key={index}
               contentEditable={editabledChip === chip.id}
               tabIndex={0}
               layer={Math.min((layer ?? 1) + 2, 10) as TLayer}
