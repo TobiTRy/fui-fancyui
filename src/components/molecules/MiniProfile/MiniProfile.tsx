@@ -1,4 +1,4 @@
-import { StyledMiniProfile } from '@/components/molecules/MiniProfile/MiniProfile.style';
+
 import { FancyImage } from '@/components/atoms/FancyImage';
 import { FancyContent } from '@/components/molecules/FancyContent';
 import MiniProfileImage from '@/components/molecules/MiniProfile/components/MiniProfileImage/MiniProfileImage';
