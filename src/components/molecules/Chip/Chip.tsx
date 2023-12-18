@@ -1,11 +1,11 @@
 import { IChipProps } from './IChip.model';
+import { css } from 'styled-components';
 
 import { FancyPill } from '@/components/atoms/FancyPill';
 import { IFancyPillProps } from '@/components/atoms/FancyPill/FancyPill.model';
 import ChipDeleteButton from './Components/ChipDeleteButton/ChipDeleteButton';
 import ChipImg from '@/components/molecules/Chip/Components/ChipImg/ChipImg';
 import { FancyContent } from '@/components/molecules/FancyContent';
-import { css } from 'styled-components';
 import { sizesSettings } from '@/components/molecules/Chip/sizeSettings';
 
 // --------------------------------------------------------------------------- //

@@ -16,7 +16,7 @@ export type IFancyProfilePicture = {
 //  ProfilePicture component to render with  different sizes and border radius //
 // --------------------------------------------------------------------------- //
 export default function FancyProfilePicture(props: IFancyProfilePicture) {
-  const { rounded = 'md', size = 'md', alt, externalStyle, textAvatarSettings, ...htmlProps } = props;
+  const { rounded = 'complete', size = 'md', alt, externalStyle, textAvatarSettings, ...htmlProps } = props;
 
   return 'src' in htmlProps ? (
     <StyledImage $rounded={rounded} $size={size} $externalStyle={externalStyle} alt={alt} {...htmlProps} />
