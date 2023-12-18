@@ -1,15 +1,15 @@
 // Set size based on prop
 export type TSize = 'sm' | 'md' | 'lg' | 'xxs' | 'xs' | 'xl' | 'xxl' | 'complete';
 const sizeConfig: Record<TSize | string, string> = {
-  xxs: '24px',
-  xs: '32px',
-  sm: '48px',
-  md: '96px',
-  lg: '128px',
-  xl: '192px',
-  xxl: '256px',
+  xxs: '16px',
+  xs: '24px',
+  sm: '32px',
+  md: '40px',
+  lg: '48px',
+  xl: '56px',
+  xxl: '64px',
   complete: '100%',
-  default: '100px',
+  default: '40px',
 };
 
 export const getSize = (size: TSize | string) => {

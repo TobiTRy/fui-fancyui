@@ -3,16 +3,14 @@ import { css, styled } from 'styled-components';
 import IStyledPrefixAndPicker from '@/interface/IStyledPrefixAndPicker.model';
 import { TTheme } from '@/interface/TTheme';
 import { TFancyContentProps } from '@/components/molecules/FancyContent/FancyContent.model';
+import IStyledPrefixAndOmitter from '@/interface/IStyledPrefixAndOmiter.model';
 
 // Define the types for the Wrapper component
-type TWrapper = IStyledPrefixAndPicker<
-  TFancyContentProps,
-  'flexDirection' | 'flexAlign' | 'flexJustify' | 'gapBetweenText' | 'gapBetweenIcon' | 'themeType' | 'layer'
->;
+type TWrapper = IStyledPrefixAndOmitter<TFancyContentProps, 'children'>;
 
 // Define the Wrapper component
 export const Wrapper = styled.span<TWrapper & { theme: TTheme }>`
-  display: flex;
+  display: inline-flex;
   flex-direction: ${({ $flexDirection }) => $flexDirection || 'row'};
   justify-content: ${({ $flexJustify }) => $flexJustify || 'center'};
   align-items: ${({ $flexAlign }) => $flexAlign || 'center'};
@@ -22,6 +20,8 @@ export const Wrapper = styled.span<TWrapper & { theme: TTheme }>`
     css`
       color: ${theme.colors[$themeType ?? 'secondary'][$layer ?? 0]};
     `};
+
+  ${({ $externalStyle }) => $externalStyle}
 
   .content {
     display: flex;

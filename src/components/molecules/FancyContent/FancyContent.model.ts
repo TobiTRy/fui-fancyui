@@ -1,5 +1,6 @@
 import { TThemeTypesNotTransparent } from '@/interface/TThemeTypesNotTransparent';
 import { TLayer } from '@/interface/TLayer';
+import { CSSProp } from 'styled-components';
 
 export type TFancyContentProps = {
   flexDirection?: 'row' | 'row-reverse' | 'column' | 'column-reverse';
@@ -10,4 +11,5 @@ export type TFancyContentProps = {
   children?: React.ReactNode;
   themeType?: TThemeTypesNotTransparent;
   layer?: TLayer;
+  externalStyle?: CSSProp;
 };

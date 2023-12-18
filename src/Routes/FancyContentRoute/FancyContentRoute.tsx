@@ -14,6 +14,15 @@ export default function FancyContentRoute() {
           <FancyContent.Description>Hiii</FancyContent.Description>
           <FancyContent.Title>Hiii</FancyContent.Title>
         </FancyContent>
+        <FancyContent flexAlign="flex-start" flexJustify="center" gapBetweenIcon="12px">
+          <FancyContent.Image
+            size="sm"
+            rounded="complete"
+            src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
+          />
+          <FancyContent.Description>Hiii</FancyContent.Description>
+          <FancyContent.Title>Hiii</FancyContent.Title>
+        </FancyContent>
       </DesignArea>
     </DesignWrapper>
   );
