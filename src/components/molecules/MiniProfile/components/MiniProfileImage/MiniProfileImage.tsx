@@ -1,7 +1,9 @@
-import React from 'react';
-
 import { FancyProfilePicture } from '@/components/atoms/FancyProfilePicture';
 
-export default function MiniProfileImage() {
-  return <FancyProfilePicture />;
+type IMiniProfileImage = React.ComponentProps<typeof FancyProfilePicture>;
+
+export default function MiniProfileImage(props: IMiniProfileImage) {
+  const { size = 'complete', rounded = 'complete', ...htmlProps } = props;
+
+  return <FancyProfilePicture size={size} rounded={rounded} {...htmlProps} />;
 }

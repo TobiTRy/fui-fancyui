@@ -5,6 +5,7 @@ import MiniProfile from '@/components/molecules/MiniProfile/MiniProfile';
 
 import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';
 import { FancyCard } from '@/components/atoms/FancyCard';
+import { Chip } from '@/components/molecules/Chip';
 
 export default function MiniProfileroute() {
   return (
@@ -12,7 +13,27 @@ export default function MiniProfileroute() {
       <DesignWrapper>
         <DesignArea title="MiniProfile">
           <div style={{ display: 'flex', gap: '12px' }}>
-            <MiniProfile />
+            <MiniProfile>
+              <MiniProfile.Image
+                size="sm"
+                rounded="complete"
+                src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
+              />
+
+              <MiniProfile.Content>
+                <MiniProfile.Content.Title size="sm">Tobiii</MiniProfile.Content.Title>
+              </MiniProfile.Content>
+            </MiniProfile>
+
+            <Chip size="sm">
+              <Chip.Content externalStyle={{ height: '100%' }}>
+                <Chip.Content.Image
+                  size="complete"
+                  src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
+                ></Chip.Content.Image>
+                <Chip.Content.Title size="sm">Tobiii</Chip.Content.Title>
+              </Chip.Content>
+            </Chip>
           </div>
         </DesignArea>
         <DesignArea title="MiniProfile">

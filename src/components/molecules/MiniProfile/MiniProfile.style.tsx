@@ -6,7 +6,6 @@ import { sizeSettings } from '@/components/molecules/MiniProfile/sizeSettings';
 export const StyledMiniProfile = styled(FancyPill)`
   display: inline-flex;
   align-items: center;
-  gap: ${sizeSettings.sm.gapImageText};
 
   .profile_picture {
     border-radius: 50%;
