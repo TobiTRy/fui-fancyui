@@ -10,7 +10,18 @@ import { TFancyContentProps } from '@/components/molecules/FancyContent/FancyCon
 // ------- The conent Components handles the Content of The componets -------- //
 // -------------------like for a button or chip etc. ------------------------ //
 function FancyContent(props: TFancyContentProps & React.HTMLAttributes<HTMLSpanElement>) {
-  const { children, flexAlign, flexDirection, flexJustify, gapBetweenText, gapBetweenIcon, ...htmlProps } = props;
+  const {
+    children,
+    flexAlign,
+    flexDirection,
+    flexJustify,
+    gapBetweenText,
+    gapBetweenIcon,
+    themeType,
+    layer,
+    ...htmlProps
+  } = props;
+
   let iconElement: ReactElement | null = null;
   const contentGroup: ReactElement[] = [];
 
@@ -31,6 +42,8 @@ function FancyContent(props: TFancyContentProps & React.HTMLAttributes<HTMLSpanE
       $flexJustify={flexJustify}
       $gapBetweenText={gapBetweenText}
       $gapBetweenIcon={gapBetweenIcon}
+      $themeType={themeType}
+      $layer={layer}
       {...htmlProps}
     >
       {iconElement}
@@ -38,6 +51,8 @@ function FancyContent(props: TFancyContentProps & React.HTMLAttributes<HTMLSpanE
     </Wrapper>
   ) : (
     <OnlyTextWrapper
+      $themeType={themeType}
+      $layer={layer}
       $flexAlign={flexAlign}
       $flexDirection={flexDirection}
       $flexJustify={flexJustify}
