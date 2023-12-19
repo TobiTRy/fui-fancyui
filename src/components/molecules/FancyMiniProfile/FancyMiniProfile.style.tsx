@@ -23,7 +23,7 @@ export const StyledChip = styled(Chip)<TStyledChip>`
   .miniprofile {
     &_content {
       height: 100%;
-      align-items: flex-end;
+      align-items: ${({ $alignedImage }) => ($alignedImage === 'right' ? 'flex-end' : 'flex-start')};
 
       .content {
         span {

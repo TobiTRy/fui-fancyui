@@ -37,17 +37,24 @@ const meta = {
       },
       options: ['sm', 'md', 'lg'],
     },
-    headingText: {
+    title: {
       description: 'The heading text of the component',
       control: {
         type: 'text',
       },
     },
-    subHeadingText: {
+    subTitle: {
       description: 'The sub heading text of the component',
       control: {
         type: 'text',
       },
+    },
+    alignImage: {
+      description: 'The alignment of the image',
+      control: {
+        type: 'select',
+      },
+      options: ['left', 'right'],
     },
   },
   tags: ['autodocs'],
@@ -60,10 +67,10 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   render: (args) => <FancyMiniProfile {...args} />,
   args: {
-    alignText: 'right',
-    headingText: 'Hans',
-    subHeadingText: 'Hans',
-    imageURL: 'https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg',
+    alignImage: 'right',
+    title: 'Hans',
+    subTitle: 'Hans',
+    src: 'https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg',
     size: 'sm',
     themeType: 'primary',
     layer: 0,

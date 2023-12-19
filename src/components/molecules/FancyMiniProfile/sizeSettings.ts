@@ -21,8 +21,8 @@ export const sizeSettings: IPillSettings = {
   },
   md: {
     paddingToEdge: 'sm',
-    gap: 'xs',
-    titleSize: 'h5',
+    gap: 'xxs',
+    titleSize: 'h6',
     subtitleSize: 'verysmText',
   },
   lg: {
