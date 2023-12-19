@@ -1,34 +1,35 @@
-import { useEffect, useState } from 'react';
+import { FocusEventHandler, useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { TChip } from '@/components/organisms/FancyChipList/FancyChipListProps.model';
 import { setLastLetterPositionContentEditable } from '@/components/organisms/FancyChipList/utils/setLastLetterPositionContentEditable';
 
-const useChip = (chips?: string[]) => {
-  const [chipsWithKeys, setChipsWithKeys] = useState<TChip[]>([]);
+const useChip = (chips?: TChip[]) => {
+  const [chipState, setChipState] = useState<TChip[]>([]);
   const [focusedChip, setFocusedChip] = useState('');
   const [editabledChip, setEditabledChip] = useState('');
 
   // Effect to initialize chipsWithKeys state when the chips prop changes
   useEffect(() => {
-    setChipsWithKeys(chips!.map((label) => ({ id: uuidv4(), label })));
+    setChipState(chips || []);
   }, [chips]);
 
   // Function to add a new chip
   const addChip = (label: string) => {
-    setChipsWithKeys((prev) => [...prev, { id: uuidv4(), label }]);
+    setChipState((prev) => [...prev, { id: uuidv4(), label }]);
   };
 
   // Function to delete a chip, curried to provide the chip id
   const deleteChip = (chipToDelete: string) => () => {
-    setChipsWithKeys(chipsWithKeys.filter((chip) => chip.id !== chipToDelete));
+    setChipState(chipState.filter((chip) => chip.id !== chipToDelete));
   };
 
   const removeLastChip = () => {
-    setChipsWithKeys((prev) => prev.slice(0, -1));
+    setChipState((prev) => prev.slice(0, -1));
   };
 
   // Function to set the focused chip
-  const handleChipFocus = (chipId: string) => () => {
+  const handleChipFocus = (chipId: string) => {
+    console.log( chipId);
     setFocusedChip(chipId);
     setEditabledChip('');
   };
@@ -42,7 +43,7 @@ const useChip = (chips?: string[]) => {
 
   // Function to update the label of a chip
   const updateChipLabel = (chipId: string, newLabel: string) => {
-    setChipsWithKeys((prev) => prev.map((chip) => (chip.id === chipId ? { ...chip, label: newLabel } : chip)));
+    setChipState((prev) => prev.map((chip) => (chip.id === chipId ? { ...chip, label: newLabel } : chip)));
   };
 
   // Function to handle editing of a chip label through keyboard events
@@ -70,7 +71,7 @@ const useChip = (chips?: string[]) => {
     handleChipFocus,
     focusedChip,
     editabledChip,
-    chipsWithKeys,
+    chipState,
     removeLastChip,
     handleClick,
   };
