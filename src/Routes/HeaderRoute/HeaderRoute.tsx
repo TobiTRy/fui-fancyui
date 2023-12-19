@@ -38,8 +38,7 @@ const RightSlot = ({ onClick }: { onClick?: () => void }) => {
   return (
     <div onClick={onClick} style={{ display: 'flex', alignItems: 'center' }}>
       <FancyMiniProfile
-        alignText="left"
-        headingText="@TobiTRy"
+        title="@TobiTRy"
         src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
       />
     </div>
@@ -62,8 +61,7 @@ const HeaderContent = () => {
       </FancySearchBar>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', width: '100%' }}>
         <FancyMiniProfile
-          alignText="left"
-          headingText="@TobiTRy"
+          title="@TobiTRy"
           src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
         />
       </div>
@@ -125,8 +123,7 @@ export default function HeaderRoute() {
                 refComponent={
                   <FancyMiniProfile
                     size={'sm'}
-                    headingText="mooin"
-                    alignText="left"
+                    title="mooin"
                     src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
                   />
                 }

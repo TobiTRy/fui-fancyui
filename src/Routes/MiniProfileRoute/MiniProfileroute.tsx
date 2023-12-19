@@ -1,7 +1,6 @@
 import React from 'react';
 
 import FancyMiniProfile from '../../components/molecules/FancyMiniProfile/FancyMiniProfile';
-import MiniProfile from '@/components/molecules/MiniProfile/MiniProfile';
 
 import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';
 import { FancyCard } from '@/components/atoms/FancyCard';
@@ -45,6 +44,7 @@ export default function MiniProfileroute() {
               size="md"
               alignImage="left"
               title="TobiTRy"
+              subTitle="@TobiTRy"
               src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
             />
             <FancyMiniProfile
@@ -57,7 +57,6 @@ export default function MiniProfileroute() {
         </DesignArea>
         <DesignArea title="MiniProfile">
           <div style={{ display: 'flex', gap: '12px' }}>
-            <MiniProfile />
             <FancyMiniProfile
               alignImage="right"
               size={'sm'}
