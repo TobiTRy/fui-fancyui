@@ -1,39 +1,34 @@
-import { IFancyProfilePicture } from '@/components/atoms/FancyProfilePicture/FancyProfilePicture';
 import { TSpacings } from '@/interface/TSpacings';
 import { TTypography } from '@/interface/TTypography';
 
 // the interface for the different sizes
 interface IPillSettings {
   [key: string]: {
-    imageSize: IFancyProfilePicture['size'];
-    padding: TSpacings | undefined;
-    textSize: TTypography;
+    titleSize: TTypography;
+    subtitleSize: TTypography;
+    gap: TSpacings;
     paddingToEdge: TSpacings;
-    gapPictureAndText: TSpacings;
   };
 }
 
 // the stettings for the different sizes
-export const pillSettings: IPillSettings = {
+export const sizeSettings: IPillSettings = {
   sm: {
-    imageSize: 'xs',
-    padding: undefined,
-    textSize: 'verysmText',
-    paddingToEdge: 'lg',
-    gapPictureAndText: 'sm',
+    paddingToEdge: 'xs',
+    titleSize: 'smText',
+    gap: 'xxs',
+    subtitleSize: 'verysmText',
   },
   md: {
-    imageSize: 'xs',
-    padding: 'xs',
-    textSize: 'smText',
-    paddingToEdge: 'lg',
-    gapPictureAndText: 'sm',
+    paddingToEdge: 'sm',
+    gap: 'xs',
+    titleSize: 'h5',
+    subtitleSize: 'verysmText',
   },
   lg: {
-    imageSize: 'sm',
-    padding: 'xs',
-    textSize: 'h5',
-    paddingToEdge: 'xl',
-    gapPictureAndText: 'sm',
+    paddingToEdge: 'sm',
+    gap: 'xs',
+    titleSize: 'h5',
+    subtitleSize: 'verysmText',
   },
 };
