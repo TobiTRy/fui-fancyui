@@ -12,18 +12,7 @@ import { ITabSwitchProps } from '@/components/molecules/TabSwitch/TabSwitch.mode
 // -----  The FancyTabswich has more advanced features like Label etc. ------- //
 // --------------------------------------------------------------------------- //
 export default function FancyTabSwitch(props: ITabSwitchProps & { label?: string }) {
-  const {
-    values,
-    label,
-    layer = 3,
-    themeType,
-    size,
-    disabled,
-    outlined,
-    rounded,
-    wide,
-    ...tabSwitchProps
-  } = props;
+  const { values, label, layer = 3, themeType, size, disabled, outlined, rounded, wide, ...tabSwitchProps } = props;
 
   /* Generate the unordered list for the tab switch */
   return (
