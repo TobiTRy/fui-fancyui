@@ -5,7 +5,6 @@ import MiniProfile from '@/components/molecules/MiniProfile/MiniProfile';
 
 import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';
 import { FancyCard } from '@/components/atoms/FancyCard';
-import { Chip } from '@/components/molecules/Chip';
 
 export default function MiniProfileroute() {
   return (
@@ -13,50 +12,70 @@ export default function MiniProfileroute() {
       <DesignWrapper>
         <DesignArea title="MiniProfile">
           <div style={{ display: 'flex', gap: '12px' }}>
-            <MiniProfile>
-              <MiniProfile.Image
-                size="sm"
-                rounded="complete"
-                src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
-              />
-
-              <MiniProfile.Content>
-                <MiniProfile.Content.Title size="sm">Tobiii</MiniProfile.Content.Title>
-              </MiniProfile.Content>
-            </MiniProfile>
-
-            <Chip size="sm">
-              <Chip.Content externalStyle={{ height: '100%' }}>
-                <Chip.Content.Image
-                  size="complete"
-                  src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
-                ></Chip.Content.Image>
-                <Chip.Content.Title size="sm">Tobiii</Chip.Content.Title>
-              </Chip.Content>
-            </Chip>
+            <FancyMiniProfile
+              size="sm"
+              alignImage="right"
+              title="TobiTRy"
+              src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
+            />
+            <FancyMiniProfile
+              size="md"
+              alignImage="right"
+              title="TobiTRy"
+              src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
+            />
+            <FancyMiniProfile
+              size="lg"
+              alignImage="right"
+              title="TobiTRy"
+              subTitle="@TobiTRy"
+              src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
+            />
+          </div>
+        </DesignArea>
+        <DesignArea title="MiniProfile">
+          <div style={{ display: 'flex', gap: '12px' }}>
+            <FancyMiniProfile
+              size="sm"
+              alignImage="left"
+              title="TobiTRy"
+              src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
+            />
+            <FancyMiniProfile
+              size="md"
+              alignImage="left"
+              title="TobiTRy"
+              src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
+            />
+            <FancyMiniProfile
+              size="lg"
+              alignImage="left"
+              title="TobiTRy"
+              src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
+            />
           </div>
         </DesignArea>
         <DesignArea title="MiniProfile">
           <div style={{ display: 'flex', gap: '12px' }}>
             <MiniProfile />
             <FancyMiniProfile
-              alignText="right"
+              alignImage="right"
               size={'sm'}
-              headingText="TobiTRy"
-              subHeadingText="@TobiTRy"
+              title="TobiTRy"
+              subTitle="@TobiTRy"
               src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
             />
             <FancyMiniProfile
-              alignText="right"
+              alignImage="right"
               size={'sm'}
-              headingText="TobiTRy"
+              title="TobiTRy"
               src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
             />
             <FancyMiniProfile
-              alignText="right"
+              alignImage="right"
               size={'sm'}
-              headingText="TobiTRy"
-              subHeadingText="@TobiTRy"
+              title="TobiTRy"
+              subTitle="@TobiTRy"
               src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
             />
           </div>
@@ -64,23 +83,23 @@ export default function MiniProfileroute() {
         <DesignArea title="MiniProfile">
           <div style={{ display: 'flex', gap: '12px' }}>
             <FancyMiniProfile
-              alignText="right"
+              alignImage="right"
               size={'md'}
-              headingText="TobiTRy"
-              subHeadingText="@TobiTRy"
+              title="TobiTRy"
+              subTitle="@TobiTRy"
               src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
             />
             <FancyMiniProfile
-              alignText="right"
+              alignImage="right"
               size={'md'}
-              headingText="TobiTRy"
+              title="TobiTRy"
               src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
             />
             <FancyMiniProfile
-              alignText="right"
+              alignImage="right"
               size={'md'}
-              headingText="TobiTRy"
-              subHeadingText="@TobiTRy"
+              title="TobiTRy"
+              subTitle="@TobiTRy"
               src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
             />
           </div>
@@ -88,24 +107,24 @@ export default function MiniProfileroute() {
         <DesignArea title="MiniProfile">
           <div style={{ display: 'flex', gap: '12px' }}>
             <FancyMiniProfile
-              alignText="right"
+              alignImage="right"
               size={'lg'}
-              headingText="TobiTRy"
-              subHeadingText="@TobiTRy"
+              title="TobiTRy"
+              subTitle="@TobiTRy"
               src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
             />
             <FancyMiniProfile
-              alignText="right"
+              alignImage="right"
               size={'lg'}
-              headingText="TobiTRy"
-              subHeadingText="@TobiTRy"
+              title="TobiTRy"
+              subTitle="@TobiTRy"
               src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
             />
             <FancyMiniProfile
-              alignText="right"
+              alignImage="right"
               size={'lg'}
-              headingText="TobiTRy"
-              subHeadingText="@TobiTRy"
+              title="TobiTRy"
+              subTitle="@TobiTRy"
               src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
             />
           </div>
