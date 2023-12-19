@@ -20,7 +20,7 @@ function FancyContent(props: TFancyContentProps & React.HTMLAttributes<HTMLSpanE
     themeType,
     layer,
     externalStyle,
-    alignIcon,
+    alignIcon = 'left',
     ...htmlProps
   } = props;
 

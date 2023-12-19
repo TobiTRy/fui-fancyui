@@ -69,7 +69,6 @@ export default function TabSwitch(props: ITabSwitchProps) {
           {/* Generate the button for the switch item */}
           <FancyTabSwitchButton
             disabled={disabled}
-            wide={wide}
             size={size}
             themeType={textColor}
             iconAlign={iconAlign}

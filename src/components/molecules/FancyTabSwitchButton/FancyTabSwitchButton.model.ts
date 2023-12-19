@@ -17,7 +17,6 @@ export interface ITabSwitchButton {
   disabled?: boolean;
   selected: boolean;
   onClick: (key: string) => void;
-  wide?: boolean;
   themeType?: TThemeTypes;
   iconAlign?: 'left' | 'right';
   size?: keyof typeof tabSwitchItemSizes;

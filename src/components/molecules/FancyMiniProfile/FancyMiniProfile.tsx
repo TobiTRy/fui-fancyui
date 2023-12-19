@@ -20,7 +20,7 @@ type TFancyMiniprofile = {
 // ------ The MiniProfile rendes a image with a heading and description ------ //
 // --------------------------------------------------------------------------- //
 export default function FancyMiniProfile(props: TFancyMiniprofile) {
-  const { size = 'sm', src, title, subTitle, themeType, layer, alignImage = 'right', ...htmlProps } = props;
+  const { size = 'sm', src, title, subTitle, themeType, layer = 3, alignImage = 'right', ...htmlProps } = props;
 
   // Define a function to calculate the spacing position for the chip
 
