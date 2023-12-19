@@ -16,10 +16,18 @@ type IXButtonProps = {
   children?: React.ReactNode;
   themeType?: TThemeTypesNotTransparent;
   layer?: TLayer;
+  onDelete?: () => void;
 };
 
 export default function ChipDeleteButton(props: IXButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement>) {
-  const { size, onClick, children, 'aria-label': ariaLabel, layer, themeType, ...htmlProps } = props;
+  const { size, onDelete, children, 'aria-label': ariaLabel, layer, themeType, ...htmlProps } = props;
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>) => {
+    if (onDelete && (e.key === 'Enter' || e.key === ' ')) {
+      e.preventDefault();
+      onDelete();
+    }
+  };
 
   return (
     <StyledXButton
@@ -27,10 +35,8 @@ export default function ChipDeleteButton(props: IXButtonProps & React.ButtonHTML
       $themeType={themeType}
       $layer={layer}
       $size={size}
-      onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
-        e.stopPropagation();
-        onClick;
-      }}
+      onKeyDown={handleKeyDown}
+      onClick={onDelete}
       {...htmlProps}
     >
       {children || <SVGXCircle />}

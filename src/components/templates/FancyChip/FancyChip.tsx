@@ -63,7 +63,7 @@ export default function FancyChip(props: TFancyChip) {
           </Chip.Content.Title>
         </Chip.Content>
       )}
-      {onDelete && <Chip.DeleteButton size={size} onClick={onDelete} />}
+      {onDelete && <Chip.DeleteButton size={size} onDelete={onDelete} />}
     </Chip>
   );
 }

@@ -7,7 +7,13 @@ import ChipList from '../../components/molecules/ChipList/ChipList';
 import FancyChipList from '../../components/organisms/FancyChipList/FancyChipList';
 import FancyChip from '@/components/templates/FancyChip/FancyChip';
 
-const chipList = ['12', '1212', '1212', '121221', '121212211', '12121212', '12121212'];
+const chipList = [
+  { label: "Item 1", id: '1' },
+  { label: "Item 2", id: '2' },
+  { label: "Item 3", id: '3' },
+  { label: "Item 4", id: '4' },
+  { label: "Item 5", id: '5' },
+];
 
 export default function ChipsRoute() {
   const [isActive, setIsActive] = React.useState(false);
