@@ -12,4 +12,5 @@ export type TFancyContentProps = {
   themeType?: TThemeTypesNotTransparent;
   layer?: TLayer;
   externalStyle?: CSSProp;
+  alignIcon?: 'left' | 'right';
 };
