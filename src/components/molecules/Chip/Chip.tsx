@@ -25,6 +25,7 @@ export default function Chip(props: TChipProps) {
       externalStyle={css`
         display: inline-flex;
         align-items: center;
+        flex-shrink: 0;
         height: ${sizesSettings[size].height};
         ${externalStyle}
       `}
