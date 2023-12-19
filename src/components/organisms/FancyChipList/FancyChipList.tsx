@@ -1,4 +1,4 @@
-import React, { KeyboardEvent, useState } from 'react';
+import React, { KeyboardEvent, useEffect, useRef, useState } from 'react';
 
 import { TLayer } from '@/interface/TLayer';
 import { ChipList } from '@/components/molecules/ChipList';
@@ -6,30 +6,35 @@ import { Fieldset } from '@/components/molecules/Fieldset';
 
 import useChip from '@/components/organisms/FancyChipList/useChip.hook';
 
-import FancyChip from '@/components/templates/FancyChip/FancyChip';
+import { FancyChip } from '@/components/templates/FancyChip';
 import { InputLi } from './FancyChipList.style';
 import { ChipListProps } from './FancyChipListProps.model';
 
 // The FancyChipList component definition
 export default function FancyChipList(props: ChipListProps) {
   // Destructure props and provide default values from defaultProps
-  const { themeType, layer, chips, inputPlaceholder, outlined, label, size, editable, systemInformation } = {
+  const { themeType, layer, chips, inputPlaceholder, outlined, label, size, editable, systemInformation, handler } = {
     ...defaultProps,
     ...props,
   };
-
   // State to hold chips with unique identifiers and input values
   const [inputValue, setInputValue] = useState('');
   const {
-    chipsWithKeys,
+    chipState,
     addChip,
     handleChipEdit,
     deleteChip,
     handleChipFocus,
+    focusedChip,
     handleClick,
     editabledChip,
     removeLastChip,
   } = useChip(chips);
+
+  const tagRefs = useRef<React.RefObject<HTMLLIElement>[]>([]);
+  tagRefs.current = chipState?.map(
+    (_, i) => tagRefs.current[i] || React.createRef<HTMLLIElement>()
+  );
 
   // Function to handle input keydown events for adding and removing chips
   const handleInputKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
@@ -38,11 +43,18 @@ export default function FancyChipList(props: ChipListProps) {
       event.preventDefault();
       addChip(val);
       setInputValue('');
-    } else if (event.key === 'Backspace' && !val && chipsWithKeys.length) {
+    } else if (event.key === 'Backspace' && !val && chipState.length) {
       // On backspace, if input is empty, remove the last chip and add its label to the input
-      const lastChip = chipsWithKeys[chipsWithKeys.length - 1];
-      setInputValue(lastChip.label);
-      removeLastChip();
+      if (!focusedChip) {
+        const lastChip = chipState[chipState.length - 1];
+        handleChipFocus(lastChip.id);
+        tagRefs.current[chipState.length - 1].current?.focus();
+        console.log(lastChip);
+      } else {
+        const lastChip = chipState[chipState.length - 1];
+        setInputValue(lastChip.label + ' '); // Add a space to prevent cursor from immediately jumping back into the chip input
+        removeLastChip();
+      }
     }
   };
 
@@ -51,23 +63,28 @@ export default function FancyChipList(props: ChipListProps) {
     setInputValue(event.target.value);
   };
 
+  useEffect(() => {
+    handler && handler(chipState);
+  }, [chipState, handler]);
+
   return (
     <Fieldset label={label} fontVariantLegend="button">
       <ChipList themeType={themeType} layer={layer} outlined={true} size={size} systemMessage={systemInformation}>
         {/* // Mapping through each chip in the state to render a FancyChip */}
-        {chipsWithKeys.map((chip, index) => (
-          <li key={index}>
+        {chipState.map((chip, index) => (
+          <li key={index} ref={tagRefs.current[index]} tabIndex={0}>
             <FancyChip
+              tabIndex={0}
+              isActive={focusedChip === chip.id}
               role="textbox"
+              label={chip.label}
               aria-readonly={!editable}
               contentEditable={editabledChip === chip.id}
-              tabIndex={0}
               layer={Math.min((layer ?? 1) + 2, 10) as TLayer}
               outlined={outlined}
-              onFocus={handleChipFocus(chip.id)}
+              onFocus={() => handleChipFocus(chip.id)}
               onDoubleClick={(e) => handleClick(e, chip.id)}
               onKeyDown={(e) => handleChipEdit(chip.id, e)}
-              label={chip.label}
               onDelete={deleteChip(chip.id)}
             />
           </li>
