@@ -22,7 +22,6 @@ export default function FancyTabSwitch(props: ITabSwitchProps & { label?: string
     outlined,
     rounded,
     wide,
-    indicatorType,
     ...tabSwitchProps
   } = props;
 
