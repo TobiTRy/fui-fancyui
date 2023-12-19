@@ -32,9 +32,7 @@ export default function FancyChipList(props: ChipListProps) {
   } = useChip(chips);
 
   const tagRefs = useRef<React.RefObject<HTMLLIElement>[]>([]);
-  tagRefs.current = chipState?.map(
-    (_, i) => tagRefs.current[i] || React.createRef<HTMLLIElement>()
-  );
+  tagRefs.current = chipState?.map((_, i) => tagRefs.current[i] || React.createRef<HTMLLIElement>());
 
   // Function to handle input keydown events for adding and removing chips
   const handleInputKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {

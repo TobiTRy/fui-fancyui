@@ -1,4 +1,4 @@
-import { FocusEventHandler, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { TChip } from '@/components/organisms/FancyChipList/FancyChipListProps.model';
 import { setLastLetterPositionContentEditable } from '@/components/organisms/FancyChipList/utils/setLastLetterPositionContentEditable';
@@ -29,7 +29,7 @@ const useChip = (chips?: TChip[]) => {
 
   // Function to set the focused chip
   const handleChipFocus = (chipId: string) => {
-    console.log( chipId);
+    console.log(chipId);
     setFocusedChip(chipId);
     setEditabledChip('');
   };
