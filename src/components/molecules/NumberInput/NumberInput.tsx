@@ -19,8 +19,6 @@ export default function NumberInput(props: INumberInput) {
   const { value, activeHandler, align, id, autoWidth, ...moreHTMLProps } = props;
   const { inputValue, handleChange, handleKeyDown } = useNumberInput(props);
 
-  console.log('NumberInput', inputValue !== null ? inputValue : '');
-
   const inputWidth = useMemo(
     () => (autoWidth ? (inputValue ? `${inputValue.length + 1}ch` : '2ch') : '100%'),
     [inputValue, autoWidth]
