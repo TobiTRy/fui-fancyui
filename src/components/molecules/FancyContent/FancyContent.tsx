@@ -5,7 +5,6 @@ import { FancyContentIcon } from './utils/FancyContentIcon';
 import { FancyContentDescription, FancyContentTitle } from './utils/FancyContentText';
 import { OnlyTextWrapper, Wrapper } from './FancyContent.style';
 import { TFancyContentProps } from '@/components/molecules/FancyContent/FancyContent.model';
-import { FancyProfilePicture } from '@/components/atoms/FancyProfilePicture';
 
 // --------------------------------------------------------------------------- //
 // ------- The conent Components handles the Content of The componets -------- //
@@ -21,26 +20,24 @@ function FancyContent(props: TFancyContentProps & React.HTMLAttributes<HTMLSpanE
     themeType,
     layer,
     externalStyle,
+    alignIcon,
     ...htmlProps
   } = props;
 
   let iconElement: ReactElement | null = null;
-  let imageElement: ReactElement | null = null;
   const contentGroup: ReactElement[] = [];
 
   React.Children.forEach(children, (child) => {
     if (React.isValidElement(child)) {
       if (child.type === FancyContent.Icon) {
         iconElement = child;
-      } else if (child.type === FancyContent.Image) {
-        imageElement = child;
       } else {
         contentGroup.push(child);
       }
     }
   });
 
-  return iconElement || imageElement ? (
+  return iconElement ? (
     <Wrapper
       $flexAlign={flexAlign}
       $flexDirection={flexDirection}
@@ -52,9 +49,9 @@ function FancyContent(props: TFancyContentProps & React.HTMLAttributes<HTMLSpanE
       $externalStyle={externalStyle}
       {...htmlProps}
     >
-      {imageElement}
-      {iconElement}
+      {alignIcon === 'left' ? iconElement : ''}
       {contentGroup.length > 0 && <span className="content">{contentGroup}</span>}
+      {alignIcon === 'right' ? iconElement : ''}
     </Wrapper>
   ) : (
     <OnlyTextWrapper
@@ -75,7 +72,6 @@ function FancyContent(props: TFancyContentProps & React.HTMLAttributes<HTMLSpanE
 FancyContent.Icon = FancyContentIcon;
 FancyContent.Title = FancyContentTitle;
 FancyContent.Description = FancyContentDescription;
-FancyContent.Image = FancyProfilePicture;
 
 // Export the main component is needed here for the storybook to work 🤦‍♂️
 export default FancyContent;
