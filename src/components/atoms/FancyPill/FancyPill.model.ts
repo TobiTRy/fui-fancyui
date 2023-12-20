@@ -11,6 +11,7 @@ export interface IFancyPill {
   outlinedBackgroundStrength?: number;
   externalStyle?: CSSProp;
   isActive?: boolean;
+  isHoverable?: boolean;
 }
 
 export type IFancyPillProps = IFancyPill & React.HTMLAttributes<HTMLDivElement>;
