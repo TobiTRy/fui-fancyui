@@ -1,5 +1,6 @@
 // Import necessary dependencies
 import { Meta, StoryObj } from '@storybook/react';
+import React from 'react';
 
 // Import the component to be tested
 import FancyBox from './FancyBox';
@@ -8,7 +9,6 @@ import { FancyMiniProfile } from '../../molecules/FancyMiniProfile';
 import { HeaderTitleWithLogo } from '../../molecules/HeaderTitleWithLogo';
 import { FancyBottomBarIcon } from '../../templates/FancyBottomBarIcon';
 import SVGCheckMark from '../../icons/SVGCheckMark/SVGCheckMark';
-import React from 'react';
 import { FancySearchBar } from '../../organisms/FancySearchBar';
 
 // Define metadata for the story
@@ -19,7 +19,7 @@ const meta = {
     docs: {
       description: {
         component:
-          'The FancyCard component is for displaying a card that can fill with somthing, it can be used for displaying content in a card <br> - height: the height of the card <br> - width: the width of the card <br> - themeType: the theme type of the card <br> - layer: the layer of the card <br> - textLayer: the layer of the text <br> - roundedEdges: the rounded edges of the card <br> - shadow: is the card shadowed',
+          'The FancyBox component is for displaying a card that can fill with somthing, it can be used for displaying content in a card <br> - height: the height of the card <br> - width: the width of the card <br> - themeType: the theme type of the card <br> - layer: the layer of the card <br> - textLayer: the layer of the text <br> - roundedEdges: the rounded edges of the card <br> - shadow: is the card shadowed',
       },
     },
   },
@@ -116,9 +116,9 @@ export const Header: Story = {
       <FancySearchBar />
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', width: '100%' }}>
         <FancyMiniProfile
-          alignText="left"
-          headingText="@TobiTRy"
-          imageURL="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
+          alignImage="left"
+          title="@TobiTRy"
+          src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
         />
       </div>
     </FancyBox>

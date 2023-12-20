@@ -10,7 +10,7 @@ import { TComponentSizes } from '@/interface/TComponentSizes';
 // --------------- A Simple chip you can put everthing in it  ---------------- //
 // --------------------------------------------------------------------------- //
 export type TChipProps = IFancyPillProps & { size?: TComponentSizes };
-export default function Chip(props: TChipProps) {
+function Chip(props: TChipProps) {
   const { outlined, themeType, size = 'md', layer, isActive, externalStyle, children, ...htmlProps } = props;
 
   return (
@@ -33,3 +33,7 @@ export default function Chip(props: TChipProps) {
 Chip.DeleteButton = ChipDeleteButton;
 Chip.Img = ChipImg;
 Chip.Content = FancyContent;
+
+
+// Is needed for the storybook to work
+export default Chip;

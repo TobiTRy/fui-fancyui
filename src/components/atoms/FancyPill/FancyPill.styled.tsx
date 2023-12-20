@@ -30,6 +30,11 @@ export const StyledFancyPill = styled.div<ISytledFancyPill>`
   ${({ $externalStyle }) => $externalStyle};
 `;
 
+
+
+// --------------------------------------------------------------------------- //
+// -----------------  Generate Hover style its needed ------------------------ //
+// --------------------------------------------------------------------------- //
 type TGenerateHoverableStyle = {
   $themeType: IFancyPill['themeType'];
   $layer: IFancyPill['layer'];
