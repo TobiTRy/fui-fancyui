@@ -3,7 +3,7 @@ import { styled } from 'styled-components';
 
 import { TLayer } from '@/interface/TLayer';
 import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponent';
-import IStyledPrefixAndPicker from '@/interface/IStyledPrefixAndPicker.model';
+import IStyledPrefixAndPicker from '@/interface/IStyledPrefixAndPicker';
 import { TTheme } from '@/interface/TTheme';
 import { TThemeTypes } from '@/interface/TThemeTypes';
 

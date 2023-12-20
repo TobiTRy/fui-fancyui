@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 
 import { IFancyImage } from '@/components/atoms/FancyImage/FancyImage';
-import IStyledPrefixAndPicker from '@/interface/IStyledPrefixAndPicker.model';
+import IStyledPrefixAndPicker from '@/interface/IStyledPrefixAndPicker';
 
 type TFancyImage = IStyledPrefixAndPicker<IFancyImage, 'darken' | 'aspectRatio' | 'externalStyle'>;
 export const StyledImage = styled.img<TFancyImage>`

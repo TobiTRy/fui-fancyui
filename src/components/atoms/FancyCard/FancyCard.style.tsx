@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 
 import { StyledCardProps } from './Card.model';
-import IStyledPrefixAndOmiter from '@/interface/IStyledPrefixAndOmiter.model';
+import IStyledPrefixAndOmiter from '@/interface/IStyledPrefixAndOmiter';
 import { spacingPx } from '@/design/theme/designSizes';
 import { edgeCalculation } from '@/design/designFunctions/edgeCalculation';
 

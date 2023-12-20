@@ -1,7 +1,7 @@
 import { css, styled } from 'styled-components';
 
 import { TFancyUnderline } from '@/components/atoms/InputUnderline/InputUnderline';
-import IStyledPrefixAndPicker from '@/interface/IStyledPrefixAndPicker.model';
+import IStyledPrefixAndPicker from '@/interface/IStyledPrefixAndPicker';
 import { TTheme } from '@/interface/TTheme';
 import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent';
 

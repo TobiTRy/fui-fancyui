@@ -1,7 +1,7 @@
 import React from 'react';
 import { styled } from 'styled-components';
 
-import IStyledPrefixAndOmiter from '@/interface/IStyledPrefixAndOmiter.model';
+import IStyledPrefixAndOmiter from '@/interface/IStyledPrefixAndOmiter';
 import { TSpacings } from '@/interface/TSpacings';
 import { TTheme } from '@/interface/TTheme';
 

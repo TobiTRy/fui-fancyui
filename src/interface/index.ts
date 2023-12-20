@@ -1,7 +1,8 @@
 export * from './IFontSizes';
 export * from './IStatus';
-export * from './IStyledPrefixAndOmiter.model';
-export * from './IStyledPrefixAndPicker.model';
+export type { default as IStyledPrefixAndOmitter } from './IStyledPrefixAndOmiter';
+export type { default as IStyledPrefixAndPicker } from './IStyledPrefixAndPicker';
+export * from './IStyledPrefixAndPicker';
 export * from './TBorderRadiusSizes';
 export * from './TComponentSizes';
 export * from './TLayer';

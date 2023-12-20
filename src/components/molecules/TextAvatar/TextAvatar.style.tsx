@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 
 import { getBorderRadiusViaSize } from '@/design/designFunctions/getBorderRadiusViaSize';
-import IStyledPrefixAndOmitter from '@/interface/IStyledPrefixAndOmiter.model';
+import IStyledPrefixAndOmitter from '@/interface/IStyledPrefixAndOmiter';
 import { TTheme } from '@/interface/TTheme';
 
 import { getSize } from '@/components/molecules/TextAvatar/utils/getSize';
