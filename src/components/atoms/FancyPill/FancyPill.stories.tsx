@@ -10,7 +10,8 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component: 'The FancyPill component is for displaying a pill that can fill with somthing, it can be used for displaying content in a pill <br> - height: the height of the pill <br> - width: the width of the pill <br> - themeType: the theme type of the pill <br> - layer: the layer of the pill <br> - textLayer: the layer of the text <br> - roundedEdges: the rounded edges of the pill <br> - shadow: is the pill shadowed',
+        component:
+          'The FancyPill component is for displaying a pill that can fill with somthing, it can be used for displaying content in a pill <br> - height: the height of the pill <br> - width: the width of the pill <br> - themeType: the theme type of the pill <br> - layer: the layer of the pill <br> - textLayer: the layer of the text <br> - roundedEdges: the rounded edges of the pill <br> - shadow: is the pill shadowed',
       },
     },
   },
@@ -67,9 +68,7 @@ const meta = {
         type: 'text',
       },
     },
-
   },
-
 } satisfies Meta<typeof FancyPill>;
 
 // Export the metadata

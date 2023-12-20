@@ -34,6 +34,5 @@ Chip.DeleteButton = ChipDeleteButton;
 Chip.Img = ChipImg;
 Chip.Content = FancyContent;
 
-
 // Is needed for the storybook to work
 export default Chip;
