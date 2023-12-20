@@ -31,9 +31,6 @@ export default function FancyChipList(props: ChipListProps) {
     removeLastChip,
   } = useChip(chips);
 
-  const tagRefs = useRef<React.RefObject<HTMLLIElement>[]>([]);
-  tagRefs.current = chipState?.map((_, i) => tagRefs.current[i] || React.createRef<HTMLLIElement>());
-
   // Function to handle input keydown events for adding and removing chips
   const handleInputKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
     const val = event.currentTarget.value.trim();
@@ -43,35 +40,30 @@ export default function FancyChipList(props: ChipListProps) {
       setInputValue('');
     } else if (event.key === 'Backspace' && !val && chipState.length) {
       // On backspace, if input is empty, remove the last chip and add its label to the input
-      if (!focusedChip) {
-        const lastChip = chipState[chipState.length - 1];
-        handleChipFocus(lastChip.id);
-        tagRefs.current[chipState.length - 1].current?.focus();
-        console.log(lastChip);
-      } else {
-        const lastChip = chipState[chipState.length - 1];
-        setInputValue(lastChip.label + ' '); // Add a space to prevent cursor from immediately jumping back into the chip input
-        removeLastChip();
-      }
-    }
-  };
 
-  // Function to handle changes in the input field
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(event.target.value);
+      const lastChip = chipState[chipState.length - 1];
+      setInputValue(lastChip.label + ' '); // Add a space to prevent cursor from immediately jumping back into the chip input
+      removeLastChip();
+    }
   };
 
   useEffect(() => {
     handler && handler(chipState);
   }, [chipState, handler]);
 
+  // Function to handle changes in the input field
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(event.target.value);
+  };
+
   return (
     <Fieldset label={label} fontVariantLegend="button">
       <ChipList themeType={themeType} layer={layer} outlined={true} size={size} systemMessage={systemInformation}>
         {/* // Mapping through each chip in the state to render a FancyChip */}
         {chipState.map((chip, index) => (
-          <li key={index} ref={tagRefs.current[index]} tabIndex={0}>
+          <li key={index} tabIndex={0}>
             <FancyChip
+              isHoverable
               tabIndex={0}
               isActive={focusedChip === chip.id}
               role="textbox"
@@ -80,8 +72,9 @@ export default function FancyChipList(props: ChipListProps) {
               contentEditable={editabledChip === chip.id}
               layer={Math.min((layer ?? 1) + 2, 10) as TLayer}
               outlined={outlined}
+              onBlur={() => handleChipFocus(chip.id)}
               onFocus={() => handleChipFocus(chip.id)}
-              onDoubleClick={(e) => handleClick(e, chip.id)}
+              onClick={(e) => handleClick(e, chip.id)}
               onKeyDown={(e) => handleChipEdit(chip.id, e)}
               onDelete={deleteChip(chip.id)}
             />
@@ -93,7 +86,6 @@ export default function FancyChipList(props: ChipListProps) {
             onChange={handleInputChange}
             onKeyDown={handleInputKeyDown}
             placeholder={inputPlaceholder}
-            style={{ flexGrow: inputValue ? '' : '1' }}
           />
         </InputLi>
       </ChipList>

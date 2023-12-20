@@ -29,7 +29,13 @@ const useChip = (chips?: TChip[]) => {
 
   // Function to set the focused chip
   const handleChipFocus = (chipId: string) => {
-    console.log(chipId);
+    // If the chip is already focused, unfocus it for on blur
+    if (chipId === focusedChip) {
+      setFocusedChip('');
+      setEditabledChip('');
+      return;
+    }
+    // Otherwise, set the focused chip
     setFocusedChip(chipId);
     setEditabledChip('');
   };

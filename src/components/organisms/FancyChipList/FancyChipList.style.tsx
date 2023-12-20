@@ -9,10 +9,13 @@ import { IGenerateThemeForCardProps } from '@/design/designFunctions/generateThe
 type IChipContainer = IStyledPrefixAndPicker<IGenerateThemeForCardProps> & { theme: TTheme };
 export const InputLi = styled.li<IChipContainer>`
   display: flex;
-  flex: 1;
+  flex: 1 0 auto;
+  min-width: 40px;
 
   input {
+    flex-grow: 1;
     height: auto;
+    width: 100%;
     border: none;
     font-size: 14px;
     background-color: transparent;
