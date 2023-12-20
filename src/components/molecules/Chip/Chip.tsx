@@ -1,39 +1,32 @@
-import { IChipProps } from './IChip.model';
-import { css } from 'styled-components';
-
-import { FancyPill } from '@/components/atoms/FancyPill';
 import { IFancyPillProps } from '@/components/atoms/FancyPill/FancyPill.model';
+import { FancyContent } from '@/components/molecules/FancyContent';
+import { StyledChip } from '@/components/molecules/Chip/Chip.style';
+
 import ChipDeleteButton from './Components/ChipDeleteButton/ChipDeleteButton';
 import ChipImg from '@/components/molecules/Chip/Components/ChipImg/ChipImg';
-import { FancyContent } from '@/components/molecules/FancyContent';
-import { sizesSettings } from '@/components/molecules/Chip/sizeSettings';
+import { TComponentSizes } from '@/interface/TComponentSizes';
 
 // --------------------------------------------------------------------------- //
 // --------------- A Simple chip you can put everthing in it  ---------------- //
 // --------------------------------------------------------------------------- //
-export type TChipProps = IChipProps & IFancyPillProps;
+export type TChipProps = IFancyPillProps & { size?: TComponentSizes };
 export default function Chip(props: TChipProps) {
   const { outlined, themeType, size = 'md', layer, isActive, externalStyle, children, ...htmlProps } = props;
 
   return (
-    <FancyPill
+    <StyledChip
       isActive={isActive}
       onBlur={props.onBlur}
       outlined={outlined}
       themeType={themeType}
       layer={layer}
-      externalStyle={css`
-        display: inline-flex;
-        align-items: center;
-        flex-shrink: 0;
-        height: ${sizesSettings[size].height};
-        ${externalStyle}
-      `}
       tabIndex={0}
+      $size={size}
+      externalStyle={externalStyle}
       {...htmlProps}
     >
       {children}
-    </FancyPill>
+    </StyledChip>
   );
 }
 
