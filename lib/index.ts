@@ -141,6 +141,7 @@ export { default as FancyFlexBox } from '@/components/templates/FancyFlexBox/Fan
 export { default as FancyHandyNav } from '@/components/templates/FancyHandyNav/FancyHandyNav';
 export { default as useFancyHandyNavStore } from '@/components/templates/FancyHandyNav/FancyHandyNav.store';
 export { default as FancyBottomBarIcon } from '@/components/templates/FancyBottomBarIcon/FancyBottomBarIcon';
+export { default as FancyHeader } from '@/components/templates/FancyHeader/FancyHeader';
 
 // ---------- Utils/Hooks ------- //
 export { default as FancyPopover } from '@/components/shared/FancyPopover/FancyPopover';
