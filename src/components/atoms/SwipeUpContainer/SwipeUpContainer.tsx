@@ -18,7 +18,12 @@ interface ISwipeUpContainer {
 }
 export default function SwipeUpContainer({ children, isScalable = true, style, themeType, layer }: ISwipeUpContainer) {
   return (
-    <StyledSwipeUpContainer style={isScalable ? style : { height: 'auto' }} $giveSpace={!isScalable} $themeType={themeType} $layer={layer}>
+    <StyledSwipeUpContainer
+      style={isScalable ? style : { height: 'auto' }}
+      $giveSpace={!isScalable}
+      $themeType={themeType}
+      $layer={layer}
+    >
       {children}
     </StyledSwipeUpContainer>
   );
@@ -46,5 +51,6 @@ const StyledSwipeUpContainer = styled.div<IStyledSwipeUpContainer>`
   padding-top: ${({ $giveSpace }) => ($giveSpace ? ({ theme }) => theme.spacing.lg : '0')};
   z-index: 101;
   backdrop-filter: blur(4px);
-  background-color: ${({ theme, $themeType = 'primary', $layer = 0 }) => getBackgroundColor({ theme, $themeType, $layer })};
+  background-color: ${({ theme, $themeType = 'primary', $layer = 0 }) =>
+    getBackgroundColor({ theme, $themeType, $layer })};
 `;

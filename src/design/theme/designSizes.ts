@@ -1,11 +1,11 @@
 export const spacingPx = {
-  xxs: 2 + 'px',
-  xs: 4 + 'px',
-  sm: 8 + 'px',
-  md: 12 + 'px',
-  lg: 16 + 'px',
-  xl: 24 + 'px',
-  xxl: 32 + 'px',
+  xxs: 4 + 'px',
+  xs: 8 + 'px',
+  sm: 12 + 'px',
+  md: 16 + 'px',
+  lg: 24 + 'px',
+  xl: 32 + 'px',
+  xxl: 40 + 'px',
 };
 
 export const fontSize = {
@@ -57,11 +57,13 @@ export const fontSizes = {
 };
 
 export const borderRadius = {
-  sm: '4px',
+  xxs: '2px',
+  xs: '4px',
+  sm: '6px',
   md: '8px',
   lg: '12px',
-  xl: '18px',
-  xxl: '24px',
-  xxxl: '48px',
+  xl: '16px',
+  xxl: '20px',
+  xxxl: '32px',
   complete: '50px',
 };

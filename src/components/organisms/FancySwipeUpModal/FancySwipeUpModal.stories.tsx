@@ -15,7 +15,8 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component: 'Smart-Comonent: The FancySwipeUpModal is a smart component that handles all the logic for the SwipeUpModal.',
+        component:
+          'Smart-Comonent: The FancySwipeUpModal is a smart component that handles all the logic for the SwipeUpModal.',
       },
     },
   },

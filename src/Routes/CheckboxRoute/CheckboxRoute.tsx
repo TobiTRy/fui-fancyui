@@ -46,7 +46,10 @@ export default function CheckboxRoute() {
             description="There is some description in this checkbox"
             label="Testt ttets sakjkas akllaksa klaas lllksaks askklalks ajdssjkadjsk ajkkjsajk jkkjsa jkjaksj kka jalw "
           />
-          <FancyCheckbox description="There is some description in this checkbox" label="Testt ttets sakjkas sdosodo a sdsdsdsjalw " />
+          <FancyCheckbox
+            description="There is some description in this checkbox"
+            label="Testt ttets sakjkas sdosodo a sdsdsdsjalw "
+          />
           <FancyCheckbox label="Testt ttets sakjkas sdosodo a sdsdsdsjalw " />
           <FancyCheckbox label="Testt ttets sakjkas sdosodo a sdsdsdsjalw " alignCheckbox="right" />
           <FancyCheckbox />
@@ -70,8 +73,20 @@ export default function CheckboxRoute() {
           ></FancyRadio>
 
           <div>
-            <RawRadio id="radio1" name="customRadio" value="option1" checked={selectedValue === 'option1'} onChange={handleChange} />
-            <CustomRadio id="radio2" name="customRadio" value="option2" checked={selectedValue === 'option2'} onChange={handleChange} />
+            <RawRadio
+              id="radio1"
+              name="customRadio"
+              value="option1"
+              checked={selectedValue === 'option1'}
+              onChange={handleChange}
+            />
+            <CustomRadio
+              id="radio2"
+              name="customRadio"
+              value="option2"
+              checked={selectedValue === 'option2'}
+              onChange={handleChange}
+            />
           </div>
           <FancyRadioList label="YAAAA MOOIIIN" name="hii" items={itemList} />
         </DesignArea>

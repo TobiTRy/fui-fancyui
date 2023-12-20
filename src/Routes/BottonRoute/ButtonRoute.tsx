@@ -30,9 +30,9 @@ export default function ButtonRoute() {
         <FancyButton label="Button" themeType="primary" size="sm" wide={false} borderRadius={'lg'} />
       </DesignArea>
       <DesignArea title="Button Types in wide" style={backgroundColor}>
-        <FancyButton label="Button" themeType="primary" wide />
-        <FancyButton label="Button" themeType="primary" wide />
-        <FancyButton label="Button" themeType="secondary" wide />
+        <FancyButton label="Button" size="sm" themeType="primary" wide />
+        <FancyButton label="Button" size="md" themeType="primary" wide />
+        <FancyButton label="Button" size="lg" themeType="secondary" wide />
         <FancyButton label="Button" themeType="accent" wide borderRadius="complete" align="center" />
         <FancyButton label="Button" themeType="transparent" wide align="center" hoverColor="accent" />
       </DesignArea>
@@ -45,7 +45,11 @@ export default function ButtonRoute() {
       <DesignArea title="Outlined Buttons" style={backgroundColor}>
         <FancyButton label="Button" themeType="primary" outlined />
         <FancyButton label="Button" themeType="secondary" outlined />
-        <FancyButton label="Butto jjsjkd jkjdjkbs jkj kskjdj j jsjkdj njk jksjd jbsbjkjkf n" themeType="accent" outlined />
+        <FancyButton
+          label="Butto jjsjkd jkjdjkbs jkj kskjdj j jsjkdj njk jksjd jbsbjkjkf n"
+          themeType="accent"
+          outlined
+        />
         <FancyButton label="Button" themeType="transparent" outlined />
       </DesignArea>
       <DesignArea title="Outlined Buttons" style={backgroundColor}>
@@ -69,7 +73,14 @@ export default function ButtonRoute() {
           themeType="primary"
           outlined
         />
-        <FancyButton icon={Icon} label="Button" isLoading={isLoading} onClick={() => setIsLoading(false)} themeType="secondary" outlined />
+        <FancyButton
+          icon={Icon}
+          label="Button"
+          isLoading={isLoading}
+          onClick={() => setIsLoading(false)}
+          themeType="secondary"
+          outlined
+        />
       </DesignArea>
       <DesignArea title="1:1 Buttons" style={backgroundColor}>
         <FancyButton

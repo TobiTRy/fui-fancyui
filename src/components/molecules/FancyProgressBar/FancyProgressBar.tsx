@@ -2,7 +2,7 @@ import { TLayer } from '@/interface/TLayer';
 import { TThemeTypes } from '@/interface/TThemeTypes';
 
 import ProgressBar, { IProgressBar } from '@/components/atoms/ProgressBar/ProgressBar';
-import { AlignedInputLabel } from '@/components/atoms/AlignedInputLabel/AlignedInputLabel';
+import { AlignedInputLabel } from '@/components/atoms/AlignedInputLabel';
 import { TAlign } from '@/components/atoms/AlignedInputLabel/TalignedInputLabel.model';
 
 import { Wrapper } from './FancyProgressBar.style';
@@ -21,7 +21,8 @@ interface IFancyProgressBar extends IProgressBar {
 // ---------- The Progressbar with some Items Like Percent and Label --------- //
 // --------------------------------------------------------------------------- //
 export default function FancyProgressBar(props: IFancyProgressBar) {
-  const { progress, maxValue, id, label, labelAlign, progressAlign, progressCount, themeType, layer, textLayer } = props;
+  const { progress, maxValue, id, label, labelAlign, progressAlign, progressCount, themeType, layer, textLayer } =
+    props;
 
   return (
     <Wrapper $value={progress}>

@@ -15,8 +15,8 @@ export default function FancyMenuItem(props: TFancyMenueItemProps) {
   return (
     <MenuItem {...menuItemProps}>
       <FancyContent flexAlign="flex-start">
-        <FancyContent.Title bold={false}>{label}</FancyContent.Title>
-        <FancyContent.Icon>{icon}</FancyContent.Icon>
+        {label && <FancyContent.Title bold={false}>{label}</FancyContent.Title>}
+        {icon && <FancyContent.Icon>{icon}</FancyContent.Icon>}
       </FancyContent>
     </MenuItem>
   );

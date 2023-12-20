@@ -1,11 +1,10 @@
 import { styled, css } from 'styled-components';
 
 import { TStyleProps } from './FancyFlexBox.model';
-import IStyledPrefixAndPicker from '@/interface/IStyledPrefixAndPicker.model';
-import { TTheme } from '@/interface/TTheme';
+import IStyledPrefixAndOmitter from '@/interface/IStyledPrefixAndOmiter.model';
 
-const generateFlexSytles = (props: TStyledFlexBoxProps & { theme?: TTheme }) => {
-  const { $flexDirection, $flexJustify, $flexAlign, $gap, theme } = props;
+const generateFlexSytles = (props: TStyledFlexBoxProps) => {
+  const { $flexDirection, $flexJustify, $flexAlign, $gap } = props;
 
   return css`
     display: flex;
@@ -13,15 +12,14 @@ const generateFlexSytles = (props: TStyledFlexBoxProps & { theme?: TTheme }) => 
     flex-direction: ${$flexDirection ?? 'row'};
     justify-content: ${$flexJustify ?? 'flex-start'};
     align-items: ${$flexAlign ?? 'flex-start'};
-    gap: ${$gap ?? theme!.spacing.xxs};
+    gap: ${$gap};
   `;
 };
 
-type TStyledFlexBoxProps = IStyledPrefixAndPicker<TStyleProps>;
-export const StyledFlexBox = styled.div<TStyledFlexBoxProps>`
+type TStyledFlexBoxProps = IStyledPrefixAndOmitter<TStyleProps>;
+export const StyledFlexBox = styled.div<TStyledFlexBoxProps & { as: React.ElementType }>`
+  padding: 0;
+  margin: 0;
   ${(props: TStyledFlexBoxProps) => generateFlexSytles({ ...props })}
-`;
-
-export const StyledInlineFlexBox = styled.span<TStyledFlexBoxProps>`
-  ${(props: TStyledFlexBoxProps) => generateFlexSytles({ ...props })}
+  ${({ $externalStyle }) => $externalStyle}
 `;

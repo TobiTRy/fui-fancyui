@@ -12,8 +12,6 @@ import { ITabSwitchProps } from './TabSwitch.model';
 export default function TabSwitch(props: ITabSwitchProps) {
   const {
     values,
-    layer,
-    themeType,
     textColor,
     size,
     wide,
@@ -26,6 +24,7 @@ export default function TabSwitch(props: ITabSwitchProps) {
     handler,
     iconAlign,
     activeColor,
+    indicatorType,
   } = props;
   // Define the state for the currently selected tab
   const buttonRefs = useRef<React.RefObject<HTMLDivElement>[]>(values.map(() => React.createRef<HTMLDivElement>()));
@@ -60,12 +59,9 @@ export default function TabSwitch(props: ITabSwitchProps) {
     <ULButtonSwitchList
       $tabSpacing={tabSpacing}
       $rounded={rounded}
-      $themeType={themeType}
       $wide={wide}
-      $outlined={outlined}
       $direction={direction}
       role="radiogroup"
-      $layer={layer}
     >
       {/* Generate a list item for each switch value */}
       {values.map((item, i) => (
@@ -73,7 +69,6 @@ export default function TabSwitch(props: ITabSwitchProps) {
           {/* Generate the button for the switch item */}
           <FancyTabSwitchButton
             disabled={disabled}
-            wide={wide}
             size={size}
             themeType={textColor}
             iconAlign={iconAlign}
@@ -88,17 +83,18 @@ export default function TabSwitch(props: ITabSwitchProps) {
           {/* Generate the switch active indicator wich is a blob or underline */}
           {i === 0 && (
             <SwitchActiveIndicator
-              $layer={layer}
-              $outlined={outlined}
+              outlined={outlined}
               // the radius of the switch indicator is adjusted for good looks with minus the padding of the switch
-              $rounded={
-                rounded ? parseInt(borderRadius[rounded]) - parseInt(tabSwitchSizes[size || 'sm'].paddingComponent) + 'px' : undefined
+              rounded={
+                rounded
+                  ? parseInt(borderRadius[rounded]) - parseInt(tabSwitchSizes[size || 'sm'].paddingComponent) + 'px'
+                  : undefined
               }
-              $type={themeType !== 'transparent' ? 'bolb' : 'underline'}
-              $itemNumber={Number(currentSelected)}
-              $themeType={activeColor}
-              $direction={direction}
-              $tabSpacing={tabSpacing}
+              type={indicatorType ?? 'bolb'}
+              itemNumber={Number(currentSelected)}
+              themeType={activeColor}
+              direction={direction}
+              tabSpacing={tabSpacing}
             />
           )}
         </ItemWrapper>

@@ -1,20 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { animated, useSpring } from '@react-spring/web';
 
-import { TThemeTypes } from '@/interface/TThemeTypes';
-import { TLayer } from '@/interface/TLayer';
 import { StyledDialog } from './SimpleDialog.style';
+import TSimpleDialog from '@/components/atoms/SimpleDialog/SimpleDialog.model';
 
-// Define the props for the SimpleDialog component
-interface ISimpleDialog {
-  isOpen: boolean;
-  children: React.ReactNode;
-  themeType?: TThemeTypes;
-  layer?: TLayer;
-}
+// --------------------------------------------------------------------------- //
+// -------  A container that can filld with everythin and acts as a dialog --- //
+// --------------------------------------------------------------------------- //
+export default function SimpleDialog(props: TSimpleDialog) {
+  const { isOpen, children, themeType, layer, ...htmlProps } = props;
 
-// Define the SimpleDialog component
-export default function SimpleDialog({ isOpen, children, themeType, layer }: ISimpleDialog) {
   const [shouldRender, setRender] = useState(isOpen);
 
   // Define the fade animation for the dialog
@@ -31,7 +26,7 @@ export default function SimpleDialog({ isOpen, children, themeType, layer }: ISi
 
   // Render the SimpleDialog component with the appropriate props
   return shouldRender ? (
-    <StyledDialog as={animated.div} style={fade} $themeType={themeType} $layer={layer}>
+    <StyledDialog as={animated.div} style={fade} $themeType={themeType} $layer={layer} {...htmlProps}>
       {children}
     </StyledDialog>
   ) : null;

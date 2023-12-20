@@ -1,1 +1,1 @@
-export type TSizes = 'sm' | 'md' | 'lg';
+export type TComponentSizes = 'sm' | 'md' | 'lg';

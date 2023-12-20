@@ -1,13 +1,23 @@
 import { styled } from 'styled-components';
 
 import { TTheme } from '@/interface/TTheme';
+import { TLayer } from '@/interface/TLayer';
+import { TThemeTypesNotTransparent } from '@/interface/TThemeTypesNotTransparent';
+import { getTextColor } from '@/design/designFunctions/colorCalculatorForComponent';
 
 // --------------------------------------------------------------------------- //
 // --------------- The main label design for the input elements -------------- //
 // --------------------------------------------------------------------------- //
-const InputLabel = styled.label<{ theme: TTheme }>`
+export interface IInputLabel {
+  theme: TTheme;
+  $layer?: TLayer;
+  $themeType?: TThemeTypesNotTransparent;
+}
+
+const InputLabel = styled.label<IInputLabel>`
   width: 100%;
-  color: ${({ theme }) => theme.colors.secondary[1]}; //TODO: BUILD IN LAYER
+  color: ${({ theme, $layer, $themeType }) =>
+    getTextColor({ theme, $themeType: $themeType ?? 'secondary', $textLayer: $layer ?? 1 })};
   font-weight: bold;
   pointer-events: none;
   user-select: none;

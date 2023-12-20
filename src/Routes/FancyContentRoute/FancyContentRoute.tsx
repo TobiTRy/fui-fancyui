@@ -14,6 +14,10 @@ export default function FancyContentRoute() {
           <FancyContent.Description>Hiii</FancyContent.Description>
           <FancyContent.Title>Hiii</FancyContent.Title>
         </FancyContent>
+        <FancyContent flexAlign="flex-start" flexJustify="center" gapBetweenIcon="12px">
+          <FancyContent.Description>Hiii</FancyContent.Description>
+          <FancyContent.Title>Hiii</FancyContent.Title>
+        </FancyContent>
       </DesignArea>
     </DesignWrapper>
   );

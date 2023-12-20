@@ -1,24 +1,18 @@
-import React, { ReactNode, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
-import { SimpleDialog } from '@/components/atoms/SimpleDialog';
+import { SimpleDialog, TSimpleDialog } from '@/components/atoms/SimpleDialog';
 import { BackDrop } from '@/components/atoms/BackDrop';
-import { TThemeTypes } from '@/interface/TThemeTypes';
-import { TLayer } from '@/interface/TLayer';
 
-export interface IModal {
+export type TModal = {
   id?: string;
-  children?: ReactNode;
-  isOpen: boolean;
   onClose?: (id: string) => void;
   isCloseable?: boolean;
   backDrop?: boolean;
-  themeType?: TThemeTypes;
-  layer?: TLayer;
-}
-// --------------------------------------------------------------------------- //
+} & TSimpleDialog;
+// ----------------------------- ---------------------------------------------- //
 // ------  The main Modal Component to comstomize the Head/Bottomline  ------- //
 // --------------------------------------------------------------------------- //
-export default function Modal(props: IModal) {
+export default function Modal(props: TModal) {
   const { id, children, isOpen, onClose, isCloseable, themeType, layer, backDrop = true } = props;
   const [modalVisible, setModalVisible] = useState(false);
 

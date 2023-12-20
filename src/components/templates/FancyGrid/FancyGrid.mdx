@@ -1,31 +1,28 @@
 # FancyGrid Component Documentation
 
-`FancyGrid` is a custom grid layout components. It's built using styled-components and is designed to be both flexible and responsive.
-
-## Installation
-
-Before using `FancyGrid`, make sure you have React, TypeScript, and styled-components installed in your project.
+`FancyGrid` is a responsive and customizable grid layout component for React applications, designed to arrange content in a structured and adaptable grid pattern. It uses styled-components for enhanced styling capabilities.
 
 ## Usage
 
 ### FancyGrid Container
 
-The `FancyGrid` container establishes the grid layout.
+`FancyGrid` serves as the container for grid items, defining the overall grid structure.
 
 **Props**:
 
-- `grid`: Specifies the number of columns in the grid (e.g., 12).
-- `space`: Sets the spacing between grid items (e.g., "2px").
+- `grid`: (Optional) Number of columns in the grid (e.g., 12 for a standard layout).
+- `gap`: (Optional) Space between grid items.
+- `breakpoints`: (Optional) Array of custom breakpoint objects for responsive adjustments.
 
-**Example**:
+**Example with Default Settings**:
 
 ```jsx
 import FancyGrid from './FancyGrid';
 
 const MyComponent = () => {
   return (
-    <FancyGrid grid={12} space="2px">
-      {/* Grid items will be placed here */}
+    <FancyGrid grid={12} gap="10px">
+      {/* Place grid items here */}
     </FancyGrid>
   );
 };
@@ -33,32 +30,56 @@ const MyComponent = () => {
 
 ### FancyGrid.Item
 
-`FancyGrid.Item` represents individual items within the `FancyGrid`.
+`FancyGrid.Item` is used within `FancyGrid` to define individual grid items.
 
 **Props**:
 
-- `gridSpace`: Determines the number of columns the item should span.
+- `gridSpace`: Number of columns the item spans.
+- `breakpoints`: (Optional) Custom responsive breakpoints for the item.
 
-**Example**:
+**Basic Example**:
 
 ```jsx
-<FancyGrid grid={12} space="2px">
-  <FancyGrid.Item gridSpace={4}>{/* Content for the first item */}</FancyGrid.Item>
-  <FancyGrid.Item gridSpace={4}>{/* Content for the second item */}</FancyGrid.Item>
-  <FancyGrid.Item gridSpace={4}>{/* Content for the third item */}</FancyGrid.Item>
-  {/* Since the grid limit is reached, the next item starts on a new line */}
-  <FancyGrid.Item gridSpace={12}>{/* Content for the fourth item */}</FancyGrid.Item>
-</FancyGrid>
+import FancyGrid, { FancyGridItem } from './FancyGrid';
+
+const MyComponent = () => {
+  return (
+    <FancyGrid grid={12} gap="10px">
+      <FancyGridItem gridSpace={4}>{/* Content for the first item */}</FancyGridItem>
+      <FancyGridItem gridSpace={4}>{/* Content for the second item */}</FancyGridItem>
+      {/* More items... */}
+    </FancyGrid>
+  );
+};
 ```
 
-## Responsive Design
+### Responsive Design with Breakpoints
 
-`FancyGrid` supports responsive design. You can specify different `gridSpace` values for different screen sizes to ensure your layout adapts to various devices.
+`FancyGrid` and `FancyGrid.Item` can be configured with custom breakpoints for responsive layouts.
+
+**Example with Breakpoints**:
+
+```jsx
+import FancyGrid, { FancyGridItem } from './FancyGrid';
+
+const MyComponent = () => {
+  const gridBreakpoints = [{ breakpoint: '768px', gridSize: 4, gap: '5px' }];
+
+  const itemBreakpoints = [{ breakpoint: '768px', gridSize: 1 }];
+
+  return (
+    <FancyGrid grid={12} gap="10px" breakpoints={gridBreakpoints}>
+      <FancyGridItem gridSpace={3} breakpoints={itemBreakpoints}>
+        {/* Content for an item */}
+      </FancyGridItem>
+      {/* Additional items... */}
+    </FancyGrid>
+  );
+};
+```
+
+In this example, the grid changes to 4 columns with a 5px gap on screens smaller than 768px. Each `FancyGridItem` will span a single column on these screens, adapting to the mobile view.
 
 ## Customization
 
-You can customize the `FancyGrid` and `FancyGrid.Item` by passing additional styling props or by extending the styled components to fit your design requirements.
-
----
-
-This documentation provides a basic guideline on how to integrate and use the `FancyGrid` component in your React applications. Adjust your implementation as needed to match the specific requirements of your project.
+`FancyGrid` and `FancyGrid.Item` offer extensive customization options, including grid properties, spacing, and responsive behavior. Apply custom styles using styled-component props or by extending existing styled components.

@@ -1,11 +1,11 @@
 // Import necessary dependencies
 import { Meta, StoryObj } from '@storybook/react';
 
+import SingleInput from './SingleInput';
 // Import the component to be tested
-import { SingleInputAtom } from './SingleInput';
 
 // fix for building ... because storybook is not able to handle the default export
-const HelperComponent = (props: React.ComponentProps<typeof SingleInputAtom>) => <SingleInputAtom {...props} />;
+const HelperComponent = (props: React.ComponentProps<typeof SingleInput>) => <SingleInput {...props} />;
 HelperComponent.displayName = 'SingleInputAtom';
 
 // Define metadata for the story
@@ -14,7 +14,8 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component: 'A ScrollableBar component, when the content is too wide to fit in the screen, it will be scrollable',
+        component:
+          'A ScrollableBar component, when the content is too wide to fit in the screen, it will be scrollable',
       },
     },
   },

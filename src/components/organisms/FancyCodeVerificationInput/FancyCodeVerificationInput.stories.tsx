@@ -11,7 +11,8 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component: 'Dumb-Comonent: The FancyCodeVerificationInput component is for single input like a verification code',
+        component:
+          'Dumb-Comonent: The FancyCodeVerificationInput component is for single input like a verification code',
       },
     },
   },

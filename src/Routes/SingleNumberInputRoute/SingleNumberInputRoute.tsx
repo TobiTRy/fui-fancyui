@@ -25,7 +25,12 @@ export default function SingleNumberInputRoute() {
     <FancyCard>
       <DesignWrapper>
         <DesignArea title="Verification Input">
-          <FancySingleInputs isSuccess={isSuccess} errorMessage={errorMessage} automaticCase="upper" handler={handler} />
+          <FancySingleInputs
+            isSuccess={isSuccess}
+            errorMessage={errorMessage}
+            automaticCase="upper"
+            handler={handler}
+          />
         </DesignArea>
       </DesignWrapper>
     </FancyCard>

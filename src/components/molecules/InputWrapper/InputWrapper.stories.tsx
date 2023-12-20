@@ -10,7 +10,8 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component: 'Dumb-Comonent: The InputWrapper component that can be used to wrap a input component via the InputElement. <br> ',
+        component:
+          'Dumb-Comonent: The InputWrapper component that can be used to wrap a input component via the InputElement. <br> ',
       },
     },
   },

@@ -10,7 +10,8 @@ export const MenueItemContainer = styled.div<{ $isOpen?: boolean; $index: number
   border-radius: 50%;
   bottom: ${({ $index }) => `calc(${($index + 1) * 60}px)`};
   opacity: ${({ $isOpen }) => ($isOpen ? 1 : 0)};
-  transform: ${({ $isOpen }) => ($isOpen ? 'translateY(0) scale(1) translateX(-50%)' : `translateY(50px) scale(0) translateX(-50%)`)};
+  transform: ${({ $isOpen }) =>
+    $isOpen ? 'translateY(0) scale(1) translateX(-50%)' : `translateY(50px) scale(0) translateX(-50%)`};
   transition:
     transform 0.25s ease-in-out,
     opacity 0.25s ease-in-out;
@@ -46,7 +47,7 @@ export const MenuItem = styled.button<{ theme: TTheme }>`
 
   &:hover {
     transform: scale(1.01);
-    background-color: ${({ theme }) => theme.colors.accent[2]};
+    background-color: ${({ theme }) => theme.colors.primary[4]};
   }
 `;
 

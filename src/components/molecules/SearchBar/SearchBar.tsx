@@ -24,7 +24,7 @@ interface ISearchBar {
 // ---------- Seachbar like for a header to search something  ---------------- //
 // --------------------------------------------------------------------------- //
 export default function SearchBar(props: ISearchBar) {
-  const { activeHandler, handler, searchValue, align, themeType, layer } = { ...defaultProps, ...props };
+  const { activeHandler, handler, searchValue, align = 'center', themeType, layer } = props;
   const [isActive, setIsActive] = useState(false); // The state for the isActive state of the search bar
   // Function to handle changes to the isActive state
   const focusHandler = (isFocused: boolean) => {
@@ -54,7 +54,7 @@ export default function SearchBar(props: ISearchBar) {
       <FancyTextInput
         value={searchValue}
         placeholder="Search"
-        align={align as TTextAlignLC}
+        align={align}
         aria-label="Searchbar"
         activeHandler={focusHandler}
         onChange={onChangeValueHandler}
@@ -62,10 +62,6 @@ export default function SearchBar(props: ISearchBar) {
     </StyledSearchBar>
   );
 }
-
-const defaultProps = {
-  align: 'center',
-};
 
 // ------------------------------------------- //
 // ------- The style for the component ------- //

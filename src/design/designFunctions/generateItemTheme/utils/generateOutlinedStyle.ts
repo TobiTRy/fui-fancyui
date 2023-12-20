@@ -8,7 +8,10 @@ import { generatePadding } from '@/design/designFunctions/generatePaddingForComp
 import { calcTextColor } from './calcTextColor';
 
 //-----this funktion generates a button that looks like a $outlined button-----//
-type IGenerateOutlinedItem = Pick<IGenerateThemeItem, '$themeType' | '$textColor' | '$size' | '$label' | '$outlined' | '$layer'>;
+type IGenerateOutlinedItem = Pick<
+  IGenerateThemeItem,
+  '$themeType' | '$textColor' | '$size' | '$label' | '$outlined' | '$layer'
+>;
 export const generateOutlined = (props: IGenerateOutlinedItem) => {
   const { $themeType, $textColor, $size, $label, $outlined, $layer } = props;
   const theme = themeStore.getState().theme;

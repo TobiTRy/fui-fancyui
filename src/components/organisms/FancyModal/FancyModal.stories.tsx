@@ -5,7 +5,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import FancyModal from './FancyModal';
 import { useFancyModalStore } from './FancyModal.state';
 import { FancyButton } from '../FancyButton';
-import { IModal } from '../../molecules/Modal/Modal';
+import { TModal } from '../../molecules/Modal/Modal';
 import { FancyTextInput } from '../FancyTextInput';
 
 // Define metadata for the story
@@ -28,7 +28,7 @@ export default meta;
 // Define the story object
 type Story = StoryObj<typeof meta>;
 
-function HelperComponent(props: React.ComponentProps<typeof FancyModal> & Omit<IModal, 'onClose' | 'isOpen'>) {
+function HelperComponent(props: React.ComponentProps<typeof FancyModal> & Omit<TModal, 'onClose' | 'isOpen'>) {
   const { appendToDomID, children, ...configProps } = props;
   const openModal = useFancyModalStore((state) => state.openModal);
   const closeModal = useFancyModalStore((state) => state.closeModal);

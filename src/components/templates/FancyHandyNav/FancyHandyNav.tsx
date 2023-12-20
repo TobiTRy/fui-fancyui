@@ -27,7 +27,8 @@ interface IFancyHandyNav {
 // ---------- A handyNavBar that can dynamicly generated via objects---------- //
 // --------------------------------------------------------------------------- //
 export default function FancyHandyNav(props: IFancyHandyNav) {
-  const { items, isVisible, wichIndexIsActive, themeType, themeTypeIcons, themeTypeSwitchList, layer, externalStyle } = props;
+  const { items, isVisible, wichIndexIsActive, themeType, themeTypeIcons, themeTypeSwitchList, layer, externalStyle } =
+    props;
 
   // setup a global zustand store for the visibility and the active index
   const isVisibleState = useFancyHandyNavStore((state) => state.isVisible);
@@ -61,7 +62,13 @@ export default function FancyHandyNav(props: IFancyHandyNav) {
             `}
           >
             {/* The List with the items  */}
-            <SwitchList whichIndexIsSelected={Number(stateWhichIsActive)} $themeType={themeTypeSwitchList} $indicatorWidth={'70%'}>
+            <SwitchList
+              whichIndexIsSelected={Number(stateWhichIsActive)}
+              switchIndicator={{
+                themeType: themeTypeSwitchList,
+                indicatorWidth: '70%',
+              }}
+            >
               {items?.map((item, index) => (
                 <FancyBottomBarIcon
                   key={index}

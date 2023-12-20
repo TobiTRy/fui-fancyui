@@ -1,6 +1,6 @@
 import { Typography } from '@/components/atoms/Typography';
 import { TTextProps } from './TFancyTextVariant.model';
-import { sizes } from './sizeSettings';
+import { sizes } from '../sizeSettings';
 
 // --------------------------------------------------------------------------- //
 // ----------------- The Title for the FancyContent component ---------------- //

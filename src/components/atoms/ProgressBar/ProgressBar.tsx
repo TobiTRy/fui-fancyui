@@ -11,7 +11,8 @@ export interface IProgressBar {
   layer?: TLayer;
 }
 // Define the ProgressBar component
-export default function ProgressBar({ progress = 0, maxValue = 100, id, themeType, layer }: IProgressBar) {
+export default function ProgressBar(props: IProgressBar) {
+  const { progress = 0, maxValue = 100, id, themeType, layer } = props;
   // Calculate the width of the progress bar fill
   const width = (progress / maxValue) * 100;
 

@@ -9,18 +9,21 @@ import { IGenerateThemeForCardProps } from '@/design/designFunctions/generateThe
 type IChipContainer = IStyledPrefixAndPicker<IGenerateThemeForCardProps> & { theme: TTheme };
 export const InputLi = styled.li<IChipContainer>`
   display: flex;
-  flex: 1;
+  flex: 1 0 auto;
+  min-width: 40px;
 
   input {
+    flex-grow: 1;
+    height: auto;
+    width: 100%;
     border: none;
-    padding: 5px;
     font-size: 14px;
     background-color: transparent;
-    color: ${({ $themeType, theme }) => getTextColor({ $themeType: $themeType ?? 'primary', theme, turnColorTheme: true })};
+    color: ${({ $themeType, theme }) =>
+      getTextColor({ $themeType: $themeType ?? 'primary', theme, turnColorTheme: true })};
 
     &:focus {
       outline: none;
-      width: 1ch;
     }
   }
 `;

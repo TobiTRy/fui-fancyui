@@ -28,7 +28,8 @@ const meta = {
       description: 'The handler gives back the selected date.',
     },
     selectFromTo: {
-      description: 'If the Calendar a Rangepicker that you can select set wich date is currently selected the from - to.',
+      description:
+        'If the Calendar a Rangepicker that you can select set wich date is currently selected the from - to.',
       control: {
         type: 'radio',
       },

@@ -2,7 +2,7 @@ import { css } from 'styled-components';
 
 import { generateBorderRadiusForComponent } from '@/design/designFunctions/generateBorderRadiusForComponent';
 import { generateComponentPadding } from '@/design/designFunctions/generatePaddingForComponent';
-import { TBorderRadiusSizes } from '@/interface/TBorderRadius';
+import { TBorderRadiusSizes } from '@/interface/TBorderRadiusSizes';
 
 const generate1To1Button = ($size: 'sm' | 'md' | 'lg', $outlined?: boolean) => {
   //this makes the button a square (1/1) if there is no $label and a $icon
@@ -30,7 +30,12 @@ export const generateFancyButton = (props: IGenerateFancyButton) => {
   return css`
     justify-content: ${$justifyContent ?? 'center'};
     ${generateBorderRadiusForComponent($size, $borderRadius)};
-    ${!$noPadding && generateComponentPadding({ size: $size ?? 'md', borderThinkness: $outlined ? 1.2 : 0, doublePaddingLeftRight: true })};
+    ${!$noPadding &&
+    generateComponentPadding({
+      size: $size ?? 'md',
+      borderThinkness: $outlined ? 1.2 : 0,
+      doublePaddingLeftRight: true,
+    })};
     ${$oneToOne && generate1To1Button($size ?? 'md', $outlined)};
   `;
 };

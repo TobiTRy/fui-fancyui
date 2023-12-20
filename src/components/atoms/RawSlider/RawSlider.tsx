@@ -28,7 +28,9 @@ export default function RawSlider(props: IRawSlider) {
   const maxVal = max ? Number(max) : 100;
 
   //calc the the progress
-  const calcBackgorundSize = !isNaN(sliderProgress) ? ((sliderProgress - minVal) * 100) / (maxVal - minVal) + '% 100%' : '0% 100%';
+  const calcBackgorundSize = !isNaN(sliderProgress)
+    ? ((sliderProgress - minVal) * 100) / (maxVal - minVal) + '% 100%'
+    : '0% 100%';
   const calcSliderProgress = !isNaN(sliderProgress) ? sliderProgress : 0;
 
   return (

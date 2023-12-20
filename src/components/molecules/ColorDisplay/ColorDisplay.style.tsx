@@ -6,7 +6,15 @@ import simpleColorTransition from '../../../design/designFunctions/simpleColorTr
 import { TTheme } from '@/interface/TTheme';
 
 // calculate color on the isBright and isDarkTheme props
-const colorCalculation = ({ theme, $isBright, $isDarkTheme }: { theme: TTheme; $isBright: boolean; $isDarkTheme: boolean }) => {
+const colorCalculation = ({
+  theme,
+  $isBright,
+  $isDarkTheme,
+}: {
+  theme: TTheme;
+  $isBright: boolean;
+  $isDarkTheme: boolean;
+}) => {
   if ($isDarkTheme) return $isBright ? theme.colors.primary[0] : theme.colors.secondary[0];
 
   return $isBright ? theme.colors.secondary[0] : theme.colors.primary[0];
@@ -33,7 +41,8 @@ export const Content = styled.div<{ $isBright: boolean; theme: TTheme; $isDarkTh
 
   &:active,
   &:hover {
-    color: ${({ theme, $isBright, $isDarkTheme }) => ($isBright && $isDarkTheme ? theme.colors.primary[4] : theme.colors.secondary[4])};
+    color: ${({ theme, $isBright, $isDarkTheme }) =>
+      $isBright && $isDarkTheme ? theme.colors.primary[4] : theme.colors.secondary[4]};
   }
 `;
 

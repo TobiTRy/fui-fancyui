@@ -10,7 +10,8 @@ export const StyledYearSelector = styled.div<{ theme: TTheme; $themeType?: TThem
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  color: ${({ theme, $layer, $themeType }) => ($themeType ? theme.colors[$themeType][$layer ?? 0] : theme.colors.secondary[0])};
+  color: ${({ theme, $layer, $themeType }) =>
+    $themeType ? theme.colors[$themeType][$layer ?? 0] : theme.colors.secondary[0]};
 `;
 
 export const StyledButton = styled.button<{ theme: TTheme; $themeType?: TThemeTypes; $layer?: TLayer }>`

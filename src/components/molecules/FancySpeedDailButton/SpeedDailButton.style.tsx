@@ -3,7 +3,6 @@ import { styled } from 'styled-components';
 import { boxShadow } from '@/design/designFunctions/shadows/shadows';
 import { TTheme } from '@/interface/TTheme';
 
-// eslint-disable-next-line react-refresh/only-export-components
 const SpeedDailButtonSize = 60;
 
 export const Wrapper = styled.div`
@@ -44,7 +43,8 @@ export const Button = styled.button<{ $isOpen: boolean; theme?: TTheme }>`
     height: 60%;
     font-size: 24px;
     transform-origin: 50% 50%;
-    transform: ${({ $isOpen }) => ($isOpen ? 'translate(-50%, -50%) rotate(45deg)' : 'translate(-50%, -50%) rotate(0)')};
+    transform: ${({ $isOpen }) =>
+      $isOpen ? 'translate(-50%, -50%) rotate(45deg)' : 'translate(-50%, -50%) rotate(0)'};
     transition: transform 0.3s ease;
   }
 `;
@@ -83,7 +83,8 @@ export const MenueItemContainer = styled.div<{ $isOpen: boolean; $index: number 
   border-radius: 50%;
   bottom: ${({ $index }) => `calc(${($index + 1) * 60}px)`};
   opacity: ${({ $isOpen }) => ($isOpen ? 1 : 0)};
-  transform: ${({ $isOpen }) => ($isOpen ? 'translateY(0) scale(1) translateX(-50%)' : `translateY(50px) scale(0) translateX(-50%)`)};
+  transform: ${({ $isOpen }) =>
+    $isOpen ? 'translateY(0) scale(1) translateX(-50%)' : `translateY(50px) scale(0) translateX(-50%)`};
   transition:
     transform 0.25s ease-in-out,
     opacity 0.25s ease-in-out;

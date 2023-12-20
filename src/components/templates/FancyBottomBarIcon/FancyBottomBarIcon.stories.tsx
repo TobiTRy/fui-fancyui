@@ -65,7 +65,8 @@ const meta = {
     },
     hideLabel: {
       control: { type: 'boolean' },
-      description: 'Hide the label text. When The label is hidden, the icon will get bigger and the aria-label is putted to the icon.',
+      description:
+        'Hide the label text. When The label is hidden, the icon will get bigger and the aria-label is putted to the icon.',
       defaultValue: {
         summary: false,
       },

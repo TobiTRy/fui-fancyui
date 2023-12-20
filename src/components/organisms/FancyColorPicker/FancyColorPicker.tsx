@@ -6,7 +6,7 @@ import { TTheme } from '@/interface/TTheme';
 import { emitSelectedColorChange } from './colorPickerUtils';
 import { IColorFormat } from '@/utils/variables/colorFormat/colorFormats';
 
-import ColorDisplay from '@/components/atoms/ColorDisplay/ColorDisplay';
+import ColorDisplay from '@/components/molecules/ColorDisplay/ColorDisplay';
 import ColorArea from '@/components/molecules/FancyColorArea/FancyColorArea';
 import FancyHueSlider from '@/components/molecules/FancyHueSlider/FancyHueSlider';
 import FancyOpacitySlider from '@/components/molecules/FancyOpacitySlider/FancyOpacitySlider';
@@ -31,7 +31,9 @@ export default function FanyColorPicker(props: IColorPicker) {
     ...props,
   };
 
-  const [displayColorValue, setDisplayColorValue] = useState<Color | string>(Color(inputColor ? inputColor : 'hsl(0, 100%, 50%)'));
+  const [displayColorValue, setDisplayColorValue] = useState<Color | string>(
+    Color(inputColor ? inputColor : 'hsl(0, 100%, 50%)')
+  );
   const [rawColor, setRawColor] = useState(Color('hsl(0, 100%, 50%)'));
   const [opacity, setOpacity] = useState(1);
   const [hue, setHue] = useState(0);

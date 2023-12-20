@@ -18,7 +18,13 @@ export default function useSelectedDates(
       // when a range is slected you can select two dates
       if (rangeCalendar) {
         const pickedDays = selectedDates as IDateOnlyArray;
-        const selectedDays = selectDayFunction({ day, monthIndex, selectedDates: pickedDays, selectedYear, selectFromTo });
+        const selectedDays = selectDayFunction({
+          day,
+          monthIndex,
+          selectedDates: pickedDays,
+          selectedYear,
+          selectFromTo,
+        });
         if (selectFromTo === 'from') handleSwitchFromTo && handleSwitchFromTo('to');
         if (selectFromTo === 'to') handleSwitchFromTo && handleSwitchFromTo('from');
         setSelectedDates(selectedDays);

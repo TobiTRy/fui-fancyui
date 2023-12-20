@@ -1,1 +1,1 @@
-export { default as FancyMenuList } from './FancyMenu';
+export { default as FancyMenu } from './FancyMenu';

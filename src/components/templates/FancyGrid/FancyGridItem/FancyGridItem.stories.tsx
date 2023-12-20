@@ -24,6 +24,13 @@ const meta = {
         type: 'number',
       },
     },
+    breakpoints: {
+      description: 'The breakpoints for the grid',
+      defaultValue: [],
+      control: {
+        type: 'object',
+      },
+    },
   },
 } satisfies Meta<typeof FancyGridItem>;
 
@@ -41,5 +48,6 @@ export const Primary: Story = {
   ),
   args: {
     gridSpace: 6,
+    breakpoints: [{ breakpoint: '500px', gridSize: 6 }],
   },
 };

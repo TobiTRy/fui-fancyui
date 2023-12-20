@@ -8,15 +8,15 @@ import FancyContent from '../../components/molecules/FancyContent/FancyContent';
 import BottomBarList from '../../components/molecules/SwitchList/SwitchList';
 import Button from '../../components/molecules/Button/Button';
 import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
-import ComponentAsWrapper from '../../components/atoms/ComponentAsWrapper/ComponentAsWrapper';
+import ComponentAsWrapper from '../../components/shared/ComponentAsWrapper/ComponentAsWrapper';
 import ActionWrapper from '../../components/atoms/ActionWrapper/ActionWrapper';
 import FancyActionWrapper from '../../components/atoms/FancyActionWrapper/FancyActionWrapper';
 import BottomBarIcon from '../../components/molecules/BottomBarIcon/BottomBarIcon';
 import FancyBottomBarIcon from '@/components/templates/FancyBottomBarIcon/FancyBottomBarIcon';
 import { FancyButton } from '@/components/organisms/FancyButton';
 import { SingleToastMessage } from '@/components/molecules/SingleToastMessage';
-import { FancyCard } from '@/components/atoms/FancyCard';
-import { FancyChip } from '@/components/organisms/FancyChip';
+
+import { FancyNumberInput } from '@/components/organisms/FancyNumberInput';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -62,58 +62,15 @@ export default function ExperimentalRoute() {
   return (
     <DesignWrapper>
       <DesignArea title="Test">
-        <div style={{ display: 'flex' }}>
-          <FancyChip label="Hhaa" textColor="secondary" />
-          <FancyBottomBarIcon label="test" icon={Icon} />
-          <FancyBottomBarIcon
-            label="testREF"
-            icon={Icon}
-            type="button"
-            onClick={() => {
-              console.log('');
-            }}
-          />
-          <FancyCard shadow>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}></div>
-            <FancyCard layer={1}>
-              <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-end' }}>
-                <FancyTextInput
-                  label="test"
-                  icon={svg}
-                  value={isActive}
-                  onChange={(e: ChangeEvent<HTMLInputElement>) => setIsActive(e.target.value)}
-                />
-                <FancyButton borderRadius="md" size="md" themeType="secondary" icon={reloadIcon} onClick={() => switchTheme()} />
-              </div>
-              <SingleToastMessage
-                toast={{
-                  id: 1,
-                  title: 'My Title of the titel ',
-                  message: 'This is my toast message hjsadhjgdshjag.',
-                  time: 50050,
-                  themeType: 'success',
-                }}
-                remove={removeToast}
-              />
-            </FancyCard>
-          </FancyCard>
+        <FancyNumberInput />
 
-          <FancyButton
-            icon={Icon}
-            size="lg"
-            label="adsasas"
-            isLoading={isLoading}
-            onClick={() => setIsLoading(!isLoading)}
-            themeType="secondary"
-            outlined
-            borderRadius="sm"
-          />
-        </div>
-      </DesignArea>
-      <DesignArea title="Test">
-        <FancyBottomBarIcon icon={svg} label="Test" />
-
-        <BottomBarIcon icon={svg} label="hiii" />
+        <FancyButton
+          borderRadius="md"
+          size="md"
+          themeType="secondary"
+          icon={reloadIcon}
+          onClick={() => switchTheme()}
+        />
       </DesignArea>
     </DesignWrapper>
   );

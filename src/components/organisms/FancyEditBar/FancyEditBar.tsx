@@ -8,7 +8,13 @@ import { ICategory } from './EditBarItemsStructure/IEditbarObjectSturcture.model
 import { useFancyEditBarStore } from './FancyEditBar.state';
 import { getObjectMapper, getSubSectionItems } from './functions/ElementsObjectMapper';
 
-export default function FancyEditBar({ active, sectionType }: { active?: boolean; sectionType: 'header' | 'sectionBox' | 'background' }) {
+export default function FancyEditBar({
+  active,
+  sectionType,
+}: {
+  active?: boolean;
+  sectionType: 'header' | 'sectionBox' | 'background';
+}) {
   // Hooks to get and set state values from the edit bar store
   const currentEditBarItems = useFancyEditBarStore((state) => state.currentItems);
   const setCurrentEditBarItems = useFancyEditBarStore((state) => state.setCurrentItems);
@@ -60,7 +66,13 @@ export default function FancyEditBar({ active, sectionType }: { active?: boolean
   // Render the EditBar component if active
   return (
     <div>
-      {active && <EditBar sectionItems={currentEditBarItems} subSectionItems={currentSubSectionItems} settings={currentSettings} />}
+      {active && (
+        <EditBar
+          sectionItems={currentEditBarItems}
+          subSectionItems={currentSubSectionItems}
+          settings={currentSettings}
+        />
+      )}
     </div>
   );
 }

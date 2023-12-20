@@ -9,7 +9,7 @@ import { TTheme } from '@/interface/TTheme';
 // --------------------------------------------------------------------------- //
 // ---------- The input label wich hase some colors and an animation --------- //
 // --------------------------------------------------------------------------- //
-// eslint-disable-next-line react-refresh/only-export-components
+
 export const AnimatedInputLabel = styled(InputLabel)<IAnimatedInputLabel & { theme?: TTheme }>`
   position: absolute;
   padding: 12px 0 5px;
@@ -39,7 +39,7 @@ const activeHandler = (align: string, $moveUp?: boolean) => {
       left: 0;
       ${$moveUp
         ? css`
-            transform: translateY(-20px);
+            transform: translateY(-24px);
           `
         : ''}
     `;
@@ -50,7 +50,7 @@ const activeHandler = (align: string, $moveUp?: boolean) => {
       text-align: center;
       ${$moveUp
         ? css`
-            transform: translateY(-20px) translate(-50%);
+            transform: translateY(-24px) translate(-50%);
           `
         : 'transform: translate(-50%);'};
     `;

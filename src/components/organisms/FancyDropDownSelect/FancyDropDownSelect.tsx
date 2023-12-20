@@ -10,7 +10,20 @@ export type IFancyDropDownSelect = Omit<IInputWrapperUserInputProps, 'InputEleme
 // ----The Dropdown Comonent with surrounding icon, label and underline ------ //
 // --------------------------------------------------------------------------- //
 export default function FancyDropDownSelect(props: IFancyDropDownSelect) {
-  const { id, value, placeholder, disabled, align, activeHandler, icon, label, errorMessage, themeType, layer, ...inputProps } = props;
+  const {
+    id,
+    value,
+    placeholder,
+    disabled,
+    align,
+    activeHandler,
+    icon,
+    label,
+    errorMessage,
+    themeType,
+    layer,
+    ...inputProps
+  } = props;
 
   //the states for the value and the activity of the input
   const [isActive, setIsActive] = useState(false);

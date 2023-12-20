@@ -7,7 +7,7 @@ import { LoadingSVGArrows } from '@/components/atoms/LoadingSVGArrows';
 import { generateFancyButton } from './FancyButton.style';
 
 import { TTypography } from '@/interface/TTypography';
-import { TBorderRadiusSizes } from '@/interface/TBorderRadius';
+import { TBorderRadiusSizes } from '@/interface/TBorderRadiusSizes';
 import { IButton, IButtonProps } from '@/components/molecules/Button/Button.model';
 
 const alignment = {
@@ -34,11 +34,23 @@ export type IFancyButtonProps = {
 // --------------------------------------------------------------------------- //
 type IFancyButton = IFancyButtonProps & IButton;
 export default function FancyButton(props: IFancyButton) {
-  const { icon, label, isLoading, iconAlign, size, align, externalStyle, oneToOne, noPadding, fontVariant, borderRadius, ...buttonProps } =
-    {
-      ...defaultProps,
-      ...props,
-    };
+  const {
+    icon,
+    label,
+    isLoading,
+    iconAlign,
+    size,
+    align,
+    externalStyle,
+    oneToOne,
+    noPadding,
+    fontVariant,
+    borderRadius,
+    ...buttonProps
+  } = {
+    ...defaultProps,
+    ...props,
+  };
 
   const generateFancyStyle = generateFancyButton({
     $size: size,
@@ -64,7 +76,9 @@ export default function FancyButton(props: IFancyButton) {
       <FancyContent flexDirection={alignIcon}>
         {label && <FancyContent.Title fontVariant={fontVariant ?? 'button'}>{label}</FancyContent.Title>}
         {(isLoading || icon) && (
-          <FancyContent.Icon>{isLoading ? <LoadingSVGArrows isLoading={isLoading} size={size} /> : icon}</FancyContent.Icon>
+          <FancyContent.Icon>
+            {isLoading ? <LoadingSVGArrows isLoading={isLoading} size={size} /> : icon}
+          </FancyContent.Icon>
         )}
       </FancyContent>
     </Button>
@@ -73,6 +87,6 @@ export default function FancyButton(props: IFancyButton) {
 
 const defaultProps: IFancyButton = {
   themeType: 'accent',
-  size: 'lg',
+  size: 'md',
   align: 'center',
 };

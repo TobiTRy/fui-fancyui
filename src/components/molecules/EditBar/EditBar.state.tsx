@@ -20,7 +20,10 @@ export const useEditBarStore = create<EditBarStore>((set) => ({
   //The State for the bar wich button is currently active
   activeEditbarItem: null,
   setActiveEditbarItem: (index) =>
-    set((state) => ({ activeEditbarItem: state.activeEditbarItem === index ? null : index, activeSecondEditbarItem: null })),
+    set((state) => ({
+      activeEditbarItem: state.activeEditbarItem === index ? null : index,
+      activeSecondEditbarItem: null,
+    })),
 
   //The State for the secondbar wich button is currently active
   activeSecondEditbarItem: null,

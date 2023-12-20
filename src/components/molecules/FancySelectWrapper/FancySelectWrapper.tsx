@@ -32,7 +32,10 @@ export default function FancySelectWrapper(props: IFancySelectWrapperProps) {
         <LabelWrapper $align={alignInput} htmlFor={pickedId}>
           <FancyContent>
             {label && (
-              <FancyContent.Title fontVariant="label" externalStyle={{ color: getTheme.colors.secondary[0], fontWeight: 'bold' }}>
+              <FancyContent.Title
+                fontVariant="label"
+                externalStyle={{ color: getTheme.colors.secondary[0], fontWeight: 'bold' }}
+              >
                 {label}
               </FancyContent.Title>
             )}

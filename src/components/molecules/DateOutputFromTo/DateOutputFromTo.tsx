@@ -5,6 +5,7 @@ import { TThemeTypes } from '@/interface/TThemeTypes';
 import { TLayer } from '@/interface/TLayer';
 
 import { StyledDateOutputFromTo, VRWrapper } from './DateOutputFromTo.style';
+import { themeStore } from '@/design/theme/themeStore';
 
 // Define the props for the DateOutputFromTo component
 interface IDateOutputFromTo {
@@ -18,7 +19,10 @@ interface IDateOutputFromTo {
 // --------------------------------------------------------------------------- //
 // ---------- The dateOutput hanles the date display from and to ------------ //
 // --------------------------------------------------------------------------- //
-export default function DateOutputFromTo({ whichIsSelecting, dateFrom, dateTo, handler, themeType, layer }: IDateOutputFromTo) {
+export default function DateOutputFromTo(props: IDateOutputFromTo) {
+  const { dateFrom, dateTo, handler, whichIsSelecting, themeType, layer } = props;
+  const theme = themeStore((state) => state.theme);
+
   // swap the themeType for opposite components
   const swapTheme = themeType === 'primary' ? 'secondary' : 'primary';
 
@@ -37,7 +41,7 @@ export default function DateOutputFromTo({ whichIsSelecting, dateFrom, dateTo, h
         onClick={() => handleClickOnDateOutput('from')}
       />
       <VRWrapper>
-        <FancyLine direction="vertical" themeType={swapTheme} thickness="2px" margin={'´${({theme}) => theme.spacing.sm}´'} />
+        <FancyLine direction="vertical" themeType={swapTheme} thickness="2px" margin={theme.spacing.sm} />
       </VRWrapper>
       <DateOutput
         themeType={themeType}

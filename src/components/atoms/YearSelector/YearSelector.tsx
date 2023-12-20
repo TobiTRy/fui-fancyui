@@ -14,8 +14,11 @@ interface IYearSelector {
   themeType?: TThemeTypes;
   layer?: TLayer;
   handler?: (change: number) => void;
+  ariaTextLeftArrow?: string;
+  ariaTextRightArrow?: string;
 }
-export default function YearSelector({ selectedYear, handler, themeType, layer }: IYearSelector) {
+export default function YearSelector(props: IYearSelector) {
+  const { selectedYear, themeType, layer, handler, ariaTextLeftArrow, ariaTextRightArrow } = props;
   // update the year and call the handler if the year changes
   const handleYearChange = (change: number) => {
     const calcCurrentYear = selectedYear + change;
@@ -24,7 +27,12 @@ export default function YearSelector({ selectedYear, handler, themeType, layer }
 
   return (
     <StyledYearSelector $layer={layer} $themeType={themeType}>
-      <StyledButton aria-label="a year back" onClick={() => handleYearChange(-1)} $themeType={themeType} $layer={layer}>
+      <StyledButton
+        aria-label={ariaTextLeftArrow || 'a year back'}
+        onClick={() => handleYearChange(-1)}
+        $themeType={themeType}
+        $layer={layer}
+      >
         <FancySVGAtom isPassive={true} externalStyle={SVGDesignCSS}>
           {SVGChevronLeft}
         </FancySVGAtom>
@@ -32,7 +40,12 @@ export default function YearSelector({ selectedYear, handler, themeType, layer }
       <Typography type="content" variant="h3" tabIndex={0}>
         {selectedYear}
       </Typography>
-      <StyledButton aria-label="one year forward" onClick={() => handleYearChange(1)} $themeType={themeType} $layer={layer}>
+      <StyledButton
+        aria-label={ariaTextRightArrow || 'one year forward'}
+        onClick={() => handleYearChange(1)}
+        $themeType={themeType}
+        $layer={layer}
+      >
         <FancySVGAtom isPassive={true} externalStyle={SVGDesignCSS}>
           {SVGChevronRight}
         </FancySVGAtom>

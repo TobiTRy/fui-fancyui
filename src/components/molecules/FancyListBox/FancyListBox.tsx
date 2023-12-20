@@ -2,7 +2,7 @@ import React from 'react';
 
 import { FancyBox } from '@/components/atoms/FancyBox';
 import { FancyListBoxItem } from './FancyListBoxItem';
-import { FancyBoxStyle } from './FancyListBox.style';
+import { generateFancyBoxStyle } from './FancyListBox.style';
 
 type FancyListBoxProps = {
   children?: React.ReactNode;
@@ -11,9 +11,9 @@ type FancyListBoxProps = {
 // --------------------------------------------------------------------------- //
 // ---------- The FancyListBox is only a Styled list with items  ------------- //
 // --------------------------------------------------------------------------- //
-function FancyListBox({ children, ...htmlProps }: FancyListBoxProps) {
+function FancyListBox({ children, externalStyle, ...htmlProps }: FancyListBoxProps) {
   return (
-    <FancyBox as="ul" externalStyle={FancyBoxStyle} {...htmlProps}>
+    <FancyBox as="ul" externalStyle={generateFancyBoxStyle(externalStyle)} {...htmlProps}>
       {children}
     </FancyBox>
   );

@@ -79,7 +79,9 @@ const useSlider = ({
   const throttledHandleInteraction = useCallback(throttle(handleInteraction), [handleInteraction]);
 
   //handle the interaction start with the slider and the color area
-  const handleInteractionStart = (event: React.MouseEvent<HTMLDivElement, MouseEvent> | React.TouchEvent<HTMLDivElement>) => {
+  const handleInteractionStart = (
+    event: React.MouseEvent<HTMLDivElement, MouseEvent> | React.TouchEvent<HTMLDivElement>
+  ) => {
     setIsInteracting(true);
     if (event.nativeEvent instanceof MouseEvent) {
       throttledHandleInteraction(event.nativeEvent.clientX, event.nativeEvent.clientY);
@@ -140,8 +142,12 @@ const useSlider = ({
   //set the initial position of the marker
   useEffect(() => {
     if (!sliderRef.current) return;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    if (!color) type === 'hue' ? (color = Color({ h: hue, s: 100, l: 50 })) : (color = Color({ r: 255, g: 255, b: 255 }).alpha(1));
+
+    if (!color)
+      type === 'hue'
+        ? // eslint-disable-next-line react-hooks/exhaustive-deps
+          (color = Color({ h: hue, s: 100, l: 50 }))
+        : (color = Color({ r: 255, g: 255, b: 255 }).alpha(1));
 
     const rect = sliderRef.current.getBoundingClientRect();
     const initialPosition = colorToPositionFunc(color, rect);

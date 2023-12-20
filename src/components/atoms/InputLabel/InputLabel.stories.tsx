@@ -16,6 +16,26 @@ const meta = {
       },
     },
   },
+  argTypes: {
+    theme: {
+      description: 'The theme for the component',
+    },
+    $layer: {
+      description: 'The layer for the component',
+      control: {
+        type: 'range',
+        min: 0,
+        max: 10,
+        step: 1,
+      },
+    },
+    $themeType: {
+      description: 'The themeType for the component',
+      control: {
+        type: 'select',
+      },
+    },
+  },
 
   // Define arguments for the story
   // Add tags to the story

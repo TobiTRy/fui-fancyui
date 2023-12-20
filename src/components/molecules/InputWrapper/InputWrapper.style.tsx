@@ -30,7 +30,12 @@ export const ErrorMessage = styled.p<{ theme: TTheme }>`
 `;
 
 //the input/label/underline are all wrapped in thid container
-export const InputContainer = styled.div<{ $givePadding: boolean; theme: TTheme; $themeType: TThemeTypes; $layer: TLayer }>`
+export const InputContainer = styled.div<{
+  $givePadding: boolean;
+  theme: TTheme;
+  $themeType: TThemeTypes;
+  $layer: TLayer;
+}>`
   width: 100%;
   grid-column: 2/3;
   ${({ $givePadding, theme }) =>
@@ -38,10 +43,11 @@ export const InputContainer = styled.div<{ $givePadding: boolean; theme: TTheme;
     css`
       padding-top: ${parseFloat(theme.spacing.lg) + 2 + 'px'};
     `};
+
   position: relative;
 
   input {
-    padding: 0px 0px ${({ theme }) => parseFloat(theme.spacing.xs) + 2 + 'px'};
+    padding: 0px 0px ${({ theme }) => parseFloat(theme.spacing.xs) + 'px'};
   }
 
   svg {
@@ -50,6 +56,8 @@ export const InputContainer = styled.div<{ $givePadding: boolean; theme: TTheme;
 `;
 
 // Define the styles for the icon
+
+// eslint-disable-next-line react-refresh/only-export-components
 export const iconStyle = css<{ theme: TTheme }>`
   margin-right: ${({ theme }) => parseFloat(theme.spacing.xs) + 2 + 'px'};
   margin-bottom: 2px;

@@ -31,7 +31,12 @@ export default function FancySwipeUpModal({ appendToDomID }: IFancySwipeUpModal)
     <FancyPortal appendToID={appendToDomID}>
       {/* The Mobile Modal Component  */}
       {modals.map((modal, key) => (
-        <SwipeUpModal key={key} {...modal.config} onClose={() => closeModalHandler(modal.id)} isOpen={modal.status === 'open'}>
+        <SwipeUpModal
+          key={key}
+          {...modal.config}
+          onClose={() => closeModalHandler(modal.id)}
+          isOpen={modal.status === 'open'}
+        >
           {/* render the content of the modal  */}
           {modal.children}
         </SwipeUpModal>

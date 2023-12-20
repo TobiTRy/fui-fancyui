@@ -22,7 +22,10 @@ interface IPaginator {
 // ---------------- The Paginator for a List to siwtch pages ----------------- //
 // --------------------------------------------------------------------------- //
 export default function Paginator(props: IPaginator) {
-  const { currentPage, totalPages, onPageChange, outlinedButton, themeType, pageLimits } = { ...defaultProps, ...props };
+  const { currentPage, totalPages, onPageChange, outlinedButton, themeType, pageLimits } = {
+    ...defaultProps,
+    ...props,
+  };
 
   // Define a function to handle page changes
   const pageHandler = (page: number) => {

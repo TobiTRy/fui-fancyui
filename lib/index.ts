@@ -1,12 +1,11 @@
 // ---------- atoms ------- //
 export { default as BackDrop } from '@/components/atoms/BackDrop/BackDrop';
-export { default as ColorDisplay } from '@/components/atoms/ColorDisplay/ColorDisplay';
 export { default as ColorIndicator } from '@/components/atoms/ColorIndicator/ColorIndicator';
 export { default as DateNumberAtom } from '@/components/atoms/DateNumberAtom/DateNumberAtom';
 export { default as DateOutput } from '@/components/atoms/DateOutput/DateOutput';
 export { default as DropDownSelect } from '@/components/atoms/DropDownSelect/DropDownSelect';
 export { default as EditBarModal } from '@/components/atoms/EditBarModal/EditBarModal';
-
+export { default as FancyPill } from '@/components/atoms/FancyPill/FancyPill';
 export { default as FancyCard } from '@/components/atoms/FancyCard/FancyCard';
 export { default as FancyLine } from '@/components/atoms/FancyLine/FancyLine';
 export { default as FancyLI } from '@/components/atoms/FancyLI/FancyLI';
@@ -43,7 +42,6 @@ export { default as ActionWrapper } from '@/components/atoms/ActionWrapper/Actio
 export { default as RawRadio } from '@/components/atoms/RawRadio/RawRadio';
 export { default as LoadingSVGArrows } from '@/components/atoms/LoadingSVGArrows/LoadingSVGArrows';
 export { default as SwitchActiveIndicator } from '@/components/atoms/SwitchActiveIndicator/SwitchActiveIndicator';
-export { default as ComponentAsWrapper } from '@/components/atoms/ComponentAsWrapper/ComponentAsWrapper';
 export { default as FancyActionWrapper } from '@/components/atoms/FancyActionWrapper/FancyActionWrapper';
 export { default as ListDivider } from '@/components/atoms/ListDivider/ListDivider';
 export { default as MenuItem } from '@/components/atoms/MenuItem/MenuItem';
@@ -75,6 +73,7 @@ export { default as SearchBarList } from '@/components/molecules/SearchBarList/S
 export { default as SingleInputs } from '@/components/molecules/SingleInputs/SingleInputs';
 export { default as SingleToastMessage } from '@/components/molecules/SingleToastMessage/SingleToastMessage';
 export { default as SwipeUpModal } from '@/components/molecules/SwipeUpModal/SwipeUpModal';
+export { default as ColorDisplay } from '@/components/molecules/ColorDisplay/ColorDisplay';
 export { default as TextInput } from '@/components/molecules/TextInput/TextInput';
 export { default as FancyOpacitySlider } from '@/components/molecules/FancyOpacitySlider/FancyOpacitySlider';
 export { default as FancyButton } from '@/components/organisms/FancyButton/FancyButton';
@@ -93,7 +92,6 @@ export { default as Paginator } from '@/components/molecules/Paginator/Paginator
 export { default as FancyProgressBar } from '@/components/molecules/FancyProgressBar/FancyProgressBar';
 export { default as FancyMiniProfile } from '@/components/molecules/FancyMiniProfile/FancyMiniProfile';
 export { default as FancyCheckbox } from '@/components/molecules/FancyCheckbox/FancyCheckbox';
-export { default as FancyChip } from '@/components/organisms/FancyChip/FancyChip';
 export { default as Header } from '@/components/molecules/Header/Header';
 export { default as FancyContent } from '@/components/molecules/FancyContent/FancyContent';
 export { default as InfoCard } from '@/components/molecules/InfoCard/InfoCard';
@@ -108,6 +106,7 @@ export { default as FancyTabSwitchButton } from '@/components/molecules/FancyTab
 export { default as MenuList } from '@/components/molecules/MenuList/MenuList';
 export { default as SwitchList } from '@/components/molecules/SwitchList/SwitchList';
 export { default as TabSwitch } from '@/components/molecules/TabSwitch/TabSwitch';
+export { default as FancyNavBar } from '@/components/molecules/FancyNavBar/FancyNavBar';
 
 // ---------- Organisms ------- //
 export { default as FancyColorPicker } from '@/components/organisms/FancyColorPicker/FancyColorPicker';
@@ -146,6 +145,7 @@ export { default as FancyBottomBarIcon } from '@/components/templates/FancyBotto
 // ---------- Utils/Hooks ------- //
 export { default as FancyPopover } from '@/components/shared/FancyPopover/FancyPopover';
 export { default as Delay } from '@/components/shared/Delay/Delay';
+export { default as ComponentAsWrapper } from '@/components/shared/ComponentAsWrapper/ComponentAsWrapper';
 export { default as FancyPortal } from '@/components/shared/FancyPortal/FancyPortal';
 export { default as useIntersectionObserver } from '@/utils/hooks/useIntersectionObserver/useIntersectionObserver';
 export { default as useWindowDimensions } from '@/utils/hooks/useWindowDimensions/useWindowDimensions';
@@ -154,7 +154,12 @@ export { default as useWindowDimensions } from '@/utils/hooks/useWindowDimension
 export { default as calcBorderRadiusOnAlignment } from '@/design/designFunctions/calcBorderRadiusOnAlignment/calcBorderRadiusOnAlignment';
 export { default as calcColorState } from '@/design/designFunctions/calcColorState/calcColorState';
 export { default as checkThemeOrColor } from '@/design/designFunctions/checkThemeOrColor/checkThemeOrColor';
-export { getColorsForComponent, getBackgroundColor, getTextColor } from '@/design/designFunctions/colorCalculatorForComponent';
+export {
+  getColorsForComponent,
+  getBackgroundColor,
+  getTextColor,
+} from '@/design/designFunctions/colorCalculatorForComponent';
+export { default as focusStyle } from '@/design/designFunctions/focusStyle/focusStyle';
 export { default as colorTransparencyCalculator } from '@/design/designFunctions/colorTransparencyCalculator/colorTransparencyCalculator';
 export { default as disabledStyle } from '@/design/designFunctions/disabledStyle/disableStyle';
 export { default as flipThemeColor } from '@/design/designFunctions/flipThemeColor/flipThemeColor';
@@ -172,6 +177,7 @@ export * from '@/interface';
 export type { default as IGenerateThemeForCardProps } from '@/design/designFunctions/generateThemeForCard/IGenerateThemeForCardProps';
 export type { default as IGenerateThemeDesignForComponentProps } from '@/design/designFunctions/generateThemeDesignForComponent/IGenerateThemeDesignForComponentProps';
 export type { IAvailableDot } from '@/components/atoms/AvilableDot/IAvailableDot.model';
+export type { IFancyBox } from '@/components/atoms/FancyBox/FancyBox.model';
 
 // ---------- Store ------- //
 export { default as themeStore } from '@/design/theme/themeStore/themeStore';

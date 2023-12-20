@@ -21,7 +21,8 @@ export const StyledButton = styled.button<IGenerateThemeDesignForComponent & ISt
     background-color 0.125s ease-in-out,
     color 0.125s ease-in-out;
 
-  ${(props: IGenerateThemeDesignForComponent) => generateThemeDesignForComponent({ ...props, $backgroundState: 'hover' })};
+  ${(props: IGenerateThemeDesignForComponent) =>
+    generateThemeDesignForComponent({ ...props, $backgroundState: 'hover' })};
 
   ${({ $externalStyle }) => $externalStyle && $externalStyle}
 

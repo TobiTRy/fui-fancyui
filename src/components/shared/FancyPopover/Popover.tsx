@@ -16,7 +16,11 @@ const Popover: React.FC<PopoverProps> = ({ buttonRef, content, isVisible, onClos
   const popoverRef = useRef<HTMLDivElement>(null);
 
   const handleClickOutside = (event: MouseEvent) => {
-    if (popoverRef.current && !popoverRef.current.contains(event.target as Node) && !buttonRef.current?.contains(event.target as Node)) {
+    if (
+      popoverRef.current &&
+      !popoverRef.current.contains(event.target as Node) &&
+      !buttonRef.current?.contains(event.target as Node)
+    ) {
       onClose();
     }
   };
@@ -31,7 +35,9 @@ const Popover: React.FC<PopoverProps> = ({ buttonRef, content, isVisible, onClos
 
         const isButtonOnLeftSide = buttonRect.left < window.innerWidth / 2;
 
-        let newLeft = isButtonOnLeftSide ? buttonRect.left + xOffset : buttonRect.right - popoverRef.current.offsetWidth - xOffset;
+        let newLeft = isButtonOnLeftSide
+          ? buttonRect.left + xOffset
+          : buttonRect.right - popoverRef.current.offsetWidth - xOffset;
 
         let newTop = buttonRect.bottom + yOffset;
 

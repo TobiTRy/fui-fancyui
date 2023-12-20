@@ -14,7 +14,8 @@ interface IProgressBarContainerProps {
 export const ProgressBarContainer = styled.div<IProgressBarContainerProps>`
   width: 100%;
   height: 4px;
-  background-color: ${({ theme, $themeType = 'secondary', $layer = 4 }) => getBackgroundColor({ theme, $themeType, $layer })};
+  background-color: ${({ theme, $themeType = 'secondary', $layer = 4 }) =>
+    getBackgroundColor({ theme, $themeType, $layer })};
   border-radius: 10px;
   overflow: hidden;
   position: relative;

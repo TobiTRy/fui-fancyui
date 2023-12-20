@@ -11,7 +11,18 @@ export type TFancyRadioProps = Omit<React.ComponentProps<typeof FancySelectWrapp
 // --- The FancyRadio is a RadioInput with a Label and description porp   ---- //
 // --------------------------------------------------------------------------- //
 const FancyRadio = React.forwardRef<HTMLDivElement, TFancyRadioProps>((props, ref) => {
-  const { align, alignInput, label, description, externalStyle, checked, id: idExternal, name, value, ...HTMLProps } = props;
+  const {
+    align,
+    alignInput,
+    label,
+    description,
+    externalStyle,
+    checked,
+    id: idExternal,
+    name,
+    value,
+    ...HTMLProps
+  } = props;
   const id = useId();
 
   const pickedId = idExternal ? idExternal : id;

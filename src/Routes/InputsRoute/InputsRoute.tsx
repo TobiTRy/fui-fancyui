@@ -67,18 +67,46 @@ export default function InputsRoute() {
     <FancyCard>
       <DesignWrapper>
         <DesignArea title="Password Input">
-          <FancyNumberInput label="Text" onChange={testHandler2} value={test} placeholder="test45454554" errorMessage="Hiii" />
+          <FancyNumberInput
+            label="Text"
+            onChange={testHandler2}
+            value={test}
+            placeholder="test45454554"
+            errorMessage="Hiii"
+          />
         </DesignArea>
         <DesignArea title="Password Input">
-          <FancyPasswordInput themeType="primary" label="Password" value={password} onChange={testHandler5} align="left" />
+          <FancyPasswordInput
+            themeType="primary"
+            label="Password"
+            value={password}
+            onChange={testHandler5}
+            align="left"
+          />
           <FancyPasswordInput icon={svg} label="Password" value={password} onChange={testHandler5} align="center" />
         </DesignArea>
         <DesignArea title="Text Input">
           <FancyTextInput label="Text" value={text} onChange={testHandler} />
-          <FancyTextInput icon={svg} label="Text" value={text} onChange={testHandler} align="center" placeholder="test45454554" />
+          <FancyTextInput
+            icon={svg}
+            label="Text"
+            value={text}
+            onChange={testHandler}
+            align="center"
+            placeholder="test45454554"
+          />
         </DesignArea>
         <DesignArea title="Number Input">
-          <FancyNumberInput icon={svg} label="Text" onChange={testHandler2} value={test} align="center" step={0.1} min={0} max={100} />
+          <FancyNumberInput
+            icon={svg}
+            label="Text"
+            onChange={testHandler2}
+            value={test}
+            align="center"
+            step={0.1}
+            min={0}
+            max={100}
+          />
           <FancyNumberInput
             icon={svg}
             label="Text"
@@ -91,7 +119,14 @@ export default function InputsRoute() {
         </DesignArea>
         <DesignArea title="Number Input AutoWidth" style={row}>
           <FancyNumberInput label="Test" onChange={testHandler2} value={test} autoWidth={true} />
-          <FancyNumberInput icon={svg} label="Test" onChange={testHandler2} align="center" value={test} autoWidth={true} />
+          <FancyNumberInput
+            icon={svg}
+            label="Test"
+            onChange={testHandler2}
+            align="center"
+            value={test}
+            autoWidth={true}
+          />
         </DesignArea>
         <DesignArea title="DropDown Input">
           <FancyDropDownSelect
@@ -125,7 +160,14 @@ export default function InputsRoute() {
         </DesignArea>
         <DesignArea title="Range Slider">
           <FancyRangeSlider label="Slider" value={Number(test)} onChange={testHandler4} />
-          <FancyRangeSlider icon={svg} label="Slider" value={Number(test)} onChange={testHandler4} align="center" displayNumber={true} />
+          <FancyRangeSlider
+            icon={svg}
+            label="Slider"
+            value={Number(test)}
+            onChange={testHandler4}
+            align="center"
+            displayNumber={true}
+          />
         </DesignArea>
       </DesignWrapper>
     </FancyCard>

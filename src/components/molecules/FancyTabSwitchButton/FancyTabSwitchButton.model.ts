@@ -1,5 +1,6 @@
 import { TThemeTypes } from '@/interface/TThemeTypes';
 import { tabSwitchItemSizes } from './sizeSettings';
+import { CSSProp } from 'styled-components';
 
 export interface ITabSwitchDetailsLabelIcon {
   itemKey: string;
@@ -16,10 +17,10 @@ export interface ITabSwitchButton {
   disabled?: boolean;
   selected: boolean;
   onClick: (key: string) => void;
-  wide?: boolean;
   themeType?: TThemeTypes;
   iconAlign?: 'left' | 'right';
   size?: keyof typeof tabSwitchItemSizes;
+  externalStyle?: CSSProp;
 }
 
 export type ITabSwitchButtonProps = ITabSwitchButton & ITabSwitchDetailsChildren & ITabSwitchDetailsLabelIcon;

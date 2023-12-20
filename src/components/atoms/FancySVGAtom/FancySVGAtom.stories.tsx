@@ -12,7 +12,8 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component: 'Fancy SVG Atom that can be dynamicly adjusted in size and alignment. It can also be used to display error messages.',
+        component:
+          'Fancy SVG Atom that can be dynamicly adjusted in size and alignment. It can also be used to display error messages.',
       },
     },
   },

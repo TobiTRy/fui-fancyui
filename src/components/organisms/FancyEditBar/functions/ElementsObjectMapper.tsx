@@ -1,5 +1,11 @@
 import { IFancyBottomBarIcon } from '../../../templates/FancyBottomBarIcon/FancyBottomBarIcon';
-import { ICategoryItem, IDropDown, IRangeSlider, ITextInput, InputSettings } from '../EditBarItemsStructure/IEditbarObjectSturcture.model';
+import {
+  ICategoryItem,
+  IDropDown,
+  IRangeSlider,
+  ITextInput,
+  InputSettings,
+} from '../EditBarItemsStructure/IEditbarObjectSturcture.model';
 
 import { FancyTextInput } from '../../FancyTextInput';
 import FancyDropDownSelect from '../../FancyDropDownSelect/FancyDropDownSelect';
@@ -34,7 +40,10 @@ interface IObjectMapper {
 }
 
 // Get settings based on active category of and the activeSubSectionItem
-export const getObjectMapper = ({ activeEditbarCategory, activeSubSectionItem }: IObjectMapper): React.ReactElement[] | null => {
+export const getObjectMapper = ({
+  activeEditbarCategory,
+  activeSubSectionItem,
+}: IObjectMapper): React.ReactElement[] | null => {
   //get the values and check if they there
   if (!activeEditbarCategory || !activeSubSectionItem) return null;
 

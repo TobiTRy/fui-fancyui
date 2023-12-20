@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ComponentAsWrapper from '@/components/atoms/ComponentAsWrapper/ComponentAsWrapper';
+import ComponentAsWrapper from '@/components/shared/ComponentAsWrapper/ComponentAsWrapper';
 import { StyledAnchor, StyledButton } from './FancyActionWrapper.style';
 
 // Define types for button and anchor attributes

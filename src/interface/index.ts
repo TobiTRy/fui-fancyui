@@ -2,7 +2,7 @@ export * from './IFontSizes';
 export * from './IStatus';
 export * from './IStyledPrefixAndOmiter.model';
 export * from './IStyledPrefixAndPicker.model';
-export * from './TBorderRadius';
+export * from './TBorderRadiusSizes';
 export * from './TComponentSizes';
 export * from './TLayer';
 export * from './TModalStatus';

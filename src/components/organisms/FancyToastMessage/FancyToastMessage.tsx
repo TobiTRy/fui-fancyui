@@ -42,7 +42,11 @@ export default function FancyToastMessage() {
       });
     },
     leave: [
-      { transform: 'translateX(60%)', opacity: 0, config: { duration: 220, tension: 250, friction: 125, precision: 0.1 } },
+      {
+        transform: 'translateX(60%)',
+        opacity: 0,
+        config: { duration: 220, tension: 250, friction: 125, precision: 0.1 },
+      },
       { height: '0px', marginBottom: '0px', config: { duration: 265, tension: 250, friction: 125, precision: 0.8 } },
     ],
     onDestroyed: (item: IToastMessage) => removeToast(item.id),
@@ -52,7 +56,11 @@ export default function FancyToastMessage() {
     <ToastsWrapper>
       {transitions(({ ...style }, item: IToastMessage) => (
         <animated.div key={item.id} style={style}>
-          <SingleToastMessage ref={(ref: HTMLDivElement) => ref && refMap.set(item, ref)} toast={item} remove={removeToast} />
+          <SingleToastMessage
+            ref={(ref: HTMLDivElement) => ref && refMap.set(item, ref)}
+            toast={item}
+            remove={removeToast}
+          />
         </animated.div>
       ))}
     </ToastsWrapper>

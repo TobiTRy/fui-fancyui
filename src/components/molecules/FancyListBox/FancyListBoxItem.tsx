@@ -25,13 +25,13 @@ export { FancyListBoxItem };
 const StyledLi = styled(RawLI)<{ $externalStyle?: CSSProp; theme: TTheme }>`
   ${({ $externalStyle }) => ($externalStyle ? $externalStyle : '')}
 
-  padding: 0 ${({ theme }) => theme.spacing.lg};
+  padding: 0 ${({ theme }) => theme.spacing.md};
 
   &:first-child {
-    padding-top: ${({ theme }) => theme.spacing.lg};
+    padding-top: ${({ theme }) => theme.spacing.md};
   }
 
   &:last-child {
-    padding-bottom: ${({ theme }) => theme.spacing.lg};
+    padding-bottom: ${({ theme }) => theme.spacing.md};
   }
 `;

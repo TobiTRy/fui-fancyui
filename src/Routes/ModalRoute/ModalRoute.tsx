@@ -14,7 +14,9 @@ export default function ModalRoute() {
   };
   return (
     <section>
-      <FancyButton onClick={handleModalCreation} label="open modal"></FancyButton>
+      <FancyButton onClick={handleModalCreation} size="sm" label="open modal"></FancyButton>
+      <FancyButton onClick={handleModalCreation} size="md" label="open modal"></FancyButton>
+      <FancyButton onClick={handleModalCreation} size="lg" label="open modal"></FancyButton>
     </section>
   );
 }

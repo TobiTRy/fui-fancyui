@@ -1,5 +1,5 @@
 import { TFontSizes } from './IFontSizes';
-import { TBorderRadiusSizes } from './TBorderRadius';
+import { TBorderRadiusSizes } from './TBorderRadiusSizes';
 import { TUiColorsType } from './TUiColorsType';
 import { TSpacings } from './TSpacings';
 import { breakpoints } from '@/design/theme/brakePoints';

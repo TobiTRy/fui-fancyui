@@ -12,23 +12,22 @@ import { ErrorMessage, InputContainer, StyledInputWrapper, iconStyle } from './I
 // --------------------------------------------------------------------------- //
 // ------ The Wrapper for the inputs that give him some extra features  ------ //
 // ------------------ like a Label icon errormessage ------------------------- //
-export default function InputWrapper(props: IInputWrapper) {
-  const {
-    id,
-    value,
-    isActive,
-    disabled,
-    InputElement,
-    errorMessage,
-    icon,
-    label,
-    align,
-    underline = true,
-    autoWidth,
-    placeholder,
-    layer = 4,
-    themeType = 'secondary',
-  } = props;
+export default function InputWrapper({
+  id,
+  value,
+  isActive,
+  disabled,
+  InputElement,
+  errorMessage,
+  icon,
+  label,
+  align,
+  underline = true,
+  autoWidth,
+  placeholder,
+  layer = 4,
+  themeType = 'secondary',
+}: IInputWrapper) {
   const [isInitial, setIsInitial] = useState(false);
 
   // Calculate the color state for the label and underline
@@ -44,7 +43,14 @@ export default function InputWrapper(props: IInputWrapper) {
   return (
     <StyledInputWrapper disabled={disabled} $autoWidth={autoWidth}>
       {icon && (
-        <FancySVGAtom themeType={themeType} layer={layer} isPassive={false} externalStyle={iconStyle} size="lg" isActive={isActive}>
+        <FancySVGAtom
+          themeType={themeType}
+          layer={layer}
+          isPassive={false}
+          externalStyle={iconStyle}
+          size="lg"
+          isActive={isActive}
+        >
           {icon}
         </FancySVGAtom>
       )}

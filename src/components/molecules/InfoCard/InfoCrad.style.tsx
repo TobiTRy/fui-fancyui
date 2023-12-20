@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 
-import { TSizes } from '@/interface/TComponentSizes';
+import { TComponentSizes } from '@/interface/TComponentSizes';
 import themeStore from '@/design/theme/themeStore/themeStore';
 
 const getTheme = themeStore.getState().theme;
@@ -19,7 +19,7 @@ const sizes = {
   },
 };
 
-export const generateInfoCardStyle = (size: TSizes) => {
+export const generateInfoCardStyle = (size: TComponentSizes) => {
   return css`
     width: 100%;
     border-radius: ${sizes[size].borderRadius};

@@ -10,7 +10,7 @@ import { LogoWrapper, StyledHeading, Wrapper } from './HeaderTitleWithLogo.style
 interface IHeaderTitleWithLogo {
   title?: ReactNode | string;
   logo?: ReactNode;
-  linkTo?: string;
+  href?: string;
   themeType?: TThemeTypes;
   layer?: TLayer;
 }
@@ -18,11 +18,11 @@ interface IHeaderTitleWithLogo {
 // -------- A Header Template for the Logo and the Title of a header --------- //
 // --------------------------------------------------------------------------- //
 export default function HeaderTitleWithLogo(props: IHeaderTitleWithLogo) {
-  const { title, logo, linkTo, themeType, layer } = { ...defaultProps, ...props };
+  const { title, logo, href, themeType, layer } = props;
 
   return (
     <Wrapper>
-      <StyledHeading href={linkTo} $themeType={themeType} $layer={layer}>
+      <StyledHeading href={href} $themeType={themeType} $layer={layer}>
         {logo && <LogoWrapper>{logo}</LogoWrapper>}
         {title && (
           <Typography type="inlineElement" variant="h3" weight="bold">
@@ -33,8 +33,3 @@ export default function HeaderTitleWithLogo(props: IHeaderTitleWithLogo) {
     </Wrapper>
   );
 }
-
-const defaultProps: IHeaderTitleWithLogo = {
-  title: '',
-  linkTo: '/',
-};

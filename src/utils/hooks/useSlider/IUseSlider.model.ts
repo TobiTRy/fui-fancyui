@@ -11,7 +11,12 @@ export interface IUseSlider {
   handlerSlider?: (value: number) => void;
   handlerColor?: (color: Color) => void;
   sliderPositionToColorFunc?: (clientX: number, rect: DOMRect) => number;
-  positionToColorFunc?: (hue: number, clientX: number, clientY: number, rect: DOMRect) => { h: number; s: number; v: number } | number;
+  positionToColorFunc?: (
+    hue: number,
+    clientX: number,
+    clientY: number,
+    rect: DOMRect
+  ) => { h: number; s: number; v: number } | number;
   colorToPositionFunc: (color: Color, rect: DOMRect) => { x: number; y: number };
 }
 
@@ -24,6 +29,8 @@ export interface IUseSliderReturn {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   sliderRef: React.MutableRefObject<any>;
   markerPosition: IMarkerPosition;
-  handleInteractionStart: (event: React.MouseEvent<HTMLDivElement, MouseEvent> | React.TouchEvent<HTMLDivElement>) => void;
+  handleInteractionStart: (
+    event: React.MouseEvent<HTMLDivElement, MouseEvent> | React.TouchEvent<HTMLDivElement>
+  ) => void;
   isInteracting: boolean;
 }

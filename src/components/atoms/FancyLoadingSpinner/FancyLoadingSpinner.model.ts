@@ -20,7 +20,7 @@ const generateBorder = ({ $size, theme, $layer, $themeType = 'accent' }: IGenera
     border-top: ${$size} solid transparent;
     border-right: ${$size} solid ${theme.colors[$themeType][$layer || 0]};
     border-bottom: ${$size} solid transparent;
-    border-left: ${$size} solid ${theme.colors.accent[$themeType][$layer || 0]};
+    border-left: ${$size} solid ${theme.colors[$themeType][$layer || 0]};
   `;
 };
 

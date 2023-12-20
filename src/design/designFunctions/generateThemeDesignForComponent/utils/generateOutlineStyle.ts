@@ -5,7 +5,14 @@ import { generateStateStyle } from './generateHoverActiveColor';
 
 type TGenerateOutlineStyle = Pick<
   IGenerateThemeDesignForComponent,
-  '$outlined' | '$themeType' | 'theme' | '$layer' | '$backgroundStrength' | '$backgroundState' | '$hoverColor' | '$textColor'
+  | '$outlined'
+  | '$themeType'
+  | 'theme'
+  | '$layer'
+  | '$backgroundStrength'
+  | '$backgroundState'
+  | '$hoverColor'
+  | '$textColor'
 >;
 // --------------------------------------------------------------------------- //
 // ------- Generates the style for a outlined box or other compoent ---------- //

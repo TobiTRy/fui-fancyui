@@ -1,59 +1,42 @@
-import { FancyProfilePicture } from '@/components/atoms/FancyProfilePicture';
-import { Typography } from '@/components/atoms/Typography';
-
-import { TTextAlignLR } from '@/interface/TTextAlignLR';
-import { TThemeTypes } from '@/interface/TThemeTypes';
 import { TLayer } from '@/interface/TLayer';
+import { TThemeTypes } from '@/interface/TThemeTypes';
 
-import { pillSettings } from './sizeSettings';
-import { TextWrapper, Wrapper } from './FancyMiniProfile.style';
+import { TComponentSizes } from '@/interface/TComponentSizes';
+import { StyledChip } from './FancyMiniProfile.style';
+import { FancyProfilePicture } from '@/components/atoms/FancyProfilePicture';
+import { sizeSettings } from '@/components/molecules/FancyMiniProfile/sizeSettings';
 
-interface IFancyMiniprofile {
-  alignText?: TTextAlignLR;
-  headingText?: string;
-  subHeadingText?: string;
-  imageURL?: string;
-  size?: keyof typeof pillSettings;
+type TFancyMiniprofile = {
+  title?: string;
+  subTitle?: string;
+  src?: string;
+  size?: TComponentSizes;
   themeType?: TThemeTypes;
   layer?: TLayer;
   shadow?: boolean;
-}
+  alignImage?: 'left' | 'right';
+} & React.HTMLAttributes<HTMLDivElement>;
 // --------------------------------------------------------------------------- //
 // ------ The MiniProfile rendes a image with a heading and description ------ //
 // --------------------------------------------------------------------------- //
-export default function FancyMiniProfile(props: IFancyMiniprofile) {
-  const { alignText, size, imageURL, headingText, subHeadingText, themeType, layer, shadow } = { ...defaultProps, ...props };
+export default function FancyMiniProfile(props: TFancyMiniprofile) {
+  const { size = 'sm', src, title, subTitle, themeType, layer = 3, alignImage = 'right', ...htmlProps } = props;
 
-  //get the settings from the picked size
-  const getSizeProps = pillSettings[size || 'sm'];
+  // Define a function to calculate the spacing position for the chip
 
   return (
-    <Wrapper
-      $size={getSizeProps.padding}
-      $gapSpacing={getSizeProps.gapPictureAndText}
-      $themeType={themeType}
-      $layer={layer}
-      $shadow={shadow}
-    >
-      {/* The Profile Picture */}
-      <FancyProfilePicture rounded="complete" size={getSizeProps.imageSize} src={imageURL || ''} />
-      {/* The wraper with the heading and subheading text  */}
-      <TextWrapper $alignText={alignText} $paddingToedge={getSizeProps.paddingToEdge}>
-        {headingText && (
-          <Typography type="inlineElement" variant={getSizeProps.textSize} weight="bold">
-            {headingText}
-          </Typography>
+    <StyledChip size={size} themeType={themeType} layer={layer} $alignedImage={alignImage} {...htmlProps}>
+      <FancyProfilePicture className="miniprofile_content-image" size="complete" src={src || ''}></FancyProfilePicture>
+      <StyledChip.Content className="miniprofile_content" alignIcon={alignImage} gapBetweenText="0">
+        {title && (
+          <StyledChip.Content.Title fontVariant={sizeSettings[size].titleSize}> {title}</StyledChip.Content.Title>
         )}
-        {subHeadingText && (
-          <Typography type="inlineElement" variant={getSizeProps.textSize}>
-            {subHeadingText}
-          </Typography>
+        {subTitle && (
+          <StyledChip.Content.Description fontVariant={sizeSettings[size].subtitleSize}>
+            {subTitle}
+          </StyledChip.Content.Description>
         )}
-      </TextWrapper>
-    </Wrapper>
+      </StyledChip.Content>
+    </StyledChip>
   );
 }
-
-const defaultProps: IFancyMiniprofile = {
-  size: 'sm',
-};

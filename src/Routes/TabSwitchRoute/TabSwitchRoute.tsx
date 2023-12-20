@@ -21,7 +21,8 @@ const switchValues1 = [
   {
     itemKey: '2',
     value: 'Tab 1',
-    label: 'Tab 1 asksk aklsaklskl klaskl aklas aklkl  asuiasuiui uiasui asiuui asuiausi u asasuaui suaiausu asuusau isasuus ',
+    label:
+      'Tab 1 asksk aklsaklskl klaskl aklas aklkl  asuiasuiui uiasui asiuui asuiausi u asasuaui suaiausu asuusau isasuus ',
     icon: Icon,
   },
   { itemKey: '3', value: 'Tab 3', label: 'Tab 3', icon: Icon },
@@ -51,7 +52,7 @@ export default function TabSwitchRoute() {
     <>
       <FancyTabSwitch
         label="test"
-        size="md"
+        size="sm"
         values={switchValues1}
         rounded={'xxxl'}
         currentSelect={test}
@@ -69,8 +70,30 @@ export default function TabSwitchRoute() {
               wide
               size="sm"
               label="test"
-              outlined
               rounded="xxl"
+              themeType="secondary"
+              layer={3}
+              values={switchValues1}
+              currentSelect={test}
+              handler={(id: string) => setTest(id)}
+            />
+            <FancyTabSwitch
+              wide
+              size="md"
+              label="test"
+              rounded="xxl"
+              themeType="secondary"
+              layer={3}
+              values={switchValues1}
+              currentSelect={test}
+              handler={(id: string) => setTest(id)}
+            />
+            <FancyTabSwitch
+              wide
+              size="lg"
+              label="test"
+              rounded="xxxl"
+              themeType="secondary"
               layer={3}
               values={switchValues1}
               currentSelect={test}
@@ -81,6 +104,7 @@ export default function TabSwitchRoute() {
               values={switchValues1}
               themeType="transparent"
               size="sm"
+              indicatorType="underline"
               rounded="md"
               currentSelect={test}
               handler={(id: string) => setTest(id)}
@@ -92,7 +116,7 @@ export default function TabSwitchRoute() {
               outlined
               rounded="complete"
               size="sm"
-              themeType="transparent"
+              layer={3}
               values={switchValues1}
               currentSelect={test}
               handler={(id: string) => setTest(id)}
@@ -124,6 +148,7 @@ export default function TabSwitchRoute() {
               direction="vertical"
               values={switchValues}
               rounded={'xl'}
+              layer={3}
               currentSelect={test}
               handler={(id: string) => setTest(id)}
             />
@@ -131,6 +156,7 @@ export default function TabSwitchRoute() {
               label="test"
               wide
               values={switchValues}
+              layer={2}
               rounded={'xl'}
               currentSelect={test}
               handler={(id: string) => setTest(id)}

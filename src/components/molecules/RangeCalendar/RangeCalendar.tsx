@@ -43,7 +43,13 @@ export default function RangeCalendar(props: ICalendar) {
   const [externalMonthsData, setExternalMonthsData] = useState<IExternalMonthWithDays[]>([]);
   // hooks for selected dates and visible months
   const { visibleMonths, firstMonthRef, lastMonthRef } = useVisibleMonths(isScrolled);
-  const { selectedDates, handleDateClick } = useSelectedDates(selectedYear, selectFromTo, handleSwitchFromTo, handler, rangeCalendar);
+  const { selectedDates, handleDateClick } = useSelectedDates(
+    selectedYear,
+    selectFromTo,
+    handleSwitchFromTo,
+    handler,
+    rangeCalendar
+  );
 
   // Scroll to current month on mount and set isScrolled to true
   useEffect(() => {

@@ -1,64 +1,90 @@
 import React, { useEffect, useState } from 'react';
-import { CSSProp } from 'styled-components';
+import { css } from 'styled-components';
 
-import SwitchActiveIndicator, { IActiveSwitchIndicator } from '@/components/atoms/SwitchActiveIndicator/SwitchActiveIndicator';
-import { ItemWrapper, StyledList } from './SwitchList.style';
+import { themeStore } from '@/design/theme/themeStore';
 
-type TSwitchActiveIndicator = Omit<IActiveSwitchIndicator, '$itemNumber'>;
+import { SwitchActiveIndicator } from '@/components/atoms/SwitchActiveIndicator';
+import { FancyFlexBox } from '@/components/templates/FancyFlexBox';
+import { TSwitchList } from './SwitchList.model';
+import { generateListItemStyle } from './SwitchList.style';
 
-interface IBottomBarListProps {
-  children?: React.ReactNode;
-  whichIndexIsSelected?: number;
-  activeItemHandler?: (activeKey: number) => void;
-  indicatorType?: React.ComponentProps<typeof SwitchActiveIndicator>['$type'];
-  externalStyle?: CSSProp;
-}
-
-interface IKey {
-  $uniquekey: string;
-}
 // --------------------------------------------------------------------------- //
 // -------------- The Switch List Indicates wich item is active -------------- //
 // --------------------------------------------------------------------------- //
-export default function SwitchList(props: IBottomBarListProps & TSwitchActiveIndicator) {
-  const { children, whichIndexIsSelected, activeItemHandler, indicatorType, externalStyle, $direction, ...indicatorProps } = props;
+export default function SwitchList(props: TSwitchList) {
+  // the incoming props
+  const {
+    children,
+    whichIndexIsSelected,
+    activeItemHandler,
+    externalStyle,
+    switchIndicator,
+    flexBoxProps,
+    hoverStyle,
+    activeStyle,
+    gap,
+  } = props;
+
   const [currentActive, setCurrentActive] = useState('');
+  const theme = themeStore((state) => state.theme);
 
   const activeHandler = (uniqueKey: string) => {
     setCurrentActive(uniqueKey);
     activeItemHandler && activeItemHandler(Number(uniqueKey));
   };
 
+  // Set the current active item if the whichIndexIsSelected prop changes
   useEffect(() => {
     setCurrentActive(`${whichIndexIsSelected ? whichIndexIsSelected + 1 : 1}`);
   }, [whichIndexIsSelected]);
 
   return (
-    <StyledList $externalStyle={externalStyle} $direction={$direction}>
+    <FancyFlexBox
+      externalStyle={css`
+        height: 100%;
+        ${externalStyle};
+      `}
+      gap={gap && theme.spacing[gap]}
+      flexDirection={switchIndicator?.direction === 'vertical' ? 'column' : 'row'}
+      as="ul"
+    >
+      {/* The Item Of the List */}
       {React.Children.map(children, (child, index) => {
         if (React.isValidElement(child)) {
           // Generate a unique key (or use any other unique identifier logic)
           const uniqueKey = `${index + 1}`;
 
-          // Clone the child and add the uniqueKey prop
-          const clonedChild = React.cloneElement(child as React.ReactElement<IKey>, { $uniquekey: uniqueKey });
-
           return (
-            <ItemWrapper key={uniqueKey} onClick={() => activeHandler(uniqueKey)}>
-              {clonedChild}
+            <FancyFlexBox
+              externalStyle={css`
+                ${generateListItemStyle({
+                  isActive: currentActive === uniqueKey,
+                  hoverStyle,
+                  activeStyle,
+                })}
+                padding-bottom: 2px;
+              `}
+              key={uniqueKey}
+              {...flexBoxProps}
+              as={'li'}
+              onClick={() => activeHandler(uniqueKey)}
+            >
+              {child}
               {index === 0 && (
                 <SwitchActiveIndicator
-                  $direction={$direction}
-                  $itemNumber={Number(currentActive)}
-                  $type={indicatorType ?? 'underline'}
-                  {...indicatorProps}
+                  className="switch-indicator"
+                  direction={switchIndicator?.direction}
+                  type={switchIndicator?.type ?? 'underline'}
+                  itemNumber={Number(currentActive)}
+                  tabSpacing={gap}
+                  {...switchIndicator}
                 />
               )}
-            </ItemWrapper>
+            </FancyFlexBox>
           );
         }
         return child;
       })}
-    </StyledList>
+    </FancyFlexBox>
   );
 }
