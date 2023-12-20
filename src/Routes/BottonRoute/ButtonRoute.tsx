@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';
 import FancyButton from '../../components/organisms/FancyButton/FancyButton';
 import { css } from 'styled-components';
+import { FancyBox } from '@/components/atoms/FancyBox';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -23,6 +24,14 @@ export default function ButtonRoute() {
   return (
     <DesignWrapper>
       <DesignArea title="Buttons sizes" style={backgroundColor}>
+        <FancyBox externalStyle={{width: '300px'}}>
+          <FancyButton label="Button" themeType="primary" size="sm" />
+          <FancyButton label="Button" themeType="primary" size="md" />
+          <FancyButton label="Button" themeType="primary" size="lg" />
+
+        </FancyBox>
+
+
         <FancyButton label="Button" themeType="primary" size="sm" wide={false} onClick={() => console.log('moooinn')} />
         <FancyButton label="Button" themeType="secondary" size="md" wide={false} />
         <FancyButton label="Button" themeType="accent" size="lg" wide={false} />

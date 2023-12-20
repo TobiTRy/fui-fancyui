@@ -3,6 +3,7 @@ import { getBackgroundColor } from '../../colorCalculatorForComponent/colorCalcu
 import colorTransparencyCalculator from '../../colorTransparencyCalculator/colorTransparencyCalculator';
 import { IGenerateThemeDesignForComponent } from '../generateThemeDesignForComponent';
 import { TLayer } from '@/interface/TLayer';
+import { clampLayer } from '@/utils/functions/clampLayer';
 type TGenerateOutlinedHoverStyle = Pick<
   IGenerateThemeDesignForComponent,
   '$themeType' | 'theme' | '$layer' | '$backgroundStrength' | '$hoverColor'
@@ -15,7 +16,7 @@ const generateHoverColor = (props: TGenerateOutlinedHoverStyle) => {
 
   // generate the background color with a transparency of the background color
   const generateSlightBackgroundColor = colorTransparencyCalculator(
-    getBackgroundColor({ theme, $themeType: $hoverColor ?? $themeType ?? 'primary', $layer: Math.max(1, $layer - 3) }),
+    getBackgroundColor({ theme, $themeType: $hoverColor ?? $themeType ?? 'primary', $layer: clampLayer($layer + 2) }),
     $backgroundStrength
   );
 

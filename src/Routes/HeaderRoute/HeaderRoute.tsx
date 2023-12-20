@@ -11,14 +11,13 @@ import FancyBar from '../../components/atoms/FancyBox/FancyBox';
 import Header from '../../components/molecules/Header/Header';
 import themeStore from '@/design/theme/themeStore/themeStore';
 import { Typography } from '@/components/atoms/Typography';
-
-import { FancyHeader } from '@/components/organisms/FancyHeader';
 import { SwitchList } from '@/components/molecules/SwitchList';
 import { FancyGrid } from '@/components/templates/FancyGrid';
 import { FancyMenu } from '@/components/templates/FancyMenueComponent/FancyMenu';
 import { FancyPopover } from '@/components/shared/FancyPopover';
 import { FancyFlexBox } from '@/components/templates/FancyFlexBox';
 import { breakPointStyle } from '@/Routes/HeaderRoute/breakPointStyle';
+import { FancyHeader } from '@/components/templates/FancyHeader';
 
 const Logo = () => (
   <svg
