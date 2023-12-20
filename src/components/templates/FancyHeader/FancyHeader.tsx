@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Header } from '@/components/molecules/Header';
 import { FancyNavBar } from '@/components/molecules/FancyNavBar';
-import HeaderLogo from '@/components/organisms/FancyHeader/HeaderLogo/HeaderLogo';
+import HeaderLogo from '@/components/templates/FancyHeader/HeaderLogo/HeaderLogo';
 
 type IFancyHeader = {
   children?: React.ReactNode;
