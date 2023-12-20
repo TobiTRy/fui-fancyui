@@ -1,4 +1,4 @@
-import React, { KeyboardEvent, useEffect, useRef, useState } from 'react';
+import React, { KeyboardEvent, useEffect, useState } from 'react';
 
 import { TLayer } from '@/interface/TLayer';
 import { ChipList } from '@/components/molecules/ChipList';
