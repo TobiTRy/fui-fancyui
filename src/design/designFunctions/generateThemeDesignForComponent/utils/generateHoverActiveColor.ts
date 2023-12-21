@@ -45,25 +45,31 @@ export const generateStateStyle = (props: TGenerateStateStyle) => {
       // when the component is outlined styled
       if (props.$outlined) {
         return css`
-          &:hover {
-            background-color: ${generateHoverColor(props)};
+          @media (hover: hover) {
+            button:hover {
+              background-color: ${generateHoverColor(props)};
+            }
           }
         `;
       } else if (props.$textHover) {
         return css`
-          &:hover {
-            color: ${getBackgroundColor({
-              theme: props.theme,
-              $themeType: props.$textHover ?? 'secondary',
-              $layer: Math.min(props.$layer ? props.$layer + 2 : 2, 10) as TLayer,
-            })};
+          @media (hover: hover) {
+            button:hover {
+              color: ${getBackgroundColor({
+                theme: props.theme,
+                $themeType: props.$textHover ?? 'secondary',
+                $layer: Math.min(props.$layer ? props.$layer + 2 : 2, 10) as TLayer,
+              })};
+            }
           }
         `;
       }
       // when the component is normal styled
       return css`
-        &:hover {
-          background-color: ${generateHoverColor(props)};
+        @media (hover: hover) {
+          button:hover {
+            background-color: ${generateHoverColor(props)};
+          }
         }
       `;
     }
