@@ -2,9 +2,10 @@ import { TLayer } from '@/interface/TLayer';
 import { TThemeTypes } from '@/interface/TThemeTypes';
 
 import { TComponentSizes } from '@/interface/TComponentSizes';
-import { StyledChip } from './FancyMiniProfile.style';
 import { FancyProfilePicture } from '@/components/atoms/FancyProfilePicture';
 import { sizeSettings } from '@/components/molecules/FancyMiniProfile/sizeSettings';
+import { Chip } from '@/components/molecules/Chip';
+import { generateChipStyle } from '@/components/molecules/FancyMiniProfile/FancyMiniProfile.style';
 
 type TFancyMiniprofile = {
   title?: string;
@@ -23,20 +24,17 @@ export default function FancyMiniProfile(props: TFancyMiniprofile) {
   const { size = 'sm', src, title, subTitle, themeType, layer = 3, alignImage = 'right', ...htmlProps } = props;
 
   // Define a function to calculate the spacing position for the chip
+  const chipStyle = generateChipStyle({ size, themeType, layer, $alignImage: alignImage });
 
   return (
-    <StyledChip size={size} themeType={themeType} layer={layer} $alignedImage={alignImage} {...htmlProps}>
+    <Chip size={size} themeType={themeType} layer={layer} externalStyle={chipStyle} {...htmlProps}>
       <FancyProfilePicture className="miniprofile_content-image" size="complete" src={src || ''}></FancyProfilePicture>
-      <StyledChip.Content className="miniprofile_content" alignIcon={alignImage} gapBetweenText="0">
-        {title && (
-          <StyledChip.Content.Title fontVariant={sizeSettings[size].titleSize}> {title}</StyledChip.Content.Title>
-        )}
+      <Chip.Content className="miniprofile_content" alignIcon={alignImage} gapBetweenText="0">
+        {title && <Chip.Content.Title fontVariant={sizeSettings[size].titleSize}> {title}</Chip.Content.Title>}
         {subTitle && (
-          <StyledChip.Content.Description fontVariant={sizeSettings[size].subtitleSize}>
-            {subTitle}
-          </StyledChip.Content.Description>
+          <Chip.Content.Description fontVariant={sizeSettings[size].subtitleSize}>{subTitle}</Chip.Content.Description>
         )}
-      </StyledChip.Content>
-    </StyledChip>
+      </Chip.Content>
+    </Chip>
   );
 }
