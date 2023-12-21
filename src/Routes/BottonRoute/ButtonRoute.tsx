@@ -24,13 +24,11 @@ export default function ButtonRoute() {
   return (
     <DesignWrapper>
       <DesignArea title="Buttons sizes" style={backgroundColor}>
-        <FancyBox externalStyle={{width: '300px'}}>
+        <FancyBox externalStyle={{ width: '300px' }}>
           <FancyButton label="Button" themeType="primary" size="sm" />
           <FancyButton label="Button" themeType="primary" size="md" />
           <FancyButton label="Button" themeType="primary" size="lg" />
-
         </FancyBox>
-
 
         <FancyButton label="Button" themeType="primary" size="sm" wide={false} onClick={() => console.log('moooinn')} />
         <FancyButton label="Button" themeType="secondary" size="md" wide={false} />
