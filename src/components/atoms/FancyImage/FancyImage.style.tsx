@@ -8,7 +8,7 @@ export const StyledImage = styled.img<TFancyImage>`
   width: 100%;
   object-fit: cover;
   transition: filter 0.3s;
-  filter: ${({ $darken }) => ($darken ? 'brightness(0.5)' : 'none')};
+  filter: ${({ $darken }) => ($darken ? `brightness(${$darken === true ? '0.5' : $darken})` : 'none')};
   aspect-ratio: ${({ $aspectRatio }) => ($aspectRatio ? `${$aspectRatio};` : '')};
   ${({ $externalStyle }) => $externalStyle};
 `;

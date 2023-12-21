@@ -5,7 +5,7 @@ import { CSSProp } from 'styled-components';
 // Define the props for the FancyImage component
 export type IFancyImage = {
   aspectRatio?: string; // e.g. "16/9"
-  darken?: boolean;
+  darken?: number | boolean;
   externalStyle?: CSSProp;
 } & React.ImgHTMLAttributes<HTMLImageElement>;
 // --------------------------------------------------------------------------- //

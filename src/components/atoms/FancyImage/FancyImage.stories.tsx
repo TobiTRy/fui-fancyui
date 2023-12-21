@@ -19,7 +19,7 @@ const meta = {
   // Define arguments for the story
   argTypes: {
     darken: {
-      control: { type: 'boolean' },
+      control: { range: { min: 0, max: 1, step: 0.1 } },
     },
     alt: {
       control: { type: 'text' },
