@@ -6,15 +6,13 @@ import { spacingPx } from '@/design/theme/designSizes';
 import { edgeCalculation } from '@/design/designFunctions/edgeCalculation';
 
 import { boxShadow } from '@/design/designFunctions/shadows/shadows';
-import { getColorsForComponent } from '@/design/designFunctions/colorCalculatorForComponent';
 import { TTheme } from '@/interface/TTheme';
+import { FancyBox } from '@/components/atoms/FancyBox';
 
 // the converted $ styling props for the card
 type IStyledCard = IStyledPrefixAndOmiter<StyledCardProps>;
 //the main design of the card
-export const StyledCard = styled.div<IStyledCard & { theme: TTheme }>`
-  ${({ theme, $themeType = 'primary', $layer, $textLayer }) =>
-    getColorsForComponent({ theme, $themeType, $layer, $textLayer })}
+export const StyledCard = styled(FancyBox)<IStyledCard & { theme: TTheme }>`
   overflow: hidden;
   width: ${({ $width }) => $width};
   height: ${({ $height }) => $height};

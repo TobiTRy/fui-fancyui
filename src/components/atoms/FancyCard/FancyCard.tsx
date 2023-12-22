@@ -1,18 +1,13 @@
-import React from 'react';
-
 import { InnerCard, StyledCard } from './FancyCard.style';
-import { StyledCardProps } from './Card.model';
-import { TLayer } from '@/interface/TLayer';
+import { IFancyBox } from '@/components/atoms/FancyBox/';
+import { StyledCardProps } from '@/components/atoms/FancyCard/Card.model';
 
 // --------------------------------------------------------------------------- //
 // ---------- The card is there to wrapp some content or components ---------- //
 // --------------------------------------------------------------------------- //
-interface ICard extends StyledCardProps {
-  children?: React.ReactNode;
-  layer?: TLayer;
-}
+type ICard = StyledCardProps & IFancyBox;
 export default function FancyCard(props: ICard) {
-  const { children, height, width, radius, padding, roundedEdges, layer, shadow, themeType, textLayer } = {
+  const { children, height, width, radius, padding, roundedEdges, shadow, ...fancyBox } = {
     ...defaultProps,
     ...props,
   };
@@ -24,10 +19,8 @@ export default function FancyCard(props: ICard) {
       $padding={padding}
       $radius={radius}
       $roundedEdges={roundedEdges}
-      $textLayer={textLayer}
-      $themeType={themeType}
-      $layer={layer}
       $shadow={shadow}
+      {...fancyBox}
     >
       <InnerCard>{children}</InnerCard>
     </StyledCard>

@@ -17,6 +17,7 @@ import { FancyButton } from '@/components/organisms/FancyButton';
 import { SingleToastMessage } from '@/components/molecules/SingleToastMessage';
 
 import { FancyNumberInput } from '@/components/organisms/FancyNumberInput';
+import { FancyCard } from '@/components/atoms/FancyCard';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -63,7 +64,6 @@ export default function ExperimentalRoute() {
     <DesignWrapper>
       <DesignArea title="Test">
         <FancyNumberInput />
-
         <FancyButton
           borderRadius="md"
           size="md"
@@ -71,6 +71,11 @@ export default function ExperimentalRoute() {
           icon={reloadIcon}
           onClick={() => switchTheme()}
         />
+      </DesignArea>
+      <DesignArea title="Test">
+        <FancyCard>
+          <h1>Mooiin</h1>
+        </FancyCard>
       </DesignArea>
     </DesignWrapper>
   );
