@@ -18,6 +18,9 @@ import { SingleToastMessage } from '@/components/molecules/SingleToastMessage';
 
 import { FancyNumberInput } from '@/components/organisms/FancyNumberInput';
 import { FancyCard } from '@/components/atoms/FancyCard';
+import { FancyBox } from '@/components/atoms/FancyBox';
+import { SVGCheckMark } from '@/components/icons/SVGCheckMark';
+import FancyMiniContentCard from '@/components/templates/FancyMiniContentCard/FancyMiniContentCard';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -61,23 +64,37 @@ export default function ExperimentalRoute() {
   };
 
   return (
-    <DesignWrapper>
-      <DesignArea title="Test">
-        <FancyNumberInput />
-        <FancyButton
-          borderRadius="md"
-          size="md"
-          themeType="secondary"
-          icon={reloadIcon}
-          onClick={() => switchTheme()}
-        />
-      </DesignArea>
-      <DesignArea title="Test">
-        <FancyCard>
-          <h1>Mooiin</h1>
-        </FancyCard>
-      </DesignArea>
-    </DesignWrapper>
+    <>
+      <DesignWrapper>
+        <DesignArea title="Test">
+          <FancyMiniContentCard size="sm" title="Test" symbol={Icon} />
+          <FancyMiniContentCard size="md" title="Test" symbol={Icon} />
+          <FancyMiniContentCard size="lg" title="Test" symbol={Icon} />
+          <FancyCard>
+            <FancyContent flexDirection="column" flexJustify="center">
+              <FancyContent.Icon size="xl">
+                <SVGCheckMark />
+              </FancyContent.Icon>
+              <FancyContent.Title>Test</FancyContent.Title>
+              <FancyContent.Description>Test fgfg fgfggf fgfgfg sddssd sddsds sddssd sdsdsd </FancyContent.Description>
+            </FancyContent>
+          </FancyCard>
+          <FancyNumberInput />
+          <FancyButton
+            borderRadius="md"
+            size="md"
+            themeType="secondary"
+            icon={reloadIcon}
+            onClick={() => switchTheme()}
+          />
+        </DesignArea>
+        <DesignArea title="Test">
+          <FancyCard>
+            <FancyCard></FancyCard>
+          </FancyCard>
+        </DesignArea>
+      </DesignWrapper>
+    </>
   );
 }
 

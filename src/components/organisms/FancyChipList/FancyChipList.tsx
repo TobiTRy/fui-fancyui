@@ -13,7 +13,18 @@ import { ChipListProps } from './FancyChipListProps.model';
 // The FancyChipList component definition
 export default function FancyChipList(props: ChipListProps) {
   // Destructure props and provide default values from defaultProps
-  const { themeType, layer, chips, inputPlaceholder, outlined, label, size, editable, systemInformation, handler } = {
+  const {
+    themeType,
+    layer = 1,
+    chips,
+    inputPlaceholder,
+    outlined,
+    label,
+    size,
+    editable,
+    systemInformation,
+    handler,
+  } = {
     ...defaultProps,
     ...props,
   };
@@ -58,7 +69,7 @@ export default function FancyChipList(props: ChipListProps) {
 
   return (
     <Fieldset label={label} fontVariantLegend="button">
-      <ChipList themeType={themeType} layer={layer} outlined={true} size={size} systemMessage={systemInformation}>
+      <ChipList themeType={themeType} layer={layer} outlined={outlined} size={size} systemMessage={systemInformation}>
         {/* // Mapping through each chip in the state to render a FancyChip */}
         {chipState.map((chip, index) => (
           <li key={index} tabIndex={0}>

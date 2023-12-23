@@ -28,7 +28,7 @@ export default function ChipsRoute() {
       <DesignWrapper>
         <DesignArea title="ChipList">
           <ChipList />
-          <FancyChipList size="sm" chips={chipList} />
+          <FancyChipList size="sm" layer={2} chips={chipList} />
         </DesignArea>
         <DesignArea title="FancyChip">
           <FancyChip
