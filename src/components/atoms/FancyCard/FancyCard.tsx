@@ -1,4 +1,4 @@
-import { InnerCard, StyledCard } from './FancyCard.style';
+import { StyledCard } from './FancyCard.style';
 import { IFancyBox } from '@/components/atoms/FancyBox/';
 import { StyledCardProps } from '@/components/atoms/FancyCard/Card.model';
 
@@ -7,30 +7,27 @@ import { StyledCardProps } from '@/components/atoms/FancyCard/Card.model';
 // --------------------------------------------------------------------------- //
 type ICard = StyledCardProps & IFancyBox;
 export default function FancyCard(props: ICard) {
-  const { children, height, width, radius, padding, roundedEdges, shadow, ...fancyBox } = {
+  const {
+    children,
+    size,
+    padding = true,
+    roundedEdges,
+    shadow,
+    ...fancyBox
+  } = {
     ...defaultProps,
     ...props,
   };
 
   return (
-    <StyledCard
-      $height={height}
-      $width={width}
-      $padding={padding}
-      $radius={radius}
-      $roundedEdges={roundedEdges}
-      $shadow={shadow}
-      {...fancyBox}
-    >
-      <InnerCard>{children}</InnerCard>
+    <StyledCard $size={size} $padding={padding} $roundedEdges={roundedEdges} $shadow={shadow} {...fancyBox}>
+      {children}
     </StyledCard>
   );
 }
 
 const defaultProps: ICard = {
-  height: 'auto',
-  width: '100%',
-  padding: 'xl',
+  padding: true,
   shadow: true,
   roundedEdges: ['xl'],
 };
