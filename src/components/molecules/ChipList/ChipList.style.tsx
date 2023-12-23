@@ -20,7 +20,7 @@ export const ChipContainer = styled.ul`
  * @returns The generated style object for the ChipList.
  */
 
-// eslint-disable-next-line react-refresh/only-export-components
+ 
 export const generateChipListStyle = (size: 'sm' | 'md' | 'lg', sytemMessage?: TUiColorsSystemMessage) => {
   const styemIndicatorStyle = generateSystemIndicatorStyle(sytemMessage);
   const getTheme = themeStore.getState().theme;
