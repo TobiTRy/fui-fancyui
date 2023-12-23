@@ -18,7 +18,7 @@ export interface ChipListProps {
 // ---------- The Chiplist is a wrapper for the chips to list them  ---------- //
 // --------------------------------------------------------------------------- //
 export default function ChipList(props: ChipListProps) {
-  const { themeType = 'primary', layer = 1, outlined = false, children, size, systemMessage } = props;
+  const { themeType = 'primary', layer = 2, outlined = false, children, size, systemMessage } = props;
 
   const generatedStyle = generateChipListStyle(size ?? 'md', systemMessage);
 

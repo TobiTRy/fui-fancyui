@@ -21,7 +21,7 @@ export default function SearchBarList(props: ISearchBarList) {
     <StyledSearchBarList>
       {/* If the search bar list is active, display the list */}
       {isActive && (
-        <FancyCard themeType={themeType} layer={layer} radius="xxl">
+        <FancyCard themeType={themeType} layer={layer} roundedEdges={['xl']}>
           <InnerCard>
             {/* If there are items to display, display them */}
             {children && <div>{children}</div>}
