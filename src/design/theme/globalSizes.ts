@@ -33,7 +33,6 @@
 //   - **Font Size**: 24px or larger
 //   - **Element Size**: 64px or more (e.g., major screen elements, large icons)
 
- 
 export const globalSizes = {
   xxs: {
     padding: '4px',

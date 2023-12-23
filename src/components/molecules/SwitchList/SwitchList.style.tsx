@@ -21,7 +21,6 @@ export interface IgenerateListItemStyle {
   hoverStyle?: boolean;
 }
 
- 
 export const generateListItemStyle = (props: IgenerateListItemStyle) => {
   const { isActive, hoverStyle } = props;
   const theme = themeStore.getState().theme;
