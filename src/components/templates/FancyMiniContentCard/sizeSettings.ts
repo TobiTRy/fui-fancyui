@@ -10,7 +10,7 @@ export const sizeSettings = {
     borderRadius: 'lg',
   },
   lg: {
-    size: globalSizes.lg.elementSize,
+    size: globalSizes.xxl.elementSize,
     padding: 'xl',
     borderRadius: 'xl',
   },

@@ -14,9 +14,14 @@ type IStyledCard = IStyledPrefixAndOmiter<StyledCardProps>;
 //the main design of the card
 export const StyledCard = styled(FancyBox)<IStyledCard & { theme: TTheme }>`
   display: inline-block;
-  overflow: hidden;
   box-sizing: border-box;
+  aspect-ratio: 1/1;
   padding: ${({ $padding, $size = 'md', theme }) => ($padding ? theme.spacing[sizeSettings[$size].padding] : '')};
   border-radius: ${({ $roundedEdges }) => ($roundedEdges ? edgeCalculation($roundedEdges) : '')};
   ${({ $shadow }) => $shadow && boxShadow.sm};
+`;
+
+export const InnerCard = styled.div`
+  width: 100%;
+  height: 100%;
 `;

@@ -14,14 +14,14 @@ export type TFancyMiniContentCardProps = {
 };
 
 export default function FancyMiniContentCard(props: TFancyMiniContentCardProps) {
-  const { size } = props;
+  const { size, title, description } = props;
   return (
     <StyledCard $size={size}>
       <FancyFlexBox flexDirection="column" flexAlign="center" flexJustify="center" fitBox>
         <FancySVGAtom size="xl">{props.symbol}</FancySVGAtom>
 
-        <Typography type="h4">Moooiin</Typography>
-        <Typography type="content">Moooiin</Typography>
+        <Typography type="h4">{title}</Typography>
+        <Typography type="content">{description}</Typography>
       </FancyFlexBox>
     </StyledCard>
   );

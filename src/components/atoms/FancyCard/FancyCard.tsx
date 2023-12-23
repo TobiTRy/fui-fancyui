@@ -1,4 +1,4 @@
-import { StyledCard } from './FancyCard.style';
+import { InnerCard, StyledCard } from './FancyCard.style';
 import { IFancyBox } from '@/components/atoms/FancyBox/';
 import { StyledCardProps } from '@/components/atoms/FancyCard/Card.model';
 
@@ -21,7 +21,7 @@ export default function FancyCard(props: ICard) {
 
   return (
     <StyledCard $size={size} $padding={padding} $roundedEdges={roundedEdges} $shadow={shadow} {...fancyBox}>
-      {children}
+      <InnerCard>{children}</InnerCard>
     </StyledCard>
   );
 }
