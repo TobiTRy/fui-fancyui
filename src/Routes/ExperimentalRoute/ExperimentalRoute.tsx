@@ -65,10 +65,10 @@ export default function ExperimentalRoute() {
 
   return (
     <>
-      <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-        <FancyMiniContentCard size="sm" title="Test klkfkl dlfklkfdklfd " symbol={Icon} />
+      <div style={{ display: 'flex', gap: '12px' }}>
+        <FancyMiniContentCard size="md" title="Test klkfkl dlfklkfdklfd " symbol={Icon} />
         <FancyMiniContentCard size="md" title="Test kkdfk jkjkjkdf" symbol={Icon} />
-        <FancyMiniContentCard size="lg" title="Test kdlkdfklfdkl klkl" symbol={Icon} />
+        <FancyMiniContentCard size="md" title="Test kdlkdfklfdkl klkl" symbol={Icon} />
       </div>
       <DesignWrapper>
         <DesignArea title="Test">

@@ -6,5 +6,5 @@ import IStyledPrefixAndPicker from '@/interface/IStyledPrefixAndPicker';
 
 type IStyledCard = IStyledPrefixAndPicker<TFancyMiniContentCardProps, 'size'>;
 export const StyledCard = styled(FancyCard)<IStyledCard>`
-  aspect-ratio: 1/1;
+  flex: 1;
 `;
