@@ -14,7 +14,7 @@ export function FancyContentTitle(props: TTextProps) {
       weight={bold ? 'bold' : 'normal'}
       type="button"
       className={className}
-      style={externalStyle}
+      externalStyle={externalStyle}
     >
       {children}
     </Typography>
@@ -33,7 +33,7 @@ export function FancyContentDescription(props: TTextProps) {
       weight={bold ? 'bold' : 'normal'}
       type="button"
       className={className}
-      style={externalStyle}
+      externalStyle={externalStyle}
     >
       {children}
     </Typography>
