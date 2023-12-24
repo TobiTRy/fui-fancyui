@@ -21,6 +21,7 @@ import { FancyCard } from '@/components/atoms/FancyCard';
 import { FancyBox } from '@/components/atoms/FancyBox';
 import { SVGCheckMark } from '@/components/icons/SVGCheckMark';
 import FancyMiniContentCard from '@/components/templates/FancyMiniContentCard/FancyMiniContentCard';
+import Card from '@/components/templates/TestCard/TestCard';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -65,10 +66,17 @@ export default function ExperimentalRoute() {
 
   return (
     <>
+      <Card />
       <div style={{ display: 'flex', gap: '12px' }}>
-        <FancyMiniContentCard size="md" title="Test klkfkl dlfklkfdklfd " symbol={Icon} />
-        <FancyMiniContentCard size="md" title="Test kkdfk jkjkjkdf" symbol={Icon} />
-        <FancyMiniContentCard size="md" title="Test kdlkdfklfdkl klkl" symbol={Icon} />
+        <FancyMiniContentCard
+          themeType="accent"
+          size="md"
+          title="Test klkfkl dlfklkfdklfd "
+          description="mooiiinn"
+          symbol={Icon}
+        />
+        <FancyMiniContentCard size="md" title="Test kkdfk jkjkjkdf" description="dsdssdsd" symbol={Icon} />
+        <FancyMiniContentCard size="md" title="Test kdlkdfklfdkl klkl" description="kkdssdds" symbol={Icon} />
       </div>
       <DesignWrapper>
         <DesignArea title="Test">

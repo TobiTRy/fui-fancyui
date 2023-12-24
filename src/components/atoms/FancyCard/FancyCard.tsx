@@ -5,14 +5,15 @@ import { StyledCardProps } from '@/components/atoms/FancyCard/Card.model';
 // --------------------------------------------------------------------------- //
 // ---------- The card is there to wrapp some content or components ---------- //
 // --------------------------------------------------------------------------- //
-type ICard = StyledCardProps & IFancyBox;
-export default function FancyCard(props: ICard) {
+export type IFancyCard = StyledCardProps & IFancyBox;
+export default function FancyCard(props: IFancyCard) {
   const {
     children,
     size,
     padding = true,
     roundedEdges,
     shadow,
+    layer = 0,
     ...fancyBox
   } = {
     ...defaultProps,
@@ -20,13 +21,20 @@ export default function FancyCard(props: ICard) {
   };
 
   return (
-    <StyledCard $size={size} $padding={padding} $roundedEdges={roundedEdges} $shadow={shadow} {...fancyBox}>
+    <StyledCard
+      $size={size}
+      $layer={layer}
+      $padding={padding}
+      $roundedEdges={roundedEdges}
+      $shadow={shadow}
+      {...fancyBox}
+    >
       <InnerCard>{children}</InnerCard>
     </StyledCard>
   );
 }
 
-const defaultProps: ICard = {
+const defaultProps: IFancyCard = {
   padding: true,
   shadow: true,
   roundedEdges: ['xl'],

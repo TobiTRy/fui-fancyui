@@ -7,7 +7,7 @@ export const sizeSettings = {
     borderRadius: 'sm' as TBorderRadiusSizes,
   },
   md: {
-    padding: 'sm' as TSpacings,
+    padding: 'xl' as TSpacings,
     borderRadius: 'sm' as TBorderRadiusSizes,
   },
   lg: {
