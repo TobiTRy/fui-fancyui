@@ -15,7 +15,7 @@ type IStyledCard = IStyledPrefixAndOmiter<StyledCardProps>;
 export const StyledCard = styled(FancyBox)<IStyledCard & { theme: TTheme }>`
   display: inline-block;
   box-sizing: border-box;
-  padding: ${({ $padding, $size = 'md', theme }) => ($padding ? theme.spacing[sizeSettings[$size].padding] : '')};
+  padding: ${({ $padding, $size = 'md' }) => ($padding ? arrayToCssValues(sizeSettings[$size].padding) : '')};
   border-radius: ${({ $roundedEdges }) => ($roundedEdges ? arrayToCssValues($roundedEdges) : '')};
   ${({ $shadow }) => $shadow && boxShadow.sm};
 `;

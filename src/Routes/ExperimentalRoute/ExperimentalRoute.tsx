@@ -68,6 +68,9 @@ export default function ExperimentalRoute() {
     <>
       <Card />
       <div style={{ display: 'flex', gap: '12px' }}>
+        <FancyMiniContentCard>
+          <FancyMiniContentCard.Title>Test</FancyMiniContentCard.Title>
+        </FancyMiniContentCard>
         <FancyMiniContentCard
           themeType="accent"
           size="md"

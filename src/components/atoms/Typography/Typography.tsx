@@ -10,13 +10,13 @@ export type ITypography = {
   variant?: keyof typeof TypographyList;
   children?: ReactNode;
   weight?: 'normal' | 'bold';
-  style?: CSSProp;
+  externalStyle?: CSSProp;
   htmlFor?: string;
 } & Omit<React.HTMLAttributes<HTMLElement>, 'style'>;
 // --------------------------------------------------------------------------- //
 // The Typography component can render differnet elements with different styles//
 // ------------- like a "h4 can have the style of a p" ----------------------- //
-export default function Typography({ type, variant, children, style, weight, ...htmlProps }: ITypography) {
+export default function Typography({ type, variant, children, externalStyle, weight, ...htmlProps }: ITypography) {
   // get the theme font sizes
   const themeFonts = themeStore((state) => state.theme.fontSizes);
 
@@ -24,7 +24,7 @@ export default function Typography({ type, variant, children, style, weight, ...
   // const Component = TypographyList[type] || TypographyList.content;
   const Component = TypographyList[type || 'content'] as React.FC<IStyledComponentProps>;
 
-  const mixedStyle = generateStyle(style, weight);
+  const mixedStyle = generateStyle(externalStyle, weight);
   // get the variant style based on the variant prop or the type prop;
   const fontVariants = generateFontVariants(themeFonts);
 
