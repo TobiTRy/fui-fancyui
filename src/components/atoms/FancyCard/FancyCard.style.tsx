@@ -2,7 +2,7 @@ import { styled } from 'styled-components';
 
 import { StyledCardProps } from './Card.model';
 import IStyledPrefixAndOmiter from '@/interface/IStyledPrefixAndOmiter';
-import { edgeCalculation } from '@/design/designFunctions/edgeCalculation';
+import { arrayToCssValues } from '@/design/designFunctions/arrayToCssValues';
 
 import { boxShadow } from '@/design/designFunctions/shadows/shadows';
 import { TTheme } from '@/interface/TTheme';
@@ -16,7 +16,7 @@ export const StyledCard = styled(FancyBox)<IStyledCard & { theme: TTheme }>`
   display: inline-block;
   box-sizing: border-box;
   padding: ${({ $padding, $size = 'md', theme }) => ($padding ? theme.spacing[sizeSettings[$size].padding] : '')};
-  border-radius: ${({ $roundedEdges }) => ($roundedEdges ? edgeCalculation($roundedEdges) : '')};
+  border-radius: ${({ $roundedEdges }) => ($roundedEdges ? arrayToCssValues($roundedEdges) : '')};
   ${({ $shadow }) => $shadow && boxShadow.sm};
 `;
 

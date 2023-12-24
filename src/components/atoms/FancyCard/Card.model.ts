@@ -1,10 +1,10 @@
+import { TArrayToCssValues } from '@/design/designFunctions/arrayToCssValues/IArrayValues.model';
 import { TComponentSizes } from '@/interface/TComponentSizes';
-import { IRoundedEdges } from '@/design/designFunctions/edgeCalculation/edgeCalculation';
 
 // the raw styling props for the card
 export interface StyledCardProps {
   shadow?: boolean;
-  roundedEdges?: IRoundedEdges;
+  roundedEdges?: TArrayToCssValues;
   size?: TComponentSizes;
   padding?: boolean;
 }

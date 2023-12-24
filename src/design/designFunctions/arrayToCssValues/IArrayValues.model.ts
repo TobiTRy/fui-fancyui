@@ -4,4 +4,4 @@ import { TSpacings } from '@/interface/TSpacings';
 export type TValue = TSpacings | string | number;
 
 // the rounded edges are an array of 4 values
-export type IArrayToCssValues = [TValue?, TValue?, TValue?, TValue?];
+export type TArrayToCssValues = [TValue?, TValue?, TValue?, TValue?];

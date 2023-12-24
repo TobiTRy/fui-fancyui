@@ -1,15 +1,13 @@
 import { themeStore } from '@/design/theme/themeStore';
 
-import { IArrayToCssValues, TValue } from './IArrayValues.model';
+import { TArrayToCssValues, TValue } from './IArrayValues.model';
 import { TSpacings } from '@/interface/TSpacings';
-
 
 // Type guard to check if a value is a TSpacings type
 const isTSpacings = (value: TValue): value is TSpacings => {
   const themeSpacings = themeStore.getState().theme.spacing;
   return value in themeSpacings;
 };
-
 
 // Updated getThemeValue function
 const getThemeOrValue = (value: TValue): string => {
@@ -23,7 +21,7 @@ const getThemeOrValue = (value: TValue): string => {
 // --------------------------------------------------------------------------- //
 // ---------- this function is for the calc wich edege has a radius ---------- //
 // --------------------------------------------------------------------------- //
-const arrayToCssValues = (values?: IArrayToCssValues) => {
+const arrayToCssValues = (values?: TArrayToCssValues) => {
   if (!values?.length) return '';
 
   //check edges are valid

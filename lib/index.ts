@@ -172,6 +172,7 @@ export { default as generateThemeForCard } from '@/design/designFunctions/genera
 export { default as getSimpleColorThemeType } from '@/design/designFunctions/getSimpleColorThemeType/getSimpleColorThemeType';
 export { default as shadows } from '@/design/designFunctions/shadows/shadows';
 export { default as scrollbar } from '@/design/theme/globalStyle/scrollbar/scrollbar';
+export { default as arrayToCssValues } from '@/design/designFunctions/arrayToCssValues/arrayToCssValues';
 
 // ---------- Interfaces ------- //
 export * from '@/interface';
@@ -179,6 +180,7 @@ export type { default as IGenerateThemeForCardProps } from '@/design/designFunct
 export type { default as IGenerateThemeDesignForComponentProps } from '@/design/designFunctions/generateThemeDesignForComponent/IGenerateThemeDesignForComponentProps';
 export type { IAvailableDot } from '@/components/atoms/AvilableDot/IAvailableDot.model';
 export type { IFancyBox } from '@/components/atoms/FancyBox/FancyBox.model';
+export type { TArrayToCssValues } from '@/design/designFunctions/arrayToCssValues/IArrayValues.model';
 
 // ---------- Store ------- //
 export { default as themeStore } from '@/design/theme/themeStore/themeStore';
