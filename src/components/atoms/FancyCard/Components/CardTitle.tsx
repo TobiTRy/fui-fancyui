@@ -8,7 +8,7 @@ type TCardTitleProps = {
 export default function CardTitle(props: TCardTitleProps) {
   const { children, type, ...typoProps } = props;
   return (
-    <Typography type={type ?? 'h4'} {...typoProps}>
+    <Typography type={type ?? 'h4'} weight={'normal'} {...typoProps}>
       {children}
     </Typography>
   );
