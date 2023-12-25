@@ -1,13 +1,9 @@
 import React from 'react';
 
 import { TComponentSizes } from '@/interface/TComponentSizes';
-import { StyledCard } from './FancyMiniContentCard.style';
 import FancyCard, { IFancyCard } from '@/components/atoms/FancyCard/FancyCard';
 
-import CardSubTitle from '@/components/atoms/FancyCard/Components/CardSubTitle';
-import CardTitle from '@/components/atoms/FancyCard/Components/CardTitle';
-import CardDescription from '@/components/atoms/FancyCard/Components/CardDescription';
-import { FancyFlexBox } from '@/components/templates/FancyFlexBox';
+
 
 
 export type TFancyMiniContentCardProps = {
@@ -19,7 +15,7 @@ export type TFancyMiniContentCardProps = {
 } & IFancyCard;
 
 function FancyMiniContentCard(props: TFancyMiniContentCardProps) {
-  const { size, children, padding=['xl', 'lg'], ...cardProps } = props;
+  const { size, padding=['xl', 'lg'], ...cardProps } = props;
 
   return (
     <FancyCard size={size} padding={padding} {...cardProps}>
