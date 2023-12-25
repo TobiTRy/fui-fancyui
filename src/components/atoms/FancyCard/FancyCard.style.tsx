@@ -7,7 +7,6 @@ import { arrayToCssValues } from '@/design/designFunctions/arrayToCssValues';
 import { boxShadow } from '@/design/designFunctions/shadows/shadows';
 import { TTheme } from '@/interface/TTheme';
 import { FancyBox } from '@/components/atoms/FancyBox';
-import { sizeSettings } from './sizeSettings';
 
 // the converted $ styling props for the card
 type IStyledCard = IStyledPrefixAndOmiter<StyledCardProps>;
@@ -15,7 +14,7 @@ type IStyledCard = IStyledPrefixAndOmiter<StyledCardProps>;
 export const StyledCard = styled(FancyBox)<IStyledCard & { theme: TTheme }>`
   display: inline-block;
   box-sizing: border-box;
-  padding: ${({ $padding, $size = 'md' }) => ($padding ? arrayToCssValues(sizeSettings[$size].padding) : '')};
+  padding: ${({ $padding }) => ($padding ? arrayToCssValues($padding) : '')};
   border-radius: ${({ $roundedEdges }) => ($roundedEdges ? arrayToCssValues($roundedEdges) : '')};
   ${({ $shadow }) => $shadow && boxShadow.sm};
 `;

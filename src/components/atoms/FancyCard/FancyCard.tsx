@@ -1,6 +1,10 @@
 import { InnerCard, StyledCard } from './FancyCard.style';
 import { IFancyBox } from '@/components/atoms/FancyBox/';
 import { StyledCardProps } from '@/components/atoms/FancyCard/Card.model';
+import CardDescription from '@/components/atoms/FancyCard/Components/CardDescription';
+import CardSubTitle from '@/components/atoms/FancyCard/Components/CardSubTitle';
+import CardTitle from '@/components/atoms/FancyCard/Components/CardTitle';
+import { FancyFlexBox } from '@/components/templates/FancyFlexBox';
 
 // --------------------------------------------------------------------------- //
 // ---------- The card is there to wrapp some content or components ---------- //
@@ -35,7 +39,12 @@ export default function FancyCard(props: IFancyCard) {
 }
 
 const defaultProps: IFancyCard = {
-  padding: true,
   shadow: true,
   roundedEdges: ['xl'],
 };
+
+
+FancyCard.Title = CardTitle;
+FancyCard.FlexBox = FancyFlexBox;
+FancyCard.SubTitle = CardSubTitle;
+FancyCard.Descritpion = CardDescription;
