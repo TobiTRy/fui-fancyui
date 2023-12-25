@@ -66,11 +66,9 @@ export default function ExperimentalRoute() {
 
   return (
     <>
-      <Card />
       <div style={{ display: 'flex', gap: '12px' }}>
-        <FancyMiniContentCard>
-          <FancyMiniContentCard.Title>Test</FancyMiniContentCard.Title>
-        </FancyMiniContentCard>
+        <FancyMiniContentCard title='Corporate' subTitle='Grow steadily and pizza.' description='Grow steadily and pizza.' />
+
         <FancyMiniContentCard
           themeType="accent"
           size="md"
@@ -78,11 +76,11 @@ export default function ExperimentalRoute() {
           description="mooiiinn"
           symbol={Icon}
         />
-        <FancyMiniContentCard size="md" title="Test kkdfk jkjkjkdf" description="dsdssdsd" symbol={Icon} />
-        <FancyMiniContentCard size="md" title="Test kdlkdfklfdkl klkl" description="kkdssdds" symbol={Icon} />
+
       </div>
       <DesignWrapper>
         <DesignArea title="Test">
+          <Card />
           <FancyCard>
             <FancyContent flexDirection="column" flexJustify="center">
               <FancyContent.Icon size="xl">

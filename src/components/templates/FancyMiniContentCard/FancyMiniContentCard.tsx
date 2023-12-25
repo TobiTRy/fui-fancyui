@@ -2,26 +2,36 @@ import React from 'react';
 
 import { TComponentSizes } from '@/interface/TComponentSizes';
 import { StyledCard } from './FancyMiniContentCard.style';
-import { IFancyCard } from '@/components/atoms/FancyCard/FancyCard';
-import CardTitle from './Components/CardTitle';
+import FancyCard, { IFancyCard } from '@/components/atoms/FancyCard/FancyCard';
+
+import CardSubTitle from '@/components/atoms/FancyCard/Components/CardSubTitle';
+import CardTitle from '@/components/atoms/FancyCard/Components/CardTitle';
+import CardDescription from '@/components/atoms/FancyCard/Components/CardDescription';
+import { FancyFlexBox } from '@/components/templates/FancyFlexBox';
+
 
 export type TFancyMiniContentCardProps = {
   symbol?: React.ReactNode;
   title?: string;
+  subTitle?: string;
   description?: string;
   size?: TComponentSizes;
 } & IFancyCard;
 
 function FancyMiniContentCard(props: TFancyMiniContentCardProps) {
-  const { size, children, ...cardProps } = props;
+  const { size, children, padding=['xl', 'lg'], ...cardProps } = props;
 
   return (
-    <StyledCard $size={size} {...cardProps}>
-      {children}
-    </StyledCard>
+    <FancyCard size={size} padding={padding} {...cardProps}>
+      <FancyCard.FlexBox flexDirection='column'>
+        <FancyCard.Title>{props.title}</FancyCard.Title>
+        <FancyCard.SubTitle>{props.subTitle}</FancyCard.SubTitle>
+        <FancyCard.Descritpion>{props.description}</FancyCard.Descritpion>
+      </FancyCard.FlexBox>
+    </FancyCard>
   );
 }
 
-FancyMiniContentCard.Title = CardTitle;
+
 
 export default FancyMiniContentCard;

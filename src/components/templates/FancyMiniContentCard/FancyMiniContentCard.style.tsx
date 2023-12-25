@@ -7,5 +7,4 @@ import IStyledPrefixAndPicker from '@/interface/IStyledPrefixAndPicker';
 type IStyledCard = IStyledPrefixAndPicker<TFancyMiniContentCardProps, 'size'>;
 export const StyledCard = styled(FancyCard)<IStyledCard>`
   flex: 1;
-  text-align: center;
 `;
