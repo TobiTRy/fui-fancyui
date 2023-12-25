@@ -6,5 +6,5 @@ export interface StyledCardProps {
   shadow?: boolean;
   roundedEdges?: TArrayToCssValues;
   size?: TComponentSizes;
-  padding?: boolean;
+  padding?: TArrayToCssValues;
 }
