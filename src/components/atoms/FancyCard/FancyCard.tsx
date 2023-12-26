@@ -1,9 +1,10 @@
 import { InnerCard, StyledCard } from './FancyCard.style';
 import { IFancyBox } from '@/components/atoms/FancyBox/';
 import { StyledCardProps } from '@/components/atoms/FancyCard/Card.model';
-import CardDescription from '@/components/atoms/FancyCard/Components/CardDescription';
-import CardSubTitle from '@/components/atoms/FancyCard/Components/CardSubTitle';
-import CardTitle from '@/components/atoms/FancyCard/Components/CardTitle';
+import CardDescription from '@/components/templates/FancyMiniContentCard/Components/CardDescription';
+import CardImage from '@/components/templates/FancyMiniContentCard/Components/CardImage';
+import CardSubTitle from '@/components/templates/FancyMiniContentCard/Components/CardSubTitle';
+import CardTitle from '@/components/templates/FancyMiniContentCard/Components/CardTitle';
 import { FancyFlexBox } from '@/components/templates/FancyFlexBox';
 
 // --------------------------------------------------------------------------- //
@@ -43,7 +44,7 @@ const defaultProps: IFancyCard = {
   roundedEdges: ['xl'],
 };
 
-
+FancyCard.Image = CardImage;
 FancyCard.Title = CardTitle;
 FancyCard.FlexBox = FancyFlexBox;
 FancyCard.SubTitle = CardSubTitle;

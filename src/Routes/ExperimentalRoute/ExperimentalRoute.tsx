@@ -67,7 +67,18 @@ export default function ExperimentalRoute() {
   return (
     <>
       <div style={{ display: 'flex', gap: '12px' }}>
-        <FancyMiniContentCard title='Corporate' subTitle='Grow steadily and pizza.' description='Grow steadily and pizza.' />
+        <FancyMiniContentCard
+          src="http://ilovepixel.eu/images/shibi.png"
+          title="Corporate"
+          subTitle="Grow steadily and pizza."
+          description="This is a dummy text "
+        />
+        <FancyMiniContentCard
+          src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
+          title="Corporate"
+          subTitle="Grow steadily and pizza."
+          description="Grow steadily and pizza."
+        />
 
         <FancyMiniContentCard
           themeType="accent"
@@ -76,7 +87,6 @@ export default function ExperimentalRoute() {
           description="mooiiinn"
           symbol={Icon}
         />
-
       </div>
       <DesignWrapper>
         <DesignArea title="Test">

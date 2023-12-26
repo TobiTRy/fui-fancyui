@@ -34,6 +34,18 @@ const meta = {
         type: 'text',
       },
     },
+    themeType: {
+      description: 'The theme type for the typography',
+      control: {
+        type: 'select',
+      },
+    },
+    layer: {
+      description: 'The layer for the typography',
+      control: {
+        type: 'select',
+      },
+    },
   },
   // Add tags to the story
   tags: ['autodocs'],
