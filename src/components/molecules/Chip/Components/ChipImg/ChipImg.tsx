@@ -14,7 +14,7 @@ export default function ChipImg(props: IFancyChipImgProps) {
 }
 
 // Define the styled component for the wrapper image
-// eslint-disable-next-line react-refresh/only-export-components
+ 
 export const WrapperImage = styled.div<{ theme: TTheme }>`
   aspect-ratio: 1/1;
   height: 100%;

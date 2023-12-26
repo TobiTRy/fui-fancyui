@@ -10,7 +10,7 @@ import { TTheme } from '@/interface/TTheme';
 // ---------- The input label wich hase some colors and an animation --------- //
 // --------------------------------------------------------------------------- //
 
-// eslint-disable-next-line react-refresh/only-export-components
+ 
 export const AnimatedInputLabel = styled(InputLabel)<IAnimatedInputLabel & { theme?: TTheme }>`
   position: absolute;
   padding: 12px 0 5px;
