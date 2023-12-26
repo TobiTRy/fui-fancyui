@@ -1,10 +1,10 @@
 import { styled } from 'styled-components';
 
-import { TFancyImage } from '@/components/atoms/FancyImage/FancyImage';
+import { TFancyImage } from '@/components/atoms/FancyImage/FancyImage.model';
 import IStyledPrefixAndPicker from '@/interface/IStyledPrefixAndPicker';
 
-type TFancyImage = IStyledPrefixAndPicker<TFancyImage, 'darken' | 'aspectRatio' | 'externalStyle'>;
-export const StyledImage = styled.img<TFancyImage>`
+type TStyledImage = IStyledPrefixAndPicker<TFancyImage, 'darken' | 'aspectRatio' | 'externalStyle'>;
+export const StyledImage = styled.img<TStyledImage>`
   width: 100%;
   object-fit: cover;
   transition: filter 0.3s;
