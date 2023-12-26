@@ -1,17 +1,11 @@
+import { TFancyImage } from '@/components/atoms/FancyImage/FancyImage.model';
 import { StyledImage } from './FancyImage.style';
 import { isAspectRatioValid } from '@/utils/validations/isAspectRatioValid';
-import { CSSProp } from 'styled-components';
 
-// Define the props for the FancyImage component
-export type IFancyImage = {
-  aspectRatio?: string; // e.g. "16/9"
-  darken?: number | boolean;
-  externalStyle?: CSSProp;
-} & React.ImgHTMLAttributes<HTMLImageElement>;
 // --------------------------------------------------------------------------- //
 // -------------- The Definition for the FancyImage Component ---------------- //
 // --------------------------------------------------------------------------- //
-export default function FancyImage(props: IFancyImage) {
+export default function FancyImage(props: TFancyImage) {
   const { aspectRatio, darken, externalStyle, ...imgProps } = props;
 
   // Validate the aspect ratio if it is provided

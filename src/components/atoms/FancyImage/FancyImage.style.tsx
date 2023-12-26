@@ -1,9 +1,9 @@
 import { styled } from 'styled-components';
 
-import { IFancyImage } from '@/components/atoms/FancyImage/FancyImage';
+import { TFancyImage } from '@/components/atoms/FancyImage/FancyImage';
 import IStyledPrefixAndPicker from '@/interface/IStyledPrefixAndPicker';
 
-type TFancyImage = IStyledPrefixAndPicker<IFancyImage, 'darken' | 'aspectRatio' | 'externalStyle'>;
+type TFancyImage = IStyledPrefixAndPicker<TFancyImage, 'darken' | 'aspectRatio' | 'externalStyle'>;
 export const StyledImage = styled.img<TFancyImage>`
   width: 100%;
   object-fit: cover;
