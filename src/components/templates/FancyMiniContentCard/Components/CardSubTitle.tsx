@@ -8,7 +8,7 @@ type TCardSubTitleProps = {
 export default function CardSubTitle(props: TCardSubTitleProps) {
   const { children, type, variant, ...typoProps } = props;
   return (
-    <Typography type={type ?? 'content'} variant={variant ?? 'h5'} {...typoProps}>
+    <Typography type={type ?? 'content'} variant={variant ?? 'verysmText'} {...typoProps}>
       {children}
     </Typography>
   );
