@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import { CSSProp, css } from 'styled-components';
 
 import { IStyledComponentProps, TypographyList } from './TypographyFontVariations.style';
@@ -8,12 +8,13 @@ import { TThemeTypesNotTransparent } from '@/interface/TThemeTypesNotTransparent
 import { TLayer } from '@/interface/TLayer';
 import { TTheme } from '@/interface/TTheme';
 import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent';
+import IStyledPrefixAndPicker from '@/interface/IStyledPrefixAndPicker';
 
-export type ITypography = {
+export type TTypography = {
   type?: keyof typeof TypographyList;
   variant?: keyof typeof TypographyList;
-  children?: ReactNode;
   weight?: 'normal' | 'bold';
+  addLineHeight?: boolean;
   externalStyle?: CSSProp;
   htmlFor?: string;
   themeType?: TThemeTypesNotTransparent;
@@ -22,8 +23,8 @@ export type ITypography = {
 // --------------------------------------------------------------------------- //
 // The Typography component can render differnet elements with different styles//
 // ------------- like a "h4 can have the style of a p" ----------------------- //
-export default function Typography(props: ITypography) {
-  const { type, variant, children, weight, externalStyle, themeType, layer, ...htmlProps } = props;
+export default function Typography(props: TTypography) {
+  const { type, variant, children, weight, externalStyle, themeType, layer, addLineHeight, ...htmlProps } = props;
   // get the theme font sizes
   const themeFonts = themeStore((state) => state.theme.fontSizes);
 
@@ -31,9 +32,15 @@ export default function Typography(props: ITypography) {
   // const Component = TypographyList[type] || TypographyList.content;
   const Component = TypographyList[type || 'content'] as React.FC<IStyledComponentProps>;
 
-  const mixedStyle = generateStyle({ externalStyle, fontWeight: weight, themeType, layer });
+  const mixedStyle = generateStyle({
+    $externalStyle: externalStyle,
+    $weight: weight,
+    $themeType: themeType,
+    $layer: layer,
+  });
+
   // get the variant style based on the variant prop or the type prop;
-  const fontVariants = generateFontVariants(themeFonts);
+  const fontVariants = generateFontVariants(themeFonts, addLineHeight);
 
   // get the variant style based on the variant prop or the type prop;
   const variantStyle = variant ? fontVariants[variant] : (fontVariants[type || 'content'] as CSSProp);
@@ -45,18 +52,12 @@ export default function Typography(props: ITypography) {
   );
 }
 
-// generate the style for the component
-type TGenerateStyle = {
-  externalStyle?: CSSProp;
-  fontWeight?: 'normal' | 'bold' | undefined;
-  themeType?: TThemeTypesNotTransparent;
-  layer?: TLayer;
-};
+type TGenerateStyle = IStyledPrefixAndPicker<TTypography, 'externalStyle' | 'weight' | 'themeType' | 'layer'>;
 const generateStyle = (props: TGenerateStyle) => {
-  const { externalStyle, fontWeight, themeType = 'secondary', layer = 0 } = props;
+  const { $externalStyle, $weight, $themeType, $layer = 0 } = props;
   return css<{ theme: TTheme }>`
-    color: ${({ theme }) => getBackgroundColor({ theme, $themeType: themeType, $layer: layer })};
-    font-weight: ${fontWeight};
-    ${externalStyle};
+    color: ${({ theme }) => $themeType && getBackgroundColor({ theme, $themeType, $layer })};
+    font-weight: ${$weight};
+    ${$externalStyle};
   `;
 };
