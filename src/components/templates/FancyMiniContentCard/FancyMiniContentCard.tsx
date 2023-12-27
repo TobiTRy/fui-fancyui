@@ -26,7 +26,10 @@ function FancyContentCard(props: TFancyMiniContentCardProps) {
 
   return (
     <FancyBox
-      externalStyle={css`${generateCardStyle} ${externalStyle}`}
+      externalStyle={css`
+        ${generateCardStyle};
+        ${externalStyle};
+      `}
       {...cardProps}
     >
       <FancyContentCard.FlexBox flexDirection="column">

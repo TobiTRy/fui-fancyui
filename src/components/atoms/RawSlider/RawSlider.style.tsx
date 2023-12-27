@@ -6,7 +6,6 @@ import { TLayer } from '@/interface/TLayer';
 import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponent';
 import { TTheme } from '@/interface/TTheme';
 
- 
 const DragableThumb = css<{ theme: TTheme }>`
   height: 30px;
   width: 30px;

@@ -45,7 +45,7 @@ export default function ChipDeleteButton(props: IXButtonProps & React.ButtonHTML
 }
 
 type TXButton = IStyledPrefixAndOmitter<IXButtonProps, 'children'>;
- 
+
 export const StyledXButton = styled(RawButton)<TXButton & { theme: TTheme }>`
   border: none;
   cursor: pointer;

@@ -3,7 +3,6 @@ import { styled, CSSProp } from 'styled-components';
 
 import { TTheme } from '@/interface/TTheme';
 
- 
 export const DesignWrapper = styled.section`
   display: flex;
   flex-direction: column;
