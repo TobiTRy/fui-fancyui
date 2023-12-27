@@ -14,6 +14,7 @@ import CardSubTitle from '@/components/templates/FancyMiniContentCard/Components
 import CardSpacing from '@/components/templates/FancyMiniContentCard/Components/CardSpacing';
 import CardDescription from '@/components/templates/FancyMiniContentCard/Components/CardDescription';
 import { FancyButton } from '@/components/organisms/FancyButton';
+import DescriptionPreview from '@/components/atoms/DescriptionPreview/DescriptionPreview';
 
 export type TFancyMiniContentCardProps = {
   symbol?: React.ReactNode;
@@ -47,7 +48,7 @@ function FancyContentCard(props: TFancyMiniContentCardProps) {
             {props.title}
           </FancyContentCard.Title>
           <FancyContentCard.Descritpion layer={3} className="card_description" addLineHeight>
-            {props.description}
+            <DescriptionPreview description={props.description} letterLimit={150}/>
           </FancyContentCard.Descritpion>
         </FancyContentCard.SpacingCard>
       </FancyContentCard.FlexBox>

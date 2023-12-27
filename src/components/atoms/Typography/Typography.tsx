@@ -55,6 +55,9 @@ export default function Typography(props: TTypography) {
 type TGenerateStyle = IStyledPrefixAndPicker<TTypography, 'externalStyle' | 'weight' | 'themeType' | 'layer'>;
 const generateStyle = (props: TGenerateStyle) => {
   const { $externalStyle, $weight, $themeType, $layer = 0 } = props;
+
+  console.log('generateStyle', $themeType);
+
   return css<{ theme: TTheme }>`
     color: ${({ theme }) => $themeType && getBackgroundColor({ theme, $themeType, $layer })};
     font-weight: ${$weight};
