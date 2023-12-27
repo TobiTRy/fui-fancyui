@@ -1,11 +1,16 @@
 import { CSSProp } from 'styled-components';
+
 import { TTypography } from '@/interface/TTypography';
+import { TThemeTypesNotTransparent } from '@/interface/TThemeTypesNotTransparent';
+import { TLayer } from '@/interface/TLayer';
 
 type IFancyContentTextProps = {
   children?: React.ReactNode;
   bold?: boolean;
   className?: string;
   externalStyle?: CSSProp;
+  themeType?: TThemeTypesNotTransparent;
+  layer?: TLayer;
 };
 
 type IFancyContentTextWithSizeProps = IFancyContentTextProps & {
