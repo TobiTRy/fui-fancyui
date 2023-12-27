@@ -70,22 +70,17 @@ export default function ExperimentalRoute() {
         <FancyMiniContentCard
           src="http://ilovepixel.eu/images/shibi.png"
           title="Corporate"
-          subTitle="Grow steadily and pizza."
-          description="This is a dummy text "
+          subTitle="Grow steadily and pizza. Grow steadily and pizza. Grow steadily and pizza.Grow steadily and pizza."
+          description="
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet ligula id libero tristique cursus. Mauris at volutpat leo. Vivamus in arcu non leo elementum cursus nec sit amet quam. Nullam eget nunc eget leo elementum sodales. Suspendisse potenti. Sed et sapien nec sapien convallis ullamcorper. Nulla facilisi. Curabitur at justo ac nisl auctor gravida non eget nibh.
+          
+          Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut vitae lacus non felis suscipit faucibus. Nulla facilisi. Duis dignissim nisl ut elit suscipit, et commodo leo cursus. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit."
         />
         <FancyMiniContentCard
           src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
           title="Corporate"
           subTitle="Grow steadily and pizza."
           description="Grow steadily and pizza."
-        />
-
-        <FancyMiniContentCard
-          themeType="accent"
-          size="md"
-          title="Test klkfkl dlfklkfdklfd "
-          description="mooiiinn"
-          symbol={Icon}
         />
       </div>
       <DesignWrapper>

@@ -21,31 +21,37 @@ const getThemeOrValue = (value: TValue): string => {
 // --------------------------------------------------------------------------- //
 // ---------- this function is for the calc wich edege has a radius ---------- //
 // --------------------------------------------------------------------------- //
-const arrayToCssValues = (values?: TArrayToCssValues) => {
-  if (!values?.length) return '';
+const arrayToCssValues = (values?: TArrayToCssValues | TValue) => {
+  if (!values || !values.toString().length) return '';
+
+  //create an array to store the values
+  let inputValue = [];
+
+  //check if values is a string and push it to the array
+  if (typeof values === 'string') inputValue.push(values);
 
   //check edges are valid
-  const validValue = values.filter((values) => values !== undefined) as TValue[];
+  if (Array.isArray(values)) inputValue = values.filter((values) => values !== undefined) as TValue[];
 
-  switch (validValue.length) {
+  switch (inputValue.length) {
     // if one value is given, all edges are the same
     case 1: {
-      const singleValue = getThemeOrValue(validValue[0]);
+      const singleValue = getThemeOrValue(inputValue[0]);
       return ` ${singleValue} `;
     }
     // if two values are given, top/bottom and left/right are the same
     case 2: {
-      const [topBottomValue, leftRightValue] = validValue.map(getThemeOrValue);
+      const [topBottomValue, leftRightValue] = inputValue.map(getThemeOrValue);
       return ` ${topBottomValue} ${leftRightValue} `;
     }
     // if three values are given, top, left/right and bottom are the same
     case 3: {
-      const [top, leftRight, bottom] = validValue.map(getThemeOrValue);
+      const [top, leftRight, bottom] = inputValue.map(getThemeOrValue);
       return ` ${top} ${leftRight} ${bottom} ${leftRight} `;
     }
     // if four values are given, all edges are different
     case 4: {
-      const [top, right, bottom, left] = validValue.map(getThemeOrValue);
+      const [top, right, bottom, left] = inputValue.map(getThemeOrValue);
       return ` ${top} ${right} ${bottom} ${left} `;
     }
   }
