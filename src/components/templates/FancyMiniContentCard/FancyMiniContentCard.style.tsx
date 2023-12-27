@@ -9,7 +9,6 @@ type IStyledCard = IStyledPrefixAndPicker<TFancyMiniContentCardProps, 'size'>;
 export const generateFancyMiniContentCardStyle = (props: IStyledCard) => {
   const getTheme = themeStore.getState().theme;
   const { $size } = props;
-  console.log($size);
 
   return css`
     flex: 1;
@@ -17,10 +16,8 @@ export const generateFancyMiniContentCardStyle = (props: IStyledCard) => {
     border: none;
 
     .content {
-      padding: 0 ${getTheme.spacing.md} ${getTheme.spacing.lg} ${getTheme.spacing.md};
       width: 100%;
       box-sizing: border-box;
-      gap: 4px;
       display: flex;
       flex-direction: column;
     }
@@ -31,11 +28,10 @@ export const generateFancyMiniContentCardStyle = (props: IStyledCard) => {
       }
 
       &_subtitle {
+        margin: ${getTheme.spacing.xs} 0;
       }
 
       &_description {
-        font-size: 0.8rem;
-        font-weight: 300;
       }
 
       &_image {
