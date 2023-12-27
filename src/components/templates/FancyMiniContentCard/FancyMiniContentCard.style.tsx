@@ -10,6 +10,8 @@ export const generateFancyMiniContentCardStyle = (props: IStyledCard) => {
   const getTheme = themeStore.getState().theme;
   const { $size } = props;
 
+  console.log($size);
+
   return css`
     flex: 1;
     border-radius: ${getTheme.borderRadius.lg};
