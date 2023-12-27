@@ -27,7 +27,7 @@ export default function FancyContentCard(props: IContentCardProps) {
   const { image, title, subtitle, description } = { ...defaultProps, ...props };
 
   return (
-    <FancyCard padding={false}>
+    <FancyCard>
       <InnerCard>
         <div>
           <img src={image} alt="product" />

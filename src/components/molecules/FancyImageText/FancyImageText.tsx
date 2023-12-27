@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 
 import { FancyImage } from '@/components/atoms/FancyImage';
-import { TFancyImage } from '@/components/atoms/FancyImage/FancyImage';
+import { TFancyImage } from '@/components/atoms/FancyImage';
 import { ImageVideoOverlay } from '@/components/atoms/ImageVideoOverlay';
 import { TPositions } from '@/components/atoms/ImageVideoOverlay/ImageVideoOverlay';
 

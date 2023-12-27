@@ -21,6 +21,7 @@ export interface IgenerateListItemStyle {
   hoverStyle?: boolean;
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const generateListItemStyle = (props: IgenerateListItemStyle) => {
   const { isActive, hoverStyle } = props;
   const theme = themeStore.getState().theme;
