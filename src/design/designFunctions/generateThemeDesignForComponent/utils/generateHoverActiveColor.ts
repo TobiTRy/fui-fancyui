@@ -20,6 +20,8 @@ const generateHoverColor = (props: TGenerateOutlinedHoverStyle) => {
     $backgroundStrength
   );
 
+  console.log('generateSlightBackgroundColor', generateSlightBackgroundColor);
+
   return generateSlightBackgroundColor;
 };
 
@@ -46,7 +48,7 @@ export const generateStateStyle = (props: TGenerateStateStyle) => {
       if (props.$outlined) {
         return css`
           @media (hover: hover) {
-            button:hover {
+            &:hover {
               background-color: ${generateHoverColor(props)};
             }
           }
@@ -54,7 +56,7 @@ export const generateStateStyle = (props: TGenerateStateStyle) => {
       } else if (props.$textHover) {
         return css`
           @media (hover: hover) {
-            button:hover {
+            &:hover {
               color: ${getBackgroundColor({
                 theme: props.theme,
                 $themeType: props.$textHover ?? 'secondary',
@@ -67,7 +69,7 @@ export const generateStateStyle = (props: TGenerateStateStyle) => {
       // when the component is normal styled
       return css`
         @media (hover: hover) {
-          button:hover {
+          &:hover {
             background-color: ${generateHoverColor(props)};
           }
         }
