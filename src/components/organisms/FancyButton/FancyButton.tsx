@@ -73,8 +73,12 @@ export default function FancyButton(props: IFancyButton) {
       `}
       {...(buttonProps as IButtonProps)}
     >
-      <FancyContent flexDirection={alignIcon} >
-        {label && <FancyContent.Title fontVariant={fontVariant ?? 'button'} themeType={buttonProps.textColor}>{label}</FancyContent.Title>}
+      <FancyContent flexDirection={alignIcon}>
+        {label && (
+          <FancyContent.Title fontVariant={fontVariant ?? 'button'} themeType={buttonProps.textColor}>
+            {label}
+          </FancyContent.Title>
+        )}
         {(isLoading || icon) && (
           <FancyContent.Icon>
             {isLoading ? <LoadingSVGArrows isLoading={isLoading} size={size} /> : icon}
