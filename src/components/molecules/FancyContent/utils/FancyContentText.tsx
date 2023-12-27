@@ -6,7 +6,7 @@ import { sizes } from '../sizeSettings';
 // ----------------- The Title for the FancyContent component ---------------- //
 // --------------------------------------------------------------------------- //
 export function FancyContentTitle(props: TTextProps) {
-  const { size, bold = true, fontVariant, children, className, externalStyle } = props;
+  const { size, bold = true, fontVariant, children, className, themeType, layer, externalStyle } = props;
 
   return (
     <Typography
@@ -14,6 +14,8 @@ export function FancyContentTitle(props: TTextProps) {
       weight={bold ? 'bold' : 'normal'}
       type="button"
       className={className}
+      themeType={themeType}
+      layer={layer}
       externalStyle={externalStyle}
     >
       {children}
@@ -25,11 +27,13 @@ export function FancyContentTitle(props: TTextProps) {
 // -------------- The description for the FancyContent component ------------- //
 // --------------------------------------------------------------------------- //
 export function FancyContentDescription(props: TTextProps) {
-  const { size, bold, fontVariant, children, className, externalStyle } = props;
+  const { size, bold, fontVariant, children, className, themeType, layer, externalStyle } = props;
 
   return (
     <Typography
       variant={fontVariant ?? sizes[size || 'sm'].fontSizeTitle}
+      layer={layer}
+      themeType={themeType}
       weight={bold ? 'bold' : 'normal'}
       type="button"
       className={className}
