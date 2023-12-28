@@ -76,7 +76,7 @@ export default function ExperimentalRoute() {
                 {'Grow steadily and pizza. Grow steadily and pizza. Grow steadily and pizza.Grow steadily and pizza.'}
               </FancyContentCard.SubTitle>
               <FancyContentCard.Title className="card_title" weight="bold" addLineHeight>
-                {'Corporate'}
+                {'Corporat<e'}
               </FancyContentCard.Title>
 
               <FancyContentCard.Descritpion layer={3} className="card_description" addLineHeight>
@@ -126,7 +126,7 @@ export default function ExperimentalRoute() {
               </FancyContentCard.Descritpion>
             </FancyContentCard.SpacingCard>
           </FancyContentCard.FlexBox>
-          <FancyContentCard.SpacingCard padding={'sm'}>
+          <FancyContentCard.SpacingCard padding={[0, 'sm', 'sm', 'sm']}>
             <FancyButton
               label="Click me"
               wide

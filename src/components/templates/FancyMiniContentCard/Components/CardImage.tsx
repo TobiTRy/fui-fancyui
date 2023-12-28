@@ -1,7 +1,6 @@
 import { styled } from 'styled-components';
 
 import { FancyImage } from '@/components/atoms/FancyImage';
-
 import { TFancyImage } from '@/components/atoms/FancyImage/FancyImage.model';
 import { TTheme } from '@/interface/TTheme';
 
