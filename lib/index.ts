@@ -181,7 +181,9 @@ export type { default as IGenerateThemeForCardProps } from '@/design/designFunct
 export type { default as IGenerateThemeDesignForComponentProps } from '@/design/designFunctions/generateThemeDesignForComponent/IGenerateThemeDesignForComponentProps';
 export type { IAvailableDot } from '@/components/atoms/AvilableDot/IAvailableDot.model';
 export type { IFancyBox } from '@/components/atoms/FancyBox/FancyBox.model';
-export type { TArrayToCssValues } from '@/design/designFunctions/arrayToCssValues/IArrayValues.model';
+export type { TArrayToCssValues } from '@/design/designFunctions/arrayToCssValues/TArrayValues.model';
+export type { TValue } from '@/design/designFunctions/arrayToCssValues/TArrayValues.model';
+export type { TArrayToCssValuesInputProps } from '@/design/designFunctions/arrayToCssValues/TArrayValues.model';
 
 // ---------- Store ------- //
 export { default as themeStore } from '@/design/theme/themeStore/themeStore';

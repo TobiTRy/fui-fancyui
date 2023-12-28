@@ -1,6 +1,6 @@
 import { themeStore } from '@/design/theme/themeStore';
 
-import { TArrayToCssValues, TValue } from './IArrayValues.model';
+import { TArrayToCssValues, TValue } from './TArrayValues.model';
 import { TSpacings } from '@/interface/TSpacings';
 
 // Type guard to check if a value is a TSpacings type

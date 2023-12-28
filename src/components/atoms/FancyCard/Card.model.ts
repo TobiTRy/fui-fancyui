@@ -1,4 +1,4 @@
-import { TArrayToCssValues } from '@/design/designFunctions/arrayToCssValues/IArrayValues.model';
+import { TArrayToCssValues } from '@/design/designFunctions/arrayToCssValues/TArrayValues.model';
 import { TComponentSizes } from '@/interface/TComponentSizes';
 
 // the raw styling props for the card
