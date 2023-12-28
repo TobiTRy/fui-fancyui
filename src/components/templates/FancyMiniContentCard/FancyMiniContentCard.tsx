@@ -47,9 +47,11 @@ function FancyContentCard(props: TFancyMiniContentCardProps) {
           <FancyContentCard.Title className="card_title" weight="bold" addLineHeight>
             {props.title}
           </FancyContentCard.Title>
-          <FancyContentCard.Descritpion layer={3} className="card_description" addLineHeight>
-            <DescriptionPreview description={props.description} letterLimit={150} />
-          </FancyContentCard.Descritpion>
+          {props.description && (
+            <FancyContentCard.Descritpion layer={3} className="card_description" addLineHeight>
+              <DescriptionPreview description={props.description} letterLimit={150} text={{showMore: 'Expand'}} />
+            </FancyContentCard.Descritpion>
+          )}
         </FancyContentCard.SpacingCard>
       </FancyContentCard.FlexBox>
       <FancyContentCard.SpacingCard padding={['sm']}>

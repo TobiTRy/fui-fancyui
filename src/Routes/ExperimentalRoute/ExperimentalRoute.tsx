@@ -80,7 +80,7 @@ export default function ExperimentalRoute() {
           src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
           title="Corporate"
           subTitle="Grow steadily and pizza."
-          description="Grow steadily and pizza."
+          description="Long test description here to exceed the limit"
         />
       </div>
       <DesignWrapper>
