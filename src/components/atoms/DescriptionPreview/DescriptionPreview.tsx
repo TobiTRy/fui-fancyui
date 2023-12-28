@@ -13,7 +13,7 @@ export default function DescriptionPreview(props: TDescriptionPreview) {
 
   return (
     <>
-      {(description.length < letterLimit) || isShowMore ? description : preview}
+      {description.length < letterLimit || isShowMore ? description : preview}
       <SpacingsContainer margin={['xxs', 0, 0, 0]}>
         {description.length > letterLimit && (
           <RawButton onClick={() => setIsShowMore((prev) => !prev)}>

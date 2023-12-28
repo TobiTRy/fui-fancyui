@@ -1,6 +1,6 @@
-import { breakpoints } from "@/design/theme/brakePoints";
-import { uiColors } from "@/design/theme/designColor";
-import { borderRadius, fontSizes, spacingPx } from "@/design/theme/designSizes";
+import { breakpoints } from '@/design/theme/brakePoints';
+import { uiColors } from '@/design/theme/designColor';
+import { borderRadius, fontSizes, spacingPx } from '@/design/theme/designSizes';
 
 export const mockTheme = {
   colors: uiColors,
@@ -8,4 +8,4 @@ export const mockTheme = {
   borderRadius: borderRadius,
   fontSizes: fontSizes,
   breakpoints: breakpoints,
-}
+};

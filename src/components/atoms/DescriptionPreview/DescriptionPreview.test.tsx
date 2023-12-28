@@ -4,12 +4,15 @@ import DescriptionPreview from './DescriptionPreview';
 import MockThemeProvider from '@/test/MockThemeProvider';
 import '@testing-library/jest-dom/vitest';
 
-
 describe('DescriptionPreview', () => {
   it('should render initial truncated preview text and "Show more" button', () => {
     render(
       <MockThemeProvider>
-        <DescriptionPreview description="Long test description here to exceed the limit" text={mockData.text} letterLimit={40} />
+        <DescriptionPreview
+          description="Long test description here to exceed the limit"
+          text={mockData.text}
+          letterLimit={40}
+        />
       </MockThemeProvider>
     );
     expect(screen.getByText('Show more')).toBeInTheDocument();
@@ -19,7 +22,11 @@ describe('DescriptionPreview', () => {
   it('should show full description and "Show less" button when "Show more" is clicked', () => {
     render(
       <MockThemeProvider>
-        <DescriptionPreview description="Long test description here to exceed the limit" text={mockData.text} letterLimit={10} />
+        <DescriptionPreview
+          description="Long test description here to exceed the limit"
+          text={mockData.text}
+          letterLimit={10}
+        />
       </MockThemeProvider>
     );
     fireEvent.click(screen.getByText('Show more'));
@@ -32,7 +39,7 @@ describe('DescriptionPreview', () => {
     const customText = { showMore: 'Expand', showLess: 'Collapse' };
     render(
       <MockThemeProvider>
-        <DescriptionPreview description={description}  text={customText} />
+        <DescriptionPreview description={description} text={customText} />
       </MockThemeProvider>
     );
     expect(screen.getByText('Expand')).toBeInTheDocument();
@@ -55,7 +62,7 @@ describe('DescriptionPreview', () => {
         <DescriptionPreview description={description} text={mockData.text} letterLimit={150} />
       </MockThemeProvider>
     );
-    expect(screen.queryByText('Show more')).toBeNull()
+    expect(screen.queryByText('Show more')).toBeNull();
   });
 
   it('should handle different letter limits', () => {
@@ -67,9 +74,7 @@ describe('DescriptionPreview', () => {
     );
     expect(screen.getByText('Show more')).toBeInTheDocument();
   });
-
 });
-
 
 const mockData = {
   text: {
