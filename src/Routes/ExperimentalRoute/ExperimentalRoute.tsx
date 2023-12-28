@@ -20,8 +20,9 @@ import { FancyNumberInput } from '@/components/organisms/FancyNumberInput';
 import { FancyCard } from '@/components/atoms/FancyCard';
 import { FancyBox } from '@/components/atoms/FancyBox';
 import { SVGCheckMark } from '@/components/icons/SVGCheckMark';
-import FancyMiniContentCard from '@/components/templates/FancyMiniContentCard/FancyMiniContentCard';
+import FancyContentCard from '@/components/templates/FancyMiniContentCard/FancyMiniContentCard';
 import Card from '@/components/templates/TestCard/TestCard';
+import { DescriptionPreview } from '@/components/atoms/DescriptionPreview';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -67,21 +68,154 @@ export default function ExperimentalRoute() {
   return (
     <>
       <div style={{ display: 'flex', gap: '12px' }}>
-        <FancyMiniContentCard
-          src="http://ilovepixel.eu/images/shibi.png"
-          title="Corporate"
-          subTitle="Grow steadily and pizza. Grow steadily and pizza. Grow steadily and pizza.Grow steadily and pizza."
-          description="
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet ligula id libero tristique cursus. Mauris at volutpat leo. Vivamus in arcu non leo elementum cursus nec sit amet quam. Nullam eget nunc eget leo elementum sodales. Suspendisse potenti. Sed et sapien nec sapien convallis ullamcorper. Nulla facilisi. Curabitur at justo ac nisl auctor gravida non eget nibh.
-          
-          Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut vitae lacus non felis suscipit faucibus. Nulla facilisi. Duis dignissim nisl ut elit suscipit, et commodo leo cursus. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit."
-        />
-        <FancyMiniContentCard
-          src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
-          title="Corporate"
-          subTitle="Grow steadily and pizza."
-          description="Long test description here to exceed the limit"
-        />
+        <FancyContentCard>
+          <FancyContentCard.FlexBox flexDirection="column">
+            <FancyContentCard.Image className="card_image" src={'http://ilovepixel.eu/images/shibi.png'} />
+            <FancyContentCard.SpacingCard padding={[0, 'md', 'lg', 'md']}>
+              <FancyContentCard.SubTitle layer={5} className="card_subtitle" addLineHeight>
+                {'Grow steadily and pizza. Grow steadily and pizza. Grow steadily and pizza.Grow steadily and pizza.'}
+              </FancyContentCard.SubTitle>
+              <FancyContentCard.Title className="card_title" weight="bold" addLineHeight>
+                {'Corporate'}
+              </FancyContentCard.Title>
+
+              <FancyContentCard.Descritpion layer={3} className="card_description" addLineHeight>
+                <DescriptionPreview
+                  description={
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet ligula id libero tristique cursus. Mauris at volutpat leo. Vivamus in arcu non leo elementum cursus nec sit amet quam. Nullam eget nunc eget leo elementum sodales. Suspendisse potenti. Sed et sapien nec sapien convallis ullamcorper. Nulla facilisi. Curabitur at justo ac nisl auctor gravida non eget nibh.Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut vitae lacus non felis suscipit faucibus. Nulla facilisi. Duis dignissim nisl ut elit suscipit, et commodo leo cursus. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit.'
+                  }
+                  letterLimit={150}
+                  text={{ showMore: 'Expand' }}
+                />
+              </FancyContentCard.Descritpion>
+            </FancyContentCard.SpacingCard>
+          </FancyContentCard.FlexBox>
+          <FancyContentCard.SpacingCard padding={['sm']}>
+            <FancyButton
+              label="Click me"
+              wide
+              themeType="secondary"
+              textColor="primary"
+              borderRadius="complete"
+            ></FancyButton>
+          </FancyContentCard.SpacingCard>
+        </FancyContentCard>
+        {/* CARD 2 */}
+        {/* CARD 2 */}
+        {/* CARD 2 */}
+        {/* CARD 2 */}
+        {/* CARD 2 */}
+        {/* CARD 2 */}
+        <FancyContentCard>
+          <FancyContentCard.FlexBox flexDirection="column">
+            <FancyContentCard.Image src={'http://ilovepixel.eu/images/shibi.png'} />
+            <FancyContentCard.SpacingCard padding={[0, 'md', 'lg', 'md']}>
+              <FancyContentCard.SubTitle layer={5} addLineHeight>
+                {'Grow steadily and pizza. Grow steadily and pizza. Grow steadily and pizza.Grow steadily and pizza.'}
+              </FancyContentCard.SubTitle>
+              <FancyContentCard.Title weight="bold" addLineHeight>
+                {'Corporate'}
+              </FancyContentCard.Title>
+
+              <FancyContentCard.Descritpion layer={3} addLineHeight>
+                <DescriptionPreview
+                  description={
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet ligula id libero tristique cursus. Mauris at volutpat leo. Vivamus in arcu non leo elementum cursus nec sit amet quam. Nullam eget nunc eget leo elementum sodales. Suspendisse potenti. Sed et sapien nec sapien convallis ullamcorper. Nulla facilisi. Curabitur at justo ac nisl auctor gravida non eget nibh.Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut vitae lacus non felis suscipit faucibus. Nulla facilisi. Duis dignissim nisl ut elit suscipit, et commodo leo cursus. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit.'
+                  }
+                />
+              </FancyContentCard.Descritpion>
+            </FancyContentCard.SpacingCard>
+          </FancyContentCard.FlexBox>
+          <FancyContentCard.SpacingCard padding={['sm']}>
+            <FancyButton
+              label="Click me"
+              wide
+              themeType="secondary"
+              textColor="primary"
+              borderRadius="complete"
+            ></FancyButton>
+          </FancyContentCard.SpacingCard>
+        </FancyContentCard>
+      </div>
+      {/* LINEEE */}
+      {/* LINEEE */}
+      {/* LINEEE */}
+      {/* LINEEE */}
+      {/* LINEEE */}
+      {/* LINEEE */}
+      <div style={{ display: 'flex', gap: '12px' }}>
+        <FancyContentCard>
+          <FancyContentCard.FlexBox flexDirection="column">
+            <FancyContentCard.Image className="card_image" src={'http://ilovepixel.eu/images/shibi.png'} />
+            <FancyContentCard.SpacingCard padding={[0, 'md', 'lg', 'md']}>
+              <FancyContentCard.SubTitle layer={5} className="card_subtitle" addLineHeight>
+                {'Grow steadily and pizza. Grow steadily and pizza. Grow steadily and pizza.Grow steadily and pizza.'}
+              </FancyContentCard.SubTitle>
+              <FancyContentCard.Title className="card_title" weight="bold" addLineHeight>
+                {'Corporate'}
+              </FancyContentCard.Title>
+
+              <FancyContentCard.Descritpion layer={3} className="card_description" addLineHeight>
+                <DescriptionPreview
+                  description={
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet ligula id libero tristique cursus. Mauris at volutpat leo. Vivamus in arcu non leo elementum cursus nec sit amet quam. Nullam eget nunc eget leo elementum sodales. Suspendisse potenti. Sed et sapien nec sapien convallis ullamcorper. Nulla facilisi. Curabitur at justo ac nisl auctor gravida non eget nibh.Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut vitae lacus non felis suscipit faucibus. Nulla facilisi. Duis dignissim nisl ut elit suscipit, et commodo leo cursus. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit.'
+                  }
+                  letterLimit={150}
+                  text={{ showMore: 'Expand' }}
+                />
+              </FancyContentCard.Descritpion>
+            </FancyContentCard.SpacingCard>
+          </FancyContentCard.FlexBox>
+          <FancyContentCard.SpacingCard padding={['sm']}>
+            <FancyButton
+              label="Click me"
+              wide
+              themeType="secondary"
+              textColor="primary"
+              borderRadius="complete"
+            ></FancyButton>
+          </FancyContentCard.SpacingCard>
+        </FancyContentCard>
+
+
+        {/* CARD 2222 */}
+        {/* CARD 2222 */}
+        {/* CARD 2222 */}
+        {/* CARD 2222 */}
+        {/* CARD 2222 */}
+        {/* CARD 2222 */}
+        <FancyContentCard>
+          <FancyContentCard.FlexBox flexDirection="column">
+            <FancyContentCard.Image className="card_image" src={'http://ilovepixel.eu/images/shibi.png'} />
+            <FancyContentCard.SpacingCard padding={[0, 'md', 'lg', 'md']}>
+              <FancyContentCard.SubTitle layer={5} className="card_subtitle" addLineHeight>
+                {'Grow steadily and pizza. Grow steadily and pizza. Grow steadily and pizza.Grow steadily and pizza.'}
+              </FancyContentCard.SubTitle>
+              <FancyContentCard.Title className="card_title" weight="bold" addLineHeight>
+                {'Corporate'}
+              </FancyContentCard.Title>
+
+              <FancyContentCard.Descritpion layer={3} className="card_description" addLineHeight>
+                <DescriptionPreview
+                  description={
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet ligula id libero tristique cursus. Mauris at volutpat leo. Vivamus in arcu non leo elementum cursus nec sit amet quam. Nullam eget nunc eget leo elementum sodales. Suspendisse potenti. Sed et sapien nec sapien convallis ullamcorper. Nulla facilisi. Curabitur at justo ac nisl auctor gravida non eget nibh.Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut vitae lacus non felis suscipit faucibus. Nulla facilisi. Duis dignissim nisl ut elit suscipit, et commodo leo cursus. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit.'
+                  }
+                  letterLimit={150}
+                  text={{ showMore: 'Expand' }}
+                />
+              </FancyContentCard.Descritpion>
+            </FancyContentCard.SpacingCard>
+          </FancyContentCard.FlexBox>
+          <FancyContentCard.SpacingCard padding={['sm']}>
+            <FancyButton
+              label="Click me"
+              wide
+              themeType="secondary"
+              textColor="primary"
+              borderRadius="complete"
+            ></FancyButton>
+          </FancyContentCard.SpacingCard>
+        </FancyContentCard>
       </div>
       <DesignWrapper>
         <DesignArea title="Test">

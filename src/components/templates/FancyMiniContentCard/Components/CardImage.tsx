@@ -9,10 +9,10 @@ type TCardImage = TFancyImage & {
   inset?: boolean;
 };
 export default function CardImage(props: TCardImage) {
-  const { inset, ...fancyImageProps } = props;
+  const { inset, className,  ...fancyImageProps } = props;
   return (
     <WarpperImage $inset={inset}>
-      <FancyImage {...fancyImageProps} />
+      <FancyImage className={`card_image ${className ?? ''}`} {...fancyImageProps} />
     </WarpperImage>
   );
 }

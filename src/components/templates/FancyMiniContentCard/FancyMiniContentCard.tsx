@@ -26,7 +26,7 @@ export type TFancyMiniContentCardProps = {
 } & IFancyCard;
 
 function FancyContentCard(props: TFancyMiniContentCardProps) {
-  const { size, externalStyle, src, ...cardProps } = props;
+  const { size, externalStyle, src, children, ...cardProps } = props;
 
   const generateCardStyle = generateFancyMiniContentCardStyle({ $size: size });
 
@@ -38,31 +38,7 @@ function FancyContentCard(props: TFancyMiniContentCardProps) {
       `}
       {...cardProps}
     >
-      <FancyContentCard.FlexBox flexDirection="column">
-        <FancyContentCard.Image className="card_image" src={src} />
-        <FancyContentCard.SpacingCard padding={[0, 'md', 'lg', 'md']}>
-          <FancyContentCard.SubTitle layer={5} className="card_subtitle" addLineHeight>
-            {props.subTitle}
-          </FancyContentCard.SubTitle>
-          <FancyContentCard.Title className="card_title" weight="bold" addLineHeight>
-            {props.title}
-          </FancyContentCard.Title>
-          {props.description && (
-            <FancyContentCard.Descritpion layer={3} className="card_description" addLineHeight>
-              <DescriptionPreview description={props.description} letterLimit={150} text={{ showMore: 'Expand' }} />
-            </FancyContentCard.Descritpion>
-          )}
-        </FancyContentCard.SpacingCard>
-      </FancyContentCard.FlexBox>
-      <FancyContentCard.SpacingCard padding={['sm']}>
-        <FancyButton
-          label="Click me"
-          wide
-          themeType="secondary"
-          textColor="primary"
-          borderRadius="complete"
-        ></FancyButton>
-      </FancyContentCard.SpacingCard>
+      {children}
     </FancyBox>
   );
 }
