@@ -1,0 +1,40 @@
+### Documentation for `isOneToZero` Function
+
+#### Function Overview
+The `isOneToZero` function is designed to validate whether a given numeric value falls within the range of 0 to 1, inclusive. This function is particularly useful in scenarios where a value representing a factor like opacity or darkness level is required to be within a specific range - typically between 0 (minimum) and 1 (maximum).
+
+#### Syntax
+```javascript
+isOneToZero(value)
+```
+
+#### Parameters
+- `value` (Number): The numerical value that needs to be validated. This should ideally be a decimal or integer value.
+
+#### Return Value
+- **Boolean**: Returns `true` if the provided `value` is within the range of 0 to 1 (inclusive). Returns `false` if the value is outside this range.
+
+#### Behavior
+- The function checks if the provided `value` falls within the range of 0 to 1, inclusive. 
+- If the value is within this range, it returns `true`, indicating that the value is valid for scenarios like setting opacity or darkness levels.
+- If the value is outside the 0 to 1 range, it triggers a console warning indicating that an invalid value was provided and suggesting the correct format. In this case, the function returns `false`.
+
+#### Example Usage
+```javascript
+let opacity = 0.5;
+if (isOneToZero(opacity)) {
+  // Proceed with using opacity
+} else {
+  // Handle invalid opacity value
+}
+```
+
+#### Remarks
+- This function is particularly useful in front-end development where parameters like opacity or darkness levels are frequently adjusted and need to be kept within a standard range.
+- The function not only performs a validation check but also aids in debugging by providing a clear warning message in the console when an invalid value is encountered.
+
+#### Error Handling
+- If a non-numeric value is passed, the function does not explicitly handle this case. It's recommended to ensure that the value provided is numeric.
+
+#### Conclusion
+The `isOneToZero` function is a simple yet effective utility for validating numeric values within a specific range, enhancing code robustness in scenarios involving parameters like opacity or darkness levels.
