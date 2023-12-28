@@ -20,8 +20,6 @@ const generateHoverColor = (props: TGenerateOutlinedHoverStyle) => {
     $backgroundStrength
   );
 
-  console.log('generateSlightBackgroundColor', generateSlightBackgroundColor);
-
   return generateSlightBackgroundColor;
 };
 
