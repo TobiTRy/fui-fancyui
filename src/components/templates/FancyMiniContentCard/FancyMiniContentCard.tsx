@@ -48,7 +48,7 @@ function FancyContentCard(props: TFancyMiniContentCardProps) {
             {props.title}
           </FancyContentCard.Title>
           <FancyContentCard.Descritpion layer={3} className="card_description" addLineHeight>
-            <DescriptionPreview description={props.description} letterLimit={150}/>
+            <DescriptionPreview description={props.description} letterLimit={150} />
           </FancyContentCard.Descritpion>
         </FancyContentCard.SpacingCard>
       </FancyContentCard.FlexBox>
