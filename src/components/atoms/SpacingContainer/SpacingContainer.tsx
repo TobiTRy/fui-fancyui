@@ -1,4 +1,3 @@
-import React from 'react';
 import { styled } from 'styled-components';
 
 import { arrayToCssValues } from '@/design/designFunctions/arrayToCssValues';
@@ -6,13 +5,13 @@ import {
   TPaddingContainerFullProps,
   TSpacingContainer,
 } from '@/components/atoms/SpacingContainer/SpacingContainer.model';
-import { IStyledPrefixAndPicker } from 'lib';
+import IStyledPrefixAndPicker from '@/interface/IStyledPrefixAndPicker';
 
 export default function SpacingContainer(props: TPaddingContainerFullProps) {
-  const { children, padding, ...htmlProps } = props;
+  const { children, padding, margin, ...htmlProps } = props;
 
   return (
-    <StyledSpacingsContainer $padding={padding} {...htmlProps}>
+    <StyledSpacingsContainer $padding={padding} $margin={margin} {...htmlProps}>
       {children}
     </StyledSpacingsContainer>
   );
