@@ -1,8 +1,9 @@
 import { describe, it, expect } from 'vitest';
 import { render, fireEvent, screen } from '@testing-library/react';
+import '@testing-library/jest-dom/vitest';
+
 import DescriptionPreview from './DescriptionPreview';
 import MockThemeProvider from '@/test/MockThemeProvider';
-import '@testing-library/jest-dom/vitest';
 
 describe('DescriptionPreview', () => {
   it('should render initial truncated preview text and "Show more" button', () => {
