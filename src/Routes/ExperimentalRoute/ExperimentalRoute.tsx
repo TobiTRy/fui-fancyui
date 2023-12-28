@@ -108,7 +108,7 @@ export default function ExperimentalRoute() {
         {/* CARD 2 */}
         <FancyContentCard>
           <FancyContentCard.FlexBox flexDirection="column">
-            <FancyContentCard.Image  src={'http://ilovepixel.eu/images/shibi.png'} />
+            <FancyContentCard.Image src={'http://ilovepixel.eu/images/shibi.png'} />
             <FancyContentCard.SpacingCard padding={[0, 'md', 'lg', 'md']}>
               <FancyContentCard.SubTitle layer={5} addLineHeight>
                 {'Grow steadily and pizza. Grow steadily and pizza. Grow steadily and pizza.Grow steadily and pizza.'}
@@ -176,7 +176,6 @@ export default function ExperimentalRoute() {
             ></FancyButton>
           </FancyContentCard.SpacingCard>
         </FancyContentCard>
-
 
         {/* CARD 2222 */}
         {/* CARD 2222 */}
