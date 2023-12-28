@@ -1,4 +1,5 @@
 import { defineConfig } from 'vite';
+
 import react from '@vitejs/plugin-react-swc';
 import { visualizer } from 'rollup-plugin-visualizer';
 import path from 'node:path';
@@ -6,9 +7,7 @@ import dts from 'vite-plugin-dts';
 
 export default defineConfig({
   resolve: {
-    alias: {
-      '@': path.resolve(__dirname, './src'),
-    },
+    alias: [{ find: '@', replacement: path.resolve(__dirname, './src') }],
   },
   plugins: [
     react(),
