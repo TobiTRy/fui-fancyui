@@ -14,7 +14,6 @@ import CardSubTitle from '@/components/templates/FancyMiniContentCard/Components
 import CardSpacing from '@/components/templates/FancyMiniContentCard/Components/CardSpacing';
 import CardDescription from '@/components/templates/FancyMiniContentCard/Components/CardDescription';
 
-
 export type TFancyMiniContentCardProps = {
   symbol?: React.ReactNode;
   title?: string;
