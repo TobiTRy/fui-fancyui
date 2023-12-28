@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Typography } from '@/components/atoms/Typography';
 import { RawButton } from '@/components/atoms/RawButton';
 import { SpacingsContainer } from '@/components/atoms/SpacingContainer';
-import { TDescriptionPreview } from '@/components/atoms/DescriptionPreview/Description.model';
+import { TDescriptionPreview } from '@/components/atoms/DescriptionPreview/DescriptionPreview.model';
 
 export default function DescriptionPreview(props: TDescriptionPreview) {
   const { description, letterLimit = 150, text } = props;
