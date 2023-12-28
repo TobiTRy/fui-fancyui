@@ -13,8 +13,7 @@ import CardTitle from '@/components/templates/FancyMiniContentCard/Components/Ca
 import CardSubTitle from '@/components/templates/FancyMiniContentCard/Components/CardSubTitle';
 import CardSpacing from '@/components/templates/FancyMiniContentCard/Components/CardSpacing';
 import CardDescription from '@/components/templates/FancyMiniContentCard/Components/CardDescription';
-import { FancyButton } from '@/components/organisms/FancyButton';
-import DescriptionPreview from '@/components/atoms/DescriptionPreview/DescriptionPreview';
+
 
 export type TFancyMiniContentCardProps = {
   symbol?: React.ReactNode;
@@ -26,7 +25,7 @@ export type TFancyMiniContentCardProps = {
 } & IFancyCard;
 
 function FancyContentCard(props: TFancyMiniContentCardProps) {
-  const { size, externalStyle, src, children, ...cardProps } = props;
+  const { size, externalStyle, children, ...cardProps } = props;
 
   const generateCardStyle = generateFancyMiniContentCardStyle({ $size: size });
 
