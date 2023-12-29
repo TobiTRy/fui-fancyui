@@ -6,9 +6,9 @@ type TCardTitleProps = {
   children: React.ReactNode;
 } & React.ComponentProps<typeof Typography>;
 export default function CardTitle(props: TCardTitleProps) {
-  const { children, type, className, ...typoProps } = props;
+  const { children, type, ...typoProps } = props;
   return (
-    <Typography className={`card_title ${className ?? ''}`} type={type ?? 'h4'} weight={'normal'} {...typoProps}>
+    <Typography type={type ?? 'h4'} weight={'normal'} {...typoProps}>
       {children}
     </Typography>
   );

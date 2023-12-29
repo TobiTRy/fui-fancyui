@@ -7,12 +7,12 @@ import { TComponentSizes } from '@/interface/TComponentSizes';
 import { FancyBox } from '@/components/atoms/FancyBox';
 import { FancyFlexBox } from '@/components/templates/FancyFlexBox';
 import { generateFancyMiniContentCardStyle } from '@/components/templates/FancyMiniContentCard/FancyMiniContentCard.style';
-
-import CardImage from '@/components/templates/FancyMiniContentCard/Components/CardImage';
 import CardTitle from '@/components/templates/FancyMiniContentCard/Components/CardTitle';
 import CardSubTitle from '@/components/templates/FancyMiniContentCard/Components/CardSubTitle';
 import CardSpacing from '@/components/templates/FancyMiniContentCard/Components/CardSpacing';
 import CardDescription from '@/components/templates/FancyMiniContentCard/Components/CardDescription';
+import { FancyAlignBox } from '@/components/templates/FancyAlignBox';
+import { FancyImage } from '@/components/atoms/FancyImage';
 
 export type TFancyMiniContentCardProps = {
   symbol?: React.ReactNode;
@@ -41,11 +41,13 @@ function FancyContentCard(props: TFancyMiniContentCardProps) {
   );
 }
 
-FancyContentCard.Image = CardImage;
+FancyContentCard.Image = FancyImage;
 FancyContentCard.Title = CardTitle;
-FancyContentCard.FlexBox = FancyFlexBox;
 FancyContentCard.SubTitle = CardSubTitle;
 FancyContentCard.Descritpion = CardDescription;
-FancyContentCard.SpacingCard = CardSpacing;
+
+FancyContentCard.FlexBox = FancyFlexBox;
+FancyContentCard.SpacingBox = CardSpacing;
+FancyContentCard.Box = FancyAlignBox;
 
 export default FancyContentCard;

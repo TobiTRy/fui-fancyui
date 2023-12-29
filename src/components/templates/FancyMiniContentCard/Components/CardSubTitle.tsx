@@ -6,14 +6,9 @@ type TCardSubTitleProps = {
   children: React.ReactNode;
 } & React.ComponentProps<typeof Typography>;
 export default function CardSubTitle(props: TCardSubTitleProps) {
-  const { children, type, variant, className, ...typoProps } = props;
+  const { children, type, variant, ...typoProps } = props;
   return (
-    <Typography
-      className={`card_subtitle ${className ?? ''}`}
-      type={type ?? 'content'}
-      variant={variant ?? 'verysmText'}
-      {...typoProps}
-    >
+    <Typography type={type ?? 'content'} variant={variant ?? 'verysmText'} {...typoProps}>
       {children}
     </Typography>
   );
