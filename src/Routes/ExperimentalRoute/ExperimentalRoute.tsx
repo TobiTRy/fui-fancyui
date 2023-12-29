@@ -23,6 +23,7 @@ import { SVGCheckMark } from '@/components/icons/SVGCheckMark';
 import FancyContentCard from '@/components/templates/FancyMiniContentCard/FancyMiniContentCard';
 import Card from '@/components/templates/TestCard/TestCard';
 import { DescriptionPreview } from '@/components/atoms/DescriptionPreview';
+import { FancyAlignBox } from '@/components/templates/FancyAlignBox';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -70,7 +71,7 @@ export default function ExperimentalRoute() {
       <div style={{ display: 'flex', gap: '12px' }}>
         <FancyContentCard>
           <FancyContentCard.FlexBox direction="column">
-            <FancyContentCard.FlexBox direction="column" justify='center' align='center'>
+            <FancyContentCard.FlexBox direction="column" justify="center" align="center">
               <FancyContentCard.Image className="card_image" src={'http://ilovepixel.eu/images/shibi.png'} size="sm" />
             </FancyContentCard.FlexBox>
             <FancyContentCard.SpacingCard padding={[0, 'md', 'lg', 'md']}>
@@ -240,9 +241,9 @@ export default function ExperimentalRoute() {
           />
         </DesignArea>
         <DesignArea title="Test">
-          <FancyCard>
-            <FancyCard></FancyCard>
-          </FancyCard>
+          <FancyAlignBox justify="center" padding={'lg'} fitBox as="span">
+            <p>Mooiin</p>
+          </FancyAlignBox>
         </DesignArea>
       </DesignWrapper>
     </>

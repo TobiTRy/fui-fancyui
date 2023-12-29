@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ElementType } from 'react';
 import { CSSProp } from 'styled-components';
 
 // Define the style props
@@ -17,6 +17,6 @@ export type TFancyFlexBoxProps = {
 } & TStyleProps;
 
 // Props for dynamic element type
-export type TDynamicElementProps<T extends React.ElementType> = {
-  as?: T;
-} & Omit<React.ComponentProps<T>, 'as'>;
+export type TDynamicElementProps<T extends ElementType> = {
+  as?: ElementType;
+} & React.HTMLAttributes<T>;
