@@ -1,8 +1,8 @@
 import { ElementType } from 'react';
 
-import { SpacingsContainer, TPaddingContainerFullProps } from '@/components/atoms/SpacingContainer';
+import { SpacingsContainer, TSpacingsContainerFullProps } from '@/components/atoms/SpacingContainer';
 
-export default function CardSpacing<T extends ElementType>(props: TPaddingContainerFullProps<T>) {
+export default function CardSpacing<T extends ElementType>(props: TSpacingsContainerFullProps<T>) {
   const { children, padding, className, ...htmlProps } = props;
 
   return (
