@@ -70,7 +70,9 @@ export default function ExperimentalRoute() {
       <div style={{ display: 'flex', gap: '12px' }}>
         <FancyContentCard>
           <FancyContentCard.FlexBox flexDirection="column">
-            <FancyContentCard.Image className="card_image" src={'http://ilovepixel.eu/images/shibi.png'} />
+            <FancyContentCard.FlexBox flexDirection="column" flexJustify='center' flexAlign='center'>
+              <FancyContentCard.Image className="card_image" src={'http://ilovepixel.eu/images/shibi.png'} size="sm" />
+            </FancyContentCard.FlexBox>
             <FancyContentCard.SpacingCard padding={[0, 'md', 'lg', 'md']}>
               <FancyContentCard.SubTitle layer={5} className="card_subtitle" addLineHeight>
                 {'Grow steadily and pizza. Grow steadily and pizza. Grow steadily and pizza.Grow steadily and pizza.'}
