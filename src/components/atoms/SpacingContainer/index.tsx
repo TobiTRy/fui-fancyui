@@ -1,3 +1,3 @@
-export { default as SpacingsContainer } from './SpacingContainer';
-export type { TSpacingContainer } from './SpacingContainer.model';
-export type { TPaddingContainerFullProps } from './SpacingContainer.model';
+export { default as SpacingsContainer } from './SpacingsContainer';
+export type { TSpacingsContainer } from './SpacingsContainer.model';
+export type { TPaddingContainerFullProps } from './SpacingsContainer.model';

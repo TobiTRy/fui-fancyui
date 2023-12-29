@@ -50,7 +50,7 @@ export { default as RawLI } from '@/components/atoms/RawLI/RawLI';
 export { default as RawUL } from '@/components/atoms/RawUL/RawUL';
 export { default as RawNav } from '@/components/atoms/RawNav/RawNav';
 export { default as SpeedDailMenueItem } from '@/components/atoms/SpeedDialMenueItem/SpeedDailMenueItem';
-export { default as SpacingContainer } from '@/components/atoms/SpacingContainer/SpacingContainer';
+export { default as SpacingsContainer } from '@/components/atoms/SpacingContainer/SpacingsContainer';
 
 // ---------- Molecules ------- //
 export { default as DateInput } from '@/components/molecules/DateInput/DateInput';
