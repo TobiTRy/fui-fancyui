@@ -24,6 +24,7 @@ type WrapperImage = {
   $size?: TComponentSizesExtended | 'complete';
 };
 const WarpperImage = styled.div<WrapperImage & { theme: TTheme }>`
+  box-sizing: border-box;
   padding: ${({ $inset, theme }) => ($inset ? theme.spacing.sm : '0')};
   width: ${({ $size = 'complete' }) => ($size !== 'complete' ? globalSizes[$size].elementSize : '100%')};
 `;
