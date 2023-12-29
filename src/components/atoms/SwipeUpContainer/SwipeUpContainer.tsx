@@ -41,7 +41,7 @@ interface IStyledSwipeUpContainer {
 const StyledSwipeUpContainer = styled.div<IStyledSwipeUpContainer>`
   width: 100%;
   max-height: 90%;
-  border-radius: ${({ theme }) => theme.borderRadius.xxxl} ${({ theme }) => theme.borderRadius.xxxl} 0 0;
+  border-radius: ${({ theme }) => theme.borderRadius.xl} ${({ theme }) => theme.borderRadius.xl} 0 0;
   position: sticky;
   top: 0;
   box-shadow: unset;
