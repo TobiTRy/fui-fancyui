@@ -143,6 +143,7 @@ export { default as FancyHandyNav } from '@/components/templates/FancyHandyNav/F
 export { default as useFancyHandyNavStore } from '@/components/templates/FancyHandyNav/FancyHandyNav.store';
 export { default as FancyBottomBarIcon } from '@/components/templates/FancyBottomBarIcon/FancyBottomBarIcon';
 export { default as FancyHeader } from '@/components/templates/FancyHeader/FancyHeader';
+export { default as FancyAlignBox } from '@/components/templates/FancyAlignBox/FancyAlignBox';
 
 // ---------- Utils/Hooks ------- //
 export { default as FancyPopover } from '@/components/shared/FancyPopover/FancyPopover';
@@ -184,6 +185,7 @@ export type { IFancyBox } from '@/components/atoms/FancyBox/FancyBox.model';
 export type { TArrayToCssValues } from '@/design/designFunctions/arrayToCssValues/TArrayValues.model';
 export type { TValue } from '@/design/designFunctions/arrayToCssValues/TArrayValues.model';
 export type { TArrayToCssValuesInputProps } from '@/design/designFunctions/arrayToCssValues/TArrayValues.model';
+export type { TFancyAlignBox } from '@/components/templates/FancyAlignBox/TFancyAlignBox.model';
 
 // ---------- Store ------- //
 export { default as themeStore } from '@/design/theme/themeStore/themeStore';
