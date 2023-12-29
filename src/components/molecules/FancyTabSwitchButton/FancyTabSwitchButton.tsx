@@ -39,7 +39,7 @@ const FancyTabSwitchButton = React.forwardRef<HTMLDivElement, IFancyTabSwitchBut
       <Typography htmlFor={id + '_' + itemKey} type="label" externalStyle={{ zIndex: 1 }}>
         {icon ||
           (label && (
-            <FancyContent flexDirection={leftRightToFlex(iconAlign)}>
+            <FancyContent direction={leftRightToFlex(iconAlign)}>
               {icon && <FancyContent.Icon>{icon}</FancyContent.Icon>}
               {label && <FancyContent.Title>{label}</FancyContent.Title>}
             </FancyContent>

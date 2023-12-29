@@ -98,7 +98,7 @@ function HelperComponent(props: React.ComponentProps<typeof FancySwipeUpModal> &
     openModal(
       appendToDomID || 'modalTest',
       children || (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
+        <div style={{ display: 'flex', direction: 'column', gap: '18px' }}>
           <FancyTextInput label="Email" />
           <FancyButton onClick={() => closeModal('modalTest')} label="Close Modal"></FancyButton>
         </div>

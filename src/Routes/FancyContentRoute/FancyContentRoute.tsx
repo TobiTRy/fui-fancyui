@@ -9,12 +9,12 @@ export default function FancyContentRoute() {
   return (
     <DesignWrapper>
       <DesignArea title="FancyContent">
-        <FancyContent flexAlign="flex-start" flexJustify="center">
+        <FancyContent align="flex-start" justify="center">
           <FancyContent.Icon size="lg">{<SVGCheckMark />}</FancyContent.Icon>
           <FancyContent.Description>Hiii</FancyContent.Description>
           <FancyContent.Title>Hiii</FancyContent.Title>
         </FancyContent>
-        <FancyContent flexAlign="flex-start" flexJustify="center" gapBetweenIcon="12px">
+        <FancyContent align="flex-start" justify="center" gapBetweenIcon="12px">
           <FancyContent.Description>Hiii</FancyContent.Description>
           <FancyContent.Title>Hiii</FancyContent.Title>
         </FancyContent>

@@ -3,9 +3,9 @@ import { CSSProp } from 'styled-components';
 
 // Define the style props
 export type TStyleProps = {
-  flexDirection?: 'row' | 'row-reverse' | 'column' | 'column-reverse';
-  flexJustify?: 'flex-start' | 'flex-end' | 'center' | 'space-between' | 'space-around' | 'space-evenly';
-  flexAlign?: 'flex-start' | 'flex-end' | 'center' | 'stretch' | 'baseline';
+  direction?: 'row' | 'row-reverse' | 'column' | 'column-reverse';
+  justify?: 'flex-start' | 'flex-end' | 'center' | 'space-between' | 'space-around' | 'space-evenly';
+  align?: 'flex-start' | 'flex-end' | 'center' | 'stretch' | 'baseline';
   externalStyle?: CSSProp;
   gap?: string;
 };

@@ -73,7 +73,7 @@ export default function FancyButton(props: IFancyButton) {
       `}
       {...(buttonProps as IButtonProps)}
     >
-      <FancyContent flexDirection={alignIcon}>
+      <FancyContent direction={alignIcon}>
         {label && (
           <FancyContent.Title fontVariant={fontVariant ?? 'button'} themeType={buttonProps.textColor}>
             {label}

@@ -11,9 +11,9 @@ type TWrapper = IStyledPrefixAndOmitter<TFancyContentProps, 'children'>;
 // Define the Wrapper component
 export const Wrapper = styled.span<TWrapper & { theme: TTheme }>`
   display: inline-flex;
-  flex-direction: ${({ $flexDirection }) => $flexDirection || 'row'};
-  justify-content: ${({ $flexJustify }) => $flexJustify || 'center'};
-  align-items: ${({ $flexAlign }) => $flexAlign || 'center'};
+  flex-direction: ${({ $direction }) => $direction || 'row'};
+  justify-content: ${({ $justify }) => $justify || 'center'};
+  align-items: ${({ $align }) => $align || 'center'};
   gap: ${({ $gapBetweenIcon, theme }) => $gapBetweenIcon ?? theme.spacing.xxs};
   ${({ theme, $themeType, $layer }) =>
     $themeType &&
@@ -34,13 +34,13 @@ export const Wrapper = styled.span<TWrapper & { theme: TTheme }>`
 
 type TOnlyTextWrapper = IStyledPrefixAndPicker<
   TFancyContentProps,
-  'flexDirection' | 'gapBetweenText' | 'flexAlign' | 'flexJustify' | 'themeType' | 'layer'
+  'direction' | 'gapBetweenText' | 'align' | 'justify' | 'themeType' | 'layer'
 >;
 export const OnlyTextWrapper = styled.span<TOnlyTextWrapper & { theme: TTheme }>`
   display: flex;
-  flex-direction: ${({ $flexDirection }) => $flexDirection || 'column'};
-  justify-content: ${({ $flexJustify }) => $flexJustify || 'center'};
-  align-items: ${({ $flexAlign }) => $flexAlign || 'flex-start'};
+  flex-direction: ${({ $direction }) => $direction || 'column'};
+  justify-content: ${({ $justify }) => $justify || 'center'};
+  align-items: ${({ $align }) => $align || 'flex-start'};
   gap: ${({ $gapBetweenText, theme }) => $gapBetweenText ?? theme.spacing.xxs};
   ${({ theme, $themeType, $layer }) =>
     $themeType &&

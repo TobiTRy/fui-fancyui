@@ -69,8 +69,8 @@ export default function ExperimentalRoute() {
     <>
       <div style={{ display: 'flex', gap: '12px' }}>
         <FancyContentCard>
-          <FancyContentCard.FlexBox flexDirection="column">
-            <FancyContentCard.FlexBox flexDirection="column" flexJustify='center' flexAlign='center'>
+          <FancyContentCard.FlexBox direction="column">
+            <FancyContentCard.FlexBox direction="column" justify='center' align='center'>
               <FancyContentCard.Image className="card_image" src={'http://ilovepixel.eu/images/shibi.png'} size="sm" />
             </FancyContentCard.FlexBox>
             <FancyContentCard.SpacingCard padding={[0, 'md', 'lg', 'md']}>
@@ -109,7 +109,7 @@ export default function ExperimentalRoute() {
         {/* CARD 2 */}
         {/* CARD 2 */}
         <FancyContentCard>
-          <FancyContentCard.FlexBox flexDirection="column">
+          <FancyContentCard.FlexBox direction="column">
             <FancyContentCard.Image src={'http://ilovepixel.eu/images/shibi.png'} />
             <FancyContentCard.SpacingCard padding={[0, 'md', 'lg', 'md']}>
               <FancyContentCard.SubTitle layer={5} addLineHeight>
@@ -147,7 +147,7 @@ export default function ExperimentalRoute() {
       {/* LINEEE */}
       <div style={{ display: 'flex', gap: '12px' }}>
         <FancyContentCard>
-          <FancyContentCard.FlexBox flexDirection="column">
+          <FancyContentCard.FlexBox direction="column">
             <FancyContentCard.Image className="card_image" src={'http://ilovepixel.eu/images/shibi.png'} />
             <FancyContentCard.SpacingCard padding={[0, 'md', 'lg', 'md']}>
               <FancyContentCard.SubTitle layer={5} className="card_subtitle" addLineHeight>
@@ -186,7 +186,7 @@ export default function ExperimentalRoute() {
         {/* CARD 2222 */}
         {/* CARD 2222 */}
         <FancyContentCard>
-          <FancyContentCard.FlexBox flexDirection="column">
+          <FancyContentCard.FlexBox direction="column">
             <FancyContentCard.Image className="card_image" src={'http://ilovepixel.eu/images/shibi.png'} />
             <FancyContentCard.SpacingCard padding={[0, 'md', 'lg', 'md']}>
               <FancyContentCard.SubTitle layer={5} className="card_subtitle" addLineHeight>
@@ -222,7 +222,7 @@ export default function ExperimentalRoute() {
         <DesignArea title="Test">
           <Card />
           <FancyCard>
-            <FancyContent flexDirection="column" flexJustify="center">
+            <FancyContent direction="column" justify="center">
               <FancyContent.Icon size="xl">
                 <SVGCheckMark />
               </FancyContent.Icon>

@@ -4,14 +4,14 @@ import { TStyleProps } from './FancyFlexBox.model';
 import IStyledPrefixAndOmitter from '@/interface/IStyledPrefixAndOmiter';
 
 const generateFlexSytles = (props: TStyledFlexBoxProps) => {
-  const { $flexDirection, $flexJustify, $flexAlign, $gap } = props;
+  const { $direction, $justify, $align, $gap } = props;
 
   return css`
     display: flex;
     width: 100%;
-    flex-direction: ${$flexDirection ?? 'row'};
-    justify-content: ${$flexJustify ?? 'flex-start'};
-    align-items: ${$flexAlign ?? 'flex-start'};
+    flex-direction: ${$direction ?? 'row'};
+    justify-content: ${$justify ?? 'flex-start'};
+    align-items: ${$align ?? 'flex-start'};
     gap: ${$gap};
   `;
 };

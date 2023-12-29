@@ -15,19 +15,19 @@ const meta = {
     },
   },
   argTypes: {
-    flexDirection: {
+    direction: {
       description: 'The flex direction of the component',
       control: {
         type: 'select',
       },
     },
-    flexJustify: {
+    justify: {
       description: 'The flex justify of the component',
       control: {
         type: 'select',
       },
     },
-    flexAlign: {
+    align: {
       description: 'The flex align of the component',
       control: {
         type: 'select',

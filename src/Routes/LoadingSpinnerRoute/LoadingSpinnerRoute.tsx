@@ -37,7 +37,7 @@ export default function LoadingSpinnerRoute() {
     <FancyCard>
       <DesignWrapper>
         <DesignArea title="Loading Spinner">
-          <div style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '48px' }}>
+          <div style={{ width: '100%', display: 'flex', direction: 'column', gap: '48px' }}>
             <FancyLoadingBar />
             <ProgressBar
               progress={progress}

@@ -18,7 +18,7 @@ export default function FancyInfoCard(props: TFancyInfoCardProps) {
 
   return (
     <InfoCard {...infoCardProps} size={size}>
-      <FancyContent flexAlign="flex-start" flexJustify="flex-start">
+      <FancyContent align="flex-start" justify="flex-start">
         {icon && <FancyContent.Icon size={sizes[size].iconSize}>{icon}</FancyContent.Icon>}
         {title && <FancyContent.Title fontVariant={sizes[size].title}>{title}</FancyContent.Title>}
         {description && (

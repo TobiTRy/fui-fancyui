@@ -12,9 +12,9 @@ import { TFancyContentProps } from '@/components/molecules/FancyContent/FancyCon
 function FancyContent(props: TFancyContentProps & React.HTMLAttributes<HTMLSpanElement>) {
   const {
     children,
-    flexAlign,
-    flexDirection,
-    flexJustify,
+    align,
+    direction,
+    justify,
     gapBetweenText,
     gapBetweenIcon,
     themeType,
@@ -39,9 +39,9 @@ function FancyContent(props: TFancyContentProps & React.HTMLAttributes<HTMLSpanE
 
   return iconElement ? (
     <Wrapper
-      $flexAlign={flexAlign}
-      $flexDirection={flexDirection}
-      $flexJustify={flexJustify}
+      $align={align}
+      $direction={direction}
+      $justify={justify}
       $gapBetweenText={gapBetweenText}
       $gapBetweenIcon={gapBetweenIcon}
       $themeType={themeType}
@@ -57,9 +57,9 @@ function FancyContent(props: TFancyContentProps & React.HTMLAttributes<HTMLSpanE
     <OnlyTextWrapper
       $themeType={themeType}
       $layer={layer}
-      $flexAlign={flexAlign}
-      $flexDirection={flexDirection}
-      $flexJustify={flexJustify}
+      $align={align}
+      $direction={direction}
+      $justify={justify}
       $gapBetweenText={gapBetweenText}
       {...htmlProps}
     >

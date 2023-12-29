@@ -80,8 +80,8 @@ export default function HeaderRoute() {
         <FancyGrid grid={8} gap="12px">
           <FancyGrid.Item gridSpace={1}>
             <FancyGrid.Item.FlexBox
-              flexAlign="center"
-              flexJustify="flex-start"
+              align="center"
+              justify="flex-start"
               className={'mooiiin'}
               externalStyle={breakPointStyle}
             >
@@ -98,9 +98,9 @@ export default function HeaderRoute() {
           </FancyGrid.Item>
 
           <FancyGrid.Item gridSpace={4}>
-            <FancyGrid.Item.FlexBox flexAlign="center" flexJustify="center">
+            <FancyGrid.Item.FlexBox align="center" justify="center">
               <FancyHeader.Nav>
-                <SwitchList flexBoxProps={{ flexAlign: 'center', flexJustify: 'center' }} hoverStyle>
+                <SwitchList flexBoxProps={{ align: 'center', justify: 'center' }} hoverStyle>
                   <Typography type="content">mooin</Typography>
                   <Typography type="content">mooin</Typography>
                   <Typography type="content">mooin</Typography>
@@ -110,7 +110,7 @@ export default function HeaderRoute() {
             </FancyGrid.Item.FlexBox>
           </FancyGrid.Item>
           <FancyGrid.Item gridSpace={2}>
-            <FancyGrid.Item.FlexBox flexAlign="center" flexJustify="flex-end">
+            <FancyGrid.Item.FlexBox align="center" justify="flex-end">
               <FancyPopover
                 offsetY={5}
                 contentComponent={
