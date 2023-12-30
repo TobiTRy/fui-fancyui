@@ -72,7 +72,7 @@ export default function ExperimentalRoute() {
         <FancyContentCard>
           <FancyContentCard.FlexBox direction="column">
             <FancyContentCard.FlexBox direction="column" justify="center" align="center">
-              <FancyContentCard.Image className="card_image" src={'http://ilovepixel.eu/images/shibi.png'} size="sm" />
+              <FancyContentCard.Image className="card_image" src={'http://ilovepixel.eu/images/shibi.png'} sizeW="sm" />
             </FancyContentCard.FlexBox>
             <FancyContentCard.SpacingBox padding={[0, 'md', 'lg', 'md']}>
               <FancyContentCard.SubTitle layer={5} className="card_subtitle" addLineHeight>
@@ -111,7 +111,7 @@ export default function ExperimentalRoute() {
         {/* CARD 2 */}
         <FancyContentCard>
           <FancyContentCard.FlexBox direction="column">
-            <FancyContentCard.Image size="xl" src={'https://placehold.co/600x400'} />
+            <FancyContentCard.Image sizeW="xl" src={'https://placehold.co/600x400'} />
             <FancyContentCard.SpacingBox padding={[0, 'md', 'md', 'md']}>
               <FancyContentCard.Box margin={['xs', 0]}>
                 <FancyContentCard.SubTitle layer={5} addLineHeight>
