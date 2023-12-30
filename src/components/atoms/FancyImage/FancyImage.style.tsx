@@ -9,10 +9,12 @@ import { TComponentSizesExtended } from '@/interface/TComponentSizes';
 
 type TStyledImage = IStyledPrefixAndPicker<
   TFancyImage,
-  'darken' | 'aspectRatio' | 'externalStyle' | 'borderRadius' | 'size'
+  'darken' | 'aspectRatio' | 'externalStyle' | 'borderRadius' | 'sizeH' | 'sizeW' | 'objectFit'
 >;
 export const StyledImage = styled.img<TStyledImage & { theme: TTheme }>`
-  ${({ $size = 'fit' }) => generateSizes($size)};
+  ${({ $sizeW }) => ($sizeW ? generateSize($sizeW, 'width') : '')};
+  ${({ $sizeH }) => ($sizeH ? generateSize($sizeH, 'height') : '')};
+  object-fit: ${({ $objectFit }) => ($objectFit ? $objectFit : 'cover')};
   transition: filter 0.3s;
   border-radius: ${({ $borderRadius, theme }) => ($borderRadius ? theme.borderRadius[$borderRadius] : '')};
   filter: ${({ $darken }) => ($darken ? `brightness(${$darken === true ? '0.5' : $darken})` : 'none')};
@@ -24,16 +26,15 @@ export const StyledImage = styled.img<TStyledImage & { theme: TTheme }>`
 // ------------------------- Helper Functions -------------------------------- //
 // --------------------------------------------------------------------------- //
 // Generate the sizes for the image based on the provided size
-const generateSizes = (size: TComponentSizesExtended | 'fit') => {
-  if (size !== 'fit') {
+
+const generateSize = (size: TComponentSizesExtended | 'fit', direction: 'height' | 'width') => {
+  if (size === 'fit') {
     return css`
-      width: ${globalSizes[size].elementSize};
-      height: ${globalSizes[size].elementSize};
-    `;
-  } else {
-    return css`
-      width: 100%;
-      object-fit: cover;
+      ${direction}: 100%;
     `;
   }
+
+  return css`
+    ${direction + ': ' + globalSizes[size].elementSize};
+  `;
 };

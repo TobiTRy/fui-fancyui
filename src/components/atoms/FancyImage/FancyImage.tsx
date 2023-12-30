@@ -6,7 +6,7 @@ import { isAspectRatioValid } from '@/utils/validations/isAspectRatioValid';
 // -------------- The Definition for the FancyImage Component ---------------- //
 // --------------------------------------------------------------------------- //
 export default function FancyImage(props: TFancyImage) {
-  const { aspectRatio, darken, borderRadius, externalStyle, size, ...imgProps } = props;
+  const { aspectRatio, darken, borderRadius, externalStyle, sizeW, ...imgProps } = props;
 
   // Validate the aspect ratio if it is provided
   if (aspectRatio && !isAspectRatioValid(aspectRatio)) {
@@ -16,7 +16,8 @@ export default function FancyImage(props: TFancyImage) {
   // Render the image with the provided props
   return (
     <StyledImage
-      $size={size}
+      $sizeW={sizeW}
+      $sizeH={sizeW}
       $darken={darken}
       $aspectRatio={aspectRatio}
       $borderRadius={borderRadius}

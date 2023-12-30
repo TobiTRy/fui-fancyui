@@ -7,5 +7,7 @@ export type TFancyImage = {
   darken?: number | boolean;
   externalStyle?: CSSProp;
   borderRadius?: TBorderRadiusSizes;
-  size?: TComponentSizesExtended | 'fit';
+  sizeW?: TComponentSizesExtended | 'fit';
+  sizeH?: TComponentSizesExtended | 'fit';
+  objectFit?: 'cover' | 'contain' | 'fill' | 'none' | 'scale-down';
 } & React.ImgHTMLAttributes<HTMLImageElement>;
