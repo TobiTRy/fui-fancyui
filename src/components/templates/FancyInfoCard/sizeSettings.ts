@@ -26,6 +26,6 @@ export const sizes: TSizesObject = {
   lg: {
     iconSize: 'lg',
     title: 'h4',
-    descriptionSize: 'button',
+    descriptionSize: 'content',
   },
 };
