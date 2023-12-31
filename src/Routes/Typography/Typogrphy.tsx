@@ -9,7 +9,7 @@ export default function Typogrphy() {
     <FancyCard>
       <DesignWrapper>
         <DesignArea title="Typography">
-          <div style={{ direction: 'column' }}>
+          <div style={{ flexDirection: 'column' }}>
             <Typography type="h1" variant="inlineElement" weight={'bold'}>
               h1. Heading Lorem ipsum dolor sit amet,{' '}
             </Typography>
@@ -31,7 +31,7 @@ export default function Typogrphy() {
           </div>
         </DesignArea>
         <DesignArea title="Typography">
-          <div style={{ direction: 'column' }}></div>
+          <div style={{ flexDirection: 'column' }}></div>
         </DesignArea>
       </DesignWrapper>
     </FancyCard>
