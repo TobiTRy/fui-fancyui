@@ -6,7 +6,7 @@ import {
   TSpacingsContainerFullProps,
   TSpacingsContainer,
 } from '@/components/atoms/SpacingContainer/SpacingsContainer.model';
-import IStyledPrefixAndPicker from '@/interface/IStyledPrefixAndPicker';
+import IStyledPrefixAndPicker from '@/types/IStyledPrefixAndPicker';
 
 export default function SpacingContainer<T extends ElementType = 'div'>(props: TSpacingsContainerFullProps<T>) {
   const { children, padding, margin, as, externalStyle, ...htmlProps } = props;

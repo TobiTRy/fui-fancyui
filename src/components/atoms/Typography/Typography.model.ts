@@ -1,8 +1,8 @@
 import { CSSProp } from 'styled-components';
 
 import { TypographyList } from '@/components/atoms/Typography/Typography.style';
-import { TLayer } from '@/interface/TLayer';
-import { TThemeTypesNotTransparent } from '@/interface/TThemeTypesNotTransparent';
+import { TLayer } from '@/types/TLayer';
+import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
 
 export type TTypography = {
   type?: keyof typeof TypographyList;

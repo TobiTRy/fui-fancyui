@@ -1,7 +1,7 @@
 import { HTMLAttributes, ReactNode } from 'react';
 
-import { TTextAlignLC } from '@/interface/TTextAlignLC';
-import { TTypography } from '@/interface/TTypography';
+import { TTextAlignLC } from '@/types/TTextAlignLC';
+import { TTypography } from '@/types/TTypography';
 
 import { StyledFieldset, StyledLegend } from './Fieldset.style';
 import { Typography } from '@/components/atoms/Typography';

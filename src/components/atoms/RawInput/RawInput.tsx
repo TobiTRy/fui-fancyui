@@ -1,8 +1,8 @@
 import { styled } from 'styled-components';
 
 import { fontSize } from '@/design/theme/designSizes';
-import { TTheme } from '@/interface/TTheme';
-import { TTextAlignLC } from '@/interface/TTextAlignLC';
+import { TTheme } from '@/types/TTheme';
+import { TTextAlignLC } from '@/types/TTextAlignLC';
 
 export interface IRawInput {
   $align?: TTextAlignLC;

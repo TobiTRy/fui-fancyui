@@ -1,6 +1,6 @@
 import { themeStore } from '@/design/theme/themeStore';
-import { TBorderRadiusSizes } from '@/interface/TBorderRadiusSizes';
-import { TSpacings } from '@/interface/TSpacings';
+import { TBorderRadiusSizes } from '@/types/TBorderRadiusSizes';
+import { TSpacings } from '@/types/TSpacings';
 
 // check the incomming value is a theme value or not
 export default function checkThemeValue(themeValue?: TBorderRadiusSizes | TSpacings | string | number) {

@@ -1,6 +1,6 @@
-import { TTheme } from '@/interface/TTheme';
+import { TTheme } from '@/types/TTheme';
 import { css } from 'styled-components';
-import IStyledPrefixAndPicker from '../../../interface/IStyledPrefixAndPicker';
+import IStyledPrefixAndPicker from '../../../types/IStyledPrefixAndPicker';
 import { getBackgroundColor } from '../colorCalculatorForComponent/colorCalculatorForComponent';
 import colorTransparencyCalculator from '../colorTransparencyCalculator/colorTransparencyCalculator';
 import { IGenerateThemeForCardProps } from './IGenerateThemeForCardProps';

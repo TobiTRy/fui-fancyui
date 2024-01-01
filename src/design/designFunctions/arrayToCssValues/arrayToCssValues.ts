@@ -1,7 +1,7 @@
 import { themeStore } from '@/design/theme/themeStore';
 
 import { TArrayToCssValues, TValue } from './TArrayValues.model';
-import { TSpacings } from '@/interface/TSpacings';
+import { TSpacings } from '@/types/TSpacings';
 
 // Type guard to check if a value is a TSpacings type
 const isTSpacings = (value: TValue): value is TSpacings => {

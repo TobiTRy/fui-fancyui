@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 import { disabledStyle } from '@/design/designFunctions/disabledStyle';
-import { TTheme } from '@/interface/TTheme';
-import { TTextAlignLC } from '@/interface/TTextAlignLC';
+import { TTheme } from '@/types/TTheme';
+import { TTextAlignLC } from '@/types/TTextAlignLC';
 
 export const StyledFieldset = styled.fieldset<{ $disabled?: boolean }>`
   width: 100%;

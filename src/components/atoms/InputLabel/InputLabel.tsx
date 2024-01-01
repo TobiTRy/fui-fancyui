@@ -1,8 +1,8 @@
 import { styled } from 'styled-components';
 
-import { TTheme } from '@/interface/TTheme';
-import { TLayer } from '@/interface/TLayer';
-import { TThemeTypesNotTransparent } from '@/interface/TThemeTypesNotTransparent';
+import { TTheme } from '@/types/TTheme';
+import { TLayer } from '@/types/TLayer';
+import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
 import { getTextColor } from '@/design/designFunctions/colorCalculatorForComponent';
 
 // --------------------------------------------------------------------------- //

@@ -2,8 +2,8 @@ import { styled } from 'styled-components';
 
 import { FancyImage } from '@/components/atoms/FancyImage';
 import { TFancyImage } from '@/components/atoms/FancyImage/FancyImage.model';
-import { TTheme } from '@/interface/TTheme';
-import { TComponentSizesExtended } from '@/interface/TComponentSizes';
+import { TTheme } from '@/types/TTheme';
+import { TComponentSizesExtended } from '@/types/TComponentSizes';
 import { globalSizes } from '@/design/theme/globalSizes';
 
 type TCardImage = TFancyImage & {

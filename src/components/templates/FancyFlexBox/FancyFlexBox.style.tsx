@@ -1,7 +1,7 @@
 import { styled, css } from 'styled-components';
 
 import { TStyleProps } from './FancyFlexBox.model';
-import IStyledPrefixAndOmitter from '@/interface/IStyledPrefixAndOmiter';
+import IStyledPrefixAndOmitter from '@/types/IStyledPrefixAndOmiter';
 
 const generateFlexSytles = (props: TStyledFlexBoxProps) => {
   const { $direction, $justify, $align, $gap } = props;

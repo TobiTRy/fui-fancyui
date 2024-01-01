@@ -9,7 +9,7 @@ import { ScalingSection } from '@/components/molecules/ScalingSection';
 
 import { Content, ContentBox, WrapperAnimated, WrapperContent, WrapperModal } from './SwipeUpModal.style';
 import { ISwipeUpModal } from './ISwipeUpModal.model';
-import { TModalStatus } from '@/interface/TModalStatus';
+import { TModalStatus } from '@/types/TModalStatus';
 
 // --------------------------------------------------------------------------- //
 // ----------- The Modal Molecule the displays the complete modal - ---------- //

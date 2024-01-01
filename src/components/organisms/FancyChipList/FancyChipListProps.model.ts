@@ -1,6 +1,6 @@
-import { TLayer } from '@/interface/TLayer';
-import { TThemeTypesNotTransparent } from '@/interface/TThemeTypesNotTransparent';
-import { TUiColorsSystemMessage } from '@/interface/TUiColorsSystemMessage';
+import { TLayer } from '@/types/TLayer';
+import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
+import { TUiColorsSystemMessage } from '@/types/TUiColorsSystemMessage';
 
 // Defining the interface for the component's props
 export interface ChipListProps {

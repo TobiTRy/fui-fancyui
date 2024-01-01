@@ -1,7 +1,7 @@
 import { css } from 'styled-components';
 
 import { TFancyMiniContentCardProps } from './FancyMiniContentCard';
-import IStyledPrefixAndPicker from '@/interface/IStyledPrefixAndPicker';
+import IStyledPrefixAndPicker from '@/types/IStyledPrefixAndPicker';
 import { themeStore } from '@/design/theme/themeStore';
 
 type IStyledCard = IStyledPrefixAndPicker<TFancyMiniContentCardProps, 'size'>;

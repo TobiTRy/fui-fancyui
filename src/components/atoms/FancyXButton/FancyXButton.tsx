@@ -3,10 +3,10 @@ import { styled } from 'styled-components';
 
 import { fontSize } from '@/design/theme/designSizes';
 import { simpleColorTransition } from '@/design/designFunctions/simpleColorTransition';
-import { TThemeTypesNotTransparent } from '@/interface/TThemeTypesNotTransparent';
-import { TLayer } from '@/interface/TLayer';
+import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
+import { TLayer } from '@/types/TLayer';
 import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent';
-import { TTheme } from '@/interface/TTheme';
+import { TTheme } from '@/types/TTheme';
 
 // --------------------------------------------------------------------------- //
 // --------------- The main Component for the X Close Button------- ---------- //

@@ -1,9 +1,9 @@
 import { css, styled } from 'styled-components';
 
-import IStyledPrefixAndPicker from '@/interface/IStyledPrefixAndPicker';
-import { TTheme } from '@/interface/TTheme';
+import IStyledPrefixAndPicker from '@/types/IStyledPrefixAndPicker';
+import { TTheme } from '@/types/TTheme';
 import { TFancyContentProps } from '@/components/molecules/FancyContent/FancyContent.model';
-import IStyledPrefixAndOmitter from '@/interface/IStyledPrefixAndOmiter';
+import IStyledPrefixAndOmitter from '@/types/IStyledPrefixAndOmiter';
 
 // Define the types for the Wrapper component
 type TWrapper = IStyledPrefixAndOmitter<TFancyContentProps, 'children'>;

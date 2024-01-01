@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { TTheme } from '@/interface/TTheme';
+import { TTheme } from '@/types/TTheme';
 import { styled } from 'styled-components';
 import { FancyImage } from '@/components/atoms/FancyImage';
 

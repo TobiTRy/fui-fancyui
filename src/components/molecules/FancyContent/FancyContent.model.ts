@@ -1,5 +1,5 @@
-import { TThemeTypesNotTransparent } from '@/interface/TThemeTypesNotTransparent';
-import { TLayer } from '@/interface/TLayer';
+import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
+import { TLayer } from '@/types/TLayer';
 import { CSSProp } from 'styled-components';
 
 export type TFancyContentProps = {

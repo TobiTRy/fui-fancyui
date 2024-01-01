@@ -6,8 +6,8 @@ import MonthWithDays from '../MonthWithDays/MonthWithDays';
 import useSelectedDates from './helperFunctions/useSelectedDates';
 import useVisibleMonths from './helperFunctions/useVisibleMonths';
 
-import { TLayer } from '@/interface/TLayer';
-import { TThemeTypes } from '@/interface/TThemeTypes';
+import { TLayer } from '@/types/TLayer';
+import { TThemeTypes } from '@/types/TThemeTypes';
 import { IDisabledDateSettings } from '../MonthWithDays/utils/Interfaces/IDisableDateSettings.model';
 import { IExternalMonthWithDays } from '../MonthWithDays/utils/Interfaces/IExternalMonthWithDays.model';
 import { IDateArray } from './IDateArray.model';

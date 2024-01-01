@@ -1,4 +1,4 @@
-import { TBorderRadiusSizes } from '@/interface/TBorderRadiusSizes';
+import { TBorderRadiusSizes } from '@/types/TBorderRadiusSizes';
 import { TArrayToCssValues } from '@/design/designFunctions/arrayToCssValues';
 
 export const sizeSettings = {

@@ -1,5 +1,5 @@
 import { useNumberInput } from '@/components/molecules/NumberInput/useNumberInput.hook';
-import { TTextAlignLC } from '@/interface/TTextAlignLC';
+import { TTextAlignLC } from '@/types/TTextAlignLC';
 import { InputHTMLAttributes, useMemo } from 'react';
 import StyledNumberInput from './NumberInput.styled';
 

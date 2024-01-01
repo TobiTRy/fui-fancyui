@@ -2,7 +2,7 @@ import { css } from 'styled-components';
 
 import { simpleColorTransition } from '@/design/designFunctions/simpleColorTransition';
 import { themeStore } from '@/design/theme/themeStore';
-import { TTheme } from '@/interface/TTheme';
+import { TTheme } from '@/types/TTheme';
 
 export const ListItemStyle = css<{ theme: TTheme; active: boolean }>`
   position: relative;

@@ -1,9 +1,9 @@
 import React from 'react';
 import { styled } from 'styled-components';
 
-import { TLayer } from '@/interface/TLayer';
-import { TThemeTypes } from '@/interface/TThemeTypes';
-import { TTheme } from '@/interface/TTheme';
+import { TLayer } from '@/types/TLayer';
+import { TThemeTypes } from '@/types/TThemeTypes';
+import { TTheme } from '@/types/TTheme';
 import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponent';
 
 // --------------------------------------------------------------------------- //

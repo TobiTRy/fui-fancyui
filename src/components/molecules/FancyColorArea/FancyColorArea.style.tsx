@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
 
-import { TTheme } from '@/interface/TTheme';
+import { TTheme } from '@/types/TTheme';
 
 //the wrapper of the color area (it wraps the color area and the color indicator)
 export const WrapperColorArea = styled.div`

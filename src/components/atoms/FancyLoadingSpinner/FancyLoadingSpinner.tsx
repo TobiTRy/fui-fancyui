@@ -2,8 +2,8 @@ import React from 'react';
 
 import { sizes } from './sizeSettings';
 import { SpinnerContainer, StyledFancyLoadingSpinner, StyledInnerSpinner } from './FancyLoadingSpinner.model';
-import { TThemeTypesNotTransparent } from '@/interface/TThemeTypesNotTransparent';
-import { TLayer } from '@/interface/TLayer';
+import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
+import { TLayer } from '@/types/TLayer';
 
 // --------------------------------------------------------------------------- //
 // ------------------ A Loadingspinner with different sizes ------------------ //

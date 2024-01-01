@@ -1,11 +1,11 @@
 import { css, styled } from 'styled-components';
 
 import { TFancyImage } from '@/components/atoms/FancyImage/FancyImage.model';
-import { TTheme } from '@/interface/TTheme';
-import IStyledPrefixAndPicker from '@/interface/IStyledPrefixAndPicker';
+import { TTheme } from '@/types/TTheme';
+import IStyledPrefixAndPicker from '@/types/IStyledPrefixAndPicker';
 
 import { globalSizes } from '@/design/theme/globalSizes';
-import { TComponentSizesExtended } from '@/interface/TComponentSizes';
+import { TComponentSizesExtended } from '@/types/TComponentSizes';
 
 type TStyledImage = IStyledPrefixAndPicker<
   TFancyImage,

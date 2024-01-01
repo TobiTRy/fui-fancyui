@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 import { themeStore } from '@/design/theme/themeStore';
-import { TComponentSizes } from '@/interface/TComponentSizes';
+import { TComponentSizes } from '@/types/TComponentSizes';
 
 export type TSpacingPosition = 'left' | 'right' | 'booth';
 

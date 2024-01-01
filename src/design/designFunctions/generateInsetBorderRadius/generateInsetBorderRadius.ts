@@ -1,5 +1,5 @@
-import { TSpacings } from '@/interface/TSpacings';
-import { TBorderRadiusSizes } from '@/interface/TBorderRadiusSizes';
+import { TSpacings } from '@/types/TSpacings';
+import { TBorderRadiusSizes } from '@/types/TBorderRadiusSizes';
 import { themeStore } from '@/design/theme/themeStore';
 import checkThemeValue from '@/design/designFunctions/checkThemeValue/checkThemeValue';
 

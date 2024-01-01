@@ -1,13 +1,13 @@
-import { TThemeTypes } from '@/interface/TThemeTypes';
-import { TLayer } from '@/interface/TLayer';
-import { TBorderRadiusSizes } from '@/interface/TBorderRadiusSizes';
+import { TThemeTypes } from '@/types/TThemeTypes';
+import { TLayer } from '@/types/TLayer';
+import { TBorderRadiusSizes } from '@/types/TBorderRadiusSizes';
 import {
   ITabSwitchDetailsLabelIcon,
   ITabSwitchDetailsChildren,
 } from '../FancyTabSwitchButton/FancyTabSwitchButton.model';
-import { TSpacings } from '@/interface/TSpacings';
+import { TSpacings } from '@/types/TSpacings';
 import { IActiveSwitchIndicator } from '@/components/atoms/SwitchActiveIndicator/SwitchActiveIndicator';
-import { TComponentSizes } from '@/interface/TComponentSizes';
+import { TComponentSizes } from '@/types/TComponentSizes';
 
 export interface ITabSwitchProps {
   wide?: boolean;

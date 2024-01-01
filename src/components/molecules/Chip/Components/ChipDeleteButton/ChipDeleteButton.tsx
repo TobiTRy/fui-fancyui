@@ -1,10 +1,10 @@
 import React from 'react';
 import { styled } from 'styled-components';
 
-import { TTheme } from '@/interface/TTheme';
-import { TLayer } from '@/interface/TLayer';
-import IStyledPrefixAndOmitter from '@/interface/IStyledPrefixAndOmiter';
-import { TThemeTypesNotTransparent } from '@/interface/TThemeTypesNotTransparent';
+import { TTheme } from '@/types/TTheme';
+import { TLayer } from '@/types/TLayer';
+import IStyledPrefixAndOmitter from '@/types/IStyledPrefixAndOmiter';
+import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
 
 import { RawButton } from '@/components/atoms/RawButton';
 import { SVGXCircle } from '@/components/icons/SVGXCircle';

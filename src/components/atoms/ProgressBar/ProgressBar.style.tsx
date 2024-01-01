@@ -1,9 +1,9 @@
 import { styled } from 'styled-components';
 
-import { TTheme } from '@/interface/TTheme';
-import { TLayer } from '@/interface/TLayer';
+import { TTheme } from '@/types/TTheme';
+import { TLayer } from '@/types/TLayer';
 import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent';
-import { TThemeTypes } from '@/interface/TThemeTypes';
+import { TThemeTypes } from '@/types/TThemeTypes';
 
 interface IProgressBarContainerProps {
   theme: TTheme;

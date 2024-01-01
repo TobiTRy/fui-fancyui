@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from 'react';
 import Color from 'color';
 import { styled } from 'styled-components';
 
-import { TTheme } from '@/interface/TTheme';
+import { TTheme } from '@/types/TTheme';
 import { emitSelectedColorChange } from './colorPickerUtils';
 import { IColorFormat } from '@/utils/variables/colorFormat/colorFormats';
 

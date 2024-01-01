@@ -1,6 +1,6 @@
 import { CSSProp, css } from 'styled-components';
 
-import { TTheme } from '@/interface/TTheme';
+import { TTheme } from '@/types/TTheme';
 
 export const generateFancyBoxStyle = (externalStyle?: CSSProp) => css<{ theme: TTheme }>`
   padding: 0;

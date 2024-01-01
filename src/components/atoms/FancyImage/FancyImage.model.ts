@@ -1,6 +1,6 @@
 import { CSSProp } from 'styled-components';
-import { TBorderRadiusSizes } from '@/interface/TBorderRadiusSizes';
-import { TComponentSizesExtended } from '@/interface/TComponentSizes';
+import { TBorderRadiusSizes } from '@/types/TBorderRadiusSizes';
+import { TComponentSizesExtended } from '@/types/TComponentSizes';
 
 export type TFancyImage = {
   aspectRatio?: string; // e.g. "16/9"

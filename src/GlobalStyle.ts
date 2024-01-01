@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 import { scrollbar } from '@/design/theme/globalStyle/scrollbar/index';
 
-import { TTheme } from '@/interface/TTheme';
+import { TTheme } from '@/types/TTheme';
 
 const GlobalStyle = createGlobalStyle<{ theme: TTheme }>`
   body {

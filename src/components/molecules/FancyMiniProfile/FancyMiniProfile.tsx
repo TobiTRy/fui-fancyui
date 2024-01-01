@@ -1,7 +1,7 @@
-import { TLayer } from '@/interface/TLayer';
-import { TThemeTypes } from '@/interface/TThemeTypes';
+import { TLayer } from '@/types/TLayer';
+import { TThemeTypes } from '@/types/TThemeTypes';
 
-import { TComponentSizes } from '@/interface/TComponentSizes';
+import { TComponentSizes } from '@/types/TComponentSizes';
 import { FancyProfilePicture } from '@/components/atoms/FancyProfilePicture';
 import { sizeSettings } from '@/components/molecules/FancyMiniProfile/sizeSettings';
 import { Chip } from '@/components/molecules/Chip';

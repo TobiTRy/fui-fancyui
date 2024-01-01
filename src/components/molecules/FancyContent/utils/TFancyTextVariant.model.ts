@@ -1,8 +1,8 @@
 import { CSSProp } from 'styled-components';
 
-import { TTypography } from '@/interface/TTypography';
-import { TThemeTypesNotTransparent } from '@/interface/TThemeTypesNotTransparent';
-import { TLayer } from '@/interface/TLayer';
+import { TTypography } from '@/types/TTypography';
+import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
+import { TLayer } from '@/types/TLayer';
 
 type IFancyContentTextProps = {
   children?: React.ReactNode;

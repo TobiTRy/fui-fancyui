@@ -4,9 +4,9 @@ import { DateNumberAtom } from '@/components/atoms/DateNumberAtom';
 import { AvilableDot } from '@/components/atoms/AvilableDot';
 import { IAvailableDot } from '@/components/atoms/AvilableDot';
 
-import { TLayer } from '@/interface/TLayer';
-import { TThemeTypes } from '@/interface/TThemeTypes';
-import { TTheme } from '@/interface/TTheme';
+import { TLayer } from '@/types/TLayer';
+import { TThemeTypes } from '@/types/TThemeTypes';
+import { TTheme } from '@/types/TTheme';
 import { IRange } from '@/components/atoms/DateNumberAtom/IDateNumberAtom.model';
 
 interface IDateNumberWithStatus {

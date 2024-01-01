@@ -1,5 +1,5 @@
-import { TThemeTypes } from '@/interface/TThemeTypes';
-import { TLayer } from '@/interface/TLayer';
+import { TThemeTypes } from '@/types/TThemeTypes';
+import { TLayer } from '@/types/TLayer';
 import { ProgressBarContainer, ProgressBarFill } from './ProgressBar.style';
 
 // Define the interface for the progress bar props

@@ -1,7 +1,7 @@
 import { css, styled } from 'styled-components';
 
 import { TAlign, TAlignCheckbox } from './FancyCheckbox.model';
-import { TTheme } from '@/interface/TTheme';
+import { TTheme } from '@/types/TTheme';
 
 // wraps the whole component and handles the alignment
 export const Wrapper = styled.div<{ $align?: TAlign }>`

@@ -3,7 +3,7 @@ import { styled } from 'styled-components';
 
 import { fontSize } from '../../../design/theme/designSizes';
 import simpleColorTransition from '../../../design/designFunctions/simpleColorTransition/simpleTransition';
-import { TTheme } from '@/interface/TTheme';
+import { TTheme } from '@/types/TTheme';
 
 // calculate color on the isBright and isDarkTheme props
 const colorCalculation = ({

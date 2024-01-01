@@ -1,9 +1,9 @@
 import { styled } from 'styled-components';
 
-import { TLayer } from '@/interface/TLayer';
-import { TThemeTypes } from '@/interface/TThemeTypes';
+import { TLayer } from '@/types/TLayer';
+import { TThemeTypes } from '@/types/TThemeTypes';
 import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent';
-import { TTheme } from '@/interface/TTheme';
+import { TTheme } from '@/types/TTheme';
 import { fontSize } from '@/design/theme/designSizes';
 
 // the style for a single input

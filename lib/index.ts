@@ -179,7 +179,7 @@ export { default as generateInsetBorderRadius } from '@/design/designFunctions/g
 export { default as checkThemeValue } from '@/design/designFunctions/checkThemeValue/checkThemeValue';
 
 // ---------- Interfaces ------- //
-export * from '@/interface';
+export * from '@/types';
 export type { default as IGenerateThemeForCardProps } from '@/design/designFunctions/generateThemeForCard/IGenerateThemeForCardProps';
 export type { default as IGenerateThemeDesignForComponentProps } from '@/design/designFunctions/generateThemeDesignForComponent/IGenerateThemeDesignForComponentProps';
 export type { IAvailableDot } from '@/components/atoms/AvilableDot/IAvailableDot.model';

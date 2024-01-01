@@ -1,6 +1,6 @@
 import React, { KeyboardEvent, useEffect, useState } from 'react';
 
-import { TLayer } from '@/interface/TLayer';
+import { TLayer } from '@/types/TLayer';
 import { ChipList } from '@/components/molecules/ChipList';
 import { Fieldset } from '@/components/molecules/Fieldset';
 

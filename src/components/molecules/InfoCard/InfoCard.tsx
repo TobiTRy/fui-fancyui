@@ -1,6 +1,6 @@
 import { ComponentProps } from 'react';
 
-import { TComponentSizes } from '@/interface/TComponentSizes';
+import { TComponentSizes } from '@/types/TComponentSizes';
 import { FancyBox } from '@/components/atoms/FancyBox';
 import { generateInfoCardStyle } from './InfoCrad.style';
 

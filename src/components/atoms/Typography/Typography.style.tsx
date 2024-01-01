@@ -2,10 +2,10 @@
 import { ReactNode } from 'react';
 import { styled, CSSProp } from 'styled-components';
 
-import IStyledPrefixAndPicker from '@/interface/IStyledPrefixAndPicker';
+import IStyledPrefixAndPicker from '@/types/IStyledPrefixAndPicker';
 import { TTypography } from '@/components/atoms/Typography/Typography.model';
 import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent';
-import { TTheme } from '@/interface/TTheme';
+import { TTheme } from '@/types/TTheme';
 
 export type TStyledComponentProps = {
   children?: ReactNode;

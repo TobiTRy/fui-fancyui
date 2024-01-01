@@ -1,6 +1,6 @@
 import { css, styled } from 'styled-components';
 
-import { TTheme } from '@/interface/TTheme';
+import { TTheme } from '@/types/TTheme';
 import { textShadow } from '@/design/designFunctions/shadows/shadows';
 
 // Define the gradient options for the overlay

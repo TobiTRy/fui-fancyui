@@ -1,10 +1,10 @@
 import { styled } from 'styled-components';
 
-import { TThemeTypes } from '@/interface/TThemeTypes';
-import { TLayer } from '@/interface/TLayer';
+import { TThemeTypes } from '@/types/TThemeTypes';
+import { TLayer } from '@/types/TLayer';
 import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponent';
 import { disabledStyle } from '@/design/designFunctions/disabledStyle/disableStyle';
-import { TTheme } from '@/interface/TTheme';
+import { TTheme } from '@/types/TTheme';
 
 interface IContentWrapper {
   $isActive?: boolean;

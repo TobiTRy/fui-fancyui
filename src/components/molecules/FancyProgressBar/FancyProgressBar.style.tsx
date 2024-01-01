@@ -1,6 +1,6 @@
 import { css, styled } from 'styled-components';
 
-import { TTheme } from '@/interface/TTheme';
+import { TTheme } from '@/types/TTheme';
 
 // Define a styled component for the progress bar wrapper
 export const Wrapper = styled.div<{ $value?: number; theme: TTheme }>`

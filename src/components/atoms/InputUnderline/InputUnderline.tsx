@@ -1,7 +1,7 @@
 import { HTMLAttributes } from 'react';
 
-import { TLayer } from '@/interface/TLayer';
-import { TThemeTypes } from '@/interface/TThemeTypes';
+import { TLayer } from '@/types/TLayer';
+import { TThemeTypes } from '@/types/TThemeTypes';
 
 import { UnderLine } from '@/components/atoms/InputUnderline/InputUnderline.style';
 

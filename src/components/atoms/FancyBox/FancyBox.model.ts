@@ -1,8 +1,8 @@
 import { ElementType } from 'react';
 import { CSSProp } from 'styled-components';
 
-import { TLayer } from '@/interface/TLayer';
-import { TThemeTypes } from '@/interface/TThemeTypes';
+import { TLayer } from '@/types/TLayer';
+import { TThemeTypes } from '@/types/TThemeTypes';
 
 export interface IFancyBox {
   as?: ElementType;

@@ -2,10 +2,10 @@ import { useEffect, useMemo, useState } from 'react';
 import { styled } from 'styled-components';
 
 import { Typography } from '@/components/atoms/Typography';
-import { TThemeTypes } from '@/interface/TThemeTypes';
+import { TThemeTypes } from '@/types/TThemeTypes';
 import { getBackgroundColor, getTextColor } from '@/design/designFunctions/colorCalculatorForComponent';
-import { TLayer } from '@/interface/TLayer';
-import { TTheme } from '@/interface/TTheme';
+import { TLayer } from '@/types/TLayer';
+import { TTheme } from '@/types/TTheme';
 
 interface IDateOutput {
   date?: Date;

@@ -1,4 +1,4 @@
-import { TTheme } from '@/interface/TTheme';
+import { TTheme } from '@/types/TTheme';
 
 import { css } from 'styled-components';
 

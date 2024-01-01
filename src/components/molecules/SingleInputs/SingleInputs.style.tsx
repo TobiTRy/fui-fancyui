@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 
-import { IStatus } from '@/interface/IStatus';
-import { TTheme } from '@/interface/TTheme';
+import { IStatus } from '@/types/IStatus';
+import { TTheme } from '@/types/TTheme';
 
 interface IInputWrapper {
   $status?: Omit<IStatus, 'isLoading'>;

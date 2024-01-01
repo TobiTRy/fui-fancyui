@@ -1,8 +1,8 @@
 import React from 'react';
 import { CSSProp, css } from 'styled-components';
 
-import { TThemeTypes } from '@/interface/TThemeTypes';
-import { TLayer } from '@/interface/TLayer';
+import { TThemeTypes } from '@/types/TThemeTypes';
+import { TLayer } from '@/types/TLayer';
 import { FancyBox } from '@/components/atoms/FancyBox';
 import { fancyBarStyle } from './BottomBar.style';
 

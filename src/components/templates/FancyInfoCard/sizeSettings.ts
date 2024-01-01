@@ -1,5 +1,5 @@
-import { TComponentSizes } from '@/interface/TComponentSizes';
-import { TTypography } from '@/interface/TTypography';
+import { TComponentSizes } from '@/types/TComponentSizes';
+import { TTypography } from '@/types/TTypography';
 
 type TSizeObj = {
   iconSize: TComponentSizes;

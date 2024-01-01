@@ -1,6 +1,6 @@
 import { styled, keyframes } from 'styled-components';
 
-import { TTheme } from '@/interface/TTheme';
+import { TTheme } from '@/types/TTheme';
 
 // ----------------------------------------------------- //
 // ------------------ A Loadingbar --------------------- //

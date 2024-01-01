@@ -1,8 +1,8 @@
 import { CSSProp } from 'styled-components';
 
-import IStyledPrefixAndOmiter from '@/interface/IStyledPrefixAndOmiter';
-import { TThemeTypes } from '@/interface/TThemeTypes';
-import { TLayer } from '@/interface/TLayer';
+import IStyledPrefixAndOmiter from '@/types/IStyledPrefixAndOmiter';
+import { TThemeTypes } from '@/types/TThemeTypes';
+import { TLayer } from '@/types/TLayer';
 
 export const sizes = {
   xs: '14px',

@@ -4,11 +4,11 @@ import { styled, css } from 'styled-components';
 import { FancyTextInput } from '@/components/organisms/FancyTextInput';
 import { SVGSearch } from '@/components/icons/SVGSearch';
 import { FancySVGAtom } from '@/components/atoms/FancySVGAtom';
-import { TThemeTypes } from '@/interface/TThemeTypes';
+import { TThemeTypes } from '@/types/TThemeTypes';
 
-import { TLayer } from '@/interface/TLayer';
-import { TTheme } from '@/interface/TTheme';
-import { TTextAlignLC } from '@/interface/TTextAlignLC';
+import { TLayer } from '@/types/TLayer';
+import { TTheme } from '@/types/TTheme';
+import { TTextAlignLC } from '@/types/TTextAlignLC';
 
 // Props for the SearchBar component
 interface ISearchBar {

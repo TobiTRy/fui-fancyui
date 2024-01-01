@@ -1,4 +1,4 @@
-import { TThemeTypes } from '@/interface/TThemeTypes';
+import { TThemeTypes } from '@/types/TThemeTypes';
 import themeStore from '../../theme/themeStore/themeStore';
 
 const getSimpleColorThemeType = (themeType?: TThemeTypes) => {

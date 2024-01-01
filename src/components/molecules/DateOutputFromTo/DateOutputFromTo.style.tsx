@@ -1,8 +1,8 @@
 import { styled } from 'styled-components';
 
-import { TLayer } from '@/interface/TLayer';
-import { TThemeTypes } from '@/interface/TThemeTypes';
-import { TTheme } from '@/interface/TTheme';
+import { TLayer } from '@/types/TLayer';
+import { TThemeTypes } from '@/types/TThemeTypes';
+import { TTheme } from '@/types/TTheme';
 
 // Define the styled component for the DateOutputFromTo component
 export const StyledDateOutputFromTo = styled.div<{ theme: TTheme; $themeType?: TThemeTypes; $layer?: TLayer }>`
