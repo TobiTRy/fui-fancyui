@@ -1,0 +1,34 @@
+# Function: `generateInsetBorder`
+
+## Overview
+
+The `generateInsetBorder` function is designed to calculate the effective border radius for an inset border. It dynamically adjusts the border radius based on the provided padding and outer radius values.
+
+## Parameters
+
+- `outerRadius`: This parameter accepts values of type `TBorderRadiusSizes`, `string`, or `number`. It represents the outer radius of the border.
+- `padding`: This can be of type `TSpacings`, `string`, or `number`. It specifies the padding inside the border.
+
+## Functionality
+
+1. **Retrieve Theme**: The function first retrieves the current theme settings from the global `themeStore`.
+
+2. **Check and Adjust Theme Values**:
+
+   - If `padding` is a theme value, it is adjusted to the corresponding value from the theme's spacing.
+   - Similarly, if `outerRadius` is a theme value, it is adjusted to the corresponding value from the theme's border radius.
+
+3. **Calculate Inset Border Radius**: The function returns a CSS `calc()` expression that subtracts the `padding` from the `outerRadius`, resulting in the effective radius for the inset border.
+
+## Return Value
+
+The function returns a string representing a CSS `calc()` expression. This expression can be directly used in style definitions to set the border radius for an inset border.
+
+## Example Usage
+
+```javascript
+const insetBorderRadius = generateInsetBorder('large', 'medium');
+// Use insetBorderRadius in your component's style
+```
+
+This function is useful in UI frameworks where theme-based design systems are employed, allowing for consistent and responsive styling across different components.
