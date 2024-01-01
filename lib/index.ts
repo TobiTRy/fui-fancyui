@@ -175,6 +175,8 @@ export { default as getSimpleColorThemeType } from '@/design/designFunctions/get
 export { default as shadows } from '@/design/designFunctions/shadows/shadows';
 export { default as scrollbar } from '@/design/theme/globalStyle/scrollbar/scrollbar';
 export { default as arrayToCssValues } from '@/design/designFunctions/arrayToCssValues/arrayToCssValues';
+export { default as generateInsetBorderRadius } from '@/design/designFunctions/generateInsetBorderRadius/generateInsetBorderRadius';
+export { default as checkThemeValue } from '@/design/designFunctions/checkThemeValue/checkThemeValue';
 
 // ---------- Interfaces ------- //
 export * from '@/interface';
