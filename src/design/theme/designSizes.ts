@@ -64,5 +64,5 @@ export const borderRadius = {
   lg: 24 + 'px',
   xl: 32 + 'px',
   xxl: 40 + 'px',
-  complete: '50px',
+  complete: '200px',
 };
