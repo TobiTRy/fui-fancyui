@@ -23,7 +23,7 @@ const InnerCard = styled.div`
   flex-wrap: wrap;
 `;
 
-export default function FancyContentCard(props: IContentCardProps) {
+export default function FancyCard(props: IContentCardProps) {
   const { image, title, subtitle, description } = { ...defaultProps, ...props };
 
   return (
@@ -50,6 +50,6 @@ export default function FancyContentCard(props: IContentCardProps) {
 const defaultProps: IContentCardProps = {
   image: 'https://picsum.photos/300/300',
   title: 'My Fancy Product',
-  subtitle: 'FancyContentCard',
+  subtitle: 'FancyCard',
   description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
 };

@@ -2,7 +2,7 @@ import React from 'react';
 
 import Card from '../../components/atoms/Card/Card';
 import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
-import FancyContentCard from '../../components/molecules/FancyContentCard/FancyContentCard';
+import FancyCard from '../../components/molecules/FancyCard/FancyCard';
 import { css } from 'styled-components';
 
 export default function CradRoute() {
@@ -27,7 +27,7 @@ export default function CradRoute() {
         </Card>
       </DesignArea>
       <DesignArea title="Card for Content with static size" style={backgroundColor}>
-        <FancyContentCard />
+        <FancyCard />
       </DesignArea>
     </DesignWrapper>
   );

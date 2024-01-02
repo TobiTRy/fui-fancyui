@@ -20,7 +20,7 @@ import { FancyNumberInput } from '@/components/organisms/FancyNumberInput';
 import { Card } from '@/components/atoms/Card';
 import { FancyBox } from '@/components/atoms/FancyBox';
 import { SVGCheckMark } from '@/components/icons/SVGCheckMark';
-import FancyContentCard from '@/components/templates/FancyMiniContentCard/FancyMiniContentCard';
+import FancyCard from '@/components/templates/FancyCard/FancyCard';
 import { DescriptionPreview } from '@/components/atoms/DescriptionPreview';
 import { FancyAlignBox } from '@/components/templates/FancyAlignBox';
 import { generateInsetBorderRadius } from '@/design/designFunctions/generateInsetBorderRadius';
@@ -69,20 +69,20 @@ export default function ExperimentalRoute() {
   return (
     <>
       <div style={{ display: 'flex', gap: '12px' }}>
-        <FancyContentCard>
-          <FancyContentCard.FlexBox direction="column">
-            <FancyContentCard.FlexBox direction="column" justify="center" align="center">
-              <FancyContentCard.Image className="card_image" src={'http://ilovepixel.eu/images/shibi.png'} sizeW="sm" />
-            </FancyContentCard.FlexBox>
-            <FancyContentCard.SpacingBox padding={[0, 'md', 'lg', 'md']}>
-              <FancyContentCard.SubTitle layer={5} className="card_subtitle" addLineHeight>
+        <FancyCard>
+          <FancyCard.FlexBox direction="column">
+            <FancyCard.FlexBox direction="column" justify="center" align="center">
+              <FancyCard.Image className="card_image" src={'http://ilovepixel.eu/images/shibi.png'} sizeW="sm" />
+            </FancyCard.FlexBox>
+            <FancyCard.SpacingBox padding={[0, 'md', 'lg', 'md']}>
+              <FancyCard.SubTitle layer={5} className="card_subtitle" addLineHeight>
                 {'Grow steadily and pizza. Grow steadily and pizza. Grow steadily and pizza.Grow steadily and pizza.'}
-              </FancyContentCard.SubTitle>
-              <FancyContentCard.Title className="card_title" weight="bold" addLineHeight>
+              </FancyCard.SubTitle>
+              <FancyCard.Title className="card_title" weight="bold" addLineHeight>
                 {'Corporat<e'}
-              </FancyContentCard.Title>
+              </FancyCard.Title>
 
-              <FancyContentCard.Descritpion layer={3} className="card_description" addLineHeight>
+              <FancyCard.Descritpion layer={3} className="card_description" addLineHeight>
                 <DescriptionPreview
                   description={
                     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet ligula id libero tristique cursus. Mauris at volutpat leo. Vivamus in arcu non leo elementum cursus nec sit amet quam. Nullam eget nunc eget leo elementum sodales. Suspendisse potenti. Sed et sapien nec sapien convallis ullamcorper. Nulla facilisi. Curabitur at justo ac nisl auctor gravida non eget nibh.Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut vitae lacus non felis suscipit faucibus. Nulla facilisi. Duis dignissim nisl ut elit suscipit, et commodo leo cursus. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit.'
@@ -90,10 +90,10 @@ export default function ExperimentalRoute() {
                   letterLimit={150}
                   text={{ showMore: 'Expand' }}
                 />
-              </FancyContentCard.Descritpion>
-            </FancyContentCard.SpacingBox>
-          </FancyContentCard.FlexBox>
-          <FancyContentCard.SpacingBox padding={['sm']}>
+              </FancyCard.Descritpion>
+            </FancyCard.SpacingBox>
+          </FancyCard.FlexBox>
+          <FancyCard.SpacingBox padding={['sm']}>
             <FancyButton
               label="Click me"
               wide
@@ -101,43 +101,43 @@ export default function ExperimentalRoute() {
               textColor="primary"
               borderRadius="complete"
             ></FancyButton>
-          </FancyContentCard.SpacingBox>
-        </FancyContentCard>
+          </FancyCard.SpacingBox>
+        </FancyCard>
         {/* CARD 2 */}
         {/* CARD 2 */}
         {/* CARD 2 */}
         {/* CARD 2 */}
         {/* CARD 2 */}
         {/* CARD 2 */}
-        <FancyContentCard>
-          <FancyContentCard.FlexBox direction="column">
-            <FancyContentCard.SpacingBox padding={['md', 'md', 'md', 'md']}>
-              <FancyContentCard.Image
+        <FancyCard>
+          <FancyCard.FlexBox direction="column">
+            <FancyCard.SpacingBox padding={['md', 'md', 'md', 'md']}>
+              <FancyCard.Image
                 sizeW="fit"
                 borderRadius={generateInsetBorderRadius('lg', 'md')}
                 src={'https://placehold.co/600x400'}
               />
-              <FancyContentCard.Box margin={['xs', 0]}>
-                <FancyContentCard.SubTitle layer={5} addLineHeight>
+              <FancyCard.Box margin={['xs', 0]}>
+                <FancyCard.SubTitle layer={5} addLineHeight>
                   {'Grow steadily and pizza. Grow steadily and pizza. Grow steadily and pizza.Grow steadily and pizza.'}
-                </FancyContentCard.SubTitle>
-              </FancyContentCard.Box>
-              <FancyContentCard.Title weight="bold" addLineHeight>
+                </FancyCard.SubTitle>
+              </FancyCard.Box>
+              <FancyCard.Title weight="bold" addLineHeight>
                 {'Corporate'}
-              </FancyContentCard.Title>
-              <FancyContentCard.Box margin={['xs', 0]}>
-                <FancyContentCard.Descritpion layer={3} addLineHeight>
+              </FancyCard.Title>
+              <FancyCard.Box margin={['xs', 0]}>
+                <FancyCard.Descritpion layer={3} addLineHeight>
                   <DescriptionPreview
                     description={
                       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet ligula id libero tristique cursus. Mauris at volutpat leo. Vivamus in arcu non leo elementum cursus nec sit amet quam. Nullam eget nunc eget leo elementum sodales. Suspendisse potenti. Sed et sapien nec sapien convallis ullamcorper. Nulla facilisi. Curabitur at justo ac nisl auctor gravida non eget nibh.Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut vitae lacus non felis suscipit faucibus. Nulla facilisi. Duis dignissim nisl ut elit suscipit, et commodo leo cursus. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit.'
                     }
                   />
-                </FancyContentCard.Descritpion>
-              </FancyContentCard.Box>
-            </FancyContentCard.SpacingBox>
-          </FancyContentCard.FlexBox>
+                </FancyCard.Descritpion>
+              </FancyCard.Box>
+            </FancyCard.SpacingBox>
+          </FancyCard.FlexBox>
 
-          <FancyContentCard.SpacingBox padding={[0, 'sm', 'sm', 'sm']}>
+          <FancyCard.SpacingBox padding={[0, 'sm', 'sm', 'sm']}>
             <FancyButton
               label="Click me"
               wide
@@ -145,8 +145,8 @@ export default function ExperimentalRoute() {
               textColor="primary"
               borderRadius="complete"
             ></FancyButton>
-          </FancyContentCard.SpacingBox>
-        </FancyContentCard>
+          </FancyCard.SpacingBox>
+        </FancyCard>
       </div>
       {/* LINEEE */}
       {/* LINEEE */}
@@ -155,18 +155,18 @@ export default function ExperimentalRoute() {
       {/* LINEEE */}
       {/* LINEEE */}
       <div style={{ display: 'flex', gap: '12px' }}>
-        <FancyContentCard>
-          <FancyContentCard.FlexBox direction="column">
-            <FancyContentCard.Image className="card_image" src={'http://ilovepixel.eu/images/shibi.png'} />
-            <FancyContentCard.SpacingBox padding={[0, 'md', 'lg', 'md']}>
-              <FancyContentCard.SubTitle layer={5} className="card_subtitle" addLineHeight>
+        <FancyCard>
+          <FancyCard.FlexBox direction="column">
+            <FancyCard.Image className="card_image" src={'http://ilovepixel.eu/images/shibi.png'} />
+            <FancyCard.SpacingBox padding={[0, 'md', 'lg', 'md']}>
+              <FancyCard.SubTitle layer={5} className="card_subtitle" addLineHeight>
                 {'Grow steadily and pizza. Grow steadily and pizza. Grow steadily and pizza.Grow steadily and pizza.'}
-              </FancyContentCard.SubTitle>
-              <FancyContentCard.Title className="card_title" weight="bold" addLineHeight>
+              </FancyCard.SubTitle>
+              <FancyCard.Title className="card_title" weight="bold" addLineHeight>
                 {'Corporate'}
-              </FancyContentCard.Title>
+              </FancyCard.Title>
 
-              <FancyContentCard.Descritpion layer={3} className="card_description" addLineHeight>
+              <FancyCard.Descritpion layer={3} className="card_description" addLineHeight>
                 <DescriptionPreview
                   description={
                     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet ligula id libero tristique cursus. Mauris at volutpat leo. Vivamus in arcu non leo elementum cursus nec sit amet quam. Nullam eget nunc eget leo elementum sodales. Suspendisse potenti. Sed et sapien nec sapien convallis ullamcorper. Nulla facilisi. Curabitur at justo ac nisl auctor gravida non eget nibh.Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut vitae lacus non felis suscipit faucibus. Nulla facilisi. Duis dignissim nisl ut elit suscipit, et commodo leo cursus. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit.'
@@ -174,10 +174,10 @@ export default function ExperimentalRoute() {
                   letterLimit={150}
                   text={{ showMore: 'Expand' }}
                 />
-              </FancyContentCard.Descritpion>
-            </FancyContentCard.SpacingBox>
-          </FancyContentCard.FlexBox>
-          <FancyContentCard.SpacingBox padding={['sm']}>
+              </FancyCard.Descritpion>
+            </FancyCard.SpacingBox>
+          </FancyCard.FlexBox>
+          <FancyCard.SpacingBox padding={['sm']}>
             <FancyButton
               label="Click me"
               wide
@@ -185,8 +185,8 @@ export default function ExperimentalRoute() {
               textColor="primary"
               borderRadius="complete"
             ></FancyButton>
-          </FancyContentCard.SpacingBox>
-        </FancyContentCard>
+          </FancyCard.SpacingBox>
+        </FancyCard>
 
         {/* CARD 2222 */}
         {/* CARD 2222 */}
@@ -194,18 +194,18 @@ export default function ExperimentalRoute() {
         {/* CARD 2222 */}
         {/* CARD 2222 */}
         {/* CARD 2222 */}
-        <FancyContentCard>
-          <FancyContentCard.FlexBox direction="column">
-            <FancyContentCard.Image borderRadius="md" src={'http://ilovepixel.eu/images/shibi.png'} />
-            <FancyContentCard.SpacingBox padding={[0, 'md', 'lg', 'md']}>
-              <FancyContentCard.SubTitle layer={5} className="card_subtitle" addLineHeight>
+        <FancyCard>
+          <FancyCard.FlexBox direction="column">
+            <FancyCard.Image borderRadius="md" src={'http://ilovepixel.eu/images/shibi.png'} />
+            <FancyCard.SpacingBox padding={[0, 'md', 'lg', 'md']}>
+              <FancyCard.SubTitle layer={5} className="card_subtitle" addLineHeight>
                 {'Grow steadily and pizza. Grow steadily and pizza. Grow steadily and pizza.Grow steadily and pizza.'}
-              </FancyContentCard.SubTitle>
-              <FancyContentCard.Title className="card_title" weight="bold" addLineHeight>
+              </FancyCard.SubTitle>
+              <FancyCard.Title className="card_title" weight="bold" addLineHeight>
                 {'Corporate'}
-              </FancyContentCard.Title>
+              </FancyCard.Title>
 
-              <FancyContentCard.Descritpion layer={3} className="card_description" addLineHeight>
+              <FancyCard.Descritpion layer={3} className="card_description" addLineHeight>
                 <DescriptionPreview
                   description={
                     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet ligula id libero tristique cursus. Mauris at volutpat leo. Vivamus in arcu non leo elementum cursus nec sit amet quam. Nullam eget nunc eget leo elementum sodales. Suspendisse potenti. Sed et sapien nec sapien convallis ullamcorper. Nulla facilisi. Curabitur at justo ac nisl auctor gravida non eget nibh.Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut vitae lacus non felis suscipit faucibus. Nulla facilisi. Duis dignissim nisl ut elit suscipit, et commodo leo cursus. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit.'
@@ -213,10 +213,10 @@ export default function ExperimentalRoute() {
                   letterLimit={150}
                   text={{ showMore: 'Expand' }}
                 />
-              </FancyContentCard.Descritpion>
-            </FancyContentCard.SpacingBox>
-          </FancyContentCard.FlexBox>
-          <FancyContentCard.SpacingBox padding={['sm']}>
+              </FancyCard.Descritpion>
+            </FancyCard.SpacingBox>
+          </FancyCard.FlexBox>
+          <FancyCard.SpacingBox padding={['sm']}>
             <FancyButton
               label="Click me"
               wide
@@ -224,8 +224,8 @@ export default function ExperimentalRoute() {
               textColor="primary"
               borderRadius="complete"
             ></FancyButton>
-          </FancyContentCard.SpacingBox>
-        </FancyContentCard>
+          </FancyCard.SpacingBox>
+        </FancyCard>
       </div>
       <DesignWrapper>
         <DesignArea title="Test">
