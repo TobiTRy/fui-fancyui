@@ -5,7 +5,7 @@ import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
 import FancyLoadingSpinner from '../../components/atoms/FancyLoadingSpinner/FancyLoadingSpinner';
 import FancyLoadingBar from '../../components/atoms/FancyLoadingBar/FancyLoadingBar';
 import ProgressBar from '../../components/molecules/FancyProgressBar/FancyProgressBar'; // Corrected the import name
-import { FancyCard } from '@/components/atoms/FancyCard';
+import { FancyCard } from '@/components/atoms/Card';
 
 export default function LoadingSpinnerRoute() {
   const [progress, setProgress] = React.useState(0);

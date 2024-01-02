@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { FancyCard } from '@/components/atoms/FancyCard';
+import { FancyCard } from '@/components/atoms/Card';
 import { TThemeTypes } from '@/types/TThemeTypes';
 import { TLayer } from '@/types/TLayer';
 

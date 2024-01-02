@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
 
-import { FancyCard } from '@/components/atoms/FancyCard';
+import { FancyCard } from '@/components/atoms/Card';
 import { Typography } from '@/components/atoms/Typography';
 
 interface IContentCardProps {

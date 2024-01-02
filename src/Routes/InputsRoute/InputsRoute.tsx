@@ -9,7 +9,7 @@ import FancyDropDownSelect from '../../components/organisms/FancyDropDownSelect/
 import FancyDateInput from '../../components/organisms/FancyDateInput/FancyDateInput';
 import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';
 import FancyDateDropDown from '../../components/templates/Inputs/FancyDateDropDown/FancyDateDropDown';
-import { FancyCard } from '@/components/atoms/FancyCard';
+import { FancyCard } from '@/components/atoms/Card';
 
 const svg = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">

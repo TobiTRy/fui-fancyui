@@ -2,7 +2,7 @@ import React from 'react';
 
 import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
 import ClipBoardIconCheck from '../../components/icons/SVGClipBoardIconChecked/SVGClipBoardIconChecked';
-import { FancyCard } from '@/components/atoms/FancyCard';
+import { FancyCard } from '@/components/atoms/Card';
 import ChipList from '../../components/molecules/ChipList/ChipList';
 import FancyChipList from '../../components/organisms/FancyChipList/FancyChipList';
 import FancyChip from '@/components/templates/FancyChip/FancyChip';

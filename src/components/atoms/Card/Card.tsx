@@ -1,5 +1,5 @@
 import { IFancyBox } from '@/components/atoms/FancyBox/';
-import { StyledCardProps } from '@/components/atoms/FancyCard/Card.model';
+import { StyledCardProps } from '@/components/atoms/Card/Card.model';
 import { StyledCard } from './Card.style';
 
 // --------------------------------------------------------------------------- //

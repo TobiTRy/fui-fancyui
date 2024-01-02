@@ -17,7 +17,7 @@ import { FancyButton } from '@/components/organisms/FancyButton';
 import { SingleToastMessage } from '@/components/molecules/SingleToastMessage';
 
 import { FancyNumberInput } from '@/components/organisms/FancyNumberInput';
-import { FancyCard } from '@/components/atoms/FancyCard';
+import { FancyCard } from '@/components/atoms/Card';
 import { FancyBox } from '@/components/atoms/FancyBox';
 import { SVGCheckMark } from '@/components/icons/SVGCheckMark';
 import FancyContentCard from '@/components/templates/FancyMiniContentCard/FancyMiniContentCard';
