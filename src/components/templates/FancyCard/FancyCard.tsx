@@ -9,6 +9,7 @@ import CardSpacing from '@/components/templates/FancyCard/Components/CardSpacing
 import CardSubTitle from '@/components/templates/FancyCard/Components/CardSubTitle';
 import CardTitle from '@/components/templates/FancyCard/Components/CardTitle';
 import CardImage from '@/components/templates/FancyCard/Components/CardImage';
+import CardIcon from '@/components/templates/FancyCard/Components/CardIcon';
 
 function FancyCard(props: TCard) {
   const { externalStyle, ...cardProps } = props;
@@ -26,6 +27,7 @@ function FancyCard(props: TCard) {
 }
 
 FancyCard.Image = CardImage;
+FancyCard.Icon = CardIcon;
 FancyCard.Title = CardTitle;
 FancyCard.SubTitle = CardSubTitle;
 FancyCard.Descritpion = CardDescription;

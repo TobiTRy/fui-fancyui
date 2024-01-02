@@ -24,6 +24,7 @@ import FancyCard from '@/components/templates/FancyCard/FancyCard';
 import { DescriptionPreview } from '@/components/atoms/DescriptionPreview';
 import { FancyAlignBox } from '@/components/templates/FancyAlignBox';
 import { generateInsetBorderRadius } from '@/design/designFunctions/generateInsetBorderRadius';
+import FancyMiniItemCard from '@/components/templates/FancyMiniItemCard/FancyMiniItemCard';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -69,6 +70,8 @@ export default function ExperimentalRoute() {
   return (
     <>
       <div style={{ display: 'flex', gap: '12px' }}>
+        <FancyMiniItemCard />
+
         <FancyCard>
           <FancyCard.FlexBox direction="column">
             <FancyCard.FlexBox direction="column" justify="center" align="center">

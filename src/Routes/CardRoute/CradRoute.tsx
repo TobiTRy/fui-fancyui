@@ -1,9 +1,9 @@
 import React from 'react';
+import { css } from 'styled-components';
 
 import Card from '../../components/atoms/Card/Card';
 import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
-import FancyCard from '../../components/molecules/FancyCard/FancyCard';
-import { css } from 'styled-components';
+import { FancyCard } from '@/components/templates/FancyCard';
 
 export default function CradRoute() {
   const backgroundColor = css`

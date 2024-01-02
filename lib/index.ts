@@ -59,7 +59,7 @@ export { default as DateOutputFromTo } from '@/components/molecules/DateOutputFr
 export { default as DynamicBottomScrollBar } from '@/components/molecules/DynamicBottomScrollBar/DynamicBottomScrollBar';
 export { default as EditBar } from '@/components/molecules/EditBar/EditBar';
 export { default as BottomBar } from '@/components/molecules/BottomBar/BottomBar';
-export { default as FancyCard } from '@/components/molecules/FancyCard/FancyCard';
+export { default as FancyContentCard } from '@/components/molecules/FancyContentCard/FancyContentCard';
 export { default as FancyDropDownUL } from '@/components/molecules/FancyDropDownUL/FancyDropDownUL';
 export { default as FancySpeedDialButton } from '@/components/molecules/FancySpeedDailButton/FancySpeedDailButton';
 export { default as InputWrapper } from '@/components/molecules/InputWrapper/InputWrapper';

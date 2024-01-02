@@ -27,8 +27,6 @@ export const generateFontVariants = (themeFonts: TFontSizes, addLineHeight?: boo
     return 1;
   };
 
-  const VARLineHeight = addLineHeight ? 1.4 : 1;
-
   return {
     h1: css`
       ${nullifyStyle};
@@ -77,7 +75,6 @@ export const generateFontVariants = (themeFonts: TFontSizes, addLineHeight?: boo
       ${nullifyStyle};
       ${responsiveFontSize(mobile.textElements.caption, desktop.textElements.caption)}
       font-weight: 400;
-      line-height: ${VARLineHeight};
       line-height: ${getLineHeight(addLineHeight ?? false)};
     `,
     content: css`

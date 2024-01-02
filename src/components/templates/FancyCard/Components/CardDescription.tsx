@@ -9,7 +9,7 @@ export default function CardDescription(props: TCardSubTitleProps) {
   const { children, type, variant, ...typoProps } = props;
 
   return (
-    <Typography type={type ?? 'content'} variant={variant ?? 'inlineElement'} {...typoProps}>
+    <Typography type={type ?? 'content'} addLineHeight variant={variant ?? 'inlineElement'} {...typoProps}>
       {children}
     </Typography>
   );
