@@ -1,1 +1,1 @@
-export { default as FancyCard } from './FancyCard';
+export { default as FancyCard } from './Card';

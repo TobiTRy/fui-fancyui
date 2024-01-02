@@ -18,8 +18,3 @@ export const StyledCard = styled(FancyBox)<IStyledCard & { theme: TTheme }>`
   border-radius: ${({ $roundedEdges }) => ($roundedEdges ? arrayToCssValues($roundedEdges) : '')};
   ${({ $shadow }) => $shadow && boxShadow.sm};
 `;
-
-export const InnerCard = styled.div`
-  width: 100%;
-  height: 100%;
-`;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { css } from 'styled-components';
 
-import { IFancyCard } from '@/components/atoms/FancyCard/FancyCard';
+import { IFancyCard } from '@/components/atoms/FancyCard/Card';
 import { TComponentSizes } from '@/types/TComponentSizes';
 
 import { FancyBox } from '@/components/atoms/FancyBox';

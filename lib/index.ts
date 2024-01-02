@@ -6,7 +6,7 @@ export { default as DateOutput } from '@/components/atoms/DateOutput/DateOutput'
 export { default as DropDownSelect } from '@/components/atoms/DropDownSelect/DropDownSelect';
 export { default as EditBarModal } from '@/components/atoms/EditBarModal/EditBarModal';
 export { default as FancyPill } from '@/components/atoms/FancyPill/FancyPill';
-export { default as FancyCard } from '@/components/atoms/FancyCard/FancyCard';
+export { default as FancyCard } from '@/components/atoms/FancyCard/Card';
 export { default as FancyLine } from '@/components/atoms/FancyLine/FancyLine';
 export { default as FancyLI } from '@/components/atoms/FancyLI/FancyLI';
 export { default as FancyLoadingSpinner } from '@/components/atoms/FancyLoadingSpinner/FancyLoadingSpinner';

@@ -2,7 +2,7 @@
 import { Meta, StoryObj } from '@storybook/react';
 
 // Import the component to be tested
-import FancyCard from './FancyCard';
+import FancyCard from './Card';
 // Define metadata for the story
 const meta = {
   title: 'components/atoms/FancyCard',
@@ -19,19 +19,10 @@ const meta = {
 
   // Define arguments for the story
   argTypes: {
-    height: {
-      control: { type: 'text' },
-    },
-    width: {
-      control: { type: 'text' },
-    },
     themeType: {
       control: { type: 'select', options: ['primary', 'secondary', 'accent'] },
     },
     layer: {
-      control: { type: 'range', min: 0, max: 10, step: 1 },
-    },
-    textLayer: {
       control: { type: 'range', min: 0, max: 10, step: 1 },
     },
     roundedEdges: {
@@ -39,6 +30,9 @@ const meta = {
     },
     shadow: {
       control: { type: 'boolean' },
+    },
+    padding: {
+      control: { type: 'object' },
     },
   },
 
@@ -63,8 +57,7 @@ export const Primary: Story = {
     shadow: true,
     themeType: 'primary',
     layer: 3,
-    width: '100%',
-    height: '100%',
+    padding: ['sm', 'md', 'lg', 'xl'],
   },
   parameters: {
     docs: {
