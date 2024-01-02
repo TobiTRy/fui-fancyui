@@ -72,7 +72,7 @@ export default function FancyChipList(props: ChipListProps) {
       <ChipList themeType={themeType} layer={layer} outlined={outlined} size={size} systemMessage={systemInformation}>
         {/* // Mapping through each chip in the state to render a FancyChip */}
         {chipState.map((chip, index) => (
-          <li key={index} tabIndex={0}>
+          <li key={index}>
             <FancyChip
               isHoverable
               tabIndex={0}
