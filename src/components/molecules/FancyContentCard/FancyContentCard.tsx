@@ -23,7 +23,7 @@ const InnerCard = styled.div`
   flex-wrap: wrap;
 `;
 
-export default function FancyCard(props: IContentCardProps) {
+export default function FancyContentCard(props: IContentCardProps) {
   const { image, title, subtitle, description } = { ...defaultProps, ...props };
 
   return (

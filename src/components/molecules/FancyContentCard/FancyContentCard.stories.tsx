@@ -1,11 +1,9 @@
-import React from 'react';
-
 import type { Meta, StoryObj } from '@storybook/react';
 
-import FancyCard from './FancyCard';
+import { FancyContentCard } from '@/components/molecules/FancyContentCard';
 
 const meta = {
-  component: FancyCard,
+  component: FancyContentCard,
   parameters: {
     docs: {
       description: {
@@ -16,14 +14,14 @@ const meta = {
   },
   argTypes: {},
   tags: ['autodocs'],
-} satisfies Meta<typeof FancyCard>;
+} satisfies Meta<typeof FancyContentCard>;
 
 export default meta;
 
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
-  render: (args) => <FancyCard {...args} />,
+  render: (args) => <FancyContentCard {...args} />,
   args: {
     description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
     image: 'https://picsum.photos/300/300',
