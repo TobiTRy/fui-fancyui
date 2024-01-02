@@ -5,8 +5,8 @@ import { StyledCard } from './Card.style';
 // --------------------------------------------------------------------------- //
 // ---------- The card is there to wrapp some content or components ---------- //
 // --------------------------------------------------------------------------- //
-export type IFancyCard = StyledCardProps & IFancyBox;
-export default function FancyCard(props: IFancyCard) {
+export type TCard = StyledCardProps & IFancyBox;
+export default function Card(props: TCard) {
   const {
     children,
     padding,
@@ -26,7 +26,7 @@ export default function FancyCard(props: IFancyCard) {
   );
 }
 
-const defaultProps: IFancyCard = {
+const defaultProps: TCard = {
   shadow: true,
-  borderRadius: ['xl'],
+  borderRadius: ['lg'],
 };

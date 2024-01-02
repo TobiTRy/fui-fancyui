@@ -2,11 +2,11 @@ import React from 'react';
 import Typography from '../../components/atoms/Typography/Typography';
 
 import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';
-import FancyCard from '../../components/atoms/Card/Card';
+import Card from '../../components/atoms/Card/Card';
 
 export default function Typogrphy() {
   return (
-    <FancyCard>
+    <Card>
       <DesignWrapper>
         <DesignArea title="Typography">
           <div style={{ flexDirection: 'column' }}>
@@ -34,6 +34,6 @@ export default function Typogrphy() {
           <div style={{ flexDirection: 'column' }}></div>
         </DesignArea>
       </DesignWrapper>
-    </FancyCard>
+    </Card>
   );
 }

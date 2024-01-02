@@ -17,11 +17,10 @@ import { FancyButton } from '@/components/organisms/FancyButton';
 import { SingleToastMessage } from '@/components/molecules/SingleToastMessage';
 
 import { FancyNumberInput } from '@/components/organisms/FancyNumberInput';
-import { FancyCard } from '@/components/atoms/Card';
+import { Card } from '@/components/atoms/Card';
 import { FancyBox } from '@/components/atoms/FancyBox';
 import { SVGCheckMark } from '@/components/icons/SVGCheckMark';
 import FancyContentCard from '@/components/templates/FancyMiniContentCard/FancyMiniContentCard';
-import Card from '@/components/templates/TestCard/TestCard';
 import { DescriptionPreview } from '@/components/atoms/DescriptionPreview';
 import { FancyAlignBox } from '@/components/templates/FancyAlignBox';
 import { generateInsetBorderRadius } from '@/design/designFunctions/generateInsetBorderRadius';
@@ -231,7 +230,7 @@ export default function ExperimentalRoute() {
       <DesignWrapper>
         <DesignArea title="Test">
           <Card />
-          <FancyCard>
+          <Card>
             <FancyContent direction="column" justify="center">
               <FancyContent.Icon size="xl">
                 <SVGCheckMark />
@@ -239,7 +238,7 @@ export default function ExperimentalRoute() {
               <FancyContent.Title>Test</FancyContent.Title>
               <FancyContent.Description>Test fgfg fgfggf fgfgfg sddssd sddsds sddssd sdsdsd </FancyContent.Description>
             </FancyContent>
-          </FancyCard>
+          </Card>
           <FancyNumberInput />
           <FancyButton
             borderRadius="md"

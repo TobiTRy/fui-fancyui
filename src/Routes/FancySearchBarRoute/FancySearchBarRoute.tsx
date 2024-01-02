@@ -4,7 +4,7 @@ import FancySearchBar from '../../components/organisms/FancySearchBar/FancySearc
 
 import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';
 import { styled } from 'styled-components';
-import { FancyCard } from '@/components/atoms/Card';
+import { Card } from '@/components/atoms/Card';
 
 const users = [
   {
@@ -72,7 +72,7 @@ export default function FancySearchBarRoute() {
   }, []);
 
   return (
-    <FancyCard height="500px">
+    <Card height="500px">
       <DesignWrapper>
         <DesignArea title="Fancy Search Bar">
           <FancySearchBar handlerSearchValue={searchHandler} searchValue={searchValue}>
@@ -87,6 +87,6 @@ export default function FancySearchBarRoute() {
           </FancySearchBar>
         </DesignArea>
       </DesignWrapper>
-    </FancyCard>
+    </Card>
   );
 }

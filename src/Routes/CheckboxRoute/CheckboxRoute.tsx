@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 
 import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
 import FancyCheckbox from '../../components/molecules/FancyCheckbox/FancyCheckbox';
-import { FancyCard } from '@/components/atoms/Card';
+import { Card } from '@/components/atoms/Card';
 import RawRadio from '@/components/atoms/RawRadio/RawRadio';
 import FancyRadio from '@/components/organisms/FancyRadio/FancyRadio';
 import CustomRadio from '@/components/atoms/RawRadio/RawRadio';
@@ -37,7 +37,7 @@ export default function CheckboxRoute() {
   };
 
   return (
-    <FancyCard>
+    <Card>
       <DesignWrapper>
         <DesignArea title="checkbox" style={{ alignItems: 'flex-start' }}>
           <FancyCheckbox
@@ -91,6 +91,6 @@ export default function CheckboxRoute() {
           <FancyRadioList label="YAAAA MOOIIIN" name="hii" items={itemList} />
         </DesignArea>
       </DesignWrapper>
-    </FancyCard>
+    </Card>
   );
 }

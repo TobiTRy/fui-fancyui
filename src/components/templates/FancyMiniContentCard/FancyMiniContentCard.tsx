@@ -1,44 +1,30 @@
-import React from 'react';
 import { css } from 'styled-components';
 
-import { IFancyCard } from '@/components/atoms/Card/Card';
-import { TComponentSizes } from '@/types/TComponentSizes';
+import Card, { TCard } from '@/components/atoms/Card/Card';
 
-import { FancyBox } from '@/components/atoms/FancyBox';
-import { FancyFlexBox } from '@/components/templates/FancyFlexBox';
-import { generateFancyMiniContentCardStyle } from '@/components/templates/FancyMiniContentCard/FancyMiniContentCard.style';
-import CardTitle from '@/components/templates/FancyMiniContentCard/Components/CardTitle';
-import CardSubTitle from '@/components/templates/FancyMiniContentCard/Components/CardSubTitle';
-import CardSpacing from '@/components/templates/FancyMiniContentCard/Components/CardSpacing';
-import CardDescription from '@/components/templates/FancyMiniContentCard/Components/CardDescription';
 import { FancyAlignBox } from '@/components/templates/FancyAlignBox';
+import { FancyFlexBox } from '@/components/templates/FancyFlexBox';
+import CardDescription from '@/components/templates/FancyMiniContentCard/Components/CardDescription';
+import CardSpacing from '@/components/templates/FancyMiniContentCard/Components/CardSpacing';
+import CardSubTitle from '@/components/templates/FancyMiniContentCard/Components/CardSubTitle';
+import CardTitle from '@/components/templates/FancyMiniContentCard/Components/CardTitle';
+import { generateFancyMiniContentCardStyle } from '@/components/templates/FancyMiniContentCard/FancyMiniContentCard.style';
 
 import CardImage from '@/components/templates/FancyMiniContentCard/Components/CardImage';
 
-export type TFancyMiniContentCardProps = {
-  symbol?: React.ReactNode;
-  title?: string;
-  subTitle?: string;
-  description?: string;
-  size?: TComponentSizes;
-  src?: string;
-} & IFancyCard;
+function FancyContentCard(props: TCard) {
+  const { externalStyle, ...cardProps } = props;
 
-function FancyContentCard(props: TFancyMiniContentCardProps) {
-  const { size, externalStyle, children, ...cardProps } = props;
-
-  const generateCardStyle = generateFancyMiniContentCardStyle({ $size: size });
+  const generateCardStyle = generateFancyMiniContentCardStyle();
 
   return (
-    <FancyBox
+    <Card
       externalStyle={css`
         ${generateCardStyle};
         ${externalStyle};
       `}
       {...cardProps}
-    >
-      {children}
-    </FancyBox>
+    />
   );
 }
 

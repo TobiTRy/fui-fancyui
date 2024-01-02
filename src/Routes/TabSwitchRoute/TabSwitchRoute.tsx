@@ -3,7 +3,7 @@ import React from 'react';
 import FancyTabSwitch from '../../components/molecules/FancyTabSwitch/FancyTabSwitch';
 import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';
 import { css } from 'styled-components';
-import { FancyCard } from '@/components/atoms/Card';
+import { Card } from '@/components/atoms/Card';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -58,7 +58,7 @@ export default function TabSwitchRoute() {
         currentSelect={test}
         handler={(id: string) => setTest(id)}
       />
-      <FancyCard layer={1}>
+      <Card layer={1}>
         <DesignWrapper>
           <DesignArea
             title="TabSwitch"
@@ -163,7 +163,7 @@ export default function TabSwitchRoute() {
             />
           </DesignArea>
         </DesignWrapper>
-      </FancyCard>
+      </Card>
     </>
   );
 }

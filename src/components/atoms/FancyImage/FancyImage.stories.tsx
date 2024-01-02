@@ -24,6 +24,29 @@ const meta = {
     alt: {
       control: { type: 'text' },
     },
+    aspectRatio: {
+      control: { type: 'text' },
+    },
+    sizeH: {
+      sizeW: {
+        description: 'The height of the image',
+        control: {
+          type: 'select',
+        },
+        defaultValue: {
+          summary: '',
+        },
+      },
+    },
+    sizeW: {
+      description: 'The width of the image',
+      control: {
+        type: 'select',
+      },
+      defaultValue: {
+        summary: '',
+      },
+    },
   },
 
   // Add tags to the story
