@@ -6,25 +6,33 @@ import { TTheme } from '@/types/TTheme';
 import { TComponentSizesExtended } from '@/types/TComponentSizes';
 import { globalSizes } from '@/design/theme/globalSizes';
 
-type TCardImage = TFancyImage & {
+import IStyledPrefixAndPicker from '@/types/IStyledPrefixAndPicker';
+import { TBorderRadiusSizes } from '@/types/TBorderRadiusSizes';
+import { checkThemeValue } from '@/design/designFunctions/checkThemeValue';
+
+type TCardImage = {
   inset?: boolean;
   size?: TComponentSizesExtended | 'complete';
+  borderRadius?: string;
 };
-export default function CardImage(props: TCardImage) {
-  const { inset, className, size, ...fancyImageProps } = props;
+export default function CardImage(props: TCardImage & Omit<TFancyImage, 'borderRadius'>) {
+  const { inset, size, borderRadius, ...fancyImageProps } = props;
+  console.log(borderRadius);
+
   return (
-    <WarpperImage $inset={inset} $size={size}>
-      <FancyImage className={`card_image ${className ?? ''}`} {...fancyImageProps} />
+    <WarpperImage $inset={inset} $size={size} $borderRadius={borderRadius}>
+      <FancyImage {...fancyImageProps} />
     </WarpperImage>
   );
 }
 
-type WrapperImage = {
-  $inset?: boolean;
-  $size?: TComponentSizesExtended | 'complete';
-};
-const WarpperImage = styled.div<WrapperImage & { theme: TTheme }>`
+type TWrapperImage = IStyledPrefixAndPicker<TCardImage>;
+const WarpperImage = styled.div<TWrapperImage & { theme: TTheme }>`
   box-sizing: border-box;
-  padding: ${({ $inset, theme }) => ($inset ? theme.spacing.sm : '0')};
   width: ${({ $size = 'complete' }) => ($size !== 'complete' ? globalSizes[$size].elementSize : '100%')};
+
+  img {
+    border-radius: ${({ $borderRadius, theme }) =>
+      checkThemeValue($borderRadius) ? theme.borderRadius[$borderRadius as TBorderRadiusSizes] : $borderRadius};
+  }
 `;

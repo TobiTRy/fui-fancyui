@@ -12,7 +12,8 @@ import CardSubTitle from '@/components/templates/FancyMiniContentCard/Components
 import CardSpacing from '@/components/templates/FancyMiniContentCard/Components/CardSpacing';
 import CardDescription from '@/components/templates/FancyMiniContentCard/Components/CardDescription';
 import { FancyAlignBox } from '@/components/templates/FancyAlignBox';
-import { FancyImage } from '@/components/atoms/FancyImage';
+
+import CardImage from '@/components/templates/FancyMiniContentCard/Components/CardImage';
 
 export type TFancyMiniContentCardProps = {
   symbol?: React.ReactNode;
@@ -41,7 +42,7 @@ function FancyContentCard(props: TFancyMiniContentCardProps) {
   );
 }
 
-FancyContentCard.Image = FancyImage;
+FancyContentCard.Image = CardImage;
 FancyContentCard.Title = CardTitle;
 FancyContentCard.SubTitle = CardSubTitle;
 FancyContentCard.Descritpion = CardDescription;

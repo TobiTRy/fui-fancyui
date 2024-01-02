@@ -24,6 +24,7 @@ import FancyContentCard from '@/components/templates/FancyMiniContentCard/FancyM
 import Card from '@/components/templates/TestCard/TestCard';
 import { DescriptionPreview } from '@/components/atoms/DescriptionPreview';
 import { FancyAlignBox } from '@/components/templates/FancyAlignBox';
+import { generateInsetBorderRadius } from '@/design/designFunctions/generateInsetBorderRadius';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -111,8 +112,12 @@ export default function ExperimentalRoute() {
         {/* CARD 2 */}
         <FancyContentCard>
           <FancyContentCard.FlexBox direction="column">
-            <FancyContentCard.Image sizeW="fit" borderRadius="complete" src={'https://placehold.co/600x400'} />
-            <FancyContentCard.SpacingBox padding={[0, 'md', 'md', 'md']}>
+            <FancyContentCard.SpacingBox padding={['md', 'md', 'md', 'md']}>
+              <FancyContentCard.Image
+                sizeW="fit"
+                borderRadius={generateInsetBorderRadius('lg', 'md')}
+                src={'https://placehold.co/600x400'}
+              />
               <FancyContentCard.Box margin={['xs', 0]}>
                 <FancyContentCard.SubTitle layer={5} addLineHeight>
                   {'Grow steadily and pizza. Grow steadily and pizza. Grow steadily and pizza.Grow steadily and pizza.'}
