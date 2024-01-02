@@ -1,7 +1,7 @@
-import { TArrayToCssValues } from '@/design/designFunctions/arrayToCssValues/TArrayValues.model';
+import { TArrayToCssValuesInputProps } from '@/design/designFunctions/arrayToCssValues/TArrayValues.model';
 // the raw styling props for the card
 export interface StyledCardProps {
   shadow?: boolean;
-  roundedEdges?: TArrayToCssValues;
-  padding?: TArrayToCssValues;
+  borderRadius?: TArrayToCssValuesInputProps;
+  padding?: TArrayToCssValuesInputProps;
 }

@@ -17,10 +17,10 @@ export default function CradRoute() {
   return (
     <DesignWrapper>
       <DesignArea title="Card for Content with static size" style={backgroundColor}>
-        <Card width="200px" height="200px" />
+        <Card />
       </DesignArea>
       <DesignArea title="Card for Content dynamic" style={backgroundColor}>
-        <Card height="auto" radius="xxxl">
+        <Card borderRadius="xxl">
           <h1>Hello</h1>
           <h1>World</h1>
           <h1>World</h1>

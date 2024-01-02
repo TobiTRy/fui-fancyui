@@ -19,7 +19,7 @@ const meta = {
     docs: {
       description: {
         component:
-          'The FancyBox component is for displaying a card that can fill with somthing, it can be used for displaying content in a card <br> - height: the height of the card <br> - width: the width of the card <br> - themeType: the theme type of the card <br> - layer: the layer of the card <br> - textLayer: the layer of the text <br> - roundedEdges: the rounded edges of the card <br> - shadow: is the card shadowed',
+          'The FancyBox component is for displaying a card that can fill with somthing, it can be used for displaying content in a card <br> - height: the height of the card <br> - width: the width of the card <br> - themeType: the theme type of the card <br> - layer: the layer of the card <br> - textLayer: the layer of the text <br> - borderRadius: the rounded edges of the card <br> - shadow: is the card shadowed',
       },
     },
   },

@@ -10,7 +10,7 @@ export default function FancyCard(props: IFancyCard) {
   const {
     children,
     padding = true,
-    roundedEdges,
+    borderRadius,
     shadow,
     layer = 0,
     ...fancyBox
@@ -20,7 +20,7 @@ export default function FancyCard(props: IFancyCard) {
   };
 
   return (
-    <StyledCard $layer={layer} $padding={padding} $roundedEdges={roundedEdges} $shadow={shadow} {...fancyBox}>
+    <StyledCard $layer={layer} $padding={padding} $borderRadius={borderRadius} $shadow={shadow} {...fancyBox}>
       {children}
     </StyledCard>
   );
@@ -28,5 +28,5 @@ export default function FancyCard(props: IFancyCard) {
 
 const defaultProps: IFancyCard = {
   shadow: true,
-  roundedEdges: ['xl'],
+  borderRadius: ['xl'],
 };
