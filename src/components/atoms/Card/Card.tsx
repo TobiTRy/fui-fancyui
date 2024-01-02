@@ -9,7 +9,7 @@ export type IFancyCard = StyledCardProps & IFancyBox;
 export default function FancyCard(props: IFancyCard) {
   const {
     children,
-    padding = true,
+    padding,
     borderRadius,
     shadow,
     layer = 0,
