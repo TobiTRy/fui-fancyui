@@ -1,6 +1,6 @@
 import { css, styled } from 'styled-components';
 
-import { TTheme } from '@/interface/TTheme';
+import { TTheme } from '@/types/TTheme';
 import { textShadow } from '@/design/designFunctions/shadows/shadows';
 
 // Define the gradient options for the overlay
@@ -45,6 +45,20 @@ export const Overlay = styled.div<{ $position: string }>`
       case 'bottom-right':
         return css`
           background: linear-gradient(325deg, ${gradientOptions.start}, ${gradientOptions.end});
+        `;
+      case 'bottom-center':
+        return css`
+          background: linear-gradient(to top, ${gradientOptions.start}, ${gradientOptions.end});
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+        `;
+      case 'top-center':
+        return css`
+          background: linear-gradient(to bottom, ${gradientOptions.start}, ${gradientOptions.end});
+          top: 0;
+          left: 50%;
+          transform: translateX(-50%);
         `;
       default:
         return '';
@@ -92,6 +106,20 @@ export const TextWrapper = styled.div<{ $position: string; theme: TTheme }>`
           text-align: right;
           bottom: 0;
           right: 0;
+        `;
+      case 'bottom-center':
+        return css`
+          text-align: center;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+        `;
+      case 'top-center':
+        return css`
+          text-align: center;
+          top: 0;
+          left: 50%;
+          transform: translateX(-50%);
         `;
       default:
         return '';

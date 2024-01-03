@@ -18,12 +18,21 @@
     "noEmit": true,
     "outDir": "dist",
     "jsx": "react-jsx",
+    "types": ["vitest/globals"],
     /* Linting */
     "strict": true,
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src/**/*", "dist/index.d.ts", "vite.config.ts", ".eslintrc.cjs", "lib"],
+  "include": [
+    "src/**/*",
+    "dist/index.d.ts",
+    "vite.config.ts",
+    "vitest.config.ts",
+    ".eslintrc.cjs",
+    "lib",
+    "src/test/*.ts"
+  ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

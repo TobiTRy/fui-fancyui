@@ -1,9 +1,9 @@
 import { styled } from 'styled-components';
 
 import { getTextColor } from '@/design/designFunctions/colorCalculatorForComponent';
-import { TLayer } from '@/interface/TLayer';
-import { TTheme } from '@/interface/TTheme';
-import { TThemeTypes } from '@/interface/TThemeTypes';
+import { TLayer } from '@/types/TLayer';
+import { TTheme } from '@/types/TTheme';
+import { TThemeTypes } from '@/types/TThemeTypes';
 
 export const Wrapper = styled.div`
   position: relative;

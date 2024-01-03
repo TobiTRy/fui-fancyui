@@ -45,7 +45,7 @@ export default function SwitchList(props: TSwitchList) {
         ${externalStyle};
       `}
       gap={gap && theme.spacing[gap]}
-      flexDirection={switchIndicator?.direction === 'vertical' ? 'column' : 'row'}
+      direction={switchIndicator?.direction === 'vertical' ? 'column' : 'row'}
       as="ul"
     >
       {/* The Item Of the List */}

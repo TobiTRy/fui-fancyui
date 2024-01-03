@@ -3,9 +3,9 @@ import { css, styled } from 'styled-components';
 import { disabledStyle } from '@/design/designFunctions/disabledStyle/disableStyle';
 import { getTextColor } from '@/design/designFunctions/colorCalculatorForComponent';
 
-import { TThemeTypes } from '@/interface/TThemeTypes';
-import { TLayer } from '@/interface/TLayer';
-import { TTheme } from '@/interface/TTheme';
+import { TThemeTypes } from '@/types/TThemeTypes';
+import { TLayer } from '@/types/TLayer';
+import { TTheme } from '@/types/TTheme';
 
 import { IRange } from './IDateNumberAtom.model';
 

@@ -1,6 +1,6 @@
-import { TLayer } from '@/interface/TLayer';
-import { TTextAlignLC } from '@/interface/TTextAlignLC';
-import { TThemeTypes } from '@/interface/TThemeTypes';
+import { TLayer } from '@/types/TLayer';
+import { TTextAlignLC } from '@/types/TTextAlignLC';
+import { TThemeTypes } from '@/types/TThemeTypes';
 
 // Define the props for the InputWrapper component
 export interface IInputWrapper {

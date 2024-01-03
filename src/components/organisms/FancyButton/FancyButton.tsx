@@ -6,8 +6,8 @@ import { FancyContent } from '@/components/molecules/FancyContent';
 import { LoadingSVGArrows } from '@/components/atoms/LoadingSVGArrows';
 import { generateFancyButton } from './FancyButton.style';
 
-import { TTypography } from '@/interface/TTypography';
-import { TBorderRadiusSizes } from '@/interface/TBorderRadiusSizes';
+import { TTypography } from '@/types/TTypography';
+import { TBorderRadiusSizes } from '@/types/TBorderRadiusSizes';
 import { IButton, IButtonProps } from '@/components/molecules/Button/Button.model';
 
 const alignment = {
@@ -73,8 +73,12 @@ export default function FancyButton(props: IFancyButton) {
       `}
       {...(buttonProps as IButtonProps)}
     >
-      <FancyContent flexDirection={alignIcon}>
-        {label && <FancyContent.Title fontVariant={fontVariant ?? 'button'}>{label}</FancyContent.Title>}
+      <FancyContent direction={alignIcon}>
+        {label && (
+          <FancyContent.Title fontVariant={fontVariant ?? 'button'} themeType={buttonProps.textColor}>
+            {label}
+          </FancyContent.Title>
+        )}
         {(isLoading || icon) && (
           <FancyContent.Icon>
             {isLoading ? <LoadingSVGArrows isLoading={isLoading} size={size} /> : icon}

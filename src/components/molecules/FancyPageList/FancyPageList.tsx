@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { styled } from 'styled-components';
 
 import { Paginator } from '@/components/molecules/Paginator';
-import { TTheme } from '@/interface/TTheme';
+import { TTheme } from '@/types/TTheme';
 
 // Define the props for the FancyPageList component
 interface IFancyPageList {

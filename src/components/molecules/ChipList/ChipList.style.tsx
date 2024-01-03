@@ -1,7 +1,7 @@
 import { css, styled } from 'styled-components';
 
 import { themeStore } from '@/design/theme/themeStore';
-import { TUiColorsSystemMessage } from '@/interface/TUiColorsSystemMessage';
+import { TUiColorsSystemMessage } from '@/types/TUiColorsSystemMessage';
 import { generateSystemIndicatorStyle } from '@/design/designFunctions/generateSystemIndicatorStyle';
 
 export const ChipContainer = styled.ul`
@@ -29,7 +29,7 @@ export const generateChipListStyle = (size: 'sm' | 'md' | 'lg', sytemMessage?: T
   switch (size) {
     case 'sm':
       generatedStyle = css`
-        border-radius: ${getTheme.borderRadius.xxl};
+        border-radius: ${getTheme.borderRadius.lg};
         ul {
           padding: ${getTheme.spacing.md};
           gap: ${getTheme.spacing.sm};
@@ -38,7 +38,7 @@ export const generateChipListStyle = (size: 'sm' | 'md' | 'lg', sytemMessage?: T
       break;
     case 'md':
       generatedStyle = css`
-        border-radius: ${getTheme.borderRadius.xxl};
+        border-radius: ${getTheme.borderRadius.lg};
         ul {
           padding: ${getTheme.spacing.md};
           gap: ${getTheme.spacing.sm};
@@ -47,7 +47,7 @@ export const generateChipListStyle = (size: 'sm' | 'md' | 'lg', sytemMessage?: T
       break;
     case 'lg':
       generatedStyle = css`
-        border-radius: ${getTheme.borderRadius.xxl};
+        border-radius: ${getTheme.borderRadius.lg};
         ul {
           padding: ${getTheme.spacing.md};
           gap: ${getTheme.spacing.md};

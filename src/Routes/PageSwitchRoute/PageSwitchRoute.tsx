@@ -3,7 +3,7 @@ import React from 'react';
 import FancyPageList from '../../components/molecules/FancyPageList/FancyPageList';
 import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';
 import { styled } from 'styled-components';
-import { FancyCard } from '@/components/atoms/FancyCard';
+import { Card } from '@/components/atoms/Card';
 
 const StyledDiv = styled.div`
   display: flex;
@@ -21,7 +21,7 @@ export default function PageSwitchRoute() {
   ));
 
   return (
-    <FancyCard>
+    <Card>
       <DesignWrapper>
         <DesignArea
           title="Paginator"
@@ -30,6 +30,6 @@ export default function PageSwitchRoute() {
           <FancyPageList itemsPerPage={10} pageLimits={5} elements={JSXArry} spacingBetweenItems="20px" />
         </DesignArea>
       </DesignWrapper>
-    </FancyCard>
+    </Card>
   );
 }

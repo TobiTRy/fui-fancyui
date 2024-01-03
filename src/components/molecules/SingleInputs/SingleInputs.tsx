@@ -1,9 +1,9 @@
 import React, { useState, createRef, useEffect } from 'react';
 
-import { IStatus } from '@/interface/IStatus';
+import { IStatus } from '@/types/IStatus';
 import { InputWrapper } from './SingleInputs.style';
-import { TThemeTypes } from '@/interface/TThemeTypes';
-import { TLayer } from '@/interface/TLayer';
+import { TThemeTypes } from '@/types/TThemeTypes';
+import { TLayer } from '@/types/TLayer';
 import { SingleInput } from '@/components/atoms/SingleInput';
 
 interface IFancySingleInputsProps {

@@ -23,5 +23,5 @@ module.exports = {
     '@typescript-eslint/restrict-plus-operands': 'off',
     '@typescript-eslint/no-non-null-asserted-optional-chain': 'off',
   },
-  ignorePatterns: ['vite.config.ts', '.eslintrc.cjs'],
+  ignorePatterns: ['vite.config.ts', 'vitest.config.ts', '.eslintrc.cjs'],
 };

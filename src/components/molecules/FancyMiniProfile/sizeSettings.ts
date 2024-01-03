@@ -1,5 +1,5 @@
-import { TSpacings } from '@/interface/TSpacings';
-import { TTypography } from '@/interface/TTypography';
+import { TSpacings } from '@/types/TSpacings';
+import { TTypography } from '@/types/TTypography';
 
 // the interface for the different sizes
 interface IPillSettings {

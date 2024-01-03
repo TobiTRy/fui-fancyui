@@ -1,7 +1,7 @@
 import { styled, css } from 'styled-components';
 
 import { boxShadow } from '../../../design/designFunctions/shadows/shadows';
-import { TTheme } from '@/interface/TTheme';
+import { TTheme } from '@/types/TTheme';
 
 export const WrapperIndicator = styled.div<{ $isActive: boolean }>`
   position: absolute;

@@ -6,7 +6,7 @@ export { default as DateOutput } from '@/components/atoms/DateOutput/DateOutput'
 export { default as DropDownSelect } from '@/components/atoms/DropDownSelect/DropDownSelect';
 export { default as EditBarModal } from '@/components/atoms/EditBarModal/EditBarModal';
 export { default as FancyPill } from '@/components/atoms/FancyPill/FancyPill';
-export { default as FancyCard } from '@/components/atoms/FancyCard/FancyCard';
+export { default as Card } from '@/components/atoms/Card/Card';
 export { default as FancyLine } from '@/components/atoms/FancyLine/FancyLine';
 export { default as FancyLI } from '@/components/atoms/FancyLI/FancyLI';
 export { default as FancyLoadingSpinner } from '@/components/atoms/FancyLoadingSpinner/FancyLoadingSpinner';
@@ -50,6 +50,7 @@ export { default as RawLI } from '@/components/atoms/RawLI/RawLI';
 export { default as RawUL } from '@/components/atoms/RawUL/RawUL';
 export { default as RawNav } from '@/components/atoms/RawNav/RawNav';
 export { default as SpeedDailMenueItem } from '@/components/atoms/SpeedDialMenueItem/SpeedDailMenueItem';
+export { default as SpacingsContainer } from '@/components/atoms/SpacingContainer/SpacingsContainer';
 
 // ---------- Molecules ------- //
 export { default as DateInput } from '@/components/molecules/DateInput/DateInput';
@@ -142,6 +143,7 @@ export { default as FancyHandyNav } from '@/components/templates/FancyHandyNav/F
 export { default as useFancyHandyNavStore } from '@/components/templates/FancyHandyNav/FancyHandyNav.store';
 export { default as FancyBottomBarIcon } from '@/components/templates/FancyBottomBarIcon/FancyBottomBarIcon';
 export { default as FancyHeader } from '@/components/templates/FancyHeader/FancyHeader';
+export { default as FancyAlignBox } from '@/components/templates/FancyAlignBox/FancyAlignBox';
 
 // ---------- Utils/Hooks ------- //
 export { default as FancyPopover } from '@/components/shared/FancyPopover/FancyPopover';
@@ -172,13 +174,20 @@ export { default as generateThemeForCard } from '@/design/designFunctions/genera
 export { default as getSimpleColorThemeType } from '@/design/designFunctions/getSimpleColorThemeType/getSimpleColorThemeType';
 export { default as shadows } from '@/design/designFunctions/shadows/shadows';
 export { default as scrollbar } from '@/design/theme/globalStyle/scrollbar/scrollbar';
+export { default as arrayToCssValues } from '@/design/designFunctions/arrayToCssValues/arrayToCssValues';
+export { default as generateInsetBorderRadius } from '@/design/designFunctions/generateInsetBorderRadius/generateInsetBorderRadius';
+export { default as checkThemeValue } from '@/design/designFunctions/checkThemeValue/checkThemeValue';
 
 // ---------- Interfaces ------- //
-export * from '@/interface';
+export * from '@/types';
 export type { default as IGenerateThemeForCardProps } from '@/design/designFunctions/generateThemeForCard/IGenerateThemeForCardProps';
 export type { default as IGenerateThemeDesignForComponentProps } from '@/design/designFunctions/generateThemeDesignForComponent/IGenerateThemeDesignForComponentProps';
 export type { IAvailableDot } from '@/components/atoms/AvilableDot/IAvailableDot.model';
 export type { IFancyBox } from '@/components/atoms/FancyBox/FancyBox.model';
+export type { TArrayToCssValues } from '@/design/designFunctions/arrayToCssValues/TArrayValues.model';
+export type { TValue } from '@/design/designFunctions/arrayToCssValues/TArrayValues.model';
+export type { TArrayToCssValuesInputProps } from '@/design/designFunctions/arrayToCssValues/TArrayValues.model';
+export type { TFancyAlignBox } from '@/components/templates/FancyAlignBox/TFancyAlignBox.model';
 
 // ---------- Store ------- //
 export { default as themeStore } from '@/design/theme/themeStore/themeStore';

@@ -1,5 +1,5 @@
-import { TLayer } from '@/interface/TLayer';
-import { TThemeTypes } from '@/interface/TThemeTypes';
+import { TLayer } from '@/types/TLayer';
+import { TThemeTypes } from '@/types/TThemeTypes';
 
 import ProgressBar, { IProgressBar } from '@/components/atoms/ProgressBar/ProgressBar';
 import { AlignedInputLabel } from '@/components/atoms/AlignedInputLabel';

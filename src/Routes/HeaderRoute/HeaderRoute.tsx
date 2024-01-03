@@ -11,14 +11,13 @@ import FancyBar from '../../components/atoms/FancyBox/FancyBox';
 import Header from '../../components/molecules/Header/Header';
 import themeStore from '@/design/theme/themeStore/themeStore';
 import { Typography } from '@/components/atoms/Typography';
-
-import { FancyHeader } from '@/components/organisms/FancyHeader';
 import { SwitchList } from '@/components/molecules/SwitchList';
 import { FancyGrid } from '@/components/templates/FancyGrid';
 import { FancyMenu } from '@/components/templates/FancyMenueComponent/FancyMenu';
 import { FancyPopover } from '@/components/shared/FancyPopover';
 import { FancyFlexBox } from '@/components/templates/FancyFlexBox';
 import { breakPointStyle } from '@/Routes/HeaderRoute/breakPointStyle';
+import { FancyHeader } from '@/components/templates/FancyHeader';
 
 const Logo = () => (
   <svg
@@ -81,8 +80,8 @@ export default function HeaderRoute() {
         <FancyGrid grid={8} gap="12px">
           <FancyGrid.Item gridSpace={1}>
             <FancyGrid.Item.FlexBox
-              flexAlign="center"
-              flexJustify="flex-start"
+              align="center"
+              justify="flex-start"
               className={'mooiiin'}
               externalStyle={breakPointStyle}
             >
@@ -99,9 +98,9 @@ export default function HeaderRoute() {
           </FancyGrid.Item>
 
           <FancyGrid.Item gridSpace={4}>
-            <FancyGrid.Item.FlexBox flexAlign="center" flexJustify="center">
+            <FancyGrid.Item.FlexBox align="center" justify="center">
               <FancyHeader.Nav>
-                <SwitchList flexBoxProps={{ flexAlign: 'center', flexJustify: 'center' }} hoverStyle>
+                <SwitchList flexBoxProps={{ align: 'center', justify: 'center' }} hoverStyle>
                   <Typography type="content">mooin</Typography>
                   <Typography type="content">mooin</Typography>
                   <Typography type="content">mooin</Typography>
@@ -111,7 +110,7 @@ export default function HeaderRoute() {
             </FancyGrid.Item.FlexBox>
           </FancyGrid.Item>
           <FancyGrid.Item gridSpace={2}>
-            <FancyGrid.Item.FlexBox flexAlign="center" flexJustify="flex-end">
+            <FancyGrid.Item.FlexBox align="center" justify="flex-end">
               <FancyPopover
                 offsetY={5}
                 contentComponent={

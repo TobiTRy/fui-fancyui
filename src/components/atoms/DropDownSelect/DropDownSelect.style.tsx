@@ -1,7 +1,7 @@
 import { css, styled } from 'styled-components';
 
 import { fontSize } from '@/design/theme/designSizes';
-import { TTheme } from '@/interface/TTheme';
+import { TTheme } from '@/types/TTheme';
 
 //the selectfield for the options
 interface ISelectField {

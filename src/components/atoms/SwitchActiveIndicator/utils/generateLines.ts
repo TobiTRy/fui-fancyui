@@ -2,8 +2,8 @@ import { css } from 'styled-components';
 
 import { getBackgroundColor } from '../../../../design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponent';
 import { IActiveSwitchIndicator } from '../SwitchActiveIndicator';
-import { TTheme } from '@/interface/TTheme';
-import IStyledPrefixAndPicker from '@/interface/IStyledPrefixAndPicker.model';
+import { TTheme } from '@/types/TTheme';
+import IStyledPrefixAndPicker from '@/types/IStyledPrefixAndPicker';
 
 const generateLine = ({ theme, $themeType = 'accent', $layer }: IGenerateLine) => {
   const backgroundColor = getBackgroundColor({ theme, $themeType, $layer });

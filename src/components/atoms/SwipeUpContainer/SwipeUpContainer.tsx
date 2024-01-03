@@ -1,9 +1,9 @@
 import React from 'react';
 import { styled } from 'styled-components';
 
-import { TLayer } from '@/interface/TLayer';
-import { TThemeTypes } from '@/interface/TThemeTypes';
-import { TTheme } from '@/interface/TTheme';
+import { TLayer } from '@/types/TLayer';
+import { TThemeTypes } from '@/types/TThemeTypes';
+import { TTheme } from '@/types/TTheme';
 import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponent';
 
 // --------------------------------------------------------------------------- //
@@ -41,7 +41,7 @@ interface IStyledSwipeUpContainer {
 const StyledSwipeUpContainer = styled.div<IStyledSwipeUpContainer>`
   width: 100%;
   max-height: 90%;
-  border-radius: ${({ theme }) => theme.borderRadius.xxxl} ${({ theme }) => theme.borderRadius.xxxl} 0 0;
+  border-radius: ${({ theme }) => theme.borderRadius.xl} ${({ theme }) => theme.borderRadius.xl} 0 0;
   position: sticky;
   top: 0;
   box-shadow: unset;

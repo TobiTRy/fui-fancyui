@@ -4,7 +4,7 @@ import { InputLabel } from '@/components/atoms/InputLabel';
 import { IAnimatedInputLabel } from './TAnimatedInputLabel.model';
 
 import { getTextColor } from '@/design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponent';
-import { TTheme } from '@/interface/TTheme';
+import { TTheme } from '@/types/TTheme';
 
 // --------------------------------------------------------------------------- //
 // ---------- The input label wich hase some colors and an animation --------- //

@@ -1,8 +1,6 @@
-import React from 'react';
-
 import type { Meta, StoryObj } from '@storybook/react';
 
-import FancyContentCard from './FancyContentCard';
+import { FancyContentCard } from '@/components/molecules/FancyContentCard';
 
 const meta = {
   component: FancyContentCard,
@@ -27,7 +25,7 @@ export const Primary: Story = {
   args: {
     description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
     image: 'https://picsum.photos/300/300',
-    subtitle: 'FancyContentCard',
+    subtitle: 'FancyCard',
     title: 'My Fancy Product',
   },
 };

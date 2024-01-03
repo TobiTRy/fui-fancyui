@@ -1,9 +1,9 @@
 import React from 'react';
 import { styled } from 'styled-components';
 
-import IStyledPrefixAndOmiter from '@/interface/IStyledPrefixAndOmiter.model';
-import { TSpacings } from '@/interface/TSpacings';
-import { TTheme } from '@/interface/TTheme';
+import IStyledPrefixAndOmiter from '@/types/IStyledPrefixAndOmiter';
+import { TSpacings } from '@/types/TSpacings';
+import { TTheme } from '@/types/TTheme';
 
 type TFancyLIProps = {
   aligned?: 'left' | 'center' | 'right';

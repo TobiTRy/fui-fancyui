@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 
 import { boxShadow } from '@/design/designFunctions/shadows/shadows';
-import { TTheme } from '@/interface/TTheme';
+import { TTheme } from '@/types/TTheme';
 
 const SpeedDailButtonSize = 60;
 

@@ -1,0 +1,46 @@
+# `arrayToCssValues` Function Documentation Update
+
+The `arrayToCssValues` function is a versatile tool designed to calculate the border-radius for UI elements. It allows the specification of border-radius values through a flexible array of up to four elements. The function supports various input types, including theme-defined sizes, strings, and numbers.
+
+## Function Overview
+
+- **Function Name**: `arrayToCssValues`
+- **Purpose**: To compute border-radius values for UI elements.
+- **Flexibility**: Accepts a mix of predefined theme sizes, strings, and numerical values.
+
+## Input/Output Details
+
+### Input
+
+- **edges** (`IArrayValues`, optional): An array of up to four elements. Each element represents the border-radius for a corresponding edge (top, right, bottom, left). The elements can be of type `TBorderRadiusSizes`, `string`, or `number`.
+
+### Output
+
+- **Return Value**: A string that represents the calculated border-radius values for each edge in a format suitable for CSS styling.
+
+## Key Functions and Type Guards
+
+- **`getThemeOrValue`**: Determines whether a value is from the theme or a direct input (string/number) and returns the corresponding value.
+- **`isTSpacings`**: Type guard to check if a value is of type `TSpacings`.
+
+## Example Usage
+
+```jsx
+import React from 'react';
+import { arrayToCssValues } from 'path-to-arrayToCssValues';
+
+const BoxComponent = () => {
+  // Example with mixed types: predefined sizes and direct values
+  const borderRadius = arrayToCssValues(['small', 10, 'medium', 'large']);
+
+  return <div style={{ borderRadius: borderRadius }}>Styled Box</div>;
+};
+
+export default BoxComponent;
+```
+
+In this example, the `arrayToCssValues` function is used to determine the border-radius for a `div` element. The provided array includes a mix of predefined size keys ('small', 'medium', 'large') and a direct value (10), showcasing the function's flexibility to handle different types of inputs.
+
+## Implementation Note
+
+Ensure that the `borderRadius` object in your theme and the `TBorderRadiusSizes` type are correctly set up to effectively utilize the `arrayToCssValues` function. The function's versatility allows for easy customization and consistent styling across your UI components.

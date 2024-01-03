@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { TThemeTypes } from '@/interface/TThemeTypes';
-import { TLayer } from '@/interface/TLayer';
+import { TThemeTypes } from '@/types/TThemeTypes';
+import { TLayer } from '@/types/TLayer';
 
 import { FancyContent } from '@/components/molecules/FancyContent';
 import { ContentWrapper } from './BottomBarIcon.style';
@@ -24,7 +24,7 @@ export default function BottomBarIcon(props: IBottomBarIconProps) {
 
   return (
     <ContentWrapper id={id} $disabled={disabled} $isActive={isActive} $themeType={themeType} $layer={layer}>
-      <FancyContent flexDirection="column" gapBetweenIcon="0">
+      <FancyContent direction="column" gapBetweenIcon="0">
         <FancyContent.Icon size={hideLabel ? 'xl' : 'md'} aria-label={hideLabel ? label : undefined}>
           {icon}
         </FancyContent.Icon>

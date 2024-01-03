@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
-import { TLayer } from '@/interface/TLayer';
-import { TThemeTypes } from '@/interface/TThemeTypes';
+import { TLayer } from '@/types/TLayer';
+import { TThemeTypes } from '@/types/TThemeTypes';
 import { IDisabledDateSettings } from '@/components/molecules/MonthWithDays/utils/Interfaces/IDisableDateSettings.model';
 
 import { YearSelector } from '@/components/atoms/YearSelector';

@@ -1,6 +1,6 @@
 import { styled, css } from 'styled-components';
 
-import { TTheme } from '@/interface/TTheme';
+import { TTheme } from '@/types/TTheme';
 
 // The Paginator Wrapper that wraps the hole components
 export const StyledPaginator = styled.div<{ theme: TTheme }>`

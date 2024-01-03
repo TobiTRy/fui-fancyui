@@ -36,7 +36,7 @@ export default function SwipeUpModal() {
         <FancyButton onClick={() => setIsVisible(false)} label="Close Modal "></FancyButton>
 
         {/* <FancySwipeUpModal appendToDomID="modal">
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
+          <div style={{ display: 'flex', direction: 'column', gap: '18px' }}>
             <FancyTextInput label="Email" />
             <FancyTextInput label="Email" />
             <FancyTextInput label="Email" />

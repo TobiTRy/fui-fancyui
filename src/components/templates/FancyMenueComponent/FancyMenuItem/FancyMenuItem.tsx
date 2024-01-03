@@ -14,7 +14,7 @@ export default function FancyMenuItem(props: TFancyMenueItemProps) {
   const { label, icon, ...menuItemProps } = props;
   return (
     <MenuItem {...menuItemProps}>
-      <FancyContent flexAlign="flex-start">
+      <FancyContent align="flex-start">
         {label && <FancyContent.Title bold={false}>{label}</FancyContent.Title>}
         {icon && <FancyContent.Icon>{icon}</FancyContent.Icon>}
       </FancyContent>

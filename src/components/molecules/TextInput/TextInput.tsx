@@ -1,7 +1,7 @@
 import { InputHTMLAttributes } from 'react';
 
 import { RawInput } from '@/components/atoms/RawInput';
-import { TTextAlignLC } from '@/interface/TTextAlignLC';
+import { TTextAlignLC } from '@/types/TTextAlignLC';
 
 export interface ITextInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'type'> {
   value?: string | number;

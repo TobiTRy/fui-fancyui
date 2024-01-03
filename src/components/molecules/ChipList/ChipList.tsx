@@ -1,10 +1,10 @@
 import React from 'react';
 
 import { FancyBox } from '@/components/atoms/FancyBox';
-import { TLayer } from '@/interface/TLayer';
+import { TLayer } from '@/types/TLayer';
 import { ChipContainer, generateChipListStyle } from './ChipList.style';
-import { TThemeTypes } from '@/interface/TThemeTypes';
-import { TUiColorsSystemMessage } from '@/interface/TUiColorsSystemMessage';
+import { TThemeTypes } from '@/types/TThemeTypes';
+import { TUiColorsSystemMessage } from '@/types/TUiColorsSystemMessage';
 
 export interface ChipListProps {
   themeType?: Exclude<TThemeTypes, 'transparent'>;
@@ -18,7 +18,7 @@ export interface ChipListProps {
 // ---------- The Chiplist is a wrapper for the chips to list them  ---------- //
 // --------------------------------------------------------------------------- //
 export default function ChipList(props: ChipListProps) {
-  const { themeType = 'primary', layer = 1, outlined = false, children, size, systemMessage } = props;
+  const { themeType = 'primary', layer = 2, outlined = false, children, size, systemMessage } = props;
 
   const generatedStyle = generateChipListStyle(size ?? 'md', systemMessage);
 

@@ -1,9 +1,9 @@
 import { css, styled } from 'styled-components';
 
-import { TThemeTypes } from '@/interface/TThemeTypes';
-import { TLayer } from '@/interface/TLayer';
+import { TThemeTypes } from '@/types/TThemeTypes';
+import { TLayer } from '@/types/TLayer';
 import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent';
-import { TTheme } from '@/interface/TTheme';
+import { TTheme } from '@/types/TTheme';
 
 export const StyledYearSelector = styled.div<{ theme: TTheme; $themeType?: TThemeTypes; $layer?: TLayer }>`
   display: flex;

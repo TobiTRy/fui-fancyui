@@ -4,7 +4,7 @@ import { CSSProp } from 'styled-components';
 import { IgenerateListItemStyle } from './SwitchList.style';
 import { IActiveSwitchIndicator } from '@/components/atoms/SwitchActiveIndicator/SwitchActiveIndicator';
 import { TFancyFlexBoxProps } from '@/components/templates/FancyFlexBox/FancyFlexBox.model';
-import { TSpacings } from '@/interface/TSpacings';
+import { TSpacings } from '@/types/TSpacings';
 
 // the props for the SwitchActiveIndicator component
 type TSwitchActiveIndicator = Omit<IActiveSwitchIndicator, 'itemNumber'>;

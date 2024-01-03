@@ -4,7 +4,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 
 import themeStore from '../../design/theme/themeStore/themeStore';
-import { TTheme } from '@/interface/TTheme';
+import { TTheme } from '@/types/TTheme';
 
 export default function ColorGeneratorRoute() {
   const theme = themeStore((state) => state.theme);

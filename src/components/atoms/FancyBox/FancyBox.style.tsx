@@ -1,8 +1,8 @@
 import { styled } from 'styled-components';
 
 import { generateThemeForCard } from '@/design/designFunctions/generateThemeForCard';
-import IStyledPrefixAndPicker from '@/interface/IStyledPrefixAndPicker.model';
-import { TTheme } from '@/interface/TTheme';
+import IStyledPrefixAndPicker from '@/types/IStyledPrefixAndPicker';
+import { TTheme } from '@/types/TTheme';
 
 import { IFancyBox } from './FancyBox.model';
 // the fancy box that gets the style from the theme

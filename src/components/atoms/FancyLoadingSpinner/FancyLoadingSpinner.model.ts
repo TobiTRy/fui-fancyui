@@ -1,9 +1,9 @@
 import { CSSProp, css, keyframes, styled } from 'styled-components';
 
 import { sizes } from './sizeSettings';
-import { TTheme } from '@/interface/TTheme';
-import { TThemeTypesNotTransparent } from '@/interface//TThemeTypesNotTransparent';
-import { TLayer } from '@/interface/TLayer';
+import { TTheme } from '@/types/TTheme';
+import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
+import { TLayer } from '@/types/TLayer';
 
 // ------------------------------------------------- //
 // ------- The helperfunctions for the style ------- //

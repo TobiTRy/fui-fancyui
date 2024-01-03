@@ -3,9 +3,9 @@ import { styled, keyframes } from 'styled-components';
 import { fontSize } from '../../../design/theme/designSizes';
 import colorTransparencyCalculator from '../../../design/designFunctions/colorTransparencyCalculator/colorTransparencyCalculator';
 import { boxShadow } from '../../../design/designFunctions/shadows/shadows';
-import { TLayer } from '@/interface/TLayer';
+import { TLayer } from '@/types/TLayer';
 import { getBackgroundColor } from '../../../design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponent';
-import { TTheme } from '@/interface/TTheme';
+import { TTheme } from '@/types/TTheme';
 
 type ToastMessageProps = 'success' | 'warning' | 'error' | 'info';
 

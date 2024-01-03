@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 import { scrollbar } from '@/design/theme/globalStyle/scrollbar/index';
 
-import { TTheme } from '@/interface/TTheme';
+import { TTheme } from '@/types/TTheme';
 
 const GlobalStyle = createGlobalStyle<{ theme: TTheme }>`
   body {
@@ -10,6 +10,7 @@ const GlobalStyle = createGlobalStyle<{ theme: TTheme }>`
     background: ${({ theme }) => theme.colors.primary[0]};
     color: ${({ theme }) => theme.colors.secondary[0]};
     font-family: DMSans, Helvetica, Sans-Serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
     
     .App {

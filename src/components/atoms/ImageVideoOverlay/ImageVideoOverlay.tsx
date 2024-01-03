@@ -3,7 +3,14 @@ import React from 'react';
 import { Overlay, TextWrapper, Wrapper } from './ImageVideoOverlay.style';
 
 // Define the possible positions for the overlay
-export type TPositions = 'top-left' | 'top-right' | 'center' | 'bottom-left' | 'bottom-right';
+export type TPositions =
+  | 'top-left'
+  | 'top-right'
+  | 'center'
+  | 'bottom-left'
+  | 'bottom-right'
+  | 'bottom-center'
+  | 'top-center';
 
 // Define the props for the ImageVideoOverlay component
 interface IImageVideoOverlay {

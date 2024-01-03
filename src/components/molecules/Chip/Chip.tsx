@@ -4,7 +4,7 @@ import { StyledChip } from '@/components/molecules/Chip/Chip.style';
 
 import ChipDeleteButton from './Components/ChipDeleteButton/ChipDeleteButton';
 import ChipImg from '@/components/molecules/Chip/Components/ChipImg/ChipImg';
-import { TComponentSizes } from '@/interface/TComponentSizes';
+import { TComponentSizes } from '@/types/TComponentSizes';
 
 // --------------------------------------------------------------------------- //
 // --------------- A Simple chip you can put everthing in it  ---------------- //

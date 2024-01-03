@@ -2,10 +2,10 @@ import { CSSProp, css, styled } from 'styled-components';
 
 import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent';
 import { themeStore } from '@/design/theme/themeStore';
-import { TLayer } from '@/interface/TLayer';
-import { TTheme } from '@/interface/TTheme';
+import { TLayer } from '@/types/TLayer';
+import { TTheme } from '@/types/TTheme';
 import { tabSwitchItemSizes } from './sizeSettings';
-import { TThemeTypesNotTransparent } from '@/interface/TThemeTypesNotTransparent';
+import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
 
 // ------------------------------------------------------------------ //
 // ----------- the helperfunctions for the style generate ----------- //

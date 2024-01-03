@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
 
-import { FancyCard } from '@/components/atoms/FancyCard';
+import { Card } from '@/components/atoms/Card';
 import { Typography } from '@/components/atoms/Typography';
 
 interface IContentCardProps {
@@ -27,7 +27,7 @@ export default function FancyContentCard(props: IContentCardProps) {
   const { image, title, subtitle, description } = { ...defaultProps, ...props };
 
   return (
-    <FancyCard padding={false}>
+    <Card>
       <InnerCard>
         <div>
           <img src={image} alt="product" />
@@ -43,13 +43,13 @@ export default function FancyContentCard(props: IContentCardProps) {
           <Typography type="content">{description}</Typography>
         </ContentWrapper>
       </InnerCard>
-    </FancyCard>
+    </Card>
   );
 }
 
 const defaultProps: IContentCardProps = {
   image: 'https://picsum.photos/300/300',
   title: 'My Fancy Product',
-  subtitle: 'FancyContentCard',
+  subtitle: 'FancyCard',
   description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
 };

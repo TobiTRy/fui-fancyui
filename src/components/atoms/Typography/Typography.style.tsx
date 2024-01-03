@@ -1,16 +1,25 @@
 /* eslint-disable react-refresh/only-export-components */
 import { ReactNode } from 'react';
-import styled, { CSSProp } from 'styled-components';
+import { styled, CSSProp } from 'styled-components';
 
-export interface IStyledComponentProps {
+import IStyledPrefixAndPicker from '@/types/IStyledPrefixAndPicker';
+import { TTypography } from '@/components/atoms/Typography/Typography.model';
+import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent';
+import { TTheme } from '@/types/TTheme';
+
+export type TStyledComponentProps = {
   children?: ReactNode;
   $variant?: CSSProp;
-  $style?: CSSProp;
-}
+};
+
 // Base styled component for common styles
-const BaseStyledComponent = styled.span<IStyledComponentProps>`
-  ${(props) => props.$variant};
-  ${(props) => props.$style};
+export type TGenerateStyle = IStyledPrefixAndPicker<TTypography, 'weight' | 'themeType' | 'layer' | 'externalStyle'> &
+  TStyledComponentProps;
+const BaseStyledComponent = styled.span<TStyledComponentProps & TGenerateStyle & { theme: TTheme }>`
+  color: ${({ theme, $themeType, $layer = 0 }) => $themeType && getBackgroundColor({ theme, $themeType, $layer })};
+  font-weight: ${({ $weight }) => $weight};
+  ${({ $variant }) => $variant};
+  ${({ $externalStyle }) => $externalStyle}
 `;
 
 // Styled components for each type of typography

@@ -4,7 +4,7 @@ import { Typography } from '@/components/atoms/Typography';
 import { FancyLine } from '@/components/atoms/FancyLine';
 
 import IHeadLine from './FancyModalHeadLine.model';
-import { TTheme } from '@/interface/TTheme';
+import { TTheme } from '@/types/TTheme';
 
 // --------------------------------------------------------------------------- //
 // -------- The main HeadLineComponent for the heading for the modals -------- //

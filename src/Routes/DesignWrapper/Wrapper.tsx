@@ -1,7 +1,7 @@
 import React from 'react';
 import { styled, CSSProp } from 'styled-components';
 
-import { TTheme } from '@/interface/TTheme';
+import { TTheme } from '@/types/TTheme';
 
 export const DesignWrapper = styled.section`
   display: flex;

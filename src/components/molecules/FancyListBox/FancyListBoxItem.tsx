@@ -1,7 +1,7 @@
 import { styled, CSSProp } from 'styled-components';
 
 import { RawLI } from '@/components/atoms/RawLI';
-import { TTheme } from '@/interface/TTheme';
+import { TTheme } from '@/types/TTheme';
 
 interface FancyListBoxItemProps {
   children?: React.ReactNode;

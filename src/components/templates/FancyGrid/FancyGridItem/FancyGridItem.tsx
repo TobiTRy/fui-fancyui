@@ -2,7 +2,7 @@ import React from 'react';
 
 import { CSSProp, css, styled } from 'styled-components';
 
-import IStyledPrefixAndPicker from '@/interface/IStyledPrefixAndPicker.model';
+import IStyledPrefixAndPicker from '@/types/IStyledPrefixAndPicker';
 import { FancyFlexBox } from '@/components/templates/FancyFlexBox';
 import { ICustomBreakpoint } from '@/components/templates/FancyGrid/FancyGrid';
 import { TFancyFlexBox } from '@/components/templates/FancyFlexBox/FancyFlexBox';

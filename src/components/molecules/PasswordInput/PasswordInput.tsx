@@ -1,10 +1,10 @@
 import { InputHTMLAttributes, useState } from 'react';
 import { styled } from 'styled-components';
 
-import { TThemeTypes } from '@/interface/TThemeTypes';
-import { TLayer } from '@/interface/TLayer';
-import { TTheme } from '@/interface/TTheme';
-import { TTextAlignLC } from '@/interface/TTextAlignLC';
+import { TThemeTypes } from '@/types/TThemeTypes';
+import { TLayer } from '@/types/TLayer';
+import { TTheme } from '@/types/TTheme';
+import { TTextAlignLC } from '@/types/TTextAlignLC';
 
 import { RawInput } from '@/components/atoms/RawInput';
 import { PasswordEye } from '@/components/atoms/PasswordEye';

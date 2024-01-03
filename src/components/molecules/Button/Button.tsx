@@ -10,6 +10,7 @@ export default function Button(props: IButton) {
       ...defaultProps,
       ...props,
     };
+
   return (
     <StyledButton
       $wide={wide}

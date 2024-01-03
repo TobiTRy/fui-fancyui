@@ -1,8 +1,8 @@
 import { styled } from 'styled-components';
 
-import { TLayer } from '@/interface/TLayer';
-import { TTheme } from '@/interface/TTheme';
-import { TThemeTypes } from '@/interface/TThemeTypes';
+import { TLayer } from '@/types/TLayer';
+import { TTheme } from '@/types/TTheme';
+import { TThemeTypes } from '@/types/TThemeTypes';
 
 import { getBackgroundColor, getColorsForComponent } from '@/design/designFunctions/colorCalculatorForComponent/';
 

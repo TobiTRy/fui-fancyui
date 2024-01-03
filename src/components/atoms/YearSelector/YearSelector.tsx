@@ -1,5 +1,5 @@
-import { TThemeTypes } from '@/interface/TThemeTypes';
-import { TLayer } from '@/interface/TLayer';
+import { TThemeTypes } from '@/types/TThemeTypes';
+import { TLayer } from '@/types/TLayer';
 import { SVGChevronLeft } from '@/components/icons/SVGChevronLeft';
 import { SVGChevronRight } from '@/components/icons/SVGChevronRight';
 import { FancySVGAtom } from '@/components/atoms/FancySVGAtom';

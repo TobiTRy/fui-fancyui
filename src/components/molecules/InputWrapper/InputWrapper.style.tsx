@@ -4,9 +4,9 @@ import { fontSize } from '@/design/theme/designSizes';
 import { disabledStyle } from '@/design/designFunctions/disabledStyle';
 import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent';
 
-import { TThemeTypes } from '@/interface/TThemeTypes';
-import { TLayer } from '@/interface/TLayer';
-import { TTheme } from '@/interface/TTheme';
+import { TThemeTypes } from '@/types/TThemeTypes';
+import { TLayer } from '@/types/TLayer';
+import { TTheme } from '@/types/TTheme';
 
 export const StyledInputWrapper = styled.div<{ disabled?: boolean; $autoWidth?: boolean }>`
   box-sizing: border-box;

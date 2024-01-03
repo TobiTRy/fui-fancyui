@@ -1,5 +1,5 @@
-import { TLayer } from '@/interface/TLayer';
-import { TThemeTypes } from '@/interface/TThemeTypes';
+import { TLayer } from '@/types/TLayer';
+import { TThemeTypes } from '@/types/TThemeTypes';
 
 // Define the props for the SimpleDialog component
 type TSimpleDialog = {

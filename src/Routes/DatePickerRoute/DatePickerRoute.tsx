@@ -6,7 +6,7 @@ import FancyDatePicker from '../../components/organisms/FancyDatePicker/FancyDat
 import FancyDateDropDown from '../../components/templates/Inputs/FancyDateDropDown/FancyDateDropDown';
 import IExternalYearWithMonths from '../../components/molecules/MonthWithDays/utils/Interfaces/IExternalMonthWithDays.model';
 import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
-import { FancyCard } from '@/components/atoms/FancyCard';
+import { Card } from '@/components/atoms/Card';
 
 const externalYears: IExternalYearWithMonths = {
   2023: [
@@ -69,7 +69,7 @@ const externalYears: IExternalYearWithMonths = {
 
 export default function DatePickerRoute() {
   return (
-    <FancyCard>
+    <Card>
       <DesignWrapper>
         <DesignArea title="FancyDatePicker Range">
           <FancyDatePicker
@@ -83,6 +83,6 @@ export default function DatePickerRoute() {
           <FancyDatePicker disabledDateSetting={{ disableWeekends: true }} externalData={externalYears} />
         </DesignArea>
       </DesignWrapper>
-    </FancyCard>
+    </Card>
   );
 }

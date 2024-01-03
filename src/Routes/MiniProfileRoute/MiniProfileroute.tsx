@@ -3,11 +3,11 @@ import React from 'react';
 import FancyMiniProfile from '../../components/molecules/FancyMiniProfile/FancyMiniProfile';
 
 import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';
-import { FancyCard } from '@/components/atoms/FancyCard';
+import { Card } from '@/components/atoms/Card';
 
 export default function MiniProfileroute() {
   return (
-    <FancyCard>
+    <Card>
       <DesignWrapper>
         <DesignArea title="MiniProfile">
           <div style={{ display: 'flex', gap: '12px' }}>
@@ -129,6 +129,6 @@ export default function MiniProfileroute() {
           </div>
         </DesignArea>
       </DesignWrapper>
-    </FancyCard>
+    </Card>
   );
 }

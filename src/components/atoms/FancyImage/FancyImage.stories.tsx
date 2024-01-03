@@ -19,10 +19,33 @@ const meta = {
   // Define arguments for the story
   argTypes: {
     darken: {
-      control: { type: 'boolean' },
+      control: { range: { min: 0, max: 1, step: 0.1 } },
     },
     alt: {
       control: { type: 'text' },
+    },
+    aspectRatio: {
+      control: { type: 'text' },
+    },
+    sizeH: {
+      sizeW: {
+        description: 'The height of the image',
+        control: {
+          type: 'select',
+        },
+        defaultValue: {
+          summary: '',
+        },
+      },
+    },
+    sizeW: {
+      description: 'The width of the image',
+      control: {
+        type: 'select',
+      },
+      defaultValue: {
+        summary: '',
+      },
     },
   },
 

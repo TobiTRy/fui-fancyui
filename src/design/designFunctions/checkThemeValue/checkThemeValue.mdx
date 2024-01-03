@@ -1,0 +1,52 @@
+# Function: `checkThemeValue`
+
+## Overview
+
+The `checkThemeValue` function is designed to determine whether a given value corresponds to a predefined theme value in either the `spacing` or `borderRadius` categories. This function is useful in theme-based design systems where components need to validate if a given input matches a theme specification.
+
+## Parameters
+
+- `themeValue`: This optional parameter can be of type `TBorderRadiusSizes`, `TSpacings`, `string`, or `number`. It represents the value to be checked against the theme's spacing and border radius values.
+
+## Functionality
+
+1. **Retrieve Theme**: The function begins by accessing the current theme from the global `themeStore`.
+
+2. **Check Against Theme Values**:
+
+   - The function checks if the `themeValue` is present in the theme's `spacing` or `borderRadius` definitions.
+   - It casts `themeValue` to `TSpacings` and `TBorderRadiusSizes` respectively for these checks.
+
+3. **Return Value**:
+   - If `themeValue` is found in either the `spacing` or `borderRadius` of the theme, the function returns `true`.
+   - Otherwise, it returns `false`, indicating that the value is not a predefined theme value.
+
+## Example Theme Definition
+
+A theme might define `spacing` and `borderRadius` like this:
+
+```javascript
+const theme = {
+  spacing: {
+    xxs: '4px',
+    xs: '8px',
+    sm: '12px',
+    md: '16px',
+    lg: '24px',
+    xl: '32px',
+    xxl: '48px',
+  },
+};
+```
+
+## Example Usage
+
+```javascript
+if (checkThemeValue('md')) {
+  // 'md' is a value in the theme's spacing or borderRadius
+} else {
+  // 'md' is not a predefined theme value
+}
+```
+
+This function is particularly valuable in ensuring consistency in styling by validating if the provided values align with the established theme guidelines.

@@ -2,8 +2,8 @@ import { ReactNode } from 'react';
 
 import { Typography } from '@/components/atoms/Typography';
 
-import { TLayer } from '@/interface/TLayer';
-import { TThemeTypes } from '@/interface/TThemeTypes';
+import { TLayer } from '@/types/TLayer';
+import { TThemeTypes } from '@/types/TThemeTypes';
 
 import { LogoWrapper, StyledHeading, Wrapper } from './HeaderTitleWithLogo.style';
 

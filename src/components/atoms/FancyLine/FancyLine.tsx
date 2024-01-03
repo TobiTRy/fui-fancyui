@@ -1,11 +1,11 @@
 import { HTMLAttributes } from 'react';
 import { styled } from 'styled-components';
 
-import { TLayer } from '@/interface/TLayer';
+import { TLayer } from '@/types/TLayer';
 import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponent';
-import IStyledPrefixAndPicker from '@/interface/IStyledPrefixAndPicker.model';
-import { TTheme } from '@/interface/TTheme';
-import { TThemeTypes } from '@/interface/TThemeTypes';
+import IStyledPrefixAndPicker from '@/types/IStyledPrefixAndPicker';
+import { TTheme } from '@/types/TTheme';
+import { TThemeTypes } from '@/types/TThemeTypes';
 
 type IFancyLine = {
   direction?: 'horizontal' | 'vertical';

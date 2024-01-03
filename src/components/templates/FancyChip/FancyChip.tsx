@@ -5,7 +5,7 @@ import { Chip } from '@/components/molecules/Chip';
 import { TChipProps } from '@/components/molecules/Chip/Chip';
 import { TSpacingPosition, generateSpacing } from '@/components/templates/FancyChip/utils/generateSpacings';
 import { sizesSettings } from '@/components/molecules/Chip/sizeSettings';
-import { TThemeTypesNotTransparent } from '@/interface/TThemeTypesNotTransparent';
+import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
 
 type TFancyChip = {
   image?: string;

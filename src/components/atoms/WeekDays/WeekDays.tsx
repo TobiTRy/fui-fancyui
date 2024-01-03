@@ -3,9 +3,9 @@ import { styled } from 'styled-components';
 
 import { Typography } from '@/components/atoms/Typography';
 import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponent';
-import { TLayer } from '@/interface/TLayer';
-import { TTheme } from '@/interface/TTheme';
-import { TThemeTypes } from '@/interface/TThemeTypes';
+import { TLayer } from '@/types/TLayer';
+import { TTheme } from '@/types/TTheme';
+import { TThemeTypes } from '@/types/TThemeTypes';
 
 // --------------------------------------------------------------------------- //
 // ---------- This Atom creates a List of all Weekdas from Mo - Su ----------- //

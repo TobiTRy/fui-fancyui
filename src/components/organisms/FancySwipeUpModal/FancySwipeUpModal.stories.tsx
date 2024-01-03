@@ -63,7 +63,6 @@ const meta = {
       control: {
         type: 'select',
       },
-      options: ['primary', 'secondary', 'accent'],
       defaultValue: {
         summary: 'primary',
       },

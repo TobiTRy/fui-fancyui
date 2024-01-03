@@ -4,8 +4,8 @@ import { spacingPx } from '../../../design/theme/designSizes';
 import { IActiveSwitchIndicator } from './SwitchActiveIndicator';
 import { generateBlob } from './utils/generateBlob';
 import { generateTopline, generateUnderline } from './utils/generateLines';
-import { TTheme } from '@/interface/TTheme';
-import IStyledPrefixAndPicker from '@/interface/IStyledPrefixAndPicker.model';
+import { TTheme } from '@/types/TTheme';
+import IStyledPrefixAndPicker from '@/types/IStyledPrefixAndPicker';
 
 // Define the function to calculate the current position of the active indicator
 type IClacCurrentPosition = IStyledPrefixAndPicker<IActiveSwitchIndicator, 'itemNumber' | 'tabSpacing' | 'direction'>;

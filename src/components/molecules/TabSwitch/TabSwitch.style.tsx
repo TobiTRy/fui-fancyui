@@ -3,9 +3,9 @@ import { CSSProp, styled } from 'styled-components';
 import { borderRadius, spacingPx } from '@/design/theme/designSizes';
 import { themeStore } from '@/design/theme/themeStore';
 
-import { TTheme } from '@/interface/TTheme';
-import { TBorderRadiusSizes } from '@/interface/TBorderRadiusSizes';
-import { TSpacings } from '@/interface/TSpacings';
+import { TTheme } from '@/types/TTheme';
+import { TBorderRadiusSizes } from '@/types/TBorderRadiusSizes';
+import { TSpacings } from '@/types/TSpacings';
 
 // Define the different sizes for the tab switch
 const getSpacingFromTheme = themeStore.getState().theme.spacing;

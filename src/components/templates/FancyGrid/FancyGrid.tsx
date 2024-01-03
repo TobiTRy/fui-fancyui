@@ -3,7 +3,7 @@ import React from 'react';
 import { CSSProp, css, styled } from 'styled-components';
 
 import FancyGridItem from './FancyGridItem/FancyGridItem';
-import IStyledPrefixAndOmitter from '@/interface/IStyledPrefixAndOmiter.model';
+import IStyledPrefixAndOmitter from '@/types/IStyledPrefixAndOmiter';
 
 export interface ICustomBreakpoint {
   breakpoint: string; // Breakpoint-Größe, z.B. '768px'

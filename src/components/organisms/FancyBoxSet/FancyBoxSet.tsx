@@ -4,7 +4,7 @@ import { Fieldset } from '@/components/molecules/Fieldset';
 import { FancyListBox } from '@/components/molecules/FancyListBox';
 import { FancyLine } from '@/components/atoms/FancyLine';
 
-import { TLayer } from '@/interface/TLayer';
+import { TLayer } from '@/types/TLayer';
 
 // get props from the Fieldset and the FancyListBox
 type TFieldSetProps = React.ComponentProps<typeof Fieldset>;

@@ -10,13 +10,14 @@ import { Button, MenueItemWrapper, Ring, SpeedDialContainer, Wrapper } from './S
 
 export type ISpeedail = {
   items?: TMenueButtonProps[];
+  buttonProps?: React.ButtonHTMLAttributes<HTMLButtonElement>;
 } & TMenueItemProps;
 
 // --------------------------------------------------------------------------- //
 // ---------- Component that handles the Buttonlist and the opening ---------- //
 // --------------------------------------------------------------------------- //
 export default function FancySpeedDialButton(props: ISpeedail) {
-  const { items, labelAlign, hideLabel } = { ...defaultProps, ...props };
+  const { items, labelAlign, hideLabel, buttonProps } = { ...defaultProps, ...props };
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -35,7 +36,14 @@ export default function FancySpeedDialButton(props: ISpeedail) {
             />
           ))}
         </MenueItemWrapper>
-        <Button $isOpen={isOpen} aria-label={'Open Menue'} onClick={() => setIsOpen(!isOpen)}>
+        <Button
+          $isOpen={isOpen}
+          {...buttonProps}
+          onClick={(e) => {
+            buttonProps?.onClick && buttonProps.onClick(e);
+            setIsOpen(!isOpen);
+          }}
+        >
           {SVGPlus}
         </Button>
         <Ring $isOpen={isOpen} />

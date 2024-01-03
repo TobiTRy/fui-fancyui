@@ -57,8 +57,8 @@ export const Primary: Story = {
   ),
   args: {
     flexBoxProps: {
-      flexJustify: 'space-between',
-      flexAlign: 'center',
+      justify: 'space-between',
+      align: 'center',
     },
     switchIndicator: {
       direction: 'horizontal',

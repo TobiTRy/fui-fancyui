@@ -4,9 +4,9 @@ import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForC
 import colorTransparencyCalculator from '@/design/designFunctions/colorTransparencyCalculator/colorTransparencyCalculator';
 import { IActiveSwitchIndicator } from '../SwitchActiveIndicator';
 import themeStore from '@/design/theme/themeStore/themeStore';
-import { TBorderRadiusSizes } from '@/interface/TBorderRadiusSizes';
-import { TTheme } from '@/interface/TTheme';
-import IStyledPrefixAndPicker from '@/interface/IStyledPrefixAndPicker.model';
+import { TBorderRadiusSizes } from '@/types/TBorderRadiusSizes';
+import { TTheme } from '@/types/TTheme';
+import IStyledPrefixAndPicker from '@/types/IStyledPrefixAndPicker';
 
 // Define the function to generate a blob background for the active indicator
 type IGenerateBlob = IStyledPrefixAndPicker<IActiveSwitchIndicator, 'themeType' | 'outlined' | 'rounded' | 'layer'> & {

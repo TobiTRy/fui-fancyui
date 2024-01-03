@@ -1,4 +1,4 @@
-import { TThemeTypes } from '@/interface/TThemeTypes';
+import { TThemeTypes } from '@/types/TThemeTypes';
 import { tabSwitchItemSizes } from './sizeSettings';
 import { CSSProp } from 'styled-components';
 

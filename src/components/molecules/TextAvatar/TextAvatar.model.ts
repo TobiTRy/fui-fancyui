@@ -1,9 +1,9 @@
 import { CSSProp } from 'styled-components';
 
 import { TSize } from '@/components/molecules/TextAvatar/utils/getSize';
-import { TLayer } from '@/interface/TLayer';
-import { TThemeTypes } from '@/interface/TThemeTypes';
-import { TTypography } from '@/interface/TTypography';
+import { TLayer } from '@/types/TLayer';
+import { TThemeTypes } from '@/types/TThemeTypes';
+import { TTypography } from '@/types/TTypography';
 
 import { TgetBorderRadiusViaSize } from '@/design/designFunctions/getBorderRadiusViaSize';
 

@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
 
-import { TTheme } from '@/interface/TTheme';
+import { TTheme } from '@/types/TTheme';
 import simpleColorTransition from '@/design/designFunctions/simpleColorTransition/simpleTransition';
 
 // --------------------------------------------------------------------------- //

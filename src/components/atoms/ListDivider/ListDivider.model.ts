@@ -1,5 +1,5 @@
-import { TThemeTypes } from '@/interface/TThemeTypes';
-import { TLayer } from '@/interface/TLayer';
+import { TThemeTypes } from '@/types/TThemeTypes';
+import { TLayer } from '@/types/TLayer';
 import { HTMLAttributes } from 'react';
 
 export type TTextAlign = 'left' | 'center' | 'right';

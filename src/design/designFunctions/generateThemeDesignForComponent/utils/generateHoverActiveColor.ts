@@ -2,7 +2,8 @@ import { css } from 'styled-components';
 import { getBackgroundColor } from '../../colorCalculatorForComponent/colorCalculatorForComponent';
 import colorTransparencyCalculator from '../../colorTransparencyCalculator/colorTransparencyCalculator';
 import { IGenerateThemeDesignForComponent } from '../generateThemeDesignForComponent';
-import { TLayer } from '@/interface/TLayer';
+import { TLayer } from '@/types/TLayer';
+import { clampLayer } from '@/utils/functions/clampLayer';
 type TGenerateOutlinedHoverStyle = Pick<
   IGenerateThemeDesignForComponent,
   '$themeType' | 'theme' | '$layer' | '$backgroundStrength' | '$hoverColor'
@@ -15,7 +16,7 @@ const generateHoverColor = (props: TGenerateOutlinedHoverStyle) => {
 
   // generate the background color with a transparency of the background color
   const generateSlightBackgroundColor = colorTransparencyCalculator(
-    getBackgroundColor({ theme, $themeType: $hoverColor ?? $themeType ?? 'primary', $layer: Math.max(1, $layer - 3) }),
+    getBackgroundColor({ theme, $themeType: $hoverColor ?? $themeType ?? 'primary', $layer: clampLayer($layer + 2) }),
     $backgroundStrength
   );
 
@@ -44,25 +45,31 @@ export const generateStateStyle = (props: TGenerateStateStyle) => {
       // when the component is outlined styled
       if (props.$outlined) {
         return css`
-          &:hover {
-            background-color: ${generateHoverColor(props)};
+          @media (hover: hover) {
+            &:hover {
+              background-color: ${generateHoverColor(props)};
+            }
           }
         `;
       } else if (props.$textHover) {
         return css`
-          &:hover {
-            color: ${getBackgroundColor({
-              theme: props.theme,
-              $themeType: props.$textHover ?? 'secondary',
-              $layer: Math.min(props.$layer ? props.$layer + 2 : 2, 10) as TLayer,
-            })};
+          @media (hover: hover) {
+            &:hover {
+              color: ${getBackgroundColor({
+                theme: props.theme,
+                $themeType: props.$textHover ?? 'secondary',
+                $layer: Math.min(props.$layer ? props.$layer + 2 : 2, 10) as TLayer,
+              })};
+            }
           }
         `;
       }
       // when the component is normal styled
       return css`
-        &:hover {
-          background-color: ${generateHoverColor(props)};
+        @media (hover: hover) {
+          &:hover {
+            background-color: ${generateHoverColor(props)};
+          }
         }
       `;
     }

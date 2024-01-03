@@ -1,10 +1,10 @@
 import { styled, css } from 'styled-components';
 
 import { boxShadow } from '@/design/designFunctions/shadows/shadows';
-import { TThemeTypes } from '@/interface/TThemeTypes';
-import { TLayer } from '@/interface/TLayer';
+import { TThemeTypes } from '@/types/TThemeTypes';
+import { TLayer } from '@/types/TLayer';
 import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponent';
-import { TTheme } from '@/interface/TTheme';
+import { TTheme } from '@/types/TTheme';
 
 const DragableThumb = css<{ theme: TTheme }>`
   height: 30px;
