@@ -10,15 +10,14 @@ import { TBorderRadiusSizes } from '@/types/TBorderRadiusSizes';
 import { checkThemeValue } from '@/design/designFunctions/checkThemeValue';
 
 type TCardImage = {
-  inset?: boolean;
   size?: TComponentSizesExtended | 'complete';
   borderRadius?: string;
 };
 export default function CardImage(props: TCardImage & Omit<TFancyImage, 'borderRadius'>) {
-  const { inset, size, borderRadius, ...fancyImageProps } = props;
+  const { size, borderRadius, ...fancyImageProps } = props;
 
   return (
-    <WarpperImage $inset={inset} $size={size} $borderRadius={borderRadius}>
+    <WarpperImage $size={size} $borderRadius={borderRadius}>
       <FancyImage {...fancyImageProps} />
     </WarpperImage>
   );
@@ -26,10 +25,10 @@ export default function CardImage(props: TCardImage & Omit<TFancyImage, 'borderR
 
 type TWrapperImage = IStyledPrefixAndPicker<TCardImage>;
 const WarpperImage = styled.div<TWrapperImage & { theme: TTheme }>`
-  width: auto;
   box-sizing: border-box;
 
   img {
+    width: 100%;
     border-radius: ${({ $borderRadius, theme }) =>
       checkThemeValue($borderRadius) ? theme.borderRadius[$borderRadius as TBorderRadiusSizes] : $borderRadius};
   }
