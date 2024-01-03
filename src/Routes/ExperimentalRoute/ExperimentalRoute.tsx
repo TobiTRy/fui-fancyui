@@ -70,12 +70,13 @@ export default function ExperimentalRoute() {
   return (
     <>
       <div style={{ display: 'flex', gap: '12px' }}>
-        <FancyMiniItemCard />
-
+        <FancyMiniItemCard image={{ src: 'http://ilovepixel.eu/images/shibi.png', sizeW: 'lg' }} />
+      </div>
+      <div style={{ display: 'flex', gap: '12px' }}>
         <FancyCard>
           <FancyCard.FlexBox direction="column">
             <FancyCard.FlexBox direction="column" justify="center" align="center">
-              <FancyCard.Image className="card_image" src={'http://ilovepixel.eu/images/shibi.png'} sizeW="sm" />
+              <FancyCard.Image src={'http://ilovepixel.eu/images/shibi.png'} sizeW="sm" />
             </FancyCard.FlexBox>
             <FancyCard.SpacingBox padding={[0, 'md', 'lg', 'md']}>
               <FancyCard.SubTitle layer={5} className="card_subtitle" addLineHeight>
@@ -157,7 +158,7 @@ export default function ExperimentalRoute() {
       {/* LINEEE */}
       {/* LINEEE */}
       {/* LINEEE */}
-      <div style={{ display: 'flex', gap: '12px' }}>
+      <div style={{ display: 'flex', gap: '12px', width: '100%' }}>
         <FancyCard>
           <FancyCard.FlexBox direction="column">
             <FancyCard.Image className="card_image" src={'http://ilovepixel.eu/images/shibi.png'} />
