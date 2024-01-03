@@ -1,4 +1,4 @@
-import { styled, css } from 'styled-components';
+import { styled, css, keyframes } from 'styled-components';
 
 import { InputLabel } from '@/components/atoms/InputLabel';
 import { IAnimatedInputLabel } from './TAnimatedInputLabel.model';
@@ -29,6 +29,18 @@ export const AnimatedInputLabel = styled(InputLabel)<IAnimatedInputLabel & { the
 
 export default AnimatedInputLabel;
 
+const animation = keyframes`
+    0% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-24px) scale(1);
+  }
+  100% {
+    transform: translateY(-24px) scale(1);
+  }
+`;
+
 // --------------------------------------------------------------------------- //
 // ---------------Handle the Animation via function props--------------------- //
 // --------------------------------------------------------------------------- //
@@ -39,7 +51,8 @@ const activeHandler = (align: string, $moveUp?: boolean) => {
       left: 0;
       ${$moveUp
         ? css`
-            transform: translateY(-24px);
+            transform-origin: left bottom;
+            transform: translateY(-24px) scale(0.75);
           `
         : ''}
     `;
@@ -50,7 +63,7 @@ const activeHandler = (align: string, $moveUp?: boolean) => {
       text-align: center;
       ${$moveUp
         ? css`
-            transform: translateY(-24px) translate(-50%);
+            transform: translateY(-24px) translate(-50%) scale(0.75);
           `
         : 'transform: translate(-50%);'};
     `;
