@@ -19,6 +19,10 @@ const meta = {
       description: 'The alignment of the label',
       control: { type: 'radio' },
     },
+    buttonProps: {
+      description: 'Props for the open Button like onClick, aria-label, ...',
+      control: { type: 'object' },
+    },
   },
   tags: ['autodocs'],
 } satisfies Meta<typeof FancySpeedDialButton>;
@@ -42,5 +46,8 @@ export const Primary: Story = {
     ],
     hideLabel: false,
     labelAlign: 'right',
+    buttonProps: {
+      'aria-label': 'Button',
+    },
   },
 };
