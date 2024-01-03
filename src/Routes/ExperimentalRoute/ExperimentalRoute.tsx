@@ -69,8 +69,28 @@ export default function ExperimentalRoute() {
 
   return (
     <>
-      <div style={{ display: 'flex', gap: '12px' }}>
-        <FancyMiniItemCard image={{ src: 'http://ilovepixel.eu/images/shibi.png', sizeW: 'lg' }} />
+      <div>
+        <FancyMiniItemCard
+          image={{ src: 'http://ilovepixel.eu/images/shibi.png', sizeW: '50%' }}
+          title={{
+            children: <>test</>,
+          }}
+          subtitle={{ children: <>Moooin</> }}
+          description={{
+            children: (
+              <>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet ligula id libero tristique cursus.
+                Mauris at volutpat leo. Vivamus in arcu non leo elementum cursus nec sit amet quam. Nullam eget nunc
+                eget leo elementum sodales. Suspendisse potenti. Sed et sapien nec sapien convallis ullamcorper. Nulla
+                facilisi. Curabitur at justo ac nisl auctor gravida non eget nibh.Pellentesque habitant morbi tristique
+                senectus et netus et malesuada fames ac turpis egestas. Ut vitae lacus non felis suscipit faucibus.
+                Nulla facilisi. Duis dignissim nisl ut elit suscipit, et commodo leo cursus. Aenean sollicitudin, lorem
+                quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet
+                nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit.
+              </>
+            ),
+          }}
+        />
       </div>
       <div style={{ display: 'flex', gap: '12px' }}>
         <FancyCard>
