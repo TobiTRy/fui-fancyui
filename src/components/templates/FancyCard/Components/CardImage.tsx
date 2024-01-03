@@ -28,7 +28,6 @@ const WarpperImage = styled.div<TWrapperImage & { theme: TTheme }>`
   box-sizing: border-box;
 
   img {
-    width: 100%;
     border-radius: ${({ $borderRadius, theme }) =>
       checkThemeValue($borderRadius) ? theme.borderRadius[$borderRadius as TBorderRadiusSizes] : $borderRadius};
   }

@@ -1,11 +1,7 @@
-import React from 'react';
-
 import { Typography } from '@/components/atoms/Typography';
+import { TTypography } from '@/components/atoms/Typography/Typography.model';
 
-type TCardSubTitleProps = {
-  children: React.ReactNode;
-} & React.ComponentProps<typeof Typography>;
-export default function CardSubTitle(props: TCardSubTitleProps) {
+export default function CardSubTitle(props: TTypography) {
   const { children, type, variant, ...typoProps } = props;
   return (
     <Typography type={type ?? 'content'} variant={variant ?? 'verysmText'} {...typoProps}>
