@@ -27,14 +27,24 @@ export const StyledImage = styled.img<TStyledImage & { theme: TTheme }>`
 // --------------------------------------------------------------------------- //
 // Generate the sizes for the image based on the provided size
 
-const generateSize = (size: TComponentSizesExtended | 'fit', direction: 'height' | 'width') => {
+const generateSize = (size: TComponentSizesExtended | 'fit' | string, direction: 'height' | 'width') => {
   if (size === 'fit') {
     return css`
       ${direction}: 100%;
     `;
   }
 
-  return css`
-    ${direction + ': ' + globalSizes[size].elementSize};
-  `;
+  // Check if the size is a theme size
+  if (globalSizes[size as TComponentSizesExtended]) {
+    return css`
+      ${direction + ': ' + globalSizes[size as TComponentSizesExtended].elementSize};
+    `;
+  }
+
+  // check size is a custom css value
+  if (typeof size === 'string') {
+    return css`
+      ${direction + ': ' + size};
+    `;
+  }
 };
