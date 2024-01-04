@@ -7,28 +7,30 @@ import { FancySVGAtom } from '@/components/atoms/FancySVGAtom';
 import { InputUnderline } from '@/components/atoms/InputUnderline';
 
 import { IInputWrapper } from './IInputWrapper.model';
-import { ErrorMessage, InputContainer, StyledInputWrapper, iconStyle } from './InputWrapper.style';
+import { InputContainer, StyledInputWrapper, SystemMessageWrapper, iconStyle } from './InputWrapper.style';
 import SystemMessage from '@/components/atoms/SystemMessage/SystemMessage';
 
 // --------------------------------------------------------------------------- //
 // ------ The Wrapper for the inputs that give him some extra features  ------ //
 // ------------------ like a Label icon errormessage ------------------------- //
-export default function InputWrapper({
-  id,
-  value,
-  isActive,
-  disabled,
-  InputElement,
-  errorMessage,
-  icon,
-  label,
-  align,
-  underline = true,
-  autoWidth,
-  placeholder,
-  layer = 4,
-  themeType = 'secondary',
-}: IInputWrapper) {
+export default function InputWrapper(props: IInputWrapper) {
+  const {
+    id,
+    value,
+    isActive,
+    disabled,
+    InputElement,
+    errorMessage,
+    icon,
+    label,
+    align,
+    underline = true,
+    autoWidth,
+    placeholder,
+    layer = 4,
+
+    themeType = 'secondary',
+  } = props;
   const [isInitial, setIsInitial] = useState(false);
 
   // Calculate the color state for the label and underline
@@ -86,9 +88,9 @@ export default function InputWrapper({
       </InputContainer>
       {/* Render the error message if an errorMessage prop exists */}
       {errorMessage && (
-        <ErrorMessage>
-          <SystemMessage systemMessageState="success">{errorMessage}</SystemMessage>
-        </ErrorMessage>
+        <SystemMessageWrapper>
+          <SystemMessage systemMessageState="error">{errorMessage}</SystemMessage>
+        </SystemMessageWrapper>
       )}
     </StyledInputWrapper>
   );

@@ -83,7 +83,7 @@ export default function InputsRoute() {
             onChange={testHandler5}
             align="left"
           />
-          <FancyPasswordInput icon={svg} label="Password" value={password} onChange={testHandler5} align="center" />
+          <FancyPasswordInput icon={svg} label="Password" value={password} onChange={testHandler5} align="left" />
         </DesignArea>
         <DesignArea title="Text Input">
           <FancyTextInput label="Text" value={text} onChange={testHandler} />

@@ -6,7 +6,6 @@ import { INumberInput } from './NumberInput';
 
 type IStyledNumberInput = IStyledPrefixAndPicker<INumberInput, 'align'>;
 const StyledNumberInput = styled(RawInput)<IStyledNumberInput & { $width: string }>`
-  box-sizing: border-box;
   border-radius: 0;
   width: ${({ $width }) => ($width ? $width : '2ch')};
   background-color: transparent;

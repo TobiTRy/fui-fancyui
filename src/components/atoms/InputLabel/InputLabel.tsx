@@ -15,7 +15,6 @@ export interface IInputLabel {
 }
 
 const InputLabel = styled.label<IInputLabel>`
-  width: 100%;
   color: ${({ theme, $layer, $themeType }) =>
     getTextColor({ theme, $themeType: $themeType ?? 'secondary', $textLayer: $layer ?? 1 })};
   font-weight: bold;

@@ -8,7 +8,7 @@ import { TLayer } from '@/types/TLayer';
 import { TTheme } from '@/types/TTheme';
 
 export const StyledInputWrapper = styled.div<{ disabled?: boolean; $autoWidth?: boolean }>`
-  box-sizing: border-box;
+
   position: relative;
   display: grid;
   grid-template-columns: auto 1fr auto;
@@ -19,7 +19,7 @@ export const StyledInputWrapper = styled.div<{ disabled?: boolean; $autoWidth?: 
 `;
 
 //the style for the error message
-export const ErrorMessage = styled.div<{ theme: TTheme }>`
+export const SystemMessageWrapper = styled.div<{ theme: TTheme }>`
   grid-column: 2;
   grid-row: 2;
 `;
@@ -36,13 +36,15 @@ export const InputContainer = styled.div<{
   ${({ $givePadding, theme }) =>
     $givePadding &&
     css`
-      padding-top: ${parseFloat(theme.spacing.lg) + 2 + 'px'};
+      padding-top: ${theme.spacing.lg};
     `};
 
   position: relative;
 
   input {
-    padding: ${({ theme }) => theme.spacing.xs} 2px ${({ theme }) => theme.spacing.xs};
+    height: 16px;
+    font-size: 16px;
+    padding: 6px 2px 10px;
   }
 
   svg {
