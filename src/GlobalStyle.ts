@@ -9,7 +9,7 @@ const GlobalStyle = createGlobalStyle<{ theme: TTheme }>`
     padding: 0;
     background: ${({ theme }) => theme.colors.primary[0]};
     color: ${({ theme }) => theme.colors.secondary[0]};
-    font-family: DMSans, Helvetica, Sans-Serif;
+    /* font-family: DMSans, Helvetica, Sans-Serif; */
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
     
