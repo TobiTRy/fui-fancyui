@@ -1,13 +1,7 @@
-interface IColorState {
-  type: 'item' | 'text';
-  isActive?: boolean;
-  errorMessage?: string;
-  value?: string | number | readonly string[] | undefined;
-  placeholder?: string;
-}
+import { TColorState, TColorStateOutput } from '@/design/designFunctions/calcColorState/TcalcColorState.model';
 
 // Define a function to calculate the color state based on the input props
-const calcColorState = ({ type, isActive, errorMessage, value, placeholder }: IColorState) => {
+const calcColorState = ({ type, isActive, errorMessage, value, placeholder }: TColorState): TColorStateOutput => {
   if (errorMessage) return 'error';
   if (isActive) return 'active';
   if (value && type !== 'item') return 'active';
