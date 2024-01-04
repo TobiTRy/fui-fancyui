@@ -15,6 +15,7 @@ interface IRawInputWrapper extends IRawInput {
 export const StyledDatePicker = styled(RawInput)<IRawInputWrapper & IDateInputProps>`
   color: ${({ value }) => (value ? '' : 'transparent')};
   transition: color 0.3s ease-in;
+  font-family: inherit;
 
   /* This renders a Placerholder in Text when its needed */
   ${({ placeholder, $themeType = 'secondary', $layer = 4, value, theme, align }) => {
