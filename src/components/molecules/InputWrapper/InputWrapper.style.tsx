@@ -8,7 +8,6 @@ import { TLayer } from '@/types/TLayer';
 import { TTheme } from '@/types/TTheme';
 
 export const StyledInputWrapper = styled.div<{ disabled?: boolean; $autoWidth?: boolean }>`
-
   position: relative;
   display: grid;
   grid-template-columns: auto 1fr auto;

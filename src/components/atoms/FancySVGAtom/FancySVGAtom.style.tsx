@@ -3,7 +3,8 @@ import { styled } from 'styled-components';
 import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent';
 import { TTheme } from '@/types/TTheme';
 import { TThemeTypes } from '@/types/TThemeTypes';
-import { IStyledSVGAtom, sizes } from './FancySVGAtom.model';
+import { IStyledSVGAtom } from './FancySVGAtom.model';
+import { sizes } from '@/components/atoms/FancySVGAtom/sizeSettings';
 
 interface ICalcIconColor {
   theme: TTheme;

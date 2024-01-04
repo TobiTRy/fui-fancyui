@@ -9,7 +9,7 @@ export default function InfoCardRoute() {
   return (
     <DesignWrapper>
       <DesignArea title="InfoCard">
-        <div style={{display: 'flex', flexDirection: 'column', gap: '12px'}}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
           <InfoCard size="sm" themeType="success" />
           <InfoCard size="md" themeType="error" />
           <InfoCard size="lg" themeType="warning" layer={0} />

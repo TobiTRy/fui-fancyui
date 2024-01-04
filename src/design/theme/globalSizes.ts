@@ -73,10 +73,10 @@ export const globalSizes = {
 
 export const globelElementsizes = {
   xxs: globalSizes.xxs.elementSize,
-  xs:  globalSizes.xs.elementSize,
-  sm:  globalSizes.sm.elementSize,
-  md:  globalSizes.md.elementSize,
-  lg:  globalSizes.lg.elementSize,
-  xl:  globalSizes.xl.elementSize,
+  xs: globalSizes.xs.elementSize,
+  sm: globalSizes.sm.elementSize,
+  md: globalSizes.md.elementSize,
+  lg: globalSizes.lg.elementSize,
+  xl: globalSizes.xl.elementSize,
   xxl: globalSizes.xxl.elementSize,
 };

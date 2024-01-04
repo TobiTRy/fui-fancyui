@@ -3,8 +3,7 @@ import { CSSProp } from 'styled-components';
 import IStyledPrefixAndOmiter from '@/types/IStyledPrefixAndOmiter';
 import { TThemeTypes } from '@/types/TThemeTypes';
 import { TLayer } from '@/types/TLayer';
-import { sizes } from '@/components/molecules/FancyContent/sizeSettings';
-
+import { sizes } from '@/components/atoms/FancySVGAtom/sizeSettings';
 
 export type ISizes = keyof typeof sizes;
 
