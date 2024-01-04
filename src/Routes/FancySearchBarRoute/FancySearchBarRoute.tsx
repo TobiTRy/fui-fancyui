@@ -72,7 +72,7 @@ export default function FancySearchBarRoute() {
   }, []);
 
   return (
-    <Card height="500px">
+    <Card>
       <DesignWrapper>
         <DesignArea title="Fancy Search Bar">
           <FancySearchBar handlerSearchValue={searchHandler} searchValue={searchValue}>
