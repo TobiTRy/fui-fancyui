@@ -1,6 +1,5 @@
 import { styled, keyframes } from 'styled-components';
 
-import { fontSize } from '../../../design/theme/designSizes';
 import colorTransparencyCalculator from '../../../design/designFunctions/colorTransparencyCalculator/colorTransparencyCalculator';
 import { boxShadow } from '../../../design/designFunctions/shadows/shadows';
 import { TLayer } from '@/types/TLayer';
@@ -47,7 +46,7 @@ export const Headline = styled.div`
 
   button {
     align-self: flex-start;
-    line-height: ${fontSize.lg};
+    line-height: 1.4;
   }
 `;
 

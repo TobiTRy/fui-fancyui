@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
 import { styled } from 'styled-components';
 
-import { fontSize } from '../../../design/theme/designSizes';
 import { TTheme } from '@/types/TTheme';
 
 // Styled dropdown container
 const DropDownContainer = styled.div<{ theme: TTheme }>`
   position: relative;
   display: inline-block;
-  font-size: ${fontSize.md};
   color: ${({ theme }) => theme.colors.secondary.main};
   user-select: none;
 `;

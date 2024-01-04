@@ -1,6 +1,5 @@
 import { styled, css } from 'styled-components';
 
-import { fontSize } from '@/design/theme/designSizes';
 import { disabledStyle } from '@/design/designFunctions/disabledStyle';
 import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent';
 
@@ -25,7 +24,6 @@ export const ErrorMessage = styled.p<{ theme: TTheme }>`
   grid-row: 2;
   margin: 0;
   margin-top: ${({ theme }) => theme.spacing.xxs};
-  font-size: ${fontSize.extrasm};
   color: ${({ theme }) => theme.colors.error[0]};
 `;
 
@@ -47,7 +45,7 @@ export const InputContainer = styled.div<{
   position: relative;
 
   input {
-    padding: 0px 0px ${({ theme }) => parseFloat(theme.spacing.xs) + 'px'};
+    padding: ${({ theme }) => theme.spacing.xs} 2px ${({ theme }) => theme.spacing.xs};
   }
 
   svg {

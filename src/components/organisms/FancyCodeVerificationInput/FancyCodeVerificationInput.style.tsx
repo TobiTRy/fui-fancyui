@@ -1,6 +1,4 @@
 import { styled, css } from 'styled-components';
-
-import { fontSize } from '@/design/theme/designSizes';
 import { TTheme } from '@/types/TTheme';
 
 export const WarpperComponent = styled.div`
@@ -18,7 +16,6 @@ export const MessageContainer = styled.div<{ theme: TTheme }>`
 
 export const Message = styled.div<{ $isError?: boolean; theme: TTheme }>`
   color: ${({ theme }) => theme.colors.secondary[0]};
-  font-size: ${fontSize.sm};
   max-height: 0;
   visibility: hidden;
   overflow: hidden;

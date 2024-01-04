@@ -1,6 +1,5 @@
 import { css, styled } from 'styled-components';
 
-import { fontSize } from '@/design/theme/designSizes';
 import { TTheme } from '@/types/TTheme';
 
 //the selectfield for the options
@@ -28,7 +27,6 @@ export const SelectField = styled.select<ISelectField & { theme: TTheme }>`
   user-select: none;
   appearance: none;
   padding: 0px 0px ${({ theme }) => theme.spacing.xs};
-  font-size: ${fontSize.md};
   background-color: transparent;
 
   &:disabled {

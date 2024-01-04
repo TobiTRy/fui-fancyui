@@ -4,7 +4,6 @@ import { TLayer } from '@/types/TLayer';
 import { TThemeTypes } from '@/types/TThemeTypes';
 import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent';
 import { TTheme } from '@/types/TTheme';
-import { fontSize } from '@/design/theme/designSizes';
 
 // the style for a single input
 interface StyledSingleInputProps {
@@ -16,7 +15,7 @@ interface StyledSingleInputProps {
 export const StyledSingleInput = styled.input<StyledSingleInputProps & { theme: TTheme }>`
   aspect-ratio: 4/5;
   width: 1.5ch;
-  font-size: ${fontSize.xxl};
+  font-size: 24px;
   text-align: center;
   color: ${({ theme }) => theme.colors.secondary[0]};
   border: 1.5px solid

@@ -8,15 +8,6 @@ export const spacingPx = {
   xxl: 40 + 'px',
 };
 
-export const fontSize = {
-  extrasm: '0.7rem',
-  sm: '0.875rem',
-  md: '1rem',
-  lg: '1.125rem',
-  xl: '1.25rem',
-  xxl: '1.5rem',
-};
-
 export const fontSizes = {
   desktop: {
     headings: {

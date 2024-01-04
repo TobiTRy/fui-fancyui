@@ -1,6 +1,5 @@
 import { styled } from 'styled-components';
 
-import { fontSize } from '@/design/theme/designSizes';
 import { TTheme } from '@/types/TTheme';
 import { TTextAlignLC } from '@/types/TTextAlignLC';
 
@@ -10,7 +9,6 @@ export interface IRawInput {
 }
 const RawInput = styled.input<IRawInput>`
   font-weight: 500;
-  font-size: 16px;
   box-sizing: border-box;
   width: 100%;
   appearance: none;
@@ -20,7 +18,7 @@ const RawInput = styled.input<IRawInput>`
   border: none;
   outline: none;
   box-shadow: none;
-  font-size: ${fontSize.md};
+  font-size: ${({ theme }) => theme.fontSizes.desktop.textElements.input};
   padding: 0;
 `;
 

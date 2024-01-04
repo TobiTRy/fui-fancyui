@@ -1,8 +1,7 @@
 import Color from 'color';
 import { styled } from 'styled-components';
 
-import { fontSize } from '../../../design/theme/designSizes';
-import simpleColorTransition from '../../../design/designFunctions/simpleColorTransition/simpleTransition';
+import { simpleColorTransition } from '@/design/designFunctions/simpleColorTransition';
 import { TTheme } from '@/types/TTheme';
 
 // calculate color on the isBright and isDarkTheme props
@@ -31,7 +30,6 @@ export const Content = styled.div<{ $isBright: boolean; theme: TTheme; $isDarkTh
   left: 0;
   z-index: 2;
   gap: 3px;
-  font-size: ${fontSize.sm};
   color: ${({ theme, $isBright, $isDarkTheme }) => colorCalculation({ theme, $isBright, $isDarkTheme })};
   ${simpleColorTransition}
 
