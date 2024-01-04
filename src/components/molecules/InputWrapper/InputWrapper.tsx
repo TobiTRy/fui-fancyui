@@ -8,6 +8,7 @@ import { InputUnderline } from '@/components/atoms/InputUnderline';
 
 import { IInputWrapper } from './IInputWrapper.model';
 import { ErrorMessage, InputContainer, StyledInputWrapper, iconStyle } from './InputWrapper.style';
+import SystemMessage from '@/components/atoms/SystemMessage/SystemMessage';
 
 // --------------------------------------------------------------------------- //
 // ------ The Wrapper for the inputs that give him some extra features  ------ //
@@ -84,7 +85,11 @@ export default function InputWrapper({
         )}
       </InputContainer>
       {/* Render the error message if an errorMessage prop exists */}
-      {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
+      {errorMessage && (
+        <ErrorMessage>
+          <SystemMessage systemMessageState="success">{errorMessage}</SystemMessage>
+        </ErrorMessage>
+      )}
     </StyledInputWrapper>
   );
 }

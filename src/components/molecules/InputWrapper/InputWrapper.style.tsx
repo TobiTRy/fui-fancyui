@@ -19,12 +19,9 @@ export const StyledInputWrapper = styled.div<{ disabled?: boolean; $autoWidth?: 
 `;
 
 //the style for the error message
-export const ErrorMessage = styled.p<{ theme: TTheme }>`
+export const ErrorMessage = styled.div<{ theme: TTheme }>`
   grid-column: 2;
   grid-row: 2;
-  margin: 0;
-  margin-top: ${({ theme }) => theme.spacing.xxs};
-  color: ${({ theme }) => theme.colors.error[0]};
 `;
 
 //the input/label/underline are all wrapped in thid container
