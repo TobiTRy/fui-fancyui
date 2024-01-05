@@ -7,6 +7,7 @@ import { TLayer } from '@/types/TLayer';
 import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent';
 import { TTheme } from '@/types/TTheme';
 import { SVGXlg } from '@/components/icons/SVGXlg';
+import { FancySVGAtom } from '@/components/atoms/FancySVGAtom';
 
 // --------------------------------------------------------------------------- //
 // --------------- The main Component for the X Close Button------- ---------- //
@@ -20,7 +21,9 @@ export default function FancyXButton({ onClick, themeType, layer }: IFancyXButto
   //check wich design comes in and add the right color object uiColor or systemMessages  to the button
   return (
     <StyledFancyXButton onClick={onClick} $themeType={themeType} $layer={layer}>
-      <SVGXlg />
+      <FancySVGAtom themeType={themeType} layer={layer}>
+        <SVGXlg />
+      </FancySVGAtom>
     </StyledFancyXButton>
   );
 }
@@ -34,9 +37,8 @@ interface IStyledFancyXButton {
   theme: TTheme;
 }
 const StyledFancyXButton = styled.button<IStyledFancyXButton>`
-  padding: 0 ${({ theme }) => theme.spacing.sm} ${({ theme }) => theme.spacing.xxs};
+  padding: 0;
   background: none;
-  color: ${({ $themeType = 'accent', theme, $layer }) => getBackgroundColor({ $themeType, theme, $layer })};
   border: none;
   font-weight: bolder;
   cursor: pointer;
@@ -45,6 +47,6 @@ const StyledFancyXButton = styled.button<IStyledFancyXButton>`
 
   &:hover {
     color: ${({ $themeType = 'accent', $layer, theme }) =>
-      Color(getBackgroundColor({ $themeType, $layer, theme })).darken(0.1).hex()};
+      Color(getBackgroundColor({ $themeType, $layer, theme })).darken(0.5).hex()};
   }
 `;
