@@ -53,7 +53,7 @@ export default function FancyRangeSlider(props: IFancyRangeSlider) {
         <Icon>
           <FancySVGAtom
             isActive={isActive}
-            size="lg"
+            size="xs"
             themeType={themeType}
             layer={layer}
             externalStyle={{ transition: 'color 0.3s ease-in-out' }}
