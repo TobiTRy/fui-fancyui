@@ -5,8 +5,11 @@ import { FancySVGAtom } from '@/components/atoms/FancySVGAtom';
 interface IPasswordEye {
   isShow?: boolean;
   onClick?: () => void;
+  customEyeOpen?: React.ReactNode;
+  customEyeCrossed?: React.ReactNode;
 }
-export default function PasswordEye({ isShow, onClick }: IPasswordEye) {
+export default function PasswordEye(props: IPasswordEye) {
+  const { isShow, onClick, customEyeCrossed, customEyeOpen } = props;
   const clickHandler = () => {
     onClick && onClick();
   };
@@ -16,12 +19,12 @@ export default function PasswordEye({ isShow, onClick }: IPasswordEye) {
       {isShow ? (
         // the eye icon for the password type toggle
         <FancySVGAtom size="xxs" isPassive={true}>
-          <SVGEyeOpen />
+          {customEyeOpen ?? <SVGEyeOpen />}
         </FancySVGAtom>
       ) : (
         // the crossed out eye icon for the password type toggle
         <FancySVGAtom size="xxs" isPassive={true}>
-          <SVGEyeCrossed />
+          {customEyeCrossed ?? <SVGEyeCrossed />}
         </FancySVGAtom>
       )}
     </i>
