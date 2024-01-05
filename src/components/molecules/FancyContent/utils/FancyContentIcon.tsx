@@ -1,20 +1,20 @@
-import { FancySVGAtom } from '@/components/atoms/FancySVGAtom';
-import { sizesSettings } from '@/components/molecules/Chip/sizeSettings';
+import { css } from 'styled-components';
 
-interface IFancyContentIconProps {
-  children?: React.ReactNode;
-  size?: keyof typeof sizesSettings;
-  'aria-label'?: string;
-}
-export function FancyContentIcon(props: IFancyContentIconProps) {
-  const { children, size = 'sm' } = props;
+import { FancySVGAtom } from '@/components/atoms/FancySVGAtom';
+import { ISVGAtomProps } from '@/components/atoms/FancySVGAtom/FancySVGAtom.model';
+
+export function FancyContentIcon(props: ISVGAtomProps) {
+  const { children, size = 'xxs', externalStyle, ...SVGProps } = props;
 
   return (
     <FancySVGAtom
-      aria-label={props['aria-label']}
-      size={sizesSettings[size].iconSize}
-      externalStyle={{ flexShrink: '0' }}
       isPassive
+      externalStyle={css`
+        flex-shrink: 0;
+        ${externalStyle}
+      `}
+      size={size}
+      {...SVGProps}
     >
       {children}
     </FancySVGAtom>
