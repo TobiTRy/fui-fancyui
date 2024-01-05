@@ -21,26 +21,3 @@ export type ISVGAtom = {
 export type ISVGAtomProps = ISVGAtom & Omit<React.HTMLAttributes<HTMLElement>, 'style'>;
 
 export type IStyledSVGAtom = IStyledPrefixAndOmiter<ISVGAtom, 'children'>;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
