@@ -7,7 +7,13 @@ import { FancySVGAtom } from '@/components/atoms/FancySVGAtom';
 import { InputUnderline } from '@/components/atoms/InputUnderline';
 
 import { IInputWrapper } from './IInputWrapper.model';
-import { InputContainer, StyledInputWrapper, SystemMessageWrapper, iconStyle } from './InputWrapper.style';
+import {
+  InputContainer,
+  StyledInputWrapper,
+  SystemMessageWrapper,
+  iconStyle,
+  WrapperInput,
+} from './InputWrapper.style';
 import SystemMessage from '@/components/atoms/SystemMessage/SystemMessage';
 
 // --------------------------------------------------------------------------- //
@@ -51,14 +57,14 @@ export default function InputWrapper(props: IInputWrapper) {
           layer={layer}
           isPassive={false}
           externalStyle={iconStyle}
-          size="lg"
+          size="xs"
           isActive={isActive}
         >
           {icon}
         </FancySVGAtom>
       )}
       <InputContainer $givePadding={Boolean(label)} $themeType={themeType} $layer={layer}>
-        {InputElement}
+        <WrapperInput className="wrapperinput">{InputElement}</WrapperInput>
         {/* Render the label for the input field if a label prop exists */}
         {label && (
           <AnimatedInputLabel

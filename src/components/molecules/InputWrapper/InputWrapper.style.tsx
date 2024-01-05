@@ -40,10 +40,10 @@ export const InputContainer = styled.div<{
 
   position: relative;
 
-  input {
-    height: 16px;
-    font-size: 16px;
-    padding: 6px 2px 10px;
+  .wrapperinput {
+    height: 18px;
+    font-size: 18px;
+    padding: 4px 2px 10px;
   }
 
   svg {
@@ -59,4 +59,8 @@ export const iconStyle = css<{ theme: TTheme }>`
   margin-bottom: 2px;
   transition: 0.5s;
   align-self: flex-end;
+`;
+
+export const WrapperInput = styled.div`
+  padding-bottom: 2px;
 `;

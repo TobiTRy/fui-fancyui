@@ -40,7 +40,7 @@ const activeHandler = (align: string, $moveUp?: boolean) => {
       ${$moveUp
         ? css`
             transform-origin: left bottom;
-            transform: translateY(calc(-100% + 8px)) scale(0.9);
+            transform: translateY(calc(-100% + 8px)) scale(0.8);
           `
         : ''}
     `;
@@ -52,7 +52,7 @@ const activeHandler = (align: string, $moveUp?: boolean) => {
       ${$moveUp
         ? css`
             transform-origin: center bottom;
-            transform: translateY(calc(-100% + 4px)) translate(-50%) scale(0.75);
+            transform: translateY(calc(-100% + 8px)) translateX(-50%) scale(0.8);
           `
         : 'transform: translate(-50%);'};
     `;
