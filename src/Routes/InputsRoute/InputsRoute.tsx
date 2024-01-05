@@ -68,6 +68,8 @@ export default function InputsRoute() {
       <DesignWrapper>
         <DesignArea title="Password Input">
           <FancyNumberInput
+            decimalPlaces={4}
+            step={0.001}
             label="Text"
             onChange={testHandler2}
             value={test}
