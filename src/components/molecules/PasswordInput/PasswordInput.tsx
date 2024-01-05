@@ -41,6 +41,7 @@ export default function PasswordInput(props: IPasswordInputProps) {
         onFocus={() => activeHandler && activeHandler(true)}
         onBlur={() => activeHandler && activeHandler(false)}
         $align={align}
+        $externalStyle={{ paddingRight: '24px !important' }}
         {...HTMLInputProps}
       />
     </>
@@ -52,7 +53,7 @@ export default function PasswordInput(props: IPasswordInputProps) {
 // --------------------------------------------------------------------------- //
 const WrapperEye = styled.div<{ theme: TTheme; $themeType?: TThemeTypes; $layer?: TLayer }>`
   position: absolute;
-  bottom: 6px;
+  bottom: 8px;
   right: 4px;
 
   svg {
