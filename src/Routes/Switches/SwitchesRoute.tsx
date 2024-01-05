@@ -20,7 +20,7 @@ export default function SwitchesRoute() {
           whichIndexIsSelected={0}
         >
           <FancyBottomBarIcon label="test" icon={Icon} isActive />
-          <FancyBottomBarIcon label="test" icon={Icon} WrapperComponent={<a></a>} />
+          <FancyBottomBarIcon icon={Icon} WrapperComponent={<a></a>} />
           <FancyBottomBarIcon label="test" icon={Icon} />
           <FancyBottomBarIcon label="test" icon={Icon} />
         </SwitchList>

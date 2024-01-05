@@ -39,6 +39,7 @@ export default function InfoCardRoute() {
           />
           <FancyInfoCard
             themeType="error"
+            size="sm"
             title="A Vergy good title"
             description="Mooiin Saying mooii jkjkjkdf jkjsjkfdsjfj sjkjkfsj kjjkfjsjkf jjsfjkskjfkjs jjkjk fsjjkfskjjkf n"
             icon={<SVGCheckMark />}
