@@ -12,7 +12,7 @@ export default function SystemMessage(props: TSystemMessage & { textSettings?: T
 
   return (
     <StyledSystemMessageWrapper $systemMessageState={systemMessageState}>
-      <Typography type={'verysmText'} {...textSettings}>
+      <Typography type={'verysmText'} addLineHeight={false} {...textSettings}>
         {children}
       </Typography>
     </StyledSystemMessageWrapper>

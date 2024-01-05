@@ -12,7 +12,7 @@ import { TTheme } from '@/types/TTheme';
 
 export const AnimatedInputLabel = styled(InputLabel)<IAnimatedInputLabel & { theme?: TTheme }>`
   position: absolute;
-  padding: 12px 0 5px;
+  padding: 12px 0 8px;
   color: ${({ $colorState, theme, $themeType = 'secondary', $layer = 4 }) => {
     switch ($colorState) {
       case 'error':
@@ -40,7 +40,7 @@ const activeHandler = (align: string, $moveUp?: boolean) => {
       ${$moveUp
         ? css`
             transform-origin: left bottom;
-            transform: translateY(calc(-100% + 8px)) scale(0.8);
+            transform: translateY(calc(-100% + 12px)) scale(0.8);
           `
         : ''}
     `;
@@ -52,7 +52,7 @@ const activeHandler = (align: string, $moveUp?: boolean) => {
       ${$moveUp
         ? css`
             transform-origin: center bottom;
-            transform: translateY(calc(-100% + 8px)) translateX(-50%) scale(0.8);
+            transform: translateY(calc(-100% + 12px)) translateX(-50%) scale(0.8);
           `
         : 'transform: translate(-50%);'};
     `;

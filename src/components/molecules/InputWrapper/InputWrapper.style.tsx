@@ -21,6 +21,7 @@ export const StyledInputWrapper = styled.div<{ disabled?: boolean; $autoWidth?: 
 export const SystemMessageWrapper = styled.div<{ theme: TTheme }>`
   grid-column: 2;
   grid-row: 2;
+  line-height: 1;
 `;
 
 //the input/label/underline are all wrapped in thid container
@@ -39,12 +40,7 @@ export const InputContainer = styled.div<{
     `};
 
   position: relative;
-
-  .wrapperinput {
-    height: 18px;
-    font-size: 18px;
-    padding: 4px 2px 10px;
-  }
+  padding: 26px 0 4px;
 
   svg {
     color: ${({ theme, $themeType, $layer }) => getBackgroundColor({ theme, $themeType, $layer })};
@@ -55,12 +51,18 @@ export const InputContainer = styled.div<{
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const iconStyle = css<{ theme: TTheme }>`
-  margin-right: ${({ theme }) => parseFloat(theme.spacing.xs) + 2 + 'px'};
-  margin-bottom: 2px;
+  margin-right: ${({ theme }) => theme.spacing.xs};
+  margin-bottom: 1px;
   transition: 0.5s;
   align-self: flex-end;
 `;
 
 export const WrapperInput = styled.div`
-  padding-bottom: 2px;
+  font-size: 18px;
+
+  input {
+    box-sizing: border-box;
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
 `;

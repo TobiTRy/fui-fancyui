@@ -71,8 +71,10 @@ export default function PasswordInput(props: IPasswordInputProps) {
 // --------------------------------------------------------------------------- //
 const WrapperEye = styled.div<{ theme: TTheme; $themeType?: TThemeTypes; $layer?: TLayer }>`
   position: absolute;
-  bottom: 8px;
-  right: 4px;
+  bottom: 0px;
+  right: 0;
+  padding: 8px 0 8px 8px;
+  box-sizing: border-box;
 
   svg {
     color: ${({ theme, $themeType = 'secondary', $layer = 4 }) => getBackgroundColor({ theme, $themeType, $layer })};
