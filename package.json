@@ -15,26 +15,32 @@
     "checkFormat": "npx prettier --check .",
     "format": "npx prettier --write .",
     "test": "vitest",
-    "predeploy": "npm run lint && npm run build && npm run checkFormat "
+    "predeploy": "npm run lint && npm run build && npm run checkFormat ",
+    "prepare": "husky install"
   },
   "lint-staged": {
     "*.ts": [
-      "npx eslint src --ext ts --report-unused-disable-directives --fix --max-warnings=-1",
-      "npm run format"
+      "npx eslint --ext ts --report-unused-disable-directives --max-warnings=-1",
+      "npx prettier --write"
     ],
     "*.tsx": [
-      "npx eslint src --ext tsx --report-unused-disable-directives --fix --max-warnings=-1",
-      "npm run format"
+      "npx eslint src --ext tsx --report-unused-disable-directives --max-warnings=-1",
+      "npx prettier --write"
     ],
     "*.mdx": [
-      "npm run format"
+      "npx prettier --write"
     ],
     "*.yml": [
-      "npm run format"
+      "npx prettier --write"
     ],
     "*.json": [
-      "npm run format"
+      "npx prettier --write"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "dependencies": {
     "@types/react-router-dom": "^5.3.3",
