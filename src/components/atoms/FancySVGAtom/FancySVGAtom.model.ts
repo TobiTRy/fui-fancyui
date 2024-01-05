@@ -16,6 +16,7 @@ export type ISVGAtom = {
   errorMessage?: string;
   themeType?: TThemeTypes;
   layer?: TLayer;
+  test?: string;
 };
 
 export type ISVGAtomProps = ISVGAtom & Omit<React.HTMLAttributes<HTMLElement>, 'style'>;
