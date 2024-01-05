@@ -71,7 +71,7 @@ export const globalSizes = {
   },
 };
 
-export const globelElementsizes = {
+export const globalElementsizes = {
   xxs: globalSizes.xxs.elementSize,
   xs: globalSizes.xs.elementSize,
   sm: globalSizes.sm.elementSize,

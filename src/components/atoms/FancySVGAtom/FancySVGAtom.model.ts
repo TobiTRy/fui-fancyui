@@ -5,11 +5,11 @@ import { TThemeTypes } from '@/types/TThemeTypes';
 import { TLayer } from '@/types/TLayer';
 import { sizes } from '@/components/atoms/FancySVGAtom/sizeSettings';
 
-export type ISizes = keyof typeof sizes;
+export type TSizes = keyof typeof sizes;
 
 export type ISVGAtom = {
   children?: React.ReactNode;
-  size?: ISizes;
+  size?: TSizes;
   externalStyle?: CSSProp;
   isPassive?: boolean;
   isActive?: boolean;
