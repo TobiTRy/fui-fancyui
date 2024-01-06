@@ -24,7 +24,7 @@
       "npx prettier --write"
     ],
     "*.tsx": [
-      "npx eslint src --ext tsx --report-unused-disable-directives --max-warnings=-1",
+      "npx eslint --ext tsx --report-unused-disable-directives --max-warnings=-1",
       "npx prettier --write"
     ],
     "*.mdx": [
