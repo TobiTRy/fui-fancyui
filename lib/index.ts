@@ -53,7 +53,7 @@ export { default as SpeedDailMenueItem } from '@/components/atoms/SpeedDialMenue
 export { default as SpacingsContainer } from '@/components/atoms/SpacingContainer/SpacingsContainer';
 
 // ---------- Molecules ------- //
-export { default as DateInput } from '@/components/molecules/DateInput/DateInput';
+export { default as DateInput } from '@/components/atoms/DateInput/DateInput';
 export { default as DateNumberWithStatus } from '@/components/molecules/DateNumberWithStatus/DateNumberWithStatus';
 export { default as DateOutputFromTo } from '@/components/molecules/DateOutputFromTo/DateOutputFromTo';
 export { default as DynamicBottomScrollBar } from '@/components/molecules/DynamicBottomScrollBar/DynamicBottomScrollBar';
@@ -65,8 +65,8 @@ export { default as FancySpeedDialButton } from '@/components/molecules/FancySpe
 export { default as InputWrapper } from '@/components/molecules/InputWrapper/InputWrapper';
 export { default as Modal } from '@/components/molecules/Modal/Modal';
 export { default as MonthWithDays } from '@/components/molecules/MonthWithDays/MonthWithDays';
-export { default as NumberInput } from '@/components/molecules/NumberInput/NumberInput';
-export { default as PasswordInput } from '@/components/molecules/PasswordInput/PasswordInput';
+export { default as NumberInput } from '@/components/atoms/NumberInput/NumberInput';
+export { default as PasswordInput } from '@/components/atoms/PasswordInput/PasswordInput';
 export { default as RangeCalendar } from '@/components/molecules/RangeCalendar/RangeCalendar';
 export { default as ScalingSection } from '@/components/molecules/ScalingSection/ScalingSection';
 export { default as SearchBar } from '@/components/molecules/SearchBar/SearchBar';
@@ -75,7 +75,7 @@ export { default as SingleInputs } from '@/components/molecules/SingleInputs/Sin
 export { default as SingleToastMessage } from '@/components/molecules/SingleToastMessage/SingleToastMessage';
 export { default as SwipeUpModal } from '@/components/molecules/SwipeUpModal/SwipeUpModal';
 export { default as ColorDisplay } from '@/components/molecules/ColorDisplay/ColorDisplay';
-export { default as TextInput } from '@/components/molecules/TextInput/TextInput';
+export { default as TextInput } from '@/components/atoms/TextInput/TextInput';
 export { default as FancyOpacitySlider } from '@/components/molecules/FancyOpacitySlider/FancyOpacitySlider';
 export { default as FancyButton } from '@/components/organisms/FancyButton/FancyButton';
 export { default as FancyHueSlider } from '@/components/molecules/FancyHueSlider/FancyHueSlider';

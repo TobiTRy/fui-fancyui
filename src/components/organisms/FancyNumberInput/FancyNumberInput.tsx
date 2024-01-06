@@ -1,6 +1,6 @@
 import { useId, useState } from 'react';
 
-import NumberInput, { INumberInput } from '@/components/molecules/NumberInput/NumberInput';
+import NumberInput, { INumberInput } from '@/components/atoms/NumberInput/NumberInput';
 import InputWrapper from '@/components/molecules/InputWrapper/InputWrapper';
 import { IInputWrapperUserInputProps } from '@/components/molecules/InputWrapper/IInputWrapper.model';
 

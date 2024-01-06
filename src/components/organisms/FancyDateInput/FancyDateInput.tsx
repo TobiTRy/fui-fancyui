@@ -1,6 +1,6 @@
 import { useId, useState } from 'react';
 
-import DateInput, { IDateInputPropsWithNativeAttrs } from '@/components/molecules/DateInput/DateInput';
+import DateInput, { IDateInputPropsWithNativeAttrs } from '@/components/atoms/DateInput/DateInput';
 import { InputWrapper } from '@/components/molecules/InputWrapper';
 import { IInputWrapperUserInputProps } from '@/components/molecules/InputWrapper/IInputWrapper.model';
 

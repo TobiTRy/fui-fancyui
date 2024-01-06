@@ -1,6 +1,6 @@
 import React, { useId, useState } from 'react';
 
-import TextInput, { ITextInputProps } from '@/components/molecules/TextInput/TextInput';
+import TextInput, { ITextInputProps } from '@/components/atoms/TextInput/TextInput';
 import { IInputWrapperUserInputProps } from '@/components/molecules/InputWrapper/IInputWrapper.model';
 import InputWrapper from '@/components/molecules/InputWrapper/InputWrapper';
 

@@ -1,6 +1,6 @@
 import { useId, useState } from 'react';
 
-import PasswordInput, { IPasswordInputProps } from '@/components/molecules/PasswordInput/PasswordInput';
+import PasswordInput, { IPasswordInputProps } from '@/components/atoms/PasswordInput/PasswordInput';
 
 import InputWrapper from '@/components/molecules/InputWrapper/InputWrapper';
 import { IInputWrapperUserInputProps } from '@/components/molecules/InputWrapper/IInputWrapper.model';
