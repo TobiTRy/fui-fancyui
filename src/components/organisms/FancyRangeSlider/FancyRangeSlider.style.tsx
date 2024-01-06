@@ -16,6 +16,7 @@ export const NumberContainer = styled.div`
   grid-row: 2 / 3;
   grid-column: 3 / 4;
   margin-left: 10px;
+  margin-top: -4px;
 `;
 
 //the label inhert the style from the AlignedInputLabel
