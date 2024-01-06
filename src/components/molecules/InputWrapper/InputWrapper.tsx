@@ -26,7 +26,7 @@ export default function InputWrapper(props: IInputWrapper) {
     isActive,
     disabled,
     InputElement,
-    errorMessage,
+    systemMessage,
     icon,
     label,
     align,
@@ -34,14 +34,29 @@ export default function InputWrapper(props: IInputWrapper) {
     autoWidth,
     placeholder,
     layer = 4,
-
     themeType = 'secondary',
   } = props;
   const [isInitial, setIsInitial] = useState(false);
 
+  const labelShouldMoveUp =
+    !!((isInitial && value === 0 ? undefined : value) || (isInitial && value === 0)) || isActive || !!placeholder;
+
   // Calculate the color state for the label and underline
-  const colorStateLabel = calcColorState({ type: 'text', isActive, errorMessage, value, placeholder });
-  const colorStateUnderline = calcColorState({ type: 'item', isActive, errorMessage, value, placeholder });
+  const colorStateLabel = calcColorState({
+    type: 'text',
+    isActive,
+    systemMessage: systemMessage?.type,
+    value,
+    placeholder,
+  });
+
+  const colorStateUnderline = calcColorState({
+    type: 'item',
+    isActive,
+    systemMessage: systemMessage?.type,
+    value,
+    placeholder,
+  });
 
   // Set the initial state of the input field
   useEffect(() => {
@@ -72,11 +87,7 @@ export default function InputWrapper(props: IInputWrapper) {
             $align={align}
             $themeType={themeType}
             $layer={layer}
-            $moveUp={
-              Boolean((isInitial && value === 0 ? undefined : value) || Boolean(isInitial && value === 0)) ||
-              isActive ||
-              Boolean(placeholder)
-            }
+            $moveUp={labelShouldMoveUp}
             $colorState={colorStateLabel}
           >
             {label}
@@ -85,7 +96,7 @@ export default function InputWrapper(props: IInputWrapper) {
         {/* Render the underline for the input field if the underline prop is true */}
         {underline && (
           <InputUnderline
-            colorState={colorStateUnderline === 'error' ? 'error' : 'active'}
+            colorState={colorStateUnderline !== 'active' ? colorStateUnderline : 'active'}
             themeType={themeType}
             layer={layer}
             isActive={isActive}
@@ -93,9 +104,9 @@ export default function InputWrapper(props: IInputWrapper) {
         )}
       </InputContainer>
       {/* Render the error message if an errorMessage prop exists */}
-      {errorMessage && (
+      {systemMessage && (
         <SystemMessageWrapper>
-          <SystemMessage systemMessageState="error">{errorMessage}</SystemMessage>
+          <SystemMessage systemMessageState={systemMessage.type}>{systemMessage.message}</SystemMessage>
         </SystemMessageWrapper>
       )}
     </StyledInputWrapper>

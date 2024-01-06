@@ -41,3 +41,8 @@ export const LabelWrapper = styled.label<{ $align?: TAlignCheckbox; theme: TThem
     margin-left: ${({ theme }) => theme.spacing.xxs};
   }
 `;
+
+export const InputWrapper = styled.div`
+  margin-top: 4px;
+  height: fit-content;
+`;

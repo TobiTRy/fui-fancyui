@@ -33,14 +33,14 @@ export const InputContainer = styled.div<{
 }>`
   width: 100%;
   grid-column: 2/3;
+  position: relative;
+  padding: 0 0 4px;
+
   ${({ $givePadding, theme }) =>
     $givePadding &&
     css`
       padding-top: ${theme.spacing.lg};
     `};
-
-  position: relative;
-  padding: 26px 0 4px;
 
   svg {
     color: ${({ theme, $themeType, $layer }) => getBackgroundColor({ theme, $themeType, $layer })};
