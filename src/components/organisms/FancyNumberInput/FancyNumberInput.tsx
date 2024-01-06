@@ -16,7 +16,7 @@ export default function FancyNumberInput(props: IFancyNumberInput) {
     icon,
     activeHandler,
     disabled,
-    errorMessage,
+    systemMessage,
     align,
     id,
     themeType,
@@ -50,7 +50,7 @@ export default function FancyNumberInput(props: IFancyNumberInput) {
       isActive={isActive}
       icon={icon}
       autoWidth={autoWidth}
-      errorMessage={errorMessage}
+      systemMessage={systemMessage}
       themeType={themeType}
       layer={layer}
       InputElement={

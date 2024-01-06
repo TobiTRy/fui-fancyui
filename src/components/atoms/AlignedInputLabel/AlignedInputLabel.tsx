@@ -17,6 +17,12 @@ export const AlignedInputLabel = styled(InputLabel)<IAlignedInputLabel>`
         return theme.colors.error[0];
       case 'active':
         return theme.colors.accent[0];
+      case 'success':
+        return theme.colors.success[0];
+      case 'warning':
+        return theme.colors.warning[0];
+      case 'info':
+        return theme.colors.info[0];
       default:
         return getTextColor({ theme, $themeType, $textLayer: $layer });
     }

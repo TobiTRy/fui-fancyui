@@ -19,7 +19,7 @@ export default function FancyDropDownSelect(props: IFancyDropDownSelect) {
     activeHandler,
     icon,
     label,
-    errorMessage,
+    systemMessage,
     themeType,
     layer,
     ...inputProps
@@ -50,7 +50,7 @@ export default function FancyDropDownSelect(props: IFancyDropDownSelect) {
       align={align}
       isActive={isActive}
       icon={icon}
-      errorMessage={errorMessage}
+      systemMessage={systemMessage}
       InputElement={
         <DropDownSelect
           id={usedId}

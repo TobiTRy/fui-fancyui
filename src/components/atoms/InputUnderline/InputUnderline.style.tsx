@@ -35,6 +35,12 @@ export const UnderLine = styled.i<IStyledUnderline & { theme: TTheme }>`
           return css`linear-gradient(90deg, ${theme.colors.accent[1]}, ${theme.colors.accent[0]})`;
         case 'default':
           return css`linear-gradient(90deg, ${theme.colors.secondary[0]}, ${theme.colors.secondary[4]})`;
+        case 'success':
+          return css`linear-gradient(90deg, ${theme.colors.success[1]}, ${theme.colors.success[0]})`;
+        case 'warning':
+          return css`linear-gradient(90deg, ${theme.colors.warning[1]}, ${theme.colors.warning[0]})`;
+        case 'info':
+          return css`linear-gradient(90deg, ${theme.colors.info[1]}, ${theme.colors.info[0]})`;
         default:
           return '';
       }

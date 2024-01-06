@@ -16,7 +16,7 @@ export default function FancyTextInput(props: IFancyTextInputProps) {
     themeType,
     layer,
     placeholder,
-    errorMessage,
+    systemMessage,
     disabled,
     align,
     icon,
@@ -49,7 +49,7 @@ export default function FancyTextInput(props: IFancyTextInputProps) {
       align={align}
       isActive={isActive}
       icon={icon}
-      errorMessage={errorMessage}
+      systemMessage={systemMessage}
       InputElement={
         <TextInput
           id={usedId}

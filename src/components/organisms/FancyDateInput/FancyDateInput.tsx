@@ -14,7 +14,7 @@ export default function FancyDateInput(props: IFancyDateInput) {
     value,
     label,
     icon,
-    errorMessage,
+    systemMessage,
     align,
     disabled,
     activeHandler,
@@ -49,7 +49,7 @@ export default function FancyDateInput(props: IFancyDateInput) {
       align={align}
       isActive={isActive}
       icon={icon}
-      errorMessage={errorMessage}
+      systemMessage={systemMessage}
       InputElement={
         <DateInput
           id={usedId}

@@ -15,7 +15,7 @@ export default function FancyPasswordInput(props: IFancyTextInputProps) {
     value,
     placeholder,
     activeHandler,
-    errorMessage,
+    systemMessage,
     disabled,
     align,
     themeType,
@@ -50,7 +50,7 @@ export default function FancyPasswordInput(props: IFancyTextInputProps) {
       align={align}
       isActive={isActive}
       icon={icon}
-      errorMessage={errorMessage}
+      systemMessage={systemMessage}
       InputElement={
         <PasswordInput
           id={usedId}
