@@ -156,7 +156,7 @@ export { default as useWindowDimensions } from '@/utils/hooks/useWindowDimension
 
 // ---------- Design ------- //
 export { default as calcBorderRadiusOnAlignment } from '@/design/designFunctions/calcBorderRadiusOnAlignment/calcBorderRadiusOnAlignment';
-export { default as calcColorState } from '@/design/designFunctions/calcColorState/calcColorState';
+export { default as calcItemState } from '@/design/designFunctions/calcItemState/calcItemState';
 export { default as checkThemeOrColor } from '@/design/designFunctions/checkThemeOrColor/checkThemeOrColor';
 export {
   getColorsForComponent,
@@ -189,8 +189,8 @@ export type { TArrayToCssValues } from '@/design/designFunctions/arrayToCssValue
 export type { TValue } from '@/design/designFunctions/arrayToCssValues/TArrayValues.model';
 export type { TArrayToCssValuesInputProps } from '@/design/designFunctions/arrayToCssValues/TArrayValues.model';
 export type { TFancyAlignBox } from '@/components/templates/FancyAlignBox/TFancyAlignBox.model';
-export type { TColorState } from '@/design/designFunctions/calcColorState/TcalcColorState.model';
-export type { TColorStateOutput } from '@/design/designFunctions/calcColorState/TcalcColorState.model';
+export type { TColorState } from '@/design/designFunctions/calcItemState/TcalcItemState.model';
+export type { TItemStateOutput } from '@/design/designFunctions/calcItemState/TcalcItemState.model';
 export type { TSystemMessage } from '@/components/atoms/SystemMessage/TSystemMassage.model';
 
 // ---------- Store ------- //

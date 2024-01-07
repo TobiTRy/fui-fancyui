@@ -1,4 +1,4 @@
-import { css, styled } from 'styled-components';
+import { styled } from 'styled-components';
 
 import { TFancyUnderline } from '@/components/atoms/InputUnderline/InputUnderline';
 import IStyledPrefixAndPicker from '@/types/IStyledPrefixAndPicker';
