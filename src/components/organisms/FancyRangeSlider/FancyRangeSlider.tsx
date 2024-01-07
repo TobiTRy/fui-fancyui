@@ -5,7 +5,7 @@ import { FancyNumberInput } from '@/components/organisms/FancyNumberInput';
 import { StyledInputWrapper } from '@/components/molecules/InputWrapper/InputWrapper.style';
 
 import { FancySVGAtom } from '@/components/atoms/FancySVGAtom';
-import { calcColorState } from '@/design/designFunctions/calcColorState';
+import { calcItemState } from '@/design/designFunctions/calcItemState';
 
 import IFancyRangeSlider from './FancyRangeSlider.model';
 import { Label, NumberContainer, RangeSliderContainer, Icon } from './FancyRangeSlider.style';
@@ -22,7 +22,7 @@ export default function FancyRangeSlider(props: IFancyRangeSlider) {
     max,
     displayNumber,
     onChange,
-    themeType,
+    themeType = 'primary',
     layer = 4,
     disabled,
   } = { ...defaultProps, ...props };
@@ -32,7 +32,7 @@ export default function FancyRangeSlider(props: IFancyRangeSlider) {
 
   const id = useId();
 
-  const colorStateLabel = calcColorState({ type: 'text', isActive: isActive || toutched, value });
+  const colorStateLabel = calcItemState({ type: 'text', isActive: isActive || toutched, value });
 
   // this function is called when the slider is moved
   const changeHandler = (e: ChangeEvent<HTMLInputElement>) => {

@@ -1,6 +1,6 @@
 import { ChangeEvent } from 'react';
 import { TLayer } from '@/types/TLayer';
-import { TThemeTypes } from '@/types/TThemeTypes';
+import { TUiColorsMain } from '@/types/TUiColorsMain';
 
 interface IFancyRangeSlider {
   label?: string;
@@ -11,7 +11,7 @@ interface IFancyRangeSlider {
   max?: number;
   displayNumber?: boolean;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
-  themeType?: TThemeTypes;
+  themeType?: Exclude<TUiColorsMain, 'accent'>;
   layer?: TLayer;
   disabled?: boolean;
 }
