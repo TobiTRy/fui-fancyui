@@ -1,4 +1,4 @@
-import React, { useId, useState } from 'react';
+import { useId, useState } from 'react';
 
 import TextInput, { ITextInputProps } from '@/components/atoms/TextInput/TextInput';
 import { IInputWrapperUserInputProps } from '@/components/molecules/InputWrapper/IInputWrapper.model';

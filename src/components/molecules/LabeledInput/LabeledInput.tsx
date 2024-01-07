@@ -1,4 +1,4 @@
-import { ReactElement, useEffect, useState } from 'react';
+import { ReactElement } from 'react';
 
 import { styled } from 'styled-components';
 import { TTheme } from '@/types/TTheme';
@@ -6,89 +6,84 @@ import { getBackgroundColor, getTextColor } from '@/design/designFunctions/color
 import { TUiColorsSystemMessage } from '@/types/TUiColorsSystemMessage';
 import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
 import { TLayer } from '@/types/TLayer';
-import { TColorStateOutput } from '@/design/designFunctions/calcColorState';
+import { TUiColorsMain } from '@/types/TUiColorsMain';
 
 type TWrapper = {
   $themeType?: TThemeTypesNotTransparent;
   $layer?: TLayer;
-  $colorState?: TColorStateOutput;
 };
 
 const Wrapper = styled.div<TWrapper & { theme: TTheme }>`
   position: relative;
   background-color: ${({ theme, $themeType, $layer }) =>
     getBackgroundColor({ theme, $themeType: $themeType ?? 'primary', $layer: $layer ?? 2 })};
-  color: ${({ $colorState, theme, $themeType = 'secondary', $layer = 4 }) => {
-    switch ($colorState) {
-      case 'error':
-        return theme.colors.error[0];
-      case 'active':
-        return theme.colors.accent[0];
-      case 'success':
-        return theme.colors.success[0];
-      case 'warning':
-        return theme.colors.warning[0];
-      case 'info':
-        return theme.colors.info[0];
-      default:
-        return getTextColor({ theme, $themeType, $textLayer: $layer });
-    }
-  }};
 `;
 
-const InputWrapper = styled.div<{ theme: TTheme }>`
-  font-size: 16px;
-  padding: 16px 10px 6px 10px;
-  color: ${({ theme }) => getBackgroundColor({ theme, $themeType: 'secondary', $layer: 4 })};
+const InputWrapper = styled.div<{ theme: TTheme; $isActive: boolean }>`
+  font-size: 18px;
+  color: ${({ theme }) => getTextColor({ theme, $themeType: 'secondary', $textLayer: 4 })};
   border-radius: 3px;
   outline: none;
-  width: 250px;
   background-color: transparent;
   box-sizing: border-box; /* Added to include padding in the width */
+
+  input {
+    padding: ${({ $isActive }) => ($isActive ? '16px 10px 4px 10px' : '10px')};
+    font-size: 18px;
+  }
 `;
 
-const InputLabel = styled.label<{ $isActive: boolean; $type?: TLabeledInput['type'] }>`
+type TInputLabel = {
+  $isActive: boolean;
+  $type?: TLabeledInput['type'];
+  $systemMessageType?: TUiColorsSystemMessage;
+  $themeType?: TUiColorsMain;
+  $layer?: TLayer;
+};
+
+const InputLabel = styled.label<TInputLabel & { theme: TTheme }>`
   position: absolute;
   left: 10px;
+  color: ${({ theme }) => getTextColor({ theme, $themeType: 'secondary', $textLayer: 4 })};
   top: ${({ $isActive }) => ($isActive ? '10px' : '50%')};
   transform: translateY(-50%);
   font-size: ${({ $isActive }) => ($isActive ? '12px' : '16px')};
   transition:
-    top 0.2s ease,
-    font-size 0.2s ease;
+    top 0.25s ease,
+    color 0.25s ease,
+    font-size 0.25s ease;
   pointer-events: none; /* Ensures the input can be focused when clicking on the label */
+  color: ${({ $systemMessageType, theme, $isActive, $themeType = 'secondary', $layer }) =>
+    getBackgroundColor({
+      theme,
+      $themeType: $systemMessageType ? $systemMessageType : $isActive ? 'accent' : $themeType,
+      $layer: $isActive ? 0 : $layer,
+    })};
 `;
 
 type TLabeledInput = {
   label?: string;
   placeholder?: string;
   type?: 'box' | 'transparent';
-  inputElement: ReactElement<HTMLInputElement>;
-  sytemMessageState?: TUiColorsSystemMessage;
+  inputElement?: ReactElement<HTMLInputElement>;
+  systemMessageType?: TUiColorsSystemMessage;
   value?: string | number | readonly string[] | undefined;
-  themeType?: TThemeTypesNotTransparent;
+  themeType?: Exclude<TUiColorsMain, 'accent'>;
   layer?: TLayer;
 };
 
 export default function LabeledInput(props: TLabeledInput) {
-  const { inputElement, sytemMessageState, label, value, placeholder, type, themeType, layer } = props;
-  const [isActive] = useState(true);
-  const [isInitial, setIsInitial] = useState(false);
+  const { inputElement, systemMessageType, label, value, placeholder, type, themeType, layer } = props;
 
-  const labelShouldMoveUp =
-    !!((isInitial && value === 0 ? undefined : value) || (isInitial && value === 0)) || isActive || !!placeholder;
+  const labelShouldMoveUp = !!((value === 0 ? undefined : value) || value === 0) || !!placeholder;
 
   // Set the initial state of the input field
-  useEffect(() => {
-    if (isActive) setIsInitial(true);
-  }, [isActive]);
-
   return (
-    <Wrapper $themeType={themeType} $layer={layer} $colorState={sytemMessageState}>
-      <InputLabel $type={type} $isActive={labelShouldMoveUp}>
+    <Wrapper $themeType={themeType} $layer={layer}>
+      <InputLabel $type={type} $isActive={labelShouldMoveUp} $systemMessageType={systemMessageType}>
         {label}
       </InputLabel>
-      <InputWrapper>{inputElement}</InputWrapper>
+      <InputWrapper $isActive={labelShouldMoveUp}>{inputElement}</InputWrapper>
     </Wrapper>
   );
 }
