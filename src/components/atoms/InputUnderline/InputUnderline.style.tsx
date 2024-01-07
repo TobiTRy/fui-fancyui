@@ -13,41 +13,13 @@ export const UnderLine = styled.i<IStyledUnderline & { theme: TTheme }>`
   bottom: 0;
   height: 2px;
   border-radius: 5px;
-  background: ${({ theme, $themeType = 'secondary', $layer }) => getBackgroundColor({ theme, $themeType, $layer })};
+  background-color: ${({ $systemMessageType, theme, $isActive, $themeType = 'secondary', $layer }) =>
+    getBackgroundColor({
+      theme,
+      $themeType: $isActive ? $systemMessageType ?? 'accent' : $themeType,
+      $layer: $isActive ? 0 : $layer,
+    })};
+  transition: background-color 0.25s ease;
   overflow: hidden;
   width: 100%;
-
-  // Define the styles for the gradient overlay
-  &::before {
-    content: '';
-    width: 100%;
-    border-radius: 5px;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    opacity: ${({ $isActive }) => ($isActive ? 1 : 0)};
-    height: 100%;
-    background: ${({ $colorState, theme }) => {
-      switch ($colorState) {
-        case 'error':
-          return css`linear-gradient(90deg, ${theme.colors.error[1]}, ${theme.colors.error[0]})`;
-        case 'active':
-          return css`linear-gradient(90deg, ${theme.colors.accent[1]}, ${theme.colors.accent[0]})`;
-        case 'default':
-          return css`linear-gradient(90deg, ${theme.colors.secondary[0]}, ${theme.colors.secondary[4]})`;
-        case 'success':
-          return css`linear-gradient(90deg, ${theme.colors.success[1]}, ${theme.colors.success[0]})`;
-        case 'warning':
-          return css`linear-gradient(90deg, ${theme.colors.warning[1]}, ${theme.colors.warning[0]})`;
-        case 'info':
-          return css`linear-gradient(90deg, ${theme.colors.info[1]}, ${theme.colors.info[0]})`;
-        default:
-          return '';
-      }
-    }};
-
-    // Define the transition styles for the gradient overlay
-    transition: 0.25s;
-    transition-timing-function: cubic-bezier(0.46, 0.03, 0.52, 0.96);
-  }
 `;

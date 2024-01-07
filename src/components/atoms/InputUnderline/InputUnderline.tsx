@@ -1,30 +1,29 @@
 import { HTMLAttributes } from 'react';
 
 import { TLayer } from '@/types/TLayer';
-import { TThemeTypes } from '@/types/TThemeTypes';
-import { TColorStateOutput } from '@/design/designFunctions/calcColorState';
 
 import { UnderLine } from '@/components/atoms/InputUnderline/InputUnderline.style';
+import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
+import { TUiColorsSystemMessage } from '@/types/TUiColorsSystemMessage';
 
 // Define the props for the FancyInputUnderline component
 export type TFancyUnderline = {
-  colorState?: TColorStateOutput;
+  systemMessageType?: TUiColorsSystemMessage;
   isActive?: boolean;
   autoWidth?: boolean;
-  themeType?: TThemeTypes;
+  themeType?: TThemeTypesNotTransparent;
   layer?: TLayer;
-} & HTMLAttributes<HTMLElement>;
+};
 // --------------------------------------------------------------------------- //
 // --------- The underline for the input components with state style --------- //
 // --------------------------------------------------------------------------- //
-export default function InputUnderline(props: TFancyUnderline) {
-  const { colorState = 'default', isActive, autoWidth, layer = 4, themeType, ...htmlProps } = props;
+export default function InputUnderline(props: TFancyUnderline & HTMLAttributes<HTMLElement>) {
+  const { systemMessageType, isActive, autoWidth, layer = 4, themeType, ...htmlProps } = props;
 
-  console.log('colorState', colorState);
   // Render the FancyInputUnderline component with the appropriate props
   return (
     <UnderLine
-      $colorState={colorState}
+      $systemMessageType={systemMessageType}
       $themeType={themeType}
       $layer={layer}
       $isActive={isActive}
