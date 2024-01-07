@@ -28,6 +28,11 @@ export default function InputsRoute() {
   const [dropDown, setDropDown] = useState<string>('');
   const [dropDown2, setDropDown2] = useState<string>('test');
   const [password, setPassword] = useState<string>('');
+  const [newInput, setNewInput] = useState<string>('');
+
+  const newInputHandler = (value: ChangeEvent<HTMLInputElement>) => {
+    setNewInput(value.target.value);
+  };
 
   const testHandler5 = (value: ChangeEvent<HTMLInputElement>) => {
     setPassword(value.target.value);
@@ -70,7 +75,11 @@ export default function InputsRoute() {
     <Card>
       <DesignWrapper>
         <DesignArea title="Password Input">
-          <LabeledInput label="Password" inputElement={<TextInput id="Hi" />} />
+          <LabeledInput
+            label="Password"
+            value={newInput}
+            inputElement={<TextInput id="Hi" onChange={newInputHandler} value={newInput} />}
+          />
         </DesignArea>
 
         <DesignArea title="Password Input">
@@ -81,7 +90,6 @@ export default function InputsRoute() {
             label="Text"
             onChange={testHandler2}
             value={test}
-            placeholder="test45454554"
             systemMessage={{ type: 'error', message: 'This is an error message' }}
           />
           <FancyNumberInput
@@ -125,16 +133,7 @@ export default function InputsRoute() {
           />
         </DesignArea>
         <DesignArea title="Number Input">
-          <FancyNumberInput
-            icon={svg}
-            label="Text"
-            onChange={testHandler2}
-            value={test}
-            align="center"
-            step={0.1}
-            min={0}
-            max={100}
-          />
+          <FancyNumberInput icon={svg} label="Text" onChange={testHandler2} value={test} step={0.1} min={0} max={100} />
           <FancyNumberInput
             icon={svg}
             label="Text"
