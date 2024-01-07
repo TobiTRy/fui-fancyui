@@ -8,4 +8,4 @@ export type TColorState = {
   placeholder?: string;
 };
 
-export type TColorStateOutput = 'default' | 'active' | TUiColorsSystemMessage;
+export type TItemStateOutput = 'default' | 'active';
