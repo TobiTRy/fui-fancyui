@@ -34,13 +34,7 @@ export const InputContainer = styled.div<{
   width: 100%;
   grid-column: 2/3;
   position: relative;
-  padding: 0 0 4px;
-
-  ${({ $givePadding, theme }) =>
-    $givePadding &&
-    css`
-      padding-top: ${theme.spacing.lg};
-    `};
+  padding: 0 0 2px;
 
   svg {
     color: ${({ theme, $themeType, $layer }) => getBackgroundColor({ theme, $themeType, $layer })};
@@ -53,7 +47,7 @@ export const InputContainer = styled.div<{
 export const iconStyle = css<{ theme: TTheme }>`
   margin-right: ${({ theme }) => theme.spacing.xs};
   margin-bottom: 1px;
-  transition: 0.5s;
+  transition: 0.25s;
   align-self: flex-end;
 `;
 

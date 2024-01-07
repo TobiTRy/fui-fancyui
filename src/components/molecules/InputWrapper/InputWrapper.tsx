@@ -1,26 +1,19 @@
-import { useEffect, useState } from 'react';
-
-import { calcColorState } from '@/design/designFunctions/calcColorState';
-
-import { AnimatedInputLabel } from '@/components/atoms/AnimatedInputLabel';
 import { FancySVGAtom } from '@/components/atoms/FancySVGAtom';
 import { InputUnderline } from '@/components/atoms/InputUnderline';
 
+import { SystemMessage } from '@/components/atoms/SystemMessage/';
+import { LabeledInput } from '@/components/molecules/LabeledInput';
+import { getOpositMainThemeType } from '@/design/designFunctions/getOpositMainThemeType';
+import { clampLayer } from '@/utils/functions/clampLayer';
 import { IInputWrapper } from './IInputWrapper.model';
-import {
-  InputContainer,
-  StyledInputWrapper,
-  SystemMessageWrapper,
-  iconStyle,
-  WrapperInput,
-} from './InputWrapper.style';
-import SystemMessage from '@/components/atoms/SystemMessage/SystemMessage';
+import { InputContainer, StyledInputWrapper, SystemMessageWrapper, iconStyle } from './InputWrapper.style';
 
 // --------------------------------------------------------------------------- //
 // ------ The Wrapper for the inputs that give him some extra features  ------ //
 // ------------------ like a Label icon errormessage ------------------------- //
 export default function InputWrapper(props: IInputWrapper) {
   const {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     id,
     value,
     isActive,
@@ -29,46 +22,21 @@ export default function InputWrapper(props: IInputWrapper) {
     systemMessage,
     icon,
     label,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     align,
     underline = true,
     autoWidth,
     placeholder,
-    layer = 4,
-    themeType = 'secondary',
+    layer = 3,
+    themeType = 'primary',
   } = props;
-  const [isInitial, setIsInitial] = useState(false);
-
-  const labelShouldMoveUp =
-    !!((isInitial && value === 0 ? undefined : value) || (isInitial && value === 0)) || isActive || !!placeholder;
-
-  // Calculate the color state for the label and underline
-  const colorStateLabel = calcColorState({
-    type: 'text',
-    isActive,
-    systemMessage: systemMessage?.type,
-    value,
-    placeholder,
-  });
-
-  const colorStateUnderline = calcColorState({
-    type: 'item',
-    isActive,
-    systemMessage: systemMessage?.type,
-    value,
-    placeholder,
-  });
-
-  // Set the initial state of the input field
-  useEffect(() => {
-    if (isActive) setIsInitial(true);
-  }, [isActive]);
 
   // Render the InputWrapper component with the appropriate props
   return (
     <StyledInputWrapper disabled={disabled} $autoWidth={autoWidth}>
       {icon && (
         <FancySVGAtom
-          themeType={themeType}
+          themeType={getOpositMainThemeType(themeType)}
           layer={layer}
           isPassive={false}
           externalStyle={iconStyle}
@@ -79,26 +47,21 @@ export default function InputWrapper(props: IInputWrapper) {
         </FancySVGAtom>
       )}
       <InputContainer $givePadding={Boolean(label)} $themeType={themeType} $layer={layer}>
-        <WrapperInput className="wrapperinput">{InputElement}</WrapperInput>
-        {/* Render the label for the input field if a label prop exists */}
-        {label && (
-          <AnimatedInputLabel
-            htmlFor={id}
-            $align={align}
-            $themeType={themeType}
-            $layer={layer}
-            $moveUp={labelShouldMoveUp}
-            $colorState={colorStateLabel}
-          >
-            {label}
-          </AnimatedInputLabel>
-        )}
+        <LabeledInput
+          themeType={themeType}
+          inputElement={InputElement}
+          label={label}
+          placeholder={placeholder}
+          systemMessageType={systemMessage?.type}
+          layer={layer}
+          value={value}
+        />
         {/* Render the underline for the input field if the underline prop is true */}
         {underline && (
           <InputUnderline
-            colorState={colorStateUnderline !== 'active' ? colorStateUnderline : 'active'}
+            systemMessageType={systemMessage?.type}
             themeType={themeType}
-            layer={layer}
+            layer={clampLayer(layer + 2)}
             isActive={isActive}
           />
         )}
