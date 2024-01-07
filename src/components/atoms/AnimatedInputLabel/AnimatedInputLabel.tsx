@@ -15,8 +15,6 @@ export const AnimatedInputLabel = styled(InputLabel)<IAnimatedInputLabel & { the
     switch ($colorState) {
       case 'error':
         return theme.colors.error[0];
-      case 'active':
-        return theme.colors.accent[0];
       case 'success':
         return theme.colors.success[0];
       case 'warning':
