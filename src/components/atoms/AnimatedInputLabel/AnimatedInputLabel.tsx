@@ -11,8 +11,6 @@ import { TTheme } from '@/types/TTheme';
 // --------------------------------------------------------------------------- //
 
 export const AnimatedInputLabel = styled(InputLabel)<IAnimatedInputLabel & { theme?: TTheme }>`
-  position: absolute;
-  padding: 12px 0 8px;
   color: ${({ $colorState, theme, $themeType = 'secondary', $layer = 4 }) => {
     switch ($colorState) {
       case 'error':
@@ -30,6 +28,16 @@ export const AnimatedInputLabel = styled(InputLabel)<IAnimatedInputLabel & { the
     }
   }};
 
+  position: absolute;
+  left: 10px;
+  transform: translateY(-50%);
+  top: 50%;
+  font-size: 16px;
+  transition:
+    top 0.2s ease,
+    font-size 0.2s ease;
+  pointer-events: none;
+
   ${({ $align, $moveUp }) => activeHandler($align!, $moveUp)};
 `;
 
@@ -41,14 +49,12 @@ export default AnimatedInputLabel;
 const activeHandler = (align: string, $moveUp?: boolean) => {
   if (align !== 'center') {
     return css`
-      bottom: 0;
-      left: 0;
-      ${$moveUp
-        ? css`
-            transform-origin: left bottom;
-            transform: translateY(calc(-100% + 12px)) scale(0.8);
-          `
-        : ''}
+      ${$moveUp &&
+      css`
+        transform: translateY(-50%);
+        top: 10px;
+        font-size: 12px;
+      `}
     `;
   } else {
     return css`
@@ -58,7 +64,7 @@ const activeHandler = (align: string, $moveUp?: boolean) => {
       ${$moveUp
         ? css`
             transform-origin: center bottom;
-            transform: translateY(calc(-100% + 12px)) translateX(-50%) scale(0.8);
+            transform: translateY(calc(-100% + 12px)) translateX(-50%);
           `
         : 'transform: translate(-50%);'};
     `;

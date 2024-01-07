@@ -10,6 +10,9 @@ import FancyDateInput from '../../components/organisms/FancyDateInput/FancyDateI
 import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';
 import FancyDateDropDown from '../../components/templates/Inputs/FancyDateDropDown/FancyDateDropDown';
 import { Card } from '@/components/atoms/Card';
+import NewInput from '@/components/atoms/NewInput/NewInput';
+import LabeledInput from '@/components/molecules/LabeledInput/LabeledInput';
+import { TextInput } from '@/components/atoms/TextInput';
 
 const svg = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -67,6 +70,11 @@ export default function InputsRoute() {
     <Card>
       <DesignWrapper>
         <DesignArea title="Password Input">
+          <LabeledInput label="Password" inputElement={<TextInput id="Hi" />} />
+        </DesignArea>
+
+        <DesignArea title="Password Input">
+          <NewInput />
           <FancyNumberInput
             decimalPlaces={4}
             step={0.001}
