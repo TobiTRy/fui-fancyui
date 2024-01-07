@@ -1,12 +1,12 @@
 import { TLayer } from '@/types/TLayer';
 import { TTheme } from '@/types/TTheme';
 import { TThemeTypes } from '@/types/TThemeTypes';
-import { TColorStateOutput } from '@/design/designFunctions/calcColorState';
+import { TItemStateOutput } from '@/design/designFunctions/calcItemState';
 
 export interface IAnimatedInputLabel {
   $align?: 'center' | 'left';
   $moveUp?: boolean;
-  $colorState?: TColorStateOutput;
+  $colorState?: TItemStateOutput;
   $themeType?: TThemeTypes;
   $layer?: TLayer;
   theme?: TTheme;
