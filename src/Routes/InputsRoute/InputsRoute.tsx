@@ -113,7 +113,7 @@ export default function InputsRoute() {
         </DesignArea>
         <DesignArea title="Password Input">
           <FancyPasswordInput
-            themeType="primary"
+            themeType={'primary'}
             label="Password"
             value={password}
             onChange={testHandler5}
