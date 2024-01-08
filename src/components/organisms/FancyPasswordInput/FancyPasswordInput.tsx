@@ -1,11 +1,12 @@
 import { useId, useState } from 'react';
 
-import PasswordInput, { IPasswordInputProps } from '@/components/atoms/PasswordInput/PasswordInput';
+import PasswordInput, { TPasswordInputProps } from '@/components/atoms/PasswordInput/PasswordInput';
 
 import InputWrapper from '@/components/molecules/InputWrapper/InputWrapper';
-import { IInputWrapperUserInputProps } from '@/components/molecules/InputWrapper/IInputWrapper.model';
+import { TInputWrapperUserInputProps } from '@/components/molecules/InputWrapper/TInputWrapper.model';
 
-type IFancyTextInputProps = IPasswordInputProps & Omit<IInputWrapperUserInputProps, 'InputElement'>;
+type IFancyTextInputProps = Exclude<TPasswordInputProps, 'themeType'> &
+  Exclude<TInputWrapperUserInputProps, 'InputElement'>;
 // --------------------------------------------------------------------------- //
 // ----The PasswordInput Comonent with surrounding icon, label and underline-- //
 // --------------------------------------------------------------------------- //
