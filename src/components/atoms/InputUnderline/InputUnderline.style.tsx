@@ -22,4 +22,5 @@ export const UnderLine = styled.i<IStyledUnderline & { theme: TTheme }>`
   transition: background-color 0.25s ease;
   overflow: hidden;
   width: 100%;
+  ${({ $externalStyle }) => $externalStyle}
 `;

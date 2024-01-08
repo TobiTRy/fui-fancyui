@@ -1,4 +1,5 @@
 import { HTMLAttributes } from 'react';
+import { CSSProp } from 'styled-components';
 
 import { TLayer } from '@/types/TLayer';
 
@@ -13,12 +14,13 @@ export type TFancyUnderline = {
   autoWidth?: boolean;
   themeType?: TThemeTypesNotTransparent;
   layer?: TLayer;
+  externalStyle?: CSSProp;
 };
 // --------------------------------------------------------------------------- //
 // --------- The underline for the input components with state style --------- //
 // --------------------------------------------------------------------------- //
 export default function InputUnderline(props: TFancyUnderline & HTMLAttributes<HTMLElement>) {
-  const { systemMessageType, isActive, autoWidth, layer = 4, themeType, ...htmlProps } = props;
+  const { systemMessageType, isActive, autoWidth, layer = 4, themeType, externalStyle, ...htmlProps } = props;
 
   // Render the FancyInputUnderline component with the appropriate props
   return (
@@ -28,6 +30,7 @@ export default function InputUnderline(props: TFancyUnderline & HTMLAttributes<H
       $layer={layer}
       $isActive={isActive}
       $autoWidth={autoWidth}
+      $externalStyle={externalStyle}
       {...htmlProps}
     />
   );
