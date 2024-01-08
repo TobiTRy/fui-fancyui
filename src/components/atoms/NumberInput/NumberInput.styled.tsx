@@ -10,8 +10,6 @@ const StyledNumberInput = styled(RawInput)<IStyledNumberInput & { $width: string
   width: ${({ $width }) => ($width ? $width : '2ch')};
   background-color: transparent;
   border: none;
-  transition: 0.3s;
-  transition-timing-function: cubic-bezier(0.46, 0.03, 0.52, 0.96);
   outline: none;
   //the focus animation for the underline
 
