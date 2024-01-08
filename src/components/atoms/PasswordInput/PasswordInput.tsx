@@ -9,20 +9,21 @@ import { TTextAlignLC } from '@/types/TTextAlignLC';
 import { RawInput } from '@/components/atoms/RawInput';
 import { PasswordEye } from '@/components/atoms/PasswordEye';
 import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent';
+import { TUiColorsMain } from '@/types/TUiColorsMain';
 
-export interface IPasswordInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'type'> {
+export type TPasswordInputProps = {
   value?: string;
   align?: TTextAlignLC;
   activeHandler?: (value: boolean) => void;
-  themeType?: TThemeTypes;
+  themeType?: Exclude<TUiColorsMain, 'accent'>;
   layer?: TLayer;
   customEyeOpen?: React.ReactNode;
   customEyeCrossed?: React.ReactNode;
-}
+} & Omit<InputHTMLAttributes<HTMLInputElement>, 'type'>;
 // --------------------------------------------------------------------------- //
 // --------------- The passwordInputcomponent for only the input ------------- //
 // --------------------------------------------------------------------------- //
-export default function PasswordInput(props: IPasswordInputProps) {
+export default function PasswordInput(props: TPasswordInputProps) {
   const {
     value,
     onChange,
