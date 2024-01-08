@@ -23,7 +23,7 @@ export default function FancyDateInput(props: IFancyDateInput) {
     placeholder,
     ...inputProps
   } = props;
-
+  const [fakeValue, setFakeValue] = useState(value);
   //the states activity of the input
   const [isActive, setIsActive] = useState(false);
 
@@ -34,13 +34,14 @@ export default function FancyDateInput(props: IFancyDateInput) {
   // handles the focus and blur events and calls the handler from the parent
   const activeFocusHandler = (value: boolean) => {
     setIsActive(value);
+    setFakeValue('up');
     activeHandler && activeHandler(value);
   };
 
   return (
     <InputWrapper
       id={usedId}
-      value={value}
+      value={value || fakeValue}
       label={label}
       disabled={disabled}
       themeType={themeType}
@@ -56,6 +57,7 @@ export default function FancyDateInput(props: IFancyDateInput) {
           placeholder={placeholder}
           themeType={themeType}
           layer={layer}
+          onKeyDown={() => activeFocusHandler(true)}
           value={value}
           activeHandler={activeFocusHandler}
           align={align}

@@ -27,7 +27,7 @@ export const InputContainer = css`
   grid-column: 2/3;
   border-radius: 12px;
   position: relative;
-  padding: 2px 12px 9px;
+  padding: 4px 12px 9px;
 `;
 
 // Define the styles for the icon

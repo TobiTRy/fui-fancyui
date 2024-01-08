@@ -58,7 +58,7 @@ export const InputLabel = styled.label<TInputLabel & { theme: TTheme }>`
       : css`
           transform: translateY(-50%);
         `};
-  top: ${({ $isActive }) => ($isActive ? '10px' : '54%')};
+  top: ${({ $isActive }) => ($isActive ? '8px' : '54%')};
   font-size: ${({ $isActive }) => ($isActive ? '12px' : '18px')};
   font-weight: 500;
   transition:
