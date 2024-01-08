@@ -2,9 +2,9 @@ import { useId, useState } from 'react';
 
 import DateInput, { IDateInputPropsWithNativeAttrs } from '@/components/atoms/DateInput/DateInput';
 import { InputWrapper } from '@/components/molecules/InputWrapper';
-import { IInputWrapperUserInputProps } from '@/components/molecules/InputWrapper/IInputWrapper.model';
+import { TInputWrapperUserInputProps } from '@/components/molecules/InputWrapper/TInputWrapper.model';
 
-type IFancyDateInput = Omit<IInputWrapperUserInputProps, 'InputElement'> & IDateInputPropsWithNativeAttrs;
+type IFancyDateInput = Omit<TInputWrapperUserInputProps, 'InputElement'> & IDateInputPropsWithNativeAttrs;
 // --------------------------------------------------------------------------- //
 // ----The TextInput Comonent with surrounding icon, label and underline ----- //
 // --------------------------------------------------------------------------- //
