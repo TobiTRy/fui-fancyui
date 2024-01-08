@@ -3,11 +3,11 @@ import { styled } from 'styled-components';
 import { IStatus } from '@/types/IStatus';
 import { TTheme } from '@/types/TTheme';
 
-interface IInputWrapper {
+interface TInputWrapper {
   $status?: Omit<IStatus, 'isLoading'>;
   theme: TTheme;
 }
-export const InputWrapper = styled.div<IInputWrapper>`
+export const InputWrapper = styled.div<TInputWrapper>`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
