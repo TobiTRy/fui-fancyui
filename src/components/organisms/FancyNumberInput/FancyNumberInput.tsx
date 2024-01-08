@@ -2,9 +2,9 @@ import { useId, useState } from 'react';
 
 import NumberInput, { INumberInput } from '@/components/atoms/NumberInput/NumberInput';
 import InputWrapper from '@/components/molecules/InputWrapper/InputWrapper';
-import { IInputWrapperUserInputProps } from '@/components/molecules/InputWrapper/IInputWrapper.model';
+import { TInputWrapperUserInputProps } from '@/components/molecules/InputWrapper/TInputWrapper.model';
 
-type IFancyNumberInput = INumberInput & IInputWrapperUserInputProps & { autoWidth?: boolean };
+type IFancyNumberInput = INumberInput & TInputWrapperUserInputProps & { autoWidth?: boolean };
 
 // --------------------------------------------------------------------------- //
 // ----The NumberInput Comonent with surrounding icon, label and underline --- //
