@@ -1,10 +1,6 @@
 import { styled, css } from 'styled-components';
 
 import { disabledStyle } from '@/design/designFunctions/disabledStyle';
-import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent';
-
-import { TThemeTypes } from '@/types/TThemeTypes';
-import { TLayer } from '@/types/TLayer';
 import { TTheme } from '@/types/TTheme';
 
 export const StyledInputWrapper = styled.div<{ disabled?: boolean; $autoWidth?: boolean }>`
@@ -25,30 +21,22 @@ export const SystemMessageWrapper = styled.div<{ theme: TTheme }>`
 `;
 
 //the input/label/underline are all wrapped in thid container
-export const InputContainer = styled.div<{
-  $givePadding: boolean;
-  theme: TTheme;
-  $themeType: TThemeTypes;
-  $layer: TLayer;
-}>`
-  width: 100%;
+export const InputContainer = css`
+  display: flex;
+  gap: 8px;
   grid-column: 2/3;
+  border-radius: 12px;
   position: relative;
-  padding: 0 0 2px;
-
-  svg {
-    color: ${({ theme, $themeType, $layer }) => getBackgroundColor({ theme, $themeType, $layer })};
-  }
+  padding: 2px 12px 9px;
 `;
 
 // Define the styles for the icon
-
 // eslint-disable-next-line react-refresh/only-export-components
 export const iconStyle = css<{ theme: TTheme }>`
-  margin-right: ${({ theme }) => theme.spacing.xs};
-  margin-bottom: 1px;
+  flex-shrink: 0;
+  margin-top: 8px;
   transition: 0.25s;
-  align-self: flex-end;
+  align-self: center;
 `;
 
 export const WrapperInput = styled.div`
