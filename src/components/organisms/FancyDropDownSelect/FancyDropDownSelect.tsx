@@ -2,9 +2,9 @@ import { useId, useState } from 'react';
 
 import { InputWrapper } from '@/components/molecules/InputWrapper';
 import DropDownSelect, { IDropDownSelect } from '@/components/atoms/DropDownSelect/DropDownSelect';
-import { IInputWrapperUserInputProps } from '@/components/molecules/InputWrapper/IInputWrapper.model';
+import { TInputWrapperUserInputProps } from '@/components/molecules/InputWrapper/TInputWrapper.model';
 
-export type IFancyDropDownSelect = Omit<IInputWrapperUserInputProps, 'InputElement'> & IDropDownSelect;
+export type IFancyDropDownSelect = Omit<TInputWrapperUserInputProps, 'InputElement'> & IDropDownSelect;
 
 // --------------------------------------------------------------------------- //
 // ----The Dropdown Comonent with surrounding icon, label and underline ------ //
