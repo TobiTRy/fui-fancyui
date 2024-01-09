@@ -72,10 +72,13 @@ const meta = {
         summary: false,
       },
     },
-    errorMessage: {
-      description: 'The error message of the input',
+    systemMessage: {
+      description: 'The system message of the input',
       control: {
-        type: 'text',
+        type: 'object',
+      },
+      defaultValue: {
+        summary: '',
       },
     },
   },
@@ -98,5 +101,57 @@ export const Primary: Story = {
     label: 'Password',
     icon: <SVGCheckMark />,
     isActive: false,
+  },
+};
+
+export const WithErrorState: Story = {
+  render: (args) => <FancyPasswordInput {...args} />,
+  args: {
+    align: 'left',
+    themeType: 'secondary',
+    layer: 4,
+    label: 'Password',
+    icon: <SVGCheckMark />,
+    isActive: false,
+    systemMessage: { type: 'error', message: 'This is an error message' },
+  },
+};
+
+export const WithSuccessState: Story = {
+  render: (args) => <FancyPasswordInput {...args} />,
+  args: {
+    align: 'left',
+    themeType: 'secondary',
+    layer: 4,
+    label: 'Password',
+    icon: <SVGCheckMark />,
+    isActive: false,
+    systemMessage: { type: 'success', message: 'This is an success message' },
+  },
+};
+
+export const WithInfoState: Story = {
+  render: (args) => <FancyPasswordInput {...args} />,
+  args: {
+    align: 'left',
+    themeType: 'secondary',
+    layer: 4,
+    label: 'Password',
+    icon: <SVGCheckMark />,
+    isActive: false,
+    systemMessage: { type: 'info', message: 'This is an info message' },
+  },
+};
+
+export const WithDisabledState: Story = {
+  render: (args) => <FancyPasswordInput {...args} />,
+  args: {
+    align: 'left',
+    themeType: 'secondary',
+    layer: 4,
+    label: 'Password',
+    icon: <SVGCheckMark />,
+    isActive: false,
+    disabled: true,
   },
 };

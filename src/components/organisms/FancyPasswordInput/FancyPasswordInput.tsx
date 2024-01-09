@@ -1,11 +1,12 @@
 import { useId, useState } from 'react';
 
-import PasswordInput, { TPasswordInputProps } from '@/components/atoms/PasswordInput/PasswordInput';
+import PasswordInput from '@/components/atoms/PasswordInput/PasswordInput';
 
 import InputWrapper from '@/components/molecules/InputWrapper/InputWrapper';
 import { TInputWrapperUserInputProps } from '@/components/molecules/InputWrapper/TInputWrapper.model';
+import { TPasswordInputPropsWithNativeAttrs } from '@/components/atoms/PasswordInput/TPasswordInput.model';
 
-type IFancyTextInputProps = Exclude<TPasswordInputProps, 'themeType'> &
+type IFancyTextInputProps = Exclude<TPasswordInputPropsWithNativeAttrs, 'themeType'> &
   Exclude<TInputWrapperUserInputProps, 'InputElement'>;
 // --------------------------------------------------------------------------- //
 // ----The PasswordInput Comonent with surrounding icon, label and underline-- //
@@ -15,7 +16,6 @@ export default function FancyPasswordInput(props: IFancyTextInputProps) {
     id,
     value,
     placeholder,
-    activeHandler,
     systemMessage,
     disabled,
     align,
@@ -23,6 +23,8 @@ export default function FancyPasswordInput(props: IFancyTextInputProps) {
     layer,
     icon,
     label,
+    onFocus,
+    onBlur,
     ...inputProps
   } = props;
 
@@ -33,18 +35,12 @@ export default function FancyPasswordInput(props: IFancyTextInputProps) {
   const useid = useId();
   const usedId = id ? id : useid;
 
-  // handles the focus and blur events and calls the handler from the parent
-  const activeFocusHandler = (value: boolean) => {
-    setIsActive(value);
-    activeHandler && activeHandler(value);
-  };
-
   return (
     <InputWrapper
       id={usedId}
       themeType={themeType}
       layer={layer}
-      value={value}
+      hasValue={!!value}
       placeholder={placeholder}
       label={label}
       disabled={disabled}
@@ -60,7 +56,14 @@ export default function FancyPasswordInput(props: IFancyTextInputProps) {
           themeType={themeType}
           layer={layer}
           disabled={disabled}
-          activeHandler={activeFocusHandler}
+          onFocus={(e) => {
+            onFocus && onFocus(e);
+            setIsActive(true);
+          }}
+          onBlur={(e) => {
+            onBlur && onBlur(e);
+            setIsActive(false);
+          }}
           placeholder={placeholder}
           {...inputProps}
         />

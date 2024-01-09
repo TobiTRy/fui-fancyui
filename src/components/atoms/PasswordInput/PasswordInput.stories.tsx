@@ -25,9 +25,6 @@ const meta = {
       },
       defaultValue: { summary: 'left' },
     },
-    activeHandler: {
-      description: 'The handler gives back is the input activ or not.',
-    },
     themeType: {
       description: 'The theme type of the input.',
       control: {
