@@ -1,6 +1,6 @@
 // useNumberInput.ts
 import { ChangeEvent, KeyboardEvent, useEffect, useState } from 'react';
-import { INumberInput } from './NumberInput';
+import { TNumberInputWithNativeAttrs } from '@/components/atoms/NumberInput/TNumberInput.moedel';
 
 interface UseNumberInputReturn {
   inputValue: string | null;
@@ -8,7 +8,7 @@ interface UseNumberInputReturn {
   handleKeyDown: (e: KeyboardEvent<HTMLInputElement>) => void;
 }
 
-export const useNumberInput = (props: INumberInput): UseNumberInputReturn => {
+export const useNumberInput = (props: TNumberInputWithNativeAttrs): UseNumberInputReturn => {
   const { value, onChange, min, max, decimalPlaces, step = 1 } = props;
   const [inputValue, setInputValue] = useState<string | null>(value ? value.toString() : null);
   const getDecimalPlaces = decimalPlaces || step.toString().split('.')[1]?.length || 0;
