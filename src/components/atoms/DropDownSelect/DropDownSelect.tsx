@@ -1,33 +1,14 @@
-import React, { HTMLAttributes } from 'react';
+import { TDropDownSelect, TDropDownSelectNativeAttrs } from '@/components/atoms/DropDownSelect/TDropDownSelect.model';
 import { SelectField } from './DropDownSelect.style';
 
-export interface IDropDownSelect extends Omit<HTMLAttributes<HTMLSelectElement>, 'type'> {
-  align?: 'left' | 'center';
-  values?: string[];
-  value?: string;
-  disabled?: boolean;
-  placeholder?: string;
-  emptySelect?: boolean;
-  children?: React.ReactNode;
-  activeHandler?: (value: boolean) => void;
-}
 // ------------------------------------------------------------------ //
 // ---------------- the blank drop down select ---------------------- //
 // ------------------------------------------------------------------ //
-export default function DropDownSelect(props: IDropDownSelect) {
-  const { values, value, placeholder, children, align, onChange, activeHandler, emptySelect, ...htmlInputProps } =
-    props;
+export default function DropDownSelect(props: TDropDownSelect & TDropDownSelectNativeAttrs) {
+  const { values, value, placeholder, children, align, onChange, emptySelect, ...htmlInputProps } = props;
 
   return (
-    <SelectField
-      $align={align}
-      $labelAlign={align}
-      value={value || ''}
-      onChange={onChange}
-      onFocus={() => activeHandler && activeHandler(true)}
-      onBlur={() => activeHandler && activeHandler(false)}
-      {...htmlInputProps}
-    >
+    <SelectField $align={align} $labelAlign={align} value={value || ''} onChange={onChange} {...htmlInputProps}>
       {/* Placeholder option */}
       {placeholder && (
         <option key="-2" value="">
