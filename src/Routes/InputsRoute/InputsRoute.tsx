@@ -10,7 +10,6 @@ import FancyDateInput from '../../components/organisms/FancyDateInput/FancyDateI
 import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';
 import FancyDateDropDown from '../../components/templates/Inputs/FancyDateDropDown/FancyDateDropDown';
 import { Card } from '@/components/atoms/Card';
-import NewInput from '@/components/atoms/NewInput/NewInput';
 import LabeledInput from '@/components/molecules/LabeledInput/LabeledInput';
 import { TextInput } from '@/components/atoms/TextInput';
 
@@ -77,13 +76,11 @@ export default function InputsRoute() {
         <DesignArea title="Password Input">
           <LabeledInput
             label="Password"
-            value={newInput}
             inputElement={<TextInput id="Hi" onChange={newInputHandler} value={newInput} />}
           />
         </DesignArea>
 
         <DesignArea title="Password Input">
-          <NewInput />
           <FancyNumberInput
             decimalPlaces={4}
             step={0.001}
@@ -111,7 +108,7 @@ export default function InputsRoute() {
             systemMessage={{ type: 'info', message: 'This is an error message' }}
           />
         </DesignArea>
-        <DesignArea title="Password Input">
+        <DesignArea title="Password Input111">
           <FancyPasswordInput
             themeType={'primary'}
             label="Password"
@@ -178,7 +175,7 @@ export default function InputsRoute() {
         </DesignArea>
         <DesignArea title="Date Input">
           <FancyDateInput value={date} label="Date" onChange={dateHandler} />
-          <FancyDateInput value={date} placeholder={'HI'} icon={svg} label="Date" onChange={dateHandler} align="left" />
+          <FancyDateInput value={date} placeholder={'HI'} icon={svg} label="Date" onChange={dateHandler} />
         </DesignArea>
         <DesignArea title="DateDropDown Input">
           <FancyDateDropDown type="day" label="Day" onChange={testHandler3} />
