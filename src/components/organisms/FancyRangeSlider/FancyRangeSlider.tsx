@@ -1,14 +1,16 @@
 import { ChangeEvent, useId, useState } from 'react';
 
 import { RawSlider } from '@/components/atoms/RawSlider';
-import { FancyNumberInput } from '@/components/organisms/FancyNumberInput';
 import { StyledInputWrapper } from '@/components/molecules/InputWrapper/InputWrapper.style';
+import { FancyNumberInput } from '@/components/organisms/FancyNumberInput';
 
 import { FancySVGAtom } from '@/components/atoms/FancySVGAtom';
 import { calcItemState } from '@/design/designFunctions/calcItemState';
 
+import { NewInputLabel } from '@/components/atoms/InputLabelNew/InputLabelNew';
+import { css } from 'styled-components';
 import IFancyRangeSlider from './FancyRangeSlider.model';
-import { Label, NumberContainer, RangeSliderContainer, Icon } from './FancyRangeSlider.style';
+import { Icon, NumberContainer, RangeSliderContainer } from './FancyRangeSlider.style';
 // --------------------------------------------------------------------------- //
 // -------------------- The main FancySlider Component ----------------------- //
 // --------------------------------------------------------------------------- //
@@ -33,7 +35,7 @@ export default function FancyRangeSlider(props: IFancyRangeSlider) {
   const id = useId();
 
   const colorStateLabel = calcItemState({ type: 'text', isActive: isActive || toutched, value });
-
+  console.log(colorStateLabel);
   // this function is called when the slider is moved
   const changeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     // this line handles the the input bewteen number and slider
@@ -65,9 +67,19 @@ export default function FancyRangeSlider(props: IFancyRangeSlider) {
 
       {/* label for the top side of the slider */}
       {label && (
-        <Label htmlFor={id} $align={align} $colorState={colorStateLabel} $themeType={themeType} $layer={layer}>
+        <NewInputLabel
+          $lableVariant="static"
+          htmlFor={id}
+          $align={align}
+          $themeType={themeType}
+          $layer={layer}
+          $externalStyle={css`
+            grid-row: 1/2;
+            grid-column: 2/3;
+          `}
+        >
           {label}
-        </Label>
+        </NewInputLabel>
       )}
       {/* Range Slider */}
       <RangeSliderContainer>
