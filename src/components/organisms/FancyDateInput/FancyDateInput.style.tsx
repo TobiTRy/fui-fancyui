@@ -3,31 +3,32 @@ import { css, styled } from 'styled-components';
 import RawInput, { IRawInput } from '@/components/atoms/RawInput/RawInput';
 import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent';
 import { TLayer } from '@/types/TLayer';
-import { IDateInputProps } from '@/components/atoms/DateInput/DateInput';
 import { simpleColorTransition } from '@/design/designFunctions/simpleColorTransition';
 import { TThemeTypes } from '@/types/TThemeTypes';
+import { TDateInputProps } from '@/components/atoms/DateInput/TDateInput.model';
 
 interface IRawInputWrapper extends IRawInput {
   value?: string;
   $themeType?: TThemeTypes;
   $layer?: TLayer;
+  $isActive?: boolean;
 }
-export const StyledDatePicker = styled(RawInput)<IRawInputWrapper & IDateInputProps>`
-  color: ${({ value }) => (value ? '' : 'transparent')};
+export const StyledDatePicker = styled(RawInput)<IRawInputWrapper & TDateInputProps>`
+  color: ${({ $isActive }) => ($isActive ? '' : 'transparent')};
   transition: color 0.3s ease-in;
   font-family: inherit;
 
   /* This renders a Placerholder in Text when its needed */
-  ${({ placeholder, $themeType = 'secondary', $layer = 4, value, theme, align }) => {
+  ${({ placeholder, $themeType = 'secondary', $layer = 4, value, theme, align, $isActive }) => {
     if (placeholder && !value) {
       return css`
         &:not(:focus):before {
-          content: attr(placeholder);
+          content: ${$isActive ? '' : 'attr(placeholder)'};
           width: 100%;
           text-align: ${align};
           color: ${getBackgroundColor({ theme, $themeType, $layer })};
           position: absolute;
-          transition: all 0.3s ease-in-out;
+          transition: all 0.25s ease-in-out;
           pointer-events: none;
         }
       `;

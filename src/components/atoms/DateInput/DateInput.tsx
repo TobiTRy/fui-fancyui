@@ -1,36 +1,33 @@
-import { InputHTMLAttributes } from 'react';
+import { useState } from 'react';
 
-import { TLayer } from '@/types/TLayer';
 import { StyledDatePicker } from '@/components/organisms/FancyDateInput/FancyDateInput.style';
-import { TThemeTypes } from '@/types/TThemeTypes';
-import { TTextAlignLC } from '@/types/TTextAlignLC';
+import { TDateInputProps, TNativeAttrs } from '@/components/atoms/DateInput/TDateInput.model';
 
-type NativeAttrs = Omit<InputHTMLAttributes<HTMLInputElement>, 'type' | 'value'>;
-export type IDateInputPropsWithNativeAttrs = IDateInputProps & NativeAttrs;
-
-export interface IDateInputProps {
-  value?: string;
-  themeType?: TThemeTypes;
-  layer?: TLayer;
-  activeHandler?: (value: boolean) => void;
-  align?: TTextAlignLC;
-  type?: 'week' | 'date' | 'month' | 'time' | 'datetime-local' | 'datetime';
-}
 // --------------------------------------------------------------------------- //
 // -------------- A simple date input for all kind of types ------------------ //
 // --------------------------------------------------------------------------- //
-export default function DateInput(props: IDateInputProps & NativeAttrs) {
-  const { value, activeHandler, align, themeType, layer, type, ...htmlInputProps } = props;
+export default function DateInput(props: TDateInputProps & TNativeAttrs) {
+  const { value, align, themeType, layer, type, onFocus, onBlur, ...htmlInputProps } = props;
+  const [isActive, setIsActive] = useState(false);
+
+  const activeFocusHandler = (isActive: boolean) => {
+    setIsActive(isActive);
+  };
 
   return (
     <StyledDatePicker
       $align={align}
-      type={type || 'date'}
-      value={value}
       $layer={layer}
       $themeType={themeType}
-      onFocus={() => activeHandler && activeHandler(true)}
-      onBlur={() => activeHandler && activeHandler(false)}
+      $isActive={isActive || !!value} // if the input has a value or is active, the placeholder should be hidden
+      type={type || 'date'}
+      value={value}
+      onFocus={(e) => {
+        onFocus && onFocus(e), activeFocusHandler(true);
+      }}
+      onBlur={(e) => {
+        onBlur && onBlur(e), activeFocusHandler(false);
+      }}
       {...htmlInputProps}
     />
   );

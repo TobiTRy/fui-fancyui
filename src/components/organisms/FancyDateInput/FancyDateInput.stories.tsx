@@ -3,8 +3,7 @@ import { Meta, StoryObj } from '@storybook/react';
 
 // Import the component to be tested
 import FancyDateInput from './FancyDateInput';
-
-import SVGCheckMark from '../../icons/SVGCheckMark/SVGCheckMark';
+import { SVGCheckMark } from '@/components/icons/SVGCheckMark';
 
 // Define metadata for the story
 const meta = {
@@ -66,19 +65,13 @@ const meta = {
         summary: 4,
       },
     },
-    errorMessage: {
+    systemMessage: {
       description: 'Error message to be displayed',
       control: {
-        type: 'text',
+        type: 'object',
       },
       defaultValue: {
         summary: '',
-      },
-    },
-    activeHandler: {
-      description: 'Handler for the input',
-      control: {
-        type: 'function',
       },
     },
     placeholder: {
@@ -139,11 +132,10 @@ export const Primary: Story = {
     layer: 4,
     value: '2023-10-26',
     icon: <SVGCheckMark />,
-    activeHandler: (value: boolean) => console.log(value),
   },
 };
 
-export const WithError: Story = {
+export const WithErrorState: Story = {
   render: (args) => <FancyDateInput {...args} />,
   args: {
     label: 'Date',
@@ -151,7 +143,39 @@ export const WithError: Story = {
     disabled: false,
     themeType: 'secondary',
     layer: 4,
-    errorMessage: 'This is an error message',
-    activeHandler: (value: boolean) => console.log(value),
+    systemMessage: {
+      message: 'This is an error message',
+      type: 'error',
+    },
+  },
+};
+
+export const WithSuccessState: Story = {
+  render: (args) => <FancyDateInput {...args} />,
+  args: {
+    label: 'Date',
+    align: 'left',
+    disabled: false,
+    themeType: 'secondary',
+    layer: 4,
+    systemMessage: {
+      message: 'This is an success message',
+      type: 'success',
+    },
+  },
+};
+
+export const WithInfoState: Story = {
+  render: (args) => <FancyDateInput {...args} />,
+  args: {
+    label: 'Date',
+    align: 'left',
+    disabled: false,
+    themeType: 'secondary',
+    layer: 4,
+    systemMessage: {
+      message: 'This is an info message',
+      type: 'info',
+    },
   },
 };
