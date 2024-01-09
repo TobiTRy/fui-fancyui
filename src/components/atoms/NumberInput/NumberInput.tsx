@@ -1,24 +1,16 @@
-import { useNumberInput } from '@/components/atoms/NumberInput/useNumberInput.hook';
-import { TTextAlignLC } from '@/types/TTextAlignLC';
-import { InputHTMLAttributes, useMemo } from 'react';
-import StyledNumberInput from './NumberInput.styled';
+import { useMemo } from 'react';
 
-export interface INumberInput extends InputHTMLAttributes<HTMLInputElement> {
-  autoWidth?: boolean;
-  active?: boolean;
-  align?: TTextAlignLC;
-  step?: number;
-  decimalPlaces?: number;
-  activeHandler?: (value: boolean) => void;
-}
+import { useNumberInput } from '@/components/atoms/NumberInput/useNumberInput.hook';
+import StyledNumberInput from './NumberInput.styled';
+import { TNumberInput, TNumberInputNativeAttrs } from '@/components/atoms/NumberInput/TNumberInput.moedel';
+
 // --------------------------------------------------------------------------- //
 // Advanced Text imput that acts like a number input to have more versatelity  //
 // --------------------------------------------------------------------------- //
-export default function NumberInput(props: INumberInput) {
+export default function NumberInput(props: TNumberInput & TNumberInputNativeAttrs) {
   //dont remove the value/onchange else its provided in the element and you can have letters in the input
 
-  const { value, onChange, activeHandler, align, id, autoWidth, decimalPlaces, step, min, max, ...moreHTMLProps } =
-    props;
+  const { value, onChange, align, id, autoWidth, decimalPlaces, step, min, max, ...moreHTMLProps } = props;
 
   // use the hook for the number input to handle the input
   const { inputValue, handleChange, handleKeyDown } = useNumberInput({
@@ -45,8 +37,6 @@ export default function NumberInput(props: INumberInput) {
       max={max}
       onChange={handleChange}
       onKeyDown={handleKeyDown}
-      onFocus={() => activeHandler && activeHandler(true)}
-      onBlur={() => activeHandler && activeHandler(false)}
       $width={inputWidth}
       $align={align}
       {...moreHTMLProps}
