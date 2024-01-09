@@ -34,12 +34,7 @@ export default function PasswordInput(props: TPasswordInputProps & TNativePassow
           onClick={showPasswordHandler}
         />
       </WrapperEye>
-      <RawInput
-        type={isShowPassword ? 'text' : 'password'}
-        $align={align}
-        $externalStyle={{ paddingRight: '24px !important' }}
-        {...HTMLInputProps}
-      />
+      <RawInput type={isShowPassword ? 'text' : 'password'} $align={align} {...HTMLInputProps} />
     </>
   );
 }
