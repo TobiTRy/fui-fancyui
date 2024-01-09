@@ -21,11 +21,11 @@ export function calcInputPadding(props: TCalcInputPadding) {
   } else {
     if ($isActive) {
       return css`
-        padding: 16px 10px 4px 0px; //if the input is active and the type is transparent
+        padding: 0px 4px 4px 0px; //if the input is active and the type is transparent
       `;
     } else {
       return css`
-        padding: 10px 10px 10px 0px; //if the input is not active and the type is transparent
+        padding: 0px 4px 4px 0px; //if the input is not active and the type is transparent
       `;
     }
   }
