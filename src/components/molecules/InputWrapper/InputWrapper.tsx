@@ -49,27 +49,35 @@ export default function InputWrapper(props: TInputWrapper) {
             {icon}
           </FancySVGAtom>
         )}
-        <LabeledInput
-          id={id}
-          align={align}
-          themeType={themeType}
-          inputElement={InputElement}
-          label={label}
-          placeholder={placeholder}
-          systemMessageType={systemMessage?.type}
-          layer={layer}
-          hasValue={hasValue}
-          underline={underline}
-          isActive={isActive}
-        />
+        <div
+          style={{
+            width: '100%',
+            display: 'flex',
+            flexDirection: 'column',
+          }}
+        >
+          <LabeledInput
+            id={id}
+            align={align}
+            themeType={themeType}
+            inputElement={InputElement}
+            label={label}
+            placeholder={placeholder}
+            systemMessageType={systemMessage?.type}
+            layer={layer}
+            hasValue={hasValue}
+            underline={underline}
+            isActive={isActive}
+          />
+          {/* Render the error message if an errorMessage prop exists */}
+          {systemMessage && (
+            <SystemMessageWrapper>
+              <SystemMessage systemMessageState={systemMessage.type}>{systemMessage.message}</SystemMessage>
+            </SystemMessageWrapper>
+          )}
+        </div>
         {/* Render the underline for the input field if the underline prop is true */}
       </FancyBox>
-      {/* Render the error message if an errorMessage prop exists */}
-      {systemMessage && (
-        <SystemMessageWrapper>
-          <SystemMessage systemMessageState={systemMessage.type}>{systemMessage.message}</SystemMessage>
-        </SystemMessageWrapper>
-      )}
     </StyledInputWrapper>
   );
 }
