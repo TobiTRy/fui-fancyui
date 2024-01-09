@@ -24,6 +24,7 @@ export default function FancyDropDownSelect(props: IFancyDropDownSelect) {
     layer,
     onFocus,
     onBlur,
+    transparentBackground,
     ...inputProps
   } = props;
 
@@ -47,6 +48,7 @@ export default function FancyDropDownSelect(props: IFancyDropDownSelect) {
       isActive={isActive}
       icon={icon}
       systemMessage={systemMessage}
+      transparentBackground={transparentBackground}
       InputElement={
         <DropDownSelect
           id={usedId}

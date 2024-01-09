@@ -120,6 +120,15 @@ const meta = {
         summary: false,
       },
     },
+    transparentBackground: {
+      description: 'Transparent Background',
+      control: {
+        type: 'boolean',
+      },
+      defaultValue: {
+        summary: false,
+      },
+    },
   },
   // Add tags to the story
   tags: ['autodocs'],

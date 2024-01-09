@@ -81,6 +81,15 @@ const meta = {
         summary: '',
       },
     },
+    transparentBackground: {
+      description: 'The background of the input',
+      control: {
+        type: 'boolean',
+      },
+      defaultValue: {
+        summary: false,
+      },
+    },
   },
   // Add tags to the story
   tags: ['autodocs'],

@@ -22,6 +22,7 @@ export default function FancyDateInput(props: IFancyDateInput) {
     layer,
     placeholder,
     onChange,
+    transparentBackground,
     ...inputProps
   } = props;
 
@@ -59,6 +60,7 @@ export default function FancyDateInput(props: IFancyDateInput) {
       isActive={isActiveState}
       icon={icon}
       systemMessage={systemMessage}
+      transparentBackground={transparentBackground}
       InputElement={
         <DateInput
           id={usedId}

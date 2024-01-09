@@ -89,6 +89,7 @@ export default function FancyRangeSlider(props: IFancyRangeSlider) {
         <NumberContainer>
           <FancyNumberInput
             themeType={themeType}
+            transparentBackground={true}
             layer={layer}
             aria-label={label}
             autoWidth={true}

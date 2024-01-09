@@ -25,6 +25,7 @@ export default function FancyPasswordInput(props: IFancyTextInputProps) {
     label,
     onFocus,
     onBlur,
+    transparentBackground,
     ...inputProps
   } = props;
 
@@ -48,6 +49,7 @@ export default function FancyPasswordInput(props: IFancyTextInputProps) {
       isActive={isActive}
       icon={icon}
       systemMessage={systemMessage}
+      transparentBackground={transparentBackground}
       InputElement={
         <PasswordInput
           id={usedId}

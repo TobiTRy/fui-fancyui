@@ -25,6 +25,7 @@ export default function FancyNumberInput(props: IFancyNumberInput) {
     placeholder,
     onFocus,
     onBlur,
+    transparentBackground,
     ...inputProps
   } = props;
 
@@ -49,6 +50,7 @@ export default function FancyNumberInput(props: IFancyNumberInput) {
       systemMessage={systemMessage}
       themeType={themeType}
       layer={layer}
+      transparentBackground={transparentBackground}
       InputElement={
         <NumberInput
           id={usedId}

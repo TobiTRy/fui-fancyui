@@ -23,6 +23,7 @@ export default function FancyTextInput(props: IFancyTextInputProps) {
     label,
     onFocus,
     onBlur,
+    transparentBackground,
     ...inputProps
   } = props;
 
@@ -46,6 +47,7 @@ export default function FancyTextInput(props: IFancyTextInputProps) {
       isActive={isActive}
       icon={icon}
       systemMessage={systemMessage}
+      transparentBackground={transparentBackground}
       InputElement={
         <TextInput
           id={usedId}
