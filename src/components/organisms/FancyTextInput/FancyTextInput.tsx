@@ -1,10 +1,11 @@
 import { useId, useState } from 'react';
 
-import TextInput, { ITextInputProps } from '@/components/atoms/TextInput/TextInput';
+import { TextInput } from '@/components/atoms/TextInput';
+import { TTextInputWithNativeAttrs } from '@/components/atoms/TextInput/TTextInput.model';
+import { InputWrapper } from '@/components/molecules/InputWrapper';
 import { TInputWrapperUserInputProps } from '@/components/molecules/InputWrapper/TInputWrapper.model';
-import InputWrapper from '@/components/molecules/InputWrapper/InputWrapper';
 
-type IFancyTextInputProps = ITextInputProps & Omit<TInputWrapperUserInputProps, 'InputElement'>;
+type IFancyTextInputProps = TTextInputWithNativeAttrs & Omit<TInputWrapperUserInputProps, 'InputElement'>;
 // --------------------------------------------------------------------------- //
 // ----The TextInput Comonent with surrounding icon, label and underline ----- //
 // --------------------------------------------------------------------------- //
@@ -12,7 +13,6 @@ export default function FancyTextInput(props: IFancyTextInputProps) {
   const {
     id,
     value,
-    activeHandler,
     themeType,
     layer,
     placeholder,
@@ -21,6 +21,8 @@ export default function FancyTextInput(props: IFancyTextInputProps) {
     align,
     icon,
     label,
+    onFocus,
+    onBlur,
     ...inputProps
   } = props;
 
@@ -31,16 +33,10 @@ export default function FancyTextInput(props: IFancyTextInputProps) {
   const useid = useId();
   const usedId = id ? id : useid;
 
-  // handles the focus and blur events and calls the handler from the parent
-  const activeFocusHandler = (value: boolean) => {
-    setIsActive(value);
-    activeHandler && activeHandler(value);
-  };
-
   return (
     <InputWrapper
       id={usedId}
-      value={value}
+      hasValue={!!value}
       label={label}
       disabled={disabled}
       placeholder={placeholder}
@@ -56,7 +52,14 @@ export default function FancyTextInput(props: IFancyTextInputProps) {
           value={value}
           align={align}
           disabled={disabled}
-          activeHandler={activeFocusHandler}
+          onFocus={(e) => {
+            onFocus && onFocus(e);
+            setIsActive(true);
+          }}
+          onBlur={(e) => {
+            onBlur && onBlur(e);
+            setIsActive(false);
+          }}
           placeholder={placeholder}
           {...inputProps}
         />

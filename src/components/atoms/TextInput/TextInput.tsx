@@ -1,26 +1,9 @@
-import { InputHTMLAttributes } from 'react';
-
 import { RawInput } from '@/components/atoms/RawInput';
-import { TTextAlignLC } from '@/types/TTextAlignLC';
+import { TTextInput, TTextInputNativeAttrs } from '@/components/atoms/TextInput/TTextInput.model';
 
-export interface ITextInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'type'> {
-  value?: string | number;
-  align?: TTextAlignLC;
-  activeHandler?: (value: boolean) => void;
-}
+// a simple text input with no styling
+export default function TextInput(props: TTextInput & TTextInputNativeAttrs) {
+  const { align, ...htmlInputProps } = props;
 
-export default function TextInput(props: ITextInputProps) {
-  const { value, activeHandler, onChange, align, ...htmlInputProps } = props;
-
-  return (
-    <RawInput
-      type="text"
-      value={value}
-      onChange={onChange}
-      onFocus={() => activeHandler && activeHandler(true)}
-      onBlur={() => activeHandler && activeHandler(false)}
-      $align={align}
-      {...htmlInputProps}
-    />
-  );
+  return <RawInput type="text" $align={align} {...htmlInputProps} />;
 }

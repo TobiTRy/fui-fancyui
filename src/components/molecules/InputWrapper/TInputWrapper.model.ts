@@ -20,7 +20,7 @@ export type TInputWrapper = {
   InputElement?: ReactElement<HTMLInputElement>;
   systemMessage?: TSystemMessage;
   icon?: JSX.Element;
-  value?: string | number | readonly string[] | undefined;
+  hasValue?: boolean;
   themeType?: Exclude<TUiColorsMain, 'accent'>;
   layer?: TLayer;
   align?: TTextAlignLC;
