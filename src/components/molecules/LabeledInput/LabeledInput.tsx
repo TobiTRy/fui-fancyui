@@ -10,7 +10,7 @@ export default function LabeledInput(props: TLabeledInput) {
     inputElement,
     systemMessageType,
     label,
-    value,
+    hasValue,
     placeholder,
     themeType,
     layer = 4,
@@ -20,7 +20,7 @@ export default function LabeledInput(props: TLabeledInput) {
   } = props;
 
   // Check if the label should move up
-  const labelShouldMoveUp = !!((value === 0 ? undefined : value) || value === 0) || !!placeholder;
+  const labelShouldMoveUp = hasValue || !!placeholder;
 
   return (
     <Wrapper $themeType={themeType} $layer={layer}>

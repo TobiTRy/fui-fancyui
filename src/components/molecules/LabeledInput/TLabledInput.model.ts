@@ -10,7 +10,7 @@ export type TLabeledInput = {
   placeholder?: string;
   inputElement?: ReactElement<HTMLInputElement>;
   systemMessageType?: TUiColorsSystemMessage;
-  value?: string | number | readonly string[] | undefined;
+  hasValue?: boolean;
   themeType?: Exclude<TUiColorsMain, 'accent'>;
   layer?: TLayer;
   underline?: boolean;

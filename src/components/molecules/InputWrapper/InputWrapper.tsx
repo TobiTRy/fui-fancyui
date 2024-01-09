@@ -13,7 +13,7 @@ import { FancyBox } from '@/components/atoms/FancyBox';
 export default function InputWrapper(props: TInputWrapper) {
   const {
     id,
-    value,
+    hasValue,
     isActive,
     disabled,
     InputElement,
@@ -58,7 +58,7 @@ export default function InputWrapper(props: TInputWrapper) {
           placeholder={placeholder}
           systemMessageType={systemMessage?.type}
           layer={layer}
-          value={value}
+          hasValue={hasValue}
           underline={underline}
           isActive={isActive}
         />
