@@ -4,6 +4,7 @@ import NumberInput from '@/components/atoms/NumberInput/NumberInput';
 import InputWrapper from '@/components/molecules/InputWrapper/InputWrapper';
 import { TInputWrapperUserInputProps } from '@/components/molecules/InputWrapper/TInputWrapper.model';
 import { TNumberInputWithNativeAttrs } from '@/components/atoms/NumberInput/TNumberInput.moedel';
+import { css } from 'styled-components';
 
 type IFancyNumberInput = TNumberInputWithNativeAttrs & TInputWrapperUserInputProps & { autoWidth?: boolean };
 
@@ -26,6 +27,7 @@ export default function FancyNumberInput(props: IFancyNumberInput) {
     onFocus,
     onBlur,
     transparentBackground,
+    externalStyle,
     ...inputProps
   } = props;
 
@@ -67,6 +69,10 @@ export default function FancyNumberInput(props: IFancyNumberInput) {
           }}
           placeholder={placeholder}
           autoWidth={autoWidth}
+          externalStyle={css`
+            ${externalStyle}
+            transition: width 0.3s ease-in-out;
+          `}
           {...inputProps}
         />
       }
