@@ -27,24 +27,14 @@ export const InputContainer = css`
   grid-column: 2/3;
   border-radius: 12px;
   position: relative;
-  padding: 4px 12px 9px;
+  padding: 4px 12px 9px; // 3px 12px 6px
 `;
 
 // Define the styles for the icon
 // eslint-disable-next-line react-refresh/only-export-components
 export const iconStyle = css<{ theme: TTheme }>`
   flex-shrink: 0;
-  margin-top: 8px;
+  margin-top: 8px; // without label 4px
   transition: 0.25s;
   align-self: center;
-`;
-
-export const WrapperInput = styled.div`
-  font-size: 18px;
-
-  input {
-    box-sizing: border-box;
-    padding-top: 4px;
-    padding-bottom: 4px;
-  }
 `;
