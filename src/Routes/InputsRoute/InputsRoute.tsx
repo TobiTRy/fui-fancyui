@@ -13,7 +13,7 @@ import { Card } from '@/components/atoms/Card';
 import LabeledInput from '@/components/molecules/LabeledInput/LabeledInput';
 import { TextInput } from '@/components/atoms/TextInput';
 import LabeledRangeSlider from '@/components/molecules/LabeledRangeSlider/LabeledRangeSlider';
-import { RawSlider } from '@/components/atoms/RawSlider';
+import FancyRange from '@/components/organisms/FancyRange/FancyRange';
 
 const svg = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -75,7 +75,7 @@ export default function InputsRoute() {
   return (
     <Card>
       <DesignWrapper>
-        <RawSlider />
+        <FancyRange />
         <LabeledRangeSlider />
         <DesignArea title="Password Input">
           <LabeledInput
@@ -132,6 +132,7 @@ export default function InputsRoute() {
             align="center"
             placeholder="test45454554"
           />
+          <FancyTextInput icon={svg} value={text} onChange={testHandler} />
         </DesignArea>
         <DesignArea title="Number Input">
           <FancyNumberInput icon={svg} label="Text" onChange={testHandler2} value={test} step={0.1} min={0} max={100} />
