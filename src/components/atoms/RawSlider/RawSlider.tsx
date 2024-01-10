@@ -1,57 +1,50 @@
-import React, { InputHTMLAttributes, useRef } from 'react';
+import { useState } from 'react';
 
+import { TRawSliderWithNativeAttrs } from '@/components/atoms/RawSlider/TRawSlider.model';
 import { StyledRawSlider } from './RawSlider.style';
-import { TLayer } from '@/types/TLayer';
-import { TThemeTypes } from '@/types/TThemeTypes';
 
-export interface IRawSlider extends InputHTMLAttributes<HTMLInputElement> {
-  id?: string;
-  activeHandler?: (value: boolean) => void;
-  ref?: React.RefObject<HTMLInputElement>;
-  themeType?: TThemeTypes;
-  layer?: TLayer;
-}
 // --------------------------------------------------------------------------- //
 // ------------ Here is createt the Slider Atom (Range Slider) --------------- //
 // --------------------------------------------------------------------------- //
-export default function RawSlider(props: IRawSlider) {
-  const { disabled, id, max, min, value, ref, activeHandler, themeType, layer, ...htmlProps } = props;
-  const inputSlider = useRef<HTMLInputElement | null>(null);
-  const sliderProgress = value ? Number(value) : 0;
+export default function RawSlider(props: TRawSliderWithNativeAttrs) {
+  const { max, min, value, ref, themeType, layer, onChange, onTouchStart, style, onTouchEnd, ...htmlProps } = props;
 
-  const focusHandler = (value: boolean) => {
-    activeHandler && activeHandler(value);
-  };
+  const [sliderProgressState, setSliderProgressState] = useState(value ? Number(value) : 0);
+  //is the slider moving or not for mobile devices to handle the box shadow
+  const [isMoving, setIsMoving] = useState(false);
 
   //initialize the min an max value when get it or not
   const minVal = min ? Number(min) : 0;
   const maxVal = max ? Number(max) : 100;
 
   //calc the the progress
-  const calcBackgorundSize = !isNaN(sliderProgress)
-    ? ((sliderProgress - minVal) * 100) / (maxVal - minVal) + '% 100%'
+  const calcBackgorundSize = !isNaN(sliderProgressState)
+    ? ((sliderProgressState - minVal) * 100) / (maxVal - minVal) + '% 100%'
     : '0% 100%';
-  const calcSliderProgress = !isNaN(sliderProgress) ? sliderProgress : 0;
 
   return (
     <StyledRawSlider
-      disabled={disabled}
+      type="range"
       ref={ref}
-      onFocus={() => focusHandler(true)}
-      onBlur={() => focusHandler(false)}
-      style={{ backgroundSize: calcBackgorundSize }}
-      id={id}
+      $isActive={isMoving}
+      onTouchStart={(e) => {
+        setIsMoving(true);
+        onTouchStart?.(e);
+      }}
+      onTouchEnd={(e) => {
+        setIsMoving(false);
+        onTouchEnd?.(e);
+      }}
       $themeType={themeType}
       $layer={layer}
-      type="range"
-      value={calcSliderProgress}
+      style={{ backgroundSize: calcBackgorundSize, ...style }}
+      value={!isNaN(sliderProgressState) ? sliderProgressState : 0}
       min={minVal}
       max={maxVal}
-      onTouchStart={() => {
-        focusHandler(true);
-        inputSlider.current?.focus();
+      onChange={(e) => {
+        onChange?.(e);
+        setSliderProgressState(Number(e.target.value));
       }}
-      onTouchEnd={() => setTimeout(() => focusHandler(false), 500)}
       {...htmlProps}
     />
   );
