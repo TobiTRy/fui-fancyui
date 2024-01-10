@@ -4,7 +4,7 @@ import { RawInput } from '@/components/atoms/RawInput';
 import IStyledPrefixAndPicker from '@/types/IStyledPrefixAndPicker';
 import { TNumberInput } from '@/components/atoms/NumberInput/TNumberInput.moedel';
 
-type IStyledNumberInput = IStyledPrefixAndPicker<TNumberInput, 'align'>;
+type IStyledNumberInput = IStyledPrefixAndPicker<TNumberInput, 'align' | 'externalStyle'>;
 const StyledNumberInput = styled(RawInput)<IStyledNumberInput & { $width: string }>`
   border-radius: 0;
   width: ${({ $width }) => ($width ? $width : '2ch')};
@@ -20,6 +20,8 @@ const StyledNumberInput = styled(RawInput)<IStyledNumberInput & { $width: string
   }
   // hide the arrows on the input for firefox
   -moz-appearance: textfield;
+
+  ${({ $externalStyle }) => $externalStyle}
 `;
 
 export default StyledNumberInput;

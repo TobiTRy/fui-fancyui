@@ -10,7 +10,8 @@ import { TNumberInput, TNumberInputNativeAttrs } from '@/components/atoms/Number
 export default function NumberInput(props: TNumberInput & TNumberInputNativeAttrs) {
   //dont remove the value/onchange else its provided in the element and you can have letters in the input
 
-  const { value, onChange, align, id, autoWidth, decimalPlaces, step, min, max, ...moreHTMLProps } = props;
+  const { value, onChange, align, id, autoWidth, decimalPlaces, step, min, max, externalStyle, ...moreHTMLProps } =
+    props;
 
   // use the hook for the number input to handle the input
   const { inputValue, handleChange, handleKeyDown } = useNumberInput({
@@ -37,6 +38,7 @@ export default function NumberInput(props: TNumberInput & TNumberInputNativeAttr
       max={max}
       onChange={handleChange}
       onKeyDown={handleKeyDown}
+      $externalStyle={externalStyle}
       $width={inputWidth}
       $align={align}
       {...moreHTMLProps}

@@ -1,5 +1,6 @@
 import { InputHTMLAttributes } from 'react';
 import { TTextAlignLC } from '@/types/TTextAlignLC';
+import { CSSProp } from 'styled-components';
 
 // the incoming props
 export type TNumberInput = {
@@ -7,6 +8,7 @@ export type TNumberInput = {
   align?: TTextAlignLC;
   step?: number;
   decimalPlaces?: number;
+  externalStyle?: CSSProp;
 };
 
 // the native props of the input element excluding the type attribute
