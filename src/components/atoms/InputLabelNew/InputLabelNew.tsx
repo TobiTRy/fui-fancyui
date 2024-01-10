@@ -1,11 +1,10 @@
-import { CSSProp, css, styled } from 'styled-components';
+import { css, styled } from 'styled-components';
 
-import { TLayer } from '@/types/TLayer';
-import { TUiColorsMain } from '@/types/TUiColorsMain';
-import { TUiColorsSystemMessage } from '@/types/TUiColorsSystemMessage';
+import { TInputLabel } from '@/components/atoms/InputLabelNew/TInputLabel';
 import { getBackgroundColor, getTextColor } from '@/design/designFunctions/colorCalculatorForComponent';
-import { TTheme } from '@/types/TTheme';
 import { TTextAlignLC } from '@/types/TTextAlignLC';
+import { TTheme } from '@/types/TTheme';
+import { IStyledPrefixAndPicker } from 'lib';
 
 const generateAlignStyle = (align?: TTextAlignLC) => {
   if (align === 'center') {
@@ -16,7 +15,7 @@ const generateAlignStyle = (align?: TTextAlignLC) => {
   }
 };
 
-const generateLableVariant = (lableVariant: 'static' | 'animated', isActive?: boolean) => {
+const generateLableVariant = (lableVariant: TInputLabel['lableVariant'], isActive?: boolean) => {
   if (lableVariant === 'static') {
     return css`
       font-size: 18px;
@@ -30,16 +29,8 @@ const generateLableVariant = (lableVariant: 'static' | 'animated', isActive?: bo
   `;
 };
 
-type TInputLabel = {
-  $isActive?: boolean;
-  $systemMessageType?: TUiColorsSystemMessage;
-  $themeType?: TUiColorsMain;
-  $layer?: TLayer;
-  $align?: TTextAlignLC;
-  $lableVariant: 'static' | 'animated';
-  $externalStyle?: CSSProp;
-};
-export const NewInputLabel = styled.label<TInputLabel & { theme: TTheme }>`
+type TSytledInputLabel = IStyledPrefixAndPicker<TInputLabel>;
+export const NewInputLabel = styled.label<TSytledInputLabel & { theme: TTheme }>`
   color: ${({ theme }) => getTextColor({ theme, $themeType: 'secondary', $textLayer: 4 })};
   ${({ $align }) => generateAlignStyle($align)}
   ${({ $lableVariant, $isActive }) => generateLableVariant($lableVariant, $isActive)}
@@ -57,3 +48,7 @@ export const NewInputLabel = styled.label<TInputLabel & { theme: TTheme }>`
     })};
   ${({ $externalStyle }) => $externalStyle};
 `;
+
+NewInputLabel.displayName = 'InputLabel';
+
+export default NewInputLabel;
