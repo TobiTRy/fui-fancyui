@@ -29,7 +29,7 @@ export default function FancyRangeSlider(props: IFancyRangeSlider) {
     disabled,
   } = { ...defaultProps, ...props };
 
-  const [isActive, setIsActive] = useState(false);
+  const [isActive] = useState(false);
   const [toutched, setToutched] = useState(false);
 
   const id = useId();
@@ -41,11 +41,6 @@ export default function FancyRangeSlider(props: IFancyRangeSlider) {
     // this line handles the the input bewteen number and slider
     setToutched(true);
     onChange && onChange(e);
-  };
-
-  // this function is called when the slider is clicked
-  const activeHandler = (value: boolean) => {
-    setIsActive(value);
   };
 
   return (
@@ -90,7 +85,6 @@ export default function FancyRangeSlider(props: IFancyRangeSlider) {
           themeType={themeType}
           layer={layer}
           onChange={changeHandler}
-          activeHandler={activeHandler}
           min={min}
           max={max}
         />

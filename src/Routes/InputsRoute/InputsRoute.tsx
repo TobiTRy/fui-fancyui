@@ -8,10 +8,12 @@ import FancyNumberInput from '../../components/organisms/FancyNumberInput/FancyN
 import FancyDropDownSelect from '../../components/organisms/FancyDropDownSelect/FancyDropDownSelect';
 import FancyDateInput from '../../components/organisms/FancyDateInput/FancyDateInput';
 import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';
-import FancyDateDropDown from '../../components/templates/Inputs/FancyDateDropDown/FancyDateDropDown';
+import FancyDateDropDown from '../../components/templates/FancyDateDropDown/FancyDateDropDown';
 import { Card } from '@/components/atoms/Card';
 import LabeledInput from '@/components/molecules/LabeledInput/LabeledInput';
 import { TextInput } from '@/components/atoms/TextInput';
+import LabeledRangeSlider from '@/components/molecules/LabeledRangeSlider/LabeledRangeSlider';
+import { RawSlider } from '@/components/atoms/RawSlider';
 
 const svg = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -73,6 +75,8 @@ export default function InputsRoute() {
   return (
     <Card>
       <DesignWrapper>
+        <RawSlider />
+        <LabeledRangeSlider />
         <DesignArea title="Password Input">
           <LabeledInput
             label="Password"
