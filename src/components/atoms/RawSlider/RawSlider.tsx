@@ -27,6 +27,8 @@ export default function RawSlider(props: TRawSliderWithNativeAttrs) {
       type="range"
       ref={ref}
       $isActive={isMoving}
+      onMouseDown={() => setIsMoving(true)}
+      onMouseUp={() => setIsMoving(false)}
       onTouchStart={(e) => {
         setIsMoving(true);
         onTouchStart?.(e);
