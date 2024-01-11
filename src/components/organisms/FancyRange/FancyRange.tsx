@@ -35,6 +35,7 @@ export default function FancyRange(props: TFancyRange) {
     if (value < minVal) {
       setValue(minVal);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [maxVal, minVal]);
 
   return (
