@@ -133,21 +133,6 @@ export * from '@/components/organisms/FancyTextInput';
 export * from '@/components/organisms/FancyBoxSet';
 
 // ---------- Templates ------- //
-export { default as FancyInfoCard } from '@/components/templates/FancyInfoCard/FancyInfoCard';
-export { default as FancyMenu } from '@/components/templates/FancyMenueComponent/FancyMenu/FancyMenu';
-export { default as FancyMenuItem } from '@/components/templates/FancyMenueComponent/FancyMenuItem/FancyMenuItem';
-export { default as FancyGrid } from '@/components/templates/FancyGrid/FancyGrid';
-export { default as FancyGridItem } from '@/components/templates/FancyGrid/FancyGridItem/FancyGridItem';
-export { default as FancyBoxSet } from '@/components/organisms/FancyBoxSet/FancyBoxSet';
-export { default as FancyRadioList } from '@/components/templates/FancyRadioList/FancyRadioList';
-export { default as FancyFlexBox } from '@/components/templates/FancyFlexBox/FancyFlexBox';
-export { default as FancyHandyNav } from '@/components/templates/FancyHandyNav/FancyHandyNav';
-export { default as useFancyHandyNavStore } from '@/components/templates/FancyHandyNav/FancyHandyNav.store';
-export { default as FancyBottomBarIcon } from '@/components/templates/FancyBottomBarIcon/FancyBottomBarIcon';
-export { default as FancyHeader } from '@/components/templates/FancyHeader/FancyHeader';
-export { default as FancyAlignBox } from '@/components/templates/FancyAlignBox/FancyAlignBox';
-
-// ---------- Templates ------- //
 export * from '@/components/templates/FancyInfoCard';
 export * from '@/components/templates/FancyMenueComponent/FancyMenu';
 export * from '@/components/templates/FancyMenueComponent/FancyMenuItem';
@@ -160,7 +145,7 @@ export * from '@/components/templates/FancyHeader';
 export * from '@/components/templates/FancyAlignBox';
 
 // ---------- Utils/Hooks ------- //
-export * from '@/components/shared/FancyPopover/';
+export * from '@/components/shared/FancyPopover';
 export * from '@/components/shared/Delay';
 export * from '@/components/shared/ComponentAsWrapper';
 export * from '@/components/shared/FancyPortal';
