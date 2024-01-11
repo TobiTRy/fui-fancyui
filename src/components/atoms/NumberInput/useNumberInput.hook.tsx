@@ -33,9 +33,7 @@ export const useNumberInput = (props: TNumberInputWithNativeAttrs): UseNumberInp
       splitValue[1] = splitValue[1].slice(0, getDecimalPlaces);
     }
 
-    console.time('test');
     const newCalcValue = Array.isArray(splitValue) && splitValue.length === 2 ? splitValue.join('.') : sanitizedValue;
-    console.timeEnd('test');
 
     updateValue(newCalcValue, e);
   };
@@ -64,7 +62,6 @@ export const useNumberInput = (props: TNumberInputWithNativeAttrs): UseNumberInp
           value: newValue.toString(),
         },
       } as ChangeEvent<HTMLInputElement>;
-
       updateValue(newValue.toString(), fakeEvent);
     }
   };
