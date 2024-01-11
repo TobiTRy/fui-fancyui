@@ -29,7 +29,7 @@ export const generateInputContainerStyle = (hasLabel: boolean) => css`
   border-radius: 12px;
   position: relative;
   align-items: center;
-  padding: ${hasLabel ? '4px 12px 9px' : '2px 8px 6px'}; //
+  padding: ${hasLabel ? '4px 8px 9px' : '2px 8px 6px'}; //
 `;
 
 // Define the styles for the icon

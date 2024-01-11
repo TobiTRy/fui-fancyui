@@ -11,6 +11,7 @@ import {
   generateIconStyle,
 } from './InputWrapper.style';
 import { FancyBox } from '@/components/atoms/FancyBox';
+import { css } from 'styled-components';
 
 // --------------------------------------------------------------------------- //
 // ------ The Wrapper for the inputs that give him some extra features  ------ //
@@ -32,6 +33,7 @@ export default function InputWrapper(props: TInputWrapper) {
     layer = 3,
     themeType = 'primary',
     transparentBackground,
+    externalStyle,
   } = props;
 
   // Render the InputWrapper component with the appropriate props
@@ -40,7 +42,10 @@ export default function InputWrapper(props: TInputWrapper) {
       <FancyBox
         themeType={transparentBackground ? 'transparent' : themeType}
         layer={layer}
-        externalStyle={generateInputContainerStyle(!!label)}
+        externalStyle={css`
+          ${generateInputContainerStyle(!!label)}
+          ${externalStyle}
+        `}
       >
         {icon && (
           <FancySVGAtom
