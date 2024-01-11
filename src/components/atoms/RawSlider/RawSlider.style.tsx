@@ -8,8 +8,8 @@ import { TTheme } from '@/types/TTheme';
 import { colorTransparencyCalculator } from '@/design/designFunctions/colorTransparencyCalculator';
 
 const DragableThumb = css<{ theme: TTheme; $isActive?: boolean }>`
-  height: 32px;
-  width: 32px;
+  height: 24px;
+  width: 24px;
   border-radius: 50%;
   background: ${({ theme }) => theme.colors.accent[0]};
   cursor: ew-resize;
@@ -31,12 +31,13 @@ export const StyledRawSlider = styled.input<TStyledRawSlider & { theme: TTheme }
   width: 100%;
   margin: 0;
   height: 4px;
-  margin: 14px 0 14px 0;
+  margin: 10px 0 10px 0;
   background: ${({ theme, $themeType = 'secondary', $layer = 3 }) => getBackgroundColor({ theme, $themeType, $layer })};
   border-radius: 5px;
   background-image: ${({ theme }) => `linear-gradient(90deg, ${theme.colors.accent[0]}, ${theme.colors.accent[1]})`};
   background-size: 70% 100%;
   background-repeat: no-repeat;
+  z-index: 1;
   /* Chrome */
   &::-webkit-slider-thumb {
     -webkit-appearance: none;

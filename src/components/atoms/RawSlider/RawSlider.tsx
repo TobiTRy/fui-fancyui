@@ -19,8 +19,13 @@ export default function RawSlider(props: TRawSliderWithNativeAttrs) {
 
   //calc the the progress
   const calcBackgorundSize = !isNaN(sliderProgressState)
-    ? ((sliderProgressState - minVal) * 100) / (maxVal - minVal) + '% 100%'
+    ? Math.max(0, Math.min(100, ((sliderProgressState - minVal) * 100) / (maxVal - minVal))) + '% 100%'
     : '0% 100%';
+
+  const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    onChange?.(e);
+    setSliderProgressState(Number(e.target.value));
+  };
 
   return (
     <StyledRawSlider
@@ -43,10 +48,7 @@ export default function RawSlider(props: TRawSliderWithNativeAttrs) {
       value={!isNaN(sliderProgressState) ? sliderProgressState : 0}
       min={minVal}
       max={maxVal}
-      onChange={(e) => {
-        onChange?.(e);
-        setSliderProgressState(Number(e.target.value));
-      }}
+      onChange={changeHandler}
       {...htmlProps}
     />
   );
