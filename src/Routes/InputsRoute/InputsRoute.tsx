@@ -75,7 +75,7 @@ export default function InputsRoute() {
   return (
     <Card>
       <DesignWrapper>
-        <FancyRange />
+        <FancyRange id="hi" label="HIii" />
         <LabeledRangeSlider />
         <DesignArea title="Password Input">
           <LabeledInput
@@ -132,7 +132,7 @@ export default function InputsRoute() {
             align="center"
             placeholder="test45454554"
           />
-          <FancyTextInput icon={svg} value={text} onChange={testHandler} />
+          <FancyTextInput icon={svg} placeholder="Hiiii" value={text} onChange={testHandler} />
         </DesignArea>
         <DesignArea title="Number Input">
           <FancyNumberInput icon={svg} label="Text" onChange={testHandler2} value={test} step={0.1} min={0} max={100} />
