@@ -32,7 +32,7 @@ export const InputWrapper = styled.div<TInputWrapper & { theme: TTheme }>`
   background-color: transparent;
   box-sizing: border-box; /* Added to include padding in the width */
 
-  input,
+  input:not([type='range']),
   select {
     ${({ $isActive, $isLabelProvided }) => calcInputPadding({ $isActive, $isLabelProvided })}
     font-size: 18px;
