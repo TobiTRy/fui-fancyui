@@ -6,10 +6,9 @@ import { NewInputLabel } from '@/components/atoms/InputLabelNew/InputLabelNew';
 import { TLabeledRangeSliderWithNativeAttrs } from '@/components/molecules/LabeledRangeSlider/TLabeledRangeSlider.model';
 import { TInputLabel } from '@/components/atoms/InputLabelNew/TInputLabel';
 
-export default function LabeledRangeSlider(
-  props: TLabeledRangeSliderWithNativeAttrs & Omit<TInputLabel, 'lableVariant'>
-) {
-  const { id, label, systemMessageType, ...sliderProps } = props;
+type TLabeledRangeSlider = TLabeledRangeSliderWithNativeAttrs & Omit<TInputLabel, 'lableVariant'>;
+export default function LabeledRangeSlider(props: TLabeledRangeSlider) {
+  const { id, label, systemMessageType, isActive, ...sliderProps } = props;
 
   const useid = useId();
   const usedId = id ? id : useid;
@@ -17,7 +16,12 @@ export default function LabeledRangeSlider(
   return (
     <Wrapper>
       {label && (
-        <NewInputLabel htmlFor={usedId} $systemMessageType={systemMessageType} $lableVariant="static">
+        <NewInputLabel
+          htmlFor={usedId}
+          $isActive={isActive}
+          $systemMessageType={systemMessageType}
+          $lableVariant="static"
+        >
           {label}
         </NewInputLabel>
       )}
@@ -32,5 +36,4 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  gap: 2px;
 `;
