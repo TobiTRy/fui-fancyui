@@ -25,7 +25,6 @@ type TInputWrapper = {
 };
 
 export const InputWrapper = styled.div<TInputWrapper & { theme: TTheme }>`
-  font-size: 18px;
   color: ${({ theme }) => getTextColor({ theme, $themeType: 'secondary', $textLayer: 4 })};
   border-radius: 3px;
   outline: none;
