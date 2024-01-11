@@ -1,5 +1,5 @@
 import { TLayer } from '@/types/TLayer';
-import { TThemeTypes } from '@/types/TThemeTypes';
+import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
 
 // the native attributes of the input element
 export type TRawSliderNativeAttrs = React.InputHTMLAttributes<HTMLInputElement>;
@@ -7,7 +7,7 @@ export type TRawSliderNativeAttrs = React.InputHTMLAttributes<HTMLInputElement>;
 // the attributes that are passed to the component
 export type TRawSlider = {
   ref?: React.RefObject<HTMLInputElement>;
-  themeType?: TThemeTypes;
+  themeType?: TThemeTypesNotTransparent;
   layer?: TLayer;
 };
 

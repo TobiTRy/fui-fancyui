@@ -37,8 +37,6 @@ export const StyledRawSlider = styled.input<TStyledRawSlider & { theme: TTheme }
   background-image: ${({ theme }) => `linear-gradient(90deg, ${theme.colors.accent[0]}, ${theme.colors.accent[1]})`};
   background-size: 70% 100%;
   background-repeat: no-repeat;
-  outline: none;
-
   /* Chrome */
   &::-webkit-slider-thumb {
     -webkit-appearance: none;
