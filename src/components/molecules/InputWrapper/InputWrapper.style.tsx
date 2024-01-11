@@ -21,20 +21,22 @@ export const SystemMessageWrapper = styled.div<{ theme: TTheme }>`
 `;
 
 //the input/label/underline are all wrapped in thid container
-export const InputContainer = css`
+// eslint-disable-next-line react-refresh/only-export-components
+export const generateInputContainerStyle = (hasLabel: boolean) => css`
   display: flex;
   gap: 8px;
   grid-column: 2/3;
   border-radius: 12px;
   position: relative;
-  padding: 4px 12px 9px; // 3px 12px 6px
+  align-items: center;
+  padding: ${hasLabel ? '4px 12px 9px' : '2px 8px 6px'}; //
 `;
 
 // Define the styles for the icon
 // eslint-disable-next-line react-refresh/only-export-components
-export const iconStyle = css<{ theme: TTheme }>`
+export const generateIconStyle = (hasLabel: boolean) => css<{ theme: TTheme }>`
   flex-shrink: 0;
-  margin-top: 8px; // without label 4px
+  margin-top: ${hasLabel ? '8px' : '4px'}; // without label 4px
   transition: 0.25s;
   align-self: center;
 `;

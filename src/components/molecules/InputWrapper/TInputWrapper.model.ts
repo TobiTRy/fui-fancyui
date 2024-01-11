@@ -8,7 +8,7 @@ import { IFancyBox } from '@/components/atoms/FancyBox/FancyBox.model';
 
 // Define the props for the InputWrapper component
 type TSystemMessage = {
-  message: string;
+  message?: string;
   type: TUiColorsSystemMessage;
 };
 

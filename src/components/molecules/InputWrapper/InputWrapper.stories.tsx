@@ -55,16 +55,16 @@ const meta = {
         type: 'text',
       },
     },
-    errorMessage: {
-      description: 'The errorMessage of the component',
+    systemMessage: {
+      description: 'The systemMessage of the component',
       control: {
-        type: 'text',
+        type: 'object',
       },
     },
-    value: {
-      description: 'The value of the component',
+    hasValue: {
+      description: 'The hasValue of the component',
       control: {
-        type: 'text',
+        type: 'boolean',
       },
     },
     autoWidth: {

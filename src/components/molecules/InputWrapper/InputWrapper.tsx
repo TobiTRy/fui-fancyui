@@ -4,7 +4,12 @@ import { SystemMessage } from '@/components/atoms/SystemMessage/';
 import { LabeledInput } from '@/components/molecules/LabeledInput';
 import { getOpositMainThemeType } from '@/design/designFunctions/getOpositMainThemeType';
 import { TInputWrapper } from './TInputWrapper.model';
-import { InputContainer, StyledInputWrapper, SystemMessageWrapper, iconStyle } from './InputWrapper.style';
+import {
+  generateInputContainerStyle,
+  StyledInputWrapper,
+  SystemMessageWrapper,
+  generateIconStyle,
+} from './InputWrapper.style';
 import { FancyBox } from '@/components/atoms/FancyBox';
 
 // --------------------------------------------------------------------------- //
@@ -35,14 +40,14 @@ export default function InputWrapper(props: TInputWrapper) {
       <FancyBox
         themeType={transparentBackground ? 'transparent' : themeType}
         layer={layer}
-        externalStyle={InputContainer}
+        externalStyle={generateInputContainerStyle(!!label)}
       >
         {icon && (
           <FancySVGAtom
             themeType={getOpositMainThemeType(themeType)}
             layer={layer}
             isPassive={false}
-            externalStyle={iconStyle}
+            externalStyle={generateIconStyle(!!label)}
             size="xs"
             isActive={isActive}
           >
@@ -60,7 +65,6 @@ export default function InputWrapper(props: TInputWrapper) {
             id={id}
             align={align}
             themeType={themeType}
-            inputElement={InputElement}
             label={label}
             placeholder={placeholder}
             systemMessageType={systemMessage?.type}
@@ -68,6 +72,7 @@ export default function InputWrapper(props: TInputWrapper) {
             hasValue={hasValue}
             underline={underline}
             isActive={isActive}
+            inputElement={InputElement}
           />
           {/* Render the error message if an errorMessage prop exists */}
           {systemMessage && (
