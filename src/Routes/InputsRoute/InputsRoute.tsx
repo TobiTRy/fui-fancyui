@@ -75,7 +75,7 @@ export default function InputsRoute() {
   return (
     <Card>
       <DesignWrapper>
-        <FancyRange id="hi" label="HIii" min={10} max={100} />
+        <FancyRange id="hi" label="HIii" min={10} max={100} showNumberInput align="left" />
         <LabeledRangeSlider />
         <DesignArea title="Password Input">
           <LabeledInput
@@ -113,13 +113,7 @@ export default function InputsRoute() {
           />
         </DesignArea>
         <DesignArea title="Password Input111">
-          <FancyPasswordInput
-            themeType={'primary'}
-            label="Password"
-            value={password}
-            onChange={testHandler5}
-            align="left"
-          />
+          <FancyPasswordInput label="Password" value={password} onChange={testHandler5} align="left" />
           <FancyPasswordInput icon={svg} align={'center'} label="Password" value={password} onChange={testHandler5} />
         </DesignArea>
         <DesignArea title="Text Input">

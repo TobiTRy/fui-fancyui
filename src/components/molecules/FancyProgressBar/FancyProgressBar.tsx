@@ -2,17 +2,18 @@ import { TLayer } from '@/types/TLayer';
 import { TThemeTypes } from '@/types/TThemeTypes';
 
 import ProgressBar, { IProgressBar } from '@/components/atoms/ProgressBar/ProgressBar';
-import { AlignedInputLabel } from '@/components/atoms/AlignedInputLabel';
-import { TAlign } from '@/components/atoms/AlignedInputLabel/TalignedInputLabel.model';
 
 import { Wrapper } from './FancyProgressBar.style';
+import InputLabel from '@/components/atoms/InputLabel/InputLabel';
+import { TTextAlignLC } from '@/types/TTextAlignLC';
+import { TTextAlignLRC } from 'lib';
 
 // Define the props for the ProgressBar component
 interface IFancyProgressBar extends IProgressBar {
   label?: string;
-  labelAlign?: TAlign;
+  labelAlign?: TTextAlignLC;
   progressCount?: boolean;
-  progressAlign?: TAlign;
+  progressAlign?: TTextAlignLRC;
   themeType?: TThemeTypes;
   textLayer?: TLayer;
   layer?: TLayer;
@@ -28,18 +29,18 @@ export default function FancyProgressBar(props: IFancyProgressBar) {
     <Wrapper $value={progress}>
       {/* A lable to describe the Progress for */}
       {label && (
-        <AlignedInputLabel htmlFor={id} $align={labelAlign} $layer={textLayer}>
+        <InputLabel $lableVariant="static" htmlFor={id} $align={labelAlign} $layer={textLayer}>
           {label}
-        </AlignedInputLabel>
+        </InputLabel>
       )}
       {/* The Progressbar Atom itself */}
       <ProgressBar id={id} progress={progress} maxValue={maxValue || 100} themeType={themeType} layer={layer} />
 
       {/* The Progress in percent as Text */}
       {progressCount && (
-        <AlignedInputLabel as={'span'} $align={progressAlign} $layer={textLayer}>
+        <InputLabel $lableVariant="static" as={'span'} $align={progressAlign} $layer={textLayer}>
           {progress}%
-        </AlignedInputLabel>
+        </InputLabel>
       )}
     </Wrapper>
   );
