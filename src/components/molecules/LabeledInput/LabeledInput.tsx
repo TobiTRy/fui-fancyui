@@ -3,6 +3,7 @@ import { TLabeledInput } from '@/components/molecules/LabeledInput/TLabledInput.
 import { clampLayer } from '@/utils/functions/clampLayer';
 
 import { InputLabel, InputWrapper, Wrapper } from './LabeledInput.style';
+import NewInputLabel from '@/components/atoms/InputLabelNew/InputLabelNew';
 
 export default function LabeledInput(props: TLabeledInput) {
   const {
@@ -25,9 +26,15 @@ export default function LabeledInput(props: TLabeledInput) {
   return (
     <Wrapper $themeType={themeType} $layer={layer}>
       {/* The Labled thats animated and adjusts the padding with the type of the Input */}
-      <InputLabel $align={align} id={id} $isActive={labelShouldMoveUp} $systemMessageType={systemMessageType}>
+      <NewInputLabel
+        $lableVariant="animated"
+        $align={align}
+        id={id}
+        $isActive={labelShouldMoveUp}
+        $systemMessageType={systemMessageType}
+      >
         {label}
-      </InputLabel>
+      </NewInputLabel>
       {/* The wrapper for the input field to style and align the input*/}
       <InputWrapper $isActive={labelShouldMoveUp} $isLabelProvided={!!label}>
         {inputElement}
