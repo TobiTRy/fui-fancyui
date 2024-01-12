@@ -132,7 +132,12 @@ export default function InputsRoute() {
             align="center"
             placeholder="test45454554"
           />
-          <FancyTextInput placeholder="Hiiii" value={text} onChange={testHandler} />
+          <FancyTextInput
+            placeholder="Hiiii"
+            systemMessage={{ type: 'success', message: 'moooiin' }}
+            value={text}
+            onChange={testHandler}
+          />
         </DesignArea>
         <DesignArea title="Number Input">
           <FancyNumberInput icon={svg} label="Text" onChange={testHandler2} value={test} step={0.1} min={0} max={100} />
