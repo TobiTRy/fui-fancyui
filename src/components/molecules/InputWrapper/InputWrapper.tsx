@@ -9,6 +9,7 @@ import {
   StyledInputWrapper,
   SystemMessageWrapper,
   generateIconStyle,
+  WrapperSystemMessageAndInput,
 } from './InputWrapper.style';
 import { FancyBox } from '@/components/atoms/FancyBox';
 import { css } from 'styled-components';
@@ -59,13 +60,7 @@ export default function InputWrapper(props: TInputWrapper) {
             {icon}
           </FancySVGAtom>
         )}
-        <div
-          style={{
-            width: '100%',
-            display: 'flex',
-            flexDirection: 'column',
-          }}
-        >
+        <WrapperSystemMessageAndInput>
           <LabeledInput
             id={id}
             align={align}
@@ -85,7 +80,7 @@ export default function InputWrapper(props: TInputWrapper) {
               <SystemMessage systemMessageState={systemMessage.type}>{systemMessage.message}</SystemMessage>
             </SystemMessageWrapper>
           )}
-        </div>
+        </WrapperSystemMessageAndInput>
         {/* Render the underline for the input field if the underline prop is true */}
       </FancyBox>
     </StyledInputWrapper>

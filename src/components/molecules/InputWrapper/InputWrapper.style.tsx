@@ -18,18 +18,32 @@ export const SystemMessageWrapper = styled.div<{ theme: TTheme }>`
   grid-column: 2;
   grid-row: 2;
   line-height: 1;
+  margin-left: 2px;
+`;
+
+export const WrapperSystemMessageAndInput = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 `;
 
 //the input/label/underline are all wrapped in thid container
 // eslint-disable-next-line react-refresh/only-export-components
-export const generateInputContainerStyle = (hasLabel: boolean) => css`
+export const generateInputContainerStyle = (hasLabel: boolean, hasSytemMessage?: boolean) => css`
   display: flex;
   gap: 8px;
   grid-column: 2/3;
   border-radius: 12px;
   position: relative;
   align-items: center;
-  padding: ${hasLabel ? '4px 8px 9px' : '2px 8px 6px'}; //
+  padding: ${hasLabel
+    ? hasSytemMessage
+      ? '4px 8px'
+      : '4px 8px 9px'
+    : hasSytemMessage
+      ? '2px 8px 4px'
+      : '2px 8px 4px'}; //
 `;
 
 // Define the styles for the icon
