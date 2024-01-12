@@ -1,15 +1,16 @@
 import { CSSProp } from 'styled-components';
+
 import { TLayer } from '@/types/TLayer';
-import { TTextAlignLC } from '@/types/TTextAlignLC';
 import { TUiColorsMain } from '@/types/TUiColorsMain';
 import { TUiColorsSystemMessage } from '@/types/TUiColorsSystemMessage';
+import { TTextAlignLRC } from 'lib';
 
 export type TInputLabel = {
   isActive?: boolean;
   systemMessageType?: TUiColorsSystemMessage;
   themeType?: TUiColorsMain;
   layer?: TLayer;
-  align?: TTextAlignLC;
+  align?: TTextAlignLRC;
   lableVariant: 'static' | 'animated';
   externalStyle?: CSSProp;
 };
