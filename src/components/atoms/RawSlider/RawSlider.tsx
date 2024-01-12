@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { TRawSliderWithNativeAttrs } from '@/components/atoms/RawSlider/TRawSlider.model';
 import { StyledRawSlider } from './RawSlider.style';
@@ -7,7 +7,20 @@ import { StyledRawSlider } from './RawSlider.style';
 // ------------ Here is createt the Slider Atom (Range Slider) --------------- //
 // --------------------------------------------------------------------------- //
 export default function RawSlider(props: TRawSliderWithNativeAttrs) {
-  const { max, min, value, ref, themeType, layer, onChange, onTouchStart, style, onTouchEnd, ...htmlProps } = props;
+  const {
+    max,
+    min,
+    value,
+    ref,
+    themeType,
+    layer,
+    onChange,
+    onTouchStart,
+    style,
+    onTouchEnd,
+    componentSize,
+    ...htmlProps
+  } = props;
 
   const [sliderProgressState, setSliderProgressState] = useState(value ? Number(value) : 0);
   //is the slider moving or not for mobile devices to handle the box shadow
@@ -27,11 +40,18 @@ export default function RawSlider(props: TRawSliderWithNativeAttrs) {
     setSliderProgressState(Number(e.target.value));
   };
 
+  useEffect(() => {
+    if (value) {
+      setSliderProgressState(Number(value));
+    }
+  }, [value]);
+
   return (
     <StyledRawSlider
       type="range"
       ref={ref}
       $isActive={isMoving}
+      $componentSize={componentSize}
       onMouseDown={() => setIsMoving(true)}
       onMouseUp={() => setIsMoving(false)}
       onTouchStart={(e) => {
