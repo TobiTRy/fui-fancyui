@@ -2,8 +2,8 @@ import { InputUnderline } from '@/components/atoms/InputUnderline';
 import { TLabeledInput } from '@/components/molecules/LabeledInput/TLabledInput.model';
 import { clampLayer } from '@/utils/functions/clampLayer';
 
-import { InputLabel, InputWrapper, Wrapper } from './LabeledInput.style';
-import NewInputLabel from '@/components/atoms/InputLabelNew/InputLabelNew';
+import { InputWrapper, Wrapper } from './LabeledInput.style';
+import { InputLabel } from '@/components/atoms/InputLabel';
 
 export default function LabeledInput(props: TLabeledInput) {
   const {
@@ -24,9 +24,9 @@ export default function LabeledInput(props: TLabeledInput) {
   const labelShouldMoveUp = hasValue || !!placeholder;
 
   return (
-    <Wrapper $themeType={themeType} $layer={layer}>
+    <Wrapper>
       {/* The Labled thats animated and adjusts the padding with the type of the Input */}
-      <NewInputLabel
+      <InputLabel
         $lableVariant="animated"
         $align={align}
         id={id}
@@ -34,7 +34,7 @@ export default function LabeledInput(props: TLabeledInput) {
         $systemMessageType={systemMessageType}
       >
         {label}
-      </NewInputLabel>
+      </InputLabel>
       {/* The wrapper for the input field to style and align the input*/}
       <InputWrapper $isActive={labelShouldMoveUp} $isLabelProvided={!!label}>
         {inputElement}
