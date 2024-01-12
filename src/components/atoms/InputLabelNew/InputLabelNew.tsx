@@ -14,6 +14,7 @@ const generateAlignStyle = (align?: TTextAlignLC) => {
     `;
   }
 };
+//TODO: ADJUST TRANSLATE
 
 const generateLableVariant = (lableVariant: TInputLabel['lableVariant'], isActive?: boolean) => {
   if (lableVariant === 'static') {
@@ -24,7 +25,7 @@ const generateLableVariant = (lableVariant: TInputLabel['lableVariant'], isActiv
 
   return css`
     position: absolute;
-    top: ${isActive ? '8px' : '54%'};
+    top: ${isActive ? '8px' : '56%'};
     font-size: ${isActive ? '12px' : '18px'};
   `;
 };
