@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 
-import { AlignedInputLabel } from '@/components/atoms/AlignedInputLabel';
 import { TTheme } from '@/types/TTheme';
+import { InputLabel } from '@/components/atoms/InputLabel/InputLabel';
 
 export const RangeSliderContainer = styled.div`
   grid-row: 2/3;
@@ -20,7 +20,7 @@ export const NumberContainer = styled.div`
 `;
 
 //the label inhert the style from the AlignedInputLabel
-export const Label = styled(AlignedInputLabel)`
+export const Label = styled(InputLabel)`
   grid-row: 1/2;
   grid-column: 2/3;
 `;

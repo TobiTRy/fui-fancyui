@@ -1,14 +1,25 @@
 import React, { ChangeEvent, useEffect, useId, useState } from 'react';
-import { css, styled } from 'styled-components';
 
 import { InputWrapper, TInputWrapper } from '@/components/molecules/InputWrapper';
 import { LabeledRangeSlider, TLabeledRangeSliderWithNativeAttrs } from '@/components/molecules/LabeledRangeSlider';
 import { FancyNumberInput } from '@/components/organisms/FancyNumberInput';
 import { clampLayer } from '@/utils/functions/clampLayer';
+import { InputElementWrapper, generateInputWrapperStyles } from '@/components/organisms/FancyRange/FancyRange.style';
 
-type TFancyRange = TInputWrapper & TLabeledRangeSliderWithNativeAttrs;
+type TFancyRange = TInputWrapper & TLabeledRangeSliderWithNativeAttrs & { showNumberInput?: boolean };
 export default function FancyRange(props: TFancyRange) {
-  const { id, label, layer, onChange, systemMessage, max, min, transparentBackground, ...sliderProps } = props;
+  const {
+    id,
+    label,
+    layer,
+    onChange,
+    systemMessage,
+    max,
+    min,
+    transparentBackground,
+    showNumberInput,
+    ...sliderProps
+  } = props;
   const [value, setValue] = React.useState(0);
   const [toutched, setToutched] = useState(false);
 
@@ -40,13 +51,11 @@ export default function FancyRange(props: TFancyRange) {
 
   return (
     <InputWrapper
-      id="Test"
+      id={usedId}
       underline={false}
       isActive={toutched}
       transparentBackground={transparentBackground}
-      externalStyle={css`
-        padding: 2px 2px 2px 8px;
-      `}
+      externalStyle={generateInputWrapperStyles({ hasNumberInput: showNumberInput })}
       InputElement={
         <InputElementWrapper>
           <LabeledRangeSlider
@@ -60,29 +69,21 @@ export default function FancyRange(props: TFancyRange) {
             min={minVal}
             {...sliderProps}
           />
-          <FancyNumberInput
-            value={value}
-            autoWidth
-            layer={layer ? clampLayer(layer - 2) : 1}
-            align="center"
-            max={maxVal}
-            min={minVal}
-            onChange={changeHandler}
-            transparentBackground={transparentBackground}
-            systemMessage={systemMessage?.type ? { type: systemMessage?.type } : undefined}
-          />
+          {showNumberInput && (
+            <FancyNumberInput
+              value={value}
+              autoWidth
+              layer={layer ? clampLayer(layer - 2) : 1}
+              align="center"
+              max={maxVal}
+              min={minVal}
+              onChange={changeHandler}
+              transparentBackground={transparentBackground}
+              systemMessage={systemMessage?.type ? { type: systemMessage?.type } : undefined}
+            />
+          )}
         </InputElementWrapper>
       }
     />
   );
 }
-
-const InputElementWrapper = styled.div`
-  display: flex;
-  align-items: end;
-  gap: 8px;
-
-  .wrapper_rawslider-input {
-    margin-bottom: 4px;
-  }
-`;

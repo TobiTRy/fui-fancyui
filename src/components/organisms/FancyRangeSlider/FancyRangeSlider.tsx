@@ -1,4 +1,5 @@
 import { ChangeEvent, useId, useState } from 'react';
+import { css } from 'styled-components';
 
 import { RawSlider } from '@/components/atoms/RawSlider';
 import { StyledInputWrapper } from '@/components/molecules/InputWrapper/InputWrapper.style';
@@ -7,10 +8,10 @@ import { FancyNumberInput } from '@/components/organisms/FancyNumberInput';
 import { FancySVGAtom } from '@/components/atoms/FancySVGAtom';
 import { calcItemState } from '@/design/designFunctions/calcItemState';
 
-import { NewInputLabel } from '@/components/atoms/InputLabelNew/InputLabelNew';
-import { css } from 'styled-components';
 import IFancyRangeSlider from './FancyRangeSlider.model';
 import { Icon, NumberContainer, RangeSliderContainer } from './FancyRangeSlider.style';
+import { InputLabel } from '@/components/atoms/InputLabel/InputLabel';
+
 // --------------------------------------------------------------------------- //
 // -------------------- The main FancySlider Component ----------------------- //
 // --------------------------------------------------------------------------- //
@@ -62,7 +63,7 @@ export default function FancyRangeSlider(props: IFancyRangeSlider) {
 
       {/* label for the top side of the slider */}
       {label && (
-        <NewInputLabel
+        <InputLabel
           $lableVariant="static"
           htmlFor={id}
           $align={align}
@@ -74,7 +75,7 @@ export default function FancyRangeSlider(props: IFancyRangeSlider) {
           `}
         >
           {label}
-        </NewInputLabel>
+        </InputLabel>
       )}
       {/* Range Slider */}
       <RangeSliderContainer>

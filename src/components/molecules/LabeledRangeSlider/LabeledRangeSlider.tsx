@@ -2,13 +2,14 @@ import { useId } from 'react';
 import { styled } from 'styled-components';
 
 import { RawSlider } from '@/components/atoms/RawSlider';
-import { NewInputLabel } from '@/components/atoms/InputLabelNew/InputLabelNew';
+import { InputLabel } from '@/components/atoms/InputLabel/InputLabel';
 import { TLabeledRangeSliderWithNativeAttrs } from '@/components/molecules/LabeledRangeSlider/TLabeledRangeSlider.model';
-import { TInputLabel } from '@/components/atoms/InputLabelNew/TInputLabel';
+import { TInputLabel } from '@/components/atoms/InputLabel/TInputLabel';
+import { SliderWrapper } from './LabeledRangeSlider.style';
 
 type TLabeledRangeSlider = TLabeledRangeSliderWithNativeAttrs & Omit<TInputLabel, 'lableVariant'>;
 export default function LabeledRangeSlider(props: TLabeledRangeSlider) {
-  const { id, label, systemMessageType, isActive, ...sliderProps } = props;
+  const { id, label, systemMessageType, isActive, align, ...sliderProps } = props;
 
   const useid = useId();
   const usedId = id ? id : useid;
@@ -16,24 +17,23 @@ export default function LabeledRangeSlider(props: TLabeledRangeSlider) {
   return (
     <Wrapper>
       {label && (
-        <NewInputLabel
+        <InputLabel
           htmlFor={usedId}
           $isActive={isActive}
           $systemMessageType={systemMessageType}
           $lableVariant="static"
+          $align={align}
         >
           {label}
-        </NewInputLabel>
+        </InputLabel>
       )}
-      <div className="wrapper_rawslider-input">
+      <SliderWrapper className="wrapper_rawslider-input" $isLabelProvided={!!label}>
         <RawSlider id={usedId} {...sliderProps} />
-      </div>
+      </SliderWrapper>
     </Wrapper>
   );
 }
 
 const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
   width: 100%;
 `;
