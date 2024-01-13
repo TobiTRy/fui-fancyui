@@ -75,7 +75,7 @@ export default function InputsRoute() {
   return (
     <Card>
       <DesignWrapper>
-        <FancyRange id="hi" label="HIii" min={10} max={100} showNumberInput align="left" />
+        <FancyRange id="hi" layer={2} label="HIii" min={10} max={100} displayNumberInput align="left" />
         <LabeledRangeSlider />
         <DesignArea title="Password Input">
           <LabeledInput
@@ -87,6 +87,7 @@ export default function InputsRoute() {
         <DesignArea title="Password Input">
           <FancyNumberInput
             decimalPlaces={4}
+            layer={1}
             step={0.001}
             label="Text"
             onChange={testHandler2}
