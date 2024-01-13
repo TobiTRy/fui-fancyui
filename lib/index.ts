@@ -170,6 +170,7 @@ export * from '@/design/theme/globalStyle/scrollbar';
 export * from '@/design/designFunctions/arrayToCssValues';
 export * from '@/design/designFunctions/generateInsetBorderRadius';
 export * from '@/design/designFunctions/checkThemeValue';
+export * from '@/design/designFunctions/leftRightCenterToFlexJustify';
 
 // ---------- Interfaces ------- //
 export * from '@/types';

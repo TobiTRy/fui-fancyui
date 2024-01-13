@@ -11,7 +11,6 @@ import FancyDateDropDown from '../../components/templates/FancyDateDropDown/Fanc
 import { Card } from '@/components/atoms/Card';
 import LabeledInput from '@/components/molecules/LabeledInput/LabeledInput';
 import { TextInput } from '@/components/atoms/TextInput';
-import LabeledRangeSlider from '@/components/molecules/LabeledRangeSlider/LabeledRangeSlider';
 import FancyRange from '@/components/organisms/FancyRangeSlider/FancyRangeSlider';
 
 const svg = (
@@ -84,7 +83,6 @@ export default function InputsRoute() {
           displayNumberInput
           align="left"
         />
-        <LabeledRangeSlider />
         <DesignArea title="Password Input">
           <LabeledInput
             label="Password"

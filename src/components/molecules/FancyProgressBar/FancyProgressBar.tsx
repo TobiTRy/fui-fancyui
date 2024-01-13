@@ -33,6 +33,7 @@ export default function FancyProgressBar(props: IFancyProgressBar) {
           {label}
         </AlignedLabel>
       )}
+
       {/* The Progressbar Atom itself */}
       <ProgressBar id={id} progress={progress} maxValue={maxValue || 100} themeType={themeType} layer={layer} />
 
