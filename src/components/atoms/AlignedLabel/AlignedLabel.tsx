@@ -8,7 +8,7 @@ import { leftRightCenterToFlexJustify } from '@/design/designFunctions/leftRight
 export const AlignedLabel = styled.label<IAlignedLabel>`
   display: flex;
   align-items: flex-end;
-  justify-content: ${({ $align }) => ($align ? leftRightCenterToFlexJustify[$align] : 'flex-start')};
+  justify-content: ${({ $align }) => leftRightCenterToFlexJustify[$align ?? 'left']};
   color: ${({ $systemMessageType, theme, $themeType = 'secondary', $layer }) =>
     getBackgroundColor({
       theme,
