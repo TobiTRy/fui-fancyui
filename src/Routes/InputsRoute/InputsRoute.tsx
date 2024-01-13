@@ -74,7 +74,16 @@ export default function InputsRoute() {
   return (
     <Card>
       <DesignWrapper>
-        <FancyRange id="hi" layer={2} label="HIii" min={10} max={100} displayNumberInput align="left" />
+        <FancyRange
+          id="hi"
+          layer={2}
+          label="HIii"
+          min={10}
+          max={100}
+          onChange={testHandler4}
+          displayNumberInput
+          align="left"
+        />
         <LabeledRangeSlider />
         <DesignArea title="Password Input">
           <LabeledInput

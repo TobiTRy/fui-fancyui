@@ -7,7 +7,7 @@ import IStyledPrefixAndPicker from '@/types/IStyledPrefixAndPicker';
 import { generateLableVariant } from './utils/generateLableVariant';
 
 // --------------------------------------------------------------------------- //
-// ----------  ---------- //
+// ---------------- A Label for the Inputs with absolute position ------------ //
 // --------------------------------------------------------------------------- //
 type TSytledInputLabel = IStyledPrefixAndPicker<TInputLabel>;
 export const InputLabel = styled.label<TSytledInputLabel & { theme: TTheme }>`
