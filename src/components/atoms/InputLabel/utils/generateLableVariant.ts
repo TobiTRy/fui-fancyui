@@ -13,11 +13,6 @@ export function generateLableVariant(props: TgenerateLableVariant) {
 
   if ($lableVariant === 'static') {
     switch ($align) {
-      case 'left':
-        return css`
-          top: 0;
-          left: 0;
-        `;
       case 'center':
         return css`
           left: 50%;
@@ -27,6 +22,12 @@ export function generateLableVariant(props: TgenerateLableVariant) {
         return css`
           top: 0;
           right: 0;
+        `;
+      default:
+      case 'left':
+        return css`
+          top: 0;
+          left: 0;
         `;
     }
   }

@@ -1,8 +1,8 @@
 import { styled } from 'styled-components';
 
+import { TTheme } from '@/types/TTheme';
 import { TInputLabel } from '@/components/atoms/InputLabel/TInputLabel';
 import { getBackgroundColor, getTextColor } from '@/design/designFunctions/colorCalculatorForComponent';
-import { TTheme } from '@/types/TTheme';
 import IStyledPrefixAndPicker from '@/types/IStyledPrefixAndPicker';
 import { generateLableVariant } from './utils/generateLableVariant';
 
