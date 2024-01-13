@@ -106,6 +106,7 @@ export * from '@/components/molecules/MenuList';
 export * from '@/components/molecules/SwitchList';
 export * from '@/components/molecules/TabSwitch';
 export * from '@/components/molecules/FancyNavBar';
+export * from '@/components/molecules/LabeledInput';
 
 // ---------- Organisms ------- //
 export * from '@/components/organisms/FancyButton';
