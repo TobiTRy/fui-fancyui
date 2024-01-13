@@ -30,7 +30,7 @@ const DragableThumb = css<{ theme: TTheme; $isActive?: boolean }>`
 const generateComponentSize = (componentSize: TRawSlider['componentSize']) => {
   return css`
     height: ${sizeSettings[componentSize || 'sm'].height};
-    margin: 10px 0 10px 0; //TODO: ADJUST SIZE
+    margin: ${sizeSettings[componentSize || 'sm'].margin} 0;
   `;
 };
 
@@ -43,11 +43,10 @@ type TStyledRawSlider = {
 export const StyledRawSlider = styled.input<TStyledRawSlider & { theme: TTheme }>`
   -webkit-appearance: none;
   width: 100%;
-  margin: 0;
   ${({ $componentSize }) => generateComponentSize($componentSize)};
   background: ${({ theme, $themeType = 'primary', $layer = 1 }) => getBackgroundColor({ theme, $themeType, $layer })};
-  border-radius: 5px;
-  background-image: ${({ theme }) => `linear-gradient(90deg, ${theme.colors.accent[0]}, ${theme.colors.accent[1]})`};
+  border-radius: ${({ theme }) => theme.borderRadius.complete};
+  background-image: ${({ theme }) => `linear-gradient(90deg, ${theme.colors.accent[0]}, ${theme.colors.accent[0]})`};
   background-size: 70% 100%;
   background-repeat: no-repeat;
   z-index: 1;
