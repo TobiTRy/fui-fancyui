@@ -1,12 +1,14 @@
 import React, { ChangeEvent, useEffect, useId, useState } from 'react';
 
 import { InputWrapper, TInputWrapper } from '@/components/molecules/InputWrapper';
-import { LabeledRangeSlider, TLabeledRangeSliderWithNativeAttrs } from '@/components/molecules/LabeledRangeSlider';
+import { TLabeledRangeSliderWithNativeAttrs } from '@/components/molecules/LabeledRangeSlider';
 import { FancyNumberInput } from '@/components/organisms/FancyNumberInput';
 import { clampLayer } from '@/utils/functions/clampLayer';
 import { InputElementWrapper, generateInputWrapperStyles } from '@/components/organisms/FancyRange/FancyRange.style';
+import { RawSlider } from '@/components/atoms/RawSlider';
+import countNegativLayerUpwards from '@/design/designFunctions/countNegativLayerUpwards/countNegativLayerUpwards';
 
-type TFancyRange = TInputWrapper & TLabeledRangeSliderWithNativeAttrs & { showNumberInput?: boolean };
+type TFancyRange = TInputWrapper & TLabeledRangeSliderWithNativeAttrs & { displayNumberInput?: boolean };
 export default function FancyRange(props: TFancyRange) {
   const {
     id,
@@ -17,9 +19,15 @@ export default function FancyRange(props: TFancyRange) {
     max,
     min,
     transparentBackground,
-    showNumberInput,
+    displayNumberInput,
+    icon,
+    align,
+    placeholder,
+    themeType,
+    disabled,
     ...sliderProps
   } = props;
+
   const [value, setValue] = React.useState(0);
   const [toutched, setToutched] = useState(false);
 
@@ -52,28 +60,38 @@ export default function FancyRange(props: TFancyRange) {
   return (
     <InputWrapper
       id={usedId}
+      label={label}
+      hasValue={toutched}
       underline={false}
       isActive={toutched}
       transparentBackground={transparentBackground}
-      externalStyle={generateInputWrapperStyles({ hasNumberInput: showNumberInput })}
+      externalStyle={generateInputWrapperStyles({ hasNumberInput: displayNumberInput })}
+      disabled={disabled}
+      placeholder={placeholder}
+      themeType={themeType}
+      layer={layer}
+      align={align}
+      labelVariant="static"
+      icon={icon}
+      systemMessage={systemMessage}
       InputElement={
         <InputElementWrapper>
-          <LabeledRangeSlider
-            isActive={toutched}
+          <RawSlider
             id={usedId}
-            label={label}
             value={value}
-            systemMessageType={systemMessage?.type}
-            onChange={changeHandler}
             max={maxVal}
             min={minVal}
+            onChange={changeHandler}
+            themeType={themeType}
+            layer={layer ? clampLayer(layer - 2) : 1}
+            disabled={disabled}
             {...sliderProps}
           />
-          {showNumberInput && (
+          {displayNumberInput && (
             <FancyNumberInput
               value={value}
               autoWidth
-              layer={layer ? clampLayer(layer - 2) : 1}
+              layer={layer ? countNegativLayerUpwards(layer, 2) : 1}
               align="center"
               max={maxVal}
               min={minVal}
