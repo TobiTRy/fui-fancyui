@@ -4,7 +4,7 @@ import { Meta, StoryObj } from '@storybook/react';
 // Import the component to be tested
 import SVGCheckMark from '../../icons/SVGCheckMark/SVGCheckMark';
 
-import FancyRange from '@/components/organisms/FancyRange/FancyRange';
+import FancyRange from '@/components/organisms/FancyRangeSlider/FancyRangeSlider';
 
 // Define metadata for the story
 const meta = {
@@ -110,6 +110,7 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   render: (args) => <FancyRange {...args} />,
   args: {
+    id: 'test',
     label: 'Label',
     align: 'left',
     themeType: 'secondary',

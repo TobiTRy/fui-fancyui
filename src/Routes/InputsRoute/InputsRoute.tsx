@@ -3,7 +3,6 @@ import { css } from 'styled-components';
 
 import FancyPasswordInput from '../../components/organisms/FancyPasswordInput/FancyPasswordInput';
 import FancyTextInput from '../../components/organisms/FancyTextInput/FancyTextInput';
-import FancyRangeSlider from '../../components/organisms/FancyRangeSlider/FancyRangeSlider';
 import FancyNumberInput from '../../components/organisms/FancyNumberInput/FancyNumberInput';
 import FancyDropDownSelect from '../../components/organisms/FancyDropDownSelect/FancyDropDownSelect';
 import FancyDateInput from '../../components/organisms/FancyDateInput/FancyDateInput';
@@ -13,7 +12,7 @@ import { Card } from '@/components/atoms/Card';
 import LabeledInput from '@/components/molecules/LabeledInput/LabeledInput';
 import { TextInput } from '@/components/atoms/TextInput';
 import LabeledRangeSlider from '@/components/molecules/LabeledRangeSlider/LabeledRangeSlider';
-import FancyRange from '@/components/organisms/FancyRange/FancyRange';
+import FancyRange from '@/components/organisms/FancyRangeSlider/FancyRangeSlider';
 
 const svg = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -185,17 +184,6 @@ export default function InputsRoute() {
           <FancyDateDropDown type="day" label="Day" onChange={testHandler3} />
           <FancyDateDropDown type="month" label="Month" onChange={testHandler3} />
           <FancyDateDropDown type="year" label="Year" onChange={testHandler3} />
-        </DesignArea>
-        <DesignArea title="Range Slider">
-          <FancyRangeSlider label="Slider" value={Number(test)} onChange={testHandler4} />
-          <FancyRangeSlider
-            icon={svg}
-            label="Slider"
-            value={Number(test)}
-            onChange={testHandler4}
-            align="center"
-            displayNumber={true}
-          />
         </DesignArea>
       </DesignWrapper>
     </Card>

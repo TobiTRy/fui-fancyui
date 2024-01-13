@@ -1,118 +1,109 @@
-import { ChangeEvent, useId, useState } from 'react';
-import { css } from 'styled-components';
+import React, { ChangeEvent, useEffect, useId, useState } from 'react';
 
-import { RawSlider } from '@/components/atoms/RawSlider';
-import { StyledInputWrapper } from '@/components/molecules/InputWrapper/InputWrapper.style';
+import { InputWrapper, TInputWrapper } from '@/components/molecules/InputWrapper';
 import { FancyNumberInput } from '@/components/organisms/FancyNumberInput';
+import { clampLayer } from '@/utils/functions/clampLayer';
+import {
+  InputElementWrapper,
+  generateInputWrapperStyles,
+} from '@/components/organisms/FancyRangeSlider/FancyRangeSlider.style';
+import { RawSlider, TRawSliderWithNativeAttrs } from '@/components/atoms/RawSlider';
+import countNegativLayerUpwards from '@/design/designFunctions/countNegativLayerUpwards/countNegativLayerUpwards';
 
-import { FancySVGAtom } from '@/components/atoms/FancySVGAtom';
-import { calcItemState } from '@/design/designFunctions/calcItemState';
-
-import IFancyRangeSlider from './FancyRangeSlider.model';
-import { Icon, NumberContainer, RangeSliderContainer } from './FancyRangeSlider.style';
-import { InputLabel } from '@/components/atoms/InputLabel/InputLabel';
-
-// --------------------------------------------------------------------------- //
-// -------------------- The main FancySlider Component ----------------------- //
-// --------------------------------------------------------------------------- //
-export default function FancyRangeSlider(props: IFancyRangeSlider) {
+type TFancyRange = TInputWrapper & TRawSliderWithNativeAttrs & { displayNumberInput?: boolean };
+export default function FancyRange(props: TFancyRange) {
   const {
+    id,
     label,
-    align,
-    icon,
-    value,
-    min,
-    max,
-    displayNumber,
+    layer,
     onChange,
-    themeType = 'primary',
-    layer = 4,
+    systemMessage,
+    max,
+    min,
+    transparentBackground,
+    displayNumberInput,
+    icon,
+    align,
+    placeholder,
+    themeType,
     disabled,
-  } = { ...defaultProps, ...props };
+    ...sliderProps
+  } = props;
 
-  const [isActive] = useState(false);
+  const [value, setValue] = React.useState(0);
   const [toutched, setToutched] = useState(false);
 
-  const id = useId();
+  const minVal = min ? Number(min) : 0;
+  const maxVal = max ? Number(max) : 100;
 
-  const colorStateLabel = calcItemState({ type: 'text', isActive: isActive || toutched, value });
-  console.log(colorStateLabel);
+  // if no id is provided, generate a random one
+  const useid = useId();
+  const usedId = id ? id : useid;
+
   // this function is called when the slider is moved
   const changeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     // this line handles the the input bewteen number and slider
+    setValue(Number(e.target?.value) ?? 0);
     setToutched(true);
-    onChange && onChange(e);
+    onChange?.(e);
   };
 
+  useEffect(() => {
+    if (value > maxVal) {
+      setValue(maxVal);
+    }
+
+    if (value < minVal) {
+      setValue(minVal);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [maxVal, minVal]);
+
   return (
-    <StyledInputWrapper disabled={disabled}>
-      {/* Icon for the left side of the slider */}
-      {icon && (
-        <Icon>
-          <FancySVGAtom
-            isActive={isActive}
-            size="xs"
-            themeType={themeType}
-            layer={layer}
-            externalStyle={{ transition: 'color 0.3s ease-in-out' }}
-          >
-            {icon}
-          </FancySVGAtom>
-        </Icon>
-      )}
-
-      {/* label for the top side of the slider */}
-      {label && (
-        <InputLabel
-          $lableVariant="static"
-          htmlFor={id}
-          $align={align}
-          $themeType={themeType}
-          $layer={layer}
-          $externalStyle={css`
-            grid-row: 1/2;
-            grid-column: 2/3;
-          `}
-        >
-          {label}
-        </InputLabel>
-      )}
-      {/* Range Slider */}
-      <RangeSliderContainer>
-        <RawSlider
-          id={id}
-          disabled={disabled}
-          value={value}
-          themeType={themeType}
-          layer={layer}
-          onChange={changeHandler}
-          min={min}
-          max={max}
-        />
-      </RangeSliderContainer>
-
-      {/* Number input for typing the number */}
-      {displayNumber && (
-        <NumberContainer>
-          <FancyNumberInput
-            themeType={themeType}
-            transparentBackground={true}
-            layer={layer}
-            aria-label={label}
-            autoWidth={true}
-            align="center"
+    <InputWrapper
+      id={usedId}
+      label={label}
+      hasValue={toutched}
+      underline={false}
+      isActive={toutched}
+      transparentBackground={transparentBackground}
+      externalStyle={generateInputWrapperStyles({ hasNumberInput: displayNumberInput })}
+      disabled={disabled}
+      placeholder={placeholder}
+      themeType={themeType}
+      layer={layer}
+      align={align}
+      labelVariant="static"
+      icon={icon}
+      systemMessage={systemMessage}
+      InputElement={
+        <InputElementWrapper>
+          <RawSlider
+            id={usedId}
             value={value}
+            max={maxVal}
+            min={minVal}
             onChange={changeHandler}
-            min={min}
-            max={max}
+            themeType={themeType}
+            layer={layer ? clampLayer(layer - 2) : 1}
+            disabled={disabled}
+            {...sliderProps}
           />
-        </NumberContainer>
-      )}
-    </StyledInputWrapper>
+          {displayNumberInput && (
+            <FancyNumberInput
+              value={value}
+              autoWidth
+              layer={layer ? countNegativLayerUpwards(layer, 2) : 1}
+              align="center"
+              max={maxVal}
+              min={minVal}
+              onChange={changeHandler}
+              transparentBackground={transparentBackground}
+              systemMessage={systemMessage?.type ? { type: systemMessage?.type } : undefined}
+            />
+          )}
+        </InputElementWrapper>
+      }
+    />
   );
 }
-
-const defaultProps: IFancyRangeSlider = {
-  min: 0,
-  max: 100,
-};
