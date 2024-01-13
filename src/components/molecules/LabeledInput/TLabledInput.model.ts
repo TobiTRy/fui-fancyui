@@ -1,8 +1,9 @@
 import { ReactElement } from 'react';
+
 import { TLayer } from '@/types/TLayer';
+import { TTextAlignLC } from '@/types/TTextAlignLC';
 import { TUiColorsMain } from '@/types/TUiColorsMain';
 import { TUiColorsSystemMessage } from '@/types/TUiColorsSystemMessage';
-import { TTextAlignLC } from 'lib';
 
 export type TLabeledInput = {
   id?: string;
@@ -16,4 +17,5 @@ export type TLabeledInput = {
   underline?: boolean;
   isActive?: boolean;
   align?: TTextAlignLC;
+  labelVariant?: 'static' | 'animated';
 };

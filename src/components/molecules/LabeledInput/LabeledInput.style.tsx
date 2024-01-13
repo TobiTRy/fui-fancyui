@@ -12,6 +12,7 @@ export const Wrapper = styled.div`
 type TInputWrapper = {
   $isActive: boolean;
   $isLabelProvided?: boolean;
+  $lableVariant?: 'static' | 'animated';
 };
 export const InputWrapper = styled.div<TInputWrapper & { theme: TTheme }>`
   color: ${({ theme }) => getTextColor({ theme, $themeType: 'secondary', $textLayer: 4 })};
@@ -24,5 +25,10 @@ export const InputWrapper = styled.div<TInputWrapper & { theme: TTheme }>`
   select {
     ${({ $isActive, $isLabelProvided }) => calcInputPadding({ $isActive, $isLabelProvided })}
     font-size: 18px;
+  }
+
+  input[type='range'] {
+    margin-top: 30px;
+    margin-bottom: 12px;
   }
 `;

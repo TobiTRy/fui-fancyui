@@ -14,8 +14,9 @@ export default function LabeledInput(props: TLabeledInput) {
     hasValue,
     placeholder,
     themeType,
-    layer = 4,
+    layer = 3,
     underline,
+    labelVariant,
     isActive,
     align,
   } = props;
@@ -26,24 +27,26 @@ export default function LabeledInput(props: TLabeledInput) {
   return (
     <Wrapper>
       {/* The Labled thats animated and adjusts the padding with the type of the Input */}
-      <InputLabel
-        $lableVariant="animated"
-        $align={align}
-        id={id}
-        $isActive={labelShouldMoveUp}
-        $systemMessageType={systemMessageType}
-      >
-        {label}
-      </InputLabel>
+      {label && (
+        <InputLabel
+          $lableVariant={labelVariant}
+          $align={align}
+          id={id}
+          $isActive={labelShouldMoveUp}
+          $systemMessageType={systemMessageType}
+        >
+          {label}
+        </InputLabel>
+      )}
       {/* The wrapper for the input field to style and align the input*/}
-      <InputWrapper $isActive={labelShouldMoveUp} $isLabelProvided={!!label}>
+      <InputWrapper $isActive={labelVariant !== 'static' && labelShouldMoveUp} $isLabelProvided={!!label}>
         {inputElement}
       </InputWrapper>
       {underline && (
         <InputUnderline
           systemMessageType={systemMessageType}
           themeType={themeType}
-          layer={clampLayer(layer + 2)}
+          layer={layer ? clampLayer(layer + 2) : 3}
           isActive={isActive}
           externalStyle={{ bottom: '-2px' }}
         />
