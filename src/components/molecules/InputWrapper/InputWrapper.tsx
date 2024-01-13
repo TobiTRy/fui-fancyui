@@ -1,3 +1,4 @@
+import { css } from 'styled-components';
 import { FancySVGAtom } from '@/components/atoms/FancySVGAtom';
 
 import { SystemMessage } from '@/components/atoms/SystemMessage/';
@@ -12,7 +13,6 @@ import {
   WrapperSystemMessageAndInput,
 } from './InputWrapper.style';
 import { FancyBox } from '@/components/atoms/FancyBox';
-import { css } from 'styled-components';
 
 // --------------------------------------------------------------------------- //
 // ------ The Wrapper for the inputs that give him some extra features  ------ //
@@ -31,10 +31,11 @@ export default function InputWrapper(props: TInputWrapper) {
     underline = true,
     autoWidth,
     placeholder,
-    layer = 3,
+    layer = 2,
     themeType = 'primary',
     transparentBackground,
     externalStyle,
+    labelVariant,
   } = props;
 
   // Render the InputWrapper component with the appropriate props
@@ -73,6 +74,7 @@ export default function InputWrapper(props: TInputWrapper) {
             underline={underline}
             isActive={isActive}
             inputElement={InputElement}
+            labelVariant={labelVariant ?? 'animated'}
           />
           {/* Render the error message if an errorMessage prop exists */}
           {systemMessage && (

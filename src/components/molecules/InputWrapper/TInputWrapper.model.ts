@@ -28,6 +28,7 @@ export type TInputWrapper = {
   underline?: boolean;
   placeholder?: string;
   transparentBackground?: boolean;
+  labelVariant?: 'static' | 'animated';
 } & Exclude<IFancyBox, 'as' | 'themeType' | 'externalStyle'>;
 
 export type TInputWrapperUserInputProps = Omit<TInputWrapper, 'children' | 'id' | 'underline' | 'autoWidth' | 'value'>;
