@@ -23,6 +23,7 @@ export default function FancyDateInput(props: IFancyDateInput) {
     placeholder,
     onChange,
     transparentBackground,
+    externalStyle,
     ...inputProps
   } = props;
 
@@ -36,15 +37,13 @@ export default function FancyDateInput(props: IFancyDateInput) {
 
   // handles the focus and blur events and calls the handler from the parent
   const activeFocusHandler = (isActive: boolean) => {
-    setIsActiveState(isActive);
     if (value) setHasValue(true);
+    setIsActiveState(isActive);
   };
 
   // wehen the input is empty, we set the hasValue state to false
   const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.value === '') {
-      setHasValue(false);
-    }
+    if (e.target.value === '') setHasValue(false);
   };
 
   return (
@@ -61,6 +60,7 @@ export default function FancyDateInput(props: IFancyDateInput) {
       icon={icon}
       systemMessage={systemMessage}
       transparentBackground={transparentBackground}
+      externalStyle={externalStyle}
       InputElement={
         <DateInput
           id={usedId}
