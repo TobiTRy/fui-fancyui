@@ -84,10 +84,10 @@ const meta = {
         summary: false,
       },
     },
-    errorMessage: {
-      description: 'Error message to be displayed',
+    systemMessage: {
+      description: 'Systemmessage to be displayed',
       control: {
-        type: 'text',
+        type: 'object',
       },
       defaultValue: {
         summary: '',
@@ -120,10 +120,13 @@ const meta = {
         summary: false,
       },
     },
-    activeHandler: {
-      description: 'Handler gives back if the dropdown is on focused',
+    transparentBackground: {
+      description: 'Transparent Background',
       control: {
-        type: 'function',
+        type: 'boolean',
+      },
+      defaultValue: {
+        summary: false,
       },
     },
   },
@@ -144,5 +147,47 @@ export const Primary: Story = {
     label: 'Label',
     placeholder: 'Placeholder',
     values: ['test1', 'test2', 'test3'],
+  },
+};
+
+export const WithErrorState: Story = {
+  render: (args) => <FancyDropDownSelect {...args} />,
+  args: {
+    icon: <SVGCheckMark />,
+    label: 'Label',
+    placeholder: 'Placeholder',
+    values: ['test1', 'test2', 'test3'],
+    systemMessage: {
+      type: 'error',
+      message: 'Error',
+    },
+  },
+};
+
+export const WithSuccessState: Story = {
+  render: (args) => <FancyDropDownSelect {...args} />,
+  args: {
+    icon: <SVGCheckMark />,
+    label: 'Label',
+    placeholder: 'Placeholder',
+    values: ['test1', 'test2', 'test3'],
+    systemMessage: {
+      type: 'success',
+      message: 'Success',
+    },
+  },
+};
+
+export const WithInfoState: Story = {
+  render: (args) => <FancyDropDownSelect {...args} />,
+  args: {
+    icon: <SVGCheckMark />,
+    label: 'Label',
+    placeholder: 'Placeholder',
+    values: ['test1', 'test2', 'test3'],
+    systemMessage: {
+      type: 'info',
+      message: 'Info',
+    },
   },
 };

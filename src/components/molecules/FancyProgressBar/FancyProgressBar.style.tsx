@@ -9,10 +9,6 @@ export const Wrapper = styled.div<{ $value?: number; theme: TTheme }>`
   gap: ${({ theme }) => theme.spacing.xxs};
   flex-direction: column;
 
-  & span {
-    margin-top: ${({ theme }) => theme.spacing.xxs};
-  }
-
   /* if the value is full set the color to accent color */
   ${({ $value, theme }) =>
     $value === 100 &&

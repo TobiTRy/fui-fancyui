@@ -1,10 +1,12 @@
 import { useId, useState } from 'react';
 
-import NumberInput, { INumberInput } from '@/components/molecules/NumberInput/NumberInput';
+import NumberInput from '@/components/atoms/NumberInput/NumberInput';
 import InputWrapper from '@/components/molecules/InputWrapper/InputWrapper';
-import { IInputWrapperUserInputProps } from '@/components/molecules/InputWrapper/IInputWrapper.model';
+import { TInputWrapperUserInputProps } from '@/components/molecules/InputWrapper/TInputWrapper.model';
+import { TNumberInputWithNativeAttrs } from '@/components/atoms/NumberInput/TNumberInput.moedel';
+import { css } from 'styled-components';
 
-type IFancyNumberInput = INumberInput & IInputWrapperUserInputProps & { autoWidth?: boolean };
+type IFancyNumberInput = TNumberInputWithNativeAttrs & TInputWrapperUserInputProps & { autoWidth?: boolean };
 
 // --------------------------------------------------------------------------- //
 // ----The NumberInput Comonent with surrounding icon, label and underline --- //
@@ -14,15 +16,18 @@ export default function FancyNumberInput(props: IFancyNumberInput) {
     value,
     label,
     icon,
-    activeHandler,
     disabled,
-    errorMessage,
+    systemMessage,
     align,
     id,
     themeType,
     layer,
     autoWidth,
     placeholder,
+    onFocus,
+    onBlur,
+    transparentBackground,
+    externalStyle,
     ...inputProps
   } = props;
 
@@ -33,16 +38,10 @@ export default function FancyNumberInput(props: IFancyNumberInput) {
   const useid = useId();
   const usedId = id ? id : useid;
 
-  // handles the focus and blur events and calls the handler from the parent
-  const activeFocusHandler = (value: boolean) => {
-    setIsActive(value);
-    activeHandler && activeHandler(value);
-  };
-
   return (
     <InputWrapper
       id={usedId}
-      value={value}
+      hasValue={!!((value === 0 ? undefined : value) || value === 0)} // 0 is a valid value for a number input
       label={label}
       disabled={disabled}
       align={align}
@@ -50,18 +49,30 @@ export default function FancyNumberInput(props: IFancyNumberInput) {
       isActive={isActive}
       icon={icon}
       autoWidth={autoWidth}
-      errorMessage={errorMessage}
+      systemMessage={systemMessage}
       themeType={themeType}
       layer={layer}
+      transparentBackground={transparentBackground}
       InputElement={
         <NumberInput
           id={usedId}
           value={value}
           align={align}
           disabled={disabled}
-          activeHandler={activeFocusHandler}
+          onFocus={(e) => {
+            onFocus && onFocus(e);
+            setIsActive(true);
+          }}
+          onBlur={(e) => {
+            onBlur && onBlur(e);
+            setIsActive(false);
+          }}
           placeholder={placeholder}
           autoWidth={autoWidth}
+          externalStyle={css`
+            ${externalStyle}
+            transition: width 0.3s ease-in-out;
+          `}
           {...inputProps}
         />
       }

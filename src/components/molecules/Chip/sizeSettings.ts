@@ -1,14 +1,20 @@
+import { globalElementsizes } from '@/design/theme/globalSizes';
+import { TSVGAtomSizes } from '@/components/atoms/FancySVGAtom/FancySVGAtom.model';
+
 export const sizesSettings = {
   sm: {
-    height: '24px',
-    deleteButtonSize: '12px',
+    height: globalElementsizes.xs,
+    deleteButtonSize: 'xxxs' as TSVGAtomSizes,
+    iconSize: 'xxs' as TSVGAtomSizes,
   },
   md: {
-    height: '32px',
-    deleteButtonSize: '16px',
+    height: globalElementsizes.sm,
+    deleteButtonSize: 'xxxs' as TSVGAtomSizes,
+    iconSize: 'xxs' as TSVGAtomSizes,
   },
   lg: {
-    height: '40px',
-    deleteButtonSize: '18px',
+    height: globalElementsizes.md,
+    deleteButtonSize: 'xxxs' as TSVGAtomSizes,
+    iconSize: 'xs' as TSVGAtomSizes,
   },
 };

@@ -56,7 +56,8 @@ export default function SearchBar(props: ISearchBar) {
         placeholder="Search"
         align={align}
         aria-label="Searchbar"
-        activeHandler={focusHandler}
+        onFocus={() => focusHandler(true)}
+        onBlur={() => focusHandler(false)}
         onChange={onChangeValueHandler}
       />
     </StyledSearchBar>

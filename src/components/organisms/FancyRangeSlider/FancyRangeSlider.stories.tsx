@@ -4,11 +4,11 @@ import { Meta, StoryObj } from '@storybook/react';
 // Import the component to be tested
 import SVGCheckMark from '../../icons/SVGCheckMark/SVGCheckMark';
 
-import FancyRangeSlider from './FancyRangeSlider';
+import FancyRange from '@/components/organisms/FancyRangeSlider/FancyRangeSlider';
 
 // Define metadata for the story
 const meta = {
-  component: FancyRangeSlider,
+  component: FancyRange,
   parameters: {
     docs: {
       description: {
@@ -96,19 +96,10 @@ const meta = {
         summary: 50,
       },
     },
-    displayNumber: {
-      description: 'The display number of the input',
-      control: {
-        type: 'boolean',
-      },
-      defaultValue: {
-        summary: false,
-      },
-    },
   },
   // Add tags to the story
   tags: ['autodocs'],
-} satisfies Meta<typeof FancyRangeSlider>;
+} satisfies Meta<typeof FancyRange>;
 
 // Export the metadata
 export default meta;
@@ -117,8 +108,9 @@ type Story = StoryObj<typeof meta>;
 
 // Define the primary story
 export const Primary: Story = {
-  render: (args) => <FancyRangeSlider {...args} />,
+  render: (args) => <FancyRange {...args} />,
   args: {
+    id: 'test',
     label: 'Label',
     align: 'left',
     themeType: 'secondary',
@@ -128,6 +120,5 @@ export const Primary: Story = {
     min: 0,
     max: 100,
     value: 50,
-    displayNumber: true,
   },
 };

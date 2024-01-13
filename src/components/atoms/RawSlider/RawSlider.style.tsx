@@ -1,35 +1,55 @@
 import { styled, css } from 'styled-components';
 
-import { boxShadow } from '@/design/designFunctions/shadows/shadows';
 import { TThemeTypes } from '@/types/TThemeTypes';
-import { TLayer } from '@/types/TLayer';
-import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponent';
 import { TTheme } from '@/types/TTheme';
+import { TLayer } from '@/types/TLayer';
 
-const DragableThumb = css<{ theme: TTheme }>`
-  height: 30px;
-  width: 30px;
+import { boxShadow } from '@/design/designFunctions/shadows/shadows';
+import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponent';
+import { colorTransparencyCalculator } from '@/design/designFunctions/colorTransparencyCalculator';
+import { TRawSlider } from '@/components/atoms/RawSlider';
+import { sizeSettings } from './sizeSettings';
+
+const DragableThumb = css<{ theme: TTheme; $isActive?: boolean }>`
+  height: 24px;
+  width: 24px;
   border-radius: 50%;
   background: ${({ theme }) => theme.colors.accent[0]};
-  cursor: ew-resize;
+  border: 4px solid transparent;
+  transition: box-shadow 0.2s ease-in-out;
   ${boxShadow.sm}
-  transition: background 0.1s ease-in-out;
-  border: none;
+
+  box-shadow: ${({ $isActive, theme }) =>
+    $isActive && `0 0 0 8px ${colorTransparencyCalculator(theme.colors.accent[0], 0.3)}`};
+
+  &:active {
+    background: ${({ theme }) => theme.colors.accent[1]};
+  }
 `;
 
-export const StyledRawSlider = styled.input<{ theme: TTheme; $themeType?: TThemeTypes; $layer?: TLayer }>`
+const generateComponentSize = (componentSize: TRawSlider['componentSize']) => {
+  return css`
+    height: ${sizeSettings[componentSize || 'sm'].height};
+    margin: ${sizeSettings[componentSize || 'sm'].margin} 0;
+  `;
+};
+
+type TStyledRawSlider = {
+  $themeType?: TThemeTypes;
+  $layer?: TLayer;
+  $isActive?: boolean;
+  $componentSize: TRawSlider['componentSize'];
+};
+export const StyledRawSlider = styled.input<TStyledRawSlider & { theme: TTheme }>`
   -webkit-appearance: none;
   width: 100%;
-  margin: 0;
-  height: 4px;
-  margin: 10px 0 12px 0;
-  background: ${({ theme, $themeType = 'secondary', $layer = 3 }) => getBackgroundColor({ theme, $themeType, $layer })};
-  border-radius: 5px;
-  background-image: ${({ theme }) => `linear-gradient(90deg, ${theme.colors.accent[0]}, ${theme.colors.accent[1]})`};
+  ${({ $componentSize }) => generateComponentSize($componentSize)};
+  background: ${({ theme, $themeType = 'primary', $layer = 1 }) => getBackgroundColor({ theme, $themeType, $layer })};
+  border-radius: ${({ theme }) => theme.borderRadius.complete};
+  background-image: ${({ theme }) => `linear-gradient(90deg, ${theme.colors.accent[0]}, ${theme.colors.accent[0]})`};
   background-size: 70% 100%;
   background-repeat: no-repeat;
-  outline: none;
-
+  z-index: 1;
   /* Chrome */
   &::-webkit-slider-thumb {
     -webkit-appearance: none;

@@ -3,13 +3,15 @@ import { css } from 'styled-components';
 
 import FancyPasswordInput from '../../components/organisms/FancyPasswordInput/FancyPasswordInput';
 import FancyTextInput from '../../components/organisms/FancyTextInput/FancyTextInput';
-import FancyRangeSlider from '../../components/organisms/FancyRangeSlider/FancyRangeSlider';
 import FancyNumberInput from '../../components/organisms/FancyNumberInput/FancyNumberInput';
 import FancyDropDownSelect from '../../components/organisms/FancyDropDownSelect/FancyDropDownSelect';
 import FancyDateInput from '../../components/organisms/FancyDateInput/FancyDateInput';
 import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';
-import FancyDateDropDown from '../../components/templates/Inputs/FancyDateDropDown/FancyDateDropDown';
+import FancyDateDropDown from '../../components/templates/FancyDateDropDown/FancyDateDropDown';
 import { Card } from '@/components/atoms/Card';
+import LabeledInput from '@/components/molecules/LabeledInput/LabeledInput';
+import { TextInput } from '@/components/atoms/TextInput';
+import FancyRange from '@/components/organisms/FancyRangeSlider/FancyRangeSlider';
 
 const svg = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -25,6 +27,11 @@ export default function InputsRoute() {
   const [dropDown, setDropDown] = useState<string>('');
   const [dropDown2, setDropDown2] = useState<string>('test');
   const [password, setPassword] = useState<string>('');
+  const [newInput, setNewInput] = useState<string>('');
+
+  const newInputHandler = (value: ChangeEvent<HTMLInputElement>) => {
+    setNewInput(value.target.value);
+  };
 
   const testHandler5 = (value: ChangeEvent<HTMLInputElement>) => {
     setPassword(value.target.value);
@@ -66,24 +73,55 @@ export default function InputsRoute() {
   return (
     <Card>
       <DesignWrapper>
+        <FancyRange
+          id="hi"
+          layer={2}
+          label="HIii"
+          min={10}
+          max={100}
+          onChange={testHandler4}
+          displayNumberInput
+          align="left"
+        />
+        <DesignArea title="Password Input">
+          <LabeledInput
+            label="Password"
+            inputElement={<TextInput id="Hi" onChange={newInputHandler} value={newInput} />}
+          />
+        </DesignArea>
+
         <DesignArea title="Password Input">
           <FancyNumberInput
+            decimalPlaces={4}
+            layer={1}
+            step={0.001}
+            label="Text"
+            onChange={testHandler2}
+            value={test}
+            systemMessage={{ type: 'error', message: 'This is an error message' }}
+          />
+          <FancyNumberInput
+            decimalPlaces={4}
+            step={0.001}
             label="Text"
             onChange={testHandler2}
             value={test}
             placeholder="test45454554"
-            errorMessage="Hiii"
+            systemMessage={{ type: 'success', message: 'This is an error message' }}
+          />
+          <FancyNumberInput
+            decimalPlaces={4}
+            step={0.001}
+            label="Text"
+            onChange={testHandler2}
+            value={test}
+            placeholder="test45454554"
+            systemMessage={{ type: 'info', message: 'This is an error message' }}
           />
         </DesignArea>
-        <DesignArea title="Password Input">
-          <FancyPasswordInput
-            themeType="primary"
-            label="Password"
-            value={password}
-            onChange={testHandler5}
-            align="left"
-          />
-          <FancyPasswordInput icon={svg} label="Password" value={password} onChange={testHandler5} align="center" />
+        <DesignArea title="Password Input111">
+          <FancyPasswordInput label="Password" value={password} onChange={testHandler5} align="left" />
+          <FancyPasswordInput icon={svg} align={'center'} label="Password" value={password} onChange={testHandler5} />
         </DesignArea>
         <DesignArea title="Text Input">
           <FancyTextInput label="Text" value={text} onChange={testHandler} />
@@ -95,18 +133,15 @@ export default function InputsRoute() {
             align="center"
             placeholder="test45454554"
           />
+          <FancyTextInput
+            placeholder="Hiiii"
+            systemMessage={{ type: 'success', message: 'moooiin' }}
+            value={text}
+            onChange={testHandler}
+          />
         </DesignArea>
         <DesignArea title="Number Input">
-          <FancyNumberInput
-            icon={svg}
-            label="Text"
-            onChange={testHandler2}
-            value={test}
-            align="center"
-            step={0.1}
-            min={0}
-            max={100}
-          />
+          <FancyNumberInput icon={svg} label="Text" onChange={testHandler2} value={test} step={0.1} min={0} max={100} />
           <FancyNumberInput
             icon={svg}
             label="Text"
@@ -118,7 +153,7 @@ export default function InputsRoute() {
           />
         </DesignArea>
         <DesignArea title="Number Input AutoWidth" style={row}>
-          <FancyNumberInput label="Test" onChange={testHandler2} value={test} autoWidth={true} />
+          <FancyNumberInput label="Test" min={10} max={100} onChange={testHandler2} value={test} autoWidth={true} />
           <FancyNumberInput
             icon={svg}
             label="Test"
@@ -134,7 +169,6 @@ export default function InputsRoute() {
             onChange={testHandler3}
             value={dropDown}
             values={['Test', 'Test2', 'Test3', 'Test3', 'Test3', 'Test3']}
-            placeholder="Hiii"
           />
           <FancyDropDownSelect icon={svg} label="DropDown" value={dropDown2} onChange={testHandler33} align="center">
             <option value="test">Test</option>
@@ -151,23 +185,12 @@ export default function InputsRoute() {
         </DesignArea>
         <DesignArea title="Date Input">
           <FancyDateInput value={date} label="Date" onChange={dateHandler} />
-          <FancyDateInput value={date} placeholder={'HI'} icon={svg} label="Date" onChange={dateHandler} align="left" />
+          <FancyDateInput value={date} icon={svg} label="Date" onChange={dateHandler} />
         </DesignArea>
         <DesignArea title="DateDropDown Input">
           <FancyDateDropDown type="day" label="Day" onChange={testHandler3} />
           <FancyDateDropDown type="month" label="Month" onChange={testHandler3} />
           <FancyDateDropDown type="year" label="Year" onChange={testHandler3} />
-        </DesignArea>
-        <DesignArea title="Range Slider">
-          <FancyRangeSlider label="Slider" value={Number(test)} onChange={testHandler4} />
-          <FancyRangeSlider
-            icon={svg}
-            label="Slider"
-            value={Number(test)}
-            onChange={testHandler4}
-            align="center"
-            displayNumber={true}
-          />
         </DesignArea>
       </DesignWrapper>
     </Card>

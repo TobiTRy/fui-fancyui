@@ -1,6 +1,5 @@
-import styled, { css } from 'styled-components';
+import { styled, css } from 'styled-components';
 
-import { fontSize } from '@/design/theme/designSizes';
 import { boxShadow, textShadow } from '@/design/designFunctions/shadows/shadows';
 import { TTheme } from '@/types/TTheme';
 
@@ -30,7 +29,6 @@ export const MenuItem = styled.button<{ theme: TTheme }>`
   padding: 0;
   color: ${({ theme }) => theme.colors.secondary[0]};
   cursor: pointer;
-  font-size: ${fontSize.md};
   border: none;
   outline: none;
   display: flex;

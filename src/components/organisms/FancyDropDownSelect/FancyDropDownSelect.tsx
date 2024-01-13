@@ -1,10 +1,11 @@
 import { useId, useState } from 'react';
 
 import { InputWrapper } from '@/components/molecules/InputWrapper';
-import DropDownSelect, { IDropDownSelect } from '@/components/atoms/DropDownSelect/DropDownSelect';
-import { IInputWrapperUserInputProps } from '@/components/molecules/InputWrapper/IInputWrapper.model';
+import DropDownSelect from '@/components/atoms/DropDownSelect/DropDownSelect';
+import { TInputWrapperUserInputProps } from '@/components/molecules/InputWrapper/TInputWrapper.model';
+import { TDropDownSelectWithNativeAttrs } from '@/components/atoms/DropDownSelect/TDropDownSelect.model';
 
-export type IFancyDropDownSelect = Omit<IInputWrapperUserInputProps, 'InputElement'> & IDropDownSelect;
+export type IFancyDropDownSelect = Omit<TInputWrapperUserInputProps, 'InputElement'> & TDropDownSelectWithNativeAttrs;
 
 // --------------------------------------------------------------------------- //
 // ----The Dropdown Comonent with surrounding icon, label and underline ------ //
@@ -16,12 +17,14 @@ export default function FancyDropDownSelect(props: IFancyDropDownSelect) {
     placeholder,
     disabled,
     align,
-    activeHandler,
     icon,
     label,
-    errorMessage,
+    systemMessage,
     themeType,
     layer,
+    onFocus,
+    onBlur,
+    transparentBackground,
     ...inputProps
   } = props;
 
@@ -32,32 +35,34 @@ export default function FancyDropDownSelect(props: IFancyDropDownSelect) {
   const useid = useId();
   const usedId = id ? id : useid;
 
-  // handles the focus and blur events and calls the handler from the parent
-  const activeFocusHandler = (value: boolean) => {
-    setIsActive(value);
-    activeHandler && activeHandler(value);
-  };
-
   return (
     <InputWrapper
       id={usedId}
       placeholder={placeholder}
       themeType={themeType}
       layer={layer}
-      value={value}
+      hasValue={!!value}
       label={label}
       disabled={disabled}
       align={align}
       isActive={isActive}
       icon={icon}
-      errorMessage={errorMessage}
+      systemMessage={systemMessage}
+      transparentBackground={transparentBackground}
       InputElement={
         <DropDownSelect
           id={usedId}
           value={value}
           align={align}
           disabled={disabled}
-          activeHandler={activeFocusHandler}
+          onFocus={(e) => {
+            onFocus && onFocus(e);
+            setIsActive(true);
+          }}
+          onBlur={(e) => {
+            onBlur && onBlur(e);
+            setIsActive(false);
+          }}
           placeholder={placeholder}
           {...inputProps}
         />

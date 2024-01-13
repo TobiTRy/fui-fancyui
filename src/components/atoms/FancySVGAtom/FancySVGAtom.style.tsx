@@ -3,7 +3,9 @@ import { styled } from 'styled-components';
 import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent';
 import { TTheme } from '@/types/TTheme';
 import { TThemeTypes } from '@/types/TThemeTypes';
-import { IStyledSVGAtom, sizes } from './FancySVGAtom.model';
+import { sizes } from '@/components/atoms/FancySVGAtom/sizeSettings';
+import IStyledPrefixAndOmiter from '@/types/IStyledPrefixAndOmiter';
+import { ISVGAtom } from '@/components/atoms/FancySVGAtom/FancySVGAtom.model';
 
 interface ICalcIconColor {
   theme: TTheme;
@@ -21,6 +23,7 @@ const calcIconColor = ({ theme, $isActive, $errorMessage, $themeType, $layer }: 
   }
 };
 
+type IStyledSVGAtom = IStyledPrefixAndOmiter<ISVGAtom, 'children'>;
 export const StyledSVG = styled.i<IStyledSVGAtom & { theme: TTheme }>`
   display: flex;
   justify-content: center;

@@ -70,3 +70,13 @@ export const globalSizes = {
     elementSize: '64px',
   },
 };
+
+export const globalElementsizes = {
+  xxs: globalSizes.xxs.elementSize,
+  xs: globalSizes.xs.elementSize,
+  sm: globalSizes.sm.elementSize,
+  md: globalSizes.md.elementSize,
+  lg: globalSizes.lg.elementSize,
+  xl: globalSizes.xl.elementSize,
+  xxl: globalSizes.xxl.elementSize,
+};

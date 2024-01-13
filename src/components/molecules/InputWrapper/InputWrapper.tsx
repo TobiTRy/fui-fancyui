@@ -1,90 +1,90 @@
-import { useEffect, useState } from 'react';
-
-import { calcColorState } from '@/design/designFunctions/calcColorState';
-
-import { AnimatedInputLabel } from '@/components/atoms/AnimatedInputLabel';
+import { css } from 'styled-components';
 import { FancySVGAtom } from '@/components/atoms/FancySVGAtom';
-import { InputUnderline } from '@/components/atoms/InputUnderline';
 
-import { IInputWrapper } from './IInputWrapper.model';
-import { ErrorMessage, InputContainer, StyledInputWrapper, iconStyle } from './InputWrapper.style';
+import { SystemMessage } from '@/components/atoms/SystemMessage/';
+import { LabeledInput } from '@/components/molecules/LabeledInput';
+import { getOpositMainThemeType } from '@/design/designFunctions/getOpositMainThemeType';
+import { TInputWrapper } from './TInputWrapper.model';
+import {
+  generateInputContainerStyle,
+  StyledInputWrapper,
+  SystemMessageWrapper,
+  generateIconStyle,
+  WrapperSystemMessageAndInput,
+} from './InputWrapper.style';
+import { FancyBox } from '@/components/atoms/FancyBox';
 
 // --------------------------------------------------------------------------- //
 // ------ The Wrapper for the inputs that give him some extra features  ------ //
 // ------------------ like a Label icon errormessage ------------------------- //
-export default function InputWrapper({
-  id,
-  value,
-  isActive,
-  disabled,
-  InputElement,
-  errorMessage,
-  icon,
-  label,
-  align,
-  underline = true,
-  autoWidth,
-  placeholder,
-  layer = 4,
-  themeType = 'secondary',
-}: IInputWrapper) {
-  const [isInitial, setIsInitial] = useState(false);
-
-  // Calculate the color state for the label and underline
-  const colorStateLabel = calcColorState({ type: 'text', isActive, errorMessage, value, placeholder });
-  const colorStateUnderline = calcColorState({ type: 'item', isActive, errorMessage, value, placeholder });
-
-  // Set the initial state of the input field
-  useEffect(() => {
-    if (isActive) setIsInitial(true);
-  }, [isActive]);
+export default function InputWrapper(props: TInputWrapper) {
+  const {
+    id,
+    hasValue,
+    isActive,
+    disabled,
+    InputElement,
+    systemMessage,
+    icon,
+    label,
+    align,
+    underline = true,
+    autoWidth,
+    placeholder,
+    layer = 2,
+    themeType = 'primary',
+    transparentBackground,
+    externalStyle,
+    labelVariant,
+  } = props;
 
   // Render the InputWrapper component with the appropriate props
   return (
     <StyledInputWrapper disabled={disabled} $autoWidth={autoWidth}>
-      {icon && (
-        <FancySVGAtom
-          themeType={themeType}
-          layer={layer}
-          isPassive={false}
-          externalStyle={iconStyle}
-          size="lg"
-          isActive={isActive}
-        >
-          {icon}
-        </FancySVGAtom>
-      )}
-      <InputContainer $givePadding={Boolean(label)} $themeType={themeType} $layer={layer}>
-        {InputElement}
-        {/* Render the label for the input field if a label prop exists */}
-        {label && (
-          <AnimatedInputLabel
-            htmlFor={id}
-            $align={align}
-            $themeType={themeType}
-            $layer={layer}
-            $moveUp={
-              Boolean((isInitial && value === 0 ? undefined : value) || Boolean(isInitial && value === 0)) ||
-              isActive ||
-              Boolean(placeholder)
-            }
-            $colorState={colorStateLabel}
-          >
-            {label}
-          </AnimatedInputLabel>
-        )}
-        {/* Render the underline for the input field if the underline prop is true */}
-        {underline && (
-          <InputUnderline
-            colorState={colorStateUnderline === 'error' ? 'error' : 'active'}
-            themeType={themeType}
+      <FancyBox
+        themeType={transparentBackground ? 'transparent' : themeType}
+        layer={layer}
+        externalStyle={css`
+          ${generateInputContainerStyle(!!label)}
+          ${externalStyle}
+        `}
+      >
+        {icon && (
+          <FancySVGAtom
+            themeType={getOpositMainThemeType(themeType)}
             layer={layer}
+            isPassive={false}
+            externalStyle={generateIconStyle(!!label)}
+            size="xs"
             isActive={isActive}
-          />
+          >
+            {icon}
+          </FancySVGAtom>
         )}
-      </InputContainer>
-      {/* Render the error message if an errorMessage prop exists */}
-      {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
+        <WrapperSystemMessageAndInput>
+          <LabeledInput
+            id={id}
+            align={align}
+            themeType={themeType}
+            label={label}
+            placeholder={placeholder}
+            systemMessageType={systemMessage?.type}
+            layer={layer}
+            hasValue={hasValue}
+            underline={underline}
+            isActive={isActive}
+            inputElement={InputElement}
+            labelVariant={labelVariant ?? 'animated'}
+          />
+          {/* Render the error message if an errorMessage prop exists */}
+          {systemMessage && (
+            <SystemMessageWrapper>
+              <SystemMessage systemMessageState={systemMessage.type}>{systemMessage.message}</SystemMessage>
+            </SystemMessageWrapper>
+          )}
+        </WrapperSystemMessageAndInput>
+        {/* Render the underline for the input field if the underline prop is true */}
+      </FancyBox>
     </StyledInputWrapper>
   );
 }

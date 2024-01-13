@@ -64,11 +64,18 @@ const meta = {
         type: 'text',
       },
     },
-    errorMessage: {
-      description: 'The error message of the input',
+    systemMessage: {
+      description: 'The system message of the input',
       defaultValue: '',
       control: {
         type: 'text',
+      },
+    },
+    transparentBackground: {
+      description: 'The background of the input',
+      defaultValue: false,
+      control: {
+        type: 'boolean',
       },
     },
   },
@@ -91,7 +98,57 @@ export const Primary: Story = {
     isActive: false,
     align: 'left',
     label: 'Label',
-    errorMessage: '',
     icon: <SVGCheckMark />,
+  },
+};
+
+export const WithErrorState: Story = {
+  render: (args) => <FancyTextInput {...args} />,
+  args: {
+    value: '',
+    layer: 0,
+    themeType: 'secondary',
+    isActive: false,
+    align: 'left',
+    label: 'Label',
+    icon: <SVGCheckMark />,
+    systemMessage: {
+      message: 'This is an error message',
+      type: 'error',
+    },
+  },
+};
+
+export const WithSuccessState: Story = {
+  render: (args) => <FancyTextInput {...args} />,
+  args: {
+    value: '',
+    layer: 0,
+    themeType: 'secondary',
+    isActive: false,
+    align: 'left',
+    label: 'Label',
+    icon: <SVGCheckMark />,
+    systemMessage: {
+      message: 'This is an error message',
+      type: 'success',
+    },
+  },
+};
+
+export const WithInfoState: Story = {
+  render: (args) => <FancyTextInput {...args} />,
+  args: {
+    value: '',
+    layer: 0,
+    themeType: 'secondary',
+    isActive: false,
+    align: 'left',
+    label: 'Label',
+    icon: <SVGCheckMark />,
+    systemMessage: {
+      message: 'This is an error message',
+      type: 'info',
+    },
   },
 };

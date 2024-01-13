@@ -3,7 +3,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { themeStore } from '@/design/theme/themeStore';
 
 // Import the component to be tested
-import InputLabel from './InputLabel';
+import InputLabel from '@/components/atoms/InputLabel/InputLabel';
 
 // Define metadata for the story
 const meta = {
@@ -49,9 +49,10 @@ type Story = StoryObj<typeof meta>;
 
 // Define the primary story
 export const Primary: Story = {
-  render: () => <InputLabel>Label</InputLabel>,
+  render: (args) => <InputLabel {...args}>Label</InputLabel>,
   args: {
     theme: themeStore.getState().theme,
+    $lableVariant: 'animated',
   },
   parameters: {
     docs: {

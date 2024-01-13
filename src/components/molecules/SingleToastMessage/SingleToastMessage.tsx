@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect } from 'react';
+import { forwardRef, useEffect } from 'react';
 
 // Import necessary components and interfaces
 import IToastMessage from './IToastMessage.model';

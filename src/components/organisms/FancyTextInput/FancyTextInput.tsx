@@ -1,10 +1,11 @@
-import React, { useId, useState } from 'react';
+import { useId, useState } from 'react';
 
-import TextInput, { ITextInputProps } from '@/components/molecules/TextInput/TextInput';
-import { IInputWrapperUserInputProps } from '@/components/molecules/InputWrapper/IInputWrapper.model';
-import InputWrapper from '@/components/molecules/InputWrapper/InputWrapper';
+import { TextInput } from '@/components/atoms/TextInput';
+import { TTextInputWithNativeAttrs } from '@/components/atoms/TextInput/TTextInput.model';
+import { InputWrapper } from '@/components/molecules/InputWrapper';
+import { TInputWrapperUserInputProps } from '@/components/molecules/InputWrapper/TInputWrapper.model';
 
-type IFancyTextInputProps = ITextInputProps & Omit<IInputWrapperUserInputProps, 'InputElement'>;
+type IFancyTextInputProps = TTextInputWithNativeAttrs & Omit<TInputWrapperUserInputProps, 'InputElement'>;
 // --------------------------------------------------------------------------- //
 // ----The TextInput Comonent with surrounding icon, label and underline ----- //
 // --------------------------------------------------------------------------- //
@@ -12,15 +13,17 @@ export default function FancyTextInput(props: IFancyTextInputProps) {
   const {
     id,
     value,
-    activeHandler,
     themeType,
     layer,
     placeholder,
-    errorMessage,
+    systemMessage,
     disabled,
     align,
     icon,
     label,
+    onFocus,
+    onBlur,
+    transparentBackground,
     ...inputProps
   } = props;
 
@@ -31,16 +34,10 @@ export default function FancyTextInput(props: IFancyTextInputProps) {
   const useid = useId();
   const usedId = id ? id : useid;
 
-  // handles the focus and blur events and calls the handler from the parent
-  const activeFocusHandler = (value: boolean) => {
-    setIsActive(value);
-    activeHandler && activeHandler(value);
-  };
-
   return (
     <InputWrapper
       id={usedId}
-      value={value}
+      hasValue={!!value}
       label={label}
       disabled={disabled}
       placeholder={placeholder}
@@ -49,14 +46,22 @@ export default function FancyTextInput(props: IFancyTextInputProps) {
       align={align}
       isActive={isActive}
       icon={icon}
-      errorMessage={errorMessage}
+      systemMessage={systemMessage}
+      transparentBackground={transparentBackground}
       InputElement={
         <TextInput
           id={usedId}
           value={value}
           align={align}
           disabled={disabled}
-          activeHandler={activeFocusHandler}
+          onFocus={(e) => {
+            onFocus && onFocus(e);
+            setIsActive(true);
+          }}
+          onBlur={(e) => {
+            onBlur && onBlur(e);
+            setIsActive(false);
+          }}
           placeholder={placeholder}
           {...inputProps}
         />

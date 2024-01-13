@@ -2,7 +2,7 @@ import React, { useId } from 'react';
 import { CSSProp } from 'styled-components';
 
 import { themeStore } from '@/design/theme/themeStore';
-import { LabelWrapper, Wrapper } from './FancySelectWrapper.style';
+import { InputWrapper, LabelWrapper, Wrapper } from './FancySelectWrapper.style';
 import { TAlign, TAlignCheckbox } from '@/components/molecules/FancyCheckbox/FancyCheckbox.model';
 import { FancyContent } from '@/components/molecules/FancyContent';
 
@@ -52,7 +52,7 @@ export default function FancySelectWrapper(props: IFancySelectWrapperProps) {
         </LabelWrapper>
       )}
       {/* The check box */}
-      {inputElement}
+      <InputWrapper>{inputElement}</InputWrapper>
     </Wrapper>
   );
 }

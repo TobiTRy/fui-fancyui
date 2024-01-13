@@ -3,7 +3,7 @@ import React from 'react';
 import { IFancyBottomBarIcon } from '../../../templates/FancyBottomBarIcon/FancyBottomBarIcon';
 import FancyDropDownSelect from '../../FancyDropDownSelect/FancyDropDownSelect';
 import FancyTextInput from '../../FancyTextInput/FancyTextInput';
-import IFancyRangeSlider from '../../FancyRangeSlider/FancyRangeSlider.model';
+import { TFancyRangeSlider } from '@/components/organisms/FancyRangeSlider/TFancyRangeSlider.model';
 import { ITabSwitchProps } from '../../../molecules/TabSwitch/TabSwitch.model';
 
 // --------------------------------------------------------------------------- //
@@ -24,7 +24,7 @@ export interface ITextInput extends ISettingsItem, React.ComponentProps<typeof F
   settingsType: 'textInput';
 }
 
-export interface IRangeSlider extends ISettingsItem, IFancyRangeSlider {
+export interface IRangeSlider extends ISettingsItem, TFancyRangeSlider {
   settingsType: 'slider';
 }
 

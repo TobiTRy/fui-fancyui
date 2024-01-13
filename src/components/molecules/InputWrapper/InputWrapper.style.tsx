@@ -1,15 +1,9 @@
 import { styled, css } from 'styled-components';
 
-import { fontSize } from '@/design/theme/designSizes';
 import { disabledStyle } from '@/design/designFunctions/disabledStyle';
-import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent';
-
-import { TThemeTypes } from '@/types/TThemeTypes';
-import { TLayer } from '@/types/TLayer';
 import { TTheme } from '@/types/TTheme';
 
 export const StyledInputWrapper = styled.div<{ disabled?: boolean; $autoWidth?: boolean }>`
-  box-sizing: border-box;
   position: relative;
   display: grid;
   grid-template-columns: auto 1fr auto;
@@ -20,47 +14,43 @@ export const StyledInputWrapper = styled.div<{ disabled?: boolean; $autoWidth?: 
 `;
 
 //the style for the error message
-export const ErrorMessage = styled.p<{ theme: TTheme }>`
+export const SystemMessageWrapper = styled.div<{ theme: TTheme }>`
   grid-column: 2;
   grid-row: 2;
-  margin: 0;
-  margin-top: ${({ theme }) => theme.spacing.xxs};
-  font-size: ${fontSize.extrasm};
-  color: ${({ theme }) => theme.colors.error[0]};
+  line-height: 1;
+  margin-left: 2px;
+`;
+
+export const WrapperSystemMessageAndInput = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 `;
 
 //the input/label/underline are all wrapped in thid container
-export const InputContainer = styled.div<{
-  $givePadding: boolean;
-  theme: TTheme;
-  $themeType: TThemeTypes;
-  $layer: TLayer;
-}>`
-  width: 100%;
+// eslint-disable-next-line react-refresh/only-export-components
+export const generateInputContainerStyle = (hasLabel: boolean, hasSytemMessage?: boolean) => css`
+  display: flex;
+  gap: 8px;
   grid-column: 2/3;
-  ${({ $givePadding, theme }) =>
-    $givePadding &&
-    css`
-      padding-top: ${parseFloat(theme.spacing.lg) + 2 + 'px'};
-    `};
-
+  border-radius: 12px;
   position: relative;
-
-  input {
-    padding: 0px 0px ${({ theme }) => parseFloat(theme.spacing.xs) + 'px'};
-  }
-
-  svg {
-    color: ${({ theme, $themeType, $layer }) => getBackgroundColor({ theme, $themeType, $layer })};
-  }
+  align-items: center;
+  padding: ${hasLabel
+    ? hasSytemMessage
+      ? '4px 8px'
+      : '4px 8px 9px'
+    : hasSytemMessage
+      ? '2px 8px 4px'
+      : '2px 8px 4px'}; //
 `;
 
 // Define the styles for the icon
-
 // eslint-disable-next-line react-refresh/only-export-components
-export const iconStyle = css<{ theme: TTheme }>`
-  margin-right: ${({ theme }) => parseFloat(theme.spacing.xs) + 2 + 'px'};
-  margin-bottom: 2px;
-  transition: 0.5s;
-  align-self: flex-end;
+export const generateIconStyle = (hasLabel: boolean) => css<{ theme: TTheme }>`
+  flex-shrink: 0;
+  margin-top: ${hasLabel ? '8px' : '4px'}; // without label 4px
+  transition: 0.25s;
+  align-self: center;
 `;
