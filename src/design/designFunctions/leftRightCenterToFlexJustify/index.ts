@@ -1,1 +1,1 @@
-export { default as leftRightCenterToFlexJustify } from './LeftRightCenterToFlexJustify';
+export { default as leftRightCenterToFlexJustify } from './leftRightCenterToFlexJustify';
