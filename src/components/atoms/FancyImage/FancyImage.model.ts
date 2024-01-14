@@ -13,4 +13,4 @@ export type TFancyImage = {
   sizeW?: TComponentSizesExtended | 'fit' | string;
   sizeH?: TComponentSizesExtended | 'fit' | string;
   objectFit?: 'cover' | 'contain' | 'fill' | 'none' | 'scale-down';
-};
+} & React.ImgHTMLAttributes<HTMLImageElement>; // Remove that and adjsut chip component

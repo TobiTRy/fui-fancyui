@@ -84,7 +84,6 @@ export * from '@/components/molecules/FancyColorArea';
 export * from '@/components/molecules/FancyColorOutput';
 export * from '@/components/molecules/FancyModalHeadLine';
 export * from '@/components/molecules/HeaderTitleWithLogo';
-export * from '@/components/molecules/FancyVideoText';
 export * from '@/components/molecules/FancyPageList';
 export * from '@/components/molecules/Paginator';
 export * from '@/components/molecules/FancyProgressBar';
