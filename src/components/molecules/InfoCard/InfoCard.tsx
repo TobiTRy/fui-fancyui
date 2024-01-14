@@ -1,12 +1,7 @@
-import { ComponentProps } from 'react';
-
-import { TComponentSizes } from '@/types/TComponentSizes';
 import { FancyBox } from '@/components/atoms/FancyBox';
 import { generateInfoCardStyle } from './InfoCrad.style';
+import { TInfoCardProps } from '@/components/molecules/InfoCard/TInfoCard.model';
 
-type TInfoCardProps = ComponentProps<typeof FancyBox> & {
-  size?: TComponentSizes;
-};
 // --------------------------------------------------------------------------- //
 // ---------- A simple Infocard that can displayed on the page --------------- //
 // --------------------------------------------------------------------------- //
