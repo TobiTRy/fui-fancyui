@@ -24,6 +24,7 @@ interface TimerLineProps {
 // styles for single toast message
 export const Container = styled.div<IToastMessage>`
   z-index: 99;
+  overflow: hidden;
   display: flex;
   position: relative;
   flex-direction: column;
