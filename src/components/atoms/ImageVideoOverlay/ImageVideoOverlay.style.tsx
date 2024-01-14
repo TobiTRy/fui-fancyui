@@ -18,7 +18,7 @@ export const Wrapper = styled.div`
 `;
 
 // Define a styled overlay component using styled-components
-export const Overlay = styled.div<{ $position: string }>`
+export const Gradient = styled.div<{ $position: string }>`
   position: absolute;
   width: 100%;
   height: 100%;
