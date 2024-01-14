@@ -14,7 +14,7 @@ const leftRightCenterToFlexJustify: Record<TTextAlignLRC, string> = {
 export const AlignedLabel = styled.label<IAlignedLabel>`
   display: flex;
   align-items: flex-end;
-  justify-content: ${({ $align = 'left' }) => leftRightCenterToFlexJustify[$align]};
+  justify-content: ${({ $align }) => ($align ? leftRightCenterToFlexJustify[$align] : 'flex-start')};
   color: ${({ $systemMessageType, theme, $themeType = 'secondary', $layer }) =>
     getBackgroundColor({
       theme,
