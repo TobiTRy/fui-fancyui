@@ -6,27 +6,16 @@ import IStyledPrefixAndPicker from '@/types/IStyledPrefixAndPicker';
 
 import { globalSizes } from '@/design/theme/globalSizes';
 import { TComponentSizesExtended } from '@/types/TComponentSizes';
+import { createCssFilterString } from '@/design/designFunctions/createCssFilterString';
 
 type TStyledImage = IStyledPrefixAndPicker<
   TFancyImage,
-  'darken' | 'aspectRatio' | 'externalStyle' | 'borderRadius' | 'sizeH' | 'sizeW' | 'objectFit'
+  'darken' | 'aspectRatio' | 'externalStyle' | 'borderRadius' | 'sizeH' | 'sizeW' | 'objectFit' | 'filter'
 >;
-export const StyledImage = styled.img<TStyledImage & { theme: TTheme }>`
-  ${({ $sizeW }) => ($sizeW ? generateSize($sizeW, 'width') : '')};
-  ${({ $sizeH }) => ($sizeH ? generateSize($sizeH, 'height') : '')};
-  object-fit: ${({ $objectFit }) => ($objectFit ? $objectFit : 'cover')};
-  transition: filter 0.3s;
-  border-radius: ${({ $borderRadius, theme }) => ($borderRadius ? theme.borderRadius[$borderRadius] : '')};
-  filter: ${({ $darken }) => ($darken ? `brightness(${$darken === true ? '0.5' : $darken})` : 'none')};
-  aspect-ratio: ${({ $aspectRatio }) => ($aspectRatio ? `${$aspectRatio};` : '')};
-  ${({ $externalStyle }) => $externalStyle};
-`;
-
 // --------------------------------------------------------------------------- //
 // ------------------------- Helper Functions -------------------------------- //
 // --------------------------------------------------------------------------- //
 // Generate the sizes for the image based on the provided size
-
 const generateSize = (size: TComponentSizesExtended | 'fit' | string, direction: 'height' | 'width') => {
   if (size === 'fit') {
     return css`
@@ -48,3 +37,21 @@ const generateSize = (size: TComponentSizesExtended | 'fit' | string, direction:
     `;
   }
 };
+
+export const ImageWrapper = styled.div<TStyledImage & { theme: TTheme }>`
+  ${({ $sizeW }) => $sizeW && generateSize($sizeW, 'width')};
+  ${({ $sizeH }) => $sizeH && generateSize($sizeH, 'height')};
+  transition: filter 0.3s;
+  border-radius: ${({ $borderRadius, theme }) => ($borderRadius ? theme.borderRadius[$borderRadius] : '')};
+  filter: ${({ $filter }) => $filter && createCssFilterString($filter)};
+  aspect-ratio: ${({ $aspectRatio }) => ($aspectRatio ? `${$aspectRatio};` : '')};
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: ${({ $objectFit }) => ($objectFit ? $objectFit : 'cover')};
+    border-radius: ${({ $borderRadius, theme }) => ($borderRadius ? theme.borderRadius[$borderRadius] : '')};
+  }
+
+  ${({ $externalStyle }) => $externalStyle};
+`;
