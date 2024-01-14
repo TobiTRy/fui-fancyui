@@ -26,8 +26,8 @@ export const Wrapper = styled.span<TWrapper & { theme: TTheme }>`
   .content {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
+    align-items: ${({ $align }) => $align || 'center'};
+    justify-content: flex-start;
     gap: ${({ $gapBetweenText, theme }) => $gapBetweenText ?? theme.spacing.xxs};
   }
 `;
