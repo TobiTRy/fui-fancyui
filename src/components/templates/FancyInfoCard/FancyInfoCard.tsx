@@ -1,24 +1,29 @@
-import React from 'react';
-
-import { InfoCard } from '@/components/molecules/InfoCard';
 import { FancyContent } from '@/components/molecules/FancyContent';
+import { InfoCard } from '@/components/molecules/InfoCard';
 
+import { TInfoCardProps } from '@/components/molecules/InfoCard/TInfoCard.model';
+import { TFancyInfoCardProps } from '@/components/templates/FancyInfoCard/TFancyInfoCard.model';
 import { sizes } from './sizeSettings';
 
-type TFancyInfoCardProps = {
-  title?: string;
-  description?: string;
-  icon?: React.ReactNode;
-} & React.ComponentProps<typeof InfoCard>;
 // --------------------------------------------------------------------------- //
 // ------- This is a Template for a Infocard with icon Title und desc. ------- //
 // --------------------------------------------------------------------------- //
-export default function FancyInfoCard(props: TFancyInfoCardProps) {
-  const { title, description, icon, size = 'md', ...infoCardProps } = props;
+export default function FancyInfoCard(props: TFancyInfoCardProps & TInfoCardProps) {
+  const {
+    title,
+    description,
+    icon,
+    size = 'md',
+    direction,
+    align,
+    justify,
+    outlinedBackgroundStrength,
+    ...infoCardProps
+  } = props;
 
   return (
-    <InfoCard {...infoCardProps} size={size}>
-      <FancyContent align="flex-start" justify="flex-start">
+    <InfoCard {...infoCardProps} size={size} outlinedBackgroundStrength={outlinedBackgroundStrength || 0.3}>
+      <FancyContent direction={direction} align={align || 'flex-start'} justify={justify || 'flex-start'}>
         {icon && <FancyContent.Icon size={sizes[size].iconSize}>{icon}</FancyContent.Icon>}
         {title && <FancyContent.Title fontVariant={sizes[size].title}>{title}</FancyContent.Title>}
         {description && (
