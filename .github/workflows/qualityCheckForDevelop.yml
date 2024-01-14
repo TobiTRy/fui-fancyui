@@ -23,9 +23,7 @@ jobs:
         run: npx prettier --check .
 
       - name: Run Lint Check
-        run: |
-          npx eslint --version
-          npx eslint src --ext .ts,.tsx --report-unused-disable-directives --max-warnings=-1
+        run: npm run lint
 
       - name: Run Build
         run: npm run build
