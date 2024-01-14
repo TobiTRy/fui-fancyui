@@ -18,6 +18,7 @@ export default function InfoCardRoute() {
             <span>InfoCard</span>
           </InfoCard>
           <FancyInfoCard
+            outlined
             size="sm"
             themeType="info"
             title="A Vergy good title"
@@ -32,6 +33,7 @@ export default function InfoCardRoute() {
           />
           <FancyInfoCard
             size="lg"
+            outlined
             themeType="warning"
             title="A Vergy good title"
             description="Mooiin Saying mooii jkjkjkdf jkjsjkfdsjfj sjkjkfsj kjjkfjsjkf jjsfjkskjfkjs jjkjk fsjjkfskjjkf n"
