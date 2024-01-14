@@ -1,6 +1,6 @@
 name: Code Quality Check into Branch
 
-on: [push, pull_request]
+on: [pull_request]
 
 jobs:
   lint-and-format:
