@@ -3,7 +3,7 @@ import { css } from 'styled-components';
 import { DescriptionPreview } from '@/components/atoms/DescriptionPreview';
 import { FancyButton } from '@/components/organisms/FancyButton';
 import { FancyCard } from '@/components/templates/FancyCard';
-import FancyMiniItemCard from '@/components/templates/FancyMiniItemCard/FancyMiniItemCard';
+import FancyMiniItemCard from '@/components/templates/FancyItemCard/FancyItemCard';
 import { generateInsetBorderRadius } from '@/design/designFunctions/generateInsetBorderRadius';
 import Card from '../../components/molecules/Card/Card';
 import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';

@@ -24,7 +24,7 @@ import FancyCard from '@/components/templates/FancyCard/FancyCard';
 import { DescriptionPreview } from '@/components/atoms/DescriptionPreview';
 import { FancyAlignBox } from '@/components/templates/FancyAlignBox';
 import { generateInsetBorderRadius } from '@/design/designFunctions/generateInsetBorderRadius';
-import FancyMiniItemCard from '@/components/templates/FancyMiniItemCard/FancyMiniItemCard';
+import FancyMiniItemCard from '@/components/templates/FancyItemCard/FancyItemCard';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
