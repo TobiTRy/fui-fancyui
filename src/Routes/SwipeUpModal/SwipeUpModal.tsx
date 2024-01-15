@@ -23,7 +23,7 @@ export default function SwipeUpModal() {
         <FancyButton onClick={() => closeModal('modalTest')} label="Close Modal"></FancyButton>
       </div>,
       {
-        isCloseAble: false,
+        isCloseAble: true,
         isScalable: true,
       }
     );
