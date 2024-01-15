@@ -1,20 +1,13 @@
-import { ReactElement, ReactNode } from 'react';
 import { css } from 'styled-components';
 
 import { Chip } from '@/components/molecules/Chip';
-import { TChipProps } from '@/components/molecules/Chip/Chip';
-import { TSpacingPosition, generateSpacing } from '@/components/templates/FancyChip/utils/generateSpacings';
 import { sizesSettings } from '@/components/molecules/Chip/sizeSettings';
-import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
+import { TFancyChip } from '@/components/templates/FancyChip/TFancyChip.model';
+import { TSpacingPosition, generateSpacing } from '@/components/templates/FancyChip/utils/generateSpacings';
 
-type TFancyChip = {
-  image?: ReactElement<HTMLImageElement>;
-  label?: string;
-  onDelete?: () => void;
-  icon?: ReactNode;
-  size?: keyof typeof sizesSettings;
-  textColor?: TThemeTypesNotTransparent;
-} & TChipProps;
+// --------------------------------------------------------------------------- //
+// --------------- The FancyChip with predefined Structure ------------------- //
+// --------------------------------------------------------------------------- //
 export default function FancyChip(props: TFancyChip) {
   const {
     label,
