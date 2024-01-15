@@ -1,8 +1,8 @@
+import React, { ReactElement } from 'react';
 import { CSSProp } from 'styled-components';
-import { TBorderRadiusSizes } from '@/types/TBorderRadiusSizes';
-import { TComponentSizesExtended } from '@/types/TComponentSizes';
+
 import { TCssFiltersTypes } from '@/design/designFunctions/createCssFilterString';
-import { ReactElement } from 'react';
+import { TComponentSizesExtended } from '@/types/TComponentSizes';
 
 export type TFancyImageWrapper = {
   aspectRatio?: string; // e.g. "16/9"
@@ -10,8 +10,12 @@ export type TFancyImageWrapper = {
   darken?: number | boolean;
   filter?: TCssFiltersTypes;
   externalStyle?: CSSProp;
-  borderRadius?: TBorderRadiusSizes;
+  borderRadius?: string;
   sizeW?: TComponentSizesExtended | 'fit' | string;
   sizeH?: TComponentSizesExtended | 'fit' | string;
   objectFit?: 'cover' | 'contain' | 'fill' | 'none' | 'scale-down';
-} & React.ImgHTMLAttributes<HTMLImageElement>; // Remove that and adjsut chip component
+};
+
+export type TFancyImageWrapperNativeAttrs = React.HTMLAttributes<HTMLDivElement>;
+
+export type TFancyImageWrapperWithNativeAttrs = TFancyImageWrapper & TFancyImageWrapperNativeAttrs;
