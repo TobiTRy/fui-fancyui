@@ -1,14 +1,13 @@
-import React from 'react';
+import { styled } from 'styled-components';
 
 import { TTheme } from '@/types/TTheme';
-import { styled } from 'styled-components';
-import { FancyImage } from '@/components/atoms/FancyImage';
 
-type IFancyChipImgProps = React.ComponentProps<typeof FancyImage>;
-export default function ChipImg(props: IFancyChipImgProps) {
+import { FancyImageWrapper, TFancyImageWrapper } from '@/components/atoms/FancyImageWrapper';
+
+export default function ChipImg(props: TFancyImageWrapper) {
   return (
     <WrapperImage>
-      <FancyImage alt="chip" {...props} />
+      <FancyImageWrapper aspectRatio="1/1" sizeH="fit" objectFit="cover" borderRadius="complete" {...props} />
     </WrapperImage>
   );
 }
@@ -19,10 +18,6 @@ export const WrapperImage = styled.div<{ theme: TTheme }>`
   height: 100%;
 
   img {
-    aspect-ratio: 1/1;
-    height: 100%;
     grid-row: 1;
-    border-radius: 50%;
-    object-fit: cover;
   }
 `;
