@@ -1,12 +1,23 @@
-import { TFancyImage } from '@/components/atoms/FancyImage/FancyImage.model';
-import { StyledImage } from './FancyImage.style';
+import { TFancyImageWrapperWithNativeAttrs } from '@/components/atoms/FancyImageWrapper/FancyImageWrapper.model';
 import { isAspectRatioValid } from '@/utils/validations/isAspectRatioValid';
+import { ImageWrapper } from './FancyImageWrapper.style';
 
 // --------------------------------------------------------------------------- //
 // -------------- The Definition for the FancyImage Component ---------------- //
 // --------------------------------------------------------------------------- //
-export default function FancyImage(props: TFancyImage) {
-  const { aspectRatio, darken, borderRadius, externalStyle, sizeW, ...imgProps } = props;
+export default function FancyImageWrapper(props: TFancyImageWrapperWithNativeAttrs) {
+  const {
+    aspectRatio,
+    darken,
+    borderRadius,
+    externalStyle,
+    sizeW,
+    sizeH,
+    children,
+    filter,
+    objectFit,
+    ...wrapperProps
+  } = props;
 
   // Validate the aspect ratio if it is provided
   if (aspectRatio && !isAspectRatioValid(aspectRatio)) {
@@ -15,14 +26,18 @@ export default function FancyImage(props: TFancyImage) {
 
   // Render the image with the provided props
   return (
-    <StyledImage
-      $sizeW={sizeW}
-      $sizeH={sizeW}
-      $darken={darken}
+    <ImageWrapper
       $aspectRatio={aspectRatio}
+      $darken={darken}
+      $filter={filter}
       $borderRadius={borderRadius}
       $externalStyle={externalStyle}
-      {...imgProps}
-    />
+      $sizeH={sizeH}
+      $sizeW={sizeW}
+      $objectFit={objectFit}
+      {...wrapperProps}
+    >
+      {children}
+    </ImageWrapper>
   );
 }

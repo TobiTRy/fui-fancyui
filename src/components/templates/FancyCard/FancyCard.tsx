@@ -1,15 +1,15 @@
 import { css } from 'styled-components';
 
-import Card, { TCard } from '@/components/atoms/Card/Card';
+import Card, { TCard } from '@/components/molecules/Card/Card';
 
 import { FancyAlignBox } from '@/components/templates/FancyAlignBox';
 import { FancyFlexBox } from '@/components/templates/FancyFlexBox';
-import CardDescription from '@/components/templates/FancyCard/Components/CardDescription';
-import CardSpacing from '@/components/templates/FancyCard/Components/CardSpacing';
-import CardSubTitle from '@/components/templates/FancyCard/Components/CardSubTitle';
-import CardTitle from '@/components/templates/FancyCard/Components/CardTitle';
-import CardImage from '@/components/templates/FancyCard/Components/CardImage';
-import CardIcon from '@/components/templates/FancyCard/Components/CardIcon';
+import CardDescription from '@/components/molecules/Card/Components/CardDescription';
+import CardSpacing from '@/components/molecules/Card/Components/CardSpacing';
+import CardSubTitle from '@/components/molecules/Card/Components/CardSubTitle';
+import CardTitle from '@/components/molecules/Card/Components/CardTitle';
+import CardIcon from '@/components/molecules/Card/Components/CardIcon';
+import { FancyImageWrapper } from '@/components/atoms/FancyImageWrapper';
 
 function FancyCard(props: TCard) {
   const { externalStyle, ...cardProps } = props;
@@ -26,7 +26,7 @@ function FancyCard(props: TCard) {
   );
 }
 
-FancyCard.Image = CardImage;
+FancyCard.Image = FancyImageWrapper;
 FancyCard.Icon = CardIcon;
 FancyCard.Title = CardTitle;
 FancyCard.SubTitle = CardSubTitle;

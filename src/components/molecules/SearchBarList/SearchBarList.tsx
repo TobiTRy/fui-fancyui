@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Card } from '@/components/atoms/Card';
+import { Card } from '@/components/molecules/Card';
 import { TThemeTypes } from '@/types/TThemeTypes';
 import { TLayer } from '@/types/TLayer';
 

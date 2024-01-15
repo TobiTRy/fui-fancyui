@@ -1,8 +1,5 @@
-import React from 'react';
-import { FancyImage } from '@/components/atoms/FancyImage';
+import { FancyImageWrapper, TFancyImageWrapper } from '@/components/atoms/FancyImageWrapper';
 
-type ILogoImage = React.ComponentProps<typeof FancyImage>;
-
-export default function LogoImage(props: ILogoImage) {
-  return <FancyImage {...props} externalStyle={{ height: '100%' }} />;
+export default function LogoImage(props: TFancyImageWrapper) {
+  return <FancyImageWrapper {...props} sizeW="fit" />;
 }

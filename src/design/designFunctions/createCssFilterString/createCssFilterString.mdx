@@ -1,0 +1,72 @@
+Sure, I can provide you with an example documentation in MDX (Markdown JSX) format for the `createCssFilterString` function. MDX combines the simplicity of Markdown with the power of JSX, allowing you to use JSX components within Markdown content.
+
+Here's how the documentation might look:
+
+````mdx
+import { CodeBlock } from 'your-code-block-component';
+
+# `createCssFilterString` Function
+
+The `createCssFilterString` function takes an object of CSS filters and generates a CSS filter string suitable for use in stylesheets or inline styles.
+
+## Usage
+
+```tsx
+import { createCssFilterString } from 'path-to-your-function';
+
+const filterObject: CssFilters = {
+  brightness: 0.8,
+  contrast: 1.2,
+  grayscale: 0.3,
+  hueRotate: 45,
+  invert: 0.5,
+  opacity: 0.7,
+  saturate: 2,
+  sepia: 0.4,
+  blur: '5px',
+};
+
+const cssFilterString = createCssFilterString(filterObject);
+console.log(cssFilterString);
+```
+````
+
+<CodeBlock>
+  {`// Output
+brightness(0.8) contrast(1.2) grayscale(0.3) hue-rotate(45deg) invert(0.5) opacity(0.7) saturate(2) sepia(0.4) blur(5px)`}
+</CodeBlock>
+
+## Parameters
+
+- `filters: CssFilters` - An object where keys are the names of the CSS filters (like `brightness`, `contrast`, `grayscale`, etc.), and the values are the corresponding settings for those filters.
+
+## Return Value
+
+- Returns a `string` that represents the combined CSS filter styles.
+
+## Types
+
+Here's the TypeScript interface and types used for the `CssFilters`:
+
+```typescript
+interface CssFilters {
+  brightness?: number;
+  contrast?: number;
+  grayscale?: number;
+  hueRotate?: number; // in degrees
+  invert?: number;
+  opacity?: number;
+  saturate?: number;
+  sepia?: number;
+  blur?: string; // include units, e.g., '5px'
+}
+```
+
+## Notes
+
+- Ensure that the values provided in the `filterObject` are in the correct format. For example, `hueRotate` should be in degrees, and `blur` should include a unit like `px` or `em`.
+- The function safely handles `undefined` values, excluding them from the generated CSS filter string.
+
+```
+
+```

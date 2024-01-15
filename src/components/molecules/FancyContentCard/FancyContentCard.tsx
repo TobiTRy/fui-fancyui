@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
 
-import { Card } from '@/components/atoms/Card';
+import { Card } from '@/components/molecules/Card';
 import { Typography } from '@/components/atoms/Typography';
 
 interface IContentCardProps {

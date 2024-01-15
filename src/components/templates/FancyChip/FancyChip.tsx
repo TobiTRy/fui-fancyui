@@ -1,20 +1,13 @@
-import React from 'react';
 import { css } from 'styled-components';
 
 import { Chip } from '@/components/molecules/Chip';
-import { TChipProps } from '@/components/molecules/Chip/Chip';
-import { TSpacingPosition, generateSpacing } from '@/components/templates/FancyChip/utils/generateSpacings';
 import { sizesSettings } from '@/components/molecules/Chip/sizeSettings';
-import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
+import { TFancyChip } from '@/components/templates/FancyChip/TFancyChip.model';
+import { TSpacingPosition, generateSpacing } from '@/components/templates/FancyChip/utils/generateSpacings';
 
-type TFancyChip = {
-  image?: string;
-  label?: string;
-  onDelete?: () => void;
-  icon?: React.ReactNode;
-  size?: keyof typeof sizesSettings;
-  textColor?: TThemeTypesNotTransparent;
-} & TChipProps;
+// --------------------------------------------------------------------------- //
+// --------------- The FancyChip with predefined Structure ------------------- //
+// --------------------------------------------------------------------------- //
 export default function FancyChip(props: TFancyChip) {
   const {
     label,
@@ -54,7 +47,7 @@ export default function FancyChip(props: TFancyChip) {
       `}
       {...htmlProps}
     >
-      {image && <Chip.Img src={image} />}
+      {image && <Chip.Img>{image}</Chip.Img>}
       {(label || icon) && (
         <Chip.Content themeType={textColor}>
           {icon && <Chip.Content.Icon size={sizesSettings[size].iconSize}>{icon}</Chip.Content.Icon>}

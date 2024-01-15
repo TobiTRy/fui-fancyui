@@ -2,7 +2,7 @@ import React from 'react';
 import Typography from '../../components/atoms/Typography/Typography';
 
 import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';
-import Card from '../../components/atoms/Card/Card';
+import Card from '../../components/molecules/Card/Card';
 
 export default function Typogrphy() {
   return (

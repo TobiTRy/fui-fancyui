@@ -2,7 +2,7 @@ import React from 'react';
 
 import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
 import ClipBoardIconCheck from '../../components/icons/SVGClipBoardIconChecked/SVGClipBoardIconChecked';
-import { Card } from '@/components/atoms/Card';
+import { Card } from '@/components/molecules/Card';
 import ChipList from '../../components/molecules/ChipList/ChipList';
 import FancyChipList from '../../components/organisms/FancyChipList/FancyChipList';
 import FancyChip from '@/components/templates/FancyChip/FancyChip';
@@ -35,7 +35,9 @@ export default function ChipsRoute() {
             label="Heyyjoo"
             isActive={isActive}
             onClick={() => clickHandler('hi')}
-            image="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
+            image={
+              <img src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg" />
+            }
           />
           <FancyChip label="Heyyjoo" onClick={() => clickHandler('hi')} onDelete={() => console.log('DELETE')} />
           <FancyChip label="Heyyjoo" onClick={() => console.log('hii')} />
@@ -44,28 +46,36 @@ export default function ChipsRoute() {
           <FancyChip
             label="Heyyjoo"
             size="sm"
-            image="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
+            image={
+              <img src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg" />
+            }
           />
           <FancyChip label="Heyyjoo" size="md" onDelete={() => console.log('DELETE')} />
           <FancyChip
             label="Heyyjoo"
             size="lg"
             onClick={() => console.log('hii')}
-            image="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
+            image={
+              <img src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg" />
+            }
           />
         </DesignArea>
         <DesignArea title="FancyChip">
           <FancyChip
             label="Heyyjoo"
             size="lg"
-            image="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
+            image={
+              <img src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg" />
+            }
           />
           <FancyChip label="Heyyjoo" size="lg" onDelete={() => console.log('DELETE')} />
           <FancyChip
             label="Heyyjoo"
             size="lg"
             onClick={() => console.log('hii')}
-            image="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
+            image={
+              <img src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg" />
+            }
           />
         </DesignArea>
         <DesignArea title="FancyChip">

@@ -8,7 +8,7 @@ import FancyDropDownSelect from '../../components/organisms/FancyDropDownSelect/
 import FancyDateInput from '../../components/organisms/FancyDateInput/FancyDateInput';
 import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';
 import FancyDateDropDown from '../../components/templates/FancyDateDropDown/FancyDateDropDown';
-import { Card } from '@/components/atoms/Card';
+import { Card } from '@/components/molecules/Card';
 import LabeledInput from '@/components/molecules/LabeledInput/LabeledInput';
 import { TextInput } from '@/components/atoms/TextInput';
 import FancyRange from '@/components/organisms/FancyRangeSlider/FancyRangeSlider';
