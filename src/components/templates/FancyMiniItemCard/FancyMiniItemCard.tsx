@@ -1,9 +1,9 @@
-import { TFancyImage } from '@/components/atoms/FancyImage';
+import { TFancyImageWrapper } from '@/components/atoms/FancyImageWrapper';
 import { TTypography } from '@/components/atoms/Typography/Typography.model';
 import { FancyCard } from '@/components/templates/FancyCard';
 
 type TFancyItemCard = {
-  image?: TFancyImage;
+  image?: TFancyImageWrapper;
   title?: TTypography;
   subtitle?: TTypography;
   description?: TTypography;

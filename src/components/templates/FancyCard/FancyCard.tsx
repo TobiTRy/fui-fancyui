@@ -8,8 +8,8 @@ import CardDescription from '@/components/templates/FancyCard/Components/CardDes
 import CardSpacing from '@/components/templates/FancyCard/Components/CardSpacing';
 import CardSubTitle from '@/components/templates/FancyCard/Components/CardSubTitle';
 import CardTitle from '@/components/templates/FancyCard/Components/CardTitle';
-import CardImage from '@/components/templates/FancyCard/Components/CardImage';
 import CardIcon from '@/components/templates/FancyCard/Components/CardIcon';
+import CardImage from '@/components/templates/FancyCard/Components/CardImage';
 
 function FancyCard(props: TCard) {
   const { externalStyle, ...cardProps } = props;

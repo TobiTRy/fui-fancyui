@@ -1,13 +1,12 @@
-import React from 'react';
 import { css } from 'styled-components';
 
-import Card from '../../components/atoms/Card/Card';
-import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
-import { FancyCard } from '@/components/templates/FancyCard';
 import { DescriptionPreview } from '@/components/atoms/DescriptionPreview';
 import { FancyButton } from '@/components/organisms/FancyButton';
-import { generateInsetBorderRadius } from '@/design/designFunctions/generateInsetBorderRadius';
+import { FancyCard } from '@/components/templates/FancyCard';
 import FancyMiniItemCard from '@/components/templates/FancyMiniItemCard/FancyMiniItemCard';
+import { generateInsetBorderRadius } from '@/design/designFunctions/generateInsetBorderRadius';
+import Card from '../../components/atoms/Card/Card';
+import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
 
 export default function CradRoute() {
   const backgroundColor = css`
@@ -22,7 +21,11 @@ export default function CradRoute() {
     <DesignWrapper>
       <div>
         <FancyMiniItemCard
-          image={{ src: 'http://ilovepixel.eu/images/shibi.png', sizeW: '50%' }}
+          image={{
+            children: (
+              <img src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg" />
+            ),
+          }}
           title={{
             children: <>test</>,
           }}
@@ -47,7 +50,7 @@ export default function CradRoute() {
         <FancyCard>
           <FancyCard.FlexBox direction="column">
             <FancyCard.FlexBox direction="column" justify="center" align="center">
-              <FancyCard.Image src={'http://ilovepixel.eu/images/shibi.png'} sizeW="sm" />
+              <FancyCard.Image />
             </FancyCard.FlexBox>
             <FancyCard.SpacingBox padding={[0, 'md', 'lg', 'md']}>
               <FancyCard.SubTitle layer={5} className="card_subtitle" addLineHeight>
@@ -87,11 +90,9 @@ export default function CradRoute() {
         <FancyCard>
           <FancyCard.FlexBox direction="column">
             <FancyCard.SpacingBox padding={['md', 'md', 'md', 'md']}>
-              <FancyCard.Image
-                sizeW="fit"
-                borderRadius={generateInsetBorderRadius('lg', 'md')}
-                src={'https://placehold.co/600x400'}
-              />
+              <FancyCard.Image sizeW="fit" borderRadius={generateInsetBorderRadius('lg', 'md')}>
+                <img src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg" />
+              </FancyCard.Image>
               <FancyCard.Box margin={['xs', 0]}>
                 <FancyCard.SubTitle layer={5} addLineHeight>
                   {'Grow steadily and pizza. Grow steadily and pizza. Grow steadily and pizza.Grow steadily and pizza.'}
@@ -132,7 +133,9 @@ export default function CradRoute() {
       <div style={{ display: 'flex', gap: '12px', width: '100%' }}>
         <FancyCard>
           <FancyCard.FlexBox direction="column">
-            <FancyCard.Image className="card_image" src={'http://ilovepixel.eu/images/shibi.png'} />
+            <FancyCard.Image className="card_image">
+              <img src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg" />
+            </FancyCard.Image>
             <FancyCard.SpacingBox padding={[0, 'md', 'lg', 'md']}>
               <FancyCard.SubTitle layer={5} className="card_subtitle" addLineHeight>
                 {'Grow steadily and pizza. Grow steadily and pizza. Grow steadily and pizza.Grow steadily and pizza.'}
@@ -171,7 +174,9 @@ export default function CradRoute() {
         {/* CARD 2222 */}
         <FancyCard>
           <FancyCard.FlexBox direction="column">
-            <FancyCard.Image borderRadius="md" src={'http://ilovepixel.eu/images/shibi.png'} />
+            <FancyCard.Image borderRadius="md">
+              <img src="http://ilovepixel.eu/images/shibi.png" />
+            </FancyCard.Image>
             <FancyCard.SpacingBox padding={[0, 'md', 'lg', 'md']}>
               <FancyCard.SubTitle layer={5} className="card_subtitle" addLineHeight>
                 {'Grow steadily and pizza. Grow steadily and pizza. Grow steadily and pizza.Grow steadily and pizza.'}
