@@ -5,7 +5,7 @@ import { FancyButton } from '@/components/organisms/FancyButton';
 import { FancyCard } from '@/components/templates/FancyCard';
 import FancyMiniItemCard from '@/components/templates/FancyMiniItemCard/FancyMiniItemCard';
 import { generateInsetBorderRadius } from '@/design/designFunctions/generateInsetBorderRadius';
-import Card from '../../components/atoms/Card/Card';
+import Card from '../../components/molecules/Card/Card';
 import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
 
 export default function CradRoute() {

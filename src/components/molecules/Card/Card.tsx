@@ -1,20 +1,20 @@
 import { IFancyBox } from '@/components/atoms/FancyBox/';
-import { StyledCardProps } from '@/components/atoms/Card/Card.model';
+import { StyledCardProps } from '@/components/molecules/Card/Card.model';
 import { StyledCard } from './Card.style';
 import { FancyImageWrapper } from '@/components/atoms/FancyImageWrapper';
-import CardIcon from '@/components/atoms/Card/Components/CardIcon';
-import CardTitle from '@/components/atoms/Card/Components/CardTitle';
-import CardSubTitle from '@/components/atoms/Card/Components/CardSubTitle';
-import CardDescription from '@/components/atoms/Card/Components/CardDescription';
+import CardIcon from '@/components/molecules/Card/Components/CardIcon';
+import CardTitle from '@/components/molecules/Card/Components/CardTitle';
+import CardSubTitle from '@/components/molecules/Card/Components/CardSubTitle';
+import CardDescription from '@/components/molecules/Card/Components/CardDescription';
 import { FancyFlexBox } from '@/components/templates/FancyFlexBox';
-import CardSpacing from '@/components/atoms/Card/Components/CardSpacing';
+import CardSpacing from '@/components/molecules/Card/Components/CardSpacing';
 import { FancyAlignBox } from '@/components/templates/FancyAlignBox';
 
 // --------------------------------------------------------------------------- //
 // ---------- The card is there to wrapp some content or components ---------- //
 // --------------------------------------------------------------------------- //
 export type TCard = StyledCardProps & IFancyBox;
-export default function Card(props: TCard) {
+function Card(props: TCard) {
   const {
     children,
     padding,
@@ -34,11 +34,6 @@ export default function Card(props: TCard) {
   );
 }
 
-const defaultProps: TCard = {
-  shadow: true,
-  borderRadius: ['lg'],
-};
-
 Card.Image = FancyImageWrapper;
 Card.Icon = CardIcon;
 Card.Title = CardTitle;
@@ -48,3 +43,11 @@ Card.Descritpion = CardDescription;
 Card.FlexBox = FancyFlexBox;
 Card.SpacingBox = CardSpacing;
 Card.Box = FancyAlignBox;
+
+// this is needed for storybook to work
+export default Card;
+
+const defaultProps: TCard = {
+  shadow: true,
+  borderRadius: ['lg'],
+};

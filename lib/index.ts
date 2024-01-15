@@ -9,7 +9,7 @@ export * from '@/components/atoms/DateOutput';
 export * from '@/components/atoms/DropDownSelect';
 export * from '@/components/atoms/EditBarModal';
 export * from '@/components/atoms/FancyPill';
-export * from '@/components/atoms/Card';
+export * from '@/components/molecules/Card';
 export * from '@/components/atoms/FancyLine';
 export * from '@/components/atoms/FancyLI';
 export * from '@/components/atoms/FancyLoadingSpinner';
