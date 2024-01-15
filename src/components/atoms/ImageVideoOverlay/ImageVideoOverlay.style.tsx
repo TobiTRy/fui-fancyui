@@ -15,6 +15,8 @@ export const Wrapper = styled.div`
   overflow: hidden;
   line-height: 0;
   pointer-events: none;
+  width: fit-content;
+  height: fit-content;
 `;
 
 // Define a styled overlay component using styled-components
