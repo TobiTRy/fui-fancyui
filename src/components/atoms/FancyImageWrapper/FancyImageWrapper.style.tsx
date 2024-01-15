@@ -1,6 +1,6 @@
 import { css, styled } from 'styled-components';
 
-import { TFancyImage } from '@/components/atoms/FancyImage/FancyImage.model';
+import { TFancyImageWrapper } from '@/components/atoms/FancyImageWrapper/FancyImageWrapper.model';
 import { TTheme } from '@/types/TTheme';
 import IStyledPrefixAndPicker from '@/types/IStyledPrefixAndPicker';
 
@@ -9,7 +9,7 @@ import { TComponentSizesExtended } from '@/types/TComponentSizes';
 import { createCssFilterString } from '@/design/designFunctions/createCssFilterString';
 
 type TStyledImage = IStyledPrefixAndPicker<
-  TFancyImage,
+  TFancyImageWrapper,
   'darken' | 'aspectRatio' | 'externalStyle' | 'borderRadius' | 'sizeH' | 'sizeW' | 'objectFit' | 'filter'
 >;
 // --------------------------------------------------------------------------- //

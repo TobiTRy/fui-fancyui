@@ -31,7 +31,7 @@ export * from '@/components/atoms/InputUnderline';
 export * from '@/components/atoms/RawInput';
 export * from '@/components/atoms/CheckerBoardPattern';
 export * from '@/components/atoms/ImageVideoOverlay';
-export * from '@/components/atoms/FancyImage';
+export * from '@/components/atoms/FancyImageWrapper';
 export * from '@/components/atoms/FancyVideo';
 export * from '@/components/atoms/FancyLoadingBar';
 export * from '@/components/atoms/ProgressBar';

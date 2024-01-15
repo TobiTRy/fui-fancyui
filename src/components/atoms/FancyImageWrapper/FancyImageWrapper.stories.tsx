@@ -2,7 +2,7 @@
 import { Meta, StoryObj } from '@storybook/react';
 
 // Import the component to be tested
-import FancyImage from './FancyImage';
+import FancyImage from './FancyImageWrapper';
 // Define metadata for the story
 const meta = {
   component: FancyImage,

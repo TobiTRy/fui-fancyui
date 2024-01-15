@@ -2,10 +2,11 @@ import { CSSProp } from 'styled-components';
 import { TBorderRadiusSizes } from '@/types/TBorderRadiusSizes';
 import { TComponentSizesExtended } from '@/types/TComponentSizes';
 import { TCssFiltersTypes } from '@/design/designFunctions/createCssFilterString';
+import { ReactElement } from 'react';
 
-export type TFancyImage = {
+export type TFancyImageWrapper = {
   aspectRatio?: string; // e.g. "16/9"
-  children?: React.ReactNode;
+  children?: ReactElement<HTMLImageElement>;
   darken?: number | boolean;
   filter?: TCssFiltersTypes;
   externalStyle?: CSSProp;
