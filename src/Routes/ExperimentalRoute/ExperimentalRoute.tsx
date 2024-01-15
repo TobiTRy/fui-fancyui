@@ -1,30 +1,16 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { ChangeEvent } from 'react';
+import React from 'react';
 
 import themeStore from '../../design/theme/themeStore/themeStore';
-import { FancyTextInput } from '../../components/organisms/FancyTextInput';
 
-import FancyContent from '../../components/molecules/FancyContent/FancyContent';
-import BottomBarList from '../../components/molecules/SwitchList/SwitchList';
-import Button from '../../components/molecules/Button/Button';
-import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
-import ComponentAsWrapper from '../../components/shared/ComponentAsWrapper/ComponentAsWrapper';
-import ActionWrapper from '../../components/atoms/ActionWrapper/ActionWrapper';
-import FancyActionWrapper from '../../components/atoms/FancyActionWrapper/FancyActionWrapper';
-import BottomBarIcon from '../../components/molecules/BottomBarIcon/BottomBarIcon';
-import FancyBottomBarIcon from '@/components/templates/FancyBottomBarIcon/FancyBottomBarIcon';
 import { FancyButton } from '@/components/organisms/FancyButton';
-import { SingleToastMessage } from '@/components/molecules/SingleToastMessage';
+import FancyContent from '../../components/molecules/FancyContent/FancyContent';
+import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
 
-import { FancyNumberInput } from '@/components/organisms/FancyNumberInput';
-import { Card } from '@/components/molecules/Card';
-import { FancyBox } from '@/components/atoms/FancyBox';
 import { SVGCheckMark } from '@/components/icons/SVGCheckMark';
-import FancyCard from '@/components/templates/FancyCard/FancyCard';
-import { DescriptionPreview } from '@/components/atoms/DescriptionPreview';
+import { Card } from '@/components/molecules/Card';
+import { FancyNumberInput } from '@/components/organisms/FancyNumberInput';
 import { FancyAlignBox } from '@/components/templates/FancyAlignBox';
-import { generateInsetBorderRadius } from '@/design/designFunctions/generateInsetBorderRadius';
-import FancyMiniItemCard from '@/components/templates/FancyItemCard/FancyItemCard';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
