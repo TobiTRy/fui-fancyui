@@ -1,11 +1,11 @@
-import { TFancyImageWrapper } from '@/components/atoms/FancyImageWrapper/FancyImageWrapper.model';
-import { ImageWrapper } from './FancyImageWrapper.style';
+import { TFancyImageWrapperWithNativeAttrs } from '@/components/atoms/FancyImageWrapper/FancyImageWrapper.model';
 import { isAspectRatioValid } from '@/utils/validations/isAspectRatioValid';
+import { ImageWrapper } from './FancyImageWrapper.style';
 
 // --------------------------------------------------------------------------- //
 // -------------- The Definition for the FancyImage Component ---------------- //
 // --------------------------------------------------------------------------- //
-export default function FancyImageWrapper(props: TFancyImageWrapper) {
+export default function FancyImageWrapper(props: TFancyImageWrapperWithNativeAttrs) {
   const { aspectRatio, darken, borderRadius, externalStyle, sizeW, sizeH, children, filter, ...wrapperProps } = props;
 
   // Validate the aspect ratio if it is provided
