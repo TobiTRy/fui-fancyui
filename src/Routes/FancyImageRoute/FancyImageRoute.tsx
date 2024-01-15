@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react';
 
-import FancyImage from '../../components/atoms/FancyImage/FancyImage';
+import FancyImage from '../../components/atoms/FancyImageWrapper/FancyImageWrapper';
 import Typography from '../../components/atoms/Typography/Typography';
 
 import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';
 import { css } from 'styled-components';
-import FancyImageWrapper from '../../components/atoms/FancyImage/FancyImage';
+import FancyImageWrapper from '../../components/atoms/FancyImageWrapper/FancyImageWrapper';
 import { ImageVideoOverlay } from '@/components/atoms/ImageVideoOverlay';
 import { FancyVideo } from '@/components/atoms/FancyVideo';
 
