@@ -9,6 +9,7 @@ type ThemeState = {
   isDarkTheme: boolean;
   switchTheme: () => void;
   updateTheme: (colors: IUiColorPops) => void;
+  setTheme: (theme: TTheme) => void;
 };
 
 // the store for the theme
@@ -41,6 +42,14 @@ const themeStore = create<ThemeState>((set, get) => ({
       theme: {
         ...state.theme,
         colors: uiColors,
+      },
+    }));
+  },
+  setTheme: (theme) => {
+    set((themeState) => ({
+      theme: {
+        ...theme,
+        ...themeState.theme,
       },
     }));
   },
