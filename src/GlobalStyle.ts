@@ -4,10 +4,6 @@ import { scrollbar } from '@/design/theme/globalStyle/scrollbar/index';
 import { TTheme } from '@/types/TTheme';
 
 const GlobalStyle = createGlobalStyle<{ theme: TTheme }>`
-  * {
-    min-width: 0;
-  }
-
   body {
     margin: 0;
     padding: 0;
