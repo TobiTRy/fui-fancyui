@@ -14,7 +14,7 @@ export * from './TTheme';
 export * from './TTypography';
 export * from './TUiColorNames';
 export * from './TThemeTypes';
-export * from './TUiColorsType';
+export * from './TUiColorsTypeObject';
 export * from './TTextAlignLR';
 export * from './TTextAlignLC';
 export * from './TTextAlignLRC';
