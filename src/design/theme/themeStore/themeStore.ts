@@ -1,5 +1,10 @@
 import { create } from 'zustand';
-import { updateThemeColors, uiColors, IUiColorPops, regenerateUiColors } from '../designColor';
+import {
+  updateThemeColors,
+  uiColors,
+  IUiColorPops,
+  regenerateUiColors,
+} from '../generateThemeColor/generateThemeColor';
 import { spacingPx, borderRadius, fontSizes } from '../designSizes';
 import { TTheme } from '@/types/TTheme';
 import { breakpoints } from '@/design/theme/brakePoints';
@@ -46,10 +51,9 @@ const themeStore = create<ThemeState>((set, get) => ({
     }));
   },
   setTheme: (theme) => {
-    set((themeState) => ({
+    set(() => ({
       theme: {
         ...theme,
-        ...themeState.theme,
       },
     }));
   },
