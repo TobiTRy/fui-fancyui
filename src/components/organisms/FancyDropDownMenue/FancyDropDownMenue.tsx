@@ -3,14 +3,14 @@ import { useEffect, useState } from 'react';
 import FancyUL, { IFancyUL } from '@/components/molecules/FancyDropDownUL/FancyDropDownUL';
 import { Delay } from '@/components/shared/Delay';
 import { TLayer } from '@/types/TLayer';
-import { TThemeTypes } from '@/types/TThemeTypes';
+import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
 
 // --------------------------------------------------------------------------- //
 // ------------ The main component that renders the dropdown menu ------------ //
 // --------------------------------------------------------------------------- //
 interface IFancyDropDownMenue extends IFancyUL {
   isOpen?: boolean;
-  themeType?: TThemeTypes;
+  themeType?: TThemeTypesNotTransparent;
   layer?: TLayer;
 }
 export default function FancyDropDownMenue(props: IFancyDropDownMenue) {

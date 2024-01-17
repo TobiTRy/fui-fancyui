@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { TThemeTypes } from '@/types/TThemeTypes';
 import { TLayer } from '@/types/TLayer';
 
 import { FancyContent } from '@/components/molecules/FancyContent';
 import { ContentWrapper } from './BottomBarIcon.style';
+import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
 
 interface IBottomBarIconProps {
   icon: React.ReactNode;
@@ -12,7 +12,7 @@ interface IBottomBarIconProps {
   hideLabel?: boolean;
   isActive?: boolean;
   disabled?: boolean;
-  themeType?: TThemeTypes;
+  themeType?: TThemeTypesNotTransparent;
   layer?: TLayer;
   id?: string;
 }

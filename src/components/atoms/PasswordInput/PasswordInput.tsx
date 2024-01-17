@@ -3,12 +3,12 @@ import { styled } from 'styled-components';
 
 import { TLayer } from '@/types/TLayer';
 import { TTheme } from '@/types/TTheme';
-import { TThemeTypes } from '@/types/TThemeTypes';
 
 import { PasswordEye } from '@/components/atoms/PasswordEye';
 import { TNativePassowrdInputAttrs, TPasswordInputProps } from '@/components/atoms/PasswordInput/TPasswordInput.model';
 import { RawInput } from '@/components/atoms/RawInput';
 import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent';
+import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
 
 // --------------------------------------------------------------------------- //
 // --------------- The passwordInputcomponent for only the input ------------- //
@@ -42,7 +42,7 @@ export default function PasswordInput(props: TPasswordInputProps & TNativePassow
 // --------------------------------------------------------------------------- //
 // --------------------- The style for the component ------------------------- //
 // --------------------------------------------------------------------------- //
-const WrapperEye = styled.div<{ theme: TTheme; $themeType?: TThemeTypes; $layer?: TLayer }>`
+const WrapperEye = styled.div<{ theme: TTheme; $themeType?: TThemeTypesNotTransparent; $layer?: TLayer }>`
   position: absolute;
   bottom: 0px;
   right: 0;

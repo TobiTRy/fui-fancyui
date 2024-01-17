@@ -5,6 +5,7 @@ import checkThemeOrColor from '../checkThemeOrColor/checkThemeOrColor';
 import { TthemeColorGroup } from '../../theme/generateThemeColor/generateThemeColor';
 import { TTheme } from '@/types/TTheme';
 import { TThemeTypes } from '@/types/TThemeTypes';
+import { themeStore } from '@/design/theme/themeStore';
 
 // Define the types for the arguments that will be passed to the getBackgroundColor function
 type IGetBackgroundColor = Pick<IGetColorForComponent, '$themeType' | '$customColor' | '$layer' | 'theme'>;
@@ -20,8 +21,10 @@ export function getBackgroundColor({ theme, $themeType, $customColor, $layer }: 
     proviedColor = validCustomColor;
   }
   // If a theme type was provided and no valid custom color was set, use the corresponding color from the theme
-  else if ($themeType) {
+  else if ($themeType && $themeType !== 'transparent') {
     proviedColor = theme.colors[$themeType][$layer ?? 0];
+  } else if ($themeType === 'transparent') {
+    proviedColor = 'transparent';
   }
 
   // Return the background color as a styled-component CSS string
@@ -64,10 +67,15 @@ export function getTextColor({
     proviedColor = Color(theme.colors.accent[$textLayer ?? 0]).isDark()
       ? theme.colors.secondary[$textLayer ?? 0]
       : theme.colors.primary[$textLayer ?? 0];
+  } else if ($themeType === 'transparent') {
+    proviedColor = themeStore.getState().isDarkTheme
+      ? theme.colors.secondary[$textLayer ?? 0]
+      : theme.colors.primary[$textLayer ?? 0];
+  } else {
+    proviedColor = theme.colors[$themeType][$textLayer ?? 0];
   }
-
   // Return the text color as a styled-component CSS string
-  return proviedColor ?? theme.colors[$themeType][$textLayer ?? 0];
+  return proviedColor;
 }
 
 // --------------------------------------------------------------------------- //

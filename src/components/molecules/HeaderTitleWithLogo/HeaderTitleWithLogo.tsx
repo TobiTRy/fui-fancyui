@@ -3,15 +3,15 @@ import { ReactNode } from 'react';
 import { Typography } from '@/components/atoms/Typography';
 
 import { TLayer } from '@/types/TLayer';
-import { TThemeTypes } from '@/types/TThemeTypes';
 
 import { LogoWrapper, StyledHeading, Wrapper } from './HeaderTitleWithLogo.style';
+import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
 
 interface IHeaderTitleWithLogo {
   title?: ReactNode | string;
   logo?: ReactNode;
   href?: string;
-  themeType?: TThemeTypes;
+  themeType?: TThemeTypesNotTransparent;
   layer?: TLayer;
 }
 // --------------------------------------------------------------------------- //

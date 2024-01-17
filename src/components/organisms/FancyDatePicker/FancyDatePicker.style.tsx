@@ -2,11 +2,15 @@ import { styled } from 'styled-components';
 
 import { TLayer } from '@/types/TLayer';
 import { TTheme } from '@/types/TTheme';
-import { TThemeTypes } from '@/types/TThemeTypes';
 
 import { getBackgroundColor, getColorsForComponent } from '@/design/designFunctions/colorCalculatorForComponent/';
+import { TThemeTypesNotTransparent } from 'lib';
 
-export const DatePickerContainer = styled.div<{ theme: TTheme; $themeType?: TThemeTypes; $layer?: TLayer }>`
+export const DatePickerContainer = styled.div<{
+  theme: TTheme;
+  $themeType?: TThemeTypesNotTransparent;
+  $layer?: TLayer;
+}>`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -23,7 +27,7 @@ export const WrapperYearSelector = styled.div<{ theme: TTheme }>`
   box-sizing: border-box;
 `;
 
-export const WrapperWeekdays = styled.div<{ theme: TTheme; $themeType?: TThemeTypes }>`
+export const WrapperWeekdays = styled.div<{ theme: TTheme; $themeType?: TThemeTypesNotTransparent }>`
   width: 100%;
   border-bottom: solid 1px ${({ theme, $themeType = 'secondary' }) => getBackgroundColor({ theme, $themeType })};
   padding-bottom: ${({ theme }) => theme.spacing.xxs};

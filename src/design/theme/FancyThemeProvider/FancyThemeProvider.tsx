@@ -5,8 +5,9 @@ import { breakpoints } from '@/design/theme/brakePoints';
 import { IUiColorPops } from '@/design/theme/generateThemeColor/generateThemeColor';
 import { themeStore } from '@/design/theme/themeStore';
 import { TBorderRadiusSizes, TFontSizes, TSpacings } from '@/types';
-import { TTheme } from '@/types/TTheme';
 import { TUiColorsTypeObject } from '@/types/TUiColorsTypeObject';
+
+import { TTheme } from '@/types/TTheme';
 
 //the structure for the theme object
 export type TThemeInput = {

@@ -1,6 +1,5 @@
 import { styled, css } from 'styled-components';
 
-import { TThemeTypes } from '@/types/TThemeTypes';
 import { TTheme } from '@/types/TTheme';
 import { TLayer } from '@/types/TLayer';
 
@@ -9,6 +8,7 @@ import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForC
 import { colorTransparencyCalculator } from '@/design/designFunctions/colorTransparencyCalculator';
 import { TRawSlider } from '@/components/atoms/RawSlider';
 import { sizeSettings } from './sizeSettings';
+import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
 
 const DragableThumb = css<{ theme: TTheme; $isActive?: boolean }>`
   height: 24px;
@@ -35,7 +35,7 @@ const generateComponentSize = (componentSize: TRawSlider['componentSize']) => {
 };
 
 type TStyledRawSlider = {
-  $themeType?: TThemeTypes;
+  $themeType?: TThemeTypesNotTransparent;
   $layer?: TLayer;
   $isActive?: boolean;
   $componentSize: TRawSlider['componentSize'];

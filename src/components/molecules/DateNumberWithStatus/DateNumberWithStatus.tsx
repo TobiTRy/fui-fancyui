@@ -5,9 +5,9 @@ import { AvilableDot } from '@/components/atoms/AvilableDot';
 import { IAvailableDot } from '@/components/atoms/AvilableDot';
 
 import { TLayer } from '@/types/TLayer';
-import { TThemeTypes } from '@/types/TThemeTypes';
 import { TTheme } from '@/types/TTheme';
 import { IRange } from '@/components/atoms/DateNumberAtom/IDateNumberAtom.model';
+import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
 
 interface IDateNumberWithStatus {
   isAvailable?: IAvailableDot;
@@ -17,7 +17,7 @@ interface IDateNumberWithStatus {
   isCurrentDay?: boolean;
   range?: IRange;
   onClick?: () => void;
-  themeType?: TThemeTypes;
+  themeType?: TThemeTypesNotTransparent;
   layer?: TLayer;
 }
 // --------------------------------------------------------------------------- //

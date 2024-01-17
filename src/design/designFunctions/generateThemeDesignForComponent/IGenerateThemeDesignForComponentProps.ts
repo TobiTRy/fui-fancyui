@@ -1,6 +1,7 @@
 import { TLayer } from '@/types/TLayer';
-import { TThemeTypes } from '@/types/TThemeTypes';
+
 import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
+import { TThemeTypes } from '@/types/TThemeTypes';
 
 export interface IGenerateThemeDesignForComponentProps {
   themeType?: TThemeTypes;

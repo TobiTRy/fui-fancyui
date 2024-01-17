@@ -7,10 +7,10 @@ import useSelectedDates from './helperFunctions/useSelectedDates';
 import useVisibleMonths from './helperFunctions/useVisibleMonths';
 
 import { TLayer } from '@/types/TLayer';
-import { TThemeTypes } from '@/types/TThemeTypes';
 import { IDisabledDateSettings } from '../MonthWithDays/utils/Interfaces/IDisableDateSettings.model';
 import { IExternalMonthWithDays } from '../MonthWithDays/utils/Interfaces/IExternalMonthWithDays.model';
 import { IDateArray } from './IDateArray.model';
+import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
 
 interface ICalendar {
   selectedYear?: number;
@@ -20,7 +20,7 @@ interface ICalendar {
   handleSwitchFromTo?: (change: 'from' | 'to') => void;
   disabledDateSetting?: IDisabledDateSettings;
   externalMonthsWithDays?: IExternalMonthWithDays[];
-  themeType?: TThemeTypes;
+  themeType?: TThemeTypesNotTransparent;
   layer?: TLayer;
 }
 // --------------------------------------------------------------------------- //

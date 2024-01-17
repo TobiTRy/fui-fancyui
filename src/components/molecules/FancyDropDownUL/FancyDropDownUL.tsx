@@ -1,18 +1,18 @@
 import React, { useEffect, useRef } from 'react';
 import { animated, useSpring } from '@react-spring/web';
 
-import { TThemeTypes } from '@/types/TThemeTypes';
 import { TLayer } from '@/types/TLayer';
 import { TBorderRadiusSizes } from '@/types/TBorderRadiusSizes';
 
 import { StyledUL, WrapperUL } from './FancyDropDownUL.style';
+import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
 export interface IFancyUL {
   children: React.ReactNode;
   width?: string;
   isOpen?: boolean;
   alignHorizontal?: 'left' | 'center' | 'right';
   alignVertical?: 'top' | 'center' | 'bottom';
-  themeType?: TThemeTypes;
+  themeType?: TThemeTypesNotTransparent;
   layer?: TLayer;
   $rouned?: TBorderRadiusSizes;
 }

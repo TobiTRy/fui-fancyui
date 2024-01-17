@@ -3,6 +3,7 @@ import generateColorSteps from './utils/generateColorSteps';
 import { isColorValid } from '@/utils//validations/isColorValid';
 import { TThemeTypes } from '@/types/TThemeTypes';
 import validateColorSteps from '@/design/theme/generateThemeColor/utils/validateColorSteps';
+import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
 
 const themeColors = {
   primary: '#131825',
@@ -29,7 +30,7 @@ export function initialGenerateUiColors() {
     // generate the color steps for the color
     const generatedColor = generateColorSteps({
       themeType: color as TThemeTypes,
-      color: themeColors[color as TThemeTypes],
+      color: themeColors[color as TThemeTypesNotTransparent],
       pimaryColor: themeColors.secondary,
     });
     uiColors = {
@@ -47,7 +48,7 @@ export const regenerateUiColors = (isDarkTheme: boolean) => {
     // generate the color steps for the color
     const generatedColor = generateColorSteps({
       themeType: color as TThemeTypes,
-      color: uiColors[color as TThemeTypes]['0'],
+      color: uiColors[color as TThemeTypesNotTransparent]['0'],
       pimaryColor: isDarkTheme ? themeColors.primary : themeColors.secondary, // if the theme is dark, the primary color is the secondary color
     });
 
@@ -61,7 +62,7 @@ export const regenerateUiColors = (isDarkTheme: boolean) => {
 // this function updates the theme colors with a incomming object
 // { 'primary': '#131825', 'accent': '#F17C12', 'secondary': '#f0f0ef' }
 export type IUiColorPops = {
-  [key in TThemeTypes]?: string | object;
+  [key in TThemeTypesNotTransparent]?: string | object;
 };
 // this function updates the theme colors with a incomming object and generates the new colors
 export const updateThemeColors = (colorObject: IUiColorPops) => {
@@ -69,7 +70,7 @@ export const updateThemeColors = (colorObject: IUiColorPops) => {
 
   // check if the color is valid
   for (const colorType in colorObject) {
-    const colorTypedkey = colorType as TThemeTypes;
+    const colorTypedkey = colorType as TThemeTypesNotTransparent;
 
     //  when the user only provides a color string and not a object
     // like { 'primary': '#131825' } instead of complete theme { 'primary': { '0': '#131825' } }
@@ -81,7 +82,7 @@ export const updateThemeColors = (colorObject: IUiColorPops) => {
         break;
       }
 
-      // accentDarken should not provided by the user
+      // accentDarken should not provided by the user%
       if (colorType !== 'accentDarken' && colorObject[colorTypedkey] !== undefined) {
         // update the theme color with the new color
         const generatedColorSteps = generateColorSteps({

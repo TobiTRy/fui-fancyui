@@ -9,6 +9,7 @@ import { TThemeTypes } from '@/types/TThemeTypes';
 import { TLayer } from '@/types/TLayer';
 import { TTheme } from '@/types/TTheme';
 import { TTextAlignLC } from '@/types/TTextAlignLC';
+import { TThemeTypesNotTransparent } from 'lib';
 
 // Props for the SearchBar component
 interface ISearchBar {
@@ -16,7 +17,7 @@ interface ISearchBar {
   align?: TTextAlignLC;
   activeHandler?: (isActive: boolean) => void;
   handler?: (value: string) => void;
-  themeType?: TThemeTypes;
+  themeType?: TThemeTypesNotTransparent;
   layer?: TLayer;
   placerholder?: string;
 }

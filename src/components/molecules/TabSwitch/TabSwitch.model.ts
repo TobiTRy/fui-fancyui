@@ -8,11 +8,12 @@ import {
 import { TSpacings } from '@/types/TSpacings';
 import { IActiveSwitchIndicator } from '@/components/atoms/SwitchActiveIndicator/SwitchActiveIndicator';
 import { TComponentSizes } from '@/types/TComponentSizes';
+import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
 
 export interface ITabSwitchProps {
   wide?: boolean;
   size?: TComponentSizes;
-  textColor?: TThemeTypes;
+  textColor?: TThemeTypesNotTransparent;
   themeType?: TThemeTypes;
   layer?: TLayer;
   disabled?: boolean;
@@ -25,6 +26,6 @@ export interface ITabSwitchProps {
   id?: string;
   currentSelect?: string;
   iconAlign?: 'left' | 'right';
-  activeColor?: TThemeTypes;
+  activeColor?: TThemeTypesNotTransparent;
   handler?: (value: string) => void;
 }

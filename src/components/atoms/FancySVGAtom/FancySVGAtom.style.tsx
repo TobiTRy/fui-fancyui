@@ -2,16 +2,16 @@ import { styled } from 'styled-components';
 
 import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent';
 import { TTheme } from '@/types/TTheme';
-import { TThemeTypes } from '@/types/TThemeTypes';
 import { sizes } from '@/components/atoms/FancySVGAtom/sizeSettings';
 import IStyledPrefixAndOmiter from '@/types/IStyledPrefixAndOmiter';
 import { ISVGAtom } from '@/components/atoms/FancySVGAtom/FancySVGAtom.model';
+import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
 
 interface ICalcIconColor {
   theme: TTheme;
   $isActive?: boolean;
   $errorMessage?: string | undefined;
-  $themeType: TThemeTypes;
+  $themeType: TThemeTypesNotTransparent;
   $layer?: number;
 }
 // calculate the color of the icon based on the props and the theme

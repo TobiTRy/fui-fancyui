@@ -2,10 +2,10 @@ import { CSSProp } from 'styled-components';
 
 import { TSize } from '@/components/molecules/TextAvatar/utils/getSize';
 import { TLayer } from '@/types/TLayer';
-import { TThemeTypes } from '@/types/TThemeTypes';
 import { TTypography } from '@/types/TTypography';
 
 import { TgetBorderRadiusViaSize } from '@/design/designFunctions/getBorderRadiusViaSize';
+import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
 
 export type TTextAvatarProps = {
   text?: string;
@@ -13,7 +13,7 @@ export type TTextAvatarProps = {
   size?: TSize | string;
   color?: string;
   backgroundColor?: string;
-  themeType?: TThemeTypes;
+  themeType?: TThemeTypesNotTransparent;
   layer?: TLayer;
   externalStyle?: CSSProp;
   fontSizes?: TTypography;

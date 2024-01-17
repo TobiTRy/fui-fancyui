@@ -1,8 +1,8 @@
 import Color from 'color';
 
-import { TThemeTypes } from '@/types/TThemeTypes';
 import { TLayer } from '@/types/TLayer';
 import themeStore from '../../theme/themeStore/themeStore';
+import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
 
 const filpColor = (isLightColor: boolean) => {
   const isDarkTheme = themeStore.getState().isDarkTheme;
@@ -17,7 +17,7 @@ const filpColor = (isLightColor: boolean) => {
   }
 };
 
-export default function flipThemeColor(color: TThemeTypes, layer?: TLayer) {
+export default function flipThemeColor(color: TThemeTypesNotTransparent, layer?: TLayer) {
   const theme = themeStore.getState().theme;
 
   // Check if the current color is light or dark
