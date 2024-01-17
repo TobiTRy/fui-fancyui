@@ -2,7 +2,7 @@ import Color from 'color';
 import { css } from 'styled-components';
 
 import checkThemeOrColor from '../checkThemeOrColor/checkThemeOrColor';
-import { TthemeColorGroup } from '../../theme/designColor';
+import { TthemeColorGroup } from '../../theme/generateThemeColor/generateThemeColor';
 import { TTheme } from '@/types/TTheme';
 import { TThemeTypes } from '@/types/TThemeTypes';
 

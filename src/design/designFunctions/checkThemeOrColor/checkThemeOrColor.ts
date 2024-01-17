@@ -1,4 +1,4 @@
-import { TthemeColorGroup } from '../../theme/designColor';
+import { TthemeColorGroup } from '../../theme/generateThemeColor/generateThemeColor';
 import isColorValid from '../../../utils/validations/isColorValid/isColorValid';
 
 //this check if a incomming color is a theme or a color and returns the color
