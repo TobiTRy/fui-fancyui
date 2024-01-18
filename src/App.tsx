@@ -245,7 +245,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <FancyThemeProvider theme={dummyTheme}>
+        <FancyThemeProvider>
           <GlobalStyle theme={theme} />
           <FancySwipeUpModal appendToDomID="modal" />
           <FancyModal appendToDomID="modal" />
