@@ -76,7 +76,7 @@ const OwnUl = styled.ul<{ theme: TTheme }>`
 const dummyTheme = {
   colors: {
     primary: {
-      '0': '#06892EFF',
+      '0': '#023b13',
       '1': '#079833FF',
       '2': '#07AB39FF',
       '3': '#08BA3EFF',
