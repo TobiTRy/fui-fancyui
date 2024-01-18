@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import { CSSProp, css } from 'styled-components';
 
 import useFancyHandyNavStore from './FancyHandyNav.store';
-import { TThemeTypes } from '@/types/TThemeTypes';
 import { TLayer } from '@/types/TLayer';
 
 import FancyBottomBarIcon, { IFancyBottomBarIcon } from '@/components/templates/FancyBottomBarIcon/FancyBottomBarIcon';

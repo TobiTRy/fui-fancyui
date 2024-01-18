@@ -4,7 +4,6 @@ import { styled, css } from 'styled-components';
 import { FancyTextInput } from '@/components/organisms/FancyTextInput';
 import { SVGSearch } from '@/components/icons/SVGSearch';
 import { FancySVGAtom } from '@/components/atoms/FancySVGAtom';
-import { TThemeTypes } from '@/types/TThemeTypes';
 
 import { TLayer } from '@/types/TLayer';
 import { TTheme } from '@/types/TTheme';
