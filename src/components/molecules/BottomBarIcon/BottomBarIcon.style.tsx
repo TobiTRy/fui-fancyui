@@ -1,16 +1,16 @@
 import { styled } from 'styled-components';
 
-import { TThemeTypes } from '@/types/TThemeTypes';
 import { TLayer } from '@/types/TLayer';
 import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponent';
 import { disabledStyle } from '@/design/designFunctions/disabledStyle/disableStyle';
 import { TTheme } from '@/types/TTheme';
+import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
 
 interface IContentWrapper {
   $isActive?: boolean;
   $disabled?: boolean;
   theme: TTheme;
-  $themeType?: TThemeTypes;
+  $themeType?: TThemeTypesNotTransparent;
   $layer?: TLayer;
 }
 

@@ -2,21 +2,21 @@ import { useEffect } from 'react';
 import { CSSProp, css } from 'styled-components';
 
 import useFancyHandyNavStore from './FancyHandyNav.store';
-import { TThemeTypes } from '@/types/TThemeTypes';
 import { TLayer } from '@/types/TLayer';
 
 import FancyBottomBarIcon, { IFancyBottomBarIcon } from '@/components/templates/FancyBottomBarIcon/FancyBottomBarIcon';
 import { RawNav } from '@/components/atoms/RawNav';
 import { BottomBar } from '@/components/molecules/BottomBar';
 import { SwitchList } from '@/components/molecules/SwitchList';
+import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
 
 interface IFancyHandyNav {
   items?: IFancyBottomBarIcon[];
   isVisible?: boolean;
   wichIndexIsActive?: string;
-  themeType?: TThemeTypes;
-  themeTypeIcons?: TThemeTypes;
-  themeTypeSwitchList?: TThemeTypes;
+  themeType?: TThemeTypesNotTransparent;
+  themeTypeIcons?: TThemeTypesNotTransparent;
+  themeTypeSwitchList?: TThemeTypesNotTransparent;
   layer?: TLayer;
   outlined?: boolean;
   outlinedBackgroundStrength?: number;

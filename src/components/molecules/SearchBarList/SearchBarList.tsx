@@ -1,16 +1,16 @@
 import React from 'react';
 
 import { Card } from '@/components/molecules/Card';
-import { TThemeTypes } from '@/types/TThemeTypes';
 import { TLayer } from '@/types/TLayer';
 
+import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
 import { InnerCard, StyledSearchBarList } from './SearchBarList.style';
 
 // Props for the SearchBarList component
 interface ISearchBarList {
   isActive?: boolean;
   children?: React.ReactNode;
-  themeType?: TThemeTypes;
+  themeType?: TThemeTypesNotTransparent;
   layer?: TLayer;
 }
 // The SearchBarList component

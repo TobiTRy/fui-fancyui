@@ -44,10 +44,6 @@ function lightenColors({ pimaryColor, themeType, color }: IGenerateColorSteps) {
       const mappedDegreeSteps = degreeStepsAccent.map((step) => -step);
       return generateColorVariations(color, mappedDegreeSteps);
     }
-    case 'transparent': {
-      return degreeSteps.map(() => 'transparent');
-    }
-
     default:
       return generateColorVariations(color, modifiedForBirigthnesDegreeSteps);
   }

@@ -1,15 +1,15 @@
 import { useEffect, useMemo, useState } from 'react';
 
+import { IDateArray } from '@/components/molecules/RangeCalendar/IDateArray.model';
 import { TLayer } from '@/types/TLayer';
 import Day from './utils/Interfaces/IDay.model';
-import { IDateWithExternalState, IExternalMonthWithDays } from './utils/Interfaces/IExternalMonthWithDays.model';
-import { IDateArray } from '@/components/molecules/RangeCalendar/IDateArray.model';
 import { IDisabledDateSettings } from './utils/Interfaces/IDisableDateSettings.model';
+import { IDateWithExternalState, IExternalMonthWithDays } from './utils/Interfaces/IExternalMonthWithDays.model';
 
-import { TThemeTypes } from '@/types/TThemeTypes';
 import { Typography } from '@/components/atoms/Typography';
 
 import { DateNumberWithStatus } from '@/components/molecules/DateNumberWithStatus';
+import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
 import { DateNumber, DaysContainer } from './MonthWithDays.style';
 import createDaysOfMonth from './utils/createDaysOfMonth';
 
@@ -21,7 +21,7 @@ interface IMonthWithDays {
   selectedDates: IDateArray;
   externalMonthWithDays?: IExternalMonthWithDays;
   disabledDateSetting?: IDisabledDateSettings;
-  themeType?: TThemeTypes;
+  themeType?: TThemeTypesNotTransparent;
   layer?: TLayer;
 }
 // --------------------------------------------------------------------------- //

@@ -6,8 +6,8 @@ export default function clampLayer(layer: number): TLayer {
     return 0;
   }
   // limit layer to maximal 10
-  if (layer > 10) {
-    return 10;
+  if (layer > 9) {
+    return 9;
   }
   // return layer as TLayer
   return layer as TLayer;

@@ -1,12 +1,12 @@
 import React from 'react';
 
-import { TThemeTypes } from '@/types/TThemeTypes';
 import { TLayer } from '@/types/TLayer';
 import { MenuContainer } from './MenuList.style';
+import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
 
 export interface MenuListProps {
   children?: React.ReactNode;
-  themeType?: TThemeTypes;
+  themeType?: TThemeTypesNotTransparent;
   layer?: TLayer;
   outlined?: boolean;
 }

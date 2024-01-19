@@ -1,8 +1,8 @@
 import React, { forwardRef, useState } from 'react';
 
-import { TThemeTypes } from '@/types/TThemeTypes';
 import { TLayer } from '@/types/TLayer';
 import { StyledSingleInput } from './SingleInput.style';
+import { TThemeTypes } from '@/types/TThemeTypes';
 
 // --------------------------------------------------------------------------- //
 // --------- A Single Letter/NumberInput for a Verification process ---------- //

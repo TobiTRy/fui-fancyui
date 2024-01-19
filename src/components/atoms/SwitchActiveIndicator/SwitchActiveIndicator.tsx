@@ -1,12 +1,12 @@
-import { TThemeTypes } from '@/types/TThemeTypes';
-import { TLayer } from '@/types/TLayer';
-import { ActiveSwitchIndicator, Wrapper } from './SwitchActiveIndicator.style';
 import { TBorderRadiusSizes } from '@/types/TBorderRadiusSizes';
+import { TLayer } from '@/types/TLayer';
 import { TSpacings } from '@/types/TSpacings';
+import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
+import { ActiveSwitchIndicator, Wrapper } from './SwitchActiveIndicator.style';
 
 export interface IActiveSwitchIndicator {
   itemNumber: number;
-  themeType?: TThemeTypes;
+  themeType?: TThemeTypesNotTransparent;
   layer?: TLayer;
   tabSpacing?: TSpacings;
   type?: 'bolb' | 'underline' | 'topline';

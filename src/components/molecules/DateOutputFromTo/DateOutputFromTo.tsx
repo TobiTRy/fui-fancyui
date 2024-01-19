@@ -1,11 +1,11 @@
 import { DateOutput } from '@/components/atoms/DateOutput';
 import { FancyLine } from '@/components/atoms/FancyLine';
 
-import { TThemeTypes } from '@/types/TThemeTypes';
 import { TLayer } from '@/types/TLayer';
 
 import { StyledDateOutputFromTo, VRWrapper } from './DateOutputFromTo.style';
 import { themeStore } from '@/design/theme/themeStore';
+import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
 
 // Define the props for the DateOutputFromTo component
 interface IDateOutputFromTo {
@@ -13,7 +13,7 @@ interface IDateOutputFromTo {
   dateTo?: Date;
   handler?: (wich: 'from' | 'to') => void;
   whichIsSelecting?: 'from' | 'to';
-  themeType?: TThemeTypes;
+  themeType?: TThemeTypesNotTransparent;
   layer?: TLayer;
 }
 // --------------------------------------------------------------------------- //

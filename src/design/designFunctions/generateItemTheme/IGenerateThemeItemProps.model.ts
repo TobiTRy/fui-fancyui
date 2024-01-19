@@ -1,8 +1,9 @@
 import { TBorderRadiusSizes } from '@/types/TBorderRadiusSizes';
-import { TThemeTypes } from '@/types/TThemeTypes';
+
 import { TLayer } from '@/types/TLayer';
-import IStyledPrefixAndOmiter from '../../../types/IStyledPrefixAndOmiter';
+import IStyledPrefixAndOmiter from '@/types/IStyledPrefixAndOmiter';
 import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
+import { TThemeTypes } from '@/types/TThemeTypes';
 
 export type IGenerateThemeItemProps = {
   outlined?: boolean;

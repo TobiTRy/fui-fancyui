@@ -3,7 +3,7 @@ import { styled } from 'styled-components';
 import { getTextColor } from '@/design/designFunctions/colorCalculatorForComponent';
 import { TLayer } from '@/types/TLayer';
 import { TTheme } from '@/types/TTheme';
-import { TThemeTypes } from '@/types/TThemeTypes';
+import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
 
 export const Wrapper = styled.div`
   position: relative;
@@ -21,7 +21,7 @@ export const LogoWrapper = styled.div`
   height: 100%;
 `;
 
-export const StyledHeading = styled.a<{ theme: TTheme; $themeType?: TThemeTypes; $layer?: TLayer }>`
+export const StyledHeading = styled.a<{ theme: TTheme; $themeType?: TThemeTypesNotTransparent; $layer?: TLayer }>`
   display: flex;
   gap: ${({ theme }) => theme.spacing.sm};
   align-items: center;

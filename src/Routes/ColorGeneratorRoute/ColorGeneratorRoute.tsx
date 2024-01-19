@@ -24,7 +24,7 @@ export default function ColorGeneratorRoute() {
           return (
             <div
               key={index}
-              style={{ width: '100px', height: '100px', backgroundColor: theme.colors.primary![color] }}
+              style={{ width: '100px', height: '100px', backgroundColor: theme.colors.primary[color] }}
             ></div>
           );
         })}
@@ -34,7 +34,7 @@ export default function ColorGeneratorRoute() {
           return (
             <div
               key={index}
-              style={{ width: '100px', height: '100px', backgroundColor: theme.colors.accent![color] }}
+              style={{ width: '100px', height: '100px', backgroundColor: theme.colors.accent[color] }}
             ></div>
           );
         })}
@@ -44,7 +44,7 @@ export default function ColorGeneratorRoute() {
           return (
             <div
               key={index}
-              style={{ width: '100px', height: '100px', backgroundColor: theme.colors.accent![color] }}
+              style={{ width: '100px', height: '100px', backgroundColor: theme.colors.accent[color] }}
             ></div>
           );
         })}
@@ -55,7 +55,7 @@ export default function ColorGeneratorRoute() {
           return (
             <div
               key={index}
-              style={{ width: '100px', height: '100px', backgroundColor: theme.colors.secondary![color] }}
+              style={{ width: '100px', height: '100px', backgroundColor: theme.colors.secondary[color] }}
             ></div>
           );
         })}
@@ -65,7 +65,7 @@ export default function ColorGeneratorRoute() {
           return (
             <div
               key={index}
-              style={{ width: '100px', height: '100px', backgroundColor: theme.colors.warning![color] }}
+              style={{ width: '100px', height: '100px', backgroundColor: theme.colors.warning[color] }}
             ></div>
           );
         })}
@@ -75,7 +75,7 @@ export default function ColorGeneratorRoute() {
           return (
             <div
               key={index}
-              style={{ width: '100px', height: '100px', backgroundColor: theme.colors.error![color] }}
+              style={{ width: '100px', height: '100px', backgroundColor: theme.colors.error[color] }}
             ></div>
           );
         })}
@@ -85,7 +85,7 @@ export default function ColorGeneratorRoute() {
           return (
             <div
               key={index}
-              style={{ width: '100px', height: '100px', backgroundColor: theme.colors.success![color] }}
+              style={{ width: '100px', height: '100px', backgroundColor: theme.colors.success[color] }}
             ></div>
           );
         })}

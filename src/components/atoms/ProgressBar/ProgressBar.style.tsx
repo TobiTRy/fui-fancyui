@@ -3,11 +3,11 @@ import { styled } from 'styled-components';
 import { TTheme } from '@/types/TTheme';
 import { TLayer } from '@/types/TLayer';
 import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent';
-import { TThemeTypes } from '@/types/TThemeTypes';
+import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
 
 interface IProgressBarContainerProps {
   theme: TTheme;
-  $themeType?: TThemeTypes;
+  $themeType?: TThemeTypesNotTransparent;
   $layer?: TLayer;
 }
 // Define the styled component for the progress bar container

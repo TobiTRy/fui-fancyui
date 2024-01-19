@@ -16,20 +16,18 @@ npm install @mrtryy/fancyuilibary
 npm install styled-components
 ```
 
-`FancyUILibary` is crafted with `StyledComponents` and it relies on the `ThemeProvider` for its vibrant colors. 🌈
+`FancyUILibary` is crafted with `StyledComponents` and it relies on `FancyThemeProvider` for its vibrant colors. 🌈
 
-## Step 2: Set Up the ThemeProvider with Global Style 🎨
+## Step 2: Integrate FancyThemeProvider 🎨
 
-Now, let's set the stage with the `ThemeProvider`, and integrate the `GlobalStyle` for a consistent look across your application:
+Integrate the `FancyThemeProvider` in your application to manage the theme using the provided `dummyTheme` variable:
 
 ```javascript
-import { themeStore } from "@mrtryy/fancyuilibary";
-import { ThemeProvider, createGlobalStyle } from "styled-components";
-import { TTheme } from '@mrtryy/fancyuilibary';
-import { scrollbar }  from '@mrtryy/fancyuilibary'; /
+import { FancyThemeProvider } from '@mrtryy/fancyuilibary';
+import { createGlobalStyle } from 'styled-components';
 
 // Define your Global Style
-const GlobalStyle = createGlobalStyle<{ theme: TTheme; }>`
+const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     padding: 0;
@@ -37,29 +35,30 @@ const GlobalStyle = createGlobalStyle<{ theme: TTheme; }>`
     color: ${({ theme }) => theme.colors.secondary[0]};
     font-family: DMSans, Helvetica, Sans-Serif;
   }
-  ${scrollbar};
+  // Add additional global styles as needed
 `;
 
-// ThemeStoreProvider with integrated Global Style
-interface IThemeStoreProvider {
-  children?: React.ReactNode;
-}
+const dummyTheme = {
+  // Theme configuration goes here
+  // ...
+};
 
-export default function ThemeStoreProvider({ children }: IThemeStoreProvider) {
-  const theme = themeStore((state) => state.theme);
+export default function App({ children }) {
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle theme={theme} />
+    <FancyThemeProvider theme={dummyTheme}>
+      <GlobalStyle />
       {children}
-    </ThemeProvider>
+    </FancyThemeProvider>
   );
 }
 ```
 
+In this setup, the `FancyThemeProvider` is directly using the `dummyTheme` variable as its theme, ensuring a consistent and appealing UI design across your application.
+
 ## Step 3: Creating Fancy Applications 🌟
 
-Let's bring our Fancy UI to life! 🎉
+With `FancyThemeProvider` integrated using `dummyTheme`, you're all set to start building your Fancy UI-powered applications! 🎉
 
 ## Special Setup for Next.js (v13+)
 
-If you're using Next.js (v13+), there are some additional steps required. Check out the [Next.js Setup Guide for Fancy UI Library](./?path=/docs/stories-setupnext--docs) for detailed instructions.
+For Next.js (v13+) users, please refer to the [Next.js Setup Guide for Fancy UI Library](./?path=/docs/stories-setupnext--docs) for detailed instructions.

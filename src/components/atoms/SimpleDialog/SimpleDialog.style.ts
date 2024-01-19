@@ -3,11 +3,15 @@ import { getColorsForComponent } from '@/design/designFunctions/colorCalculatorF
 
 import { TLayer } from '@/types/TLayer';
 import { TTheme } from '@/types/TTheme';
-import { TThemeTypes } from '@/types/TThemeTypes';
 import { animated } from '@react-spring/web';
+import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
 
 // Define the styled component for the dialog
-export const StyledDialog = styled(animated.div)<{ theme: TTheme; $themeType?: TThemeTypes; $layer?: TLayer }>`
+export const StyledDialog = styled(animated.div)<{
+  theme: TTheme;
+  $themeType?: TThemeTypesNotTransparent;
+  $layer?: TLayer;
+}>`
   position: fixed;
   top: 50%;
   left: 50%;

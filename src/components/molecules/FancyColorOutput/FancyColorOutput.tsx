@@ -90,10 +90,13 @@ export default function FancyColorOutput(props: IFancyColorOutput) {
       {/* Switch Button this switches the color format */}
       <FancyButton
         onClick={handleFormatChange}
-        outlined={true}
         wide={true}
         size="sm"
-        themeType="accent"
+        themeType="primary"
+        layer={3}
+        externalStyle={{
+          height: 'auto',
+        }}
         icon={
           <WrapperSVG>
             <SVGDoubleChevron />

@@ -1,7 +1,8 @@
 import { InputHTMLAttributes } from 'react';
-import { TThemeTypes } from '@/types/TThemeTypes';
+
 import { TLayer } from '@/types/TLayer';
 import { TTextAlignLC } from '@/types/TTextAlignLC';
+import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
 
 // the native props of the input element excluding the type attribute
 export type TNativeAttrs = Omit<InputHTMLAttributes<HTMLInputElement>, 'type' | 'value'>;
@@ -9,7 +10,7 @@ export type TNativeAttrs = Omit<InputHTMLAttributes<HTMLInputElement>, 'type' | 
 // the props of the input element
 export type TDateInputProps = {
   value?: string;
-  themeType?: TThemeTypes;
+  themeType?: TThemeTypesNotTransparent;
   layer?: TLayer;
   align?: TTextAlignLC;
   type?: 'week' | 'date' | 'month' | 'time' | 'datetime-local' | 'datetime';

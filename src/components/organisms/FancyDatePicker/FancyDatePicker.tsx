@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
 import { TLayer } from '@/types/TLayer';
-import { TThemeTypes } from '@/types/TThemeTypes';
 import { IDisabledDateSettings } from '@/components/molecules/MonthWithDays/utils/Interfaces/IDisableDateSettings.model';
 
 import { YearSelector } from '@/components/atoms/YearSelector';
@@ -12,6 +11,7 @@ import { DateOutputFromTo } from '@/components/molecules/DateOutputFromTo';
 import { IDateArray } from '@/components/molecules/RangeCalendar/IDateArray.model';
 
 import { DatePickerContainer, WrapperWeekdays, WrapperYearSelector } from './FancyDatePicker.style';
+import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
 
 interface IFancyDatePicker {
   rangeCalendar?: boolean;
@@ -19,7 +19,7 @@ interface IFancyDatePicker {
   selectedYear?: number;
   disabledDateSetting?: IDisabledDateSettings;
   externalData?: IExternalYearWithMonths;
-  themeType?: TThemeTypes;
+  themeType?: TThemeTypesNotTransparent;
   layer?: TLayer;
 }
 // --------------------------------------------------------------------------- //

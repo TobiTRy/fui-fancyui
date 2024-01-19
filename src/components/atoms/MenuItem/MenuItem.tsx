@@ -1,15 +1,15 @@
 import React from 'react';
 
-import { TThemeTypes } from '@/types/TThemeTypes';
 import { TLayer } from '@/types/TLayer';
 import { StyledMenuItem } from './MenuItem.style';
+import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
 
 type HTMLButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & { as?: 'button' };
 type HTMLAnchorProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & { as: 'a' };
 
 type MenueItemProps = {
   children?: React.ReactNode;
-  themeType?: TThemeTypes;
+  themeType?: TThemeTypesNotTransparent;
   layer?: TLayer;
 } & (HTMLButtonProps | HTMLAnchorProps);
 // --------------------------------------------------------------------------- //

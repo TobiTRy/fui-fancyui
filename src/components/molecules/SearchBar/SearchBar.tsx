@@ -4,11 +4,11 @@ import { styled, css } from 'styled-components';
 import { FancyTextInput } from '@/components/organisms/FancyTextInput';
 import { SVGSearch } from '@/components/icons/SVGSearch';
 import { FancySVGAtom } from '@/components/atoms/FancySVGAtom';
-import { TThemeTypes } from '@/types/TThemeTypes';
 
 import { TLayer } from '@/types/TLayer';
 import { TTheme } from '@/types/TTheme';
 import { TTextAlignLC } from '@/types/TTextAlignLC';
+import { TThemeTypesNotTransparent } from 'lib';
 
 // Props for the SearchBar component
 interface ISearchBar {
@@ -16,7 +16,7 @@ interface ISearchBar {
   align?: TTextAlignLC;
   activeHandler?: (isActive: boolean) => void;
   handler?: (value: string) => void;
-  themeType?: TThemeTypes;
+  themeType?: TThemeTypesNotTransparent;
   layer?: TLayer;
   placerholder?: string;
 }

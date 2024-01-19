@@ -1,5 +1,5 @@
 import { TLayer } from '@/types/TLayer';
-import { TThemeTypes } from '@/types/TThemeTypes';
+import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
 
 export type IRange = { start?: boolean; end?: boolean; inRange?: boolean };
 
@@ -10,6 +10,6 @@ export interface IDateNumberAtom {
   onClick?: () => void;
   range?: IRange;
   isCurrentDay?: boolean;
-  themeType?: TThemeTypes;
+  themeType?: TThemeTypesNotTransparent;
   layer?: TLayer;
 }

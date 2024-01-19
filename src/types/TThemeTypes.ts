@@ -1,3 +1,3 @@
-import { TUiColorsType } from './TUiColorsType';
+import { TUiColorsTypeObject } from './TUiColorsTypeObject';
 
-export type TThemeTypes = keyof TUiColorsType;
+export type TThemeTypes = keyof TUiColorsTypeObject | 'transparent';

@@ -1,15 +1,15 @@
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
-import { TThemeTypes } from '@/types/TThemeTypes';
 import { TLayer } from '@/types/TLayer';
 import { TTheme } from '@/types/TTheme';
 import {
   getBackgroundColor,
   getTextColor,
 } from '@/design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponent';
+import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
 
 type StyledMenuProps = {
-  $themeType?: TThemeTypes;
+  $themeType?: TThemeTypesNotTransparent;
   $layer?: TLayer;
   theme: TTheme;
   as?: 'a' | 'button';

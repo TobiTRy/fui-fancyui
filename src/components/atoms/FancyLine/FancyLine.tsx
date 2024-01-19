@@ -5,13 +5,13 @@ import { TLayer } from '@/types/TLayer';
 import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponent';
 import IStyledPrefixAndPicker from '@/types/IStyledPrefixAndPicker';
 import { TTheme } from '@/types/TTheme';
-import { TThemeTypes } from '@/types/TThemeTypes';
+import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
 
 type IFancyLine = {
   direction?: 'horizontal' | 'vertical';
   thickness?: string;
   margin?: string;
-  themeType?: TThemeTypes;
+  themeType?: TThemeTypesNotTransparent;
   layer?: TLayer;
 } & HTMLAttributes<HTMLHRElement>;
 // --------------------------------------------------------------------------- //

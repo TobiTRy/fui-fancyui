@@ -2,9 +2,9 @@ import React from 'react';
 import { styled } from 'styled-components';
 
 import { TLayer } from '@/types/TLayer';
-import { TThemeTypes } from '@/types/TThemeTypes';
 import { TTheme } from '@/types/TTheme';
 import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponent';
+import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
 
 // --------------------------------------------------------------------------- //
 // ----------- The Modal Atom the displays a simple Mobile Modal ------------- //
@@ -13,7 +13,7 @@ interface ISwipeUpContainer {
   children: React.ReactNode;
   style?: { height: string };
   isScalable?: boolean;
-  themeType?: TThemeTypes;
+  themeType?: TThemeTypesNotTransparent;
   layer?: TLayer;
 }
 export default function SwipeUpContainer({ children, isScalable = true, style, themeType, layer }: ISwipeUpContainer) {
@@ -35,7 +35,7 @@ export default function SwipeUpContainer({ children, isScalable = true, style, t
 interface IStyledSwipeUpContainer {
   $giveSpace: boolean;
   theme: TTheme;
-  $themeType?: TThemeTypes;
+  $themeType?: TThemeTypesNotTransparent;
   $layer?: TLayer;
 }
 const StyledSwipeUpContainer = styled.div<IStyledSwipeUpContainer>`

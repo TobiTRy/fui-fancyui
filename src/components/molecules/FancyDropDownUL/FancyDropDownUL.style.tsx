@@ -1,6 +1,5 @@
 import { styled, css } from 'styled-components';
 
-import { TThemeTypes } from '@/types/TThemeTypes';
 import { TTheme } from '@/types/TTheme';
 import { TLayer } from '@/types/TLayer';
 import IStyledPrefixAndPicker from '@/types/IStyledPrefixAndPicker';
@@ -8,6 +7,7 @@ import { calcBorderRadiusOnAlignment } from '@/design/designFunctions/calcBorder
 import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponent';
 import { boxShadow } from '@/design/designFunctions/shadows/shadows';
 import { IFancyUL } from './FancyDropDownUL';
+import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
 
 // --------------------------------------------------------------------------- //
 // ------- the generator function for the Wrapper of the UL ------------------ //
@@ -34,7 +34,7 @@ export const WrapperUL = styled.div<IStyledUL>`
 // --------------------------------------------------------------------------- //
 // ------------------- the UL for the items and the style -------------------- //
 // --------------------------------------------------------------------------- //
-export const StyledUL = styled.ul<{ theme: TTheme; $themeType?: TThemeTypes; $layer?: TLayer }>`
+export const StyledUL = styled.ul<{ theme: TTheme; $themeType?: TThemeTypesNotTransparent; $layer?: TLayer }>`
   display: flex;
   flex-direction: column;
   box-sizing: border-box;

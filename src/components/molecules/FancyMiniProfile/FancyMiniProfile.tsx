@@ -1,18 +1,18 @@
 import { TLayer } from '@/types/TLayer';
-import { TThemeTypes } from '@/types/TThemeTypes';
 
 import { TComponentSizes } from '@/types/TComponentSizes';
 import { FancyProfilePicture } from '@/components/atoms/FancyProfilePicture';
 import { sizeSettings } from '@/components/molecules/FancyMiniProfile/sizeSettings';
 import { Chip } from '@/components/molecules/Chip';
 import { generateChipStyle } from '@/components/molecules/FancyMiniProfile/FancyMiniProfile.style';
+import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
 
 type TFancyMiniprofile = {
   title?: string;
   subTitle?: string;
   src?: string;
   size?: TComponentSizes;
-  themeType?: TThemeTypes;
+  themeType?: TThemeTypesNotTransparent;
   layer?: TLayer;
   shadow?: boolean;
   alignImage?: 'left' | 'right';

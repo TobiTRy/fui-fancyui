@@ -1,11 +1,15 @@
 import { css, styled } from 'styled-components';
 
-import { TThemeTypes } from '@/types/TThemeTypes';
 import { TLayer } from '@/types/TLayer';
 import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent';
 import { TTheme } from '@/types/TTheme';
+import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
 
-export const StyledYearSelector = styled.div<{ theme: TTheme; $themeType?: TThemeTypes; $layer?: TLayer }>`
+export const StyledYearSelector = styled.div<{
+  theme: TTheme;
+  $themeType?: TThemeTypesNotTransparent;
+  $layer?: TLayer;
+}>`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -14,7 +18,7 @@ export const StyledYearSelector = styled.div<{ theme: TTheme; $themeType?: TThem
     $themeType ? theme.colors[$themeType][$layer ?? 0] : theme.colors.secondary[0]};
 `;
 
-export const StyledButton = styled.button<{ theme: TTheme; $themeType?: TThemeTypes; $layer?: TLayer }>`
+export const StyledButton = styled.button<{ theme: TTheme; $themeType?: TThemeTypesNotTransparent; $layer?: TLayer }>`
   display: flex;
   justify-content: center;
   align-items: center;

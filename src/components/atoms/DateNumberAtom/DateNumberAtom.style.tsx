@@ -3,11 +3,11 @@ import { css, styled } from 'styled-components';
 import { disabledStyle } from '@/design/designFunctions/disabledStyle/disableStyle';
 import { getTextColor } from '@/design/designFunctions/colorCalculatorForComponent';
 
-import { TThemeTypes } from '@/types/TThemeTypes';
 import { TLayer } from '@/types/TLayer';
 import { TTheme } from '@/types/TTheme';
 
 import { IRange } from './IDateNumberAtom.model';
+import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
 
 // --------------------------------------------------------------------------- //
 // ----------------- The Style for one Day with diferent sates --------------- //
@@ -16,7 +16,7 @@ interface IStyledDay {
   $range?: IRange;
   $isCurrentDay?: boolean;
   $selected?: boolean;
-  $themeType?: TThemeTypes;
+  $themeType?: TThemeTypesNotTransparent;
   $layer?: TLayer;
 }
 export const StyledDay = styled.button<IStyledDay & { theme: TTheme }>`

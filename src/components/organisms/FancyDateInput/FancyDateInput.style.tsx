@@ -4,12 +4,13 @@ import RawInput, { IRawInput } from '@/components/atoms/RawInput/RawInput';
 import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent';
 import { TLayer } from '@/types/TLayer';
 import { simpleColorTransition } from '@/design/designFunctions/simpleColorTransition';
-import { TThemeTypes } from '@/types/TThemeTypes';
+
 import { TDateInputProps } from '@/components/atoms/DateInput/TDateInput.model';
+import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
 
 interface IRawInputWrapper extends IRawInput {
   value?: string;
-  $themeType?: TThemeTypes;
+  $themeType?: TThemeTypesNotTransparent;
   $layer?: TLayer;
   $isActive?: boolean;
 }
