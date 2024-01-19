@@ -75,6 +75,13 @@ const meta = {
         type: 'boolean',
       },
     },
+    as: {
+      description:
+        'This prop will change the tag of the button to a different tag it can be used to get only the style as span an wrapp it like example with a next/link',
+      control: {
+        type: 'select',
+      },
+    },
   },
   tags: ['autodocs'],
 } satisfies Meta<typeof FancyButton>;

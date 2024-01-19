@@ -27,6 +27,7 @@ export type IFancyButtonProps = {
   icon?: React.ReactNode;
   fontVariant?: TTypography;
   noPadding?: boolean;
+  gap?: string;
 };
 
 // --------------------------------------------------------------------------- //
@@ -46,6 +47,7 @@ export default function FancyButton(props: IFancyButton) {
     noPadding,
     fontVariant,
     borderRadius,
+    gap,
     ...buttonProps
   } = {
     ...defaultProps,
@@ -73,7 +75,7 @@ export default function FancyButton(props: IFancyButton) {
       `}
       {...(buttonProps as IButtonProps)}
     >
-      <FancyContent direction={alignIcon}>
+      <FancyContent direction={alignIcon} gapBetweenIcon={gap}>
         {label && (
           <FancyContent.Title fontVariant={fontVariant ?? 'button'} themeType={buttonProps.textColor}>
             {label}
