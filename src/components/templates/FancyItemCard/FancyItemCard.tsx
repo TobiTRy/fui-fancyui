@@ -1,17 +1,10 @@
-import { TFancyImageWrapper } from '@/components/atoms/FancyImageWrapper';
-import { TTypography } from '@/components/atoms/Typography/Typography.model';
-import { FancyCard } from '@/components/templates/FancyCard';
 import { css } from 'styled-components';
 
-type TFancyItemCard = {
-  image?: TFancyImageWrapper;
-  title?: TTypography;
-  subtitle?: TTypography;
-  description?: TTypography;
-  externalStyle?: string;
-};
+import { FancyCard } from '@/components/templates/FancyCard';
+import { TFancyItemCard } from '@/components/templates/FancyItemCard/TFancyItemCard.model';
+
 export default function FancyItemCard(props: TFancyItemCard) {
-  const { image, title, subtitle, description, externalStyle } = props;
+  const { image, title, subtitle, description, externalStyle, contentGap, align } = props;
 
   return (
     <FancyCard
@@ -21,7 +14,7 @@ export default function FancyItemCard(props: TFancyItemCard) {
         ${externalStyle};
       `}
     >
-      <FancyCard.Box direction="column" align="center" gap="4px" padding={'lg'}>
+      <FancyCard.Box direction="column" align={align ?? 'flex-start'} gap={contentGap ?? '4px'} padding={'lg'}>
         <FancyCard.Image {...image} />
         <FancyCard.SubTitle {...subtitle} />
         <FancyCard.Title weight="bold" {...title} />
