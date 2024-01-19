@@ -26,6 +26,8 @@ interface ISearchBar {
 export default function SearchBar(props: ISearchBar) {
   const { activeHandler, handler, searchValue, align = 'center', themeType, layer } = props;
   const [isActive, setIsActive] = useState(false); // The state for the isActive state of the search bar
+  const [isOpen, setIsOpen] = useState(false); // The state for the isOpen state of the search bar
+
   // Function to handle changes to the isActive state
   const focusHandler = (isFocused: boolean) => {
     activeHandler && activeHandler(isFocused);
@@ -38,29 +40,33 @@ export default function SearchBar(props: ISearchBar) {
   };
 
   return (
-    <StyledSearchBar $isActive={isActive}>
-      {/* The search icon */}
-      <FancySVGAtom
-        themeType={themeType}
-        layer={layer}
-        isActive={isActive}
-        externalStyle={css`
-          transition: 0.5s;
-        `}
-      >
-        {SVGSearch}
-      </FancySVGAtom>
-      {/* The search input */}
-      <FancyTextInput
-        value={searchValue}
-        placeholder="Search"
-        align={align}
-        aria-label="Searchbar"
-        onFocus={() => focusHandler(true)}
-        onBlur={() => focusHandler(false)}
-        onChange={onChangeValueHandler}
-      />
-    </StyledSearchBar>
+    <SizeWrapper>
+      <StyledSearchBar $isActive={isActive}>
+        {/* The search icon */}
+        <FancySVGAtom
+          themeType={themeType}
+          layer={layer}
+          isActive={isActive}
+          externalStyle={css`
+            flex-shrink: 0;
+            transition: 0.5s;
+          `}
+        >
+          {SVGSearch}
+        </FancySVGAtom>
+        {/* The search input */}
+        <FancyTextInput
+          transparentBackground
+          value={searchValue}
+          placeholder="Search"
+          align={align}
+          aria-label="Searchbar"
+          onFocus={() => focusHandler(true)}
+          onBlur={() => focusHandler(false)}
+          onChange={onChangeValueHandler}
+        />
+      </StyledSearchBar>
+    </SizeWrapper>
   );
 }
 
@@ -75,10 +81,14 @@ const StyledSearchBar = styled.div<{ $isActive?: boolean; theme: TTheme }>`
     $isActive
       ? `${theme.borderRadius.lg} ${theme.borderRadius.lg} 0px 0px`
       : theme.borderRadius.lg}; // Set the border radius based on whether the search bar list is active
-  gap: ${({ theme }) => theme.spacing.sm};
   z-index: 1;
-
+  background-color: ${({ theme }) => theme.colors.primary[0]};
+  padding: 0 12px;
   input {
     padding: 0 0 4px;
   }
+`;
+
+const SizeWrapper = styled.div`
+  width: auto;
 `;
