@@ -53,6 +53,12 @@ const meta = {
         type: 'boolean',
       },
     },
+    notAButton: {
+      description: 'This prop will change the button to a span to use a own wapper like next link',
+      control: {
+        type: 'boolean',
+      },
+    },
   },
   tags: ['autodocs'],
 } satisfies Meta<typeof Button>;

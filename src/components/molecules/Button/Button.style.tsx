@@ -7,7 +7,7 @@ import generateThemeDesignForComponent, {
 import IStyledPrefixAndPicker from '@/types/IStyledPrefixAndPicker';
 import { IButtonProps } from './Button.model';
 
-export const StyledButton = styled.button<IGenerateThemeDesignForComponent & IStyledPrefixAndPicker<IButtonProps>>`
+export const ButtonStyle = styled.span<IGenerateThemeDesignForComponent & IStyledPrefixAndPicker<IButtonProps>>`
   display: inline-flex;
   height: fit-content;
   border: none;
@@ -15,6 +15,7 @@ export const StyledButton = styled.button<IGenerateThemeDesignForComponent & ISt
   box-sizing: border-box;
   align-items: center;
   text-decoration: none;
+  text-align: center;
   width: ${({ $wide }) => ($wide ? '100%' : 'fit-content')};
   min-width: fit-content;
   transition:
