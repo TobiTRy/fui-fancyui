@@ -18,8 +18,8 @@ interface IFancySearchBar {
 
 // The FancySearchBar component
 export default function FancySearchBar(props: IFancySearchBar) {
-  const { handlerSearchValue, children, searchListWidth, searchValue, themeType, layer } = props;
-  const [isActive, setIsActive] = useState(false); // State for whether the search bar list is active
+  const { handlerSearchValue, children, searchListWidth, searchValue, themeType, layer = 0 } = props;
+  const [isActive, setIsActive] = useState(true); // State for whether the search bar list is active
 
   // Function to handle changes to the isActive state
   const activeHandler = (isActive: boolean) => {
@@ -32,17 +32,15 @@ export default function FancySearchBar(props: IFancySearchBar) {
   };
 
   return (
-    <StyledFancySearchBar>
-      <WrapperListInput>
-        {/* The search bar where something can be searched */}
-        <SearchBar activeHandler={activeHandler} searchValue={searchValue} handler={searchValueHandler} />
-        {/* The search bar list */}
-        <WrapperList $width={searchListWidth}>
-          <SearchBarList isActive={isActive} themeType={themeType} layer={layer}>
-            {children}
-          </SearchBarList>
-        </WrapperList>
-      </WrapperListInput>
-    </StyledFancySearchBar>
+    <WrapperListInput>
+      {/* The search bar where something can be searched */}
+      <SearchBar activeHandler={activeHandler} searchValue={searchValue} handler={searchValueHandler} />
+      {/* The search bar list */}
+      <WrapperList $width={searchListWidth}>
+        <SearchBarList isActive={isActive} themeType={themeType} layer={layer}>
+          {children}
+        </SearchBarList>
+      </WrapperList>
+    </WrapperListInput>
   );
 }

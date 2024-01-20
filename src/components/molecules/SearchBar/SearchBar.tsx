@@ -83,7 +83,7 @@ const StyledSearchBar = styled.div<{ $isActive?: boolean; theme: TTheme }>`
       : theme.borderRadius.lg}; // Set the border radius based on whether the search bar list is active
   z-index: 1;
   background-color: ${({ theme }) => theme.colors.primary[0]};
-  padding: 0 12px;
+  padding: 8px 12px;
   input {
     padding: 0 0 4px;
   }

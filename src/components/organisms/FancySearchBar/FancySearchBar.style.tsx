@@ -19,7 +19,7 @@ export const WrapperListInput = styled.div`
 // Styled component for the search bar list
 export const WrapperList = styled.div<{ $width?: string }>`
   position: absolute;
-  top: calc(100% + 4px);
+  top: calc(100%);
   width: ${({ $width }) => $width || '100%'}; // Set the width of the search bar list
   left: 50%;
   transform: translateX(-50%);

@@ -4,7 +4,7 @@ import { TLayer } from '@/types/TLayer';
 import { TTextAlignLC } from '@/types/TTextAlignLC';
 import { TUiColorsSystemMessage } from '@/types/TUiColorsSystemMessage';
 import { TUiColorsMain } from '@/types/TUiColorsMain';
-import { IFancyBox } from '@/components/atoms/FancyBox/FancyBox.model';
+import { TFancyBox } from '@/components/atoms/FancyBox/FancyBox.model';
 
 // Define the props for the InputWrapper component
 type TSystemMessage = {
@@ -29,6 +29,6 @@ export type TInputWrapper = {
   placeholder?: string;
   transparentBackground?: boolean;
   labelVariant?: 'static' | 'animated';
-} & Exclude<IFancyBox, 'as' | 'themeType' | 'externalStyle'>;
+} & Exclude<TFancyBox, 'as' | 'themeType' | 'externalStyle'>;
 
 export type TInputWrapperUserInputProps = Omit<TInputWrapper, 'children' | 'id' | 'underline' | 'autoWidth' | 'value'>;
