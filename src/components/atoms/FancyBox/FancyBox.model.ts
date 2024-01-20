@@ -4,7 +4,7 @@ import { CSSProp } from 'styled-components';
 import { TLayer } from '@/types/TLayer';
 import { TThemeTypes } from '@/types/TThemeTypes';
 
-export interface IFancyBox {
+export type TFancyBox = {
   as?: ElementType;
   outlined?: boolean;
   layer?: TLayer;
@@ -12,6 +12,6 @@ export interface IFancyBox {
   children?: React.ReactNode;
   outlinedBackgroundStrength?: number;
   externalStyle?: CSSProp;
-}
+};
 
-export type IFancyBoxProps<T extends ElementType = 'div'> = IFancyBox & Omit<React.HTMLAttributes<T>, 'style'>;
+export type TFancyBoxProps<T extends ElementType = 'div'> = TFancyBox & Omit<React.HTMLAttributes<T>, 'style'>;
