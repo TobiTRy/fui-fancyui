@@ -34,11 +34,10 @@ const users = [
   },
 ];
 
-const ListWrapper = styled.div`
+const ListWrapper = styled.ul`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  color: black;
   gap: 10px;
 `;
 
@@ -72,7 +71,7 @@ export default function FancySearchBarRoute() {
   }, []);
 
   return (
-    <Card>
+    <Card externalStyle={{ width: '100%', height: '1000px' }}>
       <DesignWrapper>
         <DesignArea title="Fancy Search Bar">
           <FancySearchBar handlerSearchValue={searchHandler} searchValue={searchValue}>

@@ -86,7 +86,7 @@ export default function CradRoute() {
         {/* CARD 2 */}
         {/* CARD 2 */}
         {/* CARD 2 */}
-        <FancyCard>
+        <FancyCard themeType="primary">
           <FancyCard.FlexBox direction="column">
             <FancyCard.SpacingBox padding={['md', 'md', 'md', 'md']}>
               <FancyCard.Image sizeW="fit" borderRadius={generateInsetBorderRadius('lg', 'md')}>
