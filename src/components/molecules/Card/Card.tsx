@@ -1,4 +1,4 @@
-import { IFancyBox } from '@/components/atoms/FancyBox/';
+import { TFancyBox } from '@/components/atoms/FancyBox/';
 import { StyledCardProps } from '@/components/molecules/Card/Card.model';
 import { StyledCard } from './Card.style';
 import { FancyImageWrapper } from '@/components/atoms/FancyImageWrapper';
@@ -13,14 +13,14 @@ import { FancyAlignBox } from '@/components/templates/FancyAlignBox';
 // --------------------------------------------------------------------------- //
 // ---------- The card is there to wrapp some content or components ---------- //
 // --------------------------------------------------------------------------- //
-export type TCard = StyledCardProps & IFancyBox;
+export type TCard = StyledCardProps & TFancyBox;
 function Card(props: TCard) {
   const {
     children,
     padding,
     borderRadius,
     shadow,
-    layer = 0,
+    layer = 1,
     ...fancyBox
   } = {
     ...defaultProps,
@@ -28,7 +28,7 @@ function Card(props: TCard) {
   };
 
   return (
-    <StyledCard $layer={layer} $padding={padding} $borderRadius={borderRadius} $shadow={shadow} {...fancyBox}>
+    <StyledCard $padding={padding} layer={layer} $borderRadius={borderRadius} $shadow={shadow} {...fancyBox}>
       {children}
     </StyledCard>
   );

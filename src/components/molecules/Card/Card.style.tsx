@@ -6,10 +6,10 @@ import { arrayToCssValues } from '@/design/designFunctions/arrayToCssValues';
 
 import { boxShadow } from '@/design/designFunctions/shadows/shadows';
 import { TTheme } from '@/types/TTheme';
-import { FancyBox } from '@/components/atoms/FancyBox';
+import { FancyBox, TFancyBox } from '@/components/atoms/FancyBox';
 
 // the converted $ styling props for the card
-type IStyledCard = IStyledPrefixAndOmiter<StyledCardProps>;
+type IStyledCard = IStyledPrefixAndOmiter<StyledCardProps> & TFancyBox;
 //the main design of the card
 export const StyledCard = styled(FancyBox)<IStyledCard & { theme: TTheme }>`
   display: inline-block;
