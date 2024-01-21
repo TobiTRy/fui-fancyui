@@ -36,11 +36,13 @@ export default function FancySearchBar(props: IFancySearchBar) {
       {/* The search bar where something can be searched */}
       <SearchBar activeHandler={activeHandler} searchValue={searchValue} handler={searchValueHandler} />
       {/* The search bar list */}
-      <WrapperList $width={searchListWidth}>
-        <SearchBarList isActive={isActive} themeType={themeType} layer={layer}>
-          {children}
-        </SearchBarList>
-      </WrapperList>
+      {isActive && (
+        <WrapperList $width={searchListWidth}>
+          <SearchBarList isActive={isActive} themeType={themeType} layer={layer}>
+            {children}
+          </SearchBarList>
+        </WrapperList>
+      )}
     </WrapperListInput>
   );
 }
