@@ -1,18 +1,21 @@
 import { ChangeEvent, useState } from 'react';
-import { css, styled } from 'styled-components';
+import { css } from 'styled-components';
 
 import { FancySVGAtom } from '@/components/atoms/FancySVGAtom';
 import { SVGSearch } from '@/components/icons/SVGSearch';
 import { FancyTextInput } from '@/components/organisms/FancyTextInput';
 
+import { InputWrapper, SizeWrapper, StyledSearchBar } from '@/components/molecules/SearchBar/SearchBar.style';
 import { TSearchBar } from '@/components/molecules/SearchBar/TSeachbar.model';
-import { TTheme } from '@/types/TTheme';
+import { RawInput } from '@/components/atoms/RawInput';
+import { TextInput } from '@/components/atoms/TextInput';
+import { InputUnderline } from '@/components/atoms/InputUnderline';
 
 // --------------------------------------------------------------------------- //
 // ---------- Seachbar like for a header to search something  ---------------- //
 // --------------------------------------------------------------------------- //
 export default function SearchBar(props: TSearchBar) {
-  const { activeHandler, handler, searchValue, align = 'center', themeType, layer } = props;
+  const { activeHandler, handler, searchValue, align = 'center', themeType, layer = 0, size = 'sm' } = props;
   const [isActive, setIsActive] = useState(false); // The state for the isActive state of the search bar
   const [isOpen, setIsOpen] = useState(false); // The state for the isOpen state of the search bar
 
@@ -29,54 +32,22 @@ export default function SearchBar(props: TSearchBar) {
 
   return (
     <SizeWrapper>
-      <StyledSearchBar $isActive={isActive}>
+      <StyledSearchBar size={size} $isActive={isActive}>
         {/* The search icon */}
-        <FancySVGAtom
-          themeType={themeType}
-          layer={layer}
-          isActive={isActive}
-          externalStyle={css`
-            flex-shrink: 0;
-            transition: 0.5s;
-          `}
-        >
-          {SVGSearch}
-        </FancySVGAtom>
-        {/* The search input */}
-        <FancyTextInput
-          transparentBackground
-          value={searchValue}
-          placeholder="Search"
-          align={align}
-          aria-label="Searchbar"
-          onFocus={() => focusHandler(true)}
-          onBlur={() => focusHandler(false)}
-          onChange={onChangeValueHandler}
-        />
+        <InputWrapper>
+          <FancyTextInput
+            icon={<span>{SVGSearch}</span>}
+            transparentBackground
+            value={searchValue}
+            placeholder="Search"
+            align={align}
+            aria-label="Searchbar"
+            onFocus={() => focusHandler(true)}
+            onBlur={() => focusHandler(false)}
+            onChange={onChangeValueHandler}
+          />
+        </InputWrapper>
       </StyledSearchBar>
     </SizeWrapper>
   );
 }
-
-// ------------------------------------------- //
-// ------- The style for the component ------- //
-// ------------------------------------------- //
-// Styled component for the search bar
-const StyledSearchBar = styled.div<{ $isActive?: boolean; theme: TTheme }>`
-  display: flex;
-  align-items: center;
-  border-radius: ${({ $isActive, theme }) =>
-    $isActive
-      ? `${theme.borderRadius.lg} ${theme.borderRadius.lg} 0px 0px`
-      : theme.borderRadius.lg}; // Set the border radius based on whether the search bar list is active
-  z-index: 1;
-  background-color: ${({ theme }) => theme.colors.primary[0]};
-  padding: 8px 12px;
-  input {
-    padding: 0 0 4px;
-  }
-`;
-
-const SizeWrapper = styled.div`
-  width: auto;
-`;
