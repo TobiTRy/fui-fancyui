@@ -1,29 +1,17 @@
 import { ChangeEvent, useState } from 'react';
-import { styled, css } from 'styled-components';
+import { css, styled } from 'styled-components';
 
-import { FancyTextInput } from '@/components/organisms/FancyTextInput';
-import { SVGSearch } from '@/components/icons/SVGSearch';
 import { FancySVGAtom } from '@/components/atoms/FancySVGAtom';
+import { SVGSearch } from '@/components/icons/SVGSearch';
+import { FancyTextInput } from '@/components/organisms/FancyTextInput';
 
-import { TLayer } from '@/types/TLayer';
+import { TSearchBar } from '@/components/molecules/SearchBar/TSeachbar.model';
 import { TTheme } from '@/types/TTheme';
-import { TTextAlignLC } from '@/types/TTextAlignLC';
-import { TThemeTypesNotTransparent } from 'lib';
 
-// Props for the SearchBar component
-interface ISearchBar {
-  searchValue?: string;
-  align?: TTextAlignLC;
-  activeHandler?: (isActive: boolean) => void;
-  handler?: (value: string) => void;
-  themeType?: TThemeTypesNotTransparent;
-  layer?: TLayer;
-  placerholder?: string;
-}
 // --------------------------------------------------------------------------- //
 // ---------- Seachbar like for a header to search something  ---------------- //
 // --------------------------------------------------------------------------- //
-export default function SearchBar(props: ISearchBar) {
+export default function SearchBar(props: TSearchBar) {
   const { activeHandler, handler, searchValue, align = 'center', themeType, layer } = props;
   const [isActive, setIsActive] = useState(false); // The state for the isActive state of the search bar
   const [isOpen, setIsOpen] = useState(false); // The state for the isOpen state of the search bar

@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { TLayer } from '@/types/TLayer';
 import { SearchBar } from '@/components/molecules/SearchBar';
 import { SearchBarList } from '@/components/molecules/SearchBarList';
-import { StyledFancySearchBar, WrapperList, WrapperListInput } from './FancySearchBar.style';
+import { WrapperList, WrapperListInput } from './FancySearchBar.style';
 import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
 
 // Props for the FancySearchBar component

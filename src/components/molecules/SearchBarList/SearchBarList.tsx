@@ -8,14 +8,14 @@ import { InnerCard, StyledSearchBarList } from './SearchBarList.style';
 import { css } from 'styled-components';
 
 // Props for the SearchBarList component
-interface ISearchBarList {
+interface TSearchBarList {
   isActive?: boolean;
   children?: React.ReactNode;
   themeType?: TThemeTypesNotTransparent;
   layer?: TLayer;
 }
 // The SearchBarList component
-export default function SearchBarList(props: ISearchBarList) {
+export default function SearchBarList(props: TSearchBarList) {
   const { isActive, children, themeType, layer } = props;
 
   return (
