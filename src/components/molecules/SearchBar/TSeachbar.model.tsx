@@ -1,6 +1,7 @@
 import { TLayer } from '@/types/TLayer';
 import { TTextAlignLC } from '@/types/TTextAlignLC';
 import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
+import { TComponentSizes } from '@/types/TComponentSizes';
 
 export type TSearchBar = {
   searchValue?: string;
@@ -10,4 +11,5 @@ export type TSearchBar = {
   themeType?: TThemeTypesNotTransparent;
   layer?: TLayer;
   placerholder?: string;
+  size?: TComponentSizes;
 };

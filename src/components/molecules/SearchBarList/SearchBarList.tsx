@@ -21,23 +21,11 @@ export default function SearchBarList(props: TSearchBarList) {
   return (
     <StyledSearchBarList>
       {/* If the search bar list is active, display the list */}
-      {isActive && (
-        <Card
-          themeType={themeType}
-          shadow={false}
-          layer={layer}
-          borderRadius={[0, 0, 'lg', 'lg']}
-          externalStyle={css`
-            border: none;
-            width: 100%;
-          `}
-        >
-          <InnerCard>
-            {/* If there are items to display, display them */}
-            {children && <div>{children}</div>}
-          </InnerCard>
-        </Card>
-      )}
+
+      <InnerCard>
+        {/* If there are items to display, display them */}
+        {children && <div>{children}</div>}
+      </InnerCard>
     </StyledSearchBarList>
   );
 }
