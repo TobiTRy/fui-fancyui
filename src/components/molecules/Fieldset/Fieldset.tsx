@@ -1,7 +1,7 @@
 import { HTMLAttributes, ReactNode } from 'react';
 
 import { TTextAlignLC } from '@/types/TTextAlignLC';
-import { TTypography } from '@/types/TTypography';
+import { TTypographyList } from '@/types/TTypographyList';
 
 import { StyledFieldset, StyledLegend } from './Fieldset.style';
 import { Typography } from '@/components/atoms/Typography';
@@ -10,7 +10,7 @@ type TFieldset = {
   children?: ReactNode;
   label?: string;
   alignLabel?: TTextAlignLC;
-  fontVariantLegend?: TTypography;
+  fontVariantLegend?: TTypographyList;
   disabled?: boolean;
 } & HTMLAttributes<HTMLFieldSetElement>;
 // --------------------------------------------------------------------------- //

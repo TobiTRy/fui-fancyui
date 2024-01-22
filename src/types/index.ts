@@ -11,7 +11,7 @@ export * from './TSpacings';
 export * from './TThemeTypesNotTransparent';
 export * from './TSystemMessageProps';
 export * from './TTheme';
-export * from './TTypography';
+export * from './TTypographyList';
 export * from './TUiColorNames';
 export * from './TThemeTypes';
 export * from './TUiColorsTypeObject';

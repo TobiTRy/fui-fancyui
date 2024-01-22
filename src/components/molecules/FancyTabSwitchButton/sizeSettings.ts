@@ -1,18 +1,18 @@
 import { themeStore } from '@/design/theme/themeStore';
-import { TTypography } from '@/types/TTypography';
+import { TTypographyList } from '@/types/TTypographyList';
 
 const getSpacingFromTheme = themeStore.getState().theme.spacing;
 export const tabSwitchItemSizes = {
   sm: {
-    fontSize: 'smText' as TTypography,
+    fontSize: 'smText' as TTypographyList,
     padding: getSpacingFromTheme.xs,
   },
   md: {
-    fontSize: 'content' as TTypography,
+    fontSize: 'content' as TTypographyList,
     padding: getSpacingFromTheme.xs,
   },
   lg: {
-    fontSize: 'button' as TTypography,
+    fontSize: 'button' as TTypographyList,
     padding: getSpacingFromTheme.sm,
   },
 };

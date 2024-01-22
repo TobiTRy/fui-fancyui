@@ -1,6 +1,6 @@
 import { CSSProp } from 'styled-components';
 
-import { TTypography } from '@/types/TTypography';
+import { TTypographyList } from '@/types/TTypographyList';
 import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
 import { TLayer } from '@/types/TLayer';
 
@@ -19,7 +19,7 @@ type IFancyContentTextWithSizeProps = IFancyContentTextProps & {
 };
 
 type IFancyContentTextWithFontVariantProps = IFancyContentTextProps & {
-  fontVariant?: TTypography;
+  fontVariant?: TTypographyList;
   size?: never;
 };
 

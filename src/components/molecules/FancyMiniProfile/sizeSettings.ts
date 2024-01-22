@@ -1,11 +1,11 @@
 import { TSpacings } from '@/types/TSpacings';
-import { TTypography } from '@/types/TTypography';
+import { TTypographyList } from '@/types/TTypographyList';
 
 // the interface for the different sizes
 interface IPillSettings {
   [key: string]: {
-    titleSize: TTypography;
-    subtitleSize: TTypography;
+    titleSize: TTypographyList;
+    subtitleSize: TTypographyList;
     gap: TSpacings;
     paddingToEdge: TSpacings;
   };

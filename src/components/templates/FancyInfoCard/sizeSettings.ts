@@ -1,11 +1,11 @@
 import { TSVGAtomSizes } from '@/components/atoms/FancySVGAtom/FancySVGAtom.model';
 import { TComponentSizes } from '@/types/TComponentSizes';
-import { TTypography } from '@/types/TTypography';
+import { TTypographyList } from '@/types/TTypographyList';
 
 type TSizeObj = {
   iconSize: TSVGAtomSizes;
-  title: TTypography;
-  descriptionSize: TTypography;
+  title: TTypographyList;
+  descriptionSize: TTypographyList;
 };
 
 type TSizesObject = {

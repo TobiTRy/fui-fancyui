@@ -1,8 +1,8 @@
 import { TSize } from '@/components/molecules/TextAvatar/utils/getSize';
-import { TTypography } from '@/types/TTypography';
+import { TTypographyList } from '@/types/TTypographyList';
 
 // generate the text size based on the size prop
-export const getTextSize = (size: TSize | string): TTypography => {
+export const getTextSize = (size: TSize | string): TTypographyList => {
   switch (size) {
     case 'xxs':
     case 'xs':

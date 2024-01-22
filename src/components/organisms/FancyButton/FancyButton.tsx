@@ -6,7 +6,7 @@ import { FancyContent } from '@/components/molecules/FancyContent';
 import { LoadingSVGArrows } from '@/components/atoms/LoadingSVGArrows';
 import { generateFancyButton } from './FancyButton.style';
 
-import { TTypography } from '@/types/TTypography';
+import { TTypographyList } from '@/types/TTypographyList';
 import { TBorderRadiusSizes } from '@/types/TBorderRadiusSizes';
 import { IButton, IButtonProps } from '@/components/molecules/Button/Button.model';
 
@@ -25,7 +25,7 @@ export type IFancyButtonProps = {
   borderRadius?: TBorderRadiusSizes;
   oneToOne?: boolean;
   icon?: React.ReactNode;
-  fontVariant?: TTypography;
+  fontVariant?: TTypographyList;
   noPadding?: boolean;
   gap?: string;
 };
