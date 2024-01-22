@@ -1,27 +1,11 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
-import { TLayer } from '@/types/TLayer';
 import { SearchBar } from '@/components/molecules/SearchBar';
-import { SearchBarList } from '@/components/molecules/SearchBarList';
+import { TFancySearchBar } from '@/components/organisms/FancySearchBar/TFancySearchBar.model';
 import { WrapperList, WrapperListInput } from './FancySearchBar.style';
-import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
-import { TComponentSizes } from '@/types/TComponentSizes';
-import { TBorderRadiusSizes } from '@/types/TBorderRadiusSizes';
-
-// Props for the FancySearchBar component
-interface IFancySearchBar {
-  handlerSearchValue?: (searchValue: string) => void;
-  children?: React.ReactNode;
-  searchListWidth?: string;
-  searchValue?: string;
-  themeType?: TThemeTypesNotTransparent;
-  layer?: TLayer;
-  size?: TComponentSizes;
-  borderRadius?: TBorderRadiusSizes;
-}
 
 // The FancySearchBar component
-export default function FancySearchBar(props: IFancySearchBar) {
+export default function FancySearchBar(props: TFancySearchBar) {
   const {
     handlerSearchValue,
     children,
@@ -45,17 +29,11 @@ export default function FancySearchBar(props: IFancySearchBar) {
   };
 
   return (
-    <WrapperListInput size={size} borderRadius={borderRadius}>
+    <WrapperListInput $size={size} $borderRadius={borderRadius} $themeType={themeType} $layer={layer}>
       {/* The search bar where something can be searched */}
       <SearchBar size={size} activeHandler={activeHandler} searchValue={searchValue} handler={searchValueHandler} />
       {/* The search bar list */}
-      {isActive && (searchValue?.length ?? 0) > 0 && (
-        <WrapperList $width={searchListWidth}>
-          <SearchBarList isActive={isActive} themeType={themeType} layer={layer}>
-            {children}
-          </SearchBarList>
-        </WrapperList>
-      )}
+      {isActive && (searchValue?.length ?? 0) > 0 && <WrapperList $width={searchListWidth}>{children}</WrapperList>}
     </WrapperListInput>
   );
 }

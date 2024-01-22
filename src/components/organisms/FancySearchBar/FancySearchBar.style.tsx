@@ -1,9 +1,12 @@
 import { styled } from 'styled-components';
 
 import { TTheme } from '@/types/TTheme';
+import { TLayer } from '@/types/TLayer';
 import { TComponentSizes } from '@/types/TComponentSizes';
+import { TBorderRadiusSizes } from '@/types/TBorderRadiusSizes';
+import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
+
 import { sizeSettings } from './sizeSettings';
-import { TBorderRadiusSizes } from 'lib';
 
 // Styled component for the entire search bar
 export const StyledFancySearchBar = styled.div`
@@ -17,12 +20,20 @@ export const StyledFancySearchBar = styled.div`
 `;
 
 // Styled component for the wrapper around the search bar list
-export const WrapperListInput = styled.div<{ theme: TTheme; size: TComponentSizes; borderRadius?: TBorderRadiusSizes }>`
+type TWrapperListInput = {
+  theme: TTheme;
+  $size: TComponentSizes;
+  $borderRadius?: TBorderRadiusSizes;
+  $themeType?: TThemeTypesNotTransparent;
+  $layer?: TLayer;
+};
+
+export const WrapperListInput = styled.div<TWrapperListInput>`
   position: relative;
   width: 100%;
   background-color: ${({ theme }) => theme.colors.primary[0]};
-  border-radius: ${({ size, borderRadius, theme }) =>
-    borderRadius ? theme.borderRadius[borderRadius] : theme.borderRadius[sizeSettings[size].borderRadius]};
+  border-radius: ${({ $size, $borderRadius, theme }) =>
+    $borderRadius ? theme.borderRadius[$borderRadius] : theme.borderRadius[sizeSettings[$size].borderRadius]};
 `;
 
 // Styled component for the search bar list

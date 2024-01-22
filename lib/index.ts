@@ -73,7 +73,6 @@ export * from '@/components/molecules/Card';
 export * from '@/components/molecules/RangeCalendar';
 export * from '@/components/molecules/ScalingSection';
 export * from '@/components/molecules/SearchBar';
-export * from '@/components/molecules/SearchBarList';
 export * from '@/components/molecules/SingleInputs';
 export * from '@/components/molecules/SingleToastMessage';
 export * from '@/components/molecules/SwipeUpModal';
