@@ -1,12 +1,11 @@
 import { DesignArea, DesignWrapper } from '@/Routes/DesignWrapper/Wrapper';
-import SkeletonBox from '@/components/atoms/SkeletonBox/SkeletonBox';
-import React from 'react';
+import { SkeletonBox } from '@/components/atoms/SkeletonBox';
 
 export default function SkeletonRoute() {
   return (
     <DesignWrapper>
       <DesignArea title="Skeleton">
-        <SkeletonBox themeType="primary" />
+        <SkeletonBox />
       </DesignArea>
     </DesignWrapper>
   );
