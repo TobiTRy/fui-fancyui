@@ -5,6 +5,8 @@ import { SearchBar } from '@/components/molecules/SearchBar';
 import { SearchBarList } from '@/components/molecules/SearchBarList';
 import { WrapperList, WrapperListInput } from './FancySearchBar.style';
 import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
+import { TComponentSizes } from '@/types/TComponentSizes';
+import { TBorderRadiusSizes } from '@/types/TBorderRadiusSizes';
 
 // Props for the FancySearchBar component
 interface IFancySearchBar {
@@ -14,11 +16,22 @@ interface IFancySearchBar {
   searchValue?: string;
   themeType?: TThemeTypesNotTransparent;
   layer?: TLayer;
+  size?: TComponentSizes;
+  borderRadius?: TBorderRadiusSizes;
 }
 
 // The FancySearchBar component
 export default function FancySearchBar(props: IFancySearchBar) {
-  const { handlerSearchValue, children, searchListWidth, searchValue, themeType, layer = 0 } = props;
+  const {
+    handlerSearchValue,
+    children,
+    searchListWidth,
+    searchValue,
+    themeType,
+    layer = 0,
+    size = 'sm',
+    borderRadius,
+  } = props;
   const [isActive, setIsActive] = useState(true); // State for whether the search bar list is active
 
   // Function to handle changes to the isActive state
@@ -32,11 +45,11 @@ export default function FancySearchBar(props: IFancySearchBar) {
   };
 
   return (
-    <WrapperListInput>
+    <WrapperListInput size={size} borderRadius={borderRadius}>
       {/* The search bar where something can be searched */}
-      <SearchBar activeHandler={activeHandler} searchValue={searchValue} handler={searchValueHandler} />
+      <SearchBar size={size} activeHandler={activeHandler} searchValue={searchValue} handler={searchValueHandler} />
       {/* The search bar list */}
-      {isActive && (
+      {isActive && (searchValue?.length ?? 0) > 0 && (
         <WrapperList $width={searchListWidth}>
           <SearchBarList isActive={isActive} themeType={themeType} layer={layer}>
             {children}
