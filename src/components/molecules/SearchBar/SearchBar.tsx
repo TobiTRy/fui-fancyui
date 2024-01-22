@@ -4,7 +4,7 @@ import { SVGSearch } from '@/components/icons/SVGSearch';
 import { FancyTextInput } from '@/components/organisms/FancyTextInput';
 
 import { InputWrapper, SizeWrapper, StyledSearchBar } from '@/components/molecules/SearchBar/SearchBar.style';
-import { TSearchBar } from '@/components/molecules/SearchBar/TSeachbar.model';
+import { TSearchBar } from '@/components/molecules/SearchBar/TSearchbar.model';
 import { IconWrapper } from './SearchBar.style';
 
 // --------------------------------------------------------------------------- //
