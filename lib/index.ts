@@ -142,6 +142,7 @@ export * from '@/components/templates/FancyHeader';
 export * from '@/components/templates/FancyAlignBox';
 export * from '@/components/templates/FancyGridTemplate';
 export * from '@/components/templates/FancyGridTemplateItem';
+export * from '@/components/templates/FancySkeletonGrid';
 
 // ---------- Utils/Hooks ------- //
 export * from '@/components/shared/FancyPopover';
