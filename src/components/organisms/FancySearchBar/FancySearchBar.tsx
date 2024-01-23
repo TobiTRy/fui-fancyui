@@ -16,7 +16,7 @@ export default function FancySearchBar(props: TFancySearchBar) {
     size = 'sm',
     borderRadius,
   } = props;
-  const [isActive, setIsActive] = useState(true); // State for whether the search bar list is active
+  const [isActive, setIsActive] = useState(false); // State for whether the search bar list is active
 
   // Function to handle changes to the isActive state
   const activeHandler = (isActive: boolean) => {
