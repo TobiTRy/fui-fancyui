@@ -45,6 +45,7 @@ import FancyThemeProvider from '@/design/theme/FancyThemeProvider/FancyThemeProv
 
 import { mockTheme } from '@/test/mockTheme';
 import SkeletonBox from '@/components/atoms/SkeletonBox/SkeletonBox';
+import SkeletonRoute from '@/Routes/SkeletonRoute/SkeletonRoute';
 
 // const Icon = (
 //   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -393,7 +394,7 @@ function App() {
               <Route path="/infoCard" element={<InfoCardRoute />} />
               <Route path="/layout" element={<FancyLayoutRoute />} />
               <Route path="/fancyBoxSet" element={<FancyBoxSetRoute />} />
-              <Route path="/skeleton" element={<SkeletonBox />} />
+              <Route path="/skeleton" element={<SkeletonRoute />} />
               <Route path="/" element={<SwipeUpModal />} />
             </Routes>
           </div>
