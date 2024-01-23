@@ -6,7 +6,7 @@ import { TFancyGridTemplate } from './TFancyGridTemplate.model';
 // ------------ The FancyGridTemplate Component to define the grid ---------- //
 // --------------------------------------------------------------------------- //
 function FancyGridTemplate(props: TFancyGridTemplate) {
-  const { gridAreas, gapColumn = 'sm', gapRow = 'sm', height, width = '100%', children } = props;
+  const { gridAreas, gapColumn = 'sm', gapRow = 'sm', height = '100%', width = '100%', children } = props;
   return (
     <StyledFancyGridTemplate
       $gridAreas={gridAreas}
