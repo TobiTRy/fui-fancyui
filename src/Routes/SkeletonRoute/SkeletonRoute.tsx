@@ -5,16 +5,16 @@ export default function SkeletonRoute() {
   return (
     <DesignWrapper>
       <DesignArea title="Skeleton">
-        <FancyGridTemplate gridAreas={['a a b b b b', 'a a c c c c']}>
-          <FancyGridTemplate.GridAreaItem gridArea="a">
+        <FancyGridTemplate height="100px" gridAreas={['a a b b b b', 'a a c c c c']}>
+          <FancyGridTemplate.GridItem gridArea="a">
             <SkeletonBox sizeH="fit" sizeW="fit" />
-          </FancyGridTemplate.GridAreaItem>
-          <FancyGridTemplate.GridAreaItem gridArea="b">
+          </FancyGridTemplate.GridItem>
+          <FancyGridTemplate.GridItem gridArea="b">
             <SkeletonBox sizeH="fit" sizeW="fit" />
-          </FancyGridTemplate.GridAreaItem>
-          <FancyGridTemplate.GridAreaItem gridArea="c">
+          </FancyGridTemplate.GridItem>
+          <FancyGridTemplate.GridItem gridArea="c">
             <SkeletonBox sizeH="fit" sizeW="fit" />
-          </FancyGridTemplate.GridAreaItem>
+          </FancyGridTemplate.GridItem>
         </FancyGridTemplate>
       </DesignArea>
     </DesignWrapper>
