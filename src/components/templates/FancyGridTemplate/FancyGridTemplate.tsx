@@ -1,13 +1,12 @@
-import { styled } from 'styled-components';
-
 import { StyledFancyGridTemplate } from '@/components/templates/FancyGridTemplate/FancyGridTemplate.style';
-import { FancyGridTemplateProps, GridAreaItemProps } from './TFancyGridTemplate.model';
+import FancyGridTemplateItem from '@/components/templates/FancyGridTemplateItem/FancyGridTemplateItem';
+import { TFancyGridTemplate } from './TFancyGridTemplate.model';
 
 // --------------------------------------------------------------------------- //
 // ------------ The FancyGridTemplate Component to define the grid ---------- //
 // --------------------------------------------------------------------------- //
-function FancyGridTemplate(props: FancyGridTemplateProps) {
-  const { gridAreas, gapColumn, gapRow, height, width, children } = props;
+function FancyGridTemplate(props: TFancyGridTemplate) {
+  const { gridAreas, gapColumn = 'sm', gapRow = 'sm', height, width = '100%', children } = props;
   return (
     <StyledFancyGridTemplate
       $gridAreas={gridAreas}
@@ -21,13 +20,8 @@ function FancyGridTemplate(props: FancyGridTemplateProps) {
   );
 }
 
-// --------------------------------------------------------------------------- //
-// -------- The GridItem Component to fill the grid with the postion --------- //
-// --------------------------------------------------------------------------- //
-const GridItem = styled.div<GridAreaItemProps>`
-  grid-area: ${(props) => props.gridArea};
-`;
+FancyGridTemplate.GridItem = FancyGridTemplateItem;
 
-FancyGridTemplate.GridItem = GridItem;
-
+// export is needed after GridItem is added to FancyGridTemplate
+// for Storybook to work
 export default FancyGridTemplate;
