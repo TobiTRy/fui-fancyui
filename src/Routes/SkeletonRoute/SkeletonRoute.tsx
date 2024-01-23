@@ -1,6 +1,4 @@
 import { DesignArea, DesignWrapper } from '@/Routes/DesignWrapper/Wrapper';
-import { SkeletonBox } from '@/components/atoms/SkeletonBox';
-import FancyGridTemplate from '@/components/templates/FancyGridTemplate/FancyGridTemplate';
 import FancySkeletonGrid from '@/components/templates/FancySkeletonGrid/FancySkeletonGrid';
 
 export default function SkeletonRoute() {
