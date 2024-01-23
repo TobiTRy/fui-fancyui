@@ -1,9 +1,10 @@
-import React from 'react';
-import { FancyGridTemplate, TFancyGridTemplate } from '@/components/templates/FancyGridTemplate';
-import { SkeletonBox, TSkeletonBox } from '@/components/atoms/SkeletonBox';
+import { SkeletonBox } from '@/components/atoms/SkeletonBox';
+import { FancyGridTemplate } from '@/components/templates/FancyGridTemplate';
+import { TFancySkeletonGrid } from '@/components/templates/FancySkeletonGrid/TFancySkeletonGrid.model';
 
-type TFancySkeletonGrid = Omit<TFancyGridTemplate, 'children'> & Omit<TSkeletonBox, 'aspectRatio'>;
-
+// --------------------------------------------------------------------------- //
+// -------- The Component generates Skeletonboxes based on the GridArea ------ //
+// --------------------------------------------------------------------------- //
 export default function FancySkeletonGrid(props: TFancySkeletonGrid) {
   const { gridAreas, layer, themeType, borderRadius, ...gridProps } = props;
   const set = new Set<string>();
