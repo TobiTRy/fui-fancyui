@@ -1,24 +1,33 @@
-import React from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
-// Define a type for the props
-type FancyGridTemplateProps = {
-  gridTemplate: string[][];
-};
+import { StyledFancyGridTemplate } from '@/components/templates/FancyGridTemplate/FancyGridTemplate.style';
+import { FancyGridTemplateProps, GridAreaItemProps } from './TFancyGridTemplate.model';
 
-// Create a styled component that takes gridTemplate as a prop
-const StyledFancyGridTemplate = styled.div<{ gridTemplate: string[][] }>`
-  display: grid;
-  grid-template-columns: ${(props) => props.gridTemplate.map((row) => row.join(' ')).join(' ')};
-  grid-template-rows: ${(props) => props.gridTemplate.map((col) => col.join(' ')).join(' ')};
-`;
-
-export default function FancyGridTemplate({ gridTemplate }: FancyGridTemplateProps) {
+// --------------------------------------------------------------------------- //
+// ------------ The FancyGridTemplate Component to define the grid ---------- //
+// --------------------------------------------------------------------------- //
+function FancyGridTemplate(props: FancyGridTemplateProps) {
+  const { gridAreas, gapColumn, gapRow, height, width, children } = props;
   return (
-    <StyledFancyGridTemplate gridTemplate={gridTemplate}>
-      {gridTemplate.map((row, rowIndex) =>
-        row.map((cell, cellIndex) => <div key={`${rowIndex}-${cellIndex}`}>{cell}</div>)
-      )}
+    <StyledFancyGridTemplate
+      $gridAreas={gridAreas}
+      $gapColumn={gapColumn}
+      $gapRow={gapRow}
+      $height={height}
+      $width={width}
+    >
+      {children}
     </StyledFancyGridTemplate>
   );
 }
+
+// --------------------------------------------------------------------------- //
+// -------- The GridItem Component to fill the grid with the postion --------- //
+// --------------------------------------------------------------------------- //
+const GridItem = styled.div<GridAreaItemProps>`
+  grid-area: ${(props) => props.gridArea};
+`;
+
+FancyGridTemplate.GridItem = GridItem;
+
+export default FancyGridTemplate;
