@@ -1,2 +1,2 @@
-export { default } from './FancyGridTemplate';
+export { default as FancyGridTemplate } from './FancyGridTemplate';
 export type { TFancyGridTemplate } from './TFancyGridTemplate.model';
