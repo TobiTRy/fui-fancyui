@@ -5,8 +5,16 @@ export default function SkeletonRoute() {
   return (
     <DesignWrapper>
       <DesignArea title="Skeleton">
-        <FancySkeletonGrid
+        {/* <FancySkeletonGrid
           gridAreas={['a a b b b b d', 'a a c c c c d', 'e e c c c c f', 'e e g g g g f', 'e e h h h h f']}
+          height="200px"
+        /> */}
+
+        <FancySkeletonGrid
+          gridAreas={{
+            lg: ['a a b b b b d', 'a a c c c c d', 'e e c c c c f', 'e e g g g g f', 'e e h h h h f'],
+            sm: ['a a b d d d d', 'a a c c c c d', 'e e c c c c f', 'e e g g g g f', 'e e h h h h f'],
+          }}
           height="200px"
         />
       </DesignArea>
