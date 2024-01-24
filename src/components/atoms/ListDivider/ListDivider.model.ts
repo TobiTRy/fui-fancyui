@@ -1,6 +1,7 @@
 import { TLayer } from '@/types/TLayer';
 import { HTMLAttributes } from 'react';
 import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
+import { TComponentSizes } from '@/types/TComponentSizes';
 
 export type TTextAlign = 'left' | 'center' | 'right';
 
@@ -19,6 +20,7 @@ export type IListDivider = {
   layer?: TLayer;
   noLine?: boolean;
   bold?: boolean;
+  size?: TComponentSizes;
   icon?: React.ReactNode;
 } & (WithLabel | WithoutLabel) &
   HTMLAttributes<HTMLDivElement>;
