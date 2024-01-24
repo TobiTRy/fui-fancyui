@@ -7,7 +7,8 @@ export type TGridAreasBreakpoints = {
 
 // Define types for the props
 export type TFancyGridTemplate = {
-  gridAreas: string[] | TGridAreasBreakpoints;
+  gridAreas: string[];
+  gridAreasBreakPoints?: TGridAreasBreakpoints;
   children?: React.ReactNode;
   gapColumn?: TSpacings;
   gapRow?: TSpacings;
