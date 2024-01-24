@@ -7,6 +7,9 @@ import { TFancyGridTemplate } from './TFancyGridTemplate.model';
 // --------------------------------------------------------------------------- //
 function FancyGridTemplate(props: TFancyGridTemplate) {
   const { gridAreas, gapColumn = 'sm', gapRow = 'sm', height = '100%', width = '100%', children } = props;
+
+  // Create a function to select grid areas based on breakpoints
+
   return (
     <StyledFancyGridTemplate
       $gridAreas={gridAreas}

@@ -1,6 +1,9 @@
-import { styled } from 'styled-components';
+import { CSSProp, css, styled } from 'styled-components';
 
-import { TFancyGridTemplate } from '@/components/templates/FancyGridTemplate/TFancyGridTemplate.model';
+import {
+  TFancyGridTemplate,
+  TGridAreasBreakpoints,
+} from '@/components/templates/FancyGridTemplate/TFancyGridTemplate.model';
 import IStyledPrefixAndPicker from '@/types/IStyledPrefixAndPicker';
 import { TTheme } from '@/types/TTheme';
 
@@ -15,5 +18,25 @@ export const StyledFancyGridTemplate = styled.div<TStyledFancyGridTemplate & { t
   row-gap: ${({ $gapRow = 'sm', theme }) => theme.spacing[$gapRow]};
   column-gap: ${({ $gapColumn = 'sm', theme }) => theme.spacing[$gapColumn]};
   display: grid;
-  grid-template: ${({ $gridAreas }) => $gridAreas.map((row) => `"${row}"`).join(' ')};
+  ${({ $gridAreas, theme }) => $gridAreas && generateTemplateAreas($gridAreas, theme)};
 `;
+
+const generateTemplateAreas = (gridAreas: string[] | TGridAreasBreakpoints, theme: TTheme) => {
+  if (Array.isArray(gridAreas)) {
+    return css`
+      grid-template: ${gridAreas?.map((area) => `"${area}"`).join(' ')};
+    `;
+  }
+  return css`
+    ${Object.keys(gridAreas).map((key) => {
+      const value = gridAreas[key as keyof typeof theme.breakpoints];
+      const breakpointValue = theme.breakpoints[key as keyof typeof theme.breakpoints];
+
+      return css`
+        @media ${breakpointValue} {
+          grid-template: ${value?.map((area) => `"${area}"`).join(' ')};
+        }
+      `;
+    })}
+  `;
+};
