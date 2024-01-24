@@ -70,6 +70,16 @@ const meta = {
         summary: [''],
       },
     },
+    gridAreasBreakPoints: {
+      description:
+        'The grid areas breakpoints of the component uses the breakpoints from the theme like sm, md, lg...)',
+      control: {
+        type: 'object',
+      },
+      defaultValue: {
+        summary: {},
+      },
+    },
     height: {
       description: 'The height of the component',
       control: {
@@ -86,24 +96,6 @@ const meta = {
       },
       defaultValue: {
         summary: '100%',
-      },
-    },
-    sizeH: {
-      description: 'The height of the component',
-      control: {
-        type: 'select',
-      },
-      defaultValue: {
-        summary: 'fit',
-      },
-    },
-    sizeW: {
-      description: 'The width of the component',
-      control: {
-        type: 'select',
-      },
-      defaultValue: {
-        summary: 'fit',
       },
     },
   },
@@ -126,10 +118,13 @@ export const Primary: Story = {
     borderRadius: 'xs',
     gapColumn: 'sm',
     gapRow: 'sm',
-    gridAreas: ['a a b b b b', 'a a c c c c', 'd d d d d d', 'e e e e e e', 'f f f f f f', 'g g g g g g'],
+    gridAreas: ['a a b b b b', 'a a c c c c', 'd d d d d d'],
+    gridAreasBreakPoints: {
+      sm: ['a a b b b d', 'a a c c c d', 'e e e e e e'],
+      md: ['a a c c b b', 'a a c c b b', 'd d d d d d'],
+      lg: ['a a b d d c', 'a a b d d c', 'e e e e e e'],
+    },
     height: '100%',
     width: '100%',
-    sizeH: 'fit',
-    sizeW: 'fit',
   },
 };
