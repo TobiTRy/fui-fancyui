@@ -16,7 +16,7 @@ type TFancyMenueItemProps = {
 // ---------- The FancyMenueItem is a template for a finished Item  ---------- //
 // --------------------------------------------------------------------------- //
 export default function FancyMenuItem(props: TFancyMenueItemProps) {
-  const { label, icon, size = 'lg', ...menuItemProps } = props;
+  const { label, icon, size = 'md', ...menuItemProps } = props;
   return (
     <MenuItem size={size} {...menuItemProps}>
       <FancyContent align="center">
