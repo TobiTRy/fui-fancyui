@@ -1,4 +1,3 @@
-// Import necessary dependencies
 import React, { ReactElement } from 'react';
 
 import { FancyContentIcon } from './utils/FancyContentIcon';
