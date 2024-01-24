@@ -11,9 +11,12 @@ export default function SkeletonRoute() {
         /> */}
 
         <FancySkeletonGrid
-          gridAreas={{
-            lg: ['a a b b b b d', 'a a c c c c d', 'e e c c c c f', 'e e g g g g f', 'e e h h h h f'],
-            sm: ['a a b d d d d', 'a a c c c c d', 'e e c c c c f', 'e e g g g g f', 'e e h h h h f'],
+          gridAreas={['a a b b b b b', 'a a c c c c d', 'e e c c c c f', 'e e g g g g f', 'e e h h h h f']}
+          gridAreasBreakPoints={{
+            sm: ['a a b b b j j', 'a a c c c c d', 'e e c c c c f', 'e e g g g g f', 'e e h h h h f'],
+            md: ['a a b b b j j', 'a a c c c c d', 'e e c c c c f', 'e e g g g g f', 'e e h h h h f'],
+            lg: ['a a b b b j j', 'a a c c c c d', 'e e c c c c f', 'e e g g g g f', 'e e h h h h f'],
+            xl: ['a a b b b j j', 'a a c c c c d', 'e e c c c c f', 'e e g g g g f', 'e e h h h h f'],
           }}
           height="200px"
         />

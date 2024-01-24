@@ -1,0 +1,44 @@
+# useWichBreakPointIsActive Hook
+
+## Overview
+
+The `useWichBreakPointIsActive` hook is designed to help you easily determine the current active breakpoint in your React application. It leverages the `window.matchMedia()` API to detect changes in the viewport size and returns the active breakpoint name based on your application's theme breakpoints.
+
+## Importing the Hook
+
+First, you need to import the hook into your component:
+
+```javascript
+import { useWichBreakPointIsActive } from 'path-to-your-hooks-folder';
+```
+
+## Usage
+
+You can use this hook in any functional component to get the current active breakpoint. This is particularly useful for responsive designs where different layouts or styles are needed for different screen sizes.
+
+```javascript
+import React from 'react';
+import { useWichBreakPointIsActive } from 'path-to-your-hooks-folder';
+
+const MyComponent = () => {
+  const activeBreakpoint = useWichBreakPointIsActive();
+
+  return <div>Current breakpoint: {activeBreakpoint}</div>;
+};
+
+export default MyComponent;
+```
+
+## Hook Definition
+
+Here's a breakdown of the `useWichBreakPointIsActive` hook:
+
+- **Purpose**: To determine the currently active breakpoint based on the window size.
+- **Return Value**: Returns the name of the current active breakpoint as a string (e.g., 'sm', 'md', 'lg', 'xl', or 'xs').
+
+The hook uses the `useState` and `useEffect` hooks from React to maintain and update the state of the active breakpoint.
+
+## Note
+
+- The hook relies on the breakpoints defined in your theme store (`themeStore`). Make sure these are set up correctly.
+- The hook will automatically clean up the event listener on component unmount to prevent memory leaks.
