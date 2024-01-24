@@ -1,22 +1,31 @@
-import React from 'react';
+import { ComponentProps, ReactNode } from 'react';
+
+import { TComponentSizes } from '@/types/TComponentSizes';
 
 import { MenuItem } from '@/components/atoms/MenuItem';
 import { FancyContent } from '@/components/molecules/FancyContent';
 
+import { sizeSettings } from './sizeSettings';
+
 type TFancyMenueItemProps = {
   label?: string;
-  icon?: React.ReactNode;
-} & React.ComponentProps<typeof MenuItem>;
+  icon?: ReactNode;
+  size?: TComponentSizes;
+} & ComponentProps<typeof MenuItem>;
 // --------------------------------------------------------------------------- //
 // ---------- The FancyMenueItem is a template for a finished Item  ---------- //
 // --------------------------------------------------------------------------- //
 export default function FancyMenuItem(props: TFancyMenueItemProps) {
-  const { label, icon, ...menuItemProps } = props;
+  const { label, icon, size = 'lg', ...menuItemProps } = props;
   return (
-    <MenuItem {...menuItemProps}>
+    <MenuItem size={size} {...menuItemProps}>
       <FancyContent align="center">
-        {label && <FancyContent.Title bold={false}>{label}</FancyContent.Title>}
-        {icon && <FancyContent.Icon>{icon}</FancyContent.Icon>}
+        {label && (
+          <FancyContent.Title fontVariant={sizeSettings[size].fontSizeTitle} bold={false}>
+            {label}
+          </FancyContent.Title>
+        )}
+        {icon && <FancyContent.Icon size={sizeSettings[size].iconSize}>{icon}</FancyContent.Icon>}
       </FancyContent>
     </MenuItem>
   );
