@@ -18,6 +18,10 @@ The `FancyGridTemplate` component is designed to create a flexible and customiza
 ```jsx
 <FancyGridTemplate
   gridAreas={['header header', 'sidebar content', 'footer footer']}
+  gridAreasBreakPoints={{
+    sm: ['header', 'sidebar', 'content', 'footer'],
+    md: ['header header', 'sidebar content', 'footer footer'],
+  }}
   gapColumn="md"
   gapRow="md"
   height="auto"
