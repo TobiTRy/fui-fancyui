@@ -17,8 +17,8 @@ export type TGenerateStyle = IStyledPrefixAndPicker<TTypography, 'weight' | 'the
   TStyledComponentProps;
 const BaseStyledComponent = styled.span<TStyledComponentProps & TGenerateStyle & { theme: TTheme }>`
   color: ${({ theme, $themeType, $layer = 0 }) => $themeType && getBackgroundColor({ theme, $themeType, $layer })};
-  font-weight: ${({ $weight }) => $weight};
   ${({ $variant }) => $variant};
+  font-weight: ${({ $weight }) => $weight};
   ${({ $externalStyle }) => $externalStyle}
 `;
 
