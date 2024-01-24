@@ -20,3 +20,4 @@ export * from './TTextAlignLC';
 export * from './TTextAlignLRC';
 export * from './IStatus';
 export * from './TGlobalElementSizes';
+export * from './TBreakPoints';
