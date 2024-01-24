@@ -7,10 +7,16 @@ import {
   getTextColor,
 } from '@/design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponent';
 import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
+import { arrayToCssValues } from '@/design/designFunctions/arrayToCssValues';
+import { TSpacingArray } from '@/types/TSpacings';
+import { TTextAlignLC } from '@/types/TTextAlignLC';
+import { leftRightCenterToFlexJustify } from '@/design/designFunctions/leftRightCenterToFlexJustify';
 
 type StyledMenuProps = {
   $themeType?: TThemeTypesNotTransparent;
   $layer?: TLayer;
+  $padding?: TSpacingArray;
+  $align?: TTextAlignLC;
   theme: TTheme;
   as?: 'a' | 'button';
 };
@@ -18,7 +24,8 @@ type StyledMenuProps = {
 export const StyledMenuItem = styled.button<StyledMenuProps>`
   display: flex;
   box-sizing: border-box;
-  padding: 10px 20px;
+  padding: ${({ $padding }) => arrayToCssValues($padding)};
+  justify-content: ${({ $align }) => leftRightCenterToFlexJustify[$align ?? 'left']};
   cursor: pointer;
   background-color: transparent;
   border: none;
