@@ -37,6 +37,6 @@ export const LabelWrapper = styled.label<{ $align?: TAlignCheckbox; theme: TThem
         `};
 
   .description {
-    margin-left: ${({ theme }) => theme.spacing.xxs};
+    margin-left: ${({ theme }) => parseInt(theme.spacing.xxs) - 2 + 'px'};
   }
 `;

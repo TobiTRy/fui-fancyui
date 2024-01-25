@@ -41,7 +41,7 @@ export const OnlyTextWrapper = styled.span<TOnlyTextWrapper & { theme: TTheme }>
   flex-direction: ${({ $direction }) => $direction || 'column'};
   justify-content: ${({ $justify }) => $justify || 'center'};
   align-items: ${({ $align }) => $align || 'flex-start'};
-  gap: ${({ $gapBetweenText, theme }) => $gapBetweenText ?? theme.spacing.xxs};
+  gap: ${({ $gapBetweenText, theme }) => $gapBetweenText ?? parseInt(theme.spacing.xxs) - 2 + 'px'};
   ${({ theme, $themeType, $layer }) =>
     $themeType &&
     css`
