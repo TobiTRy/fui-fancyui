@@ -8,6 +8,13 @@ import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
 
 import { sizeSettings } from './sizeSettings';
 
+// Styled component for the wrapper for the complete component
+export const WrapperListInput = styled.div`
+  position: relative;
+  width: 100%;
+  min-height: fit-content;
+`;
+
 // Styled component for the entire search bar
 export const StyledFancySearchBar = styled.div`
   height: 90%;
@@ -19,7 +26,13 @@ export const StyledFancySearchBar = styled.div`
   flex-direction: column;
 `;
 
-// Styled component for the wrapper around the search bar list
+// Styled component for the search bar list
+export const WrapperList = styled.div<TWrapperListInput & { $width?: string }>`
+  width: ${({ $width }) => $width || '100%'}; // Set the width of the search bar listssss
+  height: auto;
+  transition: height 0.5s ease-in-out;
+`;
+
 type TWrapperListInput = {
   theme: TTheme;
   $size: TComponentSizes;
@@ -27,19 +40,13 @@ type TWrapperListInput = {
   $themeType?: TThemeTypesNotTransparent;
   $layer?: TLayer;
 };
-
-export const WrapperListInput = styled.div<TWrapperListInput>`
-  position: relative;
+export const Background = styled.div<TWrapperListInput>`
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
+  min-height: fit-content;
   background-color: ${({ theme }) => theme.colors.primary[0]};
   border-radius: ${({ $size, $borderRadius, theme }) =>
     $borderRadius ? theme.borderRadius[$borderRadius] : theme.borderRadius[sizeSettings[$size].borderRadius]};
-`;
-
-// Styled component for the search bar list
-export const WrapperList = styled.div<{ $width?: string }>`
-  width: ${({ $width }) => $width || '100%'}; // Set the width of the search bar list
-  z-index: 100;
-  height: auto;
-  transition: height 0.5s ease-in-out;
 `;

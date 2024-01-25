@@ -73,8 +73,28 @@ export default function FancySearchBarRoute() {
   return (
     <Card externalStyle={{ width: '100%', height: '1000px' }}>
       <DesignWrapper>
-        <DesignArea title="Fancy Search Bar">
+        <DesignArea title="Fancy Search Bar" style={{ display: 'flex', flexDirection: 'column' }}>
           <FancySearchBar handlerSearchValue={searchHandler} searchValue={searchValue}>
+            <ListWrapper>
+              {searchedUsers.map((user, index) => (
+                <UserWrapper key={index}>
+                  <div>{user.name}</div>
+                  <div>{user.username}</div>
+                </UserWrapper>
+              ))}
+            </ListWrapper>
+          </FancySearchBar>
+          <FancySearchBar handlerSearchValue={searchHandler} size="md" searchValue={searchValue}>
+            <ListWrapper>
+              {searchedUsers.map((user, index) => (
+                <UserWrapper key={index}>
+                  <div>{user.name}</div>
+                  <div>{user.username}</div>
+                </UserWrapper>
+              ))}
+            </ListWrapper>
+          </FancySearchBar>
+          <FancySearchBar handlerSearchValue={searchHandler} size="lg" searchValue={searchValue}>
             <ListWrapper>
               {searchedUsers.map((user, index) => (
                 <UserWrapper key={index}>
