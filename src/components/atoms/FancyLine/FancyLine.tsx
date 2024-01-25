@@ -1,23 +1,14 @@
-import { HTMLAttributes } from 'react';
 import { styled } from 'styled-components';
 
-import { TLayer } from '@/types/TLayer';
+import { TTheme } from '@/types/TTheme';
 import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponent';
 import IStyledPrefixAndPicker from '@/types/IStyledPrefixAndPicker';
-import { TTheme } from '@/types/TTheme';
-import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
+import { TFancyLine, TFancyLineWithHTMLAttributes } from './TFancyLine.model';
 
-type IFancyLine = {
-  direction?: 'horizontal' | 'vertical';
-  thickness?: string;
-  margin?: string;
-  themeType?: TUiColorsNotTransparent;
-  layer?: TLayer;
-} & HTMLAttributes<HTMLHRElement>;
 // --------------------------------------------------------------------------- //
 // ------------ A dynamic line (vertical/horizontal) for better UX/UI  ------- //
 // --------------------------------------------------------------------------- //
-export default function FancyLine(props: IFancyLine) {
+export default function FancyLine(props: TFancyLineWithHTMLAttributes) {
   const { direction, thickness, margin, themeType, layer, ...htmlProps } = props;
 
   return (
@@ -35,7 +26,7 @@ export default function FancyLine(props: IFancyLine) {
 // ------------------------------------------- //
 // ------- The style for the component ------- //
 // ------------------------------------------- //
-type TStyledFancyLine = IStyledPrefixAndPicker<IFancyLine> & { theme?: TTheme };
+type TStyledFancyLine = IStyledPrefixAndPicker<TFancyLine> & { theme?: TTheme };
 const StyledFancyLine = styled.hr<TStyledFancyLine>`
   background-color: ${({ theme, $themeType = 'accent', $layer }) => getBackgroundColor({ theme, $themeType, $layer })};
   display: block;
