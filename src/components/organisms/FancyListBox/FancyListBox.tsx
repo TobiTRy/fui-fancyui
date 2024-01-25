@@ -15,7 +15,7 @@ export default function FancyListBox(props: TFancyListBox) {
 
   return (
     // Render the list with the provided settings
-    <ListBox themeType={themeType} size={size} borderRadius={borderRadius} {...listProps}>
+    <ListBox themeType={themeType} layer={layer} size={size} borderRadius={borderRadius} {...listProps}>
       {/* Render the childs with the settings */}
       {items.map((child, index) => {
         if (React.isValidElement(child)) {

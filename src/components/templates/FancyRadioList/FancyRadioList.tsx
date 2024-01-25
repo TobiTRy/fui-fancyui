@@ -1,10 +1,9 @@
 import React, { useRef, useState } from 'react';
 
-import { FancyRadio } from '@/components/organisms/FancyRadio';
-import { ListBox } from '@/components/molecules/ListBox';
-import { FancyLine } from '@/components/atoms/FancyLine';
 import { Fieldset } from '@/components/molecules/Fieldset';
-import { clampLayer } from '@/utils/functions/clampLayer';
+import { ListBox } from '@/components/molecules/ListBox';
+import { FancyListBox } from '@/components/organisms/FancyListBox';
+import { FancyRadio } from '@/components/organisms/FancyRadio';
 import { FancyRadioListProps } from './FancyRadioList.model';
 
 // --------------------------------------------------------------------------- //
@@ -26,7 +25,7 @@ export default function FancyRadioList(props: FancyRadioListProps) {
   const handleKeyDown = (event: React.KeyboardEvent, itemKey: string) => {
     const currentIndex = items.findIndex((item) => item.itemKey === itemKey);
 
-    let newIndex = -1;
+    let newIndex = -1; // -1 means no change
     // Check if the user pressed the arrow keys
     if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
       newIndex = (currentIndex + 1) % items.length;
@@ -46,31 +45,28 @@ export default function FancyRadioList(props: FancyRadioListProps) {
     // Give the list with the Fieldset a label
     <Fieldset {...fieldSetProps}>
       {/* The ListBox gives the style */}
-      <ListBox role="radiogroup" themeType={themeType} layer={layer} tabIndex={0}>
+      <FancyListBox role="radiogroup" themeType={themeType} layer={layer} size="sm" tabIndex={0}>
         {items.map((item, index) => (
           <React.Fragment key={index}>
             {/* Render the Radio with a Label and Description */}
-            <ListBox.Item>
-              <FancyRadio
-                name={name}
-                id={item.itemKey}
-                value={item.title}
-                ref={buttonRefs.current[index]}
-                label={item.title}
-                description={item.description}
-                checked={currentItem === item.itemKey}
-                onClick={() => radioChangeHandler(item.itemKey)}
-                onKeyDown={(e) => handleKeyDown(e, item.itemKey)}
-                externalStyle={{ width: '100%' }}
-                aria-checked={item.itemKey === currentItem}
-                tabIndex={item.itemKey === currentItem ? 0 : -1}
-              />
-            </ListBox.Item>
-            {/* Render a line between the items */}
-            {items.length - 1 !== index && <FancyLine themeType="primary" layer={clampLayer(layer ? layer + 2 : 3)} />}
+            <FancyRadio
+              name={name}
+              id={item.itemKey}
+              value={item.title}
+              ref={buttonRefs.current[index]}
+              label={item.title}
+              description={item.description}
+              checked={currentItem === item.itemKey}
+              onClick={() => radioChangeHandler(item.itemKey)}
+              onKeyDown={(e) => handleKeyDown(e, item.itemKey)}
+              externalStyle={{ width: '100%' }}
+              aria-checked={item.itemKey === currentItem}
+              tabIndex={item.itemKey === currentItem ? 0 : -1}
+            />
           </React.Fragment>
         ))}
-      </ListBox>
+      </FancyListBox>
+      <ListBox role="radiogroup" themeType={themeType} layer={layer} tabIndex={0}></ListBox>
     </Fieldset>
   );
 }

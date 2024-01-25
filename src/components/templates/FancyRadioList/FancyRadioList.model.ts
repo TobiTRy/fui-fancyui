@@ -1,5 +1,5 @@
-import { ListBox } from '@/components/molecules/ListBox';
 import { Fieldset } from '@/components/molecules/Fieldset';
+import { TFancyListBox } from '@/components/organisms/FancyListBox';
 
 export interface FancyRadioListItem {
   title: string;
@@ -12,4 +12,4 @@ export type FancyRadioListProps = {
   name: string;
   handler?: (itemKey: string) => void;
 } & Omit<React.ComponentProps<typeof Fieldset>, 'children'> &
-  Omit<React.ComponentProps<typeof ListBox>, 'children'>;
+  Omit<TFancyListBox, 'children'>;
