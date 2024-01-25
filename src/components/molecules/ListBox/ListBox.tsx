@@ -1,17 +1,17 @@
 import React from 'react';
 
 import { FancyBox } from '@/components/atoms/FancyBox';
-import { FancyListBoxItem } from './FancyListBoxItem';
-import { generateFancyBoxStyle } from './FancyListBox.style';
+import { ListBoxItem } from './ListBoxItem';
+import { generateFancyBoxStyle } from './ListBox.style';
 
-type FancyListBoxProps = {
+type ListBoxProps = {
   children?: React.ReactNode;
 } & React.HTMLAttributes<HTMLDivElement> &
   React.ComponentProps<typeof FancyBox>;
 // --------------------------------------------------------------------------- //
-// ---------- The FancyListBox is only a Styled list with items  ------------- //
+// ---------- The ListBox is only a Styled list with items  ------------- //
 // --------------------------------------------------------------------------- //
-function FancyListBox({ children, externalStyle, ...htmlProps }: FancyListBoxProps) {
+function ListBox({ children, externalStyle, ...htmlProps }: ListBoxProps) {
   return (
     <FancyBox as="ul" externalStyle={generateFancyBoxStyle(externalStyle)} {...htmlProps}>
       {children}
@@ -19,5 +19,5 @@ function FancyListBox({ children, externalStyle, ...htmlProps }: FancyListBoxPro
   );
 }
 
-FancyListBox.Item = FancyListBoxItem;
-export default FancyListBox; // this convention is used to allow the Storybook to render the component
+ListBox.Item = ListBoxItem;
+export default ListBox; // this convention is used to allow the Storybook to render the component

@@ -1,15 +1,15 @@
 import React from 'react';
 
 import { Fieldset } from '@/components/molecules/Fieldset';
-import { FancyListBox } from '@/components/molecules/FancyListBox';
+import { ListBox } from '@/components/molecules/ListBox';
 import { FancyLine } from '@/components/atoms/FancyLine';
 
 import { TLayer } from '@/types/TLayer';
 import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
 
-// get props from the Fieldset and the FancyListBox
+// get props from the Fieldset and the ListBox
 type TFieldSetProps = React.ComponentProps<typeof Fieldset>;
-type TFancyListProps = React.ComponentProps<typeof FancyListBox>;
+type TFancyListProps = React.ComponentProps<typeof ListBox>;
 
 // combine the props and add the displayLine prop
 type TFancyBoxSet = TFieldSetProps &
@@ -40,18 +40,18 @@ export default function FancyBoxSet(props: TFancyBoxSet) {
   return (
     // Give the list with the Fieldset a label
     <Fieldset label={label} alignLabel={alignLabel} fontVariantLegend={fontVariantLegend} disabled={disabled}>
-      {/* The FancyListbox gives the style */}
-      <FancyListBox themeType={themeType} layer={layer} {...HTMLProps}>
+      {/* The ListBox gives the style */}
+      <ListBox themeType={themeType} layer={layer} {...HTMLProps}>
         {childArray.map((child, i) => (
           <React.Fragment key={i}>
             {/* Merge the Item with the FancyLine to Seperate the items  */}
-            <FancyListBox.Item>{child}</FancyListBox.Item>
+            <ListBox.Item>{child}</ListBox.Item>
             {displayLine && childArray.length - 1 !== i && (
               <FancyLine themeType={lineThemeType ?? 'primary'} layer={Math.min(layer ? layer + 2 : 2, 9) as TLayer} />
             )}
           </React.Fragment>
         ))}
-      </FancyListBox>
+      </ListBox>
     </Fieldset>
   );
 }

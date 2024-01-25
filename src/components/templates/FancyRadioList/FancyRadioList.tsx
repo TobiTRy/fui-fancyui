@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 
 import { FancyRadio } from '@/components/organisms/FancyRadio';
-import { FancyListBox } from '@/components/molecules/FancyListBox';
+import { ListBox } from '@/components/molecules/ListBox';
 import { FancyLine } from '@/components/atoms/FancyLine';
 import { Fieldset } from '@/components/molecules/Fieldset';
 import { clampLayer } from '@/utils/functions/clampLayer';
@@ -45,12 +45,12 @@ export default function FancyRadioList(props: FancyRadioListProps) {
   return (
     // Give the list with the Fieldset a label
     <Fieldset {...fieldSetProps}>
-      {/* The FancyListbox gives the style */}
-      <FancyListBox role="radiogroup" themeType={themeType} layer={layer} tabIndex={0}>
+      {/* The ListBox gives the style */}
+      <ListBox role="radiogroup" themeType={themeType} layer={layer} tabIndex={0}>
         {items.map((item, index) => (
           <React.Fragment key={index}>
             {/* Render the Radio with a Label and Description */}
-            <FancyListBox.Item>
+            <ListBox.Item>
               <FancyRadio
                 name={name}
                 id={item.itemKey}
@@ -65,12 +65,12 @@ export default function FancyRadioList(props: FancyRadioListProps) {
                 aria-checked={item.itemKey === currentItem}
                 tabIndex={item.itemKey === currentItem ? 0 : -1}
               />
-            </FancyListBox.Item>
+            </ListBox.Item>
             {/* Render a line between the items */}
             {items.length - 1 !== index && <FancyLine themeType="primary" layer={clampLayer(layer ? layer + 2 : 3)} />}
           </React.Fragment>
         ))}
-      </FancyListBox>
+      </ListBox>
     </Fieldset>
   );
 }

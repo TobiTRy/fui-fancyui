@@ -98,7 +98,7 @@ export * from '@/components/molecules/Button';
 export * from '@/components/molecules/Chip';
 export * from '@/components/molecules/ChipList';
 export * from '@/components/molecules/BottomBarIcon';
-export * from '@/components/molecules/FancyListBox';
+export * from '@/components/molecules/ListBox';
 export * from '@/components/molecules/FancyTabSwitchButton';
 export * from '@/components/molecules/MenuList';
 export * from '@/components/molecules/SwitchList';
