@@ -4,16 +4,17 @@ import { TTheme } from '@/types/TTheme';
 import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponent';
 import IStyledPrefixAndPicker from '@/types/IStyledPrefixAndPicker';
 import { TFancyLine, TFancyLineWithHTMLAttributes } from './TFancyLine.model';
+import { arrayToCssValues } from '@/design/designFunctions/arrayToCssValues';
 
 // --------------------------------------------------------------------------- //
 // ------------ A dynamic line (vertical/horizontal) for better UX/UI  ------- //
 // --------------------------------------------------------------------------- //
 export default function FancyLine(props: TFancyLineWithHTMLAttributes) {
-  const { direction, thickness, margin, themeType, layer, ...htmlProps } = props;
+  const { direction = 'horizontal', thickness, margin, themeType, layer, ...htmlProps } = props;
 
   return (
     <StyledFancyLine
-      $direction={direction ?? 'horizontal'}
+      $direction={direction}
       $thickness={thickness}
       $margin={margin}
       $themeType={themeType}
@@ -36,7 +37,7 @@ const StyledFancyLine = styled.hr<TStyledFancyLine>`
   align-self: stretch;
   border: 0;
   padding: 0;
-  margin: ${({ $margin }) => $margin || '0'};
+  margin: ${({ $margin }) => arrayToCssValues($margin) || '0'};
 
   &::after {
     content: '';
