@@ -6,9 +6,8 @@ import { TComponentSizes } from '@/types/TComponentSizes';
 import { TBorderRadiusSizes } from '@/types/TBorderRadiusSizes';
 
 // --------------------------------------------------------------------------- //
-// ---------- The ListBox is only a Styled list with items  ------------- //
+// ------------- The ListBox is only a Styled list with items  --------------- //
 // --------------------------------------------------------------------------- //
-
 export type TListBox = {
   size?: TComponentSizes;
   borderRadius?: TBorderRadiusSizes;

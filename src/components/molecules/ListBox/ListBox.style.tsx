@@ -17,9 +17,9 @@ export const generateFancyBoxStyle = ({ $borderRadius, $externalStyle, $size }: 
   flex-direction: column;
   justify-content: space-between;
   width: 100%;
-  gap: ${({ theme }) => theme.spacing[sizeSettings[$size ?? 'md'].gap]};
   border-radius: ${({ theme }) =>
     $borderRadius ? theme.borderRadius[$borderRadius] : theme.borderRadius[sizeSettings[$size ?? 'md'].borderRadius]};
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+
   ${$externalStyle}
 `;
