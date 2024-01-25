@@ -12,7 +12,7 @@ export * from './TThemeTypesNotTransparent';
 export * from './TSystemMessageProps';
 export * from './TTheme';
 export * from './TTypographyList';
-export * from './TThemeTypes';
+export * from './TUiColorTypes';
 export * from './TUiColorsTypeObject';
 export * from './TTextAlignLR';
 export * from './TTextAlignLC';

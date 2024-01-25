@@ -6,13 +6,13 @@ import { SVGChevronRight } from '@/components/icons/SVGChevronRight';
 import { FancyButton } from '@/components/organisms/FancyButton';
 import { IconWrapper, NumberList, StyledPaginator } from './Paginator.style';
 import { PageNumberList } from '@/components/atoms/PageNumberList';
-import { TThemeTypes } from '@/types/TThemeTypes';
+import { TUiColorTypes } from '@/types/TUiColorTypes';
 
 // Define the props for the Paginator component
 interface IPaginator {
   currentPage?: number;
   totalPages: number;
-  themeType?: TThemeTypes;
+  themeType?: TUiColorTypes;
   outlinedButton?: boolean;
   onPageChange: (page: number) => void;
   pageLimits?: number;

@@ -3,7 +3,7 @@ import { TBorderRadiusSizes } from '@/types/TBorderRadiusSizes';
 import { TLayer } from '@/types/TLayer';
 import IStyledPrefixAndOmiter from '@/types/IStyledPrefixAndOmiter';
 import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
-import { TThemeTypes } from '@/types/TThemeTypes';
+import { TUiColorTypes } from '@/types/TUiColorTypes';
 
 export type IGenerateThemeItemProps = {
   outlined?: boolean;
@@ -13,7 +13,7 @@ export type IGenerateThemeItemProps = {
   label?: string;
   wide?: boolean;
   borderRadius?: TBorderRadiusSizes;
-  themeType?: TThemeTypes;
+  themeType?: TUiColorTypes;
   textColor?: TThemeTypesNotTransparent;
   hoverColor?: TThemeTypesNotTransparent;
   layer?: TLayer;

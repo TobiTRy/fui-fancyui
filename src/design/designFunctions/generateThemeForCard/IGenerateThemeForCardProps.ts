@@ -1,10 +1,10 @@
 import { TLayer } from '@/types/TLayer';
-import { TThemeTypes } from '@/types/TThemeTypes';
+import { TUiColorTypes } from '@/types/TUiColorTypes';
 
 export interface IGenerateThemeForCardProps {
   outlined?: boolean;
   layer?: TLayer;
-  themeType?: TThemeTypes;
+  themeType?: TUiColorTypes;
   outlinedBackgroundStrength?: number;
 }
 

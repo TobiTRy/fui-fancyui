@@ -1,6 +1,6 @@
 import Color from 'color';
 
-import { TThemeTypes } from '@/types/TThemeTypes';
+import { TUiColorTypes } from '@/types/TUiColorTypes';
 import { TLayer } from '@/types/TLayer';
 
 // Function to adjust lightness
@@ -55,7 +55,7 @@ type ColorSteps = {
 
 // this function generates a object with the color steps
 interface IGenerateColorSteps {
-  themeType: TThemeTypes;
+  themeType: TUiColorTypes;
   color: string;
   pimaryColor: string;
 }

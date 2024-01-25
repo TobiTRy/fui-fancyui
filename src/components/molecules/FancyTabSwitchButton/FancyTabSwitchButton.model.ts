@@ -1,4 +1,4 @@
-import { TThemeTypes } from '@/types/TThemeTypes';
+import { TUiColorTypes } from '@/types/TUiColorTypes';
 import { tabSwitchItemSizes } from './sizeSettings';
 import { CSSProp } from 'styled-components';
 
@@ -17,7 +17,7 @@ export interface ITabSwitchButton {
   disabled?: boolean;
   selected: boolean;
   onClick: (key: string) => void;
-  themeType?: TThemeTypes;
+  themeType?: TUiColorTypes;
   iconAlign?: 'left' | 'right';
   size?: keyof typeof tabSwitchItemSizes;
   externalStyle?: CSSProp;

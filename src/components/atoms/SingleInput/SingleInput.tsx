@@ -2,7 +2,7 @@ import React, { forwardRef, useState } from 'react';
 
 import { TLayer } from '@/types/TLayer';
 import { StyledSingleInput } from './SingleInput.style';
-import { TThemeTypes } from '@/types/TThemeTypes';
+import { TUiColorTypes } from '@/types/TUiColorTypes';
 
 // --------------------------------------------------------------------------- //
 // --------- A Single Letter/NumberInput for a Verification process ---------- //
@@ -11,7 +11,7 @@ interface ISingleInputAtomProps {
   value: string;
   ariaLabel?: string;
   onKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
-  themeType?: TThemeTypes;
+  themeType?: TUiColorTypes;
   layer?: TLayer;
 }
 const SingleInput = forwardRef<HTMLInputElement, ISingleInputAtomProps>((props, ref) => {

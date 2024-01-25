@@ -3,13 +3,13 @@ import { styled } from 'styled-components';
 import { TLayer } from '@/types/TLayer';
 import { TTheme } from '@/types/TTheme';
 import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent';
-import { TThemeTypes } from '@/types/TThemeTypes';
+import { TUiColorTypes } from '@/types/TUiColorTypes';
 
 // the style for a single input
 interface StyledSingleInputProps {
   $hasValue: boolean;
   $isFocused: boolean;
-  $themeType?: TThemeTypes;
+  $themeType?: TUiColorTypes;
   $layer?: TLayer;
 }
 export const StyledSingleInput = styled.input<StyledSingleInputProps & { theme: TTheme }>`

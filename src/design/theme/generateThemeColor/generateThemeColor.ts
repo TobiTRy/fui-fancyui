@@ -1,7 +1,7 @@
 import { TUiColorsTypeObject } from '@/types/TUiColorsTypeObject';
 import generateColorSteps from './utils/generateColorSteps';
 import { isColorValid } from '@/utils//validations/isColorValid';
-import { TThemeTypes } from '@/types/TThemeTypes';
+import { TUiColorTypes } from '@/types/TUiColorTypes';
 import validateColorSteps from '@/design/theme/generateThemeColor/utils/validateColorSteps';
 import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
 
@@ -29,7 +29,7 @@ export function initialGenerateUiColors() {
   for (const color in themeColors) {
     // generate the color steps for the color
     const generatedColor = generateColorSteps({
-      themeType: color as TThemeTypes,
+      themeType: color as TUiColorTypes,
       color: themeColors[color as TThemeTypesNotTransparent],
       pimaryColor: themeColors.secondary,
     });
@@ -47,7 +47,7 @@ export const regenerateUiColors = (isDarkTheme: boolean) => {
   for (const color in uiColors) {
     // generate the color steps for the color
     const generatedColor = generateColorSteps({
-      themeType: color as TThemeTypes,
+      themeType: color as TUiColorTypes,
       color: uiColors[color as TThemeTypesNotTransparent]['0'],
       pimaryColor: isDarkTheme ? themeColors.primary : themeColors.secondary, // if the theme is dark, the primary color is the secondary color
     });

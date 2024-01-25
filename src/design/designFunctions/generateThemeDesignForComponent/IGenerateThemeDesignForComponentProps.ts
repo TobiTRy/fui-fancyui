@@ -1,10 +1,10 @@
 import { TLayer } from '@/types/TLayer';
 
 import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
-import { TThemeTypes } from '@/types/TThemeTypes';
+import { TUiColorTypes } from '@/types/TUiColorTypes';
 
 export interface IGenerateThemeDesignForComponentProps {
-  themeType?: TThemeTypes;
+  themeType?: TUiColorTypes;
   hoverColor?: TThemeTypesNotTransparent;
   textColor?: TThemeTypesNotTransparent;
   textHover?: TThemeTypesNotTransparent;

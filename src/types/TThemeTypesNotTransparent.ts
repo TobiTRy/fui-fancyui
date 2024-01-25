@@ -1,3 +1,3 @@
-import { TThemeTypes } from './TThemeTypes';
+import { TUiColorTypes } from './TUiColorTypes';
 
-export type TThemeTypesNotTransparent = Exclude<TThemeTypes, 'transparent'>;
+export type TThemeTypesNotTransparent = Exclude<TUiColorTypes, 'transparent'>;

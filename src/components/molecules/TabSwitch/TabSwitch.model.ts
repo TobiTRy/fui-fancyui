@@ -1,4 +1,4 @@
-import { TThemeTypes } from '@/types/TThemeTypes';
+import { TUiColorTypes } from '@/types/TUiColorTypes';
 import { TLayer } from '@/types/TLayer';
 import { TBorderRadiusSizes } from '@/types/TBorderRadiusSizes';
 import {
@@ -14,7 +14,7 @@ export interface ITabSwitchProps {
   wide?: boolean;
   size?: TComponentSizes;
   textColor?: TThemeTypesNotTransparent;
-  themeType?: TThemeTypes;
+  themeType?: TUiColorTypes;
   layer?: TLayer;
   disabled?: boolean;
   tabSpacing?: TSpacings;

@@ -1,11 +1,11 @@
 import { styled } from 'styled-components';
 
 import { TLayer } from '@/types/TLayer';
-import { TThemeTypes } from '@/types/TThemeTypes';
+import { TUiColorTypes } from '@/types/TUiColorTypes';
 import { TTheme } from '@/types/TTheme';
 
 // Define the styled component for the DateOutputFromTo component
-export const StyledDateOutputFromTo = styled.div<{ theme: TTheme; $themeType?: TThemeTypes; $layer?: TLayer }>`
+export const StyledDateOutputFromTo = styled.div<{ theme: TTheme; $themeType?: TUiColorTypes; $layer?: TLayer }>`
   position: relative;
   display: flex;
   width: 100%;

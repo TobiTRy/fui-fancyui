@@ -2,7 +2,7 @@ import React, { useState, createRef, useEffect } from 'react';
 
 import { IStatus } from '@/types/IStatus';
 import { InputWrapper } from './SingleInputs.style';
-import { TThemeTypes } from '@/types/TThemeTypes';
+import { TUiColorTypes } from '@/types/TUiColorTypes';
 import { TLayer } from '@/types/TLayer';
 import { SingleInput } from '@/components/atoms/SingleInput';
 
@@ -11,7 +11,7 @@ interface IFancySingleInputsProps {
   handler?: (value: string) => void;
   status?: Pick<IStatus, 'isError' | 'isSucceed'>;
   automaticCase?: 'upper' | 'lower';
-  themeType?: TThemeTypes;
+  themeType?: TUiColorTypes;
   layer?: TLayer;
 }
 export default function SingleInputs(props: IFancySingleInputsProps) {

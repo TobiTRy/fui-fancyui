@@ -1,3 +1,3 @@
-import { TThemeTypes } from './TThemeTypes';
+import { TUiColorTypes } from './TUiColorTypes';
 
-export type TUiColorsSystemMessage = Extract<TThemeTypes, 'success' | 'error' | 'info' | 'warning'>;
+export type TUiColorsSystemMessage = Extract<TUiColorTypes, 'success' | 'error' | 'info' | 'warning'>;
