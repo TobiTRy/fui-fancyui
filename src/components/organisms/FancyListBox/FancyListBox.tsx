@@ -1,17 +1,22 @@
 import React from 'react';
 
+import { TFancyListBox } from './TFancyListBox.model';
 import { FancyLine } from '@/components/atoms/FancyLine';
 import { ListBox } from '@/components/molecules/ListBox';
 import { clampLayer } from '@/utils/functions/clampLayer';
-import { TFancyListBox } from './TFancyListBox.model';
 
+// --------------------------------------------------------------------------- //
+// ---------- This component renders a list with the provided items ---------- //
+// --------------------------------------------------------------------------- //
 export default function FancyListBox(props: TFancyListBox) {
   const { children, size = 'md', seperator = {}, layer, themeType = 'primary', borderRadius, ...listProps } = props;
 
   const items = React.Children.toArray(children);
 
   return (
+    // Render the list with the provided settings
     <ListBox themeType={themeType} size={size} borderRadius={borderRadius} {...listProps}>
+      {/* Render the childs with the settings */}
       {items.map((child, index) => {
         if (React.isValidElement(child)) {
           return (

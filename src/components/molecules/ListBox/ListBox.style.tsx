@@ -5,21 +5,24 @@ import { TTheme } from '@/types/TTheme';
 import { TListBox } from '@/components/molecules/ListBox/ListBox';
 import IStyledPrefixAndPicker from '@/types/IStyledPrefixAndPicker';
 import { sizeSettings } from './sizeSettings';
+import { boxShadow } from '@/design/designFunctions/shadows';
 
-type TgenerateFancyBoxStyle = IStyledPrefixAndPicker<TListBox, 'size' | 'externalStyle' | 'borderRadius'>;
+type TgenerateFancyBoxStyle = IStyledPrefixAndPicker<TListBox, 'size' | 'externalStyle' | 'borderRadius' | 'boxShadow'>;
 
-export const generateFancyBoxStyle = ({ $borderRadius, $externalStyle, $size }: TgenerateFancyBoxStyle) => css<{
-  theme: TTheme;
-}>`
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 100%;
-  border-radius: ${({ theme }) =>
-    $borderRadius ? theme.borderRadius[$borderRadius] : theme.borderRadius[sizeSettings[$size ?? 'md'].borderRadius]};
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+export const generateFancyBoxStyle = (props: TgenerateFancyBoxStyle) => {
+  const { $size, $externalStyle, $borderRadius, $boxShadow } = props;
 
-  ${$externalStyle}
-`;
+  return css<{ theme: TTheme }>`
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    border-radius: ${({ theme }) =>
+      $borderRadius ? theme.borderRadius[$borderRadius] : theme.borderRadius[sizeSettings[$size ?? 'md'].borderRadius]};
+    ${$boxShadow && boxShadow.md};
+
+    ${$externalStyle}
+  `;
+};
