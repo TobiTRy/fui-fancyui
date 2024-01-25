@@ -2,7 +2,7 @@ import { CSSProp } from 'styled-components';
 
 import { sizes } from '@/components/atoms/FancySVGAtom/sizeSettings';
 import { TLayer } from '@/types/TLayer';
-import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
+import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 
 export type TSVGAtomSizes = keyof typeof sizes;
 
@@ -13,7 +13,7 @@ export type ISVGAtom = {
   isPassive?: boolean;
   isActive?: boolean;
   errorMessage?: string;
-  themeType?: TThemeTypesNotTransparent;
+  themeType?: TUiColorsNotTransparent;
   layer?: TLayer;
 };
 

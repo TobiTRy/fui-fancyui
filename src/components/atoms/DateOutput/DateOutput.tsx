@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { styled } from 'styled-components';
 
 import { Typography } from '@/components/atoms/Typography';
-import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
+import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 import { getBackgroundColor, getTextColor } from '@/design/designFunctions/colorCalculatorForComponent';
 
 import { TLayer } from '@/types/TLayer';
@@ -12,7 +12,7 @@ interface IDateOutput {
   date?: Date;
   isActive?: boolean;
   onClick?: () => void;
-  themeType?: TThemeTypesNotTransparent;
+  themeType?: TUiColorsNotTransparent;
   layer?: TLayer;
 }
 // --------------------------------------------------------------------------- //
@@ -56,7 +56,7 @@ export default function DateOutput({ date = new Date(), isActive, onClick, theme
 const DateOutputButton = styled.button<{
   $isActive?: boolean;
   theme: TTheme;
-  $themeType?: TThemeTypesNotTransparent;
+  $themeType?: TUiColorsNotTransparent;
   $layer?: TLayer;
 }>`
   text-align: center;

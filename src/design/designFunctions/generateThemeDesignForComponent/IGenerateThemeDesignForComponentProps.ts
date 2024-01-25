@@ -1,13 +1,13 @@
 import { TLayer } from '@/types/TLayer';
 
-import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
+import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 import { TUiColorTypes } from '@/types/TUiColorTypes';
 
 export interface IGenerateThemeDesignForComponentProps {
   themeType?: TUiColorTypes;
-  hoverColor?: TThemeTypesNotTransparent;
-  textColor?: TThemeTypesNotTransparent;
-  textHover?: TThemeTypesNotTransparent;
+  hoverColor?: TUiColorsNotTransparent;
+  textColor?: TUiColorsNotTransparent;
+  textHover?: TUiColorsNotTransparent;
   layer?: TLayer;
   outlined?: boolean;
   backgroundStrength?: number;

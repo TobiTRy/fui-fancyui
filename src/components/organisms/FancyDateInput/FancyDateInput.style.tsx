@@ -6,11 +6,11 @@ import { TLayer } from '@/types/TLayer';
 import { simpleColorTransition } from '@/design/designFunctions/simpleColorTransition';
 
 import { TDateInputProps } from '@/components/atoms/DateInput/TDateInput.model';
-import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
+import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 
 interface IRawInputWrapper extends IRawInput {
   value?: string;
-  $themeType?: TThemeTypesNotTransparent;
+  $themeType?: TUiColorsNotTransparent;
   $layer?: TLayer;
   $isActive?: boolean;
 }

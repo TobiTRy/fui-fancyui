@@ -6,14 +6,14 @@ import {
   getBackgroundColor,
   getTextColor,
 } from '@/design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponent';
-import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
+import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 import { arrayToCssValues } from '@/design/designFunctions/arrayToCssValues';
 import { TSpacingArray } from '@/types/TSpacings';
 import { TTextAlignLC } from '@/types/TTextAlignLC';
 import { leftRightCenterToFlexJustify } from '@/design/designFunctions/leftRightCenterToFlexJustify';
 
 type StyledMenuProps = {
-  $themeType?: TThemeTypesNotTransparent;
+  $themeType?: TUiColorsNotTransparent;
   $layer?: TLayer;
   $padding?: TSpacingArray;
   $align?: TTextAlignLC;

@@ -5,13 +5,13 @@ import { Typography } from '@/components/atoms/Typography';
 import { TLayer } from '@/types/TLayer';
 
 import { LogoWrapper, StyledHeading, Wrapper } from './HeaderTitleWithLogo.style';
-import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
+import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 
 interface IHeaderTitleWithLogo {
   title?: ReactNode | string;
   logo?: ReactNode;
   href?: string;
-  themeType?: TThemeTypesNotTransparent;
+  themeType?: TUiColorsNotTransparent;
   layer?: TLayer;
 }
 // --------------------------------------------------------------------------- //

@@ -7,7 +7,7 @@ import { TTextAlignLC } from '@/types/TTextAlignLC';
 import { TTextAlignLRC } from '@/types/TTextAlignLRC';
 import { AlignedLabel } from '@/components/atoms/AlignedLabel/AlignedLabel';
 import { Typography } from '@/components/atoms/Typography';
-import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
+import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 
 // Define the props for the ProgressBar component
 interface IFancyProgressBar extends IProgressBar {
@@ -15,7 +15,7 @@ interface IFancyProgressBar extends IProgressBar {
   labelAlign?: TTextAlignLC;
   progressCount?: boolean;
   progressAlign?: TTextAlignLRC;
-  themeType?: TThemeTypesNotTransparent;
+  themeType?: TUiColorsNotTransparent;
   textLayer?: TLayer;
   layer?: TLayer;
 }

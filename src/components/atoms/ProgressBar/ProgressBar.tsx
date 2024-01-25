@@ -1,13 +1,13 @@
 import { TLayer } from '@/types/TLayer';
 import { ProgressBarContainer, ProgressBarFill } from './ProgressBar.style';
-import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
+import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 
 // Define the interface for the progress bar props
 export interface IProgressBar {
   progress?: number;
   maxValue?: number;
   id?: string;
-  themeType?: TThemeTypesNotTransparent;
+  themeType?: TUiColorsNotTransparent;
   layer?: TLayer;
 }
 // Define the ProgressBar component

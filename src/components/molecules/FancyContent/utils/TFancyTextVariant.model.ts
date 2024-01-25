@@ -1,7 +1,7 @@
 import { CSSProp } from 'styled-components';
 
 import { TTypographyList } from '@/types/TTypographyList';
-import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
+import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 import { TLayer } from '@/types/TLayer';
 
 type IFancyContentTextProps = {
@@ -9,7 +9,7 @@ type IFancyContentTextProps = {
   bold?: boolean;
   className?: string;
   externalStyle?: CSSProp;
-  themeType?: TThemeTypesNotTransparent;
+  themeType?: TUiColorsNotTransparent;
   layer?: TLayer;
 };
 

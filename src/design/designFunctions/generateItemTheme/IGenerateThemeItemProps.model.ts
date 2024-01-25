@@ -2,7 +2,7 @@ import { TBorderRadiusSizes } from '@/types/TBorderRadiusSizes';
 
 import { TLayer } from '@/types/TLayer';
 import IStyledPrefixAndOmiter from '@/types/IStyledPrefixAndOmiter';
-import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
+import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 import { TUiColorTypes } from '@/types/TUiColorTypes';
 
 export type IGenerateThemeItemProps = {
@@ -14,8 +14,8 @@ export type IGenerateThemeItemProps = {
   wide?: boolean;
   borderRadius?: TBorderRadiusSizes;
   themeType?: TUiColorTypes;
-  textColor?: TThemeTypesNotTransparent;
-  hoverColor?: TThemeTypesNotTransparent;
+  textColor?: TUiColorsNotTransparent;
+  hoverColor?: TUiColorsNotTransparent;
   layer?: TLayer;
   align?: 'left' | 'right' | 'center';
 };

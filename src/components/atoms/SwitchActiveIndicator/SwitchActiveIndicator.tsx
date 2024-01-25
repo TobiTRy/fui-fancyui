@@ -1,12 +1,12 @@
 import { TBorderRadiusSizes } from '@/types/TBorderRadiusSizes';
 import { TLayer } from '@/types/TLayer';
 import { TSpacings } from '@/types/TSpacings';
-import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
+import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 import { ActiveSwitchIndicator, Wrapper } from './SwitchActiveIndicator.style';
 
 export interface IActiveSwitchIndicator {
   itemNumber: number;
-  themeType?: TThemeTypesNotTransparent;
+  themeType?: TUiColorsNotTransparent;
   layer?: TLayer;
   tabSpacing?: TSpacings;
   type?: 'bolb' | 'underline' | 'topline';

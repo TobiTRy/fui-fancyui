@@ -7,7 +7,7 @@ import { TLayer } from '@/types/TLayer';
 import { TTheme } from '@/types/TTheme';
 
 import { IRange } from './IDateNumberAtom.model';
-import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
+import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 
 // --------------------------------------------------------------------------- //
 // ----------------- The Style for one Day with diferent sates --------------- //
@@ -16,7 +16,7 @@ interface IStyledDay {
   $range?: IRange;
   $isCurrentDay?: boolean;
   $selected?: boolean;
-  $themeType?: TThemeTypesNotTransparent;
+  $themeType?: TUiColorsNotTransparent;
   $layer?: TLayer;
 }
 export const StyledDay = styled.button<IStyledDay & { theme: TTheme }>`

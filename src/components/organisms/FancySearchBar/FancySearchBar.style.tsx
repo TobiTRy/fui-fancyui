@@ -4,7 +4,7 @@ import { TTheme } from '@/types/TTheme';
 import { TLayer } from '@/types/TLayer';
 import { TComponentSizes } from '@/types/TComponentSizes';
 import { TBorderRadiusSizes } from '@/types/TBorderRadiusSizes';
-import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
+import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 
 import { sizeSettings } from './sizeSettings';
 
@@ -37,7 +37,7 @@ type TWrapperListInput = {
   theme: TTheme;
   $size: TComponentSizes;
   $borderRadius?: TBorderRadiusSizes;
-  $themeType?: TThemeTypesNotTransparent;
+  $themeType?: TUiColorsNotTransparent;
   $layer?: TLayer;
 };
 export const Background = styled.div<TWrapperListInput>`

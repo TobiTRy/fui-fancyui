@@ -3,7 +3,7 @@ import generateColorSteps from './utils/generateColorSteps';
 import { isColorValid } from '@/utils//validations/isColorValid';
 import { TUiColorTypes } from '@/types/TUiColorTypes';
 import validateColorSteps from '@/design/theme/generateThemeColor/utils/validateColorSteps';
-import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
+import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 
 const themeColors = {
   primary: '#131825',
@@ -30,7 +30,7 @@ export function initialGenerateUiColors() {
     // generate the color steps for the color
     const generatedColor = generateColorSteps({
       themeType: color as TUiColorTypes,
-      color: themeColors[color as TThemeTypesNotTransparent],
+      color: themeColors[color as TUiColorsNotTransparent],
       pimaryColor: themeColors.secondary,
     });
     uiColors = {
@@ -48,7 +48,7 @@ export const regenerateUiColors = (isDarkTheme: boolean) => {
     // generate the color steps for the color
     const generatedColor = generateColorSteps({
       themeType: color as TUiColorTypes,
-      color: uiColors[color as TThemeTypesNotTransparent]['0'],
+      color: uiColors[color as TUiColorsNotTransparent]['0'],
       pimaryColor: isDarkTheme ? themeColors.primary : themeColors.secondary, // if the theme is dark, the primary color is the secondary color
     });
 
@@ -62,7 +62,7 @@ export const regenerateUiColors = (isDarkTheme: boolean) => {
 // this function updates the theme colors with a incomming object
 // { 'primary': '#131825', 'accent': '#F17C12', 'secondary': '#f0f0ef' }
 export type IUiColorPops = {
-  [key in TThemeTypesNotTransparent]?: string | object;
+  [key in TUiColorsNotTransparent]?: string | object;
 };
 // this function updates the theme colors with a incomming object and generates the new colors
 export const updateThemeColors = (colorObject: IUiColorPops) => {
@@ -70,7 +70,7 @@ export const updateThemeColors = (colorObject: IUiColorPops) => {
 
   // check if the color is valid
   for (const colorType in colorObject) {
-    const colorTypedkey = colorType as TThemeTypesNotTransparent;
+    const colorTypedkey = colorType as TUiColorsNotTransparent;
 
     //  when the user only provides a color string and not a object
     // like { 'primary': '#131825' } instead of complete theme { 'primary': { '0': '#131825' } }

@@ -1,10 +1,10 @@
 import { TLayer } from '@/types/TLayer';
-import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
+import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 import { TUiColorsSystemMessage } from '@/types/TUiColorsSystemMessage';
 
 export type TSystemMessage = {
   systemMessageState?: TUiColorsSystemMessage;
-  themeType?: TThemeTypesNotTransparent;
+  themeType?: TUiColorsNotTransparent;
   layer?: TLayer;
   children?: React.ReactNode;
 };

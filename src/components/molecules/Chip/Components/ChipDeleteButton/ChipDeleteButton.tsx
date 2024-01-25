@@ -4,7 +4,7 @@ import { styled } from 'styled-components';
 import { TTheme } from '@/types/TTheme';
 import { TLayer } from '@/types/TLayer';
 import IStyledPrefixAndOmitter from '@/types/IStyledPrefixAndOmiter';
-import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
+import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 
 import { RawButton } from '@/components/atoms/RawButton';
 import { SVGXCircle } from '@/components/icons/SVGXCircle';
@@ -14,7 +14,7 @@ import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForC
 type IXButtonProps = {
   size?: keyof typeof sizesSettings;
   children?: React.ReactNode;
-  themeType?: TThemeTypesNotTransparent;
+  themeType?: TUiColorsNotTransparent;
   layer?: TLayer;
   onDelete?: () => void;
 };

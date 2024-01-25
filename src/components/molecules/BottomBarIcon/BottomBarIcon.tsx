@@ -4,7 +4,7 @@ import { TLayer } from '@/types/TLayer';
 
 import { FancyContent } from '@/components/molecules/FancyContent';
 import { ContentWrapper } from './BottomBarIcon.style';
-import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
+import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 
 interface IBottomBarIconProps {
   icon: React.ReactNode;
@@ -12,7 +12,7 @@ interface IBottomBarIconProps {
   hideLabel?: boolean;
   isActive?: boolean;
   disabled?: boolean;
-  themeType?: TThemeTypesNotTransparent;
+  themeType?: TUiColorsNotTransparent;
   layer?: TLayer;
   id?: string;
 }

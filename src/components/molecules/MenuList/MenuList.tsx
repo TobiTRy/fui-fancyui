@@ -2,11 +2,11 @@ import React from 'react';
 
 import { TLayer } from '@/types/TLayer';
 import { MenuContainer } from './MenuList.style';
-import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
+import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 
 export interface MenuListProps {
   children?: React.ReactNode;
-  themeType?: TThemeTypesNotTransparent;
+  themeType?: TUiColorsNotTransparent;
   layer?: TLayer;
   outlined?: boolean;
 }

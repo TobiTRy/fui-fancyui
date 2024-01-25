@@ -2,7 +2,7 @@ import { CSSProp, css, keyframes, styled } from 'styled-components';
 
 import { sizes } from './sizeSettings';
 import { TTheme } from '@/types/TTheme';
-import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
+import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 import { TLayer } from '@/types/TLayer';
 
 // ------------------------------------------------- //
@@ -12,7 +12,7 @@ import { TLayer } from '@/types/TLayer';
 interface IGenerateBorder {
   $size: string;
   theme: TTheme;
-  $themeType?: TThemeTypesNotTransparent;
+  $themeType?: TUiColorsNotTransparent;
   $layer?: TLayer;
 }
 const generateBorder = ({ $size, theme, $layer, $themeType = 'accent' }: IGenerateBorder): CSSProp => {
@@ -51,7 +51,7 @@ export const SpinnerContainer = styled.div<{ $size?: keyof typeof sizes }>`
 interface IStyledFancyLoadingSpinner {
   $size: keyof typeof sizes;
   theme: TTheme;
-  $themeType?: TThemeTypesNotTransparent;
+  $themeType?: TUiColorsNotTransparent;
   $layer?: TLayer;
 }
 // Define a styled component for the inner spinner

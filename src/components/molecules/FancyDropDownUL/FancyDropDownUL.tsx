@@ -5,14 +5,14 @@ import { TLayer } from '@/types/TLayer';
 import { TBorderRadiusSizes } from '@/types/TBorderRadiusSizes';
 
 import { StyledUL, WrapperUL } from './FancyDropDownUL.style';
-import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
+import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 export interface IFancyUL {
   children: React.ReactNode;
   width?: string;
   isOpen?: boolean;
   alignHorizontal?: 'left' | 'center' | 'right';
   alignVertical?: 'top' | 'center' | 'bottom';
-  themeType?: TThemeTypesNotTransparent;
+  themeType?: TUiColorsNotTransparent;
   layer?: TLayer;
   $rouned?: TBorderRadiusSizes;
 }

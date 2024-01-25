@@ -9,7 +9,7 @@ import { IDateWithExternalState, IExternalMonthWithDays } from './utils/Interfac
 import { Typography } from '@/components/atoms/Typography';
 
 import { DateNumberWithStatus } from '@/components/molecules/DateNumberWithStatus';
-import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
+import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 import { DateNumber, DaysContainer } from './MonthWithDays.style';
 import createDaysOfMonth from './utils/createDaysOfMonth';
 
@@ -21,7 +21,7 @@ interface IMonthWithDays {
   selectedDates: IDateArray;
   externalMonthWithDays?: IExternalMonthWithDays;
   disabledDateSetting?: IDisabledDateSettings;
-  themeType?: TThemeTypesNotTransparent;
+  themeType?: TUiColorsNotTransparent;
   layer?: TLayer;
 }
 // --------------------------------------------------------------------------- //

@@ -2,7 +2,7 @@ import React from 'react';
 
 import { sizes } from './sizeSettings';
 import { SpinnerContainer, StyledFancyLoadingSpinner, StyledInnerSpinner } from './FancyLoadingSpinner.model';
-import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
+import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 import { TLayer } from '@/types/TLayer';
 
 // --------------------------------------------------------------------------- //
@@ -10,7 +10,7 @@ import { TLayer } from '@/types/TLayer';
 // --------------------------------------------------------------------------- //
 interface IFancyLoadingSpinner {
   size?: keyof typeof sizes;
-  themeType?: TThemeTypesNotTransparent;
+  themeType?: TUiColorsNotTransparent;
   layer?: TLayer;
 }
 export default function FancyLoadingSpinner({ size = 'md', themeType, layer }: IFancyLoadingSpinner) {

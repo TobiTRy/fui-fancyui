@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { TLayer } from '@/types/TLayer';
-import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
+import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 import { TTextAlignLC } from '@/types/TTextAlignLC';
 import { TComponentSizes } from '@/types/TComponentSizes';
 
@@ -13,7 +13,7 @@ type HTMLAnchorProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & { as: 'a'
 
 type MenueItemProps = {
   children?: React.ReactNode;
-  themeType?: TThemeTypesNotTransparent;
+  themeType?: TUiColorsNotTransparent;
   layer?: TLayer;
   size?: TComponentSizes;
   align?: TTextAlignLC;

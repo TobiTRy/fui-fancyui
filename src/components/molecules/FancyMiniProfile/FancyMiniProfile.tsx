@@ -5,14 +5,14 @@ import { FancyProfilePicture } from '@/components/atoms/FancyProfilePicture';
 import { sizeSettings } from '@/components/molecules/FancyMiniProfile/sizeSettings';
 import { Chip } from '@/components/molecules/Chip';
 import { generateChipStyle } from '@/components/molecules/FancyMiniProfile/FancyMiniProfile.style';
-import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
+import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 
 type TFancyMiniprofile = {
   title?: string;
   subTitle?: string;
   src?: string;
   size?: TComponentSizes;
-  themeType?: TThemeTypesNotTransparent;
+  themeType?: TUiColorsNotTransparent;
   layer?: TLayer;
   shadow?: boolean;
   alignImage?: 'left' | 'right';

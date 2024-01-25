@@ -4,7 +4,7 @@ import { CSSProp } from 'styled-components';
 import { TLayer } from '@/types/TLayer';
 
 import { UnderLine } from '@/components/atoms/InputUnderline/InputUnderline.style';
-import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
+import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 import { TUiColorsSystemMessage } from '@/types/TUiColorsSystemMessage';
 
 // Define the props for the FancyInputUnderline component
@@ -12,7 +12,7 @@ export type TFancyUnderline = {
   systemMessageType?: TUiColorsSystemMessage;
   isActive?: boolean;
   autoWidth?: boolean;
-  themeType?: TThemeTypesNotTransparent;
+  themeType?: TUiColorsNotTransparent;
   layer?: TLayer;
   externalStyle?: CSSProp;
 };

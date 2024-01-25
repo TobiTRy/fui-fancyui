@@ -4,14 +4,14 @@ import { SVGChevronRight } from '@/components/icons/SVGChevronRight';
 import { FancySVGAtom } from '@/components/atoms/FancySVGAtom';
 import { Typography } from '@/components/atoms/Typography';
 import { SVGDesignCSS, StyledButton, StyledYearSelector } from './YearSelector.style';
-import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
+import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 
 // --------------------------------------------------------------------------- //
 // ---------- Here are the design variants for sizing and alignment ---------- //
 // --------------------------------------------------------------------------- //
 interface IYearSelector {
   selectedYear: number;
-  themeType?: TThemeTypesNotTransparent;
+  themeType?: TUiColorsNotTransparent;
   layer?: TLayer;
   handler?: (change: number) => void;
   ariaTextLeftArrow?: string;

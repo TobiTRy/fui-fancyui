@@ -5,7 +5,7 @@ import { TLayer } from '@/types/TLayer';
 import { TTypographyList } from '@/types/TTypographyList';
 
 import { TgetBorderRadiusViaSize } from '@/design/designFunctions/getBorderRadiusViaSize';
-import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
+import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 
 export type TTextAvatarProps = {
   text?: string;
@@ -13,7 +13,7 @@ export type TTextAvatarProps = {
   size?: TSize | string;
   color?: string;
   backgroundColor?: string;
-  themeType?: TThemeTypesNotTransparent;
+  themeType?: TUiColorsNotTransparent;
   layer?: TLayer;
   externalStyle?: CSSProp;
   fontSizes?: TTypographyList;

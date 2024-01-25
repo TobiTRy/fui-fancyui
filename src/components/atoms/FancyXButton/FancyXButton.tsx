@@ -2,7 +2,7 @@ import Color from 'color';
 import { styled } from 'styled-components';
 
 import { simpleColorTransition } from '@/design/designFunctions/simpleColorTransition';
-import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
+import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 import { TLayer } from '@/types/TLayer';
 import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent';
 import { TTheme } from '@/types/TTheme';
@@ -14,7 +14,7 @@ import { FancySVGAtom } from '@/components/atoms/FancySVGAtom';
 // --------------------------------------------------------------------------- //
 interface IFancyXButton {
   onClick?: () => void;
-  themeType?: TThemeTypesNotTransparent;
+  themeType?: TUiColorsNotTransparent;
   layer?: TLayer;
 }
 export default function FancyXButton({ onClick, themeType, layer }: IFancyXButton) {
@@ -32,7 +32,7 @@ export default function FancyXButton({ onClick, themeType, layer }: IFancyXButto
 // ------- The style for the component ------- //
 // ------------------------------------------- //
 interface IStyledFancyXButton {
-  $themeType?: TThemeTypesNotTransparent;
+  $themeType?: TUiColorsNotTransparent;
   $layer?: TLayer;
   theme: TTheme;
 }

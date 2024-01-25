@@ -1,4 +1,4 @@
-import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
+import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 import { TLayer } from '@/types/TLayer';
 import { CSSProp } from 'styled-components';
 
@@ -9,7 +9,7 @@ export type TFancyContentProps = {
   gapBetweenText?: string;
   gapBetweenIcon?: string;
   children?: React.ReactNode;
-  themeType?: TThemeTypesNotTransparent;
+  themeType?: TUiColorsNotTransparent;
   layer?: TLayer;
   externalStyle?: CSSProp;
   alignIcon?: 'left' | 'right';

@@ -5,14 +5,14 @@ import { themeStore } from '@/design/theme/themeStore';
 import { TLayer } from '@/types/TLayer';
 import { TTheme } from '@/types/TTheme';
 import { tabSwitchItemSizes } from './sizeSettings';
-import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
+import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 
 // ------------------------------------------------------------------ //
 // ----------- the helperfunctions for the style generate ----------- //
 // ------------------------------------------------------------------ //
 //generates the style from the dynamic values of the tab
 interface IListButtonStyle {
-  $textColor?: TThemeTypesNotTransparent;
+  $textColor?: TUiColorsNotTransparent;
   $iconAlign?: 'left' | 'right';
   theme: TTheme;
   $layer?: TLayer;

@@ -4,11 +4,11 @@ import { CSSProp, css } from 'styled-components';
 import { TLayer } from '@/types/TLayer';
 import { FancyBox } from '@/components/atoms/FancyBox';
 import { fancyBarStyle } from './BottomBar.style';
-import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
+import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 
 type TBottomBar = {
   isVisible?: boolean;
-  themeType?: TThemeTypesNotTransparent;
+  themeType?: TUiColorsNotTransparent;
   layer?: TLayer;
   externalStyle?: CSSProp;
   children?: React.ReactNode;

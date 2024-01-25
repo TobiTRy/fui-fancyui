@@ -1,7 +1,7 @@
 import { TLayer } from '@/types/TLayer';
 import { TComponentSizes } from '@/types/TComponentSizes';
 import { TBorderRadiusSizes } from '@/types/TBorderRadiusSizes';
-import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
+import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 
 // Props for the FancySearchBar component
 export type TFancySearchBar = {
@@ -9,7 +9,7 @@ export type TFancySearchBar = {
   children?: React.ReactNode;
   searchListWidth?: string;
   searchValue?: string;
-  themeType?: TThemeTypesNotTransparent;
+  themeType?: TUiColorsNotTransparent;
   layer?: TLayer;
   size?: TComponentSizes;
   borderRadius?: TBorderRadiusSizes;

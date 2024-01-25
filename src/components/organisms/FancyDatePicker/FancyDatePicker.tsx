@@ -11,7 +11,7 @@ import { DateOutputFromTo } from '@/components/molecules/DateOutputFromTo';
 import { IDateArray } from '@/components/molecules/RangeCalendar/IDateArray.model';
 
 import { DatePickerContainer, WrapperWeekdays, WrapperYearSelector } from './FancyDatePicker.style';
-import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
+import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 
 interface IFancyDatePicker {
   rangeCalendar?: boolean;
@@ -19,7 +19,7 @@ interface IFancyDatePicker {
   selectedYear?: number;
   disabledDateSetting?: IDisabledDateSettings;
   externalData?: IExternalYearWithMonths;
-  themeType?: TThemeTypesNotTransparent;
+  themeType?: TUiColorsNotTransparent;
   layer?: TLayer;
 }
 // --------------------------------------------------------------------------- //

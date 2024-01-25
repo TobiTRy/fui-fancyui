@@ -8,7 +8,7 @@ import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForC
 import { colorTransparencyCalculator } from '@/design/designFunctions/colorTransparencyCalculator';
 import { TRawSlider } from '@/components/atoms/RawSlider';
 import { sizeSettings } from './sizeSettings';
-import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
+import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 
 const DragableThumb = css<{ theme: TTheme; $isActive?: boolean }>`
   height: 24px;
@@ -35,7 +35,7 @@ const generateComponentSize = (componentSize: TRawSlider['componentSize']) => {
 };
 
 type TStyledRawSlider = {
-  $themeType?: TThemeTypesNotTransparent;
+  $themeType?: TUiColorsNotTransparent;
   $layer?: TLayer;
   $isActive?: boolean;
   $componentSize: TRawSlider['componentSize'];

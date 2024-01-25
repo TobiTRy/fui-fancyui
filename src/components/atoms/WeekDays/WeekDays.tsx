@@ -5,13 +5,13 @@ import { Typography } from '@/components/atoms/Typography';
 import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponent';
 import { TLayer } from '@/types/TLayer';
 import { TTheme } from '@/types/TTheme';
-import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
+import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 
 // --------------------------------------------------------------------------- //
 // ---------- This Atom creates a List of all Weekdas from Mo - Su ----------- //
 // --------------------------------------------------------------------------- //
 interface IWeekDays {
-  themeType?: TThemeTypesNotTransparent;
+  themeType?: TUiColorsNotTransparent;
   layer?: TLayer;
 }
 export default function WeekDays({ themeType, layer }: IWeekDays) {
@@ -40,7 +40,7 @@ export default function WeekDays({ themeType, layer }: IWeekDays) {
 // ------------------------------------------- //
 // ------- The style for the component ------- //
 // ------------------------------------------- //
-const WeekdaysConatiner = styled.div<{ theme: TTheme; $themeType?: TThemeTypesNotTransparent; $layer?: TLayer }>`
+const WeekdaysConatiner = styled.div<{ theme: TTheme; $themeType?: TUiColorsNotTransparent; $layer?: TLayer }>`
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   width: 100%;

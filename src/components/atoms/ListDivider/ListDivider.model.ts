@@ -1,6 +1,6 @@
 import { TLayer } from '@/types/TLayer';
 import { HTMLAttributes } from 'react';
-import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
+import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 import { TComponentSizes } from '@/types/TComponentSizes';
 
 export type TTextAlign = 'left' | 'center' | 'right';
@@ -16,7 +16,7 @@ type WithoutLabel = {
 };
 
 export type IListDivider = {
-  themeType?: TThemeTypesNotTransparent;
+  themeType?: TUiColorsNotTransparent;
   layer?: TLayer;
   noLine?: boolean;
   bold?: boolean;

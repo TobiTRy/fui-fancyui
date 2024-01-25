@@ -2,7 +2,7 @@ import { CSSProp } from 'styled-components';
 
 import { TypographyList } from '@/components/atoms/Typography/Typography.style';
 import { TLayer } from '@/types/TLayer';
-import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
+import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 
 export type TTypography = {
   type?: keyof typeof TypographyList;
@@ -11,6 +11,6 @@ export type TTypography = {
   addLineHeight?: boolean;
   externalStyle?: CSSProp;
   htmlFor?: string;
-  themeType?: TThemeTypesNotTransparent;
+  themeType?: TUiColorsNotTransparent;
   layer?: TLayer;
 } & Omit<React.HTMLAttributes<HTMLElement>, 'style'>;

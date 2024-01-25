@@ -5,13 +5,13 @@ import { TTheme } from '@/types/TTheme';
 import { sizes } from '@/components/atoms/FancySVGAtom/sizeSettings';
 import IStyledPrefixAndOmiter from '@/types/IStyledPrefixAndOmiter';
 import { ISVGAtom } from '@/components/atoms/FancySVGAtom/FancySVGAtom.model';
-import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
+import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 
 interface ICalcIconColor {
   theme: TTheme;
   $isActive?: boolean;
   $errorMessage?: string | undefined;
-  $themeType: TThemeTypesNotTransparent;
+  $themeType: TUiColorsNotTransparent;
   $layer?: number;
 }
 // calculate the color of the icon based on the props and the theme

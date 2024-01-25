@@ -5,7 +5,7 @@ import { ListBox } from '@/components/molecules/ListBox';
 import { FancyLine } from '@/components/atoms/FancyLine';
 
 import { TLayer } from '@/types/TLayer';
-import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
+import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 
 // get props from the Fieldset and the ListBox
 type TFieldSetProps = React.ComponentProps<typeof Fieldset>;
@@ -13,7 +13,7 @@ type TFancyListProps = React.ComponentProps<typeof ListBox>;
 
 // combine the props and add the displayLine prop
 type TFancyBoxSet = TFieldSetProps &
-  TFancyListProps & { displayLine?: boolean; lineThemeType?: TThemeTypesNotTransparent };
+  TFancyListProps & { displayLine?: boolean; lineThemeType?: TUiColorsNotTransparent };
 // --------------------------------------------------------------------------- //
 // ----- The FancyBoxSet to render the ListBox with a Fieldset and a Line ---- //
 // --------------------------------------------------------------------------- //

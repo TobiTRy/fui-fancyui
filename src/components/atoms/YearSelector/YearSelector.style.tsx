@@ -3,11 +3,11 @@ import { css, styled } from 'styled-components';
 import { TLayer } from '@/types/TLayer';
 import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent';
 import { TTheme } from '@/types/TTheme';
-import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
+import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 
 export const StyledYearSelector = styled.div<{
   theme: TTheme;
-  $themeType?: TThemeTypesNotTransparent;
+  $themeType?: TUiColorsNotTransparent;
   $layer?: TLayer;
 }>`
   display: flex;
@@ -18,7 +18,7 @@ export const StyledYearSelector = styled.div<{
     $themeType ? theme.colors[$themeType][$layer ?? 0] : theme.colors.secondary[0]};
 `;
 
-export const StyledButton = styled.button<{ theme: TTheme; $themeType?: TThemeTypesNotTransparent; $layer?: TLayer }>`
+export const StyledButton = styled.button<{ theme: TTheme; $themeType?: TUiColorsNotTransparent; $layer?: TLayer }>`
   display: flex;
   justify-content: center;
   align-items: center;

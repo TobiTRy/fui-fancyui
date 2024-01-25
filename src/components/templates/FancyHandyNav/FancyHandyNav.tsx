@@ -8,15 +8,15 @@ import FancyBottomBarIcon, { IFancyBottomBarIcon } from '@/components/templates/
 import { RawNav } from '@/components/atoms/RawNav';
 import { BottomBar } from '@/components/molecules/BottomBar';
 import { SwitchList } from '@/components/molecules/SwitchList';
-import { TThemeTypesNotTransparent } from '@/types/TThemeTypesNotTransparent';
+import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 
 interface IFancyHandyNav {
   items?: IFancyBottomBarIcon[];
   isVisible?: boolean;
   wichIndexIsActive?: string;
-  themeType?: TThemeTypesNotTransparent;
-  themeTypeIcons?: TThemeTypesNotTransparent;
-  themeTypeSwitchList?: TThemeTypesNotTransparent;
+  themeType?: TUiColorsNotTransparent;
+  themeTypeIcons?: TUiColorsNotTransparent;
+  themeTypeSwitchList?: TUiColorsNotTransparent;
   layer?: TLayer;
   outlined?: boolean;
   outlinedBackgroundStrength?: number;

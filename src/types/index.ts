@@ -8,7 +8,7 @@ export * from './TComponentSizes';
 export * from './TLayer';
 export * from './TModalStatus';
 export * from './TSpacings';
-export * from './TThemeTypesNotTransparent';
+export * from './TUiColorsNotTransparent';
 export * from './TSystemMessageProps';
 export * from './TTheme';
 export * from './TTypographyList';
