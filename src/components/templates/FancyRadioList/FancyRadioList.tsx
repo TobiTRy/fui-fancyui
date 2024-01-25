@@ -1,7 +1,6 @@
 import React, { useRef, useState } from 'react';
 
 import { Fieldset } from '@/components/molecules/Fieldset';
-import { ListBox } from '@/components/molecules/ListBox';
 import { FancyListBox } from '@/components/organisms/FancyListBox';
 import { FancyRadio } from '@/components/organisms/FancyRadio';
 import { FancyRadioListProps } from './FancyRadioList.model';
@@ -45,7 +44,7 @@ export default function FancyRadioList(props: FancyRadioListProps) {
     // Give the list with the Fieldset a label
     <Fieldset {...fieldSetProps}>
       {/* The ListBox gives the style */}
-      <FancyListBox role="radiogroup" themeType={themeType} layer={layer} size="sm" tabIndex={0}>
+      <FancyListBox role="radiogroup" themeType={themeType} layer={layer} size="sm">
         {items.map((item, index) => (
           <React.Fragment key={index}>
             {/* Render the Radio with a Label and Description */}
@@ -66,7 +65,6 @@ export default function FancyRadioList(props: FancyRadioListProps) {
           </React.Fragment>
         ))}
       </FancyListBox>
-      <ListBox role="radiogroup" themeType={themeType} layer={layer} tabIndex={0}></ListBox>
     </Fieldset>
   );
 }
