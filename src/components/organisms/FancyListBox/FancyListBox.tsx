@@ -1,27 +1,27 @@
 import React from 'react';
 
+import { FancyLine } from '@/components/atoms/FancyLine';
 import { ListBox } from '@/components/molecules/ListBox';
-// import { FancyLine } from '@/components/atoms/FancyLine';
-// import { clampLayer } from '@/utils/functions/clampLayer';
-import { TUiColorsMain } from '@/types/TUiColorsMain';
+import { clampLayer } from '@/utils/functions/clampLayer';
+import { TFancyListBox } from './TFancyListBox.model';
 
-type TFancyListBox = {
-  children: React.ReactNode;
-  seperator?: boolean;
-  themeType?: TUiColorsMain;
-};
 export default function FancyListBox(props: TFancyListBox) {
-  const { children } = props;
+  const { children, seperator = {}, layer, themeType = 'primary' } = props;
+
+  const items = React.Children.toArray(children);
 
   return (
-    <ListBox>
-      {React.Children.map(children, (child) => {
+    <ListBox themeType={themeType}>
+      {items.map((child, index) => {
         if (React.isValidElement(child)) {
           return (
-            <>
+            <React.Fragment key={index}>
               <ListBox.Item>{child}</ListBox.Item>
-              {/* {index !== 0 && <FancyLine themeType="primary" layer={clampLayer(layer ? layer + 2 : 3)} />} */}
-            </>
+              {/* The Seperator for each item */}
+              {seperator && items.length - 1 !== index && (
+                <FancyLine themeType={themeType} layer={clampLayer(layer ? layer + 2 : 3)} {...seperator} />
+              )}
+            </React.Fragment>
           );
         }
       })}
