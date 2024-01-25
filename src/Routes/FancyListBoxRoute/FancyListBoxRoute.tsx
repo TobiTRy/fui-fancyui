@@ -6,13 +6,13 @@ export default function FancyListBoxRoute() {
     <DesignWrapper>
       <DesignArea title="FancyListBox">
         <FancyListBox>
-          <p>Moooiin</p>
+          <span>Moooiin</span>
 
-          <p>Moooiin</p>
-          <p>Moooiin</p>
-          <p>Moooiin</p>
-          <p>Moooiin</p>
-          <p>Moooiin</p>
+          <span>Moooiin</span>
+          <span>Moooiin</span>
+          <span>Moooiin</span>
+          <span>Moooiin</span>
+          <span>Moooiin</span>
         </FancyListBox>
       </DesignArea>
     </DesignWrapper>
