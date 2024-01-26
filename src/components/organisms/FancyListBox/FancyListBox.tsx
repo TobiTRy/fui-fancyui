@@ -4,17 +4,27 @@ import { TFancyListBox } from './TFancyListBox.model';
 import { FancyLine } from '@/components/atoms/FancyLine';
 import { ListBox } from '@/components/molecules/ListBox';
 import { clampLayer } from '@/utils/functions/clampLayer';
+import TitleForComponent from '@/components/atoms/TitleForComponent/TitleForComponent';
 
 // --------------------------------------------------------------------------- //
 // ---------- This component renders a list with the provided items ---------- //
 // --------------------------------------------------------------------------- //
 export default function FancyListBox(props: TFancyListBox) {
-  const { children, size = 'md', seperator = {}, layer, themeType = 'primary', borderRadius, ...listProps } = props;
+  const {
+    children,
+    size = 'md',
+    seperator = {},
+    layer,
+    themeType = 'primary',
+    borderRadius,
+    title,
+    ...listProps
+  } = props;
 
   const items = React.Children.toArray(children);
 
-  return (
-    // Render the list with the provided settings
+  // generate this List component with the provided settings
+  const ListComponent = (
     <ListBox themeType={themeType} layer={layer} size={size} borderRadius={borderRadius} {...listProps}>
       {/* Render the childs with the settings */}
       {items.map((child, index) => {
@@ -32,4 +42,14 @@ export default function FancyListBox(props: TFancyListBox) {
       })}
     </ListBox>
   );
+
+  // if a title is provided, render the title component
+  const TitleComponent = title ? (
+    <TitleForComponent titleAlign={title?.titleAlign} title={title?.title}>
+      {ListComponent}
+    </TitleForComponent>
+  ) : null;
+
+  // return the title component + listcomponent or the list component
+  return <>{title ? TitleComponent : ListComponent}</>;
 }
