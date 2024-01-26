@@ -12,7 +12,7 @@ export type TListBox = {
   size?: TComponentSizes;
   borderRadius?: TBorderRadiusSizes;
   boxShadow?: boolean;
-} & TFancyBoxProps<'ul'>;
+} & Omit<TFancyBoxProps<'ul'>, 'as'>;
 function ListBox(props: TListBox) {
   const { children, size = 'md', externalStyle, borderRadius, boxShadow, ...htmlProps } = props;
 
