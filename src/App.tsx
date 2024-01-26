@@ -40,7 +40,6 @@ import SwitchesRoute from './Routes/Switches/SwitchesRoute';
 import MenueRoute from './Routes/MenuRoute/MenueRoute';
 import InfoCardRoute from './Routes/InfoCardRoute/InfoCardRoute';
 import FancyLayoutRoute from './Routes/FancyLayoutRoute/FancyLayoutRoute';
-import FancyBoxSetRoute from './Routes/FancyBoxSet/FancyBoxSetRoute';
 import FancyThemeProvider from '@/design/theme/FancyThemeProvider/FancyThemeProvider';
 
 import { mockTheme } from '@/test/mockTheme';
@@ -349,9 +348,6 @@ function App() {
                   <Link to="/layout">Layout</Link>
                 </li>
                 <li>
-                  <Link to="/fancyBoxSet">FancyBoxSet</Link>
-                </li>
-                <li>
                   <Link to="/skeleton">Skeleton</Link>
                 </li>
                 <li>
@@ -397,7 +393,6 @@ function App() {
               <Route path="/menu" element={<MenueRoute />} />
               <Route path="/infoCard" element={<InfoCardRoute />} />
               <Route path="/layout" element={<FancyLayoutRoute />} />
-              <Route path="/fancyBoxSet" element={<FancyBoxSetRoute />} />
               <Route path="/skeleton" element={<SkeletonRoute />} />
               <Route path="/FancyListBox" element={<FancyListBoxRoute />} />
               <Route path="/" element={<SwipeUpModal />} />

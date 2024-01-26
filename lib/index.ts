@@ -128,7 +128,6 @@ export * from '@/components/organisms/FancyColorPicker'; // Note: Please check i
 export * from '@/components/organisms/FancyNumberInput';
 export * from '@/components/organisms/FancyPasswordInput';
 export * from '@/components/organisms/FancyTextInput';
-export * from '@/components/organisms/FancyBoxSet';
 
 // ---------- Templates ------- //
 export * from '@/components/templates/FancyInfoCard';
