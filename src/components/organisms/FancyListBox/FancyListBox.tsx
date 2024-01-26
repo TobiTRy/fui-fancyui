@@ -17,7 +17,8 @@ export default function FancyListBox(props: TFancyListBox) {
     layer,
     themeType = 'primary',
     borderRadius,
-    title,
+    boxTitle,
+    itemSettings,
     ...listProps
   } = props;
 
@@ -31,7 +32,9 @@ export default function FancyListBox(props: TFancyListBox) {
         if (React.isValidElement(child)) {
           return (
             <React.Fragment key={index}>
-              <ListBox.Item size={size}>{child}</ListBox.Item>
+              <ListBox.Item size={size} {...itemSettings}>
+                {child}
+              </ListBox.Item>
               {/* The Seperator for each item */}
               {seperator && items.length - 1 !== index && (
                 <FancyLine themeType={themeType} layer={clampLayer(layer ? layer + 2 : 3)} {...seperator} />
@@ -44,12 +47,12 @@ export default function FancyListBox(props: TFancyListBox) {
   );
 
   // if a title is provided, render the title component
-  const TitleComponent = title ? (
-    <TitleForComponent titleAlign={title?.titleAlign} title={title?.title}>
+  const TitleComponent = boxTitle ? (
+    <TitleForComponent titleAlign={boxTitle?.titleAlign} title={boxTitle?.title}>
       {ListComponent}
     </TitleForComponent>
   ) : null;
 
   // return the title component + listcomponent or the list component
-  return <>{title ? TitleComponent : ListComponent}</>;
+  return <>{boxTitle ? TitleComponent : ListComponent}</>;
 }

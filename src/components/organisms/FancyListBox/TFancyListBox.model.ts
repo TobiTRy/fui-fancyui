@@ -1,3 +1,4 @@
+import { ReactNode } from 'react';
 import { TFancyLineWithHTMLAttributes } from '@/components/atoms/FancyLine/TFancyLine.model';
 import { TTitleForComponent } from '@/components/atoms/TitleForComponent';
 import { TListBox } from '@/components/molecules/ListBox/ListBox';
@@ -6,9 +7,9 @@ import { TLayer } from '@/types/TLayer';
 import { TUiColorsMain } from '@/types/TUiColorsMain';
 
 export type TFancyListBox = {
-  children: React.ReactNode;
+  children?: ReactNode;
   seperator?: TFancyLineWithHTMLAttributes;
-  title?: {
+  boxTitle?: {
     titleAlign?: TTitleForComponent['titleAlign'];
     title: TTitleForComponent['title'];
   };
