@@ -2,12 +2,13 @@ import { HTMLAttributes } from 'react';
 
 import { TLayer } from '@/types/TLayer';
 import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
-import { TSpacingArray, TSpacings } from '@/types/TSpacings';
+import { TSpacings } from '@/types/TSpacings';
+import { TArrayToCssValues } from '@/design/designFunctions/arrayToCssValues';
 
 export type TFancyLine = {
   direction?: 'horizontal' | 'vertical';
   thickness?: string;
-  margin?: TSpacingArray | TSpacings;
+  margin?: TArrayToCssValues | TSpacings;
   themeType?: TUiColorsNotTransparent;
   layer?: TLayer;
 };
