@@ -82,6 +82,15 @@ const meta = {
         type: 'boolean',
       },
     },
+    outlinedBackgroundStrength: {
+      description: 'The outlinedBackgroundStrength of the list',
+      control: {
+        type: 'range',
+        min: 0,
+        max: 1,
+        step: 0.1,
+      },
+    },
   },
   // Add tags to the story
   tags: ['autodocs'],
