@@ -1,0 +1,75 @@
+# `getColorsForComponent` and Related Functions
+
+The `getColorsForComponent` function, along with its helper functions `getBackgroundColor` and `getTextColor`, are used to determine the appropriate background and text colors for a component based on the given theme and color properties. These functions are part of a styled-components setup and return CSS strings.
+
+## `getBackgroundColor` Function
+
+### Input
+
+- **theme** (`TTheme`): The current theme object.
+- **$themeType** (`TUiColorTypes`): The type of the theme.
+- **$customColor** (`string | TthemeColorGroup`, optional): A custom color value.
+- **$layer** (`number`, optional): The layer index in the theme color group.
+
+### Output
+
+- **Return Value**: A styled-component CSS string for the background color.
+
+## `getTextColor` Function
+
+### Input
+
+- **theme** (`TTheme`): The current theme object.
+- **$themeType** (`TUiColorTypes`): The type of the theme.
+- **$customTextColor** (`string | TthemeColorGroup`, optional): A custom text color value.
+- **$textLayer** (`number`, optional): The layer index in the theme color group.
+- **turnColorTheme** (`boolean`, optional): A flag to toggle theme color changes.
+
+### Output
+
+- **Return Value**: A styled-component CSS string for the text color.
+
+## `getColorsForComponent` Function
+
+### Input
+
+- **theme** (`TTheme`): The current theme object.
+- **$themeType** (`TUiColorTypes`): The type of the theme.
+- **$customColor** (`string | TthemeColorGroup`, optional): A custom color value.
+- **$customTextColor** (`string | TthemeColorGroup`, optional): A custom text color value.
+- **$layer** (`number`, optional): The layer index in the theme color group for the background.
+- **$textLayer** (`number`, optional): The layer index in the theme color group for the text.
+
+### Output
+
+- **Return Value**: Combined styled-component CSS strings for both background and text colors.
+
+## Example Usage
+
+```jsx
+import React from 'react';
+import { ThemeProvider } from 'styled-components';
+import getColorsForComponent from 'path-to-getColorsForComponent';
+import myTheme from 'path-to-myTheme';
+
+const MyComponent = () => {
+  const componentStyles = getColorsForComponent({
+    theme: myTheme,
+    $themeType: 'primary',
+    $layer: 0,
+    $textLayer: 1,
+  });
+
+  return <div css={componentStyles}>Hello, World!</div>;
+};
+
+const App = () => (
+  <ThemeProvider theme={myTheme}>
+    <MyComponent />
+  </ThemeProvider>
+);
+
+export default App;
+```
+
+This example demonstrates the use of `getColorsForComponent` in a React component with a styled-components `ThemeProvider`.

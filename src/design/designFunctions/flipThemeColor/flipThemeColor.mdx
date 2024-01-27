@@ -1,0 +1,31 @@
+# `flipThemeColor` Function
+
+The `flipThemeColor` function is designed to flip the color theme based on the lightness of the current theme color and the overall theme setting (light or dark). It utilizes the `themeStore` to access the current theme and the `Color` library to determine the lightness of a color.
+
+## Input/Output
+
+### Input
+
+- **color** (`TUiColorTypes`): The type of the theme color to be flipped.
+- **layer** (`TLayer`, optional): An optional layer parameter to specify a particular layer of the theme color.
+
+### Output
+
+- **Return Value**: A string representing the flipped color based on the theme's lightness and the specified layer.
+
+## Example Usage
+
+```jsx
+import React from 'react';
+import { flipThemeColor } from 'path-to-flipThemeColor';
+
+const ExampleComponent = () => {
+  const flippedColor = flipThemeColor('background', 'layer1');
+
+  return <div style={{ backgroundColor: flippedColor }}>Flipped Theme Color</div>;
+};
+
+export default ExampleComponent;
+```
+
+This example demonstrates how to use the `flipThemeColor` function in a React component. It calculates the flipped color for a specified theme color and layer, and then applies it to the background color of a `div` element.

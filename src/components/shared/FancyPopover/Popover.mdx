@@ -1,0 +1,52 @@
+# FancyPopover Component
+
+The `FancyPopover` component is a flexible and easy-to-use popover that can be attached to any element. It allows you to display additional information or interactive content in a floating panel that is anchored to a reference element (the `refComponent`). The popover is smartly positioned based on the available viewport space to ensure that it never goes off-screen.
+
+## Props
+
+- `refComponent`: React.ReactElement - The reference component that the popover will be attached to.
+- `contentComponent`: React.ReactElement - The content to display inside the popover.
+- `offsetX`: number (optional) - The horizontal offset from the reference component. Default is `0`.
+- `offsetY`: number (optional) - The vertical offset from the reference component. Default is `0`.
+
+## Usage
+
+Here's an example of how to use the `FancyPopover`:
+
+```jsx
+import React from 'react';
+import FancyPopover from 'path-to-FancyPopover';
+
+const App = () => {
+  return (
+    <div>
+      <FancyPopover
+        refComponent={<button>Hover over me</button>}
+        contentComponent={<div>This is the popover content!</div>}
+        offsetX={10}
+        offsetY={15}
+      />
+    </div>
+  );
+};
+
+export default App;
+```
+
+````
+
+In the example above, when the button is clicked, the popover content will appear with a 10-pixel offset from the left or right edge (depending on screen position) and a 15-pixel offset from the bottom of the button.
+
+## Accessibility
+
+Ensure to manage focus appropriately when the popover is opened and closed, and consider adding `aria-` attributes for screen reader support.
+
+---
+
+For any questions or further customization needs, refer to the official React and styled-components documentation.
+
+```
+
+This document provides a clear overview of the component, how to use it, and how to style it. It also includes a reminder about accessibility considerations, which are important for inclusive design.
+```
+````

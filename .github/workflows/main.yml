@@ -1,0 +1,31 @@
+name: Code Quality Check into Branch
+
+on: [pull_request]
+
+jobs:
+  lint-and-format:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20' # Specify your Node.js version here
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Check Prettier Formatting
+        run: npm run format
+
+      - name: Run Lint Check
+        run: npm run lint
+
+      - name: Run Build
+        run: npm run build
+
+      - name: Fail if Previous Steps Failed
+        if: ${{ failure() }}
+        run: exit 1

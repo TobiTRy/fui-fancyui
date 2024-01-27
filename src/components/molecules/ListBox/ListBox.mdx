@@ -1,0 +1,53 @@
+# ListBox Component
+
+`ListBox` is a simple, styled list component designed to be used in React applications. It utilizes a `FancyBox` component to render a list (`ul`) and accepts `ListBoxItem` components as children.
+
+## Usage
+
+To use `ListBox`, import it into your React component and then use `ListBox.Item` to add list items.
+
+```jsx
+import ListBox from './path/to/ListBox';
+
+const MyComponent = () => (
+  <ListBox>
+    <ListBox.Item>Item 1</ListBox.Item>
+    <ListBox.Item>Item 2</ListBox.Item>
+    // More items...
+  </ListBox>
+);
+```
+
+## Props
+
+`ListBox` accepts the following props:
+
+- `children`: ReactNode - The items to be displayed in the list.
+- `...htmlProps`: HTMLAttributes - Any other standard HTML attributes for a div element.
+
+---
+
+# ListBoxItem Component
+
+`ListBoxItem` is used within `ListBox` to render individual list items. It is a styled `li` element.
+
+## Usage
+
+`ListBoxItem` is used as a child of `ListBox`.
+
+```jsx
+<ListBox.Item>Item 1</ListBox.Item>
+```
+
+## Props
+
+`ListBoxItem` accepts the following props:
+
+- `children`: ReactNode - The content of the list item.
+- `externalStyle`: CSSProp - Optional external styles to be applied to the list item.
+
+---
+
+## Styling
+
+Both `ListBox` and `ListBoxItem` can be styled using styled-components. `ListBox` applies its styles through `FancyBoxStyle`, and `ListBoxItem` uses `StyledLi` for styling, which can be customized via the `externalStyle` prop.

@@ -1,0 +1,1 @@
+export { generateComponentPadding } from './generateComponentPadding';

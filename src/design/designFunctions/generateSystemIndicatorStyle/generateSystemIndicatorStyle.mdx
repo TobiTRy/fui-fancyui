@@ -1,0 +1,33 @@
+# `generateSystemIndicatorStyle` Function
+
+The `generateSystemIndicatorStyle` function dynamically generates CSS styles for system indicators based on the given system message type. It utilizes the theme configuration from `themeStore` to apply appropriate colors.
+
+## Input/Output
+
+### Input
+
+- **systemMessage** (`TUiColorsSystemMessage`, optional): The type of system message for which to generate the style. This type is defined in the `TUiColorsSystemMessage` interface.
+
+### Output
+
+- **Return Value**: A CSS snippet (using `styled-components`) that sets the border style based on the provided `systemMessage`.
+
+## Example Usage
+
+```jsx
+import React from 'react';
+import styled from 'styled-components';
+import { generateSystemIndicatorStyle } from 'path-to-generateSystemIndicatorStyle';
+
+const SystemIndicator = styled.div`
+  ${(props) => generateSystemIndicatorStyle(props.systemMessage)}
+`;
+
+const ExampleComponent = () => {
+  return <SystemIndicator systemMessage="warning">Warning: System Overload</SystemIndicator>;
+};
+
+export default ExampleComponent;
+```
+
+This example showcases how to use `generateSystemIndicatorStyle` within a styled component to apply conditional styling based on the `systemMessage` prop. The styled `SystemIndicator` component will have its border color and style adjusted according to the system message type.

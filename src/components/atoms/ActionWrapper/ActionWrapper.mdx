@@ -1,0 +1,57 @@
+# ActionWrapper
+
+`ActionWrapper` is a versatile React functional component designed to conditionally render either a `<button>` or an `<a>` (anchor) element based on the provided props. This component simplifies the process of creating UI elements that can switch between being a button or a link, maintaining consistent behavior and style across different use cases.
+
+## Props
+
+`ActionWrapper` accepts the standard HTML attributes for both `<button>` and `<a>` elements, with an additional `as` prop to determine which element type to render:
+
+- `as`: A required prop to specify the type of element to render. It accepts `'a'` for anchor or `'button'` for button.
+- Standard HTML attributes for buttons and anchors, such as `onClick`, `href`, `className`, `disabled`, etc.
+
+## Usage
+
+### As a Button
+
+To use `ActionWrapper` as a button, you set the `as` prop to `'button'` and pass any button-specific HTML attributes:
+
+```jsx
+import ActionWrapper from './path/to/ActionWrapper';
+
+<ActionWrapper as="button" onClick={() => console.log('Button clicked')} className="my-button">
+  Click Me
+</ActionWrapper>;
+```
+
+### As an Anchor
+
+To use it as an anchor tag, set the `as` prop to `'a'` and provide anchor-specific attributes like `href`:
+
+```jsx
+<ActionWrapper as="a" href="https://example.com" className="my-link">
+  Go to Example.com
+</ActionWrapper>
+```
+
+## Example
+
+Here's a practical example of using `ActionWrapper` in a component that can act either as a button or a link, based on the props it receives:
+
+```jsx
+import React from 'react';
+import ActionWrapper from './ActionWrapper';
+
+function MyComponent({ isLink, url, onClick }) {
+  return (
+    <ActionWrapper as={isLink ? 'a' : 'button'} href={isLink ? url : undefined} onClick={onClick}>
+      {isLink ? 'Visit URL' : 'Perform Action'}
+    </ActionWrapper>
+  );
+}
+
+export default MyComponent;
+```
+
+In this example, `MyComponent` uses `ActionWrapper` to conditionally render as a button or an anchor. The `isLink` prop determines the element type, while `url` and `onClick` provide the necessary attributes for each type.
+
+By using `ActionWrapper`, developers can create components with flexible rendering capabilities, simplifying the process of handling elements that can serve as both clickable actions and navigation links.

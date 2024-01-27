@@ -1,0 +1,57 @@
+# FancyPortal Component
+
+`FancyPortal` is a React component used to render child components into a DOM node that exists outside the DOM hierarchy of the parent component. It's particularly useful for modals, pop-ups, and custom tooltips.
+
+## Props
+
+- `children`: `React.ReactNode`
+  - The content that will be rendered inside the portal.
+- `appendToID`: `string` (optional)
+  - The ID of the DOM element to which the portal will append the children. If not provided, children are appended to the `body`.
+- `WrapperComponent`: `React.ElementType` (optional)
+  - An optional wrapper component that will encase the `children`.
+
+## Usage
+
+### Basic Usage
+
+Simply wrap the content you want to render in the `FancyPortal` component.
+
+```jsx
+<FancyPortal>
+  <div>Your content here</div>
+</FancyPortal>
+```
+
+### Appending to a Specific Element
+
+To append the content to a specific element, provide its ID via the `appendToID` prop.
+
+```jsx
+<FancyPortal appendToID="my-custom-element">
+  <div>Content for specific container</div>
+</FancyPortal>
+```
+
+### Using a Wrapper Component
+
+To wrap the content in a custom component, pass the component to the `WrapperComponent` prop.
+
+```jsx
+const CustomWrapper = ({ children }) => <div className="custom-wrapper">{children}</div>;
+
+<FancyPortal WrapperComponent={CustomWrapper}>
+  <div>Content with a custom wrapper</div>
+</FancyPortal>;
+```
+
+## Notes
+
+- If the `appendToID` is provided but no element with that ID is found, the component throws an error.
+- The component cleans up by setting the target container to `null` on unmount.
+
+Remember to replace `'path-to-your-component/FancyPortal'` with the actual path to your `FancyPortal` component in your project.
+
+```
+
+```

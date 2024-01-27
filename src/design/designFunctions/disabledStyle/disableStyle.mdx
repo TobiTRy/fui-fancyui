@@ -1,0 +1,31 @@
+# `disabledStyle` Function
+
+The `disabledStyle` function is a utility designed to apply a disabled style to UI components. It uses styled-components to generate a CSS fragment that can be applied to components to visually indicate a disabled state.
+
+## Output
+
+- **Return Value**: A CSS fragment from styled-components. It includes styles that reduce the opacity and adjust the brightness to give a disabled appearance to the component.
+
+## Example Usage
+
+```jsx
+import styled from 'styled-components';
+import { disabledStyle } from 'path-to-disabledStyle';
+
+const StyledButton = styled.button`
+  /* Basic button styling */
+  padding: 10px 20px;
+  border: none;
+  background-color: blue;
+  color: white;
+
+  /* Apply disabled styling */
+  &:disabled {
+    ${disabledStyle}
+  }
+`;
+```
+
+In this example, the `StyledButton` is a styled button component that applies the `disabledStyle` when the `isDisabled` prop is true. The `disabledStyle` function returns CSS rules that change the appearance of the button, making it look disabled.
+
+Note: This example assumes the use of styled-components and does not include any inline CSS or additional props for styling.

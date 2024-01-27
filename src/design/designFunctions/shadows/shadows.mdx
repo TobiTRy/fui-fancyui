@@ -1,0 +1,53 @@
+# `textShadow` and `boxShadow` Components
+
+The `textShadow` and `boxShadow` components are utility styles for applying text and box shadows in a web application. These components are part of a styled-components setup and utilize the `css` utility from `styled-components`. They are designed to provide consistent shadow effects across different UI elements.
+
+## `textShadow` Component
+
+### Description
+
+Provides predefined text shadow styles in three sizes: small (`sm`), medium (`md`), and large (`lg`). These styles can be easily applied to text elements in your application.
+
+### Usage Example
+
+```jsx
+import React from 'react';
+import styled from 'styled-components';
+import { textShadow } from 'path-to-your-components';
+
+const StyledText = styled.p`
+  ${textShadow.sm}
+`;
+
+const ExampleComponent = () => {
+  return <StyledText>Sample Text with Shadow</StyledText>;
+};
+
+export default ExampleComponent;
+```
+
+## `boxShadow` Component
+
+### Description
+
+Offers box shadow styles in three sizes: small (`sm`), medium (`md`), and large (`lg`). These styles are dynamic, using the current theme color from `themeStore` and adjusting its transparency using the `colorTransparencyCalculator` function.
+
+### Usage Example
+
+```jsx
+import React from 'react';
+import styled from 'styled-components';
+import { boxShadow } from 'path-to-your-components';
+
+const StyledDiv = styled.div`
+  ${boxShadow.md}
+`;
+
+const ExampleComponent = () => {
+  return <StyledDiv>Content with Box Shadow</StyledDiv>;
+};
+
+export default ExampleComponent;
+```
+
+These examples demonstrate how to apply the `textShadow` and `boxShadow` styles to React components. The use of the `css` utility from `styled-components` allows for easy integration with your styled components.

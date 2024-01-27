@@ -1,0 +1,32 @@
+# `copyToClipboard` Function
+
+The `copyToClipboard` function is designed to copy a given string to the user's clipboard in an efficient and unobtrusive manner. It's useful in scenarios where you need to provide a quick copy-to-clipboard feature in your web applications.
+
+## Input/Output
+
+### Input
+
+- **value** (`string`): The string value that you want to copy to the clipboard.
+
+### Output
+
+- No return value, but it will either successfully copy the text to the clipboard or log an error in the console.
+
+## Example Usage
+
+```jsx
+import React from 'react';
+import { copyToClipboard } from 'path-to-copyToClipboard';
+
+const ExampleComponent = () => {
+  const handleCopy = () => {
+    copyToClipboard('Text to be copied');
+  };
+
+  return <button onClick={handleCopy}>Copy to Clipboard</button>;
+};
+
+export default ExampleComponent;
+```
+
+In this example, the `copyToClipboard` function is used within a React component. Clicking the button triggers the function, copying a predefined string to the clipboard.
