@@ -1,4 +1,4 @@
-# FancyUI (FUI) - README
+# FancyUI (FUI)
 
 Welcome to FancyUI (FUI), a state-of-the-art UI library meticulously crafted for React and Next.js projects. While currently under active development, FUI is dedicated to providing a sleek, modern, and highly customizable set of components. Built with TypeScript and Styled Components, FUI is designed to integrate seamlessly and offer a rich set of functionalities to elevate your application's user interface.
 
