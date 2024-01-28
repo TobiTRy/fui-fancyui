@@ -14,3 +14,5 @@ export type TImageVideoOverlay = {
   textChildren?: React.ReactNode;
   position?: TPositions;
 };
+
+export type TImageVideoOverlayWithHTMLAttrs = TImageVideoOverlay & React.HTMLAttributes<HTMLDivElement>;
