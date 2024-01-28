@@ -15,6 +15,7 @@ FUI is currently a masterpiece in the making. Our team is working diligently to 
 ## 🚀 Getting Started (Upon Release)
 
 1. **Explore the Storybook**:
+
    - Once released, run `npm run storybook` to launch the Storybook interface.
    - Discover how to set up and utilize FUI components in your project.
    - Browse through interactive examples and detailed documentation.
@@ -28,8 +29,6 @@ FUI is currently a masterpiece in the making. Our team is working diligently to 
 
 For a detailed guide on contributing to FancyUI, check out our [Complete Developer Guide](https://github.com/MrTRyy/FUI-FancyUI/blob/develop/src/stories/developer-guide.mdx).
 
-
 ## 🙏 Acknowledgment
 
 We appreciate your interest and patience as we craft FancyUI to be not just fancy, but really, really fancy. Your anticipation and potential contributions are what drive us to deliver a product that we can all be proud of. So, thank you for standing by as we put in the work to make FancyUI a groundbreaking UI library!
-
