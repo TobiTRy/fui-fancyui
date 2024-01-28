@@ -1,3 +1,5 @@
+import { CSSProp } from 'styled-components';
+
 // Define the possible positions for the overlay
 export type TPositions =
   | 'top-left'
@@ -9,10 +11,11 @@ export type TPositions =
   | 'top-center';
 
 // Define the props for the ImageVideoOverlay component
-export type TImageVideoOverlay = {
+export type TFancyTextOverlay = {
   children?: React.ReactNode;
   textChildren?: React.ReactNode;
   position?: TPositions;
+  externalStyle?: CSSProp;
 };
 
-export type TImageVideoOverlayWithHTMLAttrs = TImageVideoOverlay & React.HTMLAttributes<HTMLDivElement>;
+export type TImageVideoOverlayWithHTMLAttrs = TFancyTextOverlay & React.HTMLAttributes<HTMLDivElement>;
