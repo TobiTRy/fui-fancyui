@@ -21,13 +21,13 @@ FUI is currently a masterpiece in the making. Our team is working diligently to 
    - Browse through interactive examples and detailed documentation.
 
 2. **Developer Guide**:
-   1. **Fork & Clone**: Fork the [FUI repository](https://github.com/MrTRyy/FUI-FancyUI) and clone it locally.
+   1. **Fork & Clone**: Fork the [FUI repository](https://github.com/TobiTRy/FUI-FancyUI) and clone it locally.
    2. **Branch Out**: Create a branch for your feature or fix.
    3. **Develop**: Make your changes, adhering to project standards.
    4. **Test**: Run `npm run predeploy` to ensure quality.
    5. **Pull Request**: Submit a PR with your improvements.
 
-For a detailed guide on contributing to FancyUI, check out our [Complete Developer Guide](https://github.com/MrTRyy/FUI-FancyUI/blob/develop/src/stories/developer-guide.mdx).
+For a detailed guide on contributing to FancyUI, check out our [Complete Developer Guide](https://github.com/TobiTRy/FUI-FancyUI/blob/develop/src/stories/developer-guide.mdx).
 
 ## 🙏 Acknowledgment
 
