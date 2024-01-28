@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import { TLayer } from '@/types/TLayer';
+import { TUiColorsMain } from '@/types/TUiColorsMain';
 import { IDisabledDateSettings } from '@/components/molecules/MonthWithDays/utils/Interfaces/IDisableDateSettings.model';
 
 import { YearSelector } from '@/components/atoms/YearSelector';
@@ -11,7 +12,6 @@ import { DateOutputFromTo } from '@/components/molecules/DateOutputFromTo';
 import { IDateArray } from '@/components/molecules/RangeCalendar/IDateArray.model';
 
 import { DatePickerContainer, WrapperWeekdays, WrapperYearSelector } from './FancyDatePicker.style';
-import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 
 interface IFancyDatePicker {
   rangeCalendar?: boolean;
@@ -19,7 +19,7 @@ interface IFancyDatePicker {
   selectedYear?: number;
   disabledDateSetting?: IDisabledDateSettings;
   externalData?: IExternalYearWithMonths;
-  themeType?: TUiColorsNotTransparent;
+  themeType?: Exclude<TUiColorsMain, 'accent'>;
   layer?: TLayer;
 }
 // --------------------------------------------------------------------------- //
