@@ -3,9 +3,8 @@ import { FancyLine } from '@/components/atoms/FancyLine';
 
 import { TLayer } from '@/types/TLayer';
 
+import { TUiColorsMain } from '@/types/TUiColorsMain';
 import { StyledDateOutputFromTo, VRWrapper } from './DateOutputFromTo.style';
-import { themeStore } from '@/design/theme/themeStore';
-import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 
 // Define the props for the DateOutputFromTo component
 interface IDateOutputFromTo {
@@ -13,7 +12,7 @@ interface IDateOutputFromTo {
   dateTo?: Date;
   handler?: (wich: 'from' | 'to') => void;
   whichIsSelecting?: 'from' | 'to';
-  themeType?: TUiColorsNotTransparent;
+  themeType?: Exclude<TUiColorsMain, 'accent'>;
   layer?: TLayer;
 }
 // --------------------------------------------------------------------------- //
