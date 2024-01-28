@@ -20,15 +20,14 @@ FUI is currently a masterpiece in the making. Our team is working diligently to 
    - Browse through interactive examples and detailed documentation.
 
 2. **Developer Guide**:
-   FancyUI encourages creativity and collaboration, even now during its development phase. Here's a peek at how you can contribute to the FUI community upon release:
+   1. **Fork & Clone**: Fork the [FUI repository](https://github.com/MrTRyy/FUI-FancyUI) and clone it locally.
+   2. **Branch Out**: Create a branch for your feature or fix.
+   3. **Develop**: Make your changes, adhering to project standards.
+   4. **Test**: Run `npm run predeploy` to ensure quality.
+   5. **Pull Request**: Submit a PR with your improvements.
 
-   - **Identify or Create an Item**: Start by identifying an existing item or creating a new one in the GIT Project of FUI that you want to work on.
-   - **Branch Out**: Create a new branch for your item. This ensures a smooth and organized workflow.
-   - **Unleash Your Creativity**: Enhance existing components or create new ones, adhering to atomic design principles.
-   - **Testing and Quality Assurance**:
-     - Run `npm run predeploy`.
-     - Address any errors or issues. Strive for excellence.
-   - **Share Your Innovation**: Submit your work for review. Once approved, your contribution will enrich the FUI community.
+For a detailed guide on contributing to FancyUI, check out our [Complete Developer Guide](https://github.com/RockstarTobi/FUI-FancyUI/tree/develop/src/stories/developer-guide.mdx).
+
 
 ## 🙏 Acknowledgment
 
