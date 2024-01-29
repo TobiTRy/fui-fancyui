@@ -20,7 +20,7 @@ export default function DateNumberAtom(props: IDateNumberAtom) {
       $themeType={themeType}
       $layer={layer}
     >
-      <Typography type="content" variant="label">
+      <Typography type="caption" variant="label">
         {dateNumber}
       </Typography>
     </StyledDay>

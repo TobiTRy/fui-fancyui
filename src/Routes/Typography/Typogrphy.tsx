@@ -19,10 +19,7 @@ export default function Typogrphy() {
             <Typography type="h4">h4. Heading Heading Lorem ipsum dolor sit amet, </Typography>
             <Typography type="h5">h5. Heading Heading Lorem ipsum dolor sit amet, </Typography>
             <Typography type="h6">h6. Heading Heading Lorem ipsum dolor sit amet, </Typography>
-            <Typography type="button">
-              button. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
-            </Typography>
-            <Typography type="content">
+            <Typography type="caption">
               content. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
             </Typography>
             <Typography type="smText" weight="bold">

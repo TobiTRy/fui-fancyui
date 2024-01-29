@@ -58,13 +58,6 @@ export const generateFontVariants = (themeFonts: TFontSizes, addLineHeight?: boo
       ${responsiveFontSize(mobile.headings.h6, desktop.headings.h6)}
       line-height: ${getLineHeight(addLineHeight ?? true)};
     `,
-    button: css`
-      ${nullifyStyle};
-      ${responsiveFontSize(mobile.textElements.button, desktop.textElements.button)}
-      font-weight: bold;
-      letter-spacing: 0.4px;
-      line-height: ${getLineHeight(addLineHeight ?? true)};
-    `,
     label: css`
       ${nullifyStyle};
       ${responsiveFontSize(mobile.textElements.label, desktop.textElements.label)}
@@ -77,7 +70,7 @@ export const generateFontVariants = (themeFonts: TFontSizes, addLineHeight?: boo
       font-weight: 400;
       line-height: ${getLineHeight(addLineHeight ?? false)};
     `,
-    content: css`
+    caption: css`
       ${nullifyStyle};
       ${responsiveFontSize(mobile.textElements.caption, desktop.textElements.caption)}
       font-weight: 400;

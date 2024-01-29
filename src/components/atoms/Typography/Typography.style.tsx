@@ -30,9 +30,8 @@ const StyledH4 = styled(BaseStyledComponent).attrs({ as: 'h4' })``;
 const StyledH5 = styled(BaseStyledComponent).attrs({ as: 'h5' })``;
 const StyledH6 = styled(BaseStyledComponent).attrs({ as: 'h6' })``;
 const StyledLabel = styled(BaseStyledComponent).attrs({ as: 'label' })``;
-const StyledButton = styled(BaseStyledComponent).attrs({ as: 'span' })``; // Assuming you want a span for a button
 const StyledInlineElement = styled(BaseStyledComponent).attrs({ as: 'span' })``;
-const StyledContent = styled(BaseStyledComponent).attrs({ as: 'p' })``;
+const StyledCaption = styled(BaseStyledComponent).attrs({ as: 'p' })``;
 const StyledSmText = styled(BaseStyledComponent).attrs({ as: 'p' })``;
 const StyledVerySmText = styled(BaseStyledComponent).attrs({ as: 'span' })``;
 
@@ -45,9 +44,8 @@ export const TypographyList = {
   h5: StyledH5,
   h6: StyledH6,
   label: StyledLabel,
-  button: StyledButton,
   inlineElement: StyledInlineElement,
-  content: StyledContent,
+  caption: StyledCaption,
   smText: StyledSmText,
   verysmText: StyledVerySmText,
 };

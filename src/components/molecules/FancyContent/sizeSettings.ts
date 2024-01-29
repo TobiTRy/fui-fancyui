@@ -7,17 +7,17 @@ const getSpacingFromTheme = themeStore.getState().theme.spacing;
 export const sizes = {
   sm: {
     fontSizeDescription: 'smText' as TTypographyList,
-    fontSizeTitle: 'content' as TTypographyList,
+    fontSizeTitle: 'caption' as TTypographyList,
     padding: getSpacingFromTheme.xs,
   },
   md: {
-    fontSizeDescription: 'content' as TTypographyList,
-    fontSizeTitle: 'button' as TTypographyList,
+    fontSizeDescription: 'caption' as TTypographyList,
+    fontSizeTitle: 'label' as TTypographyList,
     padding: getSpacingFromTheme.sm,
   },
   lg: {
-    fontSizeDescription: 'button' as TTypographyList,
-    fontSizeTitle: 'h3' as TTypographyList,
+    fontSizeDescription: 'h6' as TTypographyList,
+    fontSizeTitle: 'h4' as TTypographyList,
     padding: getSpacingFromTheme.md,
   },
 };

@@ -15,13 +15,13 @@ export default function Typography(props: TTypography) {
   const themeFonts = themeStore((state) => state.theme.fontSizes);
 
   // generate the Typography component based on the type prop;
-  const Component = TypographyList[type ?? 'content'] as React.FC<TGenerateStyle>;
+  const Component = TypographyList[type ?? 'caption'] as React.FC<TGenerateStyle>;
 
   // get the variant style based on the variant prop or the type prop;
   const fontVariants = generateFontVariants(themeFonts, addLineHeight);
 
   // get the variant style based on the variant prop or the type prop;
-  const variantStyle = variant ? fontVariants[variant] : (fontVariants[type || 'content'] as CSSProp);
+  const variantStyle = variant ? fontVariants[variant] : (fontVariants[type || 'caption'] as CSSProp);
 
   return (
     <Component
