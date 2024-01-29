@@ -17,18 +17,18 @@ export const sizeSettings: IPillSettings = {
     paddingToEdge: 'xs',
     titleSize: 'smText',
     gap: 'xxs',
-    subtitleSize: 'verysmText',
+    subtitleSize: 'smText',
   },
   md: {
     paddingToEdge: 'sm',
     gap: 'xxs',
     titleSize: 'h6',
-    subtitleSize: 'verysmText',
+    subtitleSize: 'smText',
   },
   lg: {
     paddingToEdge: 'sm',
     gap: 'xs',
     titleSize: 'h5',
-    subtitleSize: 'verysmText',
+    subtitleSize: 'smText',
   },
 };

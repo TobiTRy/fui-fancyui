@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';
 import FancyButton from '../../components/organisms/FancyButton/FancyButton';
 import { css } from 'styled-components';
-import { FancyBox } from '@/components/atoms/FancyBox';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -24,22 +23,26 @@ export default function ButtonRoute() {
   return (
     <DesignWrapper>
       <DesignArea title="Buttons sizes" style={backgroundColor}>
-        <FancyBox externalStyle={{ width: '300px' }}>
-          <FancyButton label="Button" themeType="primary" size="sm" />
-          <FancyButton label="Button" themeType="primary" size="md" />
-          <FancyButton label="Button" themeType="primary" size="lg" />
-        </FancyBox>
+        <FancyButton label="Button" themeType="primary" sizeC="sm" />
+        <FancyButton label="Button" themeType="primary" sizeC="md" />
+        <FancyButton label="Button" themeType="primary" sizeC="lg" />
 
-        <FancyButton label="Button" themeType="primary" size="sm" wide={false} onClick={() => console.log('moooinn')} />
-        <FancyButton label="Button" themeType="secondary" size="md" wide={false} />
-        <FancyButton label="Button" themeType="accent" size="lg" wide={false} />
+        <FancyButton
+          label="Button"
+          themeType="primary"
+          sizeC="sm"
+          wide={false}
+          onClick={() => console.log('moooinn')}
+        />
+        <FancyButton label="Button" themeType="secondary" sizeC="md" wide={false} />
+        <FancyButton label="Button" themeType="accent" sizeC="lg" wide={false} />
         <FancyButton label="Button" themeType="secondary" wide={false} />
-        <FancyButton label="Button" themeType="primary" size="sm" wide={false} borderRadius={'lg'} />
+        <FancyButton label="Button" themeType="primary" sizeC="sm" wide={false} borderRadius={'lg'} />
       </DesignArea>
       <DesignArea title="Button Types in wide" style={backgroundColor}>
-        <FancyButton label="Button" size="sm" themeType="primary" wide />
-        <FancyButton label="Button" size="md" themeType="primary" wide />
-        <FancyButton label="Button" size="lg" themeType="secondary" wide />
+        <FancyButton label="Button" sizeC="sm" themeType="primary" wide />
+        <FancyButton label="Button" sizeC="md" themeType="primary" wide />
+        <FancyButton label="Button" sizeC="lg" themeType="secondary" wide />
         <FancyButton label="Button" themeType="accent" wide borderRadius="complete" align="center" />
         <FancyButton label="Button" themeType="transparent" wide align="center" hoverColor="accent" />
       </DesignArea>
@@ -74,7 +77,7 @@ export default function ButtonRoute() {
         <FancyButton
           icon={Icon}
           label="Button"
-          size="sm"
+          sizeC="sm"
           isLoading={isLoading}
           onClick={() => setIsLoading(true)}
           themeType="primary"
@@ -92,7 +95,7 @@ export default function ButtonRoute() {
       <DesignArea title="1:1 Buttons" style={backgroundColor}>
         <FancyButton
           icon={Icon}
-          size="md"
+          sizeC="md"
           isLoading={isLoading}
           onClick={() => setIsLoading(true)}
           themeType="primary"
@@ -100,7 +103,7 @@ export default function ButtonRoute() {
         />
         <FancyButton
           icon={Icon}
-          size="sm"
+          sizeC="sm"
           isLoading={isLoading}
           onClick={() => setIsLoading(false)}
           themeType="secondary"
@@ -109,7 +112,7 @@ export default function ButtonRoute() {
         />
         <FancyButton
           icon={Icon}
-          size="lg"
+          sizeC="lg"
           isLoading={isLoading}
           onClick={() => setIsLoading(false)}
           themeType="secondary"

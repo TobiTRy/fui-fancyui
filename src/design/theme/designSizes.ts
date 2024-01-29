@@ -20,11 +20,10 @@ export const fontSizes = {
     },
     textElements: {
       label: '16px',
-      caption: '16px',
+      caption: '14px',
       smText: '12px',
-      verysmText: '12px',
+      verysmText: '10px',
       input: '16px',
-      button: '16px',
     },
   },
   mobile: {
@@ -40,9 +39,8 @@ export const fontSizes = {
       label: '16px',
       caption: '14px',
       smText: '12px',
-      verysmText: '12px',
+      verysmText: '10px',
       input: '16px',
-      button: '16px',
     },
   },
 };

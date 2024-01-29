@@ -11,6 +11,7 @@ import { SVGCheckMark } from '@/components/icons/SVGCheckMark';
 import { Card } from '@/components/molecules/Card';
 import { FancyNumberInput } from '@/components/organisms/FancyNumberInput';
 import { FancyAlignBox } from '@/components/templates/FancyAlignBox';
+import { Button } from '@/components/molecules/Button';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -57,6 +58,7 @@ export default function ExperimentalRoute() {
     <>
       <DesignWrapper>
         <DesignArea title="Test">
+          <Button sizeC={undefined}>Mooiin</Button>
           <FancyNumberInput label="TTTSa" systemMessage={{ type: 'error', message: 'errroor' }} />
           <Card />
           <Card>
@@ -70,7 +72,7 @@ export default function ExperimentalRoute() {
           </Card>
           <FancyButton
             borderRadius="md"
-            size="md"
+            sizeC="md"
             themeType="secondary"
             icon={reloadIcon}
             onClick={() => switchTheme()}
