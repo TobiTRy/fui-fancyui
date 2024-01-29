@@ -6,6 +6,8 @@ import generateThemeDesignForComponent, {
 } from '@/design/designFunctions/generateThemeDesignForComponent/generateThemeDesignForComponent';
 import IStyledPrefixAndPicker from '@/types/IStyledPrefixAndPicker';
 import { IButtonProps } from './Button.model';
+import { generateButtonSizeAndPadding } from '@/components/molecules/Button/utils/generateButtonSizeAndPadding';
+import { generateBorderRadiusForComponent } from '@/design/designFunctions/generateBorderRadiusForComponent';
 
 export const ButtonStyle = styled.span<IGenerateThemeDesignForComponent & IStyledPrefixAndPicker<IButtonProps>>`
   display: inline-flex;
@@ -24,6 +26,10 @@ export const ButtonStyle = styled.span<IGenerateThemeDesignForComponent & IStyle
 
   ${(props: IGenerateThemeDesignForComponent) =>
     generateThemeDesignForComponent({ ...props, $backgroundState: 'hover' })};
+
+  ${({ $sizeC, $borderRadius }) => generateBorderRadiusForComponent($borderRadius, $sizeC)};
+
+  ${({ $sizeC, $noSize }) => !$noSize && generateButtonSizeAndPadding($sizeC ?? 'md', true)}
 
   ${({ $externalStyle }) => $externalStyle && $externalStyle}
 

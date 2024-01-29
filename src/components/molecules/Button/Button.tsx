@@ -9,9 +9,11 @@ export default function Button(props: IButton) {
   const {
     children,
     wide,
+    sizeC = 'md',
     themeType,
     layer,
     textColor,
+    borderRadius,
     hoverColor,
     outlined,
     externalStyle,
@@ -27,6 +29,8 @@ export default function Button(props: IButton) {
     <>
       {notAButton ? (
         <ButtonStyle
+          $sizeC={sizeC}
+          $borderRadius={borderRadius}
           $wide={wide}
           $themeType={themeType}
           $layer={layer}
@@ -35,12 +39,14 @@ export default function Button(props: IButton) {
           $outlined={outlined}
           $externalStyle={externalStyle}
           $textHover={textHover}
+          {...htmlProps}
         >
           {children}
         </ButtonStyle>
       ) : (
         <RawButton {...htmlProps}>
           <ButtonStyle
+            $sizeC={sizeC}
             $wide={wide}
             $themeType={themeType}
             $layer={layer}
