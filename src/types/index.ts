@@ -1,4 +1,3 @@
-export * from './IFontSizes';
 export * from './IStatus';
 export type { default as IStyledPrefixAndOmitter } from './IStyledPrefixAndOmiter';
 export type { default as IStyledPrefixAndPicker } from './IStyledPrefixAndPicker';

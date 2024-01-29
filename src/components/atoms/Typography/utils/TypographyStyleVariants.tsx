@@ -1,92 +1,102 @@
 import { css } from 'styled-components';
 
-import { TFontSizes } from '@/types/IFontSizes';
-import { TTheme } from '@/types/TTheme';
+import { TTypographyObj } from '@/components/atoms/Typography/Typography.model';
 
 const nullifyStyle = css`
   margin: 0;
 `;
 
-// Hilfsfunktion für den Medien-Query
-const responsiveFontSize = (mobileSize: string, desktopSize: string) => css<{ theme?: TTheme }>`
-  font-size: ${mobileSize};
+export type TgenerateFontVariants = {
+  themeFonts: TTypographyObj;
+  lineHeight?: number | string;
+  letterSpacing?: number | string;
+  fontWeight?: number | string;
+};
 
-  @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
-    font-size: ${desktopSize};
-  }
-`;
+export const generateFontVariants = (props: TgenerateFontVariants) => {
+  const { themeFonts, lineHeight, letterSpacing, fontWeight } = props;
 
-export const generateFontVariants = (themeFonts: TFontSizes, addLineHeight?: boolean) => {
-  const { desktop, mobile } = themeFonts;
-
-  const getLineHeight = (addLineHeight: boolean) => {
-    if (addLineHeight) {
-      return 1.4;
-    }
-
-    return 1;
+  const providedStyle = {
+    lineHeight,
+    letterSpacing,
+    fontWeight,
   };
 
   return {
-    h1: css`
+    displayHero: css`
       ${nullifyStyle};
-      ${responsiveFontSize(mobile.headings.h1, desktop.headings.h1)}
-      line-height: ${getLineHeight(addLineHeight ?? true)};
+      ${themeFonts.displayHero};
+      ${providedStyle};
     `,
-    h2: css`
+    displayHeadline: css`
       ${nullifyStyle};
-      ${responsiveFontSize(mobile.headings.h2, desktop.headings.h2)}
-      line-height: ${getLineHeight(addLineHeight ?? true)};
+      ${themeFonts.displayHeadline};
+      ${providedStyle};
     `,
-    h3: css`
+    displayTitle: css`
       ${nullifyStyle};
-      ${responsiveFontSize(mobile.headings.h3, desktop.headings.h3)}
-      line-height: ${getLineHeight(addLineHeight ?? true)};
+      ${themeFonts.displayTitle};
+      ${providedStyle};
     `,
-    h4: css`
+    sectionTitle: css`
       ${nullifyStyle};
-      ${responsiveFontSize(mobile.headings.h4, desktop.headings.h4)}
-      line-height: ${getLineHeight(addLineHeight ?? true)};
+      ${themeFonts.sectionTitle};
+      ${providedStyle};
     `,
-    h5: css`
+    sectionSubtitle: css`
       ${nullifyStyle};
-      ${responsiveFontSize(mobile.headings.h5, desktop.headings.h5)}
-      line-height: ${getLineHeight(addLineHeight ?? true)};
+      ${themeFonts.sectionSubtitle};
+      ${providedStyle};
     `,
-    h6: css`
+    sectionSubsectionTitle: css`
       ${nullifyStyle};
-      ${responsiveFontSize(mobile.headings.h6, desktop.headings.h6)}
-      line-height: ${getLineHeight(addLineHeight ?? true)};
+      ${themeFonts.sectionSubsectionTitle};
+      ${providedStyle};
     `,
-    label: css`
+    bodytextLg: css`
       ${nullifyStyle};
-      ${responsiveFontSize(mobile.textElements.label, desktop.textElements.label)}
-      font-weight: 400;
-      line-height: ${getLineHeight(addLineHeight ?? true)};
+      ${themeFonts.bodytextLg};
+      ${providedStyle};
     `,
-    inlineElement: css`
+    bodytextMd: css`
       ${nullifyStyle};
-      ${responsiveFontSize(mobile.textElements.caption, desktop.textElements.caption)}
-      font-weight: 400;
-      line-height: ${getLineHeight(addLineHeight ?? false)};
+      ${themeFonts.bodytextMd};
+      ${providedStyle};
     `,
-    caption: css`
+    bodytextSm: css`
       ${nullifyStyle};
-      ${responsiveFontSize(mobile.textElements.caption, desktop.textElements.caption)}
-      font-weight: 400;
-      line-height: ${getLineHeight(addLineHeight ?? true)};
+      ${themeFonts.bodytextSm};
+      ${providedStyle};
     `,
-    smText: css`
+    subTextCaption: css`
       ${nullifyStyle};
-      ${responsiveFontSize(mobile.textElements.smText, desktop.textElements.smText)}
-      font-weight: 400;
-      line-height: ${getLineHeight(addLineHeight ?? true)};
+      ${themeFonts.subTextCaption};
+      ${providedStyle};
     `,
-    verysmText: css`
+    subTextFootnote: css`
       ${nullifyStyle};
-      ${responsiveFontSize(mobile.textElements.verysmText, desktop.textElements.verysmText)}
-      font-weight: 400;
-      line-height: ${getLineHeight(addLineHeight ?? true)};
+      ${themeFonts.subTextFootnote};
+      ${providedStyle};
+    `,
+    subTextLegal: css`
+      ${nullifyStyle};
+      ${themeFonts.subTextLegal};
+      ${providedStyle};
+    `,
+    interactiveLg: css`
+      ${nullifyStyle};
+      ${themeFonts.interactiveLg};
+      ${providedStyle};
+    `,
+    interactiveMd: css`
+      ${nullifyStyle};
+      ${themeFonts.interactiveMd};
+      ${providedStyle};
+    `,
+    interactiveSm: css`
+      ${nullifyStyle};
+      ${themeFonts.interactiveSm};
+      ${providedStyle};
     `,
   };
 };
