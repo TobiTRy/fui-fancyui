@@ -91,7 +91,7 @@ export default function FancyColorOutput(props: IFancyColorOutput) {
       <FancyButton
         onClick={handleFormatChange}
         wide={true}
-        size="sm"
+        sizeC="sm"
         themeType="primary"
         layer={3}
         externalStyle={{
