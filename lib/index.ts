@@ -64,7 +64,6 @@ export * from '@/components/molecules/DateOutputFromTo';
 export * from '@/components/molecules/DynamicBottomScrollBar';
 export * from '@/components/molecules/EditBar';
 export * from '@/components/molecules/BottomBar';
-export * from '@/components/molecules/FancyContentCard';
 export * from '@/components/molecules/FancyDropDownUL';
 export * from '@/components/molecules/FancySpeedDailButton';
 export * from '@/components/molecules/InputWrapper';
