@@ -8,7 +8,7 @@ import AlignedLabel from '@/components/atoms/AlignedLabel/AlignedLabel';
 //This is a helper component to show the styled component in the story
 const HelperComponent = (props: IAlignedLabel & HTMLAttributes<HTMLLabelElement>) => (
   <AlignedLabel {...props}>
-    <Typography type="label">Hello World</Typography>
+    <Typography variant="interactiveMd">Hello World</Typography>
   </AlignedLabel>
 );
 

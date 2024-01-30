@@ -6,13 +6,13 @@ import { sizes } from '../sizeSettings';
 // ----------------- The Title for the FancyContent component ---------------- //
 // --------------------------------------------------------------------------- //
 export function FancyContentTitle(props: TTextProps) {
-  const { size, bold = true, fontVariant, type, children, className, themeType, layer, externalStyle } = props;
+  const { size, fontWeight, fontVariant, type, children, className, themeType, layer, externalStyle } = props;
 
   return (
     <Typography
-      type={type ?? 'inlineElement'}
+      elType={type ?? 'span'}
       variant={fontVariant ?? sizes[size || 'lg'].fontSizeTitle}
-      weight={bold ? 'bold' : 'normal'}
+      fontWeight={fontWeight ?? 'bold'}
       className={className}
       themeType={themeType}
       layer={layer}
@@ -27,15 +27,15 @@ export function FancyContentTitle(props: TTextProps) {
 // -------------- The description for the FancyContent component ------------- //
 // --------------------------------------------------------------------------- //
 export function FancyContentDescription(props: TTextProps) {
-  const { size, bold, type, fontVariant, children, className, themeType, layer, externalStyle } = props;
+  const { size, fontWeight, type, fontVariant, children, className, themeType, layer, externalStyle } = props;
 
   return (
     <Typography
-      type={type ?? 'inlineElement'}
+      elType={type ?? 'span'}
       variant={fontVariant ?? sizes[size || 'sm'].fontSizeTitle}
       layer={layer}
       themeType={themeType}
-      weight={bold ? 'bold' : 'normal'}
+      fontWeight={fontWeight}
       className={className}
       externalStyle={externalStyle}
     >

@@ -1,6 +1,5 @@
-import { ButtonStyle } from './Button.style';
 import { IButton } from './Button.model';
-import { RawButton } from '@/components/atoms/RawButton';
+import { ButtonStyle, StyledButton } from './Button.style';
 
 // --------------------------------------------------------------------------- //
 // --------------- A normal Button with Style from the Theme ----------------- //
@@ -44,7 +43,7 @@ export default function Button(props: IButton) {
           {children}
         </ButtonStyle>
       ) : (
-        <RawButton {...htmlProps}>
+        <StyledButton $wide={wide} {...htmlProps}>
           <ButtonStyle
             $sizeC={sizeC}
             $wide={wide}
@@ -58,7 +57,7 @@ export default function Button(props: IButton) {
           >
             {children}
           </ButtonStyle>
-        </RawButton>
+        </StyledButton>
       )}
     </>
   );

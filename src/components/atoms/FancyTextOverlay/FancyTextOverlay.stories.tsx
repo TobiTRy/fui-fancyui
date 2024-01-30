@@ -41,7 +41,7 @@ export const Primary: Story = {
     position: 'center',
     textChildren: (
       <>
-        <Typography type="h1">Hello World</Typography>
+        <Typography variant="sectionTitle">Hello World</Typography>
       </>
     ),
   },

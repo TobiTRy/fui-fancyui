@@ -118,9 +118,10 @@ export const typography = {
     letterSpacing: '0.01em',
     fontWeight: '400', // Regular
   },
-  interactiveLg: {
-    fontSize: '18px',
-    lineHeight: '26px',
+
+  interactiveSm: {
+    fontSize: '14px',
+    lineHeight: '20px',
     letterSpacing: '0.01em',
     fontWeight: '500', // Medium
   },
@@ -130,9 +131,9 @@ export const typography = {
     letterSpacing: '0.01em',
     fontWeight: '500', // Medium
   },
-  interactiveSm: {
-    fontSize: '14px',
-    lineHeight: '20px',
+  interactiveLg: {
+    fontSize: '18px',
+    lineHeight: '26px',
     letterSpacing: '0.01em',
     fontWeight: '500', // Medium
   },

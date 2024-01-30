@@ -14,16 +14,8 @@ export default function FancyModalHeadLine(props: IHeadLine) {
 
   return (
     <StyledHeadLine $alignCenter={alignCenter}>
-      {title && (
-        <Typography type="h4" variant="h3">
-          {title}
-        </Typography>
-      )}
-      {subTitle && (
-        <Typography type="h5" variant="content" weight="normal">
-          {subTitle}
-        </Typography>
-      )}
+      {title && <Typography variant="bodytextLg">{title}</Typography>}
+      {subTitle && <Typography variant="bodytextSm">{subTitle}</Typography>}
       {hr && (title || subTitle) && <FancyLine direction="horizontal" />}
     </StyledHeadLine>
   );

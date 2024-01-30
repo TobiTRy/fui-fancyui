@@ -16,8 +16,8 @@ const meta = {
   },
   // Define arguments for the story
   argTypes: {
-    type: {
-      description: 'The elemnt type of the typography',
+    elType: {
+      description: 'The element type of the typography',
       control: {
         type: 'select',
       },

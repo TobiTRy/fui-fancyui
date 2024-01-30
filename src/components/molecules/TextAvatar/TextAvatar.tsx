@@ -34,7 +34,7 @@ export default function TextAvatar(props: TAvatarTextImage) {
       $layer={layer}
       {...htmlProps}
     >
-      <Typography type="smText" variant={fontSizes || getTextSize(size)}>
+      <Typography elType="span" variant={fontSizes || getTextSize(size)}>
         {text?.substring(0, letterLength ?? 2).toUpperCase()}
       </Typography>
     </Placeholder>

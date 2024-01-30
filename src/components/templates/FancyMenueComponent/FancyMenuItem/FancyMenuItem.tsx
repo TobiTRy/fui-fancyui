@@ -21,7 +21,7 @@ export default function FancyMenuItem(props: TFancyMenueItemProps) {
     <MenuItem size={size} {...menuItemProps}>
       <FancyContent align="center">
         {label && (
-          <FancyContent.Title fontVariant={sizeSettings[size].fontSizeTitle} bold={false}>
+          <FancyContent.Title fontVariant={sizeSettings[size].fontSizeTitle} fontWeight={'normal'}>
             {label}
           </FancyContent.Title>
         )}

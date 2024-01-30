@@ -29,7 +29,7 @@ export default function WeekDays({ themeType, layer }: IWeekDays) {
   return (
     <WeekdaysConatiner $themeType={themeType} $layer={layer}>
       {weekdays.map((day) => (
-        <Typography type="label" key={day}>
+        <Typography variant="interactiveMd" key={day}>
           {day}
         </Typography>
       ))}

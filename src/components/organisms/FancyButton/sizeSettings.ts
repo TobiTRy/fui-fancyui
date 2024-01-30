@@ -1,13 +1,13 @@
-import { TTypographyList } from '@/types/TTypographyList';
+import { TTypographyElList } from '@/types/TTypographyElList';
 
 export const sizeSettings = {
   sm: {
-    fontSize: 'sm' as TTypographyList,
+    fontSize: 'sm' as TTypographyElList,
   },
   md: {
-    fontSize: 'md' as TTypographyList,
+    fontSize: 'md' as TTypographyElList,
   },
   lg: {
-    fontSize: 'lg' as TTypographyList,
+    fontSize: 'lg' as TTypographyElList,
   },
 };

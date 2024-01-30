@@ -41,7 +41,7 @@ export default function FancyProgressBar(props: IFancyProgressBar) {
       {/* The Progress in percent as Text */}
       {progressCount && (
         <AlignedLabel as={'span'} $align={progressAlign} $layer={textLayer}>
-          <Typography type="content">{progress}%</Typography>
+          <Typography variant="subTextCaption">{progress}%</Typography>
         </AlignedLabel>
       )}
     </Wrapper>

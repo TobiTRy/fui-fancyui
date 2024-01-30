@@ -27,10 +27,8 @@ export default function FancyImageRoute() {
           position="center"
           textChildren={
             <>
-              <Typography variant="h1" weight="bold">
-                Hello
-              </Typography>
-              <Typography variant="h2">Hello</Typography>
+              <Typography variant="sectionSubtitle">Hello</Typography>
+              <Typography variant="sectionSubsectionTitle">Hello</Typography>
             </>
           }
         >
@@ -43,10 +41,8 @@ export default function FancyImageRoute() {
           position="center"
           textChildren={
             <>
-              <Typography variant="h1" weight="bold">
-                Hello
-              </Typography>
-              <Typography variant="h2">Hello</Typography>
+              <Typography variant="sectionTitle">Hello</Typography>
+              <Typography variant="sectionSubtitle">Hello</Typography>
             </>
           }
         >

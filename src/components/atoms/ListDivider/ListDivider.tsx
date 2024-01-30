@@ -8,7 +8,17 @@ import { sizeSettings } from './sizeSettings';
 // ------- A Divider that displays only a line or line with informations ----- //
 // --------------------------------------------------------------------------- //
 export default function ListDivider(props: IListDivider) {
-  const { label, textAlignment = 'center', themeType, layer, bold, icon, noLine, size = 'md', ...htmlProps } = props;
+  const {
+    label,
+    textAlignment = 'center',
+    themeType,
+    layer,
+    fontWeight,
+    icon,
+    noLine,
+    size = 'md',
+    ...htmlProps
+  } = props;
 
   return (
     <>
@@ -24,7 +34,7 @@ export default function ListDivider(props: IListDivider) {
         >
           <FancyContent>
             {label && (
-              <FancyContent.Title fontVariant={sizeSettings[size].fontVariant} bold={bold ?? false}>
+              <FancyContent.Title fontVariant={sizeSettings[size].fontVariant} fontWeight={fontWeight ?? 'normal'}>
                 {label}
               </FancyContent.Title>
             )}

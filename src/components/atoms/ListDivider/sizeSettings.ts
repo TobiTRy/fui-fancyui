@@ -1,17 +1,23 @@
-import { TTypographyList } from '@/types/TTypographyList';
 import { TComponentSizesExtended } from '@/types/TComponentSizes';
+import { TSizeSettings } from '@/types/TSizeSettings';
+import { TTypographyVariants } from '@/types/TTypographyVariants';
 
-export const sizeSettings = {
+type TSizeObj = {
+  iconSize: TComponentSizesExtended;
+  fontVariant: TTypographyVariants;
+};
+
+export const sizeSettings: TSizeSettings<TSizeObj> = {
   sm: {
-    iconSize: 'xxs' as TComponentSizesExtended,
-    fontVariant: 'inlineElement' as TTypographyList,
+    iconSize: 'xxs',
+    fontVariant: 'subTextFootnote',
   },
   md: {
-    iconSize: 'xxs' as TComponentSizesExtended,
-    fontVariant: 'button' as TTypographyList,
+    iconSize: 'xxs',
+    fontVariant: 'subTextCaption',
   },
   lg: {
-    iconSize: 'xs' as TComponentSizesExtended,
-    fontVariant: 'h4' as TTypographyList,
+    iconSize: 'xs',
+    fontVariant: 'bodytextSm',
   },
 };

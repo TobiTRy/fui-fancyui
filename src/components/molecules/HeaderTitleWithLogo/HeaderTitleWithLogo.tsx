@@ -25,7 +25,7 @@ export default function HeaderTitleWithLogo(props: IHeaderTitleWithLogo) {
       <StyledHeading href={href} $themeType={themeType} $layer={layer}>
         {logo && <LogoWrapper>{logo}</LogoWrapper>}
         {title && (
-          <Typography type="inlineElement" variant="h3" weight="bold">
+          <Typography variant="interactiveLg" fontWeight="bold">
             {title}
           </Typography>
         )}

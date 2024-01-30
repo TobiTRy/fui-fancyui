@@ -8,6 +8,7 @@ import IStyledPrefixAndPicker from '@/types/IStyledPrefixAndPicker';
 import { IButtonProps } from './Button.model';
 import { generateButtonSizeAndPadding } from '@/components/molecules/Button/utils/generateButtonSizeAndPadding';
 import { generateBorderRadiusForComponent } from '@/design/designFunctions/generateBorderRadiusForComponent';
+import { RawButton } from '@/components/atoms/RawButton';
 
 export const ButtonStyle = styled.span<IGenerateThemeDesignForComponent & IStyledPrefixAndPicker<IButtonProps>>`
   display: inline-flex;
@@ -27,7 +28,8 @@ export const ButtonStyle = styled.span<IGenerateThemeDesignForComponent & IStyle
   ${(props: IGenerateThemeDesignForComponent) =>
     generateThemeDesignForComponent({ ...props, $backgroundState: 'hover' })};
 
-  ${({ $sizeC, $borderRadius }) => generateBorderRadiusForComponent($borderRadius, $sizeC)};
+  ${({ $sizeC, $borderRadius, theme }) =>
+    $borderRadius === false && generateBorderRadiusForComponent({ theme, size: $sizeC, rounded: $borderRadius })};
 
   ${({ $sizeC, $noSize }) => !$noSize && generateButtonSizeAndPadding($sizeC ?? 'md', true)}
 
@@ -36,4 +38,8 @@ export const ButtonStyle = styled.span<IGenerateThemeDesignForComponent & IStyle
   &:disabled {
     ${disabledStyle}
   }
+`;
+
+export const StyledButton = styled(RawButton)<{ $wide?: boolean }>`
+  width: ${({ $wide }) => ($wide ? '100%' : 'fit-content')};
 `;

@@ -44,7 +44,7 @@ export default function Paginator(props: IPaginator) {
     <StyledPaginator>
       {/* The left button for the Page Switch */}
       <FancyButton
-        size="md"
+        sizeC="md"
         themeType={themeType ? themeType : 'accent'}
         outlined={outlinedButton ? true : false}
         wide={false}
@@ -60,7 +60,7 @@ export default function Paginator(props: IPaginator) {
         themeType={themeType ? themeType : 'accent'}
         outlined={outlinedButton ? true : false}
         icon={<IconWrapper $align="right">{SVGChevronRight}</IconWrapper>}
-        size="md"
+        sizeC="md"
         onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
       />

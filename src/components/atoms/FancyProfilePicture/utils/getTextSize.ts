@@ -1,22 +1,22 @@
 import { TSize } from '@/components/molecules/TextAvatar/utils/getSize';
-import { TTypographyList } from '@/types/TTypographyList';
+import { TTypographyVariants } from '@/types/TTypographyVariants';
 
 // generate the text size based on the size prop
-export const getTextSize = (size: TSize | string): TTypographyList => {
+export const getTextSize = (size: TSize | string): TTypographyVariants => {
   switch (size) {
     case 'xxs':
     case 'xs':
-      return 'smText';
+      return 'subTextFootnote';
     case 'sm':
-      return 'h6';
+      return 'subTextCaption';
     case 'md':
-      return 'h3';
+      return 'bodytextSm';
     case 'lg':
-      return 'h2';
+      return 'bodytextLg';
     case 'xl':
     case 'xxl':
-      return 'h1';
+      return 'sectionSubsectionTitle';
     default:
-      return 'h4';
+      return 'sectionSubsectionTitle';
   }
 };

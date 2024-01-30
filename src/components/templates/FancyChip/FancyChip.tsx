@@ -51,7 +51,7 @@ export default function FancyChip(props: TFancyChip) {
       {(label || icon) && (
         <Chip.Content themeType={textColor}>
           {icon && <Chip.Content.Icon size={sizesSettings[size].iconSize}>{icon}</Chip.Content.Icon>}
-          <Chip.Content.Title size={size} bold={false}>
+          <Chip.Content.Title size={size} fontWeight={'normal'}>
             {label}
           </Chip.Content.Title>
         </Chip.Content>

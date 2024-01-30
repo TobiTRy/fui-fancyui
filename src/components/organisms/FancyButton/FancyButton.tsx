@@ -8,7 +8,6 @@ import { generateFancyButton } from './FancyButton.style';
 import { IButton, IButtonProps } from '@/components/molecules/Button/Button.model';
 import { IFancyButtonProps } from '@/components/organisms/FancyButton/TFancyButton.model';
 import { leftRightCenterToFlexJustify } from '@/design/designFunctions/leftRightCenterToFlexJustify';
-import { sizeSettings } from '@/components/organisms/FancyButton/sizeSettings';
 
 // --------------------------------------------------------------------------- //
 // ---------- The Fancy Button has a bit more options than another  ---------- //
@@ -24,7 +23,6 @@ export default function FancyButton(props: IFancyButton) {
     align = 'center',
     externalStyle,
     oneToOne,
-    fontVariant,
     gap,
     ...buttonProps
   } = props;

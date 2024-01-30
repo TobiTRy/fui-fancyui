@@ -1,12 +1,13 @@
 import { CSSProp } from 'styled-components';
 
-import { TTypographyList } from '@/types/TTypographyList';
+import { TTypographyElList } from '@/types/TTypographyElList';
 import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 import { TLayer } from '@/types/TLayer';
+import { TTypographyVariants } from '@/types/TTypographyVariants';
 
 type IFancyContentTextProps = {
   children?: React.ReactNode;
-  bold?: boolean;
+  fontWeight?: number | string;
   className?: string;
   externalStyle?: CSSProp;
   themeType?: TUiColorsNotTransparent;
@@ -20,8 +21,8 @@ type IFancyContentTextWithSizeProps = IFancyContentTextProps & {
 };
 
 type IFancyContentTextWithFontVariantProps = IFancyContentTextProps & {
-  type?: TTypographyList;
-  fontVariant?: TTypographyList;
+  type?: TTypographyElList;
+  fontVariant?: TTypographyVariants;
   size?: never;
 };
 

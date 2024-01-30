@@ -1,32 +1,28 @@
 import { TSVGAtomSizes } from '@/components/atoms/FancySVGAtom/FancySVGAtom.model';
-import { TComponentSizes } from '@/types/TComponentSizes';
-import { TTypographyList } from '@/types/TTypographyList';
+import { TTypographyVariants } from '@/types/TTypographyVariants';
+import { TSizeSettings } from '@/types/TSizeSettings';
 
 type TSizeObj = {
   iconSize: TSVGAtomSizes;
-  title: TTypographyList;
-  descriptionSize: TTypographyList;
-};
-
-type TSizesObject = {
-  [K in TComponentSizes]: TSizeObj;
+  title: TTypographyVariants;
+  descriptionSize: TTypographyVariants;
 };
 
 // the template for the sizes
-export const sizes: TSizesObject = {
+export const sizes: TSizeSettings<TSizeObj> = {
   sm: {
     iconSize: 'xs',
-    title: 'h6',
-    descriptionSize: 'smText',
+    title: 'bodytextSm',
+    descriptionSize: 'subTextFootnote',
   },
   md: {
     iconSize: 'sm',
-    title: 'h5',
-    descriptionSize: 'content',
+    title: 'bodytextMd',
+    descriptionSize: 'bodytextMd',
   },
   lg: {
     iconSize: 'sm',
-    title: 'h4',
-    descriptionSize: 'content',
+    title: 'bodytextLg',
+    descriptionSize: 'bodytextMd',
   },
 };

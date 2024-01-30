@@ -1,7 +1,7 @@
 import { TypographyList } from '../Typography.style';
-import { TTypographyNewList } from '@/components/atoms/Typography/Typography.model';
+import { TTypographyVariants } from '@/types/TTypographyVariants';
 
-export const mapVariantToElement = (variant: TTypographyNewList, type?: keyof typeof TypographyList) => {
+export const mapVariantToElement = (variant: TTypographyVariants, type?: keyof typeof TypographyList) => {
   // when type is set, return the element from the TypographyList
   if (type) return TypographyList[type];
 

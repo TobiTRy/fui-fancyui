@@ -28,7 +28,7 @@ export default function BottomBarIcon(props: IBottomBarIconProps) {
         <FancyContent.Icon size={hideLabel ? 'sm' : 'xs'} aria-label={hideLabel ? label : undefined}>
           {icon}
         </FancyContent.Icon>
-        {!hideLabel && <FancyContent.Description fontVariant={'smText'}>{label}</FancyContent.Description>}
+        {!hideLabel && <FancyContent.Description fontVariant={'subTextFootnote'}>{label}</FancyContent.Description>}
       </FancyContent>
     </ContentWrapper>
   );

@@ -71,7 +71,13 @@ export default function MonthWithDays(props: IMonthWithDays) {
 
   return (
     <div>
-      <Typography type="h2" tabIndex={0} aria-label={`${month.name} ${year}`}>
+      <Typography
+        variant="bodytextLg"
+        fontWeight={'bold'}
+        elType="span"
+        tabIndex={0}
+        aria-label={`${month.name} ${year}`}
+      >
         {month.name}
       </Typography>
       <DaysContainer>

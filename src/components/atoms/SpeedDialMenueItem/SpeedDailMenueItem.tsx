@@ -32,7 +32,7 @@ export default function SpeedDailMenueItem(props: ISpeedDailMenueItem) {
         {icon}
       </MenuItem>
       {label && !hideLabel && (
-        <Typography type="inlineElement" variant="label" externalStyle={Label}>
+        <Typography variant="interactiveMd" externalStyle={Label}>
           {label}
         </Typography>
       )}
