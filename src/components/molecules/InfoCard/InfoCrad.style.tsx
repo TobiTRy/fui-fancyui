@@ -7,6 +7,6 @@ export const generateInfoCardStyle = (size: TComponentSizes) => {
   return css`
     width: 100%;
     border-radius: ${sizesSettings[size].borderRadius};
-    padding: ${sizesSettings[size].paddingTopBottom} ${sizesSettings[size].paddingLeftRight};
+    padding: ${sizesSettings[size].padding};
   `;
 };
