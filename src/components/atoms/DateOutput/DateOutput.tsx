@@ -45,7 +45,9 @@ export default function DateOutput({ date = new Date(), isActive, onClick, theme
 
   return (
     <DateOutputButton onClick={handleOpenCalendar} $themeType={themeType} $layer={layer} $isActive={active && isActive}>
-      <Typography variant="interactiveMd">{formattedDate || 'Select a date'}</Typography>
+      <Typography variant="interactiveSm" lineHeight={1}>
+        {formattedDate || 'Select a date'}
+      </Typography>
     </DateOutputButton>
   );
 }

@@ -23,7 +23,7 @@ export const DatePickerContainer = styled.div<{
 
 export const WrapperYearSelector = styled.div<{ theme: TTheme }>`
   width: 100%;
-  padding: ${({ theme }) => `${theme.spacing.md} ${theme.spacing.md} ${theme.spacing.md}`};
+  padding: ${({ theme }) => `${theme.spacing.sm} ${theme.spacing.sm} ${theme.spacing.md}`};
   box-sizing: border-box;
 `;
 
