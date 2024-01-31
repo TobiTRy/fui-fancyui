@@ -9,7 +9,7 @@ import { TTypographyVariants } from '@/types/TTypographyVariants';
 
 export type TTypography = {
   elType?: keyof typeof TypographyList;
-  variant?: TTypographyVariants;
+  variant: TTypographyVariants;
   externalStyle?: CSSProp;
   htmlFor?: string;
   themeType?: TUiColorsNotTransparent;
