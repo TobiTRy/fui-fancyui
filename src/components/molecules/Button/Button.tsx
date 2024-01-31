@@ -9,8 +9,8 @@ export default function Button(props: IButton) {
     children,
     wide,
     sizeC = 'md',
-    themeType,
-    layer,
+    themeType = 'accent',
+    layer = 0,
     textColor,
     borderRadius,
     hoverColor,
@@ -19,10 +19,7 @@ export default function Button(props: IButton) {
     textHover,
     notAButton,
     ...htmlProps
-  } = {
-    ...defaultProps,
-    ...props,
-  };
+  } = props;
 
   return (
     <>
@@ -62,9 +59,3 @@ export default function Button(props: IButton) {
     </>
   );
 }
-
-const defaultProps = {
-  themeType: 'accent' as const,
-  size: 'md',
-  layer: 0 as const,
-};

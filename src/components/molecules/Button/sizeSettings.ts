@@ -1,17 +1,28 @@
-import { globalElementsizes } from '@/design/theme/globalSizes';
+import { TGlobalElementSizes } from '@/types/TGlobalElementSizes';
+import { TSizeSettings } from '@/types/TSizeSettings';
 import { TSpacingArray } from '@/types/TSpacings';
+import { TTypographyVariants } from '@/types/TTypographyVariants';
 
-export const sizeSettings = {
+type TSizeObj = {
+  height: TGlobalElementSizes;
+  padding: TSpacingArray;
+  fontSize: TTypographyVariants;
+};
+
+export const sizeSettings: TSizeSettings<TSizeObj> = {
   sm: {
-    height: globalElementsizes.sm,
-    padding: ['xs', 'md'] as TSpacingArray,
+    height: 'sm',
+    padding: ['xs', 'md'],
+    fontSize: 'interactiveSm',
   },
   md: {
-    height: globalElementsizes.md,
-    padding: ['sm', 'lg'] as TSpacingArray,
+    height: 'md',
+    padding: ['sm', 'lg'],
+    fontSize: 'interactiveMd',
   },
   lg: {
-    height: globalElementsizes.lg,
-    padding: ['md', 'xl'] as TSpacingArray,
+    height: 'lg',
+    padding: ['md', 'xl'],
+    fontSize: 'interactiveLg',
   },
 };
