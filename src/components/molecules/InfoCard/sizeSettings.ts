@@ -10,14 +10,14 @@ type TSizeObj = {
 export const sizesSettings: TSizeSettings<TSizeObj> = {
   sm: {
     borderRadius: 'sm',
-    padding: ['sm'],
+    padding: ['sm', 'md'],
   },
   md: {
     borderRadius: 'md',
-    padding: ['md'],
+    padding: ['md', 'lg'],
   },
   lg: {
     borderRadius: 'lg',
-    padding: ['lg'],
+    padding: ['lg', 'xl'],
   },
 };
