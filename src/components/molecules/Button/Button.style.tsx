@@ -9,6 +9,7 @@ import { IButtonProps } from './Button.model';
 import { generateButtonSizeAndPadding } from '@/components/molecules/Button/utils/generateButtonSizeAndPadding';
 import { generateBorderRadiusForComponent } from '@/design/designFunctions/generateBorderRadiusForComponent';
 import { RawButton } from '@/components/atoms/RawButton';
+import { sizeSettings } from '@/components/molecules/Button/sizeSettings';
 
 export const ButtonStyle = styled.span<IGenerateThemeDesignForComponent & IStyledPrefixAndPicker<IButtonProps>>`
   display: inline-flex;
@@ -29,9 +30,12 @@ export const ButtonStyle = styled.span<IGenerateThemeDesignForComponent & IStyle
     generateThemeDesignForComponent({ ...props, $backgroundState: 'hover' })};
 
   ${({ $sizeC, $borderRadius, theme }) =>
-    $borderRadius === false && generateBorderRadiusForComponent({ theme, size: $sizeC, rounded: $borderRadius })};
+    $borderRadius !== false && generateBorderRadiusForComponent({ theme, size: $sizeC, rounded: $borderRadius })};
 
   ${({ $sizeC, $noSize }) => !$noSize && generateButtonSizeAndPadding($sizeC ?? 'md', true)}
+
+  font-size: ${({ $sizeC, theme }) => theme.fontSizes[sizeSettings[$sizeC ?? 'md'].fontSize].fontSize};
+  font-weight: bold;
 
   ${({ $externalStyle }) => $externalStyle && $externalStyle}
 
@@ -40,6 +44,7 @@ export const ButtonStyle = styled.span<IGenerateThemeDesignForComponent & IStyle
   }
 `;
 
+// the button wrapper is used to make the button full width
 export const StyledButton = styled(RawButton)<{ $wide?: boolean }>`
   width: ${({ $wide }) => ($wide ? '100%' : 'fit-content')};
 `;

@@ -1,13 +1,18 @@
-import { TTypographyElList } from '@/types/TTypographyElList';
+import { TTypographyVariants } from '@/types/TTypographyVariants';
+import { TSizeSettings } from '@/types/TSizeSettings';
 
-export const sizeSettings = {
+type TSizeObj = {
+  fontSize: TTypographyVariants;
+};
+
+export const sizeSettings: TSizeSettings<TSizeObj> = {
   sm: {
-    fontSize: 'sm' as TTypographyElList,
+    fontSize: 'interactiveSm',
   },
   md: {
-    fontSize: 'md' as TTypographyElList,
+    fontSize: 'interactiveMd',
   },
   lg: {
-    fontSize: 'lg' as TTypographyElList,
+    fontSize: 'interactiveLg',
   },
 };

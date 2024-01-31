@@ -8,6 +8,7 @@ import { generateFancyButton } from './FancyButton.style';
 import { IButton, IButtonProps } from '@/components/molecules/Button/Button.model';
 import { IFancyButtonProps } from '@/components/organisms/FancyButton/TFancyButton.model';
 import { leftRightCenterToFlexJustify } from '@/design/designFunctions/leftRightCenterToFlexJustify';
+import { sizeSettings } from './sizeSettings';
 
 // --------------------------------------------------------------------------- //
 // ---------- The Fancy Button has a bit more options than another  ---------- //
@@ -47,7 +48,7 @@ export default function FancyButton(props: IFancyButton) {
     >
       <FancyContent direction={alignIcon} gapBetweenIcon={gap}>
         {label && (
-          <FancyContent.Title size={sizeC ?? 'md'} themeType={buttonProps.textColor}>
+          <FancyContent.Title fontVariant={sizeSettings[sizeC ?? 'md'].fontSize} themeType={buttonProps.textColor}>
             {label}
           </FancyContent.Title>
         )}
