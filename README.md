@@ -27,7 +27,7 @@ FUI is currently a masterpiece in the making. Our team is working diligently to 
    4. **Test**: Run `npm run predeploy` to ensure quality.
    5. **Pull Request**: Submit a PR with your improvements.
 
-For a detailed guide on contributing to FancyUI, check out our [Complete Developer Guide](https://github.com/TobiTRy/FUI-FancyUI/blob/develop/src/stories/developer-guide.mdx).
+For a detailed guide on contributing to FancyUI, check out our [Complete Developer Guide](https://github.com/TobiTRy/FUI-FancyUI/blob/develop/src/stories/contributioners/developer-guide.mdx).
 
 ## 🙏 Acknowledgment
 
