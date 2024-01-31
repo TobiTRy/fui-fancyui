@@ -15,7 +15,7 @@ type IFancyContentTextProps = {
 };
 
 type IFancyContentTextWithSizeProps = IFancyContentTextProps & {
-  size?: 'sm' | 'md' | 'lg';
+  sizeC?: 'sm' | 'md' | 'lg';
   fontVariant?: never;
   type?: never;
 };
@@ -23,7 +23,7 @@ type IFancyContentTextWithSizeProps = IFancyContentTextProps & {
 type IFancyContentTextWithFontVariantProps = IFancyContentTextProps & {
   type?: TTypographyElList;
   fontVariant?: TTypographyVariants;
-  size?: never;
+  sizeC?: never;
 };
 
 /**

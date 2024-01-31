@@ -19,7 +19,7 @@ export interface ITabSwitchButton {
   onClick: (key: string) => void;
   themeType?: TUiColorTypes;
   iconAlign?: 'left' | 'right';
-  size?: keyof typeof tabSwitchItemSizes;
+  sizeC?: keyof typeof tabSwitchItemSizes;
   externalStyle?: CSSProp;
 }
 

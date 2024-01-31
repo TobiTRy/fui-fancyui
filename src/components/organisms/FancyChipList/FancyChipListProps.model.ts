@@ -11,7 +11,7 @@ export interface ChipListProps {
   chips?: TChip[];
   inputPlaceholder?: string;
   label?: string;
-  size?: 'sm' | 'md' | 'lg';
+  sizeC?: 'sm' | 'md' | 'lg';
   editable?: boolean;
   handler?: (chips: TChip[]) => void;
 }

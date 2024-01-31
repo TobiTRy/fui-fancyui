@@ -67,8 +67,8 @@ const meta = {
       description: 'The alignment of the icon.',
       control: { type: 'radio' },
     },
-    size: {
-      description: 'The size of the button.',
+    sizeC: {
+      description: 'The sizeC of the button.',
       control: { type: 'select' },
     },
   },
@@ -92,6 +92,6 @@ export const Primary: Story = {
     wide: false,
     themeType: 'secondary',
     iconAlign: 'left',
-    size: 'sm',
+    sizeC: 'sm',
   },
 };

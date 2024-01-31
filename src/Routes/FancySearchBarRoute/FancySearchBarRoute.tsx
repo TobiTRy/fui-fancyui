@@ -84,7 +84,7 @@ export default function FancySearchBarRoute() {
               ))}
             </ListWrapper>
           </FancySearchBar>
-          <FancySearchBar handlerSearchValue={searchHandler} size="md" searchValue={searchValue}>
+          <FancySearchBar handlerSearchValue={searchHandler} sizeC="md" searchValue={searchValue}>
             <ListWrapper>
               {searchedUsers.map((user, index) => (
                 <UserWrapper key={index}>
@@ -94,7 +94,7 @@ export default function FancySearchBarRoute() {
               ))}
             </ListWrapper>
           </FancySearchBar>
-          <FancySearchBar handlerSearchValue={searchHandler} size="lg" searchValue={searchValue}>
+          <FancySearchBar handlerSearchValue={searchHandler} sizeC="lg" searchValue={searchValue}>
             <ListWrapper>
               {searchedUsers.map((user, index) => (
                 <UserWrapper key={index}>

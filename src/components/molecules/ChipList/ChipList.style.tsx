@@ -15,18 +15,18 @@ export const ChipContainer = styled.ul`
 /**
  * Generates the style for the ChipList component.
  *
- * @param size - The size of the ChipList ('sm', 'md', 'lg').
+ * @param sizeC - The sizeC of the ChipList ('sm', 'md', 'lg').
  * @param sytemMessage - Optional system message color for the ChipList.
  * @returns The generated style object for the ChipList.
  */
 
 // eslint-disable-next-line react-refresh/only-export-components
-export const generateChipListStyle = (size: 'sm' | 'md' | 'lg', sytemMessage?: TUiColorsSystemMessage) => {
+export const generateChipListStyle = (sizeC: 'sm' | 'md' | 'lg', sytemMessage?: TUiColorsSystemMessage) => {
   const styemIndicatorStyle = generateSystemIndicatorStyle(sytemMessage);
   const getTheme = themeStore.getState().theme;
   let generatedStyle;
 
-  switch (size) {
+  switch (sizeC) {
     case 'sm':
       generatedStyle = css`
         border-radius: ${getTheme.borderRadius.lg};

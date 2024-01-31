@@ -29,7 +29,7 @@ export default function FancyButton(props: IFancyButton) {
   } = props;
 
   const generateFancyStyle = generateFancyButton({
-    $size: sizeC,
+    $sizeC: sizeC,
     $oneToOne: oneToOne || (Boolean(!label) && Boolean(icon)),
     $justifyContent: leftRightCenterToFlexJustify[align ?? 'center'],
   });
@@ -54,7 +54,7 @@ export default function FancyButton(props: IFancyButton) {
         )}
         {(isLoading || icon) && (
           <FancyContent.Icon>
-            {isLoading ? <LoadingSVGArrows isLoading={isLoading} size={sizeC} /> : icon}
+            {isLoading ? <LoadingSVGArrows isLoading={isLoading} sizeC={sizeC} /> : icon}
           </FancyContent.Icon>
         )}
       </FancyContent>

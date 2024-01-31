@@ -20,7 +20,7 @@ export type IListDivider = {
   layer?: TLayer;
   noLine?: boolean;
   fontWeight?: number | string;
-  size?: TComponentSizes;
+  sizeC?: TComponentSizes;
   icon?: React.ReactNode;
 } & (WithLabel | WithoutLabel) &
   HTMLAttributes<HTMLDivElement>;

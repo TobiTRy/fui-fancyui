@@ -13,14 +13,14 @@ const meta = {
     docs: {
       description: {
         component:
-          'Fancy SVG Atom that can be dynamicly adjusted in size and alignment. It can also be used to display error messages.',
+          'Fancy SVG Atom that can be dynamicly adjusted in sizeC and alignment. It can also be used to display error messages.',
       },
     },
   },
 
   // Define arguments for the story
   argTypes: {
-    size: {
+    sizeC: {
       control: { type: 'select' },
     },
     themeType: {
@@ -58,7 +58,7 @@ export const Primary: Story = {
   ),
   args: {
     isPassive: false,
-    size: 'md',
+    sizeC: 'md',
     themeType: 'secondary',
     errorMessage: '',
     layer: 1,

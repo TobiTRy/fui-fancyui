@@ -8,7 +8,7 @@ export type TSVGAtomSizes = keyof typeof sizes;
 
 export type ISVGAtom = {
   children?: React.ReactNode;
-  size?: TSVGAtomSizes;
+  sizeC?: TSVGAtomSizes;
   externalStyle?: CSSProp;
   isPassive?: boolean;
   isActive?: boolean;

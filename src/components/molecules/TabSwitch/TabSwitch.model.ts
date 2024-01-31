@@ -12,7 +12,7 @@ import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 
 export interface ITabSwitchProps {
   wide?: boolean;
-  size?: TComponentSizes;
+  sizeC?: TComponentSizes;
   textColor?: TUiColorsNotTransparent;
   themeType?: TUiColorTypes;
   layer?: TLayer;

@@ -16,7 +16,7 @@ const generateThemeItem = (props: IGenerateThemeItem) => {
   const itemStyle = $outlined && $themeType !== 'transparent' ? generateOutlined(props) : generateNormal(props);
 
   //this claculates the borderradius depeend on if its a $wide button or not
-  const borderRadius = generateBorderRadius({ $wide, $borderRadius, $size: props.$size });
+  const borderRadius = generateBorderRadius({ $wide, $borderRadius, $sizeC: props.$sizeC });
 
   return css`
     display: inline-flex;

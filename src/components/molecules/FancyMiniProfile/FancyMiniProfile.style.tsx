@@ -7,20 +7,20 @@ import { themeStore } from '@/design/theme/themeStore';
 type TStyledChip = TChipProps & { $alignImage?: 'left' | 'right' };
 
 export const generateChipStyle = (props: TStyledChip) => {
-  const { $alignImage, size } = props;
+  const { $alignImage, sizeC } = props;
 
   const theme = themeStore.getState().theme;
 
   return css`
     flex-direction: ${$alignImage === 'right' ? 'row-reverse' : 'row'};
-    gap: ${theme.spacing[sizeSettings[size || 'sm'].gap]};
+    gap: ${theme.spacing[sizeSettings[sizeC || 'sm'].gap]};
 
     ${$alignImage === 'left'
       ? css`
-          padding-right: ${theme.spacing[sizeSettings[size || 'sm'].paddingToEdge]};
+          padding-right: ${theme.spacing[sizeSettings[sizeC || 'sm'].paddingToEdge]};
         `
       : css`
-          padding-left: ${theme.spacing[sizeSettings[size || 'sm'].paddingToEdge]};
+          padding-left: ${theme.spacing[sizeSettings[sizeC || 'sm'].paddingToEdge]};
         `};
 
     .miniprofile {

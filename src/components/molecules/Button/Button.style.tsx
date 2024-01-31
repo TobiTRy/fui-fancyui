@@ -30,11 +30,11 @@ export const ButtonStyle = styled.span<IGenerateThemeDesignForComponent & IStyle
     generateThemeDesignForComponent({ ...props, $backgroundState: 'hover' })};
 
   ${({ $sizeC, $borderRadius, theme }) =>
-    $borderRadius !== false && generateBorderRadiusForComponent({ theme, size: $sizeC, rounded: $borderRadius })};
+    $borderRadius !== false && generateBorderRadiusForComponent({ theme, sizeC: $sizeC, rounded: $borderRadius })};
 
   ${({ $sizeC, $noSize }) => !$noSize && generateButtonSizeAndPadding($sizeC ?? 'md', true)}
 
-  font-size: ${({ $sizeC, theme }) => theme.fontSizes[sizeSettings[$sizeC ?? 'md'].fontSize].fontSize};
+  font-sizeC: ${({ $sizeC, theme }) => theme.fontSizes[sizeSettings[$sizeC ?? 'md'].fontSize].fontSize};
   font-weight: bold;
 
   ${({ $externalStyle }) => $externalStyle && $externalStyle}

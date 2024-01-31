@@ -9,7 +9,7 @@ export type IGenerateThemeItemProps = {
   outlined?: boolean;
   icon?: JSX.Element;
   iconAlign?: 'left' | 'right';
-  size: 'sm' | 'md' | 'lg';
+  sizeC: 'sm' | 'md' | 'lg';
   label?: string;
   wide?: boolean;
   borderRadius?: TBorderRadiusSizes;

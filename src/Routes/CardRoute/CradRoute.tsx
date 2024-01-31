@@ -204,7 +204,7 @@ export default function CradRoute() {
           </FancyCard.SpacingBox>
         </FancyCard>
       </div>
-      <DesignArea title="Card for Content with static size" style={backgroundColor}>
+      <DesignArea title="Card for Content with static sizeC" style={backgroundColor}>
         <Card />
       </DesignArea>
       <DesignArea title="Card for Content dynamic" style={backgroundColor}>
@@ -214,7 +214,7 @@ export default function CradRoute() {
           <h1>World</h1>
         </Card>
       </DesignArea>
-      <DesignArea title="Card for Content with static size" style={backgroundColor}>
+      <DesignArea title="Card for Content with static sizeC" style={backgroundColor}>
         <FancyCard />
       </DesignArea>
     </DesignWrapper>

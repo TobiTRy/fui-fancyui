@@ -10,7 +10,7 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component: 'FancyLooadingSpinner that indicates loading and can be dynamicly adjusted in the size.',
+        component: 'FancyLooadingSpinner that indicates loading and can be dynamicly adjusted in the sizeC.',
       },
     },
   },
@@ -24,8 +24,8 @@ const meta = {
         options: ['primary', 'secondary', 'accent', 'neutral'],
       },
     },
-    size: {
-      description: 'The size of the component.',
+    sizeC: {
+      description: 'The sizeC of the component.',
       control: {
         type: 'select',
         options: ['xs', 'sm', 'md', 'lg', 'xl'],
@@ -56,7 +56,7 @@ export const Primary: Story = {
   render: (args) => <FancyLoadingSpinner {...args} />,
   args: {
     themeType: 'accent',
-    size: 'md',
+    sizeC: 'md',
     layer: 0,
   },
   parameters: {

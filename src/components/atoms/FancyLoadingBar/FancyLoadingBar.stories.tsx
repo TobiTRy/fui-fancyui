@@ -10,7 +10,7 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component: 'Fancy LI Item that can be dynamicly adjusted in size and alignment.',
+        component: 'Fancy LI Item that can be dynamicly adjusted in sizeC and alignment.',
       },
     },
   },

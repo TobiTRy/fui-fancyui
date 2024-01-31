@@ -6,12 +6,12 @@ import { TTheme } from '@/types/TTheme';
 
 type TBorderRadius = {
   rounded?: TBorderRadiusSizes | false;
-  size?: TComponentSizes;
+  sizeC?: TComponentSizes;
   theme: TTheme;
 };
 
 export const generateBorderRadiusForComponent = (props: TBorderRadius) => {
-  const { theme, rounded, size } = props;
+  const { theme, rounded, sizeC } = props;
   const borderRadius = theme.borderRadius;
   if (rounded === false) return;
 
@@ -21,7 +21,7 @@ export const generateBorderRadiusForComponent = (props: TBorderRadius) => {
     `;
   }
 
-  switch (size) {
+  switch (sizeC) {
     case 'sm':
       return css`
         border-radius: ${borderRadius.xs};

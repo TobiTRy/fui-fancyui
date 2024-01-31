@@ -12,7 +12,7 @@ const meta = {
     docs: {
       description: {
         component:
-          'A little Circle that indicates if something is avilable. <br> - the color changes depending on the $available prop. <br> - the size is fixed.',
+          'A little Circle that indicates if something is avilable. <br> - the color changes depending on the $available prop. <br> - the sizeC is fixed.',
       },
     },
   },

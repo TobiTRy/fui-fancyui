@@ -18,12 +18,12 @@ export default function PasswordEye(props: IPasswordEye) {
     <i onClick={clickHandler}>
       {isShow ? (
         // the eye icon for the password type toggle
-        <FancySVGAtom size="xxs" isPassive={true}>
+        <FancySVGAtom sizeC="xxs" isPassive={true}>
           {customEyeOpen ?? <SVGEyeOpen />}
         </FancySVGAtom>
       ) : (
         // the crossed out eye icon for the password type toggle
-        <FancySVGAtom size="xxs" isPassive={true}>
+        <FancySVGAtom sizeC="xxs" isPassive={true}>
           {customEyeCrossed ?? <SVGEyeCrossed />}
         </FancySVGAtom>
       )}

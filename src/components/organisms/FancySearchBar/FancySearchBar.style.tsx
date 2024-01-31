@@ -35,7 +35,7 @@ export const WrapperList = styled.div<TWrapperListInput & { $width?: string }>`
 
 type TWrapperListInput = {
   theme: TTheme;
-  $size: TComponentSizes;
+  $sizeC: TComponentSizes;
   $borderRadius?: TBorderRadiusSizes;
   $themeType?: TUiColorsNotTransparent;
   $layer?: TLayer;
@@ -47,6 +47,6 @@ export const Background = styled.div<TWrapperListInput>`
   width: 100%;
   min-height: fit-content;
   background-color: ${({ theme }) => theme.colors.primary[0]};
-  border-radius: ${({ $size, $borderRadius, theme }) =>
-    $borderRadius ? theme.borderRadius[$borderRadius] : theme.borderRadius[sizeSettings[$size].borderRadius]};
+  border-radius: ${({ $sizeC, $borderRadius, theme }) =>
+    $borderRadius ? theme.borderRadius[$borderRadius] : theme.borderRadius[sizeSettings[$sizeC].borderRadius]};
 `;

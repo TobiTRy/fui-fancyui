@@ -4,7 +4,7 @@ import { FancySVGAtom } from '@/components/atoms/FancySVGAtom';
 import { ISVGAtomProps } from '@/components/atoms/FancySVGAtom/FancySVGAtom.model';
 
 export function FancyContentIcon(props: ISVGAtomProps) {
-  const { children, size = 'xxs', externalStyle, ...SVGProps } = props;
+  const { children, sizeC = 'xxs', externalStyle, ...SVGProps } = props;
 
   return (
     <FancySVGAtom
@@ -13,7 +13,7 @@ export function FancyContentIcon(props: ISVGAtomProps) {
         flex-shrink: 0;
         ${externalStyle}
       `}
-      size={size}
+      sizeC={sizeC}
       {...SVGProps}
     >
       {children}

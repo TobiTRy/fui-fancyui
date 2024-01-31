@@ -30,8 +30,8 @@ const meta = {
         step: 1,
       },
     },
-    size: {
-      description: 'The size of the component',
+    sizeC: {
+      description: 'The sizeC of the component',
       control: {
         type: 'select',
       },
@@ -71,7 +71,7 @@ export const Primary: Story = {
     title: 'Hans',
     subTitle: 'Hans',
     src: 'https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg',
-    size: 'sm',
+    sizeC: 'sm',
     themeType: 'primary',
     layer: 0,
     shadow: true,

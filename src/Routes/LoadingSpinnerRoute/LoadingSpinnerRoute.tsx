@@ -47,7 +47,7 @@ export default function LoadingSpinnerRoute() {
               progressAlign="left"
               themeType="primary"
             />
-            <FancyLoadingSpinner size="xxl" />
+            <FancyLoadingSpinner sizeC="xxl" />
           </div>
         </DesignArea>
       </DesignWrapper>

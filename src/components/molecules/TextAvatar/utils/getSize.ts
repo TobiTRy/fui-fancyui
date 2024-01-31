@@ -1,4 +1,4 @@
-// Set size based on prop
+// Set sizeC based on prop
 export type TSize = 'sm' | 'md' | 'lg' | 'xxs' | 'xs' | 'xl' | 'xxl' | 'complete';
 const sizeConfig: Record<TSize | string, string> = {
   xxs: '16px',
@@ -12,10 +12,10 @@ const sizeConfig: Record<TSize | string, string> = {
   default: '40px',
 };
 
-export const getSize = (size: TSize | string) => {
-  // Check if the size is a percentage value
-  if (typeof size === 'string' && size.endsWith('%')) return size;
+export const getSize = (sizeC: TSize | string) => {
+  // Check if the sizeC is a percentage value
+  if (typeof sizeC === 'string' && sizeC.endsWith('%')) return sizeC;
 
-  // Return the size from the config or default if not found
-  return sizeConfig[size] || sizeConfig['default'];
+  // Return the sizeC from the config or default if not found
+  return sizeConfig[sizeC] || sizeConfig['default'];
 };

@@ -44,7 +44,7 @@ export default function FancyRadioList(props: FancyRadioListProps) {
     // Give the list with the Fieldset a label
     <Fieldset {...fieldSetProps}>
       {/* The ListBox gives the style */}
-      <FancyListBox role="radiogroup" themeType={themeType} layer={layer} size="sm">
+      <FancyListBox role="radiogroup" themeType={themeType} layer={layer} sizeC="sm">
         {items.map((item, index) => (
           <React.Fragment key={index}>
             {/* Render the Radio with a Label and Description */}

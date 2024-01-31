@@ -1,4 +1,4 @@
-// Define size options for the spinner
+// Define sizeC options for the spinner
 export const sizes = {
   sm: {
     width: '16px',

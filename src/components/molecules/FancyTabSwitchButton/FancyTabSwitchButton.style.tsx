@@ -16,7 +16,7 @@ interface IListButtonStyle {
   $iconAlign?: 'left' | 'right';
   theme: TTheme;
   $layer?: TLayer;
-  $size?: keyof typeof tabSwitchItemSizes;
+  $sizeC?: keyof typeof tabSwitchItemSizes;
   $hasLabel?: boolean;
   $hasIcon?: boolean;
   $externalStyle?: CSSProp;
@@ -71,7 +71,7 @@ export const SwitchButtonStyle = styled.div<IListButtonStyle>`
     text-align: center;
     cursor: pointer;
     user-select: none;
-    padding: ${({ $size, theme }) => `${tabSwitchItemSizes[$size || 'sm'].padding} ${theme.spacing.md}`};
+    padding: ${({ $sizeC, theme }) => `${tabSwitchItemSizes[$sizeC || 'sm'].padding} ${theme.spacing.md}`};
     color: ${({ theme, $textColor = 'secondary', $layer }) =>
       getBackgroundColor({ theme, $themeType: $textColor, $layer })};
     ${({ $hasIcon, $hasLabel, $iconAlign }) => $hasIcon && $hasLabel && generateIconAlignment({ $iconAlign })}

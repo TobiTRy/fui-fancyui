@@ -16,7 +16,7 @@ export default function FancyChip(props: TFancyChip) {
     onDelete,
     layer = 3,
     themeType,
-    size = 'sm',
+    sizeC = 'sm',
     externalStyle,
     textColor,
     ...htmlProps
@@ -37,12 +37,12 @@ export default function FancyChip(props: TFancyChip) {
 
   return (
     <Chip
-      size={size}
+      sizeC={sizeC}
       themeType={themeType}
       layer={layer}
       externalStyle={css`
         ${externalStyle}
-        ${generateSpacing({ spacingPosition: getCalcPosition, size })}
+        ${generateSpacing({ spacingPosition: getCalcPosition, sizeC })}
         gap: 4px;
       `}
       {...htmlProps}
@@ -50,13 +50,13 @@ export default function FancyChip(props: TFancyChip) {
       {image && <Chip.Img>{image}</Chip.Img>}
       {(label || icon) && (
         <Chip.Content themeType={textColor}>
-          {icon && <Chip.Content.Icon size={sizesSettings[size].iconSize}>{icon}</Chip.Content.Icon>}
-          <Chip.Content.Title size={size} fontWeight={'normal'}>
+          {icon && <Chip.Content.Icon sizeC={sizesSettings[sizeC].iconSize}>{icon}</Chip.Content.Icon>}
+          <Chip.Content.Title sizeC={sizeC} fontWeight={'normal'}>
             {label}
           </Chip.Content.Title>
         </Chip.Content>
       )}
-      {onDelete && <Chip.DeleteButton size={size} onDelete={onDelete} />}
+      {onDelete && <Chip.DeleteButton sizeC={sizeC} onDelete={onDelete} />}
     </Chip>
   );
 }

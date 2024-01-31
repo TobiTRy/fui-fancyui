@@ -9,15 +9,15 @@ import { TLayer } from '@/types/TLayer';
 // ------------------ A Loadingspinner with different sizes ------------------ //
 // --------------------------------------------------------------------------- //
 interface IFancyLoadingSpinner {
-  size?: keyof typeof sizes;
+  sizeC?: keyof typeof sizes;
   themeType?: TUiColorsNotTransparent;
   layer?: TLayer;
 }
-export default function FancyLoadingSpinner({ size = 'md', themeType, layer }: IFancyLoadingSpinner) {
+export default function FancyLoadingSpinner({ sizeC = 'md', themeType, layer }: IFancyLoadingSpinner) {
   return (
-    <SpinnerContainer $size={size}>
-      <StyledFancyLoadingSpinner $size={size} $themeType={themeType} $layer={layer} />
-      <StyledInnerSpinner $size={size} />
+    <SpinnerContainer $sizeC={sizeC}>
+      <StyledFancyLoadingSpinner $sizeC={sizeC} $themeType={themeType} $layer={layer} />
+      <StyledInnerSpinner $sizeC={sizeC} />
     </SpinnerContainer>
   );
 }

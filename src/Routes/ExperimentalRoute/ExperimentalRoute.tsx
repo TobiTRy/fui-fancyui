@@ -63,7 +63,7 @@ export default function ExperimentalRoute() {
           <Card />
           <Card>
             <FancyContent direction="column" justify="center">
-              <FancyContent.Icon size="lg">
+              <FancyContent.Icon sizeC="lg">
                 <SVGCheckMark />
               </FancyContent.Icon>
               <FancyContent.Title>Test</FancyContent.Title>

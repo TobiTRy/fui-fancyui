@@ -9,6 +9,6 @@ export type TFancyChip = {
   label?: string;
   onDelete?: () => void;
   icon?: ReactNode;
-  size?: keyof typeof sizesSettings;
+  sizeC?: keyof typeof sizesSettings;
   textColor?: TUiColorsNotTransparent;
 } & TChipProps;

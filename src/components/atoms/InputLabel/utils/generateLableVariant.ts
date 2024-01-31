@@ -37,21 +37,21 @@ export function generateLableVariant(props: TgenerateLableVariant) {
       return css`
         left: 50%;
         top: ${$isActive ? '8px' : '56%'};
-        font-size: ${$isActive ? '12px' : '18px'};
+        font-sizec: ${$isActive ? '12px' : '18px'};
         transform: translateX(-50%) translateY(-50%);
       `;
     case 'right':
       return css`
         top: ${$isActive ? '8px' : '56%'};
         right: 0;
-        font-size: ${$isActive ? '12px' : '18px'};
+        font-sizec: ${$isActive ? '12px' : '18px'};
         transform: translateY(-50%);
       `;
     case 'left':
     default:
       return css`
         top: ${$isActive ? '8px' : '56%'};
-        font-size: ${$isActive ? '12px' : '18px'};
+        font-sizec: ${$isActive ? '12px' : '18px'};
         transform: translateY(-50%);
       `;
   }

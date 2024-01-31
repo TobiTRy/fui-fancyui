@@ -1,9 +1,9 @@
 import { TSize } from '@/components/molecules/TextAvatar/utils/getSize';
 import { TTypographyVariants } from '@/types/TTypographyVariants';
 
-// generate the text size based on the size prop
-export const getTextSize = (size: TSize | string): TTypographyVariants => {
-  switch (size) {
+// generate the text sizeC based on the sizeC prop
+export const getTextSize = (sizeC: TSize | string): TTypographyVariants => {
+  switch (sizeC) {
     case 'xxs':
     case 'xs':
       return 'subTextFootnote';

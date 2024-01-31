@@ -42,7 +42,7 @@ const meta = {
         step: 1,
       },
     },
-    size: {
+    sizeC: {
       control: {
         type: 'select',
       },

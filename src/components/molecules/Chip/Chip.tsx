@@ -9,9 +9,9 @@ import { TComponentSizes } from '@/types/TComponentSizes';
 // --------------------------------------------------------------------------- //
 // --------------- A Simple chip you can put everthing in it  ---------------- //
 // --------------------------------------------------------------------------- //
-export type TChipProps = IFancyPillProps & { size?: TComponentSizes };
+export type TChipProps = IFancyPillProps & { sizeC?: TComponentSizes };
 function Chip(props: TChipProps) {
-  const { outlined, themeType, size = 'md', layer, isActive, externalStyle, children, ...htmlProps } = props;
+  const { outlined, themeType, sizeC = 'md', layer, isActive, externalStyle, children, ...htmlProps } = props;
 
   return (
     <StyledChip
@@ -21,7 +21,7 @@ function Chip(props: TChipProps) {
       themeType={themeType}
       layer={layer}
       tabIndex={0}
-      $size={size}
+      $sizeC={sizeC}
       externalStyle={externalStyle}
       {...htmlProps}
     >

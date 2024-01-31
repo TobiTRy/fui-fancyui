@@ -15,7 +15,7 @@ const meta = {
     },
   },
   argTypes: {
-    size: {
+    sizeC: {
       description: 'Size of the ChipList',
       control: {
         type: 'select',

@@ -8,15 +8,15 @@ import { sizeSettings } from './sizeSettings';
 export type TListBoxItemProps = {
   children?: React.ReactNode;
   externalStyle?: CSSProp;
-  size?: TComponentSizes;
+  sizeC?: TComponentSizes;
 };
 // --------------------------------------------------------------------------- //
 // ------- The List Item for The ListBox to handle the distances -------- //
 // --------------------------------------------------------------------------- //
 function ListBoxItem(props: TListBoxItemProps) {
-  const { children, externalStyle, size = 'md' } = props;
+  const { children, externalStyle, sizeC = 'md' } = props;
   return (
-    <StyledLi $size={size} $externalStyle={externalStyle}>
+    <StyledLi $sizeC={sizeC} $externalStyle={externalStyle}>
       {children}
     </StyledLi>
   );
@@ -30,16 +30,17 @@ export { ListBoxItem };
 // ------- The style for the component ------- //
 // ------------------------------------------- //
 // handle the distances between the items and the edeges of the list
-const StyledLi = styled(RawLI)<{ $externalStyle?: CSSProp; theme: TTheme; $size: TComponentSizes }>`
-  ${({ $size, theme }) => css`
-    padding: ${theme.spacing[sizeSettings[$size ?? 'md'].padding]} ${theme.spacing[sizeSettings[$size ?? 'md'].padding]};
+const StyledLi = styled(RawLI)<{ $externalStyle?: CSSProp; theme: TTheme; $sizeC: TComponentSizes }>`
+  ${({ $sizeC, theme }) => css`
+    padding: ${theme.spacing[sizeSettings[$sizeC ?? 'md'].padding]}
+      ${theme.spacing[sizeSettings[$sizeC ?? 'md'].padding]};
 
     &:first-child {
-      padding-top: ${theme.spacing[sizeSettings[$size ?? 'md'].padding]};
+      padding-top: ${theme.spacing[sizeSettings[$sizeC ?? 'md'].padding]};
     }
 
     &:last-child {
-      padding-bottom: ${theme.spacing[sizeSettings[$size ?? 'md'].padding]};
+      padding-bottom: ${theme.spacing[sizeSettings[$sizeC ?? 'md'].padding]};
     }
   `}
 

@@ -10,7 +10,7 @@ import { TTypographyVariants } from '@/types/TTypographyVariants';
 export type TTextAvatarProps = {
   text?: string;
   rounded?: TgetBorderRadiusViaSize;
-  size?: TSize | string;
+  sizeC?: TSize | string;
   color?: string;
   backgroundColor?: string;
   themeType?: TUiColorsNotTransparent;

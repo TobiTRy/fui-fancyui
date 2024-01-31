@@ -11,7 +11,7 @@ const meta = {
     docs: {
       description: {
         component:
-          'A Text Avatar that displays the first two letters and more of a text in a circle. The size and roundedness can be adjusted. ',
+          'A Text Avatar that displays the first two letters and more of a text in a circle. The sizeC and roundedness can be adjusted. ',
       },
     },
   },
@@ -25,8 +25,8 @@ const meta = {
         summary: 'md',
       },
     },
-    size: {
-      description: 'The size of the image.',
+    sizeC: {
+      description: 'The sizeC of the image.',
       control: { type: 'select' },
       defaultValue: {
         summary: 'md',
@@ -45,7 +45,7 @@ const meta = {
     },
     fontSizes: {
       control: { type: 'select' },
-      description: 'The font size of the displayed text.',
+      description: 'The font sizeC of the displayed text.',
     },
     externalStyle: {
       control: { type: 'text' },
@@ -90,7 +90,7 @@ export const Primary: Story = {
   args: {
     text: 'https://avatars.githubusercontent.com/u/54409958?v=4',
     rounded: 'complete',
-    size: 'md',
+    sizeC: 'md',
     themeType: 'primary',
   },
 };

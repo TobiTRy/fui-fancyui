@@ -11,7 +11,7 @@ type TFancyMiniprofile = {
   title?: string;
   subTitle?: string;
   src?: string;
-  size?: TComponentSizes;
+  sizeC?: TComponentSizes;
   themeType?: TUiColorsNotTransparent;
   layer?: TLayer;
   shadow?: boolean;
@@ -21,18 +21,18 @@ type TFancyMiniprofile = {
 // ------ The MiniProfile rendes a image with a heading and description ------ //
 // --------------------------------------------------------------------------- //
 export default function FancyMiniProfile(props: TFancyMiniprofile) {
-  const { size = 'sm', src, title, subTitle, themeType, layer = 3, alignImage = 'right', ...htmlProps } = props;
+  const { sizeC = 'sm', src, title, subTitle, themeType, layer = 3, alignImage = 'right', ...htmlProps } = props;
 
   // Define a function to calculate the spacing position for the chip
-  const chipStyle = generateChipStyle({ size, themeType, layer, $alignImage: alignImage });
+  const chipStyle = generateChipStyle({ sizeC, themeType, layer, $alignImage: alignImage });
 
   return (
-    <Chip size={size} themeType={themeType} layer={layer} externalStyle={chipStyle} {...htmlProps}>
-      <FancyProfilePicture className="miniprofile_content-image" size="complete" src={src || ''}></FancyProfilePicture>
+    <Chip sizeC={sizeC} themeType={themeType} layer={layer} externalStyle={chipStyle} {...htmlProps}>
+      <FancyProfilePicture className="miniprofile_content-image" sizeC="complete" src={src || ''}></FancyProfilePicture>
       <Chip.Content className="miniprofile_content" alignIcon={alignImage} gapBetweenText="0">
-        {title && <Chip.Content.Title fontVariant={sizeSettings[size].titleSize}> {title}</Chip.Content.Title>}
+        {title && <Chip.Content.Title fontVariant={sizeSettings[sizeC].titleSize}> {title}</Chip.Content.Title>}
         {subTitle && (
-          <Chip.Content.Description fontVariant={sizeSettings[size].subtitleSize}>{subTitle}</Chip.Content.Description>
+          <Chip.Content.Description fontVariant={sizeSettings[sizeC].subtitleSize}>{subTitle}</Chip.Content.Description>
         )}
       </Chip.Content>
     </Chip>

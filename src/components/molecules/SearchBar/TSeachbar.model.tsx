@@ -11,5 +11,5 @@ export type TSearchBar = {
   themeType?: TUiColorsNotTransparent;
   layer?: TLayer;
   placerholder?: string;
-  size?: TComponentSizes;
+  sizeC?: TComponentSizes;
 };

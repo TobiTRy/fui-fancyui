@@ -16,7 +16,7 @@ export default function ListDivider(props: IListDivider) {
     fontWeight,
     icon,
     noLine,
-    size = 'md',
+    sizeC = 'md',
     ...htmlProps
   } = props;
 
@@ -34,11 +34,11 @@ export default function ListDivider(props: IListDivider) {
         >
           <FancyContent>
             {label && (
-              <FancyContent.Title fontVariant={sizeSettings[size].fontVariant} fontWeight={fontWeight ?? 'normal'}>
+              <FancyContent.Title fontVariant={sizeSettings[sizeC].fontVariant} fontWeight={fontWeight ?? 'normal'}>
                 {label}
               </FancyContent.Title>
             )}
-            {icon && <FancyContent.Icon size={sizeSettings[size].iconSize}>{icon}</FancyContent.Icon>}
+            {icon && <FancyContent.Icon sizeC={sizeSettings[sizeC].iconSize}>{icon}</FancyContent.Icon>}
           </FancyContent>
         </StyledTextDiv>
       ) : (

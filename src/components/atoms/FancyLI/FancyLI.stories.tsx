@@ -10,14 +10,14 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component: 'Fancy LI Item that can be dynamicly adjusted in size and alignment.',
+        component: 'Fancy LI Item that can be dynamicly adjusted in sizeC and alignment.',
       },
     },
   },
 
   // Define arguments for the story
   argTypes: {
-    size: {
+    sizeC: {
       control: { type: 'select' },
       options: ['xxs', 'xs', 'sm', 'md', 'lg', 'xl'],
     },
@@ -41,7 +41,7 @@ export const Primary: Story = {
   render: (args) => <FancyLI {...args} />,
   args: {
     children: <h1 style={{ margin: 0 }}>Huuu</h1>,
-    size: 'md',
+    sizeC: 'md',
     aligned: 'left',
   },
   parameters: {
