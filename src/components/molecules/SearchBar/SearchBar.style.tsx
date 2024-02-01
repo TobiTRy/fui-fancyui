@@ -33,7 +33,7 @@ export const InputWrapper = styled.div<{ $sizeC: TComponentSizes }>`
     padding: 0;
     div {
       input {
-        font-sizec: ${({ $sizeC }) => ($sizeC === 'sm' ? '16px' : '')} !important;
+        font-size: ${({ $sizeC }) => ($sizeC === 'sm' ? '16px' : '')} !important;
       }
       gap: ${({ $sizeC }) => sizeSettings[$sizeC].gap};
     }

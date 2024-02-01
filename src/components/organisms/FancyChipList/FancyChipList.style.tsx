@@ -17,7 +17,7 @@ export const InputLi = styled.li<IChipContainer>`
     height: auto;
     width: 100%;
     border: none;
-    font-sizec: 14px;
+    font-size: 14px;
     background-color: transparent;
     color: ${({ $themeType, theme }) =>
       getTextColor({ $themeType: $themeType ?? 'primary', theme, turnColorTheme: true })};

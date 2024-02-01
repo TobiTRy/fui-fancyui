@@ -34,7 +34,7 @@ export const ButtonStyle = styled.span<IGenerateThemeDesignForComponent & IStyle
 
   ${({ $sizeC, $noSize }) => !$noSize && generateButtonSizeAndPadding($sizeC ?? 'md', true)}
 
-  font-sizeC: ${({ $sizeC, theme }) => theme.fontSizes[sizeSettings[$sizeC ?? 'md'].fontSize].fontSize};
+  font-size: ${({ $sizeC, theme }) => theme.fontSizes[sizeSettings[$sizeC ?? 'md'].fontSize].fontSize};
   font-weight: bold;
 
   ${({ $externalStyle }) => $externalStyle && $externalStyle}

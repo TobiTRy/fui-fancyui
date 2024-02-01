@@ -18,7 +18,7 @@ const RawInput = styled.input<IRawInput>`
   text-align: ${({ $align }) => ($align !== 'center' ? 'left' : 'center')};
   border: none;
   outline: none;
-  font-sizec: ${({ theme }) => theme.fontSizes.interactiveMd.fontSize};
+  font-size: ${({ theme }) => theme.fontSizes.interactiveMd.fontSize};
   padding: 0;
   ${({ $externalStyle }) => $externalStyle};
 `;

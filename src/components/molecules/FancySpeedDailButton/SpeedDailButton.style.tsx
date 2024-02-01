@@ -41,7 +41,7 @@ export const Button = styled.button<{ $isOpen: boolean; theme?: TTheme }>`
     left: 50%;
     width: 60%;
     height: 60%;
-    font-sizec: 24px;
+    font-size: 24px;
     transform-origin: 50% 50%;
     transform: ${({ $isOpen }) =>
       $isOpen ? 'translate(-50%, -50%) rotate(45deg)' : 'translate(-50%, -50%) rotate(0)'};

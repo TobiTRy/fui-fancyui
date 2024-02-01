@@ -18,7 +18,7 @@ export const ContainerInputs = styled.div<{ theme: TTheme }>`
   p {
     margin: 0;
     padding: 0;
-    font-sizec: 0.8rem;
+    font-size: 0.8rem;
     text-transform: uppercase;
     color: ${({ theme }) => theme.colors.secondary[0]};
   }
