@@ -2,7 +2,7 @@
   "name": "@tobitry/fui-fancyui",
   "description": "FancyUI Libary",
   "private": false,
-  "version": "0.3.00",
+  "version": "0.3.01",
   "type": "module",
   "scripts": {
     "dev": "vite",
