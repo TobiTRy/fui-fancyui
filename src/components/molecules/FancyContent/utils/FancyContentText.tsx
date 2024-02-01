@@ -6,7 +6,8 @@ import { sizes } from '../sizeSettings';
 // ----------------- The Title for the FancyContent component ---------------- //
 // --------------------------------------------------------------------------- //
 export function FancyContentTitle(props: TTextProps) {
-  const { sizeC, fontWeight, fontVariant, type, children, className, themeType, layer, externalStyle } = props;
+  const { sizeC, fontWeight, fontVariant, type, children, lineHeight, className, themeType, layer, externalStyle } =
+    props;
 
   return (
     <Typography
@@ -16,6 +17,7 @@ export function FancyContentTitle(props: TTextProps) {
       className={className}
       themeType={themeType}
       layer={layer}
+      lineHeight={lineHeight}
       externalStyle={externalStyle}
     >
       {children}
@@ -27,7 +29,8 @@ export function FancyContentTitle(props: TTextProps) {
 // -------------- The description for the FancyContent component ------------- //
 // --------------------------------------------------------------------------- //
 export function FancyContentDescription(props: TTextProps) {
-  const { sizeC, fontWeight, type, fontVariant, children, className, themeType, layer, externalStyle } = props;
+  const { sizeC, fontWeight, type, lineHeight, fontVariant, children, className, themeType, layer, externalStyle } =
+    props;
 
   return (
     <Typography
@@ -36,6 +39,7 @@ export function FancyContentDescription(props: TTextProps) {
       layer={layer}
       themeType={themeType}
       fontWeight={fontWeight}
+      lineHeight={lineHeight}
       className={className}
       externalStyle={externalStyle}
     >

@@ -8,6 +8,7 @@ import { TTypographyVariants } from '@/types/TTypographyVariants';
 type IFancyContentTextProps = {
   children?: React.ReactNode;
   fontWeight?: number | string;
+  lineHeight?: number | string;
   className?: string;
   externalStyle?: CSSProp;
   themeType?: TUiColorsNotTransparent;
