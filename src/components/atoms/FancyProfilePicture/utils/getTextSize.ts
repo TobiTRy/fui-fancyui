@@ -12,10 +12,10 @@ export const getTextSize = (sizeC: TSize | string): TTypographyVariants => {
     case 'md':
       return 'bodytextSm';
     case 'lg':
-      return 'bodytextLg';
+      return 'bodytextMd';
     case 'xl':
     case 'xxl':
-      return 'sectionSubsectionTitle';
+      return 'bodytextLg';
     default:
       return 'sectionSubsectionTitle';
   }
