@@ -5,7 +5,7 @@ import ProgressBar, { IProgressBar } from '@/components/atoms/ProgressBar/Progre
 import { Wrapper } from './FancyProgressBar.style';
 import { TTextAlignLC } from '@/types/TTextAlignLC';
 import { TTextAlignLRC } from '@/types/TTextAlignLRC';
-import { AlignedLabel } from '@/components/atoms/AlignedLabel/AlignedLabel';
+import { AlignedLabel } from '@/components/atoms/AlignedLabel';
 import { Typography } from '@/components/atoms/Typography';
 import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 
@@ -30,7 +30,7 @@ export default function FancyProgressBar(props: IFancyProgressBar) {
     <Wrapper $value={progress}>
       {/* A lable to describe the Progress for */}
       {label && (
-        <AlignedLabel htmlFor={id} $align={labelAlign} $layer={textLayer}>
+        <AlignedLabel htmlFor={id} align={labelAlign} layer={textLayer}>
           {label}
         </AlignedLabel>
       )}
@@ -40,7 +40,7 @@ export default function FancyProgressBar(props: IFancyProgressBar) {
 
       {/* The Progress in percent as Text */}
       {progressCount && (
-        <AlignedLabel as={'span'} $align={progressAlign} $layer={textLayer}>
+        <AlignedLabel as={'span'} align={progressAlign} layer={textLayer}>
           <Typography variant="subTextCaption">{progress}%</Typography>
         </AlignedLabel>
       )}
