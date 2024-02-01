@@ -94,8 +94,9 @@ export default function FancyColorOutput(props: IFancyColorOutput) {
         sizeC="sm"
         themeType="primary"
         layer={3}
+        oneToOne={false}
         externalStyle={{
-          height: 'auto',
+          height: '100%',
         }}
         icon={
           <WrapperSVG>
