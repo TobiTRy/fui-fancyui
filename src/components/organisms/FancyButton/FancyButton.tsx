@@ -30,7 +30,7 @@ export default function FancyButton(props: IFancyButton) {
 
   const generateFancyStyle = generateFancyButton({
     $sizeC: sizeC,
-    $oneToOne: oneToOne || (Boolean(!label) && Boolean(icon)),
+    $oneToOne: oneToOne ?? (Boolean(!label) && Boolean(icon)),
     $justifyContent: leftRightCenterToFlexJustify[align ?? 'center'],
   });
 
