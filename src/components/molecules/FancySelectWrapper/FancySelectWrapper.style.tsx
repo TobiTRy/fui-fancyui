@@ -29,11 +29,11 @@ export const LabelWrapper = styled.label<{ $align?: TAlignCheckbox; theme: TThem
   ${({ $align, theme }) =>
     $align === 'right'
       ? css`
-          margin-right: ${theme.spacing.sm};
+          margin-right: ${theme.spacing.xs};
           order: 0;
         `
       : css`
-          margin-left: ${theme.spacing.sm};
+          margin-left: ${theme.spacing.xs};
           order: 1;
         `};
 
