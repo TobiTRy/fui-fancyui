@@ -15,7 +15,7 @@ interface StyledSingleInputProps {
 export const StyledSingleInput = styled.input<StyledSingleInputProps & { theme: TTheme }>`
   aspect-ratio: 4/5;
   width: 1.5ch;
-  font-sizec: 24px;
+  font-size: 24px;
   text-align: center;
   color: ${({ theme }) => theme.colors.secondary[0]};
   border: 1.5px solid
