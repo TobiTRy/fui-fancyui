@@ -1,20 +1,25 @@
-import { styled } from 'styled-components';
+import { StyledAlignedLabel } from './AlignedLabel.style';
+import { Typography } from '@/components/atoms/Typography';
 
-import { IAlignedLabel } from '@/components/atoms/AlignedLabel/TAlinedLabel.model';
-import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent';
-import { leftRightCenterToFlexJustify } from '@/design/designFunctions/leftRightCenterToFlexJustify';
+import { TAlignedLabelWithAllProps } from './TAlinedLabel.model';
 
-//the aligned label is only with align left or centerd {align?: string; active?: boolean}
-export const AlignedLabel = styled.label<IAlignedLabel>`
-  display: flex;
-  align-items: flex-end;
-  justify-content: ${({ $align }) => leftRightCenterToFlexJustify[$align ?? 'left']};
-  color: ${({ $systemMessageType, theme, $themeType = 'secondary', $layer }) =>
-    getBackgroundColor({
-      theme,
-      $themeType: $systemMessageType ? $systemMessageType : $themeType,
-      $layer: $layer,
-    })};
-`;
+import { sizeSettings } from './sizeSettings';
 
-export default AlignedLabel;
+// --------------------------------------------------------------------------- //
+// ---------- The label handles alignment and typography  -------------------- //
+// --------------------------------------------------------------------------- //
+export default function AlignedLabel(props: TAlignedLabelWithAllProps) {
+  const { children, size = 'md', ownTypographyComponent, typography } = props;
+
+  return (
+    <StyledAlignedLabel>
+      {!ownTypographyComponent && (
+        <Typography variant={sizeSettings[size].fontSize} elType="span" {...typography}>
+          {children}
+        </Typography>
+      )}
+      {/* when you want a owm typorgraphy component */}
+      {ownTypographyComponent && children}
+    </StyledAlignedLabel>
+  );
+}

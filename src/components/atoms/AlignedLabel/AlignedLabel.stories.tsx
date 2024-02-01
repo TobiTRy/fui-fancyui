@@ -1,23 +1,11 @@
-import { HTMLAttributes } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import Typography from '../Typography/Typography';
-import { IAlignedLabel } from '@/components/atoms/AlignedLabel/TAlinedLabel.model';
-import AlignedLabel from '@/components/atoms/AlignedLabel/AlignedLabel';
-
-//This is a helper component to show the styled component in the story
-const HelperComponent = (props: IAlignedLabel & HTMLAttributes<HTMLLabelElement>) => (
-  <AlignedLabel {...props}>
-    <Typography variant="interactiveMd">Hello World</Typography>
-  </AlignedLabel>
-);
-
-// Give the component a more meaningful name in the storybook
-HelperComponent.displayName = 'AlignedInputLabel';
+import { AlignedLabel } from '@/components/atoms/AlignedLabel';
+import { TAlignedLabelWithAllProps } from '@/components/atoms/AlignedLabel/TAlinedLabel.model';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta = {
-  component: HelperComponent,
+  component: AlignedLabel,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout
     docs: {
@@ -28,27 +16,36 @@ const meta = {
     },
   },
   argTypes: {
-    $align: {
+    align: {
       options: ['left', 'center'],
       control: { type: 'radio' },
     },
-    $systemMessageType: {
+    systemMessageType: {
       description: 'The system message type',
-      control: { type: 'radio' },
+      control: { type: 'select' },
     },
-    $layer: {
+    layer: {
       description: 'The layer of the component',
       control: { type: 'range', min: 1, max: 10 },
     },
-    $themeType: {
+    themeType: {
       description: 'The theme type of the component',
       control: { type: 'select' },
+    },
+    typography: {
+      description: 'The typography props of the component',
+      control: { type: 'object' },
+    },
+    size: {
+      description: 'The size of the component',
+      control: { type: 'select' },
+      defaultValue: 'md',
     },
   },
 
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/react/writing-docs/autodocs
   tags: ['autodocs'],
-} satisfies Meta<typeof HelperComponent>;
+} satisfies Meta<typeof AlignedLabel>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -56,9 +53,10 @@ type Story = StoryObj<typeof meta>;
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Primary: Story = {
   args: {
-    $align: 'left',
-    $themeType: 'secondary',
-    $layer: 4,
+    align: 'left',
+    themeType: 'secondary',
+    layer: 4,
+    size: 'md',
   },
-  render: (args: IAlignedLabel) => <HelperComponent {...args} />,
+  render: (args: TAlignedLabelWithAllProps) => <AlignedLabel {...args} />,
 };
