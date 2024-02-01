@@ -18,7 +18,7 @@ export const InputLabel = styled.label<TSytledInputLabel & { theme: TTheme }>`
   transition:
     top 0.25s ease,
     color 0.25s ease,
-    font-sizeC 0.25s ease;
+    font-size 0.25s ease;
   pointer-events: none; /* Ensures the input can be focused when clicking on the label */
   color: ${({ $systemMessageType, theme, $isActive, $themeType = 'secondary', $layer }) =>
     getBackgroundColor({
