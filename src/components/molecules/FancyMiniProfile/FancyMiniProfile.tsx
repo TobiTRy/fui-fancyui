@@ -30,9 +30,16 @@ export default function FancyMiniProfile(props: TFancyMiniprofile) {
     <Chip sizeC={sizeC} themeType={themeType} layer={layer} externalStyle={chipStyle} {...htmlProps}>
       <FancyProfilePicture className="miniprofile_content-image" sizeC="complete" src={src || ''}></FancyProfilePicture>
       <Chip.Content className="miniprofile_content" alignIcon={alignImage} gapBetweenText="0">
-        {title && <Chip.Content.Title fontVariant={sizeSettings[sizeC].titleSize}> {title}</Chip.Content.Title>}
+        {title && (
+          <Chip.Content.Title lineHeight={1.2} fontVariant={sizeSettings[sizeC].titleSize}>
+            {' '}
+            {title}
+          </Chip.Content.Title>
+        )}
         {subTitle && (
-          <Chip.Content.Description fontVariant={sizeSettings[sizeC].subtitleSize}>{subTitle}</Chip.Content.Description>
+          <Chip.Content.Description lineHeight={1.1} fontVariant={sizeSettings[sizeC].subtitleSize}>
+            {subTitle}
+          </Chip.Content.Description>
         )}
       </Chip.Content>
     </Chip>

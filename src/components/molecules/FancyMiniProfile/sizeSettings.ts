@@ -17,18 +17,18 @@ export const sizeSettings: TSizeSettings<TSizeObj> = {
     paddingToEdge: 'xs',
     titleSize: 'subTextFootnote',
     gap: 'xxs',
-    subtitleSize: 'subTextFootnote',
+    subtitleSize: 'subTextLegal',
   },
   md: {
     paddingToEdge: 'sm',
     gap: 'xxs',
-    titleSize: 'bodytextSm',
-    subtitleSize: 'bodytextSm',
+    titleSize: 'subTextCaption',
+    subtitleSize: 'subTextFootnote',
   },
   lg: {
     paddingToEdge: 'sm',
     gap: 'xs',
-    titleSize: 'bodytextMd',
+    titleSize: 'bodytextSm',
     subtitleSize: 'subTextFootnote',
   },
 };
