@@ -9,12 +9,12 @@ import { TBorderRadiusSizes } from '@/types/TBorderRadiusSizes';
 // ------------- The ListBox is only a Styled list with items  --------------- //
 // --------------------------------------------------------------------------- //
 export type TListBox = {
-  size?: TComponentSizes;
+  sizeC?: TComponentSizes;
   borderRadius?: TBorderRadiusSizes;
   boxShadow?: boolean;
 } & Omit<TFancyBoxProps<'ul'>, 'as'>;
 function ListBox(props: TListBox) {
-  const { children, size = 'md', externalStyle, borderRadius, boxShadow, ...htmlProps } = props;
+  const { children, sizeC = 'md', externalStyle, borderRadius, boxShadow, ...htmlProps } = props;
 
   return (
     <FancyBox
@@ -22,7 +22,7 @@ function ListBox(props: TListBox) {
       externalStyle={generateFancyBoxStyle({
         $borderRadius: borderRadius,
         $externalStyle: externalStyle,
-        $size: size,
+        $sizeC: sizeC,
         $boxShadow: boxShadow,
       })}
       {...htmlProps}

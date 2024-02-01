@@ -29,7 +29,7 @@ export const StyledSVG = styled.i<IStyledSVGAtom & { theme: TTheme }>`
   justify-content: center;
   font-style: normal;
   align-items: center;
-  width: ${({ $size }) => sizes[$size!]};
+  width: ${({ $sizeC }) => sizes[$sizeC!]};
   aspect-ratio: 1/1;
   color: ${({ $isActive, $errorMessage, $isPassive, theme, $themeType = 'secondary', $layer = 0 }) =>
     !$isPassive && calcIconColor({ theme, $isActive, $errorMessage, $layer, $themeType })};

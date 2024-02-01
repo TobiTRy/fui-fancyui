@@ -13,7 +13,7 @@ export default function TabSwitch(props: ITabSwitchProps) {
   const {
     values,
     textColor,
-    size,
+    sizeC,
     wide,
     disabled,
     tabSpacing,
@@ -69,7 +69,7 @@ export default function TabSwitch(props: ITabSwitchProps) {
           {/* Generate the button for the switch item */}
           <FancyTabSwitchButton
             disabled={disabled}
-            size={size}
+            sizeC={sizeC}
             themeType={textColor}
             iconAlign={iconAlign}
             {...item}
@@ -87,7 +87,7 @@ export default function TabSwitch(props: ITabSwitchProps) {
               // the radius of the switch indicator is adjusted for good looks with minus the padding of the switch
               rounded={
                 rounded
-                  ? parseInt(borderRadius[rounded]) - parseInt(tabSwitchSizes[size || 'sm'].paddingComponent) + 'px'
+                  ? parseInt(borderRadius[rounded]) - parseInt(tabSwitchSizes[sizeC || 'sm'].paddingComponent) + 'px'
                   : undefined
               }
               type={indicatorType ?? 'bolb'}

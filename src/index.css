@@ -45,12 +45,12 @@ code {
 
 /**
  * 1. Correct the line height in all browsers.
- * 2. Prevent adjustments of font size after orientation changes in iOS.
+ * 2. Prevent adjustments of font sizeC after orientation changes in iOS.
  */
 
 html {
   line-height: 1.15; /* 1 */
-  -webkit-text-size-adjust: 100%; /* 2 */
+  -webkit-text-sizeC-adjust: 100%; /* 2 */
 }
 
 /* Sections

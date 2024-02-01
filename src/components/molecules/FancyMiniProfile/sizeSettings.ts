@@ -1,34 +1,34 @@
 import { TSpacings } from '@/types/TSpacings';
-import { TTypographyList } from '@/types/TTypographyList';
+import { TSizeSettings } from '@/types/TSizeSettings';
+import { TTypographyVariants } from '@/types/TTypographyVariants';
 
 // the interface for the different sizes
-interface IPillSettings {
-  [key: string]: {
-    titleSize: TTypographyList;
-    subtitleSize: TTypographyList;
-    gap: TSpacings;
-    paddingToEdge: TSpacings;
-  };
-}
+
+type TSizeObj = {
+  titleSize: TTypographyVariants;
+  subtitleSize: TTypographyVariants;
+  gap: TSpacings;
+  paddingToEdge: TSpacings;
+};
 
 // the stettings for the different sizes
-export const sizeSettings: IPillSettings = {
+export const sizeSettings: TSizeSettings<TSizeObj> = {
   sm: {
     paddingToEdge: 'xs',
-    titleSize: 'smText',
+    titleSize: 'subTextFootnote',
     gap: 'xxs',
-    subtitleSize: 'verysmText',
+    subtitleSize: 'subTextLegal',
   },
   md: {
     paddingToEdge: 'sm',
     gap: 'xxs',
-    titleSize: 'h6',
-    subtitleSize: 'verysmText',
+    titleSize: 'subTextCaption',
+    subtitleSize: 'subTextFootnote',
   },
   lg: {
     paddingToEdge: 'sm',
     gap: 'xs',
-    titleSize: 'h5',
-    subtitleSize: 'verysmText',
+    titleSize: 'bodytextSm',
+    subtitleSize: 'subTextFootnote',
   },
 };

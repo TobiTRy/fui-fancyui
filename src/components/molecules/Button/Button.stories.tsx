@@ -70,7 +70,7 @@ export const Primary: Story = {
   render: (args) => <Button {...args} />,
   args: {
     themeType: 'accent',
-    size: 'md',
+    sizeC: 'md',
     layer: 0,
     outlined: false,
     wide: false,
@@ -81,7 +81,7 @@ export const Outlined: Story = {
   render: (args) => <Button {...args} />,
   args: {
     themeType: 'accent',
-    size: 'md',
+    sizeC: 'md',
     layer: 0,
     outlined: true,
     wide: false,
@@ -92,7 +92,7 @@ export const OneToOne: Story = {
   render: (args) => <Button {...args} />,
   args: {
     themeType: 'accent',
-    size: 'md',
+    sizeC: 'md',
     layer: 0,
     outlined: true,
     wide: false,

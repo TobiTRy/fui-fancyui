@@ -1,14 +1,18 @@
 import { CSSProp } from 'styled-components';
 
 import { IGenerateThemeDesignForComponentProps } from '@/design/designFunctions/generateThemeDesignForComponent';
+import { TComponentSizes } from '@/types/TComponentSizes';
+import { TBorderRadiusSizes } from '@/types/TBorderRadiusSizes';
 
 export type IButtonProps = {
-  size?: 'sm' | 'md' | 'lg';
+  sizeC?: TComponentSizes;
   wide?: boolean;
   children?: React.ReactNode;
   externalStyle?: CSSProp;
   disabled?: boolean;
   notAButton?: boolean;
+  noSize?: boolean;
+  borderRadius?: TBorderRadiusSizes | false;
 } & IGenerateThemeDesignForComponentProps;
 
 type ButtonHTML = React.ButtonHTMLAttributes<HTMLButtonElement>;

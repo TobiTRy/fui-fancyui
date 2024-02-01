@@ -12,8 +12,8 @@ import { getTextColor } from '@/design/designFunctions/colorCalculatorForCompone
 type TPlaceholderProps = IStyledPrefixAndOmitter<TTextAvatarProps, 'text' | 'letterLength' | 'fontSizes'>;
 export const Placeholder = styled.div<TPlaceholderProps & { theme: TTheme }>`
   border-radius: ${({ $rounded }) => $rounded && getBorderRadiusViaSize($rounded)};
-  width: ${({ $size }) => getSize($size ?? 'md')};
-  height: ${({ $size }) => getSize($size ?? 'md')};
+  width: ${({ $sizeC }) => getSize($sizeC ?? 'md')};
+  height: ${({ $sizeC }) => getSize($sizeC ?? 'md')};
   display: flex;
   justify-content: center;
   align-items: center;

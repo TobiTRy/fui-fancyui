@@ -37,7 +37,7 @@ export default function YearSelector(props: IYearSelector) {
           {SVGChevronLeft}
         </FancySVGAtom>
       </StyledButton>
-      <Typography type="content" variant="h3" tabIndex={0}>
+      <Typography elType="span" variant="interactiveMd" tabIndex={0}>
         {selectedYear}
       </Typography>
       <StyledButton

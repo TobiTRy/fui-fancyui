@@ -10,7 +10,7 @@ type TAvatarTextImage = TTextAvatarProps & React.HTMLAttributes<HTMLDivElement>;
 export default function TextAvatar(props: TAvatarTextImage) {
   const {
     rounded,
-    size = 'md',
+    sizeC = 'md',
     color,
     backgroundColor,
     themeType,
@@ -26,7 +26,7 @@ export default function TextAvatar(props: TAvatarTextImage) {
     <Placeholder
       tabIndex={htmlProps.tabIndex ?? 0}
       $rounded={rounded}
-      $size={size}
+      $sizeC={sizeC}
       $color={color}
       $backgroundColor={backgroundColor}
       $externalStyle={externalStyle}
@@ -34,7 +34,7 @@ export default function TextAvatar(props: TAvatarTextImage) {
       $layer={layer}
       {...htmlProps}
     >
-      <Typography type="smText" variant={fontSizes || getTextSize(size)}>
+      <Typography elType="span" variant={fontSizes || getTextSize(sizeC)}>
         {text?.substring(0, letterLength ?? 2).toUpperCase()}
       </Typography>
     </Placeholder>

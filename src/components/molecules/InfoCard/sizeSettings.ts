@@ -1,20 +1,23 @@
-import { themeStore } from '@/design/theme/themeStore';
+import { TBorderRadiusSizes } from '@/types/TBorderRadiusSizes';
+import { TSizeSettings } from '@/types/TSizeSettings';
+import { TSpacingArray } from '@/types/TSpacings';
 
-const getTheme = themeStore.getState().theme;
-export const sizesSettings = {
+type TSizeObj = {
+  borderRadius: TBorderRadiusSizes;
+  padding: TSpacingArray;
+};
+
+export const sizesSettings: TSizeSettings<TSizeObj> = {
   sm: {
-    borderRadius: getTheme.borderRadius.sm,
-    paddingTopBottom: getTheme.spacing.sm,
-    paddingLeftRight: getTheme.spacing.sm,
+    borderRadius: 'sm',
+    padding: ['sm', 'md'],
   },
   md: {
-    borderRadius: getTheme.borderRadius.md,
-    paddingTopBottom: getTheme.spacing.md,
-    paddingLeftRight: getTheme.spacing.sm,
+    borderRadius: 'md',
+    padding: ['md', 'lg'],
   },
   lg: {
-    borderRadius: getTheme.borderRadius.lg,
-    paddingTopBottom: getTheme.spacing.lg,
-    paddingLeftRight: getTheme.spacing.md,
+    borderRadius: 'lg',
+    padding: ['lg', 'xl'],
   },
 };

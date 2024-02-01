@@ -14,8 +14,8 @@ const meta = {
     },
   },
   argTypes: {
-    size: {
-      description: 'The size of the button.',
+    sizeC: {
+      description: 'The sizeC of the button.',
       control: {
         type: 'select',
       },
@@ -79,7 +79,7 @@ export const Primary: Story = {
   render: (args) => <Chip {...args} />,
   args: {
     layer: 3,
-    size: 'sm',
+    sizeC: 'sm',
     outlined: false,
     themeType: 'primary',
     isActive: false,

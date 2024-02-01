@@ -1,23 +1,28 @@
-import themeStore from '@/design/theme/themeStore/themeStore';
-import { TTypographyList } from '@/types/TTypographyList';
+import { TTypographyVariants } from '@/types/TTypographyVariants';
+import { TSpacings } from '@/types/TSpacings';
+import { TSizeSettings } from '@/types/TSizeSettings';
 
-const getSpacingFromTheme = themeStore.getState().theme.spacing;
+type TSizeObj = {
+  fontSizeTitle: TTypographyVariants;
+  fontSizeDescription: TTypographyVariants;
+  padding: TSpacings;
+};
 
 // Define the sizes for the FancyContent component
-export const sizes = {
+export const sizes: TSizeSettings<TSizeObj> = {
   sm: {
-    fontSizeDescription: 'smText' as TTypographyList,
-    fontSizeTitle: 'content' as TTypographyList,
-    padding: getSpacingFromTheme.xs,
+    fontSizeDescription: 'subTextFootnote',
+    fontSizeTitle: 'bodytextSm',
+    padding: 'xs',
   },
   md: {
-    fontSizeDescription: 'content' as TTypographyList,
-    fontSizeTitle: 'button' as TTypographyList,
-    padding: getSpacingFromTheme.sm,
+    fontSizeDescription: 'bodytextSm',
+    fontSizeTitle: 'bodytextMd',
+    padding: 'sm',
   },
   lg: {
-    fontSizeDescription: 'button' as TTypographyList,
-    fontSizeTitle: 'h3' as TTypographyList,
-    padding: getSpacingFromTheme.md,
+    fontSizeDescription: 'bodytextLg',
+    fontSizeTitle: 'bodytextMd',
+    padding: 'md',
   },
 };

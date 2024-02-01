@@ -13,9 +13,9 @@ export default function Fieldset(props: TFieldsetWithHTMLAttributes) {
       {label && (
         <StyledLegend alignLabel={alignLabel}>
           <Typography
-            type={legendSettings?.type || 'content'}
-            variant={legendSettings?.variant ?? 'label'}
-            weight={legendSettings?.weight ?? 'bold'}
+            elType={legendSettings?.elType || 'span'}
+            variant={legendSettings?.variant ?? 'interactiveLg'}
+            fontWeight={legendSettings?.fontWeight ?? 'bold'}
             {...legendSettings}
           >
             {label}

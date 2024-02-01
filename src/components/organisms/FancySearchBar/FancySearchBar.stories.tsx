@@ -60,6 +60,15 @@ const meta = {
         summary: '4',
       },
     },
+    sizeC: {
+      description: 'The size of the input',
+      control: {
+        type: 'select',
+      },
+      defaultValue: {
+        summary: 'md',
+      },
+    },
   },
   // Add tags to the story
   tags: ['autodocs'],
@@ -77,6 +86,6 @@ export const Primary: Story = {
     handlerSearchValue: (value: string) => console.log(value),
     searchListWidth: '100%',
     layer: 2,
-    children: <FancyLoadingSpinner size="lg" />,
+    children: <FancyLoadingSpinner sizeC="lg" />,
   },
 };

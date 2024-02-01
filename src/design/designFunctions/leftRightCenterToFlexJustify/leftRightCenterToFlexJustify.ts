@@ -1,6 +1,8 @@
 import { TTextAlignLRC } from '@/types/TTextAlignLRC';
 
-const leftRightCenterToFlexJustify: Record<TTextAlignLRC, string> = {
+export type TLeftRightCenterToFlexJustify = 'flex-start' | 'flex-end' | 'center';
+
+const leftRightCenterToFlexJustify: Record<TTextAlignLRC, 'flex-start' | 'flex-end' | 'center'> = {
   left: 'flex-start',
   right: 'flex-end',
   center: 'center',

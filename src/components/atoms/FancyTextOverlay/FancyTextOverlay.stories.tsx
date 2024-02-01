@@ -2,18 +2,18 @@
 import { Meta, StoryObj } from '@storybook/react';
 
 // Import the component to be tested
-import ImageVideoOverlay from './ImageVideoOverlay';
+import FancyTextOverlay from './FancyTextOverlay';
 import { Typography } from '../Typography';
 import { FancyVideo } from '../FancyVideo';
 
 // Define metadata for the story
 const meta = {
-  component: ImageVideoOverlay,
+  component: FancyTextOverlay,
   parameters: {
     docs: {
       description: {
         component:
-          'The ImageVideoOverlay is a Wrapper for the FancyVideo / FancyImage Component. It can be used to add a text overlay to the video. <br> - It recives textChildren as normal React nodes <br> - As children it recives the FancyVideo / FancyImage Component / or what do you fucking want',
+          'The FancyTextOverlay is a Wrapper for the FancyVideo / FancyImage Component. It can be used to add a text overlay to the video. <br> - It recives textChildren as normal React nodes <br> - As children it recives the FancyVideo / FancyImage Component / or what do you fucking want',
       },
     },
   },
@@ -23,7 +23,7 @@ const meta = {
 
   // Add tags to the story
   tags: ['autodocs'],
-} satisfies Meta<typeof ImageVideoOverlay>;
+} satisfies Meta<typeof FancyTextOverlay>;
 
 // Export the metadata
 export default meta;
@@ -33,15 +33,15 @@ type Story = StoryObj<typeof meta>;
 // Define the primary story
 export const Primary: Story = {
   render: (args) => (
-    <ImageVideoOverlay {...args}>
+    <FancyTextOverlay {...args}>
       <FancyVideo src="https://www.w3schools.com/html/mov_bbb.mp4" />
-    </ImageVideoOverlay>
+    </FancyTextOverlay>
   ),
   args: {
     position: 'center',
     textChildren: (
       <>
-        <Typography type="h1">Hello World</Typography>
+        <Typography variant="sectionTitle">Hello World</Typography>
       </>
     ),
   },

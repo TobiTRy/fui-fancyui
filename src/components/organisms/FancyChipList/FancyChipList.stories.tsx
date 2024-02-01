@@ -15,7 +15,7 @@ const meta = {
     },
   },
   argTypes: {
-    size: {
+    sizeC: {
       description: 'Size of the ChipList',
       control: {
         type: 'select',
@@ -69,7 +69,7 @@ export const Primary: Story = {
   render: (args) => <FancyChipList {...args} />,
   args: {
     chips: ['12', '1212', '1212', '121221', '121212211', '12121212', '12121212'],
-    size: 'md',
+    sizeC: 'md',
     label: 'ChipList',
   },
 };

@@ -3,14 +3,18 @@ import { CSSProp } from 'styled-components';
 import { TypographyList } from '@/components/atoms/Typography/Typography.style';
 import { TLayer } from '@/types/TLayer';
 import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
+import { typography } from '@/design/theme/designSizes';
+import { TgenerateFontVariants } from '@/components/atoms/Typography/utils/TypographyStyleVariants';
+import { TTypographyVariants } from '@/types/TTypographyVariants';
 
 export type TTypography = {
-  type?: keyof typeof TypographyList;
-  variant?: keyof typeof TypographyList;
-  weight?: 'normal' | 'bold';
-  addLineHeight?: boolean;
+  elType?: keyof typeof TypographyList;
+  variant: TTypographyVariants;
   externalStyle?: CSSProp;
   htmlFor?: string;
   themeType?: TUiColorsNotTransparent;
   layer?: TLayer;
-} & Omit<React.HTMLAttributes<HTMLElement>, 'style'>;
+} & Omit<React.HTMLAttributes<HTMLElement>, 'style'> &
+  Omit<TgenerateFontVariants, 'themeFonts'>;
+
+export type TTypographyObj = typeof typography;

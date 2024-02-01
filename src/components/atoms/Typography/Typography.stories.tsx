@@ -10,22 +10,41 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component: 'The Typography component can render differnet elements with different styles',
+        component:
+          'The Typography component can render differnet elements with different styles <br/> Its variant driven, so wehen you choose a variant, the component will render the element with the style of the variant. <br/> When you choose a type and a variant, the component will render the element with the style of the variant.',
       },
     },
   },
   // Define arguments for the story
   argTypes: {
-    type: {
-      description: 'The elemnt type of the typography',
-      control: {
-        type: 'select',
-      },
-    },
     variant: {
       description: 'The variant how the typography should look like',
       control: {
         type: 'select',
+      },
+    },
+    elType: {
+      description: 'The element type of the typography',
+      control: {
+        type: 'select',
+      },
+    },
+    fontWeight: {
+      description: 'The fontWeight for the typography',
+      control: {
+        type: 'text',
+      },
+    },
+    lineHeight: {
+      description: 'The lineHeight for the typography',
+      control: {
+        type: 'text',
+      },
+    },
+    letterSpacing: {
+      description: 'The letterSpacing for the typography',
+      control: {
+        type: 'text',
       },
     },
     className: {
@@ -48,7 +67,6 @@ const meta = {
     },
   },
   // Add tags to the story
-  tags: ['autodocs'],
 } satisfies Meta<typeof Typography>;
 
 // Export the metadata
@@ -60,6 +78,7 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   render: (args) => <Typography {...args}>{args.children}</Typography>,
   args: {
+    variant: 'bodytextMd',
     children: 'I need something to eat, i think i will eat a pizza',
   },
   parameters: {

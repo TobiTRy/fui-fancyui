@@ -27,7 +27,7 @@ const getCorrectTitle = (title: TTypography | ReactNode) => {
     return title; // title is already a react element
   } else {
     // title is a TTypography
-    const { weight, type, ...typoProps } = title as TTypography;
-    return <Typography type={type ?? 'h2'} weight={weight ?? 'bold'} {...typoProps} />;
+    const { fontWeight, variant, ...typoProps } = title as TTypography;
+    return <Typography variant={variant ?? 'sectionTitle'} fontWeight={fontWeight ?? 'bold'} {...typoProps} />;
   }
 };

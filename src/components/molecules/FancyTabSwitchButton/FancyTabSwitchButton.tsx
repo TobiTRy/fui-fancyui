@@ -11,7 +11,7 @@ import { leftRightToFlex } from '@/utils/functions/leftRightToFlex';
 // ------------------------------------------------------------------ //
 type IFancyTabSwitchButton = ITabSwitchButtonProps & HTMLAttributes<HTMLDivElement>;
 const FancyTabSwitchButton = React.forwardRef<HTMLDivElement, IFancyTabSwitchButton>((props, ref) => {
-  const { disabled, selected, onClick, iconAlign, size, itemKey, label, icon, children, externalStyle, ...HTMLProps } =
+  const { disabled, selected, onClick, iconAlign, sizeC, itemKey, label, icon, children, externalStyle, ...HTMLProps } =
     props;
 
   const id = useId();
@@ -20,7 +20,7 @@ const FancyTabSwitchButton = React.forwardRef<HTMLDivElement, IFancyTabSwitchBut
     <SwitchButtonStyle
       ref={ref}
       role="radio"
-      $size={size}
+      $sizeC={sizeC}
       $iconAlign={iconAlign}
       $hasIcon={Boolean(icon)}
       $hasLabel={Boolean(label)}
@@ -36,7 +36,7 @@ const FancyTabSwitchButton = React.forwardRef<HTMLDivElement, IFancyTabSwitchBut
         aria-hidden="true"
         onChange={() => onClick(itemKey)}
       />
-      <Typography htmlFor={id + '_' + itemKey} type="label" externalStyle={{ zIndex: 1 }}>
+      <Typography htmlFor={id + '_' + itemKey} elType="label" variant="interactiveMd" externalStyle={{ zIndex: 1 }}>
         {icon ||
           (label && (
             <FancyContent direction={leftRightToFlex(iconAlign)}>

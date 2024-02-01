@@ -13,28 +13,31 @@ export type TStyledComponentProps = {
 };
 
 // Base styled component for common styles
-export type TGenerateStyle = IStyledPrefixAndPicker<TTypography, 'weight' | 'themeType' | 'layer' | 'externalStyle'> &
+export type TGenerateStyle = IStyledPrefixAndPicker<TTypography, 'themeType' | 'layer' | 'externalStyle'> &
   TStyledComponentProps;
 const BaseStyledComponent = styled.span<TStyledComponentProps & TGenerateStyle & { theme: TTheme }>`
   color: ${({ theme, $themeType, $layer = 0 }) => $themeType && getBackgroundColor({ theme, $themeType, $layer })};
   ${({ $variant }) => $variant};
-  font-weight: ${({ $weight }) => $weight};
   ${({ $externalStyle }) => $externalStyle}
 `;
 
 // Styled components for each type of typography
+
+// headings elements
 const StyledH1 = styled(BaseStyledComponent).attrs({ as: 'h1' })``;
 const StyledH2 = styled(BaseStyledComponent).attrs({ as: 'h2' })``;
 const StyledH3 = styled(BaseStyledComponent).attrs({ as: 'h3' })``;
 const StyledH4 = styled(BaseStyledComponent).attrs({ as: 'h4' })``;
 const StyledH5 = styled(BaseStyledComponent).attrs({ as: 'h5' })``;
 const StyledH6 = styled(BaseStyledComponent).attrs({ as: 'h6' })``;
+
+// content elements
+const StyledP = styled(BaseStyledComponent).attrs({ as: 'p' })``;
+const StyledSpan = styled(BaseStyledComponent).attrs({ as: 'span' })``;
+const StyledSmall = styled(BaseStyledComponent).attrs({ as: 'small' })``;
+
+// label elements
 const StyledLabel = styled(BaseStyledComponent).attrs({ as: 'label' })``;
-const StyledButton = styled(BaseStyledComponent).attrs({ as: 'span' })``; // Assuming you want a span for a button
-const StyledInlineElement = styled(BaseStyledComponent).attrs({ as: 'span' })``;
-const StyledContent = styled(BaseStyledComponent).attrs({ as: 'p' })``;
-const StyledSmText = styled(BaseStyledComponent).attrs({ as: 'p' })``;
-const StyledVerySmText = styled(BaseStyledComponent).attrs({ as: 'span' })``;
 
 // Export the list of typography components
 export const TypographyList = {
@@ -45,9 +48,7 @@ export const TypographyList = {
   h5: StyledH5,
   h6: StyledH6,
   label: StyledLabel,
-  button: StyledButton,
-  inlineElement: StyledInlineElement,
-  content: StyledContent,
-  smText: StyledSmText,
-  verysmText: StyledVerySmText,
+  p: StyledP,
+  span: StyledSpan,
+  small: StyledSmall,
 };

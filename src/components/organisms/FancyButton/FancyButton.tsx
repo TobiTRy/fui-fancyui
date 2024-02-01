@@ -1,34 +1,14 @@
-import React from 'react';
 import { css } from 'styled-components';
 
+import { LoadingSVGArrows } from '@/components/atoms/LoadingSVGArrows';
 import { Button } from '@/components/molecules/Button';
 import { FancyContent } from '@/components/molecules/FancyContent';
-import { LoadingSVGArrows } from '@/components/atoms/LoadingSVGArrows';
 import { generateFancyButton } from './FancyButton.style';
 
-import { TTypographyList } from '@/types/TTypographyList';
-import { TBorderRadiusSizes } from '@/types/TBorderRadiusSizes';
 import { IButton, IButtonProps } from '@/components/molecules/Button/Button.model';
-
-const alignment = {
-  left: 'flex-start' as const,
-  right: 'flex-end' as const,
-  center: 'center' as const,
-};
-
-export type IFancyButtonProps = {
-  isLoading?: boolean;
-  label?: string;
-  align?: 'left' | 'right' | 'center';
-  iconAlign?: 'left' | 'right';
-  size?: 'sm' | 'md' | 'lg';
-  borderRadius?: TBorderRadiusSizes;
-  oneToOne?: boolean;
-  icon?: React.ReactNode;
-  fontVariant?: TTypographyList;
-  noPadding?: boolean;
-  gap?: string;
-};
+import { IFancyButtonProps } from '@/components/organisms/FancyButton/TFancyButton.model';
+import { leftRightCenterToFlexJustify } from '@/design/designFunctions/leftRightCenterToFlexJustify';
+import { sizeSettings } from './sizeSettings';
 
 // --------------------------------------------------------------------------- //
 // ---------- The Fancy Button has a bit more options than another  ---------- //
@@ -40,27 +20,18 @@ export default function FancyButton(props: IFancyButton) {
     label,
     isLoading,
     iconAlign,
-    size,
-    align,
+    sizeC = 'md',
+    align = 'center',
     externalStyle,
     oneToOne,
-    noPadding,
-    fontVariant,
-    borderRadius,
     gap,
     ...buttonProps
-  } = {
-    ...defaultProps,
-    ...props,
-  };
+  } = props;
 
   const generateFancyStyle = generateFancyButton({
-    $size: size,
-    $borderRadius: borderRadius,
-    $oneToOne: oneToOne || (Boolean(!label) && Boolean(icon)),
-    $outlined: props.outlined,
-    $justifyContent: alignment[align ?? 'center'],
-    $noPadding: noPadding,
+    $sizeC: sizeC,
+    $oneToOne: oneToOne ?? (Boolean(!label) && Boolean(icon)),
+    $justifyContent: leftRightCenterToFlexJustify[align ?? 'center'],
   });
 
   // handle icon alignment
@@ -68,7 +39,7 @@ export default function FancyButton(props: IFancyButton) {
 
   return (
     <Button
-      size={size}
+      sizeC={sizeC}
       externalStyle={css`
         ${generateFancyStyle};
         ${externalStyle};
@@ -77,22 +48,16 @@ export default function FancyButton(props: IFancyButton) {
     >
       <FancyContent direction={alignIcon} gapBetweenIcon={gap}>
         {label && (
-          <FancyContent.Title fontVariant={fontVariant ?? 'button'} themeType={buttonProps.textColor}>
+          <FancyContent.Title fontVariant={sizeSettings[sizeC ?? 'md'].fontSize} themeType={buttonProps.textColor}>
             {label}
           </FancyContent.Title>
         )}
         {(isLoading || icon) && (
           <FancyContent.Icon>
-            {isLoading ? <LoadingSVGArrows isLoading={isLoading} size={size} /> : icon}
+            {isLoading ? <LoadingSVGArrows isLoading={isLoading} sizeC={sizeC} /> : icon}
           </FancyContent.Icon>
         )}
       </FancyContent>
     </Button>
   );
 }
-
-const defaultProps: IFancyButton = {
-  themeType: 'accent',
-  size: 'md',
-  align: 'center',
-};

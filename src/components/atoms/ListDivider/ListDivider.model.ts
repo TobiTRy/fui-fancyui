@@ -19,8 +19,8 @@ export type IListDivider = {
   themeType?: TUiColorsNotTransparent;
   layer?: TLayer;
   noLine?: boolean;
-  bold?: boolean;
-  size?: TComponentSizes;
+  fontWeight?: number | string;
+  sizeC?: TComponentSizes;
   icon?: React.ReactNode;
 } & (WithLabel | WithoutLabel) &
   HTMLAttributes<HTMLDivElement>;

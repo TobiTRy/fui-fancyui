@@ -17,25 +17,25 @@ type TStyledImage = IStyledPrefixAndPicker<
 // --------------------------------------------------------------------------- //
 // ------------------------- Helper Functions -------------------------------- //
 // --------------------------------------------------------------------------- //
-// Generate the sizes for the image based on the provided size
-const generateSize = (size: TComponentSizesExtended | 'fit' | string, direction: 'height' | 'width') => {
-  if (size === 'fit') {
+// Generate the sizes for the image based on the provided sizeC
+const generateSize = (sizeC: TComponentSizesExtended | 'fit' | string, direction: 'height' | 'width') => {
+  if (sizeC === 'fit') {
     return css`
       ${direction}: 100%;
     `;
   }
 
-  // Check if the size is a theme size
-  if (globalSizes[size as TComponentSizesExtended]) {
+  // Check if the sizeC is a theme sizeC
+  if (globalSizes[sizeC as TComponentSizesExtended]) {
     return css`
-      ${direction + ': ' + globalSizes[size as TComponentSizesExtended].elementSize};
+      ${direction + ': ' + globalSizes[sizeC as TComponentSizesExtended].elementSize};
     `;
   }
 
-  // check size is a custom css value
-  if (typeof size === 'string') {
+  // check sizeC is a custom css value
+  if (typeof sizeC === 'string') {
     return css`
-      ${direction + ': ' + size};
+      ${direction + ': ' + sizeC};
     `;
   }
 };

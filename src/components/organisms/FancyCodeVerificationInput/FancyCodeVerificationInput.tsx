@@ -46,7 +46,7 @@ export default function FancyCodeVerificationInput(props: IFancySingleInputs) {
         />
         <MessageContainer>
           <Message $isError={Boolean(errorMessage)}>
-            <Typography type="content">{errorMessage}</Typography>
+            <Typography variant="subTextCaption">{errorMessage}</Typography>
           </Message>
         </MessageContainer>
       </Container>

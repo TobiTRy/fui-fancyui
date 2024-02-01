@@ -12,7 +12,7 @@ import TitleForComponent from '@/components/atoms/TitleForComponent/TitleForComp
 export default function FancyListBox(props: TFancyListBox) {
   const {
     children,
-    size = 'md',
+    sizeC = 'md',
     seperator = {},
     layer,
     themeType = 'primary',
@@ -26,13 +26,13 @@ export default function FancyListBox(props: TFancyListBox) {
 
   // generate this List component with the provided settings
   const ListComponent = (
-    <ListBox themeType={themeType} layer={layer} size={size} borderRadius={borderRadius} {...listProps}>
+    <ListBox themeType={themeType} layer={layer} sizeC={sizeC} borderRadius={borderRadius} {...listProps}>
       {/* Render the childs with the settings */}
       {items.map((child, index) => {
         if (React.isValidElement(child)) {
           return (
             <React.Fragment key={index}>
-              <ListBox.Item size={size} {...itemSettings}>
+              <ListBox.Item sizeC={sizeC} {...itemSettings}>
                 {child}
               </ListBox.Item>
               {/* The Seperator for each item */}

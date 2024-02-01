@@ -1,4 +1,4 @@
-import { css, styled } from 'styled-components';
+import { CSSProp, css, styled } from 'styled-components';
 
 import { TTheme } from '@/types/TTheme';
 import { textShadow } from '@/design/designFunctions/shadows/shadows';
@@ -10,13 +10,14 @@ const gradientOptions = {
 };
 
 // Define a styled wrapper component using styled-components
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<{ $externalStyle: CSSProp }>`
   position: relative;
   overflow: hidden;
   line-height: 0;
   pointer-events: none;
   width: fit-content;
   height: fit-content;
+  ${({ $externalStyle }) => $externalStyle};
 `;
 
 // Define a styled overlay component using styled-components

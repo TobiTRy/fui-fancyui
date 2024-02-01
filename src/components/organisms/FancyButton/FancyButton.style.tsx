@@ -1,12 +1,12 @@
 import { css } from 'styled-components';
 
-import { generateBorderRadiusForComponent } from '@/design/designFunctions/generateBorderRadiusForComponent';
-import { generateComponentPadding } from '@/design/designFunctions/generatePaddingForComponent';
-import { TBorderRadiusSizes } from '@/types/TBorderRadiusSizes';
+import { generateButtonSizeAndPadding } from '@/components/molecules/Button/utils/generateButtonSizeAndPadding';
+import { TLeftRightCenterToFlexJustify } from '@/design/designFunctions/leftRightCenterToFlexJustify';
+import { TComponentSizes } from '@/types/TComponentSizes';
 
-const generate1To1Button = ($size: 'sm' | 'md' | 'lg', $outlined?: boolean) => {
+const generate1To1Button = ($sizeC: 'sm' | 'md' | 'lg') => {
   //this makes the button a square (1/1) if there is no $label and a $icon
-  const padding = generateComponentPadding({ size: $size ?? 'md', borderThinkness: $outlined ? 1.2 : 0 });
+  const padding = generateButtonSizeAndPadding($sizeC, false);
 
   return css`
     aspect-ratio: 1/1;
@@ -16,26 +16,16 @@ const generate1To1Button = ($size: 'sm' | 'md' | 'lg', $outlined?: boolean) => {
 };
 
 interface IGenerateFancyButton {
-  $size?: 'sm' | 'md' | 'lg';
-  $outlined?: boolean;
+  $sizeC: TComponentSizes;
   $oneToOne?: boolean;
-  $borderRadius?: TBorderRadiusSizes;
-  $justifyContent?: 'flex-start' | 'flex-end' | 'center';
-  $noPadding?: boolean;
+  $justifyContent?: TLeftRightCenterToFlexJustify;
 }
 
 export const generateFancyButton = (props: IGenerateFancyButton) => {
-  const { $size, $borderRadius, $outlined, $oneToOne, $justifyContent, $noPadding } = props;
+  const { $sizeC, $oneToOne, $justifyContent } = props;
 
   return css`
     justify-content: ${$justifyContent ?? 'center'};
-    ${generateBorderRadiusForComponent($size, $borderRadius)};
-    ${!$noPadding &&
-    generateComponentPadding({
-      size: $size ?? 'md',
-      borderThinkness: $outlined ? 1.2 : 0,
-      doublePaddingLeftRight: true,
-    })};
-    ${$oneToOne && generate1To1Button($size ?? 'md', $outlined)};
+    ${$oneToOne && generate1To1Button($sizeC)};
   `;
 };

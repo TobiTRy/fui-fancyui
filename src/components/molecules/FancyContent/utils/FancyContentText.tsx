@@ -6,16 +6,18 @@ import { sizes } from '../sizeSettings';
 // ----------------- The Title for the FancyContent component ---------------- //
 // --------------------------------------------------------------------------- //
 export function FancyContentTitle(props: TTextProps) {
-  const { size, bold = true, fontVariant, children, className, themeType, layer, externalStyle } = props;
+  const { sizeC, fontWeight, fontVariant, type, children, lineHeight, className, themeType, layer, externalStyle } =
+    props;
 
   return (
     <Typography
-      variant={fontVariant ?? sizes[size || 'lg'].fontSizeTitle}
-      weight={bold ? 'bold' : 'normal'}
-      type="button"
+      elType={type ?? 'span'}
+      variant={fontVariant ?? sizes[sizeC || 'lg'].fontSizeTitle}
+      fontWeight={fontWeight ?? 'bold'}
       className={className}
       themeType={themeType}
       layer={layer}
+      lineHeight={lineHeight}
       externalStyle={externalStyle}
     >
       {children}
@@ -27,15 +29,17 @@ export function FancyContentTitle(props: TTextProps) {
 // -------------- The description for the FancyContent component ------------- //
 // --------------------------------------------------------------------------- //
 export function FancyContentDescription(props: TTextProps) {
-  const { size, bold, fontVariant, children, className, themeType, layer, externalStyle } = props;
+  const { sizeC, fontWeight, type, lineHeight, fontVariant, children, className, themeType, layer, externalStyle } =
+    props;
 
   return (
     <Typography
-      variant={fontVariant ?? sizes[size || 'sm'].fontSizeTitle}
+      elType={type ?? 'span'}
+      variant={fontVariant ?? sizes[sizeC || 'sm'].fontSizeTitle}
       layer={layer}
       themeType={themeType}
-      weight={bold ? 'bold' : 'normal'}
-      type="button"
+      fontWeight={fontWeight}
+      lineHeight={lineHeight}
       className={className}
       externalStyle={externalStyle}
     >

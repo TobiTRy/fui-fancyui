@@ -10,7 +10,7 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component: 'FancyLooadingSpinner that indicates loading and can be dynamicly adjusted in the size.',
+        component: 'FancyLooadingSpinner that indicates loading and can be dynamicly adjusted in the sizeC.',
       },
     },
   },

@@ -52,14 +52,14 @@ export default function CradRoute() {
               <FancyCard.Image />
             </FancyCard.FlexBox>
             <FancyCard.SpacingBox padding={[0, 'md', 'lg', 'md']}>
-              <FancyCard.SubTitle layer={5} className="card_subtitle" addLineHeight>
+              <FancyCard.SubTitle layer={5} className="card_subtitle">
                 {'Grow steadily and pizza. Grow steadily and pizza. Grow steadily and pizza.Grow steadily and pizza.'}
               </FancyCard.SubTitle>
-              <FancyCard.Title className="card_title" weight="bold" addLineHeight>
+              <FancyCard.Title className="card_title" fontWeight="bold">
                 {'Corporat<e'}
               </FancyCard.Title>
 
-              <FancyCard.Descritpion layer={3} className="card_description" addLineHeight>
+              <FancyCard.Descritpion layer={3} className="card_description">
                 <DescriptionPreview
                   description={
                     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet ligula id libero tristique cursus. Mauris at volutpat leo. Vivamus in arcu non leo elementum cursus nec sit amet quam. Nullam eget nunc eget leo elementum sodales. Suspendisse potenti. Sed et sapien nec sapien convallis ullamcorper. Nulla facilisi. Curabitur at justo ac nisl auctor gravida non eget nibh.Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut vitae lacus non felis suscipit faucibus. Nulla facilisi. Duis dignissim nisl ut elit suscipit, et commodo leo cursus. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit.'
@@ -93,15 +93,13 @@ export default function CradRoute() {
                 <img src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg" />
               </FancyCard.Image>
               <FancyCard.Box margin={['xs', 0]}>
-                <FancyCard.SubTitle layer={5} addLineHeight>
+                <FancyCard.SubTitle layer={5}>
                   {'Grow steadily and pizza. Grow steadily and pizza. Grow steadily and pizza.Grow steadily and pizza.'}
                 </FancyCard.SubTitle>
               </FancyCard.Box>
-              <FancyCard.Title weight="bold" addLineHeight>
-                {'Corporate'}
-              </FancyCard.Title>
+              <FancyCard.Title fontWeight="bold">{'Corporate'}</FancyCard.Title>
               <FancyCard.Box margin={['xs', 0]}>
-                <FancyCard.Descritpion layer={3} addLineHeight>
+                <FancyCard.Descritpion layer={3}>
                   <DescriptionPreview
                     description={
                       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet ligula id libero tristique cursus. Mauris at volutpat leo. Vivamus in arcu non leo elementum cursus nec sit amet quam. Nullam eget nunc eget leo elementum sodales. Suspendisse potenti. Sed et sapien nec sapien convallis ullamcorper. Nulla facilisi. Curabitur at justo ac nisl auctor gravida non eget nibh.Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut vitae lacus non felis suscipit faucibus. Nulla facilisi. Duis dignissim nisl ut elit suscipit, et commodo leo cursus. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit.'
@@ -136,14 +134,14 @@ export default function CradRoute() {
               <img src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg" />
             </FancyCard.Image>
             <FancyCard.SpacingBox padding={[0, 'md', 'lg', 'md']}>
-              <FancyCard.SubTitle layer={5} className="card_subtitle" addLineHeight>
+              <FancyCard.SubTitle layer={5} className="card_subtitle">
                 {'Grow steadily and pizza. Grow steadily and pizza. Grow steadily and pizza.Grow steadily and pizza.'}
               </FancyCard.SubTitle>
-              <FancyCard.Title className="card_title" weight="bold" addLineHeight>
+              <FancyCard.Title className="card_title" fontWeight="bold">
                 {'Corporate'}
               </FancyCard.Title>
 
-              <FancyCard.Descritpion layer={3} className="card_description" addLineHeight>
+              <FancyCard.Descritpion layer={3} className="card_description">
                 <DescriptionPreview
                   description={
                     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet ligula id libero tristique cursus. Mauris at volutpat leo. Vivamus in arcu non leo elementum cursus nec sit amet quam. Nullam eget nunc eget leo elementum sodales. Suspendisse potenti. Sed et sapien nec sapien convallis ullamcorper. Nulla facilisi. Curabitur at justo ac nisl auctor gravida non eget nibh.Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut vitae lacus non felis suscipit faucibus. Nulla facilisi. Duis dignissim nisl ut elit suscipit, et commodo leo cursus. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit.'
@@ -177,14 +175,14 @@ export default function CradRoute() {
               <img src="http://ilovepixel.eu/images/shibi.png" />
             </FancyCard.Image>
             <FancyCard.SpacingBox padding={[0, 'md', 'lg', 'md']}>
-              <FancyCard.SubTitle layer={5} className="card_subtitle" addLineHeight>
+              <FancyCard.SubTitle layer={5} className="card_subtitle">
                 {'Grow steadily and pizza. Grow steadily and pizza. Grow steadily and pizza.Grow steadily and pizza.'}
               </FancyCard.SubTitle>
-              <FancyCard.Title className="card_title" weight="bold" addLineHeight>
+              <FancyCard.Title className="card_title" fontWeight="bold">
                 {'Corporate'}
               </FancyCard.Title>
 
-              <FancyCard.Descritpion layer={3} className="card_description" addLineHeight>
+              <FancyCard.Descritpion layer={3} className="card_description">
                 <DescriptionPreview
                   description={
                     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet ligula id libero tristique cursus. Mauris at volutpat leo. Vivamus in arcu non leo elementum cursus nec sit amet quam. Nullam eget nunc eget leo elementum sodales. Suspendisse potenti. Sed et sapien nec sapien convallis ullamcorper. Nulla facilisi. Curabitur at justo ac nisl auctor gravida non eget nibh.Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut vitae lacus non felis suscipit faucibus. Nulla facilisi. Duis dignissim nisl ut elit suscipit, et commodo leo cursus. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit.'
@@ -206,7 +204,7 @@ export default function CradRoute() {
           </FancyCard.SpacingBox>
         </FancyCard>
       </div>
-      <DesignArea title="Card for Content with static size" style={backgroundColor}>
+      <DesignArea title="Card for Content with static sizeC" style={backgroundColor}>
         <Card />
       </DesignArea>
       <DesignArea title="Card for Content dynamic" style={backgroundColor}>
@@ -216,7 +214,7 @@ export default function CradRoute() {
           <h1>World</h1>
         </Card>
       </DesignArea>
-      <DesignArea title="Card for Content with static size" style={backgroundColor}>
+      <DesignArea title="Card for Content with static sizeC" style={backgroundColor}>
         <FancyCard />
       </DesignArea>
     </DesignWrapper>

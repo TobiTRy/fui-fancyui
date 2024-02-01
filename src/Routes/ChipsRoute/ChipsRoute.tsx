@@ -28,7 +28,7 @@ export default function ChipsRoute() {
       <DesignWrapper>
         <DesignArea title="ChipList">
           <ChipList />
-          <FancyChipList size="sm" layer={2} chips={chipList} />
+          <FancyChipList sizeC="sm" layer={2} chips={chipList} />
         </DesignArea>
         <DesignArea title="FancyChip">
           <FancyChip
@@ -45,15 +45,15 @@ export default function ChipsRoute() {
         <DesignArea title="FancyChip">
           <FancyChip
             label="Heyyjoo"
-            size="sm"
+            sizeC="sm"
             image={
               <img src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg" />
             }
           />
-          <FancyChip label="Heyyjoo" size="md" onDelete={() => console.log('DELETE')} />
+          <FancyChip label="Heyyjoo" sizeC="md" onDelete={() => console.log('DELETE')} />
           <FancyChip
             label="Heyyjoo"
-            size="lg"
+            sizeC="lg"
             onClick={() => console.log('hii')}
             image={
               <img src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg" />
@@ -63,15 +63,15 @@ export default function ChipsRoute() {
         <DesignArea title="FancyChip">
           <FancyChip
             label="Heyyjoo"
-            size="lg"
+            sizeC="lg"
             image={
               <img src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg" />
             }
           />
-          <FancyChip label="Heyyjoo" size="lg" onDelete={() => console.log('DELETE')} />
+          <FancyChip label="Heyyjoo" sizeC="lg" onDelete={() => console.log('DELETE')} />
           <FancyChip
             label="Heyyjoo"
-            size="lg"
+            sizeC="lg"
             onClick={() => console.log('hii')}
             image={
               <img src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg" />
@@ -79,9 +79,9 @@ export default function ChipsRoute() {
           />
         </DesignArea>
         <DesignArea title="FancyChip">
-          <FancyChip label="Heyyjoo" icon={<ClipBoardIconCheck />} size="sm" />
-          <FancyChip label="Heyyjoo" icon={<ClipBoardIconCheck />} size="md" onDelete={() => console.log('DELETE')} />
-          <FancyChip label="Heyyjoo" icon={<ClipBoardIconCheck />} size="lg" onClick={() => console.log('hii')} />
+          <FancyChip label="Heyyjoo" icon={<ClipBoardIconCheck />} sizeC="sm" />
+          <FancyChip label="Heyyjoo" icon={<ClipBoardIconCheck />} sizeC="md" onDelete={() => console.log('DELETE')} />
+          <FancyChip label="Heyyjoo" icon={<ClipBoardIconCheck />} sizeC="lg" onClick={() => console.log('hii')} />
         </DesignArea>
         <DesignArea title="FancyChip Outlined">
           <FancyChip
@@ -91,31 +91,31 @@ export default function ChipsRoute() {
             themeType={'primary'}
             layer={5}
             icon={<ClipBoardIconCheck />}
-            size="sm"
+            sizeC="sm"
           />
           <FancyChip
             label="Heyyjoo"
             outlined
             icon={<ClipBoardIconCheck />}
-            size="md"
+            sizeC="md"
             onDelete={() => console.log('DELETE')}
           />
           <FancyChip
             label="Heyyjoo"
             outlined
             icon={<ClipBoardIconCheck />}
-            size="lg"
+            sizeC="lg"
             onClick={() => console.log('hii')}
           />
         </DesignArea>
         <DesignArea title="FancyChip Colored">
-          <FancyChip label="Heyyjoo" outlined themeType="accent" icon={<ClipBoardIconCheck />} size="sm" />
+          <FancyChip label="Heyyjoo" outlined themeType="accent" icon={<ClipBoardIconCheck />} sizeC="sm" />
           <FancyChip
             label="Heyyjoo"
             outlined
             themeType="secondary"
             icon={<ClipBoardIconCheck />}
-            size="md"
+            sizeC="md"
             onDelete={() => console.log('DELETE')}
           />
           <FancyChip
@@ -124,7 +124,7 @@ export default function ChipsRoute() {
             themeType="transparent"
             textColor="accent"
             icon={<ClipBoardIconCheck />}
-            size="lg"
+            sizeC="lg"
             onClick={() => console.log('hii')}
           />
         </DesignArea>
@@ -136,23 +136,23 @@ export default function ChipsRoute() {
             layer={1}
             textColor="primary"
             icon={<ClipBoardIconCheck />}
-            size="sm"
+            sizeC="sm"
           />
           <FancyChip
             label="Heyyjoo"
             themeType="primary"
             icon={<ClipBoardIconCheck />}
-            size="md"
+            sizeC="md"
             onDelete={() => console.log('DELETE')}
           />
           <FancyChip
             label="Heyyjoo"
             themeType="secondary"
             textColor="accent"
-            size="lg"
+            sizeC="lg"
             onClick={() => console.log('hii')}
           />
-          <FancyChip textColor="accent" size="lg" onClick={() => console.log('hii')} />
+          <FancyChip textColor="accent" sizeC="lg" onClick={() => console.log('hii')} />
         </DesignArea>
       </DesignWrapper>
     </Card>

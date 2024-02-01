@@ -17,8 +17,8 @@ const meta = {
   },
   // Define arguments for the story
   argTypes: {
-    size: {
-      description: 'The size of the list',
+    sizeC: {
+      description: 'The sizeC of the list',
       control: {
         type: 'select',
       },
@@ -114,7 +114,7 @@ export const Primary: Story = {
     </FancyListBox>
   ),
   args: {
-    size: 'md',
+    sizeC: 'md',
     themeType: 'primary',
     layer: 2,
     borderRadius: 'md',
@@ -130,7 +130,7 @@ export const Primary: Story = {
     },
     outlined: false,
     itemSettings: {
-      size: 'md',
+      sizeC: 'md',
     },
   },
 };

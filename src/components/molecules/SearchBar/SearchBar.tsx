@@ -11,7 +11,7 @@ import { IconWrapper } from './SearchBar.style';
 // ---------- Seachbar like for a header to search something  ---------------- //
 // --------------------------------------------------------------------------- //
 export default function SearchBar(props: TSearchBar) {
-  const { activeHandler, handler, searchValue, align = 'center', themeType, layer = 0, size = 'sm' } = props;
+  const { activeHandler, handler, searchValue, align = 'center', themeType, layer = 0, sizeC = 'sm' } = props;
   const [isActive, setIsActive] = useState(false); // The state for the isActive state of the search bar
 
   // Function to handle changes to the isActive state
@@ -27,13 +27,13 @@ export default function SearchBar(props: TSearchBar) {
 
   return (
     <SizeWrapper>
-      <StyledSearchBar $size={size} $isActive={isActive}>
+      <StyledSearchBar $sizeC={sizeC} $isActive={isActive}>
         {/* The search icon */}
-        <InputWrapper $size={size}>
+        <InputWrapper $sizeC={sizeC}>
           <FancyTextInput
             layer={layer}
             themeType={themeType}
-            icon={<IconWrapper $size={size}>{SVGSearch}</IconWrapper>}
+            icon={<IconWrapper $sizeC={sizeC}>{SVGSearch}</IconWrapper>}
             transparentBackground
             value={searchValue}
             placeholder="Search"

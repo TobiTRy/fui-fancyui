@@ -14,45 +14,24 @@ export type IGenerateThemeDesignForComponent = IStyledPrefixAndPicker<IGenerateT
 // -------  The main function to generate a style for the components -- ------ //
 // --------------------------------------------------------------------------- //
 export default function generateThemeDesignForComponent(props: IGenerateThemeDesignForComponent) {
-  const {
-    $themeType,
-    theme,
-    $outlined,
-    $layer,
-    $backgroundStrength,
-    $backgroundState,
-    $hoverColor,
-    $textColor,
-    $useSimpleTextColor,
-    $textHover,
-  } = props;
+  const { $themeType, $outlined, $textColor, $useSimpleTextColor } = props;
 
-  const calcTextColor = $useSimpleTextColor
-    ? $textColor
-      ? $textColor
-      : getSimpleColorThemeType($themeType)
-    : $textColor;
+  const calcTextColor = $useSimpleTextColor ? $textColor || getSimpleColorThemeType($themeType) : $textColor;
 
   if ($themeType === 'transparent') {
     return generateTransparentStyle({
-      theme,
-      $backgroundState,
-      $hoverColor,
-      $layer,
       $textColor: calcTextColor,
-      $textHover,
+      ...props,
     });
   } else if ($outlined) {
     return generateOutlineStyle({
-      $themeType,
-      theme,
-      $backgroundStrength,
-      $backgroundState,
-      $hoverColor,
       $textColor: calcTextColor,
-      $layer,
+      ...props,
     });
   } else {
-    return generateNormalStyle({ $themeType, theme, $layer, $backgroundState, $textColor: calcTextColor, $hoverColor });
+    return generateNormalStyle({
+      $textColor: calcTextColor,
+      ...props,
+    });
   }
 }

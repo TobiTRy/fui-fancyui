@@ -1,0 +1,63 @@
+## Source Directory Documentation
+
+The `src` directory is the heart of our UI Library, organized to support the Atomic Design methodology and to facilitate the development process. Below is a detailed explanation of each folder and its role within the structure.
+
+### `components/`
+
+This is the main directory for UI components, categorized by their complexity according to Atomic Design.
+
+- `atoms/`: Contains the smallest, foundational components like buttons, inputs, and form labels.
+- `icons/`: A specialized subset of atoms, dedicated to icon components.
+- `molecules/`: Groups of atoms that function as a unit, such as a search bar consisting of an input and a button.
+- `organisms/`: Complex UI sections made of molecules and possibly other organisms, like a navigation bar with links and a search form.
+- `shared/`: Components or utilities shared among atoms, molecules, and organisms. This is where you place elements that are reused across different categories.
+- `templates/`: Layouts and structural designs that organize the underlying content structure.
+
+### `design/`
+
+Houses the styling and theming specifics of the UI components.
+
+- `designFunctions/`: Functions specific to the design, such as mixins or styled-component helpers.
+- `theme/`: Contains theme-related files, which may include:
+  - `FancyThemeProvider`: A provider component for the application's theme context.
+  - `generateThemeColor`: Utility functions to generate theme colors.
+  - `globalStyle`: Global styles applied across all components.
+  - `themeStore`: Management of theme states and logic.
+- `brakePoints.ts`: Defines the responsive breakpoints for the design.
+- `designSizes.ts`: Sets up the design sizes, likely for spacing, icons, or components.
+- `globalSizes.ts`: Specifies global sizeC parameters that are consistent throughout the app.
+
+### `Routes/`
+
+Manages the routing of the application, is used to test components in the different Routes.
+Feel free to create one if you create a new component that needs to be tested and developed.
+
+### `stories/`
+
+A dedicated directory for global Storybook stories.
+
+- `assets/`: Static assets used within Storybook, such as images .
+- `contributions/`: Documentation on how to contribute to the library, possibly guidelines or templates for submissions.
+
+### `test/`
+
+Includes all test-related mock files, ensuring components meet quality and functionality standards.
+
+### `types/`
+
+Contains TypeScript type definitions and interfaces used globaly across the project.
+
+### `utils/`
+
+Utility functions, hooks, validations, and global variables that support component functionality.
+
+- `functions/`: Reusable functions that are not tied to specific components.
+- `hooks/`: Custom React hooks for shared logic across components.
+- `validations/`: Functions for validating data, such as form inputs.
+- `variables/`: Global variables, possibly theme-related or constants.
+
+### Additional Notes
+
+- Always place new components, utilities, or types in their respective folders within the `src` directory.
+- When working with design elements or theming, ensure to use the structures provided within the `design` folder to keep styling consistent.
+- Documentation for how to use the components is vital. Make sure to update Storybook files in the `stories` folder as new components are added or existing ones are updated.

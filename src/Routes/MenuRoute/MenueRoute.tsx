@@ -23,9 +23,9 @@ export default function MenueRoute() {
           contentComponent={
             <FancyMenuList outlined>
               <FancyMenuList.Item label="Muuusettingshhh" icon={<>⚙️</>} />
-              <FancyMenuList.Divider size="md" label="Test" textAlignment="right" />
+              <FancyMenuList.Divider sizeC="md" label="Test" textAlignment="right" />
               <FancyMenuList.Divider label="Test" icon={<SVGCheckMark />} textAlignment="left" noLine />
-              <FancyMenuList.Divider label="Test" size="md" icon={<SVGCheckMark />} textAlignment="center" />
+              <FancyMenuList.Divider label="Test" sizeC="md" icon={<SVGCheckMark />} textAlignment="center" />
               <FancyMenuList.Divider label="Test" textAlignment="center" />
               <FancyMenueItem label="Logout" icon={<SVGCheckMark />} />
               <FancyMenueItem label="Logout" icon={<SVGCheckMark />} />

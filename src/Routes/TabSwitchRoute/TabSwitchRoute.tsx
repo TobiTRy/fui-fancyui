@@ -52,7 +52,7 @@ export default function TabSwitchRoute() {
     <>
       <FancyTabSwitch
         label="test"
-        size="sm"
+        sizeC="sm"
         values={switchValues1}
         rounded={'xxxl'}
         currentSelect={test}
@@ -68,7 +68,7 @@ export default function TabSwitchRoute() {
           >
             <FancyTabSwitch
               wide
-              size="sm"
+              sizeC="sm"
               label="test"
               rounded="xxl"
               themeType="secondary"
@@ -79,7 +79,7 @@ export default function TabSwitchRoute() {
             />
             <FancyTabSwitch
               wide
-              size="md"
+              sizeC="md"
               label="test"
               rounded="xxl"
               themeType="secondary"
@@ -90,7 +90,7 @@ export default function TabSwitchRoute() {
             />
             <FancyTabSwitch
               wide
-              size="lg"
+              sizeC="lg"
               label="test"
               rounded="xxxl"
               themeType="secondary"
@@ -103,7 +103,7 @@ export default function TabSwitchRoute() {
               label="test"
               values={switchValues1}
               themeType="transparent"
-              size="sm"
+              sizeC="sm"
               indicatorType="underline"
               rounded="md"
               currentSelect={test}
@@ -115,7 +115,7 @@ export default function TabSwitchRoute() {
               wide
               outlined
               rounded="complete"
-              size="sm"
+              sizeC="sm"
               layer={3}
               values={switchValues1}
               currentSelect={test}
@@ -123,7 +123,7 @@ export default function TabSwitchRoute() {
             />
             <FancyTabSwitch
               label="test"
-              size="sm"
+              sizeC="sm"
               themeType="transparent"
               values={switchValues2}
               rounded={'complete'}
@@ -132,7 +132,7 @@ export default function TabSwitchRoute() {
             />
             <FancyTabSwitch
               label="test"
-              size="sm"
+              sizeC="sm"
               themeType="transparent"
               values={switchValues3}
               rounded={'complete'}
@@ -141,7 +141,7 @@ export default function TabSwitchRoute() {
             />
 
             <FancyTabSwitch
-              size="lg"
+              sizeC="lg"
               label="test"
               wide
               outlined

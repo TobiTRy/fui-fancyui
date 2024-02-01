@@ -7,7 +7,7 @@ import Typography from '../../components/atoms/Typography/Typography';
 import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';
 import { css } from 'styled-components';
 import FancyImageWrapper from '../../components/atoms/FancyImageWrapper/FancyImageWrapper';
-import { ImageVideoOverlay } from '@/components/atoms/ImageVideoOverlay';
+import { ImageVideoOverlay } from '@/components/atoms/FancyTextOverlay';
 import { FancyVideo } from '@/components/atoms/FancyVideo';
 
 export default function FancyImageRoute() {
@@ -22,18 +22,17 @@ export default function FancyImageRoute() {
         <FancyImageWrapper borderRadius="complete" darken aspectRatio="1/1" sizeW="100px">
           <img src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg" />
         </FancyImageWrapper>
+
         <ImageVideoOverlay
           position="center"
           textChildren={
             <>
-              <Typography variant="h1" weight="bold">
-                Hello
-              </Typography>
-              <Typography variant="h2">Hello</Typography>
+              <Typography variant="sectionSubtitle">Hello</Typography>
+              <Typography variant="sectionSubsectionTitle">Hello</Typography>
             </>
           }
         >
-          <FancyImageWrapper darken aspectRatio="16/9" sizeW="500px">
+          <FancyImageWrapper darken sizeW="800px" aspectRatio="16/9">
             <img src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg" />
           </FancyImageWrapper>
         </ImageVideoOverlay>
@@ -42,10 +41,8 @@ export default function FancyImageRoute() {
           position="center"
           textChildren={
             <>
-              <Typography variant="h1" weight="bold">
-                Hello
-              </Typography>
-              <Typography variant="h2">Hello</Typography>
+              <Typography variant="sectionTitle">Hello</Typography>
+              <Typography variant="sectionSubtitle">Hello</Typography>
             </>
           }
         >

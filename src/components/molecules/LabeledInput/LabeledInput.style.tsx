@@ -24,7 +24,7 @@ export const InputWrapper = styled.div<TInputWrapper & { theme: TTheme }>`
   input:not([type='range']),
   select {
     ${({ $isActive, $isLabelProvided }) => calcInputPadding({ $isActive, $isLabelProvided })}
-    font-size: 18px;
+    font-sizeC: 18px;
   }
 
   input[type='range'] {

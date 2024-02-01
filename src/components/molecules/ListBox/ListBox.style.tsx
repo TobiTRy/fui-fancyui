@@ -7,10 +7,13 @@ import IStyledPrefixAndPicker from '@/types/IStyledPrefixAndPicker';
 import { sizeSettings } from './sizeSettings';
 import { boxShadow } from '@/design/designFunctions/shadows';
 
-type TgenerateFancyBoxStyle = IStyledPrefixAndPicker<TListBox, 'size' | 'externalStyle' | 'borderRadius' | 'boxShadow'>;
+type TgenerateFancyBoxStyle = IStyledPrefixAndPicker<
+  TListBox,
+  'sizeC' | 'externalStyle' | 'borderRadius' | 'boxShadow'
+>;
 
 export const generateFancyBoxStyle = (props: TgenerateFancyBoxStyle) => {
-  const { $size, $externalStyle, $borderRadius, $boxShadow } = props;
+  const { $sizeC, $externalStyle, $borderRadius, $boxShadow } = props;
 
   return css<{ theme: TTheme }>`
     padding: 0;
@@ -20,7 +23,9 @@ export const generateFancyBoxStyle = (props: TgenerateFancyBoxStyle) => {
     justify-content: space-between;
     width: 100%;
     border-radius: ${({ theme }) =>
-      $borderRadius ? theme.borderRadius[$borderRadius] : theme.borderRadius[sizeSettings[$size ?? 'md'].borderRadius]};
+      $borderRadius
+        ? theme.borderRadius[$borderRadius]
+        : theme.borderRadius[sizeSettings[$sizeC ?? 'md'].borderRadius]};
     ${$boxShadow && boxShadow.md};
 
     ${$externalStyle}

@@ -23,8 +23,8 @@ const meta = {
       description: 'If true, the component will be disabled.',
       type: { name: 'boolean' },
     },
-    size: {
-      description: 'The size of the component.',
+    sizeC: {
+      description: 'The sizeC of the component.',
       control: {
         type: 'select',
       },

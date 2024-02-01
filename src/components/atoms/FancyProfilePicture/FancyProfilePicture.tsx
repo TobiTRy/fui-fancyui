@@ -8,7 +8,7 @@ type TtextAvatarSettings = React.ComponentProps<typeof TextAvatar>;
 
 export type IFancyProfilePicture = {
   rounded?: 'sm' | 'md' | 'lg' | 'complete';
-  size?: TSize | string;
+  sizeC?: TSize | string;
   externalStyle?: CSSProp;
   textAvatarSettings?: Omit<TtextAvatarSettings, 'text'>;
 } & React.ImgHTMLAttributes<HTMLImageElement>;
@@ -16,11 +16,11 @@ export type IFancyProfilePicture = {
 //  ProfilePicture component to render with  different sizes and border radius //
 // --------------------------------------------------------------------------- //
 export default function FancyProfilePicture(props: IFancyProfilePicture) {
-  const { rounded = 'complete', size = 'md', alt, externalStyle, textAvatarSettings, ...htmlProps } = props;
+  const { rounded = 'complete', sizeC = 'md', alt, externalStyle, textAvatarSettings, ...htmlProps } = props;
 
   return 'src' in htmlProps ? (
-    <StyledImage $rounded={rounded} $size={size} $externalStyle={externalStyle} alt={alt} {...htmlProps} />
+    <StyledImage $rounded={rounded} $sizeC={sizeC} $externalStyle={externalStyle} alt={alt} {...htmlProps} />
   ) : (
-    <TextAvatar {...textAvatarSettings} rounded={rounded} size={size} text={alt} externalStyle={externalStyle} />
+    <TextAvatar {...textAvatarSettings} rounded={rounded} sizeC={sizeC} text={alt} externalStyle={externalStyle} />
   );
 }

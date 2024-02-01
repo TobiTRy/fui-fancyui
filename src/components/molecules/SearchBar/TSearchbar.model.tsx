@@ -11,5 +11,5 @@ export type TSearchBar = {
   themeType?: Exclude<TUiColorsMain, 'accent'>;
   layer?: TLayer;
   placerholder?: string;
-  size?: TComponentSizes;
+  sizeC?: TComponentSizes;
 };

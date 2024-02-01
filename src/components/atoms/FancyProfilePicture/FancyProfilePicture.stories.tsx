@@ -11,7 +11,7 @@ const meta = {
     docs: {
       description: {
         component:
-          'The FancyProfilePicture component is a fancy profile picture that can be dynamicly adjusted in size and roundedness.',
+          'The FancyProfilePicture component is a fancy profile picture that can be dynamicly adjusted in sizeC and roundedness.',
       },
     },
   },
@@ -22,7 +22,7 @@ const meta = {
       control: { type: 'select' },
       options: ['sm', 'md', 'lg', 'complete'],
     },
-    size: {
+    sizeC: {
       control: { type: 'select' },
       options: ['xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl'],
     },
@@ -62,7 +62,7 @@ export const Primary: Story = {
   args: {
     src: 'https://avatars.githubusercontent.com/u/54409958?v=4',
     rounded: 'complete',
-    size: 'md',
+    sizeC: 'md',
     alt: '',
   },
 };
@@ -71,10 +71,10 @@ export const Avatar: Story = {
   render: (args) => <FancyProfilePicture {...args} />,
   args: {
     rounded: 'complete',
-    size: 'md',
+    sizeC: 'md',
     alt: '',
     textAvatarSettings: {
-      size: 'md',
+      sizeC: 'md',
       rounded: 'complete',
       themeType: 'secondary',
     },

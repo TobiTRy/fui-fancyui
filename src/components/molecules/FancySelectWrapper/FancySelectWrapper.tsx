@@ -33,7 +33,7 @@ export default function FancySelectWrapper(props: IFancySelectWrapperProps) {
           <FancyContent>
             {label && (
               <FancyContent.Title
-                fontVariant="label"
+                fontVariant="interactiveLg"
                 externalStyle={{ color: getTheme.colors.secondary[0], fontWeight: 'bold' }}
               >
                 {label}
@@ -42,7 +42,7 @@ export default function FancySelectWrapper(props: IFancySelectWrapperProps) {
             {description && (
               <FancyContent.Description
                 className="description"
-                fontVariant="smText"
+                fontVariant="bodytextSm"
                 externalStyle={{ color: getTheme.colors.secondary[2] }}
               >
                 {description}

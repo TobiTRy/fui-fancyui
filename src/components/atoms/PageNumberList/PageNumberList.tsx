@@ -28,7 +28,7 @@ export default function PageNumberList(props: IPageNumberList) {
             key={index}
             label={`${item}`}
             onClick={() => onClick && onClick(index + 1)}
-            size="md"
+            sizeC="md"
             themeType="transparent"
             wide={false}
           />

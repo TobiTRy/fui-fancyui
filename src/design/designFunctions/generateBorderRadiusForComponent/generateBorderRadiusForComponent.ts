@@ -1,10 +1,19 @@
 import { css } from 'styled-components';
 
-import themeStore from '@/design/theme/themeStore/themeStore';
 import { TBorderRadiusSizes } from '@/types/TBorderRadiusSizes';
+import { TComponentSizes } from '@/types/TComponentSizes';
+import { TTheme } from '@/types/TTheme';
 
-export const generateBorderRadiusForComponent = (size?: 'sm' | 'md' | 'lg', rounded?: TBorderRadiusSizes) => {
-  const borderRadius = themeStore.getState().theme.borderRadius;
+type TBorderRadius = {
+  rounded?: TBorderRadiusSizes | false;
+  sizeC?: TComponentSizes;
+  theme: TTheme;
+};
+
+export const generateBorderRadiusForComponent = (props: TBorderRadius) => {
+  const { theme, rounded, sizeC } = props;
+  const borderRadius = theme.borderRadius;
+  if (rounded === false) return;
 
   if (rounded) {
     return css`
@@ -12,18 +21,18 @@ export const generateBorderRadiusForComponent = (size?: 'sm' | 'md' | 'lg', roun
     `;
   }
 
-  switch (size) {
+  switch (sizeC) {
     case 'sm':
       return css`
-        border-radius: ${borderRadius.sm};
+        border-radius: ${borderRadius.xs};
       `;
     case 'md':
       return css`
-        border-radius: ${borderRadius.md};
+        border-radius: ${borderRadius.sm};
       `;
     case 'lg':
       return css`
-        border-radius: ${borderRadius.xl};
+        border-radius: ${borderRadius.sm};
       `;
     default:
       return css``;

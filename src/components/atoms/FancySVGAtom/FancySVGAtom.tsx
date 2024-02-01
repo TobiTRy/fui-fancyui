@@ -5,14 +5,14 @@ import { StyledSVG } from './FancySVGAtom.style';
 // --------- This is a wrapper for SVGs to wrap them and style them ---------- //
 // --------------------------------------------------------------------------- //
 export default function FancySVGAtom(props: ISVGAtomProps) {
-  const { children, isPassive, size, isActive, errorMessage, externalStyle, themeType, layer, ...htmlProps } = {
+  const { children, isPassive, sizeC, isActive, errorMessage, externalStyle, themeType, layer, ...htmlProps } = {
     ...defaultProps,
     ...props,
   };
 
   return (
     <StyledSVG
-      $size={size}
+      $sizeC={sizeC}
       $isPassive={isPassive}
       $isActive={isActive}
       $errorMessage={errorMessage}
@@ -27,7 +27,7 @@ export default function FancySVGAtom(props: ISVGAtomProps) {
 }
 
 const defaultProps: ISVGAtomProps = {
-  size: 'xxs',
+  sizeC: 'xxs',
   isPassive: false,
   isActive: false,
 };

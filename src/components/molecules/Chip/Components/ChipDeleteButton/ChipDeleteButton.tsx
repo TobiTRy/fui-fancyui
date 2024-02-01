@@ -12,7 +12,7 @@ import { sizesSettings } from '@/components/molecules/Chip/sizeSettings';
 import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent';
 
 type IXButtonProps = {
-  size?: keyof typeof sizesSettings;
+  sizeC?: keyof typeof sizesSettings;
   children?: React.ReactNode;
   themeType?: TUiColorsNotTransparent;
   layer?: TLayer;
@@ -20,7 +20,7 @@ type IXButtonProps = {
 };
 
 export default function ChipDeleteButton(props: IXButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement>) {
-  const { size, onDelete, children, 'aria-label': ariaLabel, layer, themeType, ...htmlProps } = props;
+  const { sizeC, onDelete, children, 'aria-label': ariaLabel, layer, themeType, ...htmlProps } = props;
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>) => {
     if (onDelete && (e.key === 'Enter' || e.key === ' ')) {
@@ -34,7 +34,7 @@ export default function ChipDeleteButton(props: IXButtonProps & React.ButtonHTML
       aria-label={ariaLabel || 'delete'}
       $themeType={themeType}
       $layer={layer}
-      $size={size}
+      $sizeC={sizeC}
       onKeyDown={handleKeyDown}
       onClick={onDelete}
       {...htmlProps}
@@ -58,7 +58,7 @@ export const StyledXButton = styled(RawButton)<TXButton & { theme: TTheme }>`
   color: ${({ theme, $themeType = 'secondary', $layer = 3 }) => getBackgroundColor({ theme, $themeType, $layer })};
 
   svg {
-    width: ${({ $size }) => ($size ? sizesSettings[$size].deleteButtonSize : sizesSettings.md.deleteButtonSize)};
-    height: ${({ $size }) => ($size ? sizesSettings[$size].deleteButtonSize : sizesSettings.md.deleteButtonSize)};
+    width: ${({ $sizeC }) => ($sizeC ? sizesSettings[$sizeC].deleteButtonSize : sizesSettings.md.deleteButtonSize)};
+    height: ${({ $sizeC }) => ($sizeC ? sizesSettings[$sizeC].deleteButtonSize : sizesSettings.md.deleteButtonSize)};
   }
 `;

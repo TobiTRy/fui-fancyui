@@ -8,23 +8,23 @@ import { TTheme } from '@/types/TTheme';
 type TFancyLIProps = {
   aligned?: 'left' | 'center' | 'right';
   children?: React.ReactNode;
-  size?: TSpacings;
+  sizeC?: TSpacings;
 } & React.HTMLAttributes<HTMLLIElement>;
 // --------------------------------------------------------------------------- //
 // ------------- The fancy LI Item that can dynamicly adjusted --------------- //
 // --------------------------------------------------------------------------- //
 export default function FancyLI(props: TFancyLIProps) {
-  const { children, size, aligned, ...htmlProps } = { ...defaultProps, ...props };
+  const { children, sizeC, aligned, ...htmlProps } = { ...defaultProps, ...props };
 
   return (
-    <FancyLiItem $size={size} $aligned={aligned} {...htmlProps}>
+    <FancyLiItem $sizeC={sizeC} $aligned={aligned} {...htmlProps}>
       {children}
     </FancyLiItem>
   );
 }
 
 const defaultProps = {
-  size: 'md' as const,
+  sizeC: 'md' as const,
   aligned: 'left' as const,
 };
 
@@ -38,5 +38,5 @@ const FancyLiItem = styled.li<StyledFancyLi>`
   align-items: center;
   width: 100%;
   justify-content: ${({ $aligned }) => $aligned};
-  padding: ${({ theme, $size }) => $size && theme.spacing[$size]};
+  padding: ${({ theme, $sizeC }) => $sizeC && theme.spacing[$sizeC]};
 `;

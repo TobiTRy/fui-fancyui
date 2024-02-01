@@ -55,7 +55,7 @@ export default function InputWrapper(props: TInputWrapper) {
             layer={layer}
             isPassive={false}
             externalStyle={generateIconStyle(!!label)}
-            size="xs"
+            sizeC="xs"
             isActive={isActive}
           >
             {icon}

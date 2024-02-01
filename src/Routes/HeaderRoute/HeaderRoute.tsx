@@ -56,7 +56,7 @@ const HeaderContent = () => {
     <HeaderContentWrapper>
       <HeaderTitleWithLogo title="Let´sTryIt" logo={<Logo />} />
       <FancySearchBar searchListWidth="80vw" layer={1}>
-        <FancyLoadingSpinner size="lg" />
+        <FancyLoadingSpinner sizeC="lg" />
       </FancySearchBar>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', width: '100%' }}>
         <FancyMiniProfile
@@ -90,7 +90,7 @@ export default function HeaderRoute() {
                   <Logo></Logo>
                 </FancyHeader.Logo.Icon>
 
-                <FancyHeader.Logo.Title type="h3" className="logo_text">
+                <FancyHeader.Logo.Title variant="bodytextMd" className="logo_text">
                   Mooiin
                 </FancyHeader.Logo.Title>
               </FancyHeader.Logo>
@@ -101,10 +101,10 @@ export default function HeaderRoute() {
             <FancyGrid.Item.FlexBox align="center" justify="center">
               <FancyHeader.Nav>
                 <SwitchList flexBoxProps={{ align: 'center', justify: 'center' }} hoverStyle>
-                  <Typography type="content">mooin</Typography>
-                  <Typography type="content">mooin</Typography>
-                  <Typography type="content">mooin</Typography>
-                  <Typography type="content">mooin</Typography>
+                  <Typography variant="bodytextMd">mooin</Typography>
+                  <Typography variant="bodytextMd">mooin</Typography>
+                  <Typography variant="bodytextMd">mooin</Typography>
+                  <Typography variant="bodytextMd">mooin</Typography>
                 </SwitchList>
               </FancyHeader.Nav>
             </FancyGrid.Item.FlexBox>
@@ -121,7 +121,7 @@ export default function HeaderRoute() {
                 }
                 refComponent={
                   <FancyMiniProfile
-                    size={'sm'}
+                    sizeC={'sm'}
                     title="mooin"
                     src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
                   />
@@ -144,7 +144,7 @@ export default function HeaderRoute() {
       </div>
       <div style={{ marginTop: '40px' }}>
         <FancyBar externalStyle={{ borderRadius: themeStore.getState().theme.borderRadius.lg, top: 0, width: '80%' }}>
-          <Typography type="h1">FancyBar</Typography>
+          <Typography variant="bodytextMd">FancyBar</Typography>
         </FancyBar>
       </div>
       <div style={{ marginTop: '40px' }}>

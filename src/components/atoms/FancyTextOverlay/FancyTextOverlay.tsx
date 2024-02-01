@@ -1,14 +1,14 @@
-import { TImageVideoOverlay } from '@/components/atoms/ImageVideoOverlay/ImageVideoOverlay.model';
-import { Gradient, TextWrapper, Wrapper } from './ImageVideoOverlay.style';
+import { TFancyTextOverlay } from '@/components/atoms/FancyTextOverlay/FancyTextOverlay.model';
+import { Gradient, TextWrapper, Wrapper } from './FancyTextOverlay.style';
 
 // --------------------------------------------------------------------------- //
 // ----------- The Definition for the ImageVideoOverlay Component ------------ //
 // --------------------------------------------------------------------------- //
-export default function ImageVideoOverlay(props: TImageVideoOverlay) {
-  const { children, position = 'top-right', textChildren } = props;
+export default function FancyTextOverlay(props: TFancyTextOverlay) {
+  const { children, position = 'top-right', textChildren, externalStyle, ...htmlProps } = props;
 
   return (
-    <Wrapper>
+    <Wrapper $externalStyle={externalStyle} {...htmlProps}>
       {/* The Overlay for the gradient */}
       <Gradient $position={position} />
       <TextWrapper $position={position}>{textChildren}</TextWrapper>

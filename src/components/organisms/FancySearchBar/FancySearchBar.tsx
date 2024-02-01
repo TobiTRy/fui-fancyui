@@ -13,7 +13,7 @@ export default function FancySearchBar(props: TFancySearchBar) {
     searchValue,
     themeType,
     layer = 0,
-    size = 'sm',
+    sizeC = 'sm',
     borderRadius,
   } = props;
   const [isActive, setIsActive] = useState(false);
@@ -42,14 +42,19 @@ export default function FancySearchBar(props: TFancySearchBar) {
   return (
     <WrapperListInput style={{ minHeight: `${height}px` }}>
       {/* The background of the search bar and list to scale the background */}
-      <Background $size={size} $borderRadius={borderRadius} $themeType={themeType} $layer={layer}>
+      <Background $sizeC={sizeC} $borderRadius={borderRadius} $themeType={themeType} $layer={layer}>
         {/* The search bar where something can be searched */}
         <div ref={inputWraperRef}>
-          <SearchBar size={size} activeHandler={activeHandler} searchValue={searchValue} handler={searchValueHandler} />
+          <SearchBar
+            sizeC={sizeC}
+            activeHandler={activeHandler}
+            searchValue={searchValue}
+            handler={searchValueHandler}
+          />
         </div>
         {/* The search bar list */}
         {isActive && (searchValue?.length ?? 0) > 0 && (
-          <WrapperList $size={size} $borderRadius={borderRadius} $width={searchListWidth}>
+          <WrapperList $sizeC={sizeC} $borderRadius={borderRadius} $width={searchListWidth}>
             {children}
           </WrapperList>
         )}

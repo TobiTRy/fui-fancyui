@@ -1,0 +1,63 @@
+## Good to Know: Folder-Contents
+
+This document outlines the standard structure for components within our library, ensuring consistency, maintainability, and ease of use. Each component should have a dedicated folder with a specific set of files, each serving a distinct purpose. Please adhere to this structure when creating or modifying components.
+
+### Component Structure Overview
+
+Each component should have its own folder with the following structure:
+
+```
+ComponentName/
+├── utils/
+├── docu/
+├── ComponentName.stories.tsx
+├── index.ts
+├── ComponentName.tsx
+├── ComponentName.style.tsx
+└── ComponentName.model.ts
+```
+
+### Description of Component Structure
+
+#### 1. `utils/` (Folder)
+
+- **Purpose:** Contains helper functions specifically for the component. These utility functions should not be directly related to the component's UI but support its functionality.
+- **Note:** If the utility functions are generic and used across multiple components, consider placing them in a global `utils/` folder at the root level of the library.
+
+#### 2. `docu/` (Folder)
+
+- **Purpose:** Contains all documentation files for the component, including Markdown (`.mdx`) files and Storybook files (if there are multiple).
+- **When to Include:** Include this folder if the component has multiple documentation files. For a single documentation file, you can place it directly in the component's folder.
+
+#### 3. `ComponentName.stories.tsx` (File)
+
+- **Purpose:** Holds the Storybook documentation for the component. This is where you showcase the component's variants, props, and usage.
+- **Note:** Ensure to follow Storybook's best practices for writing stories.
+
+#### 4. `index.ts` (File)
+
+- **Purpose:** Serves as the entry point for the component. It exports the component itself and any types or subcomponents that are part of its public API.
+- **Note:** Keeping exports in one file simplifies imports for users of your library.
+
+#### 5. `ComponentName.tsx` (File)
+
+- **Purpose:** Contains the React component code. This is where you define the component's structure, logic, and behavior.
+- **Best Practices:** Aim for clear, concise, and well-commented code. Remember to define propTypes and defaultProps if applicable.
+
+#### 6. `ComponentName.style.tsx` (File)
+
+- **Purpose:** Holds the styled-components for the component. This is where you define your component's styling, leveraging the power of styled-components for dynamic styling based on props.
+- **Best Practices:** Ensure your styles are clean and well-organized. Consider using theming for consistent styling across your library.
+
+#### 7. `ComponentName.model.ts` (File)
+
+- **Purpose:** Defines TypeScript types or interfaces for the component's props and any other relevant types.
+- **Best Practices:** Strongly typing your components enhances code readability and maintainability, especially in larger projects.
+
+### Additional Notes:
+
+- **Consistency:** Adhering to this structure across all components ensures a predictable and easy-to-navigate codebase.
+- **Review Existing Components:** If you're new to the project, review a few existing components to get a feel for how they are structured and documented.
+- **Feedback and Improvement:** This structure is not set in stone. If you have suggestions for improving the component structure or the developer guide, please share your feedback with the team.
+
+By following this guide, you contribute to a cohesive and robust UI Library that developers enjoy working with. Happy coding!

@@ -10,29 +10,29 @@ export default function InfoCardRoute() {
     <DesignWrapper>
       <DesignArea title="InfoCard">
         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-          <InfoCard size="sm" themeType="success" />
-          <InfoCard size="md" themeType="error" />
-          <InfoCard size="lg" themeType="warning" layer={0} />
-          <InfoCard size="lg" themeType="info" layer={0} />
+          <InfoCard sizeC="sm" themeType="success" />
+          <InfoCard sizeC="md" themeType="error" />
+          <InfoCard sizeC="lg" themeType="warning" layer={0} />
+          <InfoCard sizeC="lg" themeType="info" layer={0} />
           <InfoCard>
             <span>InfoCard</span>
           </InfoCard>
           <FancyInfoCard
             outlined
-            size="sm"
+            sizeC="sm"
             themeType="info"
             title="A Vergy good title"
             description="Mooiin Saying mooii jkjkjkdf jkjsjkfdsjfj sjkjkfsj kjjkfjsjkf jjsfjkskjfkjs jjkjk fsjjkfskjjkf n"
           />
           <FancyInfoCard
-            size="md"
+            sizeC="md"
             themeType="success"
             title="A Vergy good title"
             description="Mooiin Saying mooii jkjkjkdf jkjsjkfdsjfj sjkjkfsj kjjkfjsjkf jjsfjkskjfkjs jjkjk fsjjkfskjjkf n"
             icon={<SVGCheckMark />}
           />
           <FancyInfoCard
-            size="lg"
+            sizeC="lg"
             outlined
             themeType="warning"
             title="A Vergy good title"
@@ -41,7 +41,7 @@ export default function InfoCardRoute() {
           />
           <FancyInfoCard
             themeType="error"
-            size="sm"
+            sizeC="sm"
             title="A Vergy good title"
             description="Mooiin Saying mooii jkjkjkdf jkjsjkfdsjfj sjkjkfsj kjjkfjsjkf jjsfjkskjfkjs jjkjk fsjjkfskjjkf n"
             icon={<SVGCheckMark />}

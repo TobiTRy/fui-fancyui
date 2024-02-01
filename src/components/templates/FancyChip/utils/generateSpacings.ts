@@ -26,10 +26,10 @@ const sizesSettings = {
 // Define a function to generate the spacing based on the spacing position
 interface IGenerateSpacing {
   spacingPosition?: TSpacingPosition;
-  size?: TComponentSizes;
+  sizeC?: TComponentSizes;
 }
-export const generateSpacing = ({ spacingPosition, size }: IGenerateSpacing) => {
-  const pickedSize = size ? size : 'md';
+export const generateSpacing = ({ spacingPosition, sizeC }: IGenerateSpacing) => {
+  const pickedSize = sizeC ? sizeC : 'md';
 
   switch (spacingPosition) {
     case 'left':

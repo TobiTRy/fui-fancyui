@@ -41,7 +41,7 @@ export default function ColorDisplay({ color, opacity, showText, fullHeight }: I
   return (
     <Wrapper $fullHeight={fullHeight} onClick={copyValue}>
       <Content $isBright={isBright} $isDarkTheme={isDarkTheme}>
-        {showText && <Typography type="content">{color.toString()}</Typography>}
+        {showText && <Typography variant="bodytextSm">{color.toString()}</Typography>}
         <WrapperSVG>{copyd ? <SVGClipBoardIconChecked /> : <SVGClipBoardIcon />}</WrapperSVG>
       </Content>
       <ColorDisplayContainer color={color.toString()} opacity={opacity} />

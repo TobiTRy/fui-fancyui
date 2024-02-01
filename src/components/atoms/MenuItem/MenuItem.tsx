@@ -15,17 +15,17 @@ type MenueItemProps = {
   children?: React.ReactNode;
   themeType?: TUiColorsNotTransparent;
   layer?: TLayer;
-  size?: TComponentSizes;
+  sizeC?: TComponentSizes;
   align?: TTextAlignLC;
 } & (HTMLButtonProps | HTMLAnchorProps);
 // --------------------------------------------------------------------------- //
 //A Empty Menue Item that only handles the style you can put everythin as childs//
 // --------------------------------------------------------------------------- //
 export default function MenuItem(props: MenueItemProps) {
-  const { children, as, themeType, layer, size = 'md', ...HTMLProps } = props;
+  const { children, as, themeType, layer, sizeC = 'md', ...HTMLProps } = props;
 
   return (
-    <StyledMenuItem as={as} $themeType={themeType} $layer={layer} $padding={sizeSettings[size].padding} {...HTMLProps}>
+    <StyledMenuItem as={as} $themeType={themeType} $layer={layer} $padding={sizeSettings[sizeC].padding} {...HTMLProps}>
       {children}
     </StyledMenuItem>
   );

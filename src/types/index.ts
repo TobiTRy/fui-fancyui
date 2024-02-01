@@ -1,4 +1,3 @@
-export * from './IFontSizes';
 export * from './IStatus';
 export type { default as IStyledPrefixAndOmitter } from './IStyledPrefixAndOmiter';
 export type { default as IStyledPrefixAndPicker } from './IStyledPrefixAndPicker';
@@ -11,7 +10,7 @@ export * from './TSpacings';
 export * from './TUiColorsNotTransparent';
 export * from './TSystemMessageProps';
 export * from './TTheme';
-export * from './TTypographyList';
+export * from './TTypographyElList';
 export * from './TUiColorTypes';
 export * from './TUiColorsTypeObject';
 export * from './TTextAlignLR';
@@ -20,3 +19,4 @@ export * from './TTextAlignLRC';
 export * from './IStatus';
 export * from './TGlobalElementSizes';
 export * from './TBreakPoints';
+export * from './TSizeSettings';

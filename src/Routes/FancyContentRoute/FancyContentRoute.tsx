@@ -10,7 +10,7 @@ export default function FancyContentRoute() {
     <DesignWrapper>
       <DesignArea title="FancyContent">
         <FancyContent align="flex-start" justify="center">
-          <FancyContent.Icon size="xs">{<SVGCheckMark />}</FancyContent.Icon>
+          <FancyContent.Icon sizeC="xs">{<SVGCheckMark />}</FancyContent.Icon>
           <FancyContent.Title>Hiii</FancyContent.Title>
           <FancyContent.Description>Hiii</FancyContent.Description>
         </FancyContent>

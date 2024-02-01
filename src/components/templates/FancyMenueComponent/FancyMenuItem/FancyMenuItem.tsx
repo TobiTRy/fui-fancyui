@@ -10,22 +10,22 @@ import { sizeSettings } from './sizeSettings';
 type TFancyMenueItemProps = {
   label?: string;
   icon?: ReactNode;
-  size?: TComponentSizes;
+  sizeC?: TComponentSizes;
 } & ComponentProps<typeof MenuItem>;
 // --------------------------------------------------------------------------- //
 // ---------- The FancyMenueItem is a template for a finished Item  ---------- //
 // --------------------------------------------------------------------------- //
 export default function FancyMenuItem(props: TFancyMenueItemProps) {
-  const { label, icon, size = 'md', ...menuItemProps } = props;
+  const { label, icon, sizeC = 'md', ...menuItemProps } = props;
   return (
-    <MenuItem size={size} {...menuItemProps}>
+    <MenuItem sizeC={sizeC} {...menuItemProps}>
       <FancyContent align="center">
         {label && (
-          <FancyContent.Title fontVariant={sizeSettings[size].fontSizeTitle} bold={false}>
+          <FancyContent.Title fontVariant={sizeSettings[sizeC].fontSizeTitle} fontWeight={'normal'}>
             {label}
           </FancyContent.Title>
         )}
-        {icon && <FancyContent.Icon size={sizeSettings[size].iconSize}>{icon}</FancyContent.Icon>}
+        {icon && <FancyContent.Icon sizeC={sizeSettings[sizeC].iconSize}>{icon}</FancyContent.Icon>}
       </FancyContent>
     </MenuItem>
   );

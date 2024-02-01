@@ -11,6 +11,6 @@ export type TFancySearchBar = {
   searchValue?: string;
   themeType?: TUiColorsNotTransparent;
   layer?: TLayer;
-  size?: TComponentSizes;
+  sizeC?: TComponentSizes;
   borderRadius?: TBorderRadiusSizes;
 };

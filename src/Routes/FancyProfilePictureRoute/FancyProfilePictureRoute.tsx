@@ -9,63 +9,63 @@ export default function FancyProfilePictureRoute() {
     <DesignWrapper>
       <DesignArea title="ProfilePictures">
         <FancyProfilePicture
-          size="xxs"
+          sizeC="xxs"
           src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
         />
         <FancyProfilePicture
-          size="xs"
+          sizeC="xs"
           src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
         />
         <FancyProfilePicture
-          size="sm"
+          sizeC="sm"
           src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
         />
         <FancyProfilePicture
-          size="md"
+          sizeC="md"
           src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
         />
         <FancyProfilePicture
-          size="lg"
+          sizeC="lg"
           src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
         />
         <FancyProfilePicture
-          size="xl"
+          sizeC="xl"
           src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
         />
         <FancyProfilePicture
-          size="xxl"
+          sizeC="xxl"
           src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
         />
       </DesignArea>
       <DesignArea title="ProfilePictures Rounded">
         <FancyProfilePicture
-          size="sm"
+          sizeC="sm"
           rounded="sm"
           src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
         />
         <FancyProfilePicture
-          size="md"
+          sizeC="md"
           rounded="md"
           src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
         />
         <FancyProfilePicture
-          size="lg"
+          sizeC="lg"
           rounded="lg"
           src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
         />
         <FancyProfilePicture
-          size="xl"
+          sizeC="xl"
           rounded="complete"
           src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
         />
       </DesignArea>
       <DesignArea title="ProfilePictures Avatar">
-        <FancyProfilePicture size="xxs" rounded="sm" alt="Hi" />
-        <FancyProfilePicture size="xs" rounded="sm" alt="Hi" />
-        <FancyProfilePicture size="sm" rounded="sm" alt="Hi" />
-        <FancyProfilePicture size="md" rounded="md" alt="Hi" />
-        <FancyProfilePicture size="lg" rounded="lg" alt="Hi" />
-        <FancyProfilePicture size="xl" rounded="complete" alt="Hi" />
+        <FancyProfilePicture sizeC="xxs" rounded="sm" alt="Hi" />
+        <FancyProfilePicture sizeC="xs" rounded="sm" alt="Hi" />
+        <FancyProfilePicture sizeC="sm" rounded="sm" alt="Hi" />
+        <FancyProfilePicture sizeC="md" rounded="md" alt="Hi" />
+        <FancyProfilePicture sizeC="lg" rounded="lg" alt="Hi" />
+        <FancyProfilePicture sizeC="xl" rounded="complete" alt="Hi" />
       </DesignArea>
     </DesignWrapper>
   );
