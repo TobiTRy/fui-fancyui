@@ -12,6 +12,7 @@ import { Card } from '@/components/molecules/Card';
 import { FancyNumberInput } from '@/components/organisms/FancyNumberInput';
 import { FancyAlignBox } from '@/components/templates/FancyAlignBox';
 import { Button } from '@/components/molecules/Button';
+import { FancyLine } from '@/components/atoms/FancyLine';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -79,9 +80,7 @@ export default function ExperimentalRoute() {
           />
         </DesignArea>
         <DesignArea title="Test">
-          <FancyAlignBox justify="center" padding={'lg'} fitBox as="span">
-            <p>Mooiin</p>
-          </FancyAlignBox>
+          <FancyLine direction="horizontal" themeType="accent" />
         </DesignArea>
       </DesignWrapper>
     </>
