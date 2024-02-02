@@ -1,51 +1,47 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import { ThemeProvider } from 'styled-components';
+import { Link, Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 
-import { useFancyModalStore } from './components/organisms/FancyModal/FancyModal.state';
-
-import SwipeUpModal from './Routes/SwipeUpModal/SwipeUpModal';
-import SingleNumberInputRoute from './Routes/SingleNumberInputRoute/SingleNumberInputRoute';
-import DatePickerRoute from './Routes/DatePickerRoute/DatePickerRoute';
-import InputsRoute from './Routes/InputsRoute/InputsRoute';
+import FancyThemeProvider from '@/design/theme/FancyThemeProvider/FancyThemeProvider';
+import { TTheme } from '@/types/TTheme';
+import { styled } from 'styled-components';
+import { FancyModal, FancySwipeUpModal } from '../lib';
+import GlobalStyle from './GlobalStyle';
+import ButtonRoute from './Routes/BottonRoute/ButtonRoute';
 import CradRoute from './Routes/CardRoute/CradRoute';
-import ModalRoute from './Routes/ModalRoute/ModalRoute';
+import CheckboxRoute from './Routes/CheckboxRoute/CheckboxRoute';
+import ChipsRoute from './Routes/ChipsRoute/ChipsRoute';
+import ColorGeneratorRoute from './Routes/ColorGeneratorRoute/ColorGeneratorRoute';
 import ColorPickerRoute from './Routes/ColorPickerRoute/ColorPickerRoute';
+import DatePickerRoute from './Routes/DatePickerRoute/DatePickerRoute';
+import EditBarRoute from './Routes/EditBarRoute/EditBarRoute';
+import ExperimentalRoute from './Routes/ExperimentalRoute/ExperimentalRoute';
+import FancyContentRoute from './Routes/FancyContentRoute/FancyContentRoute';
+import FancyDropDownMenueRoute from './Routes/FancyDropDownMenueRoute/FancyDropDownMenueRoute';
+import FancyImageRoute from './Routes/FancyImageRoute/FancyImageRoute';
+import FancyLayoutRoute from './Routes/FancyLayoutRoute/FancyLayoutRoute';
+import FancyProfilePictureRoute from './Routes/FancyProfilePictureRoute/FancyProfilePictureRoute';
+import FancySearchBarRoute from './Routes/FancySearchBarRoute/FancySearchBarRoute';
 import HeaderRoute from './Routes/HeaderRoute/HeaderRoute';
+import InfoCardRoute from './Routes/InfoCardRoute/InfoCardRoute';
+import InputsRoute from './Routes/InputsRoute/InputsRoute';
+import LoadingSpinnerRoute from './Routes/LoadingSpinnerRoute/LoadingSpinnerRoute';
+import MenueRoute from './Routes/MenuRoute/MenueRoute';
+import MiniProfileroute from './Routes/MiniProfileRoute/MiniProfileroute';
+import ModalRoute from './Routes/ModalRoute/ModalRoute';
+import NavBarHandy from './Routes/NavBarHandy/NavBarHandy';
+import PageSwitchRoute from './Routes/PageSwitchRoute/PageSwitchRoute';
+import SingleNumberInputRoute from './Routes/SingleNumberInputRoute/SingleNumberInputRoute';
+import SpeedDailRoute from './Routes/SpeedDailRoute/SpeedDailRoute';
+import SwipeUpModal from './Routes/SwipeUpModal/SwipeUpModal';
+import SwitchesRoute from './Routes/Switches/SwitchesRoute';
+import TabSwitchRoute from './Routes/TabSwitchRoute/TabSwitchRoute';
 import ToastMessageRoute from './Routes/ToastMessageRoute/ToastMessageRoute';
 import Typogrphy from './Routes/Typography/Typogrphy';
-import ButtonRoute from './Routes/BottonRoute/ButtonRoute';
-import FancyDropDownMenueRoute from './Routes/FancyDropDownMenueRoute/FancyDropDownMenueRoute';
-import EditBarRoute from './Routes/EditBarRoute/EditBarRoute';
-import TabSwitchRoute from './Routes/TabSwitchRoute/TabSwitchRoute';
-import SpeedDailRoute from './Routes/SpeedDailRoute/SpeedDailRoute';
-import ExperimentalRoute from './Routes/ExperimentalRoute/ExperimentalRoute';
-import NavBarHandy from './Routes/NavBarHandy/NavBarHandy';
-import FancySearchBarRoute from './Routes/FancySearchBarRoute/FancySearchBarRoute';
-import FancyImageRoute from './Routes/FancyImageRoute/FancyImageRoute';
-import { styled } from 'styled-components';
-import PageSwitchRoute from './Routes/PageSwitchRoute/PageSwitchRoute';
-import LoadingSpinnerRoute from './Routes/LoadingSpinnerRoute/LoadingSpinnerRoute';
-import FancyProfilePictureRoute from './Routes/FancyProfilePictureRoute/FancyProfilePictureRoute';
-import MiniProfileroute from './Routes/MiniProfileRoute/MiniProfileroute';
-import ChipsRoute from './Routes/ChipsRoute/ChipsRoute';
-import CheckboxRoute from './Routes/CheckboxRoute/CheckboxRoute';
-import ColorGeneratorRoute from './Routes/ColorGeneratorRoute/ColorGeneratorRoute';
-import { TTheme } from '@/types/TTheme';
 import themeStore from './design/theme/themeStore/themeStore';
-import GlobalStyle from './GlobalStyle';
-import FancyContentRoute from './Routes/FancyContentRoute/FancyContentRoute';
-import { FancyModal, FancySwipeUpModal } from '../lib';
-import SwitchesRoute from './Routes/Switches/SwitchesRoute';
-import MenueRoute from './Routes/MenuRoute/MenueRoute';
-import InfoCardRoute from './Routes/InfoCardRoute/InfoCardRoute';
-import FancyLayoutRoute from './Routes/FancyLayoutRoute/FancyLayoutRoute';
-import FancyThemeProvider from '@/design/theme/FancyThemeProvider/FancyThemeProvider';
 
-import { mockTheme } from '@/test/mockTheme';
-import SkeletonBox from '@/components/atoms/SkeletonBox/SkeletonBox';
-import SkeletonRoute from '@/Routes/SkeletonRoute/SkeletonRoute';
 import FancyListBoxRoute from '@/Routes/FancyListBoxRoute/FancyListBoxRoute';
+import SkeletonRoute from '@/Routes/SkeletonRoute/SkeletonRoute';
+import TextGradientRoute from '@/Routes/TextGradientRoute/TextGradientRoute';
 
 // const Icon = (
 //   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -354,6 +350,9 @@ function App() {
                   <Link to="/FancyListBox">FancyListBox</Link>
                 </li>
                 <li>
+                  <Link to="/TextGradient">TextGradient</Link>
+                </li>
+                <li>
                   <Link to="/experimental">Experimental</Link>
                 </li>
               </OwnUl>
@@ -395,6 +394,7 @@ function App() {
               <Route path="/layout" element={<FancyLayoutRoute />} />
               <Route path="/skeleton" element={<SkeletonRoute />} />
               <Route path="/FancyListBox" element={<FancyListBoxRoute />} />
+              <Route path="/TextGradient" element={<TextGradientRoute />} />
               <Route path="/" element={<SwipeUpModal />} />
             </Routes>
           </div>
