@@ -8,6 +8,7 @@ import { TArrayToCssValues } from '@/design/designFunctions/arrayToCssValues';
 export type TFancyLine = {
   direction?: 'horizontal' | 'vertical';
   thickness?: string;
+  length?: string;
   margin?: TArrayToCssValues | TSpacings;
   themeType?: TUiColorsNotTransparent;
   layer?: TLayer;
