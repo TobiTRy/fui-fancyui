@@ -1,29 +1,23 @@
-import {
-  GradientPosition,
-  TGradientColor,
-  TTextGradientProps,
-} from '@/components/atoms/TextGradient/TextGradient.model';
+import { GradientPosition, TTextGradientProps } from '@/components/atoms/TextGradient/TextGradient.model';
 import { getLinearGradientPosition } from '@/components/atoms/TextGradient/utils/getPositionToGradientPosition';
 
 export const generateGradient = (props: Omit<TTextGradientProps, 'children'>) => {
   const { degree, colors, orientation, position } = props;
 
   // Construct color string with stop positions
-  let modifidColors: string[] | undefined;
 
-  // If colors is an object, it means it's an array of TGradientColor
-  if (typeof colors[0] === 'object') {
-    const colorObj = colors as TGradientColor[];
-    modifidColors = colorObj.map((colorObj) => {
-      return `${colorObj.color}${colorObj.stop ? ' ' + colorObj.stop : ''}`;
-    });
-  } else {
-    // If colors is an array of strings, just use it as is
-    modifidColors = colors as string[];
-  }
-
-  // Join the colors with a comma
-  const colorString = modifidColors.join(', ');
+  const colorString = colors
+    .map((color) => {
+      // If the color is an object, return the color and the stop position
+      if (typeof color === 'object') {
+        const colorObj = color;
+        return `${colorObj.color}${colorObj.stop ? ' ' + colorObj.stop : ''}`;
+      }
+      // If the color is a string, return it as is (no stop position)
+      return color;
+      // Join the colors with a comma
+    })
+    .join(', ');
 
   let gradient = '';
 
