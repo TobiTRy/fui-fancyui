@@ -54,6 +54,15 @@ const meta = {
         type: 'text',
       },
     },
+    length: {
+      description: 'The length of the line',
+      control: {
+        type: 'text',
+      },
+      defaultValue: {
+        summary: '100%',
+      },
+    },
   },
   tags: ['autodocs'],
 } satisfies Meta<typeof FancyLine>;
@@ -69,6 +78,7 @@ export const Primary: Story = {
     layer: 0,
     direction: 'horizontal',
     thickness: '1px',
-    margin: '0',
+    margin: 'sm',
+    length: '100%',
   },
 };
