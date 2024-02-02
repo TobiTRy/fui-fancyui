@@ -21,7 +21,7 @@ export default function TextGradientRoute() {
   return (
     <DesignWrapper>
       <DesignArea title="TextGradient">
-        <TextGradient colors={colorsArray} degree={90}>
+        <TextGradient colors={colorsArray} orientation="repeatLinear" degree={90}>
           <Typography variant="displayHeadline">FUIIIIII</Typography>
         </TextGradient>
       </DesignArea>
