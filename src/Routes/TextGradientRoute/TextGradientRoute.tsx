@@ -8,12 +8,11 @@ const themeColors = themeStore.getState().theme.colors;
 
 const colorsArray: TGradientColor[] = [
   {
-    color: themeColors.accent[1],
-    stop: '15%',
+    color: themeColors.accent[0],
+    stop: '50%',
   },
   {
-    color: themeColors.secondary[3],
-    stop: '50%',
+    color: themeColors.secondary[4],
   },
 ];
 
@@ -21,7 +20,7 @@ export default function TextGradientRoute() {
   return (
     <DesignWrapper>
       <DesignArea title="TextGradient">
-        <TextGradient colors={colorsArray} orientation="repeatLinear" degree={90}>
+        <TextGradient colors={colorsArray} orientation="linear" position="bottom-left">
           <Typography variant="displayHeadline">FUIIIIII</Typography>
         </TextGradient>
       </DesignArea>

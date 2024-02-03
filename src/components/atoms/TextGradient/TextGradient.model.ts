@@ -30,12 +30,12 @@ type BaseGradientProps = {
 // This is a union type that will only allow one of the two properties to be present
 type avalableAlignment =
   | {
-      degree: number;
+      degree?: number;
       position?: never;
     }
   | {
       degree?: never;
-      position: GradientPosition;
+      position?: GradientPosition;
     };
 
 // This is a union type that will only allow one of the two properties to be present
