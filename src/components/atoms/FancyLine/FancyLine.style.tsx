@@ -46,11 +46,11 @@ const calcHeightOrWidth = (props: TcalcHeightOrWidth) => {
     case 'vertical':
       return css`
         width: ${thickness || '1px'};
-        height: ${length || '100%'};
+        height: ${length || 'auto'};
       `;
     case 'horizontal':
       return css`
-        width: ${length || '100%'};
+        width: ${length || 'auto'};
         height: ${thickness || '1px'};
       `;
   }
