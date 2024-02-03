@@ -42,12 +42,6 @@ const meta = {
         type: 'number',
       },
     },
-    activeHandler: {
-      description: 'Active handler is when the slider focused active or not',
-      control: {
-        type: 'function',
-      },
-    },
   },
 
   // Add tags to the story
@@ -66,7 +60,6 @@ export const Primary: Story = {
     min: 0,
     themeType: 'secondary',
     value: 0,
-    activeHandler: (boolean: boolean) => console.log(boolean),
     onChange: (event: React.ChangeEvent<HTMLInputElement>) => console.log(event.target.value),
   },
   parameters: {
