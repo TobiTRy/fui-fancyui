@@ -3,12 +3,9 @@ import { styled } from 'styled-components';
 import { TTheme } from '@/types/TTheme';
 
 export const MonthContainer = styled.div<{ theme: TTheme }>`
-  margin-top: ${({ theme }) => theme.spacing.md};
-
-  h2 {
-    margin: ${({ theme }) => theme.spacing.sm};
-    margin-left: ${({ theme }) => theme.spacing.sm};
-  }
+  display: flex;
+  flex-direction: column;
+  gap: ${({ theme }) => theme.spacing.xs};
 `;
 
 export const StyledCalendar = styled.div`

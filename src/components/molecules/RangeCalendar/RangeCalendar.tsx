@@ -1,32 +1,18 @@
-import { useEffect, useRef, useState } from 'react';
+import { RefObject, useEffect, useRef, useState } from 'react';
 
 import { MonthContainer, StyledCalendar } from './RangeCalendar.style';
 
 import MonthWithDays from '../MonthWithDays/MonthWithDays';
 import useSelectedDates from './helperFunctions/useSelectedDates';
-import useVisibleMonths from './helperFunctions/useVisibleMonths';
 
-import { TLayer } from '@/types/TLayer';
-import { IDisabledDateSettings } from '../MonthWithDays/utils/Interfaces/IDisableDateSettings.model';
-import { IExternalMonthWithDays } from '../MonthWithDays/utils/Interfaces/IExternalMonthWithDays.model';
-import { IDateArray } from './IDateArray.model';
-import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
+import { IExternalMonthWithDays } from '@/components/molecules/MonthWithDays/utils/types/IExternalMonthWithDays.model';
+import { TRangeCalendar } from '@/components/molecules/RangeCalendar/TRangeCalendar.model';
+import { scrollToElm } from '@/components/molecules/RangeCalendar/helperFunctions/scrollToElementInConatiner';
 
-interface ICalendar {
-  selectedYear?: number;
-  rangeCalendar: boolean;
-  handler?: (date: IDateArray) => void;
-  selectFromTo?: 'from' | 'to' | undefined;
-  handleSwitchFromTo?: (change: 'from' | 'to') => void;
-  disabledDateSetting?: IDisabledDateSettings;
-  externalMonthsWithDays?: IExternalMonthWithDays[];
-  themeType?: TUiColorsNotTransparent;
-  layer?: TLayer;
-}
 // --------------------------------------------------------------------------- //
 // -------- The main calenader wich can select a date, or date range --------- //
 // --------------------------------------------------------------------------- //
-export default function RangeCalendar(props: ICalendar) {
+export default function RangeCalendar(props: TRangeCalendar) {
   const {
     selectedYear = new Date().getFullYear(),
     handler,
@@ -39,10 +25,9 @@ export default function RangeCalendar(props: ICalendar) {
     layer,
   } = props;
   const monthRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const [isScrolled, setIsScrolled] = useState(false);
+
   const [externalMonthsData, setExternalMonthsData] = useState<IExternalMonthWithDays[]>([]);
   // hooks for selected dates and visible months
-  const { visibleMonths, firstMonthRef, lastMonthRef } = useVisibleMonths(isScrolled);
   const { selectedDates, handleDateClick } = useSelectedDates(
     selectedYear,
     selectFromTo,
@@ -51,13 +36,13 @@ export default function RangeCalendar(props: ICalendar) {
     rangeCalendar
   );
 
+  const ContainerRef: RefObject<HTMLDivElement> = useRef(null);
+
   // Scroll to current month on mount and set isScrolled to true
   useEffect(() => {
     const currentMonth = new Date().getMonth();
-    monthRefs.current[currentMonth]?.scrollIntoView();
-    setTimeout(() => {
-      setIsScrolled(true);
-    }, 300);
+
+    scrollToElm(ContainerRef.current as HTMLElement, monthRefs.current[currentMonth] as HTMLElement, 300);
   }, []);
 
   useEffect(() => {
@@ -75,25 +60,19 @@ export default function RangeCalendar(props: ICalendar) {
   }, [selectedYear, externalMonthsWithDays]);
 
   return (
-    <StyledCalendar>
-      {visibleMonths.map((MonthIdx, idx) => {
+    <StyledCalendar ref={ContainerRef}>
+      {Array.from({ length: 12 }).map((_, idx) => {
         return (
           <MonthContainer
-            key={MonthIdx}
+            key={idx}
             ref={(ref: HTMLDivElement) => {
-              monthRefs.current[MonthIdx] = ref;
-              if (idx === 0) {
-                firstMonthRef.current = ref;
-              }
-              if (idx === visibleMonths.length - 1) {
-                lastMonthRef.current = ref;
-              }
+              monthRefs.current[idx] = ref;
             }}
           >
             <MonthWithDays
               disabledDateSetting={disabledDateSetting}
-              monthIdx={MonthIdx}
-              externalMonthWithDays={externalMonthsData[MonthIdx]}
+              monthIdx={idx}
+              externalMonthWithDays={externalMonthsData[idx]}
               year={selectedYear}
               themeType={themeType}
               layer={layer}
