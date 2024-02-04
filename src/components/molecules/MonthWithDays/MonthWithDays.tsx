@@ -1,33 +1,17 @@
 import { useEffect, useMemo, useState } from 'react';
 
-import { IDateArray } from '@/components/molecules/RangeCalendar/IDateArray.model';
-import { TLayer } from '@/types/TLayer';
-import Day from './utils/Interfaces/IDay.model';
-import { IDisabledDateSettings } from './utils/Interfaces/IDisableDateSettings.model';
-import { IDateWithExternalState, IExternalMonthWithDays } from './utils/Interfaces/IExternalMonthWithDays.model';
-
 import { Typography } from '@/components/atoms/Typography';
+import { IDateWithExternalState } from './utils/types/IExternalMonthWithDays.model';
 
 import { DateNumberWithStatus } from '@/components/molecules/DateNumberWithStatus';
-import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
+import { TMonthWithDays } from '@/components/molecules/MonthWithDays/TMonthWithDays.model';
 import { DateNumber, DaysContainer } from './MonthWithDays.style';
 import createDaysOfMonth from './utils/createDaysOfMonth';
 
-interface IMonthWithDays {
-  monthIdx: number;
-  year: number;
-  handleDateClick?: (day: Day, monthIdx: number) => void;
-  isRangePicking?: boolean;
-  selectedDates: IDateArray;
-  externalMonthWithDays?: IExternalMonthWithDays;
-  disabledDateSetting?: IDisabledDateSettings;
-  themeType?: TUiColorsNotTransparent;
-  layer?: TLayer;
-}
 // --------------------------------------------------------------------------- //
 // --------- This Component generates a single month with the dates ---------- //
 // --------------------------------------------------------------------------- //
-export default function MonthWithDays(props: IMonthWithDays) {
+export default function MonthWithDays(props: TMonthWithDays) {
   const {
     monthIdx,
     year,
@@ -76,6 +60,7 @@ export default function MonthWithDays(props: IMonthWithDays) {
         fontWeight={'bold'}
         elType="span"
         tabIndex={0}
+        className="month_with_days_and_headding"
         aria-label={`${month.name} ${year}`}
       >
         {month.name}
