@@ -30,7 +30,8 @@ export const StyledDay = styled.button<IStyledDay & { theme: TTheme }>`
   border: ${({ $selected, theme }) => ($selected ? `1px solid ${theme.colors.accent[0]}` : `none`)};
   background-color: transparent;
   padding: 0;
-  width: 80%;
+  min-height: 24px;
+  aspect-ratio: 1/1;
   max-width: 40px;
   position: relative;
   overflow: hidden;
