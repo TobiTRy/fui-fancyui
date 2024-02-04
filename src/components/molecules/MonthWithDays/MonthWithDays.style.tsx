@@ -1,5 +1,12 @@
-import { TTheme } from 'lib';
+import { TTheme } from '@/types/TTheme';
 import { styled } from 'styled-components';
+
+export const CalendarWrapper = styled.div<{ theme: TTheme }>`
+  display: flex;
+  flex-direction: column;
+  gap: ${({ theme }) => theme.spacing.sm};
+  margin-bottom: ${({ theme }) => theme.spacing.md};
+`;
 
 export const DaysContainer = styled.div<{ theme?: TTheme }>`
   display: grid;

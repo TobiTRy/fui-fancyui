@@ -5,7 +5,7 @@ import { IDateWithExternalState } from './utils/types/IExternalMonthWithDays.mod
 
 import { DateNumberWithStatus } from '@/components/molecules/DateNumberWithStatus';
 import { TMonthWithDays } from '@/components/molecules/MonthWithDays/TMonthWithDays.model';
-import { DateNumber, DaysContainer } from './MonthWithDays.style';
+import { CalendarWrapper, DateNumber, DaysContainer } from './MonthWithDays.style';
 import createDaysOfMonth from './utils/createDaysOfMonth';
 
 // --------------------------------------------------------------------------- //
@@ -54,7 +54,7 @@ export default function MonthWithDays(props: TMonthWithDays) {
   }, [externalMonthWithDays, year, monthIdx]);
 
   return (
-    <div>
+    <CalendarWrapper>
       <Typography
         variant="bodytextLg"
         fontWeight={'bold'}
@@ -90,7 +90,7 @@ export default function MonthWithDays(props: TMonthWithDays) {
           />
         ))}
       </DaysContainer>
-    </div>
+    </CalendarWrapper>
   );
 }
 
