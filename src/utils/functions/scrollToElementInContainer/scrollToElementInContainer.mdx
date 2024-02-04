@@ -1,0 +1,54 @@
+## scrollToElm Function
+
+The `scrollToElm` function provides a smooth scrolling animation to a specific child element within a container element. It's part of a utility that eases the navigation within a scrollable area.
+
+### Usage
+
+To use the `scrollToElm` function, you need to pass the container element, the target element (the element you want to scroll to), and the duration for the scroll animation in milliseconds.
+
+```tsx
+import { scrollToElm } from './path-to-scroll-functions';
+
+// Assuming you have a reference to your container and target elements
+const container = document.getElementById('your-container-id');
+const targetElement = document.getElementById('your-target-element-id');
+
+// Call the function with the container, target element, and duration in milliseconds
+scrollToElm(container, targetElement, 500);
+```
+
+### Parameters
+
+- `container: HTMLElement` - The scrollable container in which the target element resides.
+- `elm: HTMLElement` - The target element to which you want to scroll within the container.
+- `duration: number` - The duration of the scroll animation in milliseconds. If the duration is set to 0, the scroll jumps directly to the target element without animation.
+
+### Function Dependencies
+
+`scrollToElm` relies on two helper functions: `getRelativePos` and `scrollTo`.
+
+#### getRelativePos(elm: Element)
+
+Calculates the position of an element (`elm`) relative to its parent. It returns an object containing the top, right, bottom, and left positions.
+
+#### scrollTo(element: HTMLElement, to: number, duration: number, onDone?: () => void)
+
+Handles the animation of the scrolling. It scrolls the `element` to a specific position (`to`) over a specified `duration`. An optional callback (`onDone`) can be provided, which is called once the animation is complete.
+
+### Easing Function
+
+The scrolling animation uses an easing function `easeInOutQuad` for a smooth experience. This function accelerates the scroll until halfway and then decelerates.
+
+### Handling Immediate Scrolls
+
+When the `duration` is set to 0, the `scrollTo` function immediately sets the `scrollTop` property to the target position without any animation, ensuring instant navigation to the target element.
+
+### Example
+
+```tsx
+// Scroll to the target element over 500 milliseconds
+scrollToElm(containerElement, targetElement, 500);
+
+// For an instant jump to the target element
+scrollToElm(containerElement, targetElement, 0);
+```

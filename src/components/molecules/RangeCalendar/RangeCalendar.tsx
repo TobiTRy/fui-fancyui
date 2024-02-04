@@ -7,7 +7,7 @@ import useSelectedDates from './helperFunctions/useSelectedDates';
 
 import { IExternalMonthWithDays } from '@/components/molecules/MonthWithDays/utils/types/IExternalMonthWithDays.model';
 import { TRangeCalendar } from '@/components/molecules/RangeCalendar/TRangeCalendar.model';
-import { scrollToElm } from '@/components/molecules/RangeCalendar/helperFunctions/scrollToElementInConatiner';
+import { scrollToElm } from '@/utils/functions/scrollToElementInContainer/scrollToElementInContainer';
 
 // --------------------------------------------------------------------------- //
 // -------- The main calenader wich can select a date, or date range --------- //
@@ -41,8 +41,7 @@ export default function RangeCalendar(props: TRangeCalendar) {
   // Scroll to current month on mount and set isScrolled to true
   useEffect(() => {
     const currentMonth = new Date().getMonth();
-
-    scrollToElm(ContainerRef.current as HTMLElement, monthRefs.current[currentMonth] as HTMLElement, 300);
+    scrollToElm(ContainerRef.current as HTMLElement, monthRefs.current[currentMonth] as HTMLElement, 0);
   }, []);
 
   useEffect(() => {
