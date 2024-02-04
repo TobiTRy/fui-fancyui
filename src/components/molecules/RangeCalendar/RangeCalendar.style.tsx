@@ -5,7 +5,7 @@ import { TTheme } from '@/types/TTheme';
 export const MonthContainer = styled.div<{ theme: TTheme }>`
   display: flex;
   flex-direction: column;
-  gap: ${({ theme }) => theme.spacing.xs};
+  width: 100%;
 `;
 
 export const StyledCalendar = styled.div`
