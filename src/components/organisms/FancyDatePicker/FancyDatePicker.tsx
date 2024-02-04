@@ -1,31 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
-import { TLayer } from '@/types/TLayer';
-import { TUiColorsMain } from '@/types/TUiColorsMain';
-import { IDisabledDateSettings } from '@/components/molecules/MonthWithDays/utils/types/IDisableDateSettings.model';
-
-import { YearSelector } from '@/components/atoms/YearSelector';
 import { WeekDays } from '@/components/atoms/WeekDays';
-import { RangeCalendar } from '@/components/molecules/RangeCalendar';
-import IExternalYearWithMonths from '@/components/molecules/MonthWithDays/utils/types/IExternalMonthWithDays.model';
+import { YearSelector } from '@/components/atoms/YearSelector';
 import { DateOutputFromTo } from '@/components/molecules/DateOutputFromTo';
+import { RangeCalendar } from '@/components/molecules/RangeCalendar';
 import { IDateArray } from '@/components/molecules/RangeCalendar/IDateArray.model';
 
+import { TFancyDatePicker } from '@/components/organisms/FancyDatePicker/TFancyDatePicker.model';
 import { DatePickerContainer, WrapperWeekdays, WrapperYearSelector } from './FancyDatePicker.style';
 
-interface IFancyDatePicker {
-  rangeCalendar?: boolean;
-  handler?: (date: IDateArray) => void;
-  selectedYear?: number;
-  disabledDateSetting?: IDisabledDateSettings;
-  externalData?: IExternalYearWithMonths;
-  themeType?: Exclude<TUiColorsMain, 'accent'>;
-  layer?: TLayer;
-}
 // --------------------------------------------------------------------------- //
 // --------- A Datepicker thats really fancy with some advanced logic -------- //
 // --------------------------------------------------------------------------- //
-export default function FancyDatePicker(props: IFancyDatePicker) {
+export default function FancyDatePicker(props: TFancyDatePicker) {
   const { rangeCalendar, handler, selectedYear, disabledDateSetting, externalData, themeType, layer } = {
     ...defaultProps,
     ...props,
@@ -88,6 +75,6 @@ export default function FancyDatePicker(props: IFancyDatePicker) {
   );
 }
 
-const defaultProps: IFancyDatePicker = {
+const defaultProps: TFancyDatePicker = {
   rangeCalendar: false,
 };
