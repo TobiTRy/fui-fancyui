@@ -58,16 +58,16 @@ export const StyledDay = styled.button<IStyledDay & { theme: TTheme }>`
     `}
 
   ${({ $range, theme }) =>
-    $range?.end &&
+    $range?.inRange &&
     css`
-      border-radius: 5px 40% 40% 5px;
-      background-color: theme.colors.accent[0];
+      background-color: ${theme.colors.accent[0]};
       color: ${theme.colors.secondary[0]};
     `}
 
   ${({ $range, theme }) =>
-    $range?.inRange &&
+    $range?.end &&
     css`
+      border-radius: 5px 40% 40% 5px;
       background-color: ${theme.colors.accent[0]};
       color: ${theme.colors.secondary[0]};
     `}

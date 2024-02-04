@@ -51,6 +51,5 @@ const StyledDateNumberWithStatus = styled.div<{ theme: TTheme }>`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: ${({ theme }) => theme.spacing.xs};
-  padding: ${({ theme }) => theme.spacing.xs};
+  gap: ${({ theme }) => theme.spacing.xxs};
 `;
