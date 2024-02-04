@@ -1,12 +1,8 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import React from 'react';
-
 import FancyDatePicker from '../../components/organisms/FancyDatePicker/FancyDatePicker';
 
-import FancyDateDropDown from '../../components/templates/FancyDateDropDown/FancyDateDropDown';
-import IExternalYearWithMonths from '../../components/molecules/MonthWithDays/utils/Interfaces/IExternalMonthWithDays.model';
-import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
 import { Card } from '@/components/molecules/Card';
+import IExternalYearWithMonths from '../../components/molecules/MonthWithDays/utils/types/IExternalMonthWithDays.model';
+import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
 
 const externalYears: IExternalYearWithMonths = {
   2023: [
@@ -79,9 +75,28 @@ export default function DatePickerRoute() {
             themeType="secondary"
           />
         </DesignArea>
-        <DesignArea title="FancyDatePicker Single Date">
+        {/* <DesignArea title="FancyDatePicker Single Date">
           <FancyDatePicker disabledDateSetting={{ disableWeekends: true }} externalData={externalYears} />
-        </DesignArea>
+        </DesignArea> */}
+        <h1>Mooiinnn</h1>
+        <h1>Mooiinnn</h1>
+        <h1>Mooiinnn</h1>
+        <h1>Mooiinnn</h1>
+        <h1>Mooiinnn</h1>
+        <h1>Mooiinnn</h1>
+        <h1>Mooiinnn</h1>
+        <h1>Mooiinnn</h1>
+        <h1>Mooiinnn</h1>
+        <h1>Mooiinnn</h1>
+        <h1>Mooiinnn</h1>
+        <h1>Mooiinnn</h1>
+        <h1>Mooiinnn</h1>
+        <h1>Mooiinnn</h1>
+        <h1>Mooiinnn</h1>
+        <h1>Mooiinnn</h1>
+        <h1>Mooiinnn</h1>
+        <h1>Mooiinnn</h1>
+        <h1>Mooiinnn</h1>
       </DesignWrapper>
     </Card>
   );
