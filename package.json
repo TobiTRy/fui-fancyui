@@ -112,7 +112,9 @@
     },
     "./package.json": "./package.json"
   },
+  "license": "MIT",
+  "homepage": "https://github.com/TobiTRy/FUI-FancyUI",
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/mrtryy"
+    "registry": "https://npm.pkg.github.com/tobitry"
   }
 }
