@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react';
 
 import { TLayer } from '@/types/TLayer';
 import { TUiColorsMain } from '@/types/TUiColorsMain';
-import { IDisabledDateSettings } from '@/components/molecules/MonthWithDays/utils/Interfaces/IDisableDateSettings.model';
+import { IDisabledDateSettings } from '@/components/molecules/MonthWithDays/utils/types/IDisableDateSettings.model';
 
 import { YearSelector } from '@/components/atoms/YearSelector';
 import { WeekDays } from '@/components/atoms/WeekDays';
 import { RangeCalendar } from '@/components/molecules/RangeCalendar';
-import IExternalYearWithMonths from '@/components/molecules/MonthWithDays/utils/Interfaces/IExternalMonthWithDays.model';
+import IExternalYearWithMonths from '@/components/molecules/MonthWithDays/utils/types/IExternalMonthWithDays.model';
 import { DateOutputFromTo } from '@/components/molecules/DateOutputFromTo';
 import { IDateArray } from '@/components/molecules/RangeCalendar/IDateArray.model';
 
