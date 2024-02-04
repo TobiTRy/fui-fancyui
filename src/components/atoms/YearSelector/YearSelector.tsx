@@ -1,23 +1,14 @@
-import { TLayer } from '@/types/TLayer';
-import { SVGChevronLeft } from '@/components/icons/SVGChevronLeft';
-import { SVGChevronRight } from '@/components/icons/SVGChevronRight';
 import { FancySVGAtom } from '@/components/atoms/FancySVGAtom';
 import { Typography } from '@/components/atoms/Typography';
+import { TYearSelector } from '@/components/atoms/YearSelector/TYearSelector.model';
+import { SVGChevronLeft } from '@/components/icons/SVGChevronLeft';
+import { SVGChevronRight } from '@/components/icons/SVGChevronRight';
 import { SVGDesignCSS, StyledButton, StyledYearSelector } from './YearSelector.style';
-import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 
 // --------------------------------------------------------------------------- //
 // ---------- Here are the design variants for sizing and alignment ---------- //
 // --------------------------------------------------------------------------- //
-interface IYearSelector {
-  selectedYear: number;
-  themeType?: TUiColorsNotTransparent;
-  layer?: TLayer;
-  handler?: (change: number) => void;
-  ariaTextLeftArrow?: string;
-  ariaTextRightArrow?: string;
-}
-export default function YearSelector(props: IYearSelector) {
+export default function YearSelector(props: TYearSelector) {
   const { selectedYear, themeType, layer, handler, ariaTextLeftArrow, ariaTextRightArrow } = props;
   // update the year and call the handler if the year changes
   const handleYearChange = (change: number) => {
