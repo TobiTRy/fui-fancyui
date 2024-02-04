@@ -1,8 +1,9 @@
 // useSelectedDates.ts
 import { useState, useCallback } from 'react';
-import Day from '../../MonthWithDays/utils/Interfaces/IDay.model';
+
 import selectDayFunction from './selectDayFunction';
 import { IDateArray, IDateOnlyArray } from '../IDateArray.model';
+import { TDay } from '@/components/molecules/MonthWithDays/utils/types/TDay.model';
 
 // the hook for handle the selected dates
 export default function useSelectedDates(
@@ -14,7 +15,7 @@ export default function useSelectedDates(
 ) {
   const [selectedDates, setSelectedDates] = useState<IDateArray>([undefined, undefined]);
   const handleDateClick = useCallback(
-    (day: Day, monthIndex: number) => {
+    (day: TDay, monthIndex: number) => {
       // when a range is slected you can select two dates
       if (rangeCalendar) {
         const pickedDays = selectedDates as IDateOnlyArray;

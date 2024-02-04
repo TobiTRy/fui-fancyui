@@ -1,5 +1,4 @@
-import Day from '../../MonthWithDays/utils/Interfaces/IDay.model';
-
+import { TDay } from '@/components/molecules/MonthWithDays/utils/types/TDay.model';
 import { IDateOnlyArray } from '../IDateArray.model';
 type DateArray = Date[] | (Date | undefined)[];
 
@@ -13,7 +12,7 @@ const checkDateIsSame = (dates: Date[]) => {
 };
 
 interface ISelectDayFunction {
-  day: Day;
+  day: TDay;
   monthIndex: number;
   selectedYear: number;
   selectedDates: IDateOnlyArray;

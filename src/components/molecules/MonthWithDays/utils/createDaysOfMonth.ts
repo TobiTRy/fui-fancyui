@@ -1,8 +1,8 @@
 import createDay from './createDayFunction';
-import Day from './Interfaces/IDay.model';
+import { TDay } from './types/TDay.model';
 import { IDateArray } from '../../RangeCalendar/IDateArray.model';
-import { IDisabledDateSettings } from './Interfaces/IDisableDateSettings.model';
-import { IDateWithExternalState } from './Interfaces/IExternalMonthWithDays.model';
+import { IDisabledDateSettings } from './types/IDisableDateSettings.model';
+import { IDateWithExternalState } from './types/IExternalMonthWithDays.model';
 
 const getDaysInMonth = (month: number, year: number): number => {
   return new Date(year, month, 0).getDate();
@@ -20,7 +20,7 @@ interface ICreateDaysOfMonth {
   isRangePicking?: boolean;
   externalMonthWithDays?: IDateWithExternalState[];
 }
-const createDaysOfMonth = (props: ICreateDaysOfMonth): Day[] => {
+const createDaysOfMonth = (props: ICreateDaysOfMonth): TDay[] => {
   const { monthIdx, year, selectedDates, disabledDateSetting, isRangePicking, externalMonthWithDays } = props;
 
   const MonthDays = Array.from({ length: getDaysInMonth(monthIdx + 1, year) }, (_, j) =>

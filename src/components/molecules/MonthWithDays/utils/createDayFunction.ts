@@ -1,6 +1,6 @@
-import { IDisabledDateSettings } from './Interfaces/IDisableDateSettings.model';
-import { IDateWithExternalState } from './Interfaces/IExternalMonthWithDays.model';
-import Day from './Interfaces/IDay.model';
+import { IDisabledDateSettings } from './types/IDisableDateSettings.model';
+import { IDateWithExternalState } from './types/IExternalMonthWithDays.model';
+import { TDay } from './types/TDay.model';
 import { IDateArray } from '../../RangeCalendar/IDateArray.model';
 import { disableDate } from './disableDate';
 
@@ -16,7 +16,7 @@ interface ICreateDay {
   disabledDateSetting?: IDisabledDateSettings;
   externalDate?: IDateWithExternalState;
 }
-const createDay = (props: ICreateDay): Day => {
+const createDay = (props: ICreateDay): TDay => {
   const { dayNumber, month, year, selectedDates, disabledDateSetting, isRangePicking, externalDate } = props;
 
   const date = new Date(year, month, dayNumber);
