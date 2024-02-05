@@ -1,5 +1,6 @@
 import FancyDatePicker from '../../components/organisms/FancyDatePicker/FancyDatePicker';
 
+import { DateOutput } from '@/components/atoms/DateOutput';
 import { Card } from '@/components/molecules/Card';
 import IExternalYearWithMonths from '../../components/molecules/MonthWithDays/utils/types/IExternalMonthWithDays.model';
 import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
@@ -74,6 +75,7 @@ export default function DatePickerRoute() {
             externalData={externalYears}
             themeType="secondary"
           />
+          <DateOutput />
         </DesignArea>
         {/* <DesignArea title="FancyDatePicker Single Date">
           <FancyDatePicker disabledDateSetting={{ disableWeekends: true }} externalData={externalYears} />
