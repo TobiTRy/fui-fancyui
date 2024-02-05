@@ -15,7 +15,7 @@ import { scrollToElm } from '@/utils/functions/scrollToElementInContainer/scroll
 export default function RangeCalendar(props: TRangeCalendar) {
   const {
     selectedYear = new Date().getFullYear(),
-    handler,
+    handleDates,
     selectFromTo,
     handleSwitchFromTo,
     disabledDateSetting,
@@ -33,7 +33,7 @@ export default function RangeCalendar(props: TRangeCalendar) {
     selectedYear,
     selectFromTo,
     handleSwitchFromTo,
-    handler,
+    handleDates,
     rangeCalendar
   );
 
@@ -84,7 +84,3 @@ export default function RangeCalendar(props: TRangeCalendar) {
     </StyledCalendar>
   );
 }
-
-RangeCalendar.defaultProps = {
-  rangeCalendar: false,
-};

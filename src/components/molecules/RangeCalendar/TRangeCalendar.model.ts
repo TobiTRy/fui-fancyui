@@ -7,7 +7,7 @@ import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 export type TRangeCalendar = {
   selectedYear?: number;
   rangeCalendar: boolean;
-  handler?: (date: IDateArray) => void;
+  handleDates?: (date: IDateArray) => void;
   selectFromTo?: 'from' | 'to' | undefined;
   handleSwitchFromTo?: (change: 'from' | 'to') => void;
   disabledDateSetting?: IDisabledDateSettings;
