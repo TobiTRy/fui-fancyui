@@ -10,13 +10,13 @@ export default function DateNumberAtom(props: IDateNumberAtom) {
 
   return (
     <StyledDay
-      $range={range}
+      $range={!disabled ? range : undefined}
       $selected={selected}
       $isCurrentDay={isCurrentDay}
       disabled={disabled}
       onClick={onClick}
       $themeType={themeType}
-      aria-selected={selected || range?.end || range?.start || range?.inRange}
+      aria-selected={!disabled && (selected || range?.end || range?.start || range?.inRange)}
       $layer={layer}
     >
       <Typography variant="interactiveSm">{dateNumber}</Typography>
