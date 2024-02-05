@@ -25,6 +25,7 @@ export default function RangeCalendar(props: TRangeCalendar) {
     layer,
   } = props;
   const monthRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const ContainerRef: RefObject<HTMLDivElement> = useRef(null);
 
   const [externalMonthsData, setExternalMonthsData] = useState<IExternalMonthWithDays[]>([]);
   // hooks for selected dates and visible months
@@ -35,8 +36,6 @@ export default function RangeCalendar(props: TRangeCalendar) {
     handler,
     rangeCalendar
   );
-
-  const ContainerRef: RefObject<HTMLDivElement> = useRef(null);
 
   // Scroll to current month on mount and set isScrolled to true
   useEffect(() => {
