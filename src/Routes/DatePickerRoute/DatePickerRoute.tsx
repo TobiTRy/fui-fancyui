@@ -1,4 +1,4 @@
-import FancyDatePicker from '../../components/organisms/FancyDatePicker/FancyDatePicker';
+import FancyDatePicker from '../../components/templates/FancyDatePicker/FancyDatePicker';
 
 import { DateOutput } from '@/components/atoms/DateOutput';
 import { Card } from '@/components/molecules/Card';

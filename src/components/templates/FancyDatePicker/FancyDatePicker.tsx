@@ -6,7 +6,7 @@ import { DateOutputFromTo } from '@/components/molecules/DateOutputFromTo';
 import { RangeCalendar } from '@/components/molecules/RangeCalendar';
 import { IDateArray } from '@/components/molecules/RangeCalendar/IDateArray.model';
 
-import { TFancyDatePicker } from '@/components/organisms/FancyDatePicker/TFancyDatePicker.model';
+import { TFancyDatePicker } from '@/components/templates/FancyDatePicker/TFancyDatePicker.model';
 import { DatePickerContainer, WrapperWeekdays, WrapperYearSelector } from './FancyDatePicker.style';
 import { clampLayer } from '@/utils/functions/clampLayer';
 
