@@ -10,7 +10,7 @@ import { sizeSettings } from './sizeSettings';
 // ---------- This Atom creates a List of all Weekdas from Mo - Su ----------- //
 // --------------------------------------------------------------------------- //
 export default function WeekDays(props: TWeekDays) {
-  const { themeType, layer, sizeC = 'md' } = props;
+  const { themeType, layer, sizeC = 'md', border = 'bottom' } = props;
 
   const [weekdays, setWeekdays] = useState<string[]>([]);
 
@@ -24,7 +24,7 @@ export default function WeekDays(props: TWeekDays) {
   }, []);
 
   return (
-    <WeekdaysConatiner $themeType={themeType} $layer={layer}>
+    <WeekdaysConatiner $themeType={themeType} $layer={layer} $border={border}>
       {weekdays.map((day) => (
         <Typography variant={sizeSettings[sizeC].fontSize} key={day}>
           {day}

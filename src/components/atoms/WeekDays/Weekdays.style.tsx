@@ -1,11 +1,12 @@
 import { styled } from 'styled-components';
 
-import { TLayer } from '@/types/TLayer';
-import { TTheme } from '@/types/TTheme';
-import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
+import { TWeekDays } from '@/components/atoms/WeekDays/TWeekdays.model';
 import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent';
+import IStyledPrefixAndPicker from '@/types/IStyledPrefixAndPicker';
+import { TTheme } from '@/types/TTheme';
 
-export const WeekdaysConatiner = styled.div<{ theme: TTheme; $themeType?: TUiColorsNotTransparent; $layer?: TLayer }>`
+type TWeekdaysConatiner = IStyledPrefixAndPicker<TWeekDays, 'border' | 'layer' | 'themeType'>;
+export const WeekdaysConatiner = styled.div<TWeekdaysConatiner & { theme: TTheme }>`
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   width: 100%;
@@ -13,8 +14,8 @@ export const WeekdaysConatiner = styled.div<{ theme: TTheme; $themeType?: TUiCol
   color: ${({ theme, $themeType, $layer }) =>
     getBackgroundColor({ theme, $themeType: $themeType ?? 'secondary', $layer: $layer ?? 0 })};
 
-  border-bottom: solid 1px ${({ theme, $themeType = 'secondary' }) => getBackgroundColor({ theme, $themeType })};
-  padding-bottom: ${({ theme }) => theme.spacing.xs};
+  ${({ theme, $themeType = 'secondary', $border, $layer }) =>
+    generateBorder({ theme, $themeType, $border, $layer: $layer ?? 0 })};
 
   & > * {
     display: flex;
@@ -22,3 +23,18 @@ export const WeekdaysConatiner = styled.div<{ theme: TTheme; $themeType?: TUiCol
     align-items: center;
   }
 `;
+
+// --------------------------------------------------------------------------- //
+// ----------------------------- Helper Functions ---------------------------- //
+// --------------------------------------------------------------------------- //
+const generateBorder = (props: TWeekdaysConatiner & { theme: TTheme }) => {
+  const { $border, $layer, theme } = props;
+  if ($border === 'none') return;
+
+  const borderColor = getBackgroundColor({ theme, $themeType: 'secondary', $layer: $layer });
+
+  return `
+    border-${$border ?? 'bottom'}: solid 1px ${borderColor};
+    padding-${$border ?? 'bottom'}: ${theme.spacing.xs};
+  `;
+};
