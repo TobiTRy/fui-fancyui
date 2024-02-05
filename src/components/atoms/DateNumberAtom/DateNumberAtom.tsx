@@ -1,7 +1,5 @@
-import React from 'react';
-
-import { StyledDay } from './DateNumberAtom.style';
 import { Typography } from '@/components/atoms/Typography';
+import { StyledDay } from './DateNumberAtom.style';
 import { IDateNumberAtom } from './IDateNumberAtom.model';
 
 // --------------------------------------------------------------------------- //
@@ -18,6 +16,7 @@ export default function DateNumberAtom(props: IDateNumberAtom) {
       disabled={disabled}
       onClick={onClick}
       $themeType={themeType}
+      aria-selected={selected || range?.end || range?.start || range?.inRange}
       $layer={layer}
     >
       <Typography variant="interactiveSm">{dateNumber}</Typography>

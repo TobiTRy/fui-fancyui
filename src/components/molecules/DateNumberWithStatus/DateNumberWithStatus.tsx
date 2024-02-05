@@ -1,29 +1,13 @@
-import { styled } from 'styled-components';
-
-import { DateNumberAtom } from '@/components/atoms/DateNumberAtom';
 import { AvilableDot } from '@/components/atoms/AvilableDot';
-import { IAvailableDot } from '@/components/atoms/AvilableDot';
+import { DateNumberAtom } from '@/components/atoms/DateNumberAtom';
 
-import { TLayer } from '@/types/TLayer';
-import { TTheme } from '@/types/TTheme';
-import { IRange } from '@/components/atoms/DateNumberAtom/IDateNumberAtom.model';
-import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
+import { StyledDateNumberWithStatus } from './DateNumberWithStatus.style';
+import { TDateNumberWithStatus } from './TDateNumberWithStatus.model';
 
-interface IDateNumberWithStatus {
-  isAvailable?: IAvailableDot;
-  disabled?: boolean;
-  dateNumber: number;
-  isSelected?: boolean;
-  isCurrentDay?: boolean;
-  range?: IRange;
-  onClick?: () => void;
-  themeType?: TUiColorsNotTransparent;
-  layer?: TLayer;
-}
 // --------------------------------------------------------------------------- //
 //A Simple Number with the AvilableDot to indicate something is busy or free...//
 // --------------------------------------------------------------------------- //
-export default function DateNumberWithStatus(props: IDateNumberWithStatus) {
+export default function DateNumberWithStatus(props: TDateNumberWithStatus) {
   const { isAvailable, disabled, dateNumber, isSelected, onClick, range, isCurrentDay, layer, themeType } = props;
 
   return (
@@ -41,15 +25,3 @@ export default function DateNumberWithStatus(props: IDateNumberWithStatus) {
     </StyledDateNumberWithStatus>
   );
 }
-
-// ------------------------------------------- //
-// ------- The style for the component ------- //
-// ------------------------------------------- //
-const StyledDateNumberWithStatus = styled.div<{ theme: TTheme }>`
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: ${({ theme }) => theme.spacing.xxs};
-`;
