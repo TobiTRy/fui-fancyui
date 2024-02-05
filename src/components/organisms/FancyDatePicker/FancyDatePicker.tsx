@@ -17,7 +17,7 @@ export default function FancyDatePicker(props: TFancyDatePicker) {
     ...defaultProps,
     ...props,
   };
-  const [selectedDate, setSelectedDate] = useState<IDateArray>([new Date(), new Date()]);
+  const [selectedDate, setSelectedDate] = useState<IDateArray>([undefined, undefined]);
   const [currentlySelectedFromOrTo, setCurrentlySelectedFromOrTo] = useState<'from' | 'to'>('from');
   const [currentlySelectedYear, setCurrentlySelectedYear] = useState<number>(new Date().getFullYear());
   const swapedTheme = themeType ? (themeType === 'primary' ? 'secondary' : 'primary') : undefined;
@@ -66,9 +66,9 @@ export default function FancyDatePicker(props: TFancyDatePicker) {
           themeType={themeType}
           layer={layer}
           whichIsSelecting={currentlySelectedFromOrTo}
-          handler={handleSwitchFromTo}
-          dateFrom={Array.isArray(selectedDate) ? selectedDate[0] : new Date()}
-          dateTo={Array.isArray(selectedDate) ? selectedDate[1] : new Date()}
+          handleFromTo={handleSwitchFromTo}
+          dateFrom={Array.isArray(selectedDate) ? selectedDate[0] : undefined}
+          dateTo={Array.isArray(selectedDate) ? selectedDate[1] : undefined}
         />
       )}
     </DatePickerContainer>
