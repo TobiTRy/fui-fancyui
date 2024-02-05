@@ -24,9 +24,4 @@ export const DateOutputButton = styled.button<TDateOutputButton & { theme: TThem
   height: ${({ $sizeC = 'md' }) => globalElementsizes[sizeSettings[$sizeC].height]};
   border-radius: ${({ theme, $borderRadius, $sizeC = 'md' }) =>
     $borderRadius ? theme.borderRadius[$borderRadius] : theme.borderRadius[sizeSettings[$sizeC].borderRadius]};
-
-  &:hover {
-    background-color: ${({ theme, $themeType = 'primary', $layer }) =>
-      getBackgroundColor({ theme, $themeType, $layer: $layer ? $layer : 3 })};
-  }
 `;
