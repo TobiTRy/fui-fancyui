@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { TChip } from '@/components/organisms/FancyChipList/FancyChipListProps.model';
-import { setLastLetterPositionContentEditable } from '@/components/organisms/FancyChipList/utils/setLastLetterPositionContentEditable';
+import { setLastLetterPositionContentEditable } from '@/utils/functions/setLastLetterPositionContentEditable';
 
 const useChip = (chips?: TChip[]) => {
   const [chipState, setChipState] = useState<TChip[]>([]);
