@@ -25,13 +25,12 @@ export default function useSelectedDates(
           selectedDates: pickedDays,
           selectedYear,
           selectFromTo,
+          handleSwitchFromTo,
         });
-        if (selectFromTo === 'from') handleSwitchFromTo && handleSwitchFromTo('to');
-        if (selectFromTo === 'to') handleSwitchFromTo && handleSwitchFromTo('from');
         setSelectedDates(selectedDays);
         handler && handler(selectedDays);
-        // when a single date is selected
       } else {
+        // when a single date is selected
         const newDate = new Date(selectedYear, monthIndex, day.number);
         setSelectedDates(newDate);
         handler && handler(newDate);
