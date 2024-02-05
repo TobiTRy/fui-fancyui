@@ -54,7 +54,7 @@ export default function FancyDatePicker(props: TFancyDatePicker) {
         rangeCalendar={rangeCalendar}
         externalMonthsWithDays={externalData ? externalData[`${currentlySelectedYear}`] : undefined}
         selectedYear={currentlySelectedYear}
-        handler={handleDateChange}
+        handleDates={handleDateChange}
         selectFromTo={currentlySelectedFromOrTo ?? 'from'}
         handleSwitchFromTo={handleSwitchFromTo}
         disabledDateSetting={disabledDateSetting}
