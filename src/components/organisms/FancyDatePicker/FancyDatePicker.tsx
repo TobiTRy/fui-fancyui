@@ -8,33 +8,33 @@ import { IDateArray } from '@/components/molecules/RangeCalendar/IDateArray.mode
 
 import { TFancyDatePicker } from '@/components/organisms/FancyDatePicker/TFancyDatePicker.model';
 import { DatePickerContainer, WrapperWeekdays, WrapperYearSelector } from './FancyDatePicker.style';
+import { clampLayer } from '@/utils/functions/clampLayer';
 
 // --------------------------------------------------------------------------- //
 // --------- A Datepicker thats really fancy with some advanced logic -------- //
 // --------------------------------------------------------------------------- //
 export default function FancyDatePicker(props: TFancyDatePicker) {
-  const { rangeCalendar, handler, selectedYear, disabledDateSetting, externalData, themeType, layer } = {
-    ...defaultProps,
-    ...props,
-  };
+  const { rangeCalendar = true, handler, selectedYear, disabledDateSetting, externalData, themeType, layer } = props;
+
   const [selectedDate, setSelectedDate] = useState<IDateArray>([undefined, undefined]);
   const [currentlySelectedFromOrTo, setCurrentlySelectedFromOrTo] = useState<'from' | 'to'>('from');
   const [currentlySelectedYear, setCurrentlySelectedYear] = useState<number>(new Date().getFullYear());
   const swapedTheme = themeType ? (themeType === 'primary' ? 'secondary' : 'primary') : undefined;
 
+  // handle date change
   const handleDateChange = (changedDate: IDateArray) => {
-    handler && handler(changedDate);
+    handler?.(changedDate);
     setSelectedDate(changedDate);
   };
 
+  // switch between from and to date
   const handleSwitchFromTo = (change: 'from' | 'to') => {
     setCurrentlySelectedFromOrTo(change);
   };
 
+  // update the state if the selectedYear changes
   useEffect(() => {
-    if (selectedYear) {
-      setCurrentlySelectedYear(selectedYear);
-    }
+    if (selectedYear) setCurrentlySelectedYear(selectedYear);
   }, [selectedYear]);
 
   return (
@@ -64,7 +64,7 @@ export default function FancyDatePicker(props: TFancyDatePicker) {
       {rangeCalendar && (
         <DateOutputFromTo
           themeType={themeType}
-          layer={layer}
+          layer={layer ? clampLayer(layer + 1) : undefined}
           whichIsSelecting={currentlySelectedFromOrTo}
           handleFromTo={handleSwitchFromTo}
           dateFrom={Array.isArray(selectedDate) ? selectedDate[0] : undefined}
@@ -74,7 +74,3 @@ export default function FancyDatePicker(props: TFancyDatePicker) {
     </DatePickerContainer>
   );
 }
-
-const defaultProps: TFancyDatePicker = {
-  rangeCalendar: false,
-};

@@ -73,7 +73,7 @@ export default function DatePickerRoute() {
             rangeCalendar={true}
             disabledDateSetting={{ disableWeekends: true }}
             externalData={externalYears}
-            themeType="secondary"
+            layer={2}
           />
           <DateOutput />
         </DesignArea>
