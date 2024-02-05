@@ -1,20 +1,17 @@
 import { useEffect, useState } from 'react';
-import { styled } from 'styled-components';
 
 import { Typography } from '@/components/atoms/Typography';
-import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponent';
-import { TLayer } from '@/types/TLayer';
-import { TTheme } from '@/types/TTheme';
-import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
+import { TWeekDays } from '@/components/atoms/WeekDays/TWeekdays.model';
+import { WeekdaysConatiner } from '@/components/atoms/WeekDays/Weekdays.style';
+
+import { sizeSettings } from './sizeSettings';
 
 // --------------------------------------------------------------------------- //
 // ---------- This Atom creates a List of all Weekdas from Mo - Su ----------- //
 // --------------------------------------------------------------------------- //
-interface IWeekDays {
-  themeType?: TUiColorsNotTransparent;
-  layer?: TLayer;
-}
-export default function WeekDays({ themeType, layer }: IWeekDays) {
+export default function WeekDays(props: TWeekDays) {
+  const { themeType, layer, sizeC = 'md' } = props;
+
   const [weekdays, setWeekdays] = useState<string[]>([]);
 
   useEffect(() => {
@@ -29,28 +26,10 @@ export default function WeekDays({ themeType, layer }: IWeekDays) {
   return (
     <WeekdaysConatiner $themeType={themeType} $layer={layer}>
       {weekdays.map((day) => (
-        <Typography variant="interactiveMd" key={day}>
+        <Typography variant={sizeSettings[sizeC].fontSize} key={day}>
           {day}
         </Typography>
       ))}
     </WeekdaysConatiner>
   );
 }
-
-// ------------------------------------------- //
-// ------- The style for the component ------- //
-// ------------------------------------------- //
-const WeekdaysConatiner = styled.div<{ theme: TTheme; $themeType?: TUiColorsNotTransparent; $layer?: TLayer }>`
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  width: 100%;
-  margin-bottom: ${({ theme }) => theme.spacing.xs};
-  color: ${({ theme, $themeType, $layer }) =>
-    getBackgroundColor({ theme, $themeType: $themeType ?? 'secondary', $layer: $layer ?? 0 })};
-
-  & > * {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-`;
