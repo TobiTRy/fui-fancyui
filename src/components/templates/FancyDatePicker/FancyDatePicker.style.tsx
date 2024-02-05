@@ -26,9 +26,3 @@ export const WrapperYearSelector = styled.div<{ theme: TTheme }>`
   padding: ${({ theme }) => `${theme.spacing.sm} ${theme.spacing.sm} ${theme.spacing.md}`};
   box-sizing: border-box;
 `;
-
-export const WrapperWeekdays = styled.div<{ theme: TTheme; $themeType?: TUiColorsNotTransparent }>`
-  width: 100%;
-  border-bottom: solid 1px ${({ theme, $themeType = 'secondary' }) => getBackgroundColor({ theme, $themeType })};
-  padding-bottom: ${({ theme }) => theme.spacing.xxs};
-`;

@@ -7,7 +7,7 @@ import { RangeCalendar } from '@/components/molecules/RangeCalendar';
 import { IDateArray } from '@/components/molecules/RangeCalendar/IDateArray.model';
 
 import { TFancyDatePicker } from '@/components/templates/FancyDatePicker/TFancyDatePicker.model';
-import { DatePickerContainer, WrapperWeekdays, WrapperYearSelector } from './FancyDatePicker.style';
+import { DatePickerContainer, WrapperYearSelector } from './FancyDatePicker.style';
 import { clampLayer } from '@/utils/functions/clampLayer';
 
 // --------------------------------------------------------------------------- //
@@ -47,9 +47,8 @@ export default function FancyDatePicker(props: TFancyDatePicker) {
           layer={layer}
         />
       </WrapperYearSelector>
-      <WrapperWeekdays $themeType={swapedTheme}>
-        <WeekDays themeType={swapedTheme} layer={layer} />
-      </WrapperWeekdays>
+
+      <WeekDays themeType={swapedTheme} layer={layer} />
       <RangeCalendar
         rangeCalendar={rangeCalendar}
         externalMonthsWithDays={externalData ? externalData[`${currentlySelectedYear}`] : undefined}
