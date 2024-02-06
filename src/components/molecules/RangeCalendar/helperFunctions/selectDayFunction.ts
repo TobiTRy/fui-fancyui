@@ -31,6 +31,11 @@ const selectDayFunction = (props: ISelectDayFunction) => {
     newSelectedDates[0] = newDate; // Swap dates if "to" date is earlier than "from" date
   }
 
+  // if the user selected first the "to" date then switch to "from" date
+  if (selectFromTo === 'to' && selectedDates[0] === undefined) {
+    handleSwitchFromTo?.('from');
+  }
+
   // When no dates are selected or when "from" date is selected
   if (selectFromTo === 'from' || selectFromTo === undefined) {
     newSelectedDates = [newDate, selectedDates[1]];
