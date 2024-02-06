@@ -9,7 +9,7 @@ import { IExternalMonthWithDays } from '@/components/molecules/MonthWithDays/uti
 import { TRangeCalendar } from '@/components/molecules/RangeCalendar/TRangeCalendar.model';
 import { scrollToElm } from '@/utils/functions/scrollToElementInContainer/scrollToElementInContainer';
 import { useShowAreaOfArray } from '@/utils/hooks/useShowAreaOfArray';
-import { useIntersectionObserver } from '@/utils/hooks/useIntersectionObserver';
+import useMultiIntersectionObserver from '@/utils/hooks/useIntersectionObserver/useMultiIntersectionObserver';
 
 // --------------------------------------------------------------------------- //
 // -------- The main calenader wich can select a date, or date range --------- //
@@ -26,22 +26,8 @@ export default function RangeCalendar(props: TRangeCalendar) {
     themeType,
     layer,
   } = props;
+
   const ContainerRef: RefObject<HTMLDivElement> = useRef(null);
-  const [monthDummyArray] = useState<number[]>(Array.from({ length: 12 }, (_, index) => index));
-
-  const monthRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const lastRef = useRef<HTMLDivElement | null>(null);
-
-  const isVisible = useIntersectionObserver(lastRef);
-
-  const { areaItems } = useShowAreaOfArray({
-    areaBackward: 1,
-    areaForward: 1,
-    areaStart: new Date().getMonth(),
-    array: monthDummyArray,
-  });
-
-  const [externalMonthsData, setExternalMonthsData] = useState<IExternalMonthWithDays[]>([]);
   // hooks for selected dates and visible months
   const { selectedDates, handleDateClick } = useSelectedDates(
     selectedYear,
@@ -50,6 +36,26 @@ export default function RangeCalendar(props: TRangeCalendar) {
     handleDates,
     rangeCalendar
   );
+  const [monthDummyArray] = useState(Array.from({ length: 12 }, (_, index) => index));
+  const [currentInViewMonth, setCurrentInViewMonth] = useState(new Date().getMonth());
+
+  const monthRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  const multiRef = useMultiIntersectionObserver(monthRefs.current, (el) => {
+    if (el) {
+      const dataAttribute = el.getAttribute('data-month');
+      setCurrentInViewMonth(parseInt(dataAttribute || '0'));
+    }
+  });
+
+  const { areaItems } = useShowAreaOfArray({
+    areaBackward: 1,
+    areaForward: 1,
+    areaStart: currentInViewMonth,
+    array: monthDummyArray,
+  });
+
+  const [externalMonthsData, setExternalMonthsData] = useState<IExternalMonthWithDays[]>([]);
 
   // Scroll to current month on mount and set isScrolled to true
   useEffect(() => {
@@ -76,16 +82,15 @@ export default function RangeCalendar(props: TRangeCalendar) {
   return (
     <StyledCalendar ref={ContainerRef}>
       {areaItems.length > 0 &&
-        areaItems.map((monthIdx) => {
+        areaItems.map((monthIdx, index) => {
+          const isLastItem = index === areaItems.length - 1;
+          const isFirstItem = index === 0;
           return (
             <MonthContainer
               key={monthIdx}
               data-month={monthIdx}
               ref={(ref) => {
                 monthRefs.current[monthIdx] = ref;
-                if (monthIdx === areaItems[areaItems.length - 1]) {
-                  lastRef.current = ref;
-                }
               }}
             >
               <MonthWithDays
