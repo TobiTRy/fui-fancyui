@@ -58,11 +58,11 @@ export default function RangeCalendar(props: TRangeCalendar) {
   const [externalMonthsData, setExternalMonthsData] = useState<IExternalMonthWithDays[]>([]);
 
   // Scroll to current month on mount and set isScrolled to true
-  useEffect(() => {
-    if (monthRefs.current.length > 0) {
-      scrollToElm(ContainerRef.current as HTMLElement, monthRefs.current[new Date().getMonth()] as HTMLElement, 0);
-    }
-  }, [areaItems]);
+  // useEffect(() => {
+  //   if (monthRefs.current.length > 0) {
+  //     scrollToElm(ContainerRef.current as HTMLElement, monthRefs.current[new Date().getMonth()] as HTMLElement, 0);
+  //   }
+  // }, [areaItems]);
 
   // this handles the external state of the months with days
   useEffect(() => {
@@ -83,8 +83,6 @@ export default function RangeCalendar(props: TRangeCalendar) {
     <StyledCalendar ref={ContainerRef}>
       {areaItems.length > 0 &&
         areaItems.map((monthIdx, index) => {
-          const isLastItem = index === areaItems.length - 1;
-          const isFirstItem = index === 0;
           return (
             <MonthContainer
               key={monthIdx}
