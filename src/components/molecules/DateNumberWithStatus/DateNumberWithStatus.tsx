@@ -11,7 +11,7 @@ export default function DateNumberWithStatus(props: TDateNumberWithStatus) {
   const { isAvailable, disabled, dateNumber, isSelected, onClick, range, isCurrentDay, layer, themeType } = props;
 
   return (
-    <StyledDateNumberWithStatus onClick={onClick}>
+    <StyledDateNumberWithStatus>
       <DateNumberAtom
         dateNumber={dateNumber}
         disabled={disabled}
@@ -20,6 +20,7 @@ export default function DateNumberWithStatus(props: TDateNumberWithStatus) {
         range={range}
         layer={layer}
         themeType={themeType}
+        onClick={onClick}
       />
       <AvilableDot $available={disabled ? 'transparent' : isAvailable} />
     </StyledDateNumberWithStatus>
