@@ -1,4 +1,4 @@
-import { RefObject, useEffect, useMemo, useRef, useState } from 'react';
+import { RefObject, useEffect, useRef, useState } from 'react';
 
 import { MonthContainer, StyledCalendar } from './RangeCalendar.style';
 
@@ -7,7 +7,6 @@ import useSelectedDates from './helperFunctions/useSelectedDates';
 
 import { IExternalMonthWithDays } from '@/components/molecules/MonthWithDays/utils/types/IExternalMonthWithDays.model';
 import { TRangeCalendar } from '@/components/molecules/RangeCalendar/TRangeCalendar.model';
-import { scrollToElm } from '@/utils/functions/scrollToElementInContainer/scrollToElementInContainer';
 import { useShowAreaOfArray } from '@/utils/hooks/useShowAreaOfArray';
 import useMultiIntersectionObserver from '@/utils/hooks/useIntersectionObserver/useMultiIntersectionObserver';
 
