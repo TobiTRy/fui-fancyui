@@ -3,8 +3,7 @@ import { useEffect, useState } from 'react';
 import { WeekDays } from '@/components/atoms/WeekDays';
 import { YearSelector } from '@/components/atoms/YearSelector';
 import { DateOutputFromTo } from '@/components/molecules/DateOutputFromTo';
-import { RangeCalendar } from '@/components/molecules/RangeCalendar';
-import { IDateArray } from '@/components/molecules/RangeCalendar/IDateArray.model';
+import { Calendar, TDateArray } from '@/components/molecules/Calendar';
 
 import { TFancyDatePicker } from '@/components/templates/FancyDatePicker/TFancyDatePicker.model';
 import { DatePickerContainer, WrapperYearSelector } from './FancyDatePicker.style';
@@ -16,13 +15,13 @@ import { clampLayer } from '@/utils/functions/clampLayer';
 export default function FancyDatePicker(props: TFancyDatePicker) {
   const { rangeCalendar = true, handler, selectedYear, disabledDateSetting, externalData, themeType, layer } = props;
 
-  const [selectedDate, setSelectedDate] = useState<IDateArray>([undefined, undefined]);
+  const [selectedDate, setSelectedDate] = useState<TDateArray>([undefined, undefined]);
   const [currentlySelectedFromOrTo, setCurrentlySelectedFromOrTo] = useState<'from' | 'to'>('from');
-  const [currentlySelectedYear, setCurrentlySelectedYear] = useState<number>(new Date().getFullYear());
+  const [currentlySelectedYear, setCurrentlySelectedYear] = useState(new Date().getFullYear());
   const swapedTheme = themeType ? (themeType === 'primary' ? 'secondary' : 'primary') : undefined;
 
   // handle date change
-  const handleDateChange = (changedDate: IDateArray) => {
+  const handleDateChange = (changedDate: TDateArray) => {
     handler?.(changedDate);
     setSelectedDate(changedDate);
   };
@@ -49,11 +48,12 @@ export default function FancyDatePicker(props: TFancyDatePicker) {
       </WrapperYearSelector>
 
       <WeekDays themeType={swapedTheme} layer={layer} />
-      <RangeCalendar
+      <Calendar
         rangeCalendar={rangeCalendar}
-        externalMonthsWithDays={externalData ? externalData[`${currentlySelectedYear}`] : undefined}
+        externalMonthsWithDays={externalData}
         selectedYear={currentlySelectedYear}
         handleDates={handleDateChange}
+        yearHandler={setCurrentlySelectedYear}
         selectFromTo={currentlySelectedFromOrTo ?? 'from'}
         handleSwitchFromTo={handleSwitchFromTo}
         disabledDateSetting={disabledDateSetting}

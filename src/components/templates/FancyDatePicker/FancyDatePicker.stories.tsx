@@ -3,7 +3,7 @@ import { Meta, StoryObj } from '@storybook/react';
 
 // Import the component to be tested
 import FancyDatePicker from './FancyDatePicker';
-import { IDateArray } from '../../molecules/RangeCalendar/IDateArray.model';
+import { TDateArray } from '@/components/molecules/Calendar/TCalendar.model';
 
 // Define metadata for the story
 const meta = {
@@ -81,7 +81,7 @@ export const Primary: Story = {
   render: (args) => <FancyDatePicker {...args} />,
   args: {
     rangeCalendar: false,
-    handler: (date: IDateArray) => console.log(date),
+    handler: (date: TDateArray) => console.log(date),
     selectedYear: new Date().getFullYear(),
     themeType: 'primary',
     layer: 1,

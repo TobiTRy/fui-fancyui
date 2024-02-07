@@ -3,8 +3,8 @@ import { styled } from 'styled-components';
 import { TLayer } from '@/types/TLayer';
 import { TTheme } from '@/types/TTheme';
 
-import { getBackgroundColor, getColorsForComponent } from '@/design/designFunctions/colorCalculatorForComponent/';
-import { TUiColorsNotTransparent } from 'lib';
+import { getColorsForComponent } from '@/design/designFunctions/colorCalculatorForComponent/';
+import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 
 export const DatePickerContainer = styled.div<{
   theme: TTheme;
