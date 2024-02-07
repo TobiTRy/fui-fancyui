@@ -13,7 +13,7 @@ import { clampLayer } from '@/utils/functions/clampLayer';
 // --------- A Datepicker thats really fancy with some advanced logic -------- //
 // --------------------------------------------------------------------------- //
 export default function FancyDatePicker(props: TFancyDatePicker) {
-  const { rangeCalendar = true, handler, selectedYear, disabledDateSetting, externalData, themeType, layer } = props;
+  const { rangeCalendar = false, handler, selectedYear, disabledDateSetting, externalData, themeType, layer } = props;
 
   const [selectedDate, setSelectedDate] = useState<TDateArray>([undefined, undefined]);
   const [currentlySelectedFromOrTo, setCurrentlySelectedFromOrTo] = useState<'from' | 'to'>('from');

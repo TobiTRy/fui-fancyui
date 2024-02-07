@@ -91,9 +91,9 @@ export default function DatePickerRoute() {
       <DesignWrapper>
         <DesignArea title="FancyDatePicker Range">
           <FancyDatePicker
-            rangeCalendar={true}
             disabledDateSetting={{ disableWeekends: true }}
             externalData={externalYears}
+            handler={(date) => console.log(date)}
             layer={2}
           />
           <DateOutput />
