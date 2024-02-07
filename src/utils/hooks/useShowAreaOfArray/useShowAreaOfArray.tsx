@@ -18,9 +18,7 @@ export default function useShowAreaOfArray<T>(props: TuseShowAreaOfArray<T>) {
       const end = areaStart + (areaForward + 1);
 
       // split the part of the array
-      const items = array.slice(start, end);
-
-      return items;
+      return array.slice(start, end);
     }
     return [];
   }, [array, areaForward, areaBackward, areaStart]);
