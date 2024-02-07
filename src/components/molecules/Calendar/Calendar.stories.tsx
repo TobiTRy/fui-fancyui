@@ -1,15 +1,13 @@
-import React from 'react';
-
 import type { Meta, StoryObj } from '@storybook/react';
 
-import RangeCalendar from './RangeCalendar';
+import Calendar from './Calendar';
 
 const meta = {
-  component: RangeCalendar,
+  component: Calendar,
   parameters: {
     docs: {
       description: {
-        component: 'Dumb-Comonent: A RangeCalendar component to select a date range. or a single date.',
+        component: 'Dumb-Comonent: A Calendar component to select a date range. or a single date.',
       },
     },
   },
@@ -24,7 +22,7 @@ const meta = {
       type: { name: 'boolean' },
       defaultValue: { summary: false },
     },
-    handler: {
+    handleDates: {
       description: 'The handler gives back the selected date.',
     },
     selectFromTo: {
@@ -57,55 +55,57 @@ const meta = {
     },
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof RangeCalendar>;
+} satisfies Meta<typeof Calendar>;
 
 export default meta;
 
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
-  render: (args) => <RangeCalendar {...args} />,
+  render: (args) => <Calendar {...args} />,
   args: {
     selectedYear: new Date().getFullYear(),
     rangeCalendar: false,
     selectFromTo: 'from',
     themeType: 'secondary',
-    externalMonthsWithDays: [
-      {
-        monthIdx: 0,
-        dates: [
-          {
-            date: 1,
-            isAvilable: 'partially',
-          },
-          {
-            date: 2,
-            isAvilable: 'not',
-          },
-          {
-            date: 3,
-            isAvilable: 'transparent',
-          },
-        ],
-      },
-      {
-        monthIdx: 11,
-        dates: [
-          {
-            date: 5,
-            isAvilable: 'partially',
-          },
-          {
-            date: 7,
-            isAvilable: 'not',
-          },
-          {
-            date: 2,
-            isAvilable: 'transparent',
-          },
-        ],
-      },
-    ],
+    externalMonthsWithDays: {
+      2023: [
+        {
+          monthIdx: 0,
+          dates: [
+            {
+              date: 1,
+              isAvilable: 'partially',
+            },
+            {
+              date: 2,
+              isAvilable: 'not',
+            },
+            {
+              date: 3,
+              isAvilable: 'transparent',
+            },
+          ],
+        },
+        {
+          monthIdx: 11,
+          dates: [
+            {
+              date: 5,
+              isAvilable: 'partially',
+            },
+            {
+              date: 7,
+              isAvilable: 'not',
+            },
+            {
+              date: 2,
+              isAvilable: 'transparent',
+            },
+          ],
+        },
+      ],
+    },
     disabledDateSetting: {
       disabledWeekdays: [1, 6],
       disableWeekends: true,

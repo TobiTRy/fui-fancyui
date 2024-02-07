@@ -70,7 +70,7 @@ export * from '@/components/molecules/InputWrapper';
 export * from '@/components/molecules/Modal';
 export * from '@/components/molecules/MonthWithDays';
 export * from '@/components/molecules/Card';
-export * from '@/components/molecules/RangeCalendar';
+export * from '@/components/molecules/Calendar';
 export * from '@/components/molecules/ScalingSection';
 export * from '@/components/molecules/SearchBar';
 export * from '@/components/molecules/SingleInputs';
