@@ -33,10 +33,31 @@ const externalYears: IExternalYearWithMonths = {
         },
       ],
     },
+    {
+      monthIdx: 11,
+      dates: [
+        {
+          date: 27,
+          isAvilable: 'not',
+        },
+        {
+          date: 28,
+          isAvilable: 'not',
+        },
+        {
+          date: 29,
+          isAvilable: 'not',
+        },
+        {
+          date: 30,
+          isAvilable: 'partially',
+        },
+      ],
+    },
   ],
   2024: [
     {
-      monthIdx: 7,
+      monthIdx: 0,
       dates: [
         {
           date: 1,
