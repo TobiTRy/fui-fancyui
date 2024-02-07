@@ -1,8 +1,9 @@
 import { IDisabledDateSettings } from './types/IDisableDateSettings.model';
 import { IDateWithExternalState } from './types/IExternalMonthWithDays.model';
 import { TDay } from './types/TDay.model';
-import { IDateArray } from '../../RangeCalendar/IDateArray.model';
+
 import { disableDate } from './disableDate';
+import { TDateArray } from '@/components/molecules/Calendar/TCalendar.model';
 
 // --------------------------------------------------------------------------- //
 // ----this function creates a day object based on the following parameters--- //
@@ -12,7 +13,7 @@ interface ICreateDay {
   month: number;
   year: number;
   isRangePicking?: boolean;
-  selectedDates: IDateArray;
+  selectedDates: TDateArray;
   disabledDateSetting?: IDisabledDateSettings;
   externalDate?: IDateWithExternalState;
 }
