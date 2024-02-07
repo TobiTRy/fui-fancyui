@@ -1,5 +1,5 @@
 import { TDateOnlyArray } from '@/components/molecules/Calendar/TCalendar.model';
-import { TDateArray, TSelectDayRange } from './TselectDayRange.model';
+import { TSelectDayRange } from './TselectDayRange.model';
 
 // --------------------------------------------------------------------------- //
 // ---------- this function handles the selection from the ranges ------------ //
@@ -9,7 +9,7 @@ export function selectDayRange(props: TSelectDayRange) {
 
   // create day with the selected date
   const newDate = new Date(selectedYear, monthIndex, day.number);
-  let newSelectedDates: TDateArray = [...selectedDates];
+  let newSelectedDates: TDateOnlyArray = [...selectedDates];
 
   if (newSelectedDates[0] && newDate < newSelectedDates[0]) {
     newSelectedDates[0] = newDate; // Swap dates if "to" date is earlier than "from" date
@@ -45,7 +45,7 @@ export function selectDayRange(props: TSelectDayRange) {
     newSelectedDates = [newDate, undefined];
     handleSwitchFromTo && handleSwitchFromTo('to');
   } else if (checkForValidDatesEnterd(newSelectedDates)) {
-    if (checkDateIsSame(newSelectedDates as Date[])) {
+    if (checkDateIsSame(newSelectedDates)) {
       const identifySecondAsDate = newSelectedDates[1] as Date;
       identifySecondAsDate.setDate(identifySecondAsDate.getDate() + 1);
       newSelectedDates = [newSelectedDates[0], identifySecondAsDate];
@@ -60,11 +60,11 @@ export function selectDayRange(props: TSelectDayRange) {
 }
 
 // Check if both dates are entered
-const checkForValidDatesEnterd = (dates: TDateArray) => {
+const checkForValidDatesEnterd = (dates: TDateOnlyArray) => {
   return dates[0] && dates[1] ? true : false;
 };
 
 // Check if date is the same
-const checkDateIsSame = (dates: Date[]) => {
-  return dates[0].getTime() === dates[1].getTime();
+const checkDateIsSame = (dates: TDateOnlyArray) => {
+  return dates[0] && dates[1] && dates[0].getTime() === dates[1].getTime();
 };
