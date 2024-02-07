@@ -8,7 +8,7 @@ import { IExternalMonthWithDays } from '@/components/molecules/MonthWithDays/uti
 export type TMonthWithDays = {
   monthIdx: number;
   year: number;
-  handleDateClick?: (day: TDay, monthIdx: number) => void;
+  handleDateClick?: (day: TDay, monthIdx: number, year: number) => void;
   isRangePicking?: boolean;
   selectedDates: IDateArray;
   externalMonthWithDays?: IExternalMonthWithDays;

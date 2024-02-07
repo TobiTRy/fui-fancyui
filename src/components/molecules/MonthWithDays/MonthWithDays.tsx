@@ -43,7 +43,7 @@ export default function MonthWithDays(props: TMonthWithDays) {
 
   useEffect(() => {
     if (externalMonthWithDays) {
-      // create a array for each month of a year and fill it with the external state
+      // create a array for the month of a year and fill it with the external state
       const daysOfMonth = Array.from({ length: getDaysInMonth(monthIdx + 1, year) });
       externalMonthWithDays?.dates?.forEach((date) => {
         daysOfMonth[date.date] = date;
@@ -86,7 +86,7 @@ export default function MonthWithDays(props: TMonthWithDays) {
             isSelected={day.isSelected}
             range={day.range}
             isAvailable={day.isAvilable || 'completly'}
-            onClick={() => handleDateClick && handleDateClick(day, monthIdx)}
+            onClick={() => handleDateClick && handleDateClick(day, monthIdx, year)}
           />
         ))}
       </DaysContainer>
