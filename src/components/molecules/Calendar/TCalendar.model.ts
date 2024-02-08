@@ -8,12 +8,17 @@ export type TDateArray = [Date | undefined, Date | undefined] | Date;
 
 export type TDateOnlyArray = [Date | undefined, Date | undefined];
 
+export type TYearMonth = {
+  year: number;
+  month: number;
+};
+
 export type TCalendar = {
-  selectedYear?: number;
+  selectedYearMonth?: TYearMonth;
   rangeCalendar: boolean;
   handleDates?: (date: TDateArray) => void;
   selectFromTo?: 'from' | 'to' | undefined;
-  yearHandler?: (year: number) => void;
+  currentInViewhandler?: (date: TYearMonth) => void;
   handleSwitchFromTo?: (change: 'from' | 'to') => void;
   disabledDateSetting?: IDisabledDateSettings;
   externalMonthsWithDays?: IExternalYearWithMonths;

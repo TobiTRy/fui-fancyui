@@ -1,4 +1,4 @@
-import { RefObject, useEffect, useMemo, useRef, useState } from 'react';
+import { RefObject, useEffect, useMemo, useRef } from 'react';
 
 import { MonthContainer, StyledCalendar } from './Calendar.style';
 
@@ -6,19 +6,19 @@ import { MonthWithDays } from '@/components/molecules/MonthWithDays';
 import useSelectedDates from './utils/useSelectedDates/useSelectedDates';
 
 import { TCalendar } from '@/components/molecules/Calendar/TCalendar.model';
-import { useShowAreaOfArray } from '@/utils/hooks/useShowAreaOfArray';
-import { useMultiIntersectionObserver } from '@/utils/hooks/useMiltiIntersectionObserver';
 import { scrollToElm } from '@/utils/functions/scrollToElementInContainer/scrollToElementInContainer';
+import createMultiIntersectionObserver from '@/utils/hooks/useMiltiIntersectionObserver/multiplyIntersectionObserver';
+import showAreaOfArray from '@/utils/hooks/useShowAreaOfArray/showAreaOfArray';
 
 // --------------------------------------------------------------------------- //
 // -------- The main calenader wich can select a date, or date range --------- //
 // --------------------------------------------------------------------------- //
 export default function Calendar(props: TCalendar) {
   const {
-    selectedYear = new Date().getFullYear(),
+    selectedYearMonth = { year: new Date().getFullYear(), month: new Date().getMonth() },
     handleDates,
     selectFromTo,
-    yearHandler,
+    currentInViewhandler,
     handleSwitchFromTo,
     disabledDateSetting,
     externalMonthsWithDays,
@@ -26,7 +26,6 @@ export default function Calendar(props: TCalendar) {
     themeType,
     layer,
   } = props;
-
   // --------------------------------------------------------------------------- //
   // ---- This area of the component handles the rendering of the months ------- //
   // --------------------------------------------------------------------------- //
@@ -34,64 +33,66 @@ export default function Calendar(props: TCalendar) {
   const ContainerRef: RefObject<HTMLDivElement> = useRef(null);
 
   // generate the array with the months of the selected year and the year before and after (smooth scrolling)
-  const threeYearsArray = useMemo(() => generateArrayWithMontsAndYear(selectedYear), [selectedYear]);
-
-  // state for the current month in view (used for lazy loading) {year: 2024, month: 10}
-  const [currentInViewYearMonth, setCurrentInViewYearMonth] = useState({
-    year: selectedYear,
-    month: new Date().getMonth(),
-  });
-
+  const threeYearsArray = useMemo(
+    () => generateArrayWithMontsAndYear(selectedYearMonth?.year),
+    [selectedYearMonth?.year]
+  );
   // get the area of the array( currenrt month and the month before and after)
   // this is used to render the months (in this setting only three)
-  const { areaItems } = useShowAreaOfArray({
-    areaBackward: 1,
-    areaForward: 1,
-    areaStart: threeYearsArray.findIndex(
-      (month) => month.month === currentInViewYearMonth.month && month.year === currentInViewYearMonth.year
-    ),
-    array: threeYearsArray,
-  });
+  const areaItems = useMemo(
+    () =>
+      showAreaOfArray({
+        areaBackward: 1,
+        areaForward: 1,
+        areaStart: threeYearsArray.findIndex(
+          (month) => month.month === selectedYearMonth?.month && month.year === selectedYearMonth.year
+        ),
+        array: threeYearsArray,
+      }),
+
+    [threeYearsArray, selectedYearMonth]
+  );
 
   // ref for the months
   const monthRefs = useRef<(HTMLDivElement | null)[]>([]);
   // this hook is for the intersection observer to get the current month in view and set the state
   // this is used to render new months before they are in view (lazy loading)
-  useMultiIntersectionObserver({
-    elements: monthRefs.current,
-    callback: (el) => {
-      if (el) {
-        const dataMonthAttribute = parseInt(el.getAttribute('data-month') || '0');
-        const dataYearAttribute = parseInt(el.getAttribute('data-year') || '0');
 
-        // if the next month is in view, set the selected month to the next month
-        if (dataYearAttribute !== currentInViewYearMonth.year || dataMonthAttribute !== currentInViewYearMonth.month) {
-          setCurrentInViewYearMonth({ year: dataYearAttribute, month: dataMonthAttribute });
-        }
+  // Setup Intersection Observer
+  useEffect(() => {
+    // Convert monthRefs to a format suitable for the observer
+    const observerElements = monthRefs.current.filter(Boolean);
 
-        // if the next year is in view, set the selected year to the next year
-        if (dataYearAttribute && dataYearAttribute > selectedYear) {
-          yearHandler?.(dataYearAttribute);
-        } else if (dataYearAttribute && dataYearAttribute < selectedYear) {
-          yearHandler?.(dataYearAttribute);
+    // Initialize the intersection observer and store the cleanup function
+    const cleanupObserver = createMultiIntersectionObserver({
+      elements: observerElements,
+      callback: (el) => {
+        const dataMonth = parseInt(el.getAttribute('data-month') || '0');
+        const dataYear = parseInt(el.getAttribute('data-year') || '0');
+        if (dataYear !== selectedYearMonth.year || dataMonth !== selectedYearMonth.month) {
+          currentInViewhandler?.({ year: dataYear, month: dataMonth });
         }
+      },
+      options: { threshold: 0.6 },
+    });
+
+    // Call the cleanup function on component unmount or before re-running this effect
+    return () => {
+      if (cleanupObserver) {
+        cleanupObserver();
       }
-    },
-    options: {
-      threshold: 0.6, // is the smoothest setting
-    },
-  });
+    };
+  }, [selectedYearMonth, currentInViewhandler]);
 
   // --------------------------------------------------------------------------- //
   // -- handle the scrolling to the current month and the slection of the dates- //
   // --------------------------------------------------------------------------- //
-
   // Scroll to current month on mount and set isScrolled to true
   useEffect(() => {
-    if (monthRefs.current.length > 0) {
+    if (monthRefs.current.length > 0 && selectedYearMonth?.month === new Date().getMonth()) {
       scrollToElm(ContainerRef.current as HTMLElement, monthRefs.current[new Date().getMonth()] as HTMLElement, 0);
     }
-  }, []);
+  }, [selectedYearMonth?.month]);
 
   // handle the selection of the date or date range
   const { selectedDates, handleDateClick } = useSelectedDates({
