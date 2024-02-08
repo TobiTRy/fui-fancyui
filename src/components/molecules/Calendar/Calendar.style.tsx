@@ -23,11 +23,3 @@ export const DateContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(7, 1fr);
 `;
-
-// this span is for the empty days
-export const DateNumber = styled.span`
-  width: 14.28%; /* 100 / 7 days */
-  text-align: right;
-  cursor: pointer;
-  box-sizing: border-box;
-`;
