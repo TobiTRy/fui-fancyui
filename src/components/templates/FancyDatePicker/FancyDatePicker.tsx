@@ -13,11 +13,22 @@ import { clampLayer } from '@/utils/functions/clampLayer';
 // --------- A Datepicker thats really fancy with some advanced logic -------- //
 // --------------------------------------------------------------------------- //
 export default function FancyDatePicker(props: TFancyDatePicker) {
-  const { rangeCalendar = false, handler, selectedYear, disabledDateSetting, externalData, themeType, layer } = props;
+  const {
+    rangeCalendar = false,
+    handler,
+    monthYearInView,
+    disabledDateSetting,
+    externalData,
+    themeType,
+    layer,
+  } = props;
 
   const [selectedDate, setSelectedDate] = useState<TDateArray>([undefined, undefined]);
   const [currentlySelectedFromOrTo, setCurrentlySelectedFromOrTo] = useState<'from' | 'to'>('from');
-  const [currentlySelectedYear, setCurrentlySelectedYear] = useState(new Date().getFullYear());
+  const [currentlyMonthYearInView, setCurrentlyMonthYearInView] = useState({
+    year: new Date().getFullYear(),
+    month: new Date().getMonth(),
+  });
   const swapedTheme = themeType ? (themeType === 'primary' ? 'secondary' : 'primary') : undefined;
 
   // handle date change
@@ -33,15 +44,15 @@ export default function FancyDatePicker(props: TFancyDatePicker) {
 
   // update the state if the selectedYear changes
   useEffect(() => {
-    if (selectedYear) setCurrentlySelectedYear(selectedYear);
-  }, [selectedYear]);
+    if (monthYearInView) setCurrentlyMonthYearInView(monthYearInView);
+  }, [monthYearInView]);
 
   return (
     <DatePickerContainer $themeType={themeType} $layer={layer}>
       <WrapperYearSelector>
         <YearSelector
-          selectedYear={currentlySelectedYear}
-          handler={(year: number) => setCurrentlySelectedYear(year)}
+          selectedYear={currentlyMonthYearInView.year}
+          handler={(year: number) => setCurrentlyMonthYearInView({ year, month: currentlyMonthYearInView.month })}
           themeType={swapedTheme}
           layer={layer}
         />
@@ -51,9 +62,9 @@ export default function FancyDatePicker(props: TFancyDatePicker) {
       <Calendar
         rangeCalendar={rangeCalendar}
         externalMonthsWithDays={externalData}
-        selectedYear={currentlySelectedYear}
+        selectedYearMonth={currentlyMonthYearInView}
         handleDates={handleDateChange}
-        yearHandler={setCurrentlySelectedYear}
+        currentInViewhandler={(date) => setCurrentlyMonthYearInView(date)}
         selectFromTo={currentlySelectedFromOrTo ?? 'from'}
         handleSwitchFromTo={handleSwitchFromTo}
         disabledDateSetting={disabledDateSetting}

@@ -13,6 +13,7 @@ import { FancyNumberInput } from '@/components/organisms/FancyNumberInput';
 import { FancyAlignBox } from '@/components/templates/FancyAlignBox';
 import { Button } from '@/components/molecules/Button';
 import { FancyLine } from '@/components/atoms/FancyLine';
+import { useThrottledCallback } from '@/utils/hooks/useThrottle/useThrottle';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -55,6 +56,8 @@ export default function ExperimentalRoute() {
     console.log('remove');
   };
 
+  const throttledAction = useThrottledCallback(removeToast, 1000);
+
   return (
     <>
       <DesignWrapper>
@@ -77,6 +80,13 @@ export default function ExperimentalRoute() {
             themeType="secondary"
             icon={reloadIcon}
             onClick={() => switchTheme()}
+          />
+          <FancyButton
+            borderRadius="md"
+            sizeC="md"
+            themeType="secondary"
+            icon={reloadIcon}
+            onClick={() => throttledAction()}
           />
         </DesignArea>
         <DesignArea title="Test">
