@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import themeStore from '../../design/theme/themeStore/themeStore';
 
@@ -14,6 +14,8 @@ import { FancyAlignBox } from '@/components/templates/FancyAlignBox';
 import { Button } from '@/components/molecules/Button';
 import { FancyLine } from '@/components/atoms/FancyLine';
 import { useThrottledCallback } from '@/utils/hooks/useThrottle/useThrottle';
+import styled from 'styled-components';
+import createMultiIntersectionObserver from '@/utils/hooks/useMiltiIntersectionObserver/multiplyIntersectionObserver';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -40,6 +42,20 @@ const values = [
   { label: 'test2', icon: Icon, itemKey: '2' },
   { label: 'test3', icon: Icon, itemKey: '3' },
   { label: 'test4', icon: Icon, itemKey: '4' },
+  { label: 'test1', icon: Icon, itemKey: '1' },
+  { label: 'test2', icon: Icon, itemKey: '2' },
+  { label: 'test3', icon: Icon, itemKey: '3' },
+  { label: 'test4', icon: Icon, itemKey: '4' },
+  { label: 'test4', icon: Icon, itemKey: '4' },
+  { label: 'test1', icon: Icon, itemKey: '1' },
+  { label: 'test2', icon: Icon, itemKey: '2' },
+  { label: 'test3', icon: Icon, itemKey: '3' },
+  { label: 'test4', icon: Icon, itemKey: '4' },
+  { label: 'test4', icon: Icon, itemKey: '4' },
+  { label: 'test1', icon: Icon, itemKey: '1' },
+  { label: 'test2', icon: Icon, itemKey: '2' },
+  { label: 'test3', icon: Icon, itemKey: '3' },
+  { label: 'test4', icon: Icon, itemKey: '4' },
 ];
 
 const CustomComponent = ({ children, test }: { children?: React.ReactNode; test?: string }) => {
@@ -47,6 +63,7 @@ const CustomComponent = ({ children, test }: { children?: React.ReactNode; test?
 };
 
 export default function ExperimentalRoute() {
+  const refs = React.useRef<(HTMLDivElement | null)[]>([]);
   const updateTheme = themeStore((state) => state.updateTheme);
   const switchTheme = themeStore((state) => state.switchTheme);
   const [isActive, setIsActive] = React.useState('');
@@ -57,6 +74,24 @@ export default function ExperimentalRoute() {
   };
 
   const throttledAction = useThrottledCallback(removeToast, 1000);
+
+  useEffect(() => {
+    // Initialize the intersection observer and store the cleanup function
+    const cleanupObserver = createMultiIntersectionObserver({
+      elements: refs.current.filter(Boolean), // Convert monthRefs to a format suitable for the observer
+      callback: (el) => {
+        console.log('in view', el);
+      },
+      options: { threshold: 0.81 },
+    });
+
+    // Call the cleanup function on component unmount or before re-running this effect
+    return () => {
+      if (cleanupObserver) {
+        cleanupObserver();
+      }
+    };
+  }, []);
 
   return (
     <>
@@ -91,6 +126,15 @@ export default function ExperimentalRoute() {
         </DesignArea>
         <DesignArea title="Test">
           <FancyLine direction="horizontal" themeType="accent" />
+          <WrapperBox>
+            {values.map((value, idx) => (
+              <Box
+                ref={(ref) => {
+                  refs.current[idx] = ref;
+                }}
+              />
+            ))}
+          </WrapperBox>
         </DesignArea>
       </DesignWrapper>
     </>
@@ -106,3 +150,22 @@ const defaultProps = {
     { label: 'hi', icon: svg, id: '4' },
   ],
 };
+
+const Box = styled.div`
+  height: 270px;
+  width: 90%;
+  background-color: #3e3e3e;
+  flex-shrink: 0;
+`;
+
+const WrapperBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  height: 300px;
+  padding: 20px;
+  background-color: black;
+  overflow-y: scroll;
+`;

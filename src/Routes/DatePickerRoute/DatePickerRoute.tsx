@@ -86,6 +86,10 @@ const externalYears: IExternalYearWithMonths = {
 };
 
 export default function DatePickerRoute() {
+  window.addEventListener('scroll', () => {
+    console.log('scrolling');
+  });
+
   return (
     <Card>
       <DesignWrapper>
@@ -93,6 +97,7 @@ export default function DatePickerRoute() {
           <FancyDatePicker
             disabledDateSetting={{ disableWeekends: true }}
             externalData={externalYears}
+            rangeCalendar={true}
             handler={(date) => console.log(date)}
             layer={2}
           />
