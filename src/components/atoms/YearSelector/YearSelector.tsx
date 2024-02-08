@@ -7,19 +7,36 @@ import { SVGChevronLeft } from '@/components/icons/SVGChevronLeft';
 import { SVGChevronRight } from '@/components/icons/SVGChevronRight';
 import { SVGDesignCSS, StyledButton, StyledYearSelector } from './YearSelector.style';
 import { sizeSettings } from './sizeSettings';
+import useDebounce from '@/utils/hooks/useDebounce/useDebounce';
 
 // --------------------------------------------------------------------------- //
 // ---------- Here are the design variants for sizing and alignment ---------- //
 // --------------------------------------------------------------------------- //
 export default function YearSelector(props: TYearSelector) {
-  const { selectedYear, sizeC = 'md', themeType, layer, handler, ariaTextLeftArrow, ariaTextRightArrow } = props;
+  const {
+    selectedYear,
+    sizeC = 'md',
+    themeType,
+    layer,
+    handler,
+    ariaTextLeftArrow,
+    ariaTextRightArrow,
+    debounceDelay,
+  } = props;
 
   const [selectedYearState, setSelectedYearState] = useState(selectedYear);
 
+  const debounceYearChange = useDebounce(() => {
+    handler?.(selectedYearState);
+  }, debounceDelay || 500);
+
   // update the year and call the handler if the year changes
   const handleYearChange = (change: number) => {
-    const calcCurrentYear = selectedYear + change;
-    handler && handler(calcCurrentYear);
+    const calcCurrentYear = selectedYearState + change;
+    // update the state
+    setSelectedYearState(calcCurrentYear);
+    // call the handler with a delay  to prevent multiple calls
+    if (handler) debounceYearChange();
   };
 
   const onBlurHandler = (e: React.FocusEvent<HTMLInputElement>) => {
