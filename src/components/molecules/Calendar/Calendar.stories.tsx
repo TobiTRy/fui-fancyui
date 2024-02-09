@@ -12,10 +12,17 @@ const meta = {
     },
   },
   argTypes: {
-    selectedYear: {
+    selectedYearMonth: {
       description: 'The selected year.',
-      type: { name: 'number' },
-      defaultValue: { summary: 'currentYear' },
+      control: {
+        type: 'object',
+      },
+      defaultValue: {
+        summary: {
+          year: new Date().getFullYear(),
+          month: new Date().getMonth(),
+        },
+      },
     },
     rangeCalendar: {
       description: 'If the Calendar a Rangepicker or SingelDate.',
@@ -64,7 +71,10 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   render: (args) => <Calendar {...args} />,
   args: {
-    selectedYear: new Date().getFullYear(),
+    selectedYearMonth: {
+      year: 2023,
+      month: 2,
+    },
     rangeCalendar: false,
     selectFromTo: 'from',
     themeType: 'secondary',
