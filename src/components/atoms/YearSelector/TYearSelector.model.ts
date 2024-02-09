@@ -10,5 +10,4 @@ export type TYearSelector = {
   handler?: (change: number) => void;
   ariaTextLeftArrow?: string;
   ariaTextRightArrow?: string;
-  debounceDelay?: number;
 };

@@ -36,6 +36,12 @@ const meta = {
         step: 1,
       },
     },
+    debounceDelay: {
+      description: 'The delay for the debounce',
+      control: {
+        type: 'number',
+      },
+    },
     handler: {
       description: 'The handler for the year selector',
       control: {
@@ -60,6 +66,7 @@ export const Primary: Story = {
     handler: (year: number) => console.log(year),
     themeType: 'secondary',
     layer: 0,
+    debounceDelay: 200,
   },
   parameters: {
     docs: {
