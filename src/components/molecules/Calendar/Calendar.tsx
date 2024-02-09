@@ -10,6 +10,7 @@ import { scrollToElm } from '@/utils/functions/scrollToElementInContainer/scroll
 import createMultiIntersectionObserver from '@/utils/hooks/useMiltiIntersectionObserver/multiplyIntersectionObserver';
 import showAreaOfArray from '@/utils/hooks/useShowAreaOfArray/showAreaOfArray';
 import useDebounce from '@/utils/hooks/useDebounce/useDebounce';
+import debounce from '@/utils/hooks/useDebounce/debounce';
 
 // --------------------------------------------------------------------------- //
 // -------- The main calenader wich can select a date, or date range --------- //
@@ -45,8 +46,8 @@ export default function Calendar(props: TCalendar) {
   const areaItems = useMemo(
     () =>
       showAreaOfArray({
-        areaBackward: 1,
-        areaForward: 1,
+        areaBackward: 2,
+        areaForward: 2,
         areaStart: threeYearsArray.findIndex(
           (month) => month.month === selectedYearMonth?.month && month.year === selectedYearMonth.year
         ),
@@ -63,41 +64,42 @@ export default function Calendar(props: TCalendar) {
   // this is used to render new months before they are in view (lazy loading)
   useEffect(() => {
     // Initialize the intersection observer and store the cleanup function#
-    setTimeout(() => {
-      const cleanupObserver = createMultiIntersectionObserver({
-        elements: monthRefs.current.filter(Boolean), // Convert monthRefs to a format suitable for the observer
-        callback: (el) => {
-          const dataMonth = parseInt(el.getAttribute('data-month') || '0');
-          const dataYear = parseInt(el.getAttribute('data-year') || '0');
-          if (dataYear !== selectedYearMonth.year || dataMonth !== selectedYearMonth.month) {
-            setTimeout(() => {
-              console.log('in view', el);
-              currentInViewhandler?.({ year: dataYear, month: dataMonth });
-            }, 0);
-          }
-        },
 
-        options: { threshold: 0.75, root: ContainerRef.current },
-      });
+    const cleanupObserver = createMultiIntersectionObserver({
+      elements: monthRefs.current?.filter(Boolean), // Convert monthRefs to a format suitable for the observer
+      callback: (el) => {
+        const dataMonth = parseInt(el.getAttribute('data-month') || '0');
+        const dataYear = parseInt(el.getAttribute('data-year') || '0');
+        if (dataYear !== selectedYearMonth.year || dataMonth !== selectedYearMonth.month) {
+          const debounceCurrentInView = debounce(
+            () => currentInViewhandler?.({ year: dataYear, month: dataMonth }),
+            100
+          );
 
-      // Call the cleanup function on component unmount or before re-running this effect
-      return () => {
-        if (cleanupObserver) {
-          cleanupObserver();
+          debounceCurrentInView();
         }
-      };
-    }, 100);
+      },
+
+      options: { threshold: 0.7, root: ContainerRef.current },
+    });
+
+    // Call the cleanup function on component unmount or before re-running this effect
+    return () => {
+      if (cleanupObserver) {
+        cleanupObserver();
+      }
+    };
   }, [selectedYearMonth, currentInViewhandler]);
 
   // --------------------------------------------------------------------------- //
   // -- handle the scrolling to the current month and the slection of the dates- //
   // --------------------------------------------------------------------------- //
-  // Scroll to current month on mount and set isScrolled to true
+  // Scroll to current month on mount
   useEffect(() => {
-    if (monthRefs.current.length > 0 && !isScrolling) {
+    if (monthRefs.current.length > 0) {
       scrollToElm(ContainerRef.current as HTMLElement, monthRefs.current[selectedYearMonth?.month] as HTMLElement, 0);
     }
-  }, [selectedYearMonth, isScrolling]);
+  }, []);
 
   // handle the selection of the date or date range
   const { selectedDates, handleDateClick } = useSelectedDates({
