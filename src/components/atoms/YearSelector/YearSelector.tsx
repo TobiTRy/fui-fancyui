@@ -28,7 +28,7 @@ export default function YearSelector(props: TYearSelector) {
 
   const debounceYearChange = useDebounce(() => {
     handler?.(selectedYearState);
-  }, debounceDelay || 500);
+  }, debounceDelay || 200);
 
   // update the year and call the handler if the year changes
   const handleYearChange = (change: number) => {
