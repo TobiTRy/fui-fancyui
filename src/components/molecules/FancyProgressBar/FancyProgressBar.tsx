@@ -34,10 +34,8 @@ export default function FancyProgressBar(props: IFancyProgressBar) {
           {label}
         </AlignedLabel>
       )}
-
       {/* The Progressbar Atom itself */}
       <ProgressBar id={id} progress={progress} maxValue={maxValue || 100} themeType={themeType} layer={layer} />
-
       {/* The Progress in percent as Text */}
       {progressCount && (
         <AlignedLabel as={'span'} align={progressAlign} layer={textLayer}>
