@@ -1,0 +1,58 @@
+# `useDebounce` Hook Documentation
+
+The `useDebounce` hook provides a way to delay the execution of a callback function until after a delay in milliseconds has elapsed since the last time the hook was invoked. This is particularly useful for optimizing operations that do not need to be performed immediately upon every update, such as API calls in response to user input.
+
+## Hook Signature
+
+```typescript
+function useDebounce(callback: CallbackFunction, delay: number): CallbackFunction;
+```
+
+## Parameters
+
+- `callback: CallbackFunction`: The callback function that you want to debounce. It should be a function with no parameters and no return value.
+- `delay: number`: The delay, in milliseconds, for the debounce timer.
+
+## Returns
+
+- `CallbackFunction`: A debounced version of the callback function that delays its execution until after the specified delay has elapsed since the last invocation.
+
+## How It Works
+
+1. **Callback and Timer References**: The hook uses `useRef` to keep references to the callback function and the timer across re-renders. This ensures that the most recent callback is always used without needing to reset the timer on every render.
+2. **Updating Callback Reference**: The current property of `callbackRef` is updated with the callback function each time the hook is called, ensuring the latest callback is used.
+3. **Debounced Action**: The `useCallback` hook creates a debounced action that clears any existing timer and sets a new one with the specified delay. The action returns a cleanup function to clear the timer when the component unmounts or the delay changes.
+4. **Cleanup on Unmount**: The cleanup function provided by `debouncedAction` ensures that the timer is cleared if the component using this hook unmounts, preventing the callback from being called after the component is no longer in the DOM.
+
+## Example Usage
+
+```jsx
+import React, { useState } from 'react';
+import useDebounce from './useDebounce';
+
+const SearchComponent = () => {
+  const [query, setQuery] = useState('');
+  const debouncedSearch = useDebounce(() => {
+    console.log(`Searching for ${query}`);
+    // Perform the search operation
+  }, 500);
+
+  const handleChange = (event) => {
+    setQuery(event.target.value);
+    debouncedSearch();
+  };
+
+  return <input type="text" onChange={handleChange} value={query} />;
+};
+```
+
+In this example, typing in the input field triggers `handleChange`, which updates the query state and calls `debouncedSearch`. However, the search operation (simulated by a console log) is debounced, meaning it will only execute 500 milliseconds after the user stops typing, reducing the number of times the search operation is executed.
+
+## Best Practices
+
+- **Use for Delaying Frequent Operations**: Ideal for search inputs, validating text inputs, or any operation that should not fire on every update.
+- **Memoize Callbacks**: If your callback depends on props or state, consider wrapping it with `useCallback` before passing it to `useDebounce` to prevent unnecessary re-creations of the debounced function.
+
+## Conclusion
+
+The `useDebounce` hook is a powerful tool for improving the performance and user experience of React applications by reducing the frequency of expensive operations. By debouncing functions, applications can avoid unnecessary computations, API calls, and other operations that may not need to be performed instantaneously.

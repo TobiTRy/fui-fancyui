@@ -18,7 +18,7 @@ export default function useDebounce(callback: CallbackFunction, delay: number) {
     }
     timerRef.current = setTimeout(handler, delay);
 
-    // Cleanup-Funktion, um den Timer zu löschen, wenn die Komponente entladen wird
+    // The clean
     return () => {
       if (timerRef.current) {
         clearTimeout(timerRef.current);
