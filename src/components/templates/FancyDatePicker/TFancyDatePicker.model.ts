@@ -13,4 +13,8 @@ export type TFancyDatePicker = {
   externalData?: IExternalYearWithMonths;
   themeType?: Exclude<TUiColorsMain, 'accent'>;
   layer?: TLayer;
+  yearSelector?: {
+    ariaTextLeftArrow: string;
+    ariaTextRightArrow: string;
+  };
 };
