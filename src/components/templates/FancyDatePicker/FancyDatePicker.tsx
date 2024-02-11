@@ -8,6 +8,7 @@ import { Calendar, TDateArray } from '@/components/molecules/Calendar';
 import { TFancyDatePicker } from '@/components/templates/FancyDatePicker/TFancyDatePicker.model';
 import { DatePickerContainer, WrapperYearSelector } from './FancyDatePicker.style';
 import { clampLayer } from '@/utils/functions/clampLayer';
+import { debounce } from '@/utils/functions/debounce';
 
 // --------------------------------------------------------------------------- //
 // --------- A Datepicker thats really fancy with some advanced logic -------- //
@@ -21,6 +22,7 @@ export default function FancyDatePicker(props: TFancyDatePicker) {
     externalData,
     themeType,
     layer,
+    yearSelector,
   } = props;
 
   const [selectedDate, setSelectedDate] = useState<TDateArray>([undefined, undefined]);
@@ -29,6 +31,7 @@ export default function FancyDatePicker(props: TFancyDatePicker) {
     year: new Date().getFullYear(),
     month: new Date().getMonth(),
   });
+  //
   const swapedTheme = themeType ? (themeType === 'primary' ? 'secondary' : 'primary') : undefined;
 
   // handle date change
@@ -42,6 +45,13 @@ export default function FancyDatePicker(props: TFancyDatePicker) {
     setCurrentlySelectedFromOrTo(change);
   };
 
+  // debounce the year change on the year selector
+  const debounceYearChangeOnYearSelect = (year: number) => {
+    const debounced = debounce(() => {
+      setCurrentlyMonthYearInView({ month: currentlyMonthYearInView.month, year: year });
+    }, 200);
+    debounced();
+  };
   // update the state if the selectedYear changes
   useEffect(() => {
     if (monthYearInView) setCurrentlyMonthYearInView(monthYearInView);
@@ -52,9 +62,10 @@ export default function FancyDatePicker(props: TFancyDatePicker) {
       <WrapperYearSelector>
         <YearSelector
           selectedYear={currentlyMonthYearInView.year}
-          handler={(year: number) => setCurrentlyMonthYearInView({ year, month: currentlyMonthYearInView.month })}
+          handler={(year: number) => debounceYearChangeOnYearSelect(year)}
           themeType={swapedTheme}
-          layer={layer}
+          ariaTextLeftArrow={yearSelector?.ariaTextLeftArrow || 'go one year back'}
+          ariaTextRightArrow={yearSelector?.ariaTextRightArrow || 'go one year forward'}
         />
       </WrapperYearSelector>
 

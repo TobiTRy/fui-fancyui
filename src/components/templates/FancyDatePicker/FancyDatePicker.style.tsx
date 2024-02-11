@@ -6,11 +6,11 @@ import { TTheme } from '@/types/TTheme';
 import { getColorsForComponent } from '@/design/designFunctions/colorCalculatorForComponent/';
 import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 
-export const DatePickerContainer = styled.div<{
-  theme: TTheme;
+type TStyledYearSelector = {
   $themeType?: TUiColorsNotTransparent;
   $layer?: TLayer;
-}>`
+};
+export const DatePickerContainer = styled.div<TStyledYearSelector & { theme: TTheme }>`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -23,6 +23,6 @@ export const DatePickerContainer = styled.div<{
 
 export const WrapperYearSelector = styled.div<{ theme: TTheme }>`
   width: 100%;
-  padding: ${({ theme }) => `${theme.spacing.sm} ${theme.spacing.sm} ${theme.spacing.md}`};
+  padding: ${({ theme }) => `0 ${theme.spacing.md} ${theme.spacing.xxs}`};
   box-sizing: border-box;
 `;
