@@ -12,7 +12,17 @@ import { sizeSettings } from './sizeSettings';
 // ---------- Here are the design variants for sizing and alignment ---------- //
 // --------------------------------------------------------------------------- //
 export default function YearSelector(props: TYearSelector) {
-  const { selectedYear, sizeC = 'md', themeType, layer, handler, ariaTextLeftArrow, ariaTextRightArrow } = props;
+  const {
+    selectedYear,
+    sizeC = 'md',
+    themeType,
+    layer = 5,
+    textLayer = 0,
+    borderRadius,
+    handler,
+    ariaTextLeftArrow,
+    ariaTextRightArrow,
+  } = props;
 
   const [selectedYearState, setSelectedYearState] = useState(selectedYear);
 
@@ -39,12 +49,12 @@ export default function YearSelector(props: TYearSelector) {
   }, [selectedYear]);
 
   return (
-    <StyledYearSelector $layer={layer} $themeType={themeType}>
+    <StyledYearSelector $sizeC={sizeC} $borderRadius={borderRadius} $layer={layer} $themeType={themeType}>
       <StyledButton
         aria-label={ariaTextLeftArrow || 'a year back'}
         onClick={() => handleYearChange(-1)}
         $themeType={themeType}
-        $layer={layer}
+        $layer={textLayer}
       >
         <FancySVGAtom isPassive={true} sizeC={sizeSettings[sizeC].iconSize} externalStyle={SVGDesignCSS}>
           {SVGChevronLeft}
@@ -55,7 +65,7 @@ export default function YearSelector(props: TYearSelector) {
         aria-label={ariaTextRightArrow || 'one year forward'}
         onClick={() => handleYearChange(1)}
         $themeType={themeType}
-        $layer={layer}
+        $layer={textLayer}
       >
         <FancySVGAtom isPassive={true} sizeC={sizeSettings[sizeC].iconSize} externalStyle={SVGDesignCSS}>
           {SVGChevronRight}

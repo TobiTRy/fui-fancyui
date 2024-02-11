@@ -4,18 +4,23 @@ import { TLayer } from '@/types/TLayer';
 import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent';
 import { TTheme } from '@/types/TTheme';
 import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
+import IStyledPrefixAndPicker from '@/types/IStyledPrefixAndPicker';
+import { TYearSelector } from '@/components/atoms/YearSelector/TYearSelector.model';
+import { globalElementsizes } from '@/design/theme/globalSizes';
+import { generateBorderRadius } from '@/design/designFunctions/generateItemTheme/utils/generateBorderRadius';
 
-export const StyledYearSelector = styled.div<{
+type TStyledYearSelector = IStyledPrefixAndPicker<TYearSelector, 'layer' | 'themeType' | 'sizeC' | 'borderRadius'> & {
   theme: TTheme;
-  $themeType?: TUiColorsNotTransparent;
-  $layer?: TLayer;
-}>`
+};
+export const StyledYearSelector = styled.div<TStyledYearSelector>`
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  color: ${({ theme, $layer, $themeType }) =>
-    $themeType ? theme.colors[$themeType][$layer ?? 0] : theme.colors.secondary[0]};
+  border-radius: ${({ $borderRadius }) => generateBorderRadius({ $sizeC: $borderRadius })};
+  background-color: ${({ theme, $layer = 2, $themeType = 'primary' }) =>
+    getBackgroundColor({ theme, $themeType, $layer })};
+  height: ${({ $sizeC = 'md' }) => globalElementsizes[$sizeC]};
 `;
 
 export const StyledButton = styled.button<{ theme: TTheme; $themeType?: TUiColorsNotTransparent; $layer?: TLayer }>`
