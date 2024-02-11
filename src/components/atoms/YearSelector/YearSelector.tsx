@@ -7,7 +7,6 @@ import { SVGChevronLeft } from '@/components/icons/SVGChevronLeft';
 import { SVGChevronRight } from '@/components/icons/SVGChevronRight';
 import { SVGDesignCSS, StyledButton, StyledYearSelector } from './YearSelector.style';
 import { sizeSettings } from './sizeSettings';
-import useDebounce from '@/utils/hooks/useDebounce/useDebounce';
 
 // --------------------------------------------------------------------------- //
 // ---------- Here are the design variants for sizing and alignment ---------- //
@@ -22,7 +21,7 @@ export default function YearSelector(props: TYearSelector) {
     const calcCurrentYear = selectedYearState + change;
     // update the state
     setSelectedYearState(calcCurrentYear);
-    handler?.(selectedYearState);
+    handler?.(calcCurrentYear);
     // call the handler with a delay  to prevent multiple calls
   };
 
