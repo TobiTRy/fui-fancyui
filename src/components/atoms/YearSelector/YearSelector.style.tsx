@@ -7,7 +7,9 @@ import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 import IStyledPrefixAndPicker from '@/types/IStyledPrefixAndPicker';
 import { TYearSelector } from '@/components/atoms/YearSelector/TYearSelector.model';
 import { globalElementsizes } from '@/design/theme/globalSizes';
-import { generateBorderRadius } from '@/design/designFunctions/generateItemTheme/utils/generateBorderRadius';
+import { generateBorderRadiusForComponent } from '@/design/designFunctions/generateBorderRadiusForComponent';
+import { sizeSettings } from './sizeSettings';
+import { arrayToCssValues } from '@/design/designFunctions/arrayToCssValues';
 
 type TStyledYearSelector = IStyledPrefixAndPicker<TYearSelector, 'layer' | 'themeType' | 'sizeC' | 'borderRadius'> & {
   theme: TTheme;
@@ -17,7 +19,10 @@ export const StyledYearSelector = styled.div<TStyledYearSelector>`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  border-radius: ${({ $borderRadius }) => generateBorderRadius({ $sizeC: $borderRadius })};
+  box-sizing: border-box;
+  padding: ${({ $sizeC = 'md' }) => arrayToCssValues(sizeSettings[$sizeC].padding)};
+  ${({ $borderRadius, theme, $sizeC }) =>
+    generateBorderRadiusForComponent({ rounded: $borderRadius, theme, sizeC: $sizeC })};
   background-color: ${({ theme, $layer = 2, $themeType = 'primary' }) =>
     getBackgroundColor({ theme, $themeType, $layer })};
   height: ${({ $sizeC = 'md' }) => globalElementsizes[$sizeC]};
