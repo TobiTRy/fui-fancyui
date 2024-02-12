@@ -149,7 +149,7 @@ export * from '@/components/shared/Delay';
 export * from '@/components/shared/ComponentAsWrapper';
 export * from '@/components/shared/FancyPortal';
 export * from '@/utils/hooks/useIntersectionObserver';
-export * from '@/utils/hooks/useWindowDimensions/';
+export * from '@/utils/hooks/useWindowDimensions';
 
 // ---------- Design ------- //
 export * from '@/design/designFunctions/calcBorderRadiusOnAlignment';

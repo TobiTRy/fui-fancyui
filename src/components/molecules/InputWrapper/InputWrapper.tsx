@@ -1,7 +1,6 @@
 import { css } from 'styled-components';
 import { FancySVGAtom } from '@/components/atoms/FancySVGAtom';
 
-import { SystemMessage } from '@/components/atoms/SystemMessage/';
 import { LabeledInput } from '@/components/molecules/LabeledInput';
 import { getOpositMainThemeType } from '@/design/designFunctions/getOpositMainThemeType';
 import { TInputWrapper } from './TInputWrapper.model';
@@ -13,6 +12,7 @@ import {
   WrapperSystemMessageAndInput,
 } from './InputWrapper.style';
 import { FancyBox } from '@/components/atoms/FancyBox';
+import { SystemMessage } from '@/components/atoms/SystemMessage';
 
 // --------------------------------------------------------------------------- //
 // ------ The Wrapper for the inputs that give him some extra features  ------ //
