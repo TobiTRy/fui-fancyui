@@ -27,6 +27,36 @@ const meta = {
         type: 'select',
       },
     },
+    sizeC: {
+      description: 'The size of the year selector',
+      control: {
+        type: 'select',
+      },
+    },
+    borderRadius: {
+      description: 'The border radius of the year selector',
+      control: {
+        type: 'select',
+      },
+    },
+    ariaTextLeftArrow: {
+      description: 'The aria label for the left arrow',
+      control: {
+        type: 'text',
+      },
+      defaultValue: {
+        summary: 'a year back',
+      },
+    },
+    ariaTextRightArrow: {
+      description: 'The aria label for the right arrow',
+      control: {
+        type: 'text',
+      },
+      defaultValue: {
+        summary: 'one year forward',
+      },
+    },
     layer: {
       description: 'The layer of the year selector',
       control: {
