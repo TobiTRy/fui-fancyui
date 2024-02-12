@@ -61,6 +61,7 @@ export default function FancyDatePicker(props: TFancyDatePicker) {
     <DatePickerContainer $themeType={themeType} $layer={layer}>
       <WrapperYearSelector>
         <YearSelector
+          borderRadius="complete"
           selectedYear={currentlyMonthYearInView.year}
           handler={(year: number) => debounceYearChangeOnYearSelect(year)}
           themeType={swapedTheme}
