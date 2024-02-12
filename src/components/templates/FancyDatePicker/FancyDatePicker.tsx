@@ -64,7 +64,7 @@ export default function FancyDatePicker(props: TFancyDatePicker) {
           borderRadius="complete"
           selectedYear={currentlyMonthYearInView.year}
           handler={(year: number) => debounceYearChangeOnYearSelect(year)}
-          themeType={swapedTheme}
+          themeType={'transparent'}
           ariaTextLeftArrow={yearSelector?.ariaTextLeftArrow || 'go one year back'}
           ariaTextRightArrow={yearSelector?.ariaTextRightArrow || 'go one year forward'}
         />
