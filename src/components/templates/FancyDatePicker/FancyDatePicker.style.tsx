@@ -3,8 +3,8 @@ import { styled } from 'styled-components';
 import { TLayer } from '@/types/TLayer';
 import { TTheme } from '@/types/TTheme';
 
-import { getColorsForComponent } from '@/design/designFunctions/colorCalculatorForComponent/';
 import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
+import { getColorsForComponent } from '@/design/designFunctions/colorCalculatorForComponent';
 
 type TStyledYearSelector = {
   $themeType?: TUiColorsNotTransparent;
