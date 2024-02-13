@@ -9,6 +9,7 @@ import { TFancyDatePicker } from '@/components/templates/FancyDatePicker/TFancyD
 import { DatePickerContainer, WrapperYearSelector } from './FancyDatePicker.style';
 import { clampLayer } from '@/utils/functions/clampLayer';
 import { debounce } from '@/utils/functions/debounce';
+import { useDebounce } from '@/utils/hooks/useDebounce';
 
 // --------------------------------------------------------------------------- //
 // --------- A Datepicker thats really fancy with some advanced logic -------- //
@@ -28,9 +29,12 @@ export default function FancyDatePicker(props: TFancyDatePicker) {
   const [selectedDate, setSelectedDate] = useState<TDateArray>([undefined, undefined]);
   const [currentlySelectedFromOrTo, setCurrentlySelectedFromOrTo] = useState<'from' | 'to'>('from');
   const [currentlyMonthYearInView, setCurrentlyMonthYearInView] = useState({
-    year: new Date().getFullYear(),
     month: new Date().getMonth(),
+    year: new Date().getFullYear(),
   });
+
+  const [debounceYear, setDebounceYear] = useState<number>(currentlyMonthYearInView.year);
+
   //
   const swapedTheme = themeType ? (themeType === 'primary' ? 'secondary' : 'primary') : undefined;
 
@@ -45,13 +49,15 @@ export default function FancyDatePicker(props: TFancyDatePicker) {
     setCurrentlySelectedFromOrTo(change);
   };
 
+  const debounceYearFunc = useDebounce((year: number) => {
+    setCurrentlyMonthYearInView((current) => ({ ...current, year }));
+  }, 500);
   // debounce the year change on the year selector
   const debounceYearChangeOnYearSelect = (year: number) => {
-    const debounced = debounce(() => {
-      setCurrentlyMonthYearInView({ month: currentlyMonthYearInView.month, year: year });
-    }, 200);
-    debounced();
+    setDebounceYear(year);
+    debounceYearFunc(year);
   };
+
   // update the state if the selectedYear changes
   useEffect(() => {
     if (monthYearInView) setCurrentlyMonthYearInView(monthYearInView);

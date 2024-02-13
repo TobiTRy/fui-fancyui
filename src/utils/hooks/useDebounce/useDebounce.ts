@@ -1,30 +1,25 @@
-import { useCallback, useRef } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
-type CallbackFunction = () => void;
+export default function useDebounce<T extends (...args: any[]) => void>(
+  callback: T,
+  delay: number
+): (...args: Parameters<T>) => void {
+  const [timer, setTimer] = useState<NodeJS.Timeout | null>(null);
 
-export default function useDebounce(callback: CallbackFunction, delay: number) {
-  const callbackRef = useRef<CallbackFunction>(callback);
-  // Verwenden Sie useRef, um den Timer zu speichern, anstatt eine globale Variable zu ändern
-  const timerRef = useRef<NodeJS.Timeout | number>();
+  const debouncedFunc = useCallback(
+    (...args: Parameters<T>) => {
+      if (timer) clearTimeout(timer);
+      const newTimer = setTimeout(() => callback(...args), delay);
+      setTimer(newTimer);
+    },
+    [callback, delay]
+  );
 
-  callbackRef.current = callback;
-
-  const debouncedAction = useCallback(() => {
-    const handler = () => callbackRef.current();
-
-    // Löschen des vorhandenen Timers und Starten eines neuen
-    if (timerRef.current) {
-      clearTimeout(timerRef.current);
-    }
-    timerRef.current = setTimeout(handler, delay);
-
-    // The clean
+  useEffect(() => {
     return () => {
-      if (timerRef.current) {
-        clearTimeout(timerRef.current);
-      }
+      if (timer) clearTimeout(timer);
     };
-  }, [delay]);
+  }, [timer]);
 
-  return debouncedAction;
+  return debouncedFunc;
 }

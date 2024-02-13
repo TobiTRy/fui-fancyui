@@ -1,4 +1,4 @@
-import { RefObject, useEffect, useMemo, useRef } from 'react';
+import { RefObject, useEffect, useMemo, useRef, useState } from 'react';
 
 import { MonthContainer, StyledCalendar } from './Calendar.style';
 
@@ -16,7 +16,7 @@ import debounce from '@/utils/functions/debounce/debounce';
 // --------------------------------------------------------------------------- //
 export default function Calendar(props: TCalendar) {
   const {
-    selectedYearMonth = { year: new Date().getFullYear(), month: new Date().getMonth() },
+    selectedYearMonth,
     handleDates,
     selectFromTo,
     currentInViewhandler,
@@ -27,16 +27,23 @@ export default function Calendar(props: TCalendar) {
     themeType,
     layer,
   } = props;
+
+  console.log(selectedYearMonth);
+
   // --------------------------------------------------------------------------- //
   // ---- This area of the component handles the rendering of the months ------- //
   // --------------------------------------------------------------------------- //
   //ref for the main container (wrapper)
+  const [selectedYearMonthState, setSelectedYearMonthState] = useState({
+    year: new Date().getFullYear(),
+    month: new Date().getMonth(),
+  });
   const ContainerRef: RefObject<HTMLDivElement> = useRef(null);
 
   // generate the array with the months of the selected year and the year before and after (smooth scrolling)
   const threeYearsArray = useMemo(
-    () => generateArrayWithMontsAndYear(selectedYearMonth?.year),
-    [selectedYearMonth?.year]
+    () => generateArrayWithMontsAndYear(selectedYearMonthState?.year),
+    [selectedYearMonthState.year]
   );
   // get the area of the array( currenrt month and the month before and after)
   // this is used to render the months (in this setting only three)
@@ -46,12 +53,12 @@ export default function Calendar(props: TCalendar) {
         areaBackward: 2,
         areaForward: 2,
         areaStart: threeYearsArray.findIndex(
-          (month) => month.month === selectedYearMonth?.month && month.year === selectedYearMonth.year
+          (month) => month.month === selectedYearMonthState?.month && month.year === selectedYearMonthState.year
         ),
         array: threeYearsArray,
       }),
 
-    [threeYearsArray, selectedYearMonth]
+    [threeYearsArray, selectedYearMonthState]
   );
 
   // ref for the months
@@ -66,17 +73,16 @@ export default function Calendar(props: TCalendar) {
       callback: (el) => {
         const dataMonth = parseInt(el.getAttribute('data-month') || '0');
         const dataYear = parseInt(el.getAttribute('data-year') || '0');
-        if (dataYear !== selectedYearMonth.year || dataMonth !== selectedYearMonth.month) {
-          const debounceCurrentInView = debounce(
-            () => currentInViewhandler?.({ year: dataYear, month: dataMonth }),
-            100
-          );
-
+        if (dataYear !== selectedYearMonthState.year || dataMonth !== selectedYearMonthState.month) {
+          const debounceCurrentInView = debounce(() => {
+            setSelectedYearMonthState?.({ month: dataMonth, year: dataYear });
+            currentInViewhandler?.({ month: dataMonth, year: dataYear });
+          }, 200);
           debounceCurrentInView();
         }
       },
 
-      options: { threshold: 0.7, root: ContainerRef.current },
+      options: { rootMargin: '-40% 0% -40% 0%', root: ContainerRef.current },
     });
 
     // Call the cleanup function on component unmount or before re-running this effect
@@ -85,7 +91,7 @@ export default function Calendar(props: TCalendar) {
         cleanupObserver();
       }
     };
-  }, [selectedYearMonth, currentInViewhandler]);
+  }, [selectedYearMonthState, currentInViewhandler]);
 
   // --------------------------------------------------------------------------- //
   // -- handle the scrolling to the current month and the slection of the dates- //
@@ -94,9 +100,17 @@ export default function Calendar(props: TCalendar) {
   // Scroll to current month on mount
   useEffect(() => {
     if (monthRefs.current.length > 0) {
-      scrollToElm(ContainerRef.current as HTMLElement, monthRefs.current[selectedYearMonth?.month] as HTMLElement, 0);
+      scrollToElm(
+        ContainerRef.current as HTMLElement,
+        monthRefs.current[selectedYearMonthState?.month] as HTMLElement,
+        0
+      );
     }
-  }, []);
+  }, [selectedYearMonthState?.year]);
+
+  useEffect(() => {
+    if (selectedYearMonth) setSelectedYearMonthState(selectedYearMonth);
+  }, [selectedYearMonth]);
 
   // handle the selection of the date or date range
   const { selectedDates, handleDateClick } = useSelectedDates({

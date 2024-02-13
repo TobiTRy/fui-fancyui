@@ -11,6 +11,9 @@ export const MonthContainer = styled.div<{ theme: TTheme }>`
 export const StyledCalendar = styled.div`
   width: 100%;
   height: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
   overflow-y: auto;
   &::-webkit-scrollbar {
     display: none;
