@@ -14,7 +14,9 @@ export const StyledCalendar = styled.div`
   display: flex;
   flex-direction: column;
   gap: 48px;
+  overflow: hidden;
   overflow-y: auto;
+
   &::-webkit-scrollbar {
     display: none;
     -ms-overflow-style: none;

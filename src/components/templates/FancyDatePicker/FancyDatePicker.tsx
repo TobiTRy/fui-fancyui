@@ -33,8 +33,6 @@ export default function FancyDatePicker(props: TFancyDatePicker) {
     year: new Date().getFullYear(),
   });
 
-  const [debounceYear, setDebounceYear] = useState<number>(currentlyMonthYearInView.year);
-
   //
   const swapedTheme = themeType ? (themeType === 'primary' ? 'secondary' : 'primary') : undefined;
 
@@ -54,7 +52,6 @@ export default function FancyDatePicker(props: TFancyDatePicker) {
   }, 500);
   // debounce the year change on the year selector
   const debounceYearChangeOnYearSelect = (year: number) => {
-    setDebounceYear(year);
     debounceYearFunc(year);
   };
 
@@ -62,6 +59,8 @@ export default function FancyDatePicker(props: TFancyDatePicker) {
   useEffect(() => {
     if (monthYearInView) setCurrentlyMonthYearInView(monthYearInView);
   }, [monthYearInView]);
+
+  // update the state if the selectedYear changes
 
   return (
     <DatePickerContainer $themeType={themeType} $layer={layer}>
