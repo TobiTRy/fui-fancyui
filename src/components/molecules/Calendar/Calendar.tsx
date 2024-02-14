@@ -38,7 +38,7 @@ export default function Calendar(props: TCalendar) {
     month: new Date().getMonth(),
   });
   const ContainerRef: RefObject<HTMLDivElement> = useRef(null);
-  const [isRerender, setIsRerender] = useState(false);
+  const [isRerender, setIsRendering] = useState(false);
 
   // generate the array with the months of the selected year and the year before and after (smooth scrolling)
   const threeYearsArray = useMemo(
@@ -66,7 +66,7 @@ export default function Calendar(props: TCalendar) {
 
   const debounceObserver = useDebounce(({ year, month }: { year: number; month: number }) => {
     setSelectedYearMonthState({ year, month });
-    setIsRerender(false);
+    setIsRendering(true);
   }, 500);
 
   // this hook is for the intersection observer to get the current month in view and set the state
@@ -83,7 +83,6 @@ export default function Calendar(props: TCalendar) {
         if (dataYear !== selectedYearMonthState.year || dataMonth !== selectedYearMonthState.month) {
           console.log('dataYear', dataYear, 'dataMonth', dataMonth);
           debounceObserver({ year: dataYear, month: dataMonth });
-          setIsRerender(true);
         }
       },
 
@@ -101,6 +100,12 @@ export default function Calendar(props: TCalendar) {
   // --------------------------------------------------------------------------- //
   // -- handle the scrolling to the current month and the slection of the dates- //
   // --------------------------------------------------------------------------- //
+
+  useEffect(() => {
+    if (isRerender) {
+      setIsRendering(false);
+    }
+  }, [selectedYearMonthState]);
 
   //Scroll to current month on mount
   useEffect(() => {
