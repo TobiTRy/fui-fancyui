@@ -65,7 +65,7 @@ export default function Calendar(props: TCalendar) {
 
   const debounceObserver = useDebounce(({ year, month }: { year: number; month: number }) => {
     setSelectedYearMonthState({ year, month });
-  }, 200);
+  }, 500);
 
   // this hook is for the intersection observer to get the current month in view and set the state
   // this is used to render new months before they are in view (lazy loading)
@@ -74,9 +74,11 @@ export default function Calendar(props: TCalendar) {
     const cleanupObserver = createMultiIntersectionObserver({
       elements: monthRefs.current?.filter(Boolean), // Convert monthRefs to a format suitable for the observer
       callback: (el) => {
+        console.log('el', el);
         const dataMonth = parseInt(el.getAttribute('data-month') || '0');
         const dataYear = parseInt(el.getAttribute('data-year') || '0');
         if (dataYear !== selectedYearMonthState.year || dataMonth !== selectedYearMonthState.month) {
+          console.log('dataYear', dataYear, 'dataMonth', dataMonth);
           debounceObserver({ year: dataYear, month: dataMonth });
         }
       },
@@ -105,7 +107,7 @@ export default function Calendar(props: TCalendar) {
         0
       );
     }
-  }, [selectedYearMonthState.year]);
+  }, []);
 
   useEffect(() => {
     if (selectedYearMonth) setSelectedYearMonthState(selectedYearMonth);
@@ -121,33 +123,35 @@ export default function Calendar(props: TCalendar) {
 
   return (
     <StyledCalendar ref={ContainerRef}>
-      {areaItems.length > 0 &&
-        areaItems.map((monthWithYear) => {
-          return (
-            <MonthContainer
-              key={monthWithYear.month + monthWithYear.year}
-              data-month={monthWithYear.month}
-              data-year={monthWithYear.year}
-              ref={(ref) => {
-                monthRefs.current[monthWithYear.month] = ref;
-              }}
-            >
-              <MonthWithDays
-                disabledDateSetting={disabledDateSetting}
-                monthIdx={monthWithYear.month}
-                externalMonthWithDays={externalMonthsWithDays?.[`${monthWithYear.year}`]?.find(
-                  (months) => months.monthIdx === monthWithYear.month
-                )}
-                year={monthWithYear.year}
-                themeType={themeType}
-                layer={layer}
-                handleDateClick={handleDateClick}
-                isRangePicking={rangeCalendar}
-                selectedDates={selectedDates}
-              />
-            </MonthContainer>
-          );
-        })}
+      {areaItems.map((monthWithYear) => {
+        return (
+          <MonthContainer
+            key={monthWithYear.month + monthWithYear.year}
+            data-month={monthWithYear.month}
+            data-year={monthWithYear.year}
+            style={{
+              scrollSnapAlign: 'start',
+            }}
+            ref={(ref) => {
+              monthRefs.current[monthWithYear.month] = ref;
+            }}
+          >
+            <MonthWithDays
+              disabledDateSetting={disabledDateSetting}
+              monthIdx={monthWithYear.month}
+              externalMonthWithDays={externalMonthsWithDays?.[`${monthWithYear.year}`]?.find(
+                (months) => months.monthIdx === monthWithYear.month
+              )}
+              year={monthWithYear.year}
+              themeType={themeType}
+              layer={layer}
+              handleDateClick={handleDateClick}
+              isRangePicking={rangeCalendar}
+              selectedDates={selectedDates}
+            />
+          </MonthContainer>
+        );
+      })}
     </StyledCalendar>
   );
 }
