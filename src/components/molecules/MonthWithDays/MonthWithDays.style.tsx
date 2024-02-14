@@ -9,10 +9,19 @@ export const CalendarWrapper = styled.div<{ theme: TTheme }>`
   margin-bottom: ${({ theme }) => theme.spacing.md};
 `;
 
-export const DaysContainer = styled.div<{ theme?: TTheme }>`
+export const DaysContainer = styled.table<{ theme?: TTheme }>`
   display: grid;
   gap: ${({ theme }) => theme.spacing.xs};
-  grid-template-columns: repeat(7, 1fr);
+
+  tbody {
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+  }
+
+  tr {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+  }
 `;
 
 export const DateNumber = styled.span`

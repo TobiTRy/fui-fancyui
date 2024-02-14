@@ -29,7 +29,7 @@ export default function MonthWithDays(props: TMonthWithDays) {
   const month = useMemo(() => {
     const month = {
       name: new Date(0, monthIdx + 1, 0).toLocaleString('default', { month: 'long' }),
-      days: createDaysOfMonth({
+      weeks: createDaysOfMonth({
         monthIdx,
         year,
         selectedDates,
@@ -40,6 +40,8 @@ export default function MonthWithDays(props: TMonthWithDays) {
     };
     return month;
   }, [monthIdx, selectedDates, isRangePicking, monthDays, year, disabledDateSetting]);
+
+  console.log(month);
 
   useEffect(() => {
     if (externalMonthWithDays) {
@@ -66,29 +68,37 @@ export default function MonthWithDays(props: TMonthWithDays) {
         {month.name}
       </Typography>
       <DaysContainer>
-        {/* Generate the empty spaces for the start of the month  */}
-        {Array.from({ length: getFirstDayOfMonth(monthIdx + 1, year) - 1 }, (_, i) => (
-          <DateNumber key={`empty-${i}`} />
-        ))}
-        {/* Generate the days of the month */}
-        {month.days.map((day) => (
-          <DateNumberWithStatus
-            key={day.number}
-            themeType={themeType}
-            layer={layer}
-            disabled={day.disabled}
-            dateNumber={day.number}
-            isCurrentDay={
-              day.number === new Date().getDate() &&
-              monthIdx === new Date().getMonth() &&
-              year === new Date().getFullYear()
-            }
-            isSelected={day.isSelected}
-            range={day.range}
-            isAvailable={day.isAvilable || 'completly'}
-            onClick={() => handleDateClick && handleDateClick(day, monthIdx, year)}
-          />
-        ))}
+        <tbody>
+          {month.weeks.map((weeks, i) => (
+            <tr key={i}>
+              {/* Generate the days of the month */}
+              {weeks.map((day, i) => {
+                if (!day) return <DateNumber key={`empty-${i}`} />;
+                {
+                  /* Generate the empty spaces for the start of the month  */
+                }
+                return (
+                  <DateNumberWithStatus
+                    key={day.number}
+                    themeType={themeType}
+                    layer={layer}
+                    disabled={day.disabled}
+                    dateNumber={day.number}
+                    isCurrentDay={
+                      day.number === new Date().getDate() &&
+                      monthIdx === new Date().getMonth() &&
+                      year === new Date().getFullYear()
+                    }
+                    isSelected={day.isSelected}
+                    range={day.range}
+                    isAvailable={day.isAvilable || 'completly'}
+                    onClick={() => handleDateClick && handleDateClick(day, monthIdx, year)}
+                  />
+                );
+              })}
+            </tr>
+          ))}
+        </tbody>
       </DaysContainer>
     </CalendarWrapper>
   );

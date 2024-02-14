@@ -14,7 +14,7 @@ interface ICreateDay {
   year: number;
   isRangePicking?: boolean;
   selectedDates: TDateArray;
-  disabledDateSetting?: IDisabledDateSettings;
+  disabledDateSetting?: IDisabledDateSettings | boolean;
   externalDate?: IDateWithExternalState;
 }
 const createDay = (props: ICreateDay): TDay => {
@@ -35,7 +35,8 @@ const createDay = (props: ICreateDay): TDay => {
   }
 
   // this function disables the date
-  const isDateDisabled = disableDate(date, disabledDateSetting);
+  const isDateDisabled =
+    typeof disabledDateSetting === 'boolean' ? disabledDateSetting : disableDate(date, disabledDateSetting);
 
   return {
     number: dayNumber,

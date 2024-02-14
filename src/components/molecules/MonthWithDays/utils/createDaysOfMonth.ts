@@ -12,29 +12,94 @@ interface ICreateDaysOfMonth {
   disabledDateSetting?: IDisabledDateSettings;
   isRangePicking?: boolean;
   externalMonthWithDays?: IDateWithExternalState[];
+  fillAdjacentMonths?: boolean;
+  weekStartsOn?: number; // New property to specify the first day of the week
 }
 
-// --------------------------------------------------------------------------- //
-// --------- This function creates the days for the specific month ----------- //
-// --------------------------------------------------------------------------- //
-const createDaysOfMonth = (props: ICreateDaysOfMonth): TDay[] => {
-  const { monthIdx, year, selectedDates, disabledDateSetting, isRangePicking, externalMonthWithDays } = props;
+const createDaysOfMonth = (props: ICreateDaysOfMonth): (TDay | null)[][] => {
+  const {
+    monthIdx,
+    year,
+    selectedDates,
+    disabledDateSetting,
+    isRangePicking,
+    externalMonthWithDays,
+    fillAdjacentMonths = true,
+    weekStartsOn = 1, // Default to Monday if not provided
+  } = props;
 
-  const MonthDays = Array.from({ length: getDaysInMonth(monthIdx + 1, year) }, (_, j) =>
-    createDay({
-      dayNumber: j + 1,
+  const daysInMonth = getDaysInMonth(monthIdx + 1, year);
+  let firstDayOfMonth = new Date(year, monthIdx, 1).getDay() - weekStartsOn;
+  if (firstDayOfMonth < 0) firstDayOfMonth += 7; // Adjust if weekStartsOn is not Sunday
+
+  const weeks: (TDay | null)[][] = [];
+  let week: (TDay | null)[] = [];
+
+  // Calculate previous month's overflow days if fillAdjacentMonths is true
+  if (fillAdjacentMonths && firstDayOfMonth > 0) {
+    const prevMonthDays = getDaysInMonth(monthIdx, year); // Get total days of previous month
+    for (let i = 0; i < firstDayOfMonth; i++) {
+      const dayNumber = prevMonthDays - firstDayOfMonth + i + 1;
+      week.push(
+        createDay({
+          dayNumber,
+          month: monthIdx - 1,
+          year,
+          selectedDates,
+          disabledDateSetting: true,
+          isRangePicking,
+          externalDate: undefined,
+        })
+      );
+    }
+  }
+
+  for (let day = 1; day <= daysInMonth; day++) {
+    const dayObj = createDay({
+      dayNumber: day,
       month: monthIdx,
-      year: year,
+      year,
       selectedDates,
       disabledDateSetting,
       isRangePicking,
-      externalDate: externalMonthWithDays![j],
-    })
-  );
-  return MonthDays;
+      externalDate: externalMonthWithDays ? externalMonthWithDays[day - 1] : undefined,
+    });
+
+    if ((day + firstDayOfMonth - 1) % 7 === 0 && day > 1) {
+      weeks.push(week);
+      week = [];
+    }
+
+    week.push(dayObj);
+  }
+
+  // Adjust the next month's overflow and current month's alignment
+  const daysNeeded = 7 - week.length;
+  if (fillAdjacentMonths && daysNeeded > 0) {
+    for (let i = 1; i <= daysNeeded; i++) {
+      week.push(
+        createDay({
+          dayNumber: i,
+          month: monthIdx + 1,
+          year,
+          selectedDates,
+          disabledDateSetting: true,
+          isRangePicking,
+          externalDate: undefined,
+        })
+      );
+    }
+  } else {
+    while (week.length < 7) {
+      week.push(null);
+    }
+  }
+
+  weeks.push(week);
+
+  return weeks;
 };
 
-// get the number of days in a month based on the month and year
 const getDaysInMonth = (month: number, year: number): number => {
   return new Date(year, month, 0).getDate();
 };
