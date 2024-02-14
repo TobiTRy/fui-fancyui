@@ -9,7 +9,6 @@ import { TCalendar } from '@/components/molecules/Calendar/TCalendar.model';
 import { scrollToElm } from '@/utils/functions/scrollToElementInContainer/scrollToElementInContainer';
 import createMultiIntersectionObserver from '@/utils/hooks/useMiltiIntersectionObserver/multiplyIntersectionObserver';
 import showAreaOfArray from '@/utils/hooks/useShowAreaOfArray/showAreaOfArray';
-import debounce from '@/utils/functions/debounce/debounce';
 import { useDebounce } from '@/utils/hooks/useDebounce';
 
 // --------------------------------------------------------------------------- //
@@ -38,8 +37,6 @@ export default function Calendar(props: TCalendar) {
     month: new Date().getMonth(),
   });
   const ContainerRef: RefObject<HTMLDivElement> = useRef(null);
-  const [isRerender, setIsRendering] = useState(false);
-
   // generate the array with the months of the selected year and the year before and after (smooth scrolling)
   const threeYearsArray = useMemo(
     () => generateArrayWithMontsAndYear(selectedYearMonthState?.year),
@@ -66,8 +63,7 @@ export default function Calendar(props: TCalendar) {
 
   const debounceObserver = useDebounce(({ year, month }: { year: number; month: number }) => {
     setSelectedYearMonthState({ year, month });
-    setIsRendering(true);
-  }, 500);
+  }, 10);
 
   // this hook is for the intersection observer to get the current month in view and set the state
   // this is used to render new months before they are in view (lazy loading)
@@ -76,12 +72,10 @@ export default function Calendar(props: TCalendar) {
     const cleanupObserver = createMultiIntersectionObserver({
       elements: monthRefs.current?.filter(Boolean), // Convert monthRefs to a format suitable for the observer
       callback: (el) => {
-        if (isRerender) return;
         console.log('el', el);
         const dataMonth = parseInt(el.getAttribute('data-month') || '0');
         const dataYear = parseInt(el.getAttribute('data-year') || '0');
         if (dataYear !== selectedYearMonthState.year || dataMonth !== selectedYearMonthState.month) {
-          console.log('dataYear', dataYear, 'dataMonth', dataMonth);
           debounceObserver({ year: dataYear, month: dataMonth });
         }
       },
@@ -100,13 +94,6 @@ export default function Calendar(props: TCalendar) {
   // --------------------------------------------------------------------------- //
   // -- handle the scrolling to the current month and the slection of the dates- //
   // --------------------------------------------------------------------------- //
-
-  useEffect(() => {
-    if (isRerender) {
-      setIsRendering(false);
-    }
-  }, [selectedYearMonthState]);
-
   //Scroll to current month on mount
   useEffect(() => {
     if (monthRefs.current.length > 0) {
@@ -116,7 +103,7 @@ export default function Calendar(props: TCalendar) {
         0
       );
     }
-  }, []);
+  }, [selectedYearMonthState]);
 
   useEffect(() => {
     if (selectedYearMonth) setSelectedYearMonthState(selectedYearMonth);
@@ -132,10 +119,10 @@ export default function Calendar(props: TCalendar) {
 
   return (
     <StyledCalendar ref={ContainerRef}>
-      {areaItems.map((monthWithYear) => {
+      {areaItems.map((monthWithYear, index) => {
         return (
           <MonthContainer
-            key={monthWithYear.month + monthWithYear.year}
+            key={index}
             data-month={monthWithYear.month}
             data-year={monthWithYear.year}
             style={{

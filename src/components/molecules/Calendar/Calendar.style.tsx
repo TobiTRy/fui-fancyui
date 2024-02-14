@@ -6,7 +6,10 @@ export const MonthContainer = styled.div<{ theme: TTheme }>`
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 300px;
+  min-height: 300px;
+  position: relative;
+  overflow-y: auto;
+  flex: 1;
 `;
 
 export const StyledCalendar = styled.div`

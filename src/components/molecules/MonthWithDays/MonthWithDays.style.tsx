@@ -3,6 +3,7 @@ import { styled } from 'styled-components';
 
 export const CalendarWrapper = styled.div<{ theme: TTheme }>`
   display: flex;
+  height: 350px;
   flex-direction: column;
   gap: ${({ theme }) => theme.spacing.sm};
   margin-bottom: ${({ theme }) => theme.spacing.md};
