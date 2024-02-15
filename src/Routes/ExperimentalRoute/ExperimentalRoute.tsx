@@ -16,6 +16,7 @@ import { FancyLine } from '@/components/atoms/FancyLine';
 import { useThrottledCallback } from '@/utils/hooks/useThrottle/useThrottle';
 import styled from 'styled-components';
 import createMultiIntersectionObserver from '@/utils/hooks/useMiltiIntersectionObserver/multiplyIntersectionObserver';
+import VirtualList from '@/components/shared/VirtualScrolling/VirtualScrolling';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -58,9 +59,49 @@ const values = [
   { label: 'test4', icon: Icon, itemKey: '4' },
 ];
 
+//array with many strings
+const testArray = [
+  '1',
+  '2',
+  '3',
+  '4',
+  '5',
+  '6',
+  '7',
+  '8',
+  '9',
+  '10',
+  '11',
+  '12',
+  '13',
+  '14',
+  '15',
+  '16',
+  '17',
+  '18',
+  '19',
+  '20',
+];
+
 const CustomComponent = ({ children, test }: { children?: React.ReactNode; test?: string }) => {
   return <span>{children}</span>;
 };
+
+const testComps = () => [
+  <>
+    <div>Hiii</div>
+    <div>Hiii</div>
+    <div>Hiii</div>
+    <div>Hiii</div>
+    <div>Hiii</div>
+    <div>Hiii</div>
+    <div>Hiii</div>
+    <div>Hiii</div>
+    <div>Hiii</div>
+    <div>Hiii</div>
+    <div>Hiii</div>
+  </>,
+];
 
 export default function ExperimentalRoute() {
   const refs = React.useRef<(HTMLDivElement | null)[]>([]);
@@ -72,6 +113,8 @@ export default function ExperimentalRoute() {
   const removeToast = () => {
     console.log('remove');
   };
+
+  const daysInMonth = Array.from({ length: 30 }, (_, i) => `Day ${i + 1}`);
 
   const throttledAction = useThrottledCallback(removeToast, 1000);
 
@@ -126,15 +169,17 @@ export default function ExperimentalRoute() {
         </DesignArea>
         <DesignArea title="Test">
           <FancyLine direction="horizontal" themeType="accent" />
-          <WrapperBox>
-            {values.map((value, idx) => (
-              <Box
-                ref={(ref) => {
-                  refs.current[idx] = ref;
-                }}
-              />
-            ))}
-          </WrapperBox>
+          <div style={{ height: '300px', overflow: 'hidden', backgroundColor: 'black', marginBottom: '80px' }}>
+            <VirtualList
+              containerHeight="300px"
+              itemHeight={300}
+              items={testArray.map((item, index) => (
+                <div key={index} ref={(ref) => (refs.current[index] = ref)} style={{ height: '300px' }}>
+                  {item}
+                </div>
+              ))}
+            />
+          </div>
         </DesignArea>
       </DesignWrapper>
     </>
