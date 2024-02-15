@@ -15,5 +15,6 @@ export type TMonthWithDays = {
   externalMonthWithDays?: IExternalMonthWithDays;
   disabledDateSetting?: IDisabledDateSettings;
   themeType?: TUiColorsNotTransparent;
+  startWeekOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6;
   layer?: TLayer;
 };

@@ -6,7 +6,7 @@ import { IDateWithExternalState } from './utils/types/IExternalMonthWithDays.mod
 import { DateNumberWithStatus } from '@/components/molecules/DateNumberWithStatus';
 import { TMonthWithDays } from '@/components/molecules/MonthWithDays/TMonthWithDays.model';
 import { CalendarWrapper, DateNumber, DaysContainer } from './MonthWithDays.style';
-import createDaysOfMonth from './utils/createDaysOfMonth';
+import createDaysOfMonth from './utils/createDaysOfMonth/createDaysOfMonth';
 
 // --------------------------------------------------------------------------- //
 // --------- This Component generates a single month with the dates ---------- //
@@ -20,6 +20,7 @@ export default function MonthWithDays(props: TMonthWithDays) {
     isRangePicking,
     disabledDateSetting,
     externalMonthWithDays,
+    startWeekOn,
     layer,
     themeType,
   } = props;
@@ -28,10 +29,14 @@ export default function MonthWithDays(props: TMonthWithDays) {
   // Create the days of the month and memoize them
   const month = useMemo(() => {
     const month = {
+      // Get the name of the month
       name: new Date(0, monthIdx + 1, 0).toLocaleString('default', { month: 'long' }),
+      // Create the weeks of the month
       weeks: createDaysOfMonth({
         monthIdx,
         year,
+        fillAdjacentMonths: false,
+        weekStartsOn: startWeekOn || 1,
         selectedDates,
         disabledDateSetting,
         isRangePicking,
@@ -40,8 +45,6 @@ export default function MonthWithDays(props: TMonthWithDays) {
     };
     return month;
   }, [monthIdx, selectedDates, isRangePicking, monthDays, year, disabledDateSetting]);
-
-  console.log(month);
 
   useEffect(() => {
     if (externalMonthWithDays) {
@@ -73,27 +76,32 @@ export default function MonthWithDays(props: TMonthWithDays) {
             <tr key={i}>
               {/* Generate the days of the month */}
               {weeks.map((day, i) => {
-                if (!day) return <DateNumber key={`empty-${i}`} />;
-                {
-                  /* Generate the empty spaces for the start of the month  */
-                }
+                /* Generate the empty spaces for the start/end of the month  */
+                if (!day)
+                  return (
+                    <td key={`empty-${i}`}>
+                      <DateNumber />
+                    </td>
+                  );
+
                 return (
-                  <DateNumberWithStatus
-                    key={day.number}
-                    themeType={themeType}
-                    layer={layer}
-                    disabled={day.disabled}
-                    dateNumber={day.number}
-                    isCurrentDay={
-                      day.number === new Date().getDate() &&
-                      monthIdx === new Date().getMonth() &&
-                      year === new Date().getFullYear()
-                    }
-                    isSelected={day.isSelected}
-                    range={day.range}
-                    isAvailable={day.isAvilable || 'completly'}
-                    onClick={() => handleDateClick && handleDateClick(day, monthIdx, year)}
-                  />
+                  <td key={day.number}>
+                    <DateNumberWithStatus
+                      themeType={themeType}
+                      layer={layer}
+                      disabled={day.disabled}
+                      dateNumber={day.number}
+                      isCurrentDay={
+                        day.number === new Date().getDate() &&
+                        monthIdx === new Date().getMonth() &&
+                        year === new Date().getFullYear()
+                      }
+                      isSelected={day.isSelected}
+                      range={day.range}
+                      isAvailable={day.isAvilable || 'completly'}
+                      onClick={() => handleDateClick && handleDateClick(day, monthIdx, year)}
+                    />
+                  </td>
                 );
               })}
             </tr>
@@ -107,10 +115,6 @@ export default function MonthWithDays(props: TMonthWithDays) {
 // --------------------------------------------------------------------------- //
 // ------------------------ Some helperfunctions ----------------------------- //
 // --------------------------------------------------------------------------- //
-
-const getFirstDayOfMonth = (month: number, year: number): number => {
-  return new Date(year, month - 1, 1).getDay() || 7;
-};
 
 const getDaysInMonth = (month: number, year: number): number => {
   return new Date(year, month, 0).getDate();

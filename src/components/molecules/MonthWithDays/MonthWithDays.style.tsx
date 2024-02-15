@@ -3,7 +3,6 @@ import { styled } from 'styled-components';
 
 export const CalendarWrapper = styled.div<{ theme: TTheme }>`
   display: flex;
-  height: 350px;
   flex-direction: column;
   gap: ${({ theme }) => theme.spacing.sm};
   margin-bottom: ${({ theme }) => theme.spacing.md};
@@ -16,6 +15,7 @@ export const DaysContainer = styled.table<{ theme?: TTheme }>`
   tbody {
     display: grid;
     grid-template-rows: repeat(4, 1fr);
+    gap: ${({ theme }) => theme.spacing.xs};
   }
 
   tr {
