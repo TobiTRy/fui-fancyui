@@ -8,6 +8,7 @@ export type TWeekDays = {
   border?: 'top' | 'bottom' | 'none';
   sizeC?: TComponentSizes;
   themeType?: TUiColorsNotTransparent;
+  startWeekOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6;
 };
 
 type NativeAttrs = React.HTMLAttributes<HTMLDivElement>;
