@@ -25,6 +25,7 @@ export default function Calendar(props: TCalendar) {
     externalMonthsWithDays,
     rangeCalendar = true,
     themeType,
+    startWeekOn = 1,
     layer,
   } = props;
 
@@ -63,7 +64,7 @@ export default function Calendar(props: TCalendar) {
 
   const debounceObserver = useDebounce(({ year, month }: { year: number; month: number }) => {
     setSelectedYearMonthState({ year, month });
-  }, 10);
+  }, 100);
 
   // this hook is for the intersection observer to get the current month in view and set the state
   // this is used to render new months before they are in view (lazy loading)
@@ -72,7 +73,6 @@ export default function Calendar(props: TCalendar) {
     const cleanupObserver = createMultiIntersectionObserver({
       elements: monthRefs.current?.filter(Boolean), // Convert monthRefs to a format suitable for the observer
       callback: (el) => {
-        console.log('el', el);
         const dataMonth = parseInt(el.getAttribute('data-month') || '0');
         const dataYear = parseInt(el.getAttribute('data-year') || '0');
         if (dataYear !== selectedYearMonthState.year || dataMonth !== selectedYearMonthState.month) {
@@ -80,7 +80,7 @@ export default function Calendar(props: TCalendar) {
         }
       },
 
-      options: { threshold: 1, root: ContainerRef.current },
+      options: { threshold: 0.9, root: ContainerRef.current },
     });
 
     // Call the cleanup function on component unmount or before re-running this effect
@@ -103,7 +103,7 @@ export default function Calendar(props: TCalendar) {
         0
       );
     }
-  }, [selectedYearMonthState]);
+  }, []);
 
   useEffect(() => {
     if (selectedYearMonth) setSelectedYearMonthState(selectedYearMonth);
@@ -135,6 +135,7 @@ export default function Calendar(props: TCalendar) {
             <MonthWithDays
               disabledDateSetting={disabledDateSetting}
               monthIdx={monthWithYear.month}
+              startWeekOn={startWeekOn}
               externalMonthWithDays={externalMonthsWithDays?.[`${monthWithYear.year}`]?.find(
                 (months) => months.monthIdx === monthWithYear.month
               )}

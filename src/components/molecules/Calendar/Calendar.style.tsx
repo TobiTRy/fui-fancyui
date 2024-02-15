@@ -3,9 +3,8 @@ import { styled } from 'styled-components';
 import { TTheme } from '@/types/TTheme';
 
 export const MonthContainer = styled.div<{ theme: TTheme }>`
-  display: flex;
-  flex-direction: column;
   width: 100%;
+  display: inline-block;
   min-height: 300px;
   position: relative;
   overflow-y: auto;
@@ -15,7 +14,6 @@ export const MonthContainer = styled.div<{ theme: TTheme }>`
 export const StyledCalendar = styled.div`
   width: 100%;
   height: 300px;
-  display: flex;
   flex-direction: column;
   overflow: hidden;
   overflow-y: auto;
