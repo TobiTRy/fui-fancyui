@@ -10,6 +10,7 @@ import { scrollToElm } from '@/utils/functions/scrollToElementInContainer/scroll
 import createMultiIntersectionObserver from '@/utils/hooks/useMiltiIntersectionObserver/multiplyIntersectionObserver';
 import showAreaOfArray from '@/utils/hooks/useShowAreaOfArray/showAreaOfArray';
 import { useDebounce } from '@/utils/hooks/useDebounce';
+import VirtualScroll from '@/components/shared/VirtualScrolling/FancyVirtualScroll';
 
 // --------------------------------------------------------------------------- //
 // -------- The main calenader wich can select a date, or date range --------- //
@@ -68,28 +69,28 @@ export default function Calendar(props: TCalendar) {
 
   // this hook is for the intersection observer to get the current month in view and set the state
   // this is used to render new months before they are in view (lazy loading)
-  useEffect(() => {
-    // Initialize the intersection observer and store the cleanup function#
-    const cleanupObserver = createMultiIntersectionObserver({
-      elements: monthRefs.current?.filter(Boolean), // Convert monthRefs to a format suitable for the observer
-      callback: (el) => {
-        const dataMonth = parseInt(el.getAttribute('data-month') || '0');
-        const dataYear = parseInt(el.getAttribute('data-year') || '0');
-        if (dataYear !== selectedYearMonthState.year || dataMonth !== selectedYearMonthState.month) {
-          debounceObserver({ year: dataYear, month: dataMonth });
-        }
-      },
+  // useEffect(() => {
+  //   // Initialize the intersection observer and store the cleanup function#
+  //   const cleanupObserver = createMultiIntersectionObserver({
+  //     elements: monthRefs.current?.filter(Boolean), // Convert monthRefs to a format suitable for the observer
+  //     callback: (el) => {
+  //       const dataMonth = parseInt(el.getAttribute('data-month') || '0');
+  //       const dataYear = parseInt(el.getAttribute('data-year') || '0');
+  //       if (dataYear !== selectedYearMonthState.year || dataMonth !== selectedYearMonthState.month) {
+  //         debounceObserver({ year: dataYear, month: dataMonth });
+  //       }
+  //     },
 
-      options: { threshold: 0.9, root: ContainerRef.current },
-    });
+  //     options: { threshold: 0.9, root: ContainerRef.current },
+  //   });
 
-    // Call the cleanup function on component unmount or before re-running this effect
-    return () => {
-      if (cleanupObserver) {
-        cleanupObserver();
-      }
-    };
-  }, [selectedYearMonthState, currentInViewhandler]);
+  //   // Call the cleanup function on component unmount or before re-running this effect
+  //   return () => {
+  //     if (cleanupObserver) {
+  //       cleanupObserver();
+  //     }
+  //   };
+  // }, [selectedYearMonthState, currentInViewhandler]);
 
   // --------------------------------------------------------------------------- //
   // -- handle the scrolling to the current month and the slection of the dates- //
@@ -119,36 +120,38 @@ export default function Calendar(props: TCalendar) {
 
   return (
     <StyledCalendar ref={ContainerRef}>
-      {areaItems.map((monthWithYear, index) => {
-        return (
-          <MonthContainer
-            key={index}
-            data-month={monthWithYear.month}
-            data-year={monthWithYear.year}
-            style={{
-              scrollSnapAlign: 'start',
-            }}
-            ref={(ref) => {
-              monthRefs.current[monthWithYear.month] = ref;
-            }}
-          >
-            <MonthWithDays
-              disabledDateSetting={disabledDateSetting}
-              monthIdx={monthWithYear.month}
-              startWeekOn={startWeekOn}
-              externalMonthWithDays={externalMonthsWithDays?.[`${monthWithYear.year}`]?.find(
-                (months) => months.monthIdx === monthWithYear.month
-              )}
-              year={monthWithYear.year}
-              themeType={themeType}
-              layer={layer}
-              handleDateClick={handleDateClick}
-              isRangePicking={rangeCalendar}
-              selectedDates={selectedDates}
-            />
-          </MonthContainer>
-        );
-      })}
+      <VirtualScroll containerHeight="300px" itemHeight={300} initialItemIndex={2}>
+        {threeYearsArray.map((monthWithYear, index) => {
+          return (
+            <MonthContainer
+              key={index}
+              data-month={monthWithYear.month}
+              data-year={monthWithYear.year}
+              style={{
+                scrollSnapAlign: 'start',
+              }}
+              ref={(ref) => {
+                monthRefs.current[monthWithYear.month] = ref;
+              }}
+            >
+              <MonthWithDays
+                disabledDateSetting={disabledDateSetting}
+                monthIdx={monthWithYear.month}
+                startWeekOn={startWeekOn}
+                externalMonthWithDays={externalMonthsWithDays?.[`${monthWithYear.year}`]?.find(
+                  (months) => months.monthIdx === monthWithYear.month
+                )}
+                year={monthWithYear.year}
+                themeType={themeType}
+                layer={layer}
+                handleDateClick={handleDateClick}
+                isRangePicking={rangeCalendar}
+                selectedDates={selectedDates}
+              />
+            </MonthContainer>
+          );
+        })}
+      </VirtualScroll>
     </StyledCalendar>
   );
 }

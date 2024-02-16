@@ -16,8 +16,6 @@ export const StyledCalendar = styled.div`
   height: 300px;
   flex-direction: column;
   overflow: hidden;
-  overflow-y: auto;
-  scroll-snap-type: y mandatory;
 
   &::-webkit-scrollbar {
     display: none;
