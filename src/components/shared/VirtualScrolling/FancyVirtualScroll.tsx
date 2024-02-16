@@ -1,6 +1,9 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 
+import { Item, Wrapper } from './FancyVirtualScroll.style';
+
 import { TItem, TVirtualScrollProps } from './TVirtualScrolling.model';
+import { debounce } from '@/utils/functions/debounce';
 
 export default function FancyVirtualScroll(props: TVirtualScrollProps) {
   const {
@@ -10,9 +13,15 @@ export default function FancyVirtualScroll(props: TVirtualScrollProps) {
     initialItemIndex = 0,
     enableScrollSnap = true,
     itemGap = 0,
+    currentItemsInView,
   } = props;
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [viewportItems, setViewportItems] = useState<TItem[]>([]);
+
+  const debouncedOnVisibleItemsChange = useCallback(
+    debounce((index: number) => currentItemsInView?.(index), 100),
+    [currentItemsInView]
+  );
 
   const calculateVisibleItems = useCallback(() => {
     if (!containerRef.current) return;
@@ -24,13 +33,38 @@ export default function FancyVirtualScroll(props: TVirtualScrollProps) {
     const startOffset = Math.max(0, scrollTop - effectiveItemHeight);
     const endOffset = Math.min(totalHeight, scrollTop + viewHeight + effectiveItemHeight);
 
-    const startIndex = Math.floor(startOffset / effectiveItemHeight);
-    const endIndex = Math.floor(endOffset / effectiveItemHeight);
+    const startIndex = Math.floor(startOffset / effectiveItemHeight); // Adjust start index calculation
+    const endIndex = Math.floor(endOffset / effectiveItemHeight); // Adjust end index calculation
+
+    let mostVisibleItemIndex = -1;
+    let maxVisibleHeight = 0;
 
     const newViewportItems = children.slice(startIndex, endIndex + 1).map((content, index) => ({
       content,
       originalIndex: startIndex + index,
     }));
+
+    for (let i = 0; i < children.length; i++) {
+      const itemTop = i * effectiveItemHeight;
+      const itemBottom = itemTop + itemHeight;
+      const viewBottom = scrollTop + viewHeight;
+
+      // Calculate visibility of the current item
+      const visibleTop = Math.max(scrollTop, itemTop);
+      const visibleBottom = Math.min(viewBottom, itemBottom);
+      const visibleHeight = Math.max(0, visibleBottom - visibleTop);
+
+      // Update the most visible item if this item is more visible than previous ones
+      if (visibleHeight > maxVisibleHeight) {
+        mostVisibleItemIndex = i;
+        maxVisibleHeight = visibleHeight;
+      }
+    }
+
+    // Now mostVisibleItemIndex holds the index of the item most visible in the viewport
+    if (mostVisibleItemIndex !== -1) {
+      debouncedOnVisibleItemsChange(mostVisibleItemIndex);
+    }
 
     setViewportItems(newViewportItems);
   }, [children, itemHeight, itemGap]);
@@ -50,32 +84,20 @@ export default function FancyVirtualScroll(props: TVirtualScrollProps) {
     }
   }, [initialItemIndex, itemHeight, itemGap]);
 
-  const containerStyle = {
-    height: containerHeight,
-    overflowY: 'scroll',
-    scrollSnapType: enableScrollSnap ? 'y mandatory' : 'none',
-  };
-
   return (
-    <div ref={containerRef} style={containerStyle}>
+    <Wrapper ref={containerRef} $enableScrollSnap={enableScrollSnap} $containerHeight={containerHeight}>
       <div style={{ position: 'relative', height: `${children.length * (itemHeight + itemGap) - itemGap}px` }}>
         {viewportItems.map(({ content, originalIndex }) => (
-          <div
+          <Item
+            style={{ top: `${originalIndex * (itemHeight + itemGap)}px` }}
             key={originalIndex}
-            style={{
-              position: 'absolute',
-              top: `${originalIndex * (itemHeight + itemGap)}px`,
-              left: 0,
-              right: 0,
-              height: `${itemHeight}px`,
-              overflow: 'hidden',
-              scrollSnapAlign: enableScrollSnap ? 'start' : 'none',
-            }}
+            $itemHeight={`${itemHeight}px`}
+            $enableScrollSnap={enableScrollSnap}
           >
             {content}
-          </div>
+          </Item>
         ))}
       </div>
-    </div>
+    </Wrapper>
   );
 }
