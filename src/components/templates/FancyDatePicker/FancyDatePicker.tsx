@@ -10,7 +10,6 @@ import { DatePickerContainer, WrapperYearSelector } from './FancyDatePicker.styl
 import { clampLayer } from '@/utils/functions/clampLayer';
 import { debounce } from '@/utils/functions/debounce';
 import { useDebounce } from '@/utils/hooks/useDebounce';
-import { s } from 'node_modules/vite/dist/node/types.d-jgA8ss1A';
 
 // --------------------------------------------------------------------------- //
 // --------- A Datepicker thats really fancy with some advanced logic -------- //
@@ -51,7 +50,7 @@ export default function FancyDatePicker(props: TFancyDatePicker) {
 
   const debounceYearFunc = useDebounce((year: number) => {
     setCurrentlyMonthYearInView((current) => ({ ...current, year }));
-  }, 500);
+  }, 100);
   // debounce the year change on the year selector
   const debounceYearChangeOnYearSelect = (year: number) => {
     debounceYearFunc(year);
@@ -79,7 +78,7 @@ export default function FancyDatePicker(props: TFancyDatePicker) {
 
       <WeekDays themeType={swapedTheme} layer={layer} />
       <Calendar
-        startWeekOn={startWeekOn}
+        startWeekOnDay={startWeekOn}
         rangeCalendar={rangeCalendar}
         externalMonthsWithDays={externalData}
         selectedYearMonth={currentlyMonthYearInView}

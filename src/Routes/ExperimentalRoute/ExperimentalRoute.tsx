@@ -16,7 +16,7 @@ import { FancyLine } from '@/components/atoms/FancyLine';
 import { useThrottledCallback } from '@/utils/hooks/useThrottle/useThrottle';
 import styled from 'styled-components';
 import createMultiIntersectionObserver from '@/utils/hooks/useMiltiIntersectionObserver/multiplyIntersectionObserver';
-import VirtualList from '@/components/shared/VirtualScrolling/FancyVirtualScroll';
+import VirtualList from '@/components/shared/FancyVirtualScroll/FancyVirtualScroll';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
