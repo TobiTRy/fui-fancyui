@@ -16,7 +16,7 @@ import { FancyLine } from '@/components/atoms/FancyLine';
 import { useThrottledCallback } from '@/utils/hooks/useThrottle/useThrottle';
 import styled from 'styled-components';
 import createMultiIntersectionObserver from '@/utils/hooks/useMiltiIntersectionObserver/multiplyIntersectionObserver';
-import VirtualList from '@/components/shared/FancyVirtualScroll/FancyVirtualScroll';
+import { FancyVirtualScroll } from '@/components/shared/FancyVirtualScroll';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -170,13 +170,13 @@ export default function ExperimentalRoute() {
         <DesignArea title="Test">
           <FancyLine direction="horizontal" themeType="accent" />
           <div style={{ height: '300px', overflow: 'hidden', backgroundColor: 'black', marginBottom: '80px' }}>
-            <VirtualList containerHeight="300px" itemHeight={300}>
+            <FancyVirtualScroll containerHeight="300px" itemHeight={300}>
               {testArray.map((item, index) => (
                 <div key={index} ref={(ref) => (refs.current[index] = ref)} style={{ height: '300px' }}>
                   {item}
                 </div>
               ))}
-            </VirtualList>
+            </FancyVirtualScroll>
           </div>
         </DesignArea>
       </DesignWrapper>

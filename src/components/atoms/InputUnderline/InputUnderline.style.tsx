@@ -1,12 +1,12 @@
 import { styled } from 'styled-components';
 
 import { TFancyUnderline } from '@/components/atoms/InputUnderline/InputUnderline';
-import IStyledPrefixAndPicker from '@/types/IStyledPrefixAndPicker';
+import { TStyledPrefixAndPicker } from '@/types/TStyledPrefixAndPicker';
 import { TTheme } from '@/types/TTheme';
 import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent';
 
 // Define the styled component for the underline
-type IStyledUnderline = IStyledPrefixAndPicker<TFancyUnderline>;
+type IStyledUnderline = TStyledPrefixAndPicker<TFancyUnderline>;
 export const UnderLine = styled.i<IStyledUnderline & { theme: TTheme }>`
   position: absolute;
   left: 0;

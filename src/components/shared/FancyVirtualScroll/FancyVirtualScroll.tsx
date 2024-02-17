@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 
 import { Item, Wrapper } from './FancyVirtualScroll.style';
 
-import { TItem, TVirtualScrollProps } from './TVirtualScrolling.model';
+import { TItem, TVirtualScrollProps } from './TVirtualScroll.model';
 import { debounce } from '@/utils/functions/debounce';
 
 export default function FancyVirtualScroll(props: TVirtualScrollProps) {
@@ -11,13 +11,14 @@ export default function FancyVirtualScroll(props: TVirtualScrollProps) {
     containerHeight = '300px',
     itemHeight = 300,
     initialItemIndex = 0,
-    enableScrollSnap = true,
+    scrollSnap = 'mandatory',
     itemGap = 0,
     currentItemsInView,
   } = props;
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [viewportItems, setViewportItems] = useState<TItem[]>([]);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const debouncedOnVisibleItemsChange = useCallback(
     debounce((index: number) => currentItemsInView?.(index), 100),
     [currentItemsInView]
@@ -67,6 +68,7 @@ export default function FancyVirtualScroll(props: TVirtualScrollProps) {
     }
 
     setViewportItems(newViewportItems);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [children, itemHeight, itemGap]);
 
   useEffect(() => {
@@ -85,14 +87,14 @@ export default function FancyVirtualScroll(props: TVirtualScrollProps) {
   }, [initialItemIndex, itemHeight, itemGap]);
 
   return (
-    <Wrapper ref={containerRef} $enableScrollSnap={enableScrollSnap} $containerHeight={containerHeight}>
+    <Wrapper ref={containerRef} $scrollSnap={scrollSnap} $containerHeight={containerHeight}>
       <div style={{ position: 'relative', height: `${children.length * (itemHeight + itemGap) - itemGap}px` }}>
         {viewportItems.map(({ content, originalIndex }) => (
           <Item
             style={{ top: `${originalIndex * (itemHeight + itemGap)}px` }}
             key={originalIndex}
             $itemHeight={`${itemHeight}px`}
-            $enableScrollSnap={enableScrollSnap}
+            $enableScrollSnap={Boolean(scrollSnap)}
           >
             {content}
           </Item>

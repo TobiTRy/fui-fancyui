@@ -3,13 +3,13 @@ import { styled } from 'styled-components';
 import { TTheme } from '@/types/TTheme';
 import { TInputLabel } from '@/components/atoms/InputLabel/TInputLabel';
 import { getBackgroundColor, getTextColor } from '@/design/designFunctions/colorCalculatorForComponent';
-import IStyledPrefixAndPicker from '@/types/IStyledPrefixAndPicker';
+import { TStyledPrefixAndPicker } from '@/types/TStyledPrefixAndPicker';
 import { generateLableVariant } from './utils/generateLableVariant';
 
 // --------------------------------------------------------------------------- //
 // ---------------- A Label for the Inputs with absolute position ------------ //
 // --------------------------------------------------------------------------- //
-type TSytledInputLabel = IStyledPrefixAndPicker<TInputLabel>;
+type TSytledInputLabel = TStyledPrefixAndPicker<TInputLabel>;
 export const InputLabel = styled.label<TSytledInputLabel & { theme: TTheme }>`
   position: absolute;
   color: ${({ theme }) => getTextColor({ theme, $themeType: 'secondary', $textLayer: 4 })};

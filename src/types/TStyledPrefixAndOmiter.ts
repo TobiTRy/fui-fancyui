@@ -11,12 +11,10 @@ type RequiredKeysAfterOmit<T, U extends StringKeys<T>> = Exclude<RequiredKeys<T>
 type OptionalKeysAfterOmit<T, U extends StringKeys<T>> = Exclude<OptionalKeys<T>, U>;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-type IStyledPrefixAndOmitter<T extends Record<string, any>, U extends StringKeys<T> = never> = {
+export type TStyledPrefixAndOmiter<T extends Record<string, any>, U extends StringKeys<T> = never> = {
   // Required properties after omitting
   [P in RequiredKeysAfterOmit<T, U> as `$${P}`]: T[P];
 } & {
   // Optional properties after omitting
   [P in OptionalKeysAfterOmit<T, U> as `$${P}`]?: T[P];
 };
-
-export default IStyledPrefixAndOmitter;

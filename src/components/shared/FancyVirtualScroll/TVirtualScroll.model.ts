@@ -8,7 +8,7 @@ export type TVirtualScrollProps = {
   containerHeight?: string;
   itemHeight?: number;
   initialItemIndex?: number;
-  enableScrollSnap?: boolean;
+  scrollSnap?: 'mandatory' | 'proximity';
   itemGap?: number; // New prop for specifying the gap between children
   currentItemsInView?: (index: number) => void;
 };

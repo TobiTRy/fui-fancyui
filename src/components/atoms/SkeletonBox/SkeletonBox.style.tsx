@@ -1,12 +1,12 @@
 import { styled, keyframes } from 'styled-components';
 
 import { TTheme } from '@/types/TTheme';
-import IStyledPrefixAndPicker from '@/types/IStyledPrefixAndPicker';
+import { TStyledPrefixAndPicker } from '@/types/TStyledPrefixAndPicker';
 import { globalElementsizes } from '@/design/theme/globalSizes';
 import { TSkeletonBox } from './TSkeleton.model';
 import { clampLayer } from '@/utils/functions/clampLayer';
 
-type TLoadingProps = IStyledPrefixAndPicker<TSkeletonBox, 'themeType' | 'layer'>;
+type TLoadingProps = TStyledPrefixAndPicker<TSkeletonBox, 'themeType' | 'layer'>;
 const createLoadingKeyframes = ({
   $themeType = 'primary',
   theme,
@@ -23,7 +23,7 @@ const createLoadingKeyframes = ({
   }
 `;
 
-type TSyledSkeletonBox = IStyledPrefixAndPicker<TSkeletonBox>;
+type TSyledSkeletonBox = TStyledPrefixAndPicker<TSkeletonBox>;
 export const StyledSkeletonBox = styled.div<TSyledSkeletonBox & { theme: TTheme }>`
   width: ${({ $sizeW }) => ($sizeW === 'fit' ? '100%' : globalElementsizes[$sizeW || 'md'])};
   height: ${({ $sizeH }) => ($sizeH === 'fit' ? '100%' : globalElementsizes[$sizeH || 'md'])};

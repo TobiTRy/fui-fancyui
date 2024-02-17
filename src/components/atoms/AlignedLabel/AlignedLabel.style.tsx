@@ -4,10 +4,10 @@ import { TAlignedLabelProps } from '@/components/atoms/AlignedLabel/TAlinedLabel
 import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent';
 import { leftRightCenterToFlexJustify } from '@/design/designFunctions/leftRightCenterToFlexJustify';
 import { TTheme } from '@/types/TTheme';
-import { IStyledPrefixAndPicker } from 'lib';
+import { TStyledPrefixAndPicker } from '@/types/TStyledPrefixAndPicker';
 
 //the aligned label is only with align left or centerd {align?: string; active?: boolean}
-type TStyledAlignedLabel = IStyledPrefixAndPicker<TAlignedLabelProps> & { theme: TTheme };
+type TStyledAlignedLabel = TStyledPrefixAndPicker<TAlignedLabelProps> & { theme: TTheme };
 export const StyledAlignedLabel = styled.label<TStyledAlignedLabel>`
   display: flex;
   align-items: flex-end;

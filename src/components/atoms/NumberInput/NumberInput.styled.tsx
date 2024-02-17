@@ -1,10 +1,10 @@
 import { styled } from 'styled-components';
 
 import { RawInput } from '@/components/atoms/RawInput';
-import IStyledPrefixAndPicker from '@/types/IStyledPrefixAndPicker';
+import { TStyledPrefixAndPicker } from '@/types/TStyledPrefixAndPicker';
 import { TNumberInput } from '@/components/atoms/NumberInput/TNumberInput.moedel';
 
-type IStyledNumberInput = IStyledPrefixAndPicker<TNumberInput, 'align' | 'externalStyle'>;
+type IStyledNumberInput = TStyledPrefixAndPicker<TNumberInput, 'align' | 'externalStyle'>;
 const StyledNumberInput = styled(RawInput)<IStyledNumberInput & { $width: string }>`
   border-radius: 0;
   width: ${({ $width }) => ($width ? $width : '2ch')};

@@ -1,12 +1,12 @@
 import { styled } from 'styled-components';
-import IStyledPrefixAndPicker from '@/types/IStyledPrefixAndPicker';
+import { TStyledPrefixAndPicker } from '@/types/TStyledPrefixAndPicker';
 import { TDateOutput } from './TDateOutput.model';
 import { TTheme } from '@/types/TTheme';
 import { getBackgroundColor, getTextColor } from '@/design/designFunctions/colorCalculatorForComponent';
 import { globalElementsizes } from '@/design/theme/globalSizes';
 import { sizeSettings } from './sizeSettings';
 
-type TDateOutputButton = IStyledPrefixAndPicker<
+type TDateOutputButton = TStyledPrefixAndPicker<
   TDateOutput,
   'isActive' | 'themeType' | 'layer' | 'sizeC' | 'borderRadius'
 >;

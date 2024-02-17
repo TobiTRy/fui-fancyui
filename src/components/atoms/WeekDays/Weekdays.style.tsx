@@ -2,10 +2,10 @@ import { styled } from 'styled-components';
 
 import { TWeekDays } from '@/components/atoms/WeekDays/TWeekdays.model';
 import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent';
-import IStyledPrefixAndPicker from '@/types/IStyledPrefixAndPicker';
+import { TStyledPrefixAndPicker } from '@/types/TStyledPrefixAndPicker';
 import { TTheme } from '@/types/TTheme';
 
-type TWeekdaysConatiner = IStyledPrefixAndPicker<TWeekDays, 'border' | 'layer' | 'themeType'>;
+type TWeekdaysConatiner = TStyledPrefixAndPicker<TWeekDays, 'border' | 'layer' | 'themeType'>;
 export const WeekdaysConatiner = styled.div<TWeekdaysConatiner & { theme: TTheme }>`
   display: grid;
   grid-template-columns: repeat(7, 1fr);

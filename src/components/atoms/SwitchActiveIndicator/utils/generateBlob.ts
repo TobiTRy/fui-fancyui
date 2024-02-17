@@ -6,10 +6,10 @@ import { IActiveSwitchIndicator } from '../SwitchActiveIndicator';
 import themeStore from '@/design/theme/themeStore/themeStore';
 import { TBorderRadiusSizes } from '@/types/TBorderRadiusSizes';
 import { TTheme } from '@/types/TTheme';
-import IStyledPrefixAndPicker from '@/types/IStyledPrefixAndPicker';
+import { TStyledPrefixAndPicker } from '@/types/TStyledPrefixAndPicker';
 
 // Define the function to generate a blob background for the active indicator
-type IGenerateBlob = IStyledPrefixAndPicker<IActiveSwitchIndicator, 'themeType' | 'outlined' | 'rounded' | 'layer'> & {
+type IGenerateBlob = TStyledPrefixAndPicker<IActiveSwitchIndicator, 'themeType' | 'outlined' | 'rounded' | 'layer'> & {
   theme: TTheme;
 };
 export const generateBlob = (props: IGenerateBlob) => {

@@ -4,14 +4,14 @@ import { TLayer } from '@/types/TLayer';
 import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent';
 import { TTheme } from '@/types/TTheme';
 import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
-import IStyledPrefixAndPicker from '@/types/IStyledPrefixAndPicker';
+import { TStyledPrefixAndPicker } from '@/types/TStyledPrefixAndPicker';
 import { TYearSelector } from '@/components/atoms/YearSelector/TYearSelector.model';
 import { globalElementsizes } from '@/design/theme/globalSizes';
 import { generateBorderRadiusForComponent } from '@/design/designFunctions/generateBorderRadiusForComponent';
 import { sizeSettings } from './sizeSettings';
 import { arrayToCssValues } from '@/design/designFunctions/arrayToCssValues';
 
-type TStyledYearSelector = IStyledPrefixAndPicker<TYearSelector, 'layer' | 'themeType' | 'sizeC' | 'borderRadius'> & {
+type TStyledYearSelector = TStyledPrefixAndPicker<TYearSelector, 'layer' | 'themeType' | 'sizeC' | 'borderRadius'> & {
   theme: TTheme;
 };
 export const StyledYearSelector = styled.div<TStyledYearSelector>`

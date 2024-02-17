@@ -3,7 +3,7 @@ import { styled } from 'styled-components';
 import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent';
 import { TTheme } from '@/types/TTheme';
 import { sizes } from '@/components/atoms/FancySVGAtom/sizeSettings';
-import IStyledPrefixAndOmiter from '@/types/IStyledPrefixAndOmiter';
+import { TStyledPrefixAndOmiter } from '@/types/TStyledPrefixAndOmiter';
 import { ISVGAtom } from '@/components/atoms/FancySVGAtom/FancySVGAtom.model';
 import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 
@@ -23,13 +23,13 @@ const calcIconColor = ({ theme, $isActive, $errorMessage, $themeType, $layer }: 
   }
 };
 
-type IStyledSVGAtom = IStyledPrefixAndOmiter<ISVGAtom, 'children'>;
+type IStyledSVGAtom = TStyledPrefixAndOmiter<ISVGAtom, 'children'>;
 export const StyledSVG = styled.i<IStyledSVGAtom & { theme: TTheme }>`
   display: flex;
   justify-content: center;
   font-style: normal;
   align-items: center;
-  width: ${({ $sizeC }) => sizes[$sizeC!]};
+  width: ${({ $sizeC }) => sizes[$sizeC ?? 'xxs']};
   aspect-ratio: 1/1;
   color: ${({ $isActive, $errorMessage, $isPassive, theme, $themeType = 'secondary', $layer = 0 }) =>
     !$isPassive && calcIconColor({ theme, $isActive, $errorMessage, $layer, $themeType })};

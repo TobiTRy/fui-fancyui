@@ -8,7 +8,6 @@ import { Calendar, TDateArray } from '@/components/molecules/Calendar';
 import { TFancyDatePicker } from '@/components/templates/FancyDatePicker/TFancyDatePicker.model';
 import { DatePickerContainer, WrapperYearSelector } from './FancyDatePicker.style';
 import { clampLayer } from '@/utils/functions/clampLayer';
-import { debounce } from '@/utils/functions/debounce';
 import { useDebounce } from '@/utils/hooks/useDebounce';
 
 // --------------------------------------------------------------------------- //

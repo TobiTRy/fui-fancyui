@@ -2,9 +2,9 @@ import styled from 'styled-components';
 
 import { TTextGradientProps } from './TextGradient.model';
 import { generateGradient } from './utils/generateGradient';
-import IStyledPrefixAndOmitter from '@/types/IStyledPrefixAndOmiter';
+import { TStyledPrefixAndOmiter } from '@/types/TStyledPrefixAndOmiter';
 
-type TGradientText = IStyledPrefixAndOmitter<TTextGradientProps, 'children'>;
+type TGradientText = TStyledPrefixAndOmiter<TTextGradientProps, 'children'>;
 export const GradientText = styled.span<TGradientText>`
   background: ${({ $degree, $colors, $orientation, $position }) =>
     generateGradient({ degree: $degree, colors: $colors, orientation: $orientation, position: $position })};

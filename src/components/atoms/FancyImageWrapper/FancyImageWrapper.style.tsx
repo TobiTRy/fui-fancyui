@@ -2,7 +2,7 @@ import { css, styled } from 'styled-components';
 
 import { TFancyImageWrapper } from '@/components/atoms/FancyImageWrapper/FancyImageWrapper.model';
 import { TTheme } from '@/types/TTheme';
-import IStyledPrefixAndPicker from '@/types/IStyledPrefixAndPicker';
+import { TStyledPrefixAndPicker } from '@/types/TStyledPrefixAndPicker';
 
 import { globalSizes } from '@/design/theme/globalSizes';
 import { TComponentSizesExtended } from '@/types/TComponentSizes';
@@ -10,7 +10,7 @@ import { createCssFilterString } from '@/design/designFunctions/createCssFilterS
 import { checkThemeValue } from '@/design/designFunctions/checkThemeValue';
 import { TBorderRadiusSizes } from '@/types/TBorderRadiusSizes';
 
-type TStyledImage = IStyledPrefixAndPicker<
+type TStyledImage = TStyledPrefixAndPicker<
   TFancyImageWrapper,
   'darken' | 'aspectRatio' | 'externalStyle' | 'borderRadius' | 'sizeH' | 'sizeW' | 'objectFit' | 'filter'
 >;

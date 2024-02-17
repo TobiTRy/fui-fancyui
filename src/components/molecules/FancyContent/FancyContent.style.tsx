@@ -1,12 +1,12 @@
 import { css, styled } from 'styled-components';
 
-import IStyledPrefixAndPicker from '@/types/IStyledPrefixAndPicker';
+import { TStyledPrefixAndPicker } from '@/types/TStyledPrefixAndPicker';
 import { TTheme } from '@/types/TTheme';
 import { TFancyContentProps } from '@/components/molecules/FancyContent/FancyContent.model';
-import IStyledPrefixAndOmitter from '@/types/IStyledPrefixAndOmiter';
+import { TStyledPrefixAndOmiter } from '@/types/TStyledPrefixAndOmiter';
 
 // Define the types for the Wrapper component
-type TWrapper = IStyledPrefixAndOmitter<TFancyContentProps, 'children'>;
+type TWrapper = TStyledPrefixAndOmiter<TFancyContentProps, 'children'>;
 
 // Define the Wrapper component
 export const Wrapper = styled.span<TWrapper & { theme: TTheme }>`
@@ -32,7 +32,7 @@ export const Wrapper = styled.span<TWrapper & { theme: TTheme }>`
   }
 `;
 
-type TOnlyTextWrapper = IStyledPrefixAndPicker<
+type TOnlyTextWrapper = TStyledPrefixAndPicker<
   TFancyContentProps,
   'direction' | 'gapBetweenText' | 'align' | 'justify' | 'themeType' | 'layer'
 >;

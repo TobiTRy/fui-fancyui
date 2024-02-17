@@ -1,13 +1,18 @@
 import { styled } from 'styled-components';
+import { TVirtualScrollProps } from './TVirtualScroll.model';
+import { TStyledPrefixAndPicker } from '@/types/TStyledPrefixAndPicker';
 
-type TWrapper = {
-  $containerHeight: string;
-  $enableScrollSnap: boolean;
-};
+type TWrapper = TStyledPrefixAndPicker<TVirtualScrollProps, 'containerHeight' | 'scrollSnap'>;
+
 export const Wrapper = styled.div<TWrapper>`
   height: ${({ $containerHeight }) => $containerHeight};
   overflow-y: scroll;
-  scroll-snap-type: ${({ $enableScrollSnap }) => ($enableScrollSnap ? 'y mandatory' : 'none')};
+  scroll-snap-type: ${({ $scrollSnap }) => ($scrollSnap ? `y ${$scrollSnap}` : 'none')};
+
+  &::-webkit-scrollbar {
+    width: 4px;
+    overflow: hidden;
+  }
 `;
 
 type TItem = {

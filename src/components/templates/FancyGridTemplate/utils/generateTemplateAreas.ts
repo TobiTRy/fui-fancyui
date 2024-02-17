@@ -1,9 +1,9 @@
 import { css } from 'styled-components';
 import { TTheme } from '@/types/TTheme';
 import { TFancyGridTemplate } from '@/components/templates/FancyGridTemplate';
-import IStyledPrefixAndPicker from '@/types/IStyledPrefixAndPicker';
+import { TStyledPrefixAndPicker } from '@/types/TStyledPrefixAndPicker';
 
-type TgenerateTemplateAreas = IStyledPrefixAndPicker<TFancyGridTemplate, 'gridAreas'>;
+type TgenerateTemplateAreas = TStyledPrefixAndPicker<TFancyGridTemplate, 'gridAreas'>;
 export const generateTemplateAreas = ({ $gridAreas }: TgenerateTemplateAreas) => {
   // if there is no gridAreas then return
   if (!$gridAreas) return;
@@ -14,7 +14,7 @@ export const generateTemplateAreas = ({ $gridAreas }: TgenerateTemplateAreas) =>
   `;
 };
 
-type TgenerateBreakPointAreas = IStyledPrefixAndPicker<TFancyGridTemplate, 'gridAreasBreakPoints'> & { theme: TTheme };
+type TgenerateBreakPointAreas = TStyledPrefixAndPicker<TFancyGridTemplate, 'gridAreasBreakPoints'> & { theme: TTheme };
 export const generateBreakPointAreas = (props: TgenerateBreakPointAreas) => {
   const { $gridAreasBreakPoints, theme } = props;
 

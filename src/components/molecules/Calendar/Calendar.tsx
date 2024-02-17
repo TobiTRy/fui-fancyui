@@ -1,11 +1,11 @@
-import { RefObject, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { RefObject, useMemo, useRef } from 'react';
 
 import { MonthContainer, StyledCalendar } from './Calendar.style';
 
 import { MonthWithDays } from '@/components/molecules/MonthWithDays';
 import useSelectedDates from './utils/useSelectedDates/useSelectedDates';
 
-import { TCalendar, TYearMonth } from '@/components/molecules/Calendar/TCalendar.model';
+import { TCalendar } from '@/components/molecules/Calendar/TCalendar.model';
 import { FancyVirtualScroll } from '@/components/shared/FancyVirtualScroll';
 
 // --------------------------------------------------------------------------- //
@@ -31,11 +31,6 @@ export default function Calendar(props: TCalendar) {
   // --------------------------------------------------------------------------- //
   // ---- This area of the component handles the rendering of the months ------- //
   // --------------------------------------------------------------------------- //
-  //ref for the main container (wrapper)
-  const [selectedYearMonthState, setSelectedYearMonthState] = useState({
-    year: new Date().getFullYear(),
-    month: new Date().getMonth(),
-  });
 
   const ContainerRef: RefObject<HTMLDivElement> = useRef(null);
   // generate the array with the months of the selected year and the year before and after (smooth scrolling)
@@ -51,6 +46,7 @@ export default function Calendar(props: TCalendar) {
           month: endCalendar.month,
         }
       ),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     []
   );
 
@@ -65,10 +61,6 @@ export default function Calendar(props: TCalendar) {
   // -- handle the scrolling to the current month and the slection of the dates- //
   // --------------------------------------------------------------------------- //
 
-  useEffect(() => {
-    if (selectedYearMonth) setSelectedYearMonthState(selectedYearMonth);
-  }, [selectedYearMonth]);
-
   // handle the selection of the date or date range
   const { selectedDates, handleDateClick } = useSelectedDates({
     selectFromTo,
@@ -81,6 +73,7 @@ export default function Calendar(props: TCalendar) {
     return threeYearsArray.findIndex((month) => {
       return month.month === selectedYearMonth?.month && month.year === selectedYearMonth.year;
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const monthYearChangeHandler = (index: number) => {
@@ -140,22 +133,6 @@ export default function Calendar(props: TCalendar) {
     </StyledCalendar>
   );
 }
-
-const generateArrayWithMontsAndYear = (currentYear: number) => {
-  const generateOneYearArray = (year: number) =>
-    Array.from({ length: 12 }, (_, index) => {
-      return {
-        month: index,
-        year: year,
-      };
-    });
-
-  return [
-    ...generateOneYearArray(currentYear - 1),
-    ...generateOneYearArray(currentYear),
-    ...generateOneYearArray(currentYear + 1),
-  ];
-};
 
 type TMonthYear = {
   month: number;

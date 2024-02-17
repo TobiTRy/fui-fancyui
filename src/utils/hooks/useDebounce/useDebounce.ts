@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState, useEffect, useCallback } from 'react';
 
 export default function useDebounce<T extends (...args: any[]) => void>(
@@ -12,7 +13,7 @@ export default function useDebounce<T extends (...args: any[]) => void>(
       const newTimer = setTimeout(() => callback(...args), delay);
       setTimer(newTimer);
     },
-    [callback, delay]
+    [callback, delay, timer]
   );
 
   useEffect(() => {

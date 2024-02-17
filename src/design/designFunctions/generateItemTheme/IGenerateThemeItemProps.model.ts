@@ -1,7 +1,7 @@
 import { TBorderRadiusSizes } from '@/types/TBorderRadiusSizes';
 
 import { TLayer } from '@/types/TLayer';
-import IStyledPrefixAndOmiter from '@/types/IStyledPrefixAndOmiter';
+import { TStyledPrefixAndOmiter } from '@/types/TStyledPrefixAndOmiter';
 import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 import { TUiColorTypes } from '@/types/TUiColorTypes';
 
@@ -20,4 +20,4 @@ export type IGenerateThemeItemProps = {
   align?: 'left' | 'right' | 'center';
 };
 
-export type IGenerateThemeItem = IStyledPrefixAndOmiter<IGenerateThemeItemProps>;
+export type IGenerateThemeItem = TStyledPrefixAndOmiter<IGenerateThemeItemProps>;

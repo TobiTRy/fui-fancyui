@@ -44,7 +44,7 @@ export default function MonthWithDays(props: TMonthWithDays) {
       }),
     };
     return month;
-  }, [monthIdx, selectedDates, isRangePicking, monthDays, year, disabledDateSetting]);
+  }, [monthIdx, selectedDates, isRangePicking, monthDays, year, disabledDateSetting, startWeekOn]);
 
   useEffect(() => {
     if (externalMonthWithDays) {
