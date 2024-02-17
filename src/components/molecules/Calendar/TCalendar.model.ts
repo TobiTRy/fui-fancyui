@@ -1,7 +1,6 @@
 import { IDisabledDateSettings } from '@/components/molecules/MonthWithDays/utils/types/IDisableDateSettings.model';
 import IExternalYearWithMonths from '@/components/molecules/MonthWithDays/utils/types/IExternalMonthWithDays.model';
 import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
-
 import { TLayer } from '@/types/TLayer';
 
 export type TDateArray = [Date | undefined, Date | undefined] | Date;
@@ -16,13 +15,15 @@ export type TYearMonth = {
 export type TCalendar = {
   selectedYearMonth?: TYearMonth;
   rangeCalendar: boolean;
-  handleDates?: (date: TDateArray) => void;
   selectFromTo?: 'from' | 'to' | undefined;
+  handleDates?: (date: TDateArray) => void;
   currentInViewhandler?: (date: TYearMonth) => void;
   handleSwitchFromTo?: (change: 'from' | 'to') => void;
   disabledDateSetting?: IDisabledDateSettings;
   externalMonthsWithDays?: IExternalYearWithMonths;
+  startWeekOnDay?: 0 | 1 | 2 | 3 | 4 | 5 | 6;
+  startCalendar?: TYearMonth;
+  endCalendar?: TYearMonth;
   themeType?: TUiColorsNotTransparent;
-  startWeekOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6;
   layer?: TLayer;
 };
