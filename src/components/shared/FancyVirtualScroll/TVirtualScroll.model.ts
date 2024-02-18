@@ -6,9 +6,10 @@ export type TItem = {
 export type TVirtualScrollProps = {
   children: React.ReactNode[];
   containerHeight?: string;
+  preRenderCount?: number;
   itemHeight?: number;
-  initialItemIndex?: number;
+  itemIndexInView?: number;
   scrollSnap?: 'mandatory' | 'proximity';
   itemGap?: number; // New prop for specifying the gap between children
-  currentItemsInView?: (index: number) => void;
+  currentItemsInViewHandler?: (index: number) => void;
 };
