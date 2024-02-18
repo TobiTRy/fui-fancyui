@@ -10,66 +10,70 @@ export default function FancyVirtualScroll(props: TVirtualScrollProps) {
     children,
     containerHeight = '300px',
     itemHeight = 300,
-    initialItemIndex = 0,
+    preRenderCount = 3,
+    itemIndexInView = 2,
     scrollSnap = 'mandatory',
     itemGap = 0,
-    currentItemsInView,
+    currentItemsInViewHandler,
   } = props;
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [viewportItems, setViewportItems] = useState<TItem[]>([]);
+  const [itemIndexInViewState, setitemIndexInViewState] = useState(itemIndexInView);
+
+  const rangeHeight = children.length * (itemHeight + itemGap) - itemGap;
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const debouncedOnVisibleItemsChange = useCallback(
-    debounce((index: number) => currentItemsInView?.(index), 100),
-    [currentItemsInView]
+    debounce((index: number) => currentItemsInViewHandler?.(index), 100),
+    [currentItemsInViewHandler]
   );
 
+  const calcHeightFromIndex = (index: number) => {
+    console.log(index, 'index');
+    return index * (itemHeight + itemGap);
+  };
+
+  const calcIndexFromHeight = (scrollTop: number, itemHeight: number) => {
+    // This calculates the index at the current scroll position by dividing the scrollTop height by the height of each item.
+    // Math.floor is used to ensure the index is a whole number, indicating the first fully visible item at the scrollTop position.
+    return Math.floor(scrollTop / itemHeight);
+  };
+
   const calculateVisibleItems = useCallback(() => {
-    if (!containerRef.current) return;
+    const container = containerRef.current;
+    if (!container) return;
 
-    const scrollTop = containerRef.current.scrollTop;
-    const viewHeight = containerRef.current.clientHeight;
-    const effectiveItemHeight = itemHeight + itemGap;
-    const totalHeight = children.length * effectiveItemHeight - itemGap; // Adjust total height calculation
-    const startOffset = Math.max(0, scrollTop - effectiveItemHeight);
-    const endOffset = Math.min(totalHeight, scrollTop + viewHeight + effectiveItemHeight);
+    const containerScrollTop = container.scrollTop;
+    const containerHeight = container.clientHeight;
+    const itemHeightWithGap = itemHeight + itemGap;
 
-    const startIndex = Math.floor(startOffset / effectiveItemHeight); // Adjust start index calculation
-    const endIndex = Math.floor(endOffset / effectiveItemHeight); // Adjust end index calculation
+    const scrollTopIndexPosition = itemHeightWithGap * itemIndexInViewState - itemHeight;
 
-    let mostVisibleItemIndex = -1;
-    let maxVisibleHeight = 0;
+    const toTopOfIndexItem = calcHeightFromIndex(itemIndexInViewState);
 
-    const newViewportItems = children.slice(startIndex, endIndex + 1).map((content, index) => ({
-      content,
-      originalIndex: startIndex + index,
-    }));
+    const indexFromHeight = calcIndexFromHeight(containerScrollTop, itemHeightWithGap);
+    console.log('indexFromHeight', indexFromHeight, toTopOfIndexItem);
 
-    for (let i = 0; i < children.length; i++) {
-      const itemTop = i * effectiveItemHeight;
-      const itemBottom = itemTop + itemHeight;
-      const viewBottom = scrollTop + viewHeight;
+    // get index of the main index item
+    // add the preRenderCount to the index and calculate the start and end index from that
 
-      // Calculate visibility of the current item
-      const visibleTop = Math.max(scrollTop, itemTop);
-      const visibleBottom = Math.min(viewBottom, itemBottom);
-      const visibleHeight = Math.max(0, visibleBottom - visibleTop);
+    console.log('indexOfIndexItem', toTopOfIndexItem);
 
-      // Update the most visible item if this item is more visible than previous ones
-      if (visibleHeight > maxVisibleHeight) {
-        mostVisibleItemIndex = i;
-        maxVisibleHeight = visibleHeight;
-      }
-    }
+    const start = Math.max(0, Math.floor(toTopOfIndexItem - preRenderCount));
+    const end = Math.min(start, Math.floor(toTopOfIndexItem + preRenderCount) + 1);
 
-    // Now mostVisibleItemIndex holds the index of the item most visible in the viewport
-    if (mostVisibleItemIndex !== -1) {
-      debouncedOnVisibleItemsChange(mostVisibleItemIndex);
-    }
+    //generate the start and end index from
 
-    setViewportItems(newViewportItems);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [children, itemHeight, itemGap]);
+    console.log('start', start, 'end', end);
+
+    //update index
+    setitemIndexInViewState(start);
+
+    const items = children.slice(start, end);
+    setViewportItems(items.map((content, index) => ({ content, originalIndex: start + index })));
+
+    console.log('scrollTopIndexPosition', scrollTopIndexPosition);
+  }, []);
 
   useEffect(() => {
     calculateVisibleItems();
@@ -80,15 +84,12 @@ export default function FancyVirtualScroll(props: TVirtualScrollProps) {
   }, [calculateVisibleItems]);
 
   useEffect(() => {
-    if (containerRef.current) {
-      const initialScrollTop = initialItemIndex * (itemHeight + itemGap);
-      containerRef.current.scrollTop = initialScrollTop;
-    }
-  }, [initialItemIndex, itemHeight, itemGap]);
+    setitemIndexInViewState(itemIndexInView);
+  }, [itemIndexInView]);
 
   return (
     <Wrapper ref={containerRef} $scrollSnap={scrollSnap} $containerHeight={containerHeight}>
-      <div style={{ position: 'relative', height: `${children.length * (itemHeight + itemGap) - itemGap}px` }}>
+      <div style={{ position: 'relative', height: `${rangeHeight}px` }}>
         {viewportItems.map(({ content, originalIndex }) => (
           <Item
             style={{ top: `${originalIndex * (itemHeight + itemGap)}px` }}
