@@ -48,12 +48,9 @@ export default function FancyDatePicker(props: TFancyDatePicker) {
   };
 
   const debounceYearFunc = useDebounce((year: number) => {
-    setCurrentlyMonthYearInView((current) => ({ ...current, year }));
+    console.log(year);
+    setCurrentlyMonthYearInView({ month: currentlyMonthYearInView.month, year });
   }, 100);
-  // debounce the year change on the year selector
-  const debounceYearChangeOnYearSelect = (year: number) => {
-    debounceYearFunc(year);
-  };
 
   // update the state if the selectedYear changes
   useEffect(() => {
@@ -68,7 +65,7 @@ export default function FancyDatePicker(props: TFancyDatePicker) {
         <YearSelector
           borderRadius="complete"
           selectedYear={currentlyMonthYearInView.year}
-          handler={(year: number) => debounceYearChangeOnYearSelect(year)}
+          handler={(year: number) => debounceYearFunc(year)}
           themeType={'transparent'}
           ariaTextLeftArrow={yearSelector?.ariaTextLeftArrow || 'go one year back'}
           ariaTextRightArrow={yearSelector?.ariaTextRightArrow || 'go one year forward'}
