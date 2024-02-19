@@ -1,26 +1,25 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { useState, useEffect, useCallback } from 'react';
+import { useRef, useCallback, useEffect } from 'react';
 
-export default function useDebounce<T extends (...args: any[]) => void>(
-  callback: T,
-  delay: number
-): (...args: Parameters<T>) => void {
-  const [timer, setTimer] = useState<NodeJS.Timeout | null>(null);
+function useDebounce<T extends (...args: any[]) => void>(callback: T, delay: number): (...args: Parameters<T>) => void {
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
 
   const debouncedFunc = useCallback(
     (...args: Parameters<T>) => {
-      if (timer) clearTimeout(timer);
-      const newTimer = setTimeout(() => callback(...args), delay);
-      setTimer(newTimer);
+      if (timerRef.current) clearTimeout(timerRef.current);
+      timerRef.current = setTimeout(() => {
+        callback(...args);
+      }, delay);
     },
-    [callback, delay, timer]
-  );
+    [callback, delay]
+  ); // Dependencies are callback and delay
 
   useEffect(() => {
     return () => {
-      if (timer) clearTimeout(timer);
+      if (timerRef.current) clearTimeout(timerRef.current);
     };
-  }, [timer]);
+  }, []); // Cleanup on unmount
 
   return debouncedFunc;
 }
+
+export default useDebounce;
