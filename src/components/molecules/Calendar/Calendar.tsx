@@ -8,8 +8,6 @@ import useSelectedDates from './utils/useSelectedDates/useSelectedDates';
 import { TCalendar, TYearMonth } from '@/components/molecules/Calendar/TCalendar.model';
 import { FancyVirtualScroll } from '@/components/shared/FancyVirtualScroll';
 import { useDebounce } from '@/utils/hooks/useDebounce';
-import { debounce } from '@/utils/functions/debounce';
-
 // --------------------------------------------------------------------------- //
 // -------- The main calenader wich can select a date, or date range --------- //
 // --------------------------------------------------------------------------- //
@@ -33,11 +31,6 @@ export default function Calendar(props: TCalendar) {
   // --------------------------------------------------------------------------- //
   // ---- This area of the component handles the rendering of the months ------- //
   // --------------------------------------------------------------------------- //
-  const [currentInView, setCurrentInView] = useState<TYearMonth>({
-    year: selectedYearMonth.year,
-    month: selectedYearMonth.month,
-  });
-  const [yearChangeExternal, setYearChangeExternal] = useState(false);
 
   const ContainerRef: RefObject<HTMLDivElement> = useRef(null);
   // generate the array with the months of the selected year and the year before and after (smooth scrolling)
@@ -71,46 +64,26 @@ export default function Calendar(props: TCalendar) {
 
   const toScrolledMonthIdx = useMemo(() => {
     return monthYearRange.findIndex((month) => {
-      return month.month === currentInView?.month && month.year === currentInView.year;
+      return month.month === selectedYearMonth?.month && month.year === selectedYearMonth.year;
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentInView]);
-
-  // const debouncedYearChange = useCallback(
-  //   (yearMonth: TYearMonth) => {
-  //     const debouncedFunc = debounce((yearMonth: TYearMonth) => {
-  //       currentInViewhandler?.(yearMonth);
-  //     }, 200);
-
-  //     debouncedFunc(yearMonth);
-  //   },
-  //   []
-  // );
-
-  const monthYearChangeHandler = (index: number) => {
-    if (yearChangeExternal) {
-      return;
-    }
-    // debouncedYearChange(monthYearRange[index]);
-  };
-
-  useEffect(() => {
-    console.log('useEffect', selectedYearMonth);
-    if (selectedYearMonth.year !== currentInView.year) {
-      setYearChangeExternal(true);
-      setCurrentInView(selectedYearMonth);
-    }
-
-    setCurrentInView(selectedYearMonth);
   }, [selectedYearMonth]);
+
+  const debounce1 = useDebounce((index: number) => {
+    console.log('debounce1', index);
+    currentInViewhandler?.(monthYearRange[index]);
+  }, 100);
+
+  console.log(selectedYearMonth);
 
   return (
     <StyledCalendar ref={ContainerRef}>
       <FancyVirtualScroll
         containerHeight="300px"
         itemHeight={300}
-        itemIndexInView={2}
-        currentItemsInViewHandler={(idx) => monthYearChangeHandler(idx)}
+        scrollSnap="mandatory"
+        itemIndexInView={toScrolledMonthIdx}
+        currentItemsInViewHandler={(idx) => debounce1(idx)}
       >
         {monthYearRange.map((monthWithYear, index) => {
           return (
