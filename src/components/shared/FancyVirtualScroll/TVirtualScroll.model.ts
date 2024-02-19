@@ -1,8 +1,3 @@
-export type TItem = {
-  content: React.ReactNode;
-  originalIndex: number;
-};
-
 export type TVirtualScrollProps = {
   children: React.ReactNode[];
   containerHeight?: string;
