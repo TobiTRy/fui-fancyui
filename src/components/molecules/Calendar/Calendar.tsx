@@ -28,11 +28,9 @@ export default function Calendar(props: TCalendar) {
     layer,
   } = props;
 
-  // --------------------------------------------------------------------------- //
-  // ---- This area of the component handles the rendering of the months ------- //
-  // --------------------------------------------------------------------------- //
-
+  // the ref to the container of the calendar
   const ContainerRef: RefObject<HTMLDivElement> = useRef(null);
+
   // generate the array with the months of the selected year and the year before and after (smooth scrolling)
   const monthYearRange: TYearMonth[] = useMemo(
     () =>
@@ -49,10 +47,6 @@ export default function Calendar(props: TCalendar) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     []
   );
-
-  // --------------------------------------------------------------------------- //
-  // -- handle the scrolling to the current month and the slection of the dates- //
-  // --------------------------------------------------------------------------- //
 
   // handle the selection of the date or date range
   const { selectedDates, handleDateClick } = useSelectedDates({
@@ -73,8 +67,6 @@ export default function Calendar(props: TCalendar) {
     console.log('debounce1', index);
     currentInViewhandler?.(monthYearRange[index]);
   }, 100);
-
-  console.log(selectedYearMonth);
 
   return (
     <StyledCalendar ref={ContainerRef}>
