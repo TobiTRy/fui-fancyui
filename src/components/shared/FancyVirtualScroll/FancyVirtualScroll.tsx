@@ -9,14 +9,14 @@ export default function FancyVirtualScroll(props: TVirtualScrollProps) {
     containerHeight = '300px',
     itemHeight = 300,
     preRenderCount = 1,
-    itemIndexInView = 2,
+    itemIndexInView = 0,
     scrollSnap = 'proximity',
     itemGap = 0,
     currentItemsInViewHandler,
   } = props;
-
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [itemIndexInViewState, setItemIndexInViewState] = useState(itemIndexInView);
+  const [indexChange, setIndexChange] = useState(false);
 
   // Memoized items to render
   // This is to avoid recalculating the items to render on every render
@@ -40,7 +40,9 @@ export default function FancyVirtualScroll(props: TVirtualScrollProps) {
 
     const containerScrollTop = container.scrollTop;
     const itemHeightWithGap = itemHeight + itemGap;
-    const indexFromHeight = Math.floor(containerScrollTop / itemHeightWithGap);
+    let indexFromHeight = Math.floor(containerScrollTop / itemHeightWithGap);
+
+    if (indexChange) indexFromHeight = itemIndexInView;
 
     setItemIndexInViewState(indexFromHeight);
   }, [itemHeight, itemGap]);
@@ -59,7 +61,7 @@ export default function FancyVirtualScroll(props: TVirtualScrollProps) {
     return () => {
       container.removeEventListener('scroll', calculateVisibleItemIdx);
     };
-  }, [calculateVisibleItemIdx]);
+  }, [calculateVisibleItemIdx, indexChange]);
 
   // Adjusts scroll position when itemIndexInView prop changes
   useEffect(() => {
@@ -68,6 +70,8 @@ export default function FancyVirtualScroll(props: TVirtualScrollProps) {
 
     const newScrollTop = itemIndexInView * (itemHeight + itemGap); // Adjust so the item is fully in view
     container.scrollTop = newScrollTop;
+
+    setIndexChange(true);
     setItemIndexInViewState(itemIndexInView);
 
     // Force recalculation after adjusting scroll position
