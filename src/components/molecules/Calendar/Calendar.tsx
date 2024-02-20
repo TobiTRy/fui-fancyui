@@ -1,4 +1,4 @@
-import { RefObject, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { RefObject, useMemo, useRef, useState } from 'react';
 
 import { MonthContainer, StyledCalendar } from './Calendar.style';
 
@@ -8,6 +8,7 @@ import useSelectedDates from './utils/useSelectedDates/useSelectedDates';
 import { TCalendar, TYearMonth } from '@/components/molecules/Calendar/TCalendar.model';
 import { FancyVirtualScroll } from '@/components/shared/FancyVirtualScroll';
 import { useDebounce } from '@/utils/hooks/useDebounce';
+
 // --------------------------------------------------------------------------- //
 // -------- The main calenader wich can select a date, or date range --------- //
 // --------------------------------------------------------------------------- //
@@ -27,6 +28,10 @@ export default function Calendar(props: TCalendar) {
     startWeekOnDay = 1,
     layer,
   } = props;
+
+  const [isScrolling, setIsScrolling] = useState(false);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [isHovering, setIsHovering] = useState(false);
 
   // the ref to the container of the calendar
   const ContainerRef: RefObject<HTMLDivElement> = useRef(null);
@@ -60,22 +65,55 @@ export default function Calendar(props: TCalendar) {
     return monthYearRange.findIndex((month) => {
       return month.month === selectedYearMonth?.month && month.year === selectedYearMonth.year;
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selectedYearMonth]);
+  }, [selectedYearMonth, monthYearRange]);
 
-  const debounce1 = useDebounce((index: number) => {
-    console.log('debounce1', index);
+  const [debounce1] = useDebounce((index: number) => {
+    if (isScrolling) return;
     currentInViewhandler?.(monthYearRange[index]);
   }, 100);
+
+  const [debounceScrolling, cancleScrollDebounce] = useDebounce(() => {
+    setIsScrolling(false);
+  }, 200);
+
+  const toutchedContainer = () => {
+    cancleScrollDebounce();
+    setIsScrolling(true);
+    setIsHovering(true);
+  };
+
+  const toutchedEndContainer = () => {
+    debounceScrolling();
+    setIsHovering(false);
+  };
+
+  const handleScroll = (isScrolling: boolean) => {
+    if (isScrolling) {
+      setIsScrolling(true);
+    }
+    debounceScrolling();
+  };
+
+  console.log('isScrolling', isScrolling ? 'mandatory' : 'proximity');
 
   return (
     <StyledCalendar ref={ContainerRef}>
       <FancyVirtualScroll
         containerHeight="300px"
         itemHeight={300}
-        scrollSnap="mandatory"
-        itemIndexInView={toScrolledMonthIdx}
+        scrollSnap={isScrolling ? 'mandatory' : 'proximity'}
+        firstItemIndexInView={toScrolledMonthIdx}
         currentItemsInViewHandler={(idx) => debounce1(idx)}
+        onScrollingStateChange={(isScrolling) => handleScroll(isScrolling)}
+        attributesContainer={{
+          onTouchStart: toutchedContainer,
+          onTouchEnd: toutchedEndContainer,
+          onMouseEnter: toutchedContainer,
+          onMouseLeave: toutchedEndContainer,
+          $externalStyle: {
+            scrollBehavior: isScrolling ? 'smooth' : 'auto',
+          },
+        }}
       >
         {monthYearRange.map((monthWithYear, index) => {
           return (
