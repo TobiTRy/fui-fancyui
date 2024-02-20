@@ -47,8 +47,7 @@ export default function FancyDatePicker(props: TFancyDatePicker) {
     setCurrentlySelectedFromOrTo(change);
   };
 
-  const debounceYearFunc = useDebounce((year: number) => {
-    console.log(year);
+  const [debounceYearFunc] = useDebounce((year: number) => {
     setCurrentlyMonthYearInView({ month: currentlyMonthYearInView.month, year });
   }, 100);
 
