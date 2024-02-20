@@ -1,8 +1,10 @@
 import { useRef, useCallback, useEffect } from 'react';
 
-function useDebounce<T extends (...args: any[]) => void>(callback: T, delay: number): (...args: Parameters<T>) => void {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function useDebounce<T extends (...args: any[]) => void>(callback: T, delay: number) {
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
+  // The debounced function
   const debouncedFunc = useCallback(
     (...args: Parameters<T>) => {
       if (timerRef.current) clearTimeout(timerRef.current);
@@ -11,15 +13,25 @@ function useDebounce<T extends (...args: any[]) => void>(callback: T, delay: num
       }, delay);
     },
     [callback, delay]
-  ); // Dependencies are callback and delay
+  );
 
+  // Cancel function to clear the timer
+  const cancel = useCallback(() => {
+    if (timerRef.current) {
+      clearTimeout(timerRef.current);
+      timerRef.current = null;
+    }
+  }, []);
+
+  // Cleanup on unmount
   useEffect(() => {
     return () => {
       if (timerRef.current) clearTimeout(timerRef.current);
     };
-  }, []); // Cleanup on unmount
+  }, []);
 
-  return debouncedFunc;
+  // Return both the debounced function and the cancel function
+  return [debouncedFunc, cancel];
 }
 
 export default useDebounce;
