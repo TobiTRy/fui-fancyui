@@ -12,10 +12,13 @@ export const StyledAlignedLabel = styled.label<TStyledAlignedLabel>`
   display: flex;
   align-items: flex-end;
   justify-content: ${({ $align }) => leftRightCenterToFlexJustify[$align ?? 'left']};
-  color: ${({ $systemMessageType, theme, $themeType = 'secondary', $layer }) =>
-    getBackgroundColor({
-      theme,
-      $themeType: $systemMessageType ? $systemMessageType : $themeType,
-      $layer: $layer,
-    })};
+
+  * {
+    color: ${({ $systemMessageType, theme, $themeType = 'secondary', $layer }) =>
+      getBackgroundColor({
+        theme,
+        $themeType: $systemMessageType ? $systemMessageType : $themeType,
+        $layer: $layer,
+      })} !important;
+  }
 `;
