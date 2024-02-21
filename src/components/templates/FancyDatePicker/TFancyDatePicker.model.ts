@@ -7,7 +7,7 @@ import { TLayer } from '@/types/TLayer';
 
 export type TFancyDatePicker = {
   rangeCalendar?: boolean;
-  handler?: (date: TDateArray) => void;
+  dateSelectHandler?: (date: TDateArray) => void;
   monthYearInView?: TYearMonth;
   disabledDateSetting?: IDisabledDateSettings;
   externalData?: IExternalYearWithMonths;

@@ -16,7 +16,7 @@ import { useDebounce } from '@/utils/hooks/useDebounce';
 export default function FancyDatePicker(props: TFancyDatePicker) {
   const {
     rangeCalendar = false,
-    handler,
+    dateSelectHandler,
     monthYearInView,
     disabledDateSetting,
     externalData,
@@ -25,6 +25,7 @@ export default function FancyDatePicker(props: TFancyDatePicker) {
     yearSelector,
     startWeekOn = 1,
   } = props;
+  const swapedTheme = themeType ? (themeType === 'primary' ? 'secondary' : 'primary') : undefined;
 
   const [selectedDate, setSelectedDate] = useState<TDateArray>([undefined, undefined]);
   const [currentlySelectedFromOrTo, setCurrentlySelectedFromOrTo] = useState<'from' | 'to'>('from');
@@ -33,12 +34,9 @@ export default function FancyDatePicker(props: TFancyDatePicker) {
     year: new Date().getFullYear(),
   });
 
-  //
-  const swapedTheme = themeType ? (themeType === 'primary' ? 'secondary' : 'primary') : undefined;
-
   // handle date change
   const handleDateChange = (changedDate: TDateArray) => {
-    handler?.(changedDate);
+    dateSelectHandler?.(changedDate);
     setSelectedDate(changedDate);
   };
 
@@ -47,16 +45,15 @@ export default function FancyDatePicker(props: TFancyDatePicker) {
     setCurrentlySelectedFromOrTo(change);
   };
 
+  // debounce the year change to avoid too many rerenders
   const [debounceYearFunc] = useDebounce((year: number) => {
     setCurrentlyMonthYearInView({ month: currentlyMonthYearInView.month, year });
   }, 100);
 
-  // update the state if the selectedYear changes
+  // sync the state with the prop monthYearInView
   useEffect(() => {
     if (monthYearInView) setCurrentlyMonthYearInView(monthYearInView);
   }, [monthYearInView]);
-
-  // update the state if the selectedYear changes
 
   return (
     <DatePickerContainer $themeType={themeType} $layer={layer}>
@@ -64,7 +61,7 @@ export default function FancyDatePicker(props: TFancyDatePicker) {
         <YearSelector
           borderRadius="complete"
           selectedYear={currentlyMonthYearInView.year}
-          handler={(year: number) => debounceYearFunc(year)}
+          yearChangeHandler={(year: number) => debounceYearFunc(year)}
           themeType={'transparent'}
           ariaTextLeftArrow={yearSelector?.ariaTextLeftArrow || 'go one year back'}
           ariaTextRightArrow={yearSelector?.ariaTextRightArrow || 'go one year forward'}
