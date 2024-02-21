@@ -5,10 +5,10 @@ import { TUiColorsSystemMessage } from '@/types/TUiColorsSystemMessage';
 import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 import { TTypography } from '@/components/atoms/Typography/Typography.model';
 import { TComponentSizes } from '@/types/TComponentSizes';
-import { TTextAlignLC } from '@/types/TTextAlignLC';
+import { TTextAlignLRC } from '@/types/TTextAlignLRC';
 
 export type TAlignedLabelProps = {
-  align?: TTextAlignLC;
+  align?: TTextAlignLRC;
   systemMessageType?: TUiColorsSystemMessage;
   themeType?: TUiColorsNotTransparent;
   layer?: TLayer;
