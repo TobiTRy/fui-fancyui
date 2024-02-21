@@ -9,10 +9,12 @@ export type TYearSelector = {
   selectedYear: number;
   themeType?: TUiColorsMain | 'transparent';
   themeTypeSecondary?: TUiColorsMain;
+  minYear?: number;
+  maxYear?: number;
   layer?: TLayer;
   textLayer?: TLayer;
   borderRadius?: TBorderRadiusSizes;
-  handler?: (change: number) => void;
+  yearChangeHandler?: (change: number) => void;
   ariaTextLeftArrow: string;
   ariaTextRightArrow: string;
 };

@@ -13,14 +13,16 @@ import { sizeSettings } from './sizeSettings';
 // --------------------------------------------------------------------------- //
 export default function YearSelector(props: TYearSelector) {
   const {
-    selectedYear,
+    selectedYear = new Date().getFullYear(),
     sizeC = 'md',
     themeType = 'primary',
     themeTypeSecondary = 'secondary',
     layer = 3,
     textLayer = 0,
     borderRadius,
-    handler,
+    minYear,
+    maxYear,
+    yearChangeHandler,
     ariaTextLeftArrow,
     ariaTextRightArrow,
   } = props;
@@ -32,7 +34,7 @@ export default function YearSelector(props: TYearSelector) {
     const calcCurrentYear = selectedYearState + change;
     // update the state
     setSelectedYearState(calcCurrentYear);
-    handler?.(calcCurrentYear);
+    yearChangeHandler?.(calcCurrentYear);
     // call the handler with a delay  to prevent multiple calls
   };
 
@@ -41,7 +43,7 @@ export default function YearSelector(props: TYearSelector) {
     const value = target.value;
 
     setSelectedYearState(Number(value));
-    handler && handler(Number(value));
+    yearChangeHandler?.(Number(value));
   };
 
   // update the state if the selectedYear changes
@@ -61,7 +63,14 @@ export default function YearSelector(props: TYearSelector) {
           {SVGChevronLeft}
         </FancySVGAtom>
       </StyledButton>
-      <YearInput sizeC={sizeC} year={selectedYearState} themeType={themeTypeSecondary} onBlur={onBlurHandler} />
+      <YearInput
+        sizeC={sizeC}
+        year={selectedYearState}
+        themeType={themeTypeSecondary}
+        onBlur={onBlurHandler}
+        min={minYear}
+        max={maxYear}
+      />
       <StyledButton
         aria-label={ariaTextRightArrow || 'one year forward'}
         onClick={() => handleYearChange(1)}

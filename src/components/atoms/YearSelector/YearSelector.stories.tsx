@@ -17,6 +17,9 @@ const meta = {
   argTypes: {
     selectedYear: {
       description: 'The year to be displayed',
+      defaultValue: {
+        summary: 'new Date().getFullYear() (current year)',
+      },
       control: {
         type: 'number',
       },
@@ -66,10 +69,22 @@ const meta = {
         step: 1,
       },
     },
-    handler: {
+    yearChangeHandler: {
       description: 'The handler for the year selector',
       control: {
         type: 'function',
+      },
+    },
+    maxYear: {
+      description: 'The maximum year',
+      control: {
+        type: 'number',
+      },
+    },
+    minYear: {
+      description: 'The minimum year',
+      control: {
+        type: 'number',
       },
     },
   },
@@ -87,11 +102,13 @@ export const Primary: Story = {
   render: (args) => <YearSelector {...args} />,
   args: {
     selectedYear: 2021,
-    handler: (year: number) => console.log(year),
+    yearChangeHandler: (year: number) => console.log(year),
     themeType: 'secondary',
     layer: 0,
     ariaTextLeftArrow: 'go one year back',
     ariaTextRightArrow: 'go one year',
+    minYear: 2000,
+    maxYear: 2030,
   },
   parameters: {
     docs: {
