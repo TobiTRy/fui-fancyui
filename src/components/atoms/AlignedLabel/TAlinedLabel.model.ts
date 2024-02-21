@@ -1,14 +1,14 @@
 import { ElementType, LabelHTMLAttributes } from 'react';
 
 import { TLayer } from '@/types/TLayer';
-import { TTextAlignLRC } from '@/types/TTextAlignLRC';
 import { TUiColorsSystemMessage } from '@/types/TUiColorsSystemMessage';
 import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 import { TTypography } from '@/components/atoms/Typography/Typography.model';
 import { TComponentSizes } from '@/types/TComponentSizes';
+import { TTextAlignLC } from '@/types/TTextAlignLC';
 
 export type TAlignedLabelProps = {
-  align?: TTextAlignLRC;
+  align?: TTextAlignLC;
   systemMessageType?: TUiColorsSystemMessage;
   themeType?: TUiColorsNotTransparent;
   layer?: TLayer;
