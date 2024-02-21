@@ -13,7 +13,7 @@ const meta = {
   },
   argTypes: {
     selectedYearMonth: {
-      description: 'The selected year.',
+      description: 'The selected year and month.',
       control: {
         type: 'object',
       },
@@ -57,8 +57,32 @@ const meta = {
       },
       defaultValue: { summary: 4 },
     },
+    currentInViewhandler: {
+      description: 'The handler gives back the currently in view month and year.',
+    },
+    startWeekOnDay: {
+      description: 'The day the week starts on.',
+      control: {
+        type: 'select',
+      },
+      defaultValue: { summary: 1 },
+    },
     externalMonthsWithDays: {
       description: 'The external months with days.',
+    },
+    startCalendarDate: {
+      description: 'The start calendar.',
+      control: {
+        type: 'object',
+      },
+      defaultValue: { summary: { year: new Date().getFullYear(), month: 0 } },
+    },
+    endCalendarDate: {
+      description: 'The end calendar.',
+      control: {
+        type: 'object',
+      },
+      defaultValue: { summary: { year: new Date().getFullYear() + 5, month: new Date().getMonth() } },
     },
   },
   tags: ['autodocs'],
@@ -76,6 +100,14 @@ export const Primary: Story = {
       month: 2,
     },
     rangeCalendar: false,
+    startCalendarDate: {
+      year: 2023,
+      month: 0,
+    },
+    endCalendarDate: {
+      year: 2023,
+      month: 11,
+    },
     selectFromTo: 'from',
     themeType: 'secondary',
     externalMonthsWithDays: {

@@ -1,4 +1,4 @@
-import { RefObject, useMemo, useRef, useState } from 'react';
+import { RefObject, useEffect, useMemo, useRef, useState } from 'react';
 
 import { MonthContainer, StyledCalendar } from './Calendar.style';
 
@@ -15,8 +15,8 @@ import { useDebounce } from '@/utils/hooks/useDebounce';
 export default function Calendar(props: TCalendar) {
   const {
     selectedYearMonth = { year: new Date().getFullYear() + 5, month: new Date().getMonth() },
-    startCalendar = { year: new Date().getFullYear(), month: 0 },
-    endCalendar = { year: new Date().getFullYear() + 5, month: new Date().getMonth() },
+    startCalendarDate = { year: new Date().getFullYear(), month: 0 },
+    endCalendarDate = { year: new Date().getFullYear() + 5, month: new Date().getMonth() },
     handleDates,
     selectFromTo,
     currentInViewhandler,
@@ -29,29 +29,8 @@ export default function Calendar(props: TCalendar) {
     layer,
   } = props;
 
-  const [isScrolling, setIsScrolling] = useState(false);
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [isHovering, setIsHovering] = useState(false);
-
   // the ref to the container of the calendar
   const ContainerRef: RefObject<HTMLDivElement> = useRef(null);
-
-  // generate the array with the months of the selected year and the year before and after (smooth scrolling)
-  const monthYearRange: TYearMonth[] = useMemo(
-    () =>
-      generateArrayWithMonthYearRange(
-        {
-          year: startCalendar.year,
-          month: startCalendar.month,
-        },
-        {
-          year: endCalendar.year,
-          month: endCalendar.month,
-        }
-      ),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    []
-  );
 
   // handle the selection of the date or date range
   const { selectedDates, handleDateClick } = useSelectedDates({
@@ -61,20 +40,56 @@ export default function Calendar(props: TCalendar) {
     rangeCalendar,
   });
 
+  // generate the array with the months of the selected year and the year before and after (smooth scrolling)
+  const monthYearRange: TYearMonth[] = useMemo(
+    () =>
+      generateArrayWithMonthYearRange(
+        {
+          year: startCalendarDate.year,
+          month: startCalendarDate.month,
+        },
+        {
+          year: endCalendarDate.year,
+          month: endCalendarDate.month,
+        }
+      ),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    []
+  );
+
+  // find the index of the selected month in the array with the months
   const toScrolledMonthIdx = useMemo(() => {
     return monthYearRange.findIndex((month) => {
       return month.month === selectedYearMonth?.month && month.year === selectedYearMonth.year;
     });
   }, [selectedYearMonth, monthYearRange]);
 
-  const [debounce1] = useDebounce((index: number) => {
-    if (isScrolling) return;
-    currentInViewhandler?.(monthYearRange[index]);
-  }, 100);
+  // the current month in view (the month that is in the middle of the container)
+  const [currentMonthInView, setCurrentMonthInView] = useState(toScrolledMonthIdx);
 
+  // --------------------------------------------------------------------------- //
+  // -------- The Logic down there handles the scrolling on the claendar ------- //
+  // --------------------------------------------------------------------------- //
+  const [isScrolling, setIsScrolling] = useState(false);
+  const [isHovering, setIsHovering] = useState(false);
+
+  // debounce the scrolling
+  // we need to debounce the scrolling because the scroll event is triggered multiple times
+  // it also triggers wehn it is scrolling automaticly
+  // it also triggers when the user is not scrolling but the scroll position is changing (like a long fast scroll on iphone)
+  // wee need the debounce becasue it needs time to stop the scrolling (like on a longscroll it slowly speeds down)
   const [debounceScrolling, cancleScrollDebounce] = useDebounce(() => {
     setIsScrolling(false);
   }, 200);
+
+  // we need the following logic to make it possible to scroll the calendar with the mousewheel or the trackpad
+  // but also make it possible to scroll the calendar with the touch event
+  // a jump to the next year via the "selectedYearMonth" is not possible with the scrollsnap mandatory (it jumps only to the next month)
+  // so we need to make the scrollsnap mandatory only when the user is scrolling
+  // and make it proximity when the user is not scrolling (so it is possible to jump to the next year)
+
+  // the best way to do this in my oppinion is to check if the user is "hovering" on the calendar and when its not
+  // than he trys to change the year via the year selector and we need to make the scrollsnap proximity
 
   const toutchedContainer = () => {
     cancleScrollDebounce();
@@ -82,19 +97,38 @@ export default function Calendar(props: TCalendar) {
     setIsHovering(true);
   };
 
+  // is called when the user stops beeing on the container
+  // we need this to make it possible
   const toutchedEndContainer = () => {
     debounceScrolling();
     setIsHovering(false);
   };
 
+  // this function is called when the user is scrolling
   const handleScroll = (isScrolling: boolean) => {
-    if (isScrolling) {
+    // if the user is scrolling and is hovering on the calendar we need to make the scrollsnap mandatory
+    if (isScrolling && isHovering) {
       setIsScrolling(true);
+      return;
     }
-    debounceScrolling();
+    // if the user is scrolling and is not hovering on the calendar we need to make the scrollsnap proximity
+    if (isScrolling && !isHovering) {
+      debounceScrolling();
+    }
   };
 
-  console.log('isScrolling', isScrolling ? 'mandatory' : 'proximity');
+  // this useffect sends the current month in view to the parent component
+  // it sends only when the user is not hovering on the calendar
+  useEffect(() => {
+    if (!isHovering) {
+      debounceCurrentInView();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentMonthInView, isHovering, isScrolling]);
+
+  const [debounceCurrentInView] = useDebounce(() => {
+    currentInViewhandler?.(monthYearRange[currentMonthInView]);
+  }, 100);
 
   return (
     <StyledCalendar ref={ContainerRef}>
@@ -103,7 +137,7 @@ export default function Calendar(props: TCalendar) {
         itemHeight={300}
         scrollSnap={isScrolling ? 'mandatory' : 'proximity'}
         firstItemIndexInView={toScrolledMonthIdx}
-        currentItemsInViewHandler={(idx) => debounce1(idx)}
+        currentItemsInViewHandler={(idx) => setCurrentMonthInView(idx)}
         onScrollingStateChange={(isScrolling) => handleScroll(isScrolling)}
         attributesContainer={{
           onTouchStart: toutchedContainer,
