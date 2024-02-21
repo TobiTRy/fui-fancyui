@@ -4,6 +4,7 @@ import { Typography } from '@/components/atoms/Typography';
 import { TSystemMessage } from '@/components/atoms/SystemMessage/TSystemMassage.model';
 import { TTypography } from '@/components/atoms/Typography/Typography.model';
 
+//TODO: CREATE STORY FOR STORYBOOK
 // --------------------------------------------------------------------------- //
 // ------- Only a SystemMessage(Text) that renders in different colors ------- //
 // --------------------------------------------------------------------------- //
