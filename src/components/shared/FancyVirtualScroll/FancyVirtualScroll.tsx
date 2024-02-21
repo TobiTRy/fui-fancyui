@@ -12,7 +12,7 @@ export default function FancyVirtualScroll(props: TVirtualScrollProps) {
     firstItemIndexInView = 0,
     scrollSnap = 'none',
     itemGap = 0,
-    currentItemsInViewHandler,
+    currentFirstItemsInViewHandler,
     attributesContainer,
     attributesItems,
     onScrollingStateChange,
@@ -34,7 +34,7 @@ export default function FancyVirtualScroll(props: TVirtualScrollProps) {
     const endIdx = Math.min(children.length - 1, indexToUse + preRenderCount);
 
     // give the index of the item that is currently in view to the parent component
-    currentItemsInViewHandler?.(indexToUse);
+    currentFirstItemsInViewHandler?.(indexToUse);
     setIndexChange(false);
 
     return children.slice(startIdx, endIdx + 1).map((content, index) => ({
@@ -42,7 +42,7 @@ export default function FancyVirtualScroll(props: TVirtualScrollProps) {
       originalIndex: startIdx + index,
     }));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [children, preRenderCount, firstItemIndexInViewState, currentItemsInViewHandler, indexChange]);
+  }, [children, preRenderCount, firstItemIndexInViewState, currentFirstItemsInViewHandler, indexChange]);
 
   // Calculate the index of the item that is currently in view and update the state
   const calculateVisibleItemIdx = useCallback(() => {
@@ -93,7 +93,6 @@ export default function FancyVirtualScroll(props: TVirtualScrollProps) {
   }, [firstItemIndexInView, itemHeight, itemGap, calculateVisibleItemIdx]);
 
   const handleScroll = useCallback(() => {
-    console.log('scrolling');
     if (!isScrolling) setIsScrolling(true); // Set isScrolling to true when scrolling starts
     onScrollingStateChange?.(true); // Notify parent component that scrolling has started
     // Clear the timeout if it's already set
@@ -105,6 +104,8 @@ export default function FancyVirtualScroll(props: TVirtualScrollProps) {
     }, 200); // Adjust the timeout duration as needed
   }, [isScrolling, onScrollingStateChange]);
 
+  // This effect is for the initial setup of the scroll event and the cleanup of the event listener
+  // It also handles the scrolling state
   useEffect(() => {
     const container = containerRef.current;
     if (!container || indexChange) return;
