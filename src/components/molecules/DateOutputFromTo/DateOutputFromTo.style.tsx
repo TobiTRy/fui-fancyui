@@ -1,11 +1,7 @@
 import { styled } from 'styled-components';
 
-import { TLayer } from '@/types/TLayer';
-import { TUiColorTypes } from '@/types/TUiColorTypes';
-import { TTheme } from '@/types/TTheme';
-
 // Define the styled component for the DateOutputFromTo component
-export const StyledDateOutputFromTo = styled.div<{ theme: TTheme; $themeType?: TUiColorTypes; $layer?: TLayer }>`
+export const StyledDateOutputFromTo = styled.div`
   position: relative;
   display: flex;
   width: 100%;
@@ -15,12 +11,10 @@ export const StyledDateOutputFromTo = styled.div<{ theme: TTheme; $themeType?: T
 
   button:nth-child(1) {
     border-radius: 50px 0 0 50px;
-    padding: ${({ theme }) => theme.spacing.sm};
   }
 
   button:nth-child(3) {
     border-radius: 0 50px 50px 0;
-    padding: ${({ theme }) => theme.spacing.sm};
   }
 `;
 

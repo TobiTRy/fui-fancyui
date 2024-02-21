@@ -3,10 +3,10 @@ import { styled } from 'styled-components';
 import { generateThemeForCard } from '@/design/designFunctions/generateThemeForCard';
 
 import { MenuListProps } from './MenuList';
-import IStyledPrefixAndOmitter from '@/types/IStyledPrefixAndPicker';
+import { TStyledPrefixAndOmiter } from '@/types/TStyledPrefixAndOmiter';
 import { TTheme } from '@/types/TTheme';
 
-type StyledMenuProps = IStyledPrefixAndOmitter<MenuListProps> & { theme: TTheme };
+type StyledMenuProps = TStyledPrefixAndOmiter<MenuListProps> & { theme: TTheme };
 
 export const MenuContainer = styled.div<StyledMenuProps>`
   display: flex;

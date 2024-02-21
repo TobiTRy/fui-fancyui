@@ -3,7 +3,7 @@ import React from 'react';
 import { CSSProp, css, styled } from 'styled-components';
 
 import FancyGridItem from './FancyGridItem/FancyGridItem';
-import IStyledPrefixAndOmitter from '@/types/IStyledPrefixAndOmiter';
+import { TStyledPrefixAndOmiter } from '@/types/TStyledPrefixAndOmiter';
 
 export interface ICustomBreakpoint {
   breakpoint: string; // Breakpoint-Größe, z.B. '768px'
@@ -42,7 +42,7 @@ export default FancyGrid;
 // ------- The style for the component ------- //
 // ------------------------------------------- //
 
-type TFancyGridProps = IStyledPrefixAndOmitter<FancyGridProps>;
+type TFancyGridProps = TStyledPrefixAndOmiter<FancyGridProps>;
 const GridContainer = styled.div<TFancyGridProps & { as: React.ElementType }>`
   display: grid;
   width: 100%;

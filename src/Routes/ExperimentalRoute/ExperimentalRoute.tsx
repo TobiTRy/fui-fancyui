@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import themeStore from '../../design/theme/themeStore/themeStore';
 
@@ -13,6 +13,10 @@ import { FancyNumberInput } from '@/components/organisms/FancyNumberInput';
 import { FancyAlignBox } from '@/components/templates/FancyAlignBox';
 import { Button } from '@/components/molecules/Button';
 import { FancyLine } from '@/components/atoms/FancyLine';
+import { useThrottledCallback } from '@/utils/hooks/useThrottle/useThrottle';
+import styled from 'styled-components';
+import createMultiIntersectionObserver from '@/utils/hooks/useMiltiIntersectionObserver/multiplyIntersectionObserver';
+import { FancyVirtualScroll } from '@/components/shared/FancyVirtualScroll';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -39,13 +43,68 @@ const values = [
   { label: 'test2', icon: Icon, itemKey: '2' },
   { label: 'test3', icon: Icon, itemKey: '3' },
   { label: 'test4', icon: Icon, itemKey: '4' },
+  { label: 'test1', icon: Icon, itemKey: '1' },
+  { label: 'test2', icon: Icon, itemKey: '2' },
+  { label: 'test3', icon: Icon, itemKey: '3' },
+  { label: 'test4', icon: Icon, itemKey: '4' },
+  { label: 'test4', icon: Icon, itemKey: '4' },
+  { label: 'test1', icon: Icon, itemKey: '1' },
+  { label: 'test2', icon: Icon, itemKey: '2' },
+  { label: 'test3', icon: Icon, itemKey: '3' },
+  { label: 'test4', icon: Icon, itemKey: '4' },
+  { label: 'test4', icon: Icon, itemKey: '4' },
+  { label: 'test1', icon: Icon, itemKey: '1' },
+  { label: 'test2', icon: Icon, itemKey: '2' },
+  { label: 'test3', icon: Icon, itemKey: '3' },
+  { label: 'test4', icon: Icon, itemKey: '4' },
+];
+
+//array with many strings
+const testArray = [
+  '1',
+  '2',
+  '3',
+  '4',
+  '5',
+  '6',
+  '7',
+  '8',
+  '9',
+  '10',
+  '11',
+  '12',
+  '13',
+  '14',
+  '15',
+  '16',
+  '17',
+  '18',
+  '19',
+  '20',
 ];
 
 const CustomComponent = ({ children, test }: { children?: React.ReactNode; test?: string }) => {
   return <span>{children}</span>;
 };
 
+const testComps = () => [
+  <>
+    <div>Hiii</div>
+    <div>Hiii</div>
+    <div>Hiii</div>
+    <div>Hiii</div>
+    <div>Hiii</div>
+    <div>Hiii</div>
+    <div>Hiii</div>
+    <div>Hiii</div>
+    <div>Hiii</div>
+    <div>Hiii</div>
+    <div>Hiii</div>
+  </>,
+];
+
 export default function ExperimentalRoute() {
+  const refs = React.useRef<(HTMLDivElement | null)[]>([]);
   const updateTheme = themeStore((state) => state.updateTheme);
   const switchTheme = themeStore((state) => state.switchTheme);
   const [isActive, setIsActive] = React.useState('');
@@ -54,6 +113,28 @@ export default function ExperimentalRoute() {
   const removeToast = () => {
     console.log('remove');
   };
+
+  const daysInMonth = Array.from({ length: 30 }, (_, i) => `Day ${i + 1}`);
+
+  const throttledAction = useThrottledCallback(removeToast, 1000);
+
+  useEffect(() => {
+    // Initialize the intersection observer and store the cleanup function
+    const cleanupObserver = createMultiIntersectionObserver({
+      elements: refs.current.filter(Boolean), // Convert monthRefs to a format suitable for the observer
+      callback: (el) => {
+        console.log('in view', el);
+      },
+      options: { threshold: 0.81 },
+    });
+
+    // Call the cleanup function on component unmount or before re-running this effect
+    return () => {
+      if (cleanupObserver) {
+        cleanupObserver();
+      }
+    };
+  }, []);
 
   return (
     <>
@@ -78,9 +159,25 @@ export default function ExperimentalRoute() {
             icon={reloadIcon}
             onClick={() => switchTheme()}
           />
+          <FancyButton
+            borderRadius="md"
+            sizeC="md"
+            themeType="secondary"
+            icon={reloadIcon}
+            onClick={() => throttledAction()}
+          />
         </DesignArea>
         <DesignArea title="Test">
           <FancyLine direction="horizontal" themeType="accent" />
+          <div style={{ height: '300px', overflow: 'hidden', backgroundColor: 'black', marginBottom: '80px' }}>
+            <FancyVirtualScroll containerHeight="300px" itemHeight={300}>
+              {testArray.map((item, index) => (
+                <div key={index} ref={(ref) => (refs.current[index] = ref)} style={{ height: '300px' }}>
+                  {item}
+                </div>
+              ))}
+            </FancyVirtualScroll>
+          </div>
         </DesignArea>
       </DesignWrapper>
     </>
@@ -96,3 +193,22 @@ const defaultProps = {
     { label: 'hi', icon: svg, id: '4' },
   ],
 };
+
+const Box = styled.div`
+  height: 270px;
+  width: 90%;
+  background-color: #3e3e3e;
+  flex-shrink: 0;
+`;
+
+const WrapperBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  height: 300px;
+  padding: 20px;
+  background-color: black;
+  overflow-y: scroll;
+`;

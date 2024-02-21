@@ -1,6 +1,6 @@
 import { TTheme } from '@/types/TTheme';
 import { css } from 'styled-components';
-import IStyledPrefixAndPicker from '../../../types/IStyledPrefixAndPicker';
+import { TStyledPrefixAndPicker } from '../../../types/TStyledPrefixAndPicker';
 import { getBackgroundColor } from '../colorCalculatorForComponent/colorCalculatorForComponent';
 import colorTransparencyCalculator from '../colorTransparencyCalculator/colorTransparencyCalculator';
 import { IGenerateThemeForCardProps } from './IGenerateThemeForCardProps';
@@ -26,7 +26,7 @@ const generateOutlineStyle = (props: TGenerateColorDesign) => {
 // --------------------------------------------------------------------------- //
 // -----------  The Main generator function to create a the square  ---------- //
 // --------------------------------------------------------------------------- //
-type TGenerateColorDesign = IStyledPrefixAndPicker<IGenerateThemeForCardProps> & {
+type TGenerateColorDesign = TStyledPrefixAndPicker<IGenerateThemeForCardProps> & {
   theme: TTheme;
 };
 export default function generateThemeForCard(props: TGenerateColorDesign) {

@@ -2,7 +2,7 @@ import { styled, css } from 'styled-components';
 
 import { TTheme } from '@/types/TTheme';
 import { TLayer } from '@/types/TLayer';
-import IStyledPrefixAndPicker from '@/types/IStyledPrefixAndPicker';
+import { TStyledPrefixAndPicker } from '@/types/TStyledPrefixAndPicker';
 import { calcBorderRadiusOnAlignment } from '@/design/designFunctions/calcBorderRadiusOnAlignment';
 import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponent';
 import { boxShadow } from '@/design/designFunctions/shadows/shadows';
@@ -12,7 +12,7 @@ import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 // --------------------------------------------------------------------------- //
 // ------- the generator function for the Wrapper of the UL ------------------ //
 // --------------------------------------------------------------------------- //
-type IStyledUL = IStyledPrefixAndPicker<IFancyUL, 'width' | 'alignHorizontal' | 'alignVertical'>;
+type IStyledUL = TStyledPrefixAndPicker<IFancyUL, 'width' | 'alignHorizontal' | 'alignVertical'>;
 const generateWrapperUL = (props: IStyledUL) => {
   const { $width, $alignHorizontal, $alignVertical } = props;
   const setBorderRadius = calcBorderRadiusOnAlignment({ $alignHorizontal, $alignVertical });

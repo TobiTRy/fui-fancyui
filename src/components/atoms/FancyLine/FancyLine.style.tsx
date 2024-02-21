@@ -1,6 +1,6 @@
 import { TTheme } from '@/types/TTheme';
 import { TFancyLine } from '@/components/atoms/FancyLine';
-import IStyledPrefixAndPicker from '@/types/IStyledPrefixAndPicker';
+import { TStyledPrefixAndPicker } from '@/types/TStyledPrefixAndPicker';
 import { css, styled } from 'styled-components';
 import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent';
 import { arrayToCssValues } from '@/design/designFunctions/arrayToCssValues';
@@ -8,7 +8,7 @@ import { arrayToCssValues } from '@/design/designFunctions/arrayToCssValues';
 // ------------------------------------------- //
 // ------- The style for the component ------- //
 // ------------------------------------------- //
-type TStyledFancyLine = IStyledPrefixAndPicker<TFancyLine> & { theme?: TTheme };
+type TStyledFancyLine = TStyledPrefixAndPicker<TFancyLine> & { theme?: TTheme };
 export const StyledFancyLine = styled.hr<TStyledFancyLine>`
   background-color: ${({ theme, $themeType = 'accent', $layer }) => getBackgroundColor({ theme, $themeType, $layer })};
   display: block;
@@ -46,11 +46,11 @@ const calcHeightOrWidth = (props: TcalcHeightOrWidth) => {
     case 'vertical':
       return css`
         width: ${thickness || '1px'};
-        height: ${length || '100%'};
+        height: ${length || 'auto'};
       `;
     case 'horizontal':
       return css`
-        width: ${length || '100%'};
+        width: ${length || 'auto'};
         height: ${thickness || '1px'};
       `;
   }

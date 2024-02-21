@@ -30,7 +30,8 @@ export const StyledDay = styled.button<IStyledDay & { theme: TTheme }>`
   border: ${({ $selected, theme }) => ($selected ? `1px solid ${theme.colors.accent[0]}` : `none`)};
   background-color: transparent;
   padding: 0;
-  width: 80%;
+  min-height: 24px;
+  aspect-ratio: 1/1;
   max-width: 40px;
   position: relative;
   overflow: hidden;
@@ -53,7 +54,14 @@ export const StyledDay = styled.button<IStyledDay & { theme: TTheme }>`
     $range?.start &&
     css`
       border-radius: 40% 5px 5px 40%;
-      background-image: linear-gradient(to right, ${theme.colors.accent[0]}, transparent);
+      background-color: ${theme.colors.accent[0]};
+      color: ${theme.colors.secondary[0]};
+    `}
+
+  ${({ $range, theme }) =>
+    $range?.inRange &&
+    css`
+      background-color: ${theme.colors.accent[0]};
       color: ${theme.colors.secondary[0]};
     `}
 
@@ -61,13 +69,6 @@ export const StyledDay = styled.button<IStyledDay & { theme: TTheme }>`
     $range?.end &&
     css`
       border-radius: 5px 40% 40% 5px;
-      background-image: linear-gradient(to left, ${theme.colors.accent[0]}, transparent);
-      color: ${theme.colors.secondary[0]};
-    `}
-
-  ${({ $range, theme }) =>
-    $range?.inRange &&
-    css`
       background-color: ${theme.colors.accent[0]};
       color: ${theme.colors.secondary[0]};
     `}

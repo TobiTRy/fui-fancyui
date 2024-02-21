@@ -1,14 +1,14 @@
 import { css, styled } from 'styled-components';
 
 import { TTheme } from '@/types/TTheme';
-import IStyledPrefixAndPicker from '@/types/IStyledPrefixAndPicker';
+import { TStyledPrefixAndPicker } from '@/types/TStyledPrefixAndPicker';
 import { IListDivider } from './ListDivider.model';
 
 import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponent';
 
 // only a sepeation line
-type TStyledPrefixAndOmitter = IStyledPrefixAndPicker<IListDivider, 'themeType' | 'layer'> & { theme: TTheme };
-export const StyledI = styled.div<TStyledPrefixAndOmitter>`
+type TStyledPrefixAndOmiter = TStyledPrefixAndPicker<IListDivider, 'themeType' | 'layer'> & { theme: TTheme };
+export const StyledI = styled.div<TStyledPrefixAndOmiter>`
   height: 1px;
   background-color: ${({ theme, $themeType, $layer }) =>
     getBackgroundColor({ theme, $themeType: $themeType ?? 'secondary', $layer: $layer ?? 2 })};
@@ -16,7 +16,7 @@ export const StyledI = styled.div<TStyledPrefixAndOmitter>`
 `;
 
 // the wrapper for the text and the line
-type TStyledTextDiv = IStyledPrefixAndPicker<IListDivider, 'themeType' | 'layer' | 'textAlignment' | 'noLine'> & {
+type TStyledTextDiv = TStyledPrefixAndPicker<IListDivider, 'themeType' | 'layer' | 'textAlignment' | 'noLine'> & {
   theme: TTheme;
 };
 export const StyledTextDiv = styled.div<TStyledTextDiv>`

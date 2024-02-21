@@ -1,0 +1,71 @@
+# `useShowAreaOfArray` Hook Documentation
+
+This documentation provides a comprehensive guide on how to use the `useShowAreaOfArray` custom React hook. The hook is designed for selecting a specific area or segment of an array based on the given parameters.
+
+## Installation
+
+Before using the `useShowAreaOfArray` hook, ensure it is imported into your React component file:
+
+```jsx
+import { useShowAreaOfArray } from 'path-to-your-hooks-folder';
+```
+
+## API
+
+`useShowAreaOfArray` is a generic hook which takes an object of type `TuseShowAreaOfArray<T>` as a parameter. The type parameter `T` represents the type of elements in the array you are working with.
+
+### Parameters
+
+The hook accepts the following properties in its parameter object:
+
+- `array` (required): An array of type `T` which is the source from which you want to select a specific area.
+- `areaForward` (required): A number indicating how many elements to include forward from the `areaStart` index.
+- `areaBackward` (required): A number indicating how many elements to include backward from the `areaStart` index.
+- `areaStart` (optional, default = 0): A number indicating the starting index of the area in the array. If not provided, it defaults to 0.
+
+### Return
+
+The hook returns an object containing the following property:
+
+- `areaItems`: An array of type `T` representing the selected area of the original array.
+
+## Usage
+
+Here's an example of how to use `useShowAreaOfArray` in a functional React component:
+
+```jsx
+import React from 'react';
+import { useShowAreaOfArray } from 'path-to-your-hooks-folder';
+
+const MyComponent = () => {
+  const myArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+  // Using the hook
+  const { areaItems } = useShowAreaOfArray({
+    array: myArray,
+    areaForward: 2,
+    areaBackward: 1,
+    areaStart: 4,
+  });
+
+  return (
+    <div>
+      {areaItems.map((item, index) => (
+        <p key={index}>{item}</p>
+      ))}
+    </div>
+  );
+};
+
+export default MyComponent;
+```
+
+In this example, `areaItems` will contain elements from the `myArray` array starting from index 4 (inclusive), including 1 element backward and 2 elements forward. So, the `areaItems` will contain `[3, 4, 5, 6]`.
+
+## Notes
+
+- Ensure that the values for `areaForward` and `areaBackward` are not greater than the length of the array to avoid unexpected results.
+- If `areaStart` is set to a negative value, it will default to 0.
+- The hook uses the `useMemo` hook for performance optimization, recalculating the area only when the array or any of the parameters change.
+
+This hook can be particularly useful in scenarios where you need to display a specific segment of an array, such as in pagination, sliders, or data visualization.

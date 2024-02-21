@@ -5,10 +5,10 @@ import { IActiveSwitchIndicator } from './SwitchActiveIndicator';
 import { generateBlob } from './utils/generateBlob';
 import { generateTopline, generateUnderline } from './utils/generateLines';
 import { TTheme } from '@/types/TTheme';
-import IStyledPrefixAndPicker from '@/types/IStyledPrefixAndPicker';
+import { TStyledPrefixAndPicker } from '@/types/TStyledPrefixAndPicker';
 
 // Define the function to calculate the current position of the active indicator
-type IClacCurrentPosition = IStyledPrefixAndPicker<IActiveSwitchIndicator, 'itemNumber' | 'tabSpacing' | 'direction'>;
+type IClacCurrentPosition = TStyledPrefixAndPicker<IActiveSwitchIndicator, 'itemNumber' | 'tabSpacing' | 'direction'>;
 const clacCurrentPosition = (props: IClacCurrentPosition) => {
   const { $itemNumber, $tabSpacing, $direction } = props;
 
@@ -40,7 +40,7 @@ const clacCurrentPosition = (props: IClacCurrentPosition) => {
 // --------------------------------------------------------------------------- //
 // -------- Here is the main Generator Function of the activ indicator ------- //
 // --------------------------------------------------------------------------- //
-type TActiveSwitchIndicator = IStyledPrefixAndPicker<
+type TActiveSwitchIndicator = TStyledPrefixAndPicker<
   IActiveSwitchIndicator,
   'layer' | 'rounded' | 'outlined' | 'themeType' | 'type' | 'indicatorWidth'
 >;
@@ -63,7 +63,7 @@ export const ActiveSwitchIndicator = styled.span<TActiveSwitchIndicator & { them
 `;
 
 // the wrapper that handles the position of the active indicator
-type IWrapper = IStyledPrefixAndPicker<IActiveSwitchIndicator, 'itemNumber' | 'tabSpacing' | 'direction'>;
+type IWrapper = TStyledPrefixAndPicker<IActiveSwitchIndicator, 'itemNumber' | 'tabSpacing' | 'direction'>;
 export const Wrapper = styled.i<IWrapper>`
   top: 0;
   display: flex;

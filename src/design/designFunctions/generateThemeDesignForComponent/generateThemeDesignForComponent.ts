@@ -4,10 +4,10 @@ import { generateOutlineStyle } from './utils/generateOutlineStyle';
 import { generateTransparentStyle } from './utils/generateTransparentStyle';
 
 import { getSimpleColorThemeType } from '@/design/designFunctions/getSimpleColorThemeType';
-import IStyledPrefixAndPicker from '@/types/IStyledPrefixAndPicker';
+import { TStyledPrefixAndPicker } from '@/types/TStyledPrefixAndPicker';
 import { TTheme } from '@/types/TTheme';
 
-export type IGenerateThemeDesignForComponent = IStyledPrefixAndPicker<IGenerateThemeDesignForComponentProps> & {
+export type IGenerateThemeDesignForComponent = TStyledPrefixAndPicker<IGenerateThemeDesignForComponentProps> & {
   theme: TTheme;
 };
 // --------------------------------------------------------------------------- //

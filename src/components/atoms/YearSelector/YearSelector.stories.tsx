@@ -17,6 +17,9 @@ const meta = {
   argTypes: {
     selectedYear: {
       description: 'The year to be displayed',
+      defaultValue: {
+        summary: 'new Date().getFullYear() (current year)',
+      },
       control: {
         type: 'number',
       },
@@ -27,19 +30,61 @@ const meta = {
         type: 'select',
       },
     },
+    sizeC: {
+      description: 'The size of the year selector',
+      control: {
+        type: 'select',
+      },
+    },
+    borderRadius: {
+      description: 'The border radius of the year selector',
+      control: {
+        type: 'select',
+      },
+    },
+    ariaTextLeftArrow: {
+      description: 'The aria label for the left arrow',
+      control: {
+        type: 'text',
+      },
+      defaultValue: {
+        summary: 'a year back',
+      },
+    },
+    ariaTextRightArrow: {
+      description: 'The aria label for the right arrow',
+      control: {
+        type: 'text',
+      },
+      defaultValue: {
+        summary: 'one year forward',
+      },
+    },
     layer: {
       description: 'The layer of the year selector',
       control: {
         type: 'range',
         min: 0,
-        max: 10,
+        max: 9,
         step: 1,
       },
     },
-    handler: {
+    yearChangeHandler: {
       description: 'The handler for the year selector',
       control: {
         type: 'function',
+      },
+    },
+    maxYear: {
+      description: 'The maximum year',
+      control: {
+        type: 'number',
+      },
+    },
+    minYear: {
+      description: 'The minimum year',
+      control: {
+        type: 'number',
       },
     },
   },
@@ -57,9 +102,13 @@ export const Primary: Story = {
   render: (args) => <YearSelector {...args} />,
   args: {
     selectedYear: 2021,
-    handler: (year: number) => console.log(year),
+    yearChangeHandler: (year: number) => console.log(year),
     themeType: 'secondary',
     layer: 0,
+    ariaTextLeftArrow: 'go one year back',
+    ariaTextRightArrow: 'go one year',
+    minYear: 2000,
+    maxYear: 2030,
   },
   parameters: {
     docs: {

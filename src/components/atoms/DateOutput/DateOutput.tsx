@@ -1,34 +1,39 @@
 import { useEffect, useMemo, useState } from 'react';
-import { styled } from 'styled-components';
 
 import { Typography } from '@/components/atoms/Typography';
-import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
-import { getBackgroundColor, getTextColor } from '@/design/designFunctions/colorCalculatorForComponent';
 
-import { TLayer } from '@/types/TLayer';
-import { TTheme } from '@/types/TTheme';
+import { sizeSettings } from './sizeSettings';
+import { DateOutputButton } from './DateOutput.style';
+import { TDateOutputWithNativeAtrrs } from './TDateOutput.model';
 
-interface IDateOutput {
-  date?: Date;
-  isActive?: boolean;
-  onClick?: () => void;
-  themeType?: TUiColorsNotTransparent;
-  layer?: TLayer;
-}
 // --------------------------------------------------------------------------- //
 // -------------- The Dateoutput displays a selected date -------------------- //
 // --------------------------------------------------------------------------- //
-export default function DateOutput({ date = new Date(), isActive, onClick, themeType, layer }: IDateOutput) {
+export default function DateOutput(props: TDateOutputWithNativeAtrrs) {
+  const {
+    date,
+    isActive,
+    themeType = 'primary',
+    layer,
+    onClick,
+    textC,
+    sizeC = 'md',
+    borderRadius,
+    ...htmlProps
+  } = props;
+
   const [active, setActive] = useState(false);
-  const [selectedDate, setSelectedDate] = useState<Date | undefined>(date);
+  const [selectedDate, setSelectedDate] = useState<Date | undefined>(undefined);
 
   // Format the date to display as "6. Juni"
-  const formattedDate = useMemo(() => {
+  const formattedDateWithText = useMemo(() => {
     if (!selectedDate) return '';
     const userLang = navigator.language;
     const options = { day: 'numeric', month: 'short' } as const;
-    return selectedDate.toLocaleDateString(userLang, options);
-  }, [selectedDate]);
+    const formattedDate = selectedDate.toLocaleDateString(userLang, options);
+
+    return `${textC?.selected ?? ''} ${formattedDate}`;
+  }, [selectedDate, textC]);
 
   const handleOpenCalendar = () => {
     setActive(true);
@@ -44,36 +49,19 @@ export default function DateOutput({ date = new Date(), isActive, onClick, theme
   }, [isActive]);
 
   return (
-    <DateOutputButton onClick={handleOpenCalendar} $themeType={themeType} $layer={layer} $isActive={active && isActive}>
-      <Typography variant="interactiveSm" lineHeight={1}>
-        {formattedDate || 'Select a date'}
+    <DateOutputButton
+      $sizeC={sizeC}
+      $borderRadius={borderRadius}
+      onClick={handleOpenCalendar}
+      $themeType={themeType}
+      $layer={layer}
+      $isActive={active && isActive}
+      aria-label={formattedDateWithText || textC?.notSelected}
+      {...htmlProps}
+    >
+      <Typography variant={sizeSettings[sizeC].fontSize} fontWeight={isActive ? 'bold' : undefined} lineHeight={1}>
+        {formattedDateWithText || textC?.notSelected || 'Select a date'}
       </Typography>
     </DateOutputButton>
   );
 }
-
-// --------------------------------------------------------------------------- //
-// --------------------- The style for the component ------------------------- //
-// --------------------------------------------------------------------------- //
-const DateOutputButton = styled.button<{
-  $isActive?: boolean;
-  theme: TTheme;
-  $themeType?: TUiColorsNotTransparent;
-  $layer?: TLayer;
-}>`
-  text-align: center;
-  width: 100%;
-  background-color: ${({ theme, $isActive, $themeType = 'primary', $layer = 2 }) =>
-    $isActive
-      ? getBackgroundColor({ theme, $themeType, $layer: $layer ? $layer + 1 : 3 })
-      : getBackgroundColor({ theme, $themeType, $layer: $layer ? $layer : 2 })};
-  color: ${({ theme, $themeType = 'secondary', $layer = 1 }) =>
-    getTextColor({ theme, $themeType, $textLayer: $layer, turnColorTheme: true })};
-  border: none;
-  cursor: pointer;
-
-  &:hover {
-    background-color: ${({ theme, $themeType = 'primary', $layer }) =>
-      getBackgroundColor({ theme, $themeType, $layer: $layer ? $layer : 3 })};
-  }
-`;

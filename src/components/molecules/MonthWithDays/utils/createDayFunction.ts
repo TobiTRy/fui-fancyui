@@ -1,8 +1,9 @@
-import { IDisabledDateSettings } from './Interfaces/IDisableDateSettings.model';
-import { IDateWithExternalState } from './Interfaces/IExternalMonthWithDays.model';
-import Day from './Interfaces/IDay.model';
-import { IDateArray } from '../../RangeCalendar/IDateArray.model';
+import { IDisabledDateSettings } from './types/IDisableDateSettings.model';
+import { IDateWithExternalState } from './types/IExternalMonthWithDays.model';
+import { TDay } from './types/TDay.model';
+
 import { disableDate } from './disableDate';
+import { TDateArray } from '@/components/molecules/Calendar/TCalendar.model';
 
 // --------------------------------------------------------------------------- //
 // ----this function creates a day object based on the following parameters--- //
@@ -12,11 +13,11 @@ interface ICreateDay {
   month: number;
   year: number;
   isRangePicking?: boolean;
-  selectedDates: IDateArray;
-  disabledDateSetting?: IDisabledDateSettings;
+  selectedDates: TDateArray;
+  disabledDateSetting?: IDisabledDateSettings | boolean;
   externalDate?: IDateWithExternalState;
 }
-const createDay = (props: ICreateDay): Day => {
+const createDay = (props: ICreateDay): TDay => {
   const { dayNumber, month, year, selectedDates, disabledDateSetting, isRangePicking, externalDate } = props;
 
   const date = new Date(year, month, dayNumber);
@@ -34,7 +35,8 @@ const createDay = (props: ICreateDay): Day => {
   }
 
   // this function disables the date
-  const isDateDisabled = disableDate(date, disabledDateSetting);
+  const isDateDisabled =
+    typeof disabledDateSetting === 'boolean' ? disabledDateSetting : disableDate(date, disabledDateSetting);
 
   return {
     number: dayNumber,

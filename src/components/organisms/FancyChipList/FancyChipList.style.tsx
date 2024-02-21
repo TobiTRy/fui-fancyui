@@ -1,12 +1,12 @@
 import { styled } from 'styled-components';
 
-import IStyledPrefixAndPicker from '@/types/IStyledPrefixAndPicker';
+import { TStyledPrefixAndPicker } from '@/types/TStyledPrefixAndPicker';
 import { getTextColor } from '@/design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponent';
 
 import { TTheme } from '@/types/TTheme';
 import { IGenerateThemeForCardProps } from '@/design/designFunctions/generateThemeForCard';
 
-type IChipContainer = IStyledPrefixAndPicker<IGenerateThemeForCardProps> & { theme: TTheme };
+type IChipContainer = TStyledPrefixAndPicker<IGenerateThemeForCardProps> & { theme: TTheme };
 export const InputLi = styled.li<IChipContainer>`
   display: flex;
   flex: 1 0 auto;

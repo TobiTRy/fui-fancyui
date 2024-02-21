@@ -2,13 +2,13 @@ import { styled } from 'styled-components';
 
 import { TFancyGridTemplate } from '@/components/templates/FancyGridTemplate/TFancyGridTemplate.model';
 import { generateTemplateAreas } from '@/components/templates/FancyGridTemplate/utils/generateTemplateAreas';
-import IStyledPrefixAndPicker from '@/types/IStyledPrefixAndPicker';
+import { TStyledPrefixAndPicker } from '@/types/TStyledPrefixAndPicker';
 import { TTheme } from '@/types/TTheme';
 
 import { generateBreakPointAreas } from './utils/generateTemplateAreas';
 
 // Create the StyledFancyGridTemplate component
-type TStyledFancyGridTemplate = IStyledPrefixAndPicker<
+type TStyledFancyGridTemplate = TStyledPrefixAndPicker<
   TFancyGridTemplate,
   'gapColumn' | 'gapRow' | 'gridAreas' | 'gridAreasBreakPoints' | 'width' | 'height'
 >;

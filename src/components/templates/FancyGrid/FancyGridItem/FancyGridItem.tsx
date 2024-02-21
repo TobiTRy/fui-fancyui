@@ -2,7 +2,7 @@ import React from 'react';
 
 import { CSSProp, css, styled } from 'styled-components';
 
-import IStyledPrefixAndPicker from '@/types/IStyledPrefixAndPicker';
+import { TStyledPrefixAndPicker } from '@/types/TStyledPrefixAndPicker';
 import { FancyFlexBox } from '@/components/templates/FancyFlexBox';
 import { ICustomBreakpoint } from '@/components/templates/FancyGrid/FancyGrid';
 import { TFancyFlexBox } from '@/components/templates/FancyFlexBox/FancyFlexBox';
@@ -32,7 +32,7 @@ export default function FancyGridItem<T extends React.ElementType = 'div'>(
   );
 }
 
-type TGirdItemProps = IStyledPrefixAndPicker<FancyGridItemProps, 'gridSpace' | 'breakpoints' | 'externalStyle'>;
+type TGirdItemProps = TStyledPrefixAndPicker<FancyGridItemProps, 'gridSpace' | 'breakpoints' | 'externalStyle'>;
 const GridItem = styled.div<TGirdItemProps & { as: React.ElementType }>`
   grid-column: span ${({ $gridSpace }) => $gridSpace};
   min-height: 0;

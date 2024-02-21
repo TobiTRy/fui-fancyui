@@ -1,0 +1,19 @@
+import { NumberInput } from '@/components/atoms/NumberInput';
+import { StyledInput } from './YearInput.style';
+import { TYearInputWithNativeAttrs } from '@/components/atoms/YearInput/YearInput.model';
+
+export default function YearInput(props: TYearInputWithNativeAttrs) {
+  const { year, sizeC = 'md', themeType, layer, ...htmlProps } = props;
+
+  const focusHandler = (e: React.FocusEvent<HTMLInputElement>) => {
+    const input = e.target;
+    const len = input.value.length;
+    input.setSelectionRange(len, len);
+  };
+
+  return (
+    <StyledInput $sizeC={sizeC} $themeType={themeType} $layer={layer}>
+      <NumberInput maxLength={4} value={year} onFocus={focusHandler} {...htmlProps} />
+    </StyledInput>
+  );
+}

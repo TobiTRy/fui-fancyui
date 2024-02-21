@@ -45,7 +45,7 @@ export const Primary: Story = {
   args: {
     dateFrom: new Date(),
     dateTo: new Date(),
-    handler: (wich: 'from' | 'to') => console.log(wich),
+    handleFromTo: (wich: 'from' | 'to') => console.log(wich),
     whichIsSelecting: 'from',
     themeType: 'primary',
     layer: 2,

@@ -1,33 +1,38 @@
-import { useState, useEffect, useRef, MutableRefObject } from 'react';
+import { RefObject, useEffect, useState } from 'react';
 
-const useIntersectionObserver = (): [MutableRefObject<HTMLDivElement | null>, boolean] => {
-  const ref = useRef<HTMLDivElement | null>(null);
-  const [isInView, setIsInView] = useState(false);
-  const observer = useRef<IntersectionObserver | null>(null);
+interface UseIntersectionObserverProps {
+  root?: Element | null;
+  rootMargin?: string;
+  threshold?: number | number[];
+  freezeOnceVisible?: boolean;
+}
+
+function useIntersectionObserver(elementRef: RefObject<Element>, props?: UseIntersectionObserverProps) {
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    if (observer.current) {
-      observer.current.disconnect();
-    }
+    const node = elementRef.current;
+    if (!node) return;
 
-    observer.current = new IntersectionObserver(
-      ([entry]) => setIsInView(entry.isIntersecting)
-      //{ threshold: 1 }
-    );
+    const observerCallback = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
+      const [entry] = entries;
+      setIsVisible(entry.isIntersecting);
 
-    if (ref.current) {
-      observer.current.observe(ref.current);
-    }
-
-    return () => {
-      if (observer.current) {
-        observer.current.disconnect();
+      if (entry.isIntersecting && props?.freezeOnceVisible) {
+        observer.unobserve(node);
       }
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [ref.current]);
 
-  return [ref, isInView];
-};
+    const observer = new IntersectionObserver(observerCallback, props);
+
+    observer.observe(node);
+
+    return () => observer.disconnect();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [elementRef, props?.threshold, props?.root, props?.rootMargin, props?.freezeOnceVisible]);
+
+  return isVisible;
+}
 
 export default useIntersectionObserver;

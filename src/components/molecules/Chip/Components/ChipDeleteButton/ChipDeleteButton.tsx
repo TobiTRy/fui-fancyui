@@ -3,7 +3,7 @@ import { styled } from 'styled-components';
 
 import { TTheme } from '@/types/TTheme';
 import { TLayer } from '@/types/TLayer';
-import IStyledPrefixAndOmitter from '@/types/IStyledPrefixAndOmiter';
+import { TStyledPrefixAndOmiter } from '@/types/TStyledPrefixAndOmiter';
 import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 
 import { RawButton } from '@/components/atoms/RawButton';
@@ -44,7 +44,7 @@ export default function ChipDeleteButton(props: IXButtonProps & React.ButtonHTML
   );
 }
 
-type TXButton = IStyledPrefixAndOmitter<IXButtonProps, 'children'>;
+type TXButton = TStyledPrefixAndOmiter<IXButtonProps, 'children'>;
 
 export const StyledXButton = styled(RawButton)<TXButton & { theme: TTheme }>`
   border: none;

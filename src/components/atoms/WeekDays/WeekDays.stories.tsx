@@ -31,11 +31,20 @@ const meta = {
       control: {
         type: 'range',
         min: 0,
-        max: 10,
+        max: 9,
         step: 1,
       },
       defaultValue: {
         summary: 0,
+      },
+    },
+    sizeC: {
+      description: 'The size of the week days',
+      control: {
+        type: 'select',
+      },
+      defaultValue: {
+        summary: 'md',
       },
     },
   },

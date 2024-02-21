@@ -1,7 +1,7 @@
 import { css, styled } from 'styled-components';
 
 import { IFancyPill } from '@/components/atoms/FancyPill/FancyPill.model';
-import IStyledPrefixAndPicker from '@/types/IStyledPrefixAndPicker';
+import { TStyledPrefixAndPicker } from '@/types/TStyledPrefixAndPicker';
 import { TTheme } from '@/types/TTheme';
 
 import { generateThemeForCard } from '@/design/designFunctions/generateThemeForCard';
@@ -9,7 +9,7 @@ import { focusStyle } from '@/design/designFunctions/focusStyle';
 import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent';
 import { clampLayer } from '@/utils/functions/clampLayer';
 
-type ISytledFancyPill = IStyledPrefixAndPicker<IFancyPill> & { theme: TTheme };
+type ISytledFancyPill = TStyledPrefixAndPicker<IFancyPill> & { theme: TTheme };
 export const StyledFancyPill = styled.div<ISytledFancyPill>`
   outline: none;
   border-radius: ${({ theme }) => theme.borderRadius.complete};

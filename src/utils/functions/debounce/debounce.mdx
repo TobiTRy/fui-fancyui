@@ -1,0 +1,52 @@
+# `debounce` Function Documentation
+
+The `debounce` function is a higher-order function designed to limit the rate at which a function is executed. This is particularly useful for optimizing performance-critical operations that should not be executed too frequently, such as resizing events in a browser, API calls based on user input, or any operation that is triggered rapidly or repeatedly in a short period.
+
+## Function Signature
+
+```typescript
+function debounce<T extends (...args: any[]) => void>(func: T, delay: number): (...args: Parameters<T>) => void;
+```
+
+## Parameters
+
+- `func: T`: The function you want to debounce. This function can have any number of parameters of any type.
+- `delay: number`: The amount of time (in milliseconds) to wait before executing the `func` after the last time the debounced function was invoked.
+
+## Returns
+
+- `(...args: Parameters<T>) => void`: A debounced version of the original function `func` that delays its execution until after `delay` milliseconds have elapsed since the last time it was invoked.
+
+## How It Works
+
+1. **Initialization**: When the `debounce` function is called, it returns a new function that captures both the original function (`func`) and the delay (`delay`) in its closure.
+2. **Execution**: Each time the returned function is invoked, it checks if there's an existing timer (from a previous invocation within the delay period) and clears it if found. This ensures that rapid calls to the function do not trigger the original function immediately.
+3. **Delay and Invocation**: It then sets a new timer with the specified delay. If the function is not called again within the delay period, the original function is executed with the arguments of the last invocation.
+
+## Example Usage
+
+```jsx
+import React, { useState } from 'react';
+import debounce from './debounce';
+
+const SearchInput = () => {
+  const [value, setValue] = useState('');
+
+  const handleChange = debounce((event) => {
+    setValue(event.target.value);
+  }, 500);
+
+  return <input type="text" onChange={handleChange} value={value} />;
+};
+```
+
+In this example, the `handleChange` function is debounced with a 500ms delay. This means that the input's value will only be updated (thus, potentially triggering an API call or another expensive operation) if the user stops typing for at least 500 milliseconds.
+
+## Best Practices
+
+- **Use for Performance Optimization**: Debounce user input, window resize, scroll events, or any rapid actions to reduce unnecessary executions.
+- **Choosing Delay**: The appropriate delay depends on the specific use case and user experience requirements. Common values range from 100 to 1000 milliseconds.
+
+## Conclusion
+
+The `debounce` function is a powerful utility for improving the performance and responsiveness of web applications. By controlling the rate at which functions are executed, it helps in avoiding unnecessary computations and API calls, leading to a smoother user experience.

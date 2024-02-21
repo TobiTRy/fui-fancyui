@@ -1,9 +1,9 @@
 import React from 'react';
 import { styled } from 'styled-components';
 
-import IStyledPrefixAndOmiter from '@/types/IStyledPrefixAndOmiter';
 import { TSpacings } from '@/types/TSpacings';
 import { TTheme } from '@/types/TTheme';
+import { TStyledPrefixAndOmiter } from '@/types/TStyledPrefixAndOmiter';
 
 type TFancyLIProps = {
   aligned?: 'left' | 'center' | 'right';
@@ -31,7 +31,7 @@ const defaultProps = {
 // ------------------------------------------- //
 // ------- The style for the component ------- //
 // ------------------------------------------- //
-type StyledFancyLi = IStyledPrefixAndOmiter<TFancyLIProps, 'children'> & { theme: TTheme };
+type StyledFancyLi = TStyledPrefixAndOmiter<TFancyLIProps, 'children'> & { theme: TTheme };
 const FancyLiItem = styled.li<StyledFancyLi>`
   list-style: none;
   display: flex;

@@ -1,0 +1,67 @@
+# FancyVirtualScroll Component Documentation
+
+The `FancyVirtualScroll` component is a highly customizable and performant virtual scrolling list for React applications. It allows for the rendering of only a subset of a large list of items, improving the performance of your application by reducing the number of DOM elements rendered and managed at any given time.
+
+## Props
+
+- `children: React.ReactNode[]`: The list of items to be rendered. Each item should be a React Node.
+- `containerHeight?: string`: Optional. The height of the scrolling container. Defaults to `300px`.
+- `preRenderCount?: number`: Optional. The number of items to render outside the visible area, above and below. Defaults to `1`.
+- `itemHeight?: number`: Optional. The height of each item in pixels. Defaults to `300`.
+- `firstItemIndexInView?: number`: Optional. The initial index of the first item to be in view. Defaults to `0`.
+- `scrollSnap?: 'mandatory' | 'proximity' | 'none'`: Optional. Controls the scroll snapping behavior. Defaults to `'none'`.
+- `itemGap?: number`: Optional. Specifies the gap between children in pixels. Defaults to `0`.
+- `currentFirstItemsInViewHandler?: (index: number) => void`: Optional. A callback function that receives the index of the first item currently in view.
+- `attributesContainer?: HTMLDivProps`: Optional. Additional attributes to be passed to the container div.
+- `attributesItems?: HTMLDivProps`: Optional. Additional attributes to be passed to each item's div.
+- `onScrollingStateChange?: (isScrolling: boolean) => void`: Optional. A callback function that is called when the scrolling state changes.
+
+`HTMLDivProps` is a type that extends `React.HTMLAttributes<HTMLDivElement>` with an additional `$externalStyle: CSSProp` for styled-components support.
+
+## Usage Example
+
+Below is an example on how to use the `FancyVirtualScroll` component in a React application:
+
+```jsx
+import React from 'react';
+import FancyVirtualScroll from './FancyVirtualScroll';
+import './FancyVirtualScroll.style.css'; // Ensure you import the styles
+
+const MyVirtualList = () => {
+  const items = Array.from({ length: 100 }, (_, index) => `Item ${index + 1}`);
+
+  const handleFirstItemInViewChange = (index) => {
+    console.log('First item in view index:', index);
+  };
+
+  const handleScrollingStateChange = (isScrolling) => {
+    console.log('Scrolling:', isScrolling);
+  };
+
+  return (
+    <FancyVirtualScroll
+      containerHeight="500px"
+      itemHeight={50}
+      preRenderCount={5}
+      scrollSnap="none"
+      itemGap={10}
+      currentFirstItemsInViewHandler={handleFirstItemInViewChange}
+      onScrollingStateChange={handleScrollingStateChange}
+    >
+      {items.map((item, index) => (
+        <div key={index}>{item}</div>
+      ))}
+    </FancyVirtualScroll>
+  );
+};
+
+export default MyVirtualList;
+```
+
+In this example, `MyVirtualList` creates a virtual list of 100 items, each with a height of `50px`, a `preRenderCount` of 5 items, and a `10px` gap between items. It also logs the index of the first visible item and whether the list is currently being scrolled.
+
+## Styling
+
+The component utilizes styled-components for styling. You can customize the appearance of the `FancyVirtualScroll` component and its children by overriding the styles in `FancyVirtualScroll.style.css` or passing custom styles via `attributesContainer` and `attributesItems` props.
+
+Ensure you import the required styles and adjust the CSS according to your design requirements.

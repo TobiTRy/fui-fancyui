@@ -1,12 +1,9 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import React from 'react';
+import FancyDatePicker from '../../components/templates/FancyDatePicker/FancyDatePicker';
 
-import FancyDatePicker from '../../components/organisms/FancyDatePicker/FancyDatePicker';
-
-import FancyDateDropDown from '../../components/templates/FancyDateDropDown/FancyDateDropDown';
-import IExternalYearWithMonths from '../../components/molecules/MonthWithDays/utils/Interfaces/IExternalMonthWithDays.model';
-import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
+import { DateOutput } from '@/components/atoms/DateOutput';
 import { Card } from '@/components/molecules/Card';
+import IExternalYearWithMonths from '../../components/molecules/MonthWithDays/utils/types/IExternalMonthWithDays.model';
+import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
 
 const externalYears: IExternalYearWithMonths = {
   2023: [
@@ -36,10 +33,31 @@ const externalYears: IExternalYearWithMonths = {
         },
       ],
     },
+    {
+      monthIdx: 11,
+      dates: [
+        {
+          date: 27,
+          isAvilable: 'not',
+        },
+        {
+          date: 28,
+          isAvilable: 'not',
+        },
+        {
+          date: 29,
+          isAvilable: 'not',
+        },
+        {
+          date: 30,
+          isAvilable: 'partially',
+        },
+      ],
+    },
   ],
   2024: [
     {
-      monthIdx: 7,
+      monthIdx: 0,
       dates: [
         {
           date: 1,
@@ -68,20 +86,26 @@ const externalYears: IExternalYearWithMonths = {
 };
 
 export default function DatePickerRoute() {
+  window.addEventListener('scroll', () => {
+    console.log('scrolling');
+  });
+
   return (
     <Card>
       <DesignWrapper>
         <DesignArea title="FancyDatePicker Range">
           <FancyDatePicker
-            rangeCalendar={true}
             disabledDateSetting={{ disableWeekends: true }}
             externalData={externalYears}
-            themeType="secondary"
+            rangeCalendar={true}
+            dateSelectHandler={(date) => console.log(date)}
+            layer={2}
           />
+          <DateOutput />
         </DesignArea>
-        <DesignArea title="FancyDatePicker Single Date">
+        {/* <DesignArea title="FancyDatePicker Single Date">
           <FancyDatePicker disabledDateSetting={{ disableWeekends: true }} externalData={externalYears} />
-        </DesignArea>
+        </DesignArea> */}
       </DesignWrapper>
     </Card>
   );

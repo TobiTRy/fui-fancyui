@@ -4,14 +4,14 @@ import { disabledStyle } from '@/design/designFunctions/disabledStyle/disableSty
 import generateThemeDesignForComponent, {
   IGenerateThemeDesignForComponent,
 } from '@/design/designFunctions/generateThemeDesignForComponent/generateThemeDesignForComponent';
-import IStyledPrefixAndPicker from '@/types/IStyledPrefixAndPicker';
+import { TStyledPrefixAndPicker } from '@/types/TStyledPrefixAndPicker';
 import { IButtonProps } from './Button.model';
 import { generateButtonSizeAndPadding } from '@/components/molecules/Button/utils/generateButtonSizeAndPadding';
 import { generateBorderRadiusForComponent } from '@/design/designFunctions/generateBorderRadiusForComponent';
 import { RawButton } from '@/components/atoms/RawButton';
 import { sizeSettings } from '@/components/molecules/Button/sizeSettings';
 
-export const ButtonStyle = styled.span<IGenerateThemeDesignForComponent & IStyledPrefixAndPicker<IButtonProps>>`
+export const ButtonStyle = styled.span<IGenerateThemeDesignForComponent & TStyledPrefixAndPicker<IButtonProps>>`
   display: inline-flex;
   height: fit-content;
   border: none;

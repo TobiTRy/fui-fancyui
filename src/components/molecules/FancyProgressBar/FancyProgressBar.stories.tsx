@@ -44,7 +44,7 @@ const meta = {
       control: {
         type: 'range',
         min: 0,
-        max: 10,
+        max: 9,
         step: 1,
       },
       description: 'The layer of the text',
@@ -53,7 +53,7 @@ const meta = {
       control: {
         type: 'range',
         min: 0,
-        max: 10,
+        max: 9,
         step: 1,
       },
       description: 'The layer of the Progressbar',

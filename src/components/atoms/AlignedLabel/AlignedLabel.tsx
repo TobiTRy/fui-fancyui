@@ -9,12 +9,29 @@ import { sizeSettings } from './sizeSettings';
 // ---------- The label handles alignment and typography  -------------------- //
 // --------------------------------------------------------------------------- //
 export default function AlignedLabel(props: TAlignedLabelWithAllProps) {
-  const { children, size = 'md', ownTypographyComponent, typography } = props;
+  const {
+    children,
+    size = 'md',
+    ownTypographyComponent,
+    typography,
+    align,
+    systemMessageType,
+    themeType,
+    layer,
+  } = props;
+
+  console.log(systemMessageType, typeof systemMessageType);
 
   return (
-    <StyledAlignedLabel>
+    <StyledAlignedLabel $align={align} $systemMessageType={systemMessageType} $layer={layer}>
       {!ownTypographyComponent && (
-        <Typography variant={sizeSettings[size].fontSize} elType="span" {...typography}>
+        <Typography
+          variant={sizeSettings[size].fontSize}
+          elType="span"
+          themeType={themeType}
+          layer={layer}
+          {...typography}
+        >
           {children}
         </Typography>
       )}

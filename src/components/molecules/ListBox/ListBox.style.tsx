@@ -3,11 +3,11 @@ import { css } from 'styled-components';
 import { TTheme } from '@/types/TTheme';
 
 import { TListBox } from '@/components/molecules/ListBox/ListBox';
-import IStyledPrefixAndPicker from '@/types/IStyledPrefixAndPicker';
+import { TStyledPrefixAndPicker } from '@/types/TStyledPrefixAndPicker';
 import { sizeSettings } from './sizeSettings';
 import { boxShadow } from '@/design/designFunctions/shadows';
 
-type TgenerateFancyBoxStyle = IStyledPrefixAndPicker<
+type TgenerateFancyBoxStyle = TStyledPrefixAndPicker<
   TListBox,
   'sizeC' | 'externalStyle' | 'borderRadius' | 'boxShadow'
 >;

@@ -2,7 +2,7 @@
 import { ReactNode } from 'react';
 import { styled, CSSProp } from 'styled-components';
 
-import IStyledPrefixAndPicker from '@/types/IStyledPrefixAndPicker';
+import { TStyledPrefixAndPicker } from '@/types/TStyledPrefixAndPicker';
 import { TTypography } from '@/components/atoms/Typography/Typography.model';
 import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent';
 import { TTheme } from '@/types/TTheme';
@@ -13,7 +13,7 @@ export type TStyledComponentProps = {
 };
 
 // Base styled component for common styles
-export type TGenerateStyle = IStyledPrefixAndPicker<TTypography, 'themeType' | 'layer' | 'externalStyle'> &
+export type TGenerateStyle = TStyledPrefixAndPicker<TTypography, 'themeType' | 'layer' | 'externalStyle'> &
   TStyledComponentProps;
 const BaseStyledComponent = styled.span<TStyledComponentProps & TGenerateStyle & { theme: TTheme }>`
   color: ${({ theme, $themeType, $layer = 0 }) => $themeType && getBackgroundColor({ theme, $themeType, $layer })};

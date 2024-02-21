@@ -6,7 +6,7 @@ import {
   TSpacingsContainerFullProps,
   TSpacingsContainer,
 } from '@/components/atoms/SpacingContainer/SpacingsContainer.model';
-import IStyledPrefixAndPicker from '@/types/IStyledPrefixAndPicker';
+import { TStyledPrefixAndPicker } from '@/types/TStyledPrefixAndPicker';
 
 export default function SpacingContainer<T extends ElementType = 'div'>(props: TSpacingsContainerFullProps<T>) {
   const { children, padding, margin, as, externalStyle, ...htmlProps } = props;
@@ -24,7 +24,7 @@ export default function SpacingContainer<T extends ElementType = 'div'>(props: T
   );
 }
 
-const StyledSpacingsContainer = styled.div<IStyledPrefixAndPicker<TSpacingsContainer>>`
+const StyledSpacingsContainer = styled.div<TStyledPrefixAndPicker<TSpacingsContainer>>`
   display: block;
   padding: ${({ $padding }) => $padding && arrayToCssValues($padding)};
   margin: ${({ $margin }) => $margin && arrayToCssValues($margin)};

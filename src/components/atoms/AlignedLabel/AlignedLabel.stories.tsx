@@ -22,6 +22,8 @@ const meta = {
     },
     systemMessageType: {
       description: 'The system message type',
+      type: { name: 'string', required: false },
+      options: ['error', 'warning', 'info', 'success', undefined],
       control: { type: 'select' },
     },
     layer: {
@@ -58,5 +60,5 @@ export const Primary: Story = {
     layer: 4,
     size: 'md',
   },
-  render: (args: TAlignedLabelWithAllProps) => <AlignedLabel {...args} />,
+  render: (args: TAlignedLabelWithAllProps) => <AlignedLabel {...args}>{'This is a label'}</AlignedLabel>,
 };

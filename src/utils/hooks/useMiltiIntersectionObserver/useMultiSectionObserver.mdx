@@ -1,0 +1,64 @@
+# `useMultiIntersectionObserver` Hook Guide
+
+This document provides a guide on how to use the `useMultiIntersectionObserver` custom React hook. This hook allows for multiple elements to be observed simultaneously for intersection changes with the viewport, utilizing the IntersectionObserver API in a React-friendly way.
+
+## Importing the Hook
+
+First, import the `useMultiIntersectionObserver` hook along with the necessary React hooks `useRef` and `useEffect`:
+
+```jsx
+import { useRef, useEffect } from 'react';
+import { useMultiIntersectionObserver } from '@/utils/hooks/useMultiIntersectionObserver/TuseMultiIntersectionObserver.model';
+```
+
+## IntersectionObserver Options
+
+Define the default options for the IntersectionObserver. These options dictate how the observer will detect intersections:
+
+```jsx
+const defaultOptions: IntersectionObserverInit = {
+  root: null, // observes intersections relative to the viewport if null
+  rootMargin: '0px', // margin around the root
+  threshold: 0.5, // at least 50% of the target's area is visible
+};
+```
+
+## Using `useMultiIntersectionObserver`
+
+To use the hook, call `useMultiIntersectionObserver` within a functional component, providing it with the elements to observe, a callback function to run when an intersection occurs, and optionally, custom IntersectionObserver options.
+
+### Parameters
+
+- `elements`: An array of DOM elements to be observed.
+- `callback`: A function that is called whenever an observed element intersects with the viewport.
+- `options`: (Optional) Custom IntersectionObserver options.
+
+### Example
+
+Below is an example showing how to use the `useMultiIntersectionObserver` hook to observe multiple elements:
+
+```jsx
+function MyComponent() {
+  const monthRefs = useRef([]); // Refs for the elements to observe
+
+  useMultiIntersectionObserver({
+    elements: monthRefs.current,
+    callback: (el) => {
+      // Logic to execute when an element is intersected
+    },
+    options: {
+      threshold: 0.6, // Custom threshold option
+    },
+  });
+
+  return <div>{/* Elements to observe */}</div>;
+}
+```
+
+## Cleanup
+
+The hook automatically handles the cleanup by disconnecting the IntersectionObserver when the component unmounts or the observed elements change, ensuring no memory leaks.
+
+## Conclusion
+
+The `useMultiIntersectionObserver` hook simplifies the process of observing multiple elements for intersections in React applications. By providing a straightforward interface to the IntersectionObserver API, it enables the implementation of dynamic and responsive UI features based on element visibility.

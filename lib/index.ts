@@ -70,7 +70,7 @@ export * from '@/components/molecules/InputWrapper';
 export * from '@/components/molecules/Modal';
 export * from '@/components/molecules/MonthWithDays';
 export * from '@/components/molecules/Card';
-export * from '@/components/molecules/RangeCalendar';
+export * from '@/components/molecules/Calendar';
 export * from '@/components/molecules/ScalingSection';
 export * from '@/components/molecules/SearchBar';
 export * from '@/components/molecules/SingleInputs';
@@ -109,7 +109,7 @@ export * from '@/components/molecules/LabeledInput';
 // ---------- Organisms ------- //
 export * from '@/components/organisms/FancyButton';
 export * from '@/components/organisms/FancyColorPicker';
-export * from '@/components/organisms/FancyDatePicker';
+export * from '@/components/templates/FancyDatePicker';
 export * from '@/components/organisms/FancyDropDownMenue';
 export * from '@/components/organisms/FancyDropDownSelect';
 export * from '@/components/organisms/FancyRangeSlider';
