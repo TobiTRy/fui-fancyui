@@ -98,7 +98,7 @@ export default function DatePickerRoute() {
             disabledDateSetting={{ disableWeekends: true }}
             externalData={externalYears}
             rangeCalendar={true}
-            handler={(date) => console.log(date)}
+            dateSelectHandler={(date) => console.log(date)}
             layer={2}
           />
           <DateOutput />
@@ -106,25 +106,6 @@ export default function DatePickerRoute() {
         {/* <DesignArea title="FancyDatePicker Single Date">
           <FancyDatePicker disabledDateSetting={{ disableWeekends: true }} externalData={externalYears} />
         </DesignArea> */}
-        <h1>Mooiinnn</h1>
-        <h1>Mooiinnn</h1>
-        <h1>Mooi sdsdsdsdsdds sdsdsd d sdsdsd innn</h1>
-        <h1>Mooiinnn</h1>
-        <h1>Mooiinnn</h1>
-        <h1>Mooiinnn</h1>
-        <h1>Mooiinnn</h1>
-        <h1>Mooiinnn</h1>
-        <h1>Mooiinnn</h1>
-        <h1>Mooiinnn</h1>
-        <h1>Mooiinnn</h1>
-        <h1>Mooiinnn</h1>
-        <h1>Mooiinnn</h1>
-        <h1>Mooiinnn</h1>
-        <h1>Mooiinnn</h1>
-        <h1>Mooiinnn</h1>
-        <h1>Mooiinnn</h1>
-        <h1>Mooiinnn</h1>
-        <h1>Mooiinnn</h1>
       </DesignWrapper>
     </Card>
   );
