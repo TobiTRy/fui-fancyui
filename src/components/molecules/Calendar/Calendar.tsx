@@ -137,7 +137,7 @@ export default function Calendar(props: TCalendar) {
         itemHeight={300}
         scrollSnap={isScrolling ? 'mandatory' : 'proximity'}
         firstItemIndexInView={toScrolledMonthIdx}
-        currentItemsInViewHandler={(idx) => setCurrentMonthInView(idx)}
+        currentFirstItemsInViewHandler={(idx) => setCurrentMonthInView(idx)}
         onScrollingStateChange={(isScrolling) => handleScroll(isScrolling)}
         attributesContainer={{
           onTouchStart: toutchedContainer,

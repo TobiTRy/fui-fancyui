@@ -22,8 +22,8 @@ export type TCalendar = {
   disabledDateSetting?: IDisabledDateSettings;
   externalMonthsWithDays?: IExternalYearWithMonths;
   startWeekOnDay?: 0 | 1 | 2 | 3 | 4 | 5 | 6;
-  startCalendar?: TYearMonth;
-  endCalendar?: TYearMonth;
+  startCalendarDate?: TYearMonth;
+  endCalendarDate?: TYearMonth;
   themeType?: TUiColorsNotTransparent;
   layer?: TLayer;
 };
