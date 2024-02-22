@@ -1,19 +1,19 @@
 import type { Preview } from '@storybook/react';
+import { themes } from '@storybook/theming';
 import { withThemeFromJSXProvider } from '@storybook/addon-styling';
-import { ThemeProvider } from 'styled-components';
+import { DocsContainer } from './DocsContainer';
 import themeStore from '../src/design/theme/themeStore/themeStore';
 import GlobalStyle from '../src/GlobalStyle';
+import { ThemeProvider } from 'styled-components';
+// Rest of the preview config remains the same
 
+// Storybook preview settings
 const preview: Preview = {
   parameters: {
-    actions: { argTypesRegex: '^on[A-Z].*' },
-    backgrounds: {
-      default: 'dark',
-      values: [
-        { name: 'light', value: themeStore.getState().theme.colors.secondary[0] },
-        { name: 'dark', value: themeStore.getState().theme.colors.primary[0] },
-      ],
+    docs: {
+      container: DocsContainer,
     },
+    actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
       matchers: {
         color: /(background|color)$/i,
@@ -33,7 +33,7 @@ const switchTheme = () => {
 export const decorators = [
   withThemeFromJSXProvider({
     themes: {
-      theme: themeStore.getState().theme,
+      FancyUi: themeStore.getState().theme,
       switchTheme: switchTheme,
     },
     GlobalStyles: GlobalStyle, // Adds your GlobalStyle component to all stories
