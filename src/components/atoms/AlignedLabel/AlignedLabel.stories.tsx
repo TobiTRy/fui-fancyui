@@ -17,8 +17,13 @@ const meta = {
   },
   argTypes: {
     align: {
-      options: ['left', 'center'],
+      description: 'This is the alignment of the label with flex',
       control: { type: 'radio' },
+      options: ['left', 'center', 'right', undefined],
+      type: { name: 'string' },
+      defaultValue: {
+        summary: 'left',
+      },
     },
     systemMessageType: {
       description: 'The system message type',
@@ -50,6 +55,7 @@ const meta = {
 } satisfies Meta<typeof AlignedLabel>;
 
 export default meta;
+
 type Story = StoryObj<typeof meta>;
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
