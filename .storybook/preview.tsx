@@ -14,6 +14,11 @@ const preview: Preview = {
       container: DocsContainer,
     },
     actions: { argTypesRegex: '^on[A-Z].*' },
+    options: {
+      storySort: {
+        order: ['welcome', 'components', ['templates', 'organisms', 'molecules', 'atoms', '*'], 'design', '*'],
+      },
+    },
     controls: {
       matchers: {
         color: /(background|color)$/i,
