@@ -1,5 +1,4 @@
 import type { Preview } from '@storybook/react';
-import { themes } from '@storybook/theming';
 import { withThemeFromJSXProvider } from '@storybook/addon-styling';
 import { DocsContainer } from './DocsContainer';
 import themeStore from '../src/design/theme/themeStore/themeStore';
@@ -16,7 +15,14 @@ const preview: Preview = {
     actions: { argTypesRegex: '^on[A-Z].*' },
     options: {
       storySort: {
-        order: ['welcome', 'components', ['templates', 'organisms', 'molecules', 'atoms', '*'], 'design', '*'],
+        order: [
+          'intro',
+          'contributioners',
+          'components',
+          ['templates', 'organisms', 'molecules', 'atoms', '*'],
+          'design',
+          '*',
+        ],
       },
     },
     controls: {
