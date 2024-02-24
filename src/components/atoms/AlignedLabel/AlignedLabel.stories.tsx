@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import { AlignedLabel } from '@/components/atoms/AlignedLabel';
 import { TAlignedLabelWithAllProps } from '@/components/atoms/AlignedLabel/TAlinedLabel.model';
+import templateThemeType from '@/stories/templateSettingsForStorys/templatesForThemeType';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta = {
@@ -11,11 +12,12 @@ const meta = {
     docs: {
       description: {
         component:
-          'The input label wich is aligned left or centered. <br> - the alignment is set by the $align prop. <br> - the color changes depending on the $isActive prop',
+          'The input label wich is aligned left or centered. <br> - the alignment is set by the align prop. <br> - the color changes depending on the $isActive prop',
       },
     },
   },
   argTypes: {
+    ...templateThemeType('allThemeTypes', 'secondary'),
     align: {
       description: 'This is the alignment of the label with flex',
       control: { type: 'radio' },
@@ -31,22 +33,23 @@ const meta = {
       options: ['error', 'warning', 'info', 'success', undefined],
       control: { type: 'select' },
     },
-    layer: {
-      description: 'The layer of the component',
-      control: { type: 'range', min: 1, max: 10 },
-    },
-    themeType: {
-      description: 'The theme type of the component',
-      control: { type: 'select' },
-    },
     typography: {
-      description: 'The typography props of the component',
+      description: 'the props wich a typography component can get',
       control: { type: 'object' },
     },
     size: {
       description: 'The size of the component',
       control: { type: 'select' },
-      defaultValue: 'md',
+      defaultValue: {
+        summary: 'md',
+      },
+    },
+    ownTypographyComponent: {
+      description: 'If you want to use your own typography component or other component as a child',
+      control: { type: 'boolean' },
+      defaultValue: {
+        summary: false,
+      },
     },
   },
 
@@ -65,6 +68,9 @@ export const Primary: Story = {
     themeType: 'secondary',
     layer: 4,
     size: 'md',
+    typography: {
+      variant: 'interactiveLg',
+    },
   },
   render: (args: TAlignedLabelWithAllProps) => <AlignedLabel {...args}>{'This is a label'}</AlignedLabel>,
 };
