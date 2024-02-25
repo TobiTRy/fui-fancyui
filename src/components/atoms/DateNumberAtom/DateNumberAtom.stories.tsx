@@ -3,6 +3,7 @@ import { Meta, StoryObj } from '@storybook/react';
 
 // Import the component to be tested
 import DateNumberAtom from './DateNumberAtom';
+import templateThemeType from '@/stories/templateSettingsForStorys/templatesForThemeType';
 // Define metadata for the story
 const meta = {
   component: DateNumberAtom,
@@ -10,7 +11,7 @@ const meta = {
     docs: {
       description: {
         component:
-          'The DateNumberAtom component is for displaying a number in a box, it can be used for displaying the day of the month in a calendar <br> - selected: is the day selected <br> - disabled: is the day disabled <br> - onClick: function to be called when the day is clicked <br> - range: is the day in a range <br> - isCurrentDay: is the day the current day <br> - themeType: the theme type of the day <br> - layer: the layer of the day',
+          'The DateNumberAtom component is for displaying a number it can be used for displaying the day of the month in a calendar',
       },
     },
   },
@@ -23,6 +24,9 @@ const meta = {
     selected: {
       description: 'is the day selected',
       control: { type: 'boolean' },
+      defaultValue: {
+        summary: false,
+      },
     },
     disabled: {
       control: { type: 'boolean' },
@@ -33,6 +37,10 @@ const meta = {
     },
     onClick: {
       control: { type: 'function' },
+      description: 'is the function to call when the day is clicked',
+      defaultValue: {
+        summary: undefined,
+      },
     },
     range: {
       control: { type: 'object' },
@@ -42,21 +50,11 @@ const meta = {
     isCurrentDay: {
       description: 'is the day the current day it gets a different color',
       control: { type: 'boolean' },
-    },
-    themeType: {
-      description: 'the theme type of the day',
-      control: { type: 'select' },
       defaultValue: {
-        summary: 'secondary',
+        summary: false,
       },
     },
-    layer: {
-      description: 'the layer of the day',
-      control: { type: 'range', min: 0, max: 10, step: 1 },
-      defaultValue: {
-        summary: 0,
-      },
-    },
+    ...templateThemeType('allThemeTypes', 'secondary', 0),
   },
 
   // Add tags to the story
