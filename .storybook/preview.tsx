@@ -18,6 +18,7 @@ const preview: Preview = {
         order: [
           'intro',
           'contributioners',
+          'setup',
           'components',
           ['templates', 'organisms', 'molecules', 'atoms', '*'],
           'design',
