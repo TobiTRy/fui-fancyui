@@ -7,12 +7,13 @@ import AvailableDot from './AvailableDot';
 // Define metadata for the story
 const meta = {
   component: AvailableDot,
+  title: 'components/atoms/AvailableDot',
   parameters: {
     layout: 'centered',
     docs: {
       description: {
         component:
-          'A little Circle that indicates if something is avilable. <br> - the color changes depending on the $available prop. <br> - the sizeC is fixed.',
+          'A little Circle that indicates if something is avilable. <br> - the color changes depending on the $available prop.',
       },
     },
   },
