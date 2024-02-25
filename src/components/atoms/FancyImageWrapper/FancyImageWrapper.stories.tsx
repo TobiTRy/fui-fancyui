@@ -18,34 +18,59 @@ const meta = {
 
   // Define arguments for the story
   argTypes: {
-    darken: {
-      control: { range: { min: 0, max: 1, step: 0.1 } },
-    },
-    alt: {
-      control: { type: 'text' },
-    },
     aspectRatio: {
-      control: { type: 'text' },
-    },
-    sizeH: {
-      sizeW: {
-        description: 'The height of the image',
-        control: {
-          type: 'select',
-        },
-        defaultValue: {
-          summary: '',
-        },
-      },
-    },
-    sizeW: {
-      description: 'The width of the image',
+      description: 'The aspect ratio of the image.',
       control: {
-        type: 'select',
+        type: 'text',
       },
+    },
+    children: {
+      description: 'The image to be displayed.',
+      control: {
+        type: 'object',
+      },
+    },
+    filter: {
+      description: 'The filter to apply to the image all css filters a allowed.',
+      control: {
+        type: 'object',
+      },
+    },
+    externalStyle: {
+      description: 'The external style to apply to the image.',
+      control: {
+        type: 'object',
+      },
+    },
+    borderRadius: {
+      description: 'The border radius to apply to the image.',
       defaultValue: {
         summary: '',
       },
+      control: {
+        type: 'select',
+      },
+    },
+    sizeH: {
+      description: 'The height of the image.',
+      control: {
+        type: 'text',
+      },
+      defaultValue: 'size of the image',
+    },
+    sizeW: {
+      description: 'The width of the image.',
+      control: {
+        type: 'text',
+      },
+      defaultValue: 'size of the image',
+    },
+    objectFit: {
+      description: 'The object fit of the image.',
+      control: {
+        type: 'select',
+      },
+      defaultValue: 'cover',
     },
   },
 
@@ -60,12 +85,18 @@ type Story = StoryObj<typeof meta>;
 
 // Define the primary story
 export const Primary: Story = {
-  render: (args) => <FancyImage {...args} />,
+  render: (args) => (
+    <FancyImage {...args}>
+      <img src="http://via.placeholder.com/640x360" />
+    </FancyImage>
+  ),
   args: {
-    src: 'https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg',
-    aspectRatio: '2/4',
-    alt: 'Fannncy',
-    darken: false,
+    sizeW: '100px',
+    aspectRatio: '16/9',
+    filter: {
+      brightness: 0.5,
+    },
+    borderRadius: 'complete',
   },
   parameters: {
     docs: {

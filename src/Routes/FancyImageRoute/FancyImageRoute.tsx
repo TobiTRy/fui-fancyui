@@ -19,7 +19,7 @@ export default function FancyImageRoute() {
           flex-direction: column;
         `}
       >
-        <FancyImageWrapper borderRadius="complete" darken aspectRatio="1/1" sizeW="100px">
+        <FancyImageWrapper borderRadius="complete" aspectRatio="1/1" sizeW="100px">
           <img src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg" />
         </FancyImageWrapper>
 
@@ -32,7 +32,7 @@ export default function FancyImageRoute() {
             </>
           }
         >
-          <FancyImageWrapper darken sizeW="800px" aspectRatio="16/9">
+          <FancyImageWrapper sizeW="800px" filter={{ brightness: 0.5 }} aspectRatio="16/9">
             <img src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg" />
           </FancyImageWrapper>
         </FancyTextOverlay>

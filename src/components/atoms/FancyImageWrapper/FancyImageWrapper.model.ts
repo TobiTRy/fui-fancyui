@@ -7,7 +7,6 @@ import { TComponentSizesExtended } from '@/types/TComponentSizes';
 export type TFancyImageWrapper = {
   aspectRatio?: string; // e.g. "16/9"
   children?: ReactElement<HTMLImageElement>;
-  darken?: number | boolean;
   filter?: TCssFiltersTypes;
   externalStyle?: CSSProp;
   borderRadius?: string;
