@@ -2,10 +2,12 @@
 import { Meta, StoryObj } from '@storybook/react';
 
 // Import the component to be tested
-import FancyPill from './FancyPill';
+import FancyPill from '../FancyPill';
+import templateThemeType from '@/stories/templateSettingsForStorys/templatesForThemeType';
 // Define metadata for the story
 const meta = {
   component: FancyPill,
+  title: 'components/atoms/FancyPill',
 
   parameters: {
     docs: {
@@ -15,42 +17,34 @@ const meta = {
       },
     },
   },
-
   // Define arguments for the story
   argTypes: {
-    themeType: {
-      description: 'The theme type of the component.',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'accent', 'neutral'],
-      },
-    },
-
-    layer: {
-      description: 'The layer of the component.',
-      control: {
-        type: 'range',
-        min: 0,
-        max: 9,
-        step: 1,
-      },
-    },
+    ...templateThemeType('allThemeTypes', 'primary', 0),
     isActive: {
       description: 'Is the component active.',
       control: {
         type: 'boolean',
       },
+      defaultValue: {
+        summary: false,
+      },
     },
     isHoverable: {
-      description: 'Is the component hoverable.',
+      description: 'Enables hover effects on the pill.',
       control: {
         type: 'boolean',
       },
+      defaultValue: {
+        summary: false,
+      },
     },
     outlined: {
-      description: 'Is the component outlined.',
+      description: 'A boolean that styles the pill with an outline.',
       control: {
         type: 'boolean',
+      },
+      defaultValue: {
+        summary: false,
       },
     },
     outlinedBackgroundStrength: {
@@ -58,15 +52,21 @@ const meta = {
       control: {
         type: 'range',
         min: 0,
-        max: 9,
-        step: 1,
+        max: 1,
+        step: 0.1,
+      },
+      defaultValue: {
+        summary: 0.5,
       },
     },
     externalStyle: {
       description: 'The external style of the component.',
       control: {
-        type: 'text',
+        type: 'object',
       },
+    },
+    children: {
+      description: 'The content of the pill.',
     },
   },
 } satisfies Meta<typeof FancyPill>;
@@ -88,12 +88,5 @@ export const Primary: Story = {
     outlined: false,
     outlinedBackgroundStrength: 0.5,
     externalStyle: '',
-  },
-  parameters: {
-    docs: {
-      description: {
-        story: '',
-      },
-    },
   },
 };

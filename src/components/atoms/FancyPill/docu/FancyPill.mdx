@@ -1,3 +1,9 @@
+import { Meta, Controls } from '@storybook/blocks';
+
+import * as FancyPill from '../FancyPill.stories.tsx';
+
+<Meta of={FancyPill} />
+
 # FancyPill Documentation
 
 In an era where user interaction and response cues are pivotal in UI/UX design, the FancyPill component serves as a dynamic and versatile tool. Its primary purpose is to enhance user interaction through various states like focus and hover, catering to a wide range of actions and responses in an application's interface.
@@ -12,7 +18,7 @@ FancyPill is an interactive component designed for signaling and handling user a
 
 Start by importing the FancyPill component into your project file:
 
-```javascript
+```jsx
 import FancyPill from 'path-to-FancyPill';
 ```
 
@@ -20,7 +26,7 @@ import FancyPill from 'path-to-FancyPill';
 
 Implement the FancyPill component in your UI, configuring its properties to achieve the desired look and behavior:
 
-```javascript
+```jsx
 <FancyPill themeType="primary" outlined isActive>
   Your interactive content here...
 </FancyPill>
@@ -32,17 +38,11 @@ Implement the FancyPill component in your UI, configuring its properties to achi
 
 FancyPill offers a variety of properties for customization:
 
-- **themeType:** Determines the color theme of the pill, accepting any key from `TUiColorsTypeObject`.
-- **outlined:** A boolean that styles the pill with an outline.
-- **layer:** Sets the depth or z-index of the component.
-- **outlinedBackgroundStrength:** Controls the background intensity when outlined is true.
-- **externalStyle:** Allows for inline CSS styling.
-- **isActive:** A boolean to indicate if the pill is in an active state.
-- **isHoverable:** Enables hover effects on the pill.
+<Controls />
 
 Example with multiple properties:
 
-```javascript
+```jsx
 <FancyPill themeType="secondary" outlined layer={2} isActive isHoverable>
   Interactive and styled pill content...
 </FancyPill>
@@ -52,7 +52,7 @@ Example with multiple properties:
 
 FancyPill can enclose other components or elements, enhancing their interactivity and visual appeal.
 
-```javascript
+```jsx
 <FancyPill themeType="accent" isHoverable>
   <button>Press Me!</button>
   <p>Text inside the FancyPill</p>
@@ -63,7 +63,7 @@ FancyPill can enclose other components or elements, enhancing their interactivit
 
 Beyond predefined styles, the `externalStyle` property allows for additional inline customization, offering even more flexibility in design.
 
-```javascript
+```jsx
 <FancyPill externalStyle={{ borderRadius: '20px', boxShadow: '0px 5px 15px rgba(0, 0, 0, 0.2)' }} isActive>
   A FancyPill with custom styling...
 </FancyPill>
