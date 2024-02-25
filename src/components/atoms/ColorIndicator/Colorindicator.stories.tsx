@@ -17,7 +17,35 @@ const meta = {
   },
 
   // Define arguments for the story
-  argTypes: {},
+  argTypes: {
+    color: {
+      description: 'The color to display',
+      control: {
+        type: 'color',
+      },
+      defaultValue: {
+        summary: 'red',
+      },
+    },
+    isActive: {
+      description: 'The active state of the color indicator',
+      control: {
+        type: 'boolean',
+      },
+      defaultValue: {
+        summary: false,
+      },
+    },
+    position: {
+      description: 'The position of the color indicator',
+      control: {
+        type: 'object',
+      },
+      defaultValue: {
+        summary: { x: '50%', y: '50%' },
+      },
+    },
+  },
 
   // Add tags to the story
   tags: ['autodocs'],
