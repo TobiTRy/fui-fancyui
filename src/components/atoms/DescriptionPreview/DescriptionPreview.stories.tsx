@@ -28,11 +28,15 @@ const meta = {
         required: false,
       },
       control: { type: 'number' },
+      defaultValue: {
+        summary: 150,
+      },
     },
     buttonText: {
       description: 'The text for the button',
       control: { type: 'object' },
       defaultValue: {
+        typographyVariant: 'interactiveMd',
         showLess: 'Show less',
         showMore: 'Show more',
         themeType: 'secondary',

@@ -11,7 +11,7 @@ describe('DescriptionPreview', () => {
       <MockThemeProvider>
         <DescriptionPreview
           description="Long test description here to exceed the limit"
-          text={mockData.text}
+          buttonText={mockData.text}
           letterLimit={40}
         />
       </MockThemeProvider>
@@ -25,7 +25,7 @@ describe('DescriptionPreview', () => {
       <MockThemeProvider>
         <DescriptionPreview
           description="Long test description here to exceed the limit"
-          text={mockData.text}
+          buttonText={mockData.text}
           letterLimit={10}
         />
       </MockThemeProvider>
@@ -40,7 +40,7 @@ describe('DescriptionPreview', () => {
     const customText = { showMore: 'Expand', showLess: 'Collapse' };
     render(
       <MockThemeProvider>
-        <DescriptionPreview description={description} text={customText} />
+        <DescriptionPreview description={description} buttonText={customText} />
       </MockThemeProvider>
     );
     expect(screen.getByText('Expand')).toBeInTheDocument();
@@ -49,7 +49,7 @@ describe('DescriptionPreview', () => {
   it('should not show "Show more" for short descriptions', () => {
     render(
       <MockThemeProvider>
-        <DescriptionPreview description="Short" text={mockData.text} letterLimit={150} />
+        <DescriptionPreview description="Short" buttonText={mockData.text} letterLimit={150} />
       </MockThemeProvider>
     );
     expect(screen.queryByText('Show more')).not.toBeInTheDocument();
@@ -60,7 +60,7 @@ describe('DescriptionPreview', () => {
     const description = 'x'.repeat(149);
     render(
       <MockThemeProvider>
-        <DescriptionPreview description={description} text={mockData.text} letterLimit={150} />
+        <DescriptionPreview description={description} buttonText={mockData.text} letterLimit={150} />
       </MockThemeProvider>
     );
     expect(screen.queryByText('Show more')).toBeNull();
@@ -70,7 +70,7 @@ describe('DescriptionPreview', () => {
     const description = 'x'.repeat(100);
     render(
       <MockThemeProvider>
-        <DescriptionPreview description={description} text={mockData.text} letterLimit={50} />
+        <DescriptionPreview description={description} buttonText={mockData.text} letterLimit={50} />
       </MockThemeProvider>
     );
     expect(screen.getByText('Show more')).toBeInTheDocument();
