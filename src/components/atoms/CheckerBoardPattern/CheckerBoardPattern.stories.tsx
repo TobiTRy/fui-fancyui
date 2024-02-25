@@ -17,7 +17,20 @@ const meta = {
   },
 
   // Define arguments for the story
-  argTypes: {},
+  argTypes: {
+    opacity: {
+      description: 'The opacity of the pattern',
+      control: {
+        type: 'range',
+        min: 0,
+        max: 1,
+        step: 0.1,
+      },
+      defaultValue: {
+        summary: 1,
+      },
+    },
+  },
 
   // Add tags to the story
   tags: ['autodocs'],
@@ -34,12 +47,5 @@ export const Primary: Story = {
   render: (args) => <CheckerBoardPattern {...args} />,
   args: {
     opacity: 1,
-  },
-  parameters: {
-    docs: {
-      description: {
-        story: '',
-      },
-    },
   },
 };
