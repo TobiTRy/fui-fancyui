@@ -1,17 +1,17 @@
 import { TLayer } from '@/types/TLayer';
-import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 import { TComponentSizes } from '@/types/TComponentSizes';
 import { TBorderRadiusSizes } from '@/types/TBorderRadiusSizes';
+import { TUiColorsMain } from '@/types/TUiColorsMain';
 
 export type TDateOutput = {
   date?: Date;
   isActive?: boolean;
   onClick?: () => void;
-  themeType?: TUiColorsNotTransparent;
+  themeType?: TUiColorsMain;
   layer?: TLayer;
   sizeC?: TComponentSizes;
   borderRadius?: TBorderRadiusSizes;
-  textC?: {
+  textCustom?: {
     selected?: string;
     notSelected?: string;
   };
