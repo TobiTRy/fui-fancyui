@@ -4,7 +4,7 @@ import React from 'react';
 import { FancyGridProps } from '@/components/templates/FancyGrid/FancyGrid.model';
 import { GridContainer } from '@/components/templates/FancyGrid/FancyGrid.style';
 import { TDynamicElementProps } from '@/types/TDynamicElement';
-import { FancyGridItem } from '@/components/templates/FancyGrid';
+import { FancyGridItem } from '@/components/templates/FancyGridItem';
 
 // --------------------------------------------------------------------------- //
 // ------- The FancyGrid to allocate the grid and give the items space ------- //
