@@ -1,3 +1,9 @@
+import { Meta, Controls } from '@storybook/blocks';
+
+import * as FancyBox from './FancyBox.stories.tsx';
+
+<Meta of={FancyBox} />
+
 ## FancyBox Documentation
 
 I have given this a lot of thought, and I am a great enthusiast of customizable components. In the present times, there is an abundance of excellent headers and bottom bars, and I believe developers should have the liberty to design interfaces as they imagine. Therefore, I developed the FancyBox. It primarily offers the theme for a component, leaving the rest to your creativity. You can effortlessly integrate your styles using inline styles, and they will be added to the existing class. Whether you are designing a side nav, a header, or a bottom bar, FancyBox has everything you need.\_
@@ -12,7 +18,7 @@ FancyBox is a versatile component that can act as the core element for various p
 
    Begin by importing the `FancyBox` component into your file.
 
-   ```javascript
+   ```jsx
    import FancyBox from 'path-to-FancyBox';
    ```
 
@@ -20,7 +26,7 @@ FancyBox is a versatile component that can act as the core element for various p
 
    Utilize the FancyBox component, inputting any necessary properties to modify its look and features.
 
-   ```javascript
+   ```jsx
    <FancyBox themeType="primary" outlined>
      Your content here...
    </FancyBox>
@@ -32,24 +38,21 @@ FancyBox is a versatile component that can act as the core element for various p
 
    FancyBox provides various properties for customizing its appearance:
 
-   - `themeType`: Sets the theme color. This property can accept any keys from the `TUiColorsTypeObject`.
-   - `outlined`: A boolean indicating whether the bar is styled with an outline.
-   - `layer`: This property aids in setting the depth or z-index of the component.
-   - `outlinedBackgroundStrength`: Dictates the intensity of the background when `outlined` is true.
-   - `externalStyle`: Permits inline CSS styling on the bar.
-   - `as`: This property allows developers to change the HTML tag of the component. For example, if you want to use a `div` instead of a `header`, you can set `as="div"`.
+{' '}
 
-   ```javascript
-   <FancyBox themeType="secondary" outlined layer={2}>
-     Your themed and outlined bar content...
-   </FancyBox>
-   ```
+<Controls />
+
+```jsx
+<FancyBox themeType="secondary" outlined layer={2}>
+  Your themed and outlined bar content...
+</FancyBox>
+```
 
 2. **Incorporating Child Components**:
 
    FancyBox accepts child components, enabling developers to embed other components or elements within the bar.
 
-   ```javascript
+   ```jsx
    <FancyBox themeType="accent">
      <button>Click Me!</button>
      <p>This is some text inside the FancyBox</p>
@@ -60,7 +63,7 @@ FancyBox is a versatile component that can act as the core element for various p
 
 You are not confined to the predefined styles. With the `style` property, developers can input inline styles to further personalize the appearance of the FancyBox. These styles will be combined with the preexisting styles, offering more versatility.
 
-```javascript
+```jsx
 <FancyBox externalStyle={{ borderRadius: '10px', boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)' }}>
   A FancyBox with custom style...
 </FancyBox>

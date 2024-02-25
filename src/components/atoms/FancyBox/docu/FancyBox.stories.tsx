@@ -3,52 +3,44 @@ import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 
 // Import the component to be tested
-import FancyBox from './FancyBox';
+import FancyBox from '../FancyBox';
 import { css } from 'styled-components';
-import { FancyMiniProfile } from '../../molecules/FancyMiniProfile';
-import { HeaderTitleWithLogo } from '../../molecules/HeaderTitleWithLogo';
-import { FancyBottomBarIcon } from '../../templates/FancyBottomBarIcon';
-import SVGCheckMark from '../../icons/SVGCheckMark/SVGCheckMark';
-import { FancySearchBar } from '../../organisms/FancySearchBar';
+import { FancyMiniProfile } from '../../../molecules/FancyMiniProfile';
+import { HeaderTitleWithLogo } from '../../../molecules/HeaderTitleWithLogo';
+import { FancyBottomBarIcon } from '../../../templates/FancyBottomBarIcon';
+import SVGCheckMark from '../../../icons/SVGCheckMark/SVGCheckMark';
+import { FancySearchBar } from '../../../organisms/FancySearchBar';
+import templateThemeType from '@/stories/templateSettingsForStorys/templatesForThemeType';
 
 // Define metadata for the story
 const meta = {
   component: FancyBox,
+  title: 'components/atoms/FancyBox',
 
   parameters: {
     docs: {
       description: {
         component:
-          'The FancyBox component is for displaying a card that can fill with somthing, it can be used for displaying content in a card <br> - height: the height of the card <br> - width: the width of the card <br> - themeType: the theme type of the card <br> - layer: the layer of the card <br> - textLayer: the layer of the text <br> - borderRadius: the rounded edges of the card <br> - shadow: is the card shadowed',
+          'The FancyBox component is for displaying a card that can fill with somthing, it can be used for displaying content in a card',
       },
     },
   },
 
   // Define arguments for the story
   argTypes: {
-    themeType: {
-      description: 'The theme type of the card',
+    ...templateThemeType('allThemeTypes', 'primary', 0),
+    as: {
+      description:
+        'This property allows developers to change the HTML tag of the component. For example, if you want to use a div instead of',
       control: {
-        type: 'select',
+        type: 'text',
       },
       defaultValue: {
-        summary: 'primary',
-      },
-    },
-    layer: {
-      description: 'The layer of the card',
-      control: {
-        type: 'range',
-        min: 0,
-        max: 9,
-        step: 1,
-      },
-      defaultValue: {
-        summary: 3,
+        summary: 'div',
       },
     },
     outlined: {
-      description: 'Is the card outlined',
+      description: 'A boolean indicating whether the bar is styled with an outline.',
       control: {
         type: 'boolean',
       },
@@ -57,7 +49,7 @@ const meta = {
       },
     },
     outlinedBackgroundStrength: {
-      description: 'The background strength of the outlined card',
+      description: 'Controls the background intensity when outlined is true.',
       control: {
         type: 'range',
         min: 0,
