@@ -24,11 +24,20 @@ export default function DropDownSelect(props: TDropDownSelect & TDropDownSelectN
       )}
       {/* Children */}
 
-      {values?.map((item, i) => (
-        <option key={i} value={item.toString().toLowerCase()}>
-          {item}
-        </option>
-      ))}
+      {values?.map((item, i) => {
+        if (typeof item === 'string') {
+          return (
+            <option key={i} value={item.toLocaleLowerCase()}>
+              {item}
+            </option>
+          );
+        }
+        return (
+          <option key={i} value={item.key}>
+            {item.value}
+          </option>
+        );
+      })}
 
       {children}
     </SelectField>
