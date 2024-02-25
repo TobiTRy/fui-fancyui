@@ -1,24 +1,38 @@
-import React from 'react';
-
 import type { Meta, StoryObj } from '@storybook/react';
 
 import DateInput from './DateInput';
+import templateThemeType from '@/stories/templateSettingsForStorys/templatesForThemeType';
 
 const meta = {
   component: DateInput,
   parameters: {
     docs: {
       description: {
-        component: 'Dumb-Comonent: The DateInput is a component that allows the user to select a date from a calendar.',
+        component:
+          'Only a blank input: The DateInput is a component that allows the user to select a date from a calendar. ',
       },
     },
   },
   argTypes: {
+    ...templateThemeType('allThemeTypes', 'secondary', 0),
     type: {
       description: 'The type of the input.',
       defaultValue: 'date',
       control: {
         type: 'select',
+      },
+    },
+    align: {
+      description: 'The alignment of the input.',
+      defaultValue: 'center',
+      control: {
+        type: 'select',
+      },
+    },
+    value: {
+      description: 'The value of the input.',
+      control: {
+        type: 'text',
       },
     },
   },
@@ -32,8 +46,9 @@ export const Primary: Story = {
   render: (args) => <DateInput {...args} />,
   args: {
     value: '2021-01-01',
-    activeHandler: (value) => console.log(value),
     align: 'center',
     type: 'date',
+    themeType: 'secondary',
+    layer: 0,
   },
 };
