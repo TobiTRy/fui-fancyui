@@ -1,20 +1,18 @@
+import { TUiColorsMain } from '@/types/TUiColorsMain';
 import { TUiColorTypes } from '../../types/TUiColorTypes';
 import { TUiColorsSystemMessage } from '../../types/TUiColorsSystemMessage';
 import { TUiColorsNotTransparent } from '../../types/TUiColorsNotTransparent';
 
-const layer = {
-  description: 'The layer of the component',
-  control: { type: 'range', min: 0, max: 9 },
-};
-
-type ThemeTypeCategory = 'allThemeTypes' | 'notTransparent' | 'systemMessage';
+type ThemeTypeCategory = 'allThemeTypes' | 'notTransparent' | 'systemMessage' | 'mainThemeTypes';
 
 type ThemeOptionsMap = {
   allThemeTypes: TUiColorTypes;
   notTransparent: TUiColorsNotTransparent;
   systemMessage: TUiColorsSystemMessage;
+  mainThemeTypes: TUiColorsMain;
 };
 
+const mainThemeTypes: TUiColorsMain[] = ['primary', 'secondary', 'accent'];
 const allThemeTypes: TUiColorTypes[] = ['primary', 'secondary', 'accent', 'info', 'success', 'warning', 'error'];
 const systemMessage: TUiColorsSystemMessage[] = ['error', 'warning', 'info', 'success'];
 const notTransparent: TUiColorsNotTransparent[] = [
@@ -29,7 +27,8 @@ const notTransparent: TUiColorsNotTransparent[] = [
 
 function templateThemeType<Cat extends ThemeTypeCategory, Default extends ThemeOptionsMap[Cat]>(
   themeTypeCat: Cat,
-  defaultValue?: Default
+  defaultValue?: Default,
+  layer?: number
 ) {
   let options: TUiColorTypes[] | TUiColorsSystemMessage[] | TUiColorsNotTransparent[];
 
@@ -42,6 +41,9 @@ function templateThemeType<Cat extends ThemeTypeCategory, Default extends ThemeO
       break;
     case 'notTransparent':
       options = notTransparent;
+      break;
+    case 'mainThemeTypes':
+      options = mainThemeTypes;
       break;
     default:
       // This should never happen, but it's here as a fallback
@@ -61,7 +63,13 @@ function templateThemeType<Cat extends ThemeTypeCategory, Default extends ThemeO
         summary: effectiveDefaultValue,
       },
     },
-    layer,
+    layer: {
+      description: 'The layer of the component',
+      control: { type: 'range', min: 0, max: 9 },
+      defaultValue: {
+        summary: layer || 0,
+      },
+    },
   };
 }
 
