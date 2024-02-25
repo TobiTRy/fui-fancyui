@@ -3,6 +3,7 @@ import { Meta, StoryObj } from '@storybook/react';
 
 // Import the component to be tested
 import DateOutput from './DateOutput';
+import templateThemeType from '@/stories/templateSettingsForStorys/templatesForThemeType';
 // Define metadata for the story
 const meta = {
   component: DateOutput,
@@ -10,27 +11,43 @@ const meta = {
     docs: {
       description: {
         component:
-          'the DateOutput component is for displaying a date in a box, it can be used for displaying the date in a calendar <br> - date: the date to be displayed <br> - themeType: the theme type of the date <br> - isActive: is the date active <br> - onClick: function to be called when the date is clicked <br> - layer: the layer of the date',
+          'the DateOutput component is for displaying a date in a box, it can be used for displaying the date in a calendar',
       },
     },
   },
 
   // Define arguments for the story
   argTypes: {
+    ...templateThemeType('mainThemeTypes', 'primary', 2),
     date: {
       control: { type: 'date' },
-    },
-    themeType: {
-      control: { type: 'select', options: ['primary', 'secondary', 'tertiary'] },
+      description: 'The date to display',
+      defaultValue: {
+        summary: undefined,
+      },
     },
     isActive: {
       control: { type: 'boolean' },
+      description: 'The active state of the box',
     },
     onClick: {
+      description: 'The function to call when the box is clicked',
       control: { type: 'function' },
     },
-    layer: {
-      control: { type: 'range', min: 0, max: 10, step: 1 },
+    sizeC: {
+      control: { type: 'radio' },
+      description: 'The size of the box',
+      options: ['sm', 'md', 'lg', undefined],
+      defaultValue: {
+        summary: 'md',
+      },
+    },
+    textCustom: {
+      control: { type: 'object' },
+      description: 'The text to display',
+      defaultValue: {
+        summary: 'text',
+      },
     },
   },
 
@@ -45,20 +62,18 @@ type Story = StoryObj<typeof meta>;
 
 // Define the primary story
 export const Primary: Story = {
-  render: (args) => <DateOutput {...args} />,
+  render: (args) => <DateOutput {...args} date={new Date(args?.date!)} />,
   args: {
-    date: new Date(),
+    date: 1, // strorybook does currently not support date as a type
+    layer: 2,
     themeType: 'primary',
     isActive: true,
+    textCustom: {
+      notSelected: 'not selected',
+      selected: 'From:',
+    },
     onClick: () => {
       console.log('clicked');
-    },
-  },
-  parameters: {
-    docs: {
-      description: {
-        story: '',
-      },
     },
   },
 };
