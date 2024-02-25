@@ -1,13 +1,20 @@
+import { Meta, Controls } from '@storybook/blocks';
+
+import * as FancyActionWrapperStories from './FancyActionWrapper.stories';
+
+<Meta of={FancyActionWrapperStories} />
+
 # FancyActionWrapper Component
 
-The `FancyActionWrapper` is a React component designed to wrap its children in either a styled `<a>` tag or a `<button>` element, depending on the specified properties. It can also utilize a custom wrapper component if provided.
+The `FancyActionWrapper` is a React component designed to wrap its children in either a styled `<a>` tag or a `<button>` or Custome element, depending on the specified properties. It can also utilize a custom wrapper component if provided.
+I built it to be used in a NextJs application, where the `Link` component is used to wrap anchor tags.
 
 ## Input/Output
 
 ### Input
 
-- **children** (`React.ReactNode`): The content to be wrapped within the `<a>` tag or `<button>` element.
-- **WrapperComponent** (`React.ReactElement`, optional): A custom component to be used as the wrapper instead of the default `<a>` or `<button>`.
+- **children** (`React.ReactNode`): The content to be wrapped within the `<a>`, `<button>` tag or custom element.
+- **WrapperComponent** (`React.ReactElement`, optional): A custom component to be used as the wrapper instead of the default `<a>` or `<button>` like NextLink.
 - **TNativeButtonProps** (`React.HTMLAttributes<HTMLButtonElement> & { as?: 'button' }`): Props specific to the `<button>` element, used when `as` is set to `'button'`.
 - **TNativeAnchorProps** (`React.AnchorHTMLAttributes<HTMLAnchorElement> & { as: 'a' }`): Props specific to the `<a>` element, used when `as` is set to `'a'`.
 
@@ -28,10 +35,19 @@ const ExampleComponent = () => (
 );
 
 export default ExampleComponent;
+
+
+const ExampleComponent = () => (
+  <FancyActionWrapper WrapperComponent={<Link href="http://fui.cool"/>}>
+    Click me!
+  </FancyActionWrapper>
+);
+
+export default ExampleComponent;
 ```
 
 In this example, `FancyActionWrapper` is used to create a styled anchor (`<a>`) element with the text "Click me!". The `href` attribute makes it function like a regular hyperlink.
 
 ## Note
 
-This documentation provides an overview of the `FancyActionWrapper` component, explaining its purpose, input properties, and providing an example of its usage in a React application. No CSS styling is included in the example, focusing purely on the props and functionality of the component.
+This documentation provides an overview of the `FancyActionWrapper` component, explaining its purpose, input properties, and providing an example of its usage in a React application.

@@ -3,9 +3,11 @@ import { Meta, StoryObj } from '@storybook/react';
 
 // Import the component to be tested
 import FancyActionWrapper from '../FancyActionWrapper';
+import { FancyButton } from '@/components/organisms/FancyButton';
 
 // Define metadata for the story
 const meta = {
+  title: 'components/atoms/FancyActionWrapper',
   component: FancyActionWrapper,
   parameters: {
     layout: 'centered',
@@ -13,13 +15,20 @@ const meta = {
 
   // Define arguments for the story
   argTypes: {
+    WrapperComponent: {
+      description: 'The component to use as a wrapper',
+      control: {
+        type: 'object',
+      },
+    },
     as: {
       description: 'The element type to render',
+      options: ['button', 'a'],
       control: {
-        type: 'text',
+        type: 'select',
       },
       defaultValue: {
-        summary: 'div',
+        summary: 'button',
       },
     },
     children: {
@@ -38,16 +47,26 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 // Define the primary story
-export const Primary: Story = {
-  render: (args) => <FancyActionWrapper {...args} />,
+export const WrapperWithButton: Story = {
+  render: (args) => (
+    <FancyActionWrapper {...args}>
+      <FancyButton notAButton label={'Click me'} />
+    </FancyActionWrapper>
+  ),
   args: {
-    children: 'mooiiin',
+    as: 'button',
+    children: 'Click me',
   },
-  parameters: {
-    docs: {
-      description: {
-        story: 'mooiiin',
-      },
-    },
+};
+// Define the primary story
+export const WrapperWithCustom: Story = {
+  render: (args) => (
+    <FancyActionWrapper {...args} WrapperComponent={<a href="http://fui.cool"></a>}>
+      <FancyButton notAButton label={'Click me'} />
+    </FancyActionWrapper>
+  ),
+  args: {
+    as: 'button',
+    children: 'Click me',
   },
 };
