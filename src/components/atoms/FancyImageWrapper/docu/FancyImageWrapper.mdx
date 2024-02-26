@@ -1,0 +1,62 @@
+import { Meta, Controls } from '@storybook/blocks';
+
+import * as FancyImageWrapperStories from './FancyImageWrapper.stories';
+
+<Meta of={FancyImageWrapperStories} />
+
+# FancyImageWrapper Component Documentation
+
+## Brief Description
+
+The `FancyImageWrapper` component is a highly customizable React component designed to wrap around image elements, providing extensive control over their appearance and styling. It supports a wide range of properties to adjust the image's aspect ratio, border radius, size, object fit, filter effects, and external CSS styling. Additionally, it validates the aspect ratio to ensure it is in the correct format.
+
+## Setup Instructions
+
+To use the `FancyImageWrapper` component in your project, follow these steps:
+
+1. Ensure you have `react` and `styled-components` installed in your project.
+2. Import the `FancyImageWrapper` component into your file:
+
+```jsx
+import FancyImageWrapper from '@tobitry/fui-fancyui';
+
+// the type definitions are also available for TypeScript users
+import {
+  TFancyImageWrapper,
+  TFancyImageWrapperNativeAttrs,
+  TFancyImageWrapperWithNativeAttrs,
+} from '@tobitry/fui-fancyui';
+```
+
+3. Import necessary types if you are using TypeScript for prop definitions:
+
+```jsx
+import {
+  TFancyImageWrapperWithNativeAttrs,
+  TFancyImageWrapper,
+  TFancyImageWrapperNativeAttrs,
+} from '@tobitry/fui-fancyui';
+```
+
+## Example Usage
+
+Below is an example demonstrating how to use the `FancyImageWrapper` component to wrap an image with custom styling:
+
+```jsx
+<FancyImageWrapper
+  aspectRatio="16/9"
+  borderRadius="10px"
+  sizeW="300px"
+  sizeH="fit"
+  filter={{ blur: '2px', brightness: 0.9 }}
+  objectFit="cover"
+>
+  <img src="path/to/image.jpg" alt="Sample Image" />
+</FancyImageWrapper>
+```
+
+## Component Properties
+
+<Controls />
+
+This component throws an error if an invalid aspect ratio is provided, ensuring the intended design is maintained.

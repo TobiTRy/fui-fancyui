@@ -2,11 +2,11 @@
 import { Meta, StoryObj } from '@storybook/react';
 
 // Import the component to be tested
-import FancyImage from './FancyImageWrapper';
+import FancyImage from '../FancyImageWrapper';
 // Define metadata for the story
 const meta = {
   component: FancyImage,
-
+  title: 'components/atoms/FancyImageWrapper',
   parameters: {
     docs: {
       description: {
@@ -15,35 +15,36 @@ const meta = {
       },
     },
   },
-
   // Define arguments for the story
   argTypes: {
     aspectRatio: {
-      description: 'The aspect ratio of the image.',
+      description:
+        'Defines the aspect ratio of the image, e.g., "16/9". If provided, it must be in the format "width/height"',
       control: {
         type: 'text',
       },
     },
     children: {
-      description: 'The image to be displayed.',
+      description: 'The image element to be wrapped by the `FancyImageWrapper`.',
       control: {
         type: 'object',
       },
     },
     filter: {
-      description: 'The filter to apply to the image all css filters a allowed.',
+      description:
+        'Applies CSS filter effects to the image. Accepts an object with properties corresponding to CSS filter functions, such as `blur` and `brightness`.',
       control: {
         type: 'object',
       },
     },
     externalStyle: {
-      description: 'The external style to apply to the image.',
+      description: 'Allows for custom CSS to be applied directly to the image wrapper.',
       control: {
         type: 'object',
       },
     },
     borderRadius: {
-      description: 'The border radius to apply to the image.',
+      description: 'Specifies the border radius applied to the image. Can be a theme size or a custom CSS value.',
       defaultValue: {
         summary: '',
       },
@@ -52,30 +53,29 @@ const meta = {
       },
     },
     sizeH: {
-      description: 'The height of the image.',
+      description:
+        'Sets the width of the image. Can be a predefined size, "fit" for 100% width, or a custom CSS value.',
       control: {
         type: 'text',
       },
       defaultValue: 'size of the image',
     },
     sizeW: {
-      description: 'The width of the image.',
+      description:
+        'Sets the height of the image. Can be a predefined size, "fit" for 100% height, or a custom CSS value.',
       control: {
         type: 'text',
       },
       defaultValue: 'size of the image',
     },
     objectFit: {
-      description: 'The object fit of the image.',
+      description: ' Defines how the content of the replaced element should be resized to fit its container.',
       control: {
         type: 'select',
       },
       defaultValue: 'cover',
     },
   },
-
-  // Add tags to the story
-  tags: ['autodocs'],
 } satisfies Meta<typeof FancyImage>;
 
 // Export the metadata
