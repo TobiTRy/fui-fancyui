@@ -58,7 +58,7 @@ function templateThemeType<Cat extends ThemeTypeCategory, Default extends ThemeO
     themeType: {
       description: 'The theme type of the component',
       control: { type: 'select' },
-      options: options,
+      options: [...options, undefined],
       defaultValue: {
         summary: effectiveDefaultValue,
       },

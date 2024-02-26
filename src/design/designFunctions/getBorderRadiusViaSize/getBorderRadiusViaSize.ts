@@ -1,6 +1,6 @@
 import { TComponentSizes } from '@/types/TComponentSizes';
 
-export type TgetBorderRadiusViaSize = TComponentSizes | 'complete';
+export type TgetBorderRadiusViaSize = TComponentSizes | 'complete' | 'none';
 export const getBorderRadiusViaSize = (borderRadius: TgetBorderRadiusViaSize) => {
   switch (borderRadius) {
     case 'sm':
