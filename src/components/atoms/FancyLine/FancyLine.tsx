@@ -5,7 +5,7 @@ import { StyledFancyLine } from '@/components/atoms/FancyLine/FancyLine.style';
 // ------------ A dynamic line (vertical/horizontal) for better UX/UI  ------- //
 // --------------------------------------------------------------------------- //
 export default function FancyLine(props: TFancyLineWithHTMLAttributes) {
-  const { direction = 'horizontal', thickness, margin, themeType, layer, length, ...htmlProps } = props;
+  const { direction = 'horizontal', thickness, margin, themeType, layer, length, externalStyle, ...htmlProps } = props;
 
   return (
     <StyledFancyLine
@@ -15,6 +15,7 @@ export default function FancyLine(props: TFancyLineWithHTMLAttributes) {
       $margin={margin}
       $themeType={themeType}
       $layer={layer}
+      $externalStyle={externalStyle}
       {...htmlProps}
     />
   );

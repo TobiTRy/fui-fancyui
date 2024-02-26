@@ -1,40 +1,23 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import FancyLine from './FancyLine';
+import templateThemeType from '@/stories/templateSettingsForStorys/templatesForThemeType';
+
+import FancyLine from '../FancyLine';
 
 const meta = {
   component: FancyLine,
+  title: 'components/atoms/FancyLine',
   parameters: {
     docs: {
       description: {
-        component: 'Dumb-Comonent: Only a Line thats sperate something from something else.',
+        component: 'Only a Line thats sperate something from something else.',
       },
     },
   },
   argTypes: {
-    themeType: {
-      description: 'The theme type of the component',
-      control: {
-        type: 'select',
-      },
-      defaultValue: {
-        summary: 'accent',
-      },
-    },
-    layer: {
-      description: 'The layer of the component',
-      control: {
-        type: 'range',
-        min: 0,
-        max: 10,
-        step: 1,
-      },
-      defaultValue: {
-        summary: 0,
-      },
-    },
+    ...templateThemeType('notTransparent', 'accent', 0),
     direction: {
-      description: 'The direction of the line',
+      description: 'Determines the orientation of the line. "horizontal" or "vertical"',
       control: {
         type: 'select',
       },
@@ -43,19 +26,25 @@ const meta = {
       },
     },
     thickness: {
-      description: 'The thickness of the line',
+      description:
+        'Specifies the thickness of the line. Accepts CSS size units. Default is `1px` for the respective orientation',
+      defaultValue: {
+        summary: '1px',
+      },
       control: {
         type: 'text',
       },
     },
     margin: {
-      description: 'The margin from the line to the edge',
+      description:
+        'This prop works like the margin in css. you can use a array with values like ["sm", "md"]. or an normal spacing like "xs"',
       control: {
         type: 'text',
       },
     },
     length: {
-      description: 'The length of the line',
+      description:
+        'Specifies the length of the line. Accepts CSS size units. Default is `auto`, allowing the line to fill its container.',
       control: {
         type: 'text',
       },
@@ -64,7 +53,6 @@ const meta = {
       },
     },
   },
-  tags: ['autodocs'],
 } satisfies Meta<typeof FancyLine>;
 
 export default meta;

@@ -32,6 +32,8 @@ export const StyledFancyLine = styled.hr<TStyledFancyLine>`
     padding: 0;
     filter: blur(0.5px);
   }
+
+  ${({ $externalStyle }) => $externalStyle};
 `;
 
 type TcalcHeightOrWidth = {
