@@ -1,4 +1,4 @@
-import { TSVGAtomSizes } from '@/components/atoms/FancySVGAtom/FancySVGAtom.model';
+import { TSVGAtomSizes } from '@/components/atoms/FancySVGAtom/TFancySVGAtom.model';
 import { TTypographyVariants } from '@/types/TTypographyVariants';
 import { TSizeSettings } from '@/types/TSizeSettings';
 

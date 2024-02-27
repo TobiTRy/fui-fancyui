@@ -1,5 +1,5 @@
 import { globalElementsizes } from '@/design/theme/globalSizes';
-import { TSVGAtomSizes } from '@/components/atoms/FancySVGAtom/FancySVGAtom.model';
+import { TSVGAtomSizes } from '@/components/atoms/FancySVGAtom/TFancySVGAtom.model';
 
 export const sizesSettings = {
   sm: {

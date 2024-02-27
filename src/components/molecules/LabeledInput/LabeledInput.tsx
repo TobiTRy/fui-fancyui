@@ -29,11 +29,11 @@ export default function LabeledInput(props: TLabeledInput) {
       {/* The Labled thats animated and adjusts the padding with the type of the Input */}
       {label && (
         <InputLabel
-          $lableVariant={labelVariant}
-          $align={align}
+          lableVariant={labelVariant}
+          align={align}
           id={id}
-          $isActive={labelShouldMoveUp}
-          $systemMessageType={systemMessageType}
+          isActive={labelShouldMoveUp}
+          systemMessageType={systemMessageType}
         >
           {label}
         </InputLabel>
