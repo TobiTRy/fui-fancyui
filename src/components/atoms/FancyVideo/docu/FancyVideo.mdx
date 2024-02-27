@@ -1,0 +1,45 @@
+import { Meta, Story, Title, Controls, Description } from '@storybook/blocks';
+
+import * as FancyVideoStories from './FancyVideo.stories';
+
+<Meta of={FancyVideoStories} />
+
+<Title />
+
+<Description />
+
+## Setup Instructions
+
+To use the FancyVideo component in your project, ensure you have the component and its dependencies correctly imported. Here is a basic setup:
+
+1. Import the FancyVideo component into your React file:
+
+```jsx
+import FancyVideo from '@tobitry/fui-fancyui';
+```
+
+2. Import necessary types if you intend to explicitly type your component props:
+
+   ```jsx
+   import { TFancyVideoWithHTMLAttrs, FancyVideoHTMLProps, TFancyVideo } from '@tobitry/fui-fancyui';
+   ```
+
+## Example Usage
+
+Below is a simple example demonstrating how to embed a FancyVideo component within a React application. This example includes autoplay, muting, a custom aspect ratio, and a darken effect:
+
+```jsx
+<FancyVideo autoPlay muted aspectRatio="16/9" darken>
+  <FancyVideo.Source src="path/to/your/video.mp4" type="video/mp4" />
+</FancyVideo>
+```
+
+This setup will render a video that auto-plays, is muted, has a 16:9 aspect ratio, and is darkened to focus attention on the video content.
+
+## Component Properties
+
+<Controls />
+
+Additionally, `FancyVideo` accepts all standard HTML video attributes (`FancyVideoHTMLProps`) as props, allowing for further customization like `controls`, `loop`, etc.
+
+**Note**: The `FancyVideo.Source` component is used to specify different video sources for the player, enabling support for multiple video formats and fallback options.
