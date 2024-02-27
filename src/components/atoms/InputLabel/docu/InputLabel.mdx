@@ -1,0 +1,56 @@
+import { Meta, Title, Description, Controls } from '@storybook/blocks';
+
+import * as InputLabelStories from './InputLabel.stories';
+
+<Meta of={InputLabelStories} />
+
+<Title />
+
+<Description />
+
+The InputLabel component is a versatile, styled label element designed for use within form fields or any input context in a React application. It enhances the standard label with additional styling and behavior based on props like activity state, theme, alignment, and variant. This component is part of a broader design system aiming to provide cohesive and flexible UI elements for building intuitive and accessible user interfaces.
+
+## Setup Instructions
+
+To incorporate the InputLabel component into your project, follow these steps:
+
+1. Ensure you have the InputLabel component and its dependencies imported into your project. Begin by importing the component itself:
+
+```jsx
+import InputLabel from '@/components/atoms/InputLabel/InputLabel';
+```
+
+2. Import any necessary types or utilities that the InputLabel depends on, such as theme types or styling utilities, from their respective modules within your project structure.
+
+## Example Usage
+
+Here’s how to use the InputLabel component within a form field, demonstrating how to apply it with some common props for styling and functionality:
+
+```jsx
+<InputLabel
+  isActive={true}
+  systemMessageType="error"
+  themeType="primary"
+  layer={2}
+  align="left"
+  lableVariant="animated"
+>
+  Your Label Here
+</InputLabel>
+```
+
+This setup configures an InputLabel that is active, styled with an error message type in a primary theme, positioned on the second layer, aligned to the left, and uses an animated variant for dynamic interaction effects.
+
+## Component Properties
+
+- **isActive** (`boolean`): Optional. Indicates whether the label is in an active state, typically used to highlight when the associated input is focused.
+- **systemMessageType** (`TUiColorsSystemMessage`): Optional. Specifies the system message type for styling, such as error, warning, or success messages.
+- **themeType** (`TUiColorsMain`): Optional. Defines the theme type for the label, affecting its color scheme.
+- **layer** (`TLayer`): Optional. Determines the layer level for depth styling in the design system.
+- **align** (`TTextAlignLRC`): Optional. Sets the text alignment within the label. Can be 'left', 'right', or 'center'.
+- **lableVariant** (`'static' | 'animated'`): Optional. Chooses between a static or animated label variant, with animated offering dynamic styling changes based on the active state.
+- **externalStyle** (`CSSProp`): Optional. Allows for additional external styling to be applied to the label.
+
+Besides these specific props, `InputLabel` also supports all native label HTML attributes (`TInputLabelNativeAttrs`), excluding 'style', to ensure full compatibility and accessibility within forms.
+
+**Note**: The component utilizes styled-components for its styling logic, including dynamic styles based on props for responsiveness and interactivity, ensuring a seamless integration into React projects following modern design practices.

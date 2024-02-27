@@ -14,3 +14,7 @@ export type TInputLabel = {
   lableVariant?: 'static' | 'animated';
   externalStyle?: CSSProp;
 };
+
+export type TInputLabelNativeAttrs = Omit<React.LabelHTMLAttributes<HTMLLabelElement>, 'style'>;
+
+export type TInputLabelWithNAtiveAttrs = TInputLabel & TInputLabelNativeAttrs;
