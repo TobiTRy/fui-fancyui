@@ -54,10 +54,6 @@ const meta = {
       description: 'Allows for additional external styling to be applied to the label.',
     },
   },
-
-  // Define arguments for the story
-  // Add tags to the story
-  tags: ['autodocs'],
 } satisfies Meta<typeof InputLabel>;
 
 // Export the metadata
@@ -68,5 +64,12 @@ type Story = StoryObj<typeof meta>;
 // Define the primary story
 export const Primary: Story = {
   render: (args) => <InputLabel {...args}>Label</InputLabel>,
-  args: {},
+  args: {
+    themeType: 'secondary',
+    isActive: false,
+    systemMessageType: undefined,
+    lableVariant: 'animated',
+    align: 'left',
+    externalStyle: '',
+  },
 };
