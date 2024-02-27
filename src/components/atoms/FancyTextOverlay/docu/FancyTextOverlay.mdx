@@ -1,0 +1,55 @@
+import { Meta, Controls, Title, Description } from '@storybook/blocks';
+
+import * as FancyTextOverlayStory from './FancyTextOverlay.stories';
+
+<Meta of={FancyTextOverlayStory} />
+
+<Title />
+
+<Description />
+
+## Setup Instructions
+
+To incorporate the `FancyTextOverlay` component into your project, follow these steps:
+
+1. Import the `FancyTextOverlay` component into your component file:
+
+   ```jsx
+   import { FancyTextOverlay } from '@tobitry/fui-fancyui';
+   ```
+
+2. Import necessary types if you intend to explicitly type your component props:
+
+   ```jsx
+   import { TFancyTextOverlay, TImageVideoOverlayWithHTMLAttrs, TTextOverlayPositions } from '@tobitry/fui-fancyui';
+   ```
+
+## Example Usage
+
+Below is an example showing how to use the `FancyTextOverlay` component to overlay text on a video or image element:
+
+```jsx
+import React from 'react';
+import { FancyTextOverlay } from '@tobitry/fui-fancyui';
+import YourVideoOrImageComponent from './YourVideoOrImageComponent';
+
+function ExampleWithTextOverlay() {
+  return (
+    <FancyTextOverlay position="bottom-right" textChildren={<p>Your overlay text here</p>}>
+      <YourVideoOrImageComponent />
+    </FancyTextOverlay>
+  );
+}
+```
+
+This example demonstrates wrapping a video or image component with `FancyTextOverlay`, specifying the position of the text overlay and including the desired text.
+
+## Component Properties
+
+`FancyTextOverlay` accepts the following props to customize its behavior and appearance:
+
+<Controls />
+
+Additionally, `TFancyTextOverlay` extends `React.HTMLAttributes<HTMLDivElement>`, allowing for the standard HTML div attributes to be applied to the component for further customization.
+
+The `FancyTextOverlay` component is designed to enhance the presentation of media content by adding easily customizable text overlays, suitable for various applications such as highlighting information on images or videos in web applications.
