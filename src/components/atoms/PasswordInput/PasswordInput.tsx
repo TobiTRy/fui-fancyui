@@ -46,7 +46,7 @@ const WrapperEye = styled.div<{ theme: TTheme; $themeType?: TUiColorsNotTranspar
   position: absolute;
   bottom: 0px;
   right: 0;
-  padding: 8px 0 8px 8px;
+  padding: ${({ theme }) => `${theme.spacing.xs} 0 ${theme.spacing.xxs} ${theme.spacing.xs}`};
   box-sizing: border-box;
 
   svg {
