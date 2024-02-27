@@ -26,7 +26,6 @@ export * from '@/components/atoms/YearSelector';
 export * from '@/components/atoms/AvilableDot';
 export * from '@/components/atoms/FancyXButton';
 export * from '@/components/atoms/InputLabel';
-export * from '@/components/atoms/InputUnderline';
 export * from '@/components/atoms/RawInput';
 export * from '@/components/atoms/CheckerBoardPattern';
 export * from '@/components/atoms/FancyTextOverlay';
