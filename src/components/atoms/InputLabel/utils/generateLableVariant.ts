@@ -1,4 +1,4 @@
-import { TInputLabel } from '@/components/atoms/InputLabel/TInputLabel';
+import { TInputLabel } from '@/components/atoms/InputLabel/TInputLabel.model';
 import { TTextAlignLRC } from 'lib';
 import { css } from 'styled-components';
 
