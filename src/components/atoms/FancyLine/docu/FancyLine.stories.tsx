@@ -10,7 +10,8 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component: 'Only a Line thats sperate something from something else.',
+        component:
+          'The `FancyLine` component is a versatile and dynamic line component designed to enhance the user experience and interface design. It supports both vertical and horizontal orientations and allows customization of thickness, length, margin, theme type, and more. This component is ideal for adding visually appealing separators or decorative elements to your web application while maintaining consistency with your design theme.',
       },
     },
   },
@@ -51,6 +52,23 @@ const meta = {
       defaultValue: {
         summary: '100%',
       },
+    },
+    isActive: {
+      description: 'Is the Line active, gives it the accent color',
+      control: {
+        type: 'boolean',
+      },
+      defaultValue: {
+        summary: false,
+      },
+    },
+    systemMessageType: {
+      description: 'Optional prop to specify system message color theming',
+      control: {
+        type: 'select',
+      },
+      defaultValue: undefined,
+      options: ['error', 'warning', 'success', 'info', undefined],
     },
   },
 } satisfies Meta<typeof FancyLine>;

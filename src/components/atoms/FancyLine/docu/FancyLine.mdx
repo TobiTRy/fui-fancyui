@@ -1,14 +1,12 @@
-import { Meta, Controls } from '@storybook/blocks';
+import { Meta, Controls, Title, Description } from '@storybook/blocks';
 
 import * as FancyLineStories from './FancyLine.stories';
 
 <Meta of={FancyLineStories} />
 
-# FancyLine Component Documentation
+<Title />
 
-## Brief Description
-
-The `FancyLine` component is a versatile and dynamic line component designed to enhance the user experience and interface design. It supports both vertical and horizontal orientations and allows customization of thickness, length, margin, theme type, and more. This component is ideal for adding visually appealing separators or decorative elements to your web application while maintaining consistency with your design theme.
+<Description />
 
 ## Setup Instructions
 
@@ -17,7 +15,7 @@ To use the `FancyLine` component in your project, follow these steps:
 1. Import the `FancyLine` component into your file:
 
 ```jsx
-import { FancyLine } from '@/components/atoms/FancyLine';
+import { FancyLine } from '@tobitry/fui-fancyui';
 ```
 
 2. Use the component in your JSX code, passing in any required or optional props to customize it according to your needs.
@@ -27,7 +25,7 @@ import { FancyLine } from '@/components/atoms/FancyLine';
 Below is an example of how to use the `FancyLine` component with some of its customizable properties:
 
 ```jsx
-<FancyLine direction="horizontal" thickness="2px" length="100%" margin="10px" themeType="accent" layer="base" />
+<FancyLine direction="horizontal" thickness="2px" length="100%" margin="10px" themeType="accent" layer={0} />
 ```
 
 This will render a horizontal line with a thickness of 2px, spanning the full width of its container, with a margin of 10px on all sides, styled with the 'accent' theme type and on the 'base' layer.

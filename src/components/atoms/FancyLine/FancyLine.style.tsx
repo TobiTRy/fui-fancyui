@@ -19,6 +19,7 @@ export const StyledFancyLine = styled.hr<TStyledFancyLine>`
   border: 0;
   padding: 0;
   margin: ${({ $margin }) => arrayToCssValues($margin) || '0'};
+  transition: background-color 0.25s ease;
 
   &::after {
     content: '';
@@ -26,11 +27,16 @@ export const StyledFancyLine = styled.hr<TStyledFancyLine>`
     align-self: stretch;
     ${({ $direction, $thickness, $length }) =>
       calcHeightOrWidth({ direction: $direction, thickness: $thickness, length: $length })};
-    background-color: ${({ theme, $themeType = 'accent', $layer }) =>
-      getBackgroundColor({ theme, $themeType, $layer })};
+    background-color: ${({ $systemMessageType, theme, $isActive, $themeType = 'secondary', $layer }) =>
+      getBackgroundColor({
+        theme,
+        $themeType: $isActive ? $systemMessageType ?? 'accent' : $themeType,
+        $layer: $isActive ? 0 : $layer,
+      })};
     border: 0;
     padding: 0;
     filter: blur(0.5px);
+    transition: background-color 0.25s ease;
   }
 
   ${({ $externalStyle }) => $externalStyle};
