@@ -2,17 +2,16 @@ import { TLayer } from '@/types/TLayer';
 import { HTMLAttributes } from 'react';
 import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 import { TComponentSizes } from '@/types/TComponentSizes';
-
-export type TTextAlign = 'left' | 'center' | 'right';
+import { TTextAlignLRC } from '@/types/TTextAlignLRC';
 
 type WithLabel = {
   label: string;
-  textAlignment?: TTextAlign;
+  textAlignment?: TTextAlignLRC;
 };
 
 type WithoutLabel = {
   label?: never;
-  textAlignment?: TTextAlign;
+  textAlignment?: TTextAlignLRC;
 };
 
 export type IListDivider = {

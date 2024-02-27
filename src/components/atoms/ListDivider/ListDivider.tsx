@@ -43,7 +43,7 @@ export default function ListDivider(props: IListDivider) {
         </StyledTextDiv>
       ) : (
         // Render a Seperator(Divider) only a line
-        <StyledI role="separator" {...htmlProps} />
+        <StyledI role="separator" $layer={layer} $themeType={themeType} {...htmlProps} />
       )}
     </>
   );

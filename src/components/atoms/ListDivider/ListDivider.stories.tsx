@@ -3,6 +3,7 @@ import { Meta, StoryObj } from '@storybook/react';
 
 // Import the component to be tested
 import ListDivider from './ListDivider';
+import templateThemeType from '@/stories/templateSettingsForStorys/templatesForThemeType';
 
 // Define metadata for the story
 const meta = {
@@ -16,28 +17,46 @@ const meta = {
   },
   // Define arguments for the story
   argTypes: {
-    themeType: {
-      description: 'The theme of the input',
-      control: {
-        type: 'select',
-      },
+    ...templateThemeType('notTransparent', 'primary', 3),
+    label: {
+      description: 'The label to be displayed on the divider',
+      control: { type: 'text' },
+    },
+    textAlignment: {
+      description: 'The text alignment of the label',
+      control: { type: 'select' },
       defaultValue: {
-        summary: 'primary',
+        summary: 'center',
+      },
+      options: ['left', 'center', 'right'],
+    },
+    noLine: {
+      description: 'If true, the line will not be displayed',
+      control: { type: 'boolean' },
+      defaultValue: {
+        summary: false,
       },
     },
-    layer: {
-      description: 'The layer of the button hover effect',
-      control: {
-        type: 'range',
-        min: 1,
-        max: 10,
-        step: 1,
-      },
+    fontWeight: {
+      description: 'The font weight of the label',
+      control: { type: 'text' },
       defaultValue: {
-        summary: '3',
+        summary: undefined,
       },
+    },
+    sizeC: {
+      description: 'The size of the divider',
+      control: { type: 'select' },
+      options: ['sm', 'md', 'lg'],
+      defaultValue: {
+        summary: 'md',
+      },
+    },
+    icon: {
+      description: 'The icon to be displayed on the divider',
     },
   },
+
   // Add tags to the story
   tags: ['autodocs'],
 } satisfies Meta<typeof ListDivider>;
