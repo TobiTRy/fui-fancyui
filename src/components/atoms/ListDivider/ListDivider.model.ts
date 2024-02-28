@@ -14,12 +14,15 @@ type WithoutLabel = {
   textAlignment?: TTextAlignLRC;
 };
 
-export type IListDivider = {
+export type TListDivider = {
   themeType?: TUiColorsNotTransparent;
   layer?: TLayer;
   noLine?: boolean;
   fontWeight?: number | string;
   sizeC?: TComponentSizes;
   icon?: React.ReactNode;
-} & (WithLabel | WithoutLabel) &
-  HTMLAttributes<HTMLDivElement>;
+} & (WithLabel | WithoutLabel);
+
+export type TListDividerNativeAttrs = HTMLAttributes<HTMLDivElement>;
+
+export type TListDividerWithNativeAttrs = TListDivider & TListDividerNativeAttrs;
