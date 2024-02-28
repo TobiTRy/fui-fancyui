@@ -1,4 +1,4 @@
-import { TNumberInputWithNativeAttrs } from '@/components/atoms/NumberInput/TNumberInput.moedel';
+import { TNumberInputWithNativeAttrs } from '@/components/atoms/NumberInput/TNumberInput.model';
 import { TComponentSizes } from '@/types/TComponentSizes';
 import { TLayer } from '@/types/TLayer';
 import { TUiColorsMain } from '@/types/TUiColorsMain';
