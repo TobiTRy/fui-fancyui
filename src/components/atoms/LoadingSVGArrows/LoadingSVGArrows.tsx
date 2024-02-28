@@ -10,11 +10,11 @@ interface ILoadingSVGArrowsProps {
 //  A loading animation with two arrows thats shown when something is loading  //
 // --------------------------------------------------------------------------- //
 export default function LoadingSVGArrows(props: ILoadingSVGArrowsProps & TSVGAtomProps) {
-  const { isLoading } = props;
+  const { isLoading, ...SVGAtomProps } = props;
 
   return isLoading ? (
     <AnimatedSVGArrwos>
-      <SVGLoadingArrows />
+      <SVGLoadingArrows {...SVGAtomProps} />
     </AnimatedSVGArrwos>
   ) : null;
 }
