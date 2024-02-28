@@ -5,16 +5,16 @@ import { Button } from '@/components/molecules/Button';
 import { FancyContent } from '@/components/molecules/FancyContent';
 import { generateFancyButton } from './FancyButton.style';
 
-import { IButton, IButtonProps } from '@/components/molecules/Button/Button.model';
-import { IFancyButtonProps } from '@/components/organisms/FancyButton/TFancyButton.model';
+import { TButtonWithNativeAttrs, TButton } from '@/components/molecules/Button/Button.model';
+import { TFancyButtonProps } from '@/components/organisms/FancyButton/TFancyButton.model';
 import { leftRightCenterToFlexJustify } from '@/design/designFunctions/leftRightCenterToFlexJustify';
 import { sizeSettings } from './sizeSettings';
 
 // --------------------------------------------------------------------------- //
 // ---------- The Fancy Button has a bit more options than another  ---------- //
 // --------------------------------------------------------------------------- //
-type IFancyButton = IFancyButtonProps & IButton;
-export default function FancyButton(props: IFancyButton) {
+type TFancyButton = TFancyButtonProps & TButtonWithNativeAttrs;
+export default function FancyButton(props: TFancyButton) {
   const {
     icon,
     label,
@@ -44,7 +44,7 @@ export default function FancyButton(props: IFancyButton) {
         ${generateFancyStyle};
         ${externalStyle};
       `}
-      {...(buttonProps as IButtonProps)}
+      {...(buttonProps as TButton)}
     >
       <FancyContent direction={alignIcon} gapBetweenIcon={gap}>
         {label && (

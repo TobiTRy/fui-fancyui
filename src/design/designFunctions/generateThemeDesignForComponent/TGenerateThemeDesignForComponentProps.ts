@@ -3,7 +3,7 @@ import { TLayer } from '@/types/TLayer';
 import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 import { TUiColorTypes } from '@/types/TUiColorTypes';
 
-export interface IGenerateThemeDesignForComponentProps {
+export type TGenerateThemeDesignForComponentProps = {
   themeType?: TUiColorTypes;
   hoverColor?: TUiColorsNotTransparent;
   textColor?: TUiColorsNotTransparent;
@@ -13,6 +13,6 @@ export interface IGenerateThemeDesignForComponentProps {
   backgroundStrength?: number;
   backgroundState?: 'hover' | 'active';
   useSimpleTextColor?: boolean;
-}
+};
 
-export default IGenerateThemeDesignForComponentProps;
+export default TGenerateThemeDesignForComponentProps;

@@ -1,4 +1,4 @@
-import { IGenerateThemeDesignForComponentProps } from './IGenerateThemeDesignForComponentProps';
+import { TGenerateThemeDesignForComponentProps } from './TGenerateThemeDesignForComponentProps';
 import { generateNormalStyle } from './utils/generateNormalStyle';
 import { generateOutlineStyle } from './utils/generateOutlineStyle';
 import { generateTransparentStyle } from './utils/generateTransparentStyle';
@@ -7,7 +7,7 @@ import { getSimpleColorThemeType } from '@/design/designFunctions/getSimpleColor
 import { TStyledPrefixAndPicker } from '@/types/TStyledPrefixAndPicker';
 import { TTheme } from '@/types/TTheme';
 
-export type IGenerateThemeDesignForComponent = TStyledPrefixAndPicker<IGenerateThemeDesignForComponentProps> & {
+export type IGenerateThemeDesignForComponent = TStyledPrefixAndPicker<TGenerateThemeDesignForComponentProps> & {
   theme: TTheme;
 };
 // --------------------------------------------------------------------------- //
