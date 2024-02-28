@@ -1,0 +1,43 @@
+import { Meta, Title, Description, Controls } from '@storybook/blocks';
+import * as PageNumberListStories from './PageNumberList.stories';
+
+<Meta of={PageNumberListStories} />
+
+<Title />
+
+<Description />
+
+## Setup Instructions
+
+1. Import the `PageNumberList` component into your file:
+   ```jsx
+   import { PageNumberList } from '@tobitry/fui-fancyui';
+   ```
+2. Ensure that the `styled-components` package is installed in your project for styled components to work correctly.
+3. Utilize the component in your JSX by passing the required props (`totalPages`, `currentPage`) and optional props (`pageLimits`, `onClick`) as needed.
+
+## Example Usage
+
+```jsx
+<PageNumberList
+  totalPages={10}
+  currentPage={5}
+  pageLimits={3}
+  onClick={(page) => console.log(`Navigating to page ${page}`)}
+/>
+```
+
+This example renders a `PageNumberList` with 10 total pages, setting the current page to 5. It limits the number of pages shown to 3 and logs the page number to the console when a page button is clicked.
+
+## Component Properties
+
+- `totalPages` (required): `number` - The total number of pages to paginate through.
+- `currentPage` (required): `number` - The currently active page.
+- `pageLimits` (optional): `number` - The maximum number of page buttons to display at once. Defaults to 3 if not specified.
+- `onClick` (optional): `(page: number) => void` - A callback function that is called when a page button is clicked. Receives the page number as its argument.
+
+## Additional Notes
+
+- The `PageNumberList` component intelligently calculates which page numbers to display based on the current page, total pages, and page limits, including the display of ellipses (`...`) to indicate skipped page numbers.
+- Styled with `styled-components`, the component allows for easy customization of styles via theme-based styling and conditional styling for active states.
+- The `generateNumbers` utility function is used internally to calculate the array of page numbers or ellipses to display, ensuring flexibility and adaptability to various pagination scenarios.

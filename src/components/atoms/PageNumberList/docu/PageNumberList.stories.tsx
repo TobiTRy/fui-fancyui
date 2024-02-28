@@ -2,7 +2,7 @@
 import { Meta, StoryObj } from '@storybook/react';
 
 // Import the component to be tested
-import PageNumberList from './PageNumberList';
+import PageNumberList from '../PageNumberList';
 
 // Define metadata for the story
 const meta = {
@@ -15,7 +15,6 @@ const meta = {
       },
     },
   },
-
   // Define arguments for the story
   argTypes: {
     pageLimits: {
@@ -34,9 +33,6 @@ const meta = {
       },
     },
   },
-
-  // Add tags to the story
-  tags: ['autodocs'],
 } satisfies Meta<typeof PageNumberList>;
 
 // Export the metadata
@@ -52,12 +48,5 @@ export const Primary: Story = {
     currentPage: 1,
     pageLimits: 3,
     onClick: (page: number) => console.log(page),
-  },
-  parameters: {
-    docs: {
-      description: {
-        story: '',
-      },
-    },
   },
 };
