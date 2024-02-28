@@ -1,5 +1,5 @@
 import { TGenerateThemeDesignForComponentProps } from '@/design/designFunctions/generateThemeDesignForComponent';
-import { TUiColorsNotTransparent } from 'lib';
+import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 
 export type TPageNumberList = {
   showPages: number;
