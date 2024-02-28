@@ -21,13 +21,13 @@ export default function PageSwitchRoute() {
   ));
 
   return (
-    <Card>
+    <Card externalStyle={{ width: '100%' }}>
       <DesignWrapper>
         <DesignArea
           title="Paginator"
           style={{ maxWidth: '60%', display: 'flex', justifyContent: 'center', width: '100%' }}
         >
-          <FancyPageList itemsPerPage={10} pageLimits={5} elements={JSXArry} spacingBetweenItems="20px" />
+          <FancyPageList itemsPerPage={10} showPages={3} elements={JSXArry} spacingBetweenItems="20px" />
         </DesignArea>
       </DesignWrapper>
     </Card>

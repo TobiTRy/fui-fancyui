@@ -3,7 +3,7 @@ import { useId, useState } from 'react';
 import NumberInput from '@/components/atoms/NumberInput/NumberInput';
 import InputWrapper from '@/components/molecules/InputWrapper/InputWrapper';
 import { TInputWrapperUserInputProps } from '@/components/molecules/InputWrapper/TInputWrapper.model';
-import { TNumberInputWithNativeAttrs } from '@/components/atoms/NumberInput/TNumberInput.moedel';
+import { TNumberInputWithNativeAttrs } from '@/components/atoms/NumberInput/TNumberInput.model';
 import { css } from 'styled-components';
 
 type IFancyNumberInput = TNumberInputWithNativeAttrs & TInputWrapperUserInputProps & { autoWidth?: boolean };

@@ -175,7 +175,7 @@ export * from '@/design/designFunctions/leftRightCenterToFlexJustify';
 // ---------- Interfaces ------- //
 export * from '@/types';
 export * from '@/design/designFunctions/generateThemeForCard/IGenerateThemeForCardProps';
-export * from '@/design/designFunctions/generateThemeDesignForComponent/IGenerateThemeDesignForComponentProps';
+export * from '@/design/designFunctions/generateThemeDesignForComponent/TGenerateThemeDesignForComponentProps';
 export * from '@/components/atoms/AvilableDot/IAvailableDot.model';
 export * from '@/components/atoms/FancyBox/FancyBox.model';
 export * from '@/design/designFunctions/arrayToCssValues/TArrayValues.model';
