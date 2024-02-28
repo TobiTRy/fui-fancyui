@@ -1,0 +1,74 @@
+import { Meta, Title, Description, Controls } from '@storybook/blocks';
+
+import * as NumberInputStories from './NumberInput.stories';
+
+<Meta of={NumberInputStories} />
+
+<Title />
+
+<Description />
+
+## Setup Instructions
+
+To use the `NumberInput` component in your project, you should first import the compoent:
+
+```jsx
+import { NumberInput } from '@tobitry/fui-fancyui';
+```
+
+Make sure that the path is adjusted to where the `NumberInput` component is located within your project.
+
+**Import Necessary Types**:
+
+- If you're using TypeScript, import the types to leverage type-checking for the component's props.
+
+```tsx
+import { TNumberInput, TNumberInputNativeAttrs, TNumberInputWithNativeAttrs } from '@tobitry/fui-fancyui';
+```
+
+## Example Usage
+
+Here's a simple example demonstrating how to use the `NumberInput` component within a React application:
+
+```jsx
+import React from 'react';
+import NumberInput from '@tobitry/fui-fancyui';
+
+function App() {
+  const [value, setValue] = React.useState('');
+
+  const handleChange = (e) => {
+    setValue(e.target.value);
+  };
+
+  return (
+    <div>
+      <NumberInput
+        value={value}
+        onChange={handleChange}
+        min={0}
+        max={100}
+        step={1}
+        decimalPlaces={2}
+        autoWidth
+        id="uniqueId"
+        externalStyle={{ borderColor: 'blue' }}
+      />
+    </div>
+  );
+}
+
+export default App;
+```
+
+This example sets up a `NumberInput` component with a controlled value that updates on change. It specifies minimum and maximum values, the step size, and the number of decimal places. Additionally, it uses the `autoWidth` property to automatically adjust the width of the input based on its value.
+
+## Component Properties
+
+The `NumberInput` component accepts several props to customize its behavior and appearance:
+
+<Controls />
+
+## Additional Notes
+
+The `NumberInput` component utilizes a custom hook, `useNumberInput`, to manage its state and handle input changes, including validation for the number of decimal places, minimum and maximum values, and step size adjustments. It replaces the default number input spinner with a more flexible text input field, allowing for a wider range of numerical inputs while maintaining user-friendly features like arrow key step adjustments.

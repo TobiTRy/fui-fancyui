@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 
 import { useNumberInput } from '@/components/atoms/NumberInput/useNumberInput.hook';
 import StyledNumberInput from './NumberInput.styled';
-import { TNumberInput, TNumberInputNativeAttrs } from '@/components/atoms/NumberInput/TNumberInput.moedel';
+import { TNumberInput, TNumberInputNativeAttrs } from '@/components/atoms/NumberInput/TNumberInput.model';
 
 // --------------------------------------------------------------------------- //
 // Advanced Text imput that acts like a number input to have more versatelity  //
