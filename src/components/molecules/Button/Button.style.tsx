@@ -5,13 +5,13 @@ import generateThemeDesignForComponent, {
   IGenerateThemeDesignForComponent,
 } from '@/design/designFunctions/generateThemeDesignForComponent/generateThemeDesignForComponent';
 import { TStyledPrefixAndPicker } from '@/types/TStyledPrefixAndPicker';
-import { IButtonProps } from './Button.model';
+import { TButton } from './Button.model';
 import { generateButtonSizeAndPadding } from '@/components/molecules/Button/utils/generateButtonSizeAndPadding';
 import { generateBorderRadiusForComponent } from '@/design/designFunctions/generateBorderRadiusForComponent';
 import { RawButton } from '@/components/atoms/RawButton';
 import { sizeSettings } from '@/components/molecules/Button/sizeSettings';
 
-export const ButtonStyle = styled.span<IGenerateThemeDesignForComponent & TStyledPrefixAndPicker<IButtonProps>>`
+export const ButtonStyle = styled.span<IGenerateThemeDesignForComponent & TStyledPrefixAndPicker<TButton>>`
   display: inline-flex;
   height: fit-content;
   border: none;
