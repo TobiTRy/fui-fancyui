@@ -1,3 +1,3 @@
 export { default as FancySVGAtom } from './FancySVGAtom';
 
-export type { TSVGAtomSizes, TSVGAtom, TSVGAtomProps } from './TFancySVGAtom.model';
+export type { TFancySVGAtomSizes, TFancySVGAtom, TFancySVGAtomWithNativeAttrs } from './TFancySVGAtom.model';

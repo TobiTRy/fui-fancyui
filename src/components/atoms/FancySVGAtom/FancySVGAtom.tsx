@@ -1,10 +1,10 @@
-import { TSVGAtomProps } from './TFancySVGAtom.model';
+import { TFancySVGAtomWithNativeAttrs } from './TFancySVGAtom.model';
 import { StyledSVG } from './FancySVGAtom.style';
 
 // --------------------------------------------------------------------------- //
 // --------- This is a wrapper for SVGs to wrap them and style them ---------- //
 // --------------------------------------------------------------------------- //
-export default function FancySVGAtom(props: TSVGAtomProps) {
+export default function FancySVGAtom(props: TFancySVGAtomWithNativeAttrs) {
   const {
     children,
     isPassive = false,

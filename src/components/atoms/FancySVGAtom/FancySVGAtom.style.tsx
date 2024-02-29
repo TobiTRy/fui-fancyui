@@ -4,7 +4,7 @@ import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForC
 import { TTheme } from '@/types/TTheme';
 import { sizes } from '@/components/atoms/FancySVGAtom/sizeSettings';
 import { TStyledPrefixAndOmiter } from '@/types/TStyledPrefixAndOmiter';
-import { TSVGAtom } from '@/components/atoms/FancySVGAtom/TFancySVGAtom.model';
+import { TFancySVGAtom } from '@/components/atoms/FancySVGAtom/TFancySVGAtom.model';
 import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 import { TUiColorsSystemMessage } from '@/types/TUiColorsSystemMessage';
 
@@ -24,7 +24,7 @@ const calcIconColor = ({ theme, $isActive, $systemMessage, $themeType, $layer }:
   }
 };
 
-type IStyledSVGAtom = TStyledPrefixAndOmiter<TSVGAtom, 'children'>;
+type IStyledSVGAtom = TStyledPrefixAndOmiter<TFancySVGAtom, 'children'>;
 export const StyledSVG = styled.i<IStyledSVGAtom & { theme: TTheme }>`
   display: flex;
   justify-content: center;

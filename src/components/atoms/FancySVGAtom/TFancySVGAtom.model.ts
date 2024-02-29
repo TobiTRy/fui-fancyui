@@ -5,11 +5,11 @@ import { TLayer } from '@/types/TLayer';
 import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 import { TUiColorsSystemMessage } from '@/types/TUiColorsSystemMessage';
 
-export type TSVGAtomSizes = keyof typeof sizes;
+export type TFancySVGAtomSizes = keyof typeof sizes;
 
-export type TSVGAtom = {
+export type TFancySVGAtom = {
   children?: React.ReactNode;
-  sizeC?: TSVGAtomSizes;
+  sizeC?: TFancySVGAtomSizes;
   externalStyle?: CSSProp;
   isPassive?: boolean;
   isActive?: boolean;
@@ -18,4 +18,4 @@ export type TSVGAtom = {
   layer?: TLayer;
 };
 
-export type TSVGAtomProps = TSVGAtom & Omit<React.HTMLAttributes<HTMLElement>, 'style'>;
+export type TFancySVGAtomWithNativeAttrs = TFancySVGAtom & Omit<React.HTMLAttributes<HTMLElement>, 'style'>;
