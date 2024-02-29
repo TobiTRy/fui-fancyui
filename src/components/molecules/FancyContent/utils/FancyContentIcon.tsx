@@ -1,9 +1,9 @@
 import { css } from 'styled-components';
 
 import { FancySVGAtom } from '@/components/atoms/FancySVGAtom';
-import { TSVGAtomProps } from '@/components/atoms/FancySVGAtom/TFancySVGAtom.model';
+import { TFancySVGAtomWithNativeAttrs } from '@/components/atoms/FancySVGAtom/TFancySVGAtom.model';
 
-export function FancyContentIcon(props: TSVGAtomProps) {
+export function FancyContentIcon(props: TFancySVGAtomWithNativeAttrs) {
   const { children, sizeC = 'xxs', externalStyle, ...SVGProps } = props;
 
   return (
