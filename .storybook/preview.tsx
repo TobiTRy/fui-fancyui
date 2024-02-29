@@ -4,6 +4,9 @@ import { DocsContainer } from './DocsContainer';
 import themeStore from '../src/design/theme/themeStore/themeStore';
 import GlobalStyle from '../src/GlobalStyle';
 import { ThemeProvider } from 'styled-components';
+import storyBookThemeLight from './storyBookThemeLight';
+import storyBookThemeDark from './storyBookThemeDark';
+
 // Rest of the preview config remains the same
 
 // Storybook preview settings
@@ -31,6 +34,10 @@ const preview: Preview = {
         color: /(background|color)$/i,
         date: /Date$/,
       },
+    },
+    darkMode: {
+      dark: storyBookThemeDark,
+      light: storyBookThemeLight,
     },
   },
 };

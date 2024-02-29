@@ -7,7 +7,8 @@ import React, { FC, PropsWithChildren, useEffect, useState } from 'react';
 import { DARK_MODE_EVENT_NAME } from 'storybook-dark-mode';
 import { ThemeProvider } from 'styled-components';
 import themeStore from '../src/design/theme/themeStore/themeStore';
-import myLightThemeStorybook from './theme';
+import storyBookThemeLight from './storyBookThemeLight';
+import storyBookThemeDark from './storyBookThemeDark';
 
 const channel = addons.getChannel();
 
@@ -21,7 +22,7 @@ export const DocsContainer: FC<PropsWithChildren<DocsContainerProps>> = ({ child
   }, [channel]);
 
   return (
-    <BaseContainer theme={isDark ? myLightThemeStorybook : themes.light} context={context}>
+    <BaseContainer theme={isDark ? storyBookThemeDark : storyBookThemeLight} context={context}>
       <ThemeProvider theme={getTheme}>{children}</ThemeProvider>
     </BaseContainer>
   );
