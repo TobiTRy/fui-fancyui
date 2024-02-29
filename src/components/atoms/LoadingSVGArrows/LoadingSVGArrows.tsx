@@ -1,7 +1,7 @@
 import styled, { keyframes } from 'styled-components';
 
 import { SVGLoadingArrows } from '@/components/icons/SVGLoadingArrows';
-import { TSVGAtomProps } from '@/components/atoms/FancySVGAtom/TFancySVGAtom.model';
+import { TFancySVGAtomWithNativeAttrs } from '@/components/atoms/FancySVGAtom/TFancySVGAtom.model';
 
 interface ILoadingSVGArrowsProps {
   isLoading?: boolean;
@@ -9,7 +9,7 @@ interface ILoadingSVGArrowsProps {
 // --------------------------------------------------------------------------- //
 //  A loading animation with two arrows thats shown when something is loading  //
 // --------------------------------------------------------------------------- //
-export default function LoadingSVGArrows(props: ILoadingSVGArrowsProps & TSVGAtomProps) {
+export default function LoadingSVGArrows(props: ILoadingSVGArrowsProps & TFancySVGAtomWithNativeAttrs) {
   const { isLoading, ...SVGAtomProps } = props;
 
   return isLoading ? (
