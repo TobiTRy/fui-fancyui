@@ -2,10 +2,12 @@ import React from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
-import PasswordInput from './PasswordInput';
+import PasswordInput from '../PasswordInput';
+import templateThemeType from '@/stories/templateSettingsForStorys/templatesForThemeType';
 
 const meta = {
   component: PasswordInput,
+  title: 'components/atoms/PasswordInput',
   parameters: {
     docs: {
       description: {
@@ -14,6 +16,7 @@ const meta = {
     },
   },
   argTypes: {
+    ...templateThemeType('notTransparent', 'secondary', 0),
     value: {
       description: 'The value of the input.',
       type: { name: 'string' },
@@ -25,25 +28,7 @@ const meta = {
       },
       defaultValue: { summary: 'left' },
     },
-    themeType: {
-      description: 'The theme type of the input.',
-      control: {
-        type: 'select',
-      },
-      defaultValue: { summary: 'accent' },
-    },
-    layer: {
-      description: 'The layer of the input.',
-      control: {
-        type: 'range',
-        min: 1,
-        max: 10,
-        step: 1,
-      },
-      defaultValue: { summary: 4 },
-    },
   },
-  tags: ['autodocs'],
 } satisfies Meta<typeof PasswordInput>;
 
 export default meta;
