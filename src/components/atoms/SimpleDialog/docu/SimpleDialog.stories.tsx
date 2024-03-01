@@ -42,12 +42,6 @@ export const Primary: Story = {
     isOpen: true,
     children: 'Test',
     layer: 1,
-  },
-  parameters: {
-    docs: {
-      description: {
-        story: '',
-      },
-    },
+    themeType: 'primary',
   },
 };
