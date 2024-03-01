@@ -23,4 +23,6 @@ const RawInput = styled.input<IRawInput>`
   ${({ $externalStyle }) => $externalStyle};
 `;
 
+RawInput.displayName = 'RawInput';
+
 export default RawInput;
