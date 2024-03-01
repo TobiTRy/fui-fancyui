@@ -13,7 +13,7 @@ const meta = {
     docs: {
       description: {
         component:
-          'The `ProgressBar` component is a customizable progress bar for React applications. It visually represents the progress of an operation, such as a file upload or a loading process. The component allows for customization through various props, including progress percentage, maximum value, ID, theme type, and layer. It´s designed to be flexible and easily integrated into any React project with styled-components for styling.',
+          'The `ProgressBar` component is a customizable progress bar. It visually represents the progress of an operation, such as a file upload or a loading process. The component allows for customization through various props, including progress percentage, maximum value, ID, theme type, and layer. It´s designed to be flexible and easily integrated into any React project with styled-components for styling.',
       },
     },
   },
