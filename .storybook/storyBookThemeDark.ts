@@ -17,7 +17,7 @@ const storyBookThemeDark = create({
   barBg: rawTheme.colors.primary[1],
 
   inputBg: rawTheme.colors.primary[1],
-  buttonBg: rawTheme.colors.primary[6],
+  buttonBg: rawTheme.colors.primary[2],
   booleanBg: rawTheme.colors.primary[1],
   booleanSelectedBg: rawTheme.colors.accent[1],
   appBorderColor: rawTheme.colors.primary[4],
