@@ -12,7 +12,7 @@ const meta = {
     docs: {
       description: {
         component:
-          'The `RawButton` component is a customizable button for React applications. It is designed to be flexible and easily integrated into any React project with styled-components for styling.',
+          'The `RawButton` component is a customizable button for React applications. It is designed to be flexible and easily integrated into any React project with styled-components for styling. It can be styled with `styled(RawNav)`',
       },
     },
   },
