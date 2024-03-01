@@ -27,10 +27,10 @@ const DragableThumb = css<{ theme: TTheme; $isActive?: boolean }>`
   }
 `;
 
-const generateComponentSize = (componentSize: TRawSlider['componentSize']) => {
+const generateComponentSize = (sizeC: TRawSlider['sizeC']) => {
   return css`
-    height: ${sizeSettings[componentSize || 'sm'].height};
-    margin: ${sizeSettings[componentSize || 'sm'].margin} 0;
+    height: ${sizeSettings[sizeC ?? 'sm'].height};
+    margin: ${sizeSettings[sizeC ?? 'sm'].margin};
   `;
 };
 
@@ -38,12 +38,12 @@ type TStyledRawSlider = {
   $themeType?: TUiColorsNotTransparent;
   $layer?: TLayer;
   $isActive?: boolean;
-  $componentSize: TRawSlider['componentSize'];
+  $sizeC: TRawSlider['sizeC'];
 };
 export const StyledRawSlider = styled.input<TStyledRawSlider & { theme: TTheme }>`
   -webkit-appearance: none;
   width: 100%;
-  ${({ $componentSize }) => generateComponentSize($componentSize)};
+  ${({ $sizeC }) => generateComponentSize($sizeC)};
   background: ${({ theme, $themeType = 'primary', $layer = 1 }) => getBackgroundColor({ theme, $themeType, $layer })};
   border-radius: ${({ theme }) => theme.borderRadius.complete};
   background-image: ${({ theme }) => `linear-gradient(90deg, ${theme.colors.accent[0]}, ${theme.colors.accent[0]})`};

@@ -1,0 +1,63 @@
+import { Meta, Title, Description, Controls } from '@storybook/blocks';
+
+import * as RawSliderStories from './RawSlider.stories';
+
+<Meta of={RawSliderStories} />
+
+<Title />
+
+<Description />
+
+## Setup Instructions
+
+## Setup Instructions
+
+1. Import the `RawSlider` component into your project:
+
+```jsx
+import { RawSlider } from '@tobitry/fui-fancyui';
+```
+
+2. If using TypeScript, ensure the type definitions are imported for prop validation:
+
+```jsx
+import { TRawSlider, TRawSliderNativeAttrs, TRawSliderWithNativeAttrs } from '@tobitry/fui-fancyui';
+```
+
+## Example Usage
+
+Here's an example of how to integrate the `RawSlider` component into a form, allowing users to select a value from a range:
+
+```jsx
+import React, { useState } from 'react';
+import RawSlider from '@tobitry/fui-fancyui';
+
+const VolumeControl = () => {
+  const [volume, setVolume] = useState(50);
+
+  const handleVolumeChange = (e) => {
+    setVolume(e.target.value);
+  };
+
+  return (
+    <form>
+      <label>
+        Volume:
+        <RawSlider min="0" max="100" value={volume.toString()} onChange={handleVolumeChange} componentSize="md" />
+      </label>
+    </form>
+  );
+};
+
+export default VolumeControl;
+```
+
+This example creates a volume control slider that allows users to select a value between 0 and 100, demonstrating how to capture and handle value changes.
+
+## Component Properties
+
+The `RawSlider` component accepts a combination of native HTML input attributes and custom properties:
+
+<Controls />
+
+By offering a blend of standard and custom properties, the `RawSlider` component provides a flexible and visually consistent approach for range input in React-based projects.
