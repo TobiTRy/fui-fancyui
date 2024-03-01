@@ -7,6 +7,7 @@ import FancyVideo from '../FancyVideo';
 // Define metadata for the story
 const meta = {
   component: FancyVideo,
+  title: 'components/atoms/FancyVideo',
   parameters: {
     docs: {
       description: {
