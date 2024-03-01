@@ -14,7 +14,7 @@ const channel = addons.getChannel();
 
 export const DocsContainer: FC<PropsWithChildren<DocsContainerProps>> = ({ children, context }) => {
   const getTheme = themeStore((state) => state.theme);
-  const [isDark, setDark] = useState(false);
+  const [isDark, setDark] = useState(true);
 
   useEffect(() => {
     channel.on(DARK_MODE_EVENT_NAME, setDark);
