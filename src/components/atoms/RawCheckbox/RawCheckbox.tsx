@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 
 import { FakeCheckbox, HidenCheckBox, InputContainer } from './RawCheckbox.style';
-import { IRawCheckboxProps } from './RawCheckbox.model';
+import { TRawCheckbox } from './TRawCheckbox.model';
 import { SVGCheckMark } from '@/components/icons/SVGCheckMark';
 
 // --------------------------------------------------------------------------- //
 // -------------------- A simple Checkbox with a Label ----------------------- //
 // --------------------------------------------------------------------------- //
-export default function RawCheckbox(props: IRawCheckboxProps) {
-  const { onChange, defaultChecked, id, ...rest } = props;
+export default function RawCheckbox(props: TRawCheckbox) {
+  const { onChange, defaultChecked, id, ...htmlProps } = props;
   const [checked, setChecked] = useState(false);
 
   // the onClick for clicking the fake checkbox to set the state
@@ -34,7 +34,7 @@ export default function RawCheckbox(props: IRawCheckboxProps) {
         <SVGCheckMark />
       </FakeCheckbox>
       {/* The real checkbox but this hidden */}
-      <HidenCheckBox id={id} type="checkbox" defaultChecked={checked} onChange={handleChange} {...rest} />
+      <HidenCheckBox id={id} type="checkbox" defaultChecked={checked} onChange={handleChange} {...htmlProps} />
     </InputContainer>
   );
 }

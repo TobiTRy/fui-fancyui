@@ -4,4 +4,4 @@ import { HTMLAttributes } from 'react';
 type NativeAttrs = Omit<HTMLAttributes<HTMLInputElement>, 'type'>;
 
 // MAIN INCOMMING PROPS PASSED TO THE COMPONENT
-export type IRawCheckboxProps = NativeAttrs;
+export type TRawCheckbox = NativeAttrs;

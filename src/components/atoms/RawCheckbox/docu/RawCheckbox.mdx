@@ -1,0 +1,61 @@
+import { Meta, Title, Description, Controls } from '@storybook/blocks';
+
+import * as RawCheckboxStories from './RawCheckbox.stories';
+
+<Meta of={RawCheckboxStories} />
+
+<Title />
+
+<Description />
+
+## Setup Instructions
+
+1. Import the `RawCheckbox` component into your project:
+
+```jsx
+import { RawCheckbox } from '@tobitry/fui-fancyui';
+```
+
+2. If using TypeScript, ensure the type definitions are imported for prop validation:
+
+```jsx
+import { RawCheckbox } from '@tobitry/fui-fancyui';
+```
+
+## Example Usage
+
+Here's an example demonstrating how to use the `RawCheckbox` component within a form, allowing users to select an option:
+
+```jsx
+import React, { useState } from 'react';
+import RawCheckbox from '@tobitry/fui-fancyui';
+
+const ExampleForm = () => {
+  const [isChecked, setIsChecked] = useState(false);
+
+  const handleCheckboxChange = (e) => {
+    setIsChecked(e.target.checked);
+  };
+
+  return (
+    <form>
+      <label>
+        Accept Terms & Conditions
+        <RawCheckbox onChange={handleCheckboxChange} defaultChecked={isChecked} id="termsCheckbox" />
+      </label>
+    </form>
+  );
+};
+
+export default ExampleForm;
+```
+
+In this example, the `RawCheckbox` component is used within a form label. It demonstrates handling state changes through the `onChange` prop to track whether the checkbox is checked.
+
+## Component Properties
+
+The `RawCheckbox` component accepts the following properties (props):
+
+<Controls />
+
+The combination of customizable styling and the ability to pass standard input attributes makes the `RawCheckbox` component versatile and adaptable to various design requirements while maintaining the functionality of a standard checkbox input.
