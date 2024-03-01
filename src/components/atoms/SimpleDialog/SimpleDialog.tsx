@@ -2,13 +2,13 @@ import { useEffect, useState } from 'react';
 import { animated, useSpring } from '@react-spring/web';
 
 import { StyledDialog } from './SimpleDialog.style';
-import TSimpleDialog from '@/components/atoms/SimpleDialog/SimpleDialog.model';
+import { TSimpleDialogWithHTMLAttrs } from '@/components/atoms/SimpleDialog/SimpleDialog.model';
 
 // --------------------------------------------------------------------------- //
 // -------  A container that can filld with everythin and acts as a dialog --- //
 // --------------------------------------------------------------------------- //
-export default function SimpleDialog(props: TSimpleDialog) {
-  const { isOpen, children, themeType, layer, ...htmlProps } = props;
+export default function SimpleDialog(props: TSimpleDialogWithHTMLAttrs) {
+  const { isOpen, children, themeType = 'primary', layer = 1, ...htmlProps } = props;
 
   const [shouldRender, setRender] = useState(isOpen);
 

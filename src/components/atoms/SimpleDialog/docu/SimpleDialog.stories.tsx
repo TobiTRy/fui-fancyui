@@ -2,38 +2,32 @@
 import { Meta, StoryObj } from '@storybook/react';
 
 // Import the component to be tested
-import SimpleDialog from './SimpleDialog';
+import SimpleDialog from '../SimpleDialog';
+import templateThemeType from '@/stories/templateSettingsForStorys/templatesForThemeType';
 
 // Define metadata for the story
 const meta = {
   component: SimpleDialog,
+  title: 'components/atoms/SimpleDialog',
   parameters: {
     docs: {
       description: {
         component:
-          'A ScrollableBar component, when the content is too wide to fit in the screen, it will be scrollable',
+          'The SimpleDialog component is a versatile dialog container, designed to display content in a modal-like overlay. It leverages @react-spring/web for smooth opening and closing animations, enhancing user experience with a visually appealing fade effect. This component supports customization through theme types, layering, and additional HTML attributes, making it a flexible solution for various UI requirements.',
       },
     },
   },
   // Define arguments for the story
   argTypes: {
-    layer: {
+    ...templateThemeType('mainThemeTypes', 'primary', 1),
+    isOpen: {
+      description: 'Define if the dialog is open or not',
       control: {
-        type: 'range',
-        min: 1,
-        max: 10,
-        step: 1,
+        type: 'boolean',
       },
-    },
-    themeType: {
-      control: {
-        type: 'select',
-      },
+      defaultValue: false,
     },
   },
-
-  // Add tags to the story
-  tags: ['autodocs'],
 } satisfies Meta<typeof SimpleDialog>;
 
 // Export the metadata

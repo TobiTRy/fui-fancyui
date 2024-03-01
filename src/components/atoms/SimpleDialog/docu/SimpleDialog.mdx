@@ -1,0 +1,55 @@
+import { Meta, Title, Description, Controls } from '@storybook/blocks';
+
+import * as SimpleDialogStories from './SimpleDialog.stories';
+
+<Meta of={SimpleDialogStories} />
+
+<Title />
+
+<Description />
+
+1. Import the `SimpleDialog` component where you intend to use it:
+
+```jsx
+import SimpleDialog from '@tobitry/fui-fancyui';
+```
+
+2. If using TypeScript, ensure the type definitions are imported for prop validation:
+
+````jsx
+import { TSimpleDialog, TSimpleDialogWithHTMLAttrs } from '@tobitry/fui-fancyui';
+`
+
+## Example Usage
+
+Here's an example of how to use the `SimpleDialog` component to create a modal dialog that can be opened or closed based on application state:
+
+```jsx
+import React, { useState } from 'react';
+import {SimpleDialog} from '@tobitry/fui-fancyui';
+
+const App = () => {
+  const [isOpen, setOpen] = useState(false);
+
+  return (
+    <>
+      <button onClick={() => setOpen(true)}>Open Dialog</button>
+      <SimpleDialog isOpen={isOpen} themeType="primary" layer={1} onClose={() => setOpen(false)}>
+        <p>Dialog content goes here. You can place any React component inside.</p>
+      </SimpleDialog>
+    </>
+  );
+};
+
+export default App;
+````
+
+This example demonstrates opening a `SimpleDialog` with a button click, showcasing how to integrate the dialog into a React application seamlessly.
+
+## Component Properties
+
+The `SimpleDialog` component accepts the following properties (props):
+
+<Controls />
+
+By providing a blend of essential functionality and aesthetic customization, the `SimpleDialog` component offers a convenient and visually consistent way to implement dialogs and modals in React-based projects.

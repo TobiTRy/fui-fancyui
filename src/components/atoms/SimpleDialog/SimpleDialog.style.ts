@@ -9,7 +9,7 @@ import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 // Define the styled component for the dialog
 export const StyledDialog = styled(animated.div)<{
   theme: TTheme;
-  $themeType?: TUiColorsNotTransparent;
+  $themeType: TUiColorsNotTransparent;
   $layer?: TLayer;
 }>`
   position: fixed;
@@ -21,6 +21,6 @@ export const StyledDialog = styled(animated.div)<{
   border: none;
   width: 70%;
   max-height: 85%;
-  ${({ theme, $themeType = 'primary', $layer = 1 }) => getColorsForComponent({ theme, $themeType, $layer })}
+  ${({ theme, $themeType, $layer = 1 }) => getColorsForComponent({ theme, $themeType, $layer })}
   z-index: 1000;
 `;
