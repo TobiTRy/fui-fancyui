@@ -9,4 +9,6 @@ const RawButton = styled.button`
   align-items: center;
 `;
 
+RawButton.displayName = 'RawButton';
+
 export default RawButton;
