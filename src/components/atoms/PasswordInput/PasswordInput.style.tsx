@@ -16,3 +16,7 @@ export const WrapperEye = styled.div<{ theme: TTheme; $themeType?: TUiColorsNotT
     color: ${({ theme, $themeType = 'secondary', $layer = 4 }) => getBackgroundColor({ theme, $themeType, $layer })};
   }
 `;
+
+export const Wrapper = styled.div`
+  position: relative;
+`;

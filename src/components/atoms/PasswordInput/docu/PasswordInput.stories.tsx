@@ -11,7 +11,8 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component: 'Dumb-Comonent: A PasswordInput component to input password',
+        component:
+          'The `PasswordInput` component is a React component designed for input fields where users can enter passwords. This component integrates a visibility toggle feature, represented by an eye icon, allowing users to switch between showing or hiding their password. It leverages the `PasswordEye` component for the toggle functionality and wraps the input field with a styled wrapper to position the toggle icon appropriately. This component supports customization and theming through various props, making it versatile for different design requirements.',
       },
     },
   },
@@ -27,6 +28,12 @@ const meta = {
         type: 'radio',
       },
       defaultValue: { summary: 'left' },
+    },
+    customEyeCrossed: {
+      description: 'The customEyeCrossed of the input.',
+    },
+    customEyeOpen: {
+      description: 'The customEyeOpened of the input.',
     },
   },
 } satisfies Meta<typeof PasswordInput>;
