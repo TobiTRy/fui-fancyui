@@ -47,7 +47,6 @@ export * from '@/components/atoms/PageNumberList';
 export * from '@/components/atoms/RawLI';
 export * from '@/components/atoms/RawUL';
 export * from '@/components/atoms/RawNav';
-export * from '@/components/atoms/SpeedDialMenueItem';
 export * from '@/components/atoms/SpacingContainer';
 export * from '@/components/atoms/DateInput';
 export * from '@/components/atoms/SystemMessage';
