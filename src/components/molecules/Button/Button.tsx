@@ -21,39 +21,31 @@ export default function Button(props: TButtonWithNativeAttrs) {
     ...htmlProps
   } = props;
 
+  const Button = (
+    <ButtonStyle
+      $sizeC={sizeC}
+      $borderRadius={borderRadius}
+      $wide={wide}
+      $themeType={themeType}
+      $layer={layer}
+      $textColor={textColor}
+      $hoverColor={hoverColor}
+      $outlined={outlined}
+      $externalStyle={externalStyle}
+      $textHover={textHover}
+      {...htmlProps}
+    >
+      {children}
+    </ButtonStyle>
+  );
+
   return (
     <>
       {notAButton ? (
-        <ButtonStyle
-          $sizeC={sizeC}
-          $borderRadius={borderRadius}
-          $wide={wide}
-          $themeType={themeType}
-          $layer={layer}
-          $textColor={textColor}
-          $hoverColor={hoverColor}
-          $outlined={outlined}
-          $externalStyle={externalStyle}
-          $textHover={textHover}
-          {...htmlProps}
-        >
-          {children}
-        </ButtonStyle>
+        { Button }
       ) : (
         <StyledButton $wide={wide} {...htmlProps}>
-          <ButtonStyle
-            $sizeC={sizeC}
-            $wide={wide}
-            $themeType={themeType}
-            $layer={layer}
-            $textColor={textColor}
-            $hoverColor={hoverColor}
-            $outlined={outlined}
-            $externalStyle={externalStyle}
-            $textHover={textHover}
-          >
-            {children}
-          </ButtonStyle>
+          {Button}
         </StyledButton>
       )}
     </>
