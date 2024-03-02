@@ -10,8 +10,9 @@ export type TSpacingsContainer = {
   externalStyle?: CSSProp;
 };
 
-export type TSpacingsContainerHTMLProps<T extends ElementType> = {
+type TSpacingsContainerHTMLProps<T extends ElementType> = {
   as?: React.ElementType;
 } & Omit<React.HTMLAttributes<T>, 'style'>;
 
-export type TSpacingsContainerFullProps<T extends ElementType> = TSpacingsContainer & TSpacingsContainerHTMLProps<T>;
+export type TSpacingsContainerWithHTMLAttrs<T extends ElementType> = TSpacingsContainer &
+  TSpacingsContainerHTMLProps<T>;

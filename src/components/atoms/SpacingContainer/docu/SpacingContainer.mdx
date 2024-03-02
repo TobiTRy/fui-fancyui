@@ -1,0 +1,45 @@
+import { Meta, Title, Description, Controls } from '@storybook/blocks';
+
+import * as SpacingContainerStories from './SpacingContainer.stories';
+
+<Meta of={SpacingContainerStories} />
+
+<Title />
+
+## Brief Description
+
+The `SpacingContainer` component is a versatile wrapper designed to apply consistent spacing around its children through padding and margin properties. It supports dynamic element rendering using the `as` prop, allowing it to adapt to different semantic HTML elements as needed. This component is part of a design system aimed at providing flexible, consistent spacing utilities across an application.
+
+## Setup Instructions
+
+To use the `SpacingContainer` component in your project, follow these steps:
+
+1. Import the `SpacingContainer` component where you intend to use it:
+
+```jsx
+import { SpacingContainer } from '@tobitry/fui-fancyui';
+```
+
+2. If using TypeScript, ensure the type definitions are imported for prop validation:
+
+```jsx
+import { TSpacingsContainerWithHTMLAttrs, TSpacingsContainer } from '@tobitry/fui-fancyui';
+```
+
+3. Use the component in your JSX, passing in the appropriate props for padding, margin, and any other HTML or styling properties you wish to apply.
+
+## Example Usage
+
+```jsx
+<SpacingContainer padding={['20px', '30px']} margin="10px" as="section">
+  <p>Your content here</p>
+</SpacingContainer>
+```
+
+This example renders a `SpacingContainer` as a `<section>` element, with 20px padding on the top and bottom, 30px padding on the left and right, and a margin of 10px around it. Replace `"Your content here"` with your own content or components.
+
+## Component Properties
+
+<Components />
+
+**Note:** The component is designed to be highly reusable and adaptable, fitting into various places in your application where consistent spacing is required. The flexibility of accepting both single values and arrays for `padding` and `margin` props allows for precise control over the spacing applied.
