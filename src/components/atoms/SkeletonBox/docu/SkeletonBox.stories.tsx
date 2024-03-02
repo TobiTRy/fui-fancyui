@@ -2,10 +2,12 @@
 import { Meta, StoryObj } from '@storybook/react';
 
 import { SkeletonBox } from '@/components/atoms/SkeletonBox';
+import templateThemeType from '@/stories/templateSettingsForStorys/templatesForThemeType';
 
 // Define metadata for the story
 const meta = {
   component: SkeletonBox,
+  title: 'components/atoms/SkeletonBox',
   parameters: {
     docs: {
       description: {
@@ -17,22 +19,15 @@ const meta = {
   // Define arguments for the story
   argTypes: {
     aspectRatio: {
-      description: 'The aspect ratio of the skeleton box',
+      description:
+        'A string representing the width-to-height ratio (e.g., `16:9`). This prop triggers a validation function to ensure the ratio is correctly formatted. ',
       control: {
         type: 'text',
       },
     },
-    themeType: {
-      description: 'The theme type of the skeleton box',
-      control: {
-        type: 'select',
-      },
-      defaultValue: {
-        summary: 'primary',
-      },
-    },
     sizeH: {
-      description: 'The height of the skeleton box',
+      description:
+        'Specifies the height of the skeleton box. Can be a predefined size or `fit` to stretch to the container`s height.',
       control: {
         type: 'select',
       },
@@ -41,7 +36,8 @@ const meta = {
       },
     },
     sizeW: {
-      description: 'The width of the skeleton box',
+      description:
+        'Defines the width of the skeleton box. Can be a predefined size or `fit` to stretch to the container`s width',
       control: {
         type: 'select',
       },
@@ -50,7 +46,8 @@ const meta = {
       },
     },
     borderRadius: {
-      description: 'The border radius of the skeleton box',
+      description:
+        'A string representing the width-to-height ratio (e.g., `16:9`). This prop triggers a validation function to ensure the ratio is correctly formatted.',
       control: {
         type: 'select',
       },
@@ -58,22 +55,14 @@ const meta = {
         summary: 'xs',
       },
     },
-    layer: {
-      description: 'The layer of the skeleton box',
+    externalStyle: {
+      description: 'External styles to be applied to the component',
       control: {
-        type: 'range',
-        min: 0,
-        max: 9,
-        step: 1,
-      },
-      defaultValue: {
-        summary: '0',
+        type: 'object',
       },
     },
+    ...templateThemeType('allThemeTypes', 'primary', 0),
   },
-
-  // Add tags to the story
-  tags: ['autodocs'],
 } satisfies Meta<typeof SkeletonBox>;
 
 // Export the metadata
@@ -91,12 +80,5 @@ export const Primary: Story = {
     sizeW: 'md',
     borderRadius: 'xs',
     layer: 0,
-  },
-  parameters: {
-    docs: {
-      description: {
-        story: '',
-      },
-    },
   },
 };
