@@ -1,8 +1,8 @@
 // ---------- atoms ------- //
 export * from '@/components/atoms/BackDrop';
 export * from '@/components/atoms/ColorIndicator';
-
 export * from '@/components/atoms/BackDrop';
+export * from '@/components/atoms/ActionItem';
 export * from '@/components/atoms/ColorIndicator';
 export * from '@/components/atoms/DateNumberAtom';
 export * from '@/components/atoms/DateOutput';
