@@ -11,12 +11,16 @@ type TGenerateOutlinedHoverStyle = Pick<
 // --------------------------------------------------------------------------- //
 // ---- this function generates the color for the background ----------------- //
 // --------------------------------------------------------------------------- //
-const generateHoverColor = (props: TGenerateOutlinedHoverStyle) => {
-  const { theme, $layer = 0, $themeType, $backgroundStrength = 1, $hoverColor } = props;
+const generateHoverColor = (props: TGenerateOutlinedHoverStyle & { isActiveSate?: boolean }) => {
+  const { theme, $layer = 0, $themeType, $backgroundStrength = 1, $hoverColor, isActiveSate } = props;
 
   // generate the background color with a transparency of the background color
   const generateSlightBackgroundColor = colorTransparencyCalculator(
-    getBackgroundColor({ theme, $themeType: $hoverColor ?? $themeType ?? 'primary', $layer: clampLayer($layer + 2) }),
+    getBackgroundColor({
+      theme,
+      $themeType: $hoverColor ?? $themeType ?? 'primary',
+      $layer: isActiveSate ? $layer : clampLayer($layer + 2),
+    }),
     $backgroundStrength
   );
 
@@ -76,7 +80,7 @@ export const generateStateStyle = (props: TGenerateStateStyle) => {
     // when the component has a active state
     case 'active': {
       return css`
-        background-color: ${generateHoverColor(props)};
+        background-color: ${generateHoverColor({ ...props, isActiveSate: true })};
       `;
     }
   }

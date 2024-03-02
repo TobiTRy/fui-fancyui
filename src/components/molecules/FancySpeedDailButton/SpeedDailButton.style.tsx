@@ -1,7 +1,10 @@
-import { styled } from 'styled-components';
+import { css, styled } from 'styled-components';
 
 import { boxShadow } from '@/design/designFunctions/shadows/shadows';
 import { TTheme } from '@/types/TTheme';
+import { RawUL } from '@/components/atoms/RawUL';
+import { TComponentSizes } from '@/types/TComponentSizes';
+import { globalElementsizes } from '@/design/theme/globalSizes';
 
 const SpeedDailButtonSize = 60;
 
@@ -70,28 +73,42 @@ export const Ring = styled.div<{ $isOpen: boolean; theme?: TTheme }>`
   pointer-events: none;
 `;
 
-export const MenueItemWrapper = styled.div<{ theme: TTheme }>`
+export const MenueItemWrapper = styled.div<{ theme: TTheme; $textAlign?: 'left' | 'right' }>`
+  ${({ $textAlign }) =>
+    $textAlign === 'right'
+      ? css`
+          align-items: flex-start;
+          margin-left: ${'-' + parseInt(globalElementsizes.md) / 2 + 'px'};
+        `
+      : css`
+          align-items: flex-end;
+          margin-left: ${parseInt(globalElementsizes.md) / 2 + 'px'};
+        `}
+
   position: absolute;
   left: 50%;
-  bottom: ${({ theme }) => theme.spacing.lg};
-  transform: translateX(-50%);
+  width: 0;
+  transform: translate(-50%);
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 18px;
+  bottom: 75px;
 `;
 
-export const MenueItemContainer = styled.div<{ $isOpen: boolean; $index: number }>`
-  position: absolute;
-  left: 50%;
-  border-radius: 50%;
-  bottom: ${({ $index }) => `calc(${($index + 1) * 60}px)`};
+type TMenueItemContainer = {
+  $isOpen?: boolean;
+  $index: number;
+  $actionItemSize: TComponentSizes;
+};
+
+export const MenueItemContainer = styled.div<TMenueItemContainer>`
   opacity: ${({ $isOpen }) => ($isOpen ? 1 : 0)};
-  transform: ${({ $isOpen }) =>
-    $isOpen ? 'translateY(0) scale(1) translateX(-50%)' : `translateY(50px) scale(0) translateX(-50%)`};
   transition:
     transform 0.25s ease-in-out,
     opacity 0.25s ease-in-out;
   transition-delay: ${({ $isOpen, $index }) => ($isOpen ? 0.1 * $index : 0.1 * (2 - $index))}s;
   pointer-events: ${({ $isOpen }) => ($isOpen ? 'auto' : 'none')};
-  transform: translate(-50%);
-  height: 40px;
-  width: 40px;
   ${boxShadow.sm};
 `;
+
+export const ItemsList = styled(RawUL)``;

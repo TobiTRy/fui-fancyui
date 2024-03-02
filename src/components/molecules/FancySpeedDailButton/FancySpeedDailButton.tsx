@@ -1,48 +1,47 @@
 import { useState } from 'react';
 
 import { SVGPlus } from '@/components/icons/SVGPlus';
-
-import SpeedDailMenueItem, {
-  TMenueButtonProps,
-  TMenueItemProps,
-} from '@/components/atoms/SpeedDialMenueItem/SpeedDailMenueItem';
-import { Button, MenueItemWrapper, Ring, SpeedDialContainer, Wrapper } from './SpeedDailButton.style';
+import {
+  Button,
+  MenueItemContainer,
+  MenueItemWrapper,
+  Ring,
+  SpeedDialContainer,
+  Wrapper,
+} from './SpeedDailButton.style';
+import { ActionItem } from '@/components/atoms/ActionItem';
+import { TActionItemButton, TActionItemSetting } from '@/components/atoms/ActionItem/TActionItem.model';
 
 export type ISpeedail = {
-  items?: TMenueButtonProps[];
+  items?: TActionItemButton[];
   buttonProps?: React.ButtonHTMLAttributes<HTMLButtonElement>;
-} & TMenueItemProps;
+} & Omit<TActionItemSetting, 'labelAlign'> & { labelAlign?: 'left' | 'right' };
 
 // --------------------------------------------------------------------------- //
 // ---------- Component that handles the Buttonlist and the opening ---------- //
 // --------------------------------------------------------------------------- //
 export default function FancySpeedDialButton(props: ISpeedail) {
-  const { items, labelAlign, hideLabel, buttonProps } = { ...defaultProps, ...props };
+  const { items, labelAlign, buttonProps, themeType = 'primary' } = props;
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <Wrapper>
       <SpeedDialContainer>
-        <MenueItemWrapper>
+        <MenueItemWrapper $textAlign={labelAlign}>
           {items?.map((item, index) => (
-            <SpeedDailMenueItem
-              key={index}
-              index={index}
-              isOpen={isOpen}
-              label={item.label}
-              icon={item.icon}
-              hideLabel={hideLabel}
-              labelAlign={labelAlign}
-            />
+            <MenueItemContainer key={index} $index={index} $actionItemSize={'md'} $isOpen={isOpen}>
+              <ActionItem icon={item.icon} label={item.label} themeType={themeType} size="md" labelAlign={labelAlign} />
+            </MenueItemContainer>
           ))}
         </MenueItemWrapper>
+
         <Button
           $isOpen={isOpen}
-          {...buttonProps}
           onClick={(e) => {
-            buttonProps?.onClick && buttonProps.onClick(e);
+            buttonProps?.onClick?.(e);
             setIsOpen(!isOpen);
           }}
+          {...buttonProps}
         >
           {SVGPlus}
         </Button>
@@ -51,7 +50,3 @@ export default function FancySpeedDialButton(props: ISpeedail) {
     </Wrapper>
   );
 }
-
-const defaultProps: ISpeedail = {
-  labelAlign: 'right',
-};
