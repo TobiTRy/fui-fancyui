@@ -137,7 +137,7 @@ export default function SingleInputs(props: IFancySingleInputsProps) {
           key={index}
           ref={refs[index]}
           value={value}
-          ariaLabel={`Input ${index}`}
+          aria-label={`Input ${index}`}
           onKeyDown={(e) => handleKeyDown(e, index)}
           themeType={themeType}
           layer={layer}

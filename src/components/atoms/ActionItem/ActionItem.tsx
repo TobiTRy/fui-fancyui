@@ -1,12 +1,14 @@
-import { Typography } from '@/components/atoms/Typography';
-import { Wrapper, ButtonStyle } from './ActionItem.style';
 import { TActionItem } from '@/components/atoms/ActionItem/TActionItem.model';
-import { FancyFlexBox } from '@/components/templates/FancyFlexBox';
 import { calcPostionToFlex } from '@/components/atoms/ActionItem/utils/calcPostionToFlex';
+import { Typography } from '@/components/atoms/Typography';
+import { FancyFlexBox } from '@/components/templates/FancyFlexBox';
+import { ButtonStyle } from './ActionItem.style';
 
 import { sizeSettings } from './sizeSettings';
-import { TUiColorsMain } from '@/types/TUiColorsMain';
 
+// --------------------------------------------------------------------------- //
+// ---------- The ActionItem is a button that inidacts a action -------------- //
+// --------------------------------------------------------------------------- //
 export default function ActionItem(props: TActionItem) {
   const {
     label = 'Test',

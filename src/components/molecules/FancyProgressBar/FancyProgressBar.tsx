@@ -1,6 +1,6 @@
 import { TLayer } from '@/types/TLayer';
 
-import ProgressBar, { IProgressBar } from '@/components/atoms/ProgressBar/ProgressBar';
+import { ProgressBar, TProgressBar } from '@/components/atoms/ProgressBar';
 
 import { Wrapper } from './FancyProgressBar.style';
 import { TTextAlignLC } from '@/types/TTextAlignLC';
@@ -10,7 +10,7 @@ import { Typography } from '@/components/atoms/Typography';
 import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 
 // Define the props for the ProgressBar component
-interface IFancyProgressBar extends IProgressBar {
+interface IFancyProgressBar extends TProgressBar {
   label?: string;
   labelAlign?: TTextAlignLC;
   progressCount?: boolean;

@@ -2,14 +2,14 @@ import { css } from 'styled-components';
 
 import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent';
 import colorTransparencyCalculator from '@/design/designFunctions/colorTransparencyCalculator/colorTransparencyCalculator';
-import { IActiveSwitchIndicator } from '../SwitchActiveIndicator';
+import { TActiveSwitchIndicator } from '../TSwitchActiveindicator.model';
 import themeStore from '@/design/theme/themeStore/themeStore';
 import { TBorderRadiusSizes } from '@/types/TBorderRadiusSizes';
 import { TTheme } from '@/types/TTheme';
 import { TStyledPrefixAndPicker } from '@/types/TStyledPrefixAndPicker';
 
 // Define the function to generate a blob background for the active indicator
-type IGenerateBlob = TStyledPrefixAndPicker<IActiveSwitchIndicator, 'themeType' | 'outlined' | 'rounded' | 'layer'> & {
+type IGenerateBlob = TStyledPrefixAndPicker<TActiveSwitchIndicator, 'themeType' | 'outlined' | 'rounded' | 'layer'> & {
   theme: TTheme;
 };
 export const generateBlob = (props: IGenerateBlob) => {
