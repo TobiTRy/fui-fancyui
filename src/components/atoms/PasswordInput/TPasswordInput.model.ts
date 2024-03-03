@@ -11,6 +11,7 @@ export type TPasswordInputProps = {
   layer?: TLayer;
   customEyeOpen?: React.ReactNode;
   customEyeCrossed?: React.ReactNode;
+  showPassword?: boolean;
 };
 
 export type TNativePassowrdInputAttrs = Omit<InputHTMLAttributes<HTMLInputElement>, 'type' | 'value'>;

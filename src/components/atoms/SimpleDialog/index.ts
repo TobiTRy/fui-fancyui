@@ -1,2 +1,2 @@
 export { default as SimpleDialog } from './SimpleDialog';
-export type { default as TSimpleDialog } from './SimpleDialog.model';
+export type { TSimpleDialog, TSimpleDialogWithHTMLAttrs } from './SimpleDialog.model';

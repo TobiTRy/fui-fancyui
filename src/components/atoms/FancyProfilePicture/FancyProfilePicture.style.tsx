@@ -5,7 +5,7 @@ import { TSize, getSize } from '@/components/molecules/TextAvatar/utils/getSize'
 
 // Styled img component
 type TStyledImageProps = {
-  $rounded: TgetBorderRadiusViaSize;
+  $rounded: TgetBorderRadiusViaSize | 'none';
   $sizeC: TSize | string;
   $externalStyle?: CSSProp;
 };

@@ -1,0 +1,57 @@
+import { Meta, Title, Description, Controls } from '@storybook/blocks';
+
+import * as ProgressBarStories from './ProgressBar.stories';
+
+<Meta of={ProgressBarStories} />
+
+<Title />
+
+<Description />
+
+## Setup Instructions
+
+1. Import the `ProgressBar` component into your project:
+
+```jsx
+import { ProgressBar } from '@tobitry/fui-fancyui';
+```
+
+2. If using TypeScript, ensure the type definitions are imported for prop validation:
+
+```jsx
+import { TProgressBar } from '@tobitry/fui-fancyui';
+```
+
+3. Use the component in your React application by passing the desired props:
+
+```jsx
+<ProgressBar progress={50} maxValue={100} id="uniqueId" themeType="primary" layer={1} />
+```
+
+## Example Usage
+
+Here is an example of how to use the `ProgressBar` component within a React application:
+
+```jsx
+import React from 'react';
+import { ProgressBar } from '@tobitry/fui-fancyui';
+
+const App = () => (
+  <div>
+    <h2>File Upload Progress</h2>
+    <ProgressBar progress={75} maxValue={100} id="fileUploadProgress" themeType="info" layer={2} />
+  </div>
+);
+
+export default App;
+```
+
+This example demonstrates a `ProgressBar` with 75% progress, using the `info` theme type and layer 2 for styling.
+
+## Component Properties
+
+The `ProgressBar` component accepts the following properties (props):
+
+<Controls />
+
+These props allow for extensive customization and control over the progress bar's appearance and behavior, making it adaptable to various use cases and design requirements.

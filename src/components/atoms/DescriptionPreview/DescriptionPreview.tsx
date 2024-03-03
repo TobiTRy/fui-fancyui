@@ -18,7 +18,7 @@ export default function DescriptionPreview(props: TDescriptionPreview) {
         {description.length > letterLimit && (
           <RawButton onClick={() => setIsShowMore((prev) => !prev)}>
             <Typography
-              variant="interactiveMd"
+              variant={buttonText?.fontVariant ?? 'interactiveMd'}
               themeType={buttonText?.themeType ?? 'secondary'}
               layer={buttonText?.layer ?? 0}
               fontWeight={'bold'}

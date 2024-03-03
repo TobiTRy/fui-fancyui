@@ -1,6 +1,4 @@
-import { styled } from 'styled-components';
-
-import { TStyledPrefixAndPicker } from '@/types/TStyledPrefixAndPicker';
+import { GridItem } from './FancyGridTemplateItem.style';
 import { TGridItem } from './TFancyGridTemplateItem.model';
 
 // --------------------------------------------------------------------------- //
@@ -14,9 +12,3 @@ export default function FancyGridTemplateItem(props: TGridItem) {
     </GridItem>
   );
 }
-
-type TStyledGridItem = TStyledPrefixAndPicker<TGridItem>;
-const GridItem = styled.div<TStyledGridItem>`
-  grid-area: ${({ $gridArea }) => $gridArea};
-  ${({ $externalStyle }) => $externalStyle};
-`;

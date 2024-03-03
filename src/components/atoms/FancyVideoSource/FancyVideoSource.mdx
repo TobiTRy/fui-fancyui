@@ -1,0 +1,42 @@
+import { Meta, Title, Description, Controls } from '@storybook/blocks';
+
+import * as FancyVideoSourceStories from './FancyVideoSource.stories';
+
+<Meta of={FancyVideoSourceStories} />
+
+<Title />
+
+<Description />
+
+The FancyVideoSource component is a utility component designed to specify video sources for the FancyVideo component, enabling the inclusion of multiple video formats and providing fallback options for compatibility across different browsers and devices. It is a lightweight, functional component that directly maps its props to the underlying `<source>` element attributes in HTML.
+
+## Setup Instructions
+
+To use the FancyVideoSource component, follow these steps:
+
+1. Import the FancyVideoSource component where you intend to use it, typically alongside the FancyVideo component:
+
+```jsx
+import { FancyVideoSource } from '@tobitry/fui-fancyui';
+```
+
+2. There is no additional setup required for FancyVideoSource beyond its import. It is used directly within the FancyVideo component to specify video sources.
+
+## Example Usage
+
+Here's how to use the FancyVideoSource component within the FancyVideo component to include multiple sources for a video:
+
+```jsx
+<FancyVideo autoPlay muted aspectRatio="16/9" darken>
+  <FancyVideoSource src="path/to/your/video.mp4" type="video/mp4" />
+  <FancyVideoSource src="path/to/your/video.webm" type="video/webm" />
+</FancyVideo>
+```
+
+This example demonstrates including two video sources in different formats (MP4 and WebM) to ensure broad compatibility across various browsers.
+
+## Component Properties
+
+<Controls />
+
+In addition to these specific props, FancyVideoSource accepts all standard HTML source element attributes (`React.SourceHTMLAttributes<HTMLSourceElement>`), such as `media`, allowing for further customization based on media queries or other source-specific attributes.

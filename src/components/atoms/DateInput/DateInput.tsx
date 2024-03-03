@@ -7,7 +7,7 @@ import { TDateInputProps, TNativeAttrs } from '@/components/atoms/DateInput/TDat
 // -------------- A simple date input for all kind of types ------------------ //
 // --------------------------------------------------------------------------- //
 export default function DateInput(props: TDateInputProps & TNativeAttrs) {
-  const { value, align, themeType, layer, type, onFocus, onBlur, ...htmlInputProps } = props;
+  const { value, align, themeType = 'secondary', layer = 0, type, onFocus, onBlur, ...htmlInputProps } = props;
   const [isActive, setIsActive] = useState(false);
 
   const activeFocusHandler = (isActive: boolean) => {

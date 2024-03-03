@@ -1,4 +1,4 @@
-import { styled } from 'styled-components';
+import { CSSProp, styled } from 'styled-components';
 
 import { TLayer } from '@/types/TLayer';
 import { TTheme } from '@/types/TTheme';
@@ -11,6 +11,7 @@ interface StyledSingleInputProps {
   $isFocused: boolean;
   $themeType?: TUiColorTypes;
   $layer?: TLayer;
+  $externalStyle?: CSSProp;
 }
 export const StyledSingleInput = styled.input<StyledSingleInputProps & { theme: TTheme }>`
   aspect-ratio: 4/5;
@@ -27,4 +28,6 @@ export const StyledSingleInput = styled.input<StyledSingleInputProps & { theme: 
   appearance: none;
   outline: none;
   box-shadow: ${({ $isFocused, theme }) => ($isFocused ? `0 0 2px 1px${theme.colors.accent[1]}` : 'none')};
+
+  ${({ $externalStyle }) => $externalStyle}
 `;

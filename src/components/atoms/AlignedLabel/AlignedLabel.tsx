@@ -23,7 +23,7 @@ export default function AlignedLabel(props: TAlignedLabelWithAllProps) {
   console.log(systemMessageType, typeof systemMessageType);
 
   return (
-    <StyledAlignedLabel $align={align} $systemMessageType={systemMessageType} $layer={layer}>
+    <StyledAlignedLabel $align={align} $themeType={themeType} $systemMessageType={systemMessageType} $layer={layer}>
       {!ownTypographyComponent && (
         <Typography
           variant={sizeSettings[size].fontSize}

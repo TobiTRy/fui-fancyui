@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { TTextGradientProps } from './TextGradient.model';
+import { TTextGradientProps } from './TTextGradient.model';
 import { generateGradient } from './utils/generateGradient';
 import { TStyledPrefixAndOmiter } from '@/types/TStyledPrefixAndOmiter';
 

@@ -1,10 +1,10 @@
-import { IButton } from './Button.model';
+import { TButtonWithNativeAttrs } from './Button.model';
 import { ButtonStyle, StyledButton } from './Button.style';
 
 // --------------------------------------------------------------------------- //
 // --------------- A normal Button with Style from the Theme ----------------- //
 // --------------------------------------------------------------------------- //
-export default function Button(props: IButton) {
+export default function Button(props: TButtonWithNativeAttrs) {
   const {
     children,
     wide,
@@ -21,39 +21,30 @@ export default function Button(props: IButton) {
     ...htmlProps
   } = props;
 
+  const Button = () => (
+    <ButtonStyle
+      $sizeC={sizeC}
+      $borderRadius={borderRadius}
+      $wide={wide}
+      $themeType={themeType}
+      $layer={layer}
+      $textColor={textColor}
+      $hoverColor={hoverColor}
+      $outlined={outlined}
+      $externalStyle={externalStyle}
+      $textHover={textHover}
+    >
+      {children}
+    </ButtonStyle>
+  );
+
   return (
     <>
       {notAButton ? (
-        <ButtonStyle
-          $sizeC={sizeC}
-          $borderRadius={borderRadius}
-          $wide={wide}
-          $themeType={themeType}
-          $layer={layer}
-          $textColor={textColor}
-          $hoverColor={hoverColor}
-          $outlined={outlined}
-          $externalStyle={externalStyle}
-          $textHover={textHover}
-          {...htmlProps}
-        >
-          {children}
-        </ButtonStyle>
+        <Button {...htmlProps} />
       ) : (
         <StyledButton $wide={wide} {...htmlProps}>
-          <ButtonStyle
-            $sizeC={sizeC}
-            $wide={wide}
-            $themeType={themeType}
-            $layer={layer}
-            $textColor={textColor}
-            $hoverColor={hoverColor}
-            $outlined={outlined}
-            $externalStyle={externalStyle}
-            $textHover={textHover}
-          >
-            {children}
-          </ButtonStyle>
+          <Button />
         </StyledButton>
       )}
     </>

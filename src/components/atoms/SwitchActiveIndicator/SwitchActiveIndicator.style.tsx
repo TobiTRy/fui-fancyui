@@ -1,14 +1,14 @@
 import { styled, css } from 'styled-components';
 
 import { spacingPx } from '../../../design/theme/designSizes';
-import { IActiveSwitchIndicator } from './SwitchActiveIndicator';
+import { TActiveSwitchIndicator } from './TSwitchActiveindicator.model';
 import { generateBlob } from './utils/generateBlob';
 import { generateTopline, generateUnderline } from './utils/generateLines';
 import { TTheme } from '@/types/TTheme';
 import { TStyledPrefixAndPicker } from '@/types/TStyledPrefixAndPicker';
 
 // Define the function to calculate the current position of the active indicator
-type IClacCurrentPosition = TStyledPrefixAndPicker<IActiveSwitchIndicator, 'itemNumber' | 'tabSpacing' | 'direction'>;
+type IClacCurrentPosition = TStyledPrefixAndPicker<TActiveSwitchIndicator, 'itemNumber' | 'tabSpacing' | 'direction'>;
 const clacCurrentPosition = (props: IClacCurrentPosition) => {
   const { $itemNumber, $tabSpacing, $direction } = props;
 
@@ -40,11 +40,11 @@ const clacCurrentPosition = (props: IClacCurrentPosition) => {
 // --------------------------------------------------------------------------- //
 // -------- Here is the main Generator Function of the activ indicator ------- //
 // --------------------------------------------------------------------------- //
-type TActiveSwitchIndicator = TStyledPrefixAndPicker<
-  IActiveSwitchIndicator,
+type ActiveSwitchIndicatorGenerator = TStyledPrefixAndPicker<
+  TActiveSwitchIndicator,
   'layer' | 'rounded' | 'outlined' | 'themeType' | 'type' | 'indicatorWidth'
 >;
-export const ActiveSwitchIndicator = styled.span<TActiveSwitchIndicator & { theme?: TTheme }>`
+export const ActiveSwitchIndicator = styled.span<ActiveSwitchIndicatorGenerator & { theme?: TTheme }>`
   position: absolute;
   width: ${({ $indicatorWidth }) => $indicatorWidth ?? '100%'}; /* Set the width of the active indicator */
 
@@ -63,7 +63,7 @@ export const ActiveSwitchIndicator = styled.span<TActiveSwitchIndicator & { them
 `;
 
 // the wrapper that handles the position of the active indicator
-type IWrapper = TStyledPrefixAndPicker<IActiveSwitchIndicator, 'itemNumber' | 'tabSpacing' | 'direction'>;
+type IWrapper = TStyledPrefixAndPicker<TActiveSwitchIndicator, 'itemNumber' | 'tabSpacing' | 'direction'>;
 export const Wrapper = styled.i<IWrapper>`
   top: 0;
   display: flex;

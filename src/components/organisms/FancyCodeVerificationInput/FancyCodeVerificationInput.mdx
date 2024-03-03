@@ -1,4 +1,10 @@
-## FancyCodeVerificationInput Documentation
+import { Meta, Controls } from '@storybook/blocks';
+
+import * as FancyCodeVerificationInput from './FancyCodeVerificationInput.stories';
+
+<Meta of={FancyCodeVerificationInput} />
+
+# FancyCodeVerificationInput
 
 ### Overview
 
@@ -16,51 +22,46 @@ The `FancyCodeVerificationInput` is a sophisticated input component tailored for
 
    The `FancyCodeVerificationInput` relies on properties such as `isSuccess` and `errorMessage` to manage its internal state. It's essential to set up handlers to determine input success and display potential error messages.
 
-### Additional Features
-
-The `FancyCodeVerificationInput` component accepts several props to enhance its functionality:
-
-- **handler**: Callback function invoked with the input value.
-- **length**: Determines the total number of input fields, defaulting to 6.
-- **automaticCase**: Determines whether input should be automatically converted to uppercase, lowercase, or remain unchanged.
-- **debounceTime**: Provides a debounced input experience with a delay in milliseconds before the handler is called.
-- **isSuccess**: Denotes whether the current input is successful.
-- **errorMessage**: Allows for displaying custom error messages.
-
 ### Example Usage
 
 To best demonstrate the component's functionality, here's a simplified usage:
 
-```React
+```jsx
 import React, { useEffect, useState } from 'react';
 import FancyCodeVerificationInput from './FancyCodeVerificationInput';
 
 const MyVerificationComponent = () => {
-    const [isSuccess, setIsSuccess] = useState(false);
-    const [errorMessage, setErrorMessage] = useState('');
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
-    const handleVerification = (value) => {
-        if (value === '123456') {
-            setIsSuccess(true);
-            setErrorMessage('');
-        } else {
-            setIsSuccess(false);
-            setErrorMessage('Incorrect code');
-        }
-    };
+  const handleVerification = (value) => {
+    if (value === '123456') {
+      setIsSuccess(true);
+      setErrorMessage('');
+    } else {
+      setIsSuccess(false);
+      setErrorMessage('Incorrect code');
+    }
+  };
 
-    return (
-        <FancyCodeVerificationInput
-            length={6}
-            handler={handleVerification}
-            isSuccess={isSuccess}
-            errorMessage={errorMessage}
-        />
-    );
+  return (
+    <FancyCodeVerificationInput
+      length={6}
+      handler={handleVerification}
+      isSuccess={isSuccess}
+      errorMessage={errorMessage}
+    />
+  );
 };
 
 export default MyVerificationComponent;
 ```
+
+### Additional Features
+
+The `FancyCodeVerificationInput` component accepts several props to enhance its functionality:
+
+<Controls />
 
 In this example, the `handleVerification` function checks if the entered code matches '123456'. Depending on the match, the input's success status and potential error message are updated.
 

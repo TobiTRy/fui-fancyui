@@ -1,0 +1,67 @@
+import { Meta, Title, Description, Controls } from '@storybook/blocks';
+
+import * as SingleInputStories from './SingleInput.stories';
+
+<Meta of={SingleInputStories} />
+
+<Title />
+
+<Description />
+
+## Setup Instructions
+
+To use the `SingleInput` component in your project, follow these steps:
+
+1. Import the `SingleInput` component where you intend to use it:
+
+```jsx
+import { SingleInput } from '@tobitry/fui-fancyui';
+```
+
+2. If using TypeScript, ensure the type definitions are imported for prop validation:
+
+```jsx
+import { TSingleInputAtom, TSingleInputAtomWithHTMLAttrs } from '@tobitry/fui-fancyui';
+```
+
+## Example Usage
+
+Here is an example of how to use the `SingleInput` component within a form meant for a verification process:
+
+```jsx
+import React, { useRef } from 'react';
+import { SingleInput } from '@tobitry/fui-fancyui';
+
+function VerificationForm() {
+  const inputRef = useRef(null);
+
+  const handleKeyDown = (e) => {
+    console.log('Key pressed:', e.key);
+  };
+
+  return (
+    <SingleInput
+      ref={inputRef}
+      value=""
+      ariaLabel="Verification Input"
+      onKeyDown={handleKeyDown}
+      themeType="primary"
+      layer="base"
+    />
+  );
+}
+```
+
+## Component Properties
+
+The `SingleInput` component accepts the following properties:
+
+<Controls />
+
+## Styling
+
+The component is styled using `styled-components`, allowing for dynamic styling based on its props and theme. It is designed to be flexible, adapting to various design requirements such as focus and value states, theme types, and layer levels. The styling emphasizes accessibility, usability, and integration with design systems.
+
+```
+
+```

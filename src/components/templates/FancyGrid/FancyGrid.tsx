@@ -1,27 +1,11 @@
 // FancyGrid.tsx
 import React from 'react';
-import { CSSProp, css, styled } from 'styled-components';
 
-import FancyGridItem from './FancyGridItem/FancyGridItem';
-import { TStyledPrefixAndOmiter } from '@/types/TStyledPrefixAndOmiter';
+import { FancyGridProps } from '@/components/templates/FancyGrid/FancyGrid.model';
+import { GridContainer } from '@/components/templates/FancyGrid/FancyGrid.style';
+import { TDynamicElementProps } from '@/types/TDynamicElement';
+import { FancyGridItem } from '@/components/templates/FancyGridItem';
 
-export interface ICustomBreakpoint {
-  breakpoint: string; // Breakpoint-Größe, z.B. '768px'
-  gridSize: number; // Anzahl der Spalten für diesen Breakpoint
-  gap?: string; // Optional: Angepasster Gap für diesen Breakpoint
-}
-
-type TDynamicElementProps<T extends React.ElementType> = {
-  as?: T;
-} & Omit<React.ComponentProps<T>, 'as'>;
-
-interface FancyGridProps {
-  grid?: number;
-  gap?: string;
-  children?: React.ReactNode;
-  externalStyle?: CSSProp;
-  breakpoints?: ICustomBreakpoint[];
-}
 // --------------------------------------------------------------------------- //
 // ------- The FancyGrid to allocate the grid and give the items space ------- //
 // --------------------------------------------------------------------------- //
@@ -37,27 +21,3 @@ function FancyGrid<T extends React.ElementType = 'div'>(props: TDynamicElementPr
 FancyGrid.Item = FancyGridItem;
 
 export default FancyGrid;
-
-// ------------------------------------------- //
-// ------- The style for the component ------- //
-// ------------------------------------------- //
-
-type TFancyGridProps = TStyledPrefixAndOmiter<FancyGridProps>;
-const GridContainer = styled.div<TFancyGridProps & { as: React.ElementType }>`
-  display: grid;
-  width: 100%;
-  grid-template-columns: repeat(${(props) => props.$grid}, 1fr);
-  grid-gap: ${(props) => props.$gap};
-  ${({ $externalStyle }) => $externalStyle}
-
-  ${({ $breakpoints }) =>
-    $breakpoints &&
-    $breakpoints.map(
-      (breakpoint) => css`
-        @media (min-width: ${breakpoint.breakpoint}) {
-          grid-template-columns: repeat(${breakpoint.gridSize}, 1fr);
-          ${breakpoint.gap ? `grid-gap: ${breakpoint.gap};` : ''}
-        }
-      `
-    )}
-`;

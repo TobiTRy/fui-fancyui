@@ -10,7 +10,7 @@ export type TRawSlider = {
   ref?: React.RefObject<HTMLInputElement>;
   themeType?: TUiColorsNotTransparent;
   layer?: TLayer;
-  componentSize?: TComponentSizes;
+  sizeC?: TComponentSizes;
 };
 
 // the combined attributes

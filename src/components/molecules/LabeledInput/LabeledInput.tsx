@@ -1,9 +1,9 @@
-import { InputUnderline } from '@/components/atoms/InputUnderline';
 import { TLabeledInput } from '@/components/molecules/LabeledInput/TLabledInput.model';
 import { clampLayer } from '@/utils/functions/clampLayer';
 
 import { InputWrapper, Wrapper } from './LabeledInput.style';
 import { InputLabel } from '@/components/atoms/InputLabel';
+import { FancyLine } from '@/components/atoms/FancyLine';
 
 export default function LabeledInput(props: TLabeledInput) {
   const {
@@ -29,11 +29,11 @@ export default function LabeledInput(props: TLabeledInput) {
       {/* The Labled thats animated and adjusts the padding with the type of the Input */}
       {label && (
         <InputLabel
-          $lableVariant={labelVariant}
-          $align={align}
+          lableVariant={labelVariant}
+          align={align}
           id={id}
-          $isActive={labelShouldMoveUp}
-          $systemMessageType={systemMessageType}
+          isActive={labelShouldMoveUp}
+          systemMessageType={systemMessageType}
         >
           {label}
         </InputLabel>
@@ -43,12 +43,13 @@ export default function LabeledInput(props: TLabeledInput) {
         {inputElement}
       </InputWrapper>
       {underline && (
-        <InputUnderline
+        <FancyLine
           systemMessageType={systemMessageType}
           themeType={themeType}
+          thickness="2px"
           layer={layer ? clampLayer(layer + 2) : 3}
           isActive={isActive}
-          externalStyle={{ bottom: '-2px' }}
+          externalStyle={{ position: 'absolute', bottom: '-2px', left: 0, width: '100%' }}
         />
       )}
     </Wrapper>

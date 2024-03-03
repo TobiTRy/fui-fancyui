@@ -1,0 +1,50 @@
+import { Meta, Story, Controls } from '@storybook/blocks';
+import * as TypographyStory from './Typography.stories';
+
+import Typography from '../Typography';
+
+<Meta of={TypographyStory} />
+
+# Typography Component Usage Guide
+
+This guide outlines how to use the `Typography` component in your React applications. The `Typography` component is designed to render text elements with flexible styles, allowing for a concise and consistent theming approach across your application.
+
+## Basic Usage
+
+The `Typography` component can be used to render text elements such as paragraphs, headings, and labels with various styling options. By default, the component uses the `variant` prop to determine both the style and the element type that should be rendered. If you need to render the text as a different HTML element than the default for the variant, you can explicitly specify an `elType`.
+
+### Example
+
+```jsx
+<Typography variant="bodytextMd">This is a paragraph with medium body text style.</Typography>
+```
+
+In the above example, the `Typography` component will render a paragraph (`<p>`) element with the medium body text style. The `variant` prop specifies the style and the default element type.
+
+## Advanced Usage
+
+### Changing the Element Type
+
+If you need to render the text as a different element than the default provided by the `variant`, use the `elType` prop.
+
+#### Example
+
+```jsx
+<Typography variant="titleLg" elType="h2">
+  This is a large title rendered as an H2.
+</Typography>
+```
+
+Here, although the `variant` is `titleLg`, which defaults to an `<h1>` element, specifying `elType="h2"` changes the rendered element to an `<h2>` while keeping the large title styling.
+
+## Props
+
+<Controls />
+
+## Styling
+
+The component supports theming and customization through various props. You can adjust the text appearance using the `lineHeight`, `fontWeight`, and `letterSpacing` props. Theme-related customizations can be done using `themeType` and `layer`.
+
+## Conclusion
+
+The `Typography` component provides a flexible and efficient way to manage text styles across your React application. By leveraging the `variant` and `elType` props, you can ensure consistency and readability while maintaining the flexibility to address specific use cases.

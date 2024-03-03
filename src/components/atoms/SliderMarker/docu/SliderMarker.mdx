@@ -1,0 +1,43 @@
+import { Meta, Title, Description, Controls } from '@storybook/blocks';
+
+import * as SliderMarkerStories from './SliderMarker.stories';
+
+<Meta of={SliderMarkerStories} />
+
+<Title />
+
+<Description />
+
+## Setup Instructions
+
+To use the `SliderMarker` component in your project, follow these steps:
+
+1. Import the `SliderMarker` component where you intend to use it:
+
+```jsx
+import { SliderMarker } from '@tobitry/fui-fancyui';
+```
+
+2. If using TypeScript, ensure the type definitions are imported for prop validation:
+
+```jsx
+import { TSliderMarker, TSliderMarkerWithHTMLAttrs } from '@tobitry/fui-fancyui';
+```
+
+## Example Usage
+
+Here's an example demonstrating how to use the `SliderMarker` component within a slider component:
+
+```jsx
+<SliderMarker position="50%" theme={yourTheme}>
+  <div>Your content here</div>
+</SliderMarker>
+```
+
+In this example, the `SliderMarker` is placed at 50% of the slider's width. The `theme` prop is passed to style the marker according to your application's theme. You can replace `"Your content here"` with any React node to display inside the marker.
+
+## Component Properties
+
+<Controls />
+
+**Note:** The `SliderMarker` component is designed to be flexible and easily integrated into any slider control, making it a versatile tool for UI development.

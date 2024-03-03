@@ -1,52 +1,19 @@
-import Color from 'color';
-import { styled } from 'styled-components';
-
-import { simpleColorTransition } from '@/design/designFunctions/simpleColorTransition';
-import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
-import { TLayer } from '@/types/TLayer';
-import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent';
-import { TTheme } from '@/types/TTheme';
-import { SVGXlg } from '@/components/icons/SVGXlg';
 import { FancySVGAtom } from '@/components/atoms/FancySVGAtom';
+import { TFancyXButtonWithHTMLAttrs } from '@/components/atoms/FancyXButton/FancyXButton.model';
+import { StyledFancyXButton } from '@/components/atoms/FancyXButton/FancyXButton.style';
+import { SVGXlg } from '@/components/icons/SVGXlg';
 
 // --------------------------------------------------------------------------- //
 // --------------- The main Component for the X Close Button------- ---------- //
 // --------------------------------------------------------------------------- //
-interface IFancyXButton {
-  onClick?: () => void;
-  themeType?: TUiColorsNotTransparent;
-  layer?: TLayer;
-}
-export default function FancyXButton({ onClick, themeType, layer }: IFancyXButton) {
+export default function FancyXButton(props: TFancyXButtonWithHTMLAttrs) {
+  const { themeType, layer, ...htmlProps } = props;
   //check wich design comes in and add the right color object uiColor or systemMessages  to the button
   return (
-    <StyledFancyXButton onClick={onClick} $themeType={themeType} $layer={layer}>
+    <StyledFancyXButton $themeType={themeType} $layer={layer} {...htmlProps}>
       <FancySVGAtom themeType={themeType} layer={layer}>
         <SVGXlg />
       </FancySVGAtom>
     </StyledFancyXButton>
   );
 }
-
-// ------------------------------------------- //
-// ------- The style for the component ------- //
-// ------------------------------------------- //
-interface IStyledFancyXButton {
-  $themeType?: TUiColorsNotTransparent;
-  $layer?: TLayer;
-  theme: TTheme;
-}
-const StyledFancyXButton = styled.button<IStyledFancyXButton>`
-  padding: 0;
-  background: none;
-  border: none;
-  font-weight: bolder;
-  cursor: pointer;
-  outline: none;
-  ${simpleColorTransition}
-
-  &:hover {
-    color: ${({ $themeType = 'accent', $layer, theme }) =>
-      Color(getBackgroundColor({ $themeType, $layer, theme })).darken(0.5).hex()};
-  }
-`;

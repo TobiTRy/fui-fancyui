@@ -1,21 +1,28 @@
-import { ISVGAtomProps } from './FancySVGAtom.model';
+import { TFancySVGAtomWithNativeAttrs } from './TFancySVGAtom.model';
 import { StyledSVG } from './FancySVGAtom.style';
 
 // --------------------------------------------------------------------------- //
 // --------- This is a wrapper for SVGs to wrap them and style them ---------- //
 // --------------------------------------------------------------------------- //
-export default function FancySVGAtom(props: ISVGAtomProps) {
-  const { children, isPassive, sizeC, isActive, errorMessage, externalStyle, themeType, layer, ...htmlProps } = {
-    ...defaultProps,
-    ...props,
-  };
+export default function FancySVGAtom(props: TFancySVGAtomWithNativeAttrs) {
+  const {
+    children,
+    isPassive = false,
+    sizeC = 'xxs',
+    isActive = false,
+    systemMessage,
+    externalStyle,
+    themeType,
+    layer,
+    ...htmlProps
+  } = props;
 
   return (
     <StyledSVG
       $sizeC={sizeC}
       $isPassive={isPassive}
       $isActive={isActive}
-      $errorMessage={errorMessage}
+      $systemMessage={systemMessage}
       $externalStyle={externalStyle}
       $themeType={themeType}
       $layer={layer}
@@ -25,9 +32,3 @@ export default function FancySVGAtom(props: ISVGAtomProps) {
     </StyledSVG>
   );
 }
-
-const defaultProps: ISVGAtomProps = {
-  sizeC: 'xxs',
-  isPassive: false,
-  isActive: false,
-};

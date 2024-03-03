@@ -12,13 +12,13 @@ export default function RawSlider(props: TRawSliderWithNativeAttrs) {
     min,
     value,
     ref,
-    themeType,
-    layer,
+    themeType = 'primary',
+    layer = 3,
     onChange,
     onTouchStart,
     style,
     onTouchEnd,
-    componentSize,
+    sizeC = 'sm',
     ...htmlProps
   } = props;
 
@@ -51,7 +51,7 @@ export default function RawSlider(props: TRawSliderWithNativeAttrs) {
       type="range"
       ref={ref}
       $isActive={isMoving}
-      $componentSize={componentSize}
+      $sizeC={sizeC}
       onMouseDown={() => setIsMoving(true)}
       onMouseUp={() => setIsMoving(false)}
       onTouchStart={(e) => {

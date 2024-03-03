@@ -3,6 +3,7 @@ import { Meta, StoryObj } from '@storybook/react';
 
 // Import the component to be tested
 import FancyXButton from './FancyXButton';
+import templateThemeType from '@/stories/templateSettingsForStorys/templatesForThemeType';
 
 // Define metadata for the story
 const meta = {
@@ -17,16 +18,9 @@ const meta = {
 
   // Define arguments for the story
   argTypes: {
-    themeType: {
-      description:
-        'The themeType is used to define the color of the X in the button. It can be any of the colors defined in the theme or systemMessages.',
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'success', 'warning', 'info'],
-      },
-      defaultValue: {
-        summary: 'accent',
-      },
+    ...templateThemeType('notTransparent', 'secondary', 0),
+    externalStyle: {
+      description: 'The external style of the button',
     },
   },
 

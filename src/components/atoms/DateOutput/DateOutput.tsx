@@ -16,7 +16,7 @@ export default function DateOutput(props: TDateOutputWithNativeAtrrs) {
     themeType = 'primary',
     layer,
     onClick,
-    textC,
+    textCustom,
     sizeC = 'md',
     borderRadius,
     ...htmlProps
@@ -32,8 +32,8 @@ export default function DateOutput(props: TDateOutputWithNativeAtrrs) {
     const options = { day: 'numeric', month: 'short' } as const;
     const formattedDate = selectedDate.toLocaleDateString(userLang, options);
 
-    return `${textC?.selected ?? ''} ${formattedDate}`;
-  }, [selectedDate, textC]);
+    return `${textCustom?.selected ?? ''} ${formattedDate}`;
+  }, [selectedDate, textCustom]);
 
   const handleOpenCalendar = () => {
     setActive(true);
@@ -56,11 +56,11 @@ export default function DateOutput(props: TDateOutputWithNativeAtrrs) {
       $themeType={themeType}
       $layer={layer}
       $isActive={active && isActive}
-      aria-label={formattedDateWithText || textC?.notSelected}
+      aria-label={formattedDateWithText || textCustom?.notSelected}
       {...htmlProps}
     >
       <Typography variant={sizeSettings[sizeC].fontSize} fontWeight={isActive ? 'bold' : undefined} lineHeight={1}>
-        {formattedDateWithText || textC?.notSelected || 'Select a date'}
+        {formattedDateWithText || textCustom?.notSelected || 'Select a date'}
       </Typography>
     </DateOutputButton>
   );

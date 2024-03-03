@@ -1,4 +1,4 @@
-import { GradientPosition, TTextGradientProps } from '@/components/atoms/TextGradient/TextGradient.model';
+import { GradientPosition, TTextGradientProps } from '@/components/atoms/TextGradient/TTextGradient.model';
 import { getLinearGradientPosition } from '@/components/atoms/TextGradient/utils/getPositionToGradientPosition';
 
 export const generateGradient = (props: Omit<TTextGradientProps, 'children'>) => {

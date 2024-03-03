@@ -10,4 +10,5 @@ export const StyledSystemMessageWrapper = styled.span<TSystemMessageWrapper & { 
   color: ${({ $systemMessageState, theme, $themeType = 'secondary', $layer = 0 }) => {
     return getBackgroundColor({ theme, $themeType: $systemMessageState ?? $themeType, $layer: $layer });
   }};
+  ${({ $externalStyle }) => $externalStyle}
 `;

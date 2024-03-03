@@ -1,18 +1,11 @@
-import { TLayer } from '@/types/TLayer';
+import { TProgressBar } from './ProgressBar.model';
 import { ProgressBarContainer, ProgressBarFill } from './ProgressBar.style';
-import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 
 // Define the interface for the progress bar props
-export interface IProgressBar {
-  progress?: number;
-  maxValue?: number;
-  id?: string;
-  themeType?: TUiColorsNotTransparent;
-  layer?: TLayer;
-}
+
 // Define the ProgressBar component
-export default function ProgressBar(props: IProgressBar) {
-  const { progress = 0, maxValue = 100, id, themeType, layer } = props;
+export default function ProgressBar(props: TProgressBar) {
+  const { progress = 0, maxValue = 100, id, themeType = 'primary', layer = 3 } = props;
   // Calculate the width of the progress bar fill
   const width = (progress / maxValue) * 100;
 

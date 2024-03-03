@@ -1,4 +1,4 @@
-import { IListDivider } from './ListDivider.model';
+import { TListDividerWithNativeAttrs } from './ListDivider.model';
 
 import { FancyContent } from '@/components/molecules/FancyContent';
 import { StyledI, StyledTextDiv } from './ListDivider.style';
@@ -7,7 +7,7 @@ import { sizeSettings } from './sizeSettings';
 // --------------------------------------------------------------------------- //
 // ------- A Divider that displays only a line or line with informations ----- //
 // --------------------------------------------------------------------------- //
-export default function ListDivider(props: IListDivider) {
+export default function ListDivider(props: TListDividerWithNativeAttrs) {
   const {
     label,
     textAlignment = 'center',
@@ -43,7 +43,7 @@ export default function ListDivider(props: IListDivider) {
         </StyledTextDiv>
       ) : (
         // Render a Seperator(Divider) only a line
-        <StyledI role="separator" {...htmlProps} />
+        <StyledI role="separator" $layer={layer} $themeType={themeType} {...htmlProps} />
       )}
     </>
   );

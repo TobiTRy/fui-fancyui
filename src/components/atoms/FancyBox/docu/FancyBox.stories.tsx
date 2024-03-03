@@ -1,0 +1,182 @@
+// Import necessary dependencies
+import { Meta, StoryObj } from '@storybook/react';
+import React from 'react';
+
+// Import the component to be tested
+import FancyBox from '../FancyBox';
+import { css } from 'styled-components';
+import { FancyMiniProfile } from '../../../molecules/FancyMiniProfile';
+import { HeaderTitleWithLogo } from '../../../molecules/HeaderTitleWithLogo';
+import { FancyBottomBarIcon } from '../../../templates/FancyBottomBarIcon';
+import SVGCheckMark from '../../../icons/SVGCheckMark/SVGCheckMark';
+import { FancySearchBar } from '../../../organisms/FancySearchBar';
+import templateThemeType from '@/stories/templateSettingsForStorys/templatesForThemeType';
+
+// Define metadata for the story
+const meta = {
+  component: FancyBox,
+  title: 'components/atoms/FancyBox',
+
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'The FancyBox component is for displaying a card that can fill with somthing, it can be used for displaying content in a card',
+      },
+    },
+  },
+
+  // Define arguments for the story
+  argTypes: {
+    ...templateThemeType('allThemeTypes', 'primary', 0),
+    as: {
+      description:
+        'This property allows developers to change the HTML tag of the component. For example, if you want to use a div instead of',
+      control: {
+        type: 'text',
+      },
+      defaultValue: {
+        summary: 'div',
+      },
+    },
+    outlined: {
+      description: 'A boolean indicating whether the bar is styled with an outline.',
+      control: {
+        type: 'boolean',
+      },
+      defaultValue: {
+        summary: false,
+      },
+    },
+    outlinedBackgroundStrength: {
+      description: 'Controls the background intensity when outlined is true.',
+      control: {
+        type: 'range',
+        min: 0,
+        max: 1,
+        step: 0.1,
+      },
+      defaultValue: {
+        summary: 0.5,
+      },
+    },
+    externalStyle: {
+      description:
+        'The style of the card can porvieed with the styled-component css and react style={{width: "100px"}}',
+      control: {
+        type: 'object',
+      },
+    },
+  },
+} satisfies Meta<typeof FancyBox>;
+
+// Export the metadata
+export default meta;
+// Define the story object
+type Story = StoryObj<typeof meta>;
+
+// Define the primary story
+export const Primary: Story = {
+  render: (args) => <FancyBox {...args}>Hiii</FancyBox>,
+  args: {},
+  parameters: {
+    docs: {
+      description: {
+        story: '',
+      },
+    },
+  },
+};
+
+const headerStyle = css`
+  position: fixed;
+  top: 10px;
+  width: 80%;
+  padding: 12px 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 50px;
+`;
+
+export const Header: Story = {
+  render: (args) => (
+    <FancyBox {...args} externalStyle={headerStyle}>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start', width: '100%' }}>
+        <HeaderTitleWithLogo title="Let´sTryIt" />
+      </div>
+      <FancySearchBar />
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', width: '100%' }}>
+        <FancyMiniProfile
+          alignImage="left"
+          title="@TobiTRy"
+          src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
+        />
+      </div>
+    </FancyBox>
+  ),
+  args: {},
+  parameters: {
+    docs: {
+      description: {
+        story: '',
+      },
+    },
+  },
+};
+
+const BottomBarStyle = css`
+  position: fixed;
+  bottom: 10px;
+  width: 100%;
+  padding: 12px 8px 0px 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 12px 12px 0 0;
+`;
+
+const BottomBarComponent = (args: React.ComponentProps<typeof FancyBox>) => {
+  const [wichIsActive, setWichIsActive] = React.useState('0');
+
+  return (
+    <FancyBox {...args} externalStyle={BottomBarStyle}>
+      <FancyBottomBarIcon
+        icon={<SVGCheckMark />}
+        label="Test"
+        isActive={wichIsActive === '0'}
+        onClick={() => setWichIsActive('0')}
+      />
+      <FancyBottomBarIcon
+        icon={<SVGCheckMark />}
+        label="Test"
+        isActive={wichIsActive === '1'}
+        onClick={() => setWichIsActive('1')}
+      />
+      <FancyBottomBarIcon
+        icon={<SVGCheckMark />}
+        label="Test"
+        isActive={wichIsActive === '2'}
+        onClick={() => setWichIsActive('2')}
+      />
+      <FancyBottomBarIcon
+        icon={<SVGCheckMark />}
+        label="Test"
+        isActive={wichIsActive === '3'}
+        onClick={() => setWichIsActive('3')}
+      />
+    </FancyBox>
+  );
+};
+
+export const BottomBar: Story = {
+  render: (args) => <BottomBarComponent {...args} />,
+  args: {},
+  parameters: {
+    docs: {
+      description: {
+        story: '',
+      },
+    },
+  },
+};

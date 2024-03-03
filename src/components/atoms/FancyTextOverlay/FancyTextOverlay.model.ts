@@ -1,7 +1,7 @@
 import { CSSProp } from 'styled-components';
 
 // Define the possible positions for the overlay
-export type TPositions =
+export type TTextOverlayPositions =
   | 'top-left'
   | 'top-right'
   | 'center'
@@ -14,7 +14,7 @@ export type TPositions =
 export type TFancyTextOverlay = {
   children?: React.ReactNode;
   textChildren?: React.ReactNode;
-  position?: TPositions;
+  position?: TTextOverlayPositions;
   externalStyle?: CSSProp;
 };
 

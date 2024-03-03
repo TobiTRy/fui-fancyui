@@ -47,10 +47,15 @@ const meta = {
         type: 'select',
       },
     },
-    errorMessage: {
-      control: {
-        type: 'text',
+    systemMessage: {
+      type: {
+        name: 'string',
+        required: false,
       },
+      control: {
+        type: 'select',
+      },
+      options: ['error', 'warning', 'success', 'info', undefined],
     },
     isPassive: {
       description:

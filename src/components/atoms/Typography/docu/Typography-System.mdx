@@ -1,0 +1,221 @@
+import { Meta, Story } from '@storybook/blocks';
+import * as TypographyStory from './Typography.stories';
+
+import Typography from '../Typography';
+
+<Meta title="components/atoms/Typography/Typography-System" />
+
+## Typography System
+
+Our typography system is designed to ensure consistency, readability, and visual hierarchy across our user interface. It provides a set of predefined text styles that you can use to style text elements in your application or website.
+
+### Overview
+
+The typography system includes a variety of text styles, each tailored for specific UI elements. These styles are defined in a structured object, making them easy to reference and apply throughout your project.
+
+Each text style includes the following properties:
+
+- `sizeC`: The font sizeC of the text.
+- `lineHeight`: The distance between baselines of consecutive lines of text.
+- `letterSpacing`: The spacing between characters, which can affect readability and aesthetic.
+- `weight`: The thickness of the characters, representing the font weight.
+
+### Text Styles
+
+Here's a breakdown of the text styles included in the system:
+
+1. **Display Text Styles**:
+
+   - `displayHero`: Used for large, attention-grabbing headers or titles.
+
+     <Story of={TypographyStory.DisplayHero} />
+
+   - `displayHeadline`: Ideal for prominent headings that are slightly smaller than hero sizeC.
+
+     <Story of={TypographyStory.DisplayHeadline} />
+
+   - `displayTitle`: Suitable for titles that need emphasis but are not the primary focal point.
+
+     <Story of={TypographyStory.DisplayTitle} />
+
+2. **Section Heading Styles**:
+
+   - `sectionTitle`: Used for main headings within sections.
+
+     {' '}
+
+     <Story of={TypographyStory.SectionTitle} />
+
+   - `sectionSubtitle`: Perfect for subtitles that support section titles.
+
+     {' '}
+
+     <Story of={TypographyStory.SectionSubtitle} />
+
+   - `sectionSubsectionTitle`: Ideal for titles of subsections within larger sections.
+
+     {' '}
+
+     <Story of={TypographyStory.SectionSubsectionTitle} />
+
+3. **Body Text Styles**:
+
+   - `bodytextLg`: Used for primary body text where clarity and legibility are crucial.
+
+     {' '}
+
+     <Story of={TypographyStory.BodytextLg} />
+
+   - `bodytextMd`: Ideal for standard body text.
+
+     {' '}
+
+     <Story of={TypographyStory.BodytextMd} />
+
+   - `bodytextSm`: Best for secondary or less important information.
+
+     {' '}
+
+     <Story of={TypographyStory.BodytextSm} />
+
+4. **Sub Text Styles**:
+
+   - `subTextCaption`: Used for image captions or descriptions.
+
+     {' '}
+
+     <Story of={TypographyStory.SubTextCaption} />
+
+   - `subTextFootnote`: Ideal for footnotes or small references.
+
+     {' '}
+
+     <Story of={TypographyStory.SubTextFootnote} />
+
+   - `subTextLegal`: Perfect for legal text or very fine print.
+
+     {' '}
+
+     <Story of={TypographyStory.SubTextLegal} />
+
+5. **Interactive Text Styles**:
+
+   - `interactiveLg`: Used for text on primary interactive elements like buttons.
+
+     {' '}
+
+     <Story of={TypographyStory.InteractiveLg} />
+
+   - `interactiveMd`: Suitable for text on secondary interactive elements.
+
+     {' '}
+
+     <Story of={TypographyStory.InteractiveMd} />
+
+   - `interactiveSm`: Best for text on smaller interactive elements.
+
+     {' '}
+
+     <Story of={TypographyStory.InteractiveSm} />
+
+### Conclusion
+
+The typography system is a foundational element of your UI design, bringing consistency, clarity, and a visually pleasing hierarchy to your text content. By adhering to this system, you ensure a cohesive and user-friendly interface.
+
+## The Typography default object
+
+```jsx
+export const typography = {
+  displayHero: {
+    fontSize: '84px',
+    lineHeight: '96px',
+    letterSpacing: '-0.02em',
+    fontWeight: '700', // Bold
+  },
+  displayHeadline: {
+    fontSize: '72px',
+    lineHeight: '86px',
+    letterSpacing: '-0.02em',
+    fontWeight: '700', // Bold
+  },
+  displayTitle: {
+    fontSize: '60px',
+    lineHeight: '72px',
+    letterSpacing: '-0.015em',
+    fontWeight: '700', // Bold
+  },
+  sectionTitle: {
+    fontSize: '48px',
+    lineHeight: '58px',
+    letterSpacing: '-0.015em',
+    fontWeight: '600', // Semi-bold
+  },
+  sectionSubtitle: {
+    fontSize: '36px',
+    lineHeight: '43px',
+    letterSpacing: '-0.01em',
+    fontWeight: '500', // Medium
+  },
+  sectionSubsectionTitle: {
+    fontSize: '30px',
+    lineHeight: '36px',
+    letterSpacing: '-0.01em',
+    fontWeight: '500', // Medium
+  },
+  bodytextLg: {
+    fontSize: '24px',
+    lineHeight: '34px',
+    letterSpacing: 'normal',
+    fontWeight: '400', // Regular
+  },
+  bodytextMd: {
+    fontSize: '18px',
+    lineHeight: '26px',
+    letterSpacing: 'normal',
+    fontWeight: '400', // Regular
+  },
+  bodytextSm: {
+    fontSize: '16px',
+    lineHeight: '23px',
+    letterSpacing: 'normal',
+    fontWeight: '400', // Regular
+  },
+  subTextCaption: {
+    fontSize: '14px',
+    lineHeight: '20px',
+    letterSpacing: '0.005em',
+    fontWeight: '400', // Regular
+  },
+  subTextFootnote: {
+    fontSize: '12px',
+    lineHeight: '17px',
+    letterSpacing: '0.01em',
+    fontWeight: '400', // Regular
+  },
+  subTextLegal: {
+    fontSize: '10px',
+    lineHeight: '14px',
+    letterSpacing: '0.01em',
+    fontWeight: '400', // Regular
+  },
+
+  interactiveSm: {
+    fontSize: '14px',
+    lineHeight: '20px',
+    letterSpacing: '0.01em',
+    fontWeight: '500', // Medium
+  },
+  interactiveMd: {
+    fontSize: '16px',
+    lineHeight: '23px',
+    letterSpacing: '0.01em',
+    fontWeight: '500', // Medium
+  },
+  interactiveLg: {
+    fontSize: '18px',
+    lineHeight: '26px',
+    letterSpacing: '0.01em',
+    fontWeight: '500', // Medium
+  },
+};
+```

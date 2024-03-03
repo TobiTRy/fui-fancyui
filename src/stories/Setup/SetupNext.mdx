@@ -1,0 +1,86 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="setup/SetupNext.js" />
+
+# Next.js Setup Guide for Fancy UI Library
+
+This guide is specifically for integrating `Fancy UI Library (FUI)` with Next.js (v13+). Make sure you've followed the main setup guide for the `Fancy UI Library` before proceeding with these steps.
+
+### Main Setup Guide
+
+For general setup instructions, head back to the [Main Setup Guide for Fancy UI Library](./?path=/docs/stories-setup--docs/).
+
+## Next.js Specific Steps 🚀
+
+### Step 1: Tweak the Next.js Config
+
+First, modify your `next.config.js` with these special settings: [Docu form Styled-Components](https://styled-components.com/docs/advanced#next.js).
+
+```javascript
+const nextConfig = {
+  compiler: {
+    styledComponents: true,
+  },
+  transpilePackages: ['@tobitry/fui-fancyui'],
+};
+
+module.exports = nextConfig;
+```
+
+This configuration enables support for `styled-components` and ensures that the `Fancy UI Library` is properly transpiled.
+
+### Step 2: Set Up the Styled-Components Registry
+
+Next.js, especially in version 13 and above, handles server-side rendering a bit differently. To ensure `styled-components` work correctly in both client and server environments, set up a `StyledComponentsRegistry`: [Docu from NextJS](https://nextjs.org/docs/app/building-your-application/styling/css-in-js#configuring-css-in-js-in-app).
+
+```javascript
+'use client';
+
+import React, { useState } from 'react';
+import { useServerInsertedHTML } from 'next/navigation';
+import { ServerStyleSheet, StyleSheetManager } from 'styled-components';
+
+export default function StyledComponentsRegistry({ children }) {
+  const [styledComponentsStyleSheet] = useState(() => new ServerStyleSheet());
+
+  useServerInsertedHTML(() => {
+    const styles = styledComponentsStyleSheet.getStyleElement();
+    styledComponentsStyleSheet.instance.clearTag();
+    return <>{styles}</>;
+  });
+
+  if (typeof window !== 'undefined') {
+    return <>{children}</>;
+  }
+
+  return <StyleSheetManager sheet={styledComponentsStyleSheet.instance}>{children}</StyleSheetManager>;
+}
+```
+
+This component manages the stylesheet for `styled-components`, ensuring styles are correctly injected into the server-side rendered pages.
+
+### Step 3: Wrap Your Layout with Style and Theme
+
+Finally, update your layout component to include the `StyledComponentsRegistry` and `ThemeStoreProvider`. This ensures that the global styles and themes are applied across your Next.js application:
+
+```javascript
+"use client" // This is important to ensure the component is only rendered on the client-side else you'll get an error
+import ThemeStoreProvider from 'path-to-your-theme-store-provider'; // Adjust the path as necessary
+import StyledComponentsRegistry from 'path-to-your-styled-components-registry'; // Adjust the path as necessary
+import GlobalStyle from 'path-to-your-global-style'; // If you have a global style
+
+const MyPage = ({ children }: {children: React.ReactNode}) => {
+  return (
+    <StyledComponentsRegistry>
+      <ThemeStoreProvider>
+        <GlobalStyle />
+        {children}
+      </ThemeStoreProvider>
+    </StyledComponentsRegistry>
+  );
+};
+
+export default MyApp;
+```
+
+By following these steps, you'll have `Fancy UI Library` seamlessly integrated into your Next.js project. Happy coding! 🎉

@@ -1,17 +1,7 @@
-import { CSSProp } from 'styled-components';
-
 import { StyledImage } from './FancyProfilePicture.style';
 import { TextAvatar } from '@/components/molecules/TextAvatar';
-import { TSize } from '@/components/molecules/TextAvatar/utils/getSize';
+import { IFancyProfilePicture } from '@/components/atoms/FancyProfilePicture/TFancyProfilePicture.model';
 
-type TtextAvatarSettings = React.ComponentProps<typeof TextAvatar>;
-
-export type IFancyProfilePicture = {
-  rounded?: 'sm' | 'md' | 'lg' | 'complete';
-  sizeC?: TSize | string;
-  externalStyle?: CSSProp;
-  textAvatarSettings?: Omit<TtextAvatarSettings, 'text'>;
-} & React.ImgHTMLAttributes<HTMLImageElement>;
 // --------------------------------------------------------------------------- //
 //  ProfilePicture component to render with  different sizes and border radius //
 // --------------------------------------------------------------------------- //

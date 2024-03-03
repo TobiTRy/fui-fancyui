@@ -30,4 +30,5 @@ export const StyledSkeletonBox = styled.div<TSyledSkeletonBox & { theme: TTheme 
   background-color: ${({ theme, $themeType = 'primary', $layer }) => theme.colors[$themeType][$layer || 0]};
   animation: ${({ theme, $themeType, $layer }) => createLoadingKeyframes({ theme, $themeType, $layer })} 2s infinite;
   border-radius: ${({ theme, $borderRadius }) => theme.borderRadius[$borderRadius ?? 'xs'] || '0px'};
+  ${({ $externalStyle }) => $externalStyle};
 `;

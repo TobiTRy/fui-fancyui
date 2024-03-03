@@ -15,7 +15,9 @@ interface IRawInputWrapper extends IRawInput {
   $isActive?: boolean;
 }
 export const StyledDatePicker = styled(RawInput)<IRawInputWrapper & TDateInputProps>`
-  color: ${({ $isActive }) => ($isActive ? '' : 'transparent')};
+  color: ${({ $isActive, $themeType = 'secondary', $layer, theme }) =>
+    $isActive ? getBackgroundColor({ theme, $themeType, $layer }) : 'transparent'};
+
   transition: color 0.3s ease-in;
   font-family: inherit;
 
@@ -40,7 +42,7 @@ export const StyledDatePicker = styled(RawInput)<IRawInputWrapper & TDateInputPr
   &::-webkit-calendar-picker-indicator {
     ${simpleColorTransition}
 
-    ${({ theme, $themeType = 'secondary', $layer = 4 }) => css`
+    ${({ theme, $themeType = 'secondary', $layer = 0 }) => css`
       background-image: ${`url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" viewBox="0 0 24 24"><path fill="${getBackgroundColor(
         { theme, $themeType, $layer }
       ).replace(

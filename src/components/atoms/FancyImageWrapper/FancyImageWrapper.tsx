@@ -6,18 +6,8 @@ import { ImageWrapper } from './FancyImageWrapper.style';
 // -------------- The Definition for the FancyImage Component ---------------- //
 // --------------------------------------------------------------------------- //
 export default function FancyImageWrapper(props: TFancyImageWrapperWithNativeAttrs) {
-  const {
-    aspectRatio,
-    darken,
-    borderRadius,
-    externalStyle,
-    sizeW,
-    sizeH,
-    children,
-    filter,
-    objectFit,
-    ...wrapperProps
-  } = props;
+  const { aspectRatio, borderRadius, externalStyle, sizeW, sizeH, children, filter, objectFit, ...wrapperProps } =
+    props;
 
   // Validate the aspect ratio if it is provided
   if (aspectRatio && !isAspectRatioValid(aspectRatio)) {
@@ -28,7 +18,6 @@ export default function FancyImageWrapper(props: TFancyImageWrapperWithNativeAtt
   return (
     <ImageWrapper
       $aspectRatio={aspectRatio}
-      $darken={darken}
       $filter={filter}
       $borderRadius={borderRadius}
       $externalStyle={externalStyle}

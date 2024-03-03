@@ -1,23 +1,16 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 import { SingleInputs } from '@/components/molecules/SingleInputs';
 import { Typography } from '@/components/atoms/Typography';
 
 import { Container, WarpperComponent, Message, MessageContainer } from './FancyCodeVerificationInput.style';
+import { TFancySingleInputs } from './TFancyCodeVerificationInput.model';
 
-interface IFancySingleInputs {
-  length?: number;
-  errorMessage?: string;
-  isSuccess?: boolean;
-  handler?: (value: string) => void;
-  automaticCase?: 'upper' | 'lower';
-  debounceTime?: number;
-}
 // --------------------------------------------------------------------------- //
 // -The main FancySinlgeInput Componet wich handle the apicall and the sattus- //
 // --------------------------------------------------------------------------- //
-export default function FancyCodeVerificationInput(props: IFancySingleInputs) {
-  const { length, errorMessage, isSuccess, handler, automaticCase, debounceTime } = { ...defaultProps, ...props };
+export default function FancyCodeVerificationInput(props: TFancySingleInputs) {
+  const { length = 6, errorMessage, isSuccess, handler, automaticCase, debounceTime } = props;
   const [inputValue, setInputValue] = useState('');
   const debounceTimeoutRef = useRef<NodeJS.Timeout>();
 
@@ -53,7 +46,3 @@ export default function FancyCodeVerificationInput(props: IFancySingleInputs) {
     </WarpperComponent>
   );
 }
-
-const defaultProps: IFancySingleInputs = {
-  length: 6,
-};

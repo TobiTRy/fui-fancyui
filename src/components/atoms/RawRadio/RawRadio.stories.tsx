@@ -7,10 +7,12 @@ import RawRadio from './RawRadio';
 // Define metadata for the story
 const meta = {
   component: RawRadio,
+  title: 'components/atoms/RawRadio',
   parameters: {
     docs: {
       description: {
-        component: 'Dumb-Comonent: The RawRadio Renders only a Styled Radio Button.',
+        component:
+          'The RawRadio component is a custom-styled radio button. It enhances the standard radio input with a sophisticated look and feel while preserving its native functionality. ',
       },
     },
   },
@@ -20,12 +22,6 @@ const meta = {
       description: 'The checked state of the radio button',
       control: {
         type: 'boolean',
-      },
-    },
-    tabIndex: {
-      description: 'The tabIndex of the radio button',
-      control: {
-        type: 'number',
       },
     },
   },
@@ -44,15 +40,5 @@ export const Primary: Story = {
   render: (args) => <RawRadio {...args} />,
   args: {
     checked: false,
-    tabIndex: 0,
-    name: 'radio',
-  },
-
-  parameters: {
-    docs: {
-      description: {
-        story: '',
-      },
-    },
   },
 };

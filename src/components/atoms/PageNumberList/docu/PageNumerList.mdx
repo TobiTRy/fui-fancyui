@@ -1,0 +1,57 @@
+import { Meta, Title, Description, Controls } from '@storybook/blocks';
+import * as PageNumberListStories from './PageNumberList.stories';
+
+<Meta of={PageNumberListStories} />
+
+<Title />
+
+<Description />
+
+## Setup Instructions
+
+To use the `PageNumberList` component in your project, follow these steps:
+
+1. Ensure that you have the necessary dependencies installed in your project. This includes React and any specific styling or utility libraries used in the component.
+2. Import the `PageNumberList` component into your file:
+
+```jsx
+import { PageNumberList } from '@tobitry/fui-fancyui';
+```
+
+**Import Necessary Types**:
+
+- If you're using TypeScript, import the types to leverage type-checking for the component's props.
+
+```tsx
+import { TPageNumberLists } from '@tobitry/fui-fancyui';
+```
+
+## Example Usage
+
+Below is an example demonstrating how to use the `PageNumberList` component within a React application:
+
+```jsx
+<PageNumberList
+  showPages={5}
+  currentPage={3}
+  pageHandler={(page) => console.log(`Navigating to page ${page}`)}
+  pageLimits={10}
+  numberButtonStyle={{
+    textColor: 'gray',
+    textColorActive: 'blue',
+    hoverColor: 'lightgray',
+    backgroundStrength: 'medium',
+    layer: 'front',
+    outlined: true,
+    themeType: 'dark',
+  }}
+/>
+```
+
+This example sets up a pagination list showing a maximum of 5 pages at a time, highlighting the current page (3) and providing a custom handler function for page navigation. It also customizes the appearance of the page number buttons.
+
+## Component Properties
+
+<Controls />
+
+The `numberButtonStyle` prop allows for detailed customization of the page number buttons, including their color, hover behavior, and theming options. Each style option is optional, with sensible defaults provided for any properties not explicitly set.

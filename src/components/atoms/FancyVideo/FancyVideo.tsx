@@ -1,21 +1,13 @@
-import React from 'react';
-import { styled } from 'styled-components';
-
 import { isAspectRatioValid } from '@/utils/validations/isAspectRatioValid';
-import { FancyVideoSource } from '@/components/atoms/FancyVideo/FancyVideoSource';
+import { FancyVideoSource } from '@/components/atoms/FancyVideoSource';
+import { StyledVideo } from '@/components/atoms/FancyVideo/FancyVideo.style';
+import { TFancyVideoWithHTMLAttrs } from '@/components/atoms/FancyVideo/FancyVideo.model';
 
-// Define the props for the FancyVideo component
-export type TFancyVideo = {
-  autoPlay?: boolean;
-  muted?: boolean;
-  aspectRatio?: string; // e.g. "16/9"
-  darken?: boolean;
-} & React.VideoHTMLAttributes<HTMLVideoElement>;
 // --------------------------------------------------------------------------- //
 // -------------- The Definition for the FancyVideo Component ---------------- //
 // --------------------------------------------------------------------------- //
-export default function FancyVideo(props: TFancyVideo) {
-  const { autoPlay, muted, aspectRatio, darken, ...htmlProps } = props;
+function FancyVideo(props: TFancyVideoWithHTMLAttrs) {
+  const { autoPlay, muted, aspectRatio, darken, children, ...htmlProps } = props;
 
   // Validate the aspect ratio if it is provided
   if (aspectRatio && !isAspectRatioValid(aspectRatio)) {
@@ -25,20 +17,11 @@ export default function FancyVideo(props: TFancyVideo) {
   // Render the video with the appropriate props
   return (
     <StyledVideo $aspectRatio={aspectRatio} muted={autoPlay ? true : muted} $darken={darken} {...htmlProps}>
-      {props.children}
+      {children}
     </StyledVideo>
   );
 }
 
 FancyVideo.Source = FancyVideoSource;
 
-// ------------------------------------------- //
-// ------- The style for the component ------- //
-// ------------------------------------------- //
-const StyledVideo = styled.video<{ $aspectRatio?: string; $darken?: boolean }>`
-  object-fit: cover;
-  width: 100%;
-  height: auto;
-  ${({ $aspectRatio }) => ($aspectRatio ? `aspect-ratio: ${$aspectRatio};` : '')}
-  filter: ${({ $darken }) => ($darken ? 'brightness(0.5)' : 'none')};
-`;
+export default FancyVideo; // is needed here for the storybook to work

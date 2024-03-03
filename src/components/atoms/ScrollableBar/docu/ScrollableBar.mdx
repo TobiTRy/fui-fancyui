@@ -1,0 +1,42 @@
+import { Meta, Title, Description } from '@storybook/blocks';
+
+import * as ScrollableBarStories from './ScrollableBar.stories';
+
+<Meta of={ScrollableBarStories} />
+
+<Title />
+
+<Description />
+
+1. Import the `ScrollableBar` component where you intend to use it:
+
+```jsx
+import { ScrollableBar } from '@tobitry/fui-fancyui';
+```
+
+## Example Usage
+
+Here's an example of how to use the `ScrollableBar` component to create a horizontally scrollable container for a set of items:
+
+```jsx
+import React from 'react';
+import { ScrollableBar } from '@tobitry/fui-fancyui';
+
+const HorizontalMenu = () => {
+  return (
+    <ScrollableBar>
+      <div>Item 1</div>
+      <div>Item 2</div>
+      <div>Item 3</div>
+      <div>Item 4</div>
+      // Add as many items as needed
+    </ScrollableBar>
+  );
+};
+
+export default HorizontalMenu;
+```
+
+This example demonstrates wrapping multiple child elements within the `ScrollableBar` component to allow for horizontal scrolling through these elements.
+
+The primary functionality of the `ScrollableBar` component is to provide a horizontal scrolling mechanism, especially on platforms where this behavior is not the default, enhancing the user interface and interaction experience within your application.

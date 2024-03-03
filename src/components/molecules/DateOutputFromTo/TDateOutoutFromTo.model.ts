@@ -10,9 +10,9 @@ export type TDateOutputFromTo = {
   whichIsSelecting?: 'from' | 'to';
   themeType?: Exclude<TUiColorsMain, 'accent'>;
   layer?: TLayer;
-  textC?: {
-    from: TDateOutput['textC'];
-    to: TDateOutput['textC'];
+  textCustom?: {
+    from: TDateOutput['textCustom'];
+    to: TDateOutput['textCustom'];
   };
 };
 

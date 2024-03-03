@@ -1,6 +1,6 @@
 // useNumberInput.ts
 import { ChangeEvent, KeyboardEvent, useEffect, useState } from 'react';
-import { TNumberInputWithNativeAttrs } from '@/components/atoms/NumberInput/TNumberInput.moedel';
+import { TNumberInputWithNativeAttrs } from '@/components/atoms/NumberInput/TNumberInput.model';
 
 interface UseNumberInputReturn {
   inputValue: string | null;

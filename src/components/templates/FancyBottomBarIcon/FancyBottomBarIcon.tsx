@@ -18,7 +18,7 @@ export default function FancyBottomBarIcon(props: IFancyBottomBarIcon) {
       type={type ?? 'a'}
       href={href}
       onClick={() => {
-        onClick && onClick();
+        onClick?.();
       }}
     >
       <BottomBarIcon {...rest} />

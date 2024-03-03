@@ -1,2 +1,2 @@
 export { default as SkeletonBox } from './SkeletonBox';
-export type { TSkeletonBox } from './TSkeleton.model';
+export type { TSkeletonBox, TSkeletonBoxWithHTMLAttrs } from './TSkeleton.model';

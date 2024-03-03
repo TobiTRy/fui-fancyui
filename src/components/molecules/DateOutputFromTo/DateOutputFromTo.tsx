@@ -16,7 +16,7 @@ export default function DateOutputFromTo(props: TDateOutputFromToWithNativeAttrs
     whichIsSelecting,
     themeType = 'primary',
     layer = 3,
-    textC,
+    textCustom,
     sizeC,
     ...htmlProps
   } = props;
@@ -33,9 +33,9 @@ export default function DateOutputFromTo(props: TDateOutputFromToWithNativeAttrs
         sizeC={sizeC}
         themeType={themeType}
         layer={layer}
-        textC={{
-          selected: textC?.from?.selected ?? 'From:',
-          notSelected: textC?.from?.notSelected,
+        textCustom={{
+          selected: textCustom?.from?.selected ?? 'From:',
+          notSelected: textCustom?.from?.notSelected,
         }}
         date={dateFrom}
         isActive={whichIsSelecting === 'from' || whichIsSelecting === undefined}
@@ -53,9 +53,9 @@ export default function DateOutputFromTo(props: TDateOutputFromToWithNativeAttrs
       <DateOutput
         sizeC={sizeC}
         themeType={themeType}
-        textC={{
-          selected: textC?.to?.selected ?? 'To:',
-          notSelected: textC?.to?.notSelected,
+        textCustom={{
+          selected: textCustom?.to?.selected ?? 'To:',
+          notSelected: textCustom?.to?.notSelected,
         }}
         layer={layer}
         date={dateTo}

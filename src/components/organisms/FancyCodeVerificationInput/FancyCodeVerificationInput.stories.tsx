@@ -8,14 +8,6 @@ import React, { useEffect } from 'react';
 // Define metadata for the story
 const meta = {
   component: FancyCodeVerificationInput,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'Dumb-Comonent: The FancyCodeVerificationInput component is for single input like a verification code',
-      },
-    },
-  },
   // Define arguments for the story
   argTypes: {
     handler: {
@@ -34,7 +26,7 @@ const meta = {
       },
     },
     automaticCase: {
-      description: 'If the input should be upper or lower case',
+      description: 'If the input should automaticly inputed in upper or lower case',
       control: {
         type: 'radio',
         options: ['upper', 'lower', undefined],
@@ -53,7 +45,7 @@ const meta = {
       },
     },
     isSuccess: {
-      description: 'If the input is success',
+      description: 'If the input value is success',
       control: {
         type: 'boolean',
       },
@@ -62,7 +54,7 @@ const meta = {
       },
     },
     errorMessage: {
-      description: 'The error message',
+      description: 'The error message ',
       control: {
         type: 'text',
       },

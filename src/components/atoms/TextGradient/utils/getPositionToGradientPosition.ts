@@ -1,4 +1,4 @@
-import { GradientPosition } from '@/components/atoms/TextGradient/TextGradient.model';
+import { GradientPosition } from '@/components/atoms/TextGradient/TTextGradient.model';
 
 // Helper function to get position for linear gradients
 export const getLinearGradientPosition = (position: GradientPosition | undefined) => {

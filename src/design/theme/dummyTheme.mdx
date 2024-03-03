@@ -1,0 +1,230 @@
+# A DummyTheme for showing the structure of the theme object
+
+Here is your theme configuration in MDX format for user documentation:
+
+```mdx
+export const dummyTheme = {
+  // the color palette
+  colors: { 
+    primary: { // for the colors, we have 10 shades
+      '0': '#131825FF',// 0 is the darkest shade
+      '1': '#181F2FFF',
+      '2': '#1F273DFF',
+      '3': '#242E47FF',
+      '4': '#323F62FF',
+      '5': '#3E4F79FF',
+      '6': '#4E6298FF',
+      '7': '#5A70AAFF',
+      '8': '#6B7FB3FF',
+      '9': '#9DAACDFF', // 9 is the lightest shade
+    },
+    accent: {
+      '0': '#F17C12FF',
+      '1': '#DC700DFF',
+      '2': '#C4630CFF',
+      '3': '#AC570AFF',
+      '4': '#944B09FF',
+      '5': '#7C3F07FF',
+      '6': '#643306FF',
+      '7': '#4C2604FF',
+      '8': '#341A03FF',
+      '9': '#1C0E02FF',
+    },
+    accentDarken: {
+      '0': '#F17C12FF',
+      '1': '#F28420FF',
+      '2': '#F38F34FF',
+      '3': '#F49742FF',
+      '4': '#F59F51FF',
+      '5': '#F6AC69FF',
+      '6': '#F8B981FF',
+      '7': '#FACCA2FF',
+      '8': '#FBD9BBFF',
+      '9': '#FCE6D3FF',
+    },
+    secondary: {
+      '0': '#F0F0EFFF',
+      '1': '#E9E9E7FF',
+      '2': '#DFDFDDFF',
+      '3': '#D7D7D5FF',
+      '4': '#C4C4C0FF',
+      '5': '#B2B2ADFF',
+      '6': '#9C9C96FF',
+      '7': '#8D8D86FF',
+      '8': '#818179FF',
+      '9': '#595954FF',
+    },
+    info: {
+      '0': '#287FD7FF',
+      '1': '#3587D9FF',
+      '2': '#4691DDFF',
+      '3': '#5399DFFF',
+      '4': '#60A0E1FF',
+      '5': '#75ADE5FF',
+      '6': '#8BBAE9FF',
+      '7': '#A9CCEFFF',
+      '8': '#BFD9F3FF',
+      '9': '#D4E5F7FF',
+    },
+    success: {
+      '0': '#009688FF',
+      '1': '#00A596FF',
+      '2': '#00BAA8FF',
+      '3': '#00C9B6FF',
+      '4': '#00D8C4FF',
+      '5': '#00F2DBFF',
+      '6': '#0CFFE8FF',
+      '7': '#30FFECFF',
+      '8': '#49FFEEFF',
+      '9': '#63FFF0FF',
+    },
+    warning: {
+      '0': '#EB8800FF',
+      '1': '#FA9100FF',
+      '2': '#FF9A10FF',
+      '3': '#FFA11FFF',
+      '4': '#FFA72EFF',
+      '5': '#FFB248FF',
+      '6': '#FFBD61FF',
+      '7': '#FFCC85FF',
+      '8': '#FFD69FFF',
+      '9': '#FFE1B8FF',
+    },
+    error: {
+      '0': '#D21414FF',
+      '1': '#E01515FF',
+      '2': '#EA2020FF',
+      '3': '#EB2E2EFF',
+      '4': '#EC3C3CFF',
+      '5': '#EF5353FF',
+      '6': '#F16A6AFF',
+      '7': '#F48B8BFF',
+      '8': '#F6A2A2FF',
+      '9': '#F8BABAFF',
+    }
+  },
+  // the spacing values is used for margin and padding
+  spacing: {
+    xxs: '4px',
+    xs: '8px',
+    sm: '12px',
+    md: '16px',
+    lg: '24px',
+    xl: '32px',
+    xxl: '40px',
+  },
+  // the border radius values
+  borderRadius: {
+    xxs: '4px',
+    xs: '8px',
+    sm: '12px',
+    md: '16px',
+    lg: '24px',
+    xl: '32px',
+    xxl: '40px',
+    complete: '200px',
+  },
+  // the font family
+  fontSizes:{
+  // the font sizes for different elements
+  displayHero: {
+    fontSize: '84px',
+    lineHeight: '96px',
+    letterSpacing: '-0.02em',
+    fontWeight: '700', // Bold
+  },
+  displayHeadline: {
+    fontSize: '72px',
+    lineHeight: '86px',
+    letterSpacing: '-0.02em',
+    fontWeight: '700', // Bold
+  },
+  displayTitle: {
+    fontSize: '60px',
+    lineHeight: '72px',
+    letterSpacing: '-0.015em',
+    fontWeight: '700', // Bold
+  },
+  sectionTitle: {
+    fontSize: '48px',
+    lineHeight: '58px',
+    letterSpacing: '-0.015em',
+    fontWeight: '600', // Semi-bold
+  },
+  sectionSubtitle: {
+    fontSize: '36px',
+    lineHeight: '43px',
+    letterSpacing: '-0.01em',
+    fontWeight: '500', // Medium
+  },
+  sectionSubsectionTitle: {
+    fontSize: '30px',
+    lineHeight: '36px',
+    letterSpacing: '-0.01em',
+    fontWeight: '500', // Medium
+  },
+  bodytextLg: {
+    fontSize: '24px',
+    lineHeight: '34px',
+    letterSpacing: 'normal',
+    fontWeight: '400', // Regular
+  },
+  bodytextMd: {
+    fontSize: '18px',
+    lineHeight: '26px',
+    letterSpacing: 'normal',
+    fontWeight: '400', // Regular
+  },
+  bodytextSm: {
+    fontSize: '16px',
+    lineHeight: '23px',
+    letterSpacing: 'normal',
+    fontWeight: '400', // Regular
+  },
+  subTextCaption: {
+    fontSize: '14px',
+    lineHeight: '20px',
+    letterSpacing: '0.005em',
+    fontWeight: '400', // Regular
+  },
+  subTextFootnote: {
+    fontSize: '12px',
+    lineHeight: '17px',
+    letterSpacing: '0.01em',
+    fontWeight: '400', // Regular
+  },
+  subTextLegal: {
+    fontSize: '10px',
+    lineHeight: '14px',
+    letterSpacing: '0.01em',
+    fontWeight: '400', // Regular
+  },
+
+interactiveSm: {
+fontSize: '14px',
+lineHeight: '20px',
+letterSpacing: '0.01em',
+fontWeight: '500', // Medium
+},
+interactiveMd: {
+fontSize: '16px',
+lineHeight: '23px',
+letterSpacing: '0.01em',
+fontWeight: '500', // Medium
+},
+interactiveLg: {
+fontSize: '18px',
+lineHeight: '26px',
+letterSpacing: '0.01em',
+fontWeight: '500', // Medium
+},
+};
+// the breakpoints for responsive design
+breakpoints: {
+sm: 'screen and (min-width: 576px)',
+md: 'screen and (min-width: 768px)',
+lg: 'screen and (min-width: 992px)',
+xl: 'screen and (min-width: 1200px)',
+},
+};
+```

@@ -1,27 +1,19 @@
 import { styled } from 'styled-components';
 
-import { TLayer } from '@/types/TLayer';
-import { TTheme } from '@/types/TTheme';
+import { arrayToCssValues } from '@/design/designFunctions/arrayToCssValues';
 import {
   getBackgroundColor,
   getTextColor,
 } from '@/design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponent';
-import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
-import { arrayToCssValues } from '@/design/designFunctions/arrayToCssValues';
-import { TSpacingArray } from '@/types/TSpacings';
-import { TTextAlignLC } from '@/types/TTextAlignLC';
 import { leftRightCenterToFlexJustify } from '@/design/designFunctions/leftRightCenterToFlexJustify';
 
-type StyledMenuProps = {
-  $themeType?: TUiColorsNotTransparent;
-  $layer?: TLayer;
-  $padding?: TSpacingArray;
-  $align?: TTextAlignLC;
-  theme: TTheme;
-  as?: 'a' | 'button';
-};
+import { TSpacingArray } from '@/types/TSpacings';
+import { TStyledPrefixAndOmiter } from '@/types/TStyledPrefixAndOmiter';
+import { TTheme } from '@/types/TTheme';
+import { TMenueItem } from './TMenueItem.model';
 
-export const StyledMenuItem = styled.button<StyledMenuProps>`
+type IStyledMenuItem = TStyledPrefixAndOmiter<TMenueItem, 'children'> & { theme?: TTheme; $padding?: TSpacingArray };
+export const StyledMenuItem = styled.button<IStyledMenuItem>`
   display: flex;
   box-sizing: border-box;
   padding: ${({ $padding }) => arrayToCssValues($padding)};
@@ -36,4 +28,6 @@ export const StyledMenuItem = styled.button<StyledMenuProps>`
     background-color: ${({ theme, $themeType, $layer }) =>
       getBackgroundColor({ theme, $themeType: $themeType ?? 'primary', $layer: $layer ?? 3 })};
   }
+
+  ${({ $externalStyle }) => $externalStyle};
 `;

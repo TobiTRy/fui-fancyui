@@ -1,21 +1,13 @@
-import React, { forwardRef, useState } from 'react';
+import { forwardRef, useState } from 'react';
 
-import { TLayer } from '@/types/TLayer';
+import { TSingleInputAtomWithHTMLAttrs } from '@/components/atoms/SingleInput/TSingleInput.model';
 import { StyledSingleInput } from './SingleInput.style';
-import { TUiColorTypes } from '@/types/TUiColorTypes';
 
 // --------------------------------------------------------------------------- //
 // --------- A Single Letter/NumberInput for a Verification process ---------- //
 // --------------------------------------------------------------------------- //
-interface ISingleInputAtomProps {
-  value: string;
-  ariaLabel?: string;
-  onKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
-  themeType?: TUiColorTypes;
-  layer?: TLayer;
-}
-const SingleInput = forwardRef<HTMLInputElement, ISingleInputAtomProps>((props, ref) => {
-  const { value, ariaLabel, onKeyDown, themeType, layer } = props;
+const SingleInput = forwardRef<HTMLInputElement, TSingleInputAtomWithHTMLAttrs>((props, ref) => {
+  const { value, onKeyDown, themeType, layer, onFocus, onBlur, externalStyle } = props;
   const [isFocused, setIsFocused] = useState(false);
 
   return (
@@ -27,13 +19,19 @@ const SingleInput = forwardRef<HTMLInputElement, ISingleInputAtomProps>((props, 
       value={value}
       onKeyDown={onKeyDown}
       ref={ref}
-      aria-label={ariaLabel}
       // eslint-disable-next-line @typescript-eslint/no-empty-function
       onChange={() => {}}
-      onFocus={() => setIsFocused(true)}
-      onBlur={() => setIsFocused(false)}
+      onFocus={(e) => {
+        setIsFocused(true);
+        onFocus && onFocus(e);
+      }}
+      onBlur={(e) => {
+        setIsFocused(false);
+        onBlur && onBlur(e);
+      }}
       $hasValue={value.length > 0}
       $isFocused={isFocused}
+      $externalStyle={externalStyle}
     />
   );
 });

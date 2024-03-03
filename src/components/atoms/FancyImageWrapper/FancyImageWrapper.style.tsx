@@ -12,7 +12,7 @@ import { TBorderRadiusSizes } from '@/types/TBorderRadiusSizes';
 
 type TStyledImage = TStyledPrefixAndPicker<
   TFancyImageWrapper,
-  'darken' | 'aspectRatio' | 'externalStyle' | 'borderRadius' | 'sizeH' | 'sizeW' | 'objectFit' | 'filter'
+  'aspectRatio' | 'externalStyle' | 'borderRadius' | 'sizeH' | 'sizeW' | 'objectFit' | 'filter'
 >;
 // --------------------------------------------------------------------------- //
 // ------------------------- Helper Functions -------------------------------- //

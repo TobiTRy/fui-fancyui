@@ -17,7 +17,6 @@ function FancyGridTemplate(props: TFancyGridTemplate) {
   } = props;
 
   // Create a function to select grid areas based on breakpoints
-
   return (
     <StyledFancyGridTemplate
       $gridAreasBreakPoints={gridAreasBreakPoints}

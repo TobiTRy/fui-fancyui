@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { FancySVGAtom } from '@/components/atoms/FancySVGAtom';
 import { YearInput } from '@/components/atoms/YearInput';
-import { TYearSelector } from '@/components/atoms/YearSelector/TYearSelector.model';
+import { TYearSelectorWithHTMLAttributes } from '@/components/atoms/YearSelector/TYearSelector.model';
 import { SVGChevronLeft } from '@/components/icons/SVGChevronLeft';
 import { SVGChevronRight } from '@/components/icons/SVGChevronRight';
 import { SVGDesignCSS, StyledButton, StyledYearSelector } from './YearSelector.style';
@@ -11,20 +11,21 @@ import { sizeSettings } from './sizeSettings';
 // --------------------------------------------------------------------------- //
 // ---------- Here are the design variants for sizing and alignment ---------- //
 // --------------------------------------------------------------------------- //
-export default function YearSelector(props: TYearSelector) {
+export default function YearSelector(props: TYearSelectorWithHTMLAttributes) {
   const {
     selectedYear = new Date().getFullYear(),
     sizeC = 'md',
     themeType = 'primary',
     themeTypeSecondary = 'secondary',
     layer = 3,
-    textLayer = 0,
+    secondaryLayer = 0,
     borderRadius,
     minYear,
     maxYear,
     yearChangeHandler,
     ariaTextLeftArrow,
     ariaTextRightArrow,
+    ...htmlProps
   } = props;
 
   const [selectedYearState, setSelectedYearState] = useState(selectedYear);
@@ -52,12 +53,18 @@ export default function YearSelector(props: TYearSelector) {
   }, [selectedYear]);
 
   return (
-    <StyledYearSelector $sizeC={sizeC} $borderRadius={borderRadius} $layer={layer} $themeType={themeType}>
+    <StyledYearSelector
+      $sizeC={sizeC}
+      $borderRadius={borderRadius}
+      $layer={layer}
+      $themeType={themeType}
+      {...htmlProps}
+    >
       <StyledButton
-        aria-label={ariaTextLeftArrow || 'a year back'}
+        aria-label={ariaTextLeftArrow}
         onClick={() => handleYearChange(-1)}
         $themeType={themeTypeSecondary}
-        $layer={textLayer}
+        $layer={secondaryLayer}
       >
         <FancySVGAtom isPassive={true} sizeC={sizeSettings[sizeC].iconSize} externalStyle={SVGDesignCSS}>
           {SVGChevronLeft}
@@ -72,10 +79,10 @@ export default function YearSelector(props: TYearSelector) {
         max={maxYear}
       />
       <StyledButton
-        aria-label={ariaTextRightArrow || 'one year forward'}
+        aria-label={ariaTextRightArrow}
         onClick={() => handleYearChange(1)}
         $themeType={themeTypeSecondary}
-        $layer={textLayer}
+        $layer={secondaryLayer}
       >
         <FancySVGAtom isPassive={true} sizeC={sizeSettings[sizeC].iconSize} externalStyle={SVGDesignCSS}>
           {SVGChevronRight}

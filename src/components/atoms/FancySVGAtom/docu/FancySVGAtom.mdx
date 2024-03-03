@@ -1,0 +1,53 @@
+import { Meta, Controls } from '@storybook/blocks';
+import * as FancySVGAtomStories from './FancySVGAtom.stories';
+
+<Meta of={FancySVGAtomStories} />
+
+# FancySVGAtom Component
+
+The `FancySVGAtom` component is a React component designed to wrap SVG elements, providing them with additional styling capabilities. It leverages the styled-components library to dynamically apply styles based on the props passed to it. This component is particularly useful for projects that require a consistent styling approach across different SVG icons or graphics, with support for theming, size adjustments, active/passive states, and system messages.
+
+## Setup Instructions
+
+To use the `FancySVGAtom` component in your project, follow these steps:
+
+1. Import the `FancySVGAtom` component into your file:
+
+   ```jsx
+   import { FancySVGAtom } from '@tobitry/fui-fancyui';
+   ```
+
+2. Make sure to import the required types and utilities if you're planning to use them for the component props:
+   ```jsx
+   import { TFancySVGAtomSizes, TFancySVGAtom, TFancySVGAtomWithNativeAttrs } from '@tobitry/fui-fancyui';
+   ```
+
+## Example Usage
+
+Here's an example demonstrating how to use the `FancySVGAtom` component within a React application:
+
+```jsx
+import React from 'react';
+import { FancySVGAtom } from '@tobitry/fui-fancyui';
+import { ReactComponent as YourIconSVG } from './path/to/your-icon.svg';
+
+function ExampleComponent() {
+  return (
+    <FancySVGAtom sizeC="md" isActive themeType="primary">
+      <YourIconSVG />
+    </FancySVGAtom>
+  );
+}
+```
+
+In this example, the `FancySVGAtom` wraps a custom SVG component (`YourIconSVG`), applying medium size, active state, and primary theme color.
+
+## Component Properties
+
+The `FancySVGAtom` component accepts the following props:
+
+<Controls />
+
+Additionally, it inherits properties from `React.HTMLAttributes<HTMLElement>`, excluding `style` to maintain control over the styling through styled-components.
+
+This component offers flexibility in styling SVGs for various UI states and themes, making it a valuable tool for projects requiring a cohesive visual design language.

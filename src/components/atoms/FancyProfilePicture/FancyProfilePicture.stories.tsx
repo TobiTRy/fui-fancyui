@@ -15,12 +15,18 @@ const meta = {
       },
     },
   },
-
   // Define arguments for the story
   argTypes: {
     rounded: {
+      type: {
+        name: 'string',
+        required: false,
+      },
       control: { type: 'select' },
-      options: ['sm', 'md', 'lg', 'complete'],
+      options: ['sm', 'md', 'lg', 'complete', undefined, 'none'],
+      defaultValue: {
+        summary: 'complete',
+      },
     },
     sizeC: {
       control: { type: 'select' },

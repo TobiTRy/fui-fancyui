@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-export type IFancyButtonProps = {
+export type TFancyButtonProps = {
   isLoading?: boolean;
   label?: string;
   align?: 'left' | 'right' | 'center';

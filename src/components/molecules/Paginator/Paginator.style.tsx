@@ -33,9 +33,9 @@ export const IconWrapper = styled.div<IIconWrapper>`
   ${({ $align, theme }) =>
     $align === 'right'
       ? css`
-          margin-left: ${parseFloat(theme.spacing.xs) - 1 + 'px'};
+          margin-left: ${theme.spacing.xxs};
         `
       : css`
-          margin-right: ${parseFloat(theme.spacing.xs) - 1 + 'px'};
+          margin-right: ${theme.spacing.xxs};
         `}
 `;

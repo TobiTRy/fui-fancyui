@@ -9,7 +9,7 @@ interface IFancyPageList {
   itemsPerPage?: number;
   elements: React.ReactNode[];
   spacingBetweenItems?: string;
-  pageLimits?: number;
+  showPages?: number;
   buttonDesign?: 'accent' | 'primary' | 'transparent';
   outlinedButton?: boolean;
 }
@@ -17,7 +17,14 @@ interface IFancyPageList {
 // ------- This Component renders a Paginator with the specific list --------- //
 // --------------------------------------------------------------------------- //
 export default function FancyPageList(props: IFancyPageList) {
-  const { itemsPerPage, elements, spacingBetweenItems, buttonDesign, outlinedButton, pageLimits } = {
+  const {
+    itemsPerPage,
+    elements,
+    spacingBetweenItems,
+    buttonDesign,
+    outlinedButton,
+    showPages = 3,
+  } = {
     ...defaultProps,
     ...props,
   };
@@ -40,8 +47,8 @@ export default function FancyPageList(props: IFancyPageList) {
       {/* The Paginator for the Page switches*/}
       <Paginator
         currentPage={currentPage}
-        totalPages={totalPageCount}
-        pageLimits={pageLimits}
+        showPages={showPages}
+        pageLimits={totalPageCount}
         onPageChange={(page) => setCurrentPage(page)}
         themeType={buttonDesign}
         outlinedButton={outlinedButton}
