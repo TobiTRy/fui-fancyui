@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react';
-import { TitleWrapper } from '@/components/atoms/TitleForComponent/TitleForComponent.style';
+
+import { TitleWrapper, Wrapper } from '@/components/atoms/TitleForComponent/TitleForComponent.style';
 import { TTypography, Typography } from '@/components/atoms/Typography';
 
 import { TTitleForComponent } from './TTitleForComponent.model';
@@ -8,13 +9,13 @@ import { TTitleForComponent } from './TTitleForComponent.model';
 // ------ This Component Wrapps only the component and adds a Wrapper -------- //
 // --------------------------------------------------------------------------- //
 export default function TitleForComponent(props: TTitleForComponent) {
-  const { children, title, titleAlign } = props;
+  const { children, title, titleAlign, gap = 'xs' } = props;
 
   return (
-    <div>
+    <Wrapper $spacing={gap}>
       {title && <TitleWrapper $align={titleAlign}>{getCorrectTitle(title)}</TitleWrapper>}
       {children}
-    </div>
+    </Wrapper>
   );
 }
 
