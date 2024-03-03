@@ -34,7 +34,7 @@ export const Primary: Story = {
 };
 
 export const List: Story = {
-  render: (args) => (
+  render: () => (
     <RawUL>
       <li>Hi iam completly blank</li>
       <li>Hi iam completly blank</li>
