@@ -2,12 +2,13 @@ import React from 'react';
 import { CSSProp } from 'styled-components';
 
 import { IgenerateListItemStyle } from './SwitchList.style';
-import { IActiveSwitchIndicator } from '@/components/atoms/SwitchActiveIndicator/SwitchActiveIndicator';
+
 import { TFancyFlexBoxProps } from '@/components/templates/FancyFlexBox/FancyFlexBox.model';
 import { TSpacings } from '@/types/TSpacings';
+import { TActiveSwitchIndicator } from '@/components/atoms/SwitchActiveIndicator';
 
 // the props for the SwitchActiveIndicator component
-type TSwitchActiveIndicator = Omit<IActiveSwitchIndicator, 'itemNumber'>;
+type TSwitchActiveIndicator = Omit<TActiveSwitchIndicator, 'itemNumber'>;
 
 // the props for the SwitchList component
 interface IBottomBarListProps {
