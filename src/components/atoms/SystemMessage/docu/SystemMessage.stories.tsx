@@ -32,6 +32,18 @@ const meta = {
         type: 'object',
       },
     },
+    ownTypographyComponent: {
+      description: 'The flag to use own typography component.',
+      control: {
+        type: 'boolean',
+      },
+    },
+    externalStyle: {
+      description: 'The external style for the component.',
+      control: {
+        type: 'object',
+      },
+    },
   },
 } satisfies Meta<typeof SystemMessage>;
 
