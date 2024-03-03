@@ -17,6 +17,7 @@ export const ButtonStyle = styled.span<IGenerateThemeDesignForComponent & TStyle
   border: none;
   cursor: pointer;
   box-sizing: border-box;
+  pointer-events: none;
   align-items: center;
   text-decoration: none;
   text-align: center;
