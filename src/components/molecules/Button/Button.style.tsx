@@ -17,7 +17,6 @@ export const ButtonStyle = styled.span<IGenerateThemeDesignForComponent & TStyle
   border: none;
   cursor: pointer;
   box-sizing: border-box;
-  pointer-events: none;
   align-items: center;
   text-decoration: none;
   text-align: center;
@@ -48,4 +47,5 @@ export const ButtonStyle = styled.span<IGenerateThemeDesignForComponent & TStyle
 // the button wrapper is used to make the button full width
 export const StyledButton = styled(RawButton)<{ $wide?: boolean }>`
   width: ${({ $wide }) => ($wide ? '100%' : 'fit-content')};
+  height: fit-content;
 `;
