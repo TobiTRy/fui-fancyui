@@ -12,9 +12,11 @@ export type TYearSelector = {
   minYear?: number;
   maxYear?: number;
   layer?: TLayer;
-  textLayer?: TLayer;
+  secondaryLayer?: TLayer;
   borderRadius?: TBorderRadiusSizes;
   yearChangeHandler?: (change: number) => void;
   ariaTextLeftArrow: string;
   ariaTextRightArrow: string;
 };
+
+export type TYearSelectorWithHTMLAttributes = TYearSelector & React.HTMLAttributes<HTMLDivElement>;

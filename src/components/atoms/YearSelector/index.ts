@@ -1,3 +1,3 @@
 export { default as YearSelector } from './YearSelector';
 
-export type { TYearSelector } from './TYearSelector.model';
+export type { TYearSelector, TYearSelectorWithHTMLAttributes } from './TYearSelector.model';

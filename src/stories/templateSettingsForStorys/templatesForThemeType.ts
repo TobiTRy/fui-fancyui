@@ -2,6 +2,7 @@ import { TUiColorsMain } from '@/types/TUiColorsMain';
 import { TUiColorTypes } from '../../types/TUiColorTypes';
 import { TUiColorsSystemMessage } from '../../types/TUiColorsSystemMessage';
 import { TUiColorsNotTransparent } from '../../types/TUiColorsNotTransparent';
+import { TLayer } from '../../types/TLayer';
 
 type ThemeTypeCategory = 'allThemeTypes' | 'notTransparent' | 'systemMessage' | 'mainThemeTypes';
 
@@ -28,7 +29,7 @@ const notTransparent: TUiColorsNotTransparent[] = [
 function templateThemeType<Cat extends ThemeTypeCategory, Default extends ThemeOptionsMap[Cat]>(
   themeTypeCat: Cat,
   defaultValue?: Default,
-  layer?: number
+  layer?: TLayer
 ) {
   let options: TUiColorTypes[] | TUiColorsSystemMessage[] | TUiColorsNotTransparent[];
 
