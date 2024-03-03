@@ -11,6 +11,4 @@ export type TWeekDays = {
   startWeekOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6;
 };
 
-type NativeAttrs = React.HTMLAttributes<HTMLDivElement>;
-
-export type TWeekDaysWithNativeAttrs = TWeekDays & NativeAttrs;
+export type TWeekDaysWithNativeAttrs = TWeekDays & React.HTMLAttributes<HTMLDivElement>;

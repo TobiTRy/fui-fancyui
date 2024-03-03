@@ -1,0 +1,55 @@
+import { Meta, Title, Description, Controls } from '@storybook/blocks';
+
+import * as WeekDaysStories from './WeekDays.stories';
+
+<Meta of={WeekDaysStories} />
+
+<Title />
+
+<Description />
+
+The `WeekDays` component is a React component designed to display a list of weekdays, from Monday to Sunday, customizable in terms of starting day, theme, border style, and size. It's a part of a larger design system, ideal for calendar interfaces or any application needing to display week days dynamically.
+
+## Brief Description
+
+This component dynamically generates a list of weekdays based on the provided start day. It supports customization for visual aspects such as theme color, border styling, and text size. The component utilizes the `Typography` atom for rendering each day, ensuring consistent styling across your application.
+
+## Setup Instructions
+
+To use the `WeekDays` in your project, follow these steps:
+
+1. Import the `WeekDays` component where you intend to use it:
+
+```jsx
+import { WeekDays } from '@tobitry/fui-fancyui';
+```
+
+2. If using TypeScript, ensure the type definitions are imported for prop validation:
+
+```jsx
+import { TWeekDays, TWeekDaysWithNativeAttr } from '@tobitry/fui-fancyui';
+```
+
+3. Make sure to import necessary types and utilities if you're extending or customizing the component.
+
+## Example Usage
+
+Here's an example of how to use the `WeekDays` component with custom settings:
+
+```jsx
+<WeekDays
+  themeType="primary"
+  layer={1}
+  sizeC="lg"
+  border="bottom"
+  startWeekOn={1} // Start the week on Monday
+/>
+```
+
+This configuration will display the weekdays starting from Monday, with a large font size, a bottom border, in a primary theme color, and on layer 1.
+
+## Component Properties
+
+<Controls />
+
+The `TWeekDays` type outlines the props that can be passed to the `WeekDays` component, providing a flexible interface for various use cases.
