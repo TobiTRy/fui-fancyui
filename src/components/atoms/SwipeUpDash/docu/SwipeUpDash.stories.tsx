@@ -2,11 +2,12 @@
 import { Meta, StoryObj } from '@storybook/react';
 
 // Import the component to be tested
-import SwipeUpDash from './SwipeUpDash';
+import SwipeUpDash from '../SwipeUpDash';
 
 // Define metadata for the story
 const meta = {
   component: SwipeUpDash,
+  title: 'components/atoms/SwipeUpDash',
   parameters: {
     docs: {
       description: {
@@ -29,11 +30,4 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   render: (args) => <SwipeUpDash {...args} />,
   args: {},
-  parameters: {
-    docs: {
-      description: {
-        story: '',
-      },
-    },
-  },
 };
