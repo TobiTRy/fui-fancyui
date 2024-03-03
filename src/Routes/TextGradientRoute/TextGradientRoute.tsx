@@ -2,7 +2,7 @@ import { DesignArea, DesignWrapper } from '@/Routes/DesignWrapper/Wrapper';
 import { TextGradient } from '@/components/atoms/TextGradient';
 import { themeStore } from '@/design/theme/themeStore';
 import { Typography } from '@/components/atoms/Typography';
-import { TGradientColor } from '@/components/atoms/TextGradient/TextGradient.model';
+import { TGradientColor } from '@/components/atoms/TextGradient/TTextGradient.model';
 
 const themeColors = themeStore.getState().theme.colors;
 

@@ -1,4 +1,4 @@
-import { TTextGradientProps } from '@/components/atoms/TextGradient/TextGradient.model';
+import { TTextGradientProps } from '@/components/atoms/TextGradient/TTextGradient.model';
 import { GradientText } from '@/components/atoms/TextGradient/TextGradient.style';
 
 // --------------------------------------------------------------------------- //

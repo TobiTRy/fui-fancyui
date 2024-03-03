@@ -1,0 +1,52 @@
+import { Meta, Title, Description, Controls } from '@storybook/blocks';
+
+import * as TextGradientStories from './TextGradient.stories';
+
+<Meta of={TextGradientStories} />
+
+<Title />
+
+<Description />
+
+## Setup Instructions
+
+To use the `SwipeUpContainer` in your project, follow these steps:
+
+1. Import the `TextGradient` component where you intend to use it:
+
+```jsx
+import { TextGradient } from '@tobitry/fui-fancyui';
+```
+
+2. If using TypeScript, ensure the type definitions are imported for prop validation:
+
+```jsx
+import { GradientPosition, TGradientColor, TTextGradientProps } from '@tobitry/fui-fancyui';
+```
+
+3. Use the component in your JSX, passing the required props for your gradient.
+
+## Example Usage
+
+Here's an example of how to use the `TextGradient` component with a linear gradient:
+
+```jsx
+<TextGradient
+  degree={45}
+  colors={[
+    { color: '#ff00ff', stop: '0%' },
+    { color: '#00ffff', stop: '100%' },
+  ]}
+  orientation="linear"
+>
+  This is a gradient text!
+</TextGradient>
+```
+
+This code snippet creates a `TextGradient` where the gradient moves at a 45-degree angle from magenta to cyan.
+
+## Component Properties
+
+<Controls />
+
+The `TTextGradientProps` type defines the props accepted by the `TextGradient`, ensuring proper usage and flexibility in customization to fit various design needs.';
