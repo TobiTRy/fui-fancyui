@@ -2,27 +2,30 @@
 import { Meta, StoryObj } from '@storybook/react';
 
 // Import the component to be tested
-import SwitchActiveIndicator from './SwitchActiveIndicator';
+import SwitchActiveIndicator from '../SwitchActiveIndicator';
+import templateThemeType from '@/stories/templateSettingsForStorys/templatesForThemeType';
 
 // Define metadata for the story
 const meta = {
   component: SwitchActiveIndicator,
+  title: 'components/atoms/SwitchActiveIndicator',
   parameters: {
     docs: {
       description: {
         component:
-          'The SwitchActiveIndicator is a simple horizontal line or a bolb that indicates the active tab in a tab switcher, it is used in the FancyTabSwitch component',
+          'The `SwitchActiveIndicator` component is a React component designed to indicate which item in a switch list is currently active. It provides a dynamic visual cue through various styles like underline, topline, or a blob, based on the component`s configuration.',
       },
     },
   },
   // Define arguments for the story
   argTypes: {
+    ...templateThemeType('notTransparent', 'accent', 0),
     type: {
       description: 'The type of the indicator, it can be a bolb or a underline',
       control: {
         type: 'radio',
       },
-      options: ['bolb', 'underline'],
+      options: ['bolb', 'underline', 'topline'],
       defaultValue: {
         summary: 'bolb',
       },
@@ -71,18 +74,7 @@ const meta = {
         summary: false,
       },
     },
-    themeType: {
-      description: 'The themeType is to set the color of the indicator',
-      control: {
-        type: 'select',
-      },
-      defaultValue: {
-        summary: 'accent',
-      },
-    },
   },
-  // Add tags to the story
-  tags: ['autodocs'],
 } satisfies Meta<typeof SwitchActiveIndicator>;
 
 // Export the metadata
@@ -101,12 +93,6 @@ export const Primary: Story = {
     outlined: false,
     direction: 'horizontal',
     themeType: 'accent',
-  },
-  parameters: {
-    docs: {
-      description: {
-        story: '',
-      },
-    },
+    layer: 0,
   },
 };

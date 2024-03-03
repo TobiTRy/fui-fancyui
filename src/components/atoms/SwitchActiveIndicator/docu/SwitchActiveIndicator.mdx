@@ -1,0 +1,52 @@
+import { Meta, Title, Description, Controls } from '@storybook/blocks';
+
+import * as SwitchActiveIndicatorStories from './SwitchActiveIndicator.stories';
+
+<Meta of={SwitchActiveIndicatorStories} />
+
+<Title />
+
+<Description />
+
+## Setup Instructions
+
+To use the `SwipeUpContainer` in your project, follow these steps:
+
+1. Import the `SwitchActiveIndicator` component where you intend to use it:
+
+```jsx
+import { SwitchActiveIndicator } from '@tobitry/fui-fancyui';
+```
+
+2. If using TypeScript, ensure the type definitions are imported for prop validation:
+
+```jsx
+import { TSwipeUpContainer, TSwipeUpContainerWithHTMLAttrs } from '@tobitry/fui-fancyui';
+```
+
+3. Additionally, ensure that the necessary types and utilities are imported if you're planning to extend or customize the component further.
+
+## Example Usage
+
+```jsx
+<SwitchActiveIndicator
+  itemNumber={2}
+  tabSpacing="medium"
+  direction="horizontal"
+  type="underline"
+  themeType="primary"
+  layer={1}
+  rounded="medium"
+  outlined={true}
+  indicatorWidth="50%"
+  className="custom-class-name"
+/>
+```
+
+This example sets up an active indicator for the second item in a horizontal list, with medium spacing between tabs, an underline style, primary theme color, a specific layer, medium rounded corners, an outline, a custom width for the indicator, and a custom class name for additional styling.
+
+## Component Properties
+
+<Controls />
+
+The `TActiveSwitchIndicator` type details the props accepted by the `SwitchActiveIndicator`, ensuring proper usage and flexibility in customization to fit various UI requirements.;
