@@ -10,4 +10,5 @@ export type TYearInput = {
   layer?: TLayer;
 };
 
-export type TYearInputWithNativeAttrs = TYearInput & TNumberInputWithNativeAttrs;
+export type TYearInputWithNativeAttrs = TYearInput &
+  Omit<TNumberInputWithNativeAttrs, 'step' | 'autoWidth' | 'decimalPlaces' | 'value'>;

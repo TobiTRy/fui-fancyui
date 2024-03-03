@@ -1,0 +1,43 @@
+import { Meta, Description, Title, Controls } from '@storybook/blocks';
+
+import * as YearInputStories from './YearInput.stories';
+
+<Meta of={YearInputStories} />
+
+<Title />
+
+<Description />
+
+## Setup Instructions
+
+To use the `YearInput` in your project, follow these steps:
+
+1. Import the `YearInput` component where you intend to use it:
+
+```jsx
+import { YearInput } from '@tobitry/fui-fancyui';
+```
+
+2. If using TypeScript, ensure the type definitions are imported for prop validation:
+
+```jsx
+import { TYearInputWithNativeAttrs, TYearInput } from '@tobitry/fui-fancyui';
+```
+
+3. Use the `YearInput` component in your JSX, providing any necessary props for customization.
+
+## Example Usage
+
+Here's an example showcasing how to use the `YearInput` component:
+
+```jsx
+<YearInput year={2024} sizeC="lg" themeType="secondary" layer={1} onChange={(e) => console.log(e.target.value)} />
+```
+
+This example creates a `YearInput` component initialized with the year 2024, large size, secondary theme, on layer 1, and logs the new value when changed.
+
+## Component Properties
+
+<Controls />
+
+The `TYearInputWithNativeAttrs` type combines `TYearInput` properties with native HTML input attributes, allowing for a flexible and customizable component that can adapt to various design requirements.
