@@ -3,8 +3,7 @@ import { Link, Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import FancyThemeProvider from '@/design/theme/FancyThemeProvider/FancyThemeProvider';
 import { TTheme } from '@/types/TTheme';
 import { styled } from 'styled-components';
-import { FancyModal, FancySwipeUpModal } from '../lib';
-import GlobalStyle from './GlobalStyle';
+import { DefaultStyle, FancyModal, FancySwipeUpModal } from '../lib';
 import ButtonRoute from './Routes/BottonRoute/ButtonRoute';
 import CradRoute from './Routes/CardRoute/CradRoute';
 import CheckboxRoute from './Routes/CheckboxRoute/CheckboxRoute';
@@ -77,7 +76,7 @@ function App() {
     <div className="App">
       <Router>
         <FancyThemeProvider>
-          <GlobalStyle theme={theme} />
+          <DefaultStyle theme={theme} />
           <FancySwipeUpModal appendToDomID="modal" />
           <FancyModal appendToDomID="modal" />
           <div>
