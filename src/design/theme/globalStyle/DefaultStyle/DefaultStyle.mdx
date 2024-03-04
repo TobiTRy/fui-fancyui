@@ -1,0 +1,90 @@
+# `DefaultStyle` Component
+
+## Brief Description
+
+The `DefaultStyle` component is a globally applied style component created using `styled-components`. Its primary purpose is to set default styles for the body of your application, ensuring consistency across different browsers and devices. This component utilizes the theming capabilities of `styled-components` to apply theme-based colors for the background and text, as well as setting up a custom scrollbar and other foundational styles like font family, positioning, and sizing.
+
+## Setup Instructions
+
+1. **Import the `DefaultStyle` Component**: Import the `DefaultStyle` component into your application's main file (e.g., `App.js` or `App.tsx`).
+
+   ```jsx
+   import DefaultStyle from './path/to/DefaultStyle';
+   ```
+
+2. **Apply the `DefaultStyle` Component**: Use the `DefaultStyle` component at the root of your application. Since it's a global style component, you only need to include it once, typically near the top of your app's component tree.
+
+   ```jsx
+   function App() {
+     return (
+       <>
+         <DefaultStyle />
+         {/* Other components */}
+       </>
+     );
+   }
+   ```
+
+3. **Configure Theme**: Ensure you have a theme object that matches the `TTheme` structure, especially the `colors.primary[0]` and `colors.secondary[0]` for background and text colors, respectively.
+
+   ```jsx
+   const theme = {
+     colors: {
+       primary: ['#backgroundColor'],
+       secondary: ['#textColor'],
+     },
+     // Other theme settings
+   };
+   ```
+
+4. **ThemeProvider**: Wrap your application (or the part of it that should receive the theme) with `styled-components`' `ThemeProvider`, passing the theme object as a prop.
+
+   ```jsx
+   import { ThemeProvider } from 'styled-components';
+
+   function App() {
+     return (
+       <ThemeProvider theme={theme}>
+         <DefaultStyle />
+         {/* Other components */}
+       </ThemeProvider>
+     );
+   }
+   ```
+
+## Example Usage
+
+Here's a simple example demonstrating how to use the `DefaultStyle` component in a React application with a theme configuration:
+
+```jsx
+import React from 'react';
+import { ThemeProvider } from 'styled-components';
+import DefaultStyle from './DefaultStyle';
+
+const theme = {
+  colors: {
+    primary: ['#fff'], // Background color
+    secondary: ['#333'], // Text color
+  },
+};
+
+function App() {
+  return (
+    <ThemeProvider theme={theme}>
+      <DefaultStyle />
+      <div>{/* Your application components go here */}</div>
+    </ThemeProvider>
+  );
+}
+
+export default App;
+```
+
+## Component Properties
+
+The `DefaultStyle` component does not accept any props directly from the user. However, it requires a `theme` prop implicitly through the `ThemeProvider` context. This `theme` object must adhere to the `TTheme` structure, particularly with `colors.primary[0]` for background color and `colors.secondary[0]` for text color.
+
+- **`theme` (implicit prop)**: The theme object provided via `ThemeProvider`.
+  - Type: `TTheme`
+
+This documentation covers the basic setup and usage of the `DefaultStyle` component. Ensure that the theme object is correctly structured and passed to the `ThemeProvider` to apply the global styles effectively across your application.
