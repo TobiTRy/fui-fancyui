@@ -140,6 +140,7 @@ export * from '@/components/templates/FancyAlignBox';
 export * from '@/components/templates/FancyGridTemplate';
 export * from '@/components/templates/FancyGridTemplateItem';
 export * from '@/components/templates/FancySkeletonGrid';
+export * from '@/components/templates/FancyCard';
 
 // ---------- Utils/Hooks ------- //
 export * from '@/components/shared/FancyPopover';
@@ -148,6 +149,7 @@ export * from '@/components/shared/ComponentAsWrapper';
 export * from '@/components/shared/FancyPortal';
 export * from '@/utils/hooks/useIntersectionObserver';
 export * from '@/utils/hooks/useWindowDimensions';
+export * from '@/design/theme/FancyThemeProvider';
 
 // ---------- Design ------- //
 export * from '@/design/designFunctions/calcBorderRadiusOnAlignment';

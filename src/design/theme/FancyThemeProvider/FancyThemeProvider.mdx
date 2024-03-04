@@ -1,0 +1,42 @@
+# FancyThemeProvider Component
+
+## Brief Description
+
+The `FancyThemeProvider` component is designed to manage and provide theme settings across a React application. It utilizes a theme store to maintain the current theme state and ensure consistent theming throughout the application. Upon initialization, it sets the provided theme into the theme store and indicates that the theme has been initialized. This component acts as a wrapper that ensures all child components have access to the theme settings, either the one provided through props or the default theme from the theme store.
+
+## Setup Instructions
+
+1. **Install Styled Components**: Ensure that `styled-components` is installed in your project, as `FancyThemeProvider` relies on it to provide theming capabilities.
+
+   ```bash
+   npm install styled-components
+   ```
+
+2. **Theme Store Setup**: Ensure you have a theme store set up similar to `themeStore` used in the `FancyThemeProvider`. This store should manage your application's theme state, including setting and retrieving the current theme.
+
+3. **Import and Use `FancyThemeProvider`**: Import the `FancyThemeProvider` into your application and wrap it around your component hierarchy to provide theme context to all child components.
+
+## Example Usage
+
+```jsx
+import React from 'react';
+import FancyThemeProvider from '@tobitry/fui-fancyui';
+import { theme } from './theme'; // Import your default or custom theme
+
+function App() {
+  return <FancyThemeProvider theme={theme}>{/* Your app components go here */}</FancyThemeProvider>;
+}
+```
+
+## Component Properties
+
+- **`children`**: `ReactNode`
+
+  - The child components that will have access to the theme context provided by `FancyThemeProvider`.
+  - **Required**
+
+- **`theme`**: `object`
+  - An optional theme object that overrides the default theme settings. It should match the structure expected by your application's theme store and `styled-components` `ThemeProvider`.
+  - **Optional**, default value is the default theme from `themeStore` if not provided.
+
+The component integrates with a theme store (e.g., `themeStore`) to manage theme states and ensure that theme updates are consistently applied across the application. It uses React's `useEffect` hook to set the initial theme and manage the initialization state, facilitating the dynamic application of themes and ensuring that all child components can access the current theme context.
