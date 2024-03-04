@@ -187,6 +187,7 @@ export * from '@/components/atoms/RawSlider/TRawSlider.model';
 
 // ---------- Store ------- //
 export * from '@/design/theme/themeStore';
+export * from '@/design/theme/globalStyle/DefaultStyle';
 
 // ---------- SVGs ------- //
 export * from '@/components/icons/SVGClipBoardIcon';
