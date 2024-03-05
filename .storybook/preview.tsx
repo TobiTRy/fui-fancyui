@@ -2,7 +2,7 @@ import type { Preview } from '@storybook/react';
 import { withThemeFromJSXProvider } from '@storybook/addon-styling';
 import { DocsContainer } from './DocsContainer';
 import themeStore from '../src/design/theme/themeStore/themeStore';
-import GlobalStyle from '../src/GlobalStyle';
+import { DefaultStyle } from '../src/design/theme/globalStyle/DefaultStyle';
 import { ThemeProvider } from 'styled-components';
 import storyBookThemeLight from './storyBookThemeLight';
 import storyBookThemeDark from './storyBookThemeDark';
@@ -55,7 +55,7 @@ export const decorators = [
       FancyUi: themeStore.getState().theme,
       switchTheme: switchTheme,
     },
-    GlobalStyles: GlobalStyle, // Adds your GlobalStyle component to all stories
+    GlobalStyles: DefaultStyle, // Adds your GlobalStyle component to all stories
     Provider: ThemeProvider,
   }),
 ];
