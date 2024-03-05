@@ -1,8 +1,7 @@
-import React from 'react';
-
 import type { Meta, StoryObj } from '@storybook/react';
 
 import FancyBottomBarStatic from './BottomBar';
+import templateThemeType from '@/stories/templateSettingsForStorys/templatesForThemeType';
 
 const meta = {
   component: FancyBottomBarStatic,
@@ -15,25 +14,11 @@ const meta = {
     },
   },
   argTypes: {
-    themeType: {
-      description: 'This prop will change the color of the bar',
-      control: {
-        type: 'select',
-      },
-    },
+    ...templateThemeType('allThemeTypes', 'primary', 0),
     isVisible: {
       description: 'This prop will show or hide the bar / props musst be received before the component is rendered',
       control: {
         type: 'boolean',
-      },
-    },
-    layer: {
-      description: 'This prop will change the layer of the bar',
-      control: {
-        type: 'range',
-        min: 0,
-        max: 9,
-        step: 1,
       },
     },
   },
