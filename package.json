@@ -2,7 +2,7 @@
   "name": "fui-fancyui",
   "description": "FancyUI Libary",
   "private": false,
-  "version": "0.3.04",
+  "version": "0.3.06",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -134,6 +134,6 @@
   "license": "MIT",
   "homepage": "https://github.com/TobiTRy/FUI-FancyUI",
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/tobitry"
+    "registry": "https://registry.npmjs.org/"
   }
 }

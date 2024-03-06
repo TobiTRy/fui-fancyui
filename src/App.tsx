@@ -76,7 +76,7 @@ function App() {
     <div className="App">
       <Router>
         <FancyThemeProvider>
-          <DefaultStyle theme={theme} />
+          <DefaultStyle />
           <FancySwipeUpModal appendToDomID="modal" />
           <FancyModal appendToDomID="modal" />
           <div>

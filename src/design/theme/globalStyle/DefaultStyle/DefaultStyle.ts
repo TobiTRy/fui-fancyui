@@ -3,7 +3,7 @@ import { scrollbar } from '@/design/theme/globalStyle/scrollbar/index';
 
 import { TTheme } from '@/types/TTheme';
 
-const DefaultStyle = createGlobalStyle<{ theme: TTheme }>`
+const DefaultStyle = createGlobalStyle<{ theme?: TTheme }>`
   body {
     margin: 0;
     padding: 0;
