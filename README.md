@@ -1,10 +1,25 @@
+![FancyUI Header Image](https://tobitry.de/bilder/fui/header.jpg)
+
 # FancyUI (FUI)
 
 Welcome to FancyUI (FUI), a state-of-the-art UI library meticulously crafted for React and Next.js projects. While currently under active development, FUI is dedicated to providing a sleek, modern, and highly customizable set of components. Built with TypeScript and Styled Components, FUI is designed to integrate seamlessly and offer a rich set of functionalities to elevate your application's user interface.
 
+Certainly! Here's a more concise version:
+
 ## 🚧 Current Status: Work in Progress
 
 FUI is currently a masterpiece in the making. Our team is working diligently to ensure that every component, feature, and line of code meets the highest standards of quality and innovation. While we're putting in the hours to make FUI really, really fancy, we appreciate your patience and excitement for the upcoming release.
+
+## 📘 Explore FancyUI Components
+
+**Discover in Storybook**: FancyUI's Storybook is your essential resource for diving into our UI library. It offers:
+
+- **Live Component Demos**: Experiment with components in real-time to understand their flexibility.
+- **Setup Guidance**: Detailed instructions for tailoring FancyUI to your project's needs.
+- **Customization Tips**: Learn to customize the look and feel using Styled Components.
+- **Usage Best Practices**: Elevate your UI with our design and performance tips.
+
+For a detailed exploration, visit [FancyUI Storybook(Comming Soon)](https://fancyui.net). Whether you're integrating components or seeking design inspiration, our Storybook has everything you need for a seamless experience.
 
 ## 🎨 Features in Development
 
