@@ -2,7 +2,7 @@
   "name": "fui-fancyui",
   "description": "FancyUI Libary",
   "private": false,
-  "version": "0.3.06",
+  "version": "0.3.07",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -106,6 +106,23 @@
   "sideEffects": false,
   "main": "dist/lib/index.js",
   "types": "dist/lib/index.d.ts",
+  "keywords": [
+    "react",
+    "react-ui",
+    "javascript",
+    "ui-design",
+    "typescript",
+    "ui",
+    "reactjs",
+    "react-components",
+    "atomic-design",
+    "ui-components",
+    "design-system",
+    "ui-library",
+    "reactui",
+    "react-ui-components",
+    "uilibrary"
+  ],
   "exports": {
     ".": {
       "import": "./dist/lib/index.js",
