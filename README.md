@@ -1,4 +1,4 @@
-![FancyUI Header Image](https://tobitry.de/bilder/fui/header.jpg)
+![FancyUI Header Image](https://tobitry.de/bilder/fui/fuiheader.jpg)
 
 # FancyUI (FUI)
 
