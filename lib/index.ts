@@ -54,6 +54,7 @@ export * from '@/components/atoms/NumberInput';
 export * from '@/components/atoms/PasswordInput';
 export * from '@/components/atoms/TextInput';
 export * from '@/components/atoms/SkeletonBox';
+export * from '@/components/atoms/TextGradient';
 export * from '@/components/atoms/TitleForComponent';
 
 // ---------- Molecules ------- //
@@ -61,7 +62,6 @@ export * from '@/components/molecules/DateNumberWithStatus';
 export * from '@/components/molecules/DateOutputFromTo';
 export * from '@/components/molecules/DynamicBottomScrollBar';
 export * from '@/components/molecules/EditBar';
-export * from '@/components/molecules/BottomBar';
 export * from '@/components/molecules/FancyDropDownUL';
 export * from '@/components/molecules/FancySpeedDailButton';
 export * from '@/components/molecules/InputWrapper';
