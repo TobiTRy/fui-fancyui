@@ -1,26 +1,23 @@
 import { styled } from 'styled-components';
 
-import { TLayer } from '@/types/TLayer';
 import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponent';
 import { disabledStyle } from '@/design/designFunctions/disabledStyle/disableStyle';
+import { TStyledPrefixAndPicker } from '@/types/TStyledPrefixAndPicker';
 import { TTheme } from '@/types/TTheme';
-import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
+import { TBottomBarIcon } from './TBottomBarIcon.model';
+import { sizeSettings } from './sizeSettings';
 
-interface IContentWrapper {
-  $isActive?: boolean;
-  $disabled?: boolean;
-  theme: TTheme;
-  $themeType?: TUiColorsNotTransparent;
-  $layer?: TLayer;
-}
-
-export const ContentWrapper = styled.div<IContentWrapper>`
+type TContentWrapper = TStyledPrefixAndPicker<
+  TBottomBarIcon,
+  'sizeC' | 'disabled' | 'isActive' | 'themeType' | 'layer'
+>;
+export const ContentWrapper = styled.div<TContentWrapper & { theme?: TTheme }>`
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 78px;
-  min-height: 32px;
+  height: ${({ $sizeC }) => sizeSettings[$sizeC ?? 'md'].componentHeight};
   background-color: transparent;
   outline: none;
   border: none;

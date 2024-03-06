@@ -7,6 +7,7 @@ import FancyBottomBarIcon, {
   IFancyBottomBarIcon,
 } from '../../components/templates/FancyBottomBarIcon/FancyBottomBarIcon';
 import { css } from 'styled-components';
+import { BottomBarIcon } from '@/components/molecules/BottomBarIcon';
 
 const svg = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -46,6 +47,9 @@ export default function NavBarHandy() {
     <DesignWrapper>
       <DesignArea title="FancyHandyNav">
         <FancyHandyNav outlined items={items} />
+      </DesignArea>
+      <DesignArea title="FancyHandyNav">
+        <BottomBarIcon icon={svg} />
       </DesignArea>
       <DesignArea title="FancyHandyNav">
         <FancyHandyNav outlined outlinedBackgroundStrength={0.9} externalStyle={NavBarStyle} items={items2} />
