@@ -6,6 +6,11 @@ Welcome to FancyUI (FUI), a state-of-the-art UI library meticulously crafted for
 
 Certainly! Here's a more concise version:
 
+## 🚧 Current Status: Work in Progress
+
+FUI is currently a masterpiece in the making. Our team is working diligently to ensure that every component, feature, and line of code meets the highest standards of quality and innovation. While we're putting in the hours to make FUI really, really fancy, we appreciate your patience and excitement for the upcoming release.
+
+
 ## 📘 Explore FancyUI Components
 
 **Discover in Storybook**: FancyUI's Storybook is your essential resource for diving into our UI library. It offers:
@@ -17,9 +22,6 @@ Certainly! Here's a more concise version:
 
 For a detailed exploration, visit [FancyUI Storybook(Comming Soon)](https://fancyui.net). Whether you're integrating components or seeking design inspiration, our Storybook has everything you need for a seamless experience.
 
-## 🚧 Current Status: Work in Progress
-
-FUI is currently a masterpiece in the making. Our team is working diligently to ensure that every component, feature, and line of code meets the highest standards of quality and innovation. While we're putting in the hours to make FUI really, really fancy, we appreciate your patience and excitement for the upcoming release.
 
 ## 🎨 Features in Development
 
