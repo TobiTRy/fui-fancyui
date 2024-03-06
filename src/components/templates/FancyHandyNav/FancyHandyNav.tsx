@@ -1,14 +1,15 @@
 import { useEffect } from 'react';
-import { CSSProp, css } from 'styled-components';
+import { CSSProp } from 'styled-components';
 
 import useFancyHandyNavStore from './FancyHandyNav.store';
 import { TLayer } from '@/types/TLayer';
 
 import FancyBottomBarIcon, { IFancyBottomBarIcon } from '@/components/templates/FancyBottomBarIcon/FancyBottomBarIcon';
 import { RawNav } from '@/components/atoms/RawNav';
-import { BottomBar } from '@/components/molecules/BottomBar';
 import { SwitchList } from '@/components/molecules/SwitchList';
 import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
+import { FancyBox } from '@/components/atoms/FancyBox';
+import { fancyBarStyle } from '@/components/templates/FancyHandyNav/FancyHandyNav.style';
 
 interface IFancyHandyNav {
   items?: IFancyBottomBarIcon[];
@@ -52,14 +53,12 @@ export default function FancyHandyNav(props: IFancyHandyNav) {
       {isVisibleState && (
         // The Navbar container
         <RawNav $externalStyle={externalStyle} className={props.className}>
-          <BottomBar
+          <FancyBox
             outlined={props.outlined}
             themeType={themeType}
             layer={layer}
             outlinedBackgroundStrength={props.outlinedBackgroundStrength}
-            externalStyle={css`
-              border-bottom: none;
-            `}
+            externalStyle={fancyBarStyle}
           >
             {/* The List with the items  */}
             <SwitchList
@@ -83,7 +82,7 @@ export default function FancyHandyNav(props: IFancyHandyNav) {
                 />
               ))}
             </SwitchList>
-          </BottomBar>
+          </FancyBox>
         </RawNav>
       )}
     </>

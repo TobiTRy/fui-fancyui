@@ -2,7 +2,6 @@
 import React from 'react';
 
 import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';
-import BottomBar from '../../components/molecules/BottomBar/BottomBar';
 import FancyHandyNav from '../../components/templates/FancyHandyNav/FancyHandyNav';
 import FancyBottomBarIcon, {
   IFancyBottomBarIcon,
@@ -45,14 +44,6 @@ const NavBarStyle = css`
 export default function NavBarHandy() {
   return (
     <DesignWrapper>
-      <DesignArea title="NavBarHandy">
-        <BottomBar>
-          <FancyBottomBarIcon icon={svg} label="hii" />
-          <FancyBottomBarIcon type="a" href="http://google.de" icon={svg} label="hiii" />
-          <FancyBottomBarIcon icon={svg} type="button" label="Hii" />
-          <FancyBottomBarIcon icon={svg} label="hiii" />
-        </BottomBar>
-      </DesignArea>
       <DesignArea title="FancyHandyNav">
         <FancyHandyNav outlined items={items} />
       </DesignArea>
