@@ -4,13 +4,13 @@ import { TGlobalElementSizes } from '@/types/TGlobalElementSizes';
 
 type TSizeObj = {
   sizeIcon: TSpacings;
-  componentHeight?: TGlobalElementSizes;
+  componentHeight: TGlobalElementSizes;
 };
 
 export const sizeSettings: TSizeSettings<TSizeObj> = {
   sm: {
     sizeIcon: 'xs',
-    componentHeight: 'xs',
+    componentHeight: 'sm',
   },
   md: {
     sizeIcon: 'sm',

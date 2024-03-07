@@ -7,7 +7,18 @@ import { sizeSettings } from './sizeSettings';
 // -------------------- Only a Bottombar Icon with Text  --------------------- //
 // --------------------------------------------------------------------------- //
 export default function BottomBarIcon(props: TBottomBarIconWithHTMLAttributes) {
-  const { sizeC = 'md', icon, label, isActive, disabled, themeType, layer, hideLabel, ...htmlProps } = props;
+  const {
+    sizeC = 'sm',
+    icon,
+    label,
+    isActive,
+    disabled,
+    themeType,
+    layer,
+    hideLabel,
+    externalStyle,
+    ...htmlProps
+  } = props;
 
   return (
     <ContentWrapper
@@ -15,14 +26,18 @@ export default function BottomBarIcon(props: TBottomBarIconWithHTMLAttributes) {
       $isActive={isActive}
       $themeType={themeType}
       $layer={layer}
-      $sizeC={sizeC}
+      $externalStyle={externalStyle}
       {...htmlProps}
     >
-      <FancyContent direction="column" gapBetweenIcon="0">
+      <FancyContent direction="column" gapBetweenIcon="4px">
         <FancyContent.Icon sizeC={sizeSettings[sizeC].sizeIcon} aria-label={hideLabel ? label : undefined}>
           {icon}
         </FancyContent.Icon>
-        {!hideLabel && <FancyContent.Description fontVariant={'subTextFootnote'}>{label}</FancyContent.Description>}
+        {!hideLabel && (
+          <FancyContent.Description fontVariant={'subTextFootnote'} lineHeight={1}>
+            {label}
+          </FancyContent.Description>
+        )}
       </FancyContent>
     </ContentWrapper>
   );

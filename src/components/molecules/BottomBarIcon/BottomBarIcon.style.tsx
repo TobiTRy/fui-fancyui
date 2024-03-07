@@ -5,11 +5,10 @@ import { disabledStyle } from '@/design/designFunctions/disabledStyle/disableSty
 import { TStyledPrefixAndPicker } from '@/types/TStyledPrefixAndPicker';
 import { TTheme } from '@/types/TTheme';
 import { TBottomBarIcon } from './TBottomBarIcon.model';
-import { sizeSettings } from './sizeSettings';
 
 type TContentWrapper = TStyledPrefixAndPicker<
   TBottomBarIcon,
-  'sizeC' | 'disabled' | 'isActive' | 'themeType' | 'layer'
+  'sizeC' | 'disabled' | 'isActive' | 'themeType' | 'layer' | 'externalStyle'
 >;
 export const ContentWrapper = styled.div<TContentWrapper & { theme?: TTheme }>`
   position: relative;
@@ -17,7 +16,6 @@ export const ContentWrapper = styled.div<TContentWrapper & { theme?: TTheme }>`
   flex-direction: column;
   align-items: center;
   width: 78px;
-  height: ${({ $sizeC }) => sizeSettings[$sizeC ?? 'md'].componentHeight};
   background-color: transparent;
   outline: none;
   border: none;
@@ -27,7 +25,6 @@ export const ContentWrapper = styled.div<TContentWrapper & { theme?: TTheme }>`
     $isActive ? theme.colors.accent[0] : getBackgroundColor({ theme, $themeType, $layer })};
   transition: all 0.3s ease-in-out;
   ${({ $disabled }) => $disabled && disabledStyle}
-  padding-bottom: ${({ theme }) => theme.spacing.xs};
   text-decoration: none;
 
   /* This is a media query that tests if the primary input mechanism of the device (e.g., mouse or touch screen) is capable of hovering  */
@@ -36,4 +33,6 @@ export const ContentWrapper = styled.div<TContentWrapper & { theme?: TTheme }>`
       color: ${({ $disabled, theme }) => !$disabled && theme.colors.accent[0]};
     }
   }
+
+  ${({ $externalStyle }) => $externalStyle}
 `;
