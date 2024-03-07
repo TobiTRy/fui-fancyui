@@ -1,34 +1,47 @@
-import React from 'react';
-
 import type { Meta, StoryObj } from '@storybook/react';
 
-import Button from './Button';
+import Button from '../Button';
+import templateThemeType from '@/stories/templateSettingsForStorys/templatesForThemeType';
 
 const meta = {
   component: Button,
+  title: 'components/molecules/Button',
   parameters: {
     docs: {
       description: {
-        component: 'Dumb-Comonent:  This component is a button with a lot of props to change the style.',
+        component:
+          'The Button component is a versatile UI element designed for React applications, which can be styled using styled-components. It supports various configurations including size, theming, and optional properties like wide for full-width buttons or disabled for inactive buttons. It can adapt to different roles by rendering as either a `<button>` or an `<a>` tag, based on the as property, making it suitable for a wide range of user interactions. The component integrates with the application´s theme and can be customized with external styles.',
       },
     },
   },
   argTypes: {
-    themeType: {
-      description: 'This prop will change the color of the bar',
+    ...templateThemeType('allThemeTypes', 'accent', 0),
+    sizeC: {
+      description: 'The size of the component.',
+      control: {
+        type: 'select',
+        options: ['sm', 'md', 'lg'],
+      },
+      defaultValue: {
+        summary: 'md',
+      },
+    },
+    wide: {
+      description: 'If true, the component will be full-width.',
+      control: {
+        type: 'boolean',
+      },
+      defaultValue: {
+        summary: false,
+      },
+    },
+    borderRadius: {
+      description: 'The border radius of the component.',
       control: {
         type: 'select',
       },
     },
-    layer: {
-      description: 'This prop will change the layer of the bar',
-      control: {
-        type: 'range',
-        min: 0,
-        max: 10,
-        step: 1,
-      },
-    },
+
     outlined: {
       description: 'This prop will change the Nutton to outlined',
       control: {
@@ -47,10 +60,19 @@ const meta = {
         type: 'select',
       },
     },
-    wide: {
-      description: 'This prop will change the width of the button',
+    noSize: {
+      description: 'This prop will remove the size of the button like padding and size',
       control: {
         type: 'boolean',
+      },
+    },
+    disabled: {
+      description: 'If true, the component will be disabled.',
+      control: {
+        type: 'boolean',
+      },
+      defaultValue: {
+        summary: false,
       },
     },
     notAButton: {
@@ -60,7 +82,6 @@ const meta = {
       },
     },
   },
-  tags: ['autodocs'],
 } satisfies Meta<typeof Button>;
 
 export default meta;
