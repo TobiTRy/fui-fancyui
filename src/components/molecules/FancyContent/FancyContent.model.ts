@@ -1,13 +1,15 @@
-import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
-import { TLayer } from '@/types/TLayer';
 import { CSSProp } from 'styled-components';
+
+import { TLayer } from '@/types/TLayer';
+import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
+import { TThemeCSSValue } from '@/design/designFunctions/arrayToCssValues';
 
 export type TFancyContentProps = {
   direction?: 'row' | 'row-reverse' | 'column' | 'column-reverse';
   justify?: 'flex-start' | 'flex-end' | 'center' | 'space-between' | 'space-around' | 'space-evenly';
   align?: 'flex-start' | 'flex-end' | 'center' | 'stretch' | 'baseline';
-  gapBetweenText?: string;
-  gapBetweenIcon?: string;
+  gapBetweenText?: TThemeCSSValue;
+  gapBetweenIcon?: TThemeCSSValue;
   children?: React.ReactNode;
   themeType?: TUiColorsNotTransparent;
   layer?: TLayer;

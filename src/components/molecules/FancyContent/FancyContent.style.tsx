@@ -4,6 +4,7 @@ import { TStyledPrefixAndPicker } from '@/types/TStyledPrefixAndPicker';
 import { TTheme } from '@/types/TTheme';
 import { TFancyContentProps } from '@/components/molecules/FancyContent/FancyContent.model';
 import { TStyledPrefixAndOmiter } from '@/types/TStyledPrefixAndOmiter';
+import { arrayToCssValues } from '@/design/designFunctions/arrayToCssValues';
 
 // Define the types for the Wrapper component
 type TWrapper = TStyledPrefixAndOmiter<TFancyContentProps, 'children'>;
@@ -14,7 +15,7 @@ export const Wrapper = styled.span<TWrapper & { theme: TTheme }>`
   flex-direction: ${({ $direction }) => $direction || 'row'};
   justify-content: ${({ $justify }) => $justify || 'center'};
   align-items: ${({ $align }) => $align || 'center'};
-  gap: ${({ $gapBetweenIcon, theme }) => $gapBetweenIcon ?? theme.spacing.xxs};
+  gap: ${({ $gapBetweenIcon }) => arrayToCssValues($gapBetweenIcon ?? 'xss', 'spacing')};
   ${({ theme, $themeType, $layer }) =>
     $themeType &&
     css`
@@ -28,7 +29,7 @@ export const Wrapper = styled.span<TWrapper & { theme: TTheme }>`
     flex-direction: column;
     align-items: ${({ $align }) => $align || 'center'};
     justify-content: flex-start;
-    gap: ${({ $gapBetweenText, theme }) => $gapBetweenText ?? theme.spacing.xxs};
+    gap: ${({ $gapBetweenIcon }) => arrayToCssValues($gapBetweenIcon ?? 'xss', 'spacing')};
   }
 `;
 

@@ -29,7 +29,7 @@ export default function BottomBarIcon(props: TBottomBarIconWithHTMLAttributes) {
       $externalStyle={externalStyle}
       {...htmlProps}
     >
-      <FancyContent direction="column" gapBetweenIcon="4px">
+      <FancyContent direction="column" gapBetweenIcon="xxs">
         <FancyContent.Icon sizeC={sizeSettings[sizeC].sizeIcon} aria-label={hideLabel ? label : undefined}>
           {icon}
         </FancyContent.Icon>

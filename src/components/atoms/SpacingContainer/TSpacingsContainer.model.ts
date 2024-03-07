@@ -1,12 +1,12 @@
 import { ElementType } from 'react';
 import { CSSProp } from 'styled-components';
 
-import { TArrayToCssValues } from '@/design/designFunctions/arrayToCssValues';
-import { TValue } from '@/design/designFunctions/arrayToCssValues/TArrayValues.model';
+import { TThemeArrayCssValues } from '@/design/designFunctions/arrayToCssValues';
+import { TThemeCSSValue } from '@/design/designFunctions/arrayToCssValues/TArrayValues.model';
 
 export type TSpacingsContainer = {
-  padding?: TArrayToCssValues | TValue;
-  margin?: TArrayToCssValues | TValue;
+  padding?: TThemeArrayCssValues | TThemeCSSValue;
+  margin?: TThemeArrayCssValues | TThemeCSSValue;
   externalStyle?: CSSProp;
 };
 
