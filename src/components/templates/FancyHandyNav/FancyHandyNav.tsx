@@ -9,7 +9,7 @@ import { RawNav } from '@/components/atoms/RawNav';
 import { SwitchList } from '@/components/molecules/SwitchList';
 import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 import { FancyBox } from '@/components/atoms/FancyBox';
-import { fancyBarStyle } from '@/components/templates/FancyHandyNav/FancyHandyNav.style';
+import { ButtonWrapper, fancyBarStyle } from '@/components/templates/FancyHandyNav/FancyHandyNav.style';
 
 interface IFancyHandyNav {
   items?: IFancyBottomBarIcon[];
@@ -69,17 +69,18 @@ export default function FancyHandyNav(props: IFancyHandyNav) {
               }}
             >
               {items?.map((item, index) => (
-                <FancyBottomBarIcon
-                  key={index}
-                  themeType={themeTypeIcons}
-                  layer={layer}
-                  isActive={Number(stateWhichIsActive) === index}
-                  {...item}
-                  onClick={() => {
-                    setWhichIsActiveState(index.toString());
-                    item.onClick && item.onClick();
-                  }}
-                />
+                <ButtonWrapper key={index}>
+                  <FancyBottomBarIcon
+                    themeType={themeTypeIcons}
+                    layer={layer}
+                    isActive={Number(stateWhichIsActive) === index}
+                    {...item}
+                    onClick={() => {
+                      setWhichIsActiveState(index.toString());
+                      item.onClick && item.onClick();
+                    }}
+                  />
+                </ButtonWrapper>
               ))}
             </SwitchList>
           </FancyBox>

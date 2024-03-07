@@ -1,7 +1,15 @@
 import { TTheme } from '@/types/TTheme';
-import { css } from 'styled-components';
+import { styled, css } from 'styled-components';
 
 export const fancyBarStyle = css<{ theme?: TTheme }>`
-  padding: ${({ theme }) => theme.spacing.sm + ' ' + theme.spacing.sm + ' 0 ' + theme.spacing.sm};
+  padding: ${({ theme }) => theme.spacing.xs + ' ' + theme.spacing.xs + ' 0 ' + theme.spacing.xs};
   border-bottom: none;
+`;
+
+export const ButtonWrapper = styled.div<{ theme?: TTheme }>`
+  padding-bottom: ${({ theme }) => theme.spacing.xxs};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 `;
