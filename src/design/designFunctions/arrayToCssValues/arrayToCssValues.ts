@@ -1,6 +1,6 @@
 import { themeStore } from '@/design/theme/themeStore';
 
-import { TArrayToCssValues, TValue } from './TArrayValues.model';
+import { TArrayToCssValues, TValue, TValueMap } from './TArrayValues.model';
 import { TSpacings } from '@/types/TSpacings';
 
 // Type guard to check if a value is a TSpacings type
@@ -21,17 +21,17 @@ const getThemeOrValue = (value: TValue): string => {
 // --------------------------------------------------------------------------- //
 // ---------- this function is for the calc wich edege has a radius ---------- //
 // --------------------------------------------------------------------------- //
-const arrayToCssValues = (values?: TArrayToCssValues | TValue) => {
+const arrayToCssValues = <T extends keyof TValueMap>(values?: TArrayToCssValues | TValue, themeSetting?: T) => {
   if (!values || !values.toString().length) return '';
 
   //create an array to store the values
-  let inputValue = [];
+  let inputValue: (TValueMap[T] | string | number)[] = [];
 
   //check if values is a string and push it to the array
   if (typeof values === 'string') inputValue.push(values);
 
   //check edges are valid
-  if (Array.isArray(values)) inputValue = values.filter((values) => values !== undefined) as TValue[];
+  if (Array.isArray(values)) inputValue = values.filter((values) => values !== undefined);
 
   switch (inputValue.length) {
     // if one value is given, all edges are the same
