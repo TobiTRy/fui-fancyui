@@ -15,6 +15,7 @@ const getThemeOrValueForCSS = (
 
     // Get the theme from the store
     const theme = themeStore.getState().theme;
+    if (checkForNumberValue(value)) return `${value}`;
 
     // Check if the themeSetting is 'borderRadius' or 'spacing' and access the value using the key
     if (themeSetting === 'borderRadius') {
@@ -22,12 +23,20 @@ const getThemeOrValueForCSS = (
       themeValue = theme[themeSetting][borderRadius];
     } else if (themeSetting === 'spacing') {
       const spacing = value as TSpacings;
+
       themeValue = theme[themeSetting][spacing];
+      console.log('themeStore', themeValue, themeSetting, value);
     }
 
     return themeValue ?? '';
   }
   return `${value}`;
+};
+
+const checkForNumberValue = (value: TThemeCSSValue) => {
+  const numberValue = typeof value === 'string' ? parseInt(value) : value;
+
+  return isNaN(numberValue) ? false : true;
 };
 
 export default getThemeOrValueForCSS;

@@ -21,7 +21,7 @@ const arrayToCssValues = <T extends keyof TValueMap = 'default'>(values?: TTheme
   switch (cleanedValues.length) {
     // if one value is given, all edges are the same
     case 1: {
-      const singleValue = getThemeOrValueForCSS(cleanedValues[0]);
+      const singleValue = getThemeOrValueForCSS(cleanedValues[0], themeSetting);
       return ` ${singleValue} `;
     }
     // if two values are given, top/bottom and left/right are the same
