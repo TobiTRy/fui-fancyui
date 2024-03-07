@@ -1,4 +1,4 @@
 export { default as arrayToCssValues } from './arrayToCssValues';
-export type { TArrayToCssValues } from './TArrayValues.model';
-export type { TValue } from './TArrayValues.model';
-export type { TArrayToCssValuesInputProps } from './TArrayValues.model';
+export type { TThemeArrayCssValues } from './TArrayValues.model';
+export type { TThemeCSSValue } from './TArrayValues.model';
+export type { TThemeArrayOrValueCSS } from './TArrayValues.model';

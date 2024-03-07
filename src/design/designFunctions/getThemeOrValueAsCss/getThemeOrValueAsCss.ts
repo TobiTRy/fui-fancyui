@@ -6,8 +6,11 @@ import { TBorderRadiusSizes } from '@/types/TBorderRadiusSizes';
 // ----------------------------------------------------------------------------- //
 //with this function you can pass normal css values or theme values like "XS" ..-//
 // ----------------------------------------------------------------------------- //
-const getThemeOrValueForCSS = (value: TThemeCSSValue, themeSetting?: 'borderRadius' | 'spacing'): string => {
-  if (themeSetting) {
+const getThemeOrValueForCSS = (
+  value: TThemeCSSValue,
+  themeSetting?: 'borderRadius' | 'spacing' | 'default'
+): string => {
+  if (themeSetting && themeSetting !== 'default') {
     let themeValue;
 
     // Get the theme from the store

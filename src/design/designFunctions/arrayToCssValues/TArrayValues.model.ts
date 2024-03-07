@@ -8,12 +8,17 @@ export type TValueMap = {
   default: string | number;
 };
 
-// TValue will now be a generic type that can extend 'border' or 'spacing',
+// TThemeCSSValue will now be a generic type that can extend 'border' or 'spacing',
 // and it will return the corresponding type from TypeMapping
-export type TValue<T extends keyof TValueMap = 'default'> = TValueMap[T] | string | number;
+export type TThemeCSSValue<T extends keyof TValueMap = 'default'> = TValueMap[T] | string | number;
 
 // the rounded edges are an array of 4 values
-export type TArrayToCssValues<T extends keyof TValueMap = 'default'> = [TValue<T>?, TValue<T>?, TValue<T>?, TValue<T>?];
+export type TThemeArrayCssValues<T extends keyof TValueMap = 'default'> = [
+  TThemeCSSValue<T>?,
+  TThemeCSSValue<T>?,
+  TThemeCSSValue<T>?,
+  TThemeCSSValue<T>?,
+];
 
 // the input can be an array or a single value
-export type TArrayToCssValuesInputProps<T extends keyof TValueMap = 'default'> = TArrayToCssValues<T> | TValue<T>;
+export type TThemeArrayOrValueCSS<T extends keyof TValueMap = 'default'> = TThemeArrayCssValues<T> | TThemeCSSValue<T>;

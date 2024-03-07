@@ -1,57 +1,42 @@
-import { themeStore } from '@/design/theme/themeStore';
-
-import { TArrayToCssValues, TValue, TValueMap } from './TArrayValues.model';
-import { TSpacings } from '@/types/TSpacings';
-
-// Type guard to check if a value is a TSpacings type
-const isTSpacings = (value: TValue): value is TSpacings => {
-  const themeSpacings = themeStore.getState().theme.spacing;
-  return value in themeSpacings;
-};
-
-// Updated getThemeValue function
-const getThemeOrValue = (value: TValue): string => {
-  const themeSpacings = themeStore.getState().theme.spacing;
-  if (isTSpacings(value)) {
-    return `${themeSpacings[value]}`; // No need for 'as TSpacings' now
-  }
-  return `${value}`;
-};
+import getThemeOrValueForCSS from '@/design/designFunctions/getThemeOrValueAsCss/getThemeOrValueAsCss';
+import { TThemeArrayOrValueCSS, TValueMap } from './TArrayValues.model';
 
 // --------------------------------------------------------------------------- //
 // ---------- this function is for the calc wich edege has a radius ---------- //
 // --------------------------------------------------------------------------- //
-const arrayToCssValues = <T extends keyof TValueMap>(values?: TArrayToCssValues | TValue, themeSetting?: T) => {
+const arrayToCssValues = <T extends keyof TValueMap = 'default'>(values?: TThemeArrayOrValueCSS, themeSetting?: T) => {
   if (!values || !values.toString().length) return '';
 
-  //create an array to store the values
-  let inputValue: (TValueMap[T] | string | number)[] = [];
+  // Initialize an empty array for the cleaned values
+  let cleanedValues: (string | number | TValueMap[T])[] = [];
 
-  //check if values is a string and push it to the array
-  if (typeof values === 'string') inputValue.push(values);
+  // Handle the case where values is a single value
+  if (typeof values === 'string' || typeof values === 'number') {
+    cleanedValues.push(values);
+  } else if (Array.isArray(values)) {
+    // Filter out undefined values and assert the type to exclude 'undefined'
+    cleanedValues = values.filter((value): value is string | number | TValueMap[T] => value !== undefined);
+  }
 
-  //check edges are valid
-  if (Array.isArray(values)) inputValue = values.filter((values) => values !== undefined);
-
-  switch (inputValue.length) {
+  switch (cleanedValues.length) {
     // if one value is given, all edges are the same
     case 1: {
-      const singleValue = getThemeOrValue(inputValue[0]);
+      const singleValue = getThemeOrValueForCSS(cleanedValues[0]);
       return ` ${singleValue} `;
     }
     // if two values are given, top/bottom and left/right are the same
     case 2: {
-      const [topBottomValue, leftRightValue] = inputValue.map(getThemeOrValue);
+      const [topBottomValue, leftRightValue] = cleanedValues.map((item) => getThemeOrValueForCSS(item, themeSetting));
       return ` ${topBottomValue} ${leftRightValue} `;
     }
     // if three values are given, top, left/right and bottom are the same
     case 3: {
-      const [top, leftRight, bottom] = inputValue.map(getThemeOrValue);
+      const [top, leftRight, bottom] = cleanedValues.map((item) => getThemeOrValueForCSS(item, themeSetting));
       return ` ${top} ${leftRight} ${bottom} ${leftRight} `;
     }
     // if four values are given, all edges are different
     case 4: {
-      const [top, right, bottom, left] = inputValue.map(getThemeOrValue);
+      const [top, right, bottom, left] = cleanedValues.map((item) => getThemeOrValueForCSS(item, themeSetting));
       return ` ${top} ${right} ${bottom} ${left} `;
     }
   }
