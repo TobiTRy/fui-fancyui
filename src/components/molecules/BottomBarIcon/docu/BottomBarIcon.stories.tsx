@@ -7,6 +7,7 @@ import templateThemeType from '@/stories/templateSettingsForStorys/templatesForT
 // Define metadata for the story
 const meta = {
   component: BottomBarIcon,
+  title: 'components/molecules/BottomBarIcon',
   parameters: {
     docs: {
       description: {
@@ -73,6 +74,7 @@ export const Primary: Story = {
     disabled: false,
     themeType: 'secondary',
     layer: 0,
+    sizeC: 'sm',
     icon: <SVGCheckMark />,
   },
 };
