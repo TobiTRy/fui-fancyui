@@ -172,6 +172,7 @@ export * from '@/design/designFunctions/arrayToCssValues';
 export * from '@/design/designFunctions/generateInsetBorderRadius';
 export * from '@/design/designFunctions/checkThemeValue';
 export * from '@/design/designFunctions/leftRightCenterToFlexJustify';
+export * from '@/design/designFunctions/getThemeOrValueAsCss';
 
 // ---------- Interfaces ------- //
 export * from '@/types';
