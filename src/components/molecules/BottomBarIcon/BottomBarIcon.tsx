@@ -13,8 +13,8 @@ export default function BottomBarIcon(props: TBottomBarIconWithHTMLAttributes) {
     label,
     isActive,
     disabled,
-    themeType,
-    layer,
+    themeType = 'secondary',
+    layer = 0,
     hideLabel,
     externalStyle,
     ...htmlProps
@@ -29,12 +29,12 @@ export default function BottomBarIcon(props: TBottomBarIconWithHTMLAttributes) {
       $externalStyle={externalStyle}
       {...htmlProps}
     >
-      <FancyContent direction="column" gapBetweenIcon="xxs">
+      <FancyContent direction="column" gapBetweenIcon="">
         <FancyContent.Icon sizeC={sizeSettings[sizeC].sizeIcon} aria-label={hideLabel ? label : undefined}>
           {icon}
         </FancyContent.Icon>
         {!hideLabel && (
-          <FancyContent.Description fontVariant={'subTextFootnote'} lineHeight={1}>
+          <FancyContent.Description fontVariant={'subTextCaption'} lineHeight={1}>
             {label}
           </FancyContent.Description>
         )}

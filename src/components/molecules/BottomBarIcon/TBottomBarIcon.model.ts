@@ -13,7 +13,7 @@ export type TBottomBarIcon = {
   themeType?: TUiColorsNotTransparent;
   layer?: TLayer;
   sizeC?: TComponentSizes;
-  externalStyle: CSSProp;
+  externalStyle?: CSSProp;
 };
 
 export type TBottomBarIconWithHTMLAttributes = TBottomBarIcon & Omit<React.HTMLAttributes<HTMLDivElement>, 'style'>;

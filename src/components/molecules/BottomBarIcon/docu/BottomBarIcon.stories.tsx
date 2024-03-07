@@ -1,21 +1,24 @@
 // Import necessary dependencies
 import { Meta, StoryObj } from '@storybook/react';
-import SVGCheckMark from '../../icons/SVGCheckMark/SVGCheckMark';
+import SVGCheckMark from '../../../icons/SVGCheckMark/SVGCheckMark';
 // Import the component to be tested
-import BottomBarIcon from './BottomBarIcon';
+import BottomBarIcon from '../BottomBarIcon';
+import templateThemeType from '@/stories/templateSettingsForStorys/templatesForThemeType';
 // Define metadata for the story
 const meta = {
   component: BottomBarIcon,
   parameters: {
     docs: {
       description: {
-        component: 'The BottomBarIcon component is for displaying a bottom bar icon like.',
+        component:
+          'The BottomBarIcon component is designed to display an icon with an optional label in a bottom bar, commonly used in navigation structures. It supports various states such as active, disabled, and theme customization.',
       },
     },
   },
   // Define arguments for the story
   argTypes: {
     disabled: {
+      description: 'If true, the component will be disabled.',
       control: { type: 'boolean' },
       defaultValue: {
         summary: false,
@@ -28,24 +31,33 @@ const meta = {
       },
     },
     icon: {
+      description: 'The icon to be displayed.',
       control: { type: 'object' },
     },
     isActive: {
+      description: 'If true, the component will be active.',
       control: { type: 'boolean' },
       defaultValue: {
         summary: false,
       },
     },
-    themeType: {
-      control: { type: 'select' },
+    hideLabel: {
+      description: 'If true, the label will be hidden.',
+      control: { type: 'boolean' },
+    },
+    sizeC: {
+      description: 'The size of the component.',
+      control: { type: 'select', options: ['sm', 'md', 'lg'] },
       defaultValue: {
-        summary: 'secondary',
+        summary: 'sm',
       },
     },
+    externalStyle: {
+      description: 'External style for the component.',
+      control: { type: 'object' },
+    },
+    ...templateThemeType('notTransparent', 'secondary'),
   },
-
-  // Add tags to the story
-  tags: ['autodocs'],
 } satisfies Meta<typeof BottomBarIcon>;
 
 // Export the metadata
@@ -62,12 +74,5 @@ export const Primary: Story = {
     themeType: 'secondary',
     layer: 0,
     icon: <SVGCheckMark />,
-  },
-  parameters: {
-    docs: {
-      description: {
-        story: '',
-      },
-    },
   },
 };

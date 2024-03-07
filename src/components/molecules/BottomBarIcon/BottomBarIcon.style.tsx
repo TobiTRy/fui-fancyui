@@ -8,7 +8,7 @@ import { TBottomBarIcon } from './TBottomBarIcon.model';
 
 type TContentWrapper = TStyledPrefixAndPicker<
   TBottomBarIcon,
-  'sizeC' | 'disabled' | 'isActive' | 'themeType' | 'layer' | 'externalStyle'
+  'disabled' | 'isActive' | 'themeType' | 'layer' | 'externalStyle'
 >;
 export const ContentWrapper = styled.div<TContentWrapper & { theme?: TTheme }>`
   position: relative;
