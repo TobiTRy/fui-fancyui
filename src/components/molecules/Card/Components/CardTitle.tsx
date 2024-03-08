@@ -1,7 +1,9 @@
 import { Typography } from '@/components/atoms/Typography';
 import { TTypography } from '@/components/atoms/Typography/Typography.model';
+import { TTypographyVariants } from '@/types/TTypographyVariants';
 
-export default function CardTitle(props: TTypography) {
+type TCardTitle = Omit<TTypography, 'variant'> & { variant?: TTypographyVariants };
+export default function CardTitle(props: TCardTitle) {
   const { children, elType, variant, ...typoProps } = props;
 
   return (
