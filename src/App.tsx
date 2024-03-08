@@ -20,7 +20,7 @@ import FancyLayoutRoute from './Routes/FancyLayoutRoute/FancyLayoutRoute';
 import FancyProfilePictureRoute from './Routes/FancyProfilePictureRoute/FancyProfilePictureRoute';
 import FancySearchBarRoute from './Routes/FancySearchBarRoute/FancySearchBarRoute';
 import HeaderRoute from './Routes/HeaderRoute/HeaderRoute';
-import InfoCardRoute from './Routes/InfoCardRoute/InfoCardRoute';
+import InfoCardRoute from './Routes/InfoCardRoute/InfoCardRoute'; 
 import InputsRoute from './Routes/InputsRoute/InputsRoute';
 import LoadingSpinnerRoute from './Routes/LoadingSpinnerRoute/LoadingSpinnerRoute';
 import MenueRoute from './Routes/MenuRoute/MenueRoute';
