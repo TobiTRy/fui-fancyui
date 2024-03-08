@@ -1,13 +1,16 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import Calendar from './Calendar';
+import Calendar from '../Calendar';
+import templateThemeType from '@/stories/templateSettingsForStorys/templatesForThemeType';
 
 const meta = {
   component: Calendar,
+  title: 'components/molecules/Calendar',
   parameters: {
     docs: {
       description: {
-        component: 'Dumb-Comonent: A Calendar component to select a date range. or a single date.',
+        component:
+          'The Calendar component is a versatile React component designed for selecting single or range dates within a given year or a specified range of years. It features customizability options such as disabling specific dates, setting a theme, and configuring the start day of the week. The component utilizes virtual scrolling for efficient rendering of months, allowing for a smooth user experience even with a large range of dates.',
       },
     },
   },
@@ -40,23 +43,7 @@ const meta = {
       },
       defaultValue: { summary: 'from' },
     },
-    themeType: {
-      description: 'The theme type of the input.',
-      control: {
-        type: 'select',
-      },
-      defaultValue: { summary: 'secondary' },
-    },
-    layer: {
-      description: 'The layer of the input.',
-      control: {
-        type: 'range',
-        min: 1,
-        max: 10,
-        step: 1,
-      },
-      defaultValue: { summary: 4 },
-    },
+    ...templateThemeType('notTransparent', 'secondary', 4),
     currentInViewhandler: {
       description: 'The handler gives back the currently in view month and year.',
     },
@@ -85,7 +72,6 @@ const meta = {
       defaultValue: { summary: { year: new Date().getFullYear() + 5, month: new Date().getMonth() } },
     },
   },
-  tags: ['autodocs'],
 } satisfies Meta<typeof Calendar>;
 
 export default meta;

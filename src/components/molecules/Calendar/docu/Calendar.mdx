@@ -1,0 +1,78 @@
+import { Meta, Title, Description, Controls } from '@storybook/blocks';
+
+import * as CalendarStories from './Calendar.stories';
+
+<Meta of={CalendarStories} />
+
+<Title />
+
+<Description />
+
+## Setup Instructions
+
+To use the `Calendar` in your project, follow these steps:
+
+1. Import the `Calendar` component where you intend to use it:
+
+```jsx
+import { Calendar } from 'fui-fancyui';
+```
+
+2. If using TypeScript, ensure the type definitions are imported for prop validation:
+
+```jsx
+import { TCalendar, TDateArray, TDateOnlyArray } from 'fui-fancyui';
+```
+
+## Example Usage
+
+Here's an example showcasing how to implement the `Calendar` component with some of its props for selecting a date range within the year 2023:
+
+```jsx
+import React from 'react';
+import { Calendar } from 'fui-fancyui';
+
+const MyApp = () => {
+  return (
+    <Calendar
+      selectedYearMonth={{ year: 2023, month: 2 }}
+      rangeCalendar={false}
+      startCalendarDate={{ year: 2023, month: 0 }}
+      endCalendarDate={{ year: 2023, month: 11 }}
+      selectFromTo="from"
+      themeType="secondary"
+      externalMonthsWithDays={{
+        2023: [
+          {
+            monthIdx: 0,
+            dates: [
+              { date: 1, isAvailable: 'partially' },
+              { date: 2, isAvailable: 'not' },
+              { date: 3, isAvailable: 'transparent' },
+            ],
+          },
+          {
+            monthIdx: 11,
+            dates: [
+              { date: 5, isAvailable: 'partially' },
+              { date: 7, isAvailable: 'not' },
+              { date: 2, isAvailable: 'transparent' },
+            ],
+          },
+        ],
+      }}
+      disabledDateSetting={{
+        disabledWeekdays: [1, 6],
+        disableWeekends: true,
+        disablePastDates: false,
+      }}
+    />
+  );
+};
+
+export default MyApp;
+```
+
+## Component Properties
+
+<Controls />
