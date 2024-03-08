@@ -8,6 +8,7 @@ import useSelectedDates from './utils/useSelectedDates/useSelectedDates';
 import { TCalendar, TYearMonth } from '@/components/molecules/Calendar/TCalendar.model';
 import { FancyVirtualScroll } from '@/components/shared/FancyVirtualScroll';
 import { useDebounce } from '@/utils/hooks/useDebounce';
+import { generateArrayWithMonthYearRange } from './utils/generateArrayWithMonthYearRange/generateArrayWithMonthYearRange';
 
 // --------------------------------------------------------------------------- //
 // -------- The main calenader wich can select a date, or date range --------- //
@@ -173,22 +174,3 @@ export default function Calendar(props: TCalendar) {
     </StyledCalendar>
   );
 }
-
-const generateArrayWithMonthYearRange = (start: TYearMonth, end: TYearMonth) => {
-  const startDate = new Date(start.year, start.month);
-  const endDate = new Date(end.year, end.month);
-
-  const dateArray = [];
-  let currentDate = startDate;
-
-  while (currentDate <= endDate) {
-    dateArray.push({
-      month: currentDate.getMonth(),
-      year: currentDate.getFullYear(),
-    });
-
-    currentDate = new Date(currentDate.setMonth(currentDate.getMonth() + 1));
-  }
-
-  return dateArray;
-};
