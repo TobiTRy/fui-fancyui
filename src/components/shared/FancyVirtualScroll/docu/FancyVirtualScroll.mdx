@@ -1,0 +1,54 @@
+import { Meta, Title, Description, Controls } from '@storybook/blocks';
+
+import * as FancyVirtualScrollStories from './FancyVirtualScroll.stories';
+
+<Meta of={FancyVirtualScrollStories} />
+
+<Title />
+
+<Description />
+
+Below is an example on how to use the `FancyVirtualScroll` component in a React application:
+
+```jsx
+import React from 'react';
+import { FancyVirtualScroll } from 'fui-fancyui';
+
+const MyVirtualList = () => {
+  const items = Array.from({ length: 100 }, (_, index) => `Item ${index + 1}`);
+
+  const handleFirstItemInViewChange = (index) => {
+    console.log('First item in view index:', index);
+  };
+
+  const handleScrollingStateChange = (isScrolling) => {
+    console.log('Scrolling:', isScrolling);
+  };
+
+  return (
+    <FancyVirtualScroll
+      containerHeight="500px"
+      itemHeight={50}
+      preRenderCount={5}
+      scrollSnap="none"
+      itemGap={10}
+      currentFirstItemsInViewHandler={handleFirstItemInViewChange}
+      onScrollingStateChange={handleScrollingStateChange}
+    >
+      {items.map((item, index) => (
+        <div key={index}>{item}</div>
+      ))}
+    </FancyVirtualScroll>
+  );
+};
+
+export default MyVirtualList;
+```
+
+In this example, `MyVirtualList` creates a virtual list of 100 items, each with a height of `50px`, a `preRenderCount` of 5 items, and a `10px` gap between items. It also logs the index of the first visible item and whether the list is currently being scrolled.
+
+## Props
+
+<Controls />
+
+`HTMLDivProps` is a type that extends `React.HTMLAttributes<HTMLDivElement>` with an additional `$externalStyle: CSSProp` for styled-components support.
