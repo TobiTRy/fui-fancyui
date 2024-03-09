@@ -3,7 +3,7 @@ import { CSSProp } from 'styled-components';
 import { TLayer } from '@/types/TLayer';
 import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 
-export interface IFancyPill {
+export type TFancyPill = {
   outlined?: boolean;
   layer?: TLayer;
   themeType?: TUiColorsNotTransparent;
@@ -12,6 +12,6 @@ export interface IFancyPill {
   externalStyle?: CSSProp;
   isActive?: boolean;
   isHoverable?: boolean;
-}
+};
 
-export type IFancyPillProps = IFancyPill & React.HTMLAttributes<HTMLDivElement>;
+export type IFancyPillProps = TFancyPill & React.HTMLAttributes<HTMLDivElement>;

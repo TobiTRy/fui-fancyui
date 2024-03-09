@@ -1,4 +1,4 @@
-import { IFancyPillProps } from '@/components/atoms/FancyPill/FancyPill.model';
+import { IFancyPillProps } from '@/components/atoms/FancyPill/TFancyPill.model';
 import { FancyContent } from '@/components/molecules/FancyContent';
 import { StyledChip } from '@/components/molecules/Chip/Chip.style';
 
