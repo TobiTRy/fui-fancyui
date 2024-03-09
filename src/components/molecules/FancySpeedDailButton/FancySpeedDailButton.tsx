@@ -9,8 +9,8 @@ import {
   SpeedDialContainer,
   Wrapper,
 } from './SpeedDailButton.style';
-import { ActionItem } from '@/components/atoms/ActionItem';
-import { TActionItemButton, TActionItemSetting } from '@/components/atoms/ActionItem/TActionItem.model';
+import { ActionItem } from '@/components/molecules/ActionItem';
+import { TActionItemButton, TActionItemSetting } from '@/components/molecules/ActionItem/TActionItem.model';
 
 export type ISpeedail = {
   items?: TActionItemButton[];
@@ -43,7 +43,7 @@ export default function FancySpeedDialButton(props: ISpeedail) {
           }}
           {...buttonProps}
         >
-          {SVGPlus}
+          <SVGPlus />
         </Button>
         <Ring $isOpen={isOpen} />
       </SpeedDialContainer>
