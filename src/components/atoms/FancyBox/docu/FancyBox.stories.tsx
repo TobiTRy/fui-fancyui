@@ -66,6 +66,24 @@ const meta = {
         type: 'object',
       },
     },
+    sizeC: {
+      description: 'The size of the component.',
+      control: {
+        type: 'select',
+      },
+      defaultValue: {
+        summary: undefined,
+      },
+    },
+    borderRadius: {
+      description: 'The border radius of the component.',
+      control: {
+        type: 'text',
+      },
+      defaultValue: {
+        summary: undefined,
+      },
+    },
   },
 } satisfies Meta<typeof FancyBox>;
 

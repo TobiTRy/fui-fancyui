@@ -3,6 +3,8 @@ import { CSSProp } from 'styled-components';
 
 import { TLayer } from '@/types/TLayer';
 import { TUiColorTypes } from '@/types/TUiColorTypes';
+import { TBorderRadiusSizesArray } from '@/types/TBorderRadiusSizes';
+import { TComponentSizes } from '@/types/TComponentSizes';
 
 export type TFancyBox = {
   as?: ElementType;
@@ -12,6 +14,8 @@ export type TFancyBox = {
   children?: React.ReactNode;
   outlinedBackgroundStrength?: number;
   externalStyle?: CSSProp;
+  borderRadius?: TBorderRadiusSizesArray;
+  sizeC?: TComponentSizes;
 };
 
 export type TFancyBoxProps<T extends ElementType = 'div'> = TFancyBox & Omit<React.HTMLAttributes<T>, 'style'>;
