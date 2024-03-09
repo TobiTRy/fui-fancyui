@@ -20,7 +20,7 @@ type IXButtonProps = {
 };
 
 export default function ChipDeleteButton(props: IXButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement>) {
-  const { sizeC, onDelete, children, 'aria-label': ariaLabel, layer, themeType, ...htmlProps } = props;
+  const { sizeC, onDelete, children, layer, themeType, ...htmlProps } = props;
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>) => {
     if (onDelete && (e.key === 'Enter' || e.key === ' ')) {
@@ -31,7 +31,6 @@ export default function ChipDeleteButton(props: IXButtonProps & React.ButtonHTML
 
   return (
     <StyledXButton
-      aria-label={ariaLabel || 'delete'}
       $themeType={themeType}
       $layer={layer}
       $sizeC={sizeC}

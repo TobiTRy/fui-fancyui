@@ -1,0 +1,83 @@
+import { Meta, Description, Title, Canvas, Controls } from '@storybook/blocks';
+
+import * as ChipStories from './Chip.stories';
+
+<Meta of={ChipStories} />
+
+<Title />
+
+<Description />
+
+## Setup Instructions
+
+To use the `Chip` in your project, follow these steps:
+
+1. Import the `Chip` component where you intend to use it:
+
+```jsx
+import { Chip } from 'fui-fancyui';
+```
+
+2. If using TypeScript, ensure the type definitions are imported for prop validation:
+
+```jsx
+import { TChipWithFancyPillAttrs } from 'fui-fancyui';
+```
+
+## Example Usage
+
+Here's an example demonstrating the Chip component with an image, text, and a delete button:
+
+```jsx
+<Chip themeType="primary" outlined isActive>
+  <Chip.Img>
+    <img src="path/to/image.png" alt="Example" />
+  </Chip.Img>
+  <Chip.Content>Example Text</Chip.Content>
+  <Chip.DeleteButton onDelete={() => console.log('Deleted')} />
+</Chip>
+```
+
+This example showcases a Chip containing an image on the left, text in the middle, and a delete button on the right. The `themeType`, `outlined`, and `isActive` props are used to customize the Chip's appearance.
+
+<Canvas />
+
+## Component Properties
+
+<Controls />
+
+## SubComponents
+
+### Chip.Img inherit from FancyImageWrapper
+
+The `Chip.Img` component is used to display an image within a `Chip` component. It accepts all FancyImageWrapper props.
+
+Use the `Chip.Img` component within your JSX code:
+
+```jsx
+<Chip.Img {...FancyImageWrapper}>
+  <img src="path/to/image.png" alt="Example" />
+</Chip.Img>
+```
+
+### Chip.DeleteButton inherit from StyledXButton
+
+The `Chip.DeleteButton` component is used to display a delete button within a `Chip` component. It accepts all StyledXButton props.
+
+Use the `Chip.DeleteButton` component within your JSX code:
+
+```jsx
+<Chip.DeleteButton {...StyledXButton}>
+  <OptionalSVG />
+</Chip.DeleteButton>
+```
+
+### Chip.Content inherit from FancyContent
+
+The `Chip.Content` component is used to display content within a `Chip` component. It accepts all FancyContent props.
+
+Use the `Chip.Content` component within your JSX code:
+
+```jsx
+<Chip.Content {...FancyContent}>Example Text</Chip.Content>
+```
