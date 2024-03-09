@@ -2,7 +2,7 @@
 export * from '@/components/atoms/BackDrop';
 export * from '@/components/atoms/ColorIndicator';
 export * from '@/components/atoms/BackDrop';
-export * from '@/components/atoms/ActionItem';
+export * from '@/components/molecules/ActionItem';
 export * from '@/components/atoms/ColorIndicator';
 export * from '@/components/atoms/DateNumberAtom';
 export * from '@/components/atoms/DateOutput';
@@ -140,7 +140,6 @@ export * from '@/components/templates/FancyAlignBox';
 export * from '@/components/templates/FancyGridTemplate';
 export * from '@/components/templates/FancyGridTemplateItem';
 export * from '@/components/templates/FancySkeletonGrid';
-export * from '@/components/templates/FancyCard';
 
 // ---------- Utils/Hooks ------- //
 export * from '@/components/shared/FancyPopover';
