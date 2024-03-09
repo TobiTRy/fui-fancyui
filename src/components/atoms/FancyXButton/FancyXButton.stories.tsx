@@ -8,6 +8,7 @@ import templateThemeType from '@/stories/templateSettingsForStorys/templatesForT
 // Define metadata for the story
 const meta = {
   component: FancyXButton,
+  title: 'components/atoms/FancyXButton',
   parameters: {
     docs: {
       description: {

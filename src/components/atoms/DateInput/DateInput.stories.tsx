@@ -5,6 +5,7 @@ import templateThemeType from '@/stories/templateSettingsForStorys/templatesForT
 
 const meta = {
   component: DateInput,
+  title: 'components/atoms/DateInput',
   parameters: {
     docs: {
       description: {

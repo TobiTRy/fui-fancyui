@@ -7,6 +7,7 @@ import LoadingSVGArrows from './LoadingSVGArrows';
 // Define metadata for the story
 const meta = {
   component: LoadingSVGArrows,
+  title: 'components/atoms/LoadingSVGArrows',
   parameters: {
     docs: {
       description: {

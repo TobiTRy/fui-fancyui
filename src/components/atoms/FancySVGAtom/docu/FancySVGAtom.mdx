@@ -1,11 +1,11 @@
-import { Meta, Controls } from '@storybook/blocks';
+import { Meta, Controls, Title, Description, Canvas } from '@storybook/blocks';
 import * as FancySVGAtomStories from './FancySVGAtom.stories';
 
 <Meta of={FancySVGAtomStories} />
 
-# FancySVGAtom Component
+<Title />
 
-The `FancySVGAtom` component is a React component designed to wrap SVG elements, providing them with additional styling capabilities. It leverages the styled-components library to dynamically apply styles based on the props passed to it. This component is particularly useful for projects that require a consistent styling approach across different SVG icons or graphics, with support for theming, size adjustments, active/passive states, and system messages.
+<Description />
 
 ## Setup Instructions
 
@@ -41,6 +41,8 @@ function ExampleComponent() {
 ```
 
 In this example, the `FancySVGAtom` wraps a custom SVG component (`YourIconSVG`), applying medium size, active state, and primary theme color.
+
+<Canvas />
 
 ## Component Properties
 

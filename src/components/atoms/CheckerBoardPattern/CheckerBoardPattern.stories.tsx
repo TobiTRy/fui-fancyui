@@ -7,6 +7,7 @@ import { CheckerBoardPattern } from '.';
 // Define metadata for the story
 const meta = {
   component: CheckerBoardPattern,
+  title: 'components/atoms/CheckerBoardPattern',
   parameters: {
     docs: {
       description: {
