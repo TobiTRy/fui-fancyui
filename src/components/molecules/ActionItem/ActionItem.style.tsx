@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 
 import { TStyledPrefixAndPicker } from '@/types/TStyledPrefixAndPicker';
-import { TActionItem } from '@/components/atoms/ActionItem/TActionItem.model';
+import { TActionItem } from '@/components/molecules/ActionItem/TActionItem.model';
 import { globalElementsizes } from '@/design/theme/globalSizes';
 import { disabledStyle } from '@/design/designFunctions/disabledStyle';
 import { generateThemeDesignForComponent } from '@/design/designFunctions/generateThemeDesignForComponent';
