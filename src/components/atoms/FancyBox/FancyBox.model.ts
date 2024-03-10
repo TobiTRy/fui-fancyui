@@ -18,4 +18,5 @@ export type TFancyBox = {
   sizeC?: TComponentSizes;
 };
 
-export type TFancyBoxProps<T extends ElementType = 'div'> = TFancyBox & Omit<React.HTMLAttributes<T>, 'style'>;
+export type TFancyBoxProps<T extends ElementType = 'div'> = TFancyBox &
+  Omit<React.DetailedHTMLProps<React.HTMLAttributes<T>, T>, 'style'>;
