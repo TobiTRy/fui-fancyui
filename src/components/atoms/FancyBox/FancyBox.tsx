@@ -24,7 +24,7 @@ export default function FancyBox<T extends ElementType = 'div'>(props: TFancyBox
 
   return (
     <StyledFancyBox
-      sizeC={sizeC}
+      $sizeC={sizeC}
       $layer={layer}
       as={as || 'div'}
       $outlined={outlined}
