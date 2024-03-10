@@ -1,9 +1,7 @@
-import React from 'react';
-
 import type { Meta, StoryObj } from '@storybook/react';
 
-import ChipList from './ChipList';
 import { FancyChip } from '@/components/templates/FancyChip';
+import ChipList from './ChipList';
 
 const meta = {
   component: ChipList,

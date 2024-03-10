@@ -70,8 +70,6 @@ const OwnUl = styled.ul<{ theme: TTheme }>`
 `;
 
 function App() {
-  const theme = themeStore((state) => state.theme);
-
   return (
     <div className="App">
       <Router>

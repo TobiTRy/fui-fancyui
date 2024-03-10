@@ -6,6 +6,7 @@ import { TListBox } from '@/components/molecules/ListBox/ListBox';
 import { TStyledPrefixAndPicker } from '@/types/TStyledPrefixAndPicker';
 import { sizeSettings } from './sizeSettings';
 import { boxShadow } from '@/design/designFunctions/shadows';
+import { arrayToCssValues } from '@/design/designFunctions/arrayToCssValues';
 
 type TgenerateFancyBoxStyle = TStyledPrefixAndPicker<
   TListBox,
@@ -22,10 +23,7 @@ export const generateFancyBoxStyle = (props: TgenerateFancyBoxStyle) => {
     flex-direction: column;
     justify-content: space-between;
     width: 100%;
-    border-radius: ${({ theme }) =>
-      $borderRadius
-        ? theme.borderRadius[$borderRadius]
-        : theme.borderRadius[sizeSettings[$sizeC ?? 'md'].borderRadius]};
+    border-radius: ${({ theme }) => arrayToCssValues($borderRadius, 'borderRadius')};
     ${$boxShadow && boxShadow.md};
 
     ${$externalStyle}

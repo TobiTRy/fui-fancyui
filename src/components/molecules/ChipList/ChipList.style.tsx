@@ -3,6 +3,8 @@ import { css, styled } from 'styled-components';
 import { themeStore } from '@/design/theme/themeStore';
 import { TUiColorsSystemMessage } from '@/types/TUiColorsSystemMessage';
 import { generateSystemIndicatorStyle } from '@/design/designFunctions/generateSystemIndicatorStyle';
+import { FancyBox } from '@/components/atoms/FancyBox';
+import { TTheme } from '@/types/TTheme';
 
 export const ChipContainer = styled.ul`
   display: flex;
@@ -10,6 +12,13 @@ export const ChipContainer = styled.ul`
   list-style-type: none;
   margin: 0;
   padding: 0;
+`;
+
+export const StyledChipList = styled(FancyBox)<{ theme?: TTheme; sytemMessage?: TUiColorsSystemMessage }>`
+  ul {
+    gap: ${({ theme }) => theme.spacing.sm};
+  }
+  ${({ sytemMessage }) => generateSystemIndicatorStyle(sytemMessage)};
 `;
 
 /**
