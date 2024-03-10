@@ -1,6 +1,7 @@
-import { TComponentSizes } from '@/types/TComponentSizes';
 import { TLayer } from '@/types/TLayer';
+import { TComponentSizes } from '@/types/TComponentSizes';
 import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
+import { TDynamicElementWrapperWithHTMLAttrs } from '@/components/atoms/DynamicElementWrapper';
 
 export type TActionItemSetting = {
   labelAlign?: 'left' | 'right' | 'top' | 'bottom';
@@ -8,7 +9,7 @@ export type TActionItemSetting = {
   layer?: TLayer;
   themeType?: TUiColorsNotTransparent;
   themeTypeActiveHover?: TUiColorsNotTransparent;
-} & React.HTMLAttributes<HTMLDivElement>;
+} & TDynamicElementWrapperWithHTMLAttrs;
 
 export type TActionItemButton = {
   label?: string;

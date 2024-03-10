@@ -5,6 +5,7 @@ import { FancyFlexBox } from '@/components/templates/FancyFlexBox';
 import { ButtonStyle } from './ActionItem.style';
 
 import { sizeSettings } from './sizeSettings';
+import { DynamicElementWrapper } from '@/components/atoms/DynamicElementWrapper';
 
 // --------------------------------------------------------------------------- //
 // ---------- The ActionItem is a button that inidacts a action -------------- //
@@ -24,7 +25,7 @@ export default function ActionItem(props: TActionItem) {
   } = props;
 
   return (
-    <div {...htmlProps}>
+    <DynamicElementWrapper {...htmlProps}>
       <FancyFlexBox direction={calcPostionToFlex(labelAlign ?? 'left')} align="center" gap="8px">
         {label && <Typography variant={sizeSettings[size].fontSite}>{label}</Typography>}
         <ButtonStyle
@@ -37,6 +38,6 @@ export default function ActionItem(props: TActionItem) {
           {icon}
         </ButtonStyle>
       </FancyFlexBox>
-    </div>
+    </DynamicElementWrapper>
   );
 }
