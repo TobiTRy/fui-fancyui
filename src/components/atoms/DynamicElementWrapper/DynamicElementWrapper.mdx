@@ -1,0 +1,56 @@
+# DynamicElementWrapper
+
+The `DynamicElementWrapper` component is designed to provide a flexible container for React components or HTML elements, allowing the dynamic assignment of the component or element type via props. It also enables the application of external styles directly to the component or element, making it highly customizable for different use cases.
+
+## Brief Description
+
+The `DynamicElementWrapper` is a versatile React component that wraps other components or HTML elements, allowing for the dynamic change of the wrapped element's type through props. It supports external styling, making it useful for applying consistent styling patterns across different parts of an application. The component simplifies the process of creating UI elements with variable types and styles, enhancing reusability and flexibility in React projects.
+
+## Setup Instructions
+
+To use the `DynamicElementWrapper` in your project, follow these steps:
+
+1. Import the `DynamicElementWrapper` component where you intend to use it:
+
+```jsx
+import { DynamicElementWrapper } from 'fui-fancyui';
+```
+
+2. If using TypeScript, ensure the type definitions are imported for prop validation:
+
+```jsx
+import { TDynamicElementWrapper, TDynamicElementWrapperWithHTMLAttrs } from 'fui-fancyui';
+```
+
+## Example Usage
+
+The following example demonstrates how to use the `DynamicElementWrapper` to create a button and a paragraph with custom styles:
+
+```jsx
+import React from 'react';
+import { DynamicElementWrapper } from './DynamicElementWrapper';
+
+const App = () => {
+  return (
+    <>
+      <DynamicElementWrapper as="button" externalStyle={{ backgroundColor: 'blue', color: 'white' }}>
+        Click Me
+      </DynamicElementWrapper>
+
+      <DynamicElementWrapper as="p" externalStyle={{ fontSize: '20px', color: 'green' }}>
+        This is a styled paragraph.
+      </DynamicElementWrapper>
+    </>
+  );
+};
+
+export default App;
+```
+
+## Component Properties
+
+- **`as`** (`ElementType` | optional): Specifies the type of component or HTML element to be rendered. Defaults to `'div'` if not provided.
+- **`externalStyle`** (`CSSProp` | optional): Allows the application of custom styles directly to the component or element. This prop supports any valid CSS properties.
+- **HTML Attributes** (`T extends ElementType = 'div'`): In addition to the specific properties listed above, `DynamicElementWrapper` inherits all HTML attributes applicable to the element type specified by the `as` prop, except for the `style` attribute, which is replaced by `externalStyle`.
+
+This component is a powerful tool for creating flexible and reusable UI elements with dynamic types and styles, making it a valuable addition to any React project.

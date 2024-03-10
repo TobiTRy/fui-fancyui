@@ -4,6 +4,7 @@ export * from '@/components/atoms/ColorIndicator';
 export * from '@/components/atoms/BackDrop';
 export * from '@/components/molecules/ActionItem';
 export * from '@/components/atoms/ColorIndicator';
+export * from '@/components/atoms/DynamicElementWrapper';
 export * from '@/components/atoms/DateNumberAtom';
 export * from '@/components/atoms/DateOutput';
 export * from '@/components/atoms/DropDownSelect';
