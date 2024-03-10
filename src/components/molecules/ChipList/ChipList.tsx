@@ -17,6 +17,8 @@ export default function ChipList(props: TChipListWithHTMLAtrrs) {
     ...htmlDivAttrs
   } = props;
 
+  console.log(systemMessage, typeof systemMessage, 'systemMessage');
+
   return (
     <DynamicElementWrapper {...htmlDivAttrs}>
       <StyledChipList
@@ -25,7 +27,7 @@ export default function ChipList(props: TChipListWithHTMLAtrrs) {
         themeType={themeType}
         layer={layer}
         outlined={outlined}
-        sytemMessage={systemMessage}
+        $sytemMessage={systemMessage}
       >
         <ChipContainer>{children}</ChipContainer>
       </StyledChipList>

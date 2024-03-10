@@ -13,9 +13,9 @@ export const ChipContainer = styled.ul`
   padding: 0;
 `;
 
-export const StyledChipList = styled(FancyBox)<{ theme?: TTheme; sytemMessage?: TUiColorsSystemMessage }>`
+export const StyledChipList = styled(FancyBox)<{ theme?: TTheme; $sytemMessage?: TUiColorsSystemMessage }>`
   ul {
     gap: ${({ theme }) => theme.spacing.sm};
   }
-  ${({ sytemMessage }) => generateSystemIndicatorStyle(sytemMessage)};
+  ${({ $sytemMessage }) => generateSystemIndicatorStyle($sytemMessage)};
 `;

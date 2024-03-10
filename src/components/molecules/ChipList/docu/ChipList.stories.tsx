@@ -11,7 +11,7 @@ const meta = {
     docs: {
       description: {
         component:
-          'The ChipList component is designed to display a collection of chips, such as tags, categories, or filters, in a flexible and stylized list. It acts as a wrapper that leverages the DynamicElementWrapper to pass down HTML attributes dynamically to the chip list. The component supports theming, sizing, and other visual customizations to fit the needs of various UI designs.',
+          'The `ChipList` component serves as a container for a collection of chips, offering a flexible way to display an array of items, tags, or filters. It extends its functionality with several customization properties, such as theme, layer, and size, allowing for a seamless integration within various design systems. Utilizing the `DynamicElementWrapper`, it also inherits HTML attributes for further flexibility.',
       },
     },
   },
@@ -19,9 +19,9 @@ const meta = {
     ...templateThemeType('notTransparent', 'primary', 2),
     sizeC: {
       description: 'Size of the chip list, with `md` as the default size.',
+      options: ['sm', 'md', 'lg'],
       control: {
         type: 'select',
-        options: ['sm', 'md', 'lg'],
       },
       defaultValue: {
         summary: 'md',
@@ -35,6 +35,7 @@ const meta = {
     },
     systemMessage: {
       description: 'The SystemMessage of the ChipList',
+      options: ['error', 'warning', 'info', 'success', undefined],
       control: {
         type: 'select',
       },
@@ -42,7 +43,7 @@ const meta = {
     borderRadius: {
       description: 'The border radius of the ChipList',
       control: {
-        type: 'array',
+        type: 'object',
       },
     },
   },
@@ -62,6 +63,7 @@ export const Primary: Story = {
     </ChipList>
   ),
   args: {
+    layer: 2,
     sizeC: 'md',
     themeType: 'primary',
     outlined: false,
