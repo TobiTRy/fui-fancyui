@@ -6,6 +6,7 @@ import ColorDisplay from './ColorDisplay';
 // Define metadata for the story
 const meta = {
   component: ColorDisplay,
+  title: 'components/molecules/ColorDisplay',
   parameters: {
     docs: {
       description: {
@@ -18,16 +19,28 @@ const meta = {
   // Define arguments for the story
   argTypes: {
     color: {
+      description: 'The color that should displayed',
       control: { type: 'color' },
     },
     opacity: {
+      description: 'The opacity of the color',
       control: { type: 'range', min: 0, max: 1, step: 0.1 },
     },
     fullHeight: {
+      description: 'If the color should be displayed with full height',
       control: { type: 'boolean' },
     },
     showText: {
+      description: 'If the text should be displayed',
       control: { type: 'boolean' },
+    },
+    sizeC: {
+      description: 'The size of the component',
+      control: { type: 'select' },
+      options: ['sm', 'md', 'lg'],
+      defaultValue: {
+        summary: 'md',
+      },
     },
   },
 
@@ -48,12 +61,5 @@ export const Primary: Story = {
     opacity: 1,
     fullHeight: false,
     showText: true,
-  },
-  parameters: {
-    docs: {
-      description: {
-        story: '',
-      },
-    },
   },
 };

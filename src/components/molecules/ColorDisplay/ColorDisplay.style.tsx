@@ -1,23 +1,26 @@
-import Color from 'color';
 import { styled } from 'styled-components';
 
-import { simpleColorTransition } from '@/design/designFunctions/simpleColorTransition';
+import { TThemeArrayOrValueCSS, arrayToCssValues } from '@/design/designFunctions/arrayToCssValues';
 import { TTheme } from '@/types/TTheme';
+import { simpleColorTransition } from '@/design/designFunctions/simpleColorTransition';
 
-// calculate color on the isBright and isDarkTheme props
-const colorCalculation = ({
-  theme,
-  $isBright,
-  $isDarkTheme,
-}: {
-  theme: TTheme;
-  $isBright: boolean;
-  $isDarkTheme: boolean;
-}) => {
-  if ($isDarkTheme) return $isBright ? theme.colors.primary[0] : theme.colors.secondary[0];
+export const Wrapper = styled.div<{ $fullHeight?: boolean; $height: string; $borderRadius: TThemeArrayOrValueCSS }>`
+  position: relative;
+  cursor: pointer;
+  width: 100%;
+  height: ${({ $fullHeight, $height }) => ($fullHeight ? '100%' : $height)};
+  border-radius: ${({ $borderRadius }) => arrayToCssValues($borderRadius, 'borderRadius')};
+  overflow: hidden;
+  touch-action: manipulation;
+`;
 
-  return $isBright ? theme.colors.secondary[0] : theme.colors.primary[0];
-};
+// ---------- ColorCalculation for the color and the opacity ------- //
+export const ColorDisplayContainer = styled.div<{ theme?: TTheme }>`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+`;
 
 export const Content = styled.div<{ $isBright: boolean; theme: TTheme; $isDarkTheme: boolean }>`
   position: absolute;
@@ -44,42 +47,14 @@ export const Content = styled.div<{ $isBright: boolean; theme: TTheme; $isDarkTh
   }
 `;
 
-export const WrapperSVG = styled.div`
-  position: absolute;
-  right: 8px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 1px;
-`;
-
-export const Wrapper = styled.div<{ $fullHeight?: boolean }>`
-  position: relative;
-  cursor: pointer;
-  width: 100%;
-  height: ${({ $fullHeight }) => ($fullHeight ? '100%' : '20px')};
-  touch-action: manipulation;
-`;
-
-// ---------- ColorCalculation for the color and the opacity ------- //
-interface IColorDisplayColor {
-  color?: string;
-  opacity?: number;
-}
-const colorDisplayColor = ({ color, opacity }: IColorDisplayColor) => {
-  const checkOpacity = opacity === undefined ? 1 : opacity;
-  const transformedColor = Color(color).rgb().alpha(checkOpacity);
-  return {
-    style: {
-      background: `${transformedColor.toString()}`,
-    },
-  };
+// calculate color on the isBright and isDarkTheme props
+type TColorCalculation = {
+  theme: TTheme;
+  $isBright: boolean;
+  $isDarkTheme: boolean;
 };
+const colorCalculation = ({ theme, $isBright, $isDarkTheme }: TColorCalculation) => {
+  if ($isDarkTheme) return $isBright ? theme.colors.primary[0] : theme.colors.secondary[0];
 
-export const ColorDisplayContainer = styled.div.attrs(colorDisplayColor)<IColorDisplayColor & { theme: TTheme }>`
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border-radius: ${({ theme }) => theme.borderRadius.sm};
-  z-index: 1;
-`;
+  return $isBright ? theme.colors.secondary[0] : theme.colors.primary[0];
+};
