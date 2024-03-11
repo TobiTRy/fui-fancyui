@@ -1,0 +1,54 @@
+import { Meta, Title, Description, Controls, Canvas } from '@storybook/blocks';
+
+import * as DynamicScrollBarStories from './DynamicScrollBar.stories';
+
+<Meta of={DynamicScrollBarStories} />
+
+<Title />
+
+<Description />
+
+## Setup Instructions
+
+To use the `DynamicScrollBar` in your project, follow these steps:
+
+1. Import the `DynamicScrollBar` component where you intend to use it:
+
+```jsx
+import { DynamicScrollBar } from 'fui-fancyui';
+```
+
+2. If using TypeScript, ensure the type definitions are imported for prop validation:
+
+```jsx
+import { TDynamicScrollBar } from 'fui-fancyui';
+```
+
+## Example Usage
+
+Below is an example demonstrating how to use the `DynamicScrollBar` component in a React project:
+
+```jsx
+import React from 'react';
+import { DynamicScrollBar } from 'fui-fancyui';
+
+const MyComponent = () => (
+  <DynamicScrollBar scrollable={true} activateScrollbar={true}>
+    <div>Your content here</div>
+  </DynamicScrollBar>
+);
+
+export default MyComponent;
+```
+
+This example wraps the content within a `DynamicScrollBar`. The scrollbar will be activated and visible only if both `scrollable` and `activateScrollbar` props are set to `true`.
+
+<Canvas />
+
+## Component Properties
+
+The `DynamicScrollBar` accepts the following properties (props):
+
+<Controls />
+
+These props allow for conditional rendering and functionality of the `DynamicScrollBar`, making it a versatile component for managing content overflow in various UI scenarios.
