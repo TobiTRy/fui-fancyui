@@ -1,0 +1,57 @@
+# DateNumberWithStatus Component
+
+## Brief Description
+
+The `DateNumberWithStatus` component is a molecule that combines two atoms: `DateNumberAtom` and `AvilableDot`. It is designed to display a date number along with an availability indicator dot, signifying whether a particular date is busy or free. This component is useful in calendar or scheduling applications to provide users with a quick visual understanding of date availability.
+
+## Setup Instructions
+
+To use the `DateNumberWithStatus` in your project, follow these steps:
+
+1. Import the `DateNumberWithStatus` component where you intend to use it:
+
+```jsx
+import { DateNumberWithStatus } from 'fui-fancyui';
+```
+
+2. If using TypeScript, ensure the type definitions are imported for prop validation:
+
+```jsx
+import { ColorDisplay, TColorDisplayWithHTMLAttrs } from 'fui-fancyui';
+```
+
+## Example Usage
+
+Here's an example of how to use the `DateNumberWithStatus` component within a React component:
+
+```jsx
+<DateNumberWithStatus
+  dateNumber={15}
+  isAvailable={true}
+  disabled={false}
+  isSelected={true}
+  isCurrentDay={false}
+  onClick={() => console.log('Date clicked')}
+  range={undefined} // Optional: specify if needed
+  layer="base"
+  themeType="primary"
+/>
+```
+
+This example demonstrates how to display the date number 15 with an available status, selected state, and using the 'primary' theme type.
+
+## Component Properties
+
+The `DateNumberWithStatus` component accepts the following properties:
+
+- `isAvailable` (optional): A boolean or undefined, indicating the availability status to be shown by the `AvilableDot`. Defaults to undefined.
+- `disabled` (optional): A boolean, indicating if the date is disabled. When disabled, the availability dot will be transparent.
+- `dateNumber`: A number representing the date to be displayed.
+- `isSelected` (optional): A boolean, indicating if the date is selected.
+- `isCurrentDay` (optional): A boolean, indicating if the date is the current day.
+- `range` (optional): An `IRange` object specifying the range. Used by `DateNumberAtom`.
+- `onClick` (optional): A function to be executed when the date number is clicked.
+- `themeType` (optional): A `TUiColorsNotTransparent` value indicating the theme type for styling.
+- `layer` (optional): A `TLayer` value indicating the layer type for styling.
+
+This component relies on the styled-components library for styling and utilizes type definitions from the project's types directory for `theme`, `layer`, and `themeType` properties.

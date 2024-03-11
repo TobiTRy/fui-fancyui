@@ -1,8 +1,6 @@
-import React from 'react';
-
 import type { Meta, StoryObj } from '@storybook/react';
 
-import DateNumberWithStatus from './DateNumberWithStatus';
+import DateNumberWithStatus from '../DateNumberWithStatus';
 
 const meta = {
   component: DateNumberWithStatus,
