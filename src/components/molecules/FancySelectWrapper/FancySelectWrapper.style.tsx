@@ -1,7 +1,7 @@
 import { CSSProp, css, styled } from 'styled-components';
 
 import { TTheme } from '@/types/TTheme';
-import { TAlign, TAlignCheckbox } from '../FancyCheckbox/FancyCheckbox.model';
+import { TAlign, TAlignCheckbox } from '../../organisms/FancyCheckbox/FancyCheckbox.model';
 
 // wraps the whole component and handles the alignment
 export const Wrapper = styled.div<{ $align?: TAlign; $externalStyle: CSSProp }>`

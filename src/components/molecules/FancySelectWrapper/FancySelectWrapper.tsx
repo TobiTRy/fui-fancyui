@@ -1,26 +1,14 @@
-import React, { useId } from 'react';
-import { CSSProp } from 'styled-components';
+import { useId } from 'react';
 
-import { themeStore } from '@/design/theme/themeStore';
-import { InputWrapper, LabelWrapper, Wrapper } from './FancySelectWrapper.style';
-import { TAlign, TAlignCheckbox } from '@/components/molecules/FancyCheckbox/FancyCheckbox.model';
 import { FancyContent } from '@/components/molecules/FancyContent';
+import { IFancySelectWrapper } from './FancySelectWrapper.model';
+import { InputWrapper, LabelWrapper, Wrapper } from './FancySelectWrapper.style';
 
-export interface IFancySelectWrapperProps {
-  label?: string;
-  align?: TAlign;
-  alignInput?: TAlignCheckbox;
-  description?: string;
-  id?: string;
-  inputElement?: React.ReactNode;
-  externalStyle?: CSSProp;
-}
 // --------------------------------------------------------------------------- //
 // - A simple Checkbox/Radio Wrapper  that provides a label and description -- //
 // --------------------------------------------------------------------------- //
-export default function FancySelectWrapper(props: IFancySelectWrapperProps) {
-  const { label, align, alignInput, description, inputElement, externalStyle } = { ...defaultProps, ...props };
-  const getTheme = themeStore((state) => state.theme);
+export default function FancySelectWrapper(props: IFancySelectWrapper) {
+  const { label, align = 'center', alignInput = 'left', description, inputElement, externalStyle } = props;
 
   const id = useId();
   const pickedId = props.id ? props.id : id;
@@ -32,10 +20,7 @@ export default function FancySelectWrapper(props: IFancySelectWrapperProps) {
         <LabelWrapper $align={alignInput} htmlFor={pickedId}>
           <FancyContent>
             {label && (
-              <FancyContent.Title
-                fontVariant="interactiveLg"
-                externalStyle={{ color: getTheme.colors.secondary[0], fontWeight: 'bold' }}
-              >
+              <FancyContent.Title fontVariant="interactiveLg" themeType="secondary" layer={0} fontWeight={'bold'}>
                 {label}
               </FancyContent.Title>
             )}
@@ -43,7 +28,8 @@ export default function FancySelectWrapper(props: IFancySelectWrapperProps) {
               <FancyContent.Description
                 className="description"
                 fontVariant="bodytextSm"
-                externalStyle={{ color: getTheme.colors.secondary[2] }}
+                themeType="secondary"
+                layer={2}
               >
                 {description}
               </FancyContent.Description>
@@ -56,9 +42,3 @@ export default function FancySelectWrapper(props: IFancySelectWrapperProps) {
     </Wrapper>
   );
 }
-
-// the default props of the component
-const defaultProps: IFancySelectWrapperProps = {
-  align: 'center',
-  alignInput: 'left',
-};
