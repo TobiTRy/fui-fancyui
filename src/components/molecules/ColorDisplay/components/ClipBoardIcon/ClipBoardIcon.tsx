@@ -4,15 +4,7 @@ import { SVGClipBoardIconChecked } from '@/components/icons/SVGClipBoardIconChec
 import { WrapperSVG } from './ClipBoardIcon.style';
 
 import { sizeSettings } from './sizeSettings';
-import { TComponentSizes } from '@/types/TComponentSizes';
-import React from 'react';
-
-type TClipBoardIcon = {
-  sizeC?: TComponentSizes;
-  copyd: boolean;
-  copyedIcon?: React.ReactNode;
-  unCopyedIcon?: React.ReactNode;
-};
+import { TClipBoardIcon } from './ClipBoardicon.model';
 
 export default function ClipBoardIcon(props: TClipBoardIcon) {
   const { sizeC = 'sm', copyd, copyedIcon = <SVGClipBoardIconChecked />, unCopyedIcon = <SVGClipBoardIcon /> } = props;

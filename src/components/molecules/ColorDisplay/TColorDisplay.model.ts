@@ -1,13 +1,14 @@
-import { TBorderRadiusSizes } from '@/types/TBorderRadiusSizes';
-import { TComponentSizes } from '@/types/TComponentSizes';
 import Color from 'color';
+import { TThemeArrayOrValueCSS } from '@/design/designFunctions/arrayToCssValues';
+import { TComponentSizes } from '@/types/TComponentSizes';
 
 export type TColorDisplay = {
-  color: Color | string;
+  colorValue: Color | string;
   opacity?: number;
-  showText?: boolean;
   fullHeight?: boolean;
-  borderRadius?: TBorderRadiusSizes;
+  borderRadius?: TThemeArrayOrValueCSS;
   sizeC?: TComponentSizes;
-  borderR?: TComponentSizes;
+  children?: React.ReactNode;
 };
+
+export type TColorDisplayWithHTMLAttrs = TColorDisplay & React.HTMLAttributes<HTMLButtonElement>;

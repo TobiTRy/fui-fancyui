@@ -4,7 +4,10 @@ import { TThemeArrayOrValueCSS, arrayToCssValues } from '@/design/designFunction
 import { TTheme } from '@/types/TTheme';
 import { simpleColorTransition } from '@/design/designFunctions/simpleColorTransition';
 
-export const Wrapper = styled.div<{ $fullHeight?: boolean; $height: string; $borderRadius: TThemeArrayOrValueCSS }>`
+export const Wrapper = styled.button<{ $fullHeight?: boolean; $height: string; $borderRadius: TThemeArrayOrValueCSS }>`
+  border: none;
+  padding: 0;
+  background-color: transparent;
   position: relative;
   cursor: pointer;
   width: 100%;
@@ -16,7 +19,6 @@ export const Wrapper = styled.div<{ $fullHeight?: boolean; $height: string; $bor
 
 // ---------- ColorCalculation for the color and the opacity ------- //
 export const ColorDisplayContainer = styled.div<{ theme?: TTheme }>`
-  position: absolute;
   width: 100%;
   height: 100%;
   z-index: 1;
@@ -32,7 +34,7 @@ export const Content = styled.div<{ $isBright: boolean; theme: TTheme; $isDarkTh
   top: 0;
   left: 0;
   z-index: 2;
-  gap: 3px;
+  gap: ${({ theme }) => theme.spacing.xxs};
   color: ${({ theme, $isBright, $isDarkTheme }) => colorCalculation({ theme, $isBright, $isDarkTheme })};
   ${simpleColorTransition}
 
