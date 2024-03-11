@@ -6,7 +6,7 @@ const storyBookThemeDark = create({
 
   brandTitle: 'FUI-FancyUI',
   brandUrl: 'http://FUI.cool',
-  brandImage: 'https://tobitry.de/bilder/fui/FancyUI%20-01FITStorybookWide.png',
+  brandImage: 'https://tobitry.de/bilder/fui/FancyUI%20-02FITStorybookWide.png',
   brandTarget: '_blank',
 
   textColor: rawTheme.colors.secondary[0],
