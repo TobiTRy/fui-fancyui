@@ -11,6 +11,7 @@ import ColorArea from '@/components/molecules/FancyColorArea/FancyColorArea';
 import FancyHueSlider from '@/components/molecules/FancyHueSlider/FancyHueSlider';
 import FancyOpacitySlider from '@/components/molecules/FancyOpacitySlider/FancyOpacitySlider';
 import FancyColorOutput from '@/components//molecules/FancyColorOutput/FancyColorOutput';
+import FancyColorDisplay from '@/components/organisms/FancyColorDisplay/FancyColorDisplay';
 
 interface IColorPicker {
   outputFormat?: IColorFormat;
@@ -68,7 +69,7 @@ export default function FanyColorPicker(props: IColorPicker) {
 
   return (
     <Wrapper>
-      {displayColor && <ColorDisplay color={displayColorValue} opacity={opacity} showText={true} />}
+      {displayColor && <FancyColorDisplay colorValue={displayColorValue} opacity={opacity} />}
       {colorArea && <ColorArea hue={hue} color={rawColor} handler={setRawColor} />}
       {hueSlider && <FancyHueSlider handler={setHue} color={rawColor} hue={hue} />}
       {opacitySlider && <FancyOpacitySlider color={rawColor} opacity={opacity} handler={setOpacity} />}
