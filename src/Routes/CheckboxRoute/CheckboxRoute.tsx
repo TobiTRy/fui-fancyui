@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 
 import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
-import FancyCheckbox from '../../components/molecules/FancyCheckbox/FancyCheckbox';
+import FancyCheckbox from '../../components/organisms/FancyCheckbox/FancyCheckbox';
 import { Card } from '@/components/molecules/Card';
 import RawRadio from '@/components/atoms/RawRadio/RawRadio';
 import FancyRadio from '@/components/organisms/FancyRadio/FancyRadio';
