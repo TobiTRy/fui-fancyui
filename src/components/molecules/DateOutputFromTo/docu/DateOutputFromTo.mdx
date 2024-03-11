@@ -1,0 +1,60 @@
+import { Meta, Title, Description, Controls, Canvas } from '@storybook/blocks';
+
+import * as DateOutputButtonStories from './DateOutputButton.stories';
+
+<Meta of={DateOutputButtonStories} />
+
+<Title />
+
+<Description />
+
+## Setup Instructions
+
+To use the `DateOutputFromTo` in your project, follow these steps:
+
+1. Import the `DateOutputFromTo` component where you intend to use it:
+
+```jsx
+import { DateOutputFromTo } from 'fui-fancyui';
+```
+
+2. If using TypeScript, ensure the type definitions are imported for prop validation:
+
+```jsx
+import { TDateOutputFromTo, TDateOutputFromToWithNativeAttrs } from 'fui-fancyui';
+```
+
+## Example Usage
+
+Here's a basic example of how to incorporate the `DateOutputFromTo` component into a React component:
+
+```jsx
+import React from 'react';
+import { DateOutputFromTo } from 'fui-fancyui';
+
+function ExampleComponent() {
+  const handleDateChange = (which) => {
+    console.log(`${which} date selected`);
+  };
+
+  return (
+    <DateOutputFromTo
+      dateFrom={new Date(2023, 0, 1)}
+      dateTo={new Date(2023, 11, 31)}
+      handleFromTo={handleDateChange}
+      themeType="primary"
+      sizeC="md"
+    />
+  );
+}
+```
+
+<Canvas />
+
+## Component Properties
+
+<Controls />
+
+- Inherits all native HTML div properties through `NativeHTMLProps`.
+
+This component is versatile and adaptable for various UI scenarios where displaying a date range is needed, with customization options to fit the visual design of your application.
