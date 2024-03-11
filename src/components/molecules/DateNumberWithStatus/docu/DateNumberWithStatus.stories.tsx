@@ -1,50 +1,53 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import DateNumberWithStatus from '../DateNumberWithStatus';
+import templateThemeType from '@/stories/templateSettingsForStorys/templatesForThemeType';
 
 const meta = {
   component: DateNumberWithStatus,
+  title: 'components/molecules/DateNumberWithStatus',
   parameters: {
     docs: {
       description: {
         component:
-          'Dumb-Comonent: The DateNumberWithStatus is a component that is a mix of DateNumberAtom and AvailableDot. <br> It is used in the calendar. (FancyDatepicker)',
+          'The `DateNumberWithStatus` component is a molecule that combines two atoms: `DateNumberAtom` and `AvilableDot`. It is designed to display a date number along with an availability indicator dot, signifying whether a particular date is busy or free. This component is useful in calendar or scheduling applications to provide users with a quick visual understanding of date availability.',
       },
     },
   },
   argTypes: {
     dateNumber: {
-      description: 'The number of the day.',
+      description: 'A number representing the date to be displayed.',
       control: {
         type: 'number',
       },
     },
     isAvailable: {
-      description: 'The availability of the day.',
+      description: 'A boolean or undefined, indicating the availability status to be shown by the `AvilableDot`',
       control: {
         type: 'select',
       },
     },
     disabled: {
-      description: 'The disabled state of the day.',
+      description:
+        'A boolean, indicating if the date is disabled. When disabled, the availability dot will be transparent.',
       control: {
         type: 'boolean',
       },
     },
     isSelected: {
-      description: 'The selected state of the day.',
+      description: 'A boolean, indicating if the date is selected.',
       control: {
         type: 'boolean',
       },
     },
     isCurrentDay: {
-      description: 'The current day state of the day.',
+      description: 'A boolean, indicating if the date is the current day.',
       control: {
         type: 'boolean',
       },
     },
     range: {
-      description: 'The range state of the day.',
+      description: ' An `IRange` object specifying the range. Used by `DateNumberAtom`.',
       control: {
         type: 'object',
       },
@@ -55,23 +58,8 @@ const meta = {
         type: 'function',
       },
     },
-    themeType: {
-      description: 'The theme type of the day.',
-      control: {
-        type: 'select',
-      },
-    },
-    layer: {
-      description: 'The layer of the day.',
-      control: {
-        type: 'range',
-        min: 1,
-        max: 10,
-        step: 1,
-      },
-    },
+    ...templateThemeType('notTransparent', 'secondary', 0),
   },
-  tags: ['autodocs'],
 } satisfies Meta<typeof DateNumberWithStatus>;
 
 export default meta;
@@ -85,9 +73,9 @@ export const Primary: Story = {
     dateNumber: 1,
     isSelected: false,
     isCurrentDay: false,
-    range: { start: true, inRange: false, end: false },
+    range: { start: false, inRange: false, end: false },
     onClick: () => console.log('click'),
-    themeType: 'primary',
-    layer: 1,
+    themeType: 'secondary',
+    layer: 0,
   },
 };
