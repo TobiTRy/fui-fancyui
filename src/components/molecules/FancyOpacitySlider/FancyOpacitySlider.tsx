@@ -42,7 +42,7 @@ export default function FancyOpacitySlider({ color, opacity, handler }: IOpacity
         <OpacityGradient $color={color.toString()} />
 
         {/* the checkerboard pattern to display the transperancy*/}
-        <CheckerBoardPattern />
+        <CheckerBoardPattern externalStyle={{ position: 'absolute', top: 0, left: 0 }} />
       </SliderContainer>
     </Wrapper>
   );
