@@ -35,9 +35,11 @@ export const Content = styled.div<{ $isBright: boolean; theme: TTheme; $isDarkTh
   left: 0;
   z-index: 2;
   gap: ${({ theme }) => theme.spacing.xxs};
-  color: ${({ theme, $isBright, $isDarkTheme }) => colorCalculation({ theme, $isBright, $isDarkTheme })};
-  ${simpleColorTransition}
 
+  * {
+    color: ${({ theme, $isBright, $isDarkTheme }) => colorCalculation({ theme, $isBright, $isDarkTheme })};
+    ${simpleColorTransition}
+  }
   p {
     user-select: none;
   }

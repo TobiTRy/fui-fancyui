@@ -2,24 +2,7 @@ import { useState, useRef, useEffect, useCallback } from 'react';
 import Color from 'color';
 
 import { IMarkerPosition, IUseSlider, IUseSliderReturn } from './IUseSlider.model';
-
-// Throttle function to prevent too many rerenders
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const throttle = (func: (...args: any[]) => void): ((...args: any[]) => void) => {
-  let isThrottled = false;
-
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  return (...args: any[]) => {
-    if (!isThrottled) {
-      isThrottled = true;
-      requestAnimationFrame(() => {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-        func(...args);
-        isThrottled = false;
-      });
-    }
-  };
-};
+import throttle from '@/utils/functions/throttle/throttle';
 
 // --------------------------------------------------------------------------- //
 // ------------------ Define the main useSlider Hoook function --------------- //
@@ -76,7 +59,7 @@ const useSlider = ({
   );
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  const throttledHandleInteraction = useCallback(throttle(handleInteraction), [handleInteraction]);
+  const throttledHandleInteraction = useCallback(throttle(handleInteraction, 10), [handleInteraction]);
 
   //handle the interaction start with the slider and the color area
   const handleInteractionStart = (

@@ -1,10 +1,9 @@
 import Color from 'color';
 
 import { themeStore } from '@/design/theme/themeStore';
-
 import { CheckerBoardPattern } from '@/components/atoms/CheckerBoardPattern';
-
 import { globalElementsizes } from '@/design/theme/globalSizes';
+
 import { ColorDisplayContainer, Content, Wrapper } from './ColorDisplay.style';
 import { TColorDisplayWithHTMLAttrs } from './TColorDisplay.model';
 import ClipBoardIcon from './components/ClipBoardIcon/ClipBoardIcon';
