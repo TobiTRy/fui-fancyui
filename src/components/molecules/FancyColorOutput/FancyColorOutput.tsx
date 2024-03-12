@@ -7,27 +7,19 @@ import { SVGDoubleChevron } from '@/components/icons/SVGDoubleChevron';
 
 import { Container, WrapperSVG } from './FancyColorOutput.style';
 import { InputFields } from '@/components/molecules/FancyColorOutput/InputFields';
-import { ColorTypeLetters } from './FancyColorOutput.model';
+import { ColorTypeLetters, TFancyColorOutput } from './FancyColorOutput.model';
 
-import colorFormats, { IColorFormat } from '@/utils/variables/colorFormat/colorFormats';
+import colorFormats from '@/utils/variables/colorFormat/colorFormats';
 import colorTransformator from './utils/ColorTransformator';
 
 // --------------------------------------------------------------------------- //
 // -- The main FancyColorOutput Component to displays and change the values -- //
 // --------------------------------------------------------------------------- //
-interface IFancyColorOutput {
-  pickedColor: Color;
-  opacity: number;
-  currentColorType?: IColorFormat;
-  handler?: (color: Color) => void;
-  colorTypeHandler?: (type: IColorFormat) => void;
-  handlerOpacity: (color: number) => void;
-}
-export default function FancyColorOutput(props: IFancyColorOutput) {
+export default function FancyColorOutput(props: TFancyColorOutput) {
   const { pickedColor, opacity, handler, handlerOpacity, currentColorType, colorTypeHandler } = props;
 
   const [colorFormatIndex, setColorFormatIndex] = useState(0);
-  const [currentPicketColor, setCurrentPickedColor] = useState<Color>(pickedColor);
+  const [currentPicketColor, setCurrentPickedColor] = useState<Color>(Color(pickedColor));
 
   //memoized the current color object
   const transformedColorObject = useMemo(
@@ -52,6 +44,7 @@ export default function FancyColorOutput(props: IFancyColorOutput) {
     //string is HEX code
     if (typeof color !== 'string') {
       const colorObj = color as ColorTypeLetters; //e.g. {r: 255, g: 255, b: 255, a: 1, h: 0,…}
+
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const { a, ...colorWhitoutAlpha } = colorObj; //split out the alpha value
 
@@ -71,7 +64,8 @@ export default function FancyColorOutput(props: IFancyColorOutput) {
 
   //this useEffect updates the current picked color
   useEffect(() => {
-    setCurrentPickedColor(pickedColor);
+    const color = Color(pickedColor);
+    setCurrentPickedColor(color);
   }, [pickedColor]);
 
   // sets a color format if the currentColorType is present
