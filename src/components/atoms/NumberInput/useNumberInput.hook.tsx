@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 // useNumberInput.ts
 import { ChangeEvent, KeyboardEvent, useEffect, useState } from 'react';
 import { TNumberInputWithNativeAttrs } from '@/components/atoms/NumberInput/TNumberInput.model';
@@ -57,11 +58,14 @@ export const useNumberInput = (props: TNumberInputWithNativeAttrs): UseNumberInp
       newValue = Number(newValue.toFixed(getDecimalPlaces));
 
       // Update the fake event object to pass to the onChange handler
-      const fakeEvent = {
-        target: {
-          value: newValue.toString(),
-        },
-      } as ChangeEvent<HTMLInputElement>;
+      // Construct a minimal fake event object
+      const fakeEvent: ChangeEvent<HTMLInputElement> = {
+        ...e,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      } as any;
+
+      fakeEvent.target.value = newValue.toString();
+
       updateValue(newValue.toString(), fakeEvent);
     }
   };
@@ -82,6 +86,7 @@ export const useNumberInput = (props: TNumberInputWithNativeAttrs): UseNumberInp
 
     // Call the onChange handler if provided
     if (onChange && e) {
+      console.log('onChange', e);
       e.target.value = adjustedValue;
       onChange(e);
     }

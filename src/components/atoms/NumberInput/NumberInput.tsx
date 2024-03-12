@@ -9,13 +9,26 @@ import { TNumberInput, TNumberInputNativeAttrs } from '@/components/atoms/Number
 // --------------------------------------------------------------------------- //
 export default function NumberInput(props: TNumberInput & TNumberInputNativeAttrs) {
   //dont remove the value/onchange else its provided in the element and you can have letters in the input
-  const { value, onChange, align, id, autoWidth, decimalPlaces, step, min, max, externalStyle, ...moreHTMLProps } =
-    props;
+  const {
+    value,
+    onChange,
+    onKeyDown,
+    align,
+    id,
+    autoWidth,
+    decimalPlaces,
+    step,
+    min,
+    max,
+    externalStyle,
+    ...moreHTMLProps
+  } = props;
 
   // use the hook for the number input to handle the input
   const { inputValue, handleChange, handleKeyDown } = useNumberInput({
     value,
     onChange,
+    onKeyDown,
     min,
     max,
     decimalPlaces,
@@ -30,13 +43,17 @@ export default function NumberInput(props: TNumberInput & TNumberInputNativeAttr
   return (
     <StyledNumberInput
       id={id}
+      autoComplete={'off'}
       type="text"
       value={inputValue !== null ? inputValue : ''}
       step={step}
       min={min}
       max={max}
       onChange={handleChange}
-      onKeyDown={handleKeyDown}
+      onKeyDown={(e) => {
+        handleKeyDown(e);
+        console.log(e);
+      }}
       $externalStyle={externalStyle}
       $width={inputWidth}
       $align={align}
