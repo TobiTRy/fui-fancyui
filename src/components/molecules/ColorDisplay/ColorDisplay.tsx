@@ -40,7 +40,7 @@ function ColorDisplay(props: TColorDisplayWithHTMLAttrs) {
       <ColorDisplayContainer style={{ background: `${transformedColor.toString()}` }} />
 
       {/* The ChekerboardPattern to make the transparency visible */}
-      <CheckerBoardPattern />
+      <CheckerBoardPattern externalStyle={{ position: 'absolute', top: '0', left: '0' }} />
     </Wrapper>
   );
 }
