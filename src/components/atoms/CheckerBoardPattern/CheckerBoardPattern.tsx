@@ -1,20 +1,11 @@
-import { styled } from 'styled-components';
+import { StyledCheckerBoardPattern } from './CheckerBoardPattern.style';
+import { TCheckerBoardPattern } from './TCheckerBoardPattern.model';
 
-const CheckerBoardPattern = styled.div<{ opacity?: number }>`
-  position: absolute;
-  height: 20px;
-  height: 100%;
-  width: 100%;
-  background-image: linear-gradient(45deg, #808080 25%, transparent 25%),
-    linear-gradient(-45deg, #808080 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #808080 75%),
-    linear-gradient(-45deg, transparent 75%, #808080 75%);
-  background-size: 14px 14px;
-  background-position:
-    0 0,
-    0 7px,
-    7px -7px,
-    -7px 0px;
-  opacity: ${({ opacity }) => opacity || 0.05};
-`;
+// --------------------------------------------------------------------------- //
+// ----------------- displays only a simple CheckerBoardPattern -------------- //
+// --------------------------------------------------------------------------- //
+export default function CheckerBoardPattern(props: TCheckerBoardPattern) {
+  const { opacity, color = '#808080', externalStyle } = props;
 
-export default CheckerBoardPattern;
+  return <StyledCheckerBoardPattern $opacity={opacity} $color={color} $externalStyle={externalStyle} />;
+}
