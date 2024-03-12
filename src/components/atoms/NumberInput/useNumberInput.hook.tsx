@@ -10,7 +10,7 @@ interface UseNumberInputReturn {
 }
 
 export const useNumberInput = (props: TNumberInputWithNativeAttrs): UseNumberInputReturn => {
-  const { value, onChange, min, max, decimalPlaces, step = 1 } = props;
+  const { value, onChange, onKeyDown, min, max, decimalPlaces, step = 1 } = props;
   const [inputValue, setInputValue] = useState<string | null>(value ? value.toString() : null);
   const getDecimalPlaces = decimalPlaces || step.toString().split('.')[1]?.length || 0;
 
@@ -20,6 +20,27 @@ export const useNumberInput = (props: TNumberInputWithNativeAttrs): UseNumberInp
       setInputValue(value.toString());
     }
   }, [value]);
+
+  // Update the value and call the onChange handler
+  const updateValue = (newValue: string, e?: ChangeEvent<HTMLInputElement>) => {
+    let adjustedValue = newValue;
+
+    // Check if the value is within the min and max range
+    if (max !== undefined && Number(newValue) > Number(max)) {
+      adjustedValue = max.toString();
+    } else if (min !== undefined && Number(newValue) < Number(min)) {
+      adjustedValue = min.toString();
+    }
+
+    // Update the state
+    setInputValue(adjustedValue);
+
+    // Call the onChange handler if provided
+    if (onChange && e) {
+      e.target.value = adjustedValue;
+      onChange(e);
+    }
+  };
 
   // Handle the change of the input value
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -64,32 +85,10 @@ export const useNumberInput = (props: TNumberInputWithNativeAttrs): UseNumberInp
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
       } as any;
 
-      fakeEvent.target.value = newValue.toString();
-
       updateValue(newValue.toString(), fakeEvent);
+      onKeyDown && onKeyDown(e);
     }
   };
 
-  // Update the value and call the onChange handler
-  const updateValue = (newValue: string, e?: ChangeEvent<HTMLInputElement>) => {
-    let adjustedValue = newValue;
-
-    // Check if the value is within the min and max range
-    if (max !== undefined && Number(newValue) > Number(max)) {
-      adjustedValue = max.toString();
-    } else if (min !== undefined && Number(newValue) < Number(min)) {
-      adjustedValue = min.toString();
-    }
-
-    // Update the state
-    setInputValue(adjustedValue);
-
-    // Call the onChange handler if provided
-    if (onChange && e) {
-      console.log('onChange', e);
-      e.target.value = adjustedValue;
-      onChange(e);
-    }
-  };
   return { inputValue, handleChange, handleKeyDown };
 };
