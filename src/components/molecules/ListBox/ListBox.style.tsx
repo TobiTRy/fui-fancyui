@@ -3,10 +3,9 @@ import { css } from 'styled-components';
 import { TTheme } from '@/types/TTheme';
 
 import { TListBox } from '@/components/molecules/ListBox/ListBox';
-import { TStyledPrefixAndPicker } from '@/types/TStyledPrefixAndPicker';
-import { sizeSettings } from './sizeSettings';
-import { boxShadow } from '@/design/designFunctions/shadows';
 import { arrayToCssValues } from '@/design/designFunctions/arrayToCssValues';
+import { boxShadow } from '@/design/designFunctions/shadows';
+import { TStyledPrefixAndPicker } from '@/types/TStyledPrefixAndPicker';
 
 type TgenerateFancyBoxStyle = TStyledPrefixAndPicker<
   TListBox,

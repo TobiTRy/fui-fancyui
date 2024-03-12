@@ -1,6 +1,7 @@
 import { TTheme } from '@/types/TTheme';
 import { styled, css } from 'styled-components';
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const fancyBarStyle = css<{ theme?: TTheme }>`
   padding: ${({ theme }) => theme.spacing.xs + ' ' + theme.spacing.xs + ' 0 ' + theme.spacing.xs};
   border-bottom: none;

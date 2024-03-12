@@ -19,10 +19,10 @@ import { colorToPosition, positionToColor } from './utils/calcPosition';
 // ----------- The main ColorArea Componet to pick a simple color ------------ //
 // --------------------------------------------------------------------------- //
 export default function FancyColorArea(props: TColorAreaWithHTMLAttrs) {
-  const { color, hue = 0, handler, externalStyle } = props;
+  const { colorValue, hue = 0, handler, externalStyle } = props;
 
   //transform the color to a color object
-  const transformedColor = useMemo(() => Color(color), [color]);
+  const transformedColor = useMemo(() => Color(colorValue), [colorValue]);
 
   //use the useSlider hook handles all the interaction with the color area
   const { sliderRef, markerPosition, handleInteractionStart, isInteracting } = useSlider({

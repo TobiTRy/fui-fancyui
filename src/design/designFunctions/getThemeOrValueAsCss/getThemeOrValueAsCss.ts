@@ -25,7 +25,6 @@ const getThemeOrValueForCSS = (
       const spacing = value as TSpacings;
 
       themeValue = theme[themeSetting][spacing];
-      console.log('themeStore', themeValue, themeSetting, value);
     }
 
     return themeValue ?? '';

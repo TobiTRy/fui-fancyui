@@ -35,7 +35,6 @@ import SwitchesRoute from './Routes/Switches/SwitchesRoute';
 import TabSwitchRoute from './Routes/TabSwitchRoute/TabSwitchRoute';
 import ToastMessageRoute from './Routes/ToastMessageRoute/ToastMessageRoute';
 import Typogrphy from './Routes/Typography/Typogrphy';
-import themeStore from './design/theme/themeStore/themeStore';
 
 import FancyListBoxRoute from '@/Routes/FancyListBoxRoute/FancyListBoxRoute';
 import SkeletonRoute from '@/Routes/SkeletonRoute/SkeletonRoute';

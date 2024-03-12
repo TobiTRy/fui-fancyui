@@ -6,7 +6,6 @@ import { TTheme } from '@/types/TTheme';
 import { emitSelectedColorChange } from './colorPickerUtils';
 import { IColorFormat } from '@/utils/variables/colorFormat/colorFormats';
 
-import ColorDisplay from '@/components/molecules/ColorDisplay/ColorDisplay';
 import ColorArea from '@/components/molecules/FancyColorArea/FancyColorArea';
 import FancyHueSlider from '@/components/molecules/FancyHueSlider/FancyHueSlider';
 import FancyOpacitySlider from '@/components/molecules/FancyOpacitySlider/FancyOpacitySlider';
@@ -67,10 +66,16 @@ export default function FanyColorPicker(props: IColorPicker) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const handleColorOutputChange = (color: Color) => {
+    const getHue = color.hue();
+    if (hue !== getHue) setHue(getHue);
+    setRawColor(color);
+  };
+
   return (
     <Wrapper>
       {displayColor && <FancyColorDisplay colorValue={displayColorValue} opacity={opacity} />}
-      {colorArea && <ColorArea hue={hue} color={rawColor} handler={setRawColor} />}
+      {colorArea && <ColorArea hue={hue} colorValue={rawColor} handler={setRawColor} />}
       {hueSlider && <FancyHueSlider handler={setHue} color={rawColor} hue={hue} />}
       {opacitySlider && <FancyOpacitySlider color={rawColor} opacity={opacity} handler={setOpacity} />}
       {colorOutput && (
@@ -78,7 +83,7 @@ export default function FanyColorPicker(props: IColorPicker) {
           pickedColor={rawColor}
           colorTypeHandler={setColorType}
           opacity={opacity}
-          handler={setRawColor}
+          handler={handleColorOutputChange}
           handlerOpacity={setOpacity}
         />
       )}

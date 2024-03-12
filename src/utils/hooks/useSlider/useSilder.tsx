@@ -11,6 +11,7 @@ const useSlider = ({
   color,
   hue,
   type,
+  opacity,
   sliderPositionToColorFunc,
   positionToColorFunc,
   colorToPositionFunc,
@@ -114,13 +115,14 @@ const useSlider = ({
 
   //update the marker position when the hue changes
   useEffect(() => {
-    if (!hue) return;
     if (type === 'color' && color) {
-      updateMarkerPosition(color.hue(hue));
+      updateMarkerPosition(color.hue(hue ?? 0));
+    } else if (type === 'opacity') {
+      updateMarkerPosition(Color({ r: 255, g: 255, b: 255 }).alpha(opacity ?? 1));
     } else {
       updateMarkerPosition(Color({ h: hue, s: 50, l: 50 }));
     }
-  }, [hue, updateMarkerPosition, color, type]);
+  }, [hue, updateMarkerPosition, color, type, opacity]);
 
   //set the initial position of the marker
   useEffect(() => {
