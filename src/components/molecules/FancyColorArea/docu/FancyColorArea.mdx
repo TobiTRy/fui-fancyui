@@ -1,0 +1,61 @@
+# FancyColorArea Component Documentation
+
+## Brief Description
+
+The `FancyColorArea` component is designed for selecting a color by interacting with a color area, featuring gradients for lightness and saturation, and displaying the currently picked color. This component relies on the `ColorIndicator` atom from the UI library to showcase the selected color, ensuring it's essential to mention its use within the molecule construction of `FancyColorArea`.
+
+## Setup Instructions
+
+To use the `DynamicScrollBar` in your project, follow these steps:
+
+1. Import the `DynamicScrollBar` component where you intend to use it:
+
+```jsx
+import { DynamicScrollBar } from 'fui-fancyui';
+```
+
+2. If using TypeScript, ensure the type definitions are imported for prop validation:
+
+```jsx
+import { TDynamicScrollBar } from 'fui-fancyui';
+```
+
+## Example Usage
+
+Below is an example demonstrating how to use the `FancyColorArea` component within a project:
+
+```jsx
+import React from 'react';
+import FancyColorArea from 'path/to/FancyColorArea';
+import Color from 'color';
+
+const ExampleComponent = () => {
+  const handleColorChange = (color) => {
+    console.log('Selected Color:', color.hex());
+  };
+
+  return (
+    <FancyColorArea
+      color={new Color('#ff0000')}
+      hue={0}
+      handler={handleColorChange}
+      externalStyle={{ margin: '20px', border: '1px solid #000' }}
+    />
+  );
+};
+
+export default ExampleComponent;
+```
+
+This example sets up the `FancyColorArea` with an initial color, a handler function to log the selected color, and some external styles for customization.
+
+## Component Properties
+
+- **color** (`Color | string`): The initial color. Can be a `Color` object or a color string.
+- **hue** (`number`): The hue value of the color. Defaults to `0` if not provided.
+- **handler** (`(color: Color) => void`): A callback function that is called with the new color object when the color is changed.
+- **externalStyle** (`CSSProp`): Optional styling that can be passed to customize the styling of the color area wrapper.
+
+## Note on `ColorIndicator`
+
+The `ColorIndicator` atom is utilized within the `FancyColorArea` component to display the currently picked color dynamically. This component is essential for providing visual feedback to the user by showing the selected color next to the color area. The position and visibility of the `ColorIndicator` are automatically managed based on user interaction with the color area.

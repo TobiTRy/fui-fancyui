@@ -1,12 +1,13 @@
-import { styled } from 'styled-components';
+import { CSSProp, styled } from 'styled-components';
 
 import { TTheme } from '@/types/TTheme';
 
 //the wrapper of the color area (it wraps the color area and the color indicator)
-export const WrapperColorArea = styled.div`
+export const WrapperColorArea = styled.div<{ $externalStyle?: CSSProp }>`
   position: relative;
   width: 100%;
   aspect-ratio: 16/9;
+  ${({ $externalStyle }) => $externalStyle}
 `;
 
 // the color area container (it wraps all gradients and the marker)

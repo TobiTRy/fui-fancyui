@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import FancyColorArea from './FancyColorArea';
+import FancyColorArea from '../FancyColorArea';
 import Color from 'color';
 
 const meta = {

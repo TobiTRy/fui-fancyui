@@ -1,4 +1,5 @@
 import Color from 'color';
+import { useMemo } from 'react';
 
 import { ColorIndicator } from '@/components/atoms/ColorIndicator';
 import { useSlider } from '@/utils/hooks/useSlider';
@@ -11,24 +12,22 @@ import {
   WrapperColorArea,
   WrapperMarker,
 } from './FancyColorArea.style';
+import { TColorAreaWithHTMLAttrs } from './TFancyColorArea.model';
 import { colorToPosition, positionToColor } from './utils/calcPosition';
 
 // --------------------------------------------------------------------------- //
 // ----------- The main ColorArea Componet to pick a simple color ------------ //
 // --------------------------------------------------------------------------- //
-interface IColorArea {
-  color: Color;
-  hue: number;
-  handler: (color: Color) => void;
-}
-export default function FancyColorArea({ color, hue, handler }: IColorArea) {
-  //use the hue from the parent component or set it to 0
-  const currentHue = hue ?? 0;
+export default function FancyColorArea(props: TColorAreaWithHTMLAttrs) {
+  const { color, hue = 0, handler, externalStyle } = props;
+
+  //transform the color to a color object
+  const transformedColor = useMemo(() => Color(color), [color]);
 
   //use the useSlider hook handles all the interaction with the color area
   const { sliderRef, markerPosition, handleInteractionStart, isInteracting } = useSlider({
-    color,
-    hue: currentHue,
+    color: transformedColor,
+    hue: hue,
     positionToColorFunc: positionToColor,
     colorToPositionFunc: colorToPosition,
     handlerColor: handler,
@@ -36,11 +35,11 @@ export default function FancyColorArea({ color, hue, handler }: IColorArea) {
   });
 
   return (
-    <WrapperColorArea>
+    <WrapperColorArea $externalStyle={externalStyle}>
       {/* the color indicator that displays the current picked color (Moves with the marker)*/}
       <ColorIndicator
         position={{ y: markerPosition.y + '%', x: markerPosition.x + '%' }}
-        color={Color(color).toString()}
+        color={transformedColor.toString()}
         isActive={isInteracting}
       />
       {/* the color area with the gradients (PickedColor / Lightness / Saturation) */}
