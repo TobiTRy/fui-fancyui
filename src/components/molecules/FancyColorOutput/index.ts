@@ -1,2 +1,3 @@
 export { default as FancyColorOutput } from './FancyColorOutput';
-export { InputFields } from './InputFields';
+
+export type { TFancyColorOutput } from './FancyColorOutput.model';

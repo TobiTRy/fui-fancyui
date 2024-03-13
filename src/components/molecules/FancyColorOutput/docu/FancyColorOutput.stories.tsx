@@ -2,10 +2,11 @@ import Color from 'color';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
-import FancyColorOutput from './FancyColorOutput';
+import FancyColorOutput from '../FancyColorOutput';
 
 const meta = {
   component: FancyColorOutput,
+  title: 'components/molecules/FancyColorOutput',
   parameters: {
     docs: {
       description: {
@@ -33,11 +34,28 @@ const meta = {
     colorTypeHandler: {
       description: 'The color type handler',
       control: {
+        type: 'function',
+      },
+    },
+    handler: {
+      description: 'The handler for the color',
+      control: {
+        type: 'function',
+      },
+    },
+    handlerOpacity: {
+      description: 'The handler for the opacity',
+      control: {
+        type: 'function',
+      },
+    },
+    initialColorType: {
+      description: 'The current color type',
+      control: {
         type: 'select',
       },
     },
   },
-  tags: ['autodocs'],
 } satisfies Meta<typeof FancyColorOutput>;
 
 export default meta;

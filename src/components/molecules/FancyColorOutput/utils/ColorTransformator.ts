@@ -1,9 +1,15 @@
 import Color from 'color';
-import { ColorTypes, HSLAColor, HSLColor, RGBAColor, RGBColor } from '../FancyColorOutput.model';
+import {
+  TColorTypes,
+  THSLAColor,
+  THSLColor,
+  TRGBAColor,
+  TRGBColor,
+} from '@/components/molecules/ColorInputs/TColorInputs.model';
 import { colorFormats } from '@/utils/variables/colorFormat';
 
 //this function transforms a color to the desired format of the color output switch
-const colorTransformator = (color: Color, opacity: number, formatIdx: number): ColorTypes => {
+const colorTransformator = (color: Color, opacity: number, formatIdx: number): TColorTypes => {
   const colorObject = Color(color);
   const currentColorFormat = colorFormats[formatIdx];
 
@@ -12,7 +18,7 @@ const colorTransformator = (color: Color, opacity: number, formatIdx: number): C
       const rgbColor = colorObject.rgb().object();
       return {
         type: 'rgb' as const,
-        color: { r: Math.round(rgbColor.r), g: Math.round(rgbColor.g), b: Math.round(rgbColor.b) } as RGBColor,
+        color: { r: Math.round(rgbColor.r), g: Math.round(rgbColor.g), b: Math.round(rgbColor.b) } as TRGBColor,
       };
     }
     case 'rgba': {
@@ -24,14 +30,14 @@ const colorTransformator = (color: Color, opacity: number, formatIdx: number): C
           g: Math.round(rgbaColor.g),
           b: Math.round(rgbaColor.b),
           a: opacity,
-        } as RGBAColor,
+        } as TRGBAColor,
       };
     }
     case 'hsl': {
       const hslColor = colorObject.hsl().object();
       return {
         type: 'hsl' as const,
-        color: { h: Math.round(hslColor.h), s: Math.round(hslColor.s), l: Math.round(hslColor.l) } as HSLColor,
+        color: { h: Math.round(hslColor.h), s: Math.round(hslColor.s), l: Math.round(hslColor.l) } as THSLColor,
       };
     }
     case 'hsla': {
@@ -43,7 +49,7 @@ const colorTransformator = (color: Color, opacity: number, formatIdx: number): C
           s: Math.round(hslaColor.s),
           l: Math.round(hslaColor.l),
           a: opacity,
-        } as HSLAColor,
+        } as THSLAColor,
       };
     }
     case 'hex':

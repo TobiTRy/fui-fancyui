@@ -1,0 +1,79 @@
+# FancyColorOutput Component
+
+The `FancyColorOutput` component dynamically adapts its color output to various formats like RGB, RGBA, HSL, HSLA, HEX, and HEXA based on user input. It utilizes the `color` library to handle color transformations and state management to keep track of the current color and format. The component also provides a mechanism to switch between color formats and communicate color changes back to the parent component through callback functions.
+
+## Setup Instructions
+
+To use the `FancyColorOutput` in your project, follow these steps:
+
+1. Import the `FancyColorOutput` component where you intend to use it:
+
+```jsx
+import { FancyColorOutput } from 'fui-fancyui';
+```
+
+2. If using TypeScript, ensure the type definitions are imported for prop validation:
+
+```jsx
+import { TFancyColorOutput, TRGBColor, TRGBAColor, THSLColor, THSLAColor } from 'fui-fancyui';
+```
+
+After installing the required library, you can import and use the `FancyColorOutput` component in your React project as follows:
+
+```jsx
+import React from 'react';
+import FancyColorOutput from './path/to/FancyColorOutput';
+// Assuming you have the necessary styles and handler functions defined
+
+function App() {
+  // Define your handler functions here
+  return (
+    <div>
+      <FancyColorOutput
+        pickedColor={'#3498db'} // Initial color
+        opacity={1} // Initial opacity
+        handler={(color) => console.log(color)} // Function to handle color changes
+        handlerOpacity={(opacity) => console.log(opacity)} // Function to handle opacity changes
+        initialColorType={'hex'} // Optional initial color format
+        colorTypeHandler={(type) => console.log(type)} // Function to handle color format changes
+      />
+    </div>
+  );
+}
+
+export default App;
+```
+
+## Example Usage
+
+The example below demonstrates how to integrate the `FancyColorOutput` component into a React application, including the setup for initial color, color type, and handlers for various interactions:
+
+```jsx
+<FancyColorOutput
+  pickedColor={'hsla(210, 100%, 50%, 0.5)'}
+  opacity={0.5}
+  initialColorType="hsla"
+  handler={(color) => {
+    console.log('Color changed:', color);
+  }}
+  colorTypeHandler={(type) => {
+    console.log('Color format changed to:', type);
+  }}
+  handlerOpacity={(opacity) => {
+    console.log('Opacity changed to:', opacity);
+  }}
+/>
+```
+
+This setup provides a user interface for changing color values and formats dynamically, with changes reflected in real-time and communicated back to the parent component.
+
+## Component Properties
+
+- **pickedColor** (`Color | string`): The initial color value, which can be a `Color` object or a string representing a color.
+- **opacity** (`number`): The initial opacity value for the color.
+- **initialColorType** (`IColorFormat`, optional): The initial color format type (e.g., 'rgb', 'hsla').
+- **handler** (`(color: Color) => void`, optional): A callback function that is invoked when the color value changes.
+- **colorTypeHandler** (`(type: IColorFormat) => void`, optional): A callback function that is invoked when the color format type changes.
+- **handlerOpacity** (`(opacity: number) => void`): A callback function that is invoked when the opacity value changes.
+
+The `FancyColorOutput` component offers flexibility and dynamic interaction with color values in a React application, making it suitable for applications that require a user interface for color manipulation.

@@ -6,9 +6,10 @@ import { FancyButton } from '@/components/organisms/FancyButton';
 import { SVGDoubleChevron } from '@/components/icons/SVGDoubleChevron';
 
 import { Container, WrapperSVG } from './FancyColorOutput.style';
-import { InputFields } from '@/components/molecules/FancyColorOutput/InputFields';
-import { ColorTypeLetters, TFancyColorOutput } from './FancyColorOutput.model';
+import { TFancyColorOutput } from './FancyColorOutput.model';
+import { TColorTypeLetters } from '@/components/molecules/ColorInputs';
 
+import ColorInputs from '@/components/molecules/ColorInputs/ColorInputs';
 import colorFormats from '@/utils/variables/colorFormat/colorFormats';
 import colorTransformator from './utils/ColorTransformator';
 
@@ -16,7 +17,7 @@ import colorTransformator from './utils/ColorTransformator';
 // -- The main FancyColorOutput Component to displays and change the values -- //
 // --------------------------------------------------------------------------- //
 export default function FancyColorOutput(props: TFancyColorOutput) {
-  const { pickedColor, opacity, handler, handlerOpacity, currentColorType, colorTypeHandler } = props;
+  const { pickedColor, opacity, handler, handlerOpacity, initialColorType, colorTypeHandler } = props;
 
   const [colorFormatIndex, setColorFormatIndex] = useState(0);
   const [currentPicketColor, setCurrentPickedColor] = useState<Color>(Color(pickedColor));
@@ -43,7 +44,7 @@ export default function FancyColorOutput(props: TFancyColorOutput) {
 
     //string is HEX code
     if (typeof color !== 'string') {
-      const colorObj = color as ColorTypeLetters; //e.g. {r: 255, g: 255, b: 255, a: 1, h: 0,…}
+      const colorObj = color as TColorTypeLetters; //e.g. {r: 255, g: 255, b: 255, a: 1, h: 0,…}
 
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const { a, ...colorWhitoutAlpha } = colorObj; //split out the alpha value
@@ -58,7 +59,7 @@ export default function FancyColorOutput(props: TFancyColorOutput) {
       }
     } else {
       //if the color is a string it is a HEX  code give it back to the parent component
-      handler && handler(Color(color).hsl());
+      handler?.(Color(color).hsl());
     }
   };
 
@@ -70,17 +71,16 @@ export default function FancyColorOutput(props: TFancyColorOutput) {
 
   // sets a color format if the currentColorType is present
   useEffect(() => {
-    if (currentColorType) {
-      const index = colorFormats.findIndex((type) => type === currentColorType);
+    if (initialColorType) {
+      const index = colorFormats.findIndex((type) => type === initialColorType);
       setColorFormatIndex(index);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [initialColorType]);
 
   return (
     <Container>
-      {/* this Component renders the Input fields for the color and opacity */}
-      <InputFields currentColorObject={transformedColorObject} handler={handleInputChange} />
+      {/* this Component renders the Input fields for the colorTyoes and opacity */}
+      <ColorInputs currentColorObject={transformedColorObject} handler={handleInputChange} />
       {/* Switch Button this switches the color format */}
       <FancyButton
         onClick={handleFormatChange}
