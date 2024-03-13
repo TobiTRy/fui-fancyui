@@ -4,7 +4,7 @@ import { FancyVirtualScroll } from '@/components/shared/FancyVirtualScroll';
 
 const meta = {
   component: FancyVirtualScroll,
-  title: 'shared/FancyVirtualScroll',
+  title: 'components/shared/FancyVirtualScroll',
   parameters: {
     docs: {
       description: {
