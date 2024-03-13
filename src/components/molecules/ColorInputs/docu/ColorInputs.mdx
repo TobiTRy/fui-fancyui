@@ -1,0 +1,73 @@
+import { Meta, Controls, Title, Description, Canvas } from '@storybook/blocks';
+
+import * as ColorInputsStories from './ColorInputs.stories';
+
+<Meta of={ColorInputsStories} />
+
+<Title />
+
+<Description />
+
+The `ColorInputs` component is designed to facilitate the input of color values in various formats such as RGB, RGBA, HSL, HSLA, HEX, and HEXA. It dynamically generates input fields suitable for each color type, allowing users to specify color values conveniently. The component relies on the `currentColorObject` to determine the type of input fields to render and uses a callback function `handler` to update the parent component with changes.
+
+## Setup Instructions
+
+To use the `ColorInputs` in your project, follow these steps:
+
+1. Import the `ColorInputs` component where you intend to use it:
+
+```jsx
+import { ColorInputs } from 'fui-fancyui';
+```
+
+2. If using TypeScript, ensure the type definitions are imported for prop validation:
+
+```jsx
+import {
+  TColorInputs,
+  TRGBColor,
+  TRGBAColor,
+  THSLColor,
+  THSLAColor,
+  TColorTypeLetters,
+  TColorTypes,
+  TColorObject,
+} from 'fui-fancyui';
+```
+
+## Example Usage
+
+Below is an example demonstrating how to use the `ColorInputs` component within a React component:
+
+```jsx
+import React, { useState } from 'react';
+import { ColorInputs } from 'fui-fancyui'; // Adjust the path as needed
+
+const MyColorPicker = () => {
+  const [color, setColor] = useState({
+    type: 'rgb',
+    color: { r: 255, g: 255, b: 255 },
+  });
+
+  const handleColorChange = ({ inputLetter, value }) => {
+    setColor((prevColor) => ({
+      ...prevColor,
+      color: { ...prevColor.color, [inputLetter]: value },
+    }));
+  };
+
+  return <ColorInputs currentColorObject={color} handler={handleColorChange} />;
+};
+
+export default MyColorPicker;
+```
+
+<Canvas />
+
+## Component Properties
+
+The `ColorInputs` component accepts the following properties:
+
+<Controls />
+
+This component streamlines the process of inputting color values in various formats, enhancing the user experience in applications requiring color customization.

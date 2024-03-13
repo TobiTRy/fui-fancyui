@@ -67,6 +67,7 @@ export * from '@/components/molecules/FancyDropDownUL';
 export * from '@/components/molecules/FancySpeedDailButton';
 export * from '@/components/molecules/InputWrapper';
 export * from '@/components/molecules/Modal';
+export * from '@/components/molecules/ColorInputs';
 export * from '@/components/molecules/MonthWithDays';
 export * from '@/components/molecules/Card';
 export * from '@/components/molecules/Calendar';
