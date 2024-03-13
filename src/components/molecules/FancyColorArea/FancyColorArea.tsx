@@ -19,7 +19,7 @@ import { colorToPosition, positionToColor } from './utils/calcPosition';
 // ----------- The main ColorArea Componet to pick a simple color ------------ //
 // --------------------------------------------------------------------------- //
 export default function FancyColorArea(props: TColorAreaWithHTMLAttrs) {
-  const { colorValue, hue = 0, handler, externalStyle } = props;
+  const { colorValue = '#f00', hue = 0, handler, externalStyle } = props;
 
   //transform the color to a color object
   const transformedColor = useMemo(() => Color(colorValue), [colorValue]);
