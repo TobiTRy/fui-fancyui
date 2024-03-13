@@ -19,7 +19,7 @@ import { colorToPosition, positionToColor } from './utils/calcPosition';
 // ----------- The main ColorArea Componet to pick a simple color ------------ //
 // --------------------------------------------------------------------------- //
 export default function FancyColorArea(props: TColorAreaWithHTMLAttrs) {
-  const { colorValue = '#f00', hue = 0, handler, externalStyle } = props;
+  const { colorValue = '#f00', hue = 0, handler, borderRadius = 'sm', externalStyle } = props;
 
   //transform the color to a color object
   const transformedColor = useMemo(() => Color(colorValue), [colorValue]);
@@ -43,8 +43,13 @@ export default function FancyColorArea(props: TColorAreaWithHTMLAttrs) {
         isActive={isInteracting}
       />
       {/* the color area with the gradients (PickedColor / Lightness / Saturation) */}
-      <ColorAreaContainer ref={sliderRef} onMouseDown={handleInteractionStart} onTouchStart={handleInteractionStart}>
-        <CurrentColorArea $hue={hue} />
+      <ColorAreaContainer
+        ref={sliderRef}
+        $borderRadius={borderRadius}
+        onMouseDown={handleInteractionStart}
+        onTouchStart={handleInteractionStart}
+      >
+        <CurrentColorArea $borderRadius={borderRadius} style={{ background: `hsl(${hue}, 100%, 50%)` }} />
         <LightnessGradient />
         <SaturationGradient />
         {/* the marker to display there current picked color on the area */}

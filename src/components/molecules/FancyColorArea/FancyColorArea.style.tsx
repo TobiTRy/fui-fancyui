@@ -1,6 +1,7 @@
 import { CSSProp, styled } from 'styled-components';
 
 import { TTheme } from '@/types/TTheme';
+import { TThemeArrayOrValueCSS, arrayToCssValues } from '@/design/designFunctions/arrayToCssValues';
 
 //the wrapper of the color area (it wraps the color area and the color indicator)
 export const WrapperColorArea = styled.div<{ $externalStyle?: CSSProp }>`
@@ -11,31 +12,23 @@ export const WrapperColorArea = styled.div<{ $externalStyle?: CSSProp }>`
 `;
 
 // the color area container (it wraps all gradients and the marker)
-export const ColorAreaContainer = styled.div<{ theme: TTheme }>`
+export const ColorAreaContainer = styled.div<{ theme: TTheme; $borderRadius: TThemeArrayOrValueCSS }>`
   overflow: hidden;
   position: relative;
   height: 100%;
   cursor: crosshair;
   user-select: none;
-  border-radius: ${({ theme }) => theme.borderRadius.sm};
+  border-radius: ${({ $borderRadius }) => arrayToCssValues($borderRadius, 'borderRadius')};
 `;
 
 // ---------- The ColorArea Gradients ------- //
-interface IColorGradient {
-  $hue: number;
-  theme: TTheme;
-}
 
 //the color gradient it shows the current color via the hue
-export const CurrentColorArea = styled.div.attrs<IColorGradient>(({ $hue }) => ({
-  style: {
-    background: `hsl(${$hue}, 100%, 50%)`,
-  },
-}))<IColorGradient>`
+export const CurrentColorArea = styled.div<{ $borderRadius: TThemeArrayOrValueCSS }>`
   position: absolute;
   width: 100%;
   height: 100%;
-  border-radius: ${({ theme }) => theme.borderRadius.sm};
+  border-radius: ${({ $borderRadius }) => arrayToCssValues($borderRadius, 'borderRadius')};
 `;
 
 export const LightnessGradient = styled.div`

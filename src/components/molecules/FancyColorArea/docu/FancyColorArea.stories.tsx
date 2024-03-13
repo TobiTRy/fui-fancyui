@@ -36,6 +36,12 @@ const meta = {
     externalStyle: {
       description: 'The external style that can be used to style the area',
     },
+    borderRadius: {
+      description: 'The border radius that can be used to style the area `TThemeArrayOrValueCSS`',
+      control: {
+        type: 'object',
+      },
+    },
   },
 } satisfies Meta<typeof FancyColorArea>;
 
@@ -48,6 +54,7 @@ export const Primary: Story = {
     colorValue: '#f00',
     hue: 0,
     handler: (color: Color) => console.log(color),
+    borderRadius: ['md'],
     externalStyle: {},
   },
 };
