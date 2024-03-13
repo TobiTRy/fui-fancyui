@@ -15,7 +15,6 @@ const preview: Preview = {
     docs: {
       container: DocsContainer,
     },
-    actions: { argTypesRegex: '^on[A-Z].*' },
     options: {
       storySort: {
         order: [
