@@ -40,7 +40,6 @@ const meta = {
       },
     },
   },
-  tags: ['autodocs'],
 } satisfies Meta<typeof FancyModalHeadLine>;
 
 export default meta;
