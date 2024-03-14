@@ -1,8 +1,8 @@
-interface IFancyModalHeadLine {
+export type TFancyModalHeadLine = {
   title?: string;
   subTitle?: string;
   alignCenter?: boolean;
   hr?: boolean;
-}
+};
 
-export default IFancyModalHeadLine;
+export type TFancyModalHeadLineWithHTMLProps = TFancyModalHeadLine & React.HTMLProps<HTMLDivElement>;
