@@ -1,0 +1,61 @@
+import { Meta, Title, Description, Controls, Canvas } from '@storybook/blocks';
+
+import * as FancyDropDownULStories from './FancyDropDownUL.stories';
+
+<Meta of={FancyDropDownULStories} />
+
+<Title />
+
+<Description />
+
+## Setup Instructions
+
+To use the `FancyColorArea` in your project, follow these steps:
+
+1. Import the `FancyDropDownUL` component where you intend to use it:
+
+```jsx
+import { FancyDropDownUL } from 'fui-fancyui';
+```
+
+2. If using TypeScript, ensure the type definitions are imported for prop validation:
+
+```jsx
+import { TFancyDropDownUL, TFancyDropDownULWithHTMLAttrs } from 'fui-fancyui';
+```
+
+## Example Usage
+
+Here's an example of how to use the `FancyDropDownUL` component within a React project:
+
+```jsx
+import React, { useState } from 'react';
+import { FancyDropDownUL } from 'fui-fancyui';
+
+function App() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <div>
+      <button onClick={() => setIsOpen(!isOpen)}>Toggle Dropdown</button>
+      <FancyDropDownUL isOpen={isOpen} themeType="primary" alignHorizontal="center" alignVertical="top">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+      </FancyDropDownUL>
+    </div>
+  );
+}
+```
+
+<Canvas />
+
+## Component
+
+Properties
+
+The `FancyDropDownUL` component accepts the following properties (props):
+
+<Controls />
+
+Other HTML attributes (`...htmlProps`) and styled component props (`...styledProps`) can also be passed to customize the component further.
