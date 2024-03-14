@@ -1,15 +1,10 @@
-import React from 'react';
-import { CSSProp, css } from 'styled-components';
+import { css } from 'styled-components';
 
 import { RawNav } from '@/components/atoms/RawNav';
+import { TFancyNavBarWithHTMLProps } from '@/components/molecules/FancyNavBar/TFancyNavBar.model';
 
-type TFancyNavBar = {
-  children?: React.ReactNode;
-  externalStyle?: CSSProp;
-} & React.HTMLAttributes<HTMLElement>;
-
-export default function FancyNavBar(props: TFancyNavBar) {
-  const { children, externalStyle } = props;
+export default function FancyNavBar(props: TFancyNavBarWithHTMLProps) {
+  const { children, externalStyle, ...htmlProps } = props;
 
   return (
     <RawNav
@@ -19,6 +14,7 @@ export default function FancyNavBar(props: TFancyNavBar) {
         align-items: center;
         ${externalStyle}
       `}
+      {...htmlProps}
     >
       {children}
     </RawNav>
