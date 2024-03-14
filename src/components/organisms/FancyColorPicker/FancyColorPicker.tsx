@@ -76,8 +76,8 @@ export default function FanyColorPicker(props: IColorPicker) {
     <Wrapper>
       {displayColor && <FancyColorDisplay colorValue={displayColorValue} opacity={opacity} />}
       {colorArea && <ColorArea hue={hue} colorValue={rawColor} handler={setRawColor} />}
-      {hueSlider && <FancyHueSlider handler={setHue} color={rawColor} hue={hue} />}
-      {opacitySlider && <FancyOpacitySlider color={rawColor} opacity={opacity} handler={setOpacity} />}
+      {hueSlider && <FancyHueSlider handler={setHue} hue={hue} />}
+      {opacitySlider && <FancyOpacitySlider colorValue={rawColor} opacity={opacity} handler={setOpacity} />}
       {colorOutput && (
         <FancyColorInput
           pickedColor={rawColor}

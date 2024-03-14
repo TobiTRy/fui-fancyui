@@ -1,0 +1,63 @@
+import { Meta, Title, Description, Controls, Canvas } from '@storybook/blocks';
+
+import * as FancyPageListStories from './FancyPageList.stories';
+
+<Meta of={FancyPageListStories} />
+
+<Title />
+
+<Description />
+
+The `FancyPageList` component is designed to render a list of items along with pagination functionality. It integrates a `Paginator` component to navigate through pages of items. This component is highly configurable, allowing customization of the number of items per page, the spacing between items, and the design of pagination buttons. It is particularly useful for organizing large datasets into manageable chunks, enhancing the user experience by providing a streamlined way to browse through items.
+
+## Setup Instructions
+
+To use the `FancyPageList` in your project, follow these steps:
+
+1. Import the `FancyPageList` component where you intend to use it:
+
+```jsx
+import { FancyPageList } from 'fui-fancyui';
+```
+
+2. If using TypeScript, ensure the type definitions are imported for prop validation:
+
+```jsx
+import { TFancyPageList, TFancyPageListWithHTMLAttrs } from 'fui-fancyui';
+```
+
+## Example Usage
+
+Below is an example demonstrating how to use the `FancyPageList` component:
+
+```jsx
+import React from 'react';
+import FancyPageList from '@/components/molecules/FancyPageList';
+
+const MyComponent = () => {
+  const elements = [<div>Item 1</div>, <div>Item 2</div> /* ... */];
+
+  return (
+    <FancyPageList
+      elements={elements}
+      itemsPerPage={10}
+      spacingBetweenItems="10px"
+      buttonDesign="primary"
+      outlinedButton={true}
+      showPages={5}
+    />
+  );
+};
+
+export default MyComponent;
+```
+
+<Canvas />
+
+## Component Properties
+
+<Controls />
+
+`FancyPageList` also supports all standard HTML attributes through `TFancyPageListWithHTMLAttrs`, allowing for additional customization such as style and class overrides.
+
+This component is a versatile solution for rendering lists with pagination, providing both functionality and customization to fit the needs of various applications.

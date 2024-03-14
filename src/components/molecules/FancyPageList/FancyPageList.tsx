@@ -1,33 +1,14 @@
 import React, { useState } from 'react';
-import { styled } from 'styled-components';
 
 import { Paginator } from '@/components/molecules/Paginator';
-import { TTheme } from '@/types/TTheme';
+import { Wrapper, StyledList } from './FancyPageList.style';
+import { TFancyPageList } from '@/components/molecules/FancyPageList/TFancyPageList.model';
 
-// Define the props for the FancyPageList component
-interface IFancyPageList {
-  itemsPerPage?: number;
-  elements: React.ReactNode[];
-  spacingBetweenItems?: string;
-  showPages?: number;
-  buttonDesign?: 'accent' | 'primary' | 'transparent';
-  outlinedButton?: boolean;
-}
 // --------------------------------------------------------------------------- //
 // ------- This Component renders a Paginator with the specific list --------- //
 // --------------------------------------------------------------------------- //
-export default function FancyPageList(props: IFancyPageList) {
-  const {
-    itemsPerPage,
-    elements,
-    spacingBetweenItems,
-    buttonDesign,
-    outlinedButton,
-    showPages = 3,
-  } = {
-    ...defaultProps,
-    ...props,
-  };
+export default function FancyPageList(props: TFancyPageList) {
+  const { itemsPerPage = 20, elements, spacingBetweenItems, buttonDesign, outlinedButton, showPages = 3 } = props;
 
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -56,27 +37,3 @@ export default function FancyPageList(props: IFancyPageList) {
     </Wrapper>
   );
 }
-
-// Define the default props for the FancyPageList component
-const defaultProps = {
-  itemsPerPage: 20,
-};
-
-// ------------------------------------------- //
-// ------- The style for the component ------- //
-// ------------------------------------------- //
-// The List with dymaic spacing between items
-const StyledList = styled.div<{ $spacing?: string }>`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: ${({ $spacing }) => ($spacing ? $spacing : '0px')};
-`;
-
-const Wrapper = styled.div<{ theme: TTheme }>`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  gap: ${({ theme }) => theme.spacing.xl};
-`;
