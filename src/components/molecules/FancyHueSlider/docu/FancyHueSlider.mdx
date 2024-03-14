@@ -1,0 +1,61 @@
+import { Meta, Title, Description, Controls, Canvas } from '@storybook/blocks';
+
+import * as FancyHueSliderStories from './FancyHueSlider.stories';
+
+<Title />
+
+<Description />
+
+## Setup Instructions
+
+To use the `FancyHueSlider` in your project, follow these steps:
+
+1. Import the `FancyHueSlider` component where you intend to use it:
+
+```jsx
+import { FancyHueSlider } from 'fui-fancyui';
+```
+
+2. If using TypeScript, ensure the type definitions are imported for prop validation:
+
+```jsx
+import { THueSlider, THueSliderWithHTMLProps } from 'fui-fancyui';
+```
+
+## Example Usage
+
+Here's an example of how to use the `FancyHueSlider` component in a React component:
+
+```jsx
+import React, { useState } from 'react';
+import FancyHueSlider from 'fui-fancyui';
+
+function ColorPicker() {
+  const [hue, setHue] = useState(0);
+
+  const handleHueChange = (newHue) => {
+    setHue(newHue);
+  };
+
+  return (
+    <div>
+      <FancyHueSlider handler={handleHueChange} hue={hue} />
+      <p>Selected Hue: {hue}</p>
+    </div>
+  );
+}
+
+export default ColorPicker;
+```
+
+<Canvas />
+
+## Component Properties
+
+The `FancyHueSlider` component accepts the following properties:
+
+<Controls />
+
+## Additional Information
+
+This component leverages styled-components for styling and assumes a theming structure (`TTheme`) for certain style properties like `borderRadius`. Ensure that your project is set up to pass a theme to styled-components. The slider displays a gradient from red, through all hues, back to red, allowing for a full range of hue selection.
