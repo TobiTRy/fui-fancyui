@@ -9,7 +9,7 @@ import { IColorFormat } from '@/utils/variables/colorFormat/colorFormats';
 import ColorArea from '@/components/molecules/FancyColorArea/FancyColorArea';
 import FancyHueSlider from '@/components/molecules/FancyHueSlider/FancyHueSlider';
 import FancyOpacitySlider from '@/components/molecules/FancyOpacitySlider/FancyOpacitySlider';
-import FancyColorOutput from '@/components//molecules/FancyColorOutput/FancyColorOutput';
+import FancyColorInput from '@/components/organisms/FancyColorInput/FancyColorInput';
 import FancyColorDisplay from '@/components/organisms/FancyColorDisplay/FancyColorDisplay';
 
 interface IColorPicker {
@@ -47,7 +47,7 @@ export default function FanyColorPicker(props: IColorPicker) {
 
   handler && handler(calculateGiveBackColor());
 
-  //this function is handle the color change in the child FancyColorOutput component
+  //this function is handle the color change in the child FancyColorInput component
   useEffect(() => {
     const calcDisplayColor = emitSelectedColorChange({ color: rawColor, opacity, outputFormat: colorType });
     setDisplayColorValue(calcDisplayColor);
@@ -79,7 +79,7 @@ export default function FanyColorPicker(props: IColorPicker) {
       {hueSlider && <FancyHueSlider handler={setHue} color={rawColor} hue={hue} />}
       {opacitySlider && <FancyOpacitySlider color={rawColor} opacity={opacity} handler={setOpacity} />}
       {colorOutput && (
-        <FancyColorOutput
+        <FancyColorInput
           pickedColor={rawColor}
           colorTypeHandler={setColorType}
           opacity={opacity}

@@ -1,11 +1,13 @@
 import { IColorFormat } from '@/utils/variables/colorFormat/colorFormats';
 import Color from 'color';
 
-export type TFancyColorOutput = {
+export type TFancyColorInput = {
   pickedColor: Color | string;
   opacity: number;
-  initialColorType?: IColorFormat;
+  currentColorType?: IColorFormat;
   handler?: (color: Color) => void;
   colorTypeHandler?: (type: IColorFormat) => void;
   handlerOpacity: (color: number) => void;
 };
+
+export type TFancyColorOutputHTMLAttrs = TFancyColorInput & React.HTMLAttributes<HTMLDivElement>;

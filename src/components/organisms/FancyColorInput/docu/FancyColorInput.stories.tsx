@@ -2,16 +2,16 @@ import Color from 'color';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
-import FancyColorOutput from '../FancyColorOutput';
+import FancyColorInput from '../FancyColorInput';
 
 const meta = {
-  component: FancyColorOutput,
-  title: 'components/molecules/FancyColorOutput',
+  component: FancyColorInput,
+  title: 'components/molecules/FancyColorInput',
   parameters: {
     docs: {
       description: {
         component:
-          'Dumb-Comonent: The Color area that is uses for picking a color. <br> - The ColorIndicator works wehen the color is provides again',
+          'The `FancyColorInput` component dynamically adapts its color output to various formats like RGB, RGBA, HSL, HSLA, HEX, and HEXA based on user input. It utilizes the `color` library to handle color transformations and state management to keep track of the current color and format. The component also provides a mechanism to switch between color formats and communicate color changes back to the parent component through callback functions.',
       },
     },
   },
@@ -32,38 +32,38 @@ const meta = {
       },
     },
     colorTypeHandler: {
-      description: 'The color type handler',
+      description: ' A callback function that is invoked when the color format type changes.',
       control: {
         type: 'function',
       },
     },
     handler: {
-      description: 'The handler for the color',
+      description: 'A callback function that is invoked when the color value changes.',
       control: {
         type: 'function',
       },
     },
     handlerOpacity: {
-      description: 'The handler for the opacity',
+      description: 'A callback function that is invoked when the opacity value changes.',
       control: {
         type: 'function',
       },
     },
-    initialColorType: {
+    currentColorType: {
       description: 'The current color type',
       control: {
         type: 'select',
       },
     },
   },
-} satisfies Meta<typeof FancyColorOutput>;
+} satisfies Meta<typeof FancyColorInput>;
 
 export default meta;
 
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
-  render: (args) => <FancyColorOutput {...args} />,
+  render: (args) => <FancyColorInput {...args} />,
   args: {
     pickedColor: Color('#ff0000'),
     opacity: 1,

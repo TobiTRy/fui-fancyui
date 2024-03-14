@@ -5,8 +5,8 @@ import { useEffect, useMemo, useState } from 'react';
 import { FancyButton } from '@/components/organisms/FancyButton';
 import { SVGDoubleChevron } from '@/components/icons/SVGDoubleChevron';
 
-import { Container, WrapperSVG } from './FancyColorOutput.style';
-import { TFancyColorOutput } from './FancyColorOutput.model';
+import { Container, WrapperSVG } from './FancyColorInput.style';
+import { TFancyColorInput } from './TFancyColorInput.model';
 import { TColorTypeLetters } from '@/components/molecules/ColorInputs';
 
 import ColorInputs from '@/components/molecules/ColorInputs/ColorInputs';
@@ -14,10 +14,10 @@ import colorFormats from '@/utils/variables/colorFormat/colorFormats';
 import colorTransformator from './utils/ColorTransformator';
 
 // --------------------------------------------------------------------------- //
-// -- The main FancyColorOutput Component to displays and change the values -- //
+// -- The main FancyColorInput Component to displays and change the values -- //
 // --------------------------------------------------------------------------- //
-export default function FancyColorOutput(props: TFancyColorOutput) {
-  const { pickedColor, opacity, handler, handlerOpacity, initialColorType, colorTypeHandler } = props;
+export default function FancyColorInput(props: TFancyColorInput) {
+  const { pickedColor, opacity, handler, handlerOpacity, currentColorType, colorTypeHandler, ...htmlProps } = props;
 
   const [colorFormatIndex, setColorFormatIndex] = useState(0);
   const [currentPicketColor, setCurrentPickedColor] = useState<Color>(Color(pickedColor));
@@ -71,14 +71,14 @@ export default function FancyColorOutput(props: TFancyColorOutput) {
 
   // sets a color format if the currentColorType is present
   useEffect(() => {
-    if (initialColorType) {
-      const index = colorFormats.findIndex((type) => type === initialColorType);
+    if (currentColorType) {
+      const index = colorFormats.findIndex((type) => type === currentColorType);
       setColorFormatIndex(index);
     }
-  }, [initialColorType]);
+  }, [currentColorType]);
 
   return (
-    <Container>
+    <Container {...htmlProps}>
       {/* this Component renders the Input fields for the colorTyoes and opacity */}
       <ColorInputs currentColorObject={transformedColorObject} handler={handleInputChange} />
       {/* Switch Button this switches the color format */}

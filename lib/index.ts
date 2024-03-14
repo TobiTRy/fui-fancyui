@@ -81,7 +81,6 @@ export * from '@/components/molecules/FancyOpacitySlider';
 export * from '@/components/molecules/FancyHueSlider';
 export * from '@/components/molecules/FancyTabSwitch';
 export * from '@/components/molecules/FancyColorArea';
-export * from '@/components/molecules/FancyColorOutput';
 export * from '@/components/molecules/FancyModalHeadLine';
 export * from '@/components/molecules/HeaderTitleWithLogo';
 export * from '@/components/molecules/FancyPageList';
@@ -118,7 +117,6 @@ export * from '@/components/organisms/FancyModal';
 export * from '@/components/organisms/FancyCodeVerificationInput';
 export * from '@/components/organisms/FancySwipeUpModal';
 export * from '@/components/organisms/FancyDateInput';
-export * from '@/components/templates/FancyDateDropDown';
 export * from '@/components/organisms/FancyToastMessage';
 export * from '@/components/organisms/FancyEditBar';
 export * from '@/components/organisms/FancyRadio';
@@ -127,9 +125,11 @@ export * from '@/components/organisms/FancyColorPicker'; // Note: Please check i
 export * from '@/components/organisms/FancyNumberInput';
 export * from '@/components/organisms/FancyPasswordInput';
 export * from '@/components/organisms/FancyTextInput';
+export * from '@/components/organisms/FancyColorInput';
 
 // ---------- Templates ------- //
 export * from '@/components/templates/FancyInfoCard';
+export * from '@/components/templates/FancyDateDropDown';
 export * from '@/components/templates/FancyMenueComponent/FancyMenu';
 export * from '@/components/templates/FancyMenueComponent/FancyMenuItem';
 export * from '@/components/templates/FancyGrid';
