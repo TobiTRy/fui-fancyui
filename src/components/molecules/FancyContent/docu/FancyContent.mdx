@@ -1,0 +1,71 @@
+import { Meta, Title, Description, Canvas, Controls } from '@storybook/blocks';
+
+import * as FancyContentStories from './FancyContent.stories';
+
+<Meta of={FancyContentStories} />
+
+<Title />
+
+<Description />
+
+## Setup Instructions
+
+To use the `FancyColorArea` in your project, follow these steps:
+
+1. Import the `FancyContent` component where you intend to use it:
+
+```jsx
+import { FancyContent } from 'fui-fancyui';
+```
+
+2. If using TypeScript, ensure the type definitions are imported for prop validation:
+
+```jsx
+import { TFancyContent, TFancyContentHTMLAttrs } from 'fui-fancyui';
+```
+
+3. Subcomponents that should used `FancyContent.Icon`, `FancyContent.Title`, and `FancyContent.Description`
+
+## Example Usage
+
+```jsx
+import React from 'react';
+import { FancyContent } from 'fui-fancyui'; // Adjust the import path as needed
+
+function ExampleComponent() {
+  return (
+    <FancyContent
+      align="center"
+      direction="row"
+      justify="space-between"
+      gapBetweenText="medium"
+      gapBetweenIcon="small"
+      themeType="primary"
+      layer="base"
+      alignIcon="left"
+    >
+      <FancyContent.Icon {...FancySVGAtomProps} /* icon props */ />
+      <FancyContent.Title {...TypographyProps}>Example Title</FancyContent.Title>
+      <FancyContent.Description {...TypographyProps}>Example description text goes here.</FancyContent.Description>
+    </FancyContent>
+  );
+}
+```
+
+<Canvas />
+
+## Component Properties
+
+<Controls />
+
+The `FancyContent` component is designed to be flexible and customizable to fit the needs of various design systems and UI requirements.
+
+### Subcomponents of FancyContent
+
+- **FancyContent.Icon**: Utilizes the `FancySVGAtom` component for rendering icons within the content structure. It's designed for visual elements that complement the textual content.
+
+- **FancyContent.Title**: Employs the `Typography` component to present titles or headings. This subcomponent ensures that titles are consistent in style and appearance across the application.
+
+- **FancyContent.Description**: Makes use of the `Typography` component to display descriptive or supplementary text. It provides a cohesive look and feel for textual content that accompanies the main title or icon.
+
+These subcomponents are integral to the `FancyContent` component, allowing for a modular approach to building rich, informative content blocks with icons, titles, and descriptions. Each subcomponent is tailored to fit its specific role within the content structure, ensuring flexibility and consistency in design.
