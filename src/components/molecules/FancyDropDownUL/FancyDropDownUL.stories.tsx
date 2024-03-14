@@ -3,6 +3,7 @@ import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
 import FancyDropDownUL from './FancyDropDownUL';
+import templateThemeType from '@/stories/templateSettingsForStorys/templatesForThemeType';
 
 const meta = {
   component: FancyDropDownUL,
@@ -15,26 +16,13 @@ const meta = {
     },
   },
   argTypes: {
-    layer: {
-      control: {
-        type: 'range',
-        min: 0,
-        max: 9,
-        step: 1,
-      },
-    },
-    themeType: {
-      control: {
-        type: 'select',
-      },
-    },
+    ...templateThemeType('notTransparent', 'primary', 0),
     isOpen: {
       control: {
         type: 'boolean',
       },
     },
   },
-  tags: ['autodocs'],
 } satisfies Meta<typeof FancyDropDownUL>;
 
 export default meta;
