@@ -19,6 +19,7 @@ export const Wrapper = styled.button<{ $fullHeight?: boolean; $height: string; $
 
 // ---------- ColorCalculation for the color and the opacity ------- //
 export const ColorDisplayContainer = styled.div<{ theme?: TTheme }>`
+  position: relative;
   width: 100%;
   height: 100%;
   z-index: 1;
