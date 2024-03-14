@@ -2,7 +2,7 @@ import React from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
-import FancyOpacitySlider from './FancyOpacitySlider';
+import FancyOpacitySlider from '../FancyOpacitySlider';
 import Color from 'color';
 
 const meta = {
