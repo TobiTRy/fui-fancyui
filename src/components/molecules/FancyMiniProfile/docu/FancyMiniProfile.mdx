@@ -1,0 +1,51 @@
+import { Meta, Title, Description, Controls, Canvas } from '@storybook/blocks';
+
+import * as FancyMiniProfileStories from './FancyMiniProfile.stories';
+
+<Meta of={FancyMiniProfileStories} />
+
+<Title />
+
+## Setup Instructions
+
+To use the `FancyMiniProfile` in your project, follow these steps:
+
+1. Import the `FancyMiniProfile` component where you intend to use it:
+
+```jsx
+import { FancyMiniProfile } from 'fui-fancyui';
+```
+
+2. If using TypeScript, ensure the type definitions are imported for prop validation:
+
+```jsx
+import { TFancyMiniprofile, TFancyMiniprofileWithHTMLProps } from 'fui-fancyui';
+```
+
+These imports are essential for the component's functionality and styling.
+
+## Example Usage
+
+To use the FancyMiniProfile component in your project, you can follow this example:
+
+```jsx
+<FancyMiniProfile
+  sizeC="md"
+  src="path_to_image.jpg"
+  title="John Doe"
+  subTitle="Software Engineer"
+  themeType="primary"
+  layer={3}
+  alignImage="right"
+/>
+```
+
+<Canvas />
+
+This example demonstrates how to render the FancyMiniProfile with a medium size, a custom profile image, a title, a subtitle, a primary theme type, a layer setting of 2, and the image aligned to the right.
+
+## Component Properties
+
+<Controls />
+
+The FancyMiniProfile component offers flexibility and customization through its props, making it a versatile choice for displaying profile information in a compact and stylish format.
