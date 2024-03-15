@@ -1,3 +1,5 @@
+import { useId } from 'react';
+
 import { ProgressBar } from '@/components/atoms/ProgressBar';
 
 import { AlignedLabel } from '@/components/atoms/AlignedLabel';
@@ -5,7 +7,6 @@ import { Typography } from '@/components/atoms/Typography';
 
 import { Wrapper } from './FancyProgressBar.style';
 import { TFancyProgressBarWithHTMLAttrs } from './TFancyProgressBar.model';
-import { useId } from 'react';
 
 // --------------------------------------------------------------------------- //
 // ---------- The Progressbar with some Items Like Percent and Label --------- //
