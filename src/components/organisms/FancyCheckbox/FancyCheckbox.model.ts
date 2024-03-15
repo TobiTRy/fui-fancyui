@@ -1,12 +1,10 @@
 import { TRawCheckbox } from '@/components/atoms/RawCheckbox/TRawCheckbox.model';
-
-// the incoming props custom for the RawCheckbox component
-export type TAlign = 'left' | 'right' | 'center';
-export type TAlignCheckbox = 'left' | 'right';
+import { TTextAlignLRC } from '@/types/TTextAlignLRC';
+import { TTextAlignLR } from '@/types/TTextAlignLR';
 
 export type TFancyCheckboxProps = {
   label?: string;
-  align?: TAlign;
-  alignCheckbox?: TAlignCheckbox;
+  align?: TTextAlignLRC;
+  alignCheckbox?: TTextAlignLR;
   description?: string;
 } & TRawCheckbox;
