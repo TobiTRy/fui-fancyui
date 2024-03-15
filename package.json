@@ -2,7 +2,7 @@
   "name": "fui-fancyui",
   "description": "FancyUI Libary",
   "private": false,
-  "version": "0.3.07",
+  "version": "0.3.08",
   "type": "module",
   "scripts": {
     "dev": "vite",
