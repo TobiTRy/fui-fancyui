@@ -5,7 +5,7 @@ import { TDynamicElementWrapperWithHTMLAttrs } from '@/components/atoms/DynamicE
 
 export type TActionItemSetting = {
   labelAlign?: 'left' | 'right' | 'top' | 'bottom';
-  size: TComponentSizes;
+  size?: TComponentSizes;
   layer?: TLayer;
   themeType?: TUiColorsNotTransparent;
   themeTypeActiveHover?: TUiColorsNotTransparent;
