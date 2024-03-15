@@ -3,7 +3,6 @@ import { CSSProp, css } from 'styled-components';
 
 import { TLayer } from '@/types/TLayer';
 import { FancyBox } from '@/components/atoms/FancyBox';
-import { fancyBarStyle } from './BottomBar.style';
 import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 
 type TBottomBar = {
@@ -25,7 +24,6 @@ export default function BottomBar(props: TBottomBar) {
         <FancyBox
           {...bottomBarProps}
           externalStyle={css`
-            ${fancyBarStyle}
             ${externalStyle}
           `}
         >
