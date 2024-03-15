@@ -26,6 +26,18 @@ const meta = {
       description: 'The handler function for the hue change',
       action: 'handler',
     },
+    borderRadius: {
+      description: 'The border radius of the slider',
+      control: {
+        type: 'object',
+      },
+    },
+    sizeC: {
+      description: 'The size of the component',
+      control: {
+        type: 'select',
+      },
+    },
   },
 } satisfies Meta<typeof FancyHueSlider>;
 
@@ -37,5 +49,6 @@ export const Primary: Story = {
   render: (args) => <FancyHueSlider {...args} />,
   args: {
     hue: 0,
+    sizeC: 'sm',
   },
 };
