@@ -51,6 +51,6 @@ export const Primary: Story = {
   args: {
     sizeC: 'sm',
     colorValue: Color('#ff0000'),
-    opacity: 0.5,
+    opacity: 1,
   },
 };
