@@ -17,7 +17,17 @@ import colorTransformator from './utils/ColorTransformator';
 // -- The main FancyColorInput Component to displays and change the values -- //
 // --------------------------------------------------------------------------- //
 export default function FancyColorInput(props: TFancyColorInput) {
-  const { pickedColor, opacity, handler, handlerOpacity, currentColorType, colorTypeHandler, ...htmlProps } = props;
+  const {
+    themeType = 'primary',
+    layer = 3,
+    pickedColor,
+    opacity,
+    handler,
+    handlerOpacity,
+    currentColorType,
+    colorTypeHandler,
+    ...htmlProps
+  } = props;
 
   const [colorFormatIndex, setColorFormatIndex] = useState(0);
   const [currentPicketColor, setCurrentPickedColor] = useState<Color>(Color(pickedColor));
@@ -86,8 +96,8 @@ export default function FancyColorInput(props: TFancyColorInput) {
         onClick={handleFormatChange}
         wide={true}
         sizeC="sm"
-        themeType="primary"
-        layer={3}
+        themeType={themeType}
+        layer={layer}
         oneToOne={false}
         externalStyle={{
           height: '100%',

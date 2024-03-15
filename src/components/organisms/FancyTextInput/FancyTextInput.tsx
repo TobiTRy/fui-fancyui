@@ -13,7 +13,7 @@ export default function FancyTextInput(props: IFancyTextInputProps) {
   const {
     id,
     value,
-    themeType,
+    themeType = 'primary',
     layer,
     placeholder,
     systemMessage,
