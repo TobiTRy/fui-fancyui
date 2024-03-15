@@ -21,7 +21,7 @@ jobs:
       - name: Install dependencies
         run: |
           npm --version
-          npm ci --production
+          npm install
 
       - name: Build Storybook
         run: |
