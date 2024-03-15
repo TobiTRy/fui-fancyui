@@ -29,6 +29,7 @@ jobs:
 
       - name: Copy files to S3
         run: |
+          echo "Copying files to S3 ${{ env.DIST }}"
           aws s3 sync --delete ${{ env.DIST }} s3://${{ secrets.S3_BUCKET }}
 
       - name: Invalidate Cloudfront
