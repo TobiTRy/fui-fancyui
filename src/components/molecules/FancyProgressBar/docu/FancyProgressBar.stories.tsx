@@ -2,7 +2,7 @@ import React from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
-import FancyProgressBar from './FancyProgressBar';
+import FancyProgressBar from '../FancyProgressBar';
 
 const meta = {
   component: FancyProgressBar,
@@ -34,12 +34,6 @@ const meta = {
       type: { name: 'boolean', required: false },
       description: 'If the progress should be shown as a count',
     },
-    themeType: {
-      control: {
-        type: 'select',
-      },
-      description: 'The theme of the Progressbar',
-    },
     textLayer: {
       control: {
         type: 'range',
@@ -48,15 +42,6 @@ const meta = {
         step: 1,
       },
       description: 'The layer of the text',
-    },
-    layer: {
-      control: {
-        type: 'range',
-        min: 0,
-        max: 9,
-        step: 1,
-      },
-      description: 'The layer of the Progressbar',
     },
     progress: {
       type: { name: 'number', required: false },
@@ -71,7 +56,6 @@ const meta = {
       description: 'The id of the Progressbar',
     },
   },
-  tags: ['autodocs'],
 } satisfies Meta<typeof FancyProgressBar>;
 
 export default meta;
