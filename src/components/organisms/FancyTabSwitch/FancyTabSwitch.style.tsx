@@ -38,8 +38,6 @@ export const ULButtonSwitchList = styled.ul<IFancyTabSwitchStyle & { theme: TThe
   align-items: center;
   margin: 0;
   padding: 0;
-
-  // Generate the disabled style for the tab switch
 `;
 
 // ----------------------------------- //

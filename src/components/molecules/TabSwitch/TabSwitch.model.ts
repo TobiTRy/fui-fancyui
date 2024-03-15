@@ -4,7 +4,7 @@ import { TBorderRadiusSizes } from '@/types/TBorderRadiusSizes';
 import {
   ITabSwitchDetailsLabelIcon,
   ITabSwitchDetailsChildren,
-} from '../FancyTabSwitchButton/FancyTabSwitchButton.model';
+} from '../FancyTabSwitchButton/TFancyTabSwitchButton.model';
 import { TSpacings } from '@/types/TSpacings';
 import { TComponentSizes } from '@/types/TComponentSizes';
 import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';

@@ -2,9 +2,9 @@
 import { Meta, StoryObj } from '@storybook/react';
 
 // Import the component to be tested
-import FancyTabSwitchButton from './FancyTabSwitchButton';
+import FancyTabSwitchButton from '../FancyTabSwitchButton';
 
-import SVGCheckMark from '../../icons/SVGCheckMark/SVGCheckMark';
+import SVGCheckMark from '../../../icons/SVGCheckMark/SVGCheckMark';
 
 // fix for building ... because storybook is not able to handle the default export
 const HelperComponent = (props: React.ComponentProps<typeof FancyTabSwitchButton>) => (
@@ -15,10 +15,12 @@ HelperComponent.displayName = 'FancyTabSwitchButton';
 // Define metadata for the story
 const meta = {
   component: HelperComponent,
+  title: 'components/molecules/FancyTabSwitchButton',
   parameters: {
     docs: {
       description: {
-        component: 'SwipeUpDash is a simple horizontal line',
+        component:
+          'The FancyTabSwitchButton component is a React component designed to act as a stylized tab switch button, leveraging the flexibility and styling capabilities of styled-components and React´s compositional patterns. This component utilizes the Typography atom and the FancyContent molecule for its internal structure, aiming to provide a rich, customizable user interface element that can be easily integrated into a variety of web applications.',
       },
     },
   },
@@ -27,9 +29,6 @@ const meta = {
     disabled: {
       description: 'If true, the button will be disabled.',
       type: { name: 'boolean' },
-      defaultValue: {
-        summary: false,
-      },
     },
     label: {
       description: 'The text to be displayed in the button.',
@@ -37,43 +36,33 @@ const meta = {
     },
     icon: {
       description: 'The icon to be displayed in the button.',
-      type: { name: 'string' },
-    },
-    children: {
-      description: 'The children of the button.',
-      type: { name: 'string' },
-    },
-    itemKey: {
-      description: 'The key of the button.',
-      type: { name: 'string' },
+      control: { type: 'object' },
     },
     selected: {
       description: 'If true, the button will be selected.',
       type: { name: 'boolean' },
     },
     onClick: {
-      description: 'A function that is called when the button is clicked.',
+      description: 'The function to be called when the button is clicked.',
       type: { name: 'function' },
     },
-    wide: {
-      description: 'If true, the button will be wide.',
-      type: { name: 'boolean' },
-    },
     themeType: {
-      description: 'The text color of the button.',
-      control: { type: 'select' },
+      description: 'The theme type of the button.',
+      control: { type: 'radio' },
     },
     iconAlign: {
       description: 'The alignment of the icon.',
       control: { type: 'radio' },
     },
     sizeC: {
-      description: 'The sizeC of the button.',
-      control: { type: 'select' },
+      description: 'The size of the button.',
+      control: { type: 'radio' },
+    },
+    externalStyle: {
+      description: 'The external style of the button.',
+      control: { type: 'object' },
     },
   },
-  // Add tags to the story
-  tags: ['autodocs'],
 } satisfies Meta<typeof HelperComponent>;
 
 // Export the metadata
@@ -89,7 +78,6 @@ export const Primary: Story = {
     label: 'label',
     icon: <SVGCheckMark />,
     selected: false,
-    wide: false,
     themeType: 'secondary',
     iconAlign: 'left',
     sizeC: 'sm',

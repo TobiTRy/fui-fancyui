@@ -10,7 +10,7 @@ import {
 import { FancyTextInput } from '../../FancyTextInput';
 import FancyDropDownSelect from '../../FancyDropDownSelect/FancyDropDownSelect';
 import FancyRangeSlider from '../../FancyRangeSlider/FancyRangeSlider';
-import FancyTabSwitch from '../../../molecules/FancyTabSwitch/FancyTabSwitch';
+import FancyTabSwitch from '../../FancyTabSwitch/FancyTabSwitch';
 import { ITabSwitchProps } from '../../../molecules/TabSwitch/TabSwitch.model';
 
 // --------------------------------------------------------------------------- //

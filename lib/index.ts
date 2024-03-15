@@ -79,7 +79,7 @@ export * from '@/components/molecules/SwipeUpModal';
 export * from '@/components/molecules/ColorDisplay';
 export * from '@/components/molecules/FancyOpacitySlider';
 export * from '@/components/molecules/FancyHueSlider';
-export * from '@/components/molecules/FancyTabSwitch';
+export * from '@/components/organisms/FancyTabSwitch';
 export * from '@/components/molecules/FancyColorArea';
 export * from '@/components/molecules/FancyModalHeadLine';
 export * from '@/components/molecules/HeaderTitleWithLogo';
