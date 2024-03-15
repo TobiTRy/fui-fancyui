@@ -6,11 +6,14 @@ import { SliderContainer, SliderWrapper } from './FancyHueSlider.style';
 import { colorToPositionHue, positionToColorHue } from './utils/calcPosition';
 import { THueSlider } from './TFancyHueSlider.model';
 
+import { sizeSettings } from '@/components/molecules/FancyOpacitySlider/sizeSettings';
+import { globalElementsizes } from '@/design/theme/globalSizes';
+
 // --------------------------------------------------------------------------- //
 // --------  The main HueSlider Component to calulates the hue --------------- //
 // --------------------------------------------------------------------------- //
 export default function FancyHueSlider(props: THueSlider) {
-  const { handler, hue = 0 } = props;
+  const { handler, hue = 0, sizeC = 'sm', borderRadius = 'lg' } = props;
   //give back the new hue value to the parent component
   const handleHueChange = (newHue: number) => handler && handler(parseFloat(newHue.toFixed(1)));
 
@@ -24,8 +27,13 @@ export default function FancyHueSlider(props: THueSlider) {
   });
 
   return (
-    <SliderWrapper>
-      <SliderContainer ref={sliderRef} onMouseDown={handleInteractionStart} onTouchStart={handleInteractionStart}>
+    <SliderWrapper $height={globalElementsizes[sizeSettings[sizeC].height]}>
+      <SliderContainer
+        ref={sliderRef}
+        onMouseDown={handleInteractionStart}
+        onTouchStart={handleInteractionStart}
+        $borderRadius={borderRadius ? borderRadius : sizeSettings[sizeC].borderRadius}
+      >
         {/* the marker for the with the ColorIndicator to displays the current picked hue */}
         <SliderMarker position={markerPosition.x + '%'}>
           <ColorIndicator color={`hsl(${hue}, 100%, 50% )`} isActive={isInteracting} />
