@@ -1,0 +1,47 @@
+import { Meta, Title, Description, Controls, Canvas } from '@storybook/blocks';
+
+import * as FancySelectWrapperStories from './FancySelectWrapper.stories';
+
+<Title />
+
+<Description />
+
+## Setup Instructions
+
+To use the `FancySelectWrapper` in your project, follow these steps:
+
+1. Import the `FancySelectWrapper` component where you intend to use it:
+
+```jsx
+import { FancySelectWrapper } from 'fui-fancyui';
+```
+
+2. If using TypeScript, ensure the type definitions are imported for prop validation:
+
+```jsx
+import { TFancySelectWrapper, TFancySelectWrapperWithHTMLProps } from 'fui-fancyui';
+```
+
+## Example Usage
+
+Below is an example demonstrating how to wrap a checkbox with the `FancySelectWrapper`, providing it with a label and description:
+
+```jsx
+<FancySelectWrapper
+  label="Accept Terms"
+  description="I agree to the terms and conditions."
+  inputElement={<input type="checkbox" />}
+  align="center"
+  alignInput="left"
+/>
+```
+
+<Canvas />
+
+## Component Properties
+
+The `FancySelectWrapper` accepts the following props:
+
+<Controls />
+
+This component significantly enhances the user experience by providing a structured and descriptive context to form elements, making interactions more intuitive and informative.
