@@ -1,0 +1,60 @@
+import { Meta, Title, Description, Controls, Canvas } from '@storybook/blocks';
+
+import * as FancyProgressBarStories from './FancyProgressBar.stories';
+
+<Meta of={FancyProgressBarStories} />
+
+<Title />
+
+<Description />
+
+## Setup Instructions
+
+To use the `FancyPageList` in your project, follow these steps:
+
+1. Import the `FancyProgressBar` component where you intend to use it:
+
+```jsx
+import { FancyProgressBar } from 'fui-fancyui';
+```
+
+2. If using TypeScript, ensure the type definitions are imported for prop validation:
+
+```jsx
+import { TFancyProgressBar, TFancyProgressBarWithHTMLAttrs } from 'fui-fancyui';
+```
+
+## Example Usage
+
+Here's a simple example of how to use the `FancyProgressBar` component in a React component:
+
+```jsx
+import React from 'react';
+import FancyProgressBar from '@/path/to/FancyProgressBar';
+
+const ExampleComponent = () => (
+  <FancyProgressBar
+    progress={60}
+    maxValue={100}
+    label="Progress"
+    labelAlign="left"
+    progressCount={true}
+    progressAlign="right"
+    themeType="primary"
+    textLayer="0"
+    layer="0"
+  />
+);
+
+export default ExampleComponent;
+```
+
+<Canvas />
+
+## Component Properties
+
+The `FancyProgressBar` component accepts the following props:
+
+<Controls />
+
+This component is designed to be flexible and customizable, fitting a wide range of use cases where progress indication is needed.

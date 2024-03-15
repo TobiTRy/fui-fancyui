@@ -10,7 +10,7 @@ export type TFancyProgressBar = {
   labelAlign?: TTextAlignLC;
   progressCount?: boolean;
   progressAlign?: TTextAlignLRC;
-  themeType?: TUiColorsNotTransparent;
+  themeTypeText?: TUiColorsNotTransparent;
   textLayer?: TLayer;
   layer?: TLayer;
   externalStyle?: CSSProp;

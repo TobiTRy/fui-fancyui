@@ -1,3 +1,3 @@
 export { default as FancyProgressBar } from './FancyProgressBar';
 
-export type { TFancyProgressBar, TFancyProgressBarWithHTMLAttrs } from './TFancyProgressBar.model';
+export type { TFancyProgressBar, TFancyProgressBarWithHTMLAttrs } from './TFancyprogressBar.model';

@@ -3,13 +3,15 @@ import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
 import FancyProgressBar from '../FancyProgressBar';
+import templateThemeType from '@/stories/templateSettingsForStorys/templatesForThemeType';
 
 const meta = {
   component: FancyProgressBar,
   parameters: {
     docs: {
       description: {
-        component: 'Dumb-Comonent: A Progressbar with some Items Like Percent and Label',
+        component:
+          'The `FancyProgressBar` is a composite React component that encapsulates a visual representation of progress, complemented by optional labels and a percentage count. It integrates `ProgressBar`, `AlignedLabel`, and `Typography` atoms from the atomic design system to create a more detailed and stylized progress bar. This component is designed to offer enhanced visual feedback through the use of layers, alignment options, theme colors, and external styling capabilities, making it suitable for a wide range of applications where progress visualization is required.',
       },
     },
   },
@@ -34,14 +36,20 @@ const meta = {
       type: { name: 'boolean', required: false },
       description: 'If the progress should be shown as a count',
     },
-    textLayer: {
-      control: {
-        type: 'range',
-        min: 0,
-        max: 9,
-        step: 1,
+    themeTypeText: {
+      description: 'The theme type of the component',
+      control: { type: 'select' },
+      options: ['primary', 'secondary', 'accent', 'info', 'success', 'warning', 'error', undefined],
+      defaultValue: {
+        summary: 'secondary',
       },
-      description: 'The layer of the text',
+    },
+    textLayer: {
+      description: 'The layer of the component',
+      control: { type: 'range', min: 0, max: 9 },
+      defaultValue: {
+        summary: 0,
+      },
     },
     progress: {
       type: { name: 'number', required: false },
@@ -51,10 +59,7 @@ const meta = {
       type: { name: 'number', required: false },
       description: 'The max value of the Progressbar',
     },
-    id: {
-      type: { name: 'string', required: false },
-      description: 'The id of the Progressbar',
-    },
+    ...templateThemeType('notTransparent'),
   },
 } satisfies Meta<typeof FancyProgressBar>;
 
@@ -69,10 +74,10 @@ export const Primary: Story = {
     labelAlign: 'left',
     progressCount: true,
     themeType: 'primary',
+    themeTypeText: 'secondary',
     textLayer: 0,
-    layer: 4,
+    layer: 0,
     progress: 50,
     maxValue: 100,
-    id: 'test',
   },
 };

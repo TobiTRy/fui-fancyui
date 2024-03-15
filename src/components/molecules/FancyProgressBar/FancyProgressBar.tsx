@@ -6,7 +6,7 @@ import { AlignedLabel } from '@/components/atoms/AlignedLabel';
 import { Typography } from '@/components/atoms/Typography';
 
 import { Wrapper } from './FancyProgressBar.style';
-import { TFancyProgressBarWithHTMLAttrs } from './TFancyProgressBar.model';
+import { TFancyProgressBarWithHTMLAttrs } from './TFancyprogressBar.model';
 
 // --------------------------------------------------------------------------- //
 // ---------- The Progressbar with some Items Like Percent and Label --------- //
@@ -20,9 +20,10 @@ export default function FancyProgressBar(props: TFancyProgressBarWithHTMLAttrs) 
     labelAlign,
     progressAlign,
     progressCount,
-    themeType,
-    layer,
-    textLayer,
+    themeType = 'primary',
+    themeTypeText = 'secondary',
+    layer = 0,
+    textLayer = 0,
     ...htmlProps
   } = props;
 
@@ -33,7 +34,7 @@ export default function FancyProgressBar(props: TFancyProgressBarWithHTMLAttrs) 
     <Wrapper $value={progress} {...htmlProps}>
       {/* A lable to describe the Progress for */}
       {label && (
-        <AlignedLabel htmlFor={usedId} align={labelAlign} layer={textLayer}>
+        <AlignedLabel htmlFor={usedId} themeType={themeTypeText} align={labelAlign} layer={textLayer}>
           {label}
         </AlignedLabel>
       )}
@@ -41,7 +42,7 @@ export default function FancyProgressBar(props: TFancyProgressBarWithHTMLAttrs) 
       <ProgressBar id={usedId} progress={progress} maxValue={maxValue || 100} themeType={themeType} layer={layer} />
       {/* The Progress in percent as Text */}
       {progressCount && (
-        <AlignedLabel as={'span'} align={progressAlign} layer={textLayer}>
+        <AlignedLabel as={'span'} align={progressAlign} themeType={themeTypeText} layer={textLayer}>
           <Typography variant="subTextCaption">{progress}%</Typography>
         </AlignedLabel>
       )}
