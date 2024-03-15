@@ -52,7 +52,6 @@ export default function NumberInput(props: TNumberInput & TNumberInputNativeAttr
       onChange={handleChange}
       onKeyDown={(e) => {
         handleKeyDown(e);
-        console.log(e);
       }}
       $externalStyle={externalStyle}
       $width={inputWidth}
