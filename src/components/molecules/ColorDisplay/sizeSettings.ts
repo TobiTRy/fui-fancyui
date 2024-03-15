@@ -26,7 +26,7 @@ export const sizeSettings: TSizeSettings<TSizeObj> = {
   },
   lg: {
     height: 'sm',
-    borderRadius: 'md',
+    borderRadius: 'sm',
     typographyVariant: 'interactiveLg',
     iconSize: 'xs',
   },
