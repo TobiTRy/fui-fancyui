@@ -1,14 +1,12 @@
 import { TUiColorTypes } from '@/types/TUiColorTypes';
 import { TLayer } from '@/types/TLayer';
 import { TBorderRadiusSizes } from '@/types/TBorderRadiusSizes';
-import {
-  ITabSwitchDetailsLabelIcon,
-  ITabSwitchDetailsChildren,
-} from '../FancyTabSwitchButton/TFancyTabSwitchButton.model';
+
 import { TSpacings } from '@/types/TSpacings';
 import { TComponentSizes } from '@/types/TComponentSizes';
 import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 import { TActiveSwitchIndicator } from '@/components/atoms/SwitchActiveIndicator';
+import { TTabSwitchDetailsChildren, TTabSwitchDetailsLabelIcon } from '@/components/molecules/FancyTabSwitchButton';
 
 export interface ITabSwitchProps {
   wide?: boolean;
@@ -18,7 +16,7 @@ export interface ITabSwitchProps {
   layer?: TLayer;
   disabled?: boolean;
   tabSpacing?: TSpacings;
-  values: ITabSwitchDetailsChildren[] & ITabSwitchDetailsLabelIcon[];
+  values: TTabSwitchDetailsChildren[] & TTabSwitchDetailsLabelIcon[];
   rounded?: TBorderRadiusSizes;
   direction?: 'horizontal' | 'vertical';
   indicatorType?: TActiveSwitchIndicator['type'];

@@ -17,7 +17,7 @@ export const ButtonStyle = styled.span<IGenerateThemeDesignForComponent & TWrapp
   align-items: center;
   justify-content: center;
 
-  height: ${({ $size }) => globalElementsizes[$size]};
+  height: ${({ $size }) => globalElementsizes[$size ?? 'md']};
   cursor: pointer;
 
   ${(props: IGenerateThemeDesignForComponent) => generateThemeDesignForComponent({ ...props })};
