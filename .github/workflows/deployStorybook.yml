@@ -8,7 +8,7 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     env:
-      DIST_ID:
+      DIST_ID: E2DL1NF6N4Y4TK
       DIST: storybook-static
       BUCKET: fancyuistorybook
 
@@ -35,7 +35,7 @@ jobs:
       - name: Copy files to S3
         run: |
           echo "Copying files to S3 "
-          aws s3 sync --delete  ./storybook-static s3://${{ secrets.S3_BUCKET }}
+          aws s3 sync --delete  ./storybook-static s3://${{ env.BUCKET }}
 
       - name: Invalidate Cloudfront
         run: |
