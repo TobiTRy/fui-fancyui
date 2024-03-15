@@ -11,7 +11,7 @@ import { ContainerInputs, WrapperInputs } from './ColorInputs.style';
 // --The main InputFiels component to render a input for each type of color -- //
 // --------------------------------------------------------------------------- //
 export default function ColorInputs(props: TColorInputs) {
-  const { currentColorObject, handler, themeType = 'primary', layer = 0 } = props;
+  const { currentColorObject, handler, themeType = 'primary', layer = 1 } = props;
   if (!currentColorObject) return null;
 
   //this function handles the input change of a color value
