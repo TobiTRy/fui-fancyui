@@ -15,7 +15,7 @@ const meta = {
     },
   },
   argTypes: {
-    color: {
+    colorValue: {
       description: 'The color for the opacity slider',
     },
     opacity: {
@@ -33,8 +33,13 @@ const meta = {
         type: 'function',
       },
     },
+    sizeC: {
+      description: 'The size of the component',
+      control: {
+        type: 'select',
+      },
+    },
   },
-  tags: ['autodocs'],
 } satisfies Meta<typeof FancyOpacitySlider>;
 
 export default meta;
@@ -44,7 +49,8 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   render: (args) => <FancyOpacitySlider {...args} />,
   args: {
-    color: Color('#ff0000'),
+    sizeC: 'sm',
+    colorValue: Color('#ff0000'),
     opacity: 0.5,
   },
 };

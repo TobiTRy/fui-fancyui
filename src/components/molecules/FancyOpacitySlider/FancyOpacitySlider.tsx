@@ -10,15 +10,17 @@ import { CheckerBoardPattern } from '@/components/atoms/CheckerBoardPattern';
 import { colorToPositionOpacity, positionToColorOpacity } from './utils/calcPosition';
 import { Wrapper, SliderContainer, OpacityGradient } from './FancyOpacitySlider.style';
 
-import { TOpacitySlider } from './TOpacitySlider.model';
+import { TOpacitySlider } from './TFancyOpacitySlider.model';
+import { globalElementsizes } from '@/design/theme/globalSizes';
+import { sizeSettings } from './sizeSettings';
 
 // --------------------------------------------------------------------------- //
 // ----- The main FancyOpacitySlider Component to calclulates the opacity ---- //
 // --------------------------------------------------------------------------- //
 export default function FancyOpacitySlider(props: TOpacitySlider) {
-  const { colorValue, opacity, handler, ...htmlProps } = props;
+  const { colorValue = '#f00', opacity = 1, handler, sizeC = 'sm', borderRadius, ...htmlProps } = props;
   //give the opacity back to the parent component
-  const handleOpacityChange = (newHue: number) => handler(parseFloat(newHue.toFixed(2)));
+  const handleOpacityChange = (newHue: number) => handler?.(parseFloat(newHue.toFixed(2)));
 
   const color = useMemo(() => Color(colorValue), [colorValue]);
 
@@ -32,7 +34,7 @@ export default function FancyOpacitySlider(props: TOpacitySlider) {
   });
 
   return (
-    <Wrapper {...htmlProps}>
+    <Wrapper $height={globalElementsizes[sizeSettings[sizeC].height]} {...htmlProps}>
       <SliderContainer ref={sliderRef} onMouseDown={handleInteractionStart} onTouchStart={handleInteractionStart}>
         {/* the sliders marker with the color indicator which displays the opacity of the current color */}
         <SliderMarker position={markerPosition.x + '%'}>
@@ -40,7 +42,12 @@ export default function FancyOpacitySlider(props: TOpacitySlider) {
         </SliderMarker>
 
         {/* the opacity gradient for the slider*/}
-        <OpacityGradient $color={color.toString()} />
+        <OpacityGradient
+          $borderRadius={borderRadius ? borderRadius : sizeSettings[sizeC].borderRadius}
+          style={{
+            background: `linear-gradient(to right, ${color.hsl().alpha(0).toString()} 0%, ${color.hsl().alpha(1).toString()} 90%)`,
+          }}
+        />
 
         {/* the checkerboard pattern to display the transperancy*/}
         <CheckerBoardPattern externalStyle={{ position: 'absolute', top: 0, left: 0 }} />

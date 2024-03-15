@@ -1,9 +1,10 @@
-import Color from 'color';
 import { styled } from 'styled-components';
+import { TThemeArrayOrValueCSS, arrayToCssValues } from '@/design/designFunctions/arrayToCssValues';
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<{ $height: string }>`
   width: 100%;
   padding: 3px;
+  height: ${({ $height }) => $height};
 `;
 
 export const SliderWrapper = styled.div`
@@ -14,27 +15,17 @@ export const SliderWrapper = styled.div`
 // the container of the slider
 export const SliderContainer = styled.div`
   position: relative;
-  height: 20px;
-  border-radius: 4px;
+
   cursor: pointer;
+  height: 100%;
   user-select: none;
 `;
 
 // the opacity gradient of the slider wich displays the opacity of the current color
-export const OpacityGradient = styled.div.attrs<{ $color: Color }>(({ $color }) => {
-  const transformedToColor = Color($color).hsl();
-  const gradientStart = transformedToColor.alpha(0).toString();
-  const gradientEnd = transformedToColor.alpha(1).toString();
-
-  return {
-    style: {
-      background: `linear-gradient(to right, ${gradientStart} 0%, ${gradientEnd} 90%)`,
-    },
-  };
-})<{ $color: string }>`
+export const OpacityGradient = styled.div<{ $borderRadius: TThemeArrayOrValueCSS }>`
   position: absolute;
   width: 100%;
   height: 100%;
   z-index: 1;
-  border-radius: 4px;
+  border-radius: ${({ $borderRadius }) => arrayToCssValues($borderRadius, 'borderRadius')};
 `;
