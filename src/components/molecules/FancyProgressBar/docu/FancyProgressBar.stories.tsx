@@ -1,5 +1,3 @@
-import React from 'react';
-
 import type { Meta, StoryObj } from '@storybook/react';
 
 import FancyProgressBar from '../FancyProgressBar';
@@ -7,6 +5,7 @@ import templateThemeType from '@/stories/templateSettingsForStorys/templatesForT
 
 const meta = {
   component: FancyProgressBar,
+  title: 'components/molecules/FancyProgressBar',
   parameters: {
     docs: {
       description: {
