@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import FancySpeedDialButton from './FancySpeedDailButton';
+import FancySpeedDialButton from '../FancySpeedDailButton';
 
 const meta = {
   component: FancySpeedDialButton,
@@ -16,10 +16,6 @@ const meta = {
     labelAlign: {
       description: 'The alignment of the label',
       control: { type: 'radio' },
-    },
-    buttonProps: {
-      description: 'Props for the open Button like onClick, aria-label, ...',
-      control: { type: 'object' },
     },
   },
   tags: ['autodocs'],
@@ -42,10 +38,7 @@ export const Primary: Story = {
         icon: <div>Test</div>,
       },
     ],
-    hideLabel: false,
+    size: 'md',
     labelAlign: 'right',
-    buttonProps: {
-      'aria-label': 'Button',
-    },
   },
 };
