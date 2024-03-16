@@ -2,7 +2,7 @@ import React from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
-import ListBox from './ListBox';
+import ListBox from '../ListBox';
 
 const meta = {
   component: ListBox,
