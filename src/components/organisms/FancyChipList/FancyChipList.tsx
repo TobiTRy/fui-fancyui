@@ -68,7 +68,7 @@ export default function FancyChipList(props: ChipListProps) {
   };
 
   return (
-    <Fieldset label={label} legendSettings={{ variant: 'interactiveLg' }}>
+    <Fieldset label={label} typographySettings={{ variant: 'interactiveLg' }}>
       <ChipList themeType={themeType} layer={layer} outlined={outlined} sizeC={sizeC} systemMessage={systemInformation}>
         {/* // Mapping through each chip in the state to render a FancyChip */}
         {chipState.map((chip, index) => (
