@@ -1,18 +1,12 @@
-import React from 'react';
-import { CSSProp } from 'styled-components';
-
+import { THeaderWithHTMLAttributes } from '@/components/molecules/Header/THeader.model';
 import { StyledHeader } from './Header.style';
-import { IGenerateThemeForCardProps } from '@/design/designFunctions/generateThemeForCard';
 
-type THeaderProps = IGenerateThemeForCardProps & {
-  children?: React.ReactNode;
-  externalStyle?: CSSProp;
-} & React.HTMLAttributes<HTMLHeadingElement>;
 // --------------------------------------------------------------------------- //
 // -------------- A Simple header that can complettly customized ------------- //
 // --------------------------------------------------------------------------- //
-export default function Header(props: THeaderProps) {
-  const { themeType, layer, outlined, outlinedBackgroundStrength, children, externalStyle } = props;
+export default function Header(props: THeaderWithHTMLAttributes) {
+  const { themeType = 'primary', layer = 1, outlined, outlinedBackgroundStrength, children, externalStyle } = props;
+
   return (
     <StyledHeader
       $themeType={themeType}
