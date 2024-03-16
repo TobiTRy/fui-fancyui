@@ -87,7 +87,7 @@ export * from '@/components/molecules/FancyPageList';
 export * from '@/components/molecules/Paginator';
 export * from '@/components/molecules/FancyProgressBar';
 export * from '@/components/molecules/FancyMiniProfile';
-export * from '@/components/molecules/Header';
+export * from '@/components/atoms/Header';
 export * from '@/components/molecules/FancyContent';
 export * from '@/components/molecules/InfoCard';
 export * from '@/components/molecules/ComponentAndActionWrapper';

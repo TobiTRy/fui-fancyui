@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Header } from '@/components/molecules/Header';
+import { Header } from '@/components/atoms/Header';
 import { FancyNavBar } from '@/components/molecules/FancyNavBar';
 import HeaderLogo from '@/components/templates/FancyHeader/HeaderLogo/HeaderLogo';
 

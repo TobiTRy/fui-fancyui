@@ -1,4 +1,4 @@
-import { THeaderWithHTMLAttributes } from '@/components/molecules/Header/THeader.model';
+import { THeaderWithHTMLAttributes } from '@/components/atoms/Header/THeader.model';
 import { StyledHeader } from './Header.style';
 
 // --------------------------------------------------------------------------- //

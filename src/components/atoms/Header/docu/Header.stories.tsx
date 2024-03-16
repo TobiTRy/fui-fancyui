@@ -1,11 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import Header from '../Header';
-import { HeaderTitleWithLogo } from '../../HeaderTitleWithLogo';
-import { FancySearchBar } from '../../../organisms/FancySearchBar';
-import { FancyMiniProfile } from '../../FancyMiniProfile';
+import React from 'react';
 import { css } from 'styled-components';
-import templateThemeType from '@/stories/templateSettingsForStorys/templatesForThemeType';
+import Header from '../Header';
+import { FancySearchBar } from '../../../organisms/FancySearchBar';
+import { HeaderTitleWithLogo } from '../../../molecules/HeaderTitleWithLogo';
+import { FancyMiniProfile } from '../../../molecules/FancyMiniProfile';
+import templateThemeType from '../../../../stories/templateSettingsForStorys/templatesForThemeType';
 
 const meta = {
   component: Header,
