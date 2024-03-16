@@ -14,18 +14,18 @@ The `Header` component is a versatile and customizable header element designed f
 
 ## Setup Instructions
 
-To use the `Fieldset` in your project, follow these steps:
+To use the `Header` in your project, follow these steps:
 
-1. Import the `Fieldset` component where you intend to use it:
+1. Import the `Header` component where you intend to use it:
 
 ```jsx
-import { Fieldset } from 'fui-fancyui';
+import { Header } from 'fui-fancyui';
 ```
 
 2. If using TypeScript, ensure the type definitions are imported for prop validation:
 
 ```jsx
-import { TFieldset, TFieldsetWithHTMLAttributes } from 'fui-fancyui';
+import { THeader, THeaderWithHTMLAttributes } from 'fui-fancyui';
 ```
 
 ## Example Usage
@@ -35,7 +35,7 @@ Here is an example of how to use the `Header` component within a React project:
 ```jsx
 <Header
   themeType="light"
-  layer={2}
+  layer={1}
   outlined={true}
   outlinedBackgroundStrength={0.5}
   externalStyle={{ padding: '20px', justifyContent: 'space-between' }}
@@ -44,14 +44,10 @@ Here is an example of how to use the `Header` component within a React project:
 </Header>
 ```
 
+<Canvas />
+
 ## Component Properties
 
-- **themeType** (`string`): Defines the theme type for the header. This influences the overall color scheme and appearance. No default value.
-- **layer** (`number`): Specifies the layer level for styling purposes, affecting depth or elevation visuals. No default value.
-- **outlined** (`boolean`): Determines whether the header has an outline. This boolean flag enables outline styles. No default value.
-- **outlinedBackgroundStrength** (`number`): Controls the strength of the outline's background, providing a degree of transparency or emphasis. No default value.
-- **children** (`React.ReactNode`): The content to be displayed within the header. This could be any React node elements. Optional.
-- **externalStyle** (`CSSProp`): Allows for custom CSS styles to be applied directly to the header component for further customization. This is an optional property that can be used to apply additional styling on top of the generated theme styles.
+<Controls />
 
 This documentation covers the primary functionalities and customization options of the `Header` component, enabling developers to integrate a highly customizable header into their React applications with ease.
-import { Header } from "@/components/atoms/FancyBox/docu/FancyBox.stories"
