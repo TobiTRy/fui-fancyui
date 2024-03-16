@@ -1,0 +1,53 @@
+import { Meta, Title, Description, Canvas, Controls } from '@storybook/blocks';
+
+import * as ModalStories from './Modal.stories';
+
+<Meta of={ModalStories} />
+
+<Title />
+
+<Description />
+
+## Setup Instructions
+
+To use the `Modal` in your project, follow these steps:
+
+1. Import the `Modal` component where you intend to use it:
+
+```jsx
+import { Modal } from 'fui-fancyui';
+```
+
+2. If using TypeScript, ensure the type definitions are imported for prop validation:
+
+```jsx
+import { TModal, TModalWithHTMLAttributes } from 'fui-fancyui';
+```
+
+## Example Usage
+
+```jsx
+import React, { useState } from 'react';
+import { Modal } from 'fui-fancyui';
+
+function App() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <div>
+      <button onClick={() => setIsOpen(true)}>Open Modal</button>
+      <Modal isOpen={isOpen} onClose={() => setIsOpen(false)} isCloseable={true} themeType="primary" layer={2}>
+        <p>Modal Content Here</p>
+      </Modal>
+    </div>
+  );
+}
+```
+
+<Canvas />
+
+## Component Properties
+
+<Controls />
+
+In addition to these, `TModalWithHTMLAttributes` allows for the passing of any valid HTML attributes to the `div` element that encapsulates the modal content, providing further customization capabilities such as class names, styles, and aria attributes for accessibility.
