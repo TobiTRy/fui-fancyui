@@ -6,7 +6,7 @@ import { TTypography } from '@/components/atoms/Typography';
 export type TFieldset = {
   label?: string;
   alignLabel?: TTextAlignLC;
-  legendSettings?: TTypography;
+  typographySettings?: TTypography;
   disabled?: boolean;
 };
 

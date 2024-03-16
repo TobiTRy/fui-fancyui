@@ -6,17 +6,17 @@ import { StyledFieldset, StyledLegend } from './Fieldset.style';
 // ---- A Fieldset that Provides a Label and a Fieldset for some childs ------ //
 // --------------------------------------------------------------------------- //
 export default function Fieldset(props: TFieldsetWithHTMLAttributes) {
-  const { children, label, alignLabel, legendSettings, disabled } = props;
+  const { children, label, alignLabel, typographySettings, disabled } = props;
 
   return (
     <StyledFieldset $disabled={disabled}>
       {label && (
         <StyledLegend alignLabel={alignLabel}>
           <Typography
-            elType={legendSettings?.elType || 'span'}
-            variant={legendSettings?.variant ?? 'interactiveLg'}
-            fontWeight={legendSettings?.fontWeight ?? 'bold'}
-            {...legendSettings}
+            elType={typographySettings?.elType || 'span'}
+            variant={typographySettings?.variant ?? 'interactiveLg'}
+            fontWeight={typographySettings?.fontWeight ?? 'bold'}
+            {...typographySettings}
           >
             {label}
           </Typography>
