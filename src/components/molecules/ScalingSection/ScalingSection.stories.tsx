@@ -1,5 +1,3 @@
-import React from 'react';
-
 import type { Meta, StoryObj } from '@storybook/react';
 
 import ScalingSection from './ScalingSection';
@@ -9,7 +7,7 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component: 'Dumb-Comonent: This is the top of a swipeupmodal that is used to control the swipe up modal.',
+        component: 'This is the top of a swipeupmodal that is used to control the swipe up modal.',
       },
     },
   },
@@ -26,7 +24,7 @@ const meta = {
       description: 'A function to handle the touchEnd event.',
       type: { name: 'function' },
     },
-    click: {
+    onClick: {
       description: 'A function to handle the click event.',
       type: { name: 'function' },
     },

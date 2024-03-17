@@ -8,13 +8,13 @@ import { SwipeUpDash } from '@/components/atoms/SwipeUpDash';
 // --------------------------------------------------------------------------- //
 interface IScalingSection {
   touchStart?: (e: TouchEvent<HTMLDivElement>) => void;
-  touchMove: (e: TouchEvent<HTMLDivElement>) => void;
-  touchEnd: (e: TouchEvent<HTMLDivElement>) => void;
-  click: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+  touchMove?: (e: TouchEvent<HTMLDivElement>) => void;
+  touchEnd?: (e: TouchEvent<HTMLDivElement>) => void;
+  onClick?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
 }
-export default function ScalingSection({ touchStart, touchMove, touchEnd, click }: IScalingSection) {
+export default function ScalingSection(props: IScalingSection) {
   return (
-    <SytledScalingSection onTouchStart={touchStart} onTouchMove={touchMove} onTouchEnd={touchEnd} onClick={click}>
+    <SytledScalingSection {...props}>
       <SwipeUpDash />
     </SytledScalingSection>
   );
