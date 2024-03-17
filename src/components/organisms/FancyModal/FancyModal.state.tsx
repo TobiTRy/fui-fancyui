@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 
 import { TModalStatus } from '@/types/TModalStatus';
-import { TModal } from '@/components/molecules/Modal/Modal';
+import { TModal } from '@/components/molecules/Modal';
 
 type TModalConfig = Omit<TModal, 'id' | 'children' | 'status' | 'isOpen'>;
 
