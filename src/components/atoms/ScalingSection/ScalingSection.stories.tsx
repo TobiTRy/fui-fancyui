@@ -4,6 +4,7 @@ import ScalingSection from './ScalingSection';
 
 const meta = {
   component: ScalingSection,
+  title: 'components/atoms/ScalingSection',
   parameters: {
     docs: {
       description: {

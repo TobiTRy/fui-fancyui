@@ -71,7 +71,7 @@ export * from '@/components/molecules/ColorInputs';
 export * from '@/components/molecules/MonthWithDays';
 export * from '@/components/molecules/Card';
 export * from '@/components/molecules/Calendar';
-export * from '@/components/molecules/ScalingSection';
+export * from '@/components/atoms/ScalingSection';
 export * from '@/components/molecules/SearchBar';
 export * from '@/components/molecules/SingleInputs';
 export * from '@/components/molecules/SingleToastMessage';
