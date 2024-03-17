@@ -4,14 +4,14 @@ import { SVGChevronLeft } from '@/components/icons/SVGChevronLeft';
 import { SVGChevronRight } from '@/components/icons/SVGChevronRight';
 
 import { PageNumberList } from '@/components/atoms/PageNumberList';
-import { TPaginatorAllProps } from '@/components/molecules/Paginator/TPaginator.model';
+import { TPaginatorWithHTMLAttrs } from '@/components/molecules/Paginator/TPaginator.model';
 import { FancyButton } from '@/components/organisms/FancyButton';
 import { IconWrapper, NumberList, StyledPaginator } from './Paginator.style';
 
 // --------------------------------------------------------------------------- //
 // ---------------- The Paginator for a List to siwtch pages ----------------- //
 // --------------------------------------------------------------------------- //
-export default function Paginator(props: TPaginatorAllProps) {
+export default function Paginator(props: TPaginatorWithHTMLAttrs) {
   const {
     currentPage = 1,
     showPages = 3,
@@ -20,6 +20,7 @@ export default function Paginator(props: TPaginatorAllProps) {
     themeType,
     pageLimits,
     numberButtonStyle,
+    ...htmlProps
   } = props;
 
   // Memoize the PageNumberList component to avoid unnecessary re-renders
@@ -31,7 +32,7 @@ export default function Paginator(props: TPaginatorAllProps) {
 
   // Render the Paginator component with the appropriate props
   return (
-    <StyledPaginator>
+    <StyledPaginator {...htmlProps}>
       {/* The left button for the Page Switch */}
       <FancyButton
         sizeC="md"
@@ -39,7 +40,7 @@ export default function Paginator(props: TPaginatorAllProps) {
         outlined={outlinedButton}
         wide={false}
         icon={<IconWrapper $align="left">{SVGChevronLeft}</IconWrapper>}
-        onClick={() => onPageChange(currentPage - 1)}
+        onClick={() => onPageChange?.(currentPage - 1)}
         disabled={currentPage === 1}
       />
       {/* The numberlist */}
@@ -51,7 +52,7 @@ export default function Paginator(props: TPaginatorAllProps) {
         outlined={outlinedButton}
         icon={<IconWrapper $align="right">{SVGChevronRight}</IconWrapper>}
         sizeC="md"
-        onClick={() => onPageChange(currentPage + 1)}
+        onClick={() => onPageChange?.(currentPage + 1)}
         disabled={currentPage === pageLimits}
       />
     </StyledPaginator>
