@@ -3,7 +3,7 @@ import { useTransition, animated } from '@react-spring/web';
 
 import { useFancyToastMessageStore } from './FancyToastMessage.state';
 import { SingleToastMessage } from '@/components/molecules/SingleToastMessage';
-import IToastMessage from '@/components/molecules/SingleToastMessage/IToastMessage.model';
+import { TToastMessage } from '@/components/molecules/SingleToastMessage';
 
 import { ToastsWrapper } from './FancyToastMessage.style';
 //this comonent should be used as overlay in the application to make sure the toast messages are always displaey on top
@@ -30,8 +30,8 @@ export default function FancyToastMessage() {
   // create the transitions for the toast messages
   const transitions = useTransition(toastQueue, {
     from: { opacity: 0, height: '0px', transform: 'translateX(200%)', marginBottom: '0px' },
-    keys: (item: IToastMessage) => item.id,
-    enter: (item: IToastMessage) => async (next) => {
+    keys: (item: TToastMessage) => item.id,
+    enter: (item: TToastMessage) => async (next) => {
       const getItem = refMap.get(item) as HTMLDivElement;
       await next({
         opacity: 1,
@@ -49,12 +49,12 @@ export default function FancyToastMessage() {
       },
       { height: '0px', marginBottom: '0px', config: { duration: 265, tension: 250, friction: 125, precision: 0.8 } },
     ],
-    onDestroyed: (item: IToastMessage) => removeToast(item.id),
+    onDestroyed: (item: TToastMessage) => removeToast(item.id),
   });
 
   return (
     <ToastsWrapper>
-      {transitions(({ ...style }, item: IToastMessage) => (
+      {transitions(({ ...style }, item: TToastMessage) => (
         <animated.div key={item.id} style={style}>
           <SingleToastMessage
             ref={(ref: HTMLDivElement) => ref && refMap.set(item, ref)}

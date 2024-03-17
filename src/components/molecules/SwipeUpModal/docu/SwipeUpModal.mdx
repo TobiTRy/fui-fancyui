@@ -1,0 +1,67 @@
+import { Meta, Title, Description, Canvas, Controls } from '@storybook/blocks';
+
+import * as SwipeUpModalStories from './SwipeUpModal.stories';
+
+<Meta of={SwipeUpModalStories} />
+
+<Title />
+
+<Description />
+
+## Setup Instructions
+
+To use the `SwipeUpModal` in your project, follow these steps:
+
+1. Import the `SwipeUpModal` component where you intend to use it:
+
+```jsx
+import { SwipeUpModal } from 'fui-fancyui';
+```
+
+2. If using TypeScript, ensure the type definitions are imported for prop validation:
+
+```jsx
+import { TSwipeUpModal, TSwipeUpModalWithHTMLAttrs } from 'fui-fancyui';
+```
+
+## Example Usage
+
+This example demonstrates how to use the `SwipeUpModal` component within a React application:
+
+```jsx
+import React, { useState } from 'react';
+import { SwipeUpModal } from 'fui-fancyui'; // Adjust the import path as necessary
+
+const App = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const toggleModal = () => setIsModalOpen(!isModalOpen);
+
+  return (
+    <div>
+      <button onClick={toggleModal}>Toggle Modal</button>
+      <SwipeUpModal
+        isOpen={isModalOpen}
+        isCloseAble={true}
+        isScalable={true}
+        onClose={() => setIsModalOpen(false)}
+        themeType="primary"
+        layer={1}
+        backdrop={true}
+      >
+        <div>Your content here</div>
+      </SwipeUpModal>
+    </div>
+  );
+};
+
+export default App;
+```
+
+<Canvas />
+
+## Component Properties
+
+<Controls />
+
+Additionally, this component inherits properties from `React.HTMLAttributes<HTMLDivElement>` allowing for further customization and flexibility.import { TitleWrapper } from '@/components/atoms/TitleForComponent/TitleForComponent.style';

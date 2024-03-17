@@ -7,7 +7,7 @@ import FancySwipeUpModal from './FancySwipeUpModal';
 import { FancyButton } from '../FancyButton';
 import { useFancySwipeUpModalStore } from './FancySwipeUpModal.state';
 import { FancyTextInput } from '../FancyTextInput';
-import { ISwipeUpModal } from '@/components/molecules/SwipeUpModal/ISwipeUpModal.model';
+import { TSwipeUpModal } from '@/components/molecules/SwipeUpModal/TSwipeUpModal.model';
 
 // Define metadata for the story
 const meta = {
@@ -88,7 +88,7 @@ export default meta;
 // Define the story object
 type Story = StoryObj<typeof meta>;
 
-function HelperComponent(props: React.ComponentProps<typeof FancySwipeUpModal> & Omit<ISwipeUpModal, 'onClose'>) {
+function HelperComponent(props: React.ComponentProps<typeof FancySwipeUpModal> & Omit<TSwipeUpModal, 'onClose'>) {
   const { appendToDomID, children, ...configProps } = props;
   const openModal = useFancySwipeUpModalStore((state) => state.openSwipeUpModal);
   const closeModal = useFancySwipeUpModalStore((state) => state.closeSwipeUpModal);

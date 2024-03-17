@@ -1,36 +1,37 @@
-import React from 'react';
-
 import type { Meta, StoryObj } from '@storybook/react';
 
-import SwipeUpModal from './SwipeUpModal';
+import SwipeUpModal from '../SwipeUpModal';
+import templateThemeType from '@/stories/templateSettingsForStorys/templatesForThemeType';
 
 const meta = {
   component: SwipeUpModal,
+  title: 'components/molecules/SwipeUpModal',
   parameters: {
     docs: {
       description: {
-        component: 'Dumb-Comonent: A simple header component to display a header with slots',
+        component:
+          'The SwipeUpModal component is a versatile and interactive modal molecule designed for React applications. It utilizes a combination of atoms and molecules such as Delay, SwipeUpContainer, BackDrop, and ScalingSection to provide a feature-rich modal experience. This modal supports functionalities like dynamic scaling, swipe to close, and customizable theming.',
       },
     },
   },
 
   argTypes: {
     isOpen: {
-      description: 'The state of the modal',
+      description: 'Determines whether the modal is open or closed.',
       type: { name: 'boolean' },
       defaultValue: {
         summary: false,
       },
     },
     isCloseAble: {
-      description: 'If true, the modal can be closed.',
+      description: 'If `true`, allows the modal to be closed by user interaction.',
       type: { name: 'boolean' },
       defaultValue: {
         summary: true,
       },
     },
     isScalable: {
-      description: 'If true, the modal can be scaled.',
+      description: 'Determines if the modal supports scaling (resizing) based on user interaction.',
       type: { name: 'boolean' },
       defaultValue: {
         summary: true,
@@ -40,37 +41,15 @@ const meta = {
       description: 'A function that is called when the modal should be closed.',
       type: { name: 'function' },
     },
-    themeType: {
-      description: 'The theme type of the modal.',
-      control: {
-        type: 'select',
-      },
-      defaultValue: {
-        summary: 'primary',
-      },
-    },
-    layer: {
-      description: 'The layer of the modal.',
-      control: {
-        type: 'range',
-        min: 0,
-        max: 9,
-        step: 1,
-      },
-      defaultValue: {
-        summary: 0,
-      },
-    },
+    ...templateThemeType('allThemeTypes', 'primary', 1),
     backdrop: {
-      description: 'If true, the backdrop is visible.',
+      description: 'Callback function that is called when the modal is requested to be closed.',
       type: { name: 'boolean' },
       defaultValue: {
         summary: true,
       },
     },
   },
-
-  tags: ['autodocs'],
 } satisfies Meta<typeof SwipeUpModal>;
 
 export default meta;

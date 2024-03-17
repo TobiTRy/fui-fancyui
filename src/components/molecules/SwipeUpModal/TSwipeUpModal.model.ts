@@ -1,7 +1,7 @@
 import { TLayer } from '@/types/TLayer';
 import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 
-export interface ISwipeUpModal {
+export type TSwipeUpModal = {
   isOpen?: boolean;
   children?: React.ReactNode;
   isCloseAble?: boolean; // if a error occurs and the modal should be closeable
@@ -10,4 +10,6 @@ export interface ISwipeUpModal {
   layer?: TLayer;
   backdrop?: boolean;
   onClose?: () => void;
-}
+};
+
+export type TSwipeUpModalWithHTMLAttrs = TSwipeUpModal & React.HTMLAttributes<HTMLDivElement>;

@@ -5,20 +5,27 @@ import { useWindowDimensions } from '@/utils/hooks/useWindowDimensions';
 import { SwipeUpContainer } from '@/components/atoms/SwipeUpContainer';
 import { BackDrop } from '@/components/atoms/BackDrop';
 import { Delay } from '@/components/shared/Delay';
-import { ScalingSection } from '@/components/molecules/ScalingSection';
+import { ScalingSection } from '@/components/atoms/ScalingSection';
 
 import { Content, ContentBox, WrapperAnimated, WrapperContent, WrapperModal } from './SwipeUpModal.style';
-import { ISwipeUpModal } from './ISwipeUpModal.model';
+import { TSwipeUpModal } from './TSwipeUpModal.model';
 import { TModalStatus } from '@/types/TModalStatus';
 
 // --------------------------------------------------------------------------- //
 // ----------- The Modal Molecule the displays the complete modal - ---------- //
 // --------------------------------------------------------------------------- //
-export default function SwipeUpModal(props: ISwipeUpModal) {
-  const { children, isOpen, isCloseAble, isScalable, onClose, themeType, layer, backdrop } = {
-    ...defaultProps,
-    ...props,
-  };
+export default function SwipeUpModal(props: TSwipeUpModal) {
+  const {
+    children,
+    isOpen = true,
+    isCloseAble = true,
+    isScalable = true,
+    onClose,
+    themeType = 'primary',
+    layer = 1,
+    backdrop = true,
+    ...htmlProps
+  } = props;
 
   const [statusModal, setStatusModal] = useState<TModalStatus>('closed');
   const [modalPosition, setModalPosition] = useState({ height: '100%' });
@@ -96,7 +103,7 @@ export default function SwipeUpModal(props: ISwipeUpModal) {
 
   return (
     <Delay externalStateBool={statusModal === 'open'}>
-      <WrapperModal>
+      <WrapperModal {...htmlProps}>
         {openTransition(
           (styles, item) =>
             item && (
@@ -128,10 +135,3 @@ export default function SwipeUpModal(props: ISwipeUpModal) {
     </Delay>
   );
 }
-
-const defaultProps: ISwipeUpModal = {
-  isCloseAble: true,
-  isScalable: true,
-  isOpen: true,
-  backdrop: true,
-};
