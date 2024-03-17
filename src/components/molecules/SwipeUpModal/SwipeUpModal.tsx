@@ -109,7 +109,7 @@ export default function SwipeUpModal(props: ISwipeUpModal) {
                         moveModalHandler(e);
                       }}
                       touchEnd={toutchEnd}
-                      click={() => closeModal('intercation')}
+                      onClick={() => closeModal('intercation')}
                     />
                   )}
                   {/*// ---------- Content Area ---------- //*/}

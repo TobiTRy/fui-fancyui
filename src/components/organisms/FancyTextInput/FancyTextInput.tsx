@@ -1,15 +1,13 @@
 import { useId, useState } from 'react';
 
 import { TextInput } from '@/components/atoms/TextInput';
-import { TTextInputWithNativeAttrs } from '@/components/atoms/TextInput/TTextInput.model';
 import { InputWrapper } from '@/components/molecules/InputWrapper';
-import { TInputWrapperUserInputProps } from '@/components/molecules/InputWrapper/TInputWrapper.model';
+import { IFancyTextInput } from '@/components/organisms/FancyTextInput/TFancyTextInput.model';
 
-type IFancyTextInputProps = TTextInputWithNativeAttrs & Omit<TInputWrapperUserInputProps, 'InputElement'>;
 // --------------------------------------------------------------------------- //
 // ----The TextInput Comonent with surrounding icon, label and underline ----- //
 // --------------------------------------------------------------------------- //
-export default function FancyTextInput(props: IFancyTextInputProps) {
+export default function FancyTextInput(props: IFancyTextInput) {
   const {
     id,
     value,
