@@ -2,10 +2,10 @@ import React, { createRef, useEffect, useState } from 'react';
 
 import { SingleInput } from '@/components/atoms/SingleInput';
 import { InputWrapper } from './SingleInputs.style';
-import { TSingleInputs } from './TSingleInputs.model';
+import { TSingleInputsWithHTMLInputAttrs } from './TSingleInputs.model';
 
-export default function SingleInputs(props: TSingleInputs) {
-  const { length = 6, handler, status, automaticCase, themeType, layer } = props;
+export default function SingleInputs(props: TSingleInputsWithHTMLInputAttrs) {
+  const { length = 6, handler, status, automaticCase, themeType = 'secondary', layer = 0 } = props;
 
   const [values, setValues] = useState<string[]>(Array(length).fill(''));
   const refs = Array.from({ length }, () => createRef<HTMLInputElement>());

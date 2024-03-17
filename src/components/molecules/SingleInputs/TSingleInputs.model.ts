@@ -10,3 +10,5 @@ export type TSingleInputs = {
   themeType?: TUiColorTypes;
   layer?: TLayer;
 };
+
+export type TSingleInputsWithHTMLInputAttrs = TSingleInputs & React.InputHTMLAttributes<HTMLInputElement>;

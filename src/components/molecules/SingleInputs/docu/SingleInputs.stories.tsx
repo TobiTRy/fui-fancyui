@@ -1,22 +1,23 @@
-import React from 'react';
-
 import type { Meta, StoryObj } from '@storybook/react';
 
-import SingleInputs from './SingleInputs';
+import SingleInputs from '../SingleInputs';
+import templateThemeType from '@/stories/templateSettingsForStorys/templatesForThemeType';
 
 const meta = {
   component: SingleInputs,
+  title: 'components/molecules/SingleInputs',
   parameters: {
     docs: {
       description: {
-        component: 'Dumb-Comonent: The Singele input component is for single input like a verification code.',
+        component:
+          'The `SingleInputs` component is a React component designed to handle a sequence of single-character inputs, often used in scenarios such as verification code input fields. It supports automatic case adjustment, custom length for the input sequence, and various styling and status feedback options.',
       },
     },
   },
 
   argTypes: {
     length: {
-      description: 'How many inputs are Displayed / how long is the verification code.',
+      description: 'The number of input fields to render.',
       control: {
         type: 'number',
       },
@@ -25,17 +26,15 @@ const meta = {
       },
     },
     automaticCase: {
-      description: 'If the input should be upper or lower case',
+      description: 'Specifies whether the input should automatically convert characters to upper or lower case.',
       control: {
         type: 'select',
         options: ['upper', 'lower', undefined],
       },
-      defaultValue: {
-        summary: undefined,
-      },
     },
     status: {
-      description: 'The status of the input',
+      description:
+        ' An object indicating the input´s status, which can modify the input´s border color based on the theme.',
       control: {
         type: 'object',
       },
@@ -44,29 +43,8 @@ const meta = {
           isSucceed: false,`,
       },
     },
-    themeType: {
-      description: 'The theme type of the input',
-      control: {
-        type: 'select',
-      },
-      defaultValue: {
-        summary: 'secondary',
-      },
-    },
-    layer: {
-      description: 'The layer of the input',
-      control: {
-        type: 'range',
-        min: 0,
-        max: 9,
-        step: 1,
-      },
-      defaultValue: {
-        summary: '0',
-      },
-    },
+    ...templateThemeType('allThemeTypes', 'secondary', 0),
   },
-  tags: ['autodocs'],
 } satisfies Meta<typeof SingleInputs>;
 
 export default meta;
