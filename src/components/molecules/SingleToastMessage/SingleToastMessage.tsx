@@ -1,38 +1,31 @@
 import { forwardRef, useEffect } from 'react';
 
-// Import necessary components and interfaces
-import IToastMessage from './IToastMessage.model';
-import { Container, TimerLine, Headline } from './SingleToastMessage.style';
-import Typography from '../../atoms/Typography/Typography';
-import FancyXButton from '../../atoms/FancyXButton/FancyXButton';
-
-// Define the interface for the component
-interface ISingleToastMessage {
-  toast: IToastMessage;
-  remove: (id: number) => void;
-}
+import { FancyXButton } from '@/components/atoms/FancyXButton';
+import { Typography } from '@/components/atoms/Typography';
+import { Container, Headline, TimerLine } from './SingleToastMessage.style';
+import { TSingleToastMessageWithHTMLAttrs } from './TToastMessage.model';
 
 // A Single Toast Message Component wich
-const SingleToastMessage = forwardRef<HTMLDivElement, ISingleToastMessage>((props, ref) => {
-  const { id, title, message, time, themeType, layer } = props.toast;
+const SingleToastMessage = forwardRef<HTMLDivElement, TSingleToastMessageWithHTMLAttrs>((props, ref) => {
+  const { id, title, message, time, themeType, layer, ...htmlProps } = props.toast;
   const remove = props.remove;
 
   // Remove toast after the time
   useEffect(() => {
     const timer = setTimeout(() => {
-      remove(id);
+      remove?.(id);
     }, time);
 
     return () => clearTimeout(timer);
   }, [id, time, remove]);
 
   return (
-    <Container ref={ref} $messageType={themeType}>
+    <Container ref={ref} $messageType={themeType} {...htmlProps}>
       <Headline>
         <Typography variant="interactiveMd" fontWeight={'bold'}>
           {title}
         </Typography>
-        <FancyXButton onClick={() => remove(id)} themeType={themeType} layer={layer || 5} />
+        <FancyXButton onClick={() => remove?.(id)} themeType={themeType} layer={layer || 5} />
       </Headline>
       <Typography variant="bodytextSm">{message}</Typography>
       <TimerLine $time={time!} $messageType={themeType} />

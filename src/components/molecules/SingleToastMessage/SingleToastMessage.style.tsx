@@ -8,7 +8,7 @@ import { TTheme } from '@/types/TTheme';
 
 type ToastMessageProps = 'success' | 'warning' | 'error' | 'info';
 
-interface IToastMessage {
+interface TToastMessage {
   $messageType: ToastMessageProps;
   $layer?: TLayer;
   theme: TTheme;
@@ -22,7 +22,7 @@ interface TimerLineProps {
 }
 
 // styles for single toast message
-export const Container = styled.div<IToastMessage>`
+export const Container = styled.div<TToastMessage>`
   z-index: 99;
   overflow: hidden;
   display: flex;

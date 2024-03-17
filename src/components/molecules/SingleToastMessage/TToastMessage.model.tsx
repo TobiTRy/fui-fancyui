@@ -1,7 +1,7 @@
 import { TSystemMessageProps } from '../../../types/TSystemMessageProps';
 import { TLayer } from '@/types/TLayer';
 
-type IToastMessage = {
+export type TToastMessage = {
   id: number;
   title: string;
   message: string;
@@ -10,4 +10,9 @@ type IToastMessage = {
   layer?: TLayer;
 };
 
-export default IToastMessage;
+export type TSingleToastMessage = {
+  toast: TToastMessage;
+  remove?: (id: number) => void;
+};
+
+export type TSingleToastMessageWithHTMLAttrs = TSingleToastMessage & React.HTMLAttributes<HTMLDivElement>;

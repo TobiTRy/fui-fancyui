@@ -2,7 +2,7 @@ import React from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
-import SingleToastMessage from './SingleToastMessage';
+import SingleToastMessage from '../SingleToastMessage';
 
 const HelperComponent = (props: React.ComponentProps<typeof SingleToastMessage>) => <SingleToastMessage {...props} />;
 HelperComponent.displayName = 'SingleToastMessage';
@@ -12,7 +12,8 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component: 'Dumb-Comonent: A toast message to display a message to the user',
+        component:
+          'The SingleToastMessage component is designed to display a temporary, dismissible notification message to the user. It utilizes a forwardRef to provide direct access to the DOM element, and it supports customization through a variety of props such as title, message, timing, theme, and layering. The component also includes an automatic removal feature based on a timer, which can be canceled if the component is unmounted before the timer expires.',
       },
     },
   },
