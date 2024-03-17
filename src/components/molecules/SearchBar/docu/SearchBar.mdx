@@ -1,0 +1,67 @@
+import { Meta, Title, Description, Controls, Canvas } from '@storybook/blocks';
+
+import * as SearchBarStories from './SearchBar.stories';
+
+<Meta of={SearchBarStories} />
+
+<Title />
+
+<Description />
+
+## Setup Instructions
+
+To use the `SearchBar` in your project, follow these steps:
+
+1. Import the `SearchBar` component where you intend to use it:
+
+```jsx
+import { SearchBar } from 'fui-fancyui';
+```
+
+2. If using TypeScript, ensure the type definitions are imported for prop validation:
+
+```jsx
+import { TSearchBarWithFancyInputAttrs, TSearchBar } from 'fui-fancyui';
+```
+
+## Example Usage
+
+Below is a simple example demonstrating how to integrate the `SearchBar` component into a React component:
+
+```jsx
+import React, { useState } from 'react';
+import { SearchBar } from 'fui-fancyui';
+
+const HeaderComponent = () => {
+  const [searchValue, setSearchValue] = useState('');
+
+  const handleSearchChange = (e) => {
+    setSearchValue(e.target.value);
+  };
+
+  return (
+    <header>
+      <SearchBar
+        searchValue={searchValue}
+        onChange={handleSearchChange}
+        align="center"
+        themeType="primary"
+        sizeC="sm"
+        activeHandler={(isActive) => console.log(`Search bar is ${isActive ? 'active' : 'inactive'}`)}
+      />
+    </header>
+  );
+};
+
+export default HeaderComponent;
+```
+
+<Canvas />
+
+## Component Properties
+
+The `SearchBar` component accepts the following properties:
+
+<Controls />
+
+Additionally, it inherits all properties from the `IFancyTextInput` interface, allowing further customization of the underlying `FancyTextInput` component, such as placeholder text, icons, and event handlers like `onFocus` and `onBlur`.
