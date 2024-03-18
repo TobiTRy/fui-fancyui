@@ -1,8 +1,6 @@
 import React from 'react';
 import { CSSProp } from 'styled-components';
 
-import { IgenerateListItemStyle } from './SwitchList.style';
-
 import { TFancyFlexBoxProps } from '@/components/templates/FancyFlexBox/FancyFlexBox.model';
 import { TSpacings } from '@/types/TSpacings';
 import { TActiveSwitchIndicator } from '@/components/atoms/SwitchActiveIndicator';
@@ -22,8 +20,7 @@ interface IBottomBarListProps {
 type TFlexBoxOmitGap = Omit<TFancyFlexBoxProps, 'gap'>;
 
 // the props for the SwitchList component with the props for the SwitchActiveIndicator component and the FancyFlexBox component
-export type TSwitchList = IBottomBarListProps &
-  Omit<IgenerateListItemStyle, 'isActive'> & {
-    switchIndicator?: TSwitchActiveIndicator;
-    flexBoxProps?: TFlexBoxOmitGap;
-  };
+export type TSwitchList = IBottomBarListProps & {
+  switchIndicator?: TSwitchActiveIndicator;
+  flexBoxProps?: TFlexBoxOmitGap;
+};

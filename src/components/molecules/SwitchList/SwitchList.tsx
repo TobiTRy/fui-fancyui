@@ -5,25 +5,15 @@ import { themeStore } from '@/design/theme/themeStore';
 
 import { SwitchActiveIndicator } from '@/components/atoms/SwitchActiveIndicator';
 import { FancyFlexBox } from '@/components/templates/FancyFlexBox';
-import { TSwitchList } from './SwitchList.model';
-import { generateListItemStyle } from './SwitchList.style';
+import { TSwitchList } from './TSwitchList.model';
 
 // --------------------------------------------------------------------------- //
 // -------------- The Switch List Indicates wich item is active -------------- //
 // --------------------------------------------------------------------------- //
 export default function SwitchList(props: TSwitchList) {
   // the incoming props
-  const {
-    children,
-    whichIndexIsSelected,
-    activeItemHandler,
-    externalStyle,
-    switchIndicator,
-    flexBoxProps,
-    hoverStyle,
-    activeStyle,
-    gap,
-  } = props;
+  const { children, whichIndexIsSelected, activeItemHandler, externalStyle, switchIndicator, flexBoxProps, gap } =
+    props;
 
   const [currentActive, setCurrentActive] = useState('');
   const theme = themeStore((state) => state.theme);
@@ -57,11 +47,9 @@ export default function SwitchList(props: TSwitchList) {
           return (
             <FancyFlexBox
               externalStyle={css`
-                ${generateListItemStyle({
-                  isActive: currentActive === uniqueKey,
-                  hoverStyle,
-                  activeStyle,
-                })}
+                position: relative;
+                flex-grow: 1;
+                height: 100%;
                 padding-bottom: 2px;
               `}
               key={uniqueKey}

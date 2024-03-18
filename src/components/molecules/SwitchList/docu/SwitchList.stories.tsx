@@ -1,13 +1,12 @@
-import React from 'react';
-
 import type { Meta, StoryObj } from '@storybook/react';
 
-import SwitchList from './SwitchList';
-import SVGCheckMark from '../../icons/SVGCheckMark/SVGCheckMark';
-import { FancyBottomBarIcon } from '../../templates/FancyBottomBarIcon';
+import SwitchList from '../SwitchList';
+import SVGCheckMark from '../../../icons/SVGCheckMark/SVGCheckMark';
+import { FancyBottomBarIcon } from '../../../templates/FancyBottomBarIcon';
 
 const meta = {
   component: SwitchList,
+  title: 'components/molecules/SwitchList',
   parameters: {
     docs: {
       description: {
@@ -30,17 +29,21 @@ const meta = {
     },
     externalStyle: {
       description: 'The external style of the SwitchList.',
-      type: { name: 'string' },
+      control: { type: 'object' },
     },
     switchIndicator: {
       description: 'The switch indicator of the SwitchList. The Props of the SwitchActiveIndicator.',
+      control: { type: 'object' },
     },
     flexBoxProps: {
       description: 'The flex box props of the SwitchList. The Props of the FancyFlexBox.',
+      control: { type: 'object' },
+    },
+    gap: {
+      description: 'The gap of the SwitchList.',
+      control: { type: 'select' },
     },
   },
-
-  tags: ['autodocs'],
 } satisfies Meta<typeof SwitchList>;
 
 export default meta;
@@ -50,9 +53,9 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   render: (args) => (
     <SwitchList {...args}>
-      <FancyBottomBarIcon label="Test" icon={<SVGCheckMark />} />
-      <FancyBottomBarIcon label="Test" icon={<SVGCheckMark />} />
-      <FancyBottomBarIcon label="Test" icon={<SVGCheckMark />} />
+      <FancyBottomBarIcon externalStyle={{ zIndex: 1 }} label="Test" icon={<SVGCheckMark />} />
+      <FancyBottomBarIcon externalStyle={{ zIndex: 1 }} label="Test" icon={<SVGCheckMark />} />
+      <FancyBottomBarIcon externalStyle={{ zIndex: 1 }} label="Test" icon={<SVGCheckMark />} />
     </SwitchList>
   ),
   args: {
@@ -61,9 +64,21 @@ export const Primary: Story = {
       align: 'center',
     },
     switchIndicator: {
+      type: 'bolb',
       direction: 'horizontal',
+      indicatorWidth: '100%',
+      rounded: 'sm',
+      outlined: true,
+      externalStyle: {},
+      layer: 0,
+      tabSpacing: 'sm',
+      themeType: 'accent',
     },
-
-    children: <></>,
+    activeItemHandler: (index: number) => {
+      console.log('Active Item: ', index);
+    },
+    gap: 'sm',
+    externalStyle: {},
+    whichIndexIsSelected: 1,
   },
 };
