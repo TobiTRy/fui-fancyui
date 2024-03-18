@@ -15,7 +15,7 @@ export const Wrapper = styled.span<TWrapper & { theme: TTheme }>`
   flex-direction: ${({ $direction }) => $direction || 'row'};
   justify-content: ${({ $justify }) => $justify || 'center'};
   align-items: ${({ $align }) => $align || 'center'};
-  gap: ${({ $gapBetweenIcon }) => arrayToCssValues($gapBetweenIcon ?? 'xss', 'spacing')};
+  gap: ${({ $gapBetweenIcon }) => arrayToCssValues($gapBetweenIcon ?? 'xxs', 'spacing')};
   ${({ theme, $themeType, $layer }) =>
     $themeType &&
     css`
@@ -29,7 +29,7 @@ export const Wrapper = styled.span<TWrapper & { theme: TTheme }>`
     flex-direction: column;
     align-items: ${({ $align }) => $align || 'center'};
     justify-content: flex-start;
-    gap: ${({ $gapBetweenIcon }) => arrayToCssValues($gapBetweenIcon ?? 'xss', 'spacing')};
+    gap: ${({ $gapBetweenIcon }) => arrayToCssValues($gapBetweenIcon ?? 'xxs', 'spacing')};
   }
 `;
 
