@@ -15,7 +15,7 @@
     "checkFormat": "npx prettier --check .",
     "format": "npx prettier --write .",
     "test": "vitest",
-    "predeploy": "npm run lint && npm run build && npm run checkFormat ",
+    "predeploy": "npm run lint && npm run build && npm run checkFormat && npm run storybook build",
     "prepare": "husky install"
   },
   "lint-staged": {
