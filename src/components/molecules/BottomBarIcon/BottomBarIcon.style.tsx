@@ -1,4 +1,4 @@
-import { styled } from 'styled-components';
+import { css, styled } from 'styled-components';
 
 import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponent';
 import { disabledStyle } from '@/design/designFunctions/disabledStyle/disableStyle';
@@ -8,7 +8,7 @@ import { TBottomBarIcon } from './TBottomBarIcon.model';
 
 type TContentWrapper = TStyledPrefixAndPicker<
   TBottomBarIcon,
-  'disabled' | 'isActive' | 'themeType' | 'layer' | 'externalStyle'
+  'disabled' | 'isActive' | 'themeType' | 'layer' | 'externalStyle' | 'hoverStyle'
 >;
 export const ContentWrapper = styled.div<TContentWrapper & { theme?: TTheme }>`
   position: relative;
@@ -28,11 +28,15 @@ export const ContentWrapper = styled.div<TContentWrapper & { theme?: TTheme }>`
   text-decoration: none;
 
   /* This is a media query that tests if the primary input mechanism of the device (e.g., mouse or touch screen) is capable of hovering  */
-  @media (hover: hover) {
-    &:hover {
-      color: ${({ $disabled, theme }) => !$disabled && theme.colors.accent[0]};
-    }
-  }
+  ${({ $disabled, $hoverStyle, theme }) =>
+    $hoverStyle &&
+    css`
+      @media (hover: hover) {
+        &:hover {
+          color: ${!$disabled && theme.colors.accent[0]};
+        }
+      }
+    `}
 
   ${({ $externalStyle }) => $externalStyle}
 `;

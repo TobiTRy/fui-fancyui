@@ -12,6 +12,7 @@ export default function BottomBarIcon(props: TBottomBarIconWithHTMLAttributes) {
     icon,
     label,
     isActive,
+    hoverStyle,
     disabled,
     themeType = 'secondary',
     layer = 0,

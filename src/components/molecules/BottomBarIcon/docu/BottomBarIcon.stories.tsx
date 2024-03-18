@@ -53,6 +53,10 @@ const meta = {
         summary: 'sm',
       },
     },
+    hoverStyle: {
+      description: 'If true, the component will have hover style.',
+      control: { type: 'boolean' },
+    },
     externalStyle: {
       description: 'External style for the component.',
       control: { type: 'object' },

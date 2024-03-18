@@ -9,6 +9,7 @@ export type TBottomBarIcon = {
   label?: string;
   hideLabel?: boolean;
   isActive?: boolean;
+  hoverStyle?: boolean;
   disabled?: boolean;
   themeType?: TUiColorsNotTransparent;
   layer?: TLayer;
