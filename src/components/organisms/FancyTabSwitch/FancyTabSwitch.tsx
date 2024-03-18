@@ -6,7 +6,7 @@ import { TabSwitch } from '@/components/molecules/TabSwitch';
 import { FancyBox } from '@/components/atoms/FancyBox';
 
 import { tabSwitchSizes } from '@/components/molecules/TabSwitch/TabSwitch.style';
-import { ITabSwitchProps } from '@/components/molecules/TabSwitch/TabSwitch.model';
+import { ITabSwitchProps } from '@/components/molecules/TabSwitch/TTabSwitch.model';
 
 // --------------------------------------------------------------------------- //
 // -----  The FancyTabswich has more advanced features like Label etc. ------- //

@@ -2,6 +2,7 @@ import { TBorderRadiusSizes } from '@/types/TBorderRadiusSizes';
 import { TLayer } from '@/types/TLayer';
 import { TSpacings } from '@/types/TSpacings';
 import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
+import { CSSProp } from 'styled-components';
 
 export type TActiveSwitchIndicator = {
   itemNumber: number;
@@ -13,6 +14,7 @@ export type TActiveSwitchIndicator = {
   outlined?: boolean;
   direction?: 'horizontal' | 'vertical';
   indicatorWidth?: string;
+  externalStyle?: CSSProp;
 };
 
 export type TActiveSwitchIndicatorWithHTMLAttrs = TActiveSwitchIndicator & React.HTMLAttributes<HTMLDivElement>;
