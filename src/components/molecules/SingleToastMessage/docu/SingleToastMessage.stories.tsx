@@ -9,6 +9,7 @@ HelperComponent.displayName = 'SingleToastMessage';
 
 const meta = {
   component: HelperComponent,
+  title: 'components/molecules/SingleToastMessage',
   parameters: {
     docs: {
       description: {

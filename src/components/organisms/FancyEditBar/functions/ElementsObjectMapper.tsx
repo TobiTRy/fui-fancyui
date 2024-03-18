@@ -11,7 +11,7 @@ import { FancyTextInput } from '../../FancyTextInput';
 import FancyDropDownSelect from '../../FancyDropDownSelect/FancyDropDownSelect';
 import FancyRangeSlider from '../../FancyRangeSlider/FancyRangeSlider';
 import FancyTabSwitch from '../../FancyTabSwitch/FancyTabSwitch';
-import { ITabSwitchProps } from '../../../molecules/TabSwitch/TabSwitch.model';
+import { ITabSwitchProps } from '../../../molecules/TabSwitch/TTabSwitch.model';
 
 // --------------------------------------------------------------------------- //
 // --------- Give back a Element of the the specified item string ------------ //
