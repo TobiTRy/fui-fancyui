@@ -1,0 +1,46 @@
+# `getThemeOrValueForCSS` Function Documentation
+
+The `getThemeOrValueForCSS` function serves as a utility within a React application to seamlessly convert themed CSS values or directly provided CSS values into a string format that can be used in styling components. It utilizes a theme store to access application-wide theme settings for border radius and spacing, providing a consistent styling mechanism across the application.
+
+## Brief Description
+
+This function allows developers to apply consistent theming across their application by abstracting the process of converting theme-specific values (like 'xs', 'sm', etc.) into concrete CSS values (like '4px', '8px', etc.) defined in the application's theme store. It supports both 'borderRadius' and 'spacing' theming options, besides accepting standard CSS string or number values directly.
+
+## Setup Instructions
+
+1. **Import the Function**: Include this function in your component or utility file by importing it as follows:
+
+```jsx
+import { getThemeOrValueForCSS } from 'fui-fancyui';
+```
+
+## Example Usage
+
+```jsx
+// Assuming a styled-components setup
+import styled from 'styled-components';
+import { getThemeOrValueForCSS } from 'fui-fancyui';
+
+const Box = styled.div`
+  margin: ${() => getThemeOrValueForCSS('md', 'spacing')};
+  padding: ${() => getThemeOrValueForCSS('20px')}; // Using a direct CSS value
+  padding-top: ${() => getThemeOrValueForCSS(0)}; // Using a direct CSS value
+  border-radius: ${() => getThemeOrValueForCSS('sm', 'borderRadius')};
+`;
+
+// Usage in a React component
+const MyComponent = () => (
+  <Box>This box has theme-based margin, direct value padding, and theme-based border-radius.</Box>
+);
+```
+
+## Component Properties
+
+- **value** (`TThemeCSSValue`): The value to be converted into a CSS string. This can be a theme value (`'xxs'`, `'xs'`, etc., for `borderRadius` and `spacing`) or any standard CSS value (string or number).
+- **themeSetting** (`'borderRadius' | 'spacing'` | undefined): An optional parameter specifying which theme setting to use. If provided, `value` is treated as a key to look up in the theme store. If omitted, `value` is used directly as a CSS value.
+
+## Notes
+
+- Ensure your theme store's structure is compatible with this function, especially in how it stores `borderRadius` and `spacing` values.
+- The function defaults to returning the `value` directly as a string if `themeSetting` is not provided, allowing for flexibility in specifying both themed and direct CSS values.
+- If a theme value is not found in the store, the function falls back to returning an empty string for that specific theme setting.

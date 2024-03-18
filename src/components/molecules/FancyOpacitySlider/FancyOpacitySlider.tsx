@@ -1,4 +1,5 @@
 import Color from 'color';
+import { useMemo } from 'react';
 
 import useSlider from '@/utils/hooks/useSlider/useSilder';
 
@@ -9,17 +10,19 @@ import { CheckerBoardPattern } from '@/components/atoms/CheckerBoardPattern';
 import { colorToPositionOpacity, positionToColorOpacity } from './utils/calcPosition';
 import { Wrapper, SliderContainer, OpacityGradient } from './FancyOpacitySlider.style';
 
+import { TOpacitySlider } from './TFancyOpacitySlider.model';
+import { globalElementsizes } from '@/design/theme/globalSizes';
+import { sizeSettings } from './sizeSettings';
+
 // --------------------------------------------------------------------------- //
-// ------- The main FancyOpacitySlider Component to calclulates the opacity ------- //
+// ----- The main FancyOpacitySlider Component to calclulates the opacity ---- //
 // --------------------------------------------------------------------------- //
-interface IOpacitySlider {
-  color: Color;
-  opacity: number;
-  handler: (opacity: number) => void;
-}
-export default function FancyOpacitySlider({ color, opacity, handler }: IOpacitySlider) {
+export default function FancyOpacitySlider(props: TOpacitySlider) {
+  const { colorValue = '#f00', opacity = 1, handler, sizeC = 'sm', borderRadius, ...htmlProps } = props;
   //give the opacity back to the parent component
-  const handleOpacityChange = (newHue: number) => handler(parseFloat(newHue.toFixed(2)));
+  const handleOpacityChange = (newHue: number) => handler?.(parseFloat(newHue.toFixed(2)));
+
+  const color = useMemo(() => Color(colorValue), [colorValue]);
 
   //use the useSlider hook handles all the interaction with the opacity slider
   const { sliderRef, markerPosition, handleInteractionStart, isInteracting } = useSlider({
@@ -31,18 +34,23 @@ export default function FancyOpacitySlider({ color, opacity, handler }: IOpacity
   });
 
   return (
-    <Wrapper>
+    <Wrapper $height={globalElementsizes[sizeSettings[sizeC].height]} {...htmlProps}>
       <SliderContainer ref={sliderRef} onMouseDown={handleInteractionStart} onTouchStart={handleInteractionStart}>
         {/* the sliders marker with the color indicator which displays the opacity of the current color */}
         <SliderMarker position={markerPosition.x + '%'}>
-          <ColorIndicator color={Color(color).alpha(opacity).string()} isActive={isInteracting} />
+          <ColorIndicator color={color.alpha(opacity).string()} isActive={isInteracting} />
         </SliderMarker>
 
         {/* the opacity gradient for the slider*/}
-        <OpacityGradient $color={color.toString()} />
+        <OpacityGradient
+          $borderRadius={borderRadius ? borderRadius : sizeSettings[sizeC].borderRadius}
+          style={{
+            background: `linear-gradient(to right, ${color.hsl().alpha(0).toString()} 0%, ${color.hsl().alpha(1).toString()} 90%)`,
+          }}
+        />
 
         {/* the checkerboard pattern to display the transperancy*/}
-        <CheckerBoardPattern />
+        <CheckerBoardPattern externalStyle={{ position: 'absolute', top: 0, left: 0 }} />
       </SliderContainer>
     </Wrapper>
   );

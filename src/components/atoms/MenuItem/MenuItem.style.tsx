@@ -16,7 +16,7 @@ type IStyledMenuItem = TStyledPrefixAndOmiter<TMenueItem, 'children'> & { theme?
 export const StyledMenuItem = styled.button<IStyledMenuItem>`
   display: flex;
   box-sizing: border-box;
-  padding: ${({ $padding }) => arrayToCssValues($padding)};
+  padding: ${({ $padding }) => arrayToCssValues($padding, 'spacing')};
   justify-content: ${({ $align }) => leftRightCenterToFlexJustify[$align ?? 'left']};
   cursor: pointer;
   background-color: transparent;

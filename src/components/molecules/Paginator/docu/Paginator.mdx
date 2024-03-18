@@ -1,0 +1,49 @@
+import { Meta, Title, Description, Canvas, Controls } from '@storybook/blocks';
+
+import * as PaginatorStories from './Paginator.stories';
+
+<Title />
+
+<Description />
+
+## Setup Instructions
+
+To use the `Paginator` in your project, follow these steps:
+
+1. Import the `Paginator` component where you intend to use it:
+
+```jsx
+import { Paginator } from 'fui-fancyui';
+```
+
+2. If using TypeScript, ensure the type definitions are imported for prop validation:
+
+```jsx
+import { TPaginatorWithHTMLAttrs, TPaginator, TPaginatorWithTPageNumberListProps } from 'fui-fancyui';
+```
+
+Additionally, make sure to import and configure any necessary styles from `Paginator.style` to maintain the component's visual layout.
+
+## Example Usage
+
+Below is an example demonstrating how to incorporate the Paginator into a list component:
+
+```jsx
+<Paginator
+  currentPage={1}
+  showPages={3}
+  onPageChange={(page) => console.log(`Navigating to page ${page}`)}
+  outlinedButton={true}
+  themeType="accent"
+  pageLimits={10}
+  numberButtonStyle={{ borderColor: 'blue', hoverColor: 'lightblue' }}
+/>
+```
+
+<Canvas />
+
+This setup initializes the Paginator with a current page of 1, displaying 3 page numbers at a time. Navigation buttons are styled as outlined, with an 'accent' theme. The `onPageChange` function is a placeholder to illustrate how page changes can be handled, for example, updating state or making API calls.
+
+<Controls />
+
+Each of these props allows for customization of the Paginator's appearance and behavior, making it adaptable to various use cases and styles within an application.

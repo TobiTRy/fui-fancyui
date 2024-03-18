@@ -1,21 +1,11 @@
-import React, { useState, createRef, useEffect } from 'react';
+import React, { createRef, useEffect, useState } from 'react';
 
-import { IStatus } from '@/types/IStatus';
-import { InputWrapper } from './SingleInputs.style';
-import { TUiColorTypes } from '@/types/TUiColorTypes';
-import { TLayer } from '@/types/TLayer';
 import { SingleInput } from '@/components/atoms/SingleInput';
+import { InputWrapper } from './SingleInputs.style';
+import { TSingleInputsWithHTMLInputAttrs } from './TSingleInputs.model';
 
-interface IFancySingleInputsProps {
-  length?: number;
-  handler?: (value: string) => void;
-  status?: Pick<IStatus, 'isError' | 'isSucceed'>;
-  automaticCase?: 'upper' | 'lower';
-  themeType?: TUiColorTypes;
-  layer?: TLayer;
-}
-export default function SingleInputs(props: IFancySingleInputsProps) {
-  const { length = 6, handler, status, automaticCase, themeType, layer } = props;
+export default function SingleInputs(props: TSingleInputsWithHTMLInputAttrs) {
+  const { length = 6, handler, status, automaticCase, themeType = 'secondary', layer = 0 } = props;
 
   const [values, setValues] = useState<string[]>(Array(length).fill(''));
   const refs = Array.from({ length }, () => createRef<HTMLInputElement>());

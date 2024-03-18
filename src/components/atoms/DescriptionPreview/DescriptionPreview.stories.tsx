@@ -6,6 +6,7 @@ import { DescriptionPreview } from '@/components/atoms/DescriptionPreview';
 // Define metadata for the story
 const meta = {
   component: DescriptionPreview,
+  title: 'components/atoms/DescriptionPreview',
   parameters: {
     docs: {
       description: {

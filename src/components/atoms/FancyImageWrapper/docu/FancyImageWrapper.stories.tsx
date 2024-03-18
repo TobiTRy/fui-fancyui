@@ -11,7 +11,7 @@ const meta = {
     docs: {
       description: {
         component:
-          'A FancyImage component is a styled image component that can be used to display images in a fancy way.',
+          'The `FancyImageWrapper` component is a highly customizable React component designed to wrap around image elements, providing extensive control over their appearance and styling. It supports a wide range of properties to adjust the image´s aspect ratio, border radius, size, object fit, filter effects, and external CSS styling. Additionally, it validates the aspect ratio to ensure it is in the correct format.',
       },
     },
   },

@@ -2,24 +2,7 @@ import { useState, useRef, useEffect, useCallback } from 'react';
 import Color from 'color';
 
 import { IMarkerPosition, IUseSlider, IUseSliderReturn } from './IUseSlider.model';
-
-// Throttle function to prevent too many rerenders
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const throttle = (func: (...args: any[]) => void): ((...args: any[]) => void) => {
-  let isThrottled = false;
-
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  return (...args: any[]) => {
-    if (!isThrottled) {
-      isThrottled = true;
-      requestAnimationFrame(() => {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-        func(...args);
-        isThrottled = false;
-      });
-    }
-  };
-};
+import throttle from '@/utils/functions/throttle/throttle';
 
 // --------------------------------------------------------------------------- //
 // ------------------ Define the main useSlider Hoook function --------------- //
@@ -28,6 +11,7 @@ const useSlider = ({
   color,
   hue,
   type,
+  opacity,
   sliderPositionToColorFunc,
   positionToColorFunc,
   colorToPositionFunc,
@@ -76,7 +60,7 @@ const useSlider = ({
   );
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  const throttledHandleInteraction = useCallback(throttle(handleInteraction), [handleInteraction]);
+  const throttledHandleInteraction = useCallback(throttle(handleInteraction, 10), [handleInteraction]);
 
   //handle the interaction start with the slider and the color area
   const handleInteractionStart = (
@@ -131,13 +115,14 @@ const useSlider = ({
 
   //update the marker position when the hue changes
   useEffect(() => {
-    if (!hue) return;
     if (type === 'color' && color) {
-      updateMarkerPosition(color.hue(hue));
+      updateMarkerPosition(color.hue(hue ?? 0));
+    } else if (type === 'opacity') {
+      updateMarkerPosition(Color({ r: 255, g: 255, b: 255 }).alpha(opacity ?? 1));
     } else {
       updateMarkerPosition(Color({ h: hue, s: 50, l: 50 }));
     }
-  }, [hue, updateMarkerPosition, color, type]);
+  }, [hue, updateMarkerPosition, color, type, opacity]);
 
   //set the initial position of the marker
   useEffect(() => {

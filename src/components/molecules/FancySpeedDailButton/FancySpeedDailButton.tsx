@@ -9,19 +9,14 @@ import {
   SpeedDialContainer,
   Wrapper,
 } from './SpeedDailButton.style';
-import { ActionItem } from '@/components/atoms/ActionItem';
-import { TActionItemButton, TActionItemSetting } from '@/components/atoms/ActionItem/TActionItem.model';
-
-export type ISpeedail = {
-  items?: TActionItemButton[];
-  buttonProps?: React.ButtonHTMLAttributes<HTMLButtonElement>;
-} & Omit<TActionItemSetting, 'labelAlign'> & { labelAlign?: 'left' | 'right' };
+import { ActionItem } from '@/components/molecules/ActionItem';
+import { TFancySpeedDailButton } from './TFancySpeedDailButton.model';
 
 // --------------------------------------------------------------------------- //
 // ---------- Component that handles the Buttonlist and the opening ---------- //
 // --------------------------------------------------------------------------- //
-export default function FancySpeedDialButton(props: ISpeedail) {
-  const { items, labelAlign, buttonProps, themeType = 'primary' } = props;
+export default function FancySpeedDialButton(props: TFancySpeedDailButton) {
+  const { items, labelAlign, themeType = 'primary', ...actionItemProps } = props;
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -30,20 +25,23 @@ export default function FancySpeedDialButton(props: ISpeedail) {
         <MenueItemWrapper $textAlign={labelAlign}>
           {items?.map((item, index) => (
             <MenueItemContainer key={index} $index={index} $actionItemSize={'md'} $isOpen={isOpen}>
-              <ActionItem icon={item.icon} label={item.label} themeType={themeType} size="md" labelAlign={labelAlign} />
+              <ActionItem
+                icon={item.icon}
+                label={item.label}
+                themeType={themeType}
+                labelAlign={labelAlign}
+                {...actionItemProps}
+              />
             </MenueItemContainer>
           ))}
         </MenueItemWrapper>
-
         <Button
           $isOpen={isOpen}
-          onClick={(e) => {
-            buttonProps?.onClick?.(e);
+          onClick={() => {
             setIsOpen(!isOpen);
           }}
-          {...buttonProps}
         >
-          {SVGPlus}
+          <SVGPlus />
         </Button>
         <Ring $isOpen={isOpen} />
       </SpeedDialContainer>

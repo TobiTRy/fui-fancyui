@@ -1,10 +1,11 @@
 import { CSSProp, css, styled } from 'styled-components';
 
 import { TTheme } from '@/types/TTheme';
-import { TAlign, TAlignCheckbox } from '../FancyCheckbox/FancyCheckbox.model';
+import { TTextAlignLRC } from '@/types/TTextAlignLRC';
+import { TTextAlignLR } from '@/types/TTextAlignLR';
 
 // wraps the whole component and handles the alignment
-export const Wrapper = styled.div<{ $align?: TAlign; $externalStyle: CSSProp }>`
+export const Wrapper = styled.div<{ $align?: TTextAlignLRC; $externalStyle: CSSProp }>`
   position: relative;
   display: flex;
   justify-content: ${({ $align }) => {
@@ -22,7 +23,7 @@ export const Wrapper = styled.div<{ $align?: TAlign; $externalStyle: CSSProp }>`
 
 // this wraps the label and the description
 // handle the order of the checkbox and label/description
-export const LabelWrapper = styled.label<{ $align?: TAlignCheckbox; theme: TTheme }>`
+export const LabelWrapper = styled.label<{ $align?: TTextAlignLR; theme: TTheme }>`
   display: flex;
   flex-direction: column;
   gap: ${({ theme }) => theme.spacing.xxs};

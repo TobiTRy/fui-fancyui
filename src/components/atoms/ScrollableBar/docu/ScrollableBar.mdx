@@ -1,4 +1,4 @@
-import { Meta, Title, Description } from '@storybook/blocks';
+import { Meta, Title, Description, Canvas } from '@storybook/blocks';
 
 import * as ScrollableBarStories from './ScrollableBar.stories';
 
@@ -11,7 +11,7 @@ import * as ScrollableBarStories from './ScrollableBar.stories';
 1. Import the `ScrollableBar` component where you intend to use it:
 
 ```jsx
-import { ScrollableBar } from '@tobitry/fui-fancyui';
+import { ScrollableBar } from 'fui-fancyui';
 ```
 
 ## Example Usage
@@ -20,7 +20,7 @@ Here's an example of how to use the `ScrollableBar` component to create a horizo
 
 ```jsx
 import React from 'react';
-import { ScrollableBar } from '@tobitry/fui-fancyui';
+import { ScrollableBar } from 'fui-fancyui';
 
 const HorizontalMenu = () => {
   return (
@@ -36,6 +36,8 @@ const HorizontalMenu = () => {
 
 export default HorizontalMenu;
 ```
+
+<Canvas />
 
 This example demonstrates wrapping multiple child elements within the `ScrollableBar` component to allow for horizontal scrolling through these elements.
 

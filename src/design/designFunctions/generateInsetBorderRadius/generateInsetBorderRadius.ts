@@ -4,8 +4,8 @@ import { themeStore } from '@/design/theme/themeStore';
 import checkThemeValue from '@/design/designFunctions/checkThemeValue/checkThemeValue';
 
 export default function generateInsetBorderRadius(
-  outerRadius: TBorderRadiusSizes | string | number,
-  padding: TSpacings | string | number
+  outerRadius?: TBorderRadiusSizes | string | number,
+  padding?: TSpacings | string | number
 ) {
   const theme = themeStore.getState().theme;
 
@@ -19,5 +19,5 @@ export default function generateInsetBorderRadius(
   }
 
   // calculate the border radius minus padding for the inset border
-  return `calc(${outerRadius} - ${padding})`;
+  return `calc(${outerRadius || '0px'} - ${padding || '0px'})`;
 }

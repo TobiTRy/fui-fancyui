@@ -1,0 +1,68 @@
+import { Meta, Title, Description, Controls, Canvas } from '@storybook/blocks';
+
+import * as ColorDisplayStories from './ColorDisplay.stories';
+
+<Meta of={ColorDisplayStories} />
+
+<Title />
+
+<Description />
+
+## Setup Instructions
+
+To use the `ColorDisplay` in your project, follow these steps:
+
+1. Import the `ColorDisplay` component where you intend to use it:
+
+```jsx
+import { ColorDisplay } from 'fui-fancyui';
+```
+
+2. If using TypeScript, ensure the type definitions are imported for prop validation:
+
+```jsx
+import { TColorDisplay, TColorDisplayWithHTMLAttrs } from 'fui-fancyui';
+```
+
+## Example Usage
+
+The following example demonstrates how to use the `ColorDisplay` component along with its subcomponents:
+
+```jsx
+<ColorDisplay colorValue="#007bff" opacity={0.8} sizeC="md" fullHeight={false} borderRadius="lg">
+  <ColorDisplay.ClipBoardIcon copyd={false} />
+  <ColorDisplay.ColorText colorValue="#007bff" />
+</ColorDisplay>
+```
+
+This example creates a medium-sized, blue color box with 80% opacity and a large border radius. It includes a clipboard icon (indicating the color has not been copied) and a text component displaying the color value.
+
+<Canvas />
+
+## Component Properties
+
+### Main Component
+
+<Controls />
+
+### Subcomponents
+
+1. **ClipBoardIcon**: Renders an interactive icon to copy the displayed color to the clipboard. It supports visual feedback for copied and not-copied states.
+
+2. **ColorText**: Displays the color value in text format, facilitating easy identification and use of the color value.
+
+## Subcomponent Properties
+
+### ClipBoardIcon
+
+- **sizeC** (`TComponentSizes`, optional): Determines the size of the icon, defaulting to `'sm'` if not specified.
+- **copyd** (`boolean`): Indicates whether the color has been copied to the clipboard, affecting the icon's appearance.
+- **copyedIcon** (`React.ReactNode`, optional): Custom icon to display when the color has been copied.
+- **unCopyedIcon** (`React.ReactNode`, optional): Custom icon to display when the color has not been copied.
+
+### ColorText
+
+- **sizeC** (`TComponentSizes`): Specifies the size of the text, influencing the typography variant used for the color value display.
+- **colorValue** (`string | Color`): The color value to display as text. Accepts either a string or a Color object.
+
+By incorporating these components and properties, developers can effectively integrate color display functionality into their applications, providing users with a visually appealing and interactive way to interact with colors.

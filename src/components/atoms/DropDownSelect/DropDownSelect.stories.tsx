@@ -6,6 +6,7 @@ import DropDownSelect from './DropDownSelect';
 // Define metadata for the story
 const meta = {
   component: DropDownSelect,
+  title: 'components/atoms/DropDownSelect',
   parameters: {
     docs: {
       description: {

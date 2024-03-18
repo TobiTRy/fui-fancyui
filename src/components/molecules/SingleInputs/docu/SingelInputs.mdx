@@ -1,0 +1,61 @@
+import { Meta, Title, Description, Canvas, Controls } from '@storybook/blocks';
+
+import * as SingleInputsStories from './SingleInputs.stories';
+
+<Meta of={SingleInputsStories} />
+
+<Title />
+
+<Description />
+
+## Setup Instructions
+
+To use the `SingleInputs` in your project, follow these steps:
+
+1. Import the `SingleInputs` component where you intend to use it:
+
+```jsx
+import { SingleInputs } from 'fui-fancyui';
+```
+
+2. If using TypeScript, ensure the type definitions are imported for prop validation:
+
+```jsx
+import { TSingleInputs, TSingleInputsWithHTMLInputAttrs } from 'fui-fancyui';
+```
+
+## Example Usage
+
+Here's an example showing how to use the `SingleInputs` component within a form for a verification code input scenario:
+
+```jsx
+import React from 'react';
+import SingleInputs from './SingleInputs'; // Adjust the path as necessary
+
+function VerificationForm() {
+  const handleVerificationCode = (code) => {
+    console.log('Verification code entered:', code);
+  };
+
+  return (
+    <form>
+      <SingleInputs length={6} handler={handleVerificationCode} automaticCase="upper" />
+      {/* Additional form elements */}
+    </form>
+  );
+}
+
+export default VerificationForm;
+```
+
+This example creates a verification form with a `SingleInputs` component set to accept a 6-character verification code, automatically converting input to uppercase.
+
+<Canvas />
+
+## Component Properties
+
+The `SingleInputs` component accepts the following props:
+
+<Controls />
+
+Each `SingleInput` field within the component also inherits standard HTML input attributes through `TSingleInputsWithHTMLInputAttrs`, enabling further customization and flexibility in handling input behaviors.

@@ -21,8 +21,8 @@ export default function MonthWithDays(props: TMonthWithDays) {
     disabledDateSetting,
     externalMonthWithDays,
     startWeekOn,
-    layer,
-    themeType,
+    layer = 1,
+    themeType = 'secondary',
   } = props;
   const [monthDays, setMonthDays] = useState<IDateWithExternalState[]>([]);
 
@@ -67,6 +67,8 @@ export default function MonthWithDays(props: TMonthWithDays) {
         tabIndex={0}
         className="month_with_days_and_headding"
         aria-label={`${month.name} ${year}`}
+        themeType={themeType}
+        layer={layer}
       >
         {month.name}
       </Typography>
@@ -115,7 +117,6 @@ export default function MonthWithDays(props: TMonthWithDays) {
 // --------------------------------------------------------------------------- //
 // ------------------------ Some helperfunctions ----------------------------- //
 // --------------------------------------------------------------------------- //
-
 const getDaysInMonth = (month: number, year: number): number => {
   return new Date(year, month, 0).getDate();
 };

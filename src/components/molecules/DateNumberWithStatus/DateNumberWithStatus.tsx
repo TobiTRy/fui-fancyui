@@ -8,10 +8,22 @@ import { TDateNumberWithStatus } from './TDateNumberWithStatus.model';
 //A Simple Number with the AvilableDot to indicate something is busy or free...//
 // --------------------------------------------------------------------------- //
 export default function DateNumberWithStatus(props: TDateNumberWithStatus) {
-  const { isAvailable, disabled, dateNumber, isSelected, onClick, range, isCurrentDay, layer, themeType } = props;
+  const {
+    isAvailable,
+    disabled,
+    dateNumber,
+    isSelected,
+    onClick,
+    range,
+    isCurrentDay,
+    layer = 0,
+    themeType = 'secondary',
+    externalStyle,
+    ...htmlProps
+  } = props;
 
   return (
-    <StyledDateNumberWithStatus>
+    <StyledDateNumberWithStatus $externalStyle={externalStyle} {...htmlProps}>
       <DateNumberAtom
         dateNumber={dateNumber}
         disabled={disabled}

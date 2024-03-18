@@ -6,6 +6,7 @@ import EditBarModal from './EditBarModal';
 // Define metadata for the story
 const meta = {
   component: EditBarModal,
+  title: 'components/atoms/EditBarModal',
   parameters: {
     docs: {
       description: {

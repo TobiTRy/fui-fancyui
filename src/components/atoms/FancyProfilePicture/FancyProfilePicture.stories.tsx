@@ -6,7 +6,7 @@ import FancyProfilePicture from './FancyProfilePicture';
 // Define metadata for the story
 const meta = {
   component: FancyProfilePicture,
-
+  title: 'components/atoms/FancyProfilePicture',
   parameters: {
     docs: {
       description: {

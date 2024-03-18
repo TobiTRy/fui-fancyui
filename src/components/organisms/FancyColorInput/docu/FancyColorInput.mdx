@@ -1,0 +1,58 @@
+import { Meta, Title, Description, Controls, Canvas } from '@storybook/blocks';
+
+import * as FancyColorInputStories from './FancyColorInput.stories';
+
+<Meta of={FancyColorInputStories} />
+
+<Title />
+
+<Description />
+
+## Setup Instructions
+
+To use the `FancyColorInput` in your project, follow these steps:
+
+1. Import the `FancyColorInput` component where you intend to use it:
+
+```jsx
+import { FancyColorInput } from 'fui-fancyui';
+```
+
+2. If using TypeScript, ensure the type definitions are imported for prop validation:
+
+```jsx
+import { TFancyColorOutput, TRGBColor, TRGBAColor, THSLColor, THSLAColor } from 'fui-fancyui';
+```
+
+After installing the required library, you can import and use the `FancyColorInput` component in your React project as follows:
+
+## Example Usage
+
+The example below demonstrates how to integrate the `FancyColorInput` component into a React application, including the setup for initial color, color type, and handlers for various interactions:
+
+```jsx
+<FancyColorInput
+  pickedColor={'hsla(210, 100%, 50%, 0.5)'}
+  opacity={0.5}
+  currentColorType="hsla"
+  handler={(color) => {
+    console.log('Color changed:', color);
+  }}
+  colorTypeHandler={(type) => {
+    console.log('Color format changed to:', type);
+  }}
+  handlerOpacity={(opacity) => {
+    console.log('Opacity changed to:', opacity);
+  }}
+/>
+```
+
+This setup provides a user interface for changing color values and formats dynamically, with changes reflected in real-time and communicated back to the parent component.
+
+<Canvas />
+
+## Component Properties
+
+<Controls />
+
+The `FancyColorInput` component offers flexibility and dynamic interaction with color values in a React application, making it suitable for applications that require a user interface for color manipulation.

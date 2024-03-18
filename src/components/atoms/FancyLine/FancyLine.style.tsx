@@ -18,7 +18,7 @@ export const StyledFancyLine = styled.hr<TStyledFancyLine>`
     calcHeightOrWidth({ direction: $direction, thickness: $thickness, length: $length })};
   border: 0;
   padding: 0;
-  margin: ${({ $margin }) => arrayToCssValues($margin) || '0'};
+  margin: ${({ $margin }) => arrayToCssValues($margin, 'spacing') || '0'};
   transition: background-color 0.25s ease;
 
   &::after {

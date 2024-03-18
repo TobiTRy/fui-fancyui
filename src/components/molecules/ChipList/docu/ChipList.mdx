@@ -1,0 +1,51 @@
+import { Meta, Title, Description, Controls, Canvas } from '@storybook/blocks';
+
+import * as ChipListStories from './ChipList.stories';
+
+<Meta of={ChipListStories} />
+
+<Title />
+
+<Description />
+
+## Setup Instructions
+
+To use the `ChipList` in your project, follow these steps:
+
+1. Import the `ChipList` component where you intend to use it:
+
+```jsx
+import { ChipList } from 'fui-fancyui';
+```
+
+2. If using TypeScript, ensure the type definitions are imported for prop validation:
+
+```jsx
+import { TChipList, TChipListWithHTMLAtrrs } from 'fui-fancyui';
+```
+
+## Example Usage
+
+Below is an example of how to use the `ChipList` component:
+
+```jsx
+import React from 'react';
+import { ChipList } from 'fui-fancyui';
+import { Chip } from 'fui-fancyui';
+
+const MyChipListComponent = () => (
+  <ChipList themeType="secondary" layer={3} sizeC="lg" outlined>
+    <Chip label="Chip 1" />
+    <Chip label="Chip 2" />
+    <Chip label="Chip 3" />
+  </ChipList>
+);
+
+export default MyChipListComponent;
+```
+
+<Canvas />
+
+## Component Properties
+
+<Controls />

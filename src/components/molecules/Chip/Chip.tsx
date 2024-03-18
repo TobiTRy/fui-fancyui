@@ -1,16 +1,15 @@
-import { IFancyPillProps } from '@/components/atoms/FancyPill/FancyPill.model';
-import { FancyContent } from '@/components/molecules/FancyContent';
 import { StyledChip } from '@/components/molecules/Chip/Chip.style';
+import { FancyContent } from '@/components/molecules/FancyContent';
 
-import ChipDeleteButton from './Components/ChipDeleteButton/ChipDeleteButton';
 import ChipImg from '@/components/molecules/Chip/Components/ChipImg/ChipImg';
-import { TComponentSizes } from '@/types/TComponentSizes';
+import ChipDeleteButton from './Components/ChipDeleteButton/ChipDeleteButton';
+
+import { TChipWithFancyPillAttrs } from './TChip.model';
 
 // --------------------------------------------------------------------------- //
 // --------------- A Simple chip you can put everthing in it  ---------------- //
 // --------------------------------------------------------------------------- //
-export type TChipProps = IFancyPillProps & { sizeC?: TComponentSizes };
-function Chip(props: TChipProps) {
+function Chip(props: TChipWithFancyPillAttrs) {
   const { outlined, themeType, sizeC = 'md', layer, isActive, externalStyle, children, ...htmlProps } = props;
 
   return (

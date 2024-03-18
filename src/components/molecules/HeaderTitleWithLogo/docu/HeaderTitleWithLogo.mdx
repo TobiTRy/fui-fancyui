@@ -1,0 +1,67 @@
+import { Meta, Title, Description, Canvas, Controls } from '@storybook/blocks';
+
+import * as HeaderTitleWithLogoStories from './HeaderTitleWithLogo.stories';
+
+<Meta of={HeaderTitleWithLogoStories} />
+
+# HeaderTitleWithLogo Component
+
+This document outlines the `HeaderTitleWithLogo` component, designed for implementing a header template that incorporates both a logo and a title. The component is structured to allow for flexible theming and layout adjustments based on the provided properties.
+
+## Brief Description
+
+The `HeaderTitleWithLogo` component creates a header layout that includes a logo and a title. It is highly customizable through properties that control its appearance and behavior, such as theme type and layout layer. The component's implementation leverages styled-components for CSS-in-JS styling, ensuring seamless theme integration and style encapsulation.
+
+## Setup Instructions
+
+To use the `HeaderTitleWithLogo` component in your project, follow these steps:
+
+1. Ensure you have `styled-components` installed in your project. If not, you can install it using npm or yarn:
+
+```bash
+npm install styled-components
+# or
+yarn add styled-components
+```
+
+2. Import the `HeaderTitleWithLogo` component where you intend to use it:
+
+```javascript
+import HeaderTitleWithLogo from '@/components/path/to/HeaderTitleWithLogo';
+```
+
+3. The component relies on a theming context provided by `styled-components`. Make sure your application is wrapped in a `ThemeProvider` and the necessary theme is passed to it.
+
+## Example Usage
+
+Here's an example demonstrating how to use the `HeaderTitleWithLogo` component within a project:
+
+```jsx
+import React from 'react';
+import HeaderTitleWithLogo from '@/components/path/to/HeaderTitleWithLogo';
+
+const AppHeader = () => (
+  <HeaderTitleWithLogo
+    title="Your Project Title"
+    logo={<img src="path/to/your/logo.png" alt="Logo" />}
+    themeType="primary"
+    layer="base"
+  />
+);
+
+export default AppHeader;
+```
+
+This example renders a header with a specified logo and title, applying the "primary" theme type and "base" layer settings.
+
+## Component Properties
+
+The `HeaderTitleWithLogo` component accepts the following properties:
+
+- **title** (`ReactNode | string`): The title content to be displayed in the header. This can be a string or any React node.
+- **logo** (`ReactNode`): The logo to be displayed alongside the title. This should be a React node, such as an image or an SVG.
+- **themeType** (`TUiColorsNotTransparent`): Specifies the color theme type for the heading. Defaults to "secondary" if not provided.
+- **layer** (`TLayer`): Determines the layering context for theme color calculation, affecting the text color based on the provided theme.
+- **...htmlProps** (`React.HTMLAttributes<HTMLDivElement>`): Any additional standard HTML attributes you wish to apply to the outer wrapper of the component.
+
+This component is designed to be flexible and easily integrated into various header layouts, making it a versatile choice for adding a logo and title to your application's UI.

@@ -1,0 +1,53 @@
+import { Meta, Title, Description, Controls, Canvas } from '@storybook/blocks';
+
+import * as HeaderStories from './Header.stories';
+
+<Meta of={HeaderStories} />
+
+<Title />
+
+<Description />
+
+## Brief Description
+
+The `Header` component is a versatile and customizable header element designed for React applications. It utilizes the `generateThemeForCard` function to dynamically generate theme styles based on provided properties. This component supports extensive customization options, including theme types, layers, outline characteristics, and external styles, allowing for a completely tailored header appearance.
+
+## Setup Instructions
+
+To use the `Header` in your project, follow these steps:
+
+1. Import the `Header` component where you intend to use it:
+
+```jsx
+import { Header } from 'fui-fancyui';
+```
+
+2. If using TypeScript, ensure the type definitions are imported for prop validation:
+
+```jsx
+import { THeader, THeaderWithHTMLAttributes } from 'fui-fancyui';
+```
+
+## Example Usage
+
+Here is an example of how to use the `Header` component within a React project:
+
+```jsx
+<Header
+  themeType="light"
+  layer={1}
+  outlined={true}
+  outlinedBackgroundStrength={0.5}
+  externalStyle={{ padding: '20px', justifyContent: 'space-between' }}
+>
+  <h1>Your Custom Content Here</h1>
+</Header>
+```
+
+<Canvas />
+
+## Component Properties
+
+<Controls />
+
+This documentation covers the primary functionalities and customization options of the `Header` component, enabling developers to integrate a highly customizable header into their React applications with ease.

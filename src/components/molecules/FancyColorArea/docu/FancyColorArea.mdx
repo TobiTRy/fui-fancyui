@@ -1,0 +1,64 @@
+import { Meta, Title, Description, Controls, Canvas } from '@storybook/blocks';
+
+import * as FancyColorAreaStories from './FancyColorArea.stories';
+
+<Meta of={FancyColorAreaStories} />
+
+<Title />
+
+<Description />
+
+## Setup Instructions
+
+To use the `FancyColorArea` in your project, follow these steps:
+
+1. Import the `FancyColorArea` component where you intend to use it:
+
+```jsx
+import { FancyColorArea } from 'fui-fancyui';
+```
+
+2. If using TypeScript, ensure the type definitions are imported for prop validation:
+
+```jsx
+import { TColorArea, TColorAreaWithHTMLAttrs } from 'fui-fancyui';
+```
+
+## Example Usage
+
+Below is an example demonstrating how to use the `FancyColorArea` component within a project:
+
+```jsx
+import React from 'react';
+import { FancyColorArea } from 'fui-fancyui';
+import Color from 'color';
+
+const ExampleComponent = () => {
+  const handleColorChange = (color) => {
+    console.log('Selected Color:', color.hex());
+  };
+
+  return (
+    <FancyColorArea
+      color={new Color('#ff0000')}
+      hue={0}
+      handler={handleColorChange}
+      externalStyle={{ margin: '20px', border: '1px solid #000' }}
+    />
+  );
+};
+
+export default ExampleComponent;
+```
+
+This example sets up the `FancyColorArea` with an initial color, a handler function to log the selected color, and some external styles for customization.
+
+<Canvas />
+
+## Component Properties
+
+<Controls />
+
+## Note on `ColorIndicator`
+
+The `ColorIndicator` atom is utilized within the `FancyColorArea` component to display the currently picked color dynamically. This component is essential for providing visual feedback to the user by showing the selected color next to the color area. The position and visibility of the `ColorIndicator` are automatically managed based on user interaction with the color area.

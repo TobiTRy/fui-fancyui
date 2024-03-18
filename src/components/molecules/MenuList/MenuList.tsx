@@ -1,22 +1,20 @@
-import React from 'react';
-
-import { TLayer } from '@/types/TLayer';
 import { MenuContainer } from './MenuList.style';
-import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
+import { TMenuListWithHTMLAttributes } from './TMenueList.model';
 
-export interface MenuListProps {
-  children?: React.ReactNode;
-  themeType?: TUiColorsNotTransparent;
-  layer?: TLayer;
-  outlined?: boolean;
-}
 // --------------------------------------------------------------------------- //
 // ---------------- A simple MenuList that can have any childs --------------- //
 // --------------------------------------------------------------------------- //
-export default function MenuList(props: MenuListProps) {
-  const { children, themeType, layer, outlined } = props;
+export default function MenuList(props: TMenuListWithHTMLAttributes) {
+  const { children, themeType = 'primary', layer = 2, outlined, outlinedBackgroundStrength, ...htmlProps } = props;
+
   return (
-    <MenuContainer $themeType={themeType} $layer={layer} $outlined={outlined}>
+    <MenuContainer
+      $themeType={themeType}
+      $layer={layer}
+      $outlined={outlined}
+      $outlinedBackgroundStrength={outlinedBackgroundStrength}
+      {...htmlProps}
+    >
       {children}
     </MenuContainer>
   );

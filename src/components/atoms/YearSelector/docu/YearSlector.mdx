@@ -1,4 +1,4 @@
-import { Meta, Title, Description, Controls } from '@storybook/blocks';
+import { Meta, Title, Description, Controls, Canvas } from '@storybook/blocks';
 
 import * as YearSelectorStories from './YearSelector.stories';
 
@@ -15,13 +15,13 @@ To use the `YearSelector` in your project, follow these steps:
 1. Import the `YearSelector` component where you intend to use it:
 
 ```jsx
-import { YearSelector } from '@tobitry/fui-fancyui';
+import { YearSelector } from 'fui-fancyui';
 ```
 
 2. If using TypeScript, ensure the type definitions are imported for prop validation:
 
 ```jsx
-import { TYearSelector, TYearSelectorWithHTMLAttributes } from '@tobitry/fui-fancyui';
+import { TYearSelector, TYearSelectorWithHTMLAttributes } from 'fui-fancyui';
 ```
 
 3. Make sure to import any necessary supporting types or utilities if you plan on extending or customizing the component further.
@@ -44,6 +44,8 @@ import { TYearSelector, TYearSelectorWithHTMLAttributes } from '@tobitry/fui-fan
   ariaTextRightArrow="Next Year"
 />
 ```
+
+<Canvas />
 
 This configuration sets up a `YearSelector` for the year 2024 with large size, primary and secondary theme types, layering for depth control, medium border radius, a minimum year of 2000, a maximum year of 2050, and arrow buttons for year navigation. It also includes accessibility text for the left and right arrows.
 

@@ -1,4 +1,4 @@
-import { Meta, Title, Description, Controls } from '@storybook/blocks';
+import { Meta, Title, Description, Controls, Canvas } from '@storybook/blocks';
 
 import * as RawCheckboxStories from './RawCheckbox.stories';
 
@@ -13,13 +13,13 @@ import * as RawCheckboxStories from './RawCheckbox.stories';
 1. Import the `RawCheckbox` component into your project:
 
 ```jsx
-import { RawCheckbox } from '@tobitry/fui-fancyui';
+import { RawCheckbox } from 'fui-fancyui';
 ```
 
 2. If using TypeScript, ensure the type definitions are imported for prop validation:
 
 ```jsx
-import { RawCheckbox } from '@tobitry/fui-fancyui';
+import { RawCheckbox } from 'fui-fancyui';
 ```
 
 ## Example Usage
@@ -28,7 +28,7 @@ Here's an example demonstrating how to use the `RawCheckbox` component within a 
 
 ```jsx
 import React, { useState } from 'react';
-import RawCheckbox from '@tobitry/fui-fancyui';
+import RawCheckbox from 'fui-fancyui';
 
 const ExampleForm = () => {
   const [isChecked, setIsChecked] = useState(false);
@@ -49,6 +49,8 @@ const ExampleForm = () => {
 
 export default ExampleForm;
 ```
+
+<Canvas />
 
 In this example, the `RawCheckbox` component is used within a form label. It demonstrates handling state changes through the `onChange` prop to track whether the checkbox is checked.
 

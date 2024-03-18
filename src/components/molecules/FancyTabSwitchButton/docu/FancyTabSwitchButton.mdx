@@ -1,0 +1,72 @@
+import { Meta, Title, Description, Controls, Canvas } from '@storybook/blocks';
+
+import * as FancyTabSwitchButtonStories from './FancyTabSwitchButton.stories';
+
+<Meta of={FancyTabSwitchButtonStories} />
+
+<Title />
+
+<Description />
+
+## Brief Description
+
+The `FancyTabSwitchButton` component is a customizable tab switch button designed for use within a tabbed interface. It utilizes the `Typography` atom for rendering text labels and may include icons. This component is built with flexibility in mind, supporting dynamic alignment, size customization, and theming through external styling. It's primarily used as a radio button with enhanced UI features for better user interaction and visual appeal.
+
+## Setup Instructions
+
+To use the `FancyTabSwitchButton` in your project, follow these steps:
+
+1. Import the `FancyTabSwitchButton` component where you intend to use it:
+
+```jsx
+import { FancyTabSwitchButton } from 'fui-fancyui';
+```
+
+2. If using TypeScript, ensure the type definitions are imported for prop validation:
+
+```jsx
+import {
+  TFancyTabSwitchButton,
+  TTabSwitchButtonProps,
+  TTabSwitchButton,
+  TTabSwitchDetailsChildren,
+  TTabSwitchDetailsLabelIcon,
+} from 'fui-fancyui';
+```
+
+## Example Usage
+
+```jsx
+<FancyTabSwitchButton
+  selected={isSelected}
+  itemKey="uniqueKey"
+  label="Tab Label"
+  icon={<YourIconComponent />}
+  iconAlign="left"
+  sizeC="md"
+  onClick={handleClick}
+  disabled={false}
+>
+  {/* Additional content here */}
+</FancyTabSwitchButton>
+```
+
+This example demonstrates a basic usage of the `FancyTabSwitchButton`, including an icon, label, and handling click events. Ensure you replace `<YourIconComponent />` with your actual icon component.
+
+## Component Properties
+
+- **disabled** (optional): `boolean` - If `true`, disables the button. Default is `false`.
+- **selected**: `boolean` - Determines if the tab is currently selected.
+- **onClick**: `(key: string) => void` - Function to call when the tab is clicked. Receives the item's key as an argument.
+- **themeType** (optional): `TUiColorTypes` - Theme type for styling.
+- **iconAlign** (optional): `'left' | 'right'` - Aligns the icon to the left or right of the label. Default is `'left'`.
+- **sizeC** (optional): `keyof typeof tabSwitchItemSizes` - Size of the button, defined by the key of `tabSwitchItemSizes`. Default is `'sm'`.
+- **externalStyle** (optional): `CSSProp` - Allows for custom styling via styled-components.
+- **itemKey**: `string` - A unique key for identifying the tab button.
+- **label** (optional): `string` - Text label for the button.
+- **icon** (optional): `JSX.Element` - Icon to display in the button.
+- **children** (optional): `React.ReactNode` - Additional content to render inside the button.
+
+Additionally, this component accepts all standard HTML attributes for a `div` element as props, thanks to the extension of `HTMLAttributes<HTMLDivElement>` in its type definition.
+
+This documentation covers the main features and props of the `FancyTabSwitchButton` component. For more advanced usage and theming, consider extending or customizing the component to fit your specific needs.

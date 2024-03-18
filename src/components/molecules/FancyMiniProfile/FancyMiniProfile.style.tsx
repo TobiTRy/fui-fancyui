@@ -1,10 +1,10 @@
 import { css } from 'styled-components';
 
-import { TChipProps } from '@/components/molecules/Chip/Chip';
+import { TChipWithFancyPillAttrs } from '@/components/molecules/Chip';
 import { sizeSettings } from '@/components/molecules/FancyMiniProfile/sizeSettings';
 import { themeStore } from '@/design/theme/themeStore';
 
-type TStyledChip = TChipProps & { $alignImage?: 'left' | 'right' };
+type TStyledChip = TChipWithFancyPillAttrs & { $alignImage?: 'left' | 'right' };
 
 export const generateChipStyle = (props: TStyledChip) => {
   const { $alignImage, sizeC } = props;

@@ -5,7 +5,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import FancyModal from './FancyModal';
 import { useFancyModalStore } from './FancyModal.state';
 import { FancyButton } from '../FancyButton';
-import { TModal } from '../../molecules/Modal/Modal';
+import { TModal } from '../../molecules/Modal';
 import { FancyTextInput } from '../FancyTextInput';
 
 // Define metadata for the story

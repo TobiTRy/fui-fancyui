@@ -17,7 +17,7 @@ import { useThrottledCallback } from '@/utils/hooks/useThrottle/useThrottle';
 import styled from 'styled-components';
 import createMultiIntersectionObserver from '@/utils/hooks/useMiltiIntersectionObserver/multiplyIntersectionObserver';
 import { FancyVirtualScroll } from '@/components/shared/FancyVirtualScroll';
-import ActionItem from '@/components/atoms/ActionItem/ActionItem';
+import ActionItem from '@/components/molecules/ActionItem/ActionItem';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">

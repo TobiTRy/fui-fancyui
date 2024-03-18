@@ -18,3 +18,5 @@ export type TMonthWithDays = {
   startWeekOn?: 0 | 1 | 2 | 3 | 4 | 5 | 6;
   layer?: TLayer;
 };
+
+export type TMonthWithDaysWithHTMLAttrs = TMonthWithDays & React.HTMLAttributes<HTMLDivElement>;

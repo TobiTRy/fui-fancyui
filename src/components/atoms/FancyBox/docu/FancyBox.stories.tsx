@@ -16,12 +16,11 @@ import templateThemeType from '@/stories/templateSettingsForStorys/templatesForT
 const meta = {
   component: FancyBox,
   title: 'components/atoms/FancyBox',
-
   parameters: {
     docs: {
       description: {
         component:
-          'The FancyBox component is for displaying a card that can fill with somthing, it can be used for displaying content in a card',
+          'I have given this a lot of thought, and I am a great enthusiast of customizable components. In the present times, there is an abundance of excellent headers and bottom bars, and I believe developers should have the liberty to design interfaces as they imagine. Therefore, I developed the FancyBox. It primarily offers the theme for a component, leaving the rest to your creativity. You can effortlessly integrate your styles using inline styles, and they will be added to the existing class. Whether you are designing a side nav, a header, or a bottom bar, FancyBox has everything you need.',
       },
     },
   },
@@ -65,6 +64,24 @@ const meta = {
         'The style of the card can porvieed with the styled-component css and react style={{width: "100px"}}',
       control: {
         type: 'object',
+      },
+    },
+    sizeC: {
+      description: 'The size of the component.',
+      control: {
+        type: 'select',
+      },
+      defaultValue: {
+        summary: undefined,
+      },
+    },
+    borderRadius: {
+      description: 'The border radius of the component.',
+      control: {
+        type: 'text',
+      },
+      defaultValue: {
+        summary: undefined,
       },
     },
   },

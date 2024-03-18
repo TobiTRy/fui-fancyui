@@ -1,4 +1,4 @@
-import { Meta, Story, Title, Controls, Description } from '@storybook/blocks';
+import { Meta, Story, Title, Controls, Description, Canvas } from '@storybook/blocks';
 
 import * as FancyVideoStories from './FancyVideo.stories';
 
@@ -15,13 +15,13 @@ To use the FancyVideo component in your project, ensure you have the component a
 1. Import the FancyVideo component into your React file:
 
 ```jsx
-import FancyVideo from '@tobitry/fui-fancyui';
+import FancyVideo from 'fui-fancyui';
 ```
 
 2. Import necessary types if you intend to explicitly type your component props:
 
    ```jsx
-   import { TFancyVideoWithHTMLAttrs, FancyVideoHTMLProps, TFancyVideo } from '@tobitry/fui-fancyui';
+   import { TFancyVideoWithHTMLAttrs, FancyVideoHTMLProps, TFancyVideo } from 'fui-fancyui';
    ```
 
 ## Example Usage
@@ -35,6 +35,8 @@ Below is a simple example demonstrating how to embed a FancyVideo component with
 ```
 
 This setup will render a video that auto-plays, is muted, has a 16:9 aspect ratio, and is darkened to focus attention on the video content.
+
+<Canvas />
 
 ## Component Properties
 

@@ -1,6 +1,6 @@
 import { ReactElement, ReactNode } from 'react';
 
-import { TChipProps } from '@/components/molecules/Chip/Chip';
+import { TChipWithFancyPillAttrs } from '@/components/molecules/Chip';
 import { sizesSettings } from '@/components/molecules/Chip/sizeSettings';
 import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 
@@ -11,4 +11,4 @@ export type TFancyChip = {
   icon?: ReactNode;
   sizeC?: keyof typeof sizesSettings;
   textColor?: TUiColorsNotTransparent;
-} & TChipProps;
+} & TChipWithFancyPillAttrs;

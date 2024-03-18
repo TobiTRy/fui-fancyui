@@ -1,0 +1,63 @@
+import { Meta, Title, Description, Controls, Canvas } from '@storybook/blocks';
+
+import * as SwitchListStories from './SwitchList.stories';
+
+<Meta of={SwitchListStories} />
+
+<Title />
+
+## Brief Description
+
+The `SwitchList` component is designed to render a list of items, with functionality to indicate which item is currently active. This component is highly customizable, allowing for different styles and behaviors to be applied to the active and hover states of the list items. It leverages the `FancyFlexBox` component for layout and `SwitchActiveIndicator` for displaying the active item indicator. The component also supports external styling and custom gap sizes between items, making it versatile for various UI needs.
+
+## Setup Instructions
+
+To use the `SwitchList` in your project, follow these steps:
+
+1. Import the `SwitchList` component where you intend to use it:
+
+```jsx
+import { SwitchList } from 'fui-fancyui';
+```
+
+2. If using TypeScript, ensure the type definitions are imported for prop validation:
+
+```jsx
+import { TSwitchList } from 'fui-fancyui';
+```
+
+## Example Usage
+
+Here's an example of how to use the `SwitchList` component within a React application:
+
+```jsx
+import React, { useState } from 'react';
+import SwitchList from 'fui-fancyui';
+
+const Example = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const handleActiveItemChange = (index) => {
+    setActiveIndex(index);
+  };
+
+  return (
+    <SwitchList
+      whichIndexIsSelected={activeIndex}
+      activeItemHandler={handleActiveItemChange}
+      switchIndicator={{ direction: 'horizontal', type: 'underline' }}
+      gap="sm"
+    >
+      <div>Item 1</div>
+      <div>Item 2</div>
+      <div>Item 3</div>
+    </SwitchList>
+  );
+};
+
+export default Example;
+```
+
+## Component Properties
+
+This documentation covers the core functionality and props for the `SwitchList` component. Depending on the specific implementation and custom components used (like `FancyFlexBox` and `SwitchActiveIndicator`), you may need to adjust the component or its usage accordingly.

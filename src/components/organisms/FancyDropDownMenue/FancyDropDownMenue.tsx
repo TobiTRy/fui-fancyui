@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import FancyUL, { IFancyUL } from '@/components/molecules/FancyDropDownUL/FancyDropDownUL';
+import { FancyDropDownUL, TFancyDropDownUL } from '@/components/molecules/FancyDropDownUL';
 import { Delay } from '@/components/shared/Delay';
 import { TLayer } from '@/types/TLayer';
 import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
@@ -8,7 +8,7 @@ import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 // --------------------------------------------------------------------------- //
 // ------------ The main component that renders the dropdown menu ------------ //
 // --------------------------------------------------------------------------- //
-interface IFancyDropDownMenue extends IFancyUL {
+interface IFancyDropDownMenue extends TFancyDropDownUL {
   isOpen?: boolean;
   themeType?: TUiColorsNotTransparent;
   layer?: TLayer;
@@ -34,7 +34,7 @@ export default function FancyDropDownMenue(props: IFancyDropDownMenue) {
   // This component returns the FancyUL component wrapped in a Delay component
   return fristRender ? (
     <Delay delay={600} externalStateBool={isOpenState}>
-      <FancyUL isOpen={isOpen} {...props} />
+      <FancyDropDownUL isOpen={isOpen} {...props} />
     </Delay>
   ) : null;
 }

@@ -1,6 +1,6 @@
 import { css, styled } from 'styled-components';
 
-import { IFancyPill } from '@/components/atoms/FancyPill/FancyPill.model';
+import { TFancyPill } from '@/components/atoms/FancyPill/TFancyPill.model';
 import { TStyledPrefixAndPicker } from '@/types/TStyledPrefixAndPicker';
 import { TTheme } from '@/types/TTheme';
 
@@ -9,7 +9,7 @@ import { focusStyle } from '@/design/designFunctions/focusStyle';
 import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent';
 import { clampLayer } from '@/utils/functions/clampLayer';
 
-type ISytledFancyPill = TStyledPrefixAndPicker<IFancyPill> & { theme: TTheme };
+type ISytledFancyPill = TStyledPrefixAndPicker<TFancyPill> & { theme: TTheme };
 export const StyledFancyPill = styled.div<ISytledFancyPill>`
   outline: none;
   border-radius: ${({ theme }) => theme.borderRadius.complete};
@@ -34,8 +34,8 @@ export const StyledFancyPill = styled.div<ISytledFancyPill>`
 // -----------------  Generate Hover style its needed ------------------------ //
 // --------------------------------------------------------------------------- //
 type TGenerateHoverableStyle = {
-  $themeType: IFancyPill['themeType'];
-  $layer: IFancyPill['layer'];
+  $themeType: TFancyPill['themeType'];
+  $layer: TFancyPill['layer'];
   theme: TTheme;
 };
 const generateHoverableStyle = (props: TGenerateHoverableStyle) => {

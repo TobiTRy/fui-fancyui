@@ -8,3 +8,5 @@ export type TProgressBar = {
   themeType?: TUiColorsNotTransparent;
   layer?: TLayer;
 };
+
+export type TProgressBarWithHTMLAttrs = TProgressBar & React.HTMLAttributes<HTMLDivElement>;

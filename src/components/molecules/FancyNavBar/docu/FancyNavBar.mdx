@@ -1,0 +1,53 @@
+# FancyNavBar Component Documentation
+
+## Brief Description
+
+The `FancyNavBar` component is a flexible navigation bar built on top of the `RawNav` atomic component, designed to be used across various parts of a React application. It allows for the integration of custom styles via the `styled-components` library, making it highly customizable. This component accepts children, which means any React component or HTML element can be nested inside it, providing a straightforward way to create a navigational structure that fits the needs of different UIs. Additionally, it inherits HTML attributes, offering further customization and accessibility options.
+
+## Setup Instructions
+
+To use the `FancyMiniProfile` in your project, follow these steps:
+
+1. Import the `FancyMiniProfile` component where you intend to use it:
+
+```jsx
+import { FancyMiniProfile } from 'fui-fancyui';
+```
+
+2. If using TypeScript, ensure the type definitions are imported for prop validation:
+
+```jsx
+import { TFancyMiniprofile, TFancyMiniprofileWithHTMLProps } from 'fui-fancyui';
+```
+
+## Example Usage
+
+Below is an example showcasing how to incorporate the `FancyNavBar` into a project. This example demonstrates a basic navigation bar with customized styling:
+
+```jsx
+import React from 'react';
+import { FancyNavBar } from '@/components/molecules/FancyNavBar';
+
+const MyComponent = () => (
+  <FancyNavBar
+    externalStyle={css`
+      background-color: navy;
+      color: white;
+    `}
+  >
+    <a href="/home">Home</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+  </FancyNavBar>
+);
+
+export default MyComponent;
+```
+
+## Component Properties
+
+- **children** (`React.ReactNode` | optional): Defines the content to be rendered within the navigation bar. This can be any React component or HTML element.
+
+- **externalStyle** (`CSSProp` | optional): Allows for custom styles to be applied to the `FancyNavBar`. This prop leverages the `styled-components` library's `css` template literal to inject styles.
+
+- **...htmlProps** (`React.HTMLAttributes<HTMLElement>`): Inheritable HTML attributes for the `FancyNavBar` component, providing additional flexibility and control over its behavior and accessibility features.

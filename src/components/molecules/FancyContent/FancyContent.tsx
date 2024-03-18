@@ -3,12 +3,12 @@ import React, { ReactElement } from 'react';
 import { FancyContentIcon } from './utils/FancyContentIcon';
 import { FancyContentDescription, FancyContentTitle } from './utils/FancyContentText';
 import { OnlyTextWrapper, Wrapper } from './FancyContent.style';
-import { TFancyContentProps } from '@/components/molecules/FancyContent/FancyContent.model';
+import { TFancyContentHTMLAttrs } from './FancyContent.model';
 
 // --------------------------------------------------------------------------- //
 // ------- The conent Components handles the Content of The componets -------- //
 // -------------------like for a button or chip etc. ------------------------ //
-function FancyContent(props: TFancyContentProps & React.HTMLAttributes<HTMLSpanElement>) {
+function FancyContent(props: TFancyContentHTMLAttrs) {
   const {
     children,
     align,

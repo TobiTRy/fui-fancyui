@@ -1,9 +1,9 @@
 import { create } from 'zustand';
 
 import { TModalStatus } from '@/types/TModalStatus';
-import { ISwipeUpModal } from '@/components/molecules/SwipeUpModal/ISwipeUpModal.model';
+import { TSwipeUpModal } from '@/components/molecules/SwipeUpModal/TSwipeUpModal.model';
 
-export type ModalSettings = Omit<ISwipeUpModal, 'isOpen' | 'children' | 'onClose'>;
+export type ModalSettings = Omit<TSwipeUpModal, 'isOpen' | 'children' | 'onClose'>;
 
 export interface IFancySwipeUpModal {
   id: string;

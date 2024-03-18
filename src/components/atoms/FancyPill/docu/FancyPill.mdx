@@ -1,12 +1,12 @@
-import { Meta, Controls } from '@storybook/blocks';
+import { Meta, Controls, Title, Description, Canvas } from '@storybook/blocks';
 
 import * as FancyPill from './FancyPill.stories.tsx';
 
 <Meta of={FancyPill} />
 
-# FancyPill Documentation
+<Title />
 
-In an era where user interaction and response cues are pivotal in UI/UX design, the FancyPill component serves as a dynamic and versatile tool. Its primary purpose is to enhance user interaction through various states like focus and hover, catering to a wide range of actions and responses in an application's interface.
+<Description />
 
 ## Overview
 
@@ -19,7 +19,7 @@ FancyPill is an interactive component designed for signaling and handling user a
 Start by importing the FancyPill component into your project file:
 
 ```jsx
-import FancyPill from '@tobitry/fui-fancyui';
+import { FancyPill } from 'fui-fancyui';
 ```
 
 ### Use the Component
@@ -37,6 +37,8 @@ Implement the FancyPill component in your UI, configuring its properties to achi
 ### Customization with Properties
 
 FancyPill offers a variety of properties for customization:
+
+<Canvas />
 
 <Controls />
 

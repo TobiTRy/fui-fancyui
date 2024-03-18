@@ -1,0 +1,55 @@
+import { Meta, Title, Description, Controls } from '@storybook/blocks';
+
+import * as ButtonStories from './Button.stories';
+
+<Meta of={ButtonStories} />
+
+<Title />
+
+<Description />
+
+## Setup Instructions
+
+To use the `Button` in your project, follow these steps:
+
+1. Import the `Button` component where you intend to use it:
+
+```jsx
+import { Button } from 'fui-fancyui';
+```
+
+2. If using TypeScript, ensure the type definitions are imported for prop validation:
+
+```jsx
+import { TButton, TButtonWithNativeAttrs } from 'fui-fancyui';
+```
+
+Make sure to adjust the import path according to your project structure.
+
+## Example Usage
+
+Below is an example of how to use the Button component in a React project:
+
+```jsx
+<Button
+  sizeC="lg"
+  wide={true}
+  themeType="primary"
+  layer={1}
+  borderRadius="small"
+  outlined={true}
+  onClick={() => console.log('Button clicked')}
+>
+  Click Me
+</Button>
+```
+
+This example renders a large, full-width button with a primary theme, small border radius, and an outline. It also logs a message to the console when clicked.
+
+## Component Properties
+
+The `Button` component accepts the following props:
+
+<Controls />
+
+Additionally, the component can receive standard HTML button and anchor attributes via `TButtonWithNativeAttrs`, allowing for flexibility in usage as either a button (`<button>`) or a link (`<a>`), depending on the `as` prop.

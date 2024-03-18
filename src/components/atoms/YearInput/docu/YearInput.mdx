@@ -1,4 +1,4 @@
-import { Meta, Description, Title, Controls } from '@storybook/blocks';
+import { Meta, Description, Title, Controls, Canvas } from '@storybook/blocks';
 
 import * as YearInputStories from './YearInput.stories';
 
@@ -15,13 +15,13 @@ To use the `YearInput` in your project, follow these steps:
 1. Import the `YearInput` component where you intend to use it:
 
 ```jsx
-import { YearInput } from '@tobitry/fui-fancyui';
+import { YearInput } from 'fui-fancyui';
 ```
 
 2. If using TypeScript, ensure the type definitions are imported for prop validation:
 
 ```jsx
-import { TYearInputWithNativeAttrs, TYearInput } from '@tobitry/fui-fancyui';
+import { TYearInputWithNativeAttrs, TYearInput } from 'fui-fancyui';
 ```
 
 3. Use the `YearInput` component in your JSX, providing any necessary props for customization.
@@ -35,6 +35,8 @@ Here's an example showcasing how to use the `YearInput` component:
 ```
 
 This example creates a `YearInput` component initialized with the year 2024, large size, secondary theme, on layer 1, and logs the new value when changed.
+
+<Canvas />
 
 ## Component Properties
 

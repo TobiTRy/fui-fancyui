@@ -6,7 +6,7 @@ import arrayToCssValues from '@/design/designFunctions/arrayToCssValues/arrayToC
 
 export const StyledSpacingsContainer = styled.div<TStyledPrefixAndPicker<TSpacingsContainer>>`
   display: block;
-  padding: ${({ $padding }) => $padding && arrayToCssValues($padding)};
-  margin: ${({ $margin }) => $margin && arrayToCssValues($margin)};
+  padding: ${({ $padding }) => $padding && arrayToCssValues($padding, 'spacing')};
+  margin: ${({ $margin }) => $margin && arrayToCssValues($margin, 'spacing')};
   ${({ $externalStyle }) => $externalStyle};
 `;

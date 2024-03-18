@@ -6,11 +6,11 @@ import { TTheme } from '@/types/TTheme';
 import { emitSelectedColorChange } from './colorPickerUtils';
 import { IColorFormat } from '@/utils/variables/colorFormat/colorFormats';
 
-import ColorDisplay from '@/components/molecules/ColorDisplay/ColorDisplay';
 import ColorArea from '@/components/molecules/FancyColorArea/FancyColorArea';
 import FancyHueSlider from '@/components/molecules/FancyHueSlider/FancyHueSlider';
 import FancyOpacitySlider from '@/components/molecules/FancyOpacitySlider/FancyOpacitySlider';
-import FancyColorOutput from '@/components//molecules/FancyColorOutput/FancyColorOutput';
+import FancyColorInput from '@/components/organisms/FancyColorInput/FancyColorInput';
+import FancyColorDisplay from '@/components/organisms/FancyColorDisplay/FancyColorDisplay';
 
 interface IColorPicker {
   outputFormat?: IColorFormat;
@@ -47,7 +47,7 @@ export default function FanyColorPicker(props: IColorPicker) {
 
   handler && handler(calculateGiveBackColor());
 
-  //this function is handle the color change in the child FancyColorOutput component
+  //this function is handle the color change in the child FancyColorInput component
   useEffect(() => {
     const calcDisplayColor = emitSelectedColorChange({ color: rawColor, opacity, outputFormat: colorType });
     setDisplayColorValue(calcDisplayColor);
@@ -66,18 +66,24 @@ export default function FanyColorPicker(props: IColorPicker) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const handleColorOutputChange = (color: Color) => {
+    const getHue = color.hue();
+    if (hue !== getHue) setHue(getHue);
+    setRawColor(color);
+  };
+
   return (
     <Wrapper>
-      {displayColor && <ColorDisplay color={displayColorValue} opacity={opacity} showText={true} />}
-      {colorArea && <ColorArea hue={hue} color={rawColor} handler={setRawColor} />}
-      {hueSlider && <FancyHueSlider handler={setHue} color={rawColor} hue={hue} />}
-      {opacitySlider && <FancyOpacitySlider color={rawColor} opacity={opacity} handler={setOpacity} />}
+      {displayColor && <FancyColorDisplay colorValue={displayColorValue} opacity={opacity} />}
+      {colorArea && <ColorArea hue={hue} colorValue={rawColor} handler={setRawColor} />}
+      {hueSlider && <FancyHueSlider handler={setHue} hue={hue} />}
+      {opacitySlider && <FancyOpacitySlider colorValue={rawColor} opacity={opacity} handler={setOpacity} />}
       {colorOutput && (
-        <FancyColorOutput
+        <FancyColorInput
           pickedColor={rawColor}
           colorTypeHandler={setColorType}
           opacity={opacity}
-          handler={setRawColor}
+          handler={handleColorOutputChange}
           handlerOpacity={setOpacity}
         />
       )}

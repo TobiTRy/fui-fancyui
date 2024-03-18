@@ -1,10 +1,10 @@
-import { IFancyPill } from '@/components/atoms/FancyPill/FancyPill.model';
+import { TFancyPill } from '@/components/atoms/FancyPill/TFancyPill.model';
 import { StyledFancyPill } from '@/components/atoms/FancyPill/FancyPill.styled';
 
 // --------------------------------------------------------------------------- //
 // --------------  A Pill can be used for style and user actions ------------- //
 // --------------------------------------------------------------------------- //
-export default function FancyPill(props: IFancyPill) {
+export default function FancyPill(props: TFancyPill) {
   const { layer, themeType, outlined, outlinedBackgroundStrength, externalStyle, isActive, isHoverable, ...htmlProps } =
     props;
 

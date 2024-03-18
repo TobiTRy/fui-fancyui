@@ -2,8 +2,9 @@
 export * from '@/components/atoms/BackDrop';
 export * from '@/components/atoms/ColorIndicator';
 export * from '@/components/atoms/BackDrop';
-export * from '@/components/atoms/ActionItem';
+export * from '@/components/molecules/ActionItem';
 export * from '@/components/atoms/ColorIndicator';
+export * from '@/components/atoms/DynamicElementWrapper';
 export * from '@/components/atoms/DateNumberAtom';
 export * from '@/components/atoms/DateOutput';
 export * from '@/components/atoms/DropDownSelect';
@@ -66,10 +67,11 @@ export * from '@/components/molecules/FancyDropDownUL';
 export * from '@/components/molecules/FancySpeedDailButton';
 export * from '@/components/molecules/InputWrapper';
 export * from '@/components/molecules/Modal';
+export * from '@/components/molecules/ColorInputs';
 export * from '@/components/molecules/MonthWithDays';
 export * from '@/components/molecules/Card';
 export * from '@/components/molecules/Calendar';
-export * from '@/components/molecules/ScalingSection';
+export * from '@/components/atoms/ScalingSection';
 export * from '@/components/molecules/SearchBar';
 export * from '@/components/molecules/SingleInputs';
 export * from '@/components/molecules/SingleToastMessage';
@@ -77,17 +79,15 @@ export * from '@/components/molecules/SwipeUpModal';
 export * from '@/components/molecules/ColorDisplay';
 export * from '@/components/molecules/FancyOpacitySlider';
 export * from '@/components/molecules/FancyHueSlider';
-export * from '@/components/molecules/FancyTabSwitch';
+export * from '@/components/organisms/FancyTabSwitch';
 export * from '@/components/molecules/FancyColorArea';
-export * from '@/components/molecules/FancyColorOutput';
 export * from '@/components/molecules/FancyModalHeadLine';
 export * from '@/components/molecules/HeaderTitleWithLogo';
 export * from '@/components/molecules/FancyPageList';
 export * from '@/components/molecules/Paginator';
 export * from '@/components/molecules/FancyProgressBar';
 export * from '@/components/molecules/FancyMiniProfile';
-export * from '@/components/molecules/FancyCheckbox';
-export * from '@/components/molecules/Header';
+export * from '@/components/atoms/Header';
 export * from '@/components/molecules/FancyContent';
 export * from '@/components/molecules/InfoCard';
 export * from '@/components/molecules/ComponentAndActionWrapper';
@@ -112,11 +112,11 @@ export * from '@/components/organisms/FancyDropDownMenue';
 export * from '@/components/organisms/FancyDropDownSelect';
 export * from '@/components/organisms/FancyRangeSlider';
 export * from '@/components/organisms/FancySearchBar';
+export * from '@/components/organisms/FancyCheckbox';
 export * from '@/components/organisms/FancyModal';
 export * from '@/components/organisms/FancyCodeVerificationInput';
 export * from '@/components/organisms/FancySwipeUpModal';
 export * from '@/components/organisms/FancyDateInput';
-export * from '@/components/templates/FancyDateDropDown';
 export * from '@/components/organisms/FancyToastMessage';
 export * from '@/components/organisms/FancyEditBar';
 export * from '@/components/organisms/FancyRadio';
@@ -125,9 +125,11 @@ export * from '@/components/organisms/FancyColorPicker'; // Note: Please check i
 export * from '@/components/organisms/FancyNumberInput';
 export * from '@/components/organisms/FancyPasswordInput';
 export * from '@/components/organisms/FancyTextInput';
+export * from '@/components/organisms/FancyColorInput';
 
 // ---------- Templates ------- //
 export * from '@/components/templates/FancyInfoCard';
+export * from '@/components/templates/FancyDateDropDown';
 export * from '@/components/templates/FancyMenueComponent/FancyMenu';
 export * from '@/components/templates/FancyMenueComponent/FancyMenuItem';
 export * from '@/components/templates/FancyGrid';
@@ -140,7 +142,6 @@ export * from '@/components/templates/FancyAlignBox';
 export * from '@/components/templates/FancyGridTemplate';
 export * from '@/components/templates/FancyGridTemplateItem';
 export * from '@/components/templates/FancySkeletonGrid';
-export * from '@/components/templates/FancyCard';
 
 // ---------- Utils/Hooks ------- //
 export * from '@/components/shared/FancyPopover';
@@ -172,6 +173,7 @@ export * from '@/design/designFunctions/arrayToCssValues';
 export * from '@/design/designFunctions/generateInsetBorderRadius';
 export * from '@/design/designFunctions/checkThemeValue';
 export * from '@/design/designFunctions/leftRightCenterToFlexJustify';
+export * from '@/design/designFunctions/getThemeOrValueAsCss';
 
 // ---------- Interfaces ------- //
 export * from '@/types';

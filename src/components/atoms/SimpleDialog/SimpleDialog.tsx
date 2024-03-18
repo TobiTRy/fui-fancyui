@@ -8,7 +8,7 @@ import { TSimpleDialogWithHTMLAttrs } from '@/components/atoms/SimpleDialog/Simp
 // -------  A container that can filld with everythin and acts as a dialog --- //
 // --------------------------------------------------------------------------- //
 export default function SimpleDialog(props: TSimpleDialogWithHTMLAttrs) {
-  const { isOpen, children, themeType = 'primary', layer = 1, ...htmlProps } = props;
+  const { isOpen = false, children, themeType = 'primary', layer = 1, ...htmlProps } = props;
 
   const [shouldRender, setRender] = useState(isOpen);
 
@@ -26,7 +26,7 @@ export default function SimpleDialog(props: TSimpleDialogWithHTMLAttrs) {
 
   // Render the SimpleDialog component with the appropriate props
   return shouldRender ? (
-    <StyledDialog as={animated.div} style={fade} $themeType={themeType} $layer={layer} {...htmlProps}>
+    <StyledDialog as={animated.div} role={'dialog'} style={fade} $themeType={themeType} $layer={layer} {...htmlProps}>
       {children}
     </StyledDialog>
   ) : null;

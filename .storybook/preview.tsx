@@ -2,7 +2,7 @@ import type { Preview } from '@storybook/react';
 import { withThemeFromJSXProvider } from '@storybook/addon-styling';
 import { DocsContainer } from './DocsContainer';
 import themeStore from '../src/design/theme/themeStore/themeStore';
-import DefaultStyle from '../src/design/theme/globalStyle/DefaultStyle/DefaultStyle';
+import { DefaultStyle } from '../src/design/theme/globalStyle/DefaultStyle';
 import { ThemeProvider } from 'styled-components';
 import storyBookThemeLight from './storyBookThemeLight';
 import storyBookThemeDark from './storyBookThemeDark';
@@ -15,7 +15,6 @@ const preview: Preview = {
     docs: {
       container: DocsContainer,
     },
-    actions: { argTypesRegex: '^on[A-Z].*' },
     options: {
       storySort: {
         order: [

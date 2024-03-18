@@ -14,7 +14,7 @@ const meta = {
     docs: {
       description: {
         component:
-          'Fancy SVG Atom that can be dynamicly adjusted in sizeC and alignment. It can also be used to display System Messages.',
+          'The `FancySVGAtom` component is a React component designed to wrap SVG elements, providing them with additional styling capabilities. It leverages the styled-components library to dynamically apply styles based on the props passed to it. This component is particularly useful for projects that require a consistent styling approach across different SVG icons or graphics, with support for theming, size adjustments, active/passive states, and system messages.',
       },
     },
   },

@@ -1,0 +1,72 @@
+import { Meta, Title, Description, Controls } from '@storybook/blocks';
+
+import * as CardStories from './Card.stories';
+
+<Meta of={CardStories} />
+
+<Title />
+
+<Description />
+
+## Setup Instructions
+
+To use the `Card` in your project, follow these steps:
+
+1. Import the `Card` component where you intend to use it:
+
+```jsx
+import { Card } from 'fui-fancyui';
+```
+
+2. If using TypeScript, ensure the type definitions are imported for prop validation:
+
+```jsx
+import { TCard, TCardWithFancyBoxAttrs } from 'fui-fancyui';
+```
+
+## Example Usage
+
+Below is an example of how to use the `Card` component, including an image, icon, title, subtitle, and description:
+
+```jsx
+import { Card } from 'fui-fancyui';
+
+const MyCardComponent = () => (
+  <Card padding="md" borderRadius="lg" shadow={true} layer={2}>
+    <Card.Image {...FancyImageWrapper}>
+      <img src="https://via.placeholder.com/150" alt="placeholder" />
+    </Card.Image>
+    <Card.Icon {...FancySVGAtomProps}>
+      <SVG />
+    </Card.Icon>
+    <Card.Title {...TTyporgraphyProps}>Card Title</Card.Title>
+    <Card.SubTitle {...TTyporgraphyProps}>Card Subtitle</Card.SubTitle>
+    <Card.Description {...TTyporgraphyProps}>
+      This is a description of what the card is about. It can be long or short.
+    </Card.Description>
+  </Card>
+);
+
+export default MyCardComponent;
+```
+
+## Component Properties
+
+### Main `Card` Component
+
+<Controls />
+
+### Sub-components
+
+- **Card.Image**: A wrapper component for images within the card.
+- **Card.Icon**: For adding SVG icons to the card.
+- **Card.Title**: Defines the main title of the card.
+- **Card.SubTitle**: Provides a subtitle for additional context or information.
+- **Card.Description**: Allows for a detailed description or content.
+- **Card.FlexBox**: A flexible box layout component.
+- **Card.SpacingBox**: A spacing container that provides padding.
+- **Card.Box**: An alignment box for positioning content within the card.
+
+## Additional Information
+
+For detailed documentation on the `FancyImageWrapper`, `FancyFlexBox`, and `FancyAlignBox` components used within the `Card` component, please refer to their specific documentation pages on the FUI-FancyUI documentation site. Each component page can be accessed by navigating to the respective link provided in the component import section.

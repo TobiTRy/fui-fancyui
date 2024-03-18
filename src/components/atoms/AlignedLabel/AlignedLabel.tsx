@@ -20,8 +20,6 @@ export default function AlignedLabel(props: TAlignedLabelWithAllProps) {
     layer,
   } = props;
 
-  console.log(systemMessageType, typeof systemMessageType);
-
   return (
     <StyledAlignedLabel $align={align} $themeType={themeType} $systemMessageType={systemMessageType} $layer={layer}>
       {!ownTypographyComponent && (

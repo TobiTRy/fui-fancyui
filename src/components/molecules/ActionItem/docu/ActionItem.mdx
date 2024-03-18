@@ -1,0 +1,64 @@
+import { Meta, Title, Description, Controls, Canvas } from '@storybook/blocks';
+
+import * as ActionItemStories from './ActionItem.stories';
+
+<Meta of={ActionItemStories} />
+
+<Title />
+
+<Description />
+
+## Setup Instructions
+
+To use the `ActionItem` in your project, follow these steps:
+
+1. Import the `ActionItem` component where you intend to use it:
+
+```jsx
+import { ActionItem } from 'fui-fancyui';
+```
+
+2. If using TypeScript, ensure the type definitions are imported for prop validation:
+
+```jsx
+import { TActionItem, TActionItemButton, TActionItemSetting } from 'fui-fancyui';
+```
+
+## Example Usage
+
+Below is an example of how to use the `ActionItem` component with various props for customization:
+
+```tsx
+import React from 'react';
+import ActionItem from '@/components/molecules/ActionItem/ActionItem';
+
+function Example() {
+  const handleClick = () => {
+    console.log('Action item clicked');
+  };
+
+  return (
+    <ActionItem
+      label="Click Me"
+      icon="🔥"
+      onClick={handleClick}
+      size="lg"
+      labelAlign="right"
+      themeType="primary"
+      themeTypeActiveHover="secondary"
+      isActive={false}
+      isClickable={true}
+    />
+  );
+}
+```
+
+This example demonstrates the creation of an `ActionItem` with a custom label, icon, and various styling and functional properties.
+
+<Canvas />
+
+## Component Properties
+
+<Controls />
+
+This documentation outlines the structure and usage of the `ActionItem` component, providing a clear understanding of its functionality and customization options.

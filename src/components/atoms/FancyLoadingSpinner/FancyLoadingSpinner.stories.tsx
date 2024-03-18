@@ -45,11 +45,4 @@ export const Primary: Story = {
     sizeC: 'md',
     layer: 0,
   },
-  parameters: {
-    docs: {
-      description: {
-        story: '',
-      },
-    },
-  },
 };

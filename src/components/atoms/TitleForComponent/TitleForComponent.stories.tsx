@@ -3,7 +3,7 @@ import { Meta, StoryObj } from '@storybook/react';
 
 // Import the component to be tested
 import TitleForComponent from './TitleForComponent';
-import { FancyCard } from '@/components/templates/FancyCard';
+import { Card } from '@/components/molecules/Card';
 
 // Define metadata for the story
 const meta = {
@@ -59,9 +59,9 @@ export const Primary: Story = {
   render: (args) => <TitleForComponent {...args} />,
   args: {
     children: (
-      <FancyCard externalStyle={{ width: '100%', height: '100%', padding: '12px' }}>
+      <Card externalStyle={{ width: '100%', height: '100%', padding: '12px' }}>
         <p>Some Text</p>
-      </FancyCard>
+      </Card>
     ),
     title: {
       variant: 'interactiveLg',

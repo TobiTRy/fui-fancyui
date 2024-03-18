@@ -1,14 +1,14 @@
-import { Meta, Controls } from '@storybook/blocks';
+import { Meta, Controls, Canvas, Title, Description } from '@storybook/blocks';
 
 import * as SystemMessage from './SystemMessage.stories';
 
 <Meta of={SystemMessage} />
 
-# SystemMessage Component
+<Title />
 
 ## Overview
 
-The `SystemMessage` component displays text messages with colors indicating different system states like success, error, info, or warning.
+<Description />
 
 ## Usage
 
@@ -17,6 +17,8 @@ import SystemMessage from '@/components/atoms/SystemMessage';
 
 <SystemMessage systemMessageState="error">Error message</SystemMessage>;
 ```
+
+<Canvas />
 
 ## Props
 

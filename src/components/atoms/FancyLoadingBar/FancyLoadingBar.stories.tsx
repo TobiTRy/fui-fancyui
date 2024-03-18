@@ -7,7 +7,7 @@ import templateThemeType from '@/stories/templateSettingsForStorys/templatesForT
 // Define metadata for the story
 const meta = {
   component: FancyLoadingBar,
-
+  title: 'components/atoms/FancyLoadingBar',
   parameters: {
     docs: {
       description: {

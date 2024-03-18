@@ -1,0 +1,54 @@
+import { Meta, Title, Description, Controls } from '@storybook/blocks';
+
+import * as BottomBarIconStories from './BottomBarIcon.stories';
+
+<Meta of={BottomBarIconStories} />
+
+<Title />
+
+<Description />
+
+The `BottomBarIcon` component is designed to display an icon with an optional label in a bottom bar, commonly used in navigation structures. It supports various states such as active, disabled, and theme customization. This component integrates styled-components for styling, allowing for a highly customizable appearance. It leverages design tokens and functions for consistent styling across the application.
+
+## Setup Instructions
+
+To use the `BottomBarIcon` in your project, follow these steps:
+
+1. Import the `BottomBarIcon` component where you intend to use it:
+
+```jsx
+import { BottomBarIcon } from 'fui-fancyui';
+```
+
+2. If using TypeScript, ensure the type definitions are imported for prop validation:
+
+```jsx
+import { TBottomBarIcon, TBottomBarIconWithHTMLAttributes } from 'fui-fancyui';
+```
+
+## Example Usage
+
+```jsx
+<BottomBarIcon
+  icon={<YourIconComponent />}
+  label="Home"
+  isActive={true}
+  disabled={false}
+  themeType="primary"
+  layer={0}
+  sizeC="md"
+  externalStyle={{ padding: '10px' }}
+/>
+```
+
+This example creates an active `BottomBarIcon` with a "Home" label, using medium size, primary theme, and base layer, including custom padding applied via `externalStyle`.
+
+## Component Properties
+
+<Controls />
+
+## Components Used
+
+The `BottomBarIcon` component is built using several other components and functions:
+
+- **FancyContent**: A component from `fui-fancyui` used to structure the icon and label within `BottomBarIcon`.

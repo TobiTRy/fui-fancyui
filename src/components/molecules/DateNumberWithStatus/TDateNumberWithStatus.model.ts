@@ -3,6 +3,7 @@ import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 
 import { IAvailableDot } from '@/components/atoms/AvilableDot';
 import { IRange } from '@/components/atoms/DateNumberAtom/IDateNumberAtom.model';
+import { CSSProp } from 'styled-components';
 
 export type TDateNumberWithStatus = {
   isAvailable?: IAvailableDot;
@@ -14,4 +15,7 @@ export type TDateNumberWithStatus = {
   onClick?: () => void;
   themeType?: TUiColorsNotTransparent;
   layer?: TLayer;
+  externalStyle?: CSSProp;
 };
+
+export type TDateNumberWithStatusWithHTMLAttrs = TDateNumberWithStatus & React.HTMLAttributes<HTMLDivElement>;

@@ -1,0 +1,66 @@
+import { Meta, Title, Description, Canvas, Controls } from '@storybook/blocks';
+
+import * as SingleToastMessageStories from './SingleToastMessage.stories';
+
+<Meta of={SingleToastMessageStories} />
+
+<Title />
+
+<Description />
+
+## Setup Instructions
+
+To use the `SingleToastMessage` in your project, follow these steps:
+
+1. Import the `SingleToastMessage` component where you intend to use it:
+
+```jsx
+import { SingleToastMessage } from 'fui-fancyui';
+```
+
+2. If using TypeScript, ensure the type definitions are imported for prop validation:
+
+```jsx
+import { TSingleToastMessage, TSingleToastMessageWithHTMLAttrs, TToastMessage } from 'fui-fancyui';
+```
+
+## Example Usage
+
+Here's how to use the `SingleToastMessage` component in your application:
+
+```jsx
+import React from 'react';
+import { SingleToastMessage } from 'fui-fancyui';
+
+const removeToast = (id) => {
+  console.log(`Toast with id ${id} removed`);
+};
+
+const toastProps = {
+  toast: {
+    id: 1,
+    title: 'Success!',
+    message: 'Your operation was successful.',
+    time: 5000,
+    themeType: 'success',
+    layer: 5,
+  },
+  remove: removeToast,
+};
+
+const App = () => (
+  <div>
+    <SingleToastMessage {...toastProps} />
+  </div>
+);
+
+export default App;
+```
+
+<Canvas />
+
+## Component Properties
+
+<Controls />
+
+This component and its properties allow for flexible and dynamic toast notifications in your React application, providing users with timely feedback in a visually consistent manner.

@@ -6,7 +6,7 @@ import FancyLI from './FancyLI';
 // Define metadata for the story
 const meta = {
   component: FancyLI,
-
+  title: 'components/atoms/FancyLI',
   parameters: {
     docs: {
       description: {

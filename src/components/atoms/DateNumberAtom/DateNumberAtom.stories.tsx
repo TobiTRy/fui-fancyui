@@ -7,6 +7,7 @@ import templateThemeType from '@/stories/templateSettingsForStorys/templatesForT
 // Define metadata for the story
 const meta = {
   component: DateNumberAtom,
+  title: 'components/atoms/DateNumberAtom',
   parameters: {
     docs: {
       description: {

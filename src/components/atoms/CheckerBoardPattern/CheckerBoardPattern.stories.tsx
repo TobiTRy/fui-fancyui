@@ -7,6 +7,7 @@ import { CheckerBoardPattern } from '.';
 // Define metadata for the story
 const meta = {
   component: CheckerBoardPattern,
+  title: 'components/atoms/CheckerBoardPattern',
   parameters: {
     docs: {
       description: {
@@ -30,10 +31,22 @@ const meta = {
         summary: 1,
       },
     },
+    color: {
+      description: 'The color of the pattern',
+      control: {
+        type: 'color',
+      },
+      defaultValue: {
+        summary: '#808080',
+      },
+    },
+    externalStyle: {
+      description: 'The external style of the pattern',
+      control: {
+        type: 'object',
+      },
+    },
   },
-
-  // Add tags to the story
-  tags: ['autodocs'],
 } satisfies Meta<typeof CheckerBoardPattern>;
 
 // Export the metadata
@@ -47,5 +60,7 @@ export const Primary: Story = {
   render: (args) => <CheckerBoardPattern {...args} />,
   args: {
     opacity: 1,
+    color: '#808080',
+    externalStyle: {},
   },
 };

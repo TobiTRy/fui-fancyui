@@ -20,7 +20,7 @@ export const StyledYearSelector = styled.div<TStyledYearSelector>`
   align-items: center;
   width: 100%;
   box-sizing: border-box;
-  padding: ${({ $sizeC = 'md' }) => arrayToCssValues(sizeSettings[$sizeC].padding)};
+  padding: ${({ $sizeC = 'md' }) => arrayToCssValues(sizeSettings[$sizeC].padding, 'spacing')};
   ${({ $borderRadius, theme, $sizeC }) =>
     generateBorderRadiusForComponent({ rounded: $borderRadius, theme, sizeC: $sizeC })};
   background-color: ${({ theme, $layer = 2, $themeType = 'primary' }) =>

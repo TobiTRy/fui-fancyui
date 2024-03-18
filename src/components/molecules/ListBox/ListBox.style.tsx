@@ -3,9 +3,9 @@ import { css } from 'styled-components';
 import { TTheme } from '@/types/TTheme';
 
 import { TListBox } from '@/components/molecules/ListBox/ListBox';
-import { TStyledPrefixAndPicker } from '@/types/TStyledPrefixAndPicker';
-import { sizeSettings } from './sizeSettings';
+import { arrayToCssValues } from '@/design/designFunctions/arrayToCssValues';
 import { boxShadow } from '@/design/designFunctions/shadows';
+import { TStyledPrefixAndPicker } from '@/types/TStyledPrefixAndPicker';
 
 type TgenerateFancyBoxStyle = TStyledPrefixAndPicker<
   TListBox,
@@ -22,10 +22,7 @@ export const generateFancyBoxStyle = (props: TgenerateFancyBoxStyle) => {
     flex-direction: column;
     justify-content: space-between;
     width: 100%;
-    border-radius: ${({ theme }) =>
-      $borderRadius
-        ? theme.borderRadius[$borderRadius]
-        : theme.borderRadius[sizeSettings[$sizeC ?? 'md'].borderRadius]};
+    border-radius: ${({ theme }) => arrayToCssValues($borderRadius, 'borderRadius')};
     ${$boxShadow && boxShadow.md};
 
     ${$externalStyle}

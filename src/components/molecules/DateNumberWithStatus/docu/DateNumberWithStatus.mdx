@@ -1,0 +1,53 @@
+import { Meta, Title, Description, Controls, Canvas } from '@storybook/blocks';
+
+import * as DeateNumberWithStatusStories from './DateNumberWithStatus.stories';
+
+<Meta of={DeateNumberWithStatusStories} />
+
+<Title />
+
+<Description />
+
+## Setup Instructions
+
+To use the `DateNumberWithStatus` in your project, follow these steps:
+
+1. Import the `DateNumberWithStatus` component where you intend to use it:
+
+```jsx
+import { DateNumberWithStatus } from 'fui-fancyui';
+```
+
+2. If using TypeScript, ensure the type definitions are imported for prop validation:
+
+```jsx
+import { TDateNumberWithStatus, TDateNumberWithStatusWithHTMLAttrs } from 'fui-fancyui';
+```
+
+## Example Usage
+
+Here's an example of how to use the `DateNumberWithStatus` component within a React component:
+
+```jsx
+<DateNumberWithStatus
+  dateNumber={15}
+  isAvailable={true}
+  disabled={false}
+  isSelected={true}
+  isCurrentDay={false}
+  onClick={() => console.log('Date clicked')}
+  range={undefined} // Optional: specify if needed
+  layer="base"
+  themeType="primary"
+/>
+```
+
+<Canvas />
+
+This example demonstrates how to display the date number 15 with an available status, selected state, and using the 'primary' theme type.
+
+## Component Properties
+
+The `DateNumberWithStatus` component accepts the following properties:
+
+<Controls />

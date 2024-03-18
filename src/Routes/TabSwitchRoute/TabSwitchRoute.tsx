@@ -1,6 +1,6 @@
 import React from 'react';
 
-import FancyTabSwitch from '../../components/molecules/FancyTabSwitch/FancyTabSwitch';
+import FancyTabSwitch from '../../components/organisms/FancyTabSwitch/FancyTabSwitch';
 import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';
 import { css } from 'styled-components';
 import { Card } from '@/components/molecules/Card';
@@ -54,7 +54,7 @@ export default function TabSwitchRoute() {
         label="test"
         sizeC="sm"
         values={switchValues1}
-        rounded={'xxxl'}
+        rounded={'xxl'}
         currentSelect={test}
         handler={(id: string) => setTest(id)}
       />
@@ -92,7 +92,7 @@ export default function TabSwitchRoute() {
               wide
               sizeC="lg"
               label="test"
-              rounded="xxxl"
+              rounded="xxl"
               themeType="secondary"
               layer={3}
               values={switchValues1}

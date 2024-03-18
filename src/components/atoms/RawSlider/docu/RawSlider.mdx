@@ -1,4 +1,4 @@
-import { Meta, Title, Description, Controls } from '@storybook/blocks';
+import { Meta, Title, Description, Controls, Canvas } from '@storybook/blocks';
 
 import * as RawSliderStories from './RawSlider.stories';
 
@@ -15,13 +15,13 @@ import * as RawSliderStories from './RawSlider.stories';
 1. Import the `RawSlider` component into your project:
 
 ```jsx
-import { RawSlider } from '@tobitry/fui-fancyui';
+import { RawSlider } from 'fui-fancyui';
 ```
 
 2. If using TypeScript, ensure the type definitions are imported for prop validation:
 
 ```jsx
-import { TRawSlider, TRawSliderNativeAttrs, TRawSliderWithNativeAttrs } from '@tobitry/fui-fancyui';
+import { TRawSlider, TRawSliderNativeAttrs, TRawSliderWithNativeAttrs } from 'fui-fancyui';
 ```
 
 ## Example Usage
@@ -30,7 +30,7 @@ Here's an example of how to integrate the `RawSlider` component into a form, all
 
 ```jsx
 import React, { useState } from 'react';
-import RawSlider from '@tobitry/fui-fancyui';
+import RawSlider from 'fui-fancyui';
 
 const VolumeControl = () => {
   const [volume, setVolume] = useState(50);
@@ -53,6 +53,8 @@ export default VolumeControl;
 ```
 
 This example creates a volume control slider that allows users to select a value between 0 and 100, demonstrating how to capture and handle value changes.
+
+<Canvas />
 
 ## Component Properties
 

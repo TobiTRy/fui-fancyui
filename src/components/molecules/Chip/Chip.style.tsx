@@ -2,9 +2,9 @@ import { styled } from 'styled-components';
 
 import { FancyPill } from '@/components/atoms/FancyPill';
 import { sizesSettings } from '@/components/molecules/Chip/sizeSettings';
-import { IFancyPill } from '@/components/atoms/FancyPill/FancyPill.model';
+import { TFancyPill } from '@/components/atoms/FancyPill/TFancyPill.model';
 
-type TStyledChip = IFancyPill & {
+type TStyledChip = TFancyPill & {
   $sizeC: keyof typeof sizesSettings;
 };
 export const StyledChip = styled(FancyPill)<TStyledChip>`

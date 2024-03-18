@@ -1,0 +1,67 @@
+import { Meta, Title, Description, Canvas, Controls } from '@storybook/block';
+
+import * as MonthWithDaysStories from './MonthWithDays.stories';
+
+<Meta of={MonthWithDaysStories} />
+
+<Title />
+
+<Description />
+
+## Brief Description
+
+`MonthWithDays` generates a visual representation of a month, displaying the days and allowing interaction such as date selection. It supports features like disabling specific dates, highlighting selected dates, and integrating with external states for dynamic date management. The component utilizes styled components for layout and styling, ensuring flexibility and customization through themes.
+
+## Setup Instructions
+
+To use the `MonthWithDays` in your project, follow these steps:
+
+1. Import the `MonthWithDays` component where you intend to use it:
+
+```jsx
+import { MonthWithDays } from 'fui-fancyui';
+```
+
+2. If using TypeScript, ensure the type definitions are imported for prop validation:
+
+```jsx
+import { TMonthWithDays, TMonthWithDaysWithHTMLAttrs } from 'fui-fancyui';
+```
+
+## Example Usage
+
+Below is an example demonstrating how to use the `MonthWithDays` component within a React project:
+
+```jsx
+import React from 'react';
+import { MonthWithDays, TMonthWithDays } from 'fui-fancyui';
+
+const ExampleComponent = () => {
+  const handleDateClick = (day, monthIdx, year) => {
+    console.log(`Date clicked: ${day.number}-${monthIdx + 1}-${year}`);
+  };
+
+  const props: TMonthWithDays = {
+    monthIdx: 0, // January
+    year: 2024,
+    handleDateClick: handleDateClick,
+    selectedDates: [{ day: 15, month: 1, year: 2024 }],
+    isRangePicking: false,
+    themeType: 'light',
+    layer: 'primary',
+    startWeekOn: 1,
+  };
+
+  return <MonthWithDays {...props} />;
+};
+
+export default ExampleComponent;
+```
+
+<Canvas />
+
+## Component Properties
+
+<Controls />
+
+The `MonthWithDays` component is a flexible and customizable tool for rendering month views within calendar-related features in React applications. It provides robust functionality for interacting with dates, including selecting, disabling, and highlighting dates based on various criteria and states.

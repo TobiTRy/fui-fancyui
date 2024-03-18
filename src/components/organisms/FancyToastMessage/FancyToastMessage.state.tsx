@@ -1,11 +1,11 @@
 import { create } from 'zustand';
-import IToastMessage from '@/components/molecules/SingleToastMessage/IToastMessage.model';
+import { TToastMessage } from '@/components/molecules/SingleToastMessage/';
 
-//omit id from IToastMessage because the store will add the id
-type IToastMessageProps = Omit<IToastMessage, 'id'>;
+//omit id from TToastMessage because the store will add the id
+type IToastMessageProps = Omit<TToastMessage, 'id'>;
 
 type ToastMessageStore = {
-  toastQueue: IToastMessage[];
+  toastQueue: TToastMessage[];
   addToast: (toast: IToastMessageProps) => void;
   removeToast: (id: number) => void;
 };

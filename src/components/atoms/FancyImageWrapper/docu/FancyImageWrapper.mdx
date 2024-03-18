@@ -1,14 +1,12 @@
-import { Meta, Controls } from '@storybook/blocks';
+import { Meta, Controls, Canvas, Title, Description } from '@storybook/blocks';
 
 import * as FancyImageWrapperStories from './FancyImageWrapper.stories';
 
 <Meta of={FancyImageWrapperStories} />
 
-# FancyImageWrapper Component Documentation
+<Title />
 
-## Brief Description
-
-The `FancyImageWrapper` component is a highly customizable React component designed to wrap around image elements, providing extensive control over their appearance and styling. It supports a wide range of properties to adjust the image's aspect ratio, border radius, size, object fit, filter effects, and external CSS styling. Additionally, it validates the aspect ratio to ensure it is in the correct format.
+<Description />
 
 ## Setup Instructions
 
@@ -18,24 +16,16 @@ To use the `FancyImageWrapper` component in your project, follow these steps:
 2. Import the `FancyImageWrapper` component into your file:
 
 ```jsx
-import FancyImageWrapper from '@tobitry/fui-fancyui';
+import { FancyImageWrapper } from 'fui-fancyui';
 
 // the type definitions are also available for TypeScript users
-import {
-  TFancyImageWrapper,
-  TFancyImageWrapperNativeAttrs,
-  TFancyImageWrapperWithNativeAttrs,
-} from '@tobitry/fui-fancyui';
+import { TFancyImageWrapper, TFancyImageWrapperNativeAttrs, TFancyImageWrapperWithNativeAttrs } from 'fui-fancyui';
 ```
 
 3. Import necessary types if you are using TypeScript for prop definitions:
 
 ```jsx
-import {
-  TFancyImageWrapperWithNativeAttrs,
-  TFancyImageWrapper,
-  TFancyImageWrapperNativeAttrs,
-} from '@tobitry/fui-fancyui';
+import { TFancyImageWrapperWithNativeAttrs, TFancyImageWrapper, TFancyImageWrapperNativeAttrs } from 'fui-fancyui';
 ```
 
 ## Example Usage
@@ -54,6 +44,8 @@ Below is an example demonstrating how to use the `FancyImageWrapper` component t
   <img src="path/to/image.jpg" alt="Sample Image" />
 </FancyImageWrapper>
 ```
+
+<Canvas />
 
 ## Component Properties
 

@@ -8,7 +8,7 @@ import FancySearchBar from '../../components/organisms/FancySearchBar/FancySearc
 
 import styled from 'styled-components';
 import FancyBar from '../../components/atoms/FancyBox/FancyBox';
-import Header from '../../components/molecules/Header/Header';
+import Header from '../../components/atoms/Header/Header';
 import themeStore from '@/design/theme/themeStore/themeStore';
 import { Typography } from '@/components/atoms/Typography';
 import { SwitchList } from '@/components/molecules/SwitchList';

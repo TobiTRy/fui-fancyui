@@ -28,7 +28,9 @@ export default function FancySearchBar(props: TFancySearchBar) {
   };
 
   // Function to handle changes to the search value
-  const searchValueHandler = (searchValue: string) => {
+  const searchValueHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const searchValue = e.target.value;
+
     handlerSearchValue && handlerSearchValue(searchValue);
   };
 
@@ -49,7 +51,7 @@ export default function FancySearchBar(props: TFancySearchBar) {
             sizeC={sizeC}
             activeHandler={activeHandler}
             searchValue={searchValue}
-            handler={searchValueHandler}
+            onChange={searchValueHandler}
           />
         </div>
         {/* The search bar list */}
