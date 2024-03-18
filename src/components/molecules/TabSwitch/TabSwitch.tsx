@@ -4,7 +4,7 @@ import { ItemWrapper, ULButtonSwitchList, tabSwitchSizes } from './TabSwitch.sty
 import { FancyTabSwitchButton } from '@/components/molecules/FancyTabSwitchButton';
 import { borderRadius } from '@/design/theme/designSizes';
 import { SwitchActiveIndicator } from '@/components/atoms/SwitchActiveIndicator';
-import { ITabSwitchProps } from './TabSwitch.model';
+import { ITabSwitchProps } from './TTabSwitch.model';
 
 // --------------------------------------------------------------------------- //
 // ------------ The tap SwitchComponent to slect specifc values -------------- //
