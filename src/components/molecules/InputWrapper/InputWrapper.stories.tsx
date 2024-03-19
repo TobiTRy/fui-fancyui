@@ -1,9 +1,9 @@
-import React from 'react';
-
 import type { Meta, StoryObj } from '@storybook/react';
 
 import InputWrapper from './InputWrapper';
 import SVGCheckMark from '../../icons/SVGCheckMark/SVGCheckMark';
+import templateThemeType from '@/stories/templateSettingsForStorys/templatesForThemeType';
+import { TextInput } from '@/components/atoms/TextInput';
 
 const meta = {
   component: InputWrapper,
@@ -16,22 +16,14 @@ const meta = {
     },
   },
   argTypes: {
-    themeType: {
-      description: 'The theme type of the component',
-      control: {
-        type: 'select',
-      },
-    },
-    layer: {
-      description: 'The layer of the component',
-      control: {
-        type: 'range',
-        min: 0,
-        max: 9,
-        step: 1,
-      },
-    },
+    ...templateThemeType('mainThemeTypes', 'primary', 2),
     isActive: {
+      description: 'The state of the component',
+      control: {
+        type: 'boolean',
+      },
+    },
+    outlined: {
       description: 'The state of the component',
       control: {
         type: 'boolean',
@@ -85,8 +77,46 @@ const meta = {
         type: 'text',
       },
     },
+    as: {
+      description: 'The as of the component',
+      control: {
+        type: 'text',
+      },
+    },
+    externalStyle: {
+      description: 'The externalStyle of the component',
+      control: {
+        type: 'object',
+      },
+    },
+    outlinedBackgroundStrength: {
+      description: 'The outlinedBackgroundStrength of the component',
+      control: {
+        type: 'number',
+        min: 0,
+        max: 1,
+        step: 0.1,
+      },
+    },
+    transparentBackground: {
+      description: 'The transparentBackground of the component',
+      control: {
+        type: 'boolean',
+      },
+    },
+    InputElement: {
+      description: 'The InputElement of the component',
+      control: {
+        type: 'object',
+      },
+    },
+    icon: {
+      description: 'The icon of the component',
+      control: {
+        type: 'object',
+      },
+    },
   },
-  tags: ['autodocs'],
 } satisfies Meta<typeof InputWrapper>;
 
 export default meta;
@@ -99,6 +129,15 @@ export const Primary: Story = {
     id: 'id',
     label: 'Label',
     align: 'left',
+    InputElement: <TextInput />,
     icon: <SVGCheckMark />,
+  },
+};
+
+export const Secondary: Story = {
+  render: (args) => <InputWrapper {...args} />,
+  args: {
+    ...Primary.args,
+    themeType: 'secondary',
   },
 };

@@ -32,6 +32,8 @@ export default function InputWrapper(props: TInputWrapper) {
     autoWidth,
     placeholder,
     layer = 2,
+    outlined,
+    outlinedBackgroundStrength,
     themeType = 'primary',
     transparentBackground,
     externalStyle,
@@ -44,6 +46,8 @@ export default function InputWrapper(props: TInputWrapper) {
       <FancyBox
         themeType={transparentBackground ? 'transparent' : themeType}
         layer={layer}
+        outlined={outlined}
+        outlinedBackgroundStrength={outlinedBackgroundStrength}
         externalStyle={css`
           ${generateInputContainerStyle(!!label)}
           ${externalStyle}
@@ -67,7 +71,7 @@ export default function InputWrapper(props: TInputWrapper) {
             align={align}
             themeType={themeType}
             label={label}
-            placeholder={placeholder}
+            hasPlaceholder={!!placeholder}
             systemMessageType={systemMessage?.type}
             layer={layer}
             hasValue={hasValue}

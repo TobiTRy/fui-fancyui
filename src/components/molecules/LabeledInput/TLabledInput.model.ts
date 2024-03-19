@@ -8,7 +8,7 @@ import { TUiColorsSystemMessage } from '@/types/TUiColorsSystemMessage';
 export type TLabeledInput = {
   id?: string;
   label?: string;
-  placeholder?: string;
+  hasPlaceholder?: boolean;
   inputElement?: ReactElement<HTMLInputElement>;
   systemMessageType?: TUiColorsSystemMessage;
   hasValue?: boolean;
