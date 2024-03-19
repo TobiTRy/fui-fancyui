@@ -23,6 +23,9 @@ jobs:
       - name: Run Lint Check
         run: npm run lint
 
+      - name: Build Storybook
+        run: npm run build-storybook
+
       - name: Run Build
         run: npm run build
 
