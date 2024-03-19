@@ -1,5 +1,5 @@
 import type { Preview } from '@storybook/react';
-import { withThemeFromJSXProvider } from '@storybook/addon-styling';
+import { withThemeFromJSXProvider } from '@storybook/addon-themes';
 import { DocsContainer } from './DocsContainer';
 import themeStore from '../src/design/theme/themeStore/themeStore';
 import { DefaultStyle } from '../src/design/theme/globalStyle/DefaultStyle';
