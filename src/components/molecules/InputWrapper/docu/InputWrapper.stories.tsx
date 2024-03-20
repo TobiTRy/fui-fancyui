@@ -7,7 +7,7 @@ import { TextInput } from '@/components/atoms/TextInput';
 
 const meta = {
   component: InputWrapper,
-  title: 'compoents/molecules/InputWrapper',
+  title: 'components/molecules/InputWrapper',
   parameters: {
     docs: {
       description: {

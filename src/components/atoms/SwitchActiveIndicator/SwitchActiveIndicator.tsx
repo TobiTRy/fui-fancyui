@@ -7,6 +7,7 @@ import { ActiveSwitchIndicator, Wrapper } from './SwitchActiveIndicator.style';
 export default function SwitchActiveIndicator(props: TActiveSwitchIndicatorWithHTMLAttrs) {
   const { itemNumber, tabSpacing, direction, indicatorWidth, themeType, layer, outlined, rounded, type, ...htmlProps } =
     props;
+
   return (
     <Wrapper $itemNumber={itemNumber} $tabSpacing={tabSpacing} $direction={direction} {...htmlProps}>
       <ActiveSwitchIndicator

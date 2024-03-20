@@ -6,6 +6,7 @@ import { themeStore } from '@/design/theme/themeStore';
 import { TTheme } from '@/types/TTheme';
 import { TBorderRadiusSizes } from '@/types/TBorderRadiusSizes';
 import { TSpacings } from '@/types/TSpacings';
+import { disabledStyle } from '@/design/designFunctions/disabledStyle';
 
 // Define the different sizes for the tab switch
 const getSpacingFromTheme = themeStore.getState().theme.spacing;
@@ -29,6 +30,7 @@ export interface IFancyTabSwitchStyle {
   $tabSpacing?: TSpacings;
   $direction?: 'horizontal' | 'vertical';
   $rounded?: TBorderRadiusSizes;
+  $disabled?: boolean;
 }
 
 // ----------------------------------------------------------- //
@@ -46,10 +48,13 @@ export const ULButtonSwitchList = styled.ul<IFancyTabSwitchStyle & { theme: TThe
   align-items: center;
   margin: 0;
   padding: 0;
+
   & > * {
     /* Selects all direct children of the parent */
     min-width: 0;
   }
+
+  ${({ $disabled }) => $disabled && disabledStyle}
 `;
 
 // ----------------------------------- //

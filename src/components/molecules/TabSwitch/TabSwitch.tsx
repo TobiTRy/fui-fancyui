@@ -4,12 +4,12 @@ import { ItemWrapper, ULButtonSwitchList, tabSwitchSizes } from './TabSwitch.sty
 import { FancyTabSwitchButton } from '@/components/molecules/FancyTabSwitchButton';
 import { borderRadius } from '@/design/theme/designSizes';
 import { SwitchActiveIndicator } from '@/components/atoms/SwitchActiveIndicator';
-import { ITabSwitchProps } from './TTabSwitch.model';
+import { TTabSwitch } from './TTabSwitch.model';
 
 // --------------------------------------------------------------------------- //
 // ------------ The tap SwitchComponent to slect specifc values -------------- //
 // --------------------------------------------------------------------------- //
-export default function TabSwitch(props: ITabSwitchProps) {
+export default function TabSwitch(props: TTabSwitch) {
   const {
     values,
     textColor,
@@ -26,6 +26,7 @@ export default function TabSwitch(props: ITabSwitchProps) {
     activeColor,
     indicatorType,
   } = props;
+
   // Define the state for the currently selected tab
   const buttonRefs = useRef<React.RefObject<HTMLDivElement>[]>(values.map(() => React.createRef<HTMLDivElement>()));
   const [currentSelected, setCurrentSelect] = useState(currentSelect);
@@ -34,7 +35,7 @@ export default function TabSwitch(props: ITabSwitchProps) {
   const radioChangeHandler = (position: string) => {
     const currentItem = values.find((item) => item.itemKey === position);
     setCurrentSelect(position);
-    handler && handler(currentItem?.itemKey!);
+    handler?.(currentItem?.itemKey!);
   };
 
   // This handles the navigation with the keyboard
@@ -61,6 +62,7 @@ export default function TabSwitch(props: ITabSwitchProps) {
       $rounded={rounded}
       $wide={wide}
       $direction={direction}
+      $disabled={disabled}
       role="radiogroup"
     >
       {/* Generate a list item for each switch value */}
@@ -68,8 +70,8 @@ export default function TabSwitch(props: ITabSwitchProps) {
         <ItemWrapper key={item.itemKey}>
           {/* Generate the button for the switch item */}
           <FancyTabSwitchButton
-            disabled={disabled}
             sizeC={sizeC}
+            disabled={disabled}
             themeType={textColor}
             iconAlign={iconAlign}
             {...item}
@@ -91,7 +93,7 @@ export default function TabSwitch(props: ITabSwitchProps) {
                   : undefined
               }
               type={indicatorType ?? 'bolb'}
-              itemNumber={Number(currentSelected)}
+              itemNumber={values.findIndex((item) => item.itemKey === currentSelected)}
               themeType={activeColor}
               direction={direction}
               tabSpacing={tabSpacing}

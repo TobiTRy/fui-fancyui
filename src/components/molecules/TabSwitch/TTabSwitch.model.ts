@@ -1,5 +1,3 @@
-import { TUiColorTypes } from '@/types/TUiColorTypes';
-import { TLayer } from '@/types/TLayer';
 import { TBorderRadiusSizes } from '@/types/TBorderRadiusSizes';
 
 import { TSpacings } from '@/types/TSpacings';
@@ -8,12 +6,10 @@ import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 import { TActiveSwitchIndicator } from '@/components/atoms/SwitchActiveIndicator';
 import { TTabSwitchDetailsChildren, TTabSwitchDetailsLabelIcon } from '@/components/molecules/FancyTabSwitchButton';
 
-export interface ITabSwitchProps {
+export type TTabSwitch = {
   wide?: boolean;
   sizeC?: TComponentSizes;
   textColor?: TUiColorsNotTransparent;
-  themeType?: TUiColorTypes;
-  layer?: TLayer;
   disabled?: boolean;
   tabSpacing?: TSpacings;
   values: TTabSwitchDetailsChildren[] & TTabSwitchDetailsLabelIcon[];
@@ -21,9 +17,8 @@ export interface ITabSwitchProps {
   direction?: 'horizontal' | 'vertical';
   indicatorType?: TActiveSwitchIndicator['type'];
   outlined?: boolean;
-  id?: string;
   currentSelect?: string;
   iconAlign?: 'left' | 'right';
   activeColor?: TUiColorsNotTransparent;
   handler?: (value: string) => void;
-}
+};

@@ -1,0 +1,57 @@
+import { Meta, Title, Description, Canvas, Controls } from '@storybook/blocks';
+
+import * as TabSwitchStories from './TabSwitch.stories';
+
+<Meta of={TabSwitchStories} />
+
+<Title />
+
+<Description />
+
+## Setup Instructions
+
+To use the `TabSwitch` in your project, follow these steps:
+
+1. Import the `TabSwitch` component where you intend to use it:
+
+```jsx
+import { TabSwitch } from 'fui-fancyui';
+```
+
+2. If using TypeScript, ensure the type definitions are imported for prop validation:
+
+```jsx
+import { TTabSwitch } from 'fui-fancyui';
+```
+
+### Example Usage
+
+```jsx
+<TabSwitch
+  values={[
+    { itemKey: 'tab1', label: 'Tab 1' },
+    { itemKey: 'tab2', label: 'Tab 2' },
+  ]}
+  textColor="primary"
+  sizeC="md"
+  wide={false}
+  disabled={false}
+  tabSpacing="md"
+  rounded="sm"
+  direction="horizontal"
+  outlined={true}
+  currentSelect="tab1"
+  iconAlign="left"
+  activeColor="secondary"
+  handler={(value) => console.log(`Selected tab: ${value}`)}
+/>
+```
+
+<Canvas />
+
+<Controls />
+
+### List of Used Components
+
+- **FancyTabSwitchButton**: A molecule that represents each selectable tab within the `TabSwitch` component, providing customizable size, color, disabled state, and selection handling.
+- **SwitchActiveIndicator**: An atom used to indicate the currently selected tab, customizable in terms of type (blob or underline), color, and orientation.
