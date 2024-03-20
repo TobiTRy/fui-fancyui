@@ -17,7 +17,7 @@ FUI is currently a masterpiece in the making. Our team is working diligently to 
 - **Customization Tips**: Learn to customize the look and feel using Styled Components.
 - **Usage Best Practices**: Elevate your UI with our design and performance tips.
 
-For a detailed exploration, visit [FancyUI Storybook(Comming Soon)](https://fancyui.net). Whether you're integrating components or seeking design inspiration, our Storybook has everything you need for a seamless experience.
+For a detailed exploration, visit [FancyUI Storybook](https://fancyui.net). Whether you're integrating components or seeking design inspiration, our Storybook has everything you need for a seamless experience.
 
 ## 🎨 Features in Development
 
