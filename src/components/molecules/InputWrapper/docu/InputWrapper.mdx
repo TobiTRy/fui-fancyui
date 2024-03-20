@@ -1,0 +1,69 @@
+import { Meta, Title, Description, Controls, Canvas } from '@storybook/blocks';
+
+import * as InputWrapperStories from './InputWrapper.stories';
+
+<Meta of={InputWrapperStories} />
+
+<Title />
+
+<Description />
+
+## Setup Instructions
+
+To use the `InputWrapper` in your project, follow these steps:
+
+1. Import the `InputWrapper` component where you intend to use it:
+
+```jsx
+import { InputWrapper } from 'fui-fancyui';
+```
+
+2. If using TypeScript, ensure the type definitions are imported for prop validation:
+
+```jsx
+import { TInputWrapper, TInputWrapperUserInputProps } from 'fui-fancyui';
+```
+
+## Example Usage
+
+The following example demonstrates the usage of `InputWrapper` within a form, including a labeled input field with an icon and an error message:
+
+```jsx
+<InputWrapper
+  id="username"
+  label="Username"
+  placeholder="Enter your username"
+  icon={<YourIconComponent />}
+  systemMessage={{ message: 'Username is required', type: 'error' }}
+  InputElement={<input type="text" />}
+  themeType="primary"
+  layer={2}
+  align="left"
+  underline={true}
+/>
+```
+
+<Canvas />
+
+<Canvas of={InputWrapperStories.WithSystemMessage} />
+
+<Canvas of={InputWrapperStories.WithLabelMovedUp} />
+
+## Component Properties
+
+The `InputWrapper` component accepts a range of props for customization:
+
+<Controls />
+
+Additionally, it inherits properties from `FancyBox`, with specific exclusions detailed in the documentation.
+
+## Sub-components
+
+`InputWrapper` leverages several sub-components to provide its comprehensive functionality:
+
+- **FancySVGAtom**: Utilized for rendering SVG icons with theme-based styling.
+- **LabeledInput**: A component that combines an input field with a label, offering various styling options including animated labels.
+- **FancyBox**: Provides a stylized container with optional theming, layering, and outlined styles.
+- **SystemMessage**: Used for displaying system messages such as error or informational messages, adjacent to the input field.
+
+Understanding and utilizing these sub-components allows for detailed customization and functionality extension of the `InputWrapper` component.

@@ -1,17 +1,18 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import InputWrapper from './InputWrapper';
-import SVGCheckMark from '../../icons/SVGCheckMark/SVGCheckMark';
+import InputWrapper from '../InputWrapper';
+import SVGCheckMark from '../../../icons/SVGCheckMark/SVGCheckMark';
 import templateThemeType from '@/stories/templateSettingsForStorys/templatesForThemeType';
 import { TextInput } from '@/components/atoms/TextInput';
 
 const meta = {
   component: InputWrapper,
+  title: 'compoents/molecules/InputWrapper',
   parameters: {
     docs: {
       description: {
         component:
-          'Dumb-Comonent: The InputWrapper component that can be used to wrap a input component via the InputElement. <br> ',
+          'InputWrapper is a comprehensive React component designed to augment form inputs by incorporating additional functionality and styling features. It facilitates the incorporation of labels, icons, and system messages (e.g., error messages) into the input fields. This component integrates several sub-components, making it highly customizable to meet diverse UI requirements.',
       },
     },
   },
@@ -116,6 +117,18 @@ const meta = {
         type: 'object',
       },
     },
+    labelVariant: {
+      description: 'The labelVariant of the component in static or animated',
+      control: {
+        type: 'select',
+      },
+    },
+    layer: {
+      description: 'The layer of the component',
+      control: {
+        type: 'number',
+      },
+    },
   },
 } satisfies Meta<typeof InputWrapper>;
 
@@ -130,14 +143,39 @@ export const Primary: Story = {
     label: 'Label',
     align: 'left',
     InputElement: <TextInput />,
+    themeType: 'primary',
+    labelVariant: 'animated',
+  },
+};
+
+export const WithLabelAndIcon: Story = {
+  render: (args) => <InputWrapper {...args} />,
+  args: {
+    id: 'id',
+    label: 'Label',
+    align: 'left',
+    InputElement: <TextInput />,
+    themeType: 'primary',
     icon: <SVGCheckMark />,
   },
 };
 
-export const Secondary: Story = {
+export const WithLabelMovedUp: Story = {
   render: (args) => <InputWrapper {...args} />,
   args: {
     ...Primary.args,
-    themeType: 'secondary',
+    hasValue: true,
+    isActive: true,
+  },
+};
+
+export const WithSystemMessage: Story = {
+  render: (args) => <InputWrapper {...args} />,
+  args: {
+    ...Primary.args,
+    systemMessage: {
+      message: 'System message',
+      type: 'error',
+    },
   },
 };

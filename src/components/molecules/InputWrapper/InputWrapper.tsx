@@ -59,6 +59,7 @@ export default function InputWrapper(props: TInputWrapper) {
             layer={layer}
             isPassive={false}
             externalStyle={generateIconStyle(!!label)}
+            systemMessage={systemMessage?.type}
             sizeC="xs"
             isActive={isActive}
           >
