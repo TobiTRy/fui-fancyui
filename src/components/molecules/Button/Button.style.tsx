@@ -26,11 +26,11 @@ export const ButtonStyle = styled.span<IGenerateThemeDesignForComponent & TStyle
     background-color 0.125s ease-in-out,
     color 0.125s ease-in-out;
 
-  ${(props: IGenerateThemeDesignForComponent) =>
-    generateThemeDesignForComponent({ ...props, $backgroundState: 'hover' })};
+  ${(props: IGenerateThemeDesignForComponent & { $disabled?: boolean }) =>
+    generateThemeDesignForComponent({ ...props, $backgroundState: props.$disabled ? 'active' : 'hover' })}
 
-  ${({ $sizeC, $borderRadius, theme }) =>
-    $borderRadius !== false && generateBorderRadiusForComponent({ theme, sizeC: $sizeC, rounded: $borderRadius })};
+  ${({ $sizeC, $borderRadius }) =>
+    $borderRadius !== false && generateBorderRadiusForComponent({ sizeC: $sizeC, borderRadius: $borderRadius })};
 
   ${({ $sizeC, $noSize }) => !$noSize && generateButtonSizeAndPadding($sizeC ?? 'md', true)}
 
@@ -39,9 +39,7 @@ export const ButtonStyle = styled.span<IGenerateThemeDesignForComponent & TStyle
 
   ${({ $externalStyle }) => $externalStyle && $externalStyle}
 
-  &:disabled {
-    ${disabledStyle}
-  }
+  ${({ $disabled }) => $disabled && disabledStyle}
 `;
 
 // the button wrapper is used to make the button full width
