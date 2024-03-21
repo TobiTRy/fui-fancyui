@@ -1,31 +1,33 @@
-import React from 'react';
-
 import { Typography } from '@/components/atoms/Typography';
 import { Placeholder } from '@/components/molecules/TextAvatar/TextAvatar.style';
 
 import { getTextSize } from '@/components/atoms/FancyProfilePicture/utils/getTextSize';
-import { TTextAvatarProps } from '@/components/molecules/TextAvatar/TextAvatar.model';
+import { TTTextAvatarWithHTMLAttrs } from './TextAvatar.model';
+import { generateText } from './utils/generateText';
 
-type TAvatarTextImage = TTextAvatarProps & React.HTMLAttributes<HTMLDivElement>;
-export default function TextAvatar(props: TAvatarTextImage) {
+// --------------------------------------------------------------------------- //
+// ------- The Text Avatar renders a Avatar with background and initials ----- //
+// --------------------------------------------------------------------------- //
+export default function TextAvatar(props: TTTextAvatarWithHTMLAttrs) {
   const {
-    rounded,
+    borderRadius,
     sizeC = 'md',
     color,
     backgroundColor,
-    themeType,
-    layer,
+    themeType = 'primary',
+    layer = 2,
     fontSizes,
     externalStyle,
     text,
     letterLength,
+    casing,
     ...htmlProps
   } = props;
 
   return (
     <Placeholder
       tabIndex={htmlProps.tabIndex ?? 0}
-      $rounded={rounded}
+      $borderRadius={borderRadius}
       $sizeC={sizeC}
       $color={color}
       $backgroundColor={backgroundColor}
@@ -35,7 +37,7 @@ export default function TextAvatar(props: TAvatarTextImage) {
       {...htmlProps}
     >
       <Typography elType="span" variant={fontSizes || getTextSize(sizeC)}>
-        {text?.substring(0, letterLength ?? 2).toUpperCase()}
+        {text ? generateText(text, letterLength ?? 2, casing) : ''}
       </Typography>
     </Placeholder>
   );
