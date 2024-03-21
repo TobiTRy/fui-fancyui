@@ -1,41 +1,28 @@
 import { css } from 'styled-components';
 
-import { TBorderRadiusSizes } from '@/types/TBorderRadiusSizes';
 import { TComponentSizes } from '@/types/TComponentSizes';
-import { TTheme } from '@/types/TTheme';
+import { TThemeArrayOrValueCSS, arrayToCssValues } from '@/design/designFunctions/arrayToCssValues';
+import { sizeSettings } from './sizeSettings';
 
 type TBorderRadius = {
-  rounded?: TBorderRadiusSizes | false;
+  borderRadius?: TThemeArrayOrValueCSS | false;
   sizeC?: TComponentSizes;
-  theme: TTheme;
 };
 
 export const generateBorderRadiusForComponent = (props: TBorderRadius) => {
-  const { theme, rounded, sizeC } = props;
-  const borderRadius = theme.borderRadius;
-  if (rounded === false) return;
+  const { borderRadius, sizeC } = props;
+  if (borderRadius === false) return 0;
 
-  if (rounded) {
+  if (borderRadius) {
     return css`
-      border-radius: ${borderRadius[rounded]};
+      border-radius: ${arrayToCssValues(borderRadius, 'borderRadius')};
     `;
   }
 
-  switch (sizeC) {
-    case 'sm':
-      return css`
-        border-radius: ${borderRadius.xs};
-      `;
-    case 'md':
-      return css`
-        border-radius: ${borderRadius.sm};
-      `;
-    case 'lg':
-      return css`
-        border-radius: ${borderRadius.sm};
-      `;
-    default:
-      return css``;
+  if (sizeC) {
+    return css`
+      border-radius: ${arrayToCssValues(sizeSettings[sizeC].borderRadius, 'borderRadius')};
+    `;
   }
 };
 

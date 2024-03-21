@@ -1,0 +1,68 @@
+import { Meta, Title, Description, Controls, Canvas } from '@storybook/blocks';
+
+import * as FancyButtonStories from './FancyButton.stories';
+
+<Meta of={FancyButtonStories} />
+
+<Title />
+
+<Description />
+
+## Setup Instructions
+
+To use the `FancyButton` in your project, follow these steps:
+
+1. Import the `FancyButton` component where you intend to use it:
+
+```jsx
+import { FancyButton } from 'fui-fancyui';
+```
+
+2. If using TypeScript, ensure the type definitions are imported for prop validation:
+
+```jsx
+import { TFancyButton, TFancyButtonWithHTMLAttrs } from 'fui-fancyui';
+```
+
+### Example Usage
+
+```jsx
+import React from 'react';
+import { FancyButton } from 'fui-fancyui'; // Adjust the import path as needed
+
+function Example() {
+  return (
+    <FancyButton
+      label="Click Me"
+      icon={<YourIconComponent />}
+      isLoading={false}
+      iconAlign="left"
+      align="center"
+      oneToOne={false}
+      gap="10px"
+    />
+  );
+}
+```
+
+<Canvas />
+
+<Canvas of={FancyButtonStories.Outlined} />
+
+<Canvas of={FancyButtonStories.OneToOne} />
+
+<Canvas of={FancyButtonStories.Disabled} />
+
+<Canvas of={FancyButtonStories.Loading} />
+
+### Component Properties
+
+<Controls />
+
+### List of Used Components
+
+- **Button**: A basic button component that provides the foundational structure and functionality for the `FancyButton`.
+
+- **FancyContent**: A component designed to display and align the content within the `FancyButton`, including text labels and icons.
+
+- **LoadingSVGArrows**: A visual indicator used to denote that the `FancyButton` is in a loading state, typically displayed in place of the icon.
