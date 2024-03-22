@@ -2,13 +2,23 @@
 import { Meta, StoryObj } from '@storybook/react';
 
 // Import the component to be tested
-import FancyCodeVerificationInput from './FancyCodeVerificationInput';
+import FancyCodeVerificationInput from '../FancyCodeVerificationInput';
 import React, { useEffect } from 'react';
 
 // Define metadata for the story
 const meta = {
+  title: 'FancyCodeVerificationInput',
   component: FancyCodeVerificationInput,
   // Define arguments for the story
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'The `FancyCodeVerificationInput` component is designed to handle user input for code verification purposes. It leverages a combination of React hooks and styled-components to manage input values, perform validation through an API call (handled externally), and display validation messages. The component allows for customization through props like input length, error messages, success state, automatic case conversion, and debounce time for the API call handler.',
+      },
+    },
+  },
+
   argTypes: {
     handler: {
       description: 'Callback function for the search value',
@@ -17,7 +27,7 @@ const meta = {
       },
     },
     length: {
-      description: 'The length of the input fields',
+      description: 'The expected length of the verification code.',
       control: {
         type: 'number',
       },
@@ -45,7 +55,7 @@ const meta = {
       },
     },
     isSuccess: {
-      description: 'If the input value is success',
+      description: 'A flag indicating whether the code verification was successful.',
       control: {
         type: 'boolean',
       },
@@ -54,12 +64,9 @@ const meta = {
       },
     },
     errorMessage: {
-      description: 'The error message ',
+      description: 'The message to display if the code verification fails.',
       control: {
         type: 'text',
-      },
-      defaultValue: {
-        summary: '',
       },
     },
   },

@@ -1,0 +1,61 @@
+import { Meta, Title, Description, Canvas, Controls } from '@storybook/blocks';
+
+import * as FancyCodeVerificationInput from './FancyCodeVerificationInput.stories';
+
+<Meta of={FancyCodeVerificationInput} />
+
+<Title />
+
+<Description />
+
+## Setup Instructions
+
+To use the `FancyCodeVerificationInput` in your project, follow these steps:
+
+1. Import the `FancyCodeVerificationInput` component where you intend to use it:
+
+```jsx
+import { FancyCodeVerificationInput } from 'fui-fancyui';
+```
+
+2. If using TypeScript, you can import the type definitions for prop validation:
+
+```jsx
+import { TFancySingleInputs, TFancySingleInputsWithHTMLAttrs } from 'fui-fancyui';
+```
+
+### Example Usage
+
+```jsx
+import React from 'react';
+import { FancyCodeVerificationInput } from 'fui-fancyui';
+
+function App() {
+  const handleVerification = (code) => {
+    // API call or validation logic here
+    console.log(code);
+  };
+
+  return (
+    <FancyCodeVerificationInput
+      length={6}
+      errorMessage="Invalid code"
+      isSuccess={false}
+      handler={handleVerification}
+      automaticCase="upper"
+      debounceTime={500}
+    />
+  );
+}
+```
+
+<Canvas />
+
+### Component Properties
+
+<Controls />
+
+### List of Used Components
+
+- **SingleInputs**: A component for rendering individual input fields for code entry. It handles the presentation and input of single characters, with support for customization such as length and automatic case conversion.
+- **Typography**: Utilized for displaying text within the component, such as error messages, with styling based on the theme.
