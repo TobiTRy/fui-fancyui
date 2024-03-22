@@ -2,7 +2,7 @@
 import { Meta, StoryObj } from '@storybook/react';
 
 // Import the component to be tested
-import FancyDateInput from './FancyDateInput';
+import FancyDateInput from '../FancyDateInput';
 import { SVGCheckMark } from '@/components/icons/SVGCheckMark';
 
 // Define metadata for the story
@@ -11,7 +11,8 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component: 'Dumb-Comonent: A fancy date input with label, icon and error message and more',
+        component:
+          '`FancyDateInput` is a customizable date input component for React applications, encapsulating functionality such as displaying an icon, a label, system messages, and handling various input states like active, disabled, and filled. It´s designed to provide a richer user experience compared to standard date inputs.',
       },
     },
   },
@@ -120,8 +121,6 @@ const meta = {
       },
     },
   },
-  // Add tags to the story
-  tags: ['autodocs'],
 } satisfies Meta<typeof FancyDateInput>;
 
 // Export the metadata
