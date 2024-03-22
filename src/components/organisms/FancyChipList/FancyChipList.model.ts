@@ -1,10 +1,11 @@
 import { TLayer } from '@/types/TLayer';
-import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
+import { TUiColorsMain } from '@/types/TUiColorsMain';
+
 import { TUiColorsSystemMessage } from '@/types/TUiColorsSystemMessage';
 
 // Defining the interface for the component's props
-export interface ChipListProps {
-  themeType?: TUiColorsNotTransparent;
+export type TFancyChipList = {
+  themeType?: TUiColorsMain;
   systemInformation?: TUiColorsSystemMessage;
   layer?: TLayer;
   outlined?: boolean;
@@ -14,7 +15,7 @@ export interface ChipListProps {
   sizeC?: 'sm' | 'md' | 'lg';
   editable?: boolean;
   handler?: (chips: TChip[]) => void;
-}
+};
 
 // Define the type for the chips with an id and label
 export type TChip = {

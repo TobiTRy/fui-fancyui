@@ -1,22 +1,22 @@
-import React from 'react';
-
 import type { Meta, StoryObj } from '@storybook/react';
 
 import FancyChipList from '../FancyChipList';
+import templateThemeType from '@/stories/templateSettingsForStorys/templatesForThemeType';
 
 const meta = {
   component: FancyChipList,
+  title: 'components/organisms/FancyChipList',
   parameters: {
     docs: {
       description: {
         component:
-          'Dumb-Comonent:  A Component that act like a tag list. It can be used to display tags/chips for some Informations.',
+          'The FancyChipList component is designed for managing a dynamic list of chips (small interactive elements). It allows users to add, edit, and delete chips, which can be useful for tags, categories, contacts, or other lists. The component also supports customizable themes, sizes, and other settings.',
       },
     },
   },
   argTypes: {
     sizeC: {
-      description: 'Size of the ChipList',
+      description: 'Size of the ChipList/Chips',
       control: {
         type: 'select',
         options: ['sm', 'md', 'lg'],
@@ -36,6 +36,7 @@ const meta = {
     },
     systemInformation: {
       description: 'The SystemInformation that should be displayed',
+      options: ['success', 'error', 'warning', 'info', undefined],
       control: {
         type: 'select',
       },
@@ -46,20 +47,26 @@ const meta = {
         type: 'boolean',
       },
     },
-    layer: {
-      description: 'The Layer of the ChipList',
+    ...templateThemeType('mainThemeTypes', 'primary', 1),
+    handler: {
+      description: 'Callback function that handles the current state of chips',
       control: {
-        type: 'select',
+        type: 'function',
       },
     },
-    themeType: {
-      description: 'The ThemeType of the ChipList',
+    editable: {
+      description: 'If the ChipList should be editable',
       control: {
-        type: 'select',
+        type: 'boolean',
+      },
+    },
+    inputPlaceholder: {
+      description: 'The Placeholder of the ChipList',
+      control: {
+        type: 'text',
       },
     },
   },
-  tags: ['autodocs'],
 } satisfies Meta<typeof FancyChipList>;
 
 export default meta;
@@ -68,8 +75,30 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   render: (args) => <FancyChipList {...args} />,
   args: {
-    chips: ['12', '1212', '1212', '121221', '121212211', '12121212', '12121212'],
+    chips: [
+      { id: '1', label: 'Chip 1' },
+      { id: '2', label: 'Chip 2' },
+    ],
     sizeC: 'md',
     label: 'ChipList',
+    themeType: 'primary',
+    layer: 1,
+    outlined: false,
+    editable: true,
+    inputPlaceholder: 'Add a chip',
+  },
+};
+
+export const WithoutChips: Story = {
+  render: (args) => <FancyChipList {...args} />,
+  args: {
+    chips: [],
+    sizeC: 'md',
+    label: 'ChipList',
+    themeType: 'primary',
+    layer: 1,
+    outlined: false,
+    editable: true,
+    inputPlaceholder: 'Add a chip',
   },
 };

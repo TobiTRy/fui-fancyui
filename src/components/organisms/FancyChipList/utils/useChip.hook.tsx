@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { TChip } from '@/components/organisms/FancyChipList/FancyChipListProps.model';
+import { TChip } from '@/components/organisms/FancyChipList/FancyChipList.model';
 import { setLastLetterPositionContentEditable } from '@/utils/functions/setLastLetterPositionContentEditable';
 
-const useChip = (chips?: TChip[]) => {
+export const useChip = (chips?: TChip[]) => {
   const [chipState, setChipState] = useState<TChip[]>([]);
   const [focusedChip, setFocusedChip] = useState('');
   const [editabledChip, setEditabledChip] = useState('');
@@ -82,5 +82,3 @@ const useChip = (chips?: TChip[]) => {
     handleClick,
   };
 };
-
-export default useChip;

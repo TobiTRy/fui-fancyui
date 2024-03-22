@@ -4,14 +4,14 @@ import { TLayer } from '@/types/TLayer';
 import { ChipList } from '@/components/molecules/ChipList';
 import { Fieldset } from '@/components/molecules/Fieldset';
 
-import useChip from '@/components/organisms/FancyChipList/utils/useChip.hook';
+import { useChip } from '@/components/organisms/FancyChipList/utils/useChip.hook';
 
 import { FancyChip } from '@/components/templates/FancyChip';
 import { InputLi } from './FancyChipList.style';
-import { ChipListProps } from './FancyChipListProps.model';
+import { TFancyChipList } from './FancyChipList.model';
 
 // The FancyChipList component definition
-export default function FancyChipList(props: ChipListProps) {
+export default function FancyChipList(props: TFancyChipList) {
   // Destructure props and provide default values from defaultProps
   const {
     themeType = 'primary',
