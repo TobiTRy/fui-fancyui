@@ -44,11 +44,4 @@ export const Primary: Story = {
     sizeC: 'md',
     aligned: 'left',
   },
-  parameters: {
-    docs: {
-      description: {
-        story: '',
-      },
-    },
-  },
 };
