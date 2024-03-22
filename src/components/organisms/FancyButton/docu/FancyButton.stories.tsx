@@ -1,11 +1,8 @@
-import React from 'react';
-
 import type { Meta, StoryObj } from '@storybook/react';
 
-import FancyButton from '../FancyButton';
-import { SVGChevronLeft } from '@/components/icons/SVGChevronLeft';
-import templateThemeType from '@/stories/templateSettingsForStorys/templatesForThemeType';
 import { SVGChevronRight } from '@/components/icons/SVGChevronRight';
+import templateThemeType from '@/stories/templateSettingsForStorys/templatesForThemeType';
+import FancyButton from '../FancyButton';
 
 const meta = {
   component: FancyButton,
