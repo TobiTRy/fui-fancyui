@@ -15,11 +15,11 @@ const meta = {
       },
     },
   },
-
   // Define arguments for the story
   argTypes: {
     colorValue: {
       description: 'The color to be displayed. Accepts a Color object or a color string.',
+      type: { name: 'string', required: true },
       control: { type: 'color' },
     },
     opacity: {
@@ -39,9 +39,6 @@ const meta = {
         'Determines the size of the component, affecting its height and potentially other size-related properties.',
       control: { type: 'select' },
       options: ['sm', 'md', 'lg'],
-      defaultValue: {
-        summary: 'sm',
-      },
     },
     children: {
       description:
@@ -58,18 +55,17 @@ type Story = StoryObj<typeof meta>;
 
 // Define the primary story
 export const Primary: Story = {
-  render: (args) => <ColorDisplay {...args} />,
+  render: (args) => (
+    <ColorDisplay {...args}>
+      <ColorDisplay.ColorValue colorValue={'red'} />
+      <ColorDisplay.ClipBoardIcon />
+    </ColorDisplay>
+  ),
   args: {
-    colorValue: 'red',
+    colorValue: '#ffff',
     opacity: 1,
     fullHeight: false,
     sizeC: 'sm',
-    children: (
-      <>
-        <ColorDisplay.ColorValue colorValue={'red'} />
-        <ColorDisplay.ClipBoardIcon />
-      </>
-    ),
   },
 };
 

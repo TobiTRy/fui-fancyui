@@ -1,0 +1,54 @@
+import { Meta, Title, Description, Controls, Canvas } from '@storybook/blocks';
+
+import * as FancyColorDisplay from './FancyColorDisplay.stories';
+
+<Meta of={FancyColorDisplay} />
+
+<Title />
+
+<Description />
+
+## Setup Instructions
+
+To use the `FancyColorDisplay` in your project, follow these steps:
+
+1. Import the `FancyColorDisplay` component where you intend to use it:
+
+```jsx
+import { FancyColorDisplay } from 'fui-fancyui';
+```
+
+2. If using TypeScript, you can import the type definitions for prop validation:
+
+```jsx
+import { TFancyColorDisplay } from 'fui-fancyui';
+```
+
+## Example Usage
+
+```jsx
+<FancyColorDisplay
+  colorValue="#FF5733"
+  opacity={0.8}
+  fullHeight
+  borderRadius="5px"
+  sizeC="md"
+  showClipboard={true}
+  showText={true}
+/>
+```
+
+This example creates a `FancyColorDisplay` component with a specified color value, opacity, size, and shape. It also enables the display of the clipboard icon and the color value text.
+
+<Canvas />
+
+## Component Properties
+
+<Controls />
+
+## List of Used Components
+
+- **ColorDisplay.ClipBoardIcon**: A sub-component of `ColorDisplay` that renders a clipboard icon. Its visibility and size can be controlled.
+- **ColorDisplay.ColorValue**: A sub-component of `ColorDisplay` that displays the color's value. Its visibility and size can be controlled.
+
+The `FancyColorDisplay` component elegantly combines functionality and design to enhance user interaction with color displays, making it a versatile tool for any UI designer or developer.

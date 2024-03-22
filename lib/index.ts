@@ -105,6 +105,7 @@ export * from '@/components/molecules/LabeledInput';
 // ---------- Organisms ------- //
 export * from '@/components/organisms/FancyButton';
 export * from '@/components/organisms/FancyColorPicker';
+export * from '@/components/organisms/FancyColorDisplay';
 export * from '@/components/templates/FancyDatePicker';
 export * from '@/components/organisms/FancyDropDownMenue';
 export * from '@/components/organisms/FancyDropDownSelect';

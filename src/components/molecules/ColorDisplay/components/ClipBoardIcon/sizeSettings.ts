@@ -17,7 +17,7 @@ export const sizeSettings: TSizeSettings<TSizeObj> = {
     spaceRight: 'xs',
   },
   lg: {
-    iconSize: 'xs',
+    iconSize: 'xxs',
     spaceRight: 'sm',
   },
 };

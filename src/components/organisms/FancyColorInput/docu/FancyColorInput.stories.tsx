@@ -3,6 +3,7 @@ import Color from 'color';
 import type { Meta, StoryObj } from '@storybook/react';
 
 import FancyColorInput from '../FancyColorInput';
+import templateThemeType from '@/stories/templateSettingsForStorys/templatesForThemeType';
 
 const meta = {
   component: FancyColorInput,
@@ -55,6 +56,7 @@ const meta = {
         type: 'select',
       },
     },
+    ...templateThemeType('mainThemeTypes', 'primary', 3),
   },
 } satisfies Meta<typeof FancyColorInput>;
 
@@ -67,6 +69,8 @@ export const Primary: Story = {
   args: {
     pickedColor: Color('#ff0000'),
     opacity: 1,
+    themeType: 'primary',
+    layer: 2,
     colorTypeHandler: (colorType: string) => console.log(colorType),
     handler: (color: Color) => console.log(color),
     handlerOpacity: (opacity: number) => console.log(opacity),

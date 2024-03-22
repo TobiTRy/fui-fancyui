@@ -10,9 +10,9 @@ export const sizeSettings: TSizeSettings<TSizeObj> = {
     typographyVariant: 'subTextFootnote',
   },
   md: {
-    typographyVariant: 'interactiveMd',
+    typographyVariant: 'bodytextSm',
   },
   lg: {
-    typographyVariant: 'interactiveLg',
+    typographyVariant: 'interactiveMd',
   },
 };
