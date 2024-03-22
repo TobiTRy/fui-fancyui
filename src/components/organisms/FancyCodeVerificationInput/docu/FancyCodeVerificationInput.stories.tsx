@@ -7,7 +7,7 @@ import React, { useEffect } from 'react';
 
 // Define metadata for the story
 const meta = {
-  title: 'FancyCodeVerificationInput',
+  title: 'components/organisms/FancyCodeVerificationInput',
   component: FancyCodeVerificationInput,
   // Define arguments for the story
   parameters: {
@@ -18,7 +18,6 @@ const meta = {
       },
     },
   },
-
   argTypes: {
     handler: {
       description: 'Callback function for the search value',
