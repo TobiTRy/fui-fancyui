@@ -17,7 +17,7 @@ const meta = {
   },
   // Define arguments for the story
   argTypes: {
-    rounded: {
+    borderRadius: {
       type: {
         name: 'string',
         required: false,
@@ -67,7 +67,7 @@ export const Primary: Story = {
   render: (args) => <FancyProfilePicture {...args} />,
   args: {
     src: 'https://avatars.githubusercontent.com/u/54409958?v=4',
-    rounded: 'complete',
+    borderRadius: 'complete',
     sizeC: 'md',
     alt: '',
   },
@@ -76,12 +76,12 @@ export const Primary: Story = {
 export const Avatar: Story = {
   render: (args) => <FancyProfilePicture {...args} />,
   args: {
-    rounded: 'complete',
+    borderRadius: 'complete',
     sizeC: 'md',
     alt: '',
     textAvatarSettings: {
       sizeC: 'md',
-      rounded: 'complete',
+      borderRadius: 'complete',
       themeType: 'secondary',
     },
   },
