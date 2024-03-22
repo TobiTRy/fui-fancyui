@@ -2,7 +2,7 @@ import React from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
-import FancyChipList from './FancyChipList';
+import FancyChipList from '../FancyChipList';
 
 const meta = {
   component: FancyChipList,
