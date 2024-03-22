@@ -13,7 +13,7 @@ const meta = {
     docs: {
       description: {
         component:
-          'Dumb-Component: The MenueItem is only a Box with some styles you can use it to build your own MenueList or something else',
+          ' The MenueItem is only a Box with some styles you can use it to build your own MenueList or something else',
       },
     },
   },
