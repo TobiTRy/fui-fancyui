@@ -14,4 +14,4 @@ export type TFancyPill = {
   isHoverable?: boolean;
 };
 
-export type IFancyPillProps = TFancyPill & React.HTMLAttributes<HTMLDivElement>;
+export type TFancyPillWithHTMLAttrs = TFancyPill & React.HTMLAttributes<HTMLDivElement>;
