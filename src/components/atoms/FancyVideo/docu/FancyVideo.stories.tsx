@@ -61,11 +61,4 @@ export const Primary: Story = {
     aspectRatio: '16/9',
     muted: false,
   },
-  parameters: {
-    docs: {
-      description: {
-        story: '',
-      },
-    },
-  },
 };
