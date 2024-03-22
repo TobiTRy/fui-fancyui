@@ -1,0 +1,58 @@
+import { Meta, Title, Description, Canvas, Controls } from '@storybook/blocks';
+
+import * as FancyColorPickerStories from './FancyColorPicker.stories';
+
+<Meta of={FancyColorPickerStories} />
+
+<Title />
+
+<Description />
+
+## Setup Instructions
+
+To use the `FancyColorPicker` in your project, follow these steps:
+
+1. Import the `FancyColorPicker` component where you intend to use it:
+
+```jsx
+import { FancyColorPicker } from 'fui-fancyui';
+```
+
+2. If using TypeScript, you can import the type definitions for prop validation:
+
+```jsx
+import { TFancyColorPickerWithHTMLAttrs, TFancyColorPicker } from 'fui-fancyui';
+```
+
+After installing the required library, you can import and use the `FancyColorInput` component in your project as follows:
+
+### Example Usage
+
+```jsx
+import React from 'react';
+import { FancyColorPicker } from 'fui-fancyui';
+
+const App = () => {
+  const handleColorChange = (color) => {
+    console.log(color);
+  };
+
+  return <FancyColorPicker inputColor="#ff0000" outputFormat="hex" displayColor={true} handler={handleColorChange} />;
+};
+
+export default App;
+```
+
+<Canvas />
+
+### Component Properties
+
+<Controls />
+
+### List of Used Components
+
+- **FancyColorArea**: A UI component for selecting a color by clicking or dragging within a color gradient area.
+- **FancyHueSlider**: A slider component for adjusting the hue value of the selected color.
+- **FancyOpacitySlider**: A slider for adjusting the opacity level of the selected color.
+- **FancyColorDisplay**: Displays the currently selected color along with its opacity.
+- **FancyColorInput**: Allows users to input a color value manually in the specified format and adjusts the opacity.
