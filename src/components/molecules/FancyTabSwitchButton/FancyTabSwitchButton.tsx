@@ -10,8 +10,21 @@ import { TFancyTabSwitchButton } from './TFancyTabSwitchButton.model';
 // ------------- main component for the tab (li item) --------------- //
 // ------------------------------------------------------------------ //
 const FancyTabSwitchButton = React.forwardRef<HTMLDivElement, TFancyTabSwitchButton>((props, ref) => {
-  const { disabled, selected, onClick, iconAlign, sizeC, itemKey, label, icon, children, externalStyle, ...HTMLProps } =
-    props;
+  const {
+    disabled,
+    selected,
+    onClick,
+    iconAlign,
+    sizeC,
+    itemKey,
+    label,
+    icon,
+    children,
+    externalStyle,
+    themeType,
+    layer,
+    ...HTMLProps
+  } = props;
 
   const id = useId();
 
@@ -20,6 +33,8 @@ const FancyTabSwitchButton = React.forwardRef<HTMLDivElement, TFancyTabSwitchBut
       ref={ref}
       role="radio"
       $sizeC={sizeC}
+      $textColor={themeType}
+      $layer={layer}
       $iconAlign={iconAlign}
       $hasIcon={Boolean(icon)}
       $hasLabel={Boolean(label)}

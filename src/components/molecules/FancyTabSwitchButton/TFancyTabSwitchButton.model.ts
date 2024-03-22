@@ -1,7 +1,8 @@
-import { TUiColorTypes } from '@/types/TUiColorTypes';
-import { tabSwitchItemSizes } from './sizeSettings';
-import { CSSProp } from 'styled-components';
+import { TLayer } from '@/types/TLayer';
+import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 import { HTMLAttributes } from 'react';
+import { CSSProp } from 'styled-components';
+import { tabSwitchItemSizes } from './sizeSettings';
 
 export type TTabSwitchDetailsLabelIcon = {
   itemKey: string;
@@ -18,7 +19,8 @@ export type TTabSwitchButton = {
   disabled?: boolean;
   selected: boolean;
   onClick?: (key: string) => void;
-  themeType?: TUiColorTypes;
+  themeType?: TUiColorsNotTransparent;
+  layer?: TLayer;
   iconAlign?: 'left' | 'right';
   sizeC?: keyof typeof tabSwitchItemSizes;
   externalStyle?: CSSProp;

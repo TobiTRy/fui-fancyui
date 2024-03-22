@@ -50,6 +50,10 @@ const meta = {
       description: 'The theme type of the button.',
       control: { type: 'radio' },
     },
+    layer: {
+      description: 'The layer of the button.',
+      control: { type: 'number', min: 0, max: 9 },
+    },
     iconAlign: {
       description: 'The alignment of the icon.',
       control: { type: 'radio' },
