@@ -13,6 +13,7 @@ export default function TabSwitch(props: TTabSwitch) {
   const {
     values,
     textColor,
+    textLayer,
     sizeC,
     wide,
     disabled,
@@ -73,6 +74,7 @@ export default function TabSwitch(props: TTabSwitch) {
             sizeC={sizeC}
             disabled={disabled}
             themeType={textColor}
+            layer={textLayer}
             iconAlign={iconAlign}
             {...item}
             ref={buttonRefs.current[i]}

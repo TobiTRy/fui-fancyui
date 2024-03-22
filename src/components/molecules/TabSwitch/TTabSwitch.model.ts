@@ -5,11 +5,13 @@ import { TComponentSizes } from '@/types/TComponentSizes';
 import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 import { TActiveSwitchIndicator } from '@/components/atoms/SwitchActiveIndicator';
 import { TTabSwitchDetailsChildren, TTabSwitchDetailsLabelIcon } from '@/components/molecules/FancyTabSwitchButton';
+import { TLayer } from '@/types/TLayer';
 
 export type TTabSwitch = {
   wide?: boolean;
   sizeC?: TComponentSizes;
   textColor?: TUiColorsNotTransparent;
+  textLayer?: TLayer;
   disabled?: boolean;
   tabSpacing?: TSpacings;
   values: TTabSwitchDetailsChildren[] & TTabSwitchDetailsLabelIcon[];

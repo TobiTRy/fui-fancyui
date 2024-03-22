@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import TabSwitch from '../TabSwitch';
-import templateThemeType from '@/stories/templateSettingsForStorys/templatesForThemeType';
 
 const meta = {
   component: TabSwitch,
@@ -28,7 +27,10 @@ const meta = {
       description: 'The color of the text.',
       control: { type: 'select' },
     },
-    ...templateThemeType('allThemeTypes', 'primary', 1),
+    textLayer: {
+      description: 'The layer of the text.',
+      control: { type: 'number', min: 0, max: 9 },
+    },
     tabSpacing: {
       description: 'The spacing between tabs.',
       control: { type: 'select' },
