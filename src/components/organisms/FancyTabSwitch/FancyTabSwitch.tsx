@@ -6,13 +6,26 @@ import { TabSwitch } from '@/components/molecules/TabSwitch';
 import { FancyBox } from '@/components/atoms/FancyBox';
 
 import { tabSwitchSizes } from '@/components/molecules/TabSwitch/TabSwitch.style';
-import { ITabSwitchProps } from '@/components/molecules/TabSwitch/TTabSwitch.model';
+import { TFancyTabSwitch } from './TFancyTabSwitch.model';
 
 // --------------------------------------------------------------------------- //
 // -----  The FancyTabswich has more advanced features like Label etc. ------- //
 // --------------------------------------------------------------------------- //
-export default function FancyTabSwitch(props: ITabSwitchProps & { label?: string }) {
-  const { values, label, layer = 3, themeType, sizeC, disabled, outlined, rounded, wide, ...tabSwitchProps } = props;
+export default function FancyTabSwitch(props: TFancyTabSwitch) {
+  const {
+    values,
+    label,
+    textLayer = 3,
+    themeType,
+    layer,
+    textColor,
+    sizeC,
+    disabled,
+    outlined,
+    rounded,
+    wide,
+    ...tabSwitchProps
+  } = props;
 
   /* Generate the unordered list for the tab switch */
   return (
@@ -30,11 +43,11 @@ export default function FancyTabSwitch(props: ITabSwitchProps & { label?: string
         `}
       >
         <TabSwitch
-          layer={layer}
+          textLayer={textLayer}
           values={values}
           outlined={outlined}
           rounded={rounded}
-          themeType={themeType}
+          textColor={textColor}
           wide={wide}
           sizeC={sizeC}
           {...tabSwitchProps}
