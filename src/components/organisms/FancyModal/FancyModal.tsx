@@ -1,24 +1,13 @@
-import { useFancyModalStore } from './FancyModal.state';
 import { Modal } from '@/components/molecules/Modal';
 import { FancyPortal } from '@/components/shared/FancyPortal';
 
-// ---------- How to use the Module ------- //
-//--- use it
-// Append this module to the root of the app you dont need to pass any props
-// just use the useModalModuleStore to open a modal
-//--- open modal
-// useModalModuleStore.openModal( 'ID', <JSXComponent/> , '{CONFIG OBJECT})
-//--- close modal
-// when you want to close the modal with a custom button just use the closeModal function with the "ID" of the modal
-// useModalModuleStore.closeModal('id')
+import { TFancyModal } from './TFancyModal.modal';
+import { useFancyModalStore } from './FancyModal.state';
 
 // --------------------------------------------------------------------------- //
 // ----------------- The modalModule to build up a Moadal  ------------------- //
 // --------------------------------------------------------------------------- //
-interface IFancyModal {
-  appendToDomID: string;
-}
-export default function FancyModal({ appendToDomID }: IFancyModal) {
+export default function FancyModal({ appendToDomID }: TFancyModal) {
   const modals = useFancyModalStore((state) => state.modals);
   const closeModal = useFancyModalStore((state) => state.closeModal);
   const removeModal = useFancyModalStore((state) => state.removeModal);

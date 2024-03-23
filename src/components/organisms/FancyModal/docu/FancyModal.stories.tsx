@@ -2,11 +2,11 @@
 import { Meta, StoryObj } from '@storybook/react';
 
 // Import the component to be tested
-import FancyModal from './FancyModal';
-import { useFancyModalStore } from './FancyModal.state';
-import { FancyButton } from '../FancyButton';
-import { TModal } from '../../molecules/Modal';
-import { FancyTextInput } from '../FancyTextInput';
+import FancyModal from '../FancyModal';
+import { useFancyModalStore } from '../FancyModal.state';
+import { FancyButton } from '../../FancyButton';
+import { TModal } from '../../../molecules/Modal';
+import { FancyTextInput } from '../../FancyTextInput';
 
 // Define metadata for the story
 const meta = {
@@ -14,7 +14,8 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component: 'Smart-Comonent: The FancyModal is a smart component that handles all the logic for the Modal.',
+        component:
+          'FancyModal is a React component designed to manage and display modals in a flexible and efficient manner. It utilizes a global state management solution, provided by Zustand, to handle the visibility and content of modals across the application. The component leverages a FancyPortal to render modals outside of the main app container, which helps in avoiding common styling and event bubbling issues. This setup allows for a clean and isolated modal presentation, with support for dynamic content and configuration.',
       },
     },
   },

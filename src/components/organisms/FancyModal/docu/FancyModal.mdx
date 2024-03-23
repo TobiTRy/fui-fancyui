@@ -1,8 +1,12 @@
-## FancyModal Documentation
+import { Meta, Title, Description, Controls, Canvas } from '@storybook/blocks';
 
-### Overview
+import * as FancyModalStoies from './FancyModal.stories';
 
-The FancyModal component, streamlined with the `useFancyModalStore`, presents a modern approach to creating and managing modals in your applications. This approach simplifies the integration process by handling modal configurations automatically, allowing developers to effortlessly incorporate modals without the complications of manual prop settings.
+<Meta of={FancyModalStoies} />
+
+<Title />
+
+<Description />
 
 ### Setting Up FancyModal
 
@@ -24,7 +28,7 @@ The FancyModal component, streamlined with the `useFancyModalStore`, presents a 
 
    Within the component where you plan to initiate the modal, start by importing the `useFancyModalStore`.
 
-   ```javascript
+   ```jsx
    const openModal = useFancyModalStore((state) => state.openModal);
    ```
 
@@ -36,7 +40,7 @@ The FancyModal component, streamlined with the `useFancyModalStore`, presents a 
    - Child components: The specific content or components you want to show within the modal.
    - Configuration object: This sets various modal properties.
 
-   ```javascript
+   ```jsx
    const openModalHandler = () => {
      openModal(
        'modalTest',
@@ -55,11 +59,13 @@ The FancyModal component, streamlined with the `useFancyModalStore`, presents a 
 
    To terminate an active modal, use the `closeModal` method from the `useFancyModalStore`.
 
-   ```javascript
+   ```jsx
    const closeModal = useFancyModalStore((state) => state.closeModal);
    ```
 
    Subsequently, invoke `closeModal` using the ID of the modal you wish to shut, as depicted in the `openModalHandler` example.
+
+<Canvas />
 
 ### Configuration Options
 
