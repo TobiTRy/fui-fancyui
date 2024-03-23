@@ -1,0 +1,58 @@
+import { Meta, Title, Description, Controls, Canvas } from '@storybook/blocks';
+
+import * as FancyDropDownMenueStories from './FancyDropDownMenue.stories';
+
+<Meta of={FancyDropDownMenueStories} />
+
+<Title />
+
+<Description />
+
+## Setup Instructions
+
+To use the `FancyDropDownMenue` in your project, follow these steps:
+
+1. Import the `FancyDropDownMenue` component where you intend to use it:
+
+```jsx
+import { FancyDropDownMenue } from 'fui-fancyui';
+```
+
+2. If using TypeScript, you can import the type definitions for prop validation:
+
+```jsx
+import { TFancyDropDownMenue } from 'fui-fancyui';
+```
+
+After installing the required library, you can import and use the `FancyDropDownMenue` component in your project as follows:
+
+```jsx
+import React from 'react';
+import { FancyDropDownMenue } from 'fui-fancyui';
+
+function App() {
+  // Define the isOpen state or fetch it from a global state/store
+  const [isOpen, setIsOpen] = React.useState(false);
+
+  // Function to toggle dropdown visibility
+  const toggleDropdown = () => setIsOpen(!isOpen);
+
+  return (
+    <div>
+      <button onClick={toggleDropdown}>Toggle Dropdown</button>
+      <FancyDropDownMenue isOpen={isOpen} />
+    </div>
+  );
+}
+```
+
+<Canvas />
+
+### Component Properties
+
+<Controls />
+
+### List of Used Components
+
+- **FancyDropDownUL**: A component that renders the dropdown list itself. It accepts properties to customize its appearance and behavior, such as openness state and theme.
+- **Delay**: A shared utility component that introduces a delay before rendering its children, based on a given delay time and an external state. It enhances the user experience by preventing abrupt visual changes.
