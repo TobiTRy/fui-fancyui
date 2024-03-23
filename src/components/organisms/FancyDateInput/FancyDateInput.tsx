@@ -1,6 +1,6 @@
 import { useId, useState } from 'react';
 
-import DateInput from '@/components/atoms/DateInput/DateInput';
+import { DateInput } from '@/components/atoms/DateInput';
 import { InputWrapper } from '@/components/molecules/InputWrapper';
 import { TFancyDateInput } from '@/components/organisms/FancyDateInput';
 import { getOpositMainThemeType } from '@/design/designFunctions/getOpositMainThemeType';

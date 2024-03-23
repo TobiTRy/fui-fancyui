@@ -13,7 +13,7 @@ type ThemeOptionsMap = {
   mainThemeTypes: TUiColorsMain;
 };
 
-const mainThemeTypes: TUiColorsMain[] = ['primary', 'secondary', 'accent'];
+const mainThemeTypes: TUiColorsMain[] = ['primary', 'secondary'];
 const allThemeTypes: TUiColorTypes[] = ['primary', 'secondary', 'accent', 'info', 'success', 'warning', 'error'];
 const systemMessage: TUiColorsSystemMessage[] = ['error', 'warning', 'info', 'success'];
 const notTransparent: TUiColorsNotTransparent[] = [

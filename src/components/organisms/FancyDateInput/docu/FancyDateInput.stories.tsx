@@ -4,10 +4,13 @@ import { Meta, StoryObj } from '@storybook/react';
 // Import the component to be tested
 import FancyDateInput from '../FancyDateInput';
 import { SVGCheckMark } from '@/components/icons/SVGCheckMark';
+import { useState } from 'react';
+import templateThemeType from '@/stories/templateSettingsForStorys/templatesForThemeType';
 
 // Define metadata for the story
 const meta = {
   component: FancyDateInput,
+  title: 'components/organisms/FancyDateInput',
   parameters: {
     docs: {
       description: {
@@ -45,27 +48,7 @@ const meta = {
         summary: false,
       },
     },
-    themeType: {
-      description: 'Theme type of the input',
-      control: {
-        type: 'select',
-      },
-      defaultValue: {
-        summary: 'secondary',
-      },
-    },
-    layer: {
-      description: 'Layer of the input',
-      control: {
-        type: 'range',
-        min: 0,
-        max: 9,
-        step: 1,
-      },
-      defaultValue: {
-        summary: 4,
-      },
-    },
+    ...templateThemeType('mainThemeTypes', 'primary', 2),
     systemMessage: {
       description: 'Error message to be displayed',
       control: {
@@ -120,6 +103,45 @@ const meta = {
         summary: false,
       },
     },
+    as: {
+      description: 'The component to render the input as',
+      control: {
+        type: 'as',
+      },
+    },
+    externalStyle: {
+      description: 'External style for the input',
+      control: {
+        type: 'object',
+      },
+    },
+    hasValue: {
+      description: 'Value of the input',
+      control: {
+        type: 'boolean',
+      },
+    },
+    labelVariant: {
+      description: 'Variant of the label',
+      control: {
+        type: 'select',
+      },
+    },
+    outlined: {
+      description: 'Outlined input',
+      control: {
+        type: 'boolean',
+      },
+    },
+    outlinedBackgroundStrength: {
+      description: 'Background strength of the outlined input',
+      control: {
+        min: 0,
+        max: 1,
+        step: 0.1,
+        type: 'number',
+      },
+    },
   },
 } satisfies Meta<typeof FancyDateInput>;
 
@@ -128,14 +150,23 @@ export default meta;
 // Define the story object
 type Story = StoryObj<typeof meta>;
 
+const HelperFunctions = (props: any) => {
+  const [value, setValue] = useState('');
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setValue(e.target.value);
+  };
+  return <FancyDateInput value={value} onChange={handleChange} {...props} />;
+};
+
 // Define the primary story
 export const Primary: Story = {
-  render: (args) => <FancyDateInput {...args} />,
+  render: (args) => <HelperFunctions {...args} />,
   args: {
     label: 'Date',
     align: 'left',
     disabled: false,
-    placeholder: new Date().toLocaleDateString(),
+    placeholder: 'PlaceHolder',
     themeType: 'primary',
     layer: 2,
     icon: <SVGCheckMark />,
@@ -143,7 +174,7 @@ export const Primary: Story = {
 };
 
 export const WithErrorState: Story = {
-  render: (args) => <FancyDateInput {...args} />,
+  render: (args) => <HelperFunctions {...args} />,
   args: {
     label: 'Date',
     align: 'left',
@@ -158,7 +189,7 @@ export const WithErrorState: Story = {
 };
 
 export const WithSuccessState: Story = {
-  render: (args) => <FancyDateInput {...args} />,
+  render: (args) => <HelperFunctions {...args} />,
   args: {
     label: 'Date',
     align: 'left',
@@ -173,7 +204,7 @@ export const WithSuccessState: Story = {
 };
 
 export const WithInfoState: Story = {
-  render: (args) => <FancyDateInput {...args} />,
+  render: (args) => <HelperFunctions {...args} />,
   args: {
     label: 'Date',
     align: 'left',
