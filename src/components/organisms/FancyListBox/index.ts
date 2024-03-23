@@ -1,2 +1,3 @@
 export { default as FancyListBox } from './FancyListBox';
-export type { TFancyListBox } from './TFancyListBox.model';
+
+export type { TFancyListBox, TFancyListBoxWithListBoxAttrs } from './TFancyListBox.model';

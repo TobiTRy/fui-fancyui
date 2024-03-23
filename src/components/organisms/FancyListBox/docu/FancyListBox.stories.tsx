@@ -2,16 +2,18 @@
 import { Meta, StoryObj } from '@storybook/react';
 
 // Import the component to be tested
-import FancyListBox from './FancyListBox';
+import FancyListBox from '../FancyListBox';
+import templateThemeType from '@/stories/templateSettingsForStorys/templatesForThemeType';
 
 // Define metadata for the tsory
 const meta = {
   component: FancyListBox,
+  title: 'components/organisms/FancyListBox',
   parameters: {
     docs: {
       description: {
         component:
-          'The FancyListBox is for displaying a list of items with a seperator between each item. It can also have a title.',
+          '`FancyListBox` is a customizable React component designed to render a list with provided items, enhancing the visual appeal with themes, separators, titles, and various item settings. It utilizes several sub-components and utilities to offer a rich and flexible user interface.',
       },
     },
   },
@@ -26,30 +28,11 @@ const meta = {
         summary: 'md',
       },
     },
-    themeType: {
-      description: 'The theme of the list',
-      control: {
-        type: 'select',
-      },
-      defaultValue: {
-        summary: 'primary',
-      },
-    },
-    layer: {
-      description: 'The layer of the list',
-      control: {
-        type: 'range',
-        min: 0,
-        max: 9,
-      },
-      defaultValue: {
-        summary: '2',
-      },
-    },
+    ...templateThemeType('mainThemeTypes', 'primary', 2),
     borderRadius: {
       description: 'The border radius of the list',
       control: {
-        type: 'select',
+        type: 'object',
       },
     },
     seperator: {
@@ -92,8 +75,6 @@ const meta = {
       },
     },
   },
-  // Add tags to the story
-  tags: ['autodocs'],
 } satisfies Meta<typeof FancyListBox>;
 
 // Export the metadata
@@ -103,6 +84,23 @@ type Story = StoryObj<typeof meta>;
 
 // Define the primary story
 export const Primary: Story = {
+  render: (args) => (
+    <FancyListBox {...args}>
+      <p>Hi</p>
+      <p>Hi</p>
+      <p>Hi</p>
+      <p>Hi</p>
+      <p>Hi</p>
+      <p>Hi</p>
+    </FancyListBox>
+  ),
+  args: {
+    themeType: 'primary',
+    layer: 2,
+  },
+};
+
+export const WithMoreApplyedProps: Story = {
   render: (args) => (
     <FancyListBox {...args}>
       <p>Hi</p>
@@ -124,6 +122,7 @@ export const Primary: Story = {
     },
     boxTitle: {
       title: {
+        variant: 'bodytextLg',
         children: 'Title',
       },
       titleAlign: 'left',
