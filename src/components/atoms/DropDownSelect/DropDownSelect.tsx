@@ -5,10 +5,10 @@ import { SelectField } from './DropDownSelect.style';
 // ---------------- the blank drop down select ---------------------- //
 // ------------------------------------------------------------------ //
 export default function DropDownSelect(props: TDropDownSelect & TDropDownSelectNativeAttrs) {
-  const { values, value, placeholder, children, align, onChange, emptySelect = true, ...htmlInputProps } = props;
+  const { values, value, placeholder, children, align = 'left', emptySelect = true, ...htmlInputProps } = props;
 
   return (
-    <SelectField $align={align} $labelAlign={align} value={value || ''} onChange={onChange} {...htmlInputProps}>
+    <SelectField $align={align} $labelAlign={align} value={value || ''} {...htmlInputProps}>
       {/* Placeholder option */}
       {placeholder && (
         <option key="-2" value="">

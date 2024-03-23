@@ -2,17 +2,21 @@
 import { Meta, StoryObj } from '@storybook/react';
 
 // Import the component to be tested
-import FancyDropDownSelect from './FancyDropDownSelect';
+import FancyDropDownSelect from '../FancyDropDownSelect';
 
-import SVGCheckMark from '../../icons/SVGCheckMark/SVGCheckMark';
+import SVGCheckMark from '../../../icons/SVGCheckMark/SVGCheckMark';
+import templateThemeType from '@/stories/templateSettingsForStorys/templatesForThemeType';
+import { useState } from 'react';
 
 // Define metadata for the story
 const meta = {
   component: FancyDropDownSelect,
+  title: 'components/organisms/FancyDropDownSelect',
   parameters: {
     docs: {
       description: {
-        component: 'Dumb-Comonent: A fancy dropdown select with label, icon and error message and more',
+        component:
+          'The FancyDropDownSelect component is an enhanced dropdown select input that integrates additional UI features such as icons, labels, and an underline. It is designed to provide a more visually appealing and user-friendly interface for selection inputs. The component is built on top of the basic DropDownSelect component and is wrapped with the InputWrapper to include these extra UI enhancements.',
       },
     },
   },
@@ -23,17 +27,11 @@ const meta = {
       control: {
         type: 'text',
       },
-      defaultValue: {
-        summary: '',
-      },
     },
     placeholder: {
       description: 'Placeholder for the input',
       control: {
         type: 'text',
-      },
-      defaultValue: {
-        summary: '',
       },
     },
     disabled: {
@@ -54,27 +52,7 @@ const meta = {
         summary: 'left',
       },
     },
-    themeType: {
-      description: 'Theme type of the input',
-      control: {
-        type: 'select',
-      },
-      defaultValue: {
-        summary: 'secondary',
-      },
-    },
-    layer: {
-      description: 'Layer of the input',
-      control: {
-        type: 'range',
-        min: 0,
-        max: 9,
-        step: 1,
-      },
-      defaultValue: {
-        summary: 4,
-      },
-    },
+    ...templateThemeType('mainThemeTypes', 'primary', 2),
     isActive: {
       description: 'Is the input in focus',
       control: {
@@ -89,17 +67,11 @@ const meta = {
       control: {
         type: 'object',
       },
-      defaultValue: {
-        summary: '',
-      },
     },
     values: {
       description: 'Values for the dropdown',
       control: {
         type: 'array',
-      },
-      defaultValue: {
-        summary: [],
       },
     },
     value: {
@@ -107,17 +79,11 @@ const meta = {
       control: {
         type: 'text',
       },
-      defaultValue: {
-        summary: '',
-      },
     },
     emptySelect: {
       description: 'A Empty Item that is selectable',
       control: {
         type: 'boolean',
-      },
-      defaultValue: {
-        summary: false,
       },
     },
     transparentBackground: {
@@ -125,13 +91,8 @@ const meta = {
       control: {
         type: 'boolean',
       },
-      defaultValue: {
-        summary: false,
-      },
     },
   },
-  // Add tags to the story
-  tags: ['autodocs'],
 } satisfies Meta<typeof FancyDropDownSelect>;
 
 // Export the metadata
@@ -139,19 +100,41 @@ export default meta;
 // Define the story object
 type Story = StoryObj<typeof meta>;
 
+const HelperFunctionForState = (args: any) => {
+  const [value, setValue] = useState('');
+
+  const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setValue(e.target.value);
+  };
+
+  return <FancyDropDownSelect value={value} onChange={changeHandler} {...args} />;
+};
+
 // Define the primary story
 export const Primary: Story = {
-  render: (args) => <FancyDropDownSelect {...args} />,
+  render: (args) => <HelperFunctionForState {...args} />,
   args: {
     icon: <SVGCheckMark />,
     label: 'Label',
-    placeholder: 'Placeholder',
     values: ['test1', 'test2', 'test3'],
   },
 };
 
+export const WithKeyValue: Story = {
+  render: (args) => <HelperFunctionForState {...args} />,
+  args: {
+    icon: <SVGCheckMark />,
+    label: 'Label',
+    values: [
+      { key: 'test1', value: 'test1' },
+      { key: 'test2', value: 'test2' },
+      { key: 'test3', value: 'test3' },
+    ],
+  },
+};
+
 export const WithErrorState: Story = {
-  render: (args) => <FancyDropDownSelect {...args} />,
+  render: (args) => <HelperFunctionForState {...args} />,
   args: {
     icon: <SVGCheckMark />,
     label: 'Label',
@@ -165,7 +148,7 @@ export const WithErrorState: Story = {
 };
 
 export const WithSuccessState: Story = {
-  render: (args) => <FancyDropDownSelect {...args} />,
+  render: (args) => <HelperFunctionForState {...args} />,
   args: {
     icon: <SVGCheckMark />,
     label: 'Label',
@@ -179,7 +162,7 @@ export const WithSuccessState: Story = {
 };
 
 export const WithInfoState: Story = {
-  render: (args) => <FancyDropDownSelect {...args} />,
+  render: (args) => <HelperFunctionForState {...args} />,
   args: {
     icon: <SVGCheckMark />,
     label: 'Label',

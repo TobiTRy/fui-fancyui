@@ -1,0 +1,66 @@
+import { Meta, Title, Description, Canvas, Controls } from '@storybook/blocks';
+
+import * as FancyDropDownSelectStories from './FancyDropDownSelect.stories';
+
+<Meta of={FancyDropDownSelectStories} />
+
+<Title />
+
+<Description />
+
+## FancyDropDownSelect Component
+
+### Brief Description
+
+The `FancyDropDownSelect` component is an enhanced dropdown select input that integrates additional UI features such as icons, labels, and an underline. It is designed to provide a more visually appealing and user-friendly interface for selection inputs. The component is built on top of the basic `DropDownSelect` component and is wrapped with the `InputWrapper` to include these extra UI enhancements.
+
+## Setup Instructions
+
+To use the `FancyDropDownSelect` in your project, follow these steps:
+
+1. Import the `FancyDropDownSelect` component where you intend to use it:
+
+```jsx
+import { FancyDropDownSelect } from 'fui-fancyui';
+```
+
+2. If using TypeScript, you can import the type definitions for prop validation:
+
+```jsx
+import { TFancyDropDownSelect } from 'fui-fancyui';
+```
+
+After installing the required library, you can import and use the `FancyDropDownMenue` component in your project as follows:
+
+### Example Usage
+
+```jsx
+<FancyDropDownSelect
+  id="uniqueId"
+  value={selectedValue}
+  onChange={handleChange}
+  placeholder="Select an option"
+  label="Choose Option"
+  icon={<YourIcon />}
+  systemMessage="Required"
+  disabled={false}
+  onFocus={handleFocus}
+  onBlur={handleBlur}
+/>
+```
+
+<Canvas />
+<Canvas of={FancyDropDownSelectStories.WithErrorState} />
+
+<Canvas of={FancyDropDownSelectStories.WithSuccessState} />
+
+<Canvas of={FancyDropDownSelectStories.WithInfoState} />
+
+### Component Properties
+
+<Controls />
+
+### List of Used Components
+
+- **DropDownSelect**: A basic dropdown select component used as the input element within the `FancyDropDownSelect`.
+- **InputWrapper**: A wrapper component that provides additional UI enhancements like icons, labels, and underlines around the `DropDownSelect` to form the `FancyDropDownSelect`.
