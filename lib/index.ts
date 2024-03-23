@@ -61,7 +61,6 @@ export * from '@/components/atoms/TitleForComponent';
 export * from '@/components/molecules/DateNumberWithStatus';
 export * from '@/components/molecules/DateOutputFromTo';
 export * from '@/components/molecules/DynamicBottomScrollBar';
-export * from '@/components/molecules/EditBar';
 export * from '@/components/molecules/FancyDropDownUL';
 export * from '@/components/molecules/FancySpeedDailButton';
 export * from '@/components/molecules/InputWrapper';

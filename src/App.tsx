@@ -11,7 +11,6 @@ import ChipsRoute from './Routes/ChipsRoute/ChipsRoute';
 import ColorGeneratorRoute from './Routes/ColorGeneratorRoute/ColorGeneratorRoute';
 import ColorPickerRoute from './Routes/ColorPickerRoute/ColorPickerRoute';
 import DatePickerRoute from './Routes/DatePickerRoute/DatePickerRoute';
-import EditBarRoute from './Routes/EditBarRoute/EditBarRoute';
 import ExperimentalRoute from './Routes/ExperimentalRoute/ExperimentalRoute';
 import FancyContentRoute from './Routes/FancyContentRoute/FancyContentRoute';
 import FancyDropDownMenueRoute from './Routes/FancyDropDownMenueRoute/FancyDropDownMenueRoute';
@@ -119,9 +118,6 @@ function App() {
                   <Link to="/button">button</Link>
                 </li>
                 <li>
-                  <Link to="/editbar">Editbar</Link>
-                </li>
-                <li>
                   <Link to="/tabswitch">TabSwitch</Link>
                 </li>
                 <li>
@@ -202,7 +198,6 @@ function App() {
               <Route path="/typography" element={<Typogrphy />} />
               <Route path="/button" element={<ButtonRoute />} />
               <Route path="/dropdownmenue" element={<FancyDropDownMenueRoute />} />
-              <Route path="/editbar" element={<EditBarRoute />} />
               <Route path="/tabswitch" element={<TabSwitchRoute />} />
               <Route path="/speeddail" element={<SpeedDailRoute />} />
               <Route path="/handyNav" element={<NavBarHandy />} />
