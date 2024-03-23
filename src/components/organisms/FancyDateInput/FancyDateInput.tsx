@@ -3,6 +3,7 @@ import { useId, useState } from 'react';
 import DateInput from '@/components/atoms/DateInput/DateInput';
 import { InputWrapper } from '@/components/molecules/InputWrapper';
 import { TFancyDateInput } from '@/components/organisms/FancyDateInput';
+import { getOpositMainThemeType } from '@/design/designFunctions/getOpositMainThemeType';
 
 // --------------------------------------------------------------------------- //
 // ----The TextInput Comonent with surrounding icon, label and underline ----- //
@@ -63,7 +64,7 @@ export default function FancyDateInput(props: TFancyDateInput) {
         <DateInput
           id={usedId}
           placeholder={placeholder}
-          themeType={themeType}
+          themeType={getOpositMainThemeType(themeType)}
           layer={layer}
           onChange={(e) => {
             changeHandler(e);
