@@ -1,28 +1,21 @@
 import { FancyBox } from '@/components/atoms/FancyBox';
-import { ListBoxItem } from './ListBoxItem';
 import { generateFancyBoxStyle } from './ListBox.style';
-import { TFancyBoxProps } from '@/components/atoms/FancyBox/FancyBox.model';
-import { TComponentSizes } from '@/types/TComponentSizes';
-import { TThemeArrayCssValues } from '@/design/designFunctions/arrayToCssValues';
+import { ListBoxItem } from './ListBoxItem';
+import { TListBoxWithFancyBoxAttrs } from './TListBox.model';
 
 // --------------------------------------------------------------------------- //
 // ------------- The ListBox is only a Styled list with items  --------------- //
 // --------------------------------------------------------------------------- //
-export type TListBox = {
-  sizeC?: TComponentSizes;
-  borderRadius?: TThemeArrayCssValues;
-  boxShadow?: boolean;
-} & Omit<TFancyBoxProps<'ul'>, 'as'>;
-function ListBox(props: TListBox) {
+function ListBox(props: TListBoxWithFancyBoxAttrs) {
   const { children, sizeC = 'md', externalStyle, borderRadius, boxShadow, ...htmlProps } = props;
 
   return (
     <FancyBox
       as="ul"
+      sizeC={sizeC}
+      borderRadius={borderRadius}
       externalStyle={generateFancyBoxStyle({
-        $borderRadius: borderRadius,
         $externalStyle: externalStyle,
-        $sizeC: sizeC,
         $boxShadow: boxShadow,
       })}
       {...htmlProps}

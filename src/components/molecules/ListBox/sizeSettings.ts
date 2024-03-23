@@ -1,17 +1,18 @@
-export const sizeSettings = {
+import { TThemeArrayOrValueCSS } from '@/design/designFunctions/arrayToCssValues';
+import { TSizeSettings } from '@/types/TSizeSettings';
+
+type TSizeObj = {
+  padding: TThemeArrayOrValueCSS;
+};
+
+export const sizeSettings: TSizeSettings<TSizeObj> = {
   sm: {
-    gap: 'xs' as const,
-    borderRadius: 'sm' as const,
-    padding: 'sm' as const,
+    padding: ['sm', 'md'],
   },
   md: {
-    gap: 'sm' as const,
-    borderRadius: 'md' as const,
-    padding: 'md' as const,
+    padding: ['md', 'lg'],
   },
   lg: {
-    gap: 'md' as const,
-    borderRadius: 'lg' as const,
-    padding: 'lg' as const,
+    padding: ['lg', 'xl'],
   },
 };
