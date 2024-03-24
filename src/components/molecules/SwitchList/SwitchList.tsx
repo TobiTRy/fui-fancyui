@@ -25,7 +25,7 @@ export default function SwitchList(props: TSwitchList) {
 
   // Set the current active item if the whichIndexIsSelected prop changes
   useEffect(() => {
-    setCurrentActive(`${whichIndexIsSelected ? whichIndexIsSelected + 1 : 1}`);
+    setCurrentActive(`${whichIndexIsSelected ? whichIndexIsSelected : 0}`);
   }, [whichIndexIsSelected]);
 
   return (
@@ -42,7 +42,7 @@ export default function SwitchList(props: TSwitchList) {
       {React.Children.map(children, (child, index) => {
         if (React.isValidElement(child)) {
           // Generate a unique key (or use any other unique identifier logic)
-          const uniqueKey = `${index + 1}`;
+          const uniqueKey = `${index}`;
 
           return (
             <FancyFlexBox
