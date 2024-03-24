@@ -5,6 +5,7 @@ import templateThemeType from '@/stories/templateSettingsForStorys/templatesForT
 
 const meta = {
   component: SearchBar,
+  title: 'components/molecules/SearchBar',
   parameters: {
     docs: {
       description: {
