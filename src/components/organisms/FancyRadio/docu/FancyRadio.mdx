@@ -1,0 +1,54 @@
+import { Meta, Title, Description, Canvas, Controls } from '@storybook/blocks';
+
+import * as FancyRadioStories from './FancyRadio.stories';
+
+<Meta of={FancyRadioStories} />
+
+<Title />
+
+<Description />
+
+## Setup Instructions
+
+To use the `FancyRadio` in your project, follow these steps:
+
+1. Import the `FancyRadio` component where you intend to use it:
+
+```jsx
+import { FancyRadio } from 'fui-fancyui';
+```
+
+2. If using TypeScript, you can import the type definitions for prop validation:
+
+```jsx
+import { TFancyRadio } from 'fui-fancyui';
+```
+
+After installing the required library, you can import and use the `FancyDropDownMenue` component in your project as follows:
+
+### Example Usage
+
+```jsx
+<FancyRadio
+  label="Your Label Here"
+  description="Your Description Here"
+  name="yourNameHere"
+  checked={true}
+  themeType="primary"
+/>
+```
+
+This example demonstrates how to use the `FancyRadio` component within a form, providing a labeled radio button with a description.
+
+<Canvas />
+
+### Component Properties
+
+<Controls />
+
+Note: Other standard HTML props can be passed through to the underlying `div` element.
+
+## List of Used Components
+
+- **RawRadio**: A basic radio button component that is used internally within the `FancyRadio`. It provides the core functionality of a radio input.
+- **FancySelectWrapper**: A wrapper component that enhances the radio button with additional styles, alignment options, and incorporates the label and description. It's used to encapsulate the `RawRadio` for a more sophisticated presentation.

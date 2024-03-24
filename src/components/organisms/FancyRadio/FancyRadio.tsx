@@ -3,6 +3,7 @@ import React, { useId } from 'react';
 import { FancySelectWrapper } from '@/components/molecules/FancySelectWrapper';
 import { RawRadio } from '@/components/atoms/RawRadio';
 import { TFancyRadio } from './FancyRadio.model';
+import { getOpositMainThemeType } from '@/design/designFunctions/getOpositMainThemeType';
 
 // --------------------------------------------------------------------------- //
 // --- The FancyRadio is a RadioInput with a Label and description porp   ---- //
@@ -18,8 +19,13 @@ const FancyRadio = React.forwardRef<HTMLDivElement, TFancyRadio>((props, ref) =>
     id: idExternal,
     name,
     value,
+    themeType = 'primary',
+    layer = 2,
+    layerTitle = 0,
+    layerDescription = 2,
     ...HTMLProps
   } = props;
+
   const id = useId();
 
   const pickedId = idExternal ? idExternal : id;
@@ -33,7 +39,20 @@ const FancyRadio = React.forwardRef<HTMLDivElement, TFancyRadio>((props, ref) =>
         description={description}
         align={align}
         alignInput={alignInput}
-        inputElement={<RawRadio name={name} checked={checked} value={value} id={pickedId} readOnly />}
+        themeType={getOpositMainThemeType(themeType)}
+        layer={layerTitle}
+        layerDescription={layerDescription}
+        inputElement={
+          <RawRadio
+            themeType={themeType}
+            layer={layer}
+            name={name}
+            checked={checked}
+            value={value}
+            id={pickedId}
+            readOnly
+          />
+        }
       />
     </div>
   );
