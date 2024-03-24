@@ -50,7 +50,7 @@ export const generateInputContainerStyle = (hasLabel: boolean, hasSytemMessage?:
 // eslint-disable-next-line react-refresh/only-export-components
 export const generateIconStyle = (hasLabel: boolean) => css<{ theme: TTheme }>`
   flex-shrink: 0;
-  margin-top: ${hasLabel ? '12px' : '12px'}; // TODO: Remove that later
+  margin-top: ${hasLabel ? '12px' : '5px'};
   transition: 0.25s;
   align-self: self-start;
 `;
