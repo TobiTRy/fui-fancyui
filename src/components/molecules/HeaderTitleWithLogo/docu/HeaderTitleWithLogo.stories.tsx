@@ -1,5 +1,3 @@
-import React from 'react';
-
 import type { Meta, StoryObj } from '@storybook/react';
 
 import HeaderTitleWithLogo from '../HeaderTitleWithLogo';
@@ -8,16 +6,29 @@ import templateThemeType from '@/stories/templateSettingsForStorys/templatesForT
 
 const meta = {
   component: HeaderTitleWithLogo,
+  title: 'components/molecules/HeaderTitleWithLogo',
   parameters: {
     docs: {
       description: {
         component:
-          'The HeaderTitleWithLogo component creates a header layout that includes a logo and a title. It is highly customizable through properties that control its appearance and behavior, such as theme type and layout layer.',
+          'The HeaderTitleWithLogo component is designed to integrate a logo and a title into a header, providing a unified and visually appealing presentation. It is highly customizable, allowing the adjustment of themes, layers, and additional HTML attributes to fit the needs of various UI designs.',
       },
     },
   },
   argTypes: {
-    ...templateThemeType('allThemeTypes', 'secondary', 1),
+    ...templateThemeType('notTransparent', 'secondary', 1),
+    title: {
+      description: 'The title text to be displayed.',
+      control: {
+        type: 'text',
+      },
+    },
+    logo: {
+      description: 'The logo to be displayed.',
+      control: {
+        type: 'object',
+      },
+    },
   },
 } satisfies Meta<typeof HeaderTitleWithLogo>;
 
