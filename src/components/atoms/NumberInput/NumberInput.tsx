@@ -16,7 +16,7 @@ export default function NumberInput(props: TNumberInput & TNumberInputNativeAttr
     align,
     id,
     autoWidth,
-    decimalPlaces,
+    decimalPlaces = 2,
     step,
     min,
     max,

@@ -33,5 +33,15 @@ export type TInputWrapper = {
 
 export type TInputWrapperUserInputProps = Omit<
   TInputWrapper,
-  'children' | 'id' | 'underline' | 'autoWidth' | 'value' | 'borderRadius' | 'sizeC'
+  | 'children'
+  | 'id'
+  | 'underline'
+  | 'autoWidth'
+  | 'value'
+  | 'borderRadius'
+  | 'sizeC'
+  | 'isActive'
+  | 'hasValue'
+  | 'as'
+  | 'InputElement'
 >;

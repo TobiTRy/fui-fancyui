@@ -74,7 +74,7 @@ export const Primary: Story = {
     align: 'left',
     step: 1,
     value: 0,
-    decimalPlaces: 0,
+    decimalPlaces: 2,
     min: 0,
     max: 100,
   },
