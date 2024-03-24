@@ -43,6 +43,8 @@ export default function FancyHandyNav(props: IFancyHandyNav) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  console.log(wichIndexIsActive);
+
   // handle the visibility of the nav
   useEffect(() => {
     setIsVisible(isVisible ?? true);
@@ -76,6 +78,7 @@ export default function FancyHandyNav(props: IFancyHandyNav) {
                     isActive={Number(stateWhichIsActive) === index}
                     {...item}
                     onClick={() => {
+                      console.log(index);
                       setWhichIsActiveState(index.toString());
                       item.onClick && item.onClick();
                     }}
