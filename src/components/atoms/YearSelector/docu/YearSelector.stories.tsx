@@ -7,6 +7,7 @@ import YearSelector from '../YearSelector';
 // Define metadata for the story
 const meta = {
   component: YearSelector,
+  title: 'components/atoms/YearSelector',
   parameters: {
     docs: {
       description: {
