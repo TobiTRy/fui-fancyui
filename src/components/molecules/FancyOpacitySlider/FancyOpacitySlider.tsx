@@ -10,14 +10,14 @@ import { CheckerBoardPattern } from '@/components/atoms/CheckerBoardPattern';
 import { colorToPositionOpacity, positionToColorOpacity } from './utils/calcPosition';
 import { Wrapper, SliderContainer, OpacityGradient } from './FancyOpacitySlider.style';
 
-import { TOpacitySlider } from './TFancyOpacitySlider.model';
+import { TFancyOpacitySliderWithHTMLProps } from './TFancyOpacitySlider.model';
 import { globalElementsizes } from '@/design/theme/globalSizes';
 import { sizeSettings } from './sizeSettings';
 
 // --------------------------------------------------------------------------- //
 // ----- The main FancyOpacitySlider Component to calclulates the opacity ---- //
 // --------------------------------------------------------------------------- //
-export default function FancyOpacitySlider(props: TOpacitySlider) {
+export default function FancyOpacitySlider(props: TFancyOpacitySliderWithHTMLProps) {
   const { colorValue = '#f00', opacity = 1, handler, sizeC = 'sm', borderRadius, ...htmlProps } = props;
   //give the opacity back to the parent component
   const handleOpacityChange = (newHue: number) => handler?.(parseFloat(newHue.toFixed(2)));

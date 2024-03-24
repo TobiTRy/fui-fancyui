@@ -2,7 +2,7 @@ import Color from 'color';
 import { TComponentSizes } from '@/types/TComponentSizes';
 import { TThemeArrayOrValueCSS } from '@/design/designFunctions/arrayToCssValues';
 
-export type TOpacitySlider = {
+export type TFancyOpacitySlider = {
   colorValue?: Color | string;
   opacity?: number;
   handler?: (opacity: number) => void;
@@ -10,4 +10,4 @@ export type TOpacitySlider = {
   borderRadius?: TThemeArrayOrValueCSS;
 };
 
-export type TOpacitySliderWithHTMLProps = TOpacitySlider & React.HTMLAttributes<HTMLDivElement>;
+export type TFancyOpacitySliderWithHTMLProps = TFancyOpacitySlider & React.HTMLAttributes<HTMLDivElement>;

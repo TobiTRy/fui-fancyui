@@ -1,16 +1,16 @@
-import React from 'react';
-
+import Color from 'color';
 import type { Meta, StoryObj } from '@storybook/react';
 
 import FancyOpacitySlider from '../FancyOpacitySlider';
-import Color from 'color';
 
 const meta = {
   component: FancyOpacitySlider,
+  title: 'components/molecules/FancyOpacitySlider',
   parameters: {
     docs: {
       description: {
-        component: 'Dumb-Comonent: Opacity Slider for pick the opacity of a color',
+        component:
+          'The FancyOpacitySlider component allows users to adjust the opacity of a color. It visually represents opacity changes using a gradient slider, color indicators, and checkerboard patterns to signify transparency levels. This component is designed to provide a user-friendly interface for opacity adjustments within color manipulation tools.',
       },
     },
   },
