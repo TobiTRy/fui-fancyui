@@ -9,7 +9,7 @@ import { TFancyRadio } from './FancyRadio.model';
 // --------------------------------------------------------------------------- //
 const FancyRadio = React.forwardRef<HTMLDivElement, TFancyRadio>((props, ref) => {
   const {
-    align,
+    align = 'left',
     alignInput,
     label,
     description,

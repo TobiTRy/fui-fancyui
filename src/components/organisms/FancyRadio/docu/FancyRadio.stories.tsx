@@ -71,8 +71,6 @@ const meta = {
       },
     },
   },
-  // Add tags to the story
-  tags: ['autodocs'],
 } satisfies Meta<typeof FancyRadio>;
 
 // Export the metadata

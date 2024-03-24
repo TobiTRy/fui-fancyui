@@ -53,7 +53,8 @@ export default function CheckboxRoute() {
           <FancyCheckbox label="Testt ttets sakjkas sdosodo a sdsdsdsjalw " />
           <FancyCheckbox label="Testt ttets sakjkas sdosodo a sdsdsdsjalw " alignCheckbox="right" />
           <FancyCheckbox />
-
+        </DesignArea>
+        <DesignArea title="Radio">
           <FancyRadio
             id="radio2"
             name="customRadio"
