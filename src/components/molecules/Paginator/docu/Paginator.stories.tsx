@@ -5,6 +5,7 @@ import templateThemeType from '@/stories/templateSettingsForStorys/templatesForT
 
 const meta = {
   component: Paginator,
+  title: 'components/molecules/Paginator',
   parameters: {
     docs: {
       description: {
