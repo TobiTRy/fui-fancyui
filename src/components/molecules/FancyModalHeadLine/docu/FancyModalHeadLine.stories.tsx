@@ -4,11 +4,12 @@ import FancyModalHeadLine from '../FancyModalHeadLine';
 
 const meta = {
   component: FancyModalHeadLine,
+  title: 'components/molecules/FancyModalHeadLine',
   parameters: {
     docs: {
       description: {
         component:
-          'The FancyModalHeadLine component is designed to create a stylized heading for modals, incorporating optional titles, subtitles, and a decorative horizontal rule (<hr>). This component is flexible, allowing for centralized alignment and the inclusion of additional HTML properties for customization. It leverages the Typography and FancyLine components for text display and the decorative line, respectively, ensuring consistency and theming across the UI.s',
+          'The `FancyNavBar` component is a flexible navigation bar built on top of the `RawNav` atomic component, designed to be used across various parts of a React application. It allows for the integration of custom styles via the `styled-components` library, making it highly customizable. This component accepts children, which means any React component or HTML element can be nested inside it, providing a straightforward way to create a navigational structure that fits the needs of different UIs. Additionally, it inherits HTML attributes, offering further customization and accessibility options.',
       },
     },
   },
