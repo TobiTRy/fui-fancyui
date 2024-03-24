@@ -32,8 +32,8 @@ const meta = {
       control: {
         type: 'select',
       },
-      defaultValue: {
-        summary: 'sm',
+      table: {
+        defaultValue: { summary: 'sm' },
       },
     },
     ref: {

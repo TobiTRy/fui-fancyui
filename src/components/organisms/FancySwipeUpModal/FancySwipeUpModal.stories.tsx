@@ -27,8 +27,8 @@ const meta = {
       control: {
         type: 'text',
       },
-      defaultValue: {
-        summary: 'body',
+      table: {
+        defaultValue: { summary: 'body' },
       },
     },
     isOpen: {
@@ -36,8 +36,8 @@ const meta = {
       control: {
         type: 'boolean',
       },
-      defaultValue: {
-        summary: false,
+      table: {
+        defaultValue: { summary: false },
       },
     },
     isScalable: {
@@ -45,8 +45,8 @@ const meta = {
       control: {
         type: 'boolean',
       },
-      defaultValue: {
-        summary: true,
+      table: {
+        defaultValue: { summary: true },
       },
     },
     isCloseAble: {
@@ -54,8 +54,8 @@ const meta = {
       control: {
         type: 'boolean',
       },
-      defaultValue: {
-        summary: true,
+      table: {
+        defaultValue: { summary: true },
       },
     },
     themeType: {
@@ -63,8 +63,8 @@ const meta = {
       control: {
         type: 'select',
       },
-      defaultValue: {
-        summary: 'primary',
+      table: {
+        defaultValue: { summary: 'primary' },
       },
     },
     layer: {
@@ -75,8 +75,8 @@ const meta = {
         max: 9,
         step: 1,
       },
-      defaultValue: {
-        summary: 0,
+      table: {
+        defaultValue: { summary: 0 },
       },
     },
   },

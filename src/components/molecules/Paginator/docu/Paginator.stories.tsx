@@ -18,12 +18,16 @@ const meta = {
     currentPage: {
       description: ' Specifies the current active page. Defaults to 1 if not provided.',
       type: { name: 'number' },
-      defaultValue: { summary: 1 },
+      table: {
+        defaultValue: { summary: 1 },
+      },
     },
     showPages: {
       description: 'Determines the number of page numbers to display.',
       type: { name: 'number' },
-      defaultValue: { summary: 3 },
+      table: {
+        defaultValue: { summary: 3 },
+      },
     },
     onPageChange: {
       description: 'Callback function to handle page changes.',
@@ -32,17 +36,23 @@ const meta = {
     outlinedButton: {
       description: 'If true, the buttons will be outlined.',
       type: { name: 'boolean' },
-      defaultValue: { summary: false },
+      table: {
+        defaultValue: { summary: false },
+      },
     },
     numberButtonStyle: {
       description: 'The style of the number buttons.',
       type: { name: 'string' },
-      defaultValue: { summary: 'primary' },
+      table: {
+        defaultValue: { summary: 'primary' },
+      },
     },
     pageLimits: {
       description: 'The limit of the pages Numbers.',
       type: { name: 'number' },
-      defaultValue: { summary: 3 },
+      table: {
+        defaultValue: { summary: 3 },
+      },
     },
   },
 } satisfies Meta<typeof Paginator>;

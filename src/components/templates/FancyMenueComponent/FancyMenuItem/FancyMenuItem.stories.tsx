@@ -21,8 +21,8 @@ const meta = {
       control: {
         type: 'text',
       },
-      defaultValue: {
-        summary: 'Logout',
+      table: {
+        defaultValue: { summary: 'Logout' },
       },
     },
     as: {
@@ -30,8 +30,8 @@ const meta = {
       control: {
         type: 'text',
       },
-      defaultValue: {
-        summary: 'button',
+      table: {
+        defaultValue: { summary: 'button' },
       },
     },
     icon: {
@@ -39,8 +39,8 @@ const meta = {
       control: {
         type: 'text',
       },
-      defaultValue: {
-        summary: '',
+      table: {
+        defaultValue: { summary: '' },
       },
     },
     themeType: {
@@ -48,8 +48,8 @@ const meta = {
       control: {
         type: 'select',
       },
-      defaultValue: {
-        summary: 'primary',
+      table: {
+        defaultValue: { summary: 'primary' },
       },
     },
     layer: {
@@ -60,8 +60,8 @@ const meta = {
         max: 10,
         step: 1,
       },
-      defaultValue: {
-        summary: '3',
+      table: {
+        defaultValue: { summary: '3' },
       },
     },
   },

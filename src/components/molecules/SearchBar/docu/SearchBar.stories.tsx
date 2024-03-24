@@ -24,15 +24,15 @@ const meta = {
       control: {
         type: 'select',
       },
-      defaultValue: {
-        summary: 'center',
+      table: {
+        defaultValue: { summary: 'center' },
       },
     },
     placerholder: {
       description: 'The placeholder of the search bar.',
       type: { name: 'string' },
-      defaultValue: {
-        summary: 'Search',
+      table: {
+        defaultValue: { summary: 'Search' },
       },
     },
     sizeC: {
@@ -40,8 +40,8 @@ const meta = {
       control: {
         type: 'select',
       },
-      defaultValue: {
-        summary: 'sm',
+      table: {
+        defaultValue: { summary: 'sm' },
       },
     },
   },

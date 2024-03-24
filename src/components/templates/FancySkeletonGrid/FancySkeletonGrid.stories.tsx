@@ -18,8 +18,8 @@ const meta = {
       control: {
         type: 'select',
       },
-      defaultValue: {
-        summary: 'primary',
+      table: {
+        defaultValue: { summary: 'primary' },
       },
     },
     layer: {
@@ -30,8 +30,8 @@ const meta = {
         max: 9,
         step: 1,
       },
-      defaultValue: {
-        summary: 1,
+      table: {
+        defaultValue: { summary: 1 },
       },
     },
     borderRadius: {
@@ -39,8 +39,8 @@ const meta = {
       control: {
         type: 'select',
       },
-      defaultValue: {
-        summary: 'xs',
+      table: {
+        defaultValue: { summary: 'xs' },
       },
     },
     gapColumn: {
@@ -48,8 +48,8 @@ const meta = {
       control: {
         type: 'select',
       },
-      defaultValue: {
-        summary: 'sm',
+      table: {
+        defaultValue: { summary: 'sm' },
       },
     },
     gapRow: {
@@ -57,8 +57,8 @@ const meta = {
       control: {
         type: 'select',
       },
-      defaultValue: {
-        summary: 'sm',
+      table: {
+        defaultValue: { summary: 'sm' },
       },
     },
     gridAreas: {
@@ -66,8 +66,8 @@ const meta = {
       control: {
         type: 'object',
       },
-      defaultValue: {
-        summary: [''],
+      table: {
+        defaultValue: { summary: [''] },
       },
     },
     gridAreasBreakPoints: {
@@ -76,8 +76,8 @@ const meta = {
       control: {
         type: 'object',
       },
-      defaultValue: {
-        summary: {},
+      table: {
+        defaultValue: { summary: {} },
       },
     },
     height: {
@@ -85,8 +85,8 @@ const meta = {
       control: {
         type: 'text',
       },
-      defaultValue: {
-        summary: '100%',
+      table: {
+        defaultValue: { summary: '100%' },
       },
     },
     width: {
@@ -94,8 +94,8 @@ const meta = {
       control: {
         type: 'text',
       },
-      defaultValue: {
-        summary: '100%',
+      table: {
+        defaultValue: { summary: '100%' },
       },
     },
   },

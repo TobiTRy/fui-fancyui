@@ -21,8 +21,8 @@ const meta = {
       control: {
         type: 'number',
       },
-      defaultValue: {
-        summary: 6,
+      table: {
+        defaultValue: { summary: 6 },
       },
     },
     automaticCase: {
@@ -38,9 +38,11 @@ const meta = {
       control: {
         type: 'object',
       },
-      defaultValue: {
-        summary: `isError: false,
+      table: {
+        defaultValue: {
+          summary: `isError: false,
           isSucceed: false,`,
+        },
       },
     },
     ...templateThemeType('allThemeTypes', 'secondary', 0),

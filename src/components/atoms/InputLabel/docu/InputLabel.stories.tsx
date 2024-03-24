@@ -23,8 +23,8 @@ const meta = {
       description:
         'Indicates whether the label is in an active state, typically used to highlight when the associated input is focused.',
       control: { type: 'boolean' },
-      defaultValue: {
-        summary: false,
+      table: {
+        defaultValue: { summary: false },
       },
     },
     systemMessageType: {
@@ -37,16 +37,16 @@ const meta = {
       description:
         'Chooses between a static or animated label variant, with animated offering dynamic styling changes based on the active state.',
       control: { type: 'select' },
-      defaultValue: {
-        summary: 'animated',
+      table: {
+        defaultValue: { summary: 'animated' },
       },
       options: ['static', 'animated'],
     },
     align: {
       description: 'Sets the text alignment within the label. Can be left, right, or center',
       control: { type: 'radio' },
-      defaultValue: {
-        summary: 'left',
+      table: {
+        defaultValue: { summary: 'left' },
       },
       options: ['left', 'right', 'center'],
     },

@@ -25,8 +25,8 @@ const meta = {
       control: {
         type: 'select',
       },
-      defaultValue: {
-        summary: 'md',
+      table: {
+        defaultValue: { summary: 'md' },
       },
     },
     border: {
@@ -35,8 +35,8 @@ const meta = {
         type: 'select',
       },
       options: ['none', 'top', 'bottom', undefined],
-      defaultValue: {
-        summary: 'bottom',
+      table: {
+        defaultValue: { summary: 'bottom' },
       },
     },
     startWeekOn: {
@@ -44,8 +44,8 @@ const meta = {
       control: {
         type: 'select',
       },
-      defaultValue: {
-        summary: '1',
+      table: {
+        defaultValue: { summary: '1' },
       },
     },
   },

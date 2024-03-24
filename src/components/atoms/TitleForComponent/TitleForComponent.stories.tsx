@@ -24,8 +24,8 @@ const meta = {
       control: { type: 'select' },
       type: { name: 'string', required: false },
       options: ['left', 'center', undefined],
-      defaultValue: {
-        summary: 'left',
+      table: {
+        defaultValue: { summary: 'left' },
       },
     },
     children: {
@@ -40,8 +40,8 @@ const meta = {
       description: 'The gap between the title and the children.',
       control: { type: 'select' },
       options: ['xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl'],
-      defaultValue: {
-        summary: 'xs',
+      table: {
+        defaultValue: { summary: 'xs' },
       },
     },
   },

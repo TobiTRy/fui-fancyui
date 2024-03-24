@@ -19,8 +19,8 @@ const meta = {
   argTypes: {
     type: {
       control: { type: 'select' },
-      defaultValue: {
-        summary: 'a',
+      table: {
+        defaultValue: { summary: 'a' },
       },
     },
     href: {
@@ -28,8 +28,8 @@ const meta = {
     },
     isActive: {
       control: { type: 'boolean' },
-      defaultValue: {
-        summary: false,
+      table: {
+        defaultValue: { summary: false },
       },
     },
     label: {
@@ -37,8 +37,8 @@ const meta = {
     },
     layer: {
       control: { type: 'range', min: 0, max: 10, step: 1 },
-      defaultValue: {
-        summary: 1,
+      table: {
+        defaultValue: { summary: 1 },
       },
     },
     onClick: {
@@ -46,14 +46,14 @@ const meta = {
     },
     disabled: {
       control: { type: 'boolean' },
-      defaultValue: {
-        summary: false,
+      table: {
+        defaultValue: { summary: false },
       },
     },
     themeType: {
       control: { type: 'select' },
-      defaultValue: {
-        summary: 'secondary',
+      table: {
+        defaultValue: { summary: 'secondary' },
       },
     },
     icon: {
@@ -67,8 +67,8 @@ const meta = {
       control: { type: 'boolean' },
       description:
         'Hide the label text. When The label is hidden, the icon will get bigger and the aria-label is putted to the icon.',
-      defaultValue: {
-        summary: false,
+      table: {
+        defaultValue: { summary: false },
       },
     },
   },

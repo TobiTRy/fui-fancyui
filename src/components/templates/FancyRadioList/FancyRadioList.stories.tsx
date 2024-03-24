@@ -17,8 +17,8 @@ const meta = {
       control: {
         type: 'select',
       },
-      defaultValue: {
-        summary: 'primary',
+      table: {
+        defaultValue: { summary: 'primary' },
       },
     },
     layer: {
@@ -29,8 +29,8 @@ const meta = {
         max: 9,
         step: 1,
       },
-      defaultValue: {
-        summary: 1,
+      table: {
+        defaultValue: { summary: 1 },
       },
     },
     outlined: {
@@ -38,8 +38,8 @@ const meta = {
       control: {
         type: 'boolean',
       },
-      defaultValue: {
-        summary: false,
+      table: {
+        defaultValue: { summary: false },
       },
     },
     outlinedBackgroundStrength: {
@@ -50,8 +50,8 @@ const meta = {
         max: 1,
         step: 0.01,
       },
-      defaultValue: {
-        summary: 1,
+      table: {
+        defaultValue: { summary: 1 },
       },
     },
   },

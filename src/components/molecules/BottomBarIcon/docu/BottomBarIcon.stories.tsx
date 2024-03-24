@@ -21,14 +21,14 @@ const meta = {
     disabled: {
       description: 'If true, the component will be disabled.',
       control: { type: 'boolean' },
-      defaultValue: {
-        summary: false,
+      table: {
+        defaultValue: { summary: false },
       },
     },
     label: {
       control: { type: 'text' },
-      defaultValue: {
-        summary: 'Label',
+      table: {
+        defaultValue: { summary: 'Label' },
       },
     },
     icon: {
@@ -38,8 +38,8 @@ const meta = {
     isActive: {
       description: 'If true, the component will be active.',
       control: { type: 'boolean' },
-      defaultValue: {
-        summary: false,
+      table: {
+        defaultValue: { summary: false },
       },
     },
     hideLabel: {
@@ -49,8 +49,8 @@ const meta = {
     sizeC: {
       description: 'The size of the component.',
       control: { type: 'select', options: ['sm', 'md', 'lg'] },
-      defaultValue: {
-        summary: 'sm',
+      table: {
+        defaultValue: { summary: 'sm' },
       },
     },
     hoverStyle: {

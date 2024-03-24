@@ -29,8 +29,8 @@ const meta = {
       control: {
         type: 'text',
       },
-      defaultValue: {
-        summary: '100%',
+      table: {
+        defaultValue: { summary: '100%' },
       },
     },
     searchValue: {
@@ -44,8 +44,8 @@ const meta = {
       control: {
         type: 'select',
       },
-      defaultValue: {
-        summary: 'secondary',
+      table: {
+        defaultValue: { summary: 'secondary' },
       },
     },
     layer: {
@@ -56,8 +56,8 @@ const meta = {
         max: 10,
         step: 1,
       },
-      defaultValue: {
-        summary: '4',
+      table: {
+        defaultValue: { summary: '4' },
       },
     },
     sizeC: {
@@ -65,8 +65,8 @@ const meta = {
       control: {
         type: 'select',
       },
-      defaultValue: {
-        summary: 'md',
+      table: {
+        defaultValue: { summary: 'md' },
       },
     },
   },

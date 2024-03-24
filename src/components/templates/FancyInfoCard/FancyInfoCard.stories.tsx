@@ -32,8 +32,8 @@ const meta = {
       control: {
         type: 'boolean',
       },
-      defaultValue: {
-        summary: false,
+      table: {
+        defaultValue: { summary: false },
       },
     },
     outlinedBackgroundStrength: {
@@ -44,8 +44,8 @@ const meta = {
         max: 1,
         step: 0.01,
       },
-      defaultValue: {
-        summary: 10,
+      table: {
+        defaultValue: { summary: 10 },
       },
     },
   },

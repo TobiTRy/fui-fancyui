@@ -21,8 +21,8 @@ const meta = {
       control: {
         type: 'select',
       },
-      defaultValue: {
-        summary: 'primary',
+      table: {
+        defaultValue: { summary: 'primary' },
       },
     },
     layer: {
@@ -33,8 +33,8 @@ const meta = {
         max: 10,
         step: 1,
       },
-      defaultValue: {
-        summary: '3',
+      table: {
+        defaultValue: { summary: '3' },
       },
     },
   },

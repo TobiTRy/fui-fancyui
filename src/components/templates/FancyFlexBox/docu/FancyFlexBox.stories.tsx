@@ -21,8 +21,8 @@ const meta = {
   argTypes: {
     as: {
       description: 'The HTML element to be rendered.',
-      defaultValue: {
-        summary: 'div',
+      table: {
+        defaultValue: { summary: 'div' },
       },
       control: {
         type: 'text',

@@ -26,8 +26,8 @@ const meta = {
       description: 'The alignment of the text.',
       control: { type: 'select' },
       options: ['left', 'center'],
-      defaultValue: {
-        summary: 'left',
+      table: {
+        defaultValue: { summary: 'left' },
       },
     },
   },

@@ -60,15 +60,15 @@ function templateThemeType<Cat extends ThemeTypeCategory, Default extends ThemeO
       description: 'The theme type of the component',
       control: { type: 'select' },
       options: [...options, undefined],
-      defaultValue: {
-        summary: effectiveDefaultValue,
+      table: {
+        defaultValue: { summary: effectiveDefaultValue },
       },
     },
     layer: {
       description: 'The layer of the component',
       control: { type: 'range', min: 0, max: 9 },
-      defaultValue: {
-        summary: layer || 0,
+      table: {
+        defaultValue: { summary: layer || 0 },
       },
     },
   };

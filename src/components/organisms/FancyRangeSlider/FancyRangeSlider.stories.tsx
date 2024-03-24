@@ -29,8 +29,8 @@ const meta = {
       control: {
         type: 'select',
       },
-      defaultValue: {
-        summary: 'left',
+      table: {
+        defaultValue: { summary: 'left' },
       },
     },
     themeType: {
@@ -38,8 +38,8 @@ const meta = {
       control: {
         type: 'select',
       },
-      defaultValue: {
-        summary: 'secondary',
+      table: {
+        defaultValue: { summary: 'secondary' },
       },
     },
     layer: {
@@ -50,14 +50,14 @@ const meta = {
         max: 10,
         step: 1,
       },
-      defaultValue: {
-        summary: '4',
+      table: {
+        defaultValue: { summary: '4' },
       },
     },
     icon: {
       description: 'The icon of the input',
-      defaultValue: {
-        summary: 'none',
+      table: {
+        defaultValue: { summary: 'none' },
       },
     },
     disabled: {
@@ -65,8 +65,8 @@ const meta = {
       control: {
         type: 'boolean',
       },
-      defaultValue: {
-        summary: false,
+      table: {
+        defaultValue: { summary: false },
       },
     },
     min: {
@@ -74,8 +74,8 @@ const meta = {
       control: {
         type: 'number',
       },
-      defaultValue: {
-        summary: 0,
+      table: {
+        defaultValue: { summary: 0 },
       },
     },
     max: {
@@ -83,8 +83,8 @@ const meta = {
       control: {
         type: 'number',
       },
-      defaultValue: {
-        summary: 100,
+      table: {
+        defaultValue: { summary: 100 },
       },
     },
     value: {
@@ -92,8 +92,8 @@ const meta = {
       control: {
         type: 'number',
       },
-      defaultValue: {
-        summary: 50,
+      table: {
+        defaultValue: { summary: 50 },
       },
     },
   },

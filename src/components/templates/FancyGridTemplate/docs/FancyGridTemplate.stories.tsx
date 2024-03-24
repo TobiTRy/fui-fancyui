@@ -34,8 +34,8 @@ const meta = {
     },
     gapColumn: {
       description: 'The gap sizeC between columns. Defaults to sm',
-      defaultValue: {
-        summary: 'sm',
+      table: {
+        defaultValue: { summary: 'sm' },
       },
       control: {
         type: 'number',
@@ -43,8 +43,8 @@ const meta = {
     },
     gapRow: {
       description: 'The gap sizeC between rows. Defaults to sm',
-      defaultValue: {
-        summary: 'sm',
+      table: {
+        defaultValue: { summary: 'sm' },
       },
       control: {
         type: 'number',
@@ -52,8 +52,8 @@ const meta = {
     },
     width: {
       description: 'The width of the grid container. Defaults to 100%',
-      defaultValue: {
-        summary: '100%',
+      table: {
+        defaultValue: { summary: '100%' },
       },
       control: {
         type: 'text',
@@ -61,8 +61,8 @@ const meta = {
     },
     height: {
       description: 'The height of the grid container.',
-      defaultValue: {
-        summary: '100%',
+      table: {
+        defaultValue: { summary: '100%' },
       },
       control: {
         type: 'text',

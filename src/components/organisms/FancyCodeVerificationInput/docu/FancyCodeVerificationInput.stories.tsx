@@ -30,8 +30,8 @@ const meta = {
       control: {
         type: 'number',
       },
-      defaultValue: {
-        summary: '6',
+      table: {
+        defaultValue: { summary: '6' },
       },
     },
     automaticCase: {
@@ -40,8 +40,8 @@ const meta = {
         type: 'radio',
         options: ['upper', 'lower', undefined],
       },
-      defaultValue: {
-        summary: undefined,
+      table: {
+        defaultValue: { summary: undefined },
       },
     },
     debounceTime: {
@@ -49,8 +49,8 @@ const meta = {
       control: {
         type: 'number',
       },
-      defaultValue: {
-        summary: 700,
+      table: {
+        defaultValue: { summary: 700 },
       },
     },
     isSuccess: {
@@ -58,8 +58,8 @@ const meta = {
       control: {
         type: 'boolean',
       },
-      defaultValue: {
-        summary: false,
+      table: {
+        defaultValue: { summary: false },
       },
     },
     errorMessage: {

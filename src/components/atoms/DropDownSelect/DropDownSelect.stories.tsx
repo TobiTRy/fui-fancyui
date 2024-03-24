@@ -38,8 +38,8 @@ const meta = {
     emptySelect: {
       description: 'Is the select empty by default',
       control: { type: 'boolean' },
-      defaultValue: {
-        summary: true,
+      table: {
+        defaultValue: { summary: true },
       },
     },
     disabled: {
@@ -49,8 +49,8 @@ const meta = {
     align: {
       description: 'The alignment of the text in the dropdown',
       control: { type: 'select', options: ['left', 'center'] },
-      defaultValue: {
-        summary: 'left',
+      table: {
+        defaultValue: { summary: 'left' },
       },
     },
   },

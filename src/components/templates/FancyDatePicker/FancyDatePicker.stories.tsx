@@ -22,8 +22,8 @@ const meta = {
       control: {
         type: 'boolean',
       },
-      defaultValue: {
-        summary: false,
+      table: {
+        defaultValue: { summary: false },
       },
     },
     handler: {
@@ -32,8 +32,8 @@ const meta = {
       control: {
         type: 'function',
       },
-      defaultValue: {
-        summary: '[undefined, undefined]',
+      table: {
+        defaultValue: { summary: '[undefined, undefined]' },
       },
     },
     selectedYear: {
@@ -41,8 +41,8 @@ const meta = {
       control: {
         type: 'number',
       },
-      defaultValue: {
-        summary: 'current year',
+      table: {
+        defaultValue: { summary: 'current year' },
       },
     },
     themeType: {
@@ -50,8 +50,8 @@ const meta = {
       control: {
         type: 'select',
       },
-      defaultValue: {
-        summary: 'primary',
+      table: {
+        defaultValue: { summary: 'primary' },
       },
     },
     layer: {
@@ -62,8 +62,8 @@ const meta = {
         max: 10,
         step: 1,
       },
-      defaultValue: {
-        summary: 1,
+      table: {
+        defaultValue: { summary: 1 },
       },
     },
   },

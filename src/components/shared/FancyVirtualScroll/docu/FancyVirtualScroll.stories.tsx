@@ -20,7 +20,9 @@ const meta = {
       control: {
         type: 'number',
       },
-      defaultValue: { summary: 1 },
+      table: {
+        defaultValue: { summary: 1 },
+      },
     },
     containerHeight: {
       description: 'The height of the container.',
@@ -28,7 +30,9 @@ const meta = {
       control: {
         type: 'text',
       },
-      defaultValue: { summary: '300px' },
+      table: {
+        defaultValue: { summary: '300px' },
+      },
     },
     itemHeight: {
       description: 'The height of each item.',
@@ -36,7 +40,9 @@ const meta = {
       control: {
         type: 'number',
       },
-      defaultValue: { summary: 300 },
+      table: {
+        defaultValue: { summary: 300 },
+      },
     },
     itemGap: {
       description: 'The gap between each item. It only adds spacte to the bottom of the item.',
@@ -44,7 +50,9 @@ const meta = {
       control: {
         type: 'number',
       },
-      defaultValue: { summary: 0 },
+      table: {
+        defaultValue: { summary: 0 },
+      },
     },
     firstItemIndexInView: {
       description: 'The index of the first item to render.',
@@ -52,7 +60,9 @@ const meta = {
       control: {
         type: 'number',
       },
-      defaultValue: { summary: 0 },
+      table: {
+        defaultValue: { summary: 0 },
+      },
     },
     scrollSnap: {
       description: 'Controls the scroll snapping behavior. Defaults to `none`.',
@@ -61,7 +71,9 @@ const meta = {
         type: 'select',
         options: ['mandatory', 'proximity', 'none', undefined],
       },
-      defaultValue: { summary: 'none' },
+      table: {
+        defaultValue: { summary: 'none' },
+      },
     },
     onScrollingStateChange: {
       type: { name: 'function', required: false },

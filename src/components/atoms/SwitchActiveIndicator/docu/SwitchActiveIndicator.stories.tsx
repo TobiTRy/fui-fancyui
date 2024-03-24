@@ -26,8 +26,8 @@ const meta = {
         type: 'radio',
       },
       options: ['bolb', 'underline', 'topline'],
-      defaultValue: {
-        summary: 'bolb',
+      table: {
+        defaultValue: { summary: 'bolb' },
       },
     },
     direction: {
@@ -36,8 +36,8 @@ const meta = {
         type: 'radio',
       },
       options: ['horizontal', 'vertical'],
-      defaultValue: {
-        summary: 'horizontal',
+      table: {
+        defaultValue: { summary: 'horizontal' },
       },
     },
     itemNumber: {
@@ -52,8 +52,8 @@ const meta = {
         type: 'select',
       },
       options: ['sm', 'md', 'lg', 'xl', 'xxl', 'xxxl', 'complete'],
-      defaultValue: {
-        summary: 'md',
+      table: {
+        defaultValue: { summary: 'md' },
       },
     },
     tabSpacing: {
@@ -61,8 +61,8 @@ const meta = {
       control: {
         type: 'select',
       },
-      defaultValue: {
-        summary: '',
+      table: {
+        defaultValue: { summary: '' },
       },
     },
     outlined: {
@@ -70,8 +70,8 @@ const meta = {
       control: {
         type: 'boolean',
       },
-      defaultValue: {
-        summary: false,
+      table: {
+        defaultValue: { summary: false },
       },
     },
   },

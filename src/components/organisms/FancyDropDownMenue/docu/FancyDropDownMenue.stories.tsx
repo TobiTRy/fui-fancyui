@@ -27,8 +27,8 @@ const meta = {
       control: {
         type: 'boolean',
       },
-      defaultValue: {
-        summary: false,
+      table: {
+        defaultValue: { summary: false },
       },
     },
     ...templateThemeType('mainThemeTypes', 'primary', 2),
@@ -37,8 +37,8 @@ const meta = {
       control: {
         type: 'text',
       },
-      defaultValue: {
-        summary: '50%',
+      table: {
+        defaultValue: { summary: '50%' },
       },
     },
     alignHorizontal: {
@@ -46,8 +46,8 @@ const meta = {
       control: {
         type: 'select',
       },
-      defaultValue: {
-        summary: 'center',
+      table: {
+        defaultValue: { summary: 'center' },
       },
     },
     alignVertical: {
@@ -55,8 +55,8 @@ const meta = {
       control: {
         type: 'select',
       },
-      defaultValue: {
-        summary: 'top',
+      table: {
+        defaultValue: { summary: 'top' },
       },
     },
   },

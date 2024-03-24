@@ -47,8 +47,8 @@ const meta = {
       control: {
         type: 'boolean',
       },
-      defaultValue: {
-        summary: true,
+      table: {
+        defaultValue: { summary: true },
       },
     },
   },

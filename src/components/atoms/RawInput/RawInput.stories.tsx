@@ -46,8 +46,8 @@ const meta = {
         type: 'radio',
         options: ['left', 'center'],
       },
-      defaultValue: {
-        summary: 'left',
+      table: {
+        defaultValue: { summary: 'left' },
       },
     },
   },

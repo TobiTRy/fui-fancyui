@@ -25,8 +25,8 @@ const meta = {
       control: {
         type: 'select',
       },
-      defaultValue: {
-        summary: 'md',
+      table: {
+        defaultValue: { summary: 'md' },
       },
     },
     year: {
@@ -34,8 +34,8 @@ const meta = {
       control: {
         type: 'number',
       },
-      defaultValue: {
-        summary: '2024',
+      table: {
+        defaultValue: { summary: '2024' },
       },
     },
     placeholder: {

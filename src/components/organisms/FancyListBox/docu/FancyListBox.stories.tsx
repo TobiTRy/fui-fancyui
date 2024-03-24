@@ -24,8 +24,8 @@ const meta = {
       control: {
         type: 'select',
       },
-      defaultValue: {
-        summary: 'md',
+      table: {
+        defaultValue: { summary: 'md' },
       },
     },
     ...templateThemeType('mainThemeTypes', 'primary', 2),

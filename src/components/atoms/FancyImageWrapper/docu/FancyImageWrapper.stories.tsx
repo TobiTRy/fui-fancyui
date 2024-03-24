@@ -45,8 +45,8 @@ const meta = {
     },
     borderRadius: {
       description: 'Specifies the border radius applied to the image. Can be a theme size or a custom CSS value.',
-      defaultValue: {
-        summary: '',
+      table: {
+        defaultValue: { summary: '' },
       },
       control: {
         type: 'select',

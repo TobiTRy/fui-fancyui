@@ -24,8 +24,8 @@ const meta = {
       },
       control: { type: 'select' },
       options: ['sm', 'md', 'lg', 'complete', undefined, 'none'],
-      defaultValue: {
-        summary: 'complete',
+      table: {
+        defaultValue: { summary: 'complete' },
       },
     },
     sizeC: {
@@ -39,8 +39,8 @@ const meta = {
     alt: {
       control: { type: 'text' },
       description: 'The alt text of the image is used as a placeholder if no image is provided.',
-      defaultValue: {
-        summary: 'Profile',
+      table: {
+        defaultValue: { summary: 'Profile' },
       },
     },
     externalStyle: {

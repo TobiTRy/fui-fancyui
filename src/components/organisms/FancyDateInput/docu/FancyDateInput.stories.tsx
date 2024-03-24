@@ -66,8 +66,8 @@ const meta = {
       control: {
         type: 'select',
       },
-      defaultValue: {
-        summary: 'date',
+      table: {
+        defaultValue: { summary: 'date' },
       },
     },
     transparentBackground: {
@@ -75,8 +75,8 @@ const meta = {
       control: {
         type: 'boolean',
       },
-      defaultValue: {
-        summary: false,
+      table: {
+        defaultValue: { summary: false },
       },
     },
     externalStyle: {

@@ -23,8 +23,8 @@ const meta = {
       control: {
         type: 'color',
       },
-      defaultValue: {
-        summary: 'red',
+      table: {
+        defaultValue: { summary: 'red' },
       },
     },
     isActive: {
@@ -32,8 +32,8 @@ const meta = {
       control: {
         type: 'boolean',
       },
-      defaultValue: {
-        summary: false,
+      table: {
+        defaultValue: { summary: false },
       },
     },
     position: {
@@ -41,8 +41,8 @@ const meta = {
       control: {
         type: 'object',
       },
-      defaultValue: {
-        summary: { x: '50%', y: '50%' },
+      table: {
+        defaultValue: { summary: { x: '50%', y: '50%' } },
       },
     },
   },

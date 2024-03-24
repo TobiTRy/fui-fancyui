@@ -23,8 +23,8 @@ const meta = {
       control: {
         type: 'number',
       },
-      defaultValue: {
-        summary: 99,
+      table: {
+        defaultValue: { summary: 99 },
       },
     },
     currentPage: {
@@ -32,8 +32,8 @@ const meta = {
       control: {
         type: 'number',
       },
-      defaultValue: {
-        summary: 1,
+      table: {
+        defaultValue: { summary: 1 },
       },
     },
     pageHandler: {
@@ -47,8 +47,8 @@ const meta = {
       control: {
         type: 'number',
       },
-      defaultValue: {
-        summary: 3,
+      table: {
+        defaultValue: { summary: 3 },
       },
     },
     numberButtonStyle: {
@@ -57,14 +57,16 @@ const meta = {
       control: {
         type: 'object',
       },
-      defaultValue: {
-        summary: {
-          textColorActive: 'accent',
-          backgroundStrength: 0.1,
-          outlines: false,
-          textColor: 'secondary',
-          hoverColor: 'secondary',
-          themeType: 'transparent',
+      table: {
+        defaultValue: {
+          summary: {
+            textColorActive: 'accent',
+            backgroundStrength: 0.1,
+            outlines: false,
+            textColor: 'secondary',
+            hoverColor: 'secondary',
+            themeType: 'transparent',
+          },
         },
       },
     },

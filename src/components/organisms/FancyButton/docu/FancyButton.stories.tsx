@@ -28,8 +28,8 @@ const meta = {
       control: {
         type: 'radio',
       },
-      defaultValue: {
-        summary: 'left',
+      table: {
+        defaultValue: { summary: 'left' },
       },
     },
     borderRadius: {
@@ -98,8 +98,8 @@ const meta = {
       control: {
         type: 'boolean',
       },
-      defaultValue: {
-        summary: false,
+      table: {
+        defaultValue: { summary: false },
       },
     },
     notAButton: {

@@ -24,24 +24,24 @@ const meta = {
       description: 'The size of the divider',
       control: { type: 'select' },
       options: ['sm', 'md', 'lg'],
-      defaultValue: {
-        summary: 'md',
+      table: {
+        defaultValue: { summary: 'md' },
       },
     },
     align: {
       description: 'The alignment of the content',
       control: { type: 'select' },
       options: ['left', 'center', 'right'],
-      defaultValue: {
-        summary: 'center',
+      table: {
+        defaultValue: { summary: 'center' },
       },
     },
     as: {
       description: 'The HTML tag to use',
       control: { type: 'select' },
       options: ['button', 'a'],
-      defaultValue: {
-        summary: 'button',
+      table: {
+        defaultValue: { summary: 'button' },
       },
     },
   },

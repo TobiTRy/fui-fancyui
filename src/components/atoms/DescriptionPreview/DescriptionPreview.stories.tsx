@@ -29,8 +29,8 @@ const meta = {
         required: false,
       },
       control: { type: 'number' },
-      defaultValue: {
-        summary: 150,
+      table: {
+        defaultValue: { summary: 150 },
       },
     },
     buttonText: {

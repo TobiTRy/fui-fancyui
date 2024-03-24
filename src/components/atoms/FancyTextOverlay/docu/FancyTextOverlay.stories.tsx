@@ -29,8 +29,8 @@ const meta = {
       control: {
         type: 'select',
       },
-      defaultValue: {
-        summary: 'top-left',
+      table: {
+        defaultValue: { summary: 'top-left' },
       },
     },
     children: {

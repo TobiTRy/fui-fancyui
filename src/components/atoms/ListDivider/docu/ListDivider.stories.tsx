@@ -28,31 +28,31 @@ const meta = {
     textAlignment: {
       description: 'Determines the alignment of the text label. Defaults to `center`',
       control: { type: 'select' },
-      defaultValue: {
-        summary: 'center',
+      table: {
+        defaultValue: { summary: 'center' },
       },
       options: ['left', 'center', 'right'],
     },
     noLine: {
       description: 'If set to `true`, the divider line will not be rendered, only the content (if any) will be shown.',
       control: { type: 'boolean' },
-      defaultValue: {
-        summary: false,
+      table: {
+        defaultValue: { summary: false },
       },
     },
     fontWeight: {
       description: 'The font weight of the label',
       control: { type: 'text' },
-      defaultValue: {
-        summary: undefined,
+      table: {
+        defaultValue: { summary: undefined },
       },
     },
     sizeC: {
       description: 'The size of the divider',
       control: { type: 'select' },
       options: ['sm', 'md', 'lg'],
-      defaultValue: {
-        summary: 'md',
+      table: {
+        defaultValue: { summary: 'md' },
       },
     },
     icon: {

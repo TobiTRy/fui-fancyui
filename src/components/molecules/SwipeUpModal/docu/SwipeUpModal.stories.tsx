@@ -19,22 +19,22 @@ const meta = {
     isOpen: {
       description: 'Determines whether the modal is open or closed.',
       type: { name: 'boolean' },
-      defaultValue: {
-        summary: false,
+      table: {
+        defaultValue: { summary: false },
       },
     },
     isCloseAble: {
       description: 'If `true`, allows the modal to be closed by user interaction.',
       type: { name: 'boolean' },
-      defaultValue: {
-        summary: true,
+      table: {
+        defaultValue: { summary: true },
       },
     },
     isScalable: {
       description: 'Determines if the modal supports scaling (resizing) based on user interaction.',
       type: { name: 'boolean' },
-      defaultValue: {
-        summary: true,
+      table: {
+        defaultValue: { summary: true },
       },
     },
     onClose: {
@@ -45,8 +45,8 @@ const meta = {
     backdrop: {
       description: 'Callback function that is called when the modal is requested to be closed.',
       type: { name: 'boolean' },
-      defaultValue: {
-        summary: true,
+      table: {
+        defaultValue: { summary: true },
       },
     },
   },

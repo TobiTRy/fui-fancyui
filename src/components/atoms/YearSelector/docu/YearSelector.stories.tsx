@@ -21,29 +21,29 @@ const meta = {
       description: 'The theme type of the component',
       control: { type: 'select' },
       options: ['primary', 'secondary', 'accent', 'transparent', undefined],
-      defaultValue: {
-        summary: 'primary',
+      table: {
+        defaultValue: { summary: 'primary' },
       },
     },
     themeTypeSecondary: {
       description: 'The secondary theme color type, typically used for the text and button elements.',
       control: { type: 'select' },
       options: ['primary', 'accent', 'secondary'],
-      defaultValue: {
-        summary: 'secondary',
+      table: {
+        defaultValue: { summary: 'secondary' },
       },
     },
     layer: {
       description: 'The layer of the component',
       control: { type: 'range', min: 0, max: 9 },
-      defaultValue: {
-        summary: 0,
+      table: {
+        defaultValue: { summary: 0 },
       },
     },
     selectedYear: {
       description: 'The currently selected year.',
-      defaultValue: {
-        summary: 'new Date().getFullYear() (current year)',
+      table: {
+        defaultValue: { summary: 'new Date().getFullYear() (current year)' },
       },
       control: {
         type: 'number',
@@ -66,8 +66,8 @@ const meta = {
       control: {
         type: 'text',
       },
-      defaultValue: {
-        summary: 'a year back',
+      table: {
+        defaultValue: { summary: 'a year back' },
       },
     },
     ariaTextRightArrow: {
@@ -75,8 +75,8 @@ const meta = {
       control: {
         type: 'text',
       },
-      defaultValue: {
-        summary: 'one year forward',
+      table: {
+        defaultValue: { summary: 'one year forward' },
       },
     },
     yearChangeHandler: {

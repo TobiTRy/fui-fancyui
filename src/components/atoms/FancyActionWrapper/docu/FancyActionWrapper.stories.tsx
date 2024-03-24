@@ -27,8 +27,8 @@ const meta = {
       control: {
         type: 'select',
       },
-      defaultValue: {
-        summary: 'button',
+      table: {
+        defaultValue: { summary: 'button' },
       },
     },
     children: {
