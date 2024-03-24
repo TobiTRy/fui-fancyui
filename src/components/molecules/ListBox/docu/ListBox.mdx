@@ -1,13 +1,35 @@
-# ListBox Component
+import { Meta, Title, Description, Canvas, Controls } from '@storybook/blocks';
 
-`ListBox` is a simple, styled list component designed to be used in React applications. It utilizes a `FancyBox` component to render a list (`ul`) and accepts `ListBoxItem` components as children.
+import * as ListBoxStories from './ListBox.stories';
+
+<Meta of={ListBoxStories} />
+
+<Title />
+
+<Description />
+
+## Setup Instructions
+
+To use the `ListBox` in your project, follow these steps:
+
+1. Import the `ListBox` component where you intend to use it:
+
+```jsx
+import { ListBox } from 'fui-fancyui';
+```
+
+2. If using TypeScript, you can import the type definitions for prop validation:
+
+```jsx
+import { TListBox, TListBoxWithFancyBoxAttrs } from 'fui-fancyui';
+```
 
 ## Usage
 
 To use `ListBox`, import it into your React component and then use `ListBox.Item` to add list items.
 
 ```jsx
-import ListBox from './path/to/ListBox';
+import { ListBox } from 'fui-fancyui';
 
 const MyComponent = () => (
   <ListBox>
@@ -18,12 +40,11 @@ const MyComponent = () => (
 );
 ```
 
+<Canvas />
+
 ## Props
 
-`ListBox` accepts the following props:
-
-- `children`: ReactNode - The items to be displayed in the list.
-- `...htmlProps`: HTMLAttributes - Any other standard HTML attributes for a div element.
+<Controls />
 
 ---
 
@@ -45,9 +66,3 @@ const MyComponent = () => (
 
 - `children`: ReactNode - The content of the list item.
 - `externalStyle`: CSSProp - Optional external styles to be applied to the list item.
-
----
-
-## Styling
-
-Both `ListBox` and `ListBoxItem` can be styled using styled-components. `ListBox` applies its styles through `FancyBoxStyle`, and `ListBoxItem` uses `StyledLi` for styling, which can be customized via the `externalStyle` prop.
