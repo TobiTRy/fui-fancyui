@@ -26,26 +26,17 @@ const meta = {
       control: {
         type: 'text',
       },
-      defaultValue: {
-        summary: '',
-      },
     },
     align: {
       description: 'Alignment of the label',
       control: {
         type: 'select',
       },
-      defaultValue: {
-        summary: 'left',
-      },
     },
     disabled: {
       description: 'Disable the input',
       control: {
         type: 'boolean',
-      },
-      defaultValue: {
-        summary: false,
       },
     },
     ...templateThemeType('mainThemeTypes', 'primary', 2),
@@ -54,30 +45,15 @@ const meta = {
       control: {
         type: 'object',
       },
-      defaultValue: {
-        summary: '',
-      },
     },
     placeholder: {
       description: 'Placeholder for the input',
       control: {
         type: 'text',
       },
-      defaultValue: {
-        summary: '',
-      },
     },
     icon: {
       description: 'Icon for the input',
-    },
-    isActive: {
-      description: 'Active state of the input',
-      control: {
-        type: 'boolean',
-      },
-      defaultValue: {
-        summary: false,
-      },
     },
     value: {
       description: 'Value of the input',
@@ -103,22 +79,10 @@ const meta = {
         summary: false,
       },
     },
-    as: {
-      description: 'The component to render the input as',
-      control: {
-        type: 'as',
-      },
-    },
     externalStyle: {
       description: 'External style for the input',
       control: {
         type: 'object',
-      },
-    },
-    hasValue: {
-      description: 'Value of the input',
-      control: {
-        type: 'boolean',
       },
     },
     labelVariant: {

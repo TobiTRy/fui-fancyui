@@ -48,20 +48,8 @@ const meta = {
       control: {
         type: 'radio',
       },
-      defaultValue: {
-        summary: 'left',
-      },
     },
     ...templateThemeType('mainThemeTypes', 'primary', 2),
-    isActive: {
-      description: 'Is the input in focus',
-      control: {
-        type: 'boolean',
-      },
-      defaultValue: {
-        summary: false,
-      },
-    },
     systemMessage: {
       description: 'Systemmessage to be displayed',
       control: {
