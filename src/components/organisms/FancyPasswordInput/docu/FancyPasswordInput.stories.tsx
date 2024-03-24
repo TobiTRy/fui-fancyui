@@ -2,97 +2,106 @@
 import { Meta, StoryObj } from '@storybook/react';
 
 // Import the component to be tested
-import FancyPasswordInput from './FancyPasswordInput';
+import FancyPasswordInput from '../FancyPasswordInput';
 
-import SVGCheckMark from '../../icons/SVGCheckMark/SVGCheckMark';
+import SVGCheckMark from '../../../icons/SVGCheckMark/SVGCheckMark';
+import templateThemeType from '@/stories/templateSettingsForStorys/templatesForThemeType';
 
 // Define metadata for the story
 const meta = {
   component: FancyPasswordInput,
+  title: 'components/organisms/FancyPasswordInput',
   parameters: {
     docs: {
       description: {
-        component: 'Dumb-Comonent: The FancyPasswordInput Comonent with surrounding icon, label and underline',
+        component:
+          'The FancyPasswordInput component is a specialized input component designed for password fields. It enhances user experience by wrapping a standard password input with additional UI elements such as an icon, label, and underline for improved aesthetics and functionality. It also supports various states and themes, making it a versatile component for any form requiring password input.',
       },
     },
   },
   // Define arguments for the story
   argTypes: {
-    value: {
-      description: 'The value of the input',
+    label: {
+      description: 'Label for the input',
       control: {
         type: 'text',
       },
     },
     align: {
-      description: 'The alignment of the input',
+      description: 'Alignment of the label',
       control: {
         type: 'select',
       },
-      defaultValue: {
-        summary: 'left',
-      },
     },
-    themeType: {
-      description: 'The theme of the input',
+    disabled: {
+      description: 'Disable the input',
       control: {
-        type: 'select',
-      },
-      defaultValue: {
-        summary: 'secondary',
+        type: 'boolean',
       },
     },
-    layer: {
-      description: 'The layer of the input',
+    ...templateThemeType('mainThemeTypes', 'primary', 2),
+    systemMessage: {
+      description: 'Error message to be displayed',
       control: {
-        type: 'select',
-      },
-      defaultValue: {
-        summary: '4',
+        type: 'object',
       },
     },
-    label: {
-      description: 'The label of the input',
+    placeholder: {
+      description: 'Placeholder for the input',
       control: {
         type: 'text',
       },
     },
     icon: {
-      description: 'The icon of the input',
-      defaultValue: {
-        summary: 'none',
-      },
-    },
-    isActive: {
-      description: 'Is the input focused',
-      control: {
-        type: 'boolean',
-      },
-      defaultValue: {
-        summary: false,
-      },
-    },
-    systemMessage: {
-      description: 'The system message of the input',
+      description: 'Icon for the input',
       control: {
         type: 'object',
       },
-      defaultValue: {
-        summary: '',
+    },
+    value: {
+      description: 'Value of the input',
+      control: {
+        type: 'text',
       },
     },
     transparentBackground: {
-      description: 'The background of the input',
+      description: 'The input has a transparent background',
       control: {
         type: 'boolean',
       },
-      defaultValue: {
-        summary: false,
+    },
+    externalStyle: {
+      description: 'External style for the input',
+      control: {
+        type: 'object',
       },
     },
+    labelVariant: {
+      description: 'Variant of the label',
+      control: {
+        type: 'select',
+      },
+    },
+    outlined: {
+      description: 'Outlined input',
+      control: {
+        type: 'boolean',
+      },
+    },
+    outlinedBackgroundStrength: {
+      description: 'Background strength of the outlined input',
+      control: {
+        min: 0,
+        max: 1,
+        step: 0.1,
+        type: 'number',
+      },
+    },
+    step: {
+      description: 'The step size for the input´s value, used when incrementing or decrementing with arrow keys.',
+      type: { name: 'number' },
+    },
   },
-  // Add tags to the story
-  tags: ['autodocs'],
 } satisfies Meta<typeof FancyPasswordInput>;
 
 // Export the metadata
@@ -105,11 +114,10 @@ export const Primary: Story = {
   render: (args) => <FancyPasswordInput {...args} />,
   args: {
     align: 'left',
-    themeType: 'secondary',
+    themeType: 'primary',
     layer: 4,
     label: 'Password',
     icon: <SVGCheckMark />,
-    isActive: false,
   },
 };
 
@@ -117,11 +125,10 @@ export const WithErrorState: Story = {
   render: (args) => <FancyPasswordInput {...args} />,
   args: {
     align: 'left',
-    themeType: 'secondary',
+    themeType: 'primary',
     layer: 4,
     label: 'Password',
     icon: <SVGCheckMark />,
-    isActive: false,
     systemMessage: { type: 'error', message: 'This is an error message' },
   },
 };
@@ -130,11 +137,10 @@ export const WithSuccessState: Story = {
   render: (args) => <FancyPasswordInput {...args} />,
   args: {
     align: 'left',
-    themeType: 'secondary',
+    themeType: 'primary',
     layer: 4,
     label: 'Password',
     icon: <SVGCheckMark />,
-    isActive: false,
     systemMessage: { type: 'success', message: 'This is an success message' },
   },
 };
@@ -143,11 +149,10 @@ export const WithInfoState: Story = {
   render: (args) => <FancyPasswordInput {...args} />,
   args: {
     align: 'left',
-    themeType: 'secondary',
+    themeType: 'primary',
     layer: 4,
     label: 'Password',
     icon: <SVGCheckMark />,
-    isActive: false,
     systemMessage: { type: 'info', message: 'This is an info message' },
   },
 };
@@ -156,11 +161,10 @@ export const WithDisabledState: Story = {
   render: (args) => <FancyPasswordInput {...args} />,
   args: {
     align: 'left',
-    themeType: 'secondary',
+    themeType: 'primary',
     layer: 4,
     label: 'Password',
     icon: <SVGCheckMark />,
-    isActive: false,
     disabled: true,
   },
 };
