@@ -17,7 +17,7 @@ export default function FancyRadioList(props: FancyRadioListProps) {
   const radioChangeHandler = (position: string) => {
     const currentItem = items.find((item) => item.itemKey === position);
     setCurrentSelect(position);
-    handler && handler(currentItem?.itemKey!);
+    handler?.(currentItem?.itemKey!);
   };
 
   // This handles the navigation with the keyboard arrows

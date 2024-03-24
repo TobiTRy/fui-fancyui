@@ -2,15 +2,12 @@ import React, { useId } from 'react';
 
 import { FancySelectWrapper } from '@/components/molecules/FancySelectWrapper';
 import { RawRadio } from '@/components/atoms/RawRadio';
+import { TFancyRadio } from './FancyRadio.model';
 
-export type TFancyRadioProps = Omit<React.ComponentProps<typeof FancySelectWrapper>, 'inputElement'> &
-  React.ComponentProps<typeof RawRadio>;
-
-//TODO: ADD DOCUMENTATION
 // --------------------------------------------------------------------------- //
 // --- The FancyRadio is a RadioInput with a Label and description porp   ---- //
 // --------------------------------------------------------------------------- //
-const FancyRadio = React.forwardRef<HTMLDivElement, TFancyRadioProps>((props, ref) => {
+const FancyRadio = React.forwardRef<HTMLDivElement, TFancyRadio>((props, ref) => {
   const {
     align,
     alignInput,

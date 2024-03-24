@@ -2,7 +2,7 @@
 import { Meta, StoryObj } from '@storybook/react';
 
 // Import the component to be tested
-import FancyRadio from './FancyRadio';
+import FancyRadio from '../FancyRadio';
 
 // Define metadata for the story
 const meta = {
