@@ -8,8 +8,8 @@ import { sizeSettings } from './sizeSettings';
 // --------------------------------------------------------------------------- //
 export default function FancyBox<T extends ElementType = 'div'>(props: TFancyBoxWithHTMLAttrs<T>) {
   const {
-    sizeC,
-    layer,
+    sizeC = 'md',
+    layer = 1,
     themeType,
     outlined,
     outlinedBackgroundStrength,
