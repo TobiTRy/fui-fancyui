@@ -1,20 +1,23 @@
 import { useEffect, useRef, useState } from 'react';
 
 import { SearchBar } from '@/components/molecules/SearchBar';
-import { TFancySearchBar } from '@/components/organisms/FancySearchBar/TFancySearchBar.model';
+import { TFancySearchBarWithHTMLProps } from '@/components/organisms/FancySearchBar/TFancySearchBar.model';
 import { Background, WrapperList, WrapperListInput } from './FancySearchBar.style';
 
 // The FancySearchBar component
-export default function FancySearchBar(props: TFancySearchBar) {
+export default function FancySearchBar(props: TFancySearchBarWithHTMLProps) {
   const {
-    handlerSearchValue,
     children,
     searchListWidth,
-    searchValue,
-    themeType,
+    value,
+    openListWhenFocused,
+    themeType = 'primary',
     layer = 0,
     sizeC = 'sm',
     borderRadius,
+    externalStyle,
+    className,
+    ...htmlInputProps
   } = props;
   const [isActive, setIsActive] = useState(false);
 
@@ -27,13 +30,6 @@ export default function FancySearchBar(props: TFancySearchBar) {
     setIsActive(isActive);
   };
 
-  // Function to handle changes to the search value
-  const searchValueHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const searchValue = e.target.value;
-
-    handlerSearchValue && handlerSearchValue(searchValue);
-  };
-
   // Set the height of the wrapper
   useEffect(() => {
     if (inputWraperRef.current) {
@@ -42,21 +38,29 @@ export default function FancySearchBar(props: TFancySearchBar) {
   }, []);
 
   return (
-    <WrapperListInput style={{ minHeight: `${height}px` }}>
+    <WrapperListInput style={{ minHeight: `${height}px` }} className={className} $externalStyle={externalStyle}>
       {/* The background of the search bar and list to scale the background */}
       <Background $sizeC={sizeC} $borderRadius={borderRadius} $themeType={themeType} $layer={layer}>
         {/* The search bar where something can be searched */}
         <div ref={inputWraperRef}>
           <SearchBar
+            themeType={themeType}
+            layer={layer}
             sizeC={sizeC}
             activeHandler={activeHandler}
-            searchValue={searchValue}
-            onChange={searchValueHandler}
+            searchValue={value}
+            {...htmlInputProps}
           />
         </div>
         {/* The search bar list */}
-        {isActive && (searchValue?.length ?? 0) > 0 && (
-          <WrapperList $sizeC={sizeC} $borderRadius={borderRadius} $width={searchListWidth}>
+        {isActive && (openListWhenFocused || (value?.length ?? 0) > 0) && (
+          <WrapperList
+            $sizeC={sizeC}
+            $themeType={themeType}
+            $layer={layer}
+            $borderRadius={borderRadius}
+            $width={searchListWidth}
+          >
             {children}
           </WrapperList>
         )}

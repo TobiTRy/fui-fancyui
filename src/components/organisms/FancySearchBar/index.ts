@@ -1,2 +1,3 @@
 export { default as FancySearchBar } from './FancySearchBar';
-export type { TFancySearchBar } from './TFancySearchBar.model';
+
+export type { TFancySearchBar, TFancySearchBarWithHTMLProps } from './TFancySearchBar.model';
