@@ -20,7 +20,7 @@ const storyBookThemeDark = create({
   buttonBg: rawTheme.colors.primary[2],
   booleanBg: rawTheme.colors.primary[1],
   booleanSelectedBg: rawTheme.colors.accent[1],
-  appBorderColor: rawTheme.colors.primary[4],
+  appBorderColor: rawTheme.colors.primary[2],
   appBorderRadius: 18,
   inputTextColor: rawTheme.colors.secondary[0],
   barHoverColor: rawTheme.colors.accent[0],
