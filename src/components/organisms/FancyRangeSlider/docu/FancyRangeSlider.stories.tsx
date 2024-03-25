@@ -2,17 +2,20 @@
 import { Meta, StoryObj } from '@storybook/react';
 
 // Import the component to be tested
-import SVGCheckMark from '../../icons/SVGCheckMark/SVGCheckMark';
+import SVGCheckMark from '../../../icons/SVGCheckMark/SVGCheckMark';
 
-import FancyRange from '@/components/organisms/FancyRangeSlider/FancyRangeSlider';
+import { FancyRangeSlider } from '@/components/organisms/FancyRangeSlider';
+import templateThemeType from '@/stories/templateSettingsForStorys/templatesForThemeType';
 
 // Define metadata for the story
 const meta = {
-  component: FancyRange,
+  component: FancyRangeSlider,
+  title: 'components/organisms/FancyRangeSlider',
   parameters: {
     docs: {
       description: {
-        component: 'Dumb-Comonent: The FancyPasswordInput Comonent with surrounding icon, label and underline',
+        component:
+          '`FancyRangeSlider` is a component designed to provide a flexible and visually appealing range slider input. It combines a raw slider with optional enhancements such as a number input for direct value entry, custom styling, and integration with a system messaging feature. The component is built to be easily integrated into larger forms or UIs, offering extensive customization through props to match various design requirements.',
       },
     },
   },
@@ -33,27 +36,7 @@ const meta = {
         defaultValue: { summary: 'left' },
       },
     },
-    themeType: {
-      description: 'The theme of the input',
-      control: {
-        type: 'select',
-      },
-      table: {
-        defaultValue: { summary: 'secondary' },
-      },
-    },
-    layer: {
-      description: 'The layer of the input',
-      control: {
-        type: 'range ',
-        min: 1,
-        max: 10,
-        step: 1,
-      },
-      table: {
-        defaultValue: { summary: '4' },
-      },
-    },
+    ...templateThemeType('mainThemeTypes', 'primary', 2),
     icon: {
       description: 'The icon of the input',
       table: {
@@ -92,14 +75,9 @@ const meta = {
       control: {
         type: 'number',
       },
-      table: {
-        defaultValue: { summary: 50 },
-      },
     },
   },
-  // Add tags to the story
-  tags: ['autodocs'],
-} satisfies Meta<typeof FancyRange>;
+} satisfies Meta<typeof FancyRangeSlider>;
 
 // Export the metadata
 export default meta;
@@ -108,17 +86,17 @@ type Story = StoryObj<typeof meta>;
 
 // Define the primary story
 export const Primary: Story = {
-  render: (args) => <FancyRange {...args} />,
+  render: (args) => <FancyRangeSlider {...args} />,
   args: {
     id: 'test',
     label: 'Label',
     align: 'left',
-    themeType: 'secondary',
-    layer: 4,
+    themeType: 'primary',
+    layer: 2,
     icon: <SVGCheckMark />,
     disabled: false,
     min: 0,
     max: 100,
-    value: 50,
+    value: 0,
   },
 };
