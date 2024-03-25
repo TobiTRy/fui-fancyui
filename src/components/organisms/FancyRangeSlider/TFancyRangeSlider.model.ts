@@ -1,4 +1,5 @@
 import { TRawSliderWithNativeAttrs } from '@/components/atoms/RawSlider';
-import { TInputWrapper } from '@/components/molecules/InputWrapper';
+import { TInputWrapperUserInputProps } from '@/components/molecules/InputWrapper';
 
-export type TFancyRangeSlider = TInputWrapper & TRawSliderWithNativeAttrs & { displayNumberInput?: boolean };
+export type TFancyRangeSlider = Omit<TInputWrapperUserInputProps, 'placeholder'> &
+  TRawSliderWithNativeAttrs & { displayNumberInput?: boolean };

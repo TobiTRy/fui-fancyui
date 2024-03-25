@@ -41,26 +41,14 @@ After installing the required library, you can import and use the `FancyDropDown
 />
 ```
 
+<Canvas />
+
 ### Component Properties
 
-- **id** (string): Optional. A unique identifier for the slider.
-- **label** (string): Text label for the slider.
-- **layer** (number): Design layer level for styling context.
-- **onChange** (function): Handler called when the slider value changes.
-- **systemMessage** (object): Optional message to display alongside the slider.
-- **max** (number|string): The maximum value for the slider.
-- **min** (number|string): The minimum value for the slider.
-- **transparentBackground** (boolean): Whether the slider background is transparent.
-- **displayNumberInput** (boolean): Whether to display an input for direct number entry.
-- **icon** (ReactNode): Optional. Icon to display within the input wrapper.
-- **align** (string): Text alignment within the input wrapper.
-- **placeholder** (string): Placeholder text for the input.
-- **themeType** (string): Theme identifier for styling.
-- **disabled** (boolean): Whether the slider is disabled.
+<Controls />
 
 ### List of Used Components
 
 - **InputWrapper**: Wraps the entire slider component, providing a structured way to display labels, system messages, and the slider itself.
 - **FancyNumberInput**: An optional numeric input for direct value modification, styled consistently with the theme of the slider.
 - **RawSlider**: The base slider component, used for the primary sliding functionality.
-- **InputElementWrapper**: Styled div that houses the `RawSlider` and optionally the `FancyNumberInput`, ensuring proper alignment and spacing.

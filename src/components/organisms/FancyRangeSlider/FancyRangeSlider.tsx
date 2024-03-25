@@ -3,25 +3,26 @@ import React, { ChangeEvent, useEffect, useId, useState } from 'react';
 import { InputWrapper } from '@/components/molecules/InputWrapper';
 import { FancyNumberInput } from '@/components/organisms/FancyNumberInput';
 import { clampLayer } from '@/utils/functions/clampLayer';
-import {
-  InputElementWrapper,
-  generateInputWrapperStyles,
-} from '@/components/organisms/FancyRangeSlider/FancyRangeSlider.style';
 import { RawSlider } from '@/components/atoms/RawSlider';
 import countNegativLayerUpwards from '@/design/designFunctions/countNegativLayerUpwards/countNegativLayerUpwards';
-import { TFancyRangeSlider } from '@/components/organisms/FancyRangeSlider/TFancyRangeSlider.model';
 
+import { TFancyRangeSlider } from './TFancyRangeSlider.model';
+import { InputElementWrapper, generateInputWrapperStyles } from './FancyRangeSlider.style';
+
+// --------------------------------------------------------------------------- //
+// ------------ Here is createt the Fancy Range Slider Organism -------------- //
+// --------------------------------------------------------------------------- //
 export default function FancyRangeSlider(props: TFancyRangeSlider) {
   const {
     id,
     label,
-    layer,
+    layer = 2,
     onChange,
     systemMessage,
-    max,
-    min,
+    max = 100,
+    min = 0,
     transparentBackground,
-    displayNumberInput,
+    displayNumberInput = false,
     icon,
     align,
     placeholder,

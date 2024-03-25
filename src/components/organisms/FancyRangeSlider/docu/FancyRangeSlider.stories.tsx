@@ -22,13 +22,13 @@ const meta = {
   // Define arguments for the story
   argTypes: {
     label: {
-      description: 'The label of the input',
+      description: 'The label for the slider',
       control: {
         type: 'text',
       },
     },
     align: {
-      description: 'The alignment of the input',
+      description: 'Text alignment within the input wrapper.',
       control: {
         type: 'select',
       },
@@ -44,7 +44,7 @@ const meta = {
       },
     },
     disabled: {
-      description: 'The disabled state of the input',
+      description: 'Whether the slider is disabled.',
       control: {
         type: 'boolean',
       },
@@ -53,7 +53,7 @@ const meta = {
       },
     },
     min: {
-      description: 'The minimum value of the input',
+      description: 'The minimum value of the slider',
       control: {
         type: 'number',
       },
@@ -62,7 +62,7 @@ const meta = {
       },
     },
     max: {
-      description: 'The maximum value of the input',
+      description: 'The maximum value of the slider',
       control: {
         type: 'number',
       },
@@ -74,6 +74,24 @@ const meta = {
       description: 'The current value of the input',
       control: {
         type: 'number',
+      },
+    },
+    transparentBackground: {
+      description: 'Whether the input has a transparent background',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: false },
+      },
+    },
+    displayNumberInput: {
+      description: 'Whether to display an input for direct number entry.',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: false },
       },
     },
   },
@@ -98,5 +116,22 @@ export const Primary: Story = {
     min: 0,
     max: 100,
     value: 0,
+  },
+};
+
+export const WithNumberInput: Story = {
+  render: (args) => <FancyRangeSlider {...args} />,
+  args: {
+    ...Primary.args,
+    displayNumberInput: true,
+  },
+};
+
+export const WithTransparentBackground: Story = {
+  render: (args) => <FancyRangeSlider {...args} />,
+  args: {
+    ...Primary.args,
+    layer: 3,
+    transparentBackground: true,
   },
 };
