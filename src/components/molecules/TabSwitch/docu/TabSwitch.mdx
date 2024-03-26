@@ -21,7 +21,7 @@ import { TabSwitch } from 'fui-fancyui';
 2. If using TypeScript, you can import the type definitions for prop validation:
 
 ```jsx
-import { TTabSwitch } from 'fui-fancyui';
+import { TTabSwitch, TTabSwitchWithHTMLAtts } from 'fui-fancyui';
 ```
 
 ### Example Usage
@@ -37,7 +37,7 @@ import { TTabSwitch } from 'fui-fancyui';
   wide={false}
   disabled={false}
   tabSpacing="md"
-  rounded="sm"
+  borderRadius="sm"
   direction="horizontal"
   outlined={true}
   currentSelect="tab1"
@@ -54,4 +54,4 @@ import { TTabSwitch } from 'fui-fancyui';
 ### List of Used Components
 
 - **FancyTabSwitchButton**: A molecule that represents each selectable tab within the `TabSwitch` component, providing customizable size, color, disabled state, and selection handling.
-- **SwitchActiveIndicator**: An atom used to indicate the currently selected tab, customizable in terms of type (blob or underline), color, and orientation.
+- **SwitchActiveIndicator**: An atom used to indicate the currently selected tab, customizable in terms of type (blob or underline), color, and orientation.import { borderRadius } from '@/design/theme/designSizes';

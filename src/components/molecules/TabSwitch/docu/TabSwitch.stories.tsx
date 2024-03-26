@@ -39,7 +39,7 @@ const meta = {
       description: 'The list of tabs.',
       control: { type: 'object' },
     },
-    rounded: {
+    borderRadius: {
       description: 'If true, the component will be rounded.',
       control: { type: 'select' },
     },
