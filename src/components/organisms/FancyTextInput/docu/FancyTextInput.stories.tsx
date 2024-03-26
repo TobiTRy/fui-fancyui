@@ -5,6 +5,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import FancyTextInput from '../FancyTextInput';
 
 import SVGCheckMark from '../../../icons/SVGCheckMark/SVGCheckMark';
+import templateThemeType from '@/stories/templateSettingsForStorys/templatesForThemeType';
 
 // Define metadata for the story
 const meta = {
@@ -18,69 +19,83 @@ const meta = {
   },
   // Define arguments for the story
   argTypes: {
-    value: {
-      description: 'The value of the input',
-      defaultValue: '',
+    label: {
+      description: 'Label for the input',
       control: {
         type: 'text',
       },
     },
-
-    layer: {
-      description: 'The layer of the modal',
-      defaultValue: 0,
-      control: {
-        type: 'range',
-        min: 0,
-        max: 9,
-        step: 1,
-      },
-    },
-    themeType: {
-      description: 'The theme of the modal',
-      defaultValue: 'primary',
+    align: {
+      description: 'Alignment of the label',
       control: {
         type: 'select',
       },
     },
-    isActive: {
-      description: 'The activity state of the input',
-      defaultValue: false,
+    disabled: {
+      description: 'Disable the input',
       control: {
         type: 'boolean',
       },
     },
-    align: {
-      description: 'The alignment of the input',
-      defaultValue: 'left',
+    ...templateThemeType('mainThemeTypes', 'primary', 2),
+    systemMessage: {
+      description: 'Error message to be displayed',
       control: {
-        type: 'select',
+        type: 'object',
       },
     },
-    label: {
-      description: 'The label of the input',
-      defaultValue: 'Label',
+    placeholder: {
+      description: 'Placeholder for the input',
       control: {
         type: 'text',
       },
     },
-    systemMessage: {
-      description: 'The system message of the input',
-      defaultValue: '',
+    icon: {
+      description: 'Icon for the input',
+      control: {
+        type: 'object',
+      },
+    },
+    value: {
+      description: 'Value of the input',
       control: {
         type: 'text',
       },
     },
     transparentBackground: {
-      description: 'The background of the input',
-      defaultValue: false,
+      description: 'The input has a transparent background',
       control: {
         type: 'boolean',
       },
     },
+    externalStyle: {
+      description: 'External style for the input',
+      control: {
+        type: 'object',
+      },
+    },
+    labelVariant: {
+      description: 'Variant of the label',
+      control: {
+        type: 'select',
+      },
+    },
+    outlined: {
+      description: 'Outlined input',
+      control: {
+        type: 'boolean',
+      },
+    },
+    outlinedBackgroundStrength: {
+      description: 'Background strength of the outlined input',
+      control: {
+        min: 0,
+        max: 1,
+        step: 0.1,
+        type: 'number',
+      },
+    },
   },
-  // Add tags to the story
-  tags: ['autodocs'],
 } satisfies Meta<typeof FancyTextInput>;
 
 // Export the metadata
@@ -95,7 +110,6 @@ export const Primary: Story = {
     value: '',
     layer: 0,
     themeType: 'secondary',
-    isActive: false,
     align: 'left',
     label: 'Label',
     icon: <SVGCheckMark />,
@@ -108,7 +122,6 @@ export const WithErrorState: Story = {
     value: '',
     layer: 0,
     themeType: 'secondary',
-    isActive: false,
     align: 'left',
     label: 'Label',
     icon: <SVGCheckMark />,
@@ -125,7 +138,6 @@ export const WithSuccessState: Story = {
     value: '',
     layer: 0,
     themeType: 'secondary',
-    isActive: false,
     align: 'left',
     label: 'Label',
     icon: <SVGCheckMark />,
@@ -142,7 +154,6 @@ export const WithInfoState: Story = {
     value: '',
     layer: 0,
     themeType: 'secondary',
-    isActive: false,
     align: 'left',
     label: 'Label',
     icon: <SVGCheckMark />,
