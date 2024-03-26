@@ -21,8 +21,8 @@ const FancyTabSwitchButton = React.forwardRef<HTMLDivElement, TFancyTabSwitchBut
     icon,
     children,
     externalStyle,
-    themeType,
-    layer,
+    themeType = 'secondary',
+    layer = 0,
     ...HTMLProps
   } = props;
 
@@ -50,7 +50,13 @@ const FancyTabSwitchButton = React.forwardRef<HTMLDivElement, TFancyTabSwitchBut
         aria-hidden="true"
         onChange={() => onClick && onClick(itemKey)}
       />
-      <Typography htmlFor={id + '_' + itemKey} elType="label" variant="interactiveMd" externalStyle={{ zIndex: 1 }}>
+      <Typography
+        htmlFor={id + '_' + itemKey}
+        elType="label"
+        themeType={themeType}
+        variant="interactiveMd"
+        externalStyle={{ zIndex: 1 }}
+      >
         {(icon || label) && (
           <FancyContent direction={leftRightToFlex(iconAlign)}>
             {icon && <FancyContent.Icon>{icon}</FancyContent.Icon>}
