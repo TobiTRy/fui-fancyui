@@ -1,9 +1,11 @@
-import { TTabSwitch } from '@/components/molecules/TabSwitch/TTabSwitch.model';
+import { TTabSwitchWithHTMLAtts } from '@/components/molecules/TabSwitch/TTabSwitch.model';
 import { TLayer } from '@/types/TLayer';
-import { TUiColorTypes } from '@/types/TUiColorTypes';
+import { TUiColorsMain } from '@/types/TUiColorsMain';
 
 export type TFancyTabSwitch = {
   label?: string;
-  themeType?: TUiColorTypes;
+  themeType?: TUiColorsMain | 'transparent';
   layer?: TLayer;
-} & TTabSwitch;
+};
+
+export type FancyTabSwitchWithTabSwitchAtts = TFancyTabSwitch & Omit<TTabSwitchWithHTMLAtts, 'themeType'>;

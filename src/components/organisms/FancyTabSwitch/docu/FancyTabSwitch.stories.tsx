@@ -1,16 +1,17 @@
-import React from 'react';
-
 import type { Meta, StoryObj } from '@storybook/react';
 
-import FancyTabSwitch from './FancyTabSwitch';
+import templateThemeType from '@/stories/templateSettingsForStorys/templatesForThemeType';
+import FancyTabSwitch from '../FancyTabSwitch';
 
 const meta = {
   component: FancyTabSwitch,
+  title: 'components/organisms/FancyTabSwitch',
   parameters: {
     layout: 'centered',
     docs: {
       description: {
-        component: 'Dumb-Comonent: a Button that opens a SpeedDialMenue with a list of Buttons.',
+        component:
+          'The `FancyTabSwitch` component is a customizable tab switcher that supports advanced features such as labels, theming, and layout configurations. It leverages the `TabSwitch` component for tab functionalities and enhances it with a `FancyBox` wrapper for additional styling capabilities. This component is designed to provide a versatile tab-switching UI component with enhanced visual features.',
       },
     },
   },
@@ -41,23 +42,9 @@ const meta = {
         type: 'select',
       },
     },
-    themeType: {
-      description: 'The color of the component.',
-      control: {
-        type: 'select',
-      },
-    },
+    ...templateThemeType('mainThemeTypes', 'primary', 0),
     currentSelect: {
       description: 'The currently selected tab.',
-    },
-    layer: {
-      description: 'The layer of the component.',
-      control: {
-        type: 'range',
-        min: 0,
-        max: 10,
-        step: 1,
-      },
     },
     activeColor: {
       description: 'The active color of the component.',
@@ -69,14 +56,29 @@ const meta = {
       description: 'If true, the component will be outlined.',
       type: { name: 'boolean' },
     },
-    rounded: {
+    borderRadius: {
       description: 'The rounded of the component.',
       control: {
         type: 'select',
       },
     },
+    label: {
+      description: 'The label of the component.',
+      type: { name: 'string' },
+      control: {
+        type: 'text',
+      },
+    },
+    textLayer: {
+      description: 'The text layer of the component.',
+      control: {
+        type: 'range',
+        min: 0,
+        max: 9,
+        step: 1,
+      },
+    },
   },
-  tags: ['autodocs'],
 } satisfies Meta<typeof FancyTabSwitch>;
 
 export default meta;

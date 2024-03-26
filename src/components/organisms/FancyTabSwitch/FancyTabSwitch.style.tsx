@@ -20,7 +20,6 @@ export interface IFancyTabSwitchStyle {
   $outlined?: boolean;
   theme: TTheme;
   $layer?: TLayer;
-  $themeType?: TUiColorTypes;
 }
 
 // ----------------------------------------------------------- //
