@@ -3,25 +3,23 @@ import { css } from 'styled-components';
 import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent';
 import colorTransparencyCalculator from '@/design/designFunctions/colorTransparencyCalculator/colorTransparencyCalculator';
 import { TActiveSwitchIndicator } from '../TSwitchActiveindicator.model';
-import themeStore from '@/design/theme/themeStore/themeStore';
-import { TBorderRadiusSizes } from '@/types/TBorderRadiusSizes';
 import { TTheme } from '@/types/TTheme';
 import { TStyledPrefixAndPicker } from '@/types/TStyledPrefixAndPicker';
+import { arrayToCssValues } from '@/design/designFunctions/arrayToCssValues';
 
 // Define the function to generate a blob background for the active indicator
-type IGenerateBlob = TStyledPrefixAndPicker<TActiveSwitchIndicator, 'themeType' | 'outlined' | 'rounded' | 'layer'> & {
+type IGenerateBlob = TStyledPrefixAndPicker<
+  TActiveSwitchIndicator,
+  'themeType' | 'outlined' | 'borderRadius' | 'layer'
+> & {
   theme: TTheme;
 };
 export const generateBlob = (props: IGenerateBlob) => {
-  const { $themeType, theme, $rounded, $outlined, $layer } = props;
-  const borderRadius = themeStore.getState().theme.borderRadius;
+  const { $themeType, theme, $borderRadius, $outlined, $layer } = props;
   let backgroundStyle;
 
   // Get the background color for the active indicator
   const backgroundColor = getBackgroundColor({ theme, $themeType: $themeType ?? 'accent', $layer: $layer ?? 0 });
-
-  // Check if the provided rounded value is a valid key in the borderRadius object
-  const isRadiusKey = $rounded ? Object.keys(borderRadius).includes($rounded) : false;
 
   // If the outlined prop is true, generate a slightly transparent background color and a border
   if ($outlined) {
@@ -46,7 +44,7 @@ export const generateBlob = (props: IGenerateBlob) => {
   return css`
     top: 0;
     height: 100%;
-    border-radius: ${isRadiusKey ? borderRadius[$rounded as TBorderRadiusSizes] : $rounded};
+    border-radius: ${arrayToCssValues($borderRadius)};
     ${backgroundStyle}
   `;
 };
