@@ -73,7 +73,6 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   render: (args) => <FancySearchBar {...args} />,
   args: {
-    handlerSearchValue: (value: string) => console.log(value),
     searchListWidth: '100%',
     layer: 1,
     children: (
