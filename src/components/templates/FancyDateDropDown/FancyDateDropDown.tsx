@@ -1,6 +1,4 @@
-import FancyDropDownSelect, {
-  IFancyDropDownSelect,
-} from '@/components/organisms/FancyDropDownSelect/FancyDropDownSelect';
+import { FancyDropDownSelect, TFancyDropDownSelect } from '@/components/organisms/FancyDropDownSelect';
 import generateYearZone from '@/utils/functions/generateFunctions/generateYearZone';
 import generateMonthNames from '@/utils/functions/generateFunctions/generateMonthNames';
 import generateDayNumbers from '@/utils/functions/generateFunctions/generateDayNumbers';
@@ -40,7 +38,7 @@ const generateOptions = (type: DateType, dateLimits?: [number, number]) => {
 };
 
 type DateType = 'year' | 'month' | 'day';
-interface IFancyDateDropDown extends IFancyDropDownSelect {
+interface IFancyDateDropDown extends TFancyDropDownSelect {
   type: DateType;
   dateLimits?: [number, number];
 }
