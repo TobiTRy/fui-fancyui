@@ -1,0 +1,82 @@
+import { Meta, Title, Description, Canvas, Controls } from '@storybook/blocks';
+
+import * as FancySwipeUpModalStories from './FancySwipeUpModal.stories';
+
+<Meta of={FancySwipeUpModalStories} />
+
+<Title />
+
+<Description />
+
+## Setup Instructions
+
+To use the `FancySwipeUpModal` in your project, follow these steps:
+
+1. Import the `FancySwipeUpModal` component where you intend to use it:
+
+```jsx
+import { FancySwipeUpModal } from 'fui-fancyui';
+```
+
+**Component Placement**: Insert `<FancySwipeUpModal />` at the desired location within your main file.
+
+2. **DOM Element Creation**: Designate a DOM element where the modal will be displayed, such as `<div id="modal"></div>`.
+
+3. **Modal-DOM Connection**: Utilize the `appendToDomID` prop (e.g., <FancySwipeUpModal appendToDomID="modal"/>) to link the modal to the specified DOM element. The store now manages configuration settings, streamlining the setup process.
+
+4. If using TypeScript, you can import the type definitions for prop validation:
+
+```jsx
+import { TFancySwipeUpModal, TFancySwipeUpModalStore, TModalSettings } from 'fui-fancyui';
+```
+
+After installing the required library, you can import and use the `FancySwipeUpModal` component in your project as follows:
+
+### Example Usage
+
+- **Store Importation**: Import `useFancySwipeUpModalStore` within your component to use the modal.
+
+  ```jsx
+  const openModal = useFancySwipeUpModalStore((state) => state.openSwipeUpModal);
+  ```
+
+- **Opening the Modal**: Invoke `openModal` with a modal ID, child components, and a configuration object.
+
+  ```jsx
+  const openModalHandler = () => {
+    openModal(
+      'modalTest',
+      <div style={{ display: 'flex', direction: 'column', gap: '18px' }}>
+        <FancyTextInput label="Email" />
+        <FancyButton onClick={() => closeModal('modalTest')} label="Close Modal"></FancyButton>
+      </div>,
+      {
+        isCloseAble: false,
+        isScalable: true,
+        ...TModalSettings,
+      }
+    );
+  };
+  ```
+
+- **Closing the Modal**: Use `closeModal` from `useFancySwipeUpModalStore` for modal closure.
+
+  ```jsx
+  const closeModal = useFancySwipeUpModalStore((state) => state.closeSwipeUpModal);
+  ```
+
+<Canvas />
+
+### Component Properties
+
+- `appendToDomID` (string, required): The ID of the DOM element to append the modal to.
+
+- The Settings object includes the following properties:
+
+<Controls />
+
+### List of Used Components
+
+- **useFancySwipeUpModalStore**: A store hook for managing the opening, closing, and removing of modals dynamically.
+- **SwipeUpModal**: A component that displays a modal with a swipe-up animation.
+- **FancyPortal**: A component that renders children in a separate DOM node.

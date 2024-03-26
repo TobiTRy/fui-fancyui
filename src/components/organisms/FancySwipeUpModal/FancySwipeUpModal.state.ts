@@ -1,30 +1,15 @@
 import { create } from 'zustand';
 
-import { TModalStatus } from '@/types/TModalStatus';
-import { TSwipeUpModal } from '@/components/molecules/SwipeUpModal/TSwipeUpModal.model';
-
-export type ModalSettings = Omit<TSwipeUpModal, 'isOpen' | 'children' | 'onClose'>;
-
-export interface IFancySwipeUpModal {
-  id: string;
-  children: React.ReactNode;
-  status: TModalStatus;
-  config?: ModalSettings;
-}
-
-export interface IFancySwipeUpModalStore {
-  modals: IFancySwipeUpModal[];
-  openSwipeUpModal: (id: string, children: React.ReactNode, config?: ModalSettings) => void;
-  removeSwipeUpModal: (id: string) => void;
-  closeSwipeUpModal: (id: string) => void;
-}
+import { TFancySwipeUpModalStore } from './TFancySwipeUpModal.model';
 
 // --------------------------------------------------------------------------- //
 // ------------- The globale State to open and close ------------------------- //
 // --------------------------------------------------------------------------- //
-export const useFancySwipeUpModalStore = create<IFancySwipeUpModalStore>((set) => ({
+export const useFancySwipeUpModalStore = create<TFancySwipeUpModalStore>((set) => ({
   // the state array for the modals
   modals: [],
+  // the state for the modal
+  isOpen: false,
   // add a new modal to the state array
   openSwipeUpModal: (id, children, config) =>
     set((state) => {
@@ -40,6 +25,4 @@ export const useFancySwipeUpModalStore = create<IFancySwipeUpModalStore>((set) =
     set((state) => ({
       modals: state.modals.filter((modal) => modal.id !== id),
     })),
-
-  isOpen: false,
 }));
