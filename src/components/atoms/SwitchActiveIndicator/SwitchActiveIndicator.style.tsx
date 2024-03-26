@@ -42,7 +42,7 @@ const clacCurrentPosition = (props: IClacCurrentPosition) => {
 // --------------------------------------------------------------------------- //
 type ActiveSwitchIndicatorGenerator = TStyledPrefixAndPicker<
   TActiveSwitchIndicator,
-  'layer' | 'rounded' | 'outlined' | 'themeType' | 'type' | 'indicatorWidth'
+  'layer' | 'borderRadius' | 'outlined' | 'themeType' | 'type' | 'indicatorWidth'
 >;
 export const ActiveSwitchIndicator = styled.span<ActiveSwitchIndicatorGenerator & { theme?: TTheme }>`
   position: absolute;

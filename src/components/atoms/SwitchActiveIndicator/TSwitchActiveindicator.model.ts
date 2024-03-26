@@ -1,7 +1,8 @@
-import { TBorderRadiusSizes } from '@/types/TBorderRadiusSizes';
+import { TThemeArrayOrValueCSS } from '@/design/designFunctions/arrayToCssValues';
 import { TLayer } from '@/types/TLayer';
 import { TSpacings } from '@/types/TSpacings';
 import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
+
 import { CSSProp } from 'styled-components';
 
 export type TActiveSwitchIndicator = {
@@ -10,7 +11,7 @@ export type TActiveSwitchIndicator = {
   layer?: TLayer;
   tabSpacing?: TSpacings;
   type?: 'bolb' | 'underline' | 'topline';
-  rounded?: TBorderRadiusSizes | string;
+  borderRadius?: TThemeArrayOrValueCSS;
   outlined?: boolean;
   direction?: 'horizontal' | 'vertical';
   indicatorWidth?: string;

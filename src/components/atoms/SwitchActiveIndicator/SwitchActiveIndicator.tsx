@@ -5,8 +5,18 @@ import { ActiveSwitchIndicator, Wrapper } from './SwitchActiveIndicator.style';
 // -------- Create a Incator for wich Item in a Switch List ist activ  ------- //
 // --------------------------------------------------------------------------- //
 export default function SwitchActiveIndicator(props: TActiveSwitchIndicatorWithHTMLAttrs) {
-  const { itemNumber, tabSpacing, direction, indicatorWidth, themeType, layer, outlined, rounded, type, ...htmlProps } =
-    props;
+  const {
+    itemNumber,
+    tabSpacing,
+    direction,
+    indicatorWidth,
+    themeType,
+    layer,
+    outlined,
+    borderRadius,
+    type,
+    ...htmlProps
+  } = props;
 
   return (
     <Wrapper $itemNumber={itemNumber} $tabSpacing={tabSpacing} $direction={direction} {...htmlProps}>
@@ -15,7 +25,7 @@ export default function SwitchActiveIndicator(props: TActiveSwitchIndicatorWithH
         $themeType={themeType}
         $layer={layer}
         $outlined={outlined}
-        $rounded={rounded}
+        $borderRadius={borderRadius}
         $type={type}
       />
     </Wrapper>

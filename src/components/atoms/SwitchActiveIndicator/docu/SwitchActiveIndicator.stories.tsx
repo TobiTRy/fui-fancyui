@@ -46,7 +46,7 @@ const meta = {
         type: 'number',
       },
     },
-    rounded: {
+    borderRadius: {
       description: 'The rounded is to set the border-radius of the indicator',
       control: {
         type: 'select',
@@ -89,7 +89,7 @@ export const Primary: Story = {
     itemNumber: 1,
     tabSpacing: 'md',
     type: 'bolb',
-    rounded: 'md',
+    borderRadius: 'md',
     outlined: false,
     direction: 'horizontal',
     themeType: 'accent',
