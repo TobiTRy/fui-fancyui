@@ -4,6 +4,7 @@ import { PasswordInput } from '@/components/atoms/PasswordInput';
 import { InputWrapper } from '@/components/molecules/InputWrapper';
 
 import { TFancyPasswordInput } from './TFancyPasswordInput.model';
+import { getOpositMainThemeType } from '@/design/designFunctions/getOpositMainThemeType';
 
 // --------------------------------------------------------------------------- //
 // ----The PasswordInput Comonent with surrounding icon, label and underline-- //
@@ -52,7 +53,7 @@ export default function FancyPasswordInput(props: TFancyPasswordInput) {
           id={usedId}
           value={value}
           align={align}
-          themeType={themeType}
+          themeType={getOpositMainThemeType(themeType)}
           layer={layer}
           disabled={disabled}
           onFocus={(e) => {
