@@ -1,4 +1,4 @@
-import { TSystemMessageProps } from '../../../types/TSystemMessageProps';
+import { TUiColorsSystemMessage } from '@/types/TUiColorsSystemMessage';
 import { TLayer } from '@/types/TLayer';
 
 export type TToastMessage = {
@@ -6,7 +6,7 @@ export type TToastMessage = {
   title: string;
   message: string;
   time?: number;
-  themeType: TSystemMessageProps;
+  themeType: TUiColorsSystemMessage;
   layer?: TLayer;
 };
 
