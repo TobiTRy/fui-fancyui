@@ -10,18 +10,18 @@ export default function DropDownSelect(props: TDropDownSelect & TDropDownSelectN
   return (
     <SelectField $align={align} $labelAlign={align} value={value || ''} {...htmlInputProps}>
       {/* Placeholder option */}
-      {placeholder && (
-        <option key="-2" value="">
-          {placeholder}
-        </option>
-      )}
-
       {/* Empty Select Option  */}
       {emptySelect && (
         <option key="-1" value="" disabled>
           {''}
         </option>
       )}
+      {placeholder && (
+        <option key="-2" value="">
+          {placeholder}
+        </option>
+      )}
+
       {/* Children */}
 
       {values?.map((item, i) => {
