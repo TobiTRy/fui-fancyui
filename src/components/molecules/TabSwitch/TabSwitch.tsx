@@ -5,7 +5,7 @@ import { FancyTabSwitchButton } from '@/components/molecules/FancyTabSwitchButto
 import { SwitchActiveIndicator } from '@/components/atoms/SwitchActiveIndicator';
 import { TTabSwitch } from './TTabSwitch.model';
 import { themeStore } from '@/design/theme/themeStore';
-import { calcBorderRadiusWithPadding } from '@/design/designFunctions/calcBorderRadiusWithPadding/calcBorderRadiusWithPadding';
+import { calcBorderRadiusWithPadding } from '@/design/designFunctions/calcBorderRadiusWithPadding';
 
 // --------------------------------------------------------------------------- //
 // ------------ The tap SwitchComponent to slect specifc values -------------- //
