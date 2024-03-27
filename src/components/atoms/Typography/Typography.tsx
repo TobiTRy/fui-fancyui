@@ -31,6 +31,8 @@ export default function Typography(props: TTypography) {
   // get the variant style based on the variant prop or the type prop;
   const fontVariants = generateFontVariants({ themeFonts, lineHeight, fontWeight, letterSpacing });
 
+  console.log('fontVariants', fontVariants, ComponentElement);
+
   return (
     <ComponentElement
       $variant={fontVariants[variant]}
