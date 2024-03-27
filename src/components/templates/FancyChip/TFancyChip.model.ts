@@ -11,4 +11,6 @@ export type TFancyChip = {
   icon?: ReactNode;
   sizeC?: keyof typeof sizesSettings;
   textColor?: TUiColorsNotTransparent;
-} & TChipWithFancyPillAttrs;
+};
+
+export type TFancyChipWithFancyPillAttrs = TChipWithFancyPillAttrs & TFancyChip;

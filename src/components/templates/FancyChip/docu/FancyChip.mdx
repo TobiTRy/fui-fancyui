@@ -1,0 +1,54 @@
+import { Meta, Title, Description, Canvas, Controls } from '@storybook/blocks';
+
+import * as FancyChipStories from './FancyChip.stories';
+
+<Meta of={FancyChipStories} />
+
+<Title />
+
+<Description />
+
+## Setup Instructions
+
+1. Import the `FancyChip` component where you intend to use it:
+
+```jsx
+import { FancyChip } from 'fui-fancyui';
+```
+
+2. If using TypeScript, you can import the type definitions for prop validation:
+
+```jsx
+import { TFancyBottomBarIcon } from 'fui-fancyui';
+```
+
+### Example Usage
+
+```jsx
+import { TFancyChip, TFancyChipWithFancyPillAttrs } from 'fui-fancyui';
+
+// Usage example
+<FancyChip
+  label="Example Chip"
+  icon={<SomeIcon />}
+  image={<img src="path/to/image" alt="Example" />}
+  onDelete={() => console.log('Deleted')}
+  sizeC="md"
+  themeType="dark"
+  textColor="primary"
+/>;
+```
+
+<Canvas />
+
+<Canvas of={FancyChipStories.WithImage} />
+
+<Canvas of={FancyChipStories.WithIcon} />
+
+### Component Properties
+
+<Controls />
+
+### List of Used Components
+
+- **Chip**: A base component for creating chips with customizable content like images, labels, and icons.

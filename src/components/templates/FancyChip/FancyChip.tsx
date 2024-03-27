@@ -2,19 +2,19 @@ import { css } from 'styled-components';
 
 import { Chip } from '@/components/molecules/Chip';
 import { sizesSettings } from '@/components/molecules/Chip/sizeSettings';
-import { TFancyChip } from '@/components/templates/FancyChip/TFancyChip.model';
+import { TFancyChipWithFancyPillAttrs } from '@/components/templates/FancyChip/TFancyChip.model';
 import { TSpacingPosition, generateSpacing } from '@/components/templates/FancyChip/utils/generateSpacings';
 
 // --------------------------------------------------------------------------- //
 // --------------- The FancyChip with predefined Structure ------------------- //
 // --------------------------------------------------------------------------- //
-export default function FancyChip(props: TFancyChip) {
+export default function FancyChip(props: TFancyChipWithFancyPillAttrs) {
   const {
     label,
     icon,
     image,
     onDelete,
-    layer = 3,
+    layer = 2,
     themeType,
     sizeC = 'sm',
     externalStyle,
