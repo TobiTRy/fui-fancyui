@@ -171,6 +171,7 @@ export * from '@/design/designFunctions/generateInsetBorderRadius';
 export * from '@/design/designFunctions/checkThemeValue';
 export * from '@/design/designFunctions/leftRightCenterToFlexJustify';
 export * from '@/design/designFunctions/getThemeOrValueAsCss';
+export * from '@/design/designFunctions/calcBorderRadiusWithPadding';
 
 // ---------- Interfaces ------- //
 export * from '@/types';

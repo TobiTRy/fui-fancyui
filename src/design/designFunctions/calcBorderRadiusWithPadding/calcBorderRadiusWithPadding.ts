@@ -1,4 +1,4 @@
-export const calcBorderRadiusWithPadding = (borderRadius: string, padding: string, inset = true) => {
+const calcBorderRadiusWithPadding = (borderRadius: string, padding: string, inset = true) => {
   // check if they have the same unit
   const splitBorderRadius = borderRadius.split(' ');
   const splitPadding = padding.split(' ');
@@ -40,3 +40,5 @@ export const calcBorderRadiusWithPadding = (borderRadius: string, padding: strin
     return cssValue;
   }
 };
+
+export default calcBorderRadiusWithPadding;
