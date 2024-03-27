@@ -6,14 +6,17 @@ import FancyTextInput from '../FancyTextInput';
 
 import SVGCheckMark from '../../../icons/SVGCheckMark/SVGCheckMark';
 import templateThemeType from '@/stories/templateSettingsForStorys/templatesForThemeType';
+import { useState } from 'react';
 
 // Define metadata for the story
 const meta = {
   component: FancyTextInput,
+  title: 'components/organisms/FancyTextInput',
   parameters: {
     docs: {
       description: {
-        component: 'Dumb-Comonent: The FancyPasswordInput Comonent with surrounding icon, label and underline',
+        component:
+          '`FancyTextInput` is a component designed to provide a flexible and visually appealing text input. It combines a raw input with optional enhancements such as a label, icon, custom styling, and integration with a system messaging feature. The component is built to be easily integrated into larger forms or UIs, offering extensive customization through props to match various design requirements.',
       },
     },
   },
@@ -103,13 +106,22 @@ export default meta;
 // Define the story object
 type Story = StoryObj<typeof meta>;
 
+const SateFunction = (args: any) => {
+  const [value, setValue] = useState('');
+
+  const handleStateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setValue(e.target.value);
+  };
+
+  return <FancyTextInput value={value} onChange={handleStateChange} {...args} />;
+};
+
 // Define the primary story
 export const Primary: Story = {
-  render: (args) => <FancyTextInput {...args} />,
+  render: (args) => <SateFunction {...args} />,
   args: {
-    value: '',
-    layer: 0,
-    themeType: 'secondary',
+    layer: 2,
+    themeType: 'primary',
     align: 'left',
     label: 'Label',
     icon: <SVGCheckMark />,
@@ -117,11 +129,10 @@ export const Primary: Story = {
 };
 
 export const WithErrorState: Story = {
-  render: (args) => <FancyTextInput {...args} />,
+  render: (args) => <SateFunction {...args} />,
   args: {
-    value: '',
-    layer: 0,
-    themeType: 'secondary',
+    layer: 2,
+    themeType: 'primary',
     align: 'left',
     label: 'Label',
     icon: <SVGCheckMark />,
@@ -133,11 +144,10 @@ export const WithErrorState: Story = {
 };
 
 export const WithSuccessState: Story = {
-  render: (args) => <FancyTextInput {...args} />,
+  render: (args) => <SateFunction {...args} />,
   args: {
-    value: '',
-    layer: 0,
-    themeType: 'secondary',
+    layer: 2,
+    themeType: 'primary',
     align: 'left',
     label: 'Label',
     icon: <SVGCheckMark />,
@@ -149,11 +159,10 @@ export const WithSuccessState: Story = {
 };
 
 export const WithInfoState: Story = {
-  render: (args) => <FancyTextInput {...args} />,
+  render: (args) => <SateFunction {...args} />,
   args: {
-    value: '',
-    layer: 0,
-    themeType: 'secondary',
+    layer: 2,
+    themeType: 'primary',
     align: 'left',
     label: 'Label',
     icon: <SVGCheckMark />,
