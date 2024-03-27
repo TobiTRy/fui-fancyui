@@ -1,0 +1,62 @@
+import { Meta, Title, Description, Canvas, Controls } from '@storybook/blocks';
+
+import * as FancyToastMessageStories from './FancyToastMessage.stories';
+
+<Meta of={FancyToastMessageStories} />
+
+<Title />
+
+<Description />
+
+## Setup Instructions
+
+1. Import the `FancyToastMessage` component where you intend to use it:
+
+```jsx
+import { FancyToastMessage } from 'fui-fancyui';
+```
+
+2. If using TypeScript, you can import the type definitions for prop validation:
+
+```jsx
+import { TFancyToastMessageStore, TFancyToastMessage } from 'fui-fancyui';
+```
+
+### Integration
+
+1. Place the `FancyToastMessage` component in your application's main component to allow toast messages to overlay other content.
+2. Utilize the `useFancyToastMessageStore` to add or remove toast messages. Import `useFancyToastMessageStore` and call `addToast` with the desired toast message properties.
+
+## Example Usage
+
+```jsx
+import React from 'react';
+import { useFancyToastMessageStore } from 'fui-fancyui';
+import { FancyToastMessage } from 'fui-fancyui';
+
+function App() {
+  const addToast = useFancyToastMessageStore((state) => state.addToast);
+
+  return (
+    <div>
+      <button onClick={() => addToast({ title: 'Success', message: 'This is a success message.', type: 'success' })}>
+        Show Success Toast
+      </button>
+      <FancyToastMessage />
+    </div>
+  );
+}
+```
+
+<Canvas />
+
+## Component Properties
+
+The `FancyToastMessage` component itself does not accept any external props. It internally manages toast messages using the `useFancyToastMessageStore` hook.
+
+<Controls />
+
+## List of Used Components
+
+- **SingleToastMessage**: A component representing an individual toast message. It displays the toast's content and handles its removal.
+- **useFancyToastMessageStore**: A store created with Zustand for managing the state of toast messages. It handles adding and removing toasts from the queue.

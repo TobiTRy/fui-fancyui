@@ -1,16 +1,9 @@
 import { create } from 'zustand';
-import { TToastMessage } from '@/components/molecules/SingleToastMessage/';
 
-//omit id from TToastMessage because the store will add the id
-type IToastMessageProps = Omit<TToastMessage, 'id'>;
+import { TFancyToastMessageStore } from './TFancyToastMessage.model';
 
-type ToastMessageStore = {
-  toastQueue: TToastMessage[];
-  addToast: (toast: IToastMessageProps) => void;
-  removeToast: (id: number) => void;
-};
 //the toastQueue with the add and remove functions
-export const useFancyToastMessageStore = create<ToastMessageStore>((set) => ({
+export const useFancyToastMessageStore = create<TFancyToastMessageStore>((set) => ({
   toastQueue: [],
   addToast: (toast) =>
     set((state) => ({

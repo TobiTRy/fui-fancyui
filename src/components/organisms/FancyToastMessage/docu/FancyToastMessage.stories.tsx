@@ -5,45 +5,78 @@ import { Meta, StoryObj } from '@storybook/react';
 import FancyToastMessage from '../FancyToastMessage';
 import { useFancyToastMessageStore } from '../FancyToastMessage.state';
 import { FancyButton } from '../../FancyButton';
+import { TFancyToastMessage } from '@/components/organisms/FancyToastMessage';
+import templateThemeType from '@/stories/templateSettingsForStorys/templatesForThemeType';
 
 // Define metadata for the story
 const meta = {
   component: FancyToastMessage,
+  title: 'components/organisms/FancyToastMessage',
   parameters: {
     docs: {
       description: {
         component:
-          'Smart-Comonent: The FancyToastMessage Component is a smart component to handle all toast messages in the application. It should be used as overlay in the application to make sure the toast messages are always displaey on top. To use this component in the application you have to add this component to the dom (Main Component) of the application. To add the toast messages you have to import the useToastMessageStore and addToast function  const addToast = useToastMessageStore((state) => state.addToast); addToast({ title: "My Title of the titel ", message: "This is my toast message hjsadhjgdshjag.", time: 50500, type: "error", });',
+          'The `FancyToastMessage` component is a sophisticated toast notification system. It provides an overlay for displaying multiple toast messages with animations. This component uses a queue to manage toast messages, allowing for the addition and automatic removal of toasts based on user interaction or time expiration.',
+      },
+      story: {
+        height: '300px',
       },
     },
   },
   // Define arguments for the story
-  argTypes: {},
-  // Add tags to the story
-  tags: ['autodocs'],
-} satisfies Meta<typeof FancyToastMessage>;
+  argTypes: {
+    ...templateThemeType('systemMessage', 'success', 0),
+    title: {
+      description: 'The title of the toast.',
+      control: { type: 'text' },
+    },
+    message: {
+      description: 'The message to be displayed in the toast.',
+      control: { type: 'text' },
+    },
+    time: {
+      description: 'The time in milliseconds the toast will be displayed.',
+      control: { type: 'number' },
+      table: {
+        defaultValue: { summary: '5000' },
+      },
+    },
+  },
+} satisfies Meta<TFancyToastMessage>;
 
 // Export the metadata
 export default meta;
 // Define the story object
 type Story = StoryObj<typeof meta>;
 
-const clickHandler = () => {
-  useFancyToastMessageStore.getState().addToast({
-    title: 'My Title of the titel ',
-    message: 'This is my toast message hjsadhjgdshjag.',
-    time: 50500,
-    themeType: 'error',
-  });
+const HelperComponent = (props: any) => {
+  const addToast = useFancyToastMessageStore((state) => state.addToast);
+  const { title, message, time, themeType } = props as TFancyToastMessage;
+
+  const hanldeAddToast = () => {
+    addToast({
+      title: title ?? 'My Title of the titel ',
+      message: message ?? 'This is my toast message hjsadhjgdshjag.',
+      time: time ?? 50500,
+      themeType: themeType ?? 'error',
+    });
+  };
+
+  return (
+    <>
+      <FancyToastMessage {...props} />
+      <FancyButton label="Open" onClick={hanldeAddToast} />
+    </>
+  );
 };
 
 // Define the primary story
 export const Primary: Story = {
-  render: (args) => (
-    <>
-      <FancyToastMessage {...args} />
-      <FancyButton label="Open" onClick={clickHandler} />
-    </>
-  ),
-  args: {},
+  render: (args) => <HelperComponent {...args} />,
+  args: {
+    title: 'My Title of the titel ',
+    message: 'This is my toast message hjsadhjgdshjag.',
+    time: 50500,
+    themeType: 'error',
+  },
 };
