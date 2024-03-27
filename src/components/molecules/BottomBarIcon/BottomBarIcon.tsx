@@ -26,6 +26,7 @@ export default function BottomBarIcon(props: TBottomBarIconWithHTMLAttributes) {
       $disabled={disabled}
       $isActive={isActive}
       $themeType={themeType}
+      $hoverStyle={hoverStyle}
       $layer={layer}
       $externalStyle={externalStyle}
       {...htmlProps}

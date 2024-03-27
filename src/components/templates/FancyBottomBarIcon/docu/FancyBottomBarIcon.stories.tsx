@@ -1,11 +1,13 @@
 // Import necessary dependencies
 import { Meta, StoryObj } from '@storybook/react';
-import SVGCheckMark from '../../icons/SVGCheckMark/SVGCheckMark';
+import SVGCheckMark from '../../../icons/SVGCheckMark/SVGCheckMark';
 // Import the component to be tested
-import FancyBottomBarIcon from './FancyBottomBarIcon';
+import FancyBottomBarIcon from '../FancyBottomBarIcon';
+import templateThemeType from '@/stories/templateSettingsForStorys/templatesForThemeType';
 // Define metadata for the story
 const meta = {
   component: FancyBottomBarIcon,
+  title: 'components/templates/FancyBottomBarIcon',
   parameters: {
     docs: {
       description: {
@@ -17,16 +19,8 @@ const meta = {
 
   // Define arguments for the story
   argTypes: {
-    type: {
-      control: { type: 'select' },
-      table: {
-        defaultValue: { summary: 'a' },
-      },
-    },
-    href: {
-      control: { type: 'text' },
-    },
-    isActive: {
+    disabled: {
+      description: 'If true, the component will be disabled.',
       control: { type: 'boolean' },
       table: {
         defaultValue: { summary: false },
@@ -34,42 +28,56 @@ const meta = {
     },
     label: {
       control: { type: 'text' },
-    },
-    layer: {
-      control: { type: 'range', min: 0, max: 10, step: 1 },
       table: {
-        defaultValue: { summary: 1 },
-      },
-    },
-    onClick: {
-      control: { type: 'function' },
-    },
-    disabled: {
-      control: { type: 'boolean' },
-      table: {
-        defaultValue: { summary: false },
-      },
-    },
-    themeType: {
-      control: { type: 'select' },
-      table: {
-        defaultValue: { summary: 'secondary' },
+        defaultValue: { summary: 'Label' },
       },
     },
     icon: {
+      description: 'The icon to be displayed.',
       control: { type: 'object' },
     },
-    WrapperComponent: {
-      control: { type: 'object' },
-      description: 'Provide a wrapper component like NextJS Link Component or a Custom component.  ',
-    },
-    hideLabel: {
+    isActive: {
+      description: 'If true, the component will be active.',
       control: { type: 'boolean' },
-      description:
-        'Hide the label text. When The label is hidden, the icon will get bigger and the aria-label is putted to the icon.',
       table: {
         defaultValue: { summary: false },
       },
+    },
+    hideLabel: {
+      description: 'If true, the label will be hidden.',
+      control: { type: 'boolean' },
+    },
+    sizeC: {
+      description: 'The size of the component.',
+      control: { type: 'select', options: ['sm', 'md', 'lg'] },
+      table: {
+        defaultValue: { summary: 'sm' },
+      },
+    },
+    hoverStyle: {
+      description: 'If true, the component will have hover style.',
+      control: { type: 'boolean' },
+    },
+    externalStyle: {
+      description: 'External style for the component.',
+      control: { type: 'object' },
+    },
+    ...templateThemeType('notTransparent', 'secondary'),
+    type: {
+      description: 'The type of the component.',
+      options: ['a', 'button'],
+      control: { type: 'radio' },
+      table: {
+        defaultValue: { summary: 'a' },
+      },
+    },
+    href: {
+      description: 'The href of the component.',
+      control: { type: 'text' },
+    },
+    onClick: {
+      description: 'The function to be called when the component is clicked.',
+      control: { type: 'function' },
     },
   },
   // Add tags to the story
@@ -92,12 +100,5 @@ export const Primary: Story = {
     themeType: 'secondary',
     layer: 1,
     icon: <SVGCheckMark />,
-  },
-  parameters: {
-    docs: {
-      description: {
-        story: '',
-      },
-    },
   },
 };

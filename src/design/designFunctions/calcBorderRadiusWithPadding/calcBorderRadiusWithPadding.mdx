@@ -1,0 +1,39 @@
+## `calcBorderRadiusWithPadding` Function
+
+### Brief Description
+
+The `calcBorderRadiusWithPadding` function dynamically calculates the CSS value for border-radius by optionally adding or subtracting padding values. It supports varying the calculations based on the inset flag. This utility function is especially useful when you need to adjust the border-radius of elements in response to dynamic padding sizes while ensuring the visual integrity of the component.
+
+### Setup Instructions
+
+1. Ensure your project supports modern JavaScript or TypeScript.
+2. Copy the `calcBorderRadiusWithPadding` function into a suitable utility file in your project, such as `utils.js` or `styles.js`.
+
+### Example Usage
+
+Here's an example demonstrating how to use the `calcBorderRadiusWithPadding` function in a React component to adjust the border-radius:
+
+```jsx
+import React from 'react';
+import { calcBorderRadiusWithPadding } from 'fui-fancyui'; // Adjust the import path as needed
+
+const BoxComponent = ({ borderRadius, padding }) => {
+  const adjustedBorderRadius = calcBorderRadiusWithPadding(borderRadius, padding);
+
+  return <div style={{ borderRadius: adjustedBorderRadius, padding }}>Content with dynamic border-radius</div>;
+};
+
+export default BoxComponent;
+```
+
+### Component Properties
+
+- **borderRadius (string)**: The initial border-radius value(s). Must include units (e.g., '10px').
+- **padding (string)**: The padding value(s) to adjust the border-radius by. Must include units (e.g., '5px').
+- **inset (boolean)**: Optional. Determines whether the padding is added or subtracted from the border-radius. Default is `true` (subtract).
+
+### List of Used Components
+
+No other React components are directly used within this function. However, it employs JavaScript's built-in `console.error` for error reporting and `Array.map` for array manipulation, which are standard JavaScript features.
+
+This documentation covers the primary aspects of the `calcBorderRadiusWithPadding` function, including its purpose, usage, and technical details. Ensure to integrate and test it within your project context to confirm its compatibility and effectiveness.

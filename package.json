@@ -53,7 +53,6 @@
     "@storybook/addon-interactions": "^8.0.2",
     "@storybook/addon-links": "^8.0.0",
     "@storybook/addon-mdx-gfm": "^8.0.2",
-    "@storybook/addon-onboarding": "^8.0.2",
     "@storybook/addon-themes": "^8.0.1",
     "@storybook/blocks": "^8.0.2",
     "@storybook/react": "^8.0.0",

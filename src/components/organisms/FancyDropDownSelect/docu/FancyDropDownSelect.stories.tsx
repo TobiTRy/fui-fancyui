@@ -79,6 +79,15 @@ const meta = {
       control: {
         type: 'boolean',
       },
+      table: {
+        defaultValue: { summary: false },
+      },
+    },
+    outlined: {
+      description: 'Is the dropdown outlined',
+      control: {
+        type: 'boolean',
+      },
     },
   },
 } satisfies Meta<typeof FancyDropDownSelect>;
@@ -105,6 +114,9 @@ export const Primary: Story = {
     icon: <SVGCheckMark />,
     label: 'Label',
     values: ['test1', 'test2', 'test3'],
+    themeType: 'primary',
+    layer: 2,
+    align: 'left',
   },
 };
 
