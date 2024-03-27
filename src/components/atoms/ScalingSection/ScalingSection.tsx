@@ -13,8 +13,10 @@ interface IScalingSection {
   onClick?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
 }
 export default function ScalingSection(props: IScalingSection) {
+  const { touchStart, touchMove, touchEnd, onClick } = props;
+
   return (
-    <SytledScalingSection {...props}>
+    <SytledScalingSection onTouchStart={touchStart} onTouchMove={touchMove} onTouchEnd={touchEnd} onClick={onClick}>
       <SwipeUpDash />
     </SytledScalingSection>
   );
