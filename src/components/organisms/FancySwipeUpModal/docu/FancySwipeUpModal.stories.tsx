@@ -8,11 +8,13 @@ import { FancyButton } from '../../FancyButton';
 import { useFancySwipeUpModalStore } from '../FancySwipeUpModal.state';
 import { FancyTextInput } from '../../FancyTextInput';
 import { TSwipeUpModal } from '@/components/molecules/SwipeUpModal/TSwipeUpModal.model';
+
 import templateThemeType from '@/stories/templateSettingsForStorys/templatesForThemeType';
 
 // Define metadata for the story
 const meta = {
   component: HelperComponent,
+  title: 'components/organisms/FancySwipeUpModal',
   parameters: {
     docs: {
       description: {

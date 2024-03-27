@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { animated, useTransition } from '@react-spring/web';
 
 import { useWindowDimensions } from '@/utils/hooks/useWindowDimensions';
@@ -26,6 +26,9 @@ export default function SwipeUpModal(props: TSwipeUpModal) {
     backdrop = true,
     ...htmlProps
   } = props;
+
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const lastFocusedElement = useRef<HTMLElement | null>(null);
 
   const [statusModal, setStatusModal] = useState<TModalStatus>('closed');
   const [modalPosition, setModalPosition] = useState({ height: '100%' });
@@ -94,12 +97,30 @@ export default function SwipeUpModal(props: TSwipeUpModal) {
   // if the modal is open, open the modal else close it
   useEffect(() => {
     if (isOpen) {
+      // Store the currently focused element (before modal opens)
+      lastFocusedElement.current = document.activeElement as HTMLElement;
       openModal();
     } else {
       closeModal('status');
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isOpen]);
+
+  // Handle the focus of the modal
+  useEffect(() => {
+    // Focus the dialog when it is rendered
+    if (statusModal === 'open') {
+      const timer = setTimeout(() => {
+        if (dialogRef.current) dialogRef.current.focus();
+      }, 10);
+      return () => clearTimeout(timer);
+    } else {
+      // Return focus to the last focused element when modal closes
+      if (lastFocusedElement.current) {
+        lastFocusedElement.current.focus();
+      }
+    }
+  }, [statusModal]);
 
   return (
     <Delay externalStateBool={statusModal === 'open'}>
@@ -108,7 +129,14 @@ export default function SwipeUpModal(props: TSwipeUpModal) {
           (styles, item) =>
             item && (
               <WrapperAnimated as={animated.div} style={styles}>
-                <SwipeUpContainer style={modalPosition} isScalable={isScalable} themeType={themeType} layer={layer}>
+                <SwipeUpContainer
+                  ref={dialogRef}
+                  tabIndex={-1}
+                  style={modalPosition}
+                  isScalable={isScalable}
+                  themeType={themeType}
+                  layer={layer}
+                >
                   {/*// ---------- The top of the modal is used for the scaling ---------- //*/}
                   {isScalable && isCloseAble && (
                     <ScalingSection
