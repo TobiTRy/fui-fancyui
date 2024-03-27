@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 
 import { StyledDatePicker } from '@/components/organisms/FancyDateInput/FancyDateInput.style';
 import { TDateInputProps, TNativeAttrs } from '@/components/atoms/DateInput/TDateInput.model';
@@ -9,6 +9,7 @@ import { TDateInputProps, TNativeAttrs } from '@/components/atoms/DateInput/TDat
 export default function DateInput(props: TDateInputProps & TNativeAttrs) {
   const { value, align, themeType = 'secondary', layer = 0, type, onFocus, onBlur, ...htmlInputProps } = props;
   const [isActive, setIsActive] = useState(false);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const activeFocusHandler = (isActive: boolean) => {
     setIsActive(isActive);
@@ -16,6 +17,7 @@ export default function DateInput(props: TDateInputProps & TNativeAttrs) {
 
   return (
     <StyledDatePicker
+      ref={inputRef}
       $align={align}
       $layer={layer}
       $themeType={themeType}
