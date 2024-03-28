@@ -2,8 +2,8 @@
 import { Meta, StoryObj } from '@storybook/react';
 
 // Import the component to be tested
-import FancyHandyNav from './FancyHandyNav';
-import { IFancyBottomBarIcon } from '../FancyBottomBarIcon/FancyBottomBarIcon';
+import FancyHandyNav from '../FancyHandyNav';
+import { TFancyBottomBarIcon } from '../../FancyBottomBarIcon';
 
 const svg = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -12,7 +12,7 @@ const svg = (
   </svg>
 );
 
-const items2: IFancyBottomBarIcon[] = [
+const items2: TFancyBottomBarIcon[] = [
   { icon: svg, type: 'button', label: 'myButton', onClick: () => console.log('asas') },
   { icon: svg, type: 'button', label: 'myButton', href: 'http://google.de' },
   { icon: svg, type: 'button', label: 'myButton', href: 'http://google.de' },
