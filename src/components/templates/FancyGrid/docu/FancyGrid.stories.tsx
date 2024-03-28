@@ -2,16 +2,18 @@
 import { Meta, StoryObj } from '@storybook/react';
 
 // Import the component to be tested
-import FancyGrid from './FancyGrid';
-import { FancyButton } from '../../organisms/FancyButton';
+import FancyGrid from '../FancyGrid';
+import { FancyButton } from '../../../organisms/FancyButton';
 
 // Define metadata for the story
 const meta = {
   component: FancyGrid,
+  title: 'components/templates/FancyGrid',
   parameters: {
     docs: {
       description: {
-        component: 'Layout-Component: The FancyPasswordInput Comonent with surrounding icon, label and underline',
+        component:
+          '`FancyGrid` is a responsive and customizable grid layout component for React applications, designed to arrange content in a structured and adaptable grid pattern. It uses styled-components for enhanced styling capabilities.',
       },
     },
   },
