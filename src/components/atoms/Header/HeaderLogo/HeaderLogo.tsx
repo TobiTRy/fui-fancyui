@@ -1,9 +1,9 @@
 import React from 'react';
 import { styled } from 'styled-components';
 
-import LogoIcon from '@/components/templates/FancyHeader/HeaderLogo/LogoIcon/LogoIcon';
-import LogoImage from '@/components/templates/FancyHeader/HeaderLogo/LogoImage/LogoImage';
-import LogoTitle from '@/components/templates/FancyHeader/HeaderLogo/LogoTitle/LogoTitle';
+import LogoIcon from '@/components/atoms/Header/HeaderLogo/LogoIcon/LogoIcon';
+import LogoImage from '@/components/atoms/Header/HeaderLogo/LogoImage/LogoImage';
+import LogoTitle from '@/components/atoms/Header/HeaderLogo/LogoTitle/LogoTitle';
 
 type THeaderLogo = {
   children?: React.ReactNode;
