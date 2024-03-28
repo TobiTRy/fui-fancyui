@@ -2,11 +2,11 @@ import { ElementType } from 'react';
 import { CSSProp } from 'styled-components';
 
 import { TThemeArrayCssValues } from '@/design/designFunctions/arrayToCssValues';
-import { TThemeCSSValue } from '@/design/designFunctions/arrayToCssValues/TArrayValues.model';
+import { TThemeValueOrCSS } from '@/design/designFunctions/getThemeOrValueAsCss';
 
 export type TSpacingsContainer = {
-  padding?: TThemeArrayCssValues | TThemeCSSValue;
-  margin?: TThemeArrayCssValues | TThemeCSSValue;
+  padding?: TThemeArrayCssValues | TThemeValueOrCSS;
+  margin?: TThemeArrayCssValues | TThemeValueOrCSS;
   externalStyle?: CSSProp;
 };
 
