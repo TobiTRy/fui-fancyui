@@ -5,10 +5,8 @@ import LogoIcon from '@/components/atoms/Header/HeaderLogo/LogoIcon/LogoIcon';
 import LogoImage from '@/components/atoms/Header/HeaderLogo/LogoImage/LogoImage';
 import LogoTitle from '@/components/atoms/Header/HeaderLogo/LogoTitle/LogoTitle';
 
-type THeaderLogo = {
-  children?: React.ReactNode;
-} & React.HTMLAttributes<HTMLDivElement>;
-export default function HeaderLogo(props: THeaderLogo) {
+type THeaderLogo = React.HTMLAttributes<HTMLDivElement>;
+function HeaderLogo(props: THeaderLogo) {
   return <StyledLogoWrapper {...props} />;
 }
 
@@ -26,3 +24,5 @@ const StyledLogoWrapper = styled.div`
   box-sizing: border-box;
   gap: 8px;
 `;
+
+export default HeaderLogo;

@@ -1,3 +1,3 @@
-export { default as getThemeOrValueAsCSS } from './getThemeOrValueAsCSS';
+export { default as getThemeOrValueAsCSS } from './getThemeOrValueAsCss';
 
 export type { TThemeValueOrCSS, TThemeValueMap } from './TgetThemeOrValueAsCSS.model';

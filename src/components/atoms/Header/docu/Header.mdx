@@ -33,15 +33,14 @@ import { THeader, THeaderWithHTMLAttributes } from 'fui-fancyui';
 Here is an example of how to use the `Header` component within a React project:
 
 ```jsx
-<Header
-  themeType="light"
-  layer={1}
-  outlined={true}
-  outlinedBackgroundStrength={0.5}
-  externalStyle={{ padding: '20px', justifyContent: 'space-between' }}
->
-  <h1>Your Custom Content Here</h1>
-</Header>
+function App() {
+  return (
+    <Header themeType="primary" layer={2} outlined={true} outlinedBackgroundStrength={0.5}>
+      <Header.Logo>{/* Logo content here */}</Header.Logo>
+      <Header.Nav>{/* Navigation items here */}</Header.Nav>
+    </Header>
+  );
+}
 ```
 
 <Canvas />
