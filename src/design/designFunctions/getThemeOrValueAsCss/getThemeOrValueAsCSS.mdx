@@ -1,6 +1,6 @@
-# `getThemeOrValueForCSS` Function Documentation
+# `getThemeOrValueAsCSS` Function Documentation
 
-The `getThemeOrValueForCSS` function serves as a utility within a React application to seamlessly convert themed CSS values or directly provided CSS values into a string format that can be used in styling components. It utilizes a theme store to access application-wide theme settings for border radius and spacing, providing a consistent styling mechanism across the application.
+The `getThemeOrValueAsCSS` function serves as a utility within a React application to seamlessly convert themed CSS values or directly provided CSS values into a string format that can be used in styling components. It utilizes a theme store to access application-wide theme settings for border radius and spacing, providing a consistent styling mechanism across the application.
 
 ## Brief Description
 
@@ -11,7 +11,7 @@ This function allows developers to apply consistent theming across their applica
 1. **Import the Function**: Include this function in your component or utility file by importing it as follows:
 
 ```jsx
-import { getThemeOrValueForCSS } from 'fui-fancyui';
+import { getThemeOrValueAsCSS } from 'fui-fancyui';
 ```
 
 ## Example Usage
@@ -19,13 +19,13 @@ import { getThemeOrValueForCSS } from 'fui-fancyui';
 ```jsx
 // Assuming a styled-components setup
 import styled from 'styled-components';
-import { getThemeOrValueForCSS } from 'fui-fancyui';
+import { getThemeOrValueAsCSS } from 'fui-fancyui';
 
 const Box = styled.div`
-  margin: ${() => getThemeOrValueForCSS('md', 'spacing')};
-  padding: ${() => getThemeOrValueForCSS('20px')}; // Using a direct CSS value
-  padding-top: ${() => getThemeOrValueForCSS(0)}; // Using a direct CSS value
-  border-radius: ${() => getThemeOrValueForCSS('sm', 'borderRadius')};
+  margin: ${() => getThemeOrValueAsCSS('md', 'spacing')};
+  padding: ${() => getThemeOrValueAsCSS('20px')}; // Using a direct CSS value
+  padding-top: ${() => getThemeOrValueAsCSS(0)}; // Using a direct CSS value
+  border-radius: ${() => getThemeOrValueAsCSS('sm', 'borderRadius')};
 `;
 
 // Usage in a React component
@@ -36,7 +36,7 @@ const MyComponent = () => (
 
 ## Component Properties
 
-- **value** (`TThemeCSSValue`): The value to be converted into a CSS string. This can be a theme value (`'xxs'`, `'xs'`, etc., for `borderRadius` and `spacing`) or any standard CSS value (string or number).
+- **value** (`TThemeValueOrCSS`): The value to be converted into a CSS string. This can be a theme value (`'xxs'`, `'xs'`, etc., for `borderRadius` and `spacing`) or any standard CSS value (string or number).
 - **themeSetting** (`'borderRadius' | 'spacing'` | undefined): An optional parameter specifying which theme setting to use. If provided, `value` is treated as a key to look up in the theme store. If omitted, `value` is used directly as a CSS value.
 
 ## Notes
