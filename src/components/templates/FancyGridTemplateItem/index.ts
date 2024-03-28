@@ -1,2 +1,3 @@
 export { default as FancyGridTemplateItem } from './FancyGridTemplateItem';
-export type { TFancyGridTemplateItem } from './TFancyGridTemplateItem.model';
+
+export type { TFancyGridTemplateItem, TFancyGridTemplateItemWithHTMlAttrs } from './TFancyGridTemplateItem.model';

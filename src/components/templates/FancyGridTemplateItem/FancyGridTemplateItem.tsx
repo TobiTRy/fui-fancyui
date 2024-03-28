@@ -6,6 +6,7 @@ import { TFancyGridTemplateItem } from './TFancyGridTemplateItem.model';
 // --------------------------------------------------------------------------- //
 export default function FancyGridTemplateItem(props: TFancyGridTemplateItem) {
   const { gridArea, externalStyle, children, ...htmlProps } = props;
+
   return (
     <GridItem $gridArea={gridArea} $externalStyle={externalStyle} {...htmlProps}>
       {children}

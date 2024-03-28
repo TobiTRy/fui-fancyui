@@ -13,7 +13,7 @@ const meta = {
     docs: {
       description: {
         component:
-          'The FancyGridTemplateItem component is designed to be used within the FancyGridTemplate component as a grid item. It provides a structured way to position and style elements within the grid areas defined by the FancyGridTemplate. This subcomponent leverages styled-components for dynamic styling based on props, allowing for customizable grid area assignments and the injection of external CSS for further customization.',
+          'The FancyGridTemplateItem component is designed to be a part of the FancyGridTemplate layout system. It is used to place individual items within the grid, allowing for customization through specified grid areas and optional external styles. This component enables detailed control over the positioning and styling of content within the grid layout, making it an integral piece of creating responsive, complex grid structures.',
       },
     },
   },
