@@ -2,12 +2,13 @@
 import { Meta, StoryObj } from '@storybook/react';
 
 // Import the component to be tested
-import FancyGridItem from './FancyGridItem';
-import { FancyButton } from '../../organisms/FancyButton';
+import FancyGridItem from '../FancyGridItem';
+import { FancyButton } from '../../../organisms/FancyButton';
 
 // Define metadata for the story
 const meta = {
   component: FancyGridItem,
+  title: 'components/templates/FancyGridItem',
   parameters: {
     docs: {
       description: {
