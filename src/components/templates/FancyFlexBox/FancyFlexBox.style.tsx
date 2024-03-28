@@ -1,7 +1,8 @@
 import { styled, css } from 'styled-components';
 
-import { TStyleProps } from './FancyFlexBox.model';
+import { TStyleProps } from './TFancyFlexBox.model';
 import { TStyledPrefixAndOmiter } from '@/types/TStyledPrefixAndOmiter';
+import { getThemeOrValueAsCSS } from '@/design/designFunctions/getThemeOrValueAsCss';
 
 const generateFlexSytles = (props: TStyledFlexBoxProps) => {
   const { $direction, $justify, $align, $gap } = props;
@@ -12,7 +13,7 @@ const generateFlexSytles = (props: TStyledFlexBoxProps) => {
     flex-direction: ${$direction ?? 'row'};
     justify-content: ${$justify ?? 'flex-start'};
     align-items: ${$align ?? 'flex-start'};
-    gap: ${$gap};
+    gap: ${getThemeOrValueAsCSS($gap, 'spacing')};
   `;
 };
 

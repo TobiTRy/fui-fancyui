@@ -1,3 +1,4 @@
+import { TThemeValueOrCSS } from '@/design/designFunctions/getThemeOrValueAsCss';
 import React, { ElementType } from 'react';
 import { CSSProp } from 'styled-components';
 
@@ -7,11 +8,11 @@ export type TStyleProps = {
   justify?: 'flex-start' | 'flex-end' | 'center' | 'space-between' | 'space-around' | 'space-evenly';
   align?: 'flex-start' | 'flex-end' | 'center' | 'stretch' | 'baseline';
   externalStyle?: CSSProp;
-  gap?: string;
+  gap?: TThemeValueOrCSS;
 };
 
 // Props specific to FancyFlexBox
-export type TFancyFlexBoxProps = {
+export type TFancyFlexBox = {
   separator?: React.ReactNode;
   fitBox?: boolean;
 } & TStyleProps;
@@ -20,3 +21,5 @@ export type TFancyFlexBoxProps = {
 export type TDynamicElementProps<T extends ElementType> = {
   as?: ElementType;
 } & React.HTMLAttributes<T>;
+
+export type TFancyFlexBoxWithDynamicElAttrs<T extends ElementType = 'div'> = TDynamicElementProps<T> & TFancyFlexBox;
