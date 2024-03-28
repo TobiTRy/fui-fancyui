@@ -2,16 +2,18 @@
 import { Meta, StoryObj } from '@storybook/react';
 
 // Import the component to be tested
-import FancyDatePicker from './FancyDatePicker';
-import { TDateArray } from '@/components/molecules/Calendar/TCalendar.model';
+import FancyDatePicker from '../FancyDatePicker';
+import templateThemeType from '@/stories/templateSettingsForStorys/templatesForThemeType';
 
 // Define metadata for the story
 const meta = {
   component: FancyDatePicker,
+  title: 'components/templates/FancyDatePicker',
   parameters: {
     docs: {
       description: {
-        component: 'Smart-Comonent: A fancy date picker with a range calendar and more',
+        component:
+          'The FancyDatePicker component is an advanced, customizable date picker designed for selecting single or ranges of dates. It supports theme customization, disabling specific dates or date ranges, external data integration for displaying dates, and the option to start the week on any day. This component showcases a sophisticated use of React´s state and effects to manage date selections, theme, and year navigation, providing an intuitive and rich user interface.',
       },
     },
   },
@@ -26,49 +28,50 @@ const meta = {
         defaultValue: { summary: false },
       },
     },
-    handler: {
-      description:
-        'Handler gives back the first and last date [first, last]... its not a RangePicker then it gives back the first date [frist, undefined]',
-      control: {
-        type: 'function',
-      },
-      table: {
-        defaultValue: { summary: '[undefined, undefined]' },
-      },
-    },
-    selectedYear: {
-      description: 'Selected year',
-      control: {
-        type: 'number',
-      },
-      table: {
-        defaultValue: { summary: 'current year' },
-      },
-    },
-    themeType: {
-      description: 'Theme type of the datepicker',
+    ...templateThemeType('mainThemeTypes', 'secondary', 2),
+    startWeekOn: {
+      description: 'The day the week starts on.',
       control: {
         type: 'select',
-      },
-      table: {
-        defaultValue: { summary: 'primary' },
-      },
-    },
-    layer: {
-      description: 'Layer of the datepicker',
-      control: {
-        type: 'range',
-        min: 0,
-        max: 10,
-        step: 1,
       },
       table: {
         defaultValue: { summary: 1 },
       },
     },
+    externalData: {
+      description: 'The external months with days.',
+      control: {
+        type: 'object',
+      },
+    },
+    dateSelectHandler: {
+      description: 'The function that handles the date selection',
+      control: {
+        type: 'function',
+      },
+    },
+    monthYearInView: {
+      description: 'The month and year in view',
+      control: {
+        type: 'object',
+      },
+      table: {
+        defaultValue: { summary: { year: new Date().getFullYear(), month: new Date().getMonth() } },
+      },
+    },
+    disabledDateSetting: {
+      description: 'The disabled date settings',
+      control: {
+        type: 'object',
+      },
+    },
+    yearSelector: {
+      description: 'The year selector settings',
+      control: {
+        type: 'object',
+      },
+    },
   },
-  // Add tags to the story
-  tags: ['autodocs'],
 } satisfies Meta<typeof FancyDatePicker>;
 
 // Export the metadata
@@ -81,10 +84,12 @@ export const Primary: Story = {
   render: (args) => <FancyDatePicker {...args} />,
   args: {
     rangeCalendar: false,
-    handler: (date: TDateArray) => console.log(date),
-    selectedYear: new Date().getFullYear(),
+    monthYearInView: {
+      year: new Date().getFullYear(),
+      month: new Date().getMonth(),
+    },
     themeType: 'primary',
-    layer: 1,
+    layer: 2,
     externalData: {
       2023: [
         {
@@ -128,5 +133,10 @@ export const Primary: Story = {
       disableWeekends: true,
       disablePastDates: false,
     },
+    yearSelector: {
+      ariaTextLeftArrow: 'go one year back',
+      ariaTextRightArrow: 'go one year forward',
+    },
+    startWeekOn: 1,
   },
 };

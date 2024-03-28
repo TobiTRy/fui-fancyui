@@ -1,0 +1,51 @@
+import { Meta, Title, Description, Controls, Canvas } from '@storybook/blocks';
+
+import * as FancyDatePickerStories from './FancyDatePicker.stories';
+
+<Meta of={FancyDatePickerStories} />
+
+<Title />
+
+<Description />
+
+## Setup Instructions
+
+1. Import the `FancyDatePicker` component where you intend to use it:
+
+```jsx
+import { FancyDatePicker } from 'fui-fancyui';
+```
+
+2. If using TypeScript, you can import the type definitions for prop validation:
+
+```jsx
+import { TFancyDatePicker } from 'fui-fancyui';
+```
+
+## Example Usage
+
+```jsx
+<FancyDatePicker
+  rangeCalendar={true}
+  dateSelectHandler={(selectedDates) => console.log(selectedDates)}
+  monthYearInView={{ month: 5, year: 2024 }}
+  disabledDateSetting={{ disablePastDates: true, disableWeekends: true }}
+  externalData={externalData}
+  themeType="primary"
+  layer={2}
+  startWeekOn={1}
+/>
+```
+
+<Canvas />
+
+## Component Properties
+
+<Controls />
+
+## List of Used Components
+
+- **WeekDays**: Displays weekdays header, customizable with theme and layer.
+- **YearSelector**: Allows navigation through years, with customizable appearance and text for accessibility.
+- **DateOutputFromTo**: Shows the selected date range, with theme and layer customization.
+- **Calendar**: The main calendar component for date selection, supporting range selection, disabled dates, and external data integration.
