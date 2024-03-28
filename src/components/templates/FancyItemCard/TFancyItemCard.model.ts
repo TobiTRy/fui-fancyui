@@ -1,5 +1,5 @@
 import { TFancyImageWrapper } from '@/components/atoms/FancyImageWrapper';
-import { TThemeArrayCssValues, TThemeCSSValue } from '@/design/designFunctions/arrayToCssValues';
+import { TThemeArrayCssValues, TThemeValueOrCSS } from '@/design/designFunctions/arrayToCssValues';
 import { TTypography } from '@/components/atoms/Typography';
 
 export type TFancyItemCard = {
@@ -10,5 +10,5 @@ export type TFancyItemCard = {
   externalStyle?: string;
   contentGap?: string;
   align?: 'flex-start' | 'flex-end' | 'center' | 'stretch' | 'baseline';
-  padding?: TThemeArrayCssValues | TThemeCSSValue;
+  padding?: TThemeArrayCssValues | TThemeValueOrCSS;
 };
