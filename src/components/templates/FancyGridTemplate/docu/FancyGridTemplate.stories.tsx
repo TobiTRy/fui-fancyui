@@ -11,7 +11,8 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component: 'Layout-Component: The FancyPasswordInput Comonent with surrounding icon, label and underline',
+        component:
+          'The `FancyGridTemplate` component is designed to create a flexible and customizable grid layout. It utilizes styled-components and can be used to structure content in a grid format with specified areas, gaps, and dimensions.',
       },
     },
   },
@@ -78,10 +79,33 @@ type Story = StoryObj<typeof meta>;
 
 // Define the primary story
 export const Primary: Story = {
-  render: (args) => <FancyGridTemplate {...args}></FancyGridTemplate>,
+  render: (args) => (
+    <FancyGridTemplate {...args}>
+      {/* Header */}
+      <FancyGridTemplate.GridItem gridArea="header">
+        <div style={{ backgroundColor: '#ffcc00', height: '100%' }}>Header</div>
+      </FancyGridTemplate.GridItem>
+
+      {/* Sidebar */}
+      <FancyGridTemplate.GridItem gridArea="sidebar">
+        <div style={{ backgroundColor: '#00ccff', height: '100%' }}>Sidebar</div>
+      </FancyGridTemplate.GridItem>
+
+      {/* Content */}
+      <FancyGridTemplate.GridItem gridArea="content">
+        <div style={{ backgroundColor: '#cccccc', height: '100%' }}>Content</div>
+      </FancyGridTemplate.GridItem>
+
+      {/* Footer */}
+      <FancyGridTemplate.GridItem gridArea="footer">
+        <div style={{ backgroundColor: '#ff6699', height: '100%' }}>Footer</div>
+      </FancyGridTemplate.GridItem>
+    </FancyGridTemplate>
+  ),
   args: {
-    gridAreas: ['header', 'main', 'footer'],
-    width: '100%',
-    height: '100%',
+    gridAreas: ['header header', 'sidebar content', 'footer footer'],
+    gapColumn: 'md',
+    gapRow: 'md',
+    height: '100vh',
   },
 };
