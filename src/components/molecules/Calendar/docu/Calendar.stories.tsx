@@ -64,6 +64,9 @@ const meta = {
     },
     externalMonthsWithDays: {
       description: 'The external months with days.',
+      control: {
+        type: 'object',
+      },
     },
     startCalendarDate: {
       description: 'The start calendar.',
