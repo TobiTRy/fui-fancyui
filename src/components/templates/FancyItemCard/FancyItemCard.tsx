@@ -1,17 +1,11 @@
-import { css } from 'styled-components';
-
-import { TFancyItemCard } from '@/components/templates/FancyItemCard/TFancyItemCard.model';
+import { TFancyItemCard } from './TFancyItemCard.model';
 import { Card } from '@/components/molecules/Card';
 
 export default function FancyItemCard(props: TFancyItemCard) {
   const { image, title, subtitle, description, externalStyle, contentGap, align } = props;
 
   return (
-    <Card
-      externalStyle={css`
-        ${externalStyle};
-      `}
-    >
+    <Card externalStyle={externalStyle}>
       <Card.Box direction="column" align={align ?? 'flex-start'} gap={contentGap ?? '4px'} padding={'lg'}>
         <Card.Image {...image} />
         <Card.SubTitle {...subtitle} />
