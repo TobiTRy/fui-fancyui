@@ -49,6 +49,7 @@ export default meta;
 // Define the story object
 type Story = StoryObj<typeof meta>;
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const HelperComponent = (props: any) => {
   const addToast = useFancyToastMessageStore((state) => state.addToast);
   const { title, message, time, themeType } = props as TFancyToastMessage;

@@ -106,6 +106,7 @@ export default meta;
 // Define the story object
 type Story = StoryObj<typeof meta>;
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const SateFunction = (args: any) => {
   const [value, setValue] = useState('');
 
