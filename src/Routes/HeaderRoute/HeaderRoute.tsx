@@ -13,7 +13,7 @@ import themeStore from '@/design/theme/themeStore/themeStore';
 import { Typography } from '@/components/atoms/Typography';
 import { SwitchList } from '@/components/molecules/SwitchList';
 import { FancyGrid } from '@/components/templates/FancyGrid';
-import { FancyMenu } from '@/components/templates/FancyMenueComponent/FancyMenu';
+import { FancyMenu } from '@/components/templates/FancyMenue/FancyMenu';
 import { FancyPopover } from '@/components/shared/FancyPopover';
 import { FancyFlexBox } from '@/components/templates/FancyFlexBox';
 import { breakPointStyle } from '@/Routes/HeaderRoute/breakPointStyle';
