@@ -4,17 +4,17 @@ import { Meta, StoryObj } from '@storybook/react';
 import templateThemeType from '@/stories/templateSettingsForStorys/templatesForThemeType';
 
 // Import the component to be tested
-import MenuList from '../MenuList';
+import Menue from '../Menue';
 
 // Define metadata for the story
 const meta = {
-  title: 'components/atoms/MenuList',
-  component: MenuList,
+  title: 'components/atoms/Menue',
+  component: Menue,
   parameters: {
     docs: {
       description: {
         component:
-          'The MenuList component is a flexible and customizable container designed to display a list of items or options. It supports any children components, making it highly versatile for various use cases. ',
+          'The Menue component is a flexible and customizable container designed to display a list of items or options. It supports any children components, making it highly versatile for various use cases. ',
       },
     },
   },
@@ -42,7 +42,7 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof MenuList>;
+} satisfies Meta<typeof Menue>;
 
 // Export the metadata
 export default meta;
@@ -52,10 +52,16 @@ type Story = StoryObj<typeof meta>;
 // Define the primary story
 export const Primary: Story = {
   render: (args) => (
-    <MenuList {...args}>
-      <p>Some Content</p>
-      {args.children}
-    </MenuList>
+    <Menue {...args}>
+      <Menue.Item label="Muuusettingshhh" icon={<>⚙️</>} />
+      <Menue.Divider label="Moooiin" />
+      <Menue.Item label="Muuusettingshhh" icon={<>⚙️</>} />
+      <Menue.Divider />
+      <Menue.Item label="Muuusettingshhh" icon={<>⚙️</>} />
+      <Menue.Item label="Muuusettingshhh" icon={<>⚙️</>} />
+      <Menue.Divider />
+      <Menue.Item label="Logout" icon={<>🚪</>} />
+    </Menue>
   ),
   args: {
     themeType: 'primary',

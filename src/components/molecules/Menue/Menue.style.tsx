@@ -2,11 +2,11 @@ import { styled } from 'styled-components';
 
 import { generateThemeForCard } from '@/design/designFunctions/generateThemeForCard';
 
-import { TMenuList } from './TMenueList.model';
+import { TMenue } from './TMenue.model';
 import { TStyledPrefixAndOmiter } from '@/types/TStyledPrefixAndOmiter';
 import { TTheme } from '@/types/TTheme';
 
-type StyledMenuProps = TStyledPrefixAndOmiter<TMenuList> & { theme: TTheme };
+type StyledMenuProps = TStyledPrefixAndOmiter<TMenue> & { theme: TTheme };
 
 export const MenuContainer = styled.div<StyledMenuProps>`
   display: flex;

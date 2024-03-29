@@ -2,7 +2,7 @@ import { TLayer } from '@/types/TLayer';
 import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 import { CSSProp } from 'styled-components';
 
-export type TMenuList = {
+export type TMenue = {
   children?: React.ReactNode;
   themeType?: TUiColorsNotTransparent;
   layer?: TLayer;
@@ -11,4 +11,4 @@ export type TMenuList = {
   externalStyle?: CSSProp;
 };
 
-export type TMenuListWithHTMLAttributes = TMenuList & React.HTMLAttributes<HTMLDivElement>;
+export type TMenueWithHTMLAttributes = TMenue & React.HTMLAttributes<HTMLDivElement>;
