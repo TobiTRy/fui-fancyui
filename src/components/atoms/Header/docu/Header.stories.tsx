@@ -10,9 +10,9 @@ import { FancyGrid } from '@/components/templates/FancyGrid';
 import { SwitchList } from '@/components/molecules/SwitchList';
 import { Typography } from '@/components/atoms/Typography';
 import { FancyPopover } from '@/components/shared/FancyPopover';
-import { FancyMenu } from '@/components/templates/FancyMenueComponent/FancyMenu';
 import logo from '../../../../FancyUI.png';
 import { RawA } from '@/components/atoms/RawA';
+import { Menue } from '@/components/molecules/Menue';
 
 const meta = {
   component: Header,
@@ -129,10 +129,10 @@ export const Advancedheader: Story = {
             <FancyPopover
               offsetY={5}
               contentComponent={
-                <FancyMenu>
-                  <FancyMenu.Item label="HIii"></FancyMenu.Item>
-                  <FancyMenu.Item label="Hiii"></FancyMenu.Item>
-                </FancyMenu>
+                <Menue>
+                  <Menue.Item label="HIii"></Menue.Item>
+                  <Menue.Item label="Hiii"></Menue.Item>
+                </Menue>
               }
               refComponent={
                 <FancyMiniProfile
