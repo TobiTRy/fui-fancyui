@@ -8,7 +8,7 @@ import Menue from '../Menue';
 
 // Define metadata for the story
 const meta = {
-  title: 'components/atoms/Menue',
+  title: 'components/molecules/Menue',
   component: Menue,
   parameters: {
     docs: {

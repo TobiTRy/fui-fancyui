@@ -50,7 +50,6 @@ const meta = {
       },
     },
   },
-  tags: ['autodocs'],
 } satisfies Meta<typeof FancyInfoCard>;
 
 export default meta;
