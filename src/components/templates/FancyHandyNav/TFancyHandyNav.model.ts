@@ -8,9 +8,9 @@ export type TFancyHandyNav = {
   isVisible?: boolean;
   wichIndexIsActive?: string;
   themeType?: TUiColorsNotTransparent;
-  themeTypeIcons?: TUiColorsNotTransparent;
   themeTypeSwitchList?: TUiColorsNotTransparent;
   layer?: TLayer;
+  switchListLayer?: TLayer;
   outlined?: boolean;
   outlinedBackgroundStrength?: number;
   externalStyle?: CSSProp;

@@ -8,6 +8,8 @@ import { SwitchList } from '@/components/molecules/SwitchList';
 import { FancyBottomBarIcon } from '@/components/templates/FancyBottomBarIcon';
 import { ButtonWrapper, fancyBarStyle } from '@/components/templates/FancyHandyNav/FancyHandyNav.style';
 import { TFancyHandyNavWithHTMLAttrs } from './TFancyHandyNav.model';
+import { getOpositMainThemeType } from '@/design/designFunctions/getOpositMainThemeType';
+import { clampLayer } from '@/utils/functions/clampLayer';
 
 // --------------------------------------------------------------------------- //
 // ---------- A handyNavBar that can dynamicly generated via objects---------- //
@@ -18,8 +20,8 @@ export default function FancyHandyNav(props: TFancyHandyNavWithHTMLAttrs) {
     isVisible,
     wichIndexIsActive,
     themeType,
-    themeTypeIcons,
     themeTypeSwitchList,
+    switchListLayer = 3,
     layer,
     externalStyle,
     ...htmlProps
@@ -35,7 +37,7 @@ export default function FancyHandyNav(props: TFancyHandyNavWithHTMLAttrs) {
   useEffect(() => {
     setWhichIsActiveState(wichIndexIsActive ?? '0');
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [wichIndexIsActive]);
 
   // handle the visibility of the nav
   useEffect(() => {
@@ -59,14 +61,17 @@ export default function FancyHandyNav(props: TFancyHandyNavWithHTMLAttrs) {
               whichIndexIsSelected={Number(stateWhichIsActive)}
               switchIndicator={{
                 themeType: themeTypeSwitchList,
+                layer: clampLayer((switchListLayer ?? 1) - 5),
                 indicatorWidth: '70%',
               }}
             >
               {items?.map((item, index) => (
                 <ButtonWrapper key={index}>
                   <FancyBottomBarIcon
-                    themeType={themeTypeIcons}
-                    layer={layer}
+                    activeThemeType={themeTypeSwitchList}
+                    themeType={getOpositMainThemeType(themeType)}
+                    layer={switchListLayer ?? 0}
+                    activeLayer={clampLayer((switchListLayer ?? 1) + 4)}
                     isActive={Number(stateWhichIsActive) === index}
                     {...item}
                     onClick={() => {

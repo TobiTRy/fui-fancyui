@@ -22,10 +22,12 @@ const items2: TFancyBottomBarIcon[] = [
 // Define metadata for the story
 const meta = {
   component: FancyHandyNav,
+  title: 'components/templates/FancyHandyNav',
   parameters: {
     docs: {
       description: {
-        component: 'Layout-Component: The FancyPasswordInput Comonent with surrounding icon, label and underline',
+        component:
+          'The `FancyHandyNav` component is a dynamic and highly customizable navigation bar designed for React applications. It integrates seamlessly with the zustand library to manage global states such as visibility and the active index. The component offers extensive customization options through props, including theme types, active index control, visibility toggling, and custom styling capabilities.',
       },
     },
   },
@@ -65,15 +67,6 @@ const meta = {
         type: 'select',
       },
     },
-    themeTypeIcons: {
-      description: 'The themeType of the icons',
-      table: {
-        defaultValue: { summary: 'secondary' },
-      },
-      control: {
-        type: 'select',
-      },
-    },
     themeTypeSwitchList: {
       description: 'The themeType of the switchlist',
       table: {
@@ -85,6 +78,18 @@ const meta = {
     },
     layer: {
       description: 'The layer of the nav',
+      table: {
+        defaultValue: { summary: 1 },
+      },
+      control: {
+        type: 'range',
+        min: 0,
+        max: 9,
+        step: 1,
+      },
+    },
+    switchListLayer: {
+      description: 'The layer of the switchlist',
       table: {
         defaultValue: { summary: 1 },
       },
@@ -142,10 +147,10 @@ export const Primary: Story = {
     wichIndexIsActive: '0',
     themeType: 'primary',
     layer: 1,
-    externalStyle: '',
+    externalStyle: {},
     outlined: false,
-    outlinedBackgroundStrength: 0.9,
-    themeTypeIcons: 'secondary',
+    outlinedBackgroundStrength: 0.5,
     themeTypeSwitchList: 'accent',
+    switchListLayer: 1,
   },
 };

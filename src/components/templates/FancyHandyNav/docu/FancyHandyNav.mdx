@@ -1,0 +1,123 @@
+import { Meta, Title, Description, Controls, Canvas } from '@storybook/blocks';
+
+import * as FancyHandyNavStories from './FancyHandyNav.stories';
+
+<Meta of={FancyHandyNavStories} />
+
+<Title />
+
+<Description />
+
+## Setup Instructions
+
+To use the `FancyHandyNav` in your project, follow these steps:
+
+1. Import the `FancyHandyNav` component where you intend to use it:
+
+```jsx
+import { FancyHandyNav } from 'fui-fancyui';
+```
+
+2. If using TypeScript, you can import the type definitions for prop validation:
+
+```jsx
+import { TFancyHandyNav, TFancyHandyNavWithHTMLAttrs } from 'fui-fancyui';
+```
+
+After installing the required library, you can import and use the `FancyHandyNav` component in your project as follows:
+
+### Example Usage
+
+Here's how you can use the `FancyHandyNav` component within your React application:
+
+```jsx
+<FancyHandyNav
+  items={[
+    { icon: 'home', label: 'Home', onClick: () => console.log('Home clicked') },
+    { icon: 'search', label: 'Search', onClick: () => console.log('Search clicked') },
+  ]}
+  isVisible={true}
+  wichIndexIsActive="0"
+  themeType="primary"
+  themeTypeIcons="secondary"
+  themeTypeSwitchList="tertiary"
+  layer="base"
+  outlined={true}
+  outlinedBackgroundStrength={0.5}
+  externalStyle={
+    {
+      /* Your custom CSS here */
+    }
+  }
+/>
+```
+
+<Canvas />
+
+<Controls />
+
+To utilize the `useFancyHandyNavStore` custom hook within your application, it's essential to understand that this hook facilitates global state management for the navigation bar's visibility and the active navigation item. Below, I'll guide you through setting up a simple example that demonstrates how to use `useFancyHandyNavStore` to control these aspects.
+
+### Example Setup
+
+First, ensure you have imported the `useFancyHandyNavStore` hook from its location in your project:
+
+```javascript
+import { useFancyHandyNavStore } from 'fui-fancyui';
+```
+
+### Example Usage
+
+Now, let's create a component that toggles the visibility of the `FancyHandyNav` and changes the active index. This example component will have buttons to show/hide the navigation bar and switch the active item:
+
+```jsx
+import React from 'react';
+import { FancyHandyNav } from 'fui-fancyui';
+import { useFancyHandyNavStore } from 'fui-fancyui';
+
+const ExampleWithFancyHandyNav = () => {
+  // Accessing state and actions from the store
+  const isVisible = useFancyHandyNavStore((state) => state.isVisible);
+  const setIsVisible = useFancyHandyNavStore((state) => state.setIsVisible);
+  const whichIsActive = useFancyHandyNavStore((state) => state.whichIsActive);
+  const setWhichIsActive = useFancyHandyNavStore((state) => state.setWhichIsActive);
+
+  // Example items for FancyHandyNav
+  const navItems = [
+    { icon: 'home', label: 'Home', onClick: () => console.log('Home clicked') },
+    { icon: 'search', label: 'Search', onClick: () => console.log('Search clicked') },
+    // Add more items as needed
+  ];
+
+  return (
+    <div>
+      <FancyHandyNav items={navItems} isVisible={isVisible} wichIndexIsActive={whichIsActive} />
+      <button onClick={() => setIsVisible(!isVisible)}>{isVisible ? 'Hide Navigation' : 'Show Navigation'}</button>
+      <button onClick={() => setWhichIsActive('1')}>Set Active Item to 2</button>
+    </div>
+  );
+};
+
+export default ExampleWithFancyHandyNav;
+```
+
+In this example:
+
+- The `useFancyHandyNavStore` hook is used to access and manipulate the navigation bar's visibility (`isVisible`) and the index of the currently active item (`whichIsActive`).
+- A `FancyHandyNav` component is rendered with props controlled by the zustand store.
+- Two buttons are provided:
+  - One toggles the visibility of the navigation bar by calling `setIsVisible`.
+  - The other sets the active item to the second one (index `1`) by calling `setWhichIsActive`.
+
+This setup illustrates how `useFancyHandyNavStore` enables managing the state of the `FancyHandyNav` component from anywhere in your application, providing a flexible and efficient way to control component behavior.
+
+### Component Properties
+
+### List of Used Components
+
+- **FancyBox**: A styled container used within the navigation bar to wrap navigation items. It supports theming and layering.
+- **RawNav**: Acts as the base container for the navigation bar, facilitating custom styling and HTML attribute extension.
+- **SwitchList**: Manages the display and switching functionality between different navigation items.
+- **FancyBottomBarIcon**: Represents individual navigation items within the bar, supporting active state management and theming.
+
+This component showcases a flexible approach to building interactive and responsive navigation elements in modern web applications, leveraging React's component-based architecture and the global state management capabilities of zustand.
