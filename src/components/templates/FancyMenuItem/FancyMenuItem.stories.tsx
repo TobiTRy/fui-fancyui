@@ -10,7 +10,7 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component: 'Template: The FancyMenueItem is a template for a finished Item it used by the FancyMenuList',
+        component: 'Template: The FancyMenueItem is a template for a finished Item it used by the FancyMenue',
       },
     },
   },
