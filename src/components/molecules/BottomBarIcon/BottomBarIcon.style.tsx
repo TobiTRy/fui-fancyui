@@ -8,7 +8,7 @@ import { TBottomBarIcon } from './TBottomBarIcon.model';
 
 type TContentWrapper = TStyledPrefixAndPicker<
   TBottomBarIcon,
-  'disabled' | 'isActive' | 'themeType' | 'layer' | 'externalStyle' | 'hoverStyle'
+  'disabled' | 'isActive' | 'themeType' | 'layer' | 'externalStyle' | 'hoverStyle' | 'activeThemeType' | 'activeLayer'
 >;
 export const ContentWrapper = styled.div<TContentWrapper & { theme?: TTheme }>`
   position: relative;
@@ -21,8 +21,17 @@ export const ContentWrapper = styled.div<TContentWrapper & { theme?: TTheme }>`
   border: none;
   cursor: pointer;
   margin: 0 auto;
-  color: ${({ $isActive, theme, $layer = 0, $themeType = 'secondary' }) =>
-    $isActive ? theme.colors.accent[0] : getBackgroundColor({ theme, $themeType, $layer })};
+  color: ${({
+    $isActive,
+    theme,
+    $layer = 0,
+    $activeThemeType = 'accent',
+    $themeType = 'secondary',
+    $activeLayer = 0,
+  }) =>
+    $isActive
+      ? getBackgroundColor({ theme, $themeType: $activeThemeType, $layer })
+      : getBackgroundColor({ theme, $themeType, $layer: $activeLayer })};
   transition: all 0.3s ease-in-out;
   ${({ $disabled }) => $disabled && disabledStyle}
   text-decoration: none;

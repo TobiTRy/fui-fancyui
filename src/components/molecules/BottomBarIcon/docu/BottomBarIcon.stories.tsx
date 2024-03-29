@@ -61,6 +61,20 @@ const meta = {
       description: 'External style for the component.',
       control: { type: 'object' },
     },
+    activeThemeType: {
+      description: 'The theme type of the active state.',
+      control: { type: 'select' },
+      table: {
+        defaultValue: { summary: 'accent' },
+      },
+    },
+    activeLayer: {
+      description: 'The layer of the active state.',
+      control: { type: 'number' },
+      table: {
+        defaultValue: { summary: 0 },
+      },
+    },
     ...templateThemeType('notTransparent', 'secondary'),
   },
 } satisfies Meta<typeof BottomBarIcon>;
