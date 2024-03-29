@@ -1,13 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import FancyInfoCard from './FancyInfoCard';
+import FancyInfoCard from '../FancyInfoCard';
 
 const meta = {
   component: FancyInfoCard,
   parameters: {
     docs: {
       description: {
-        component: 'Dumb-Comonent: Thats only the Style of the InfoCard, it accepts all kind of children.',
+        component:
+          'The `FancyInfoCard` component is designed to display an information card with optional icon, title, and description. It integrates `FancyBox` for styling and layout purposes and allows for customizable alignment, sizing, and background options. This component is ideal for displaying concise information in a visually appealing manner.',
       },
     },
   },

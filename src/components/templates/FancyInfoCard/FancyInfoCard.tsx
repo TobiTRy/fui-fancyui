@@ -1,13 +1,13 @@
 import { FancyContent } from '@/components/molecules/FancyContent';
 
-import { TFancyInfoCardProps } from '@/components/templates/FancyInfoCard/TFancyInfoCard.model';
 import { sizes } from './sizeSettings';
-import { FancyBox, TFancyBox } from '@/components/atoms/FancyBox';
+import { FancyBox } from '@/components/atoms/FancyBox';
+import { TFancyInfoCardWithFancyBoxAndFlex } from './TFancyInfoCard.model';
 
 // --------------------------------------------------------------------------- //
 // ------- This is a Template for a Infocard with icon Title und desc. ------- //
 // --------------------------------------------------------------------------- //
-export default function FancyInfoCard(props: TFancyInfoCardProps & TFancyBox) {
+export default function FancyInfoCard(props: TFancyInfoCardWithFancyBoxAndFlex) {
   const {
     title,
     description,
