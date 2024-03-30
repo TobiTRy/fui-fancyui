@@ -6,7 +6,7 @@ import { ListDivider } from '@/components/atoms/ListDivider';
 // --------------------------------------------------------------------------- //
 // ---------------- A simple Menue that can have any childs --------------- //
 // --------------------------------------------------------------------------- //
-export default function Menu(props: TMenuWithHTMLAttributes) {
+function Menu(props: TMenuWithHTMLAttributes) {
   const { children, themeType = 'primary', layer = 2, outlined, outlinedBackgroundStrength, ...htmlProps } = props;
 
   return (
@@ -24,3 +24,5 @@ export default function Menu(props: TMenuWithHTMLAttributes) {
 
 Menu.Item = FancyMenuItem;
 Menu.Divider = ListDivider;
+
+export default Menu;
