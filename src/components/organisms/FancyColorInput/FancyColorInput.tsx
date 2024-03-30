@@ -19,7 +19,7 @@ import colorTransformator from './utils/ColorTransformator';
 export default function FancyColorInput(props: TFancyColorInput) {
   const {
     themeType = 'primary',
-    layer = 3,
+    layer = 2,
     pickedColor,
     opacity,
     handler,
