@@ -1,10 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import FancySkeletonGrid from '../FancySkeletonGrid';
-import templateThemeType from '@/stories/templateSettingsForStorys/templatesForThemeType';
+import templateThemeType from '../../../../stories/templateSettingsForStorys/templatesForThemeType';
 
 const meta = {
   component: FancySkeletonGrid,
+  title: 'components/templates/FancySkeletonGrid',
   parameters: {
     docs: {
       description: {
