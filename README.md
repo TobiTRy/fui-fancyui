@@ -14,7 +14,6 @@ FUI is currently a masterpiece in the making. Our team is working diligently to 
 - **Discord**: https://discord.gg/HEXMuxq29M
 - **NPM**: https://www.npmjs.com/package/fui-fancyui
 
-
 ## 📘 Explore FancyUI Components
 
 **Discover in Storybook**: FancyUI's Storybook is your essential resource for diving into our UI library. It offers:
