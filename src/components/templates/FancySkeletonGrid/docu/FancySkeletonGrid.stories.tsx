@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import FancySkeletonGrid from './FancySkeletonGrid';
+import FancySkeletonGrid from '../FancySkeletonGrid';
+import templateThemeType from '@/stories/templateSettingsForStorys/templatesForThemeType';
 
 const meta = {
   component: FancySkeletonGrid,
@@ -8,32 +9,12 @@ const meta = {
     docs: {
       description: {
         component:
-          'The FancySkeletonGrid Component generates Skeletonboxes based on the GridArea prop <br/> You can create a Skeleton grid with provide gridAreas prop <br/> The gridAreas prop is an array of strings, each string represents a row in the grid <br/> Each string is a space separated list of names, which defines the cells of that row <br/> The names refer to the grid-template-areas property',
+          'The FancySkeletonGrid component dynamically generates a grid layout populated with skeleton boxes. These boxes serve as placeholders, typically used during content loading states. This component adapts to different screen sizes by adjusting the grid layout according to active breakpoints, ensuring a responsive and visually consistent loading experience across devices.',
       },
     },
   },
   argTypes: {
-    themeType: {
-      description: 'The theme type of the component',
-      control: {
-        type: 'select',
-      },
-      table: {
-        defaultValue: { summary: 'primary' },
-      },
-    },
-    layer: {
-      description: 'The layer of the component',
-      control: {
-        type: 'range',
-        min: 0,
-        max: 9,
-        step: 1,
-      },
-      table: {
-        defaultValue: { summary: 1 },
-      },
-    },
+    ...templateThemeType('notTransparent', 'primary', 1),
     borderRadius: {
       description: 'The border radius of the component',
       control: {
