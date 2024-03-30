@@ -38,7 +38,6 @@ const meta = {
       },
     },
   },
-  tags: ['autodocs'],
 } satisfies Meta<typeof FancyRadioList>;
 
 export default meta;
