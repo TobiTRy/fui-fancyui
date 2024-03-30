@@ -19,10 +19,10 @@ export default function FancyHandyNav(props: TFancyHandyNavWithHTMLAttrs) {
     items,
     isVisible,
     wichIndexIsActive,
-    themeType,
-    themeTypeSwitchList,
-    switchListLayer = 3,
-    layer,
+    themeType = 'primary',
+    themeTypeSwitchList = 'accent',
+    switchListLayer = 1,
+    layer = 1,
     externalStyle,
     ...htmlProps
   } = props;
@@ -61,7 +61,7 @@ export default function FancyHandyNav(props: TFancyHandyNavWithHTMLAttrs) {
               whichIndexIsSelected={Number(stateWhichIsActive)}
               switchIndicator={{
                 themeType: themeTypeSwitchList,
-                layer: clampLayer((switchListLayer ?? 1) - 5),
+                layer: clampLayer((switchListLayer ?? 1) - 3),
                 indicatorWidth: '70%',
               }}
             >
@@ -71,7 +71,7 @@ export default function FancyHandyNav(props: TFancyHandyNavWithHTMLAttrs) {
                     activeThemeType={themeTypeSwitchList}
                     themeType={getOpositMainThemeType(themeType)}
                     layer={switchListLayer ?? 0}
-                    activeLayer={clampLayer((switchListLayer ?? 1) + 4)}
+                    activeLayer={clampLayer((switchListLayer ?? 1) + 3)}
                     isActive={Number(stateWhichIsActive) === index}
                     {...item}
                     onClick={() => {
