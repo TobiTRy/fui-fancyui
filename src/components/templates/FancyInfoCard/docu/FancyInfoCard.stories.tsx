@@ -4,6 +4,7 @@ import FancyInfoCard from '../FancyInfoCard';
 
 const meta = {
   component: FancyInfoCard,
+  title: 'components/templates/FancyInfoCard',
   parameters: {
     docs: {
       description: {
