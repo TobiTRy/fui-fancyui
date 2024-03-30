@@ -13,6 +13,8 @@ import { FancyPopover } from '@/components/shared/FancyPopover';
 import logo from '../../../../FancyUI.png';
 import { RawA } from '@/components/atoms/RawA';
 import { Menu } from '@/components/molecules/Menue';
+import { SVGFui } from '@/components/icons/SVGFui';
+import { FancyLoadingSpinner } from '@/components/atoms/FancyLoadingSpinner';
 
 const meta = {
   component: Header,
@@ -145,6 +147,45 @@ export const Advancedheader: Story = {
           </FancyGrid.Item.FlexBox>
         </FancyGrid.Item>
       </FancyGrid>
+    </Header>
+  ),
+  args: {
+    themeType: 'primary',
+    outlined: true,
+    layer: 1,
+    outlinedBackgroundStrength: 0.5,
+  },
+};
+
+export const OutlinedHeader: Story = {
+  render: (args) => (
+    <Header
+      outlined
+      layer={6}
+      outlinedBackgroundStrength={0.95}
+      externalStyle={{ padding: '5px 18px', borderRadius: '22px', width: '80%' }}
+      {...args}
+    >
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          height: '100%',
+          width: '100%',
+        }}
+      >
+        <HeaderTitleWithLogo title="Let´sTryIt" logo={<SVGFui />} />
+        <FancySearchBar searchListWidth="80vw" layer={1}>
+          <FancyLoadingSpinner sizeC="lg" />
+        </FancySearchBar>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', width: '100%' }}>
+          <FancyMiniProfile
+            title="@TobiTRy"
+            src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
+          />
+        </div>
+      </div>
     </Header>
   ),
   args: {
