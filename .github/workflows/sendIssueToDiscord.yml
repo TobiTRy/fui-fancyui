@@ -1,0 +1,15 @@
+name: Issue Notification to Discord
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  notify-discord:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send notification to Discord
+        run: |
+          curl -H "Content-Type: application/json" \
+               -d '{"username": "FUIII Issue", "content": "A new issue has been opened: **${{ github.event.issue.title }}**. Check it out: ${{ github.event.issue.html_url }}"}' \
+               ${{ secrets.DISCORD_WEBHOOK }}
