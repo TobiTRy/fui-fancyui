@@ -7,7 +7,7 @@ import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
 import Popover from '../../components/shared/FancyPopover/Popover';
 import FancyPopover from '../../components/shared/FancyPopover/FancyPopover';
 import FancyMenueItem from '../../components/templates/FancyMenuItem/FancyMenuItem';
-import FancyMenue from '../../components/templates/FancyMenue/FancyMenu';
+import { Menu } from '@/components/molecules/Menue';
 import SVGCheckMark from '@/components/icons/SVGCheckMark/SVGCheckMark';
 
 export default function MenueRoute() {
@@ -21,18 +21,18 @@ export default function MenueRoute() {
           offsetY={10}
           refComponent={<FancyButton label="Hi 2" />}
           contentComponent={
-            <FancyMenue outlined>
-              <FancyMenue.Item label="Muuusettingshhh" icon={<>⚙️</>} />
-              <FancyMenue.Divider sizeC="md" label="Test" textAlignment="right" />
-              <FancyMenue.Divider label="Test" icon={<SVGCheckMark />} textAlignment="left" noLine />
-              <FancyMenue.Divider label="Test" sizeC="md" icon={<SVGCheckMark />} textAlignment="center" />
-              <FancyMenue.Divider label="Test" textAlignment="center" />
+            <Menu outlined>
+              <Menu.Item label="Muuusettingshhh" icon={<>⚙️</>} />
+              <Menu.Divider sizeC="md" label="Test" textAlignment="right" />
+              <Menu.Divider label="Test" icon={<SVGCheckMark />} textAlignment="left" noLine />
+              <Menu.Divider label="Test" sizeC="md" icon={<SVGCheckMark />} textAlignment="center" />
+              <Menu.Divider label="Test" textAlignment="center" />
               <FancyMenueItem label="Logout" icon={<SVGCheckMark />} />
               <FancyMenueItem label="Logout" icon={<SVGCheckMark />} />
               <FancyMenueItem label="Logout" icon={<SVGCheckMark />} />
               <FancyMenueItem label="Logout" icon={<SVGCheckMark />} />
               <FancyMenueItem label="Logout" icon={<SVGCheckMark />} />
-            </FancyMenue>
+            </Menu>
           }
         ></FancyPopover>
       </DesignArea>

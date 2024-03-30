@@ -16,7 +16,7 @@ import { FancyGrid } from '@/components/templates/FancyGrid';
 import { FancyPopover } from '@/components/shared/FancyPopover';
 import { FancyFlexBox } from '@/components/templates/FancyFlexBox';
 import { breakPointStyle } from '@/Routes/HeaderRoute/breakPointStyle';
-import { Menue } from '@/components/molecules/Menue';
+import { Menu } from '@/components/molecules/Menue';
 
 const Logo = () => (
   <svg
@@ -113,10 +113,10 @@ export default function HeaderRoute() {
               <FancyPopover
                 offsetY={5}
                 contentComponent={
-                  <Menue>
-                    <Menue.Item label="HIii"></Menue.Item>
-                    <Menue.Item label="Hiii"></Menue.Item>
-                  </Menue>
+                  <Menu>
+                    <Menu.Item label="HIii"></Menu.Item>
+                    <Menu.Item label="Hiii"></Menu.Item>
+                  </Menu>
                 }
                 refComponent={
                   <FancyMiniProfile

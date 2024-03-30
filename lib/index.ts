@@ -129,7 +129,6 @@ export * from '@/components/organisms/FancyColorInput';
 // ---------- Templates ------- //
 export * from '@/components/templates/FancyInfoCard';
 export * from '@/components/templates/FancyDateDropDown';
-export * from '@/components/templates/FancyMenue/FancyMenu';
 export * from '@/components/templates/FancyMenuItem';
 export * from '@/components/templates/FancyGrid';
 export * from '@/components/templates/FancyRadioList';
