@@ -8,6 +8,13 @@ Welcome to FancyUI (FUI), a state-of-the-art UI library meticulously crafted for
 
 FUI is currently a masterpiece in the making. Our team is working diligently to ensure that every component, feature, and line of code meets the highest standards of quality and innovation. While we're putting in the hours to make FUI really, really fancy, we appreciate your patience and excitement for the upcoming release.
 
+## 🏮 Important Links 🏮
+
+- **StoryBook**: https://fui.cool/
+- **Discord**: https://discord.gg/HEXMuxq29M
+- **NPM**: https://www.npmjs.com/package/fui-fancyui
+
+
 ## 📘 Explore FancyUI Components
 
 **Discover in Storybook**: FancyUI's Storybook is your essential resource for diving into our UI library. It offers:
