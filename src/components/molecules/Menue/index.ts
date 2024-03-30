@@ -1,3 +1,3 @@
-export { default as Menue } from './Menue';
+export { default as Menu } from './Menu';
 
-export type { TMenue, TMenueWithHTMLAttributes } from './TMenue.model';
+export type { TMenu, TMenuWithHTMLAttributes } from './TMenu.model';

@@ -1,4 +1,4 @@
-import { StyledMenuItem } from './MenuItem.style';
+import { StyledMenuItem } from './MenueItem.style';
 import { sizeSettings } from './sizeSettings';
 
 import { TMenueItemWithHTMLAttrs } from '@/components/atoms/MenuItem/TMenueItem.model';

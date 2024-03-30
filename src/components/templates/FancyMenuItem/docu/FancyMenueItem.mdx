@@ -1,0 +1,50 @@
+import { Meta, Title, Description, Canvas, Controls } from '@storybook/blocks';
+
+import * as FancyMenuItemStories from './FancyMenuItem.stories';
+
+<Meta of={FancyMenuItemStories} />
+
+<Title />
+
+<Description />
+
+## Setup Instructions
+
+To use the `FancyMenuItem` in your project, follow these steps:
+
+1. Import the `FancyMenuItem` component where you intend to use it:
+
+```jsx
+import { FancyMenuItem } from 'fui-fancyui';
+```
+
+2. If using TypeScript, you can import the type definitions for prop validation:
+
+```jsx
+import { TFancyMenuItem, TFancyMenueItemWithMenuAttrs } from 'fui-fancyui';
+```
+
+After installing the required library, you can import and use the `FancyMenuItem` component in your project as follows:
+
+### Example Usage
+
+Here's a simple example of how to use the `FancyMenuItem` in a React component:
+
+```jsx
+<FancyMenuItem label="Home" icon={<HomeIcon />} sizeC="md" />
+```
+
+This code snippet creates a `FancyMenuItem` with a label "Home" and an icon, specifying a medium size for the component.
+
+<Canvas />
+
+### Component Properties
+
+<Controls />
+
+### List of Used Components
+
+- **MenuItem**: A basic component used to render each item within the menu. It accepts props like `sizeC` to adjust the item's size.
+- **FancyContent**: A molecule component that provides structured content with optional alignment, titles, and icons. It is used within `FancyMenuItem` to render its contents.
+  - **FancyContent.Title**: Renders the text label of the menu item with customizable font size and weight.
+  - **FancyContent.Icon**: Displays the icon within the menu item, with size customization based on the menu item's size setting.

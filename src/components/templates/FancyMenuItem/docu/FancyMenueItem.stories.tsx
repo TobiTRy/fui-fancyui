@@ -2,15 +2,17 @@
 import { Meta, StoryObj } from '@storybook/react';
 
 // Import the component to be tested
-import FancyMenuItem from './FancyMenuItem';
+import FancyMenuItem from '../FancyMenuItem';
 
 // Define metadata for the story
 const meta = {
   component: FancyMenuItem,
+  title: 'components/templates/FancyMenuItem',
   parameters: {
     docs: {
       description: {
-        component: 'Template: The FancyMenueItem is a template for a finished Item it used by the FancyMenue',
+        component:
+          'The FancyMenuItem component is designed to provide a template for menu items within an application, combining text labels and icons for a visually appealing presentation. It utilizes other smaller components, such as MenuItem and FancyContent, to create a cohesive item that can be customized with different sizes, icons, and labels.',
       },
     },
   },
@@ -65,8 +67,6 @@ const meta = {
       },
     },
   },
-  // Add tags to the story
-  tags: ['autodocs'],
 } satisfies Meta<typeof FancyMenuItem>;
 
 // Export the metadata

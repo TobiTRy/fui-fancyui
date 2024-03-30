@@ -4,7 +4,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import templateThemeType from '@/stories/templateSettingsForStorys/templatesForThemeType';
 
 // Import the component to be tested
-import Menue from '../Menue';
+import Menue from '../Menu';
 
 // Define metadata for the story
 const meta = {

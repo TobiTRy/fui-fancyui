@@ -1,16 +1,16 @@
 import { FancyMenuItem } from '@/components/templates/FancyMenuItem';
-import { MenuContainer } from './Menue.style';
-import { TMenueWithHTMLAttributes } from './TMenue.model';
+import { MenueContainer } from './Menu.style';
+import { TMenuWithHTMLAttributes } from './TMenu.model';
 import { ListDivider } from '@/components/atoms/ListDivider';
 
 // --------------------------------------------------------------------------- //
 // ---------------- A simple Menue that can have any childs --------------- //
 // --------------------------------------------------------------------------- //
-export default function Menue(props: TMenueWithHTMLAttributes) {
+export default function Menu(props: TMenuWithHTMLAttributes) {
   const { children, themeType = 'primary', layer = 2, outlined, outlinedBackgroundStrength, ...htmlProps } = props;
 
   return (
-    <MenuContainer
+    <MenueContainer
       $themeType={themeType}
       $layer={layer}
       $outlined={outlined}
@@ -18,9 +18,9 @@ export default function Menue(props: TMenueWithHTMLAttributes) {
       {...htmlProps}
     >
       {children}
-    </MenuContainer>
+    </MenueContainer>
   );
 }
 
-Menue.Item = FancyMenuItem;
-Menue.Divider = ListDivider;
+Menu.Item = FancyMenuItem;
+Menu.Divider = ListDivider;

@@ -1,0 +1,60 @@
+import { Meta, Title, Description, Controls, Canvas } from '@storybook/blocks';
+
+import * as MenuStories from './Menu.stories';
+
+<Meta of={MenuStories} />
+
+<Title />
+
+<Description />
+
+## Setup Instructions
+
+To use the `Menu` in your project, follow these steps:
+
+1. Import the `Menu` component where you intend to use it:
+
+```jsx
+import { Menu } from 'fui-fancyui';
+```
+
+2. If using TypeScript, you can import the type definitions for prop validation:
+
+```jsx
+import { TMenu, TMenuWithHTMLAttributes } from 'fui-fancyui';
+```
+
+## Example Usage
+
+Here's a basic example of how to use the `Menu` component in a React application:
+
+```jsx
+import React from 'react';
+import { Menu } from 'fui-fancyui'; // Adjust the path as needed
+
+const App = () => {
+  return (
+    <Menu themeType="secondary" layer={3} outlined={true}>
+      <div>Menu Item 1</div>
+      <div>Menu Item 2</div>
+      <div>Menu Item 3</div>
+    </Menu>
+  );
+};
+
+export default App;
+```
+
+This example creates a `Menu` with three items, customizing the component with a secondary theme, a layer depth of 3, and an outlined style.
+
+<Canvas />
+
+## Component Properties
+
+The `Menu` component accepts the following properties:
+
+<Controls />
+
+In addition to the above properties, `Menu` also inherits all properties from `React.HTMLAttributes<HTMLDivElement>`, allowing for further HTML attribute customizations such as `className`, `style`, etc.
+
+The `Menu` component offers flexibility and customization, making it suitable for a wide range of applications and design requirements.
