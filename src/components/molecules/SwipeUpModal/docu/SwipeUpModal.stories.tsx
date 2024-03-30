@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import SwipeUpModal from '../SwipeUpModal';
 import templateThemeType from '@/stories/templateSettingsForStorys/templatesForThemeType';
+import { useEffect, useState } from 'react';
 
 const meta = {
   component: SwipeUpModal,
@@ -11,6 +12,9 @@ const meta = {
       description: {
         component:
           'The SwipeUpModal component is a versatile and interactive modal molecule designed for React applications. It utilizes a combination of atoms and molecules such as Delay, SwipeUpContainer, BackDrop, and ScalingSection to provide a feature-rich modal experience. This modal supports functionalities like dynamic scaling, swipe to close, and customizable theming.',
+      },
+      story: {
+        height: '400px',
       },
     },
   },
@@ -56,8 +60,37 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
+const HelperComponent = (args: Story['args']) => {
+  const [stateSwipeUp, setStateSwipeUp] = useState(args?.isOpen ?? false);
+
+  useEffect(() => {
+    setStateSwipeUp(args?.isOpen ?? false);
+  }, [args?.isOpen]);
+
+  return (
+    <SwipeUpModal isOpen={stateSwipeUp} {...args}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
+        <p>Swipe Up Modal</p>
+        <p>Swipe Up Modal</p>
+        <p>Swipe Up Modal</p>
+        <p>Swipe Up Modal</p>
+        <p>Swipe Up Modal</p>
+        <p>Swipe Up Modal</p>
+        <p>Swipe Up Modal</p>
+        <p>Swipe Up Modal</p>
+        <p>Swipe Up Modal</p>
+        <p>Swipe Up Modal</p>
+        <p>Swipe Up Modal</p>
+        <p>Swipe Up Modal</p>
+        <p>Swipe Up Modal</p>
+        <p>Swipe Up Modal</p>
+      </div>
+    </SwipeUpModal>
+  );
+};
+
 export const Primary: Story = {
-  render: (args) => <SwipeUpModal {...args} />,
+  render: (args) => <HelperComponent {...args} />,
   args: {
     isOpen: true,
     isCloseAble: true,

@@ -29,7 +29,7 @@ import NavBarHandy from './Routes/NavBarHandy/NavBarHandy';
 import PageSwitchRoute from './Routes/PageSwitchRoute/PageSwitchRoute';
 import SingleNumberInputRoute from './Routes/SingleNumberInputRoute/SingleNumberInputRoute';
 import SpeedDailRoute from './Routes/SpeedDailRoute/SpeedDailRoute';
-import SwipeUpModal from './Routes/SwipeUpModal/SwipeUpModal';
+import SwipeUpModalRoute from './Routes/SwipeUpModal/SwipeUpModal';
 import SwitchesRoute from './Routes/Switches/SwitchesRoute';
 import TabSwitchRoute from './Routes/TabSwitchRoute/TabSwitchRoute';
 import ToastMessageRoute from './Routes/ToastMessageRoute/ToastMessageRoute';
@@ -186,7 +186,7 @@ function App() {
             {/* A <Routes> looks through its children <Route>s and
           renders the first one that matches the current URL. */}
             <Routes>
-              <Route path="/swipeupmodal" element={<SwipeUpModal />} />
+              <Route path="/swipeupmodal" element={<SwipeUpModalRoute />} />
               <Route path="/modal" element={<ModalRoute />} />
               <Route path="/singleNumberInput" element={<SingleNumberInputRoute />} />
               <Route path="/datePicker" element={<DatePickerRoute />} />
@@ -219,7 +219,7 @@ function App() {
               <Route path="/skeleton" element={<SkeletonRoute />} />
               <Route path="/FancyListBox" element={<FancyListBoxRoute />} />
               <Route path="/TextGradient" element={<TextGradientRoute />} />
-              <Route path="/" element={<SwipeUpModal />} />
+              <Route path="/" element={<SwipeUpModalRoute />} />
             </Routes>
           </div>
         </FancyThemeProvider>
