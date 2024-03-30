@@ -201,3 +201,79 @@ export const Disabled: Story = {
     disabled: true,
   },
 };
+
+export const Wide: Story = {
+  render: (args) => <FancyButton {...args} />,
+  args: {
+    icon: SVGChevronRight,
+    themeType: 'accent',
+    label: 'Button',
+    sizeC: 'md',
+    align: 'center',
+    layer: 0,
+    outlined: false,
+    isLoading: false,
+    wide: true,
+  },
+};
+
+export const NoSize: Story = {
+  render: (args) => <FancyButton {...args} />,
+  args: {
+    icon: SVGChevronRight,
+    themeType: 'accent',
+    label: 'Button',
+    sizeC: 'md',
+    align: 'center',
+    layer: 0,
+    outlined: false,
+    isLoading: false,
+    wide: false,
+    noSize: true,
+  },
+};
+
+export const Transparent: Story = {
+  render: (args) => <FancyButton {...args} />,
+  args: {
+    icon: SVGChevronRight,
+    themeType: 'transparent',
+    label: 'Button',
+    sizeC: 'md',
+    align: 'center',
+    layer: 0,
+    outlined: false,
+    isLoading: false,
+    wide: false,
+  },
+};
+
+export const Secondary: Story = {
+  render: (args) => <FancyButton {...args} />,
+  args: {
+    icon: SVGChevronRight,
+    themeType: 'secondary',
+    label: 'Button',
+    sizeC: 'md',
+    align: 'center',
+    layer: 0,
+    outlined: false,
+    isLoading: false,
+    wide: false,
+  },
+};
+
+export const PrimaryStyled: Story = {
+  render: (args) => <FancyButton {...args} />,
+  args: {
+    icon: SVGChevronRight,
+    themeType: 'primary',
+    label: 'Button',
+    sizeC: 'md',
+    align: 'center',
+    layer: 1,
+    outlined: false,
+    isLoading: false,
+    wide: false,
+  },
+};
