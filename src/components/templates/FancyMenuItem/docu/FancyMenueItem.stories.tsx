@@ -3,6 +3,7 @@ import { Meta, StoryObj } from '@storybook/react';
 
 // Import the component to be tested
 import FancyMenuItem from '../FancyMenuItem';
+import templateThemeType from '@/stories/templateSettingsForStorys/templatesForThemeType';
 
 // Define metadata for the story
 const meta = {
@@ -45,27 +46,7 @@ const meta = {
         defaultValue: { summary: '' },
       },
     },
-    themeType: {
-      description: 'The theme of the input',
-      control: {
-        type: 'select',
-      },
-      table: {
-        defaultValue: { summary: 'primary' },
-      },
-    },
-    layer: {
-      description: 'The layer of the button hover effect',
-      control: {
-        type: 'range',
-        min: 1,
-        max: 10,
-        step: 1,
-      },
-      table: {
-        defaultValue: { summary: '3' },
-      },
-    },
+    ...templateThemeType('notTransparent', 'primary', 1),
   },
 } satisfies Meta<typeof FancyMenuItem>;
 
