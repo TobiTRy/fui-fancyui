@@ -53,6 +53,8 @@ function templateThemeType<Cat extends ThemeTypeCategory, Default extends ThemeO
   }
 
   // Ensure the defaultValue is part of the options, if not, use the first option as a fallback.
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  //@ts-ignore
   const effectiveDefaultValue = defaultValue && options.includes(defaultValue) ? defaultValue : options[0];
 
   return {

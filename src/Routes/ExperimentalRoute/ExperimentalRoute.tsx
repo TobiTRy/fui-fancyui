@@ -141,8 +141,6 @@ export default function ExperimentalRoute() {
     <>
       <DesignWrapper>
         <DesignArea title="Test">
-          <ActionItem />
-
           <Button sizeC={undefined}>Mooiin</Button>
           <FancyNumberInput label="TTTSa" systemMessage={{ type: 'error', message: 'errroor' }} />
           <Card />

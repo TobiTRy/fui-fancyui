@@ -56,7 +56,8 @@ export default function FancySearchBarRoute() {
   const [searchValue, setSearchValue] = useState('Bob');
   const [searchedUsers, setSearchedUsers] = useState(users);
 
-  const searchHandler = (searchValue: string) => {
+  const searchHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const searchValue = e.target.value;
     const lowerSearchValue = searchValue.toLowerCase();
     const getUser = users.filter(
       (user) =>
@@ -74,7 +75,7 @@ export default function FancySearchBarRoute() {
     <Card externalStyle={{ width: '100%', height: '1000px' }}>
       <DesignWrapper>
         <DesignArea title="Fancy Search Bar" style={{ display: 'flex', flexDirection: 'column' }}>
-          <FancySearchBar handlerSearchValue={searchHandler} searchValue={searchValue}>
+          <FancySearchBar onChange={searchHandler} value={searchValue}>
             <ListWrapper>
               {searchedUsers.map((user, index) => (
                 <UserWrapper key={index}>
@@ -84,7 +85,7 @@ export default function FancySearchBarRoute() {
               ))}
             </ListWrapper>
           </FancySearchBar>
-          <FancySearchBar handlerSearchValue={searchHandler} sizeC="md" searchValue={searchValue}>
+          <FancySearchBar onChange={searchHandler} sizeC="md" value={searchValue}>
             <ListWrapper>
               {searchedUsers.map((user, index) => (
                 <UserWrapper key={index}>
@@ -94,7 +95,7 @@ export default function FancySearchBarRoute() {
               ))}
             </ListWrapper>
           </FancySearchBar>
-          <FancySearchBar handlerSearchValue={searchHandler} sizeC="lg" searchValue={searchValue}>
+          <FancySearchBar onChange={searchHandler} sizeC="lg" value={searchValue}>
             <ListWrapper>
               {searchedUsers.map((user, index) => (
                 <UserWrapper key={index}>

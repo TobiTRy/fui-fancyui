@@ -12,7 +12,7 @@ export default function FancyDropDownMenueRoute() {
       <DesignArea title="FancyDropDownMenue">
         <FancyButton onClick={() => setIsOpen(!isOpen)} label="Open Menue"></FancyButton>
         <FancyDropDownMenue isOpen={isOpen} alignHorizontal="right" alignVertical="top" width="50%">
-          <div style={{ display: 'flex', direction: 'column', gap: '24px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
             <FancyButton label="Button" themeType="primary" />
             <FancyButton label="Button" themeType="secondary" />
             <FancyButton label="Button" themeType="accent" />

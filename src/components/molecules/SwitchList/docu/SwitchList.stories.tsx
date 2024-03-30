@@ -67,7 +67,7 @@ export const Primary: Story = {
       type: 'bolb',
       direction: 'horizontal',
       indicatorWidth: '100%',
-      rounded: 'sm',
+      borderRadius: 'sm',
       outlined: true,
       externalStyle: {},
       layer: 0,

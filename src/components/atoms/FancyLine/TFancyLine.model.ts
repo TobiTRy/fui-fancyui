@@ -1,17 +1,16 @@
 import { HTMLAttributes } from 'react';
 
+import { TThemeArrayOrValueCSS } from '@/design/designFunctions/arrayToCssValues';
 import { TLayer } from '@/types/TLayer';
 import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
-import { TSpacings } from '@/types/TSpacings';
-import { TThemeArrayCssValues } from '@/design/designFunctions/arrayToCssValues';
-import { CSSProp } from 'styled-components';
 import { TUiColorsSystemMessage } from '@/types/TUiColorsSystemMessage';
+import { CSSProp } from 'styled-components';
 
 export type TFancyLine = {
   direction?: 'horizontal' | 'vertical';
   thickness?: string;
   length?: string;
-  margin?: TThemeArrayCssValues | TSpacings;
+  margin?: TThemeArrayOrValueCSS;
   themeType?: TUiColorsNotTransparent;
   systemMessageType?: TUiColorsSystemMessage;
   isActive?: boolean;

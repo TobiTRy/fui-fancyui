@@ -16,7 +16,7 @@ const meta = {
     },
   },
   argTypes: {
-    ...templateThemeType('mainThemeTypes', 'accent', 1),
+    ...templateThemeType('allThemeTypes', 'accent', 1),
     outlined: {
       description: 'This prop will change the Nutton to outlined',
       control: {

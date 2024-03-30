@@ -67,12 +67,11 @@ export const Primary: Story = {
   args: {
     label: 'FancyRadioList',
     alignLabel: 'left',
-    fontVariantLegend: 'h3',
     disabled: false,
     themeType: 'primary',
     layer: 1,
     outlined: false,
-    outlinedBackgroundStrength: 1,
+    outlinedBackgroundStrength: 0.5,
 
     items: [
       {

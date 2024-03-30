@@ -13,11 +13,10 @@ import themeStore from '@/design/theme/themeStore/themeStore';
 import { Typography } from '@/components/atoms/Typography';
 import { SwitchList } from '@/components/molecules/SwitchList';
 import { FancyGrid } from '@/components/templates/FancyGrid';
-import { FancyMenu } from '@/components/templates/FancyMenue/FancyMenu';
 import { FancyPopover } from '@/components/shared/FancyPopover';
 import { FancyFlexBox } from '@/components/templates/FancyFlexBox';
 import { breakPointStyle } from '@/Routes/HeaderRoute/breakPointStyle';
-import { FancyHeader } from '@/components/templates/FancyHeader';
+import { Menue } from '@/components/molecules/Menue';
 
 const Logo = () => (
   <svg
@@ -76,7 +75,7 @@ export default function HeaderRoute() {
   return (
     <section>
       <FancyFlexBox className="hii"></FancyFlexBox>
-      <FancyHeader externalStyle={{ height: '44px', padding: '0 12px' }}>
+      <Header externalStyle={{ height: '44px', padding: '0 12px' }}>
         <FancyGrid grid={8} gap="12px">
           <FancyGrid.Item gridSpace={1}>
             <FancyGrid.Item.FlexBox
@@ -85,28 +84,28 @@ export default function HeaderRoute() {
               className={'mooiiin'}
               externalStyle={breakPointStyle}
             >
-              <FancyHeader.Logo className="logo">
-                <FancyHeader.Logo.Icon className="logo_icon">
+              <Header.Logo className="logo">
+                <Header.Logo.Icon className="logo_icon">
                   <Logo></Logo>
-                </FancyHeader.Logo.Icon>
+                </Header.Logo.Icon>
 
-                <FancyHeader.Logo.Title variant="bodytextMd" className="logo_text">
+                <Header.Logo.Title variant="bodytextMd" className="logo_text">
                   Mooiin
-                </FancyHeader.Logo.Title>
-              </FancyHeader.Logo>
+                </Header.Logo.Title>
+              </Header.Logo>
             </FancyGrid.Item.FlexBox>
           </FancyGrid.Item>
 
           <FancyGrid.Item gridSpace={4}>
             <FancyGrid.Item.FlexBox align="center" justify="center">
-              <FancyHeader.Nav>
-                <SwitchList flexBoxProps={{ align: 'center', justify: 'center' }} hoverStyle>
+              <Header.Nav>
+                <SwitchList flexBoxProps={{ align: 'center', justify: 'center' }}>
                   <Typography variant="bodytextMd">mooin</Typography>
                   <Typography variant="bodytextMd">mooin</Typography>
                   <Typography variant="bodytextMd">mooin</Typography>
                   <Typography variant="bodytextMd">mooin</Typography>
                 </SwitchList>
-              </FancyHeader.Nav>
+              </Header.Nav>
             </FancyGrid.Item.FlexBox>
           </FancyGrid.Item>
           <FancyGrid.Item gridSpace={2}>
@@ -114,10 +113,10 @@ export default function HeaderRoute() {
               <FancyPopover
                 offsetY={5}
                 contentComponent={
-                  <FancyMenu>
-                    <FancyMenu.Item label="HIii"></FancyMenu.Item>
-                    <FancyMenu.Item label="Hiii"></FancyMenu.Item>
-                  </FancyMenu>
+                  <Menue>
+                    <Menue.Item label="HIii"></Menue.Item>
+                    <Menue.Item label="Hiii"></Menue.Item>
+                  </Menue>
                 }
                 refComponent={
                   <FancyMiniProfile
@@ -130,7 +129,7 @@ export default function HeaderRoute() {
             </FancyGrid.Item.FlexBox>
           </FancyGrid.Item>
         </FancyGrid>
-      </FancyHeader>
+      </Header>
 
       <div style={{ marginTop: '40px' }}>
         <FancyBar

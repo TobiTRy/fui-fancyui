@@ -65,7 +65,7 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   render: (args) => <DateOutput {...args} date={new Date(args?.date!)} />,
   args: {
-    date: 1, // strorybook does currently not support date as a type
+    date: new Date(), // strorybook does currently not support date as a type
     layer: 2,
     themeType: 'primary',
     isActive: true,

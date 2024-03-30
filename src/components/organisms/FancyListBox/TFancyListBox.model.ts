@@ -16,6 +16,8 @@ export type TFancyListBox = {
   themeType?: Exclude<TUiColorsMain, 'accent'>;
   layer?: TLayer;
   itemSettings?: TListBoxItemProps;
+  outlined?: boolean;
+  outlinedBackgroundStrength?: number;
 };
 
 export type TFancyListBoxWithListBoxAttrs = TFancyListBox & TListBoxWithFancyBoxAttrs;
