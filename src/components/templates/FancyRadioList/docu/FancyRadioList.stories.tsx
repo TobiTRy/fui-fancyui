@@ -1,38 +1,21 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import FancyRadioList from './FancyRadioList';
+import FancyRadioList from '../FancyRadioList';
+import templateThemeType from '@/stories/templateSettingsForStorys/templatesForThemeType';
 
 const meta = {
   component: FancyRadioList,
+  title: 'components/templates/FancyRadioList',
   parameters: {
     docs: {
       description: {
-        component: 'Dumb-Comonent: The FancyRadioList Renders a Styled Box with a list of RadioButtons and a label.',
+        component:
+          '`FancyRadioList` is a React component designed to render a dynamic list of radio buttons, allowing users to select a single option from multiple choices. It incorporates a keyboard navigation feature, enabling users to navigate through options using arrow keys. The component is styled and organized within a `Fieldset` and `FancyListBox`, providing a structured and visually appealing interface.',
       },
     },
   },
   argTypes: {
-    themeType: {
-      description: 'The theme type of the component',
-      control: {
-        type: 'select',
-      },
-      table: {
-        defaultValue: { summary: 'primary' },
-      },
-    },
-    layer: {
-      description: 'The layer of the component',
-      control: {
-        type: 'range',
-        min: 0,
-        max: 9,
-        step: 1,
-      },
-      table: {
-        defaultValue: { summary: 1 },
-      },
-    },
+    ...templateThemeType('mainThemeTypes', 'primary', 1),
     outlined: {
       description: 'The component has a outline style',
       control: {
