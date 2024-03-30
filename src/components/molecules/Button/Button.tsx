@@ -12,12 +12,14 @@ export default function Button(props: TButtonWithNativeAttrs) {
     themeType = 'accent',
     layer = 0,
     textColor,
+    disabled,
     borderRadius,
     hoverColor,
     outlined,
     externalStyle,
     textHover,
     notAButton,
+    noSize,
     ...htmlProps
   } = props;
 
@@ -33,6 +35,8 @@ export default function Button(props: TButtonWithNativeAttrs) {
       $outlined={outlined}
       $externalStyle={externalStyle}
       $textHover={textHover}
+      $disabled={disabled}
+      $noSize={noSize}
     >
       {children}
     </ButtonStyle>

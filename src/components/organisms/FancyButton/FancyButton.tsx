@@ -5,21 +5,20 @@ import { Button } from '@/components/molecules/Button';
 import { FancyContent } from '@/components/molecules/FancyContent';
 import { generateFancyButton } from './FancyButton.style';
 
-import { TButtonWithNativeAttrs, TButton } from '@/components/molecules/Button/Button.model';
-import { TFancyButtonProps } from '@/components/organisms/FancyButton/TFancyButton.model';
+import { TButton } from '@/components/molecules/Button/Button.model';
 import { leftRightCenterToFlexJustify } from '@/design/designFunctions/leftRightCenterToFlexJustify';
+import { TFancyButtonWithHTMLAttrs } from './TFancyButton.model';
 import { sizeSettings } from './sizeSettings';
 
 // --------------------------------------------------------------------------- //
 // ---------- The Fancy Button has a bit more options than another  ---------- //
 // --------------------------------------------------------------------------- //
-type TFancyButton = TFancyButtonProps & TButtonWithNativeAttrs;
-export default function FancyButton(props: TFancyButton) {
+export default function FancyButton(props: TFancyButtonWithHTMLAttrs) {
   const {
     icon,
     label,
     isLoading,
-    iconAlign,
+    iconAlign = 'right',
     sizeC = 'md',
     align = 'center',
     externalStyle,
@@ -27,19 +26,21 @@ export default function FancyButton(props: TFancyButton) {
     gap,
     ...buttonProps
   } = props;
+  // handle icon alignment
+  const alignIcon = iconAlign === 'left' ? 'row' : 'row-reverse';
 
   const generateFancyStyle = generateFancyButton({
+    $iconAlign: iconAlign,
+    $icon: Boolean(icon),
     $sizeC: sizeC,
     $oneToOne: oneToOne ?? (Boolean(!label) && Boolean(icon)),
     $justifyContent: leftRightCenterToFlexJustify[align ?? 'center'],
   });
 
-  // handle icon alignment
-  const alignIcon = iconAlign === 'left' ? 'row' : 'row-reverse';
-
   return (
     <Button
       sizeC={sizeC}
+      noSize={true}
       externalStyle={css`
         ${generateFancyStyle};
         ${externalStyle};

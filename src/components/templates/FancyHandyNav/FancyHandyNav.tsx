@@ -1,35 +1,31 @@
 import { useEffect } from 'react';
-import { CSSProp } from 'styled-components';
 
 import useFancyHandyNavStore from './FancyHandyNav.store';
-import { TLayer } from '@/types/TLayer';
 
-import FancyBottomBarIcon, { IFancyBottomBarIcon } from '@/components/templates/FancyBottomBarIcon/FancyBottomBarIcon';
+import { FancyBox } from '@/components/atoms/FancyBox';
 import { RawNav } from '@/components/atoms/RawNav';
 import { SwitchList } from '@/components/molecules/SwitchList';
-import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
-import { FancyBox } from '@/components/atoms/FancyBox';
+import { FancyBottomBarIcon } from '@/components/templates/FancyBottomBarIcon';
 import { ButtonWrapper, fancyBarStyle } from '@/components/templates/FancyHandyNav/FancyHandyNav.style';
+import { TFancyHandyNavWithHTMLAttrs } from './TFancyHandyNav.model';
+import { getOpositMainThemeType } from '@/design/designFunctions/getOpositMainThemeType';
+import { clampLayer } from '@/utils/functions/clampLayer';
 
-interface IFancyHandyNav {
-  items?: IFancyBottomBarIcon[];
-  isVisible?: boolean;
-  wichIndexIsActive?: string;
-  themeType?: TUiColorsNotTransparent;
-  themeTypeIcons?: TUiColorsNotTransparent;
-  themeTypeSwitchList?: TUiColorsNotTransparent;
-  layer?: TLayer;
-  outlined?: boolean;
-  outlinedBackgroundStrength?: number;
-  externalStyle?: CSSProp;
-  className?: string;
-}
 // --------------------------------------------------------------------------- //
 // ---------- A handyNavBar that can dynamicly generated via objects---------- //
 // --------------------------------------------------------------------------- //
-export default function FancyHandyNav(props: IFancyHandyNav) {
-  const { items, isVisible, wichIndexIsActive, themeType, themeTypeIcons, themeTypeSwitchList, layer, externalStyle } =
-    props;
+export default function FancyHandyNav(props: TFancyHandyNavWithHTMLAttrs) {
+  const {
+    items,
+    isVisible,
+    wichIndexIsActive,
+    themeType = 'primary',
+    themeTypeSwitchList = 'accent',
+    switchListLayer = 1,
+    layer = 1,
+    externalStyle,
+    ...htmlProps
+  } = props;
 
   // setup a global zustand store for the visibility and the active index
   const isVisibleState = useFancyHandyNavStore((state) => state.isVisible);
@@ -41,7 +37,7 @@ export default function FancyHandyNav(props: IFancyHandyNav) {
   useEffect(() => {
     setWhichIsActiveState(wichIndexIsActive ?? '0');
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [wichIndexIsActive]);
 
   // handle the visibility of the nav
   useEffect(() => {
@@ -52,7 +48,7 @@ export default function FancyHandyNav(props: IFancyHandyNav) {
     <>
       {isVisibleState && (
         // The Navbar container
-        <RawNav $externalStyle={externalStyle} className={props.className}>
+        <RawNav $externalStyle={externalStyle} {...htmlProps}>
           <FancyBox
             outlined={props.outlined}
             themeType={themeType}
@@ -65,14 +61,17 @@ export default function FancyHandyNav(props: IFancyHandyNav) {
               whichIndexIsSelected={Number(stateWhichIsActive)}
               switchIndicator={{
                 themeType: themeTypeSwitchList,
+                layer: clampLayer((switchListLayer ?? 1) - 3),
                 indicatorWidth: '70%',
               }}
             >
               {items?.map((item, index) => (
                 <ButtonWrapper key={index}>
                   <FancyBottomBarIcon
-                    themeType={themeTypeIcons}
-                    layer={layer}
+                    activeThemeType={themeTypeSwitchList}
+                    themeType={getOpositMainThemeType(themeType)}
+                    layer={switchListLayer ?? 0}
+                    activeLayer={clampLayer((switchListLayer ?? 1) + 3)}
                     isActive={Number(stateWhichIsActive) === index}
                     {...item}
                     onClick={() => {

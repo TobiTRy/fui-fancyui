@@ -1,0 +1,54 @@
+import { Meta, Title, Description, Controls, Canvas } from '@storybook/blocks';
+
+import * as FancyRangeSliderStories from './FancyRangeSlider.stories';
+
+<Meta of={FancyRangeSliderStories} />
+
+<Title />
+
+<Description />
+
+## Setup Instructions
+
+To use the `FancyRangeSlider` in your project, follow these steps:
+
+1. Import the `FancyRangeSlider` component where you intend to use it:
+
+```jsx
+import { FancyRangeSlider } from 'fui-fancyui';
+```
+
+2. If using TypeScript, you can import the type definitions for prop validation:
+
+```jsx
+import { TFancyRangeSlider } from 'fui-fancyui';
+```
+
+After installing the required library, you can import and use the `FancyRangeSlider` component in your project as follows:
+
+### Example Usage
+
+```jsx
+<FancyRangeSlider
+  id="custom-slider"
+  label="Adjust Value"
+  min={0}
+  max={100}
+  onChange={(e) => console.log(e.target.value)}
+  displayNumberInput={true}
+  transparentBackground={true}
+  systemMessage={{ type: 'info', message: 'Adjust the slider to change the value.' }}
+/>
+```
+
+<Canvas />
+
+### Component Properties
+
+<Controls />
+
+### List of Used Components
+
+- **InputWrapper**: Wraps the entire slider component, providing a structured way to display labels, system messages, and the slider itself.
+- **FancyNumberInput**: An optional numeric input for direct value modification, styled consistently with the theme of the slider.
+- **RawSlider**: The base slider component, used for the primary sliding functionality.

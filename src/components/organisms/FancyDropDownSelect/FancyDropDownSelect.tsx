@@ -1,16 +1,13 @@
 import { useId, useState } from 'react';
 
+import { DropDownSelect } from '@/components/atoms/DropDownSelect';
 import { InputWrapper } from '@/components/molecules/InputWrapper';
-import DropDownSelect from '@/components/atoms/DropDownSelect/DropDownSelect';
-import { TInputWrapperUserInputProps } from '@/components/molecules/InputWrapper/TInputWrapper.model';
-import { TDropDownSelectWithNativeAttrs } from '@/components/atoms/DropDownSelect/TDropDownSelect.model';
-
-export type IFancyDropDownSelect = Omit<TInputWrapperUserInputProps, 'InputElement'> & TDropDownSelectWithNativeAttrs;
+import { TFancyDropDownSelect } from '@/components/organisms/FancyDropDownSelect/TFancyDropDown.model';
 
 // --------------------------------------------------------------------------- //
 // ----The Dropdown Comonent with surrounding icon, label and underline ------ //
 // --------------------------------------------------------------------------- //
-export default function FancyDropDownSelect(props: IFancyDropDownSelect) {
+export default function FancyDropDownSelect(props: TFancyDropDownSelect) {
   const {
     id,
     value,
@@ -21,6 +18,8 @@ export default function FancyDropDownSelect(props: IFancyDropDownSelect) {
     label,
     systemMessage,
     themeType,
+    outlined,
+    outlinedBackgroundStrength,
     layer,
     onFocus,
     onBlur,
@@ -43,6 +42,8 @@ export default function FancyDropDownSelect(props: IFancyDropDownSelect) {
       layer={layer}
       hasValue={!!value}
       label={label}
+      outlined={outlined}
+      outlinedBackgroundStrength={outlinedBackgroundStrength}
       disabled={disabled}
       align={align}
       isActive={isActive}

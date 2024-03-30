@@ -26,8 +26,8 @@ const meta = {
         type: 'radio',
       },
       options: ['bolb', 'underline', 'topline'],
-      defaultValue: {
-        summary: 'bolb',
+      table: {
+        defaultValue: { summary: 'bolb' },
       },
     },
     direction: {
@@ -36,8 +36,8 @@ const meta = {
         type: 'radio',
       },
       options: ['horizontal', 'vertical'],
-      defaultValue: {
-        summary: 'horizontal',
+      table: {
+        defaultValue: { summary: 'horizontal' },
       },
     },
     itemNumber: {
@@ -46,14 +46,14 @@ const meta = {
         type: 'number',
       },
     },
-    rounded: {
+    borderRadius: {
       description: 'The rounded is to set the border-radius of the indicator',
       control: {
         type: 'select',
       },
       options: ['sm', 'md', 'lg', 'xl', 'xxl', 'xxxl', 'complete'],
-      defaultValue: {
-        summary: 'md',
+      table: {
+        defaultValue: { summary: 'md' },
       },
     },
     tabSpacing: {
@@ -61,8 +61,8 @@ const meta = {
       control: {
         type: 'select',
       },
-      defaultValue: {
-        summary: '',
+      table: {
+        defaultValue: { summary: '' },
       },
     },
     outlined: {
@@ -70,8 +70,8 @@ const meta = {
       control: {
         type: 'boolean',
       },
-      defaultValue: {
-        summary: false,
+      table: {
+        defaultValue: { summary: false },
       },
     },
   },
@@ -89,7 +89,7 @@ export const Primary: Story = {
     itemNumber: 1,
     tabSpacing: 'md',
     type: 'bolb',
-    rounded: 'md',
+    borderRadius: 'md',
     outlined: false,
     direction: 'horizontal',
     themeType: 'accent',

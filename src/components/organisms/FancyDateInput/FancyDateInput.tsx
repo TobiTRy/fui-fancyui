@@ -1,15 +1,14 @@
 import { useId, useState } from 'react';
 
-import DateInput from '@/components/atoms/DateInput/DateInput';
+import { DateInput } from '@/components/atoms/DateInput';
 import { InputWrapper } from '@/components/molecules/InputWrapper';
-import { TInputWrapperUserInputProps } from '@/components/molecules/InputWrapper/TInputWrapper.model';
-import { TDateInputPropsWithNativeAttrs } from '@/components/atoms/DateInput/TDateInput.model';
+import { TFancyDateInput } from '@/components/organisms/FancyDateInput';
+import { getOpositMainThemeType } from '@/design/designFunctions/getOpositMainThemeType';
 
-type IFancyDateInput = Omit<TInputWrapperUserInputProps, 'InputElement'> & TDateInputPropsWithNativeAttrs;
 // --------------------------------------------------------------------------- //
 // ----The TextInput Comonent with surrounding icon, label and underline ----- //
 // --------------------------------------------------------------------------- //
-export default function FancyDateInput(props: IFancyDateInput) {
+export default function FancyDateInput(props: TFancyDateInput) {
   const {
     id,
     value,
@@ -18,8 +17,8 @@ export default function FancyDateInput(props: IFancyDateInput) {
     systemMessage,
     align,
     disabled,
-    themeType,
-    layer,
+    themeType = 'primary',
+    layer = 2,
     placeholder,
     onChange,
     transparentBackground,
@@ -65,7 +64,7 @@ export default function FancyDateInput(props: IFancyDateInput) {
         <DateInput
           id={usedId}
           placeholder={placeholder}
-          themeType={themeType}
+          themeType={getOpositMainThemeType(themeType)}
           layer={layer}
           onChange={(e) => {
             changeHandler(e);

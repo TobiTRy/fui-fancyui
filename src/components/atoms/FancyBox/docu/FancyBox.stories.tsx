@@ -34,8 +34,8 @@ const meta = {
       control: {
         type: 'text',
       },
-      defaultValue: {
-        summary: 'div',
+      table: {
+        defaultValue: { summary: 'div' },
       },
     },
     outlined: {
@@ -43,8 +43,8 @@ const meta = {
       control: {
         type: 'boolean',
       },
-      defaultValue: {
-        summary: false,
+      table: {
+        defaultValue: { summary: false },
       },
     },
     outlinedBackgroundStrength: {
@@ -55,8 +55,8 @@ const meta = {
         max: 1,
         step: 0.1,
       },
-      defaultValue: {
-        summary: 0.5,
+      table: {
+        defaultValue: { summary: 0.5 },
       },
     },
     externalStyle: {
@@ -71,8 +71,8 @@ const meta = {
       control: {
         type: 'select',
       },
-      defaultValue: {
-        summary: undefined,
+      table: {
+        defaultValue: { summary: undefined },
       },
     },
     borderRadius: {
@@ -80,8 +80,8 @@ const meta = {
       control: {
         type: 'text',
       },
-      defaultValue: {
-        summary: undefined,
+      table: {
+        defaultValue: { summary: undefined },
       },
     },
   },

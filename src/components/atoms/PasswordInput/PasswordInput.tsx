@@ -10,7 +10,15 @@ import { TNativePassowrdInputAttrs, TPasswordInputProps } from '@/components/ato
 // --------------- The passwordInputcomponent for only the input ------------- //
 // --------------------------------------------------------------------------- //
 export default function PasswordInput(props: TPasswordInputProps & TNativePassowrdInputAttrs) {
-  const { align, themeType, layer, customEyeOpen, customEyeCrossed, showPassword, ...HTMLInputProps } = props;
+  const {
+    align,
+    themeType = 'secondary',
+    layer,
+    customEyeOpen,
+    customEyeCrossed,
+    showPassword,
+    ...HTMLInputProps
+  } = props;
   // the state for the password visibility icon to show the password
   const [isShowPassword, setIsShowPassword] = useState(false);
 

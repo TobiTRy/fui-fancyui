@@ -12,6 +12,8 @@ export type TBottomBarIcon = {
   hoverStyle?: boolean;
   disabled?: boolean;
   themeType?: TUiColorsNotTransparent;
+  activeThemeType?: TUiColorsNotTransparent;
+  activeLayer?: TLayer;
   layer?: TLayer;
   sizeC?: TComponentSizes;
   externalStyle?: CSSProp;

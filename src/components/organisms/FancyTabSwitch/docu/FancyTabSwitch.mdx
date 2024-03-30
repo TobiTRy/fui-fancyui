@@ -1,0 +1,65 @@
+import { Meta, Title, Description, Controls, Canvas } from '@storybook/blocks';
+
+import * as FancyTabSwitchStories from './FancyTabSwitch.stories';
+
+<Meta of={FancyTabSwitchStories} />
+
+<Title />
+
+<Description />
+
+## Setup Instructions
+
+To use the `FancyTabSwitch` in your project, follow these steps:
+
+1. Import the `FancyTabSwitch` component where you intend to use it:
+
+```jsx
+import { FancyTabSwitch } from 'fui-fancyui';
+```
+
+2. If using TypeScript, you can import the type definitions for prop validation:
+
+```jsx
+import { TFancyTabSwitch, FancyTabSwitchWithTabSwitchAtts } from 'fui-fancyui';
+```
+
+After installing the required library, you can import and use the `FancyTabSwitch` component in your project as follows:
+
+## Example Usage
+
+Below is an example of how to use the `FancyTabSwitch` component:
+
+```jsx
+<FancyTabSwitch
+  label="Your Label Here"
+  values={[
+    { label: 'Tab 1', itemKey: '1', icon: <Icon /> },
+    { label: 'Tab 2', itemKey: '2', icon: <Icon /> },
+    { label: 'Tab 3', itemKey: '3', icon: <Icon /> },
+    { itemKey: '4', children: <Icon /> },
+  ]}
+  themeType="primary"
+  layer={2}
+  textColor="#FFFFFF"
+  sizeC="sm"
+  disabled={false}
+  outlined={true}
+  borderRadius="sm"
+  wide={true}
+/>
+```
+
+This example creates a `FancyTabSwitch` with three tabs labeled "Tab 1", "Tab 2", and "Tab 3". It uses the primary theme, a layer depth of 2, white text color, medium size, and is styled with an outline, medium rounding, and wide layout.
+
+<Canvas />
+
+## Component Properties
+
+<Controls />
+
+## List of Used Components
+
+- **Fieldset**: Used as the outer wrapper that can include a label and a disabled state.
+- **FancyBox**: A styled box that applies theming, layering, and additional styling based on props.
+- **TabSwitch**: The core tab switch functionality, allowing for the selection among multiple tabs.

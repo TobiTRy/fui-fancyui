@@ -1,0 +1,42 @@
+import { Meta, Title, Description, Canvas, Controls } from '@storybook/blocks';
+import * as FancyDateDropDownStories from './FancyDateDropDown.stories';
+
+<Meta of={FancyDateDropDownStories} />
+
+<Title />
+
+<Description />
+
+## Setup Instructions
+
+1. Import the `FancyChip` component where you intend to use it:
+
+```jsx
+import { FancyChip } from 'fui-fancyui';
+```
+
+2. If using TypeScript, you can import the type definitions for prop validation:
+
+```jsx
+import { TFancyDateDropDown, TFancyDateDropDownWithFancyDropDownSelect, TDateType } from 'fui-fancyui';
+```
+
+### Example Usage
+
+```jsx
+import { FancyDateDropDown } from 'fui-fancyui';
+
+const MyComponent = () => {
+  return <FancyDateDropDown type="month" dateLimits={[1, 12]} placeholder="Select Month" />;
+};
+```
+
+### Component Properties
+
+- **type** (`DateType`): Specifies the type of date to select from (year, month, day). Default is 'year'.
+- **dateLimits** (`[number, number]` | optional): An array specifying the start and end limits for the date selection. The implementation of limits varies based on the `type` of date being selected.
+- **...inputProps** (`TFancyDropDownSelect`): Any additional props are spread to the `FancyDropDownSelect` component, allowing customization such as placeholder text, CSS classes, etc.
+
+### List of Used Components
+
+- **FancyDropDownSelect**: A dropdown selector component used for displaying and selecting options within `FancyDateDropDown`.

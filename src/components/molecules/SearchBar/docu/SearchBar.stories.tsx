@@ -5,6 +5,7 @@ import templateThemeType from '@/stories/templateSettingsForStorys/templatesForT
 
 const meta = {
   component: SearchBar,
+  title: 'components/molecules/SearchBar',
   parameters: {
     docs: {
       description: {
@@ -24,15 +25,15 @@ const meta = {
       control: {
         type: 'select',
       },
-      defaultValue: {
-        summary: 'center',
+      table: {
+        defaultValue: { summary: 'center' },
       },
     },
     placerholder: {
       description: 'The placeholder of the search bar.',
       type: { name: 'string' },
-      defaultValue: {
-        summary: 'Search',
+      table: {
+        defaultValue: { summary: 'Search' },
       },
     },
     sizeC: {
@@ -40,8 +41,8 @@ const meta = {
       control: {
         type: 'select',
       },
-      defaultValue: {
-        summary: 'sm',
+      table: {
+        defaultValue: { summary: 'sm' },
       },
     },
   },

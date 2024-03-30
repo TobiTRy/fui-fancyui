@@ -6,3 +6,5 @@ export type TFancySingleInputs = {
   automaticCase?: 'upper' | 'lower';
   debounceTime?: number;
 };
+
+export type TFancySingleInputsWithHTMLAttrs = TFancySingleInputs & React.HTMLAttributes<HTMLDivElement>;

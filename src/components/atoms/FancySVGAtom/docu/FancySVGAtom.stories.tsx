@@ -24,8 +24,8 @@ const meta = {
     ...templateThemeType('notTransparent', 'secondary', 0),
     sizeC: {
       description: 'Size of the SVG',
-      defaultValue: {
-        summary: 'xxs',
+      table: {
+        defaultValue: { summary: 'xxs' },
       },
       control: { type: 'select' },
     },
@@ -38,8 +38,8 @@ const meta = {
     isActive: {
       description: 'Is the SVG active, gives it the accent color',
       control: { type: 'boolean' },
-      defaultValue: {
-        summary: false,
+      table: {
+        defaultValue: { summary: false },
       },
     },
     isPassive: {

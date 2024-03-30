@@ -1,27 +1,24 @@
 import { useId, useState } from 'react';
-
-import NumberInput from '@/components/atoms/NumberInput/NumberInput';
-import InputWrapper from '@/components/molecules/InputWrapper/InputWrapper';
-import { TInputWrapperUserInputProps } from '@/components/molecules/InputWrapper/TInputWrapper.model';
-import { TNumberInputWithNativeAttrs } from '@/components/atoms/NumberInput/TNumberInput.model';
 import { css } from 'styled-components';
 
-type IFancyNumberInput = TNumberInputWithNativeAttrs & TInputWrapperUserInputProps & { autoWidth?: boolean };
+import { NumberInput } from '@/components/atoms/NumberInput';
+import { InputWrapper } from '@/components/molecules/InputWrapper';
+import { TFancyNumberInput } from './TFancyNumberInput.model';
 
 // --------------------------------------------------------------------------- //
 // ----The NumberInput Comonent with surrounding icon, label and underline --- //
 // --------------------------------------------------------------------------- //
-export default function FancyNumberInput(props: IFancyNumberInput) {
+export default function FancyNumberInput(props: TFancyNumberInput) {
   const {
     value,
     label,
     icon,
     disabled,
     systemMessage,
-    align,
+    align = 'left',
     id,
-    themeType,
-    layer,
+    themeType = 'primary',
+    layer = 2,
     autoWidth,
     placeholder,
     onFocus,

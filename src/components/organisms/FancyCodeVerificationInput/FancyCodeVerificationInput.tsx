@@ -10,7 +10,7 @@ import { TFancySingleInputs } from './TFancyCodeVerificationInput.model';
 // -The main FancySinlgeInput Componet wich handle the apicall and the sattus- //
 // --------------------------------------------------------------------------- //
 export default function FancyCodeVerificationInput(props: TFancySingleInputs) {
-  const { length = 6, errorMessage, isSuccess, handler, automaticCase, debounceTime } = props;
+  const { length = 6, errorMessage, isSuccess, handler, automaticCase, debounceTime, ...htmlProps } = props;
   const [inputValue, setInputValue] = useState('');
   const debounceTimeoutRef = useRef<NodeJS.Timeout>();
 
@@ -29,7 +29,7 @@ export default function FancyCodeVerificationInput(props: TFancySingleInputs) {
   };
 
   return (
-    <WarpperComponent>
+    <WarpperComponent {...htmlProps}>
       <Container>
         <SingleInputs
           length={length}

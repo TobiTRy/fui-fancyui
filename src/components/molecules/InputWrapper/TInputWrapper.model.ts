@@ -13,7 +13,7 @@ type TSystemMessage = {
 };
 
 export type TInputWrapper = {
-  id: string;
+  id?: string;
   isActive?: boolean;
   label?: string;
   disabled?: boolean;
@@ -29,6 +29,19 @@ export type TInputWrapper = {
   placeholder?: string;
   transparentBackground?: boolean;
   labelVariant?: 'static' | 'animated';
-} & Exclude<TFancyBox, 'as' | 'themeType' | 'externalStyle'>;
+} & Exclude<TFancyBox, 'as' | 'themeType' | 'externalStyle' | 'borderRadius' | 'sizeC'>;
 
-export type TInputWrapperUserInputProps = Omit<TInputWrapper, 'children' | 'id' | 'underline' | 'autoWidth' | 'value'>;
+export type TInputWrapperUserInputProps = Omit<
+  TInputWrapper,
+  | 'children'
+  | 'id'
+  | 'underline'
+  | 'autoWidth'
+  | 'value'
+  | 'borderRadius'
+  | 'sizeC'
+  | 'isActive'
+  | 'hasValue'
+  | 'as'
+  | 'InputElement'
+>;

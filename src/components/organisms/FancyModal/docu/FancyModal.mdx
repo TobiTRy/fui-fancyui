@@ -1,0 +1,78 @@
+import { Meta, Title, Description, Controls, Canvas } from '@storybook/blocks';
+
+import * as FancyModalStoies from './FancyModal.stories';
+
+<Meta of={FancyModalStoies} />
+
+<Title />
+
+<Description />
+
+### Setting Up FancyModal
+
+1. **Render the Main Component in the Base File**:
+
+   Ensure that the `<FancyModal />` component is added to a suitable location in your main file for correct modal behavior.
+
+2. **Specify the DOM Element for Rendering**:
+
+   Designate a DOM element to serve as the container for the modal. For example:
+
+   ```html
+   <div id="modalTest"></div>
+   ```
+
+### Implementing the Modal
+
+1. **Import the Store in the Component**:
+
+   Within the component where you plan to initiate the modal, start by importing the `useFancyModalStore`.
+
+   ```jsx
+   const openModal = useFancyModalStore((state) => state.openModal);
+   ```
+
+2. **Open the Modal**:
+
+   To display the modal, employ the `openModal` function. This function requires the following parameters:
+
+   - `appendToDomID`: The ID corresponding to the DOM element where the modal will appear.
+   - Child components: The specific content or components you want to show within the modal.
+   - Configuration object: This sets various modal properties.
+
+   ```jsx
+   const openModalHandler = () => {
+     openModal(
+       'modalTest',
+       <div style={{ display: 'flex', direction: 'column', gap: '18px' }}>
+         <FancyTextInput label="Email" />
+         <FancyButton onClick={() => closeModal('modalTest')} label="Close Modal"></FancyButton>
+       </div>,
+       {
+         isCloseAble: false,
+       }
+     );
+   };
+   ```
+
+3. **Close the Modal**:
+
+   To terminate an active modal, use the `closeModal` method from the `useFancyModalStore`.
+
+   ```jsx
+   const closeModal = useFancyModalStore((state) => state.closeModal);
+   ```
+
+   Subsequently, invoke `closeModal` using the ID of the modal you wish to shut, as depicted in the `openModalHandler` example.
+
+<Canvas />
+
+### Configuration Options
+
+The FancyModal's adaptability is showcased through the configuration object provided during modal initiation. One available option is:
+
+- `isCloseAble`: A boolean that denotes whether users can manually terminate the modal.
+
+### Conclusion
+
+The evolved FancyModal, bolstered by `useFancyModalStore`, offers developers a smoother and more intuitive modal management experience. This refurbished framework undeniably simplifies the modal integration process, ensuring both efficient development and streamlined user interactions.

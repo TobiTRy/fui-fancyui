@@ -2,6 +2,8 @@ import { Meta, Title, Description, Canvas, Controls } from '@storybook/blocks';
 
 import * as PaginatorStories from './Paginator.stories';
 
+<Meta of={PaginatorStories} />
+
 <Title />
 
 <Description />
@@ -16,7 +18,7 @@ To use the `Paginator` in your project, follow these steps:
 import { Paginator } from 'fui-fancyui';
 ```
 
-2. If using TypeScript, ensure the type definitions are imported for prop validation:
+2. If using TypeScript, you can import the type definitions for prop validation:
 
 ```jsx
 import { TPaginatorWithHTMLAttrs, TPaginator, TPaginatorWithTPageNumberListProps } from 'fui-fancyui';

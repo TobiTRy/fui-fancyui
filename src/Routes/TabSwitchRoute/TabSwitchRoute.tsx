@@ -54,11 +54,11 @@ export default function TabSwitchRoute() {
         label="test"
         sizeC="sm"
         values={switchValues1}
-        rounded={'xxl'}
+        borderRadius={'xxl'}
         currentSelect={test}
         handler={(id: string) => setTest(id)}
       />
-      <Card layer={1}>
+      {/* <Card layer={1}>
         <DesignWrapper>
           <DesignArea
             title="TabSwitch"
@@ -70,7 +70,7 @@ export default function TabSwitchRoute() {
               wide
               sizeC="sm"
               label="test"
-              rounded="xxl"
+              borderRadius="xxl"
               themeType="secondary"
               layer={3}
               values={switchValues1}
@@ -81,7 +81,7 @@ export default function TabSwitchRoute() {
               wide
               sizeC="md"
               label="test"
-              rounded="xxl"
+              borderRadius="xxl"
               themeType="secondary"
               layer={3}
               values={switchValues1}
@@ -92,7 +92,7 @@ export default function TabSwitchRoute() {
               wide
               sizeC="lg"
               label="test"
-              rounded="xxl"
+              borderRadius="xxl"
               themeType="secondary"
               layer={3}
               values={switchValues1}
@@ -105,7 +105,7 @@ export default function TabSwitchRoute() {
               themeType="transparent"
               sizeC="sm"
               indicatorType="underline"
-              rounded="md"
+              borderRadius="md"
               currentSelect={test}
               handler={(id: string) => setTest(id)}
             />
@@ -114,7 +114,7 @@ export default function TabSwitchRoute() {
               label="test"
               wide
               outlined
-              rounded="complete"
+              borderRadius="complete"
               sizeC="sm"
               layer={3}
               values={switchValues1}
@@ -126,7 +126,7 @@ export default function TabSwitchRoute() {
               sizeC="sm"
               themeType="transparent"
               values={switchValues2}
-              rounded={'complete'}
+              borderRadius={'complete'}
               currentSelect={test}
               handler={(id: string) => setTest(id)}
             />
@@ -135,7 +135,7 @@ export default function TabSwitchRoute() {
               sizeC="sm"
               themeType="transparent"
               values={switchValues3}
-              rounded={'complete'}
+              borderRadius={'complete'}
               currentSelect={test}
               handler={(id: string) => setTest(id)}
             />
@@ -147,7 +147,7 @@ export default function TabSwitchRoute() {
               outlined
               direction="vertical"
               values={switchValues}
-              rounded={'xl'}
+              borderRadius={'xl'}
               layer={3}
               currentSelect={test}
               handler={(id: string) => setTest(id)}
@@ -157,13 +157,13 @@ export default function TabSwitchRoute() {
               wide
               values={switchValues}
               layer={2}
-              rounded={'xl'}
+              borderRadius={'xl'}
               currentSelect={test}
               handler={(id: string) => setTest(id)}
             />
           </DesignArea>
         </DesignWrapper>
-      </Card>
+      </Card> */}
     </>
   );
 }

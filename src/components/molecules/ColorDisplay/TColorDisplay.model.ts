@@ -3,7 +3,7 @@ import { TThemeArrayOrValueCSS } from '@/design/designFunctions/arrayToCssValues
 import { TComponentSizes } from '@/types/TComponentSizes';
 
 export type TColorDisplay = {
-  colorValue: Color | string;
+  colorValue: string | Color;
   opacity?: number;
   fullHeight?: boolean;
   borderRadius?: TThemeArrayOrValueCSS;

@@ -4,6 +4,7 @@ import FancyNavBar from '../FancyNavBar';
 
 const meta = {
   component: FancyNavBar,
+  title: 'components/molecules/FancyNavBar',
   parameters: {
     docs: {
       description: {

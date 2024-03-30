@@ -3,12 +3,12 @@ import React, { useRef, useState } from 'react';
 import { Fieldset } from '@/components/molecules/Fieldset';
 import { FancyListBox } from '@/components/organisms/FancyListBox';
 import { FancyRadio } from '@/components/organisms/FancyRadio';
-import { FancyRadioListProps } from './FancyRadioList.model';
+import { TFancyRadioList } from './TFancyRadioList.model';
 
 // --------------------------------------------------------------------------- //
 // ------- The FancyRadioList renders a List of RadioButtons dynamicly ------- //
 // --------------------------------------------------------------------------- //
-export default function FancyRadioList(props: FancyRadioListProps) {
+export default function FancyRadioList(props: TFancyRadioList) {
   const { items, name, handler, themeType, layer, ...fieldSetProps } = props;
   const [currentItem, setCurrentSelect] = useState('1');
   const buttonRefs = useRef<React.RefObject<HTMLDivElement>[]>(items.map(() => React.createRef<HTMLDivElement>()));
@@ -17,7 +17,7 @@ export default function FancyRadioList(props: FancyRadioListProps) {
   const radioChangeHandler = (position: string) => {
     const currentItem = items.find((item) => item.itemKey === position);
     setCurrentSelect(position);
-    handler && handler(currentItem?.itemKey!);
+    handler?.(currentItem?.itemKey!);
   };
 
   // This handles the navigation with the keyboard arrows

@@ -22,8 +22,8 @@ const meta = {
         type: 'select',
         options: ['sm', 'md', 'lg'],
       },
-      defaultValue: {
-        summary: 'md',
+      table: {
+        defaultValue: { summary: 'md' },
       },
     },
     wide: {
@@ -31,8 +31,8 @@ const meta = {
       control: {
         type: 'boolean',
       },
-      defaultValue: {
-        summary: false,
+      table: {
+        defaultValue: { summary: false },
       },
     },
     borderRadius: {
@@ -71,8 +71,8 @@ const meta = {
       control: {
         type: 'boolean',
       },
-      defaultValue: {
-        summary: false,
+      table: {
+        defaultValue: { summary: false },
       },
     },
     notAButton: {

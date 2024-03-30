@@ -25,22 +25,22 @@ const meta = {
     selected: {
       description: 'is the day selected',
       control: { type: 'boolean' },
-      defaultValue: {
-        summary: false,
+      table: {
+        defaultValue: { summary: false },
       },
     },
     disabled: {
       control: { type: 'boolean' },
       description: 'is the day disabled, like a day in the previous month or next month, or the weekend',
-      defaultValue: {
-        summary: false,
+      table: {
+        defaultValue: { summary: false },
       },
     },
     onClick: {
       control: { type: 'function' },
       description: 'is the function to call when the day is clicked',
-      defaultValue: {
-        summary: undefined,
+      table: {
+        defaultValue: { summary: undefined },
       },
     },
     range: {
@@ -51,8 +51,8 @@ const meta = {
     isCurrentDay: {
       description: 'is the day the current day it gets a different color',
       control: { type: 'boolean' },
-      defaultValue: {
-        summary: false,
+      table: {
+        defaultValue: { summary: false },
       },
     },
     ...templateThemeType('allThemeTypes', 'secondary', 0),

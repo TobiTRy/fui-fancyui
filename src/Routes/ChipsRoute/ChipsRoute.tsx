@@ -121,7 +121,6 @@ export default function ChipsRoute() {
           <FancyChip
             label="Heyyjoo"
             outlined
-            themeType="transparent"
             textColor="accent"
             icon={<ClipBoardIconCheck />}
             sizeC="lg"

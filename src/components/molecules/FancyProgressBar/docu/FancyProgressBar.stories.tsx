@@ -39,15 +39,15 @@ const meta = {
       description: 'The theme type of the component',
       control: { type: 'select' },
       options: ['primary', 'secondary', 'accent', 'info', 'success', 'warning', 'error', undefined],
-      defaultValue: {
-        summary: 'secondary',
+      table: {
+        defaultValue: { summary: 'secondary' },
       },
     },
     textLayer: {
       description: 'The layer of the component',
       control: { type: 'range', min: 0, max: 9 },
-      defaultValue: {
-        summary: 0,
+      table: {
+        defaultValue: { summary: 0 },
       },
     },
     progress: {

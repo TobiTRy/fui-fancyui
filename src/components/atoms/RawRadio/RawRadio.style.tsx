@@ -1,6 +1,9 @@
 import { styled } from 'styled-components';
 
 import { TTheme } from '@/types/TTheme';
+import { TRawRadio } from './RawRadio';
+import { TStyledPrefixAndPicker } from '@/types/TStyledPrefixAndPicker';
+import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent';
 
 export const RadioWrapper = styled.div`
   position: relative;
@@ -25,12 +28,15 @@ export const HiddenRadio = styled.input.attrs({ type: 'radio' })`
   height: 16px;
 `;
 
-export const StyledRadio = styled.span<{ checked: boolean; theme: TTheme }>`
+type TStyledRadio = TStyledPrefixAndPicker<TRawRadio, 'themeType' | 'layer' | 'checked'>;
+export const StyledRadio = styled.span<TStyledRadio & { theme: TTheme }>`
   width: 16px;
   height: 16px;
   border: 2px solid;
-  border-color: ${(props) => (props.checked ? props.theme.colors.accent[2] : props.theme.colors.primary[3])};
-  background: ${(props) => (props.checked ? 'transparent' : props.theme.colors.primary[3])};
+  border-color: ${({ $checked, $layer, $themeType = 'primary', theme }) =>
+    $checked ? theme.colors.accent[2] : getBackgroundColor({ theme, $themeType, $layer })};
+  background: ${({ $checked, $layer, $themeType = 'primary', theme }) =>
+    $checked ? 'transparent' : getBackgroundColor({ theme, $themeType, $layer })};
   border-radius: 50%;
   display: inline-block;
   position: relative;
@@ -48,7 +54,7 @@ export const StyledRadio = styled.span<{ checked: boolean; theme: TTheme }>`
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background: ${(props) => (props.checked ? props.theme.colors.accent[1] : 'transparent')};
+    background: ${({ $checked, theme }) => ($checked ? theme.colors.accent[1] : 'transparent')};
     transition:
       background 0.2s ease,
       border-color 0.2s ease;

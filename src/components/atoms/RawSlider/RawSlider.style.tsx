@@ -30,7 +30,7 @@ const DragableThumb = css<{ theme: TTheme; $isActive?: boolean }>`
 const generateComponentSize = (sizeC: TRawSlider['sizeC']) => {
   return css`
     height: ${sizeSettings[sizeC ?? 'sm'].height};
-    margin: ${sizeSettings[sizeC ?? 'sm'].margin};
+    margin: ${sizeSettings[sizeC ?? 'sm'].margin} 0;
   `;
 };
 

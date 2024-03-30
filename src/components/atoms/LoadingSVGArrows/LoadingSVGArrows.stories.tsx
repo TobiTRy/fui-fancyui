@@ -85,11 +85,4 @@ export const Primary: Story = {
     themeType: 'accent',
     layer: 1,
   },
-  parameters: {
-    docs: {
-      description: {
-        story: '',
-      },
-    },
-  },
 };

@@ -24,8 +24,8 @@ const meta = {
       control: {
         type: 'boolean',
       },
-      defaultValue: {
-        summary: false,
+      table: {
+        defaultValue: { summary: false },
       },
     },
     onClick: {
@@ -57,8 +57,8 @@ const meta = {
         type: 'select',
         options: ['xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl'],
       },
-      defaultValue: {
-        summary: 'xxs',
+      table: {
+        defaultValue: { summary: 'xxs' },
       },
     },
     systemMessage: {

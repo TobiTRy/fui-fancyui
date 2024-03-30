@@ -27,7 +27,9 @@ const meta = {
       control: {
         type: 'radio',
       },
-      defaultValue: { summary: 'left' },
+      table: {
+        defaultValue: { summary: 'left' },
+      },
     },
     customEyeCrossed: {
       description: 'The customEyeCrossed of the input.',

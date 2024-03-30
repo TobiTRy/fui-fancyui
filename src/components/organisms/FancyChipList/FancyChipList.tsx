@@ -4,30 +4,28 @@ import { TLayer } from '@/types/TLayer';
 import { ChipList } from '@/components/molecules/ChipList';
 import { Fieldset } from '@/components/molecules/Fieldset';
 
-import useChip from '@/components/organisms/FancyChipList/useChip.hook';
+import { useChip } from '@/components/organisms/FancyChipList/utils/useChip.hook';
 
 import { FancyChip } from '@/components/templates/FancyChip';
 import { InputLi } from './FancyChipList.style';
-import { ChipListProps } from './FancyChipListProps.model';
+import { TFancyChipList } from './FancyChipList.model';
 
 // The FancyChipList component definition
-export default function FancyChipList(props: ChipListProps) {
+export default function FancyChipList(props: TFancyChipList) {
   // Destructure props and provide default values from defaultProps
   const {
-    themeType,
+    themeType = 'primary',
     layer = 1,
-    chips,
+    chips = [],
     inputPlaceholder,
     outlined,
     label,
-    sizeC,
+    sizeC = 'md',
     editable,
     systemInformation,
     handler,
-  } = {
-    ...defaultProps,
-    ...props,
-  };
+  } = props;
+
   // State to hold chips with unique identifiers and input values
   const [inputValue, setInputValue] = useState('');
   const {
@@ -103,10 +101,3 @@ export default function FancyChipList(props: ChipListProps) {
     </Fieldset>
   );
 }
-// Default properties for the FancyChipList component
-const defaultProps: ChipListProps = {
-  themeType: 'primary',
-  layer: 1,
-  chips: [],
-  sizeC: 'md',
-};

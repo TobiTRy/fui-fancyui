@@ -40,11 +40,4 @@ export const Primary: Story = {
   args: {
     themeType: 'secondary',
   },
-  parameters: {
-    docs: {
-      description: {
-        story: '',
-      },
-    },
-  },
 };

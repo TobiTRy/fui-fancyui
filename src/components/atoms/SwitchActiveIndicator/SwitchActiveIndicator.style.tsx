@@ -1,6 +1,6 @@
 import { styled, css } from 'styled-components';
 
-import { spacingPx } from '../../../design/theme/designSizes';
+import { spacingPx } from '@/design/theme/designSizes';
 import { TActiveSwitchIndicator } from './TSwitchActiveindicator.model';
 import { generateBlob } from './utils/generateBlob';
 import { generateTopline, generateUnderline } from './utils/generateLines';
@@ -13,7 +13,7 @@ const clacCurrentPosition = (props: IClacCurrentPosition) => {
   const { $itemNumber, $tabSpacing, $direction } = props;
 
   // Calculate the position in percent
-  const itemPosition = ($itemNumber - 1) * 100 + '%';
+  const itemPosition = $itemNumber * 100 + '%';
 
   // Calculate the gap between the items
   const gapSpacing = $tabSpacing ? ($itemNumber - 1) * parseFloat(spacingPx[$tabSpacing]) : 0;
@@ -42,7 +42,7 @@ const clacCurrentPosition = (props: IClacCurrentPosition) => {
 // --------------------------------------------------------------------------- //
 type ActiveSwitchIndicatorGenerator = TStyledPrefixAndPicker<
   TActiveSwitchIndicator,
-  'layer' | 'rounded' | 'outlined' | 'themeType' | 'type' | 'indicatorWidth'
+  'layer' | 'borderRadius' | 'outlined' | 'themeType' | 'type' | 'indicatorWidth'
 >;
 export const ActiveSwitchIndicator = styled.span<ActiveSwitchIndicatorGenerator & { theme?: TTheme }>`
   position: absolute;
@@ -59,7 +59,7 @@ export const ActiveSwitchIndicator = styled.span<ActiveSwitchIndicatorGenerator 
       default:
         return generateBlob({ ...props });
     }
-  }}/* Calculate the current position of the active indicator */
+  }}
 `;
 
 // the wrapper that handles the position of the active indicator

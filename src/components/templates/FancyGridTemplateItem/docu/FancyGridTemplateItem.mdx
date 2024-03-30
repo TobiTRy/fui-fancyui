@@ -1,0 +1,42 @@
+import { Meta, Title, Description, Canvas, Controls } from '@storybook/blocks';
+
+## Setup Instructions
+
+To use the `FancyGridTemplateItem` in your project, follow these steps:
+
+1. Import the `FancyGridTemplateItem` component where you intend to use it:
+
+```jsx
+import { FancyGridTemplateItem } from 'fui-fancyui';
+```
+
+2. If using TypeScript, you can import the type definitions for prop validation:
+
+```jsx
+import { TFancyGridTemplateItem, TFancyGridTemplateItemWithHTMlAttrs } from 'fui-fancyui';
+```
+
+After installing the required library, you can import and use the `FancyDateInput` component in your project as follows:
+
+### Example Usage
+
+Here's a simple example demonstrating how to use the `FancyGridTemplateItem` within a `FancyGridTemplate`:
+
+```jsx
+<FancyGridTemplate gridAreas="header main sidebar footer" gapColumn="md" gapRow="md">
+  <FancyGridTemplateItem gridArea="header">
+    Header Content
+  </FancyGridTemplateItem>
+  <FancyGridTemplateItem gridArea="main">
+    Main Content
+  </FancyGridTemplateItem>
+  <!-- Additional items here -->
+</FancyGridTemplate>
+```
+
+### Component Properties
+
+- `gridArea` (string, required): Specifies the grid area where the component should be placed.
+- `externalStyle` (`CSSProp`, optional): Allows for additional styling to be applied to the component. Uses styled-components' CSS property.
+- `children` (`React.ReactNode`, optional): The content to be rendered within the grid item.
+- Also accepts all standard HTML div attributes (`React.HTMLAttributes<HTMLDivElement>`).

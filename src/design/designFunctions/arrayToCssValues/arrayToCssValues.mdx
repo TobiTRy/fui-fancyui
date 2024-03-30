@@ -8,11 +8,7 @@ This function extends the flexibility of specifying CSS values within your appli
 
 ## Setup Instructions
 
-1. **Define Theme Types**: Ensure that you have defined `TSpacings` and `TBorderRadiusSizes` types according to your application's theme structure.
-
-2. **Implement Theme Store**: Set up a theme store that holds the theme settings for `borderRadius` and `spacing`. This store should provide these values throughout your application.
-
-3. **Import the Function**: Include the `arrayToCssValues` function in your component or utility file by importing it as shown:
+1. **Import the Function**: Include the `arrayToCssValues` function in your component or utility file by importing it as shown:
 
 ```jsx
 import { arrayToCssValues } from 'fui-fancyui';
@@ -27,7 +23,7 @@ import { arrayToCssValues } from 'fui-fancyui';
 
 const StyledBox = styled.div`
   padding: ${() => arrayToCssValues(['md', 'lg'], 'spacing')};
-  padding: ${() => arrayToCssValues(0)};
+  padding: ${() => arrayToCssValues('12px', 'spacing')};
   border-radius: ${() => arrayToCssValues(['sm', 'md', 'lg', 'xl'], 'borderRadius')};
 `;
 

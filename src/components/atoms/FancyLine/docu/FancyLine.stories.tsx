@@ -22,15 +22,15 @@ const meta = {
       control: {
         type: 'select',
       },
-      defaultValue: {
-        summary: 'horizontal',
+      table: {
+        defaultValue: { summary: 'horizontal' },
       },
     },
     thickness: {
       description:
         'Specifies the thickness of the line. Accepts CSS size units. Default is `1px` for the respective orientation',
-      defaultValue: {
-        summary: '1px',
+      table: {
+        defaultValue: { summary: '1px' },
       },
       control: {
         type: 'text',
@@ -49,8 +49,8 @@ const meta = {
       control: {
         type: 'text',
       },
-      defaultValue: {
-        summary: '100%',
+      table: {
+        defaultValue: { summary: '100%' },
       },
     },
     isActive: {
@@ -58,8 +58,8 @@ const meta = {
       control: {
         type: 'boolean',
       },
-      defaultValue: {
-        summary: false,
+      table: {
+        defaultValue: { summary: false },
       },
     },
     systemMessageType: {

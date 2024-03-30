@@ -1,7 +1,7 @@
 import React from 'react';
 import { CSSProp } from 'styled-components';
 
-import { TFancyFlexBoxProps } from '@/components/templates/FancyFlexBox/FancyFlexBox.model';
+import { TFancyFlexBox } from '@/components/templates/FancyFlexBox/TFancyFlexBox.model';
 import { TSpacings } from '@/types/TSpacings';
 import { TActiveSwitchIndicator } from '@/components/atoms/SwitchActiveIndicator';
 
@@ -17,7 +17,7 @@ interface IBottomBarListProps {
   gap?: TSpacings;
 }
 
-type TFlexBoxOmitGap = Omit<TFancyFlexBoxProps, 'gap'>;
+type TFlexBoxOmitGap = Omit<TFancyFlexBox, 'gap'>;
 
 // the props for the SwitchList component with the props for the SwitchActiveIndicator component and the FancyFlexBox component
 export type TSwitchList = IBottomBarListProps & {

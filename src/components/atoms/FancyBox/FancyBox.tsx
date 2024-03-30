@@ -1,15 +1,15 @@
 import { ElementType } from 'react';
-import { TFancyBoxProps } from './FancyBox.model';
+import { TFancyBoxWithHTMLAttrs } from './FancyBox.model';
 import { StyledFancyBox } from './FancyBox.style';
 import { sizeSettings } from './sizeSettings';
 
 // --------------------------------------------------------------------------- //
 // ------------  A Bar that can usesd for for the most components ------------ //
 // --------------------------------------------------------------------------- //
-export default function FancyBox<T extends ElementType = 'div'>(props: TFancyBoxProps<T>) {
+export default function FancyBox<T extends ElementType = 'div'>(props: TFancyBoxWithHTMLAttrs<T>) {
   const {
-    sizeC,
-    layer,
+    sizeC = 'md',
+    layer = 1,
     themeType,
     outlined,
     outlinedBackgroundStrength,

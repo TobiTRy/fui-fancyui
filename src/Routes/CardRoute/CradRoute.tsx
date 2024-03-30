@@ -28,10 +28,15 @@ export default function CradRoute() {
             ),
           }}
           title={{
+            variant: 'interactiveLg',
             children: <>test</>,
           }}
-          subtitle={{ children: <>Moooin</> }}
+          subtitle={{
+            variant: 'interactiveMd',
+            children: <>Moooin</>,
+          }}
           description={{
+            variant: 'interactiveSm',
             children: (
               <DescriptionPreview
                 description={

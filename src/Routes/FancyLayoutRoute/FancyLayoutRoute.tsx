@@ -35,7 +35,7 @@ export default function FancyLayoutRoute() {
       </DesignArea>
       <DesignArea title="Fancy FlexBox">
         <FancyFlexBox
-          separator={<FancyLine direction="horizontal" thickness="12px" margin="12px 0" />}
+          separator={<FancyLine direction="horizontal" thickness="12px" margin={['12px', '0']} />}
           direction="column"
           gap="12px"
         >

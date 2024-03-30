@@ -1,0 +1,91 @@
+import { Meta, Title, Description, Canvas } from '@storybook/blocks';
+
+import * as FancyGridStories from './FancyGrid.stories';
+
+<Meta of={FancyGridStories} />
+
+<Title />
+
+<Description />
+
+### FancyGrid Container
+
+`FancyGrid` serves as the container for grid items, defining the overall grid structure.
+
+**Props**:
+
+- `grid`: (Optional) Number of columns in the grid (e.g., 12 for a standard layout).
+- `gap`: (Optional) Space between grid items.
+- `breakpoints`: (Optional) Array of custom breakpoint objects for responsive adjustments.
+
+**Example with Default Settings**:
+
+```jsx
+import FancyGrid from './FancyGrid';
+
+const MyComponent = () => {
+  return (
+    <FancyGrid grid={12} gap="10px">
+      {/* Place grid items here */}
+    </FancyGrid>
+  );
+};
+```
+
+### FancyGrid.Item
+
+`FancyGrid.Item` is used within `FancyGrid` to define individual grid items.
+
+**Props**:
+
+- `gridSpace`: Number of columns the item spans.
+- `breakpoints`: (Optional) Custom responsive breakpoints for the item.
+
+**Basic Example**:
+
+```jsx
+import FancyGrid, { FancyGridItem } from './FancyGrid';
+
+const MyComponent = () => {
+  return (
+    <FancyGrid grid={12} gap="10px">
+      <FancyGridItem gridSpace={4}>{/* Content for the first item */}</FancyGridItem>
+      <FancyGridItem gridSpace={4}>{/* Content for the second item */}</FancyGridItem>
+      {/* More items... */}
+    </FancyGrid>
+  );
+};
+```
+
+### Responsive Design with Breakpoints
+
+`FancyGrid` and `FancyGrid.Item` can be configured with custom breakpoints for responsive layouts.
+
+**Example with Breakpoints**:
+
+```jsx
+import FancyGrid, { FancyGridItem } from './FancyGrid';
+
+const MyComponent = () => {
+  const gridBreakpoints = [{ breakpoint: '768px', gridSize: 4, gap: '5px' }];
+
+  const itemBreakpoints = [{ breakpoint: '768px', gridSize: 1 }];
+
+  return (
+    <FancyGrid grid={12} gap="10px" breakpoints={gridBreakpoints}>
+      <FancyGridItem gridSpace={3} breakpoints={itemBreakpoints}>
+        {/* Content for an item */}
+      </FancyGridItem>
+      {/* Additional items... */}
+    </FancyGrid>
+  );
+};
+```
+
+<Canvas />
+
+In this example, the grid changes to 4 columns with a 5px gap on screens smaller than 768px. Each `FancyGridItem` will span a single column on these screens, adapting to the mobile view.
+
+## Customization
+
+`FancyGrid` and `FancyGrid.Item` offer extensive customization options, including grid properties, spacing, and responsive behavior. Apply custom styles using styled-component props or by extending existing styled components.

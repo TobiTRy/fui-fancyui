@@ -2,7 +2,7 @@ import { TLayer } from '@/types/TLayer';
 import { TTextAlignLC } from '@/types/TTextAlignLC';
 import { TComponentSizes } from '@/types/TComponentSizes';
 import { TUiColorsMain } from '@/types/TUiColorsMain';
-import { IFancyTextInput } from '@/components/organisms/FancyTextInput/TFancyTextInput.model';
+import { TFancyTextInput } from '@/components/organisms/FancyTextInput/TFancyTextInput.model';
 
 export type TSearchBar = {
   searchValue?: string;
@@ -14,4 +14,4 @@ export type TSearchBar = {
   sizeC?: TComponentSizes;
 };
 
-export type TSearchBarWithFancyInputAttrs = TSearchBar & IFancyTextInput;
+export type TSearchBarWithFancyInputAttrs = TSearchBar & TFancyTextInput;

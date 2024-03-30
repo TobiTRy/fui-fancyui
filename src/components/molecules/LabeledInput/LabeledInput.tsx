@@ -12,8 +12,8 @@ export default function LabeledInput(props: TLabeledInput) {
     systemMessageType,
     label,
     hasValue,
-    placeholder,
-    themeType,
+    hasPlaceholder,
+    themeType = 'primary',
     layer = 3,
     underline,
     labelVariant,
@@ -22,7 +22,7 @@ export default function LabeledInput(props: TLabeledInput) {
   } = props;
 
   // Check if the label should move up
-  const labelShouldMoveUp = hasValue || !!placeholder;
+  const labelShouldMoveUp = hasValue || !!hasPlaceholder;
 
   return (
     <Wrapper>
@@ -31,6 +31,7 @@ export default function LabeledInput(props: TLabeledInput) {
         <InputLabel
           lableVariant={labelVariant}
           align={align}
+          themeType={themeType === 'primary' ? 'secondary' : 'primary'}
           id={id}
           isActive={labelShouldMoveUp}
           systemMessageType={systemMessageType}

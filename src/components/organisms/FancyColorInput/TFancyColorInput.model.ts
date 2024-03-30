@@ -10,7 +10,7 @@ export type TFancyColorInput = {
   currentColorType?: IColorFormat;
   handler?: (color: Color) => void;
   colorTypeHandler?: (type: IColorFormat) => void;
-  handlerOpacity: (color: number) => void;
+  handlerOpacity?: (color: number) => void;
   themeType?: Exclude<TUiColorsMain, 'accent'>;
   layer?: TLayer;
 };

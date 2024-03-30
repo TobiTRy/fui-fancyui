@@ -25,8 +25,8 @@ const meta = {
     size: {
       description: 'The size of the component',
       control: { type: 'select' },
-      defaultValue: {
-        summary: 'md',
+      table: {
+        defaultValue: { summary: 'md' },
       },
     },
     label: {
@@ -36,8 +36,8 @@ const meta = {
     labelAlign: {
       description: 'The alignment of the label',
       control: { type: 'radio' },
-      defaultValue: {
-        summary: 'left',
+      table: {
+        defaultValue: { summary: 'left' },
       },
     },
     ...templateThemeType('notTransparent', 'primary', 0),

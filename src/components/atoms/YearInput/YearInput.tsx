@@ -13,7 +13,7 @@ export default function YearInput(props: TYearInputWithNativeAttrs) {
 
   return (
     <StyledInput $sizeC={sizeC} $themeType={themeType} $layer={layer}>
-      <NumberInput maxLength={4} align={align} value={year} onFocus={focusHandler} {...htmlProps} />
+      <NumberInput autoWidth={true} maxLength={4} align={align} value={year} onFocus={focusHandler} {...htmlProps} />
     </StyledInput>
   );
 }

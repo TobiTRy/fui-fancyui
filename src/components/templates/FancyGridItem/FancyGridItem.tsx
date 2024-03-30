@@ -1,7 +1,6 @@
 import React from 'react';
 
-import { FancyFlexBox } from '@/components/templates/FancyFlexBox';
-import { TFancyFlexBox } from '@/components/templates/FancyFlexBox/FancyFlexBox';
+import { FancyFlexBox, TFancyFlexBoxWithDynamicElAttrs } from '@/components/templates/FancyFlexBox';
 import { FancyGridItemProps } from '@/components/templates/FancyGridItem/FancyGridItem.model';
 import { GridItem } from '@/components/templates/FancyGridItem/FancyGridItem.style';
 import { TDynamicElementProps } from '@/types/TDynamicElement';
@@ -18,7 +17,8 @@ function FancyGridItem<T extends React.ElementType = 'div'>(props: TDynamicEleme
     </GridItem>
   );
 }
-FancyGridItem.FlexBox = (props: TFancyFlexBox) => <FancyFlexBox fitBox={true} {...props} />;
+
+FancyGridItem.FlexBox = (props: TFancyFlexBoxWithDynamicElAttrs) => <FancyFlexBox fitBox={true} {...props} />;
 
 // is needed here for the storybook to work
 export default FancyGridItem;

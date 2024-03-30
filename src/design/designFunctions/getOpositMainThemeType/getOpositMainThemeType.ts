@@ -1,8 +1,9 @@
-import { TUiColorsMain } from '@/types/TUiColorsMain';
-
 // This function returns the opposite main theme type from the one passed as an argument
+
+import { TUiColorTypes } from '@/types/TUiColorTypes';
+
 //TODO: Create Docu
-const getOpositMainThemeType = (mainThemeType?: Extract<TUiColorsMain, 'primary' | 'secondary'>) => {
+const getOpositMainThemeType = (mainThemeType?: TUiColorTypes) => {
   switch (mainThemeType) {
     case 'primary':
       return 'secondary';

@@ -4,6 +4,7 @@ import FancySpeedDialButton from '../FancySpeedDailButton';
 
 const meta = {
   component: FancySpeedDialButton,
+  title: 'components/molecules/FancySpeedDailButton',
   parameters: {
     layout: 'centered',
     docs: {

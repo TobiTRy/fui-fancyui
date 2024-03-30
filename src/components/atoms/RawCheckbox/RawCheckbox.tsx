@@ -8,7 +8,7 @@ import { SVGCheckMark } from '@/components/icons/SVGCheckMark';
 // -------------------- A simple Checkbox with a Label ----------------------- //
 // --------------------------------------------------------------------------- //
 export default function RawCheckbox(props: TRawCheckbox) {
-  const { onChange, defaultChecked, id, ...htmlProps } = props;
+  const { onChange, defaultChecked, themeType = 'primary', layer = 3, id, ...htmlProps } = props;
   const [checked, setChecked] = useState(false);
 
   // the onClick for clicking the fake checkbox to set the state
@@ -30,7 +30,7 @@ export default function RawCheckbox(props: TRawCheckbox) {
   return (
     <InputContainer>
       {/* The Fakecheckbox for the styling */}
-      <FakeCheckbox $checked={checked} onClick={handleClick}>
+      <FakeCheckbox $checked={checked} $themeType={themeType} $layer={layer} onClick={handleClick}>
         <SVGCheckMark />
       </FakeCheckbox>
       {/* The real checkbox but this hidden */}

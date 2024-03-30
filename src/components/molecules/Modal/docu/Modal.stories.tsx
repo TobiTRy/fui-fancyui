@@ -24,7 +24,7 @@ const meta = {
     isOpen: {
       description: 'ontrols the visibility of the modal. `true` to show the modal, `false` to hide it.',
       control: {
-        type: 'select',
+        type: 'boolean',
       },
     },
     onClose: {
@@ -47,8 +47,8 @@ const meta = {
       control: {
         type: 'boolean',
       },
-      defaultValue: {
-        summary: true,
+      table: {
+        defaultValue: { summary: true },
       },
     },
   },

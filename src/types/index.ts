@@ -7,7 +7,7 @@ export * from './TLayer';
 export * from './TModalStatus';
 export * from './TSpacings';
 export * from './TUiColorsNotTransparent';
-export * from './TSystemMessageProps';
+export * from './TUiColorsSystemMessage';
 export * from './TTheme';
 export * from './TTypographyElList';
 export * from './TUiColorTypes';

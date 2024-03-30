@@ -1,12 +1,23 @@
-import FancyDropDownSelect, {
-  IFancyDropDownSelect,
-} from '@/components/organisms/FancyDropDownSelect/FancyDropDownSelect';
-import generateYearZone from '@/utils/functions/generateFunctions/generateYearZone';
-import generateMonthNames from '@/utils/functions/generateFunctions/generateMonthNames';
+import { FancyDropDownSelect } from '@/components/organisms/FancyDropDownSelect';
 import generateDayNumbers from '@/utils/functions/generateFunctions/generateDayNumbers';
+import generateMonthNames from '@/utils/functions/generateFunctions/generateMonthNames';
+import generateYearZone from '@/utils/functions/generateFunctions/generateYearZone';
+
+import { TDateType, TFancyDateDropDownWithFancyDropDownSelect } from './TFancyDateDropDown.model';
+
+// --------------------------------------------------------------------------- //
+// -------------- Fancy Date DropDown to Pick a day/month/year --------------- //
+// --------------------------------------------------------------------------- //
+export default function FancyDateDropDown(props: TFancyDateDropDownWithFancyDropDownSelect) {
+  const { type = 'year', dateLimits, ...inputProps } = props;
+
+  const dateMonthOrYearNumbers = generateOptions(type, dateLimits);
+
+  return <FancyDropDownSelect {...inputProps} values={dateMonthOrYearNumbers} emptySelect={true} />;
+}
 
 // this function creates the options for the dropdown day month and year
-const generateOptions = (type: DateType, dateLimits?: [number, number]) => {
+const generateOptions = (type: TDateType, dateLimits?: [number, number]) => {
   const limitStart = dateLimits ? dateLimits[0] : undefined;
   const limitEnd = dateLimits ? dateLimits[1] : undefined;
 
@@ -38,19 +49,3 @@ const generateOptions = (type: DateType, dateLimits?: [number, number]) => {
     }
   }
 };
-
-type DateType = 'year' | 'month' | 'day';
-interface IFancyDateDropDown extends IFancyDropDownSelect {
-  type: DateType;
-  dateLimits?: [number, number];
-}
-// --------------------------------------------------------------------------- //
-// -------------- Fancy Date DropDown to Pick a day/month/year --------------- //
-// --------------------------------------------------------------------------- //
-export default function FancyDateDropDown(props: IFancyDateDropDown) {
-  const { type = 'year', dateLimits, ...inputProps } = props;
-
-  const dateMonthOrYearNumbers = generateOptions(type, dateLimits);
-
-  return <FancyDropDownSelect {...inputProps} values={dateMonthOrYearNumbers} emptySelect={true} />;
-}

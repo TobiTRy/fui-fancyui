@@ -19,7 +19,7 @@ import colorTransformator from './utils/ColorTransformator';
 export default function FancyColorInput(props: TFancyColorInput) {
   const {
     themeType = 'primary',
-    layer = 3,
+    layer = 2,
     pickedColor,
     opacity,
     handler,
@@ -65,7 +65,7 @@ export default function FancyColorInput(props: TFancyColorInput) {
         handler && handler(Color(colorWhitoutAlpha).hsl());
       } else {
         handler && handler(Color(colorWhitoutAlpha).hsl());
-        handlerOpacity(parseFloat(value));
+        handlerOpacity?.(parseFloat(value));
       }
     } else {
       //if the color is a string it is a HEX  code give it back to the parent component
@@ -90,7 +90,12 @@ export default function FancyColorInput(props: TFancyColorInput) {
   return (
     <Container {...htmlProps}>
       {/* this Component renders the Input fields for the colorTyoes and opacity */}
-      <ColorInputs currentColorObject={transformedColorObject} handler={handleInputChange} />
+      <ColorInputs
+        themeType={themeType}
+        layer={layer}
+        currentColorObject={transformedColorObject}
+        handler={handleInputChange}
+      />
       {/* Switch Button this switches the color format */}
       <FancyButton
         onClick={handleFormatChange}

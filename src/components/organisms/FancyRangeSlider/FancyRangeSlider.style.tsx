@@ -20,8 +20,4 @@ export const InputElementWrapper = styled.div`
   display: flex;
   align-items: end;
   gap: 8px;
-
-  .Test {
-    margin-bottom: 4px;
-  }
 `;

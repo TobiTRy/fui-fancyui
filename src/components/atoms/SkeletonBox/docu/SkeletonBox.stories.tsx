@@ -31,8 +31,8 @@ const meta = {
       control: {
         type: 'select',
       },
-      defaultValue: {
-        summary: 'md',
+      table: {
+        defaultValue: { summary: 'md' },
       },
     },
     sizeW: {
@@ -41,8 +41,8 @@ const meta = {
       control: {
         type: 'select',
       },
-      defaultValue: {
-        summary: 'md',
+      table: {
+        defaultValue: { summary: 'md' },
       },
     },
     borderRadius: {
@@ -51,8 +51,8 @@ const meta = {
       control: {
         type: 'select',
       },
-      defaultValue: {
-        summary: 'xs',
+      table: {
+        defaultValue: { summary: 'xs' },
       },
     },
     externalStyle: {

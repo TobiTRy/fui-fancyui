@@ -1,22 +1,20 @@
-import React from 'react';
-
-import InfoCard from '../../components/molecules/InfoCard/InfoCard';
 import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
 import FancyInfoCard from '../../components/templates/FancyInfoCard/FancyInfoCard';
 import SVGCheckMark from '../../components/icons/SVGCheckMark/SVGCheckMark';
+import { FancyBox } from '../../components/atoms/FancyBox';
 
 export default function InfoCardRoute() {
   return (
     <DesignWrapper>
       <DesignArea title="InfoCard">
         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-          <InfoCard sizeC="sm" themeType="success" />
-          <InfoCard sizeC="md" themeType="error" />
-          <InfoCard sizeC="lg" themeType="warning" layer={0} />
-          <InfoCard sizeC="lg" themeType="info" layer={0} />
-          <InfoCard>
+          <FancyBox sizeC="sm" themeType="success" />
+          <FancyBox sizeC="md" themeType="error" />
+          <FancyBox sizeC="lg" themeType="warning" layer={0} />
+          <FancyBox sizeC="lg" themeType="info" layer={0} />
+          <FancyBox>
             <span>InfoCard</span>
-          </InfoCard>
+          </FancyBox>
           <FancyInfoCard
             outlined
             sizeC="sm"

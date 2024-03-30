@@ -23,8 +23,8 @@ const meta = {
     date: {
       control: { type: 'date' },
       description: 'The date to display',
-      defaultValue: {
-        summary: undefined,
+      table: {
+        defaultValue: { summary: undefined },
       },
     },
     isActive: {
@@ -39,15 +39,15 @@ const meta = {
       control: { type: 'radio' },
       description: 'The size of the box',
       options: ['sm', 'md', 'lg', undefined],
-      defaultValue: {
-        summary: 'md',
+      table: {
+        defaultValue: { summary: 'md' },
       },
     },
     textCustom: {
       control: { type: 'object' },
       description: 'The text to display',
-      defaultValue: {
-        summary: 'text',
+      table: {
+        defaultValue: { summary: 'text' },
       },
     },
   },
@@ -65,7 +65,7 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   render: (args) => <DateOutput {...args} date={new Date(args?.date!)} />,
   args: {
-    date: 1, // strorybook does currently not support date as a type
+    date: new Date(), // strorybook does currently not support date as a type
     layer: 2,
     themeType: 'primary',
     isActive: true,

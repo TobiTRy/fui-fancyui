@@ -17,15 +17,15 @@ const meta = {
   },
   // Define arguments for the story
   argTypes: {
-    rounded: {
+    borderRadius: {
       type: {
         name: 'string',
         required: false,
       },
       control: { type: 'select' },
       options: ['sm', 'md', 'lg', 'complete', undefined, 'none'],
-      defaultValue: {
-        summary: 'complete',
+      table: {
+        defaultValue: { summary: 'complete' },
       },
     },
     sizeC: {
@@ -39,8 +39,8 @@ const meta = {
     alt: {
       control: { type: 'text' },
       description: 'The alt text of the image is used as a placeholder if no image is provided.',
-      defaultValue: {
-        summary: 'Profile',
+      table: {
+        defaultValue: { summary: 'Profile' },
       },
     },
     externalStyle: {
@@ -67,7 +67,7 @@ export const Primary: Story = {
   render: (args) => <FancyProfilePicture {...args} />,
   args: {
     src: 'https://avatars.githubusercontent.com/u/54409958?v=4',
-    rounded: 'complete',
+    borderRadius: 'complete',
     sizeC: 'md',
     alt: '',
   },
@@ -76,12 +76,12 @@ export const Primary: Story = {
 export const Avatar: Story = {
   render: (args) => <FancyProfilePicture {...args} />,
   args: {
-    rounded: 'complete',
+    borderRadius: 'complete',
     sizeC: 'md',
     alt: '',
     textAvatarSettings: {
       sizeC: 'md',
-      rounded: 'complete',
+      borderRadius: 'complete',
       themeType: 'secondary',
     },
   },

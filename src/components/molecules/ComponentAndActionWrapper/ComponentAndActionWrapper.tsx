@@ -1,28 +1,11 @@
-import React from 'react';
-
 import { ComponentAsWrapper } from '@/components/shared/ComponentAsWrapper';
 import { FancyActionWrapper } from '@/components/atoms/FancyActionWrapper';
+import { TComponentAndActionWrapper } from './TComponentAndActionWrapper.model';
 
-type TAnchorProps = {
-  type?: 'a';
-  href?: string; // `href` is mandatory for an anchor
-  onClick?: () => void; // More specific type for `onClick`
-};
-
-type TButton = {
-  type: 'button';
-  onClick?: () => void; // More specific type for `onClick`
-  href?: string;
-};
-
-export type IComponentAndActionWrapper = {
-  WrapperComponent?: React.ReactElement;
-  children?: React.ReactNode;
-} & (TAnchorProps | TButton);
 // --------------------------------------------------------------------------------- //
 //  The Component warps the chilirden in a Specific Action element or Custom element //
 // -------------------------------------------------------------------------------- //
-export default function ComponentAndActionWrapper(props: IComponentAndActionWrapper) {
+export default function ComponentAndActionWrapper(props: TComponentAndActionWrapper) {
   const { WrapperComponent, type, children, onClick } = props;
 
   return WrapperComponent ? (

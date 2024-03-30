@@ -12,7 +12,7 @@ const meta = {
     docs: {
       description: {
         component:
-          'The FancyFlexBox component is for displaying a fancy flex box, that acts as a container for flex items. ',
+          'The `FancyFlexBox` is a highly customizable layout component designed for efficient alignment and spacing of child components using CSS Flexbox. It extends the capabilities of a standard flex container by allowing dynamic element types, incorporating a separator between children, and integrating styled-components for enhanced styling flexibility.',
       },
     },
   },
@@ -21,8 +21,8 @@ const meta = {
   argTypes: {
     as: {
       description: 'The HTML element to be rendered.',
-      defaultValue: {
-        summary: 'div',
+      table: {
+        defaultValue: { summary: 'div' },
       },
       control: {
         type: 'text',
@@ -90,13 +90,6 @@ export const Primary: Story = {
       backgroundColor: 'gray',
       height: '300px',
       width: '300px',
-    },
-  },
-  parameters: {
-    docs: {
-      description: {
-        story: '',
-      },
     },
   },
 };

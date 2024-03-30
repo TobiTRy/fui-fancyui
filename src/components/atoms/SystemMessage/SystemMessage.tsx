@@ -17,12 +17,12 @@ export default function SystemMessage(props: TSystemMessage & { textSettings?: T
       $systemMessageState={systemMessageState}
       $externalStyle={externalStyle}
     >
-      {ownTypographyComponent && (
+      {!ownTypographyComponent && (
         <Typography variant="subTextFootnote" lineHeight={1} {...textSettings}>
           {children}
         </Typography>
       )}
-      {!ownTypographyComponent && children}
+      {ownTypographyComponent && children}
     </StyledSystemMessageWrapper>
   );
 }

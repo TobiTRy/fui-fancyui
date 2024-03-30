@@ -1,13 +1,18 @@
 import { TBorderRadiusSizes } from '@/types/TBorderRadiusSizes';
+import { TSizeSettings } from '@/types/TSizeSettings';
 
-export const sizeSettings = {
+type TSizeObj = {
+  borderRadius: TBorderRadiusSizes;
+};
+
+export const sizeSettings: TSizeSettings<TSizeObj> = {
   sm: {
-    borderRadius: 'sm' as TBorderRadiusSizes,
+    borderRadius: 'sm',
   },
   md: {
-    borderRadius: 'md' as TBorderRadiusSizes,
+    borderRadius: 'md',
   },
   lg: {
-    borderRadius: 'lg' as TBorderRadiusSizes,
+    borderRadius: 'lg',
   },
 };

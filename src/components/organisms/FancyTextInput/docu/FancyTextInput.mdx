@@ -1,0 +1,58 @@
+import { Meta, Title, Description, Canvas, Controls } from '@storybook/blocks';
+
+import * as FancyTextInputStories from './FancyTextInput.stories';
+
+<Meta of={FancyTextInputStories} />
+
+<Title />
+
+<Description />
+
+## Setup Instructions
+
+To use the `FancyTextInput` component in your project, ensure that you have the `TextInput` and `InputWrapper` components available within your project structure, typically under the `atoms` and `molecules` directories, respectively. Import the `FancyTextInput` component where you need to use it:
+
+1. Import the `FancyTextInput` component where you intend to use it:
+
+```jsx
+import { FancyTextInput } from 'fui-fancyui';
+```
+
+2. If using TypeScript, you can import the type definitions for prop validation:
+
+```jsx
+import { TFancyTextInput } from 'fui-fancyui';
+```
+
+After installing the required library, you can import and use the `FancyTextInput` component in your project as follows:
+
+## Example Usage
+
+```jsx
+<FancyTextInput
+  id="email-input"
+  label="Email Address"
+  icon={<EmailIcon />}
+  placeholder="Enter your email"
+  value={email}
+  onChange={handleEmailChange}
+  onFocus={handleFocus}
+  onBlur={handleBlur}
+  themeType="primary"
+  layer={2}
+  systemMessage={{ type: 'error', message: 'This is an error message' }}
+/>
+```
+
+<Canvas />
+
+## Component Properties
+
+<Controls />
+
+- **...inputProps**: Additional props supported by `TextInput`.
+
+## List of Used Components
+
+- **TextInput**: A basic text input component that supports standard text input functionalities.
+- **InputWrapper**: A wrapper component that provides additional visual elements and states, such as labels, icons, and system messages, around a text input.

@@ -20,17 +20,21 @@ const meta = {
       control: {
         type: 'object',
       },
-      defaultValue: {
-        summary: {
-          year: new Date().getFullYear(),
-          month: new Date().getMonth(),
+      table: {
+        defaultValue: {
+          summary: {
+            year: new Date().getFullYear(),
+            month: new Date().getMonth(),
+          },
         },
       },
     },
     rangeCalendar: {
       description: 'If the Calendar a Rangepicker or SingelDate.',
       type: { name: 'boolean' },
-      defaultValue: { summary: false },
+      table: {
+        defaultValue: { summary: false },
+      },
     },
     handleDates: {
       description: 'The handler gives back the selected date.',
@@ -41,7 +45,9 @@ const meta = {
       control: {
         type: 'radio',
       },
-      defaultValue: { summary: 'from' },
+      table: {
+        defaultValue: { summary: 'from' },
+      },
     },
     ...templateThemeType('notTransparent', 'secondary', 4),
     currentInViewhandler: {
@@ -52,10 +58,15 @@ const meta = {
       control: {
         type: 'select',
       },
-      defaultValue: { summary: 1 },
+      table: {
+        defaultValue: { summary: 1 },
+      },
     },
     externalMonthsWithDays: {
       description: 'The external months with days.',
+      control: {
+        type: 'object',
+      },
     },
     startCalendarDate: {
       description: 'The start calendar.',

@@ -1,0 +1,53 @@
+import { Meta, Title, Description, Canvas, Controls } from '@storybook/blocks';
+
+import * as FancyBottomBarIconStories from './FancyBottomBarIcon.stories';
+
+<Meta of={FancyBottomBarIconStories} />
+
+<Title />
+
+<Description />
+
+## Setup Instructions
+
+1. Import the `FancyBottomBarIcon` component where you intend to use it:
+
+```jsx
+import { FancyBottomBarIcon } from 'fui-fancyui';
+```
+
+2. If using TypeScript, you can import the type definitions for prop validation:
+
+```jsx
+import { TFancyBottomBarIcon } from 'fui-fancyui';
+```
+
+### Example Usage
+
+```jsx
+<FancyBottomBarIcon
+  WrapperComponent={YourCustomWrapper}
+  type="button"
+  href="#"
+  onClick={() => console.log('Icon clicked')}
+  iconProps={
+    {
+      /* Icon properties here */
+    }
+  }
+/>
+```
+
+<Canvas />
+
+- `YourCustomWrapper` refers to the component you want to use as a wrapper for the icon.
+- `iconProps` should include any props specific to the `BottomBarIcon` component, such as the icon's name or style properties.
+
+### Component Properties
+
+<Controls />
+
+### List of Used Components
+
+- **BottomBarIcon**: A component that renders an icon, typically used for representing actions or links in a bottom bar.
+- **ComponentAndActionWrapper**: Provides a wrapper for components that require additional actions or custom behaviors, such as handling clicks or wrapping in a specific HTML element type.

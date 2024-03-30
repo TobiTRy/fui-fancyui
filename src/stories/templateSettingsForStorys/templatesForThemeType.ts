@@ -13,7 +13,7 @@ type ThemeOptionsMap = {
   mainThemeTypes: TUiColorsMain;
 };
 
-const mainThemeTypes: TUiColorsMain[] = ['primary', 'secondary', 'accent'];
+const mainThemeTypes: TUiColorsMain[] = ['primary', 'secondary'];
 const allThemeTypes: TUiColorTypes[] = ['primary', 'secondary', 'accent', 'info', 'success', 'warning', 'error'];
 const systemMessage: TUiColorsSystemMessage[] = ['error', 'warning', 'info', 'success'];
 const notTransparent: TUiColorsNotTransparent[] = [
@@ -53,6 +53,8 @@ function templateThemeType<Cat extends ThemeTypeCategory, Default extends ThemeO
   }
 
   // Ensure the defaultValue is part of the options, if not, use the first option as a fallback.
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  //@ts-ignore
   const effectiveDefaultValue = defaultValue && options.includes(defaultValue) ? defaultValue : options[0];
 
   return {
@@ -60,15 +62,15 @@ function templateThemeType<Cat extends ThemeTypeCategory, Default extends ThemeO
       description: 'The theme type of the component',
       control: { type: 'select' },
       options: [...options, undefined],
-      defaultValue: {
-        summary: effectiveDefaultValue,
+      table: {
+        defaultValue: { summary: effectiveDefaultValue },
       },
     },
     layer: {
       description: 'The layer of the component',
       control: { type: 'range', min: 0, max: 9 },
-      defaultValue: {
-        summary: layer || 0,
+      table: {
+        defaultValue: { summary: layer || 0 },
       },
     },
   };

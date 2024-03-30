@@ -4,18 +4,21 @@ import { TSize } from '@/components/molecules/TextAvatar/utils/getSize';
 import { TLayer } from '@/types/TLayer';
 
 import { TgetBorderRadiusViaSize } from '@/design/designFunctions/getBorderRadiusViaSize';
-import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 import { TTypographyVariants } from '@/types/TTypographyVariants';
+import { TUiColorsMain } from '@/types/TUiColorsMain';
 
-export type TTextAvatarProps = {
+export type TTextAvatar = {
   text?: string;
-  rounded?: TgetBorderRadiusViaSize;
+  borderRadius?: TgetBorderRadiusViaSize;
   sizeC?: TSize | string;
   color?: string;
   backgroundColor?: string;
-  themeType?: TUiColorsNotTransparent;
+  themeType?: TUiColorsMain;
   layer?: TLayer;
   externalStyle?: CSSProp;
   fontSizes?: TTypographyVariants;
   letterLength?: number;
+  casing?: 'uppercase' | 'lowercase' | 'capitalize';
 };
+
+export type TTTextAvatarWithHTMLAttrs = TTextAvatar & React.HTMLAttributes<HTMLDivElement>;

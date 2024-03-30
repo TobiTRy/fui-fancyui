@@ -11,7 +11,6 @@ import ChipsRoute from './Routes/ChipsRoute/ChipsRoute';
 import ColorGeneratorRoute from './Routes/ColorGeneratorRoute/ColorGeneratorRoute';
 import ColorPickerRoute from './Routes/ColorPickerRoute/ColorPickerRoute';
 import DatePickerRoute from './Routes/DatePickerRoute/DatePickerRoute';
-import EditBarRoute from './Routes/EditBarRoute/EditBarRoute';
 import ExperimentalRoute from './Routes/ExperimentalRoute/ExperimentalRoute';
 import FancyContentRoute from './Routes/FancyContentRoute/FancyContentRoute';
 import FancyDropDownMenueRoute from './Routes/FancyDropDownMenueRoute/FancyDropDownMenueRoute';
@@ -30,7 +29,7 @@ import NavBarHandy from './Routes/NavBarHandy/NavBarHandy';
 import PageSwitchRoute from './Routes/PageSwitchRoute/PageSwitchRoute';
 import SingleNumberInputRoute from './Routes/SingleNumberInputRoute/SingleNumberInputRoute';
 import SpeedDailRoute from './Routes/SpeedDailRoute/SpeedDailRoute';
-import SwipeUpModal from './Routes/SwipeUpModal/SwipeUpModal';
+import SwipeUpModalRoute from './Routes/SwipeUpModal/SwipeUpModal';
 import SwitchesRoute from './Routes/Switches/SwitchesRoute';
 import TabSwitchRoute from './Routes/TabSwitchRoute/TabSwitchRoute';
 import ToastMessageRoute from './Routes/ToastMessageRoute/ToastMessageRoute';
@@ -119,9 +118,6 @@ function App() {
                   <Link to="/button">button</Link>
                 </li>
                 <li>
-                  <Link to="/editbar">Editbar</Link>
-                </li>
-                <li>
                   <Link to="/tabswitch">TabSwitch</Link>
                 </li>
                 <li>
@@ -190,7 +186,7 @@ function App() {
             {/* A <Routes> looks through its children <Route>s and
           renders the first one that matches the current URL. */}
             <Routes>
-              <Route path="/swipeupmodal" element={<SwipeUpModal />} />
+              <Route path="/swipeupmodal" element={<SwipeUpModalRoute />} />
               <Route path="/modal" element={<ModalRoute />} />
               <Route path="/singleNumberInput" element={<SingleNumberInputRoute />} />
               <Route path="/datePicker" element={<DatePickerRoute />} />
@@ -202,7 +198,6 @@ function App() {
               <Route path="/typography" element={<Typogrphy />} />
               <Route path="/button" element={<ButtonRoute />} />
               <Route path="/dropdownmenue" element={<FancyDropDownMenueRoute />} />
-              <Route path="/editbar" element={<EditBarRoute />} />
               <Route path="/tabswitch" element={<TabSwitchRoute />} />
               <Route path="/speeddail" element={<SpeedDailRoute />} />
               <Route path="/handyNav" element={<NavBarHandy />} />
@@ -224,7 +219,7 @@ function App() {
               <Route path="/skeleton" element={<SkeletonRoute />} />
               <Route path="/FancyListBox" element={<FancyListBoxRoute />} />
               <Route path="/TextGradient" element={<TextGradientRoute />} />
-              <Route path="/" element={<SwipeUpModal />} />
+              <Route path="/" element={<SwipeUpModalRoute />} />
             </Routes>
           </div>
         </FancyThemeProvider>

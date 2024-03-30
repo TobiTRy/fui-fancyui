@@ -3,6 +3,7 @@ import { useId } from 'react';
 import { FancyContent } from '@/components/molecules/FancyContent';
 import { TFancySelectWrapperWithHTMLProps } from './TFancySelectWrapper.model';
 import { InputWrapper, LabelWrapper, Wrapper } from './FancySelectWrapper.style';
+import { leftRightCenterToFlexJustify } from '@/design/designFunctions/leftRightCenterToFlexJustify';
 
 // --------------------------------------------------------------------------- //
 // - A simple Checkbox/Radio Wrapper  that provides a label and description -- //
@@ -29,7 +30,7 @@ export default function FancySelectWrapper(props: TFancySelectWrapperWithHTMLPro
       {/* The label and description */}
       {(label || description) && (
         <LabelWrapper $align={alignInput} htmlFor={pickedId}>
-          <FancyContent>
+          <FancyContent align={leftRightCenterToFlexJustify[alignInput]}>
             {label && (
               <FancyContent.Title fontVariant="interactiveLg" themeType={themeType} layer={layer} fontWeight={'bold'}>
                 {label}

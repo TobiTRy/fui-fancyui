@@ -2,7 +2,7 @@
 import { Meta, StoryObj } from '@storybook/react';
 
 // Import the component to be tested
-import MenueItem from '../MenuItem';
+import MenueItem from '../MenueItem';
 import templateThemeType from '@/stories/templateSettingsForStorys/templatesForThemeType';
 
 // Define metadata for the story
@@ -13,7 +13,7 @@ const meta = {
     docs: {
       description: {
         component:
-          'Dumb-Component: The MenueItem is only a Box with some styles you can use it to build your own MenueList or something else',
+          ' The MenueItem is only a Box with some styles you can use it to build your own MenueList or something else',
       },
     },
   },
@@ -24,24 +24,24 @@ const meta = {
       description: 'The size of the divider',
       control: { type: 'select' },
       options: ['sm', 'md', 'lg'],
-      defaultValue: {
-        summary: 'md',
+      table: {
+        defaultValue: { summary: 'md' },
       },
     },
     align: {
       description: 'The alignment of the content',
       control: { type: 'select' },
       options: ['left', 'center', 'right'],
-      defaultValue: {
-        summary: 'center',
+      table: {
+        defaultValue: { summary: 'center' },
       },
     },
     as: {
       description: 'The HTML tag to use',
       control: { type: 'select' },
       options: ['button', 'a'],
-      defaultValue: {
-        summary: 'button',
+      table: {
+        defaultValue: { summary: 'button' },
       },
     },
   },

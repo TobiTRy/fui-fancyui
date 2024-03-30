@@ -42,11 +42,4 @@ export const Primary: Story = {
   args: {
     $available: 'completly',
   },
-  parameters: {
-    docs: {
-      description: {
-        story: '',
-      },
-    },
-  },
 };

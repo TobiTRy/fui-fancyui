@@ -1,0 +1,65 @@
+import { Meta, Title, Description, Controls, Canvas } from '@storybook/blocks';
+
+import * as FancyDateInputStories from './FancyDateInput.stories';
+
+<Meta of={FancyDateInputStories} />
+
+<Title />
+
+## FancyDateInput Component
+
+### Brief Description
+
+`FancyDateInput` is a customizable date input component for React applications, encapsulating functionality such as displaying an icon, a label, system messages, and handling various input states like active, disabled, and filled. It's designed to provide a richer user experience compared to standard date inputs.
+
+## Setup Instructions
+
+To use the `FancyDateInput` in your project, follow these steps:
+
+1. Import the `FancyDateInput` component where you intend to use it:
+
+```jsx
+import { FancyDateInput } from 'fui-fancyui';
+```
+
+2. If using TypeScript, you can import the type definitions for prop validation:
+
+```jsx
+import { TFancyDateInput } from 'fui-fancyui';
+```
+
+After installing the required library, you can import and use the `FancyDateInput` component in your project as follows:
+
+### Example Usage
+
+```jsx
+<FancyDateInput
+  id="uniqueId"
+  value={selectedDate}
+  label="Select Date"
+  icon="calendar"
+  systemMessage={{ type: 'error', message: 'This is an error message' }}
+  onChange={(e) => setSelectedDate(e.target.value)}
+  placeholder="DD/MM/YYYY"
+  themeType="primary"
+  layer={2}
+/>
+```
+
+<Canvas />
+
+<Canvas of={FancyDateInputStories.WithErrorState} />
+
+<Canvas of={FancyDateInputStories.WithSuccessState} />
+
+<Canvas of={FancyDateInputStories.WithInfoState} />
+
+### Component Properties
+
+<Controls />
+
+### List of Used Components
+
+- **DateInput**: A basic date input component that allows users to input a date either through typing or a date picker interface.
+- **InputWrapper**: A wrapper component that provides common input functionalities like displaying a label, system message, and managing focus states.
+- **RawInput**: The lowest-level input component used for creating custom input types with specific behaviors and styles.

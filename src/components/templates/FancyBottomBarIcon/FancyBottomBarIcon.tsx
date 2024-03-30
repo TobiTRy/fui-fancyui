@@ -1,17 +1,15 @@
-import React, { ComponentProps } from 'react';
-
-import ComponentAndActionWrapper, {
-  IComponentAndActionWrapper,
-} from '@/components/molecules/ComponentAndActionWrapper/ComponentAndActionWrapper';
 import { BottomBarIcon } from '@/components/molecules/BottomBarIcon';
+import ComponentAndActionWrapper from '@/components/molecules/ComponentAndActionWrapper/ComponentAndActionWrapper';
 
-export type IFancyBottomBarIcon = ComponentProps<typeof BottomBarIcon> & IComponentAndActionWrapper;
+import { TFancyBottomBarIcon } from './TFancyBottomBarIcon.model';
+
 // --------------------------------------------------------------------------- //
 // ------ This Component Puts only the content and a wrapper together -------- //
 // --------------------------------------------------------------------------- //
-export default function FancyBottomBarIcon(props: IFancyBottomBarIcon) {
-  const { WrapperComponent, type, href, onClick, ...rest } = props;
+export default function FancyBottomBarIcon(props: TFancyBottomBarIcon) {
+  const { WrapperComponent, type, href, onClick, ...iconProps } = props;
 
+  console.log(iconProps.layer, iconProps.activeLayer);
   return (
     <ComponentAndActionWrapper
       WrapperComponent={WrapperComponent}
@@ -21,7 +19,7 @@ export default function FancyBottomBarIcon(props: IFancyBottomBarIcon) {
         onClick?.();
       }}
     >
-      <BottomBarIcon {...rest} />
+      <BottomBarIcon {...iconProps} />
     </ComponentAndActionWrapper>
   );
 }

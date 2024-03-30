@@ -1,0 +1,60 @@
+import { Meta, Title, Description, Canvas, Controls } from '@storybook/blocks';
+
+import * as FancyRadioListStories from './FancyRadioList.stories';
+
+<Meta of={FancyRadioListStories} />
+
+<Title />
+
+<Description />
+
+## Setup Instructions
+
+To use the `FancyRadioList` in your project, follow these steps:
+
+1. Import the `FancyRadioList` component where you intend to use it:
+
+```jsx
+import { FancyRadioList } from 'fui-fancyui';
+```
+
+2. If using TypeScript, you can import the type definitions for prop validation:
+
+```jsx
+import { TFancyRadioListItem, TFancyRadioList } from 'fui-fancyui';
+```
+
+After installing the required library, you can import and use the `FancyMenuItem` component in your project as follows:
+
+```javascript
+import React from 'react';
+import { FancyRadioList, TFancyRadioList } from 'fui-fancyui'; // Adjust the import path as necessary.
+```
+
+### Example Usage
+
+```jsx
+const radioItems:TFancyRadioListItem[] = [
+  { title: 'Option 1', description: 'Description for option 1', itemKey: '1' },
+  { title: 'Option 2', description: 'Description for option 2', itemKey: '2' },
+  // Add more options as needed
+];
+
+const handleSelection = (itemKey) => {
+  console.log('Selected item key:', itemKey);
+};
+
+<FancyRadioList items={radioItems} name="exampleRadioGroup" handler={handleSelection} themeType="primary" layer={2} />;
+```
+
+<Canvas />
+
+### Component Properties
+
+<Controls />
+
+### List of Used Components
+
+- **Fieldset**: A component used to group related elements in a form, providing a visual and semantic boundary. It receives props to control its appearance and behavior.
+- **FancyListBox**: A styled container for list-based components that supports theming and size adjustments. It is used here to visually enhance the radio button list.
+- **FancyRadio**: Represents a single radio button with additional styling and functionality, such as keyboard navigation support and external style customization.

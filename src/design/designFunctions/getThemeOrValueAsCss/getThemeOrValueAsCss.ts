@@ -1,4 +1,4 @@
-import { TThemeCSSValue } from '@/design/designFunctions/arrayToCssValues';
+import { TThemeValueOrCSS } from './TgetThemeOrValueAsCSS.model';
 import { themeStore } from '@/design/theme/themeStore';
 import { TSpacings } from '@/types/TSpacings';
 import { TBorderRadiusSizes } from '@/types/TBorderRadiusSizes';
@@ -6,10 +6,12 @@ import { TBorderRadiusSizes } from '@/types/TBorderRadiusSizes';
 // ----------------------------------------------------------------------------- //
 //with this function you can pass normal css values or theme values like "XS" ..-//
 // ----------------------------------------------------------------------------- //
-const getThemeOrValueForCSS = (
-  value: TThemeCSSValue,
+export default function getThemeOrValueAsCSS(
+  value?: TThemeValueOrCSS,
   themeSetting?: 'borderRadius' | 'spacing' | 'default'
-): string => {
+) {
+  if (value === undefined) return '';
+
   if (themeSetting && themeSetting !== 'default') {
     let themeValue;
 
@@ -30,12 +32,10 @@ const getThemeOrValueForCSS = (
     return themeValue ?? '';
   }
   return `${value}`;
-};
+}
 
-const checkForNumberValue = (value: TThemeCSSValue) => {
+const checkForNumberValue = (value: TThemeValueOrCSS) => {
   const numberValue = typeof value === 'string' ? parseInt(value) : value;
 
   return isNaN(numberValue) ? false : true;
 };
-
-export default getThemeOrValueForCSS;

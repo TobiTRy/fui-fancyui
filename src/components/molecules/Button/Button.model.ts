@@ -1,8 +1,8 @@
 import { CSSProp } from 'styled-components';
 
+import { TThemeArrayOrValueCSS } from '@/design/designFunctions/arrayToCssValues';
 import { TGenerateThemeDesignForComponentProps } from '@/design/designFunctions/generateThemeDesignForComponent';
 import { TComponentSizes } from '@/types/TComponentSizes';
-import { TBorderRadiusSizes } from '@/types/TBorderRadiusSizes';
 
 export type TButton = {
   sizeC?: TComponentSizes;
@@ -12,7 +12,7 @@ export type TButton = {
   disabled?: boolean;
   notAButton?: boolean;
   noSize?: boolean;
-  borderRadius?: TBorderRadiusSizes | false;
+  borderRadius?: TThemeArrayOrValueCSS | false;
 } & TGenerateThemeDesignForComponentProps;
 
 type ButtonHTML = React.ButtonHTMLAttributes<HTMLButtonElement>;

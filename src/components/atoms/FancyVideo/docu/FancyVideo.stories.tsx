@@ -22,16 +22,16 @@ const meta = {
     muted: {
       description: 'Specifies whether the video should play automatically on load.',
       control: { type: 'boolean' },
-      defaultValue: {
-        summary: false,
+      table: {
+        defaultValue: { summary: false },
       },
     },
     autoPlay: {
       control: { type: 'boolean' },
       description:
         'Controls whether the video is muted. When autoPlay is true, muted defaults to true to comply with browser autoplay policies.',
-      defaultValue: {
-        summary: false,
+      table: {
+        defaultValue: { summary: false },
       },
     },
     aspectRatio: {
@@ -60,12 +60,5 @@ export const Primary: Story = {
   args: {
     aspectRatio: '16/9',
     muted: false,
-  },
-  parameters: {
-    docs: {
-      description: {
-        story: '',
-      },
-    },
   },
 };

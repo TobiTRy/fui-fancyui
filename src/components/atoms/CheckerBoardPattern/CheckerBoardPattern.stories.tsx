@@ -27,8 +27,8 @@ const meta = {
         max: 1,
         step: 0.1,
       },
-      defaultValue: {
-        summary: 1,
+      table: {
+        defaultValue: { summary: 1 },
       },
     },
     color: {
@@ -36,8 +36,8 @@ const meta = {
       control: {
         type: 'color',
       },
-      defaultValue: {
-        summary: '#808080',
+      table: {
+        defaultValue: { summary: '#808080' },
       },
     },
     externalStyle: {

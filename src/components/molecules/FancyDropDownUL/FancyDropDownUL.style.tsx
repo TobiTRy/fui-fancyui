@@ -18,7 +18,8 @@ type IStyledUL = TStyledPrefixAndPicker<
 >;
 //this generates the wrapper for the UL
 export const WrapperUL = styled.div<IStyledUL>`
-  ${({ $alignHorizontal, $alignVertical }) => calcBorderRadiusOnAlignment({ $alignHorizontal, $alignVertical })};
+  ${({ $alignHorizontal, $alignVertical, $borderRadius }) =>
+    calcBorderRadiusOnAlignment({ $alignHorizontal, $alignVertical, $borderRadius: $borderRadius })};
   position: absolute;
   overflow: hidden;
   width: ${({ $width }) => $width};

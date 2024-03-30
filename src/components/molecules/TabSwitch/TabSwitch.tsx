@@ -2,22 +2,24 @@ import React, { useRef, useState } from 'react';
 
 import { ItemWrapper, ULButtonSwitchList, tabSwitchSizes } from './TabSwitch.style';
 import { FancyTabSwitchButton } from '@/components/molecules/FancyTabSwitchButton';
-import { borderRadius } from '@/design/theme/designSizes';
 import { SwitchActiveIndicator } from '@/components/atoms/SwitchActiveIndicator';
-import { ITabSwitchProps } from './TTabSwitch.model';
+import { TTabSwitch } from './TTabSwitch.model';
+import { themeStore } from '@/design/theme/themeStore';
+import { calcBorderRadiusWithPadding } from '@/design/designFunctions/calcBorderRadiusWithPadding';
 
 // --------------------------------------------------------------------------- //
 // ------------ The tap SwitchComponent to slect specifc values -------------- //
 // --------------------------------------------------------------------------- //
-export default function TabSwitch(props: ITabSwitchProps) {
+export default function TabSwitch(props: TTabSwitch) {
   const {
     values,
-    textColor,
+    textColor = 'secondary',
+    textLayer = 0,
     sizeC,
     wide,
     disabled,
     tabSpacing,
-    rounded,
+    borderRadius,
     direction,
     outlined,
     currentSelect,
@@ -26,15 +28,18 @@ export default function TabSwitch(props: ITabSwitchProps) {
     activeColor,
     indicatorType,
   } = props;
+
   // Define the state for the currently selected tab
   const buttonRefs = useRef<React.RefObject<HTMLDivElement>[]>(values.map(() => React.createRef<HTMLDivElement>()));
   const [currentSelected, setCurrentSelect] = useState(currentSelect);
+
+  const themeBorderRadius = themeStore((state) => state.theme.borderRadius);
 
   // Define the function to handle the selection of a tab
   const radioChangeHandler = (position: string) => {
     const currentItem = values.find((item) => item.itemKey === position);
     setCurrentSelect(position);
-    handler && handler(currentItem?.itemKey!);
+    handler?.(currentItem?.itemKey!);
   };
 
   // This handles the navigation with the keyboard
@@ -58,9 +63,10 @@ export default function TabSwitch(props: ITabSwitchProps) {
   return (
     <ULButtonSwitchList
       $tabSpacing={tabSpacing}
-      $rounded={rounded}
+      $borderRadius={borderRadius}
       $wide={wide}
       $direction={direction}
+      $disabled={disabled}
       role="radiogroup"
     >
       {/* Generate a list item for each switch value */}
@@ -68,9 +74,10 @@ export default function TabSwitch(props: ITabSwitchProps) {
         <ItemWrapper key={item.itemKey}>
           {/* Generate the button for the switch item */}
           <FancyTabSwitchButton
-            disabled={disabled}
             sizeC={sizeC}
+            disabled={disabled}
             themeType={textColor}
+            layer={textLayer}
             iconAlign={iconAlign}
             {...item}
             ref={buttonRefs.current[i]}
@@ -85,13 +92,16 @@ export default function TabSwitch(props: ITabSwitchProps) {
             <SwitchActiveIndicator
               outlined={outlined}
               // the radius of the switch indicator is adjusted for good looks with minus the padding of the switch
-              rounded={
-                rounded
-                  ? parseInt(borderRadius[rounded]) - parseInt(tabSwitchSizes[sizeC || 'sm'].paddingComponent) + 'px'
+              borderRadius={
+                borderRadius
+                  ? calcBorderRadiusWithPadding(
+                      themeBorderRadius[borderRadius],
+                      tabSwitchSizes[sizeC || 'sm'].paddingComponent
+                    )
                   : undefined
               }
               type={indicatorType ?? 'bolb'}
-              itemNumber={Number(currentSelected)}
+              itemNumber={values.findIndex((item) => item.itemKey === currentSelected)}
               themeType={activeColor}
               direction={direction}
               tabSpacing={tabSpacing}

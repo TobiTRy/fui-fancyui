@@ -16,7 +16,7 @@ import { TFancySpeedDailButton } from './TFancySpeedDailButton.model';
 // ---------- Component that handles the Buttonlist and the opening ---------- //
 // --------------------------------------------------------------------------- //
 export default function FancySpeedDialButton(props: TFancySpeedDailButton) {
-  const { items, labelAlign, themeType = 'primary', ...actionItemProps } = props;
+  const { items, labelAlign, themeType = 'primary', layer = 2, ...actionItemProps } = props;
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -29,6 +29,7 @@ export default function FancySpeedDialButton(props: TFancySpeedDailButton) {
                 icon={item.icon}
                 label={item.label}
                 themeType={themeType}
+                layer={layer}
                 labelAlign={labelAlign}
                 {...actionItemProps}
               />

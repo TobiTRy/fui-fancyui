@@ -1,0 +1,51 @@
+import { Meta, Title, Description, Controls, Canvas } from '@storybook/blocks';
+
+import * as FancyCheckboxStories from './FancyCheckbox.stories';
+
+<Meta of={FancyCheckboxStories} />
+
+<Title />
+
+<Description />
+
+## Setup Instructions
+
+To use the `FancyCheckbox` in your project, follow these steps:
+
+1. Import the `FancyCheckbox` component where you intend to use it:
+
+```jsx
+import { FancyCheckbox } from 'fui-fancyui';
+```
+
+2. If using TypeScript, you can import the type definitions for prop validation:
+
+```jsx
+import { TFancyCheckbox } from 'fui-fancyui';
+```
+
+### Example Usage
+
+```jsx
+<FancyCheckbox
+  label="Agree to Terms"
+  description="Click to agree to the terms and conditions"
+  defaultChecked={false}
+  onChange={(e) => console.log(e.target.checked)}
+  align="center"
+  alignCheckbox="left"
+/>
+```
+
+<Canvas />
+
+### Component Properties
+
+<Controls />
+
+### List of Used Components
+
+- **RawCheckbox (Atom)**: A basic checkbox component that handles user interactions and states.
+- **FancySelectWrapper (Molecule)**: A wrapper component that enhances the visual presentation of the checkbox, including alignment and labeling features.
+
+This documentation outlines the primary aspects of the `FancyCheckbox` component, its setup, and usage within a project, providing a clear overview of its functionality and customizability options.

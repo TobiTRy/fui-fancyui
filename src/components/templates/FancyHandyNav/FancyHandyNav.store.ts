@@ -12,7 +12,7 @@ const useFancyHandyNavStore = create<IFancyHandyNavStore>((set) => ({
   isVisible: true,
   setIsVisible: (isVisible: boolean) => set({ isVisible }),
 
-  whichIsActive: 'home',
+  whichIsActive: '',
   setWhichIsActive: (whichIsActive: string) => set({ whichIsActive }),
 }));
 

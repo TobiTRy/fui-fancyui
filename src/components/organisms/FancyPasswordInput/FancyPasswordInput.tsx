@@ -1,26 +1,24 @@
 import { useId, useState } from 'react';
 
-import PasswordInput from '@/components/atoms/PasswordInput/PasswordInput';
+import { PasswordInput } from '@/components/atoms/PasswordInput';
+import { InputWrapper } from '@/components/molecules/InputWrapper';
 
-import InputWrapper from '@/components/molecules/InputWrapper/InputWrapper';
-import { TInputWrapperUserInputProps } from '@/components/molecules/InputWrapper/TInputWrapper.model';
-import { TPasswordInputPropsWithNativeAttrs } from '@/components/atoms/PasswordInput/TPasswordInput.model';
+import { TFancyPasswordInput } from './TFancyPasswordInput.model';
+import { getOpositMainThemeType } from '@/design/designFunctions/getOpositMainThemeType';
 
-type IFancyTextInputProps = Exclude<TPasswordInputPropsWithNativeAttrs, 'themeType'> &
-  Exclude<TInputWrapperUserInputProps, 'InputElement'>;
 // --------------------------------------------------------------------------- //
 // ----The PasswordInput Comonent with surrounding icon, label and underline-- //
 // --------------------------------------------------------------------------- //
-export default function FancyPasswordInput(props: IFancyTextInputProps) {
+export default function FancyPasswordInput(props: TFancyPasswordInput) {
   const {
     id,
     value,
     placeholder,
     systemMessage,
     disabled,
-    align,
-    themeType,
-    layer,
+    align = 'left',
+    themeType = 'primary',
+    layer = 2,
     icon,
     label,
     onFocus,
@@ -55,7 +53,7 @@ export default function FancyPasswordInput(props: IFancyTextInputProps) {
           id={usedId}
           value={value}
           align={align}
-          themeType={themeType}
+          themeType={getOpositMainThemeType(themeType)}
           layer={layer}
           disabled={disabled}
           onFocus={(e) => {

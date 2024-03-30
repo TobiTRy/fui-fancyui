@@ -7,6 +7,8 @@ import { simpleColorTransition } from '@/design/designFunctions/simpleColorTrans
 
 import { TDateInputProps } from '@/components/atoms/DateInput/TDateInput.model';
 import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
+import { getOpositMainThemeType } from '@/design/designFunctions/getOpositMainThemeType';
+import { getSimpleColorThemeType } from '@/design/designFunctions/getSimpleColorThemeType';
 
 interface IRawInputWrapper extends IRawInput {
   value?: string;
@@ -29,7 +31,11 @@ export const StyledDatePicker = styled(RawInput)<IRawInputWrapper & TDateInputPr
           content: ${$isActive ? '' : 'attr(placeholder)'};
           width: 100%;
           text-align: ${align};
-          color: ${getBackgroundColor({ theme, $themeType, $layer })};
+          color: ${getBackgroundColor({
+            theme,
+            $themeType: getOpositMainThemeType(getSimpleColorThemeType($themeType)),
+            $layer,
+          })};
           position: absolute;
           transition: all 0.25s ease-in-out;
           pointer-events: none;

@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import TabSwitch from '../TabSwitch';
-import templateThemeType from '@/stories/templateSettingsForStorys/templatesForThemeType';
 
 const meta = {
   component: TabSwitch,
@@ -9,7 +8,8 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component: '',
+        component:
+          'The `TabSwitch` component is a customizable switch selector, allowing users to select from multiple options presented as tabs. This component is built using the `FancyTabSwitchButton` molecule and the `SwitchActiveIndicator` atom, enabling rich styling and functionality, including customizable tab sizes, colors, orientation, and an active state indicator.',
       },
     },
   },
@@ -27,7 +27,10 @@ const meta = {
       description: 'The color of the text.',
       control: { type: 'select' },
     },
-    ...templateThemeType('allThemeTypes', 'primary', 1),
+    textLayer: {
+      description: 'The layer of the text.',
+      control: { type: 'number', min: 0, max: 9 },
+    },
     tabSpacing: {
       description: 'The spacing between tabs.',
       control: { type: 'select' },
@@ -36,7 +39,7 @@ const meta = {
       description: 'The list of tabs.',
       control: { type: 'object' },
     },
-    rounded: {
+    borderRadius: {
       description: 'If true, the component will be rounded.',
       control: { type: 'select' },
     },
@@ -51,10 +54,6 @@ const meta = {
     outlined: {
       description: 'If true, the component will be outlined.',
       control: { type: 'boolean' },
-    },
-    id: {
-      description: 'The id of the component.',
-      control: { type: 'text' },
     },
     currentSelect: {
       description: 'The current selected tab.',
@@ -72,6 +71,10 @@ const meta = {
       description: 'The handler of the component.',
       control: { type: 'function' },
     },
+    disabled: {
+      description: 'If true, the component will be disabled.',
+      control: { type: 'boolean' },
+    },
   },
 } satisfies Meta<typeof TabSwitch>;
 
@@ -81,5 +84,12 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   render: (args) => <TabSwitch {...args} />,
-  args: {},
+  args: {
+    values: [
+      { label: 'Tab 1', itemKey: 'tab1' },
+      { label: 'Tab 2', itemKey: 'tab2' },
+      { label: 'Tab 3', itemKey: 'tab3' },
+    ],
+    currentSelect: 'tab1',
+  },
 };

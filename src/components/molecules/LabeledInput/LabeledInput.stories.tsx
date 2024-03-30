@@ -64,12 +64,6 @@ const meta = {
         type: 'boolean',
       },
     },
-    placeholder: {
-      description: 'The placeholder of the component',
-      control: {
-        type: 'text',
-      },
-    },
   },
   tags: ['autodocs'],
 } satisfies Meta<typeof LabeledInput>;

@@ -24,8 +24,8 @@ const meta = {
       control: { type: 'radio' },
       options: ['left', 'center', 'right', undefined],
       type: { name: 'string' },
-      defaultValue: {
-        summary: 'left',
+      table: {
+        defaultValue: { summary: 'left' },
       },
     },
     systemMessageType: {
@@ -41,15 +41,15 @@ const meta = {
     size: {
       description: 'The size of the component',
       control: { type: 'select' },
-      defaultValue: {
-        summary: 'md',
+      table: {
+        defaultValue: { summary: 'md' },
       },
     },
     ownTypographyComponent: {
       description: 'If you want to use your own typography component or other component as a child',
       control: { type: 'boolean' },
-      defaultValue: {
-        summary: false,
+      table: {
+        defaultValue: { summary: false },
       },
     },
   },

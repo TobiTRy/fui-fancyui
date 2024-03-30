@@ -43,8 +43,8 @@ const meta = {
       control: {
         type: 'text',
       },
-      defaultValue: {
-        summary: 'div',
+      table: {
+        defaultValue: { summary: 'div' },
       },
     },
   },

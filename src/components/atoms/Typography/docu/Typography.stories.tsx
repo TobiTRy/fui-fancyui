@@ -25,8 +25,8 @@ const meta = {
       control: {
         type: 'select',
       },
-      defaultValue: {
-        summary: 'bodytextMd',
+      table: {
+        defaultValue: { summary: 'bodytextMd' },
       },
     },
     elType: {
@@ -39,8 +39,8 @@ const meta = {
         required: false,
       },
       options: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'label', 'p', 'span', 'small', undefined],
-      defaultValue: {
-        summary: 'p',
+      table: {
+        defaultValue: { summary: 'p' },
       },
     },
     fontWeight: {
@@ -48,8 +48,8 @@ const meta = {
       control: {
         type: 'text',
       },
-      defaultValue: {
-        summary: 'depends on the theme',
+      table: {
+        defaultValue: { summary: 'depends on the theme' },
       },
     },
     lineHeight: {
@@ -57,8 +57,8 @@ const meta = {
       control: {
         type: 'text',
       },
-      defaultValue: {
-        summary: 'depends on the theme',
+      table: {
+        defaultValue: { summary: 'depends on the theme' },
       },
     },
     letterSpacing: {
@@ -66,8 +66,8 @@ const meta = {
       control: {
         type: 'text',
       },
-      defaultValue: {
-        summary: 'depends on the theme',
+      table: {
+        defaultValue: { summary: 'depends on the theme' },
       },
     },
     className: {

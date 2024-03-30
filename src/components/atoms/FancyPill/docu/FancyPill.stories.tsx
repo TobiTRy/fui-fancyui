@@ -25,8 +25,8 @@ const meta = {
       control: {
         type: 'boolean',
       },
-      defaultValue: {
-        summary: false,
+      table: {
+        defaultValue: { summary: false },
       },
     },
     isHoverable: {
@@ -34,8 +34,8 @@ const meta = {
       control: {
         type: 'boolean',
       },
-      defaultValue: {
-        summary: false,
+      table: {
+        defaultValue: { summary: false },
       },
     },
     outlined: {
@@ -43,8 +43,8 @@ const meta = {
       control: {
         type: 'boolean',
       },
-      defaultValue: {
-        summary: false,
+      table: {
+        defaultValue: { summary: false },
       },
     },
     outlinedBackgroundStrength: {
@@ -55,8 +55,8 @@ const meta = {
         max: 1,
         step: 0.1,
       },
-      defaultValue: {
-        summary: 0.5,
+      table: {
+        defaultValue: { summary: 0.5 },
       },
     },
     externalStyle: {

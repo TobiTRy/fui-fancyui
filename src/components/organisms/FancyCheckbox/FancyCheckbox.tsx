@@ -3,16 +3,15 @@ import { useId } from 'react';
 import { RawCheckbox } from '@/components/atoms/RawCheckbox';
 import { FancySelectWrapper } from '@/components/molecules/FancySelectWrapper';
 
-import { TFancyCheckboxProps } from './FancyCheckbox.model';
+import { TFancyCheckbox } from './TFancyCheckbox.model';
 
 // --------------------------------------------------------------------------- //
 // -------------------- A simple Checkbox with a Label ----------------------- //
 // --------------------------------------------------------------------------- //
-export default function FancyCheckbox(props: TFancyCheckboxProps) {
-  const { label, onChange, defaultChecked, align, alignCheckbox, description, ...rest } = { ...defaultProps, ...props };
+export default function FancyCheckbox(props: TFancyCheckbox) {
+  const { label, onChange, defaultChecked, align = 'center', alignCheckbox = 'left', description, ...rest } = props;
 
   const id = useId();
-
   const pickedId = props.id ? props.id : id;
 
   return (
@@ -26,9 +25,3 @@ export default function FancyCheckbox(props: TFancyCheckboxProps) {
     />
   );
 }
-
-// the default props of the component
-const defaultProps: TFancyCheckboxProps = {
-  align: 'center',
-  alignCheckbox: 'left',
-};

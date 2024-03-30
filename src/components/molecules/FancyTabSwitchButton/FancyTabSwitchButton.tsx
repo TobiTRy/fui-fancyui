@@ -10,8 +10,21 @@ import { TFancyTabSwitchButton } from './TFancyTabSwitchButton.model';
 // ------------- main component for the tab (li item) --------------- //
 // ------------------------------------------------------------------ //
 const FancyTabSwitchButton = React.forwardRef<HTMLDivElement, TFancyTabSwitchButton>((props, ref) => {
-  const { disabled, selected, onClick, iconAlign, sizeC, itemKey, label, icon, children, externalStyle, ...HTMLProps } =
-    props;
+  const {
+    disabled,
+    selected,
+    onClick,
+    iconAlign,
+    sizeC,
+    itemKey,
+    label,
+    icon,
+    children,
+    externalStyle,
+    themeType = 'secondary',
+    layer = 0,
+    ...HTMLProps
+  } = props;
 
   const id = useId();
 
@@ -20,6 +33,8 @@ const FancyTabSwitchButton = React.forwardRef<HTMLDivElement, TFancyTabSwitchBut
       ref={ref}
       role="radio"
       $sizeC={sizeC}
+      $textColor={themeType}
+      $layer={layer}
       $iconAlign={iconAlign}
       $hasIcon={Boolean(icon)}
       $hasLabel={Boolean(label)}
@@ -35,7 +50,13 @@ const FancyTabSwitchButton = React.forwardRef<HTMLDivElement, TFancyTabSwitchBut
         aria-hidden="true"
         onChange={() => onClick && onClick(itemKey)}
       />
-      <Typography htmlFor={id + '_' + itemKey} elType="label" variant="interactiveMd" externalStyle={{ zIndex: 1 }}>
+      <Typography
+        htmlFor={id + '_' + itemKey}
+        elType="label"
+        themeType={themeType}
+        variant="interactiveMd"
+        externalStyle={{ zIndex: 1 }}
+      >
         {(icon || label) && (
           <FancyContent direction={leftRightToFlex(iconAlign)}>
             {icon && <FancyContent.Icon>{icon}</FancyContent.Icon>}

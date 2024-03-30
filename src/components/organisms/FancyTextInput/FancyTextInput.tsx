@@ -2,17 +2,17 @@ import { useId, useState } from 'react';
 
 import { TextInput } from '@/components/atoms/TextInput';
 import { InputWrapper } from '@/components/molecules/InputWrapper';
-import { IFancyTextInput } from '@/components/organisms/FancyTextInput/TFancyTextInput.model';
+import { TFancyTextInput } from '@/components/organisms/FancyTextInput/TFancyTextInput.model';
 
 // --------------------------------------------------------------------------- //
 // ----The TextInput Comonent with surrounding icon, label and underline ----- //
 // --------------------------------------------------------------------------- //
-export default function FancyTextInput(props: IFancyTextInput) {
+export default function FancyTextInput(props: TFancyTextInput) {
   const {
     id,
     value,
     themeType = 'primary',
-    layer,
+    layer = 2,
     placeholder,
     systemMessage,
     disabled,
