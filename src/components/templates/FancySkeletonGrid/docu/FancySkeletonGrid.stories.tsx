@@ -80,7 +80,6 @@ const meta = {
       },
     },
   },
-  tags: ['autodocs'],
 } satisfies Meta<typeof FancySkeletonGrid>;
 
 export default meta;
