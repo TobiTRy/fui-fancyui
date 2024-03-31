@@ -18,6 +18,9 @@ const meta = {
         component:
           'FancyModal is a React component designed to manage and display modals in a flexible and efficient manner. It utilizes a global state management solution, provided by Zustand, to handle the visibility and content of modals across the application. The component leverages a FancyPortal to render modals outside of the main app container, which helps in avoiding common styling and event bubbling issues. This setup allows for a clean and isolated modal presentation, with support for dynamic content and configuration.',
       },
+      story: {
+        height: '300px',
+      },
     },
   },
   // Define arguments for the story
