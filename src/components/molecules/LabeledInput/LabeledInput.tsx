@@ -4,6 +4,7 @@ import { clampLayer } from '@/utils/functions/clampLayer';
 import { InputWrapper, Wrapper } from './LabeledInput.style';
 import { InputLabel } from '@/components/atoms/InputLabel';
 import { FancyLine } from '@/components/atoms/FancyLine';
+import { getOpositMainThemeType } from '@/design/designFunctions/getOpositMainThemeType';
 
 export default function LabeledInput(props: TLabeledInput) {
   const {
@@ -31,7 +32,7 @@ export default function LabeledInput(props: TLabeledInput) {
         <InputLabel
           lableVariant={labelVariant}
           align={align}
-          themeType={themeType === 'primary' ? 'secondary' : 'primary'}
+          themeType={getOpositMainThemeType(themeType)}
           id={id}
           isActive={labelShouldMoveUp}
           systemMessageType={systemMessageType}

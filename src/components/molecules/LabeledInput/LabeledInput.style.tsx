@@ -28,7 +28,7 @@ export const InputWrapper = styled.div<TInputWrapper & { theme: TTheme }>`
   }
 
   input[type='range'] {
-    margin-top: 30px;
+    margin-top: ${({ $isLabelProvided }) => ($isLabelProvided ? '30px' : '12px')};
     margin-bottom: 12px;
   }
 `;
