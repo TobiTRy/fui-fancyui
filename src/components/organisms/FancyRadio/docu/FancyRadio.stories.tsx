@@ -19,8 +19,8 @@ const meta = {
   },
   // Define arguments for the story
   argTypes: {
+    ...templateThemeType('mainThemeTypes', 'primary', 2),
     align: {
-      ...templateThemeType('mainThemeTypes', 'primary', 2),
       description: 'The alignment of the input',
       control: {
         type: 'select',
