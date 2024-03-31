@@ -1,15 +1,12 @@
 import { InputHTMLAttributes } from 'react';
-import { TTextAlignLC } from '@/types/TTextAlignLC';
-import { CSSProp } from 'styled-components';
+import { TRawInput } from '@/components/atoms/RawInput';
 
 // the incoming props
 export type TNumberInput = {
   autoWidth?: boolean;
-  align?: TTextAlignLC;
   step?: number;
   decimalPlaces?: number;
-  externalStyle?: CSSProp;
-};
+} & TRawInput;
 
 // the native props of the input element excluding the type attribute
 export type TNumberInputNativeAttrs = Omit<InputHTMLAttributes<HTMLInputElement>, 'type' | 'step'>;

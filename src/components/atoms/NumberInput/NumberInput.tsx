@@ -2,12 +2,12 @@ import { useMemo } from 'react';
 
 import { useNumberInput } from '@/components/atoms/NumberInput/useNumberInput.hook';
 import StyledNumberInput from './NumberInput.styled';
-import { TNumberInput, TNumberInputNativeAttrs } from '@/components/atoms/NumberInput/TNumberInput.model';
+import { TNumberInputWithNativeAttrs } from '@/components/atoms/NumberInput/TNumberInput.model';
 
 // --------------------------------------------------------------------------- //
 // Advanced Text imput that acts like a number input to have more versatelity  //
 // --------------------------------------------------------------------------- //
-export default function NumberInput(props: TNumberInput & TNumberInputNativeAttrs) {
+export default function NumberInput(props: TNumberInputWithNativeAttrs) {
   //dont remove the value/onchange else its provided in the element and you can have letters in the input
   const {
     value,
@@ -19,6 +19,8 @@ export default function NumberInput(props: TNumberInput & TNumberInputNativeAttr
     decimalPlaces = 2,
     step,
     min,
+    themeType,
+    layer,
     max,
     externalStyle,
     ...moreHTMLProps
@@ -48,6 +50,8 @@ export default function NumberInput(props: TNumberInput & TNumberInputNativeAttr
       value={inputValue !== null ? inputValue : ''}
       step={step}
       min={min}
+      $themeType={themeType}
+      $layer={layer}
       max={max}
       onChange={handleChange}
       onKeyDown={(e) => {
