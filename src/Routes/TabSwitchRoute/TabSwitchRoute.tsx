@@ -58,7 +58,7 @@ export default function TabSwitchRoute() {
         currentSelect={test}
         handler={(id: string) => setTest(id)}
       />
-      {/* <Card layer={1}>
+      <Card layer={1}>
         <DesignWrapper>
           <DesignArea
             title="TabSwitch"
@@ -163,7 +163,7 @@ export default function TabSwitchRoute() {
             />
           </DesignArea>
         </DesignWrapper>
-      </Card> */}
+      </Card>
     </>
   );
 }
