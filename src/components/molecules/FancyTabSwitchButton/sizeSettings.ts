@@ -1,18 +1,23 @@
-import { themeStore } from '@/design/theme/themeStore';
-import { TTypographyElList } from '@/types/TTypographyElList';
+import { TSizeSettings } from '@/types/TSizeSettings';
+import { TTypographyVariants } from '@/types/TTypographyVariants';
+import { TThemeArrayOrValueCSS } from '@/design/designFunctions/arrayToCssValues';
 
-const getSpacingFromTheme = themeStore.getState().theme.spacing;
-export const tabSwitchItemSizes = {
+type TSizeObj = {
+  fontSize: TTypographyVariants;
+  padding: TThemeArrayOrValueCSS;
+};
+
+export const sizeSettings: TSizeSettings<TSizeObj> = {
   sm: {
-    fontSize: 'smText' as TTypographyElList,
-    padding: getSpacingFromTheme.xs,
+    fontSize: 'interactiveSm',
+    padding: ['xs', 'md'],
   },
   md: {
-    fontSize: 'content' as TTypographyElList,
-    padding: getSpacingFromTheme.xs,
+    fontSize: 'interactiveMd',
+    padding: ['xs', 'lg'],
   },
   lg: {
-    fontSize: 'button' as TTypographyElList,
-    padding: getSpacingFromTheme.sm,
+    fontSize: 'interactiveLg',
+    padding: ['sm', 'xl'],
   },
 };

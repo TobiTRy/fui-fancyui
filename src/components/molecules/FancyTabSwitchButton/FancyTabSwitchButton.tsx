@@ -5,24 +5,25 @@ import { FancyContent } from '@/components/molecules/FancyContent';
 import { leftRightToFlex } from '@/utils/functions/leftRightToFlex';
 import { SwitchButtonStyle } from './FancyTabSwitchButton.style';
 import { TFancyTabSwitchButton } from './TFancyTabSwitchButton.model';
+import { sizeSettings } from './sizeSettings';
 
 // ------------------------------------------------------------------ //
 // ------------- main component for the tab (li item) --------------- //
 // ------------------------------------------------------------------ //
 const FancyTabSwitchButton = React.forwardRef<HTMLDivElement, TFancyTabSwitchButton>((props, ref) => {
   const {
+    sizeC = 'sm',
+    layer = 0,
+    themeType = 'secondary',
     disabled,
     selected,
     onClick,
     iconAlign,
-    sizeC,
     itemKey,
     label,
     icon,
     children,
     externalStyle,
-    themeType = 'secondary',
-    layer = 0,
     ...HTMLProps
   } = props;
 
@@ -54,13 +55,13 @@ const FancyTabSwitchButton = React.forwardRef<HTMLDivElement, TFancyTabSwitchBut
         htmlFor={id + '_' + itemKey}
         elType="label"
         themeType={themeType}
-        variant="interactiveMd"
+        variant={sizeSettings[sizeC].fontSize}
         externalStyle={{ zIndex: 1 }}
       >
         {(icon || label) && (
           <FancyContent direction={leftRightToFlex(iconAlign)}>
             {icon && <FancyContent.Icon>{icon}</FancyContent.Icon>}
-            {label && <FancyContent.Title>{label}</FancyContent.Title>}
+            {label && <FancyContent.Title fontVariant={sizeSettings[sizeC].fontSize}>{label}</FancyContent.Title>}
           </FancyContent>
         )}
         {children}

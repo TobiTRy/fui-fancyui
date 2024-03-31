@@ -1,10 +1,12 @@
 import { CSSProp, css, styled } from 'styled-components';
 
+import { sizeSettings } from './sizeSettings';
+import { TThemeArrayOrValueCSS, arrayToCssValues } from '@/design/designFunctions/arrayToCssValues';
 import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent';
 import { themeStore } from '@/design/theme/themeStore';
+import { TComponentSizes } from '@/types/TComponentSizes';
 import { TLayer } from '@/types/TLayer';
 import { TTheme } from '@/types/TTheme';
-import { tabSwitchItemSizes } from './sizeSettings';
 import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 
 // ------------------------------------------------------------------ //
@@ -14,9 +16,10 @@ import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 interface IListButtonStyle {
   $textColor?: TUiColorsNotTransparent;
   $iconAlign?: 'left' | 'right';
+  $borderRadius?: TThemeArrayOrValueCSS;
   theme: TTheme;
   $layer?: TLayer;
-  $sizeC?: keyof typeof tabSwitchItemSizes;
+  $sizeC: TComponentSizes;
   $hasLabel?: boolean;
   $hasIcon?: boolean;
   $externalStyle?: CSSProp;
@@ -44,6 +47,7 @@ const generateIconAlignment = (props: Pick<IListButtonStyle, '$iconAlign'>) => {
 
   return css`
     ${getAlignment()}
+
     i {
       display: flex;
       justify-content: center;
@@ -71,7 +75,7 @@ export const SwitchButtonStyle = styled.div<IListButtonStyle>`
     text-align: center;
     cursor: pointer;
     user-select: none;
-    padding: ${({ $sizeC, theme }) => `${tabSwitchItemSizes[$sizeC || 'sm'].padding} ${theme.spacing.md}`};
+    padding: ${({ $sizeC }) => arrayToCssValues(sizeSettings[$sizeC].padding, 'spacing')};
     color: ${({ theme, $textColor = 'secondary', $layer }) =>
       getBackgroundColor({ theme, $themeType: $textColor, $layer })};
     ${({ $hasIcon, $hasLabel, $iconAlign }) => $hasIcon && $hasLabel && generateIconAlignment({ $iconAlign })}
@@ -83,3 +87,5 @@ export const SwitchButtonStyle = styled.div<IListButtonStyle>`
   }
   ${({ $externalStyle }) => $externalStyle};
 `;
+
+//${theme.spacing.md}
