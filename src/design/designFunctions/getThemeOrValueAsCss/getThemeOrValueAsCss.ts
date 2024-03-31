@@ -12,6 +12,7 @@ export default function getThemeOrValueAsCSS(
 ) {
   if (value === undefined) return '';
 
+  // Check if the themeSetting is set and not 'default'
   if (themeSetting && themeSetting !== 'default') {
     let themeValue;
 
@@ -23,6 +24,8 @@ export default function getThemeOrValueAsCSS(
     if (themeSetting === 'borderRadius') {
       const borderRadius = value as TBorderRadiusSizes;
       themeValue = theme[themeSetting][borderRadius];
+
+      // Check if the themeSetting is 'spacing' and access the value using the key
     } else if (themeSetting === 'spacing') {
       const spacing = value as TSpacings;
 
