@@ -1,1 +1,4 @@
-export { default as generateBorderRadiusForComponent } from './generateBorderRadiusForComponent';
+export {
+  generateBorderRadiusForComponent,
+  generateBorderRadiusForComponentOnlyValue,
+} from './generateBorderRadiusForComponent';

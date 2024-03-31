@@ -26,4 +26,17 @@ export const generateBorderRadiusForComponent = (props: TBorderRadius) => {
   }
 };
 
+export const generateBorderRadiusForComponentOnlyValue = (props: TBorderRadius) => {
+  const { borderRadius, sizeC } = props;
+  if (borderRadius === false) return 0;
+
+  if (borderRadius) {
+    return arrayToCssValues(borderRadius, 'borderRadius');
+  }
+
+  if (sizeC) {
+    return arrayToCssValues(sizeSettings[sizeC].borderRadius, 'borderRadius');
+  }
+};
+
 export default generateBorderRadiusForComponent;
