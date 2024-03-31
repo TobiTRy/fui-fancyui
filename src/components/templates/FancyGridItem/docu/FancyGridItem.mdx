@@ -1,4 +1,4 @@
-import { Meta, Title, Description } from '@storybook/blocks';
+import { Meta, Title, Description, Canvas, Controls } from '@storybook/blocks';
 
 import * as FancyGridItemStories from './FancyGridItem.stories';
 
@@ -22,11 +22,6 @@ Before using `FancyGrid.Item`, ensure that `FancyGrid` is already set up in your
 
 `FancyGrid.Item` is meant to be used within the `FancyGrid` container. It requires the `FancyGrid` component to be properly functioning.
 
-**Props**:
-
-- `gridSpace`: Defines the number of columns that the item will span within the grid. It's a number indicating the fraction of the grid occupied by the item.
-- `breakpoints`: (Optional) An array of custom breakpoint objects, allowing responsive adjustments at specified screen sizes.
-
 **Example**:
 
 ```jsx
@@ -42,6 +37,12 @@ const MyComponent = () => {
   );
 };
 ```
+
+<Canvas />
+
+**Props**:
+
+<Controls />
 
 In this example, each `FancyGridItem` spans half the width of the grid, taking up 6 out of 12 columns.
 
