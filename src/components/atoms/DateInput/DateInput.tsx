@@ -1,13 +1,23 @@
 import { useRef, useState } from 'react';
 
-import { StyledDatePicker } from '@/components/organisms/FancyDateInput/FancyDateInput.style';
-import { TDateInputProps, TNativeAttrs } from '@/components/atoms/DateInput/TDateInput.model';
+import { TDateInputPropsWithNativeAttrs } from './TDateInput.model';
+import { StyledDatePicker } from './DateInput.style';
 
 // --------------------------------------------------------------------------- //
 // -------------- A simple date input for all kind of types ------------------ //
 // --------------------------------------------------------------------------- //
-export default function DateInput(props: TDateInputProps & TNativeAttrs) {
-  const { value, align, themeType = 'secondary', layer = 0, type, onFocus, onBlur, ...htmlInputProps } = props;
+export default function DateInput(props: TDateInputPropsWithNativeAttrs) {
+  const {
+    value,
+    align,
+    themeType = 'secondary',
+    layer = 0,
+    type = 'date',
+    onFocus,
+    onBlur,
+    externalStyle,
+    ...htmlInputProps
+  } = props;
   const [isActive, setIsActive] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -22,7 +32,8 @@ export default function DateInput(props: TDateInputProps & TNativeAttrs) {
       $layer={layer}
       $themeType={themeType}
       $isActive={isActive || !!value} // if the input has a value or is active, the placeholder should be hidden
-      type={type || 'date'}
+      $externalStyle={externalStyle}
+      type={type}
       value={value}
       onFocus={(e) => {
         onFocus && onFocus(e), activeFocusHandler(true);
