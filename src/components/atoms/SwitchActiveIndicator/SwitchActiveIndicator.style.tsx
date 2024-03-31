@@ -16,7 +16,7 @@ const clacCurrentPosition = (props: IClacCurrentPosition) => {
   const itemPosition = $itemNumber * 100 + '%';
 
   // Calculate the gap between the items
-  const gapSpacing = $tabSpacing ? ($itemNumber - 1) * parseFloat(spacingPx[$tabSpacing]) : 0;
+  const gapSpacing = $tabSpacing ? $itemNumber * parseFloat(spacingPx[$tabSpacing]) : 0;
 
   // Calculate the current position of the active indicator
   const currentPosition = $itemNumber
