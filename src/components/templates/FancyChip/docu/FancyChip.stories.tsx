@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import FancyChip from '../FancyChip';
 import templateThemeType from '@/stories/templateSettingsForStorys/templatesForThemeType';
+import { SVGFui } from '@/components/icons/SVGFui';
 
 const meta = {
   component: FancyChip,
@@ -126,7 +127,7 @@ export const WithIcon: Story = {
   render: (args) => <FancyChip {...args} />,
   args: {
     layer: 2,
-    icon: <span>icon</span>,
+    icon: <SVGFui />,
     onDelete: () => console.log('delete'),
     label: 'Chip Label',
     sizeC: 'md',
