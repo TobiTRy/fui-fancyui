@@ -7,7 +7,6 @@ const meta = {
   component: FancyTabSwitch,
   title: 'components/organisms/FancyTabSwitch',
   parameters: {
-    layout: 'centered',
     docs: {
       description: {
         component:
@@ -93,7 +92,7 @@ export const Primary: Story = {
       { itemKey: '2', label: 'Tab 2' },
       { itemKey: '3', label: 'Tab 3' },
     ],
-
+    sizeC: 'sm',
     label: 'FancyTabSwitch',
     currentSelect: '2',
     handler: () => {
@@ -101,7 +100,7 @@ export const Primary: Story = {
     },
     themeType: 'primary',
     wide: true,
-    layer: 4,
+    layer: 2,
     disabled: false,
   },
 };

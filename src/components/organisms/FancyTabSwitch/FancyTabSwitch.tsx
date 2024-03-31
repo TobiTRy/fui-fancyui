@@ -4,7 +4,6 @@ import { Fieldset } from '@/components/molecules/Fieldset';
 import { TabSwitch } from '@/components/molecules/TabSwitch';
 import { FancyBox } from '@/components/atoms/FancyBox';
 
-import { tabSwitchSizes } from '@/components/molecules/TabSwitch/TabSwitch.style';
 import { FancyTabSwitchWithTabSwitchAtts } from './TFancyTabSwitch.model';
 import { getOpositMainThemeType } from '@/design/designFunctions/getOpositMainThemeType';
 
@@ -37,7 +36,7 @@ export default function FancyTabSwitch(props: FancyTabSwitchWithTabSwitchAtts) {
         layer={layer}
         borderRadius={borderRadius}
         externalStyle={css`
-          padding: ${sizeC ? tabSwitchSizes[sizeC].paddingComponent : '0'};
+          padding: ${sizeC ? '' : '0'};
           overflow: hidden;
           background-color: ${themeType === 'transparent' && 'transparent'};
           border: ${themeType === 'transparent' && 'solid 1.5px transparent'};
