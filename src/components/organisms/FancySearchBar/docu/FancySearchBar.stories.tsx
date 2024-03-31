@@ -6,6 +6,7 @@ import FancySearchBar from '../FancySearchBar';
 
 import { FancyLoadingSpinner } from '../../../atoms/FancyLoadingSpinner';
 import templateThemeType from '@/stories/templateSettingsForStorys/templatesForThemeType';
+import { useEffect, useState } from 'react';
 
 // Define metadata for the story
 const meta = {
@@ -16,6 +17,9 @@ const meta = {
       description: {
         component:
           'The FancySearchBar component is a sophisticated UI element designed for React applications, facilitating user interaction through a searchable input field. This component enhances the search experience by providing visual feedback and customizable features, such as themed backgrounds, dynamic list display based on input focus or content, and integration with styled-components for a seamless design fit within a project´s overall aesthetic.',
+      },
+      story: {
+        height: '300px',
       },
     },
   },
@@ -69,11 +73,28 @@ export default meta;
 // Define the story object
 type Story = StoryObj<typeof meta>;
 
+const HanldeState = (props: Story['args']) => {
+  const [value, setValue] = useState<string>('');
+
+  useEffect(() => {
+    setValue(props?.value ?? '');
+  }, [props?.value]);
+
+  const changeHandler = (e?: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e?.target.value;
+    setValue(value ?? '');
+  };
+
+  return <FancySearchBar value={value} onChange={changeHandler} {...props} />;
+};
+
 // Define the primary story
 export const Primary: Story = {
-  render: (args) => <FancySearchBar {...args} />,
+  render: (args) => <HanldeState {...args} />,
   args: {
     searchListWidth: '100%',
+    themeType: 'primary',
+    sizeC: 'md',
     layer: 1,
     children: (
       <div style={{ display: 'flex', justifyContent: 'center', padding: '1rem' }}>

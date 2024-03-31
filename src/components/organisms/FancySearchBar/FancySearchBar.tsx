@@ -13,7 +13,7 @@ export default function FancySearchBar(props: TFancySearchBarWithHTMLProps) {
     openListWhenFocused,
     themeType = 'primary',
     layer = 0,
-    sizeC = 'sm',
+    sizeC = 'md',
     borderRadius,
     externalStyle,
     className,
