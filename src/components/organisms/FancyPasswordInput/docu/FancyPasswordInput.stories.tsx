@@ -115,7 +115,7 @@ export const Primary: Story = {
   args: {
     align: 'left',
     themeType: 'primary',
-    layer: 4,
+    layer: 2,
     label: 'Password',
     icon: <SVGCheckMark />,
   },
@@ -138,7 +138,7 @@ export const WithSuccessState: Story = {
   args: {
     align: 'left',
     themeType: 'primary',
-    layer: 4,
+    layer: 2,
     label: 'Password',
     icon: <SVGCheckMark />,
     systemMessage: { type: 'success', message: 'This is an success message' },
@@ -150,7 +150,7 @@ export const WithInfoState: Story = {
   args: {
     align: 'left',
     themeType: 'primary',
-    layer: 4,
+    layer: 2,
     label: 'Password',
     icon: <SVGCheckMark />,
     systemMessage: { type: 'info', message: 'This is an info message' },
@@ -162,7 +162,7 @@ export const WithDisabledState: Story = {
   args: {
     align: 'left',
     themeType: 'primary',
-    layer: 4,
+    layer: 2,
     label: 'Password',
     icon: <SVGCheckMark />,
     disabled: true,
