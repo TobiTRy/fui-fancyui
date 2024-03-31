@@ -134,7 +134,6 @@ export const EmptySelect: Story = {
     layer: 2,
     label: 'Date',
     themeType: 'primary',
-    value: '2021',
     emptySelect: true,
     disabled: false,
     transparentBackground: false,
