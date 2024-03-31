@@ -120,6 +120,12 @@ const meta = {
         type: 'text',
       },
     },
+    textHover: {
+      description: 'This prop will change the text hover color of the button',
+      control: {
+        type: 'text',
+      },
+    },
   },
 } satisfies Meta<typeof FancyButton>;
 
@@ -241,6 +247,7 @@ export const Transparent: Story = {
     label: 'Button',
     sizeC: 'md',
     align: 'center',
+    textHover: 'secondary',
     layer: 0,
     outlined: false,
     isLoading: false,
