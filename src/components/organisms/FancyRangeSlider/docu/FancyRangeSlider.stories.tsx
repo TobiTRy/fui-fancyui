@@ -94,6 +94,15 @@ const meta = {
         defaultValue: { summary: false },
       },
     },
+    outlined: {
+      description: 'Whether the input is outlined',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: false },
+      },
+    },
   },
 } satisfies Meta<typeof FancyRangeSlider>;
 

@@ -4,7 +4,7 @@ import { InputWrapper } from '@/components/molecules/InputWrapper';
 import { FancyNumberInput } from '@/components/organisms/FancyNumberInput';
 import { clampLayer } from '@/utils/functions/clampLayer';
 import { RawSlider } from '@/components/atoms/RawSlider';
-import countNegativLayerUpwards from '@/design/designFunctions/countNegativLayerUpwards/countNegativLayerUpwards';
+import { countNegativLayerUpwards } from '@/design/designFunctions/countNegativLayerUpwards';
 
 import { TFancyRangeSlider } from './TFancyRangeSlider.model';
 import { InputElementWrapper, generateInputWrapperStyles } from './FancyRangeSlider.style';
