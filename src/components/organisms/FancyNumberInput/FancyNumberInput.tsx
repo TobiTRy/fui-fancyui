@@ -4,6 +4,7 @@ import { css } from 'styled-components';
 import { NumberInput } from '@/components/atoms/NumberInput';
 import { InputWrapper } from '@/components/molecules/InputWrapper';
 import { TFancyNumberInput } from './TFancyNumberInput.model';
+import { getOpositMainThemeType } from '@/design/designFunctions/getOpositMainThemeType';
 
 // --------------------------------------------------------------------------- //
 // ----The NumberInput Comonent with surrounding icon, label and underline --- //
@@ -55,6 +56,7 @@ export default function FancyNumberInput(props: TFancyNumberInput) {
           id={usedId}
           value={value}
           align={align}
+          themeType={getOpositMainThemeType(themeType)}
           disabled={disabled}
           onFocus={(e) => {
             onFocus && onFocus(e);

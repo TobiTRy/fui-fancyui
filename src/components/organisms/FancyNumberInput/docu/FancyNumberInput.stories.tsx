@@ -146,7 +146,7 @@ export const WithErrorState: Story = {
   render: (args) => <HelperFunctions {...args} />,
   args: {
     align: 'left',
-    themeType: 'secondary',
+    themeType: 'primary',
     layer: 2,
     label: 'Number',
     labelVariant: 'animated',
@@ -160,7 +160,7 @@ export const WithSuccessState: Story = {
   render: (args) => <HelperFunctions {...args} />,
   args: {
     align: 'left',
-    themeType: 'secondary',
+    themeType: 'primary',
     layer: 2,
     labelVariant: 'animated',
     label: 'Number',
@@ -174,7 +174,7 @@ export const WithInfoState: Story = {
   render: (args) => <HelperFunctions {...args} />,
   args: {
     align: 'left',
-    themeType: 'secondary',
+    themeType: 'primary',
     layer: 2,
     label: 'Number',
     labelVariant: 'animated',
@@ -188,7 +188,7 @@ export const WithDisabledState: Story = {
   render: (args) => <HelperFunctions {...args} />,
   args: {
     align: 'left',
-    themeType: 'secondary',
+    themeType: 'primary',
     layer: 2,
     labelVariant: 'animated',
     label: 'Number',
