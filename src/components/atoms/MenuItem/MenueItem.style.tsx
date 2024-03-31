@@ -11,6 +11,7 @@ import { TSpacingArray } from '@/types/TSpacings';
 import { TStyledPrefixAndOmiter } from '@/types/TStyledPrefixAndOmiter';
 import { TTheme } from '@/types/TTheme';
 import { TMenueItem } from './TMenueItem.model';
+import { getOpositMainThemeType } from '@/design/designFunctions/getOpositMainThemeType';
 
 type IStyledMenuItem = TStyledPrefixAndOmiter<TMenueItem, 'children'> & { theme?: TTheme; $padding?: TSpacingArray };
 export const StyledMenuItem = styled.button<IStyledMenuItem>`
@@ -22,7 +23,8 @@ export const StyledMenuItem = styled.button<IStyledMenuItem>`
   background-color: transparent;
   border: none;
   text-decoration: none;
-  color: ${({ theme, $themeType }) => getTextColor({ theme, $themeType: $themeType ?? 'secondary', $textLayer: 1 })};
+  color: ${({ theme, $themeType }) =>
+    getTextColor({ theme, $themeType: getOpositMainThemeType($themeType), $textLayer: 1 })};
 
   &:hover {
     background-color: ${({ theme, $themeType, $layer }) =>
