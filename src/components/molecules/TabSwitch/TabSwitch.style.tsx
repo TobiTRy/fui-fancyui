@@ -1,34 +1,16 @@
 import { CSSProp, styled } from 'styled-components';
 
 import { spacingPx } from '@/design/theme/designSizes';
-import { themeStore } from '@/design/theme/themeStore';
 
 import { TTheme } from '@/types/TTheme';
 import { TSpacings } from '@/types/TSpacings';
 import { disabledStyle } from '@/design/designFunctions/disabledStyle';
-import { TThemeArrayOrValueCSS, arrayToCssValues } from '@/design/designFunctions/arrayToCssValues';
-// Define the different sizes for the tab switch
-const getSpacingFromTheme = themeStore.getState().theme.spacing;
-
-// eslint-disable-next-line react-refresh/only-export-components
-export const tabSwitchSizes = {
-  sm: {
-    paddingComponent: '0px',
-  },
-  md: {
-    paddingComponent: getSpacingFromTheme.xxs,
-  },
-  lg: {
-    paddingComponent: getSpacingFromTheme.xxs,
-  },
-};
 
 // Define the interface for the styled-component
 export interface IFancyTabSwitchStyle {
   $wide?: boolean;
   $tabSpacing?: TSpacings;
   $direction?: 'horizontal' | 'vertical';
-  $borderRadius?: TThemeArrayOrValueCSS;
   $disabled?: boolean;
 }
 
@@ -42,7 +24,6 @@ export const ULButtonSwitchList = styled.ul<IFancyTabSwitchStyle & { theme: TThe
   grid-auto-rows: 1fr;
   grid-auto-columns: 1fr;
   gap: ${({ $tabSpacing }) => ($tabSpacing ? spacingPx[$tabSpacing] : '0')};
-  border-radius: ${({ $borderRadius }) => ($borderRadius ? arrayToCssValues($borderRadius) : '0')};
   ${({ $wide }) => $wide && `justify-content: space-between`};
   align-items: center;
   margin: 0;

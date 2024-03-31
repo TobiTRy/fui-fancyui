@@ -1,11 +1,17 @@
 import React, { useRef, useState } from 'react';
 
-import { ItemWrapper, ULButtonSwitchList, tabSwitchSizes } from './TabSwitch.style';
+import { ItemWrapper, ULButtonSwitchList } from './TabSwitch.style';
 import { FancyTabSwitchButton } from '@/components/molecules/FancyTabSwitchButton';
 import { SwitchActiveIndicator } from '@/components/atoms/SwitchActiveIndicator';
 import { TTabSwitch } from './TTabSwitch.model';
 import { themeStore } from '@/design/theme/themeStore';
 import { calcBorderRadiusWithPadding } from '@/design/designFunctions/calcBorderRadiusWithPadding';
+import { sizeSettings } from './sizeSettings';
+import { getThemeOrValueAsCSS } from '@/design/designFunctions/getThemeOrValueAsCss';
+import {
+  generateBorderRadiusForComponent,
+  generateBorderRadiusForComponentOnlyValue,
+} from '@/design/designFunctions/generateBorderRadiusForComponent';
 
 // --------------------------------------------------------------------------- //
 // ------------ The tap SwitchComponent to slect specifc values -------------- //
@@ -15,7 +21,7 @@ export default function TabSwitch(props: TTabSwitch) {
     values,
     textColor = 'secondary',
     textLayer = 0,
-    sizeC,
+    sizeC = 'md',
     wide,
     disabled,
     tabSpacing,
@@ -32,8 +38,6 @@ export default function TabSwitch(props: TTabSwitch) {
   // Define the state for the currently selected tab
   const buttonRefs = useRef<React.RefObject<HTMLDivElement>[]>(values.map(() => React.createRef<HTMLDivElement>()));
   const [currentSelected, setCurrentSelect] = useState(currentSelect);
-
-  const themeBorderRadius = themeStore((state) => state.theme.borderRadius);
 
   // Define the function to handle the selection of a tab
   const radioChangeHandler = (position: string) => {
@@ -60,10 +64,11 @@ export default function TabSwitch(props: TTabSwitch) {
     }
   };
 
+  console.log('borderRadius', borderRadius);
+
   return (
     <ULButtonSwitchList
       $tabSpacing={tabSpacing}
-      $borderRadius={borderRadius}
       $wide={wide}
       $direction={direction}
       $disabled={disabled}
@@ -92,14 +97,7 @@ export default function TabSwitch(props: TTabSwitch) {
             <SwitchActiveIndicator
               outlined={outlined}
               // the radius of the switch indicator is adjusted for good looks with minus the padding of the switch
-              borderRadius={
-                borderRadius
-                  ? calcBorderRadiusWithPadding(
-                      themeBorderRadius[borderRadius],
-                      tabSwitchSizes[sizeC || 'sm'].paddingComponent
-                    )
-                  : undefined
-              }
+              borderRadius={borderRadius ? borderRadius : generateBorderRadiusForComponentOnlyValue({ sizeC })}
               type={indicatorType ?? 'bolb'}
               itemNumber={values.findIndex((item) => item.itemKey === currentSelected)}
               themeType={activeColor}
