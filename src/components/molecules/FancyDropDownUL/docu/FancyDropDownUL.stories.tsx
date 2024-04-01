@@ -12,6 +12,9 @@ const meta = {
         component:
           'The FancyDropDownUL component is a customizable dropdown list component in React, designed to provide a flexible way to display a list of items with various design and alignment options.',
       },
+      story: {
+        height: '300px',
+      },
     },
   },
   argTypes: {
