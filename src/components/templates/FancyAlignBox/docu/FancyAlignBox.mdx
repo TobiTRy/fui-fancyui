@@ -1,0 +1,59 @@
+import { Meta, Title, Description, Controls, Canvas } from '@storybook/blocks';
+
+import * as FancyAlignBoxStories from './FancyAlignBox.stories';
+
+<Meta of={FancyAlignBoxStories} />
+
+<Title />
+
+<Description />
+
+## Setup Instructions
+
+To use the `FancyAlignBox` component in your project, ensure that you have the `TextInput` and `InputWrapper` components available within your project structure, typically under the `atoms` and `molecules` directories, respectively. Import the `FancyTextInput` component where you need to use it:
+
+1. Import the `FancyAlignBox` component where you intend to use it:
+
+```jsx
+import { FancyAlignBox } from 'fui-fancyui';
+```
+
+2. If using TypeScript, you can import the type definitions for prop validation:
+
+```jsx
+import { TFancyAlignBox } from 'fui-fancyui';
+```
+
+After installing the required library, you can import and use the `FancyTextInput` component in your project as follows:
+
+### Example Usage
+
+```jsx
+<FancyAlignBox
+  as="section"
+  justify="center"
+  align="center"
+  direction="row"
+  gap="10px"
+  padding="20px"
+  margin="5px"
+  externalStyle={{ boxShadow: '0px 4px 10px rgba(0,0,0,0.05)' }}
+>
+  <div>Your Content Here</div>
+</FancyAlignBox>
+```
+
+This example creates a section with centered content, both horizontally and vertically, with a row direction, specified gap, padding, and margin. It also applies an external shadow style.
+
+<Canvas />
+
+### Component Properties
+
+<Controls />
+
+## List of Used Components
+
+- **SpacingsContainer**: Used as a wrapper for applying margin, padding, and custom styles.
+- **FancyFlexBox**: A flexbox component that supports alignment, direction, gap, and optionally a separator between items.
+
+This setup offers a highly customizable box component that can adapt to various layout requirements, simplifying the process of achieving precise spacing and alignment in your React applications.

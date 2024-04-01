@@ -11,7 +11,8 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component: '',
+        component:
+          '`FancyAlignBox` is a composite React component that combines spacing and flexbox layout functionalities. It uses `SpacingsContainer` for applying margin, padding, and external styles, and `FancyFlexBox` for flexbox properties like alignment, direction, and gap. This component is designed to facilitate the creation of layouts with specific spacing and alignment needs.',
       },
     },
   },
@@ -46,6 +47,21 @@ const meta = {
         defaultValue: { summary: 'div' },
       },
     },
+    gap: {
+      description: 'The gap between the children',
+      control: {
+        type: 'text',
+      },
+    },
+    fitBox: {
+      description: 'The container will fit the content',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: false },
+      },
+    },
   },
 } satisfies Meta<typeof FancyAlignBox>;
 
@@ -56,6 +72,21 @@ type Story = StoryObj<typeof meta>;
 
 // Define the primary story
 export const Primary: Story = {
-  render: (args) => <FancyAlignBox {...args} />,
-  args: {},
+  render: (args) => (
+    <FancyAlignBox {...args}>
+      <div>Content1</div>
+      <div>Content2</div>
+      <div>Content3</div>
+    </FancyAlignBox>
+  ),
+  args: {
+    padding: '12px',
+    margin: '12px',
+    gap: '12px',
+    externalStyle: {
+      border: '1px solid white',
+      backgroundColor: 'coral',
+      height: '300px',
+    },
+  },
 };
