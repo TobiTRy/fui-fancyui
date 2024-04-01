@@ -1,16 +1,12 @@
 import Color from 'color';
 
 import { Indicator, WrapperIndicator } from './ColorIndicator.style';
+import { TColorIndicator } from '@/components/atoms/ColorIndicator';
 
-interface IColorIndicator {
-  position?: { x?: number | string; y?: number | string };
-  color: string;
-  isActive: boolean;
-}
 // --------------------------------------------------------------------------- //
 // ---------- The colorIndicator to displays the color in a bubble  ---------- //
 // --------------------------------------------------------------------------- //
-export default function ColorIndicator({ position, color, isActive }: IColorIndicator) {
+export default function ColorIndicator({ position, color, isActive }: TColorIndicator) {
   const positionTop = position?.y ?? '50%';
   const positionLeft = position?.x ?? '50%';
 
