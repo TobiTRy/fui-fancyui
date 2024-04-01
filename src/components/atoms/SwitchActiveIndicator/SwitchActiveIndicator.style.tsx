@@ -63,7 +63,10 @@ export const ActiveSwitchIndicator = styled.span<ActiveSwitchIndicatorGenerator 
 `;
 
 // the wrapper that handles the position of the active indicator
-type IWrapper = TStyledPrefixAndPicker<TActiveSwitchIndicator, 'itemNumber' | 'tabSpacing' | 'direction'>;
+type IWrapper = TStyledPrefixAndPicker<
+  TActiveSwitchIndicator,
+  'itemNumber' | 'tabSpacing' | 'direction' | 'externalStyle'
+>;
 export const Wrapper = styled.i<IWrapper>`
   top: 0;
   display: flex;
@@ -76,4 +79,5 @@ export const Wrapper = styled.i<IWrapper>`
   cursor: pointer;
   transition: transform 0.2s ease;
   ${({ $itemNumber, $tabSpacing, $direction }) => clacCurrentPosition({ $itemNumber, $tabSpacing, $direction })}
+  ${({ $externalStyle }) => $externalStyle}
 `;
