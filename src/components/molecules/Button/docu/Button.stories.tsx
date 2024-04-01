@@ -88,7 +88,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
-  render: (args) => <Button {...args} />,
+  render: (args) => <Button {...args}>HI</Button>,
   args: {
     themeType: 'accent',
     sizeC: 'md',
@@ -99,18 +99,7 @@ export const Primary: Story = {
 };
 
 export const Outlined: Story = {
-  render: (args) => <Button {...args} />,
-  args: {
-    themeType: 'accent',
-    sizeC: 'md',
-    layer: 0,
-    outlined: true,
-    wide: false,
-  },
-};
-
-export const OneToOne: Story = {
-  render: (args) => <Button {...args} />,
+  render: (args) => <Button {...args}>HI</Button>,
   args: {
     themeType: 'accent',
     sizeC: 'md',
