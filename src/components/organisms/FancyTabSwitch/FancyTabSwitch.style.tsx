@@ -1,7 +1,6 @@
 import { styled } from 'styled-components';
 
 import { borderRadius, spacingPx } from '@/design/theme/designSizes';
-import { tabSwitchSizes } from '@/components/molecules/TabSwitch/TabSwitch.style';
 import { TLayer } from '@/types/TLayer';
 import { TTheme } from '@/types/TTheme';
 import { TBorderRadiusSizes } from '@/types/TBorderRadiusSizes';
@@ -15,7 +14,6 @@ export interface IFancyTabSwitchStyle {
   $tabSpacing?: TSpacings;
   $direction?: 'horizontal' | 'vertical';
   $rounded?: TBorderRadiusSizes;
-  $padding?: keyof typeof tabSwitchSizes;
   $outlined?: boolean;
   theme: TTheme;
   $layer?: TLayer;

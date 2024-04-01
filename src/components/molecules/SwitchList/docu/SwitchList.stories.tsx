@@ -10,7 +10,8 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component: 'Dumb-Comonent: A SwitchList that used to indicate which item is active',
+        component:
+          'The `SwitchList` component is designed to render a list of items, with functionality to indicate which item is currently active. This component is highly customizable, allowing for different styles and behaviors to be applied to the active and hover states of the list items. It leverages the `FancyFlexBox` component for layout and `SwitchActiveIndicator` for displaying the active item indicator. The component also supports external styling and custom gap sizes between items, making it versatile for various UI needs.',
       },
     },
   },
