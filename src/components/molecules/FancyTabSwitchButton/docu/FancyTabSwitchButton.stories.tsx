@@ -20,7 +20,7 @@ const meta = {
     docs: {
       description: {
         component:
-          'The FancyTabSwitchButton component is a React component designed to act as a stylized tab switch button, leveraging the flexibility and styling capabilities of styled-components and React´s compositional patterns. This component utilizes the Typography atom and the FancyContent molecule for its internal structure, aiming to provide a rich, customizable user interface element that can be easily integrated into a variety of web applications.',
+          'The `FancyTabSwitchButton` component is a customizable tab switch button designed for use within a tabbed interface. It utilizes the `Typography` atom for rendering text labels and may include icons. This component is built with flexibility in mind, supporting dynamic alignment, size customization, and theming through external styling. It´s primarily used as a radio button with enhanced UI features for better user interaction and visual appeal.',
       },
     },
   },
