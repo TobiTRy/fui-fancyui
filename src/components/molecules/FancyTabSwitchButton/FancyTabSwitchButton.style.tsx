@@ -1,14 +1,13 @@
 import { CSSProp, css, styled } from 'styled-components';
 
-import { sizeSettings } from './sizeSettings';
 import { TThemeArrayOrValueCSS, arrayToCssValues } from '@/design/designFunctions/arrayToCssValues';
-import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent';
+import { simpleColorTransition } from '@/design/designFunctions/simpleColorTransition';
 import { themeStore } from '@/design/theme/themeStore';
 import { TComponentSizes } from '@/types/TComponentSizes';
 import { TLayer } from '@/types/TLayer';
 import { TTheme } from '@/types/TTheme';
 import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
-import { simpleColorTransition } from '@/design/designFunctions/simpleColorTransition';
+import { sizeSettings } from './sizeSettings';
 
 // ------------------------------------------------------------------ //
 // ----------- the helperfunctions for the style generate ----------- //

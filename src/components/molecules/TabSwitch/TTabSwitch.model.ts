@@ -21,7 +21,8 @@ export type TTabSwitch = {
   outlined?: boolean;
   currentSelect?: string;
   iconAlign?: 'left' | 'right';
-  activeColor?: TUiColorsNotTransparent;
+  switchIndicatorThemeType?: TUiColorsNotTransparent;
+  activeTextThemeType?: TUiColorsMain;
   handler?: (value: string) => void;
 };
 

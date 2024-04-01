@@ -1,17 +1,10 @@
 import React, { useRef, useState } from 'react';
 
-import { ItemWrapper, ULButtonSwitchList } from './TabSwitch.style';
-import { FancyTabSwitchButton } from '@/components/molecules/FancyTabSwitchButton';
 import { SwitchActiveIndicator } from '@/components/atoms/SwitchActiveIndicator';
+import { FancyTabSwitchButton } from '@/components/molecules/FancyTabSwitchButton';
+import { generateBorderRadiusForComponentOnlyValue } from '@/design/designFunctions/generateBorderRadiusForComponent';
 import { TTabSwitch } from './TTabSwitch.model';
-import { themeStore } from '@/design/theme/themeStore';
-import { calcBorderRadiusWithPadding } from '@/design/designFunctions/calcBorderRadiusWithPadding';
-import { sizeSettings } from './sizeSettings';
-import { getThemeOrValueAsCSS } from '@/design/designFunctions/getThemeOrValueAsCss';
-import {
-  generateBorderRadiusForComponent,
-  generateBorderRadiusForComponentOnlyValue,
-} from '@/design/designFunctions/generateBorderRadiusForComponent';
+import { ItemWrapper, ULButtonSwitchList } from './TabSwitch.style';
 
 // --------------------------------------------------------------------------- //
 // ------------ The tap SwitchComponent to slect specifc values -------------- //
@@ -31,7 +24,8 @@ export default function TabSwitch(props: TTabSwitch) {
     currentSelect,
     handler,
     iconAlign,
-    activeColor,
+    activeTextThemeType,
+    switchIndicatorThemeType,
     indicatorType,
   } = props;
 
@@ -64,8 +58,6 @@ export default function TabSwitch(props: TTabSwitch) {
     }
   };
 
-  console.log('borderRadius', borderRadius);
-
   return (
     <ULButtonSwitchList
       $tabSpacing={tabSpacing}
@@ -83,6 +75,7 @@ export default function TabSwitch(props: TTabSwitch) {
             disabled={disabled}
             themeType={textColor}
             layer={textLayer}
+            activeTextThemeType={activeTextThemeType}
             iconAlign={iconAlign}
             {...item}
             ref={buttonRefs.current[i]}
@@ -100,7 +93,7 @@ export default function TabSwitch(props: TTabSwitch) {
               borderRadius={borderRadius ? borderRadius : generateBorderRadiusForComponentOnlyValue({ sizeC })}
               type={indicatorType ?? 'bolb'}
               itemNumber={values.findIndex((item) => item.itemKey === currentSelected)}
-              themeType={activeColor}
+              themeType={switchIndicatorThemeType}
               direction={direction}
               tabSpacing={tabSpacing}
             />
