@@ -47,6 +47,15 @@ const meta = {
         defaultValue: { summary: false },
       },
     },
+    outlinedRemoveBorder: {
+      description: 'A boolean indicating whether the border should be removed when outlined is true.',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: { summary: false },
+      },
+    },
     outlinedBackgroundStrength: {
       description: 'Controls the background intensity when outlined is true.',
       control: {
@@ -96,13 +105,6 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   render: (args) => <FancyBox {...args}>Hiii</FancyBox>,
   args: {},
-  parameters: {
-    docs: {
-      description: {
-        story: '',
-      },
-    },
-  },
 };
 
 const headerStyle = css`
