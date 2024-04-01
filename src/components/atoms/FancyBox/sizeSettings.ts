@@ -1,6 +1,5 @@
-import { TSpacings } from '@/types/TSpacings';
-import { TSizeSettings } from '@/types/TSizeSettings';
 import { TThemeArrayOrValueCSS } from '@/design/designFunctions/arrayToCssValues';
+import { TSizeSettings } from '@/types/TSizeSettings';
 
 type TSizeObj = {
   padding: TThemeArrayOrValueCSS;

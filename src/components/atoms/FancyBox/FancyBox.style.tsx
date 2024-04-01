@@ -6,7 +6,6 @@ import { TTheme } from '@/types/TTheme';
 
 import { TFancyBox } from './FancyBox.model';
 import { TThemeArrayOrValueCSS, arrayToCssValues } from '@/design/designFunctions/arrayToCssValues';
-import { TSpacings } from '@/types/TSpacings';
 import { calcBorderSizeMinusBoxSize } from '@/design/designFunctions/calcBorderSizeMinusBoxSize';
 
 // the fancy box that gets the style from the theme
