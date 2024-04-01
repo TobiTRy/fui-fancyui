@@ -148,14 +148,14 @@ const BottomBarStyle = css`
   position: fixed;
   bottom: 10px;
   width: 100%;
-  padding: 12px 8px 0px 8px;
+  padding: 12px 8px 12px 8px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-radius: 12px 12px 0 0;
 `;
 
-const BottomBarComponent = (args: React.ComponentProps<typeof FancyBox>) => {
+const BottomBarComponent = (args: Story['args']) => {
   const [wichIsActive, setWichIsActive] = React.useState('0');
 
   return (
@@ -190,12 +190,9 @@ const BottomBarComponent = (args: React.ComponentProps<typeof FancyBox>) => {
 
 export const BottomBar: Story = {
   render: (args) => <BottomBarComponent {...args} />,
-  args: {},
-  parameters: {
-    docs: {
-      description: {
-        story: '',
-      },
+  args: {
+    externalStyle: {
+      paddingBottom: '12px',
     },
   },
 };
