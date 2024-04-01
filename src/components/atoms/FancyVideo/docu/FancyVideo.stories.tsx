@@ -56,7 +56,11 @@ type Story = StoryObj<typeof meta>;
 
 // Define the primary story
 export const Primary: Story = {
-  render: (args) => <FancyVideo {...args} />,
+  render: (args) => (
+    <FancyVideo {...args}>
+      <FancyVideo.Source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
+    </FancyVideo>
+  ),
   args: {
     aspectRatio: '16/9',
     muted: false,
