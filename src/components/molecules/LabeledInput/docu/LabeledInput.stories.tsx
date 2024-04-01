@@ -2,13 +2,16 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import { LabeledInput } from '@/components/molecules/LabeledInput';
 import { TextInput } from '@/components/atoms/TextInput';
+import React from 'react';
 
 const meta = {
   component: LabeledInput,
+  title: 'components/molecules/LabeledInput',
   parameters: {
     docs: {
       description: {
-        component: 'Dumb-Comonent: The LabeledInput is a component that wraps an input with a label and an underline. ',
+        component:
+          'The `LabeledInput` component is a customizable input field designed for React applications. It wraps an input element with additional styling and functionality, including a label, placeholder behaviors, and an optional underline feature. The component is highly configurable, supporting various themes, alignment options, and input states to fit different UI designs.',
       },
     },
   },
@@ -65,15 +68,26 @@ const meta = {
       },
     },
   },
-  tags: ['autodocs'],
 } satisfies Meta<typeof LabeledInput>;
 
 export default meta;
 
 type Story = StoryObj<typeof meta>;
 
+const LabledInputWithState = (props: Story['args']) => {
+  const [value, setValue] = React.useState('');
+
+  return (
+    <LabeledInput
+      {...props}
+      hasValue={!!value}
+      inputElement={<TextInput value={value} onChange={(e) => setValue(e.target.value)} />}
+    />
+  );
+};
+
 export const Primary: Story = {
-  render: (args) => <LabeledInput {...args} />,
+  render: (args) => <LabledInputWithState {...args} />,
   args: {
     id: 'id',
     label: 'Label',

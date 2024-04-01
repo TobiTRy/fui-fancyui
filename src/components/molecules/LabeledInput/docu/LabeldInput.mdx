@@ -1,0 +1,56 @@
+import { Meta, Title, Description, Canvas, Controls } from '@storybook/blocks';
+
+import * as LabeledInputStories from './LabeledInput.stories';
+
+<Meta of={LabeledInputStories} />
+
+<Title />
+
+<Description />
+
+## Setup Instructions
+
+To use the `LabeledInput` in your project, follow these steps:
+
+1. Import the `LabeledInput` component where you intend to use it:
+
+```jsx
+import { LabeledInput } from 'fui-fancyui';
+```
+
+2. If using TypeScript, you can import the type definitions for prop validation:
+
+```jsx
+import { TLabeledInput } from 'fui-fancyui';
+```
+
+### Example Usage
+
+Here's how you can use the `LabeledInput` component within your React application:
+
+```jsx
+<LabeledInput
+  id="email"
+  label="Email Address"
+  hasPlaceholder={true}
+  inputElement={<input type="email" placeholder="Enter your email" />}
+  themeType="primary"
+  underline={true}
+  isActive={false}
+  align="left"
+  labelVariant="animated"
+/>
+```
+
+<Canvas />
+
+### Component Properties
+
+<Controls />
+
+### List of Used Components
+
+- **InputLabel**: A component for displaying the input's label with support for themes, alignment, and animation based on the input state.
+- **FancyLine**: An optional underline component that appears below the input. Its appearance can be customized according to the theme, layer, and active state.
+
+This documentation provides a concise overview and detailed instructions for integrating and utilizing the `LabeledInput` component within your React projects, ensuring flexibility and customizability in your application's forms and inputs.
