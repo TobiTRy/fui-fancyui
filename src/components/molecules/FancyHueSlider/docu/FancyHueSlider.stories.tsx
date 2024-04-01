@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
+import React from 'react';
 import FancyHueSlider from '../FancyHueSlider';
 
 const meta = {
@@ -45,8 +46,14 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
+const HueSliderWithState = (args: Story['args']) => {
+  const [hue, setHue] = React.useState(args?.hue ?? 0);
+
+  return <FancyHueSlider {...args} hue={hue} handler={setHue} />;
+};
+
 export const Primary: Story = {
-  render: (args) => <FancyHueSlider {...args} />,
+  render: (args) => <HueSliderWithState {...args} />,
   args: {
     hue: 0,
     sizeC: 'sm',
