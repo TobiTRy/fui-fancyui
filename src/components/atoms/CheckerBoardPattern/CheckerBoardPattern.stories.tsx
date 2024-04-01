@@ -61,6 +61,9 @@ export const Primary: Story = {
   args: {
     opacity: 1,
     color: '#808080',
-    externalStyle: {},
+    externalStyle: {
+      display: 'block',
+      height: '20px',
+    },
   },
 };
