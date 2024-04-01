@@ -15,6 +15,9 @@ const meta = {
         component:
           'The SimpleDialog component is a versatile dialog container, designed to display content in a modal-like overlay. It leverages @react-spring/web for smooth opening and closing animations, enhancing user experience with a visually appealing fade effect. This component supports customization through theme types, layering, and additional HTML attributes, making it a flexible solution for various UI requirements.',
       },
+      story: {
+        height: '300px',
+      },
     },
   },
   // Define arguments for the story
