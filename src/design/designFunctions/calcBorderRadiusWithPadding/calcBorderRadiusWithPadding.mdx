@@ -1,39 +1,51 @@
-## `calcBorderRadiusWithPadding` Function
+## Component Title
 
-### Brief Description
+`calcBorderRadiusWithPadding`
 
-The `calcBorderRadiusWithPadding` function dynamically calculates the CSS value for border-radius by optionally adding or subtracting padding values. It supports varying the calculations based on the inset flag. This utility function is especially useful when you need to adjust the border-radius of elements in response to dynamic padding sizes while ensuring the visual integrity of the component.
+## Brief Description
 
-### Setup Instructions
+This component is a utility function designed to calculate and return a new CSS border-radius value by adding or subtracting padding values from the original border-radius. It supports theme values (`'sm'`, `'md'`, `'lg'`) and explicit string values (e.g., `'12px'`, `'24'`) for both border-radius and padding. This function is flexible, accepting single values or arrays of values for both parameters, and includes an option to specify whether the padding should be inset (subtracted) or outset (added).
 
-1. Ensure your project supports modern JavaScript or TypeScript.
-2. Copy the `calcBorderRadiusWithPadding` function into a suitable utility file in your project, such as `utils.js` or `styles.js`.
+## Setup Instructions
 
-### Example Usage
+To use the `FancyRadio` in your project, follow these steps:
 
-Here's an example demonstrating how to use the `calcBorderRadiusWithPadding` function in a React component to adjust the border-radius:
+1. Import the `calcBorderRadiusWithPadding` component where you intend to use it:
 
 ```jsx
-import React from 'react';
-import { calcBorderRadiusWithPadding } from 'fui-fancyui'; // Adjust the import path as needed
-
-const BoxComponent = ({ borderRadius, padding }) => {
-  const adjustedBorderRadius = calcBorderRadiusWithPadding(borderRadius, padding);
-
-  return <div style={{ borderRadius: adjustedBorderRadius, padding }}>Content with dynamic border-radius</div>;
-};
-
-export default BoxComponent;
+import { calcBorderRadiusWithPadding } from 'fui-fancyui';
 ```
 
-### Component Properties
+2. If using TypeScript, you can import the type definitions for prop validation:
 
-- **borderRadius (string)**: The initial border-radius value(s). Must include units (e.g., '10px').
-- **padding (string)**: The padding value(s) to adjust the border-radius by. Must include units (e.g., '5px').
-- **inset (boolean)**: Optional. Determines whether the padding is added or subtracted from the border-radius. Default is `true` (subtract).
+```jsx
+import { TThemeArrayOrValueCSS } from 'fui-fancyui';
+```
 
-### List of Used Components
+After installing the required library, you can import and use the `FancyRadio` component in your project as follows:
 
-No other React components are directly used within this function. However, it employs JavaScript's built-in `console.error` for error reporting and `Array.map` for array manipulation, which are standard JavaScript features.
+## Example Usage
 
-This documentation covers the primary aspects of the `calcBorderRadiusWithPadding` function, including its purpose, usage, and technical details. Ensure to integrate and test it within your project context to confirm its compatibility and effectiveness.
+To use `calcBorderRadiusWithPadding` in your project, call the function with your desired border-radius and padding values. Here is an example that demonstrates both inset and outset padding calculations:
+
+```javascript
+// For inset padding
+const insetBorderRadius = calcBorderRadiusWithPadding(['md', 'lg'], ['12px', '24px'], true);
+console.log(insetBorderRadius); // Example output: "calc(16px - 12px) calc(24px - 24px)"
+
+// For outset padding
+const outsetBorderRadius = calcBorderRadiusWithPadding('sm', '12px', false);
+console.log(outsetBorderRadius); // Example output: "calc(8px + 12px)"
+```
+
+## Component Properties
+
+- **borderRadius** (`TThemeArrayOrValueCSS`): The original border-radius values. Can be a single value or an array of values. Accepts theme values (`'sm'`, `'md'`, `'lg'`) or explicit string values (e.g., `'12px'`).
+- **padding** (`TThemeArrayOrValueCSS`): The padding values to add or subtract from the border-radius. Can be a single value or an array of values, similar to borderRadius.
+- **inset** (`boolean`): Optional. Specifies whether the padding should be inset (subtracted) or outset (added). Defaults to `true`.
+
+## List of Used Components
+
+- **TThemeArrayOrValueCSS**: A type definition that ensures the input values for border-radius and padding conform to the expected formats (theme values or explicit string values).
+
+- **getThemeOrValueAsCSS**: A utility function used to convert the provided theme values or explicit string values into valid CSS values, specifically designed for handling spacing-related properties.
