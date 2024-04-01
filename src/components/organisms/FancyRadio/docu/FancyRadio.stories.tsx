@@ -104,6 +104,8 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   render: (args) => <FancyRadio {...args} />,
   args: {
+    layer: 2,
+    themeType: 'primary',
     align: 'left',
     label: 'Label',
     description: 'Description',
