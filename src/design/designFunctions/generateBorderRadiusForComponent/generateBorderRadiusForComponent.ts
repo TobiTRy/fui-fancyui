@@ -11,7 +11,7 @@ type TBorderRadius = {
 
 export const generateBorderRadiusForComponent = (props: TBorderRadius) => {
   const { borderRadius, sizeC } = props;
-  if (borderRadius === false) return 0;
+  if (borderRadius === false) return '0';
 
   if (borderRadius) {
     return css`
@@ -28,7 +28,7 @@ export const generateBorderRadiusForComponent = (props: TBorderRadius) => {
 
 export const generateBorderRadiusForComponentOnlyValue = (props: TBorderRadius) => {
   const { borderRadius, sizeC } = props;
-  if (borderRadius === false) return 0;
+  if (borderRadius === false) return '0';
 
   if (borderRadius) {
     return arrayToCssValues(borderRadius, 'borderRadius');
