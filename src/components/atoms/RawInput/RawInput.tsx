@@ -4,7 +4,7 @@ import { TRawInputWith$ } from './TRawInput.model';
 import { TTheme } from '@/types/TTheme';
 import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent';
 
-const RawInput = styled.input<TRawInputWith$ & { theme: TTheme }>`
+const RawInput = styled.input<TRawInputWith$ & { theme?: TTheme }>`
   font-weight: 500;
   width: 100%;
   box-sizing: border-box;

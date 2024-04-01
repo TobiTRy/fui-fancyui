@@ -11,6 +11,9 @@ const meta = {
         component:
           'The `Modal` component serves as a customizable container for modal dialogues in React applications, leveraging the fundamental `SimpleDialog` and `BackDrop` atoms. It´s designed to provide developers with a flexible way to display content in a modal window, with options for customizing the appearance, behavior, and structure of the modal. The component allows for controlled visibility, an optional backdrop for dismissing the modal, and customizable themes and layers.',
       },
+      story: {
+        height: '300px',
+      },
     },
   },
   argTypes: {

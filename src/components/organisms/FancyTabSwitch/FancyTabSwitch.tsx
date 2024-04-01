@@ -4,9 +4,11 @@ import { Fieldset } from '@/components/molecules/Fieldset';
 import { TabSwitch } from '@/components/molecules/TabSwitch';
 import { FancyBox } from '@/components/atoms/FancyBox';
 
-import { tabSwitchSizes } from '@/components/molecules/TabSwitch/TabSwitch.style';
 import { FancyTabSwitchWithTabSwitchAtts } from './TFancyTabSwitch.model';
 import { getOpositMainThemeType } from '@/design/designFunctions/getOpositMainThemeType';
+import { generateBorderRadiusForComponentOnlyValue } from '@/design/designFunctions/generateBorderRadiusForComponent';
+import { calcBorderRadiusWithPadding } from '@/design/designFunctions/calcBorderRadiusWithPadding';
+import { arrayToCssValues } from '@/design/designFunctions/arrayToCssValues';
 
 // --------------------------------------------------------------------------- //
 // -----  The FancyTabswich has more advanced features like Label etc. ------- //
@@ -18,26 +20,35 @@ export default function FancyTabSwitch(props: FancyTabSwitchWithTabSwitchAtts) {
     textLayer = 2,
     themeType = 'primary',
     layer = 2,
-    sizeC,
+    sizeC = 'sm',
     disabled,
+    spacingToEdge,
     outlined,
     borderRadius,
     wide,
     className,
+    activeTextColor,
+    switchIndicatorThemeType,
     ...tabSwitchProps
   } = props;
 
-  /* Generate the unordered list for the tab switch */
-  /* border-radius: ${rounded && borderRadius[rounded]}; */
+  console.log(
+    calcBorderRadiusWithPadding(
+      generateBorderRadiusForComponentOnlyValue({ borderRadius, sizeC }) ?? '0',
+      spacingToEdge ?? '0'
+    )
+  );
+
   return (
     <Fieldset label={label} disabled={disabled} className={className}>
       <FancyBox
         outlined={outlined}
+        outlinedRemoveBorder={true}
         themeType={themeType}
         layer={layer}
-        borderRadius={borderRadius}
+        borderRadius={generateBorderRadiusForComponentOnlyValue({ borderRadius, sizeC })}
         externalStyle={css`
-          padding: ${sizeC ? tabSwitchSizes[sizeC].paddingComponent : '0'};
+          padding: ${arrayToCssValues(spacingToEdge, 'borderRadius')};
           overflow: hidden;
           background-color: ${themeType === 'transparent' && 'transparent'};
           border: ${themeType === 'transparent' && 'solid 1.5px transparent'};
@@ -48,7 +59,12 @@ export default function FancyTabSwitch(props: FancyTabSwitchWithTabSwitchAtts) {
           textLayer={textLayer}
           values={values}
           outlined={outlined}
-          borderRadius={borderRadius}
+          activeTextThemeType={activeTextColor}
+          switchIndicatorThemeType={switchIndicatorThemeType}
+          borderRadius={calcBorderRadiusWithPadding(
+            generateBorderRadiusForComponentOnlyValue({ borderRadius, sizeC }) ?? '0',
+            spacingToEdge ?? '0'
+          )}
           textColor={getOpositMainThemeType(themeType)}
           wide={wide}
           sizeC={sizeC}

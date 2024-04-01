@@ -84,9 +84,13 @@ type Story = StoryObj<typeof meta>;
 
 // Define the primary story
 export const Primary: Story = {
-  render: (args) => <SwitchActiveIndicator {...args} />,
+  render: (args) => (
+    <div style={{ position: 'relative' }}>
+      <SwitchActiveIndicator {...args} />
+    </div>
+  ),
   args: {
-    itemNumber: 1,
+    itemNumber: 0,
     tabSpacing: 'md',
     type: 'bolb',
     borderRadius: 'md',
@@ -94,5 +98,9 @@ export const Primary: Story = {
     direction: 'horizontal',
     themeType: 'accent',
     layer: 0,
+    externalStyle: {
+      height: '10px',
+      width: '10px',
+    },
   },
 };

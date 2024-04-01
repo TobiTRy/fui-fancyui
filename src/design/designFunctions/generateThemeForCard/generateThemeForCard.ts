@@ -6,7 +6,7 @@ import colorTransparencyCalculator from '../colorTransparencyCalculator/colorTra
 import { IGenerateThemeForCardProps } from './IGenerateThemeForCardProps';
 
 const generateOutlineStyle = (props: TGenerateColorDesign) => {
-  const { $themeType, theme, $layer = 3, $outlinedBackgroundStrength = 0.5 } = props;
+  const { $themeType, theme, $layer = 3, $outlinedBackgroundStrength = 0.5, $outlinedRemoveBorder } = props;
 
   // get theme background color
   const backgroundColor = getBackgroundColor({ theme, $themeType: $themeType ?? 'primary', $layer: $layer ?? 3 });
@@ -18,7 +18,7 @@ const generateOutlineStyle = (props: TGenerateColorDesign) => {
   );
 
   return css`
-    background-color: ${generateSlightBackgroundColor};
+    background-color: ${$outlinedRemoveBorder && generateSlightBackgroundColor};
     border: 1.5px solid ${backgroundColor};
   `;
 };
@@ -30,12 +30,19 @@ type TGenerateColorDesign = TStyledPrefixAndPicker<IGenerateThemeForCardProps> &
   theme: TTheme;
 };
 export default function generateThemeForCard(props: TGenerateColorDesign) {
-  const { $themeType, theme, $outlined, $layer, $outlinedBackgroundStrength } = props;
+  const { $themeType, theme, $outlined, $layer, $outlinedBackgroundStrength, $outlinedRemoveBorder = true } = props;
   let outlinedStyle, backgroundColor;
 
   // generate the outlined style if the outlined prop is true else generate only the background color
   if ($outlined) {
-    outlinedStyle = generateOutlineStyle({ $outlined, $themeType, theme, $layer, $outlinedBackgroundStrength });
+    outlinedStyle = generateOutlineStyle({
+      $outlined,
+      $themeType,
+      theme,
+      $layer,
+      $outlinedBackgroundStrength,
+      $outlinedRemoveBorder,
+    });
   } else {
     backgroundColor = getBackgroundColor({ theme, $themeType: $themeType ?? 'primary', $layer: $layer ?? 1 });
   }
@@ -43,11 +50,6 @@ export default function generateThemeForCard(props: TGenerateColorDesign) {
   // padding: ${$padding && $themeType !== 'transparent' ? tabSwitchSizes[$padding].paddingComponent : '0'};
   return css`
     background-color: ${$themeType !== 'transparent' && backgroundColor};
-    ${$themeType !== 'transparent' &&
-    backgroundColor &&
-    css`
-      border: 1.5px solid ${backgroundColor};
-    `};
     ${outlinedStyle}
   `;
 }

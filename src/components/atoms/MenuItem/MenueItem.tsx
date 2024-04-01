@@ -7,7 +7,7 @@ import { TMenueItemWithHTMLAttrs } from '@/components/atoms/MenuItem/TMenueItem.
 //A Empty Menue Item that only handles the style you can put everythin as childs//
 // --------------------------------------------------------------------------- //
 export default function MenuItem(props: TMenueItemWithHTMLAttrs) {
-  const { children, as, themeType, layer, sizeC = 'md', align, externalStyle, ...HTMLProps } = props;
+  const { children, as, themeType = 'primary', layer = 1, sizeC = 'md', align, externalStyle, ...HTMLProps } = props;
 
   return (
     <StyledMenuItem

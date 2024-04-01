@@ -6,6 +6,7 @@ export interface IGenerateThemeForCardProps {
   layer?: TLayer;
   themeType?: TUiColorTypes;
   outlinedBackgroundStrength?: number;
+  outlinedRemoveBorder?: boolean;
 }
 
 export default IGenerateThemeForCardProps;

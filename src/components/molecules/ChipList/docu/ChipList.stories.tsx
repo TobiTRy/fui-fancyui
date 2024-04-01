@@ -55,11 +55,11 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   render: (args) => (
     <ChipList {...args}>
-      <FancyChip label="Test" />
-      <FancyChip label="Test" />
-      <FancyChip label="Test" />
-      <FancyChip label="Test" />
-      <FancyChip label="Test" />
+      <FancyChip label="Test" layer={1} />
+      <FancyChip label="Test" layer={1} />
+      <FancyChip label="Test" layer={1} />
+      <FancyChip label="Test" layer={1} />
+      <FancyChip label="Test" layer={1} />
     </ChipList>
   ),
   args: {

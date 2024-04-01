@@ -21,6 +21,9 @@ const meta = {
         component:
           'The FancySwipeUpModal component provides a dynamic and adaptable modal experience, enhanced with the use of the `useFancySwipeUpStore` for simplified integration into applications. This update eliminates the need for manual prop configurations, allowing developers to easily create modals with various features and adaptability options.',
       },
+      story: {
+        height: '300px',
+      },
     },
   },
   // Define arguments for the story
@@ -61,7 +64,7 @@ const meta = {
         defaultValue: { summary: true },
       },
     },
-    ...templateThemeType('mainThemeTypes', 'primary', 0),
+    ...templateThemeType('mainThemeTypes', 'primary', 1),
   },
   // Add tags to the story
 } satisfies Meta<typeof HelperComponent>;
@@ -111,6 +114,7 @@ export const Primary: Story = {
     </>
   ),
   args: {
+    layer: 1,
     themeType: 'primary',
     isCloseAble: true,
   },

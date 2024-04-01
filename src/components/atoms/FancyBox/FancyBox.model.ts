@@ -6,17 +6,30 @@ import { TUiColorTypes } from '@/types/TUiColorTypes';
 import { TComponentSizes } from '@/types/TComponentSizes';
 import { TThemeArrayOrValueCSS } from '@/design/designFunctions/arrayToCssValues';
 
-export type TFancyBox = {
+type TFancyBoxProps = {
   as?: ElementType;
-  outlined?: boolean;
   layer?: TLayer;
   themeType?: TUiColorTypes;
   children?: React.ReactNode;
-  outlinedBackgroundStrength?: number;
   externalStyle?: CSSProp;
   borderRadius?: TThemeArrayOrValueCSS;
+
   sizeC?: TComponentSizes;
 };
+
+type TOutlinedFancyBoxProps = {
+  outlined?: boolean;
+  outlinedRemoveBorder?: boolean;
+  outlinedBackgroundStrength?: number;
+};
+
+type TNonOutlinedFancyBoxPropsFalse = {
+  outlined?: false;
+  outlinedRemoveBorder?: never;
+  outlinedBackgroundStrength?: never;
+};
+
+export type TFancyBox = TFancyBoxProps & (TOutlinedFancyBoxProps | TNonOutlinedFancyBoxPropsFalse);
 
 export type TFancyBoxWithHTMLAttrs<T extends ElementType = 'div'> = TFancyBox &
   Omit<React.DetailedHTMLProps<React.HTMLAttributes<T>, T>, 'style'>;

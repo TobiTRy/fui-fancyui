@@ -4,7 +4,6 @@ import { TCheckerBoardPattern } from './TCheckerBoardPattern.model';
 
 type TStyledCheckerBoardPattern = TStyledPrefixAndPicker<TCheckerBoardPattern>;
 export const StyledCheckerBoardPattern = styled.span<TStyledCheckerBoardPattern>`
-  height: 20px;
   height: 100%;
   width: 100%;
   background-image: linear-gradient(45deg, #808080 25%, transparent 25%),

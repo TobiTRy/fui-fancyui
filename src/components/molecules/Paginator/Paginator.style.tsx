@@ -27,7 +27,7 @@ interface IIconWrapper {
 
 export const IconWrapper = styled.div<IIconWrapper>`
   display: flex;
-  flex-shrink: 0;
+  flex-shrink: 1;
   aspect-ratio: 1/1;
 
   ${({ $align, theme }) =>
@@ -38,4 +38,9 @@ export const IconWrapper = styled.div<IIconWrapper>`
       : css`
           margin-right: ${theme.spacing.xxs};
         `}
+
+  svg {
+    display: flex;
+    aspect-ratio: 1/1;
+  }
 `;

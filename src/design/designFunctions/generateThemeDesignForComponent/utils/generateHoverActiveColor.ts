@@ -2,8 +2,8 @@ import { css } from 'styled-components';
 import { getBackgroundColor } from '../../colorCalculatorForComponent/colorCalculatorForComponent';
 import colorTransparencyCalculator from '../../colorTransparencyCalculator/colorTransparencyCalculator';
 import { IGenerateThemeDesignForComponent } from '../generateThemeDesignForComponent';
-import { TLayer } from '@/types/TLayer';
 import { clampLayer } from '@/utils/functions/clampLayer';
+
 type TGenerateOutlinedHoverStyle = Pick<
   IGenerateThemeDesignForComponent,
   '$themeType' | 'theme' | '$layer' | '$backgroundStrength' | '$hoverColor'
@@ -61,8 +61,8 @@ export const generateStateStyle = (props: TGenerateStateStyle) => {
             &:hover {
               color: ${getBackgroundColor({
                 theme: props.theme,
-                $themeType: props.$textHover ?? 'secondary',
-                $layer: Math.min(props.$layer ? props.$layer + 2 : 2, 10) as TLayer,
+                $themeType: props.$textHover,
+                $layer: clampLayer(props.$layer ? props.$layer + 2 : 2),
               })};
             }
           }

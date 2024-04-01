@@ -8,10 +8,11 @@ import { sizeSettings } from './sizeSettings';
 // --------------------------------------------------------------------------- //
 export default function FancyBox<T extends ElementType = 'div'>(props: TFancyBoxWithHTMLAttrs<T>) {
   const {
-    sizeC = 'md',
+    sizeC,
     layer = 1,
     themeType,
     outlined,
+    outlinedRemoveBorder,
     outlinedBackgroundStrength,
     externalStyle,
     as,
@@ -30,6 +31,7 @@ export default function FancyBox<T extends ElementType = 'div'>(props: TFancyBox
       $outlined={outlined}
       $padding={calcPadding}
       $themeType={themeType}
+      $outlinedRemoveBorder={outlinedRemoveBorder}
       $borderRadius={calcBorderRadius}
       $externalStyle={externalStyle}
       $outlinedBackgroundStrength={outlinedBackgroundStrength}

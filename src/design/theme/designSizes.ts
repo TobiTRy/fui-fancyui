@@ -121,19 +121,19 @@ export const typography = {
 
   interactiveSm: {
     fontSize: '14px',
-    lineHeight: '20px',
+    lineHeight: '16px',
     letterSpacing: '0.01em',
     fontWeight: '500', // Medium
   },
   interactiveMd: {
     fontSize: '16px',
-    lineHeight: '23px',
+    lineHeight: '24px',
     letterSpacing: '0.01em',
     fontWeight: '500', // Medium
   },
   interactiveLg: {
     fontSize: '18px',
-    lineHeight: '26px',
+    lineHeight: '24px',
     letterSpacing: '0.01em',
     fontWeight: '500', // Medium
   },

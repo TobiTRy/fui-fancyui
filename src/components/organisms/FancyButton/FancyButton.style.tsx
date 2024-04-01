@@ -5,7 +5,6 @@ import { TLeftRightCenterToFlexJustify } from '@/design/designFunctions/leftRigh
 import { TComponentSizes } from '@/types/TComponentSizes';
 import { sizeSettings } from './sizeSettings';
 import { arrayToCssValues } from '@/design/designFunctions/arrayToCssValues';
-import { globalElementsizes } from '@/design/theme/globalSizes';
 
 interface IGenerateFancyButton {
   $sizeC: TComponentSizes;
@@ -55,7 +54,6 @@ const generateSize = ($sizeC: TComponentSizes, $icon?: boolean, $iconAlign?: IGe
   }
 
   return css`
-    height: ${globalElementsizes[sizeSettings[$sizeC].height]};
     padding: ${arrayToCssValues(padding, 'spacing')};
   `;
 };

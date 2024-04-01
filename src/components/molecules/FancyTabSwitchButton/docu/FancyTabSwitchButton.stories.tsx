@@ -5,27 +5,28 @@ import { Meta, StoryObj } from '@storybook/react';
 import FancyTabSwitchButton from '../FancyTabSwitchButton';
 
 import SVGCheckMark from '../../../icons/SVGCheckMark/SVGCheckMark';
+import templateThemeType from '@/stories/templateSettingsForStorys/templatesForThemeType';
+import { TFancyTabSwitchButton } from '@/components/molecules/FancyTabSwitchButton';
 
 // fix for building ... because storybook is not able to handle the default export
-const HelperComponent = (props: React.ComponentProps<typeof FancyTabSwitchButton>) => (
-  <FancyTabSwitchButton {...props} />
-);
+const HelperComponent = (props: TFancyTabSwitchButton) => <FancyTabSwitchButton {...props} />;
 HelperComponent.displayName = 'FancyTabSwitchButton';
 
 // Define metadata for the story
 const meta = {
-  component: HelperComponent,
+  component: FancyTabSwitchButton,
   title: 'components/molecules/FancyTabSwitchButton',
   parameters: {
     docs: {
       description: {
         component:
-          'The FancyTabSwitchButton component is a React component designed to act as a stylized tab switch button, leveraging the flexibility and styling capabilities of styled-components and React´s compositional patterns. This component utilizes the Typography atom and the FancyContent molecule for its internal structure, aiming to provide a rich, customizable user interface element that can be easily integrated into a variety of web applications.',
+          'The `FancyTabSwitchButton` component is a customizable tab switch button designed for use within a tabbed interface. It utilizes the `Typography` atom for rendering text labels and may include icons. This component is built with flexibility in mind, supporting dynamic alignment, size customization, and theming through external styling. It´s primarily used as a radio button with enhanced UI features for better user interaction and visual appeal.',
       },
     },
   },
   // Define arguments for the story
   argTypes: {
+    ...templateThemeType('mainThemeTypes', 'secondary', 0),
     disabled: {
       description: 'If true, the button will be disabled.',
       type: { name: 'boolean' },
@@ -50,24 +51,27 @@ const meta = {
       description: 'The theme type of the button.',
       control: { type: 'radio' },
     },
-    layer: {
-      description: 'The layer of the button.',
-      control: { type: 'number', min: 0, max: 9 },
-    },
     iconAlign: {
       description: 'The alignment of the icon.',
-      control: { type: 'radio' },
+      control: { type: 'select' },
     },
     sizeC: {
       description: 'The size of the button.',
-      control: { type: 'radio' },
+      control: { type: 'select' },
+      table: {
+        defaultValue: { summary: 'sm' },
+      },
+    },
+    activeTextThemeType: {
+      description: 'The theme type of the text when the button is selected.',
+      control: { type: 'select' },
     },
     externalStyle: {
       description: 'The external style of the button.',
       control: { type: 'object' },
     },
   },
-} satisfies Meta<typeof HelperComponent>;
+} satisfies Meta<typeof FancyTabSwitchButton>;
 
 // Export the metadata
 export default meta;
@@ -80,10 +84,11 @@ export const Primary: Story = {
   args: {
     itemKey: '1',
     label: 'label',
+    themeType: 'secondary',
     icon: <SVGCheckMark />,
     selected: false,
-    themeType: 'secondary',
     iconAlign: 'left',
     sizeC: 'sm',
+    layer: 0,
   },
 };

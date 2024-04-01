@@ -15,11 +15,18 @@ export default function SwitchActiveIndicator(props: TActiveSwitchIndicatorWithH
     outlined,
     borderRadius,
     type,
+    externalStyle,
     ...htmlProps
   } = props;
 
   return (
-    <Wrapper $itemNumber={itemNumber} $tabSpacing={tabSpacing} $direction={direction} {...htmlProps}>
+    <Wrapper
+      $itemNumber={itemNumber}
+      $tabSpacing={tabSpacing}
+      $direction={direction}
+      $externalStyle={externalStyle}
+      {...htmlProps}
+    >
       <ActiveSwitchIndicator
         $indicatorWidth={indicatorWidth}
         $themeType={themeType}

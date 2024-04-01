@@ -16,7 +16,7 @@ const clacCurrentPosition = (props: IClacCurrentPosition) => {
   const itemPosition = $itemNumber * 100 + '%';
 
   // Calculate the gap between the items
-  const gapSpacing = $tabSpacing ? ($itemNumber - 1) * parseFloat(spacingPx[$tabSpacing]) : 0;
+  const gapSpacing = $tabSpacing ? $itemNumber * parseFloat(spacingPx[$tabSpacing]) : 0;
 
   // Calculate the current position of the active indicator
   const currentPosition = $itemNumber
@@ -63,7 +63,10 @@ export const ActiveSwitchIndicator = styled.span<ActiveSwitchIndicatorGenerator 
 `;
 
 // the wrapper that handles the position of the active indicator
-type IWrapper = TStyledPrefixAndPicker<TActiveSwitchIndicator, 'itemNumber' | 'tabSpacing' | 'direction'>;
+type IWrapper = TStyledPrefixAndPicker<
+  TActiveSwitchIndicator,
+  'itemNumber' | 'tabSpacing' | 'direction' | 'externalStyle'
+>;
 export const Wrapper = styled.i<IWrapper>`
   top: 0;
   display: flex;
@@ -76,4 +79,5 @@ export const Wrapper = styled.i<IWrapper>`
   cursor: pointer;
   transition: transform 0.2s ease;
   ${({ $itemNumber, $tabSpacing, $direction }) => clacCurrentPosition({ $itemNumber, $tabSpacing, $direction })}
+  ${({ $externalStyle }) => $externalStyle}
 `;

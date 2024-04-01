@@ -126,7 +126,7 @@ export const WithErrorState: Story = {
   args: {
     align: 'left',
     themeType: 'primary',
-    layer: 4,
+    layer: 2,
     label: 'Password',
     icon: <SVGCheckMark />,
     systemMessage: { type: 'error', message: 'This is an error message' },

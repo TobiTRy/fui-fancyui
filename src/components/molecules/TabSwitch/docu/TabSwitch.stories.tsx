@@ -63,7 +63,7 @@ const meta = {
       description: 'The alignment of the icon.',
       control: { type: 'select' },
     },
-    activeColor: {
+    activeTextThemeType: {
       description: 'The color of the active tab.',
       control: { type: 'select' },
     },

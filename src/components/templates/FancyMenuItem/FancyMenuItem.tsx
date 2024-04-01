@@ -8,10 +8,10 @@ import { TFancyMenueItemWithMenuAttrs } from './TFancyMenuItem.model';
 // ---------- The FancyMenueItem is a template for a finished Item  ---------- //
 // --------------------------------------------------------------------------- //
 export default function FancyMenueItem(props: TFancyMenueItemWithMenuAttrs) {
-  const { label, icon, sizeC = 'md', ...menuItemProps } = props;
+  const { label, icon, sizeC = 'md', gapBetweenIcon = 'sm', ...menuItemProps } = props;
   return (
     <MenueItem sizeC={sizeC} {...menuItemProps}>
-      <FancyContent align="center">
+      <FancyContent align="center" gapBetweenIcon={gapBetweenIcon}>
         {label && (
           <FancyContent.Title fontVariant={sizeSettings[sizeC].fontSizeTitle} fontWeight={'normal'}>
             {label}

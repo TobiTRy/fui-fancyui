@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import HeaderTitleWithLogo from '../HeaderTitleWithLogo';
-import SVGCheckMark from '../../../icons/SVGCheckMark/SVGCheckMark';
 import templateThemeType from '@/stories/templateSettingsForStorys/templatesForThemeType';
+import { SVGFui } from '@/components/icons/SVGFui';
 
 const meta = {
   component: HeaderTitleWithLogo,
@@ -40,6 +40,8 @@ export const Primary: Story = {
   render: (args) => <HeaderTitleWithLogo {...args} />,
   args: {
     title: 'Title',
-    logo: <SVGCheckMark />,
+    logo: <SVGFui />,
+    layer: 0,
+    themeType: 'secondary',
   },
 };

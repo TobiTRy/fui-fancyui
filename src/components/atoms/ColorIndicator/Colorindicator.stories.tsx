@@ -13,6 +13,9 @@ const meta = {
         component:
           'The ColorIndicator component is for displaying a color, its can be used to show the color of a color picker and move with the position of the mouse',
       },
+      story: {
+        height: '300px',
+      },
     },
   },
 

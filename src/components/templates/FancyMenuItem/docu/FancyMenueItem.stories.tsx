@@ -46,6 +46,15 @@ const meta = {
         defaultValue: { summary: '' },
       },
     },
+    gapBetweenIcon: {
+      description: 'The gap between the icon and the label',
+      control: {
+        type: 'text',
+      },
+      table: {
+        defaultValue: { summary: 'sm' },
+      },
+    },
     ...templateThemeType('notTransparent', 'primary', 1),
   },
 } satisfies Meta<typeof FancyMenuItem>;
@@ -61,5 +70,8 @@ export const Primary: Story = {
   args: {
     icon: '👋',
     label: 'Logout',
+    themeType: 'primary',
+    layer: 1,
+    gapBetweenIcon: 'sm',
   },
 };

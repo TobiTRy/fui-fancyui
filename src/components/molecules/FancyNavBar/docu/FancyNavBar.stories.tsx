@@ -28,6 +28,17 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
-  render: (args) => <FancyNavBar {...args} />,
-  args: {},
+  render: (args) => (
+    <FancyNavBar {...args}>
+      <a href="/home">Home</a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+    </FancyNavBar>
+  ),
+  args: {
+    externalStyle: {
+      backgroundColor: 'darkblue',
+      gap: '1rem',
+    },
+  },
 };

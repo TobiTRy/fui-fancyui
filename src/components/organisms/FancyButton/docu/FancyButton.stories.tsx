@@ -23,6 +23,13 @@ const meta = {
         type: 'boolean',
       },
     },
+    sizeC: {
+      description: 'This prop will change the size of the button',
+      options: ['sm', 'md', 'lg', undefined],
+      control: {
+        type: 'select',
+      },
+    },
     iconAlign: {
       description: 'This prop will align the icon inside the button to the left or right from the text',
       control: {
@@ -116,6 +123,12 @@ const meta = {
     },
     backgroundStrength: {
       description: 'This prop will change the background strength of the button',
+      control: {
+        type: 'text',
+      },
+    },
+    textHover: {
+      description: 'This prop will change the text hover color of the button',
       control: {
         type: 'text',
       },
@@ -241,6 +254,7 @@ export const Transparent: Story = {
     label: 'Button',
     sizeC: 'md',
     align: 'center',
+    textHover: 'secondary',
     layer: 0,
     outlined: false,
     isLoading: false,

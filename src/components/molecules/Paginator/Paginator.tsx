@@ -39,6 +39,7 @@ export default function Paginator(props: TPaginatorWithHTMLAttrs) {
         themeType={themeType ?? 'accent'}
         outlined={outlinedButton}
         wide={false}
+        oneToOne
         icon={<IconWrapper $align="left">{SVGChevronLeft}</IconWrapper>}
         onClick={() => onPageChange?.(currentPage - 1)}
         disabled={currentPage === 1}
@@ -48,6 +49,7 @@ export default function Paginator(props: TPaginatorWithHTMLAttrs) {
       {/* The right button for the Page Switch */}
       <FancyButton
         wide={false}
+        oneToOne
         themeType={themeType ?? 'accent'}
         outlined={outlinedButton}
         icon={<IconWrapper $align="right">{SVGChevronRight}</IconWrapper>}

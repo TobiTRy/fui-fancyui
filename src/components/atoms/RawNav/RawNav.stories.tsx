@@ -36,7 +36,7 @@ export const Primary: Story = {
 export const List: Story = {
   render: (args) => (
     <RawNav {...args}>
-      <ul>
+      <ul style={{ display: 'flex', gap: '12px' }}>
         <li>Hi iam completly blank</li>
         <li>Hi iam completly blank</li>
       </ul>
