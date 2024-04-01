@@ -1,11 +1,9 @@
-import { TTypographyVariants } from '@/types/TTypographyVariants';
-import { TSizeSettings } from '@/types/TSizeSettings';
-import { TGlobalElementSizes } from '@/types/TGlobalElementSizes';
 import { TThemeArrayOrValueCSS } from '@/design/designFunctions/arrayToCssValues';
+import { TSizeSettings } from '@/types/TSizeSettings';
+import { TTypographyVariants } from '@/types/TTypographyVariants';
 
 type TSizeObj = {
   fontSize: TTypographyVariants;
-  height: TGlobalElementSizes;
   padding: TThemeArrayOrValueCSS;
   paddingIconAlignLeft: TThemeArrayOrValueCSS;
   paddingIconAlignRight: TThemeArrayOrValueCSS;
@@ -13,24 +11,21 @@ type TSizeObj = {
 
 export const sizeSettings: TSizeSettings<TSizeObj> = {
   sm: {
-    height: 'sm',
     padding: ['xs', 'md'],
     paddingIconAlignLeft: ['xs', 'md', 'xs', 'sm'],
     paddingIconAlignRight: ['xs', 'sm', 'xs', 'md'],
     fontSize: 'interactiveSm',
   },
   md: {
-    height: 'md',
-    padding: ['sm', 'lg'],
-    paddingIconAlignLeft: ['sm', 'lg', 'sm', 'md'],
-    paddingIconAlignRight: ['sm', 'md', 'sm', 'lg'],
+    padding: ['xs', 'lg'],
+    paddingIconAlignLeft: ['xs', 'lg', 'xs', 'md'],
+    paddingIconAlignRight: ['xs', 'md', 'xs', 'lg'],
     fontSize: 'interactiveMd',
   },
   lg: {
-    height: 'lg',
-    padding: ['md', 'xl'],
-    paddingIconAlignLeft: ['md', 'xl', 'md', 'lg'],
-    paddingIconAlignRight: ['md', 'lg', 'md', 'xl'],
+    padding: ['sm', 'xl'],
+    paddingIconAlignLeft: ['sm', 'xl', 'sm', 'lg'],
+    paddingIconAlignRight: ['sm', 'lg', 'sm', 'xl'],
     fontSize: 'interactiveLg',
   },
 };

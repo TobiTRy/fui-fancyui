@@ -23,6 +23,13 @@ const meta = {
         type: 'boolean',
       },
     },
+    sizeC: {
+      description: 'This prop will change the size of the button',
+      options: ['sm', 'md', 'lg', undefined],
+      control: {
+        type: 'select',
+      },
+    },
     iconAlign: {
       description: 'This prop will align the icon inside the button to the left or right from the text',
       control: {
