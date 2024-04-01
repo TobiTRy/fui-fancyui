@@ -8,6 +8,7 @@ import { TComponentSizes } from '@/types/TComponentSizes';
 import { TLayer } from '@/types/TLayer';
 import { TTheme } from '@/types/TTheme';
 import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
+import { simpleColorTransition } from '@/design/designFunctions/simpleColorTransition';
 
 // ------------------------------------------------------------------ //
 // ----------- the helperfunctions for the style generate ----------- //
@@ -76,10 +77,9 @@ export const SwitchButtonStyle = styled.div<IListButtonStyle>`
     cursor: pointer;
     user-select: none;
     padding: ${({ $sizeC }) => arrayToCssValues(sizeSettings[$sizeC].padding, 'spacing')};
-    color: ${({ theme, $textColor = 'secondary', $layer }) =>
-      getBackgroundColor({ theme, $themeType: $textColor, $layer })};
     ${({ $hasIcon, $hasLabel, $iconAlign }) => $hasIcon && $hasLabel && generateIconAlignment({ $iconAlign })}
     will-change: transform; // ís needed for safari to prevent icons jumping tested on the iphone 18.12.23 newest versions
+    ${simpleColorTransition}
   }
 
   input {

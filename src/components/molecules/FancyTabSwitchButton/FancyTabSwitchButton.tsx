@@ -19,6 +19,7 @@ const FancyTabSwitchButton = React.forwardRef<HTMLDivElement, TFancyTabSwitchBut
     selected,
     onClick,
     iconAlign,
+    activeTextThemeType,
     itemKey,
     label,
     icon,
@@ -54,7 +55,7 @@ const FancyTabSwitchButton = React.forwardRef<HTMLDivElement, TFancyTabSwitchBut
       <Typography
         htmlFor={id + '_' + itemKey}
         elType="label"
-        themeType={themeType}
+        themeType={selected ? activeTextThemeType || themeType : themeType}
         variant={sizeSettings[sizeC].fontSize}
         externalStyle={{ zIndex: 1 }}
       >
