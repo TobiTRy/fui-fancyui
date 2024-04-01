@@ -25,6 +25,9 @@ const meta = {
         component:
           'The Header component is a versatile, fully customizable header that integrates seamlessly into web projects. It supports theming, layering, and outline customization. This component is designed to be flexible, allowing developers to include various elements such as navigation bars and logos, making it suitable for a wide range of applications from simple to complex web interfaces.',
       },
+      story: {
+        height: '300px',
+      },
     },
   },
   argTypes: {
@@ -79,7 +82,7 @@ export const Primary: Story = {
         <FancyMiniProfile
           alignImage="left"
           title="@TobiTRy"
-          subTitle="Tobias TRy is cool"
+          subTitle="Tobias TRy "
           src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
         />
       </div>
