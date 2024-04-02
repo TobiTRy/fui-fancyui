@@ -1,0 +1,37 @@
+### Component Title
+
+`applyThemeToDomStyleSheet`
+
+### Brief Description
+
+This component is a JavaScript function designed to dynamically apply a CSS theme to the DOM's stylesheet. It takes a `theme` string containing CSS rules and an optional `styleSheetId` to target a specific stylesheet element within the document. If the stylesheet element with the given ID does not exist, the function creates it and appends it to the document's head, allowing for dynamic theme changes in web applications.
+
+## Setup Instructions
+
+To use the `applyThemeToDomStyleSheet` in your project, follow these steps:
+
+1. Import the `TabSwitch` component where you intend to use it:
+
+```jsx
+import { applyThemeToDomStyleSheet } from 'fui-fancyui';
+```
+
+To apply a new theme to your application:
+
+```javascript
+// Define your CSS rules as a string
+const newTheme = '--primary-color: #007bff; --secondary-color: #6c757d;';
+
+// Call the function with your theme
+applyThemeToDomStyleSheet(newTheme);
+
+// Optionally, specify a custom styleSheetId if not using the default 'fui-theme'
+applyThemeToDomStyleSheet(newTheme, 'myCustomThemeId');
+```
+
+### Component Properties
+
+The `applyThemeToDomStyleSheet` function accepts the following parameters:
+
+- **theme** (`string`): A string containing the CSS rules to be applied to the `:root` selector of the document. This is required.
+- **styleSheetId** (`string`, optional): The ID of the stylesheet element to which the CSS rules will be applied. Defaults to `'fui-theme'`.

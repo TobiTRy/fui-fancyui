@@ -1,0 +1,45 @@
+### Component Title
+
+`generateCssVariables` Function
+
+### Brief Description
+
+The `generateCssVariables` function dynamically generates CSS variables from a given theme object. It's designed to work recursively, allowing nested theme objects. This function facilitates the application of theming in CSS by converting theme properties into CSS custom properties (variables) with an optional prefix to namespace them, making it easier to maintain and switch themes dynamically in web projects.
+
+### Setup Instructions
+
+1. Ensure you have a theme object that conforms to the `TThemeObject` type, which can include nested objects for structured themes.
+2. Import the `generateCssVariables` function into your project file where you wish to generate CSS variables.
+
+   ```javascript
+   import { fui-fancyui } from 'fui-fancyui';
+   ```
+
+3. Prepare a theme object according to the `TThemeObject` structure.
+
+### Example Usage
+
+```javascript
+const theme = {
+  color: {
+    primary: '#007bff',
+    secondary: '#6c757d',
+  },
+  background: {
+    default: '#ffffff',
+    inverse: '#000000',
+  },
+};
+
+const cssVariablesString = generateCssVariables(theme);
+// Use the `cssVariablesString` to set CSS custom properties in your application
+```
+
+This example demonstrates how to convert a theme object with nested color and background properties into CSS variables.
+
+### Component Properties
+
+- **theme (`TThemeObject`)**: The theme object to convert into CSS variables. It must follow the `TThemeObject` structure, allowing nested objects for hierarchical themes. This is a required property.
+- **prefix (`string`)**: An optional prefix string to prepend to each CSS variable name, used for namespacing. Default is an empty string (`''`).
+
+This documentation outlines the `generateCssVariables` function's purpose, setup, usage, and its components, providing a clear overview of how to dynamically generate CSS variables from a theme object for web development projects.

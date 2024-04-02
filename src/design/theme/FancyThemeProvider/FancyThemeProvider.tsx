@@ -3,7 +3,9 @@ import { ThemeProvider } from 'styled-components';
 
 import { themeStore } from '@/design/theme/themeStore';
 
-import { TFancyThemeProvider } from '@/design/theme/FancyThemeProvider/TFancyThemeProvider.model';
+import { TFancyThemeProvider } from './TFancyThemeProvider.model';
+import { generateCssVariables } from '@/design/theme/generateThemeToCssVars';
+import { applyThemeToDomStyleSheet } from '@/design/theme/applyThemeToDomStyleSheet';
 
 // --------------------------------------------------------------------------- //
 // ---- The FancyThemeProvider handles the themeState and provided theme ----- //
@@ -20,6 +22,11 @@ export default function FancyThemeProvider(props: TFancyThemeProvider) {
     setIsInitialized(true);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    const cssVars = generateCssVariables(themeState);
+    applyThemeToDomStyleSheet(cssVars);
+  }, [theme, themeState]);
 
   // theme gets provided to all components
   //the theme gets saved in the theme store and can be accessed from there but first on the first render
