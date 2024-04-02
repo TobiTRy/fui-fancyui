@@ -3,7 +3,16 @@ import { ThemeProvider } from 'styled-components';
 
 import { themeStore } from '@/design/theme/themeStore';
 
-import { TFancyThemeProvider } from '@/design/theme/FancyThemeProvider/TFancyThemeProvider.model';
+import { TFancyThemeProvider, TThemeObject } from './TFancyThemeProvider.model';
+
+const applyTheme = (theme: string) => {
+  //const cssVars = Object.entries(theme).map(([key, value]) => `--${key}: ${value};`).join('\n');
+  const css = `:root { ${theme} }`;
+
+  const styleSheet = document.createElement('style');
+  styleSheet.innerText = css;
+  document.head.appendChild(styleSheet);
+};
 
 // --------------------------------------------------------------------------- //
 // ---- The FancyThemeProvider handles the themeState and provided theme ----- //
@@ -20,6 +29,26 @@ export default function FancyThemeProvider(props: TFancyThemeProvider) {
     setIsInitialized(true);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    // Updated generateCssVariables function to correctly type the theme parameter
+    const generateCssVariables = (theme: TThemeObject, prefix = ''): string => {
+      let cssVars = '';
+      Object.entries(theme).forEach(([key, value]) => {
+        if (typeof value === 'object' && value !== null) {
+          // Recursive case: value is an object
+          cssVars += generateCssVariables(value, `${prefix}${key}-`);
+        } else if (typeof value === 'string') {
+          // Base case: value is a string
+          cssVars += `--${prefix}${key}: ${value};`;
+        }
+      });
+      return cssVars;
+    };
+
+    const cssVars = generateCssVariables(themeState);
+    applyTheme(cssVars);
+  }, [theme, themeState]);
 
   // theme gets provided to all components
   //the theme gets saved in the theme store and can be accessed from there but first on the first render
