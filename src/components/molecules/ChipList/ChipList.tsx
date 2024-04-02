@@ -17,8 +17,6 @@ export default function ChipList(props: TChipListWithHTMLAtrrs) {
     ...htmlDivAttrs
   } = props;
 
-  console.log(systemMessage, typeof systemMessage, 'systemMessage');
-
   return (
     <DynamicElementWrapper {...htmlDivAttrs}>
       <StyledChipList

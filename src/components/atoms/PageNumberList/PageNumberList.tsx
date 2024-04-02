@@ -27,7 +27,6 @@ export default function PageNumberList(props: TPageNumberList) {
 
     // If the page is the last page ..., set the page to the last page
     if (page === '...' && index === NumberArray.length - 1) {
-      console.log(true);
       pageHandler(pageLimits);
       return;
     }

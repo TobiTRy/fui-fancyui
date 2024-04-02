@@ -30,8 +30,6 @@ const Popover: React.FC<PopoverProps> = ({ buttonRef, content, isVisible, onClos
       if (buttonRef.current && popoverRef.current) {
         const buttonRect = buttonRef.current.getBoundingClientRect();
         const popoverRect = popoverRef.current.getBoundingClientRect();
-        console.log('Button Rect:', buttonRect);
-        console.log('Popover Rect before position adjustment:', popoverRect);
 
         const isButtonOnLeftSide = buttonRect.left < window.innerWidth / 2;
 
@@ -57,7 +55,6 @@ const Popover: React.FC<PopoverProps> = ({ buttonRef, content, isVisible, onClos
           left: newLeft,
         };
 
-        console.log('New Position:', newPosition);
         setPosition(newPosition);
       }
     }

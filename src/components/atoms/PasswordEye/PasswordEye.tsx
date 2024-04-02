@@ -17,8 +17,6 @@ export default function PasswordEye(props: TPasswordEye) {
     ...htmlProps
   } = props;
 
-  console.log(themeType);
-
   return (
     <i onClick={onClick} {...htmlProps}>
       {isShow ? (

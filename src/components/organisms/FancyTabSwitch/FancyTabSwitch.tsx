@@ -32,13 +32,6 @@ export default function FancyTabSwitch(props: FancyTabSwitchWithTabSwitchAtts) {
     ...tabSwitchProps
   } = props;
 
-  console.log(
-    calcBorderRadiusWithPadding(
-      generateBorderRadiusForComponentOnlyValue({ borderRadius, sizeC }) ?? '0',
-      spacingToEdge ?? '0'
-    )
-  );
-
   return (
     <Fieldset label={label} disabled={disabled} className={className}>
       <FancyBox

@@ -9,7 +9,6 @@ import { TFancyBottomBarIcon } from './TFancyBottomBarIcon.model';
 export default function FancyBottomBarIcon(props: TFancyBottomBarIcon) {
   const { WrapperComponent, type, href, onClick, ...iconProps } = props;
 
-  console.log(iconProps.layer, iconProps.activeLayer);
   return (
     <ComponentAndActionWrapper
       WrapperComponent={WrapperComponent}
