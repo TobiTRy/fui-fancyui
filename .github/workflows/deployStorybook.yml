@@ -32,6 +32,11 @@ jobs:
         run: |
           npm run build-storybook
 
+      - name: Create robots.txt
+        run: |
+          echo "User-agent: *" > ./storybook-static/robots.txt
+          echo "Disallow:" >> ./storybook-static/robots.txt
+
       - name: Copy files to S3
         run: |
           echo "Copying files to S3 "

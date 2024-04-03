@@ -1,6 +1,9 @@
 {
   "name": "fui-fancyui",
   "description": "FancyUI Libary",
+  "author": {
+    "name": "TobiTRy"
+  },
   "private": false,
   "version": "0.4.01",
   "type": "module",
@@ -131,7 +134,11 @@
     "./package.json": "./package.json"
   },
   "license": "MIT",
-  "homepage": "https://github.com/TobiTRy/FUI-FancyUI",
+  "homepage": "https://fui.cool/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TobiTRy/FUI-FancyUI.git"
+  },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   }
