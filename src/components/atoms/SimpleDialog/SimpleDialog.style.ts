@@ -7,11 +7,13 @@ import { animated } from '@react-spring/web';
 import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 
 // Define the styled component for the dialog
-export const StyledDialog = styled(animated.div)<{
+type TStyledDialog = {
   theme: TTheme;
   $themeType: TUiColorsNotTransparent;
   $layer?: TLayer;
-}>`
+};
+
+export const StyledDialog = styled(animated.div)<TStyledDialog>`
   position: fixed;
   top: 50%;
   left: 50%;
