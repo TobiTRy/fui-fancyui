@@ -47,7 +47,7 @@
   },
   "dependencies": {
     "@types/react-router-dom": "5.3.3",
-    "@types/react-test-renderer": "18.0.7",
+    "@types/react-test-renderer": "^18.3.0",
     "react-router-dom": "^6.23.0",
     "vite-plugin-dts": "^3.9.0"
   },
@@ -64,8 +64,8 @@
     "@storybook/theming": "8.0.5",
     "@swc/cli": "^0.3.12",
     "@swc/core": "^1.4.17",
-    "@testing-library/jest-dom": "6.1.6",
-    "@testing-library/react": "14.1.2",
+    "@testing-library/jest-dom": "^6.4.5",
+    "@testing-library/react": "^15.0.6",
     "@types/react": "^18.3.1",
     "@types/react-dom": "^18.3.0",
     "@typescript-eslint/eslint-plugin": "5.61.0",
@@ -89,7 +89,7 @@
     "storybook-dark-mode": "4.0.1",
     "typescript": "^5.0.2",
     "vite": "^5.2.11",
-    "vitest": "1.1.0"
+    "vitest": "^1.6.0"
   },
   "peerDependencies": {
     "@react-spring/web": "9.7.3",
