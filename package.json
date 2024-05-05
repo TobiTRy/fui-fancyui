@@ -48,7 +48,7 @@
   "dependencies": {
     "@types/react-router-dom": "5.3.3",
     "@types/react-test-renderer": "18.0.7",
-    "react-router-dom": "6.14.1",
+    "react-router-dom": "^6.23.0",
     "vite-plugin-dts": "3.1.1"
   },
   "devDependencies": {
@@ -81,8 +81,8 @@
     "json": "11.0.0",
     "lint-staged": "15.1.0",
     "prettier": "^3.2.5",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "react-test-renderer": "18.2.0",
     "rollup-plugin-visualizer": "5.9.3",
     "storybook": "8.0.5",
@@ -96,8 +96,8 @@
     "@types/color": "3.0.3",
     "@types/uuid": "^9.0.8",
     "color": "4.2.3",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "styled-components": "6.1.8",
     "uuid": "9.0.1",
     "zustand": "^4.5.2"
