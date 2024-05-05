@@ -5,7 +5,7 @@
     "name": "TobiTRy"
   },
   "private": false,
-  "version": "0.4.1",
+  "version": "0.4.2",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -137,7 +137,7 @@
   "homepage": "https://fui.cool/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/TobiTRy/FUI-FancyUI.git"
+    "url": "git+https://github.com/TobiTRy/FUI-FancyUI.git"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
