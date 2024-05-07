@@ -18,15 +18,15 @@ export default defineConfig({
   ],
   build: {
     copyPublicDir: false,
-
     lib: {
       entry: path.resolve(__dirname, './lib/index.ts'),
       formats: ['es'],
     },
     rollupOptions: {
+      treeshake: true,
       external: ['react', 'react-dom', 'styled-components', '@react-spring/web', 'react/jsx-runtime', 'color'],
       output: {
-        preserveModulesRoot: 'src',
+        preserveModulesRoot: '.',
         preserveModules: true,
         entryFileNames: ({ name: fileName }) => {
           return `${fileName}.js`;
