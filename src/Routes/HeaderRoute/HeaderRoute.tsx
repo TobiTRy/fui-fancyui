@@ -79,7 +79,9 @@ const RightSlot = ({ onClick }: { onClick?: () => void }) => {
     <div onClick={onClick} style={{ display: 'flex', alignItems: 'center' }}>
       <FancyMiniProfile
         title="@TobiTRy"
-        src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
+        Image={
+          <img src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg" />
+        }
       />
     </div>
   );
@@ -102,7 +104,9 @@ const HeaderContent = () => {
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', width: '100%' }}>
         <FancyMiniProfile
           title="@TobiTRy"
-          src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
+          Image={
+            <img src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg" />
+          }
         />
       </div>
     </HeaderContentWrapper>
@@ -164,7 +168,9 @@ export default function HeaderRoute() {
                   <FancyMiniProfile
                     sizeC={'sm'}
                     title="mooin"
-                    src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
+                    Image={
+                      <img src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg" />
+                    }
                   />
                 }
               ></FancyPopover>
@@ -196,8 +202,10 @@ export default function HeaderRoute() {
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', width: '100%' }}>
               <FancyMiniProfile
                 title="@TobiTRy"
-                src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
-              />
+                Image={
+                  <img src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg" />
+                }
+              ></FancyMiniProfile>
             </div>
           </div>
         </Header>
