@@ -32,15 +32,15 @@ const meta = {
       control: { type: 'select' },
       options: ['xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl'],
     },
-    src: {
-      control: { type: 'text' },
-      description: 'The source of the image.',
+    children: {
+      control: { type: 'object' },
+      description: 'The children of the image.',
     },
-    alt: {
+    nickname: {
       control: { type: 'text' },
       description: 'The alt text of the image is used as a placeholder if no image is provided.',
       table: {
-        defaultValue: { summary: 'Profile' },
+        defaultValue: { summary: 'User' },
       },
     },
     externalStyle: {
@@ -66,10 +66,10 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   render: (args) => <FancyProfilePicture {...args} />,
   args: {
-    src: 'https://avatars.githubusercontent.com/u/54409958?v=4',
+    children: <img src="https://avatars.githubusercontent.com/u/54409958?v=4" alt="profile" />,
     borderRadius: 'complete',
     sizeC: 'md',
-    alt: '',
+    nickname: 'User',
   },
 };
 
@@ -78,7 +78,7 @@ export const Avatar: Story = {
   args: {
     borderRadius: 'complete',
     sizeC: 'md',
-    alt: '',
+    nickname: 'User',
     textAvatarSettings: {
       sizeC: 'md',
       borderRadius: 'complete',

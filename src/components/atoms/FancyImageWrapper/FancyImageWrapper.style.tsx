@@ -46,6 +46,7 @@ export const ImageWrapper = styled.div<TStyledImage & { theme: TTheme }>`
   transition: filter 0.3s;
   filter: ${({ $filter }) => $filter && createCssFilterString($filter)};
   aspect-ratio: ${({ $aspectRatio }) => ($aspectRatio ? `${$aspectRatio};` : '')};
+  line-height: 0;
 
   img {
     width: 100%;

@@ -9,14 +9,16 @@ import { TFancyMiniprofileWithHTMLProps } from './TFancyMiniProfile.model';
 // ------ The MiniProfile rendes a image with a heading and description ------ //
 // --------------------------------------------------------------------------- //
 export default function FancyMiniProfile(props: TFancyMiniprofileWithHTMLProps) {
-  const { sizeC = 'sm', src, title, subTitle, themeType, layer = 3, alignImage = 'right', ...htmlProps } = props;
+  const { sizeC = 'sm', Image, title, subTitle, themeType, layer = 3, alignImage = 'right', ...htmlProps } = props;
 
   // Define a function to calculate the spacing position for the chip
   const chipStyle = generateChipStyle({ sizeC, themeType, layer, $alignImage: alignImage });
 
   return (
     <Chip sizeC={sizeC} themeType={themeType} layer={layer} externalStyle={chipStyle} {...htmlProps}>
-      <FancyProfilePicture className="miniprofile_content-image" sizeC="complete" src={src || ''}></FancyProfilePicture>
+      <FancyProfilePicture className="miniprofile_content-image" sizeC="complete">
+        {Image}
+      </FancyProfilePicture>
       <Chip.Content className="miniprofile_content" alignIcon={alignImage} gapBetweenText="0">
         {title && (
           <Chip.Content.Title lineHeight={1.2} fontVariant={sizeSettings[sizeC].titleSize}>
