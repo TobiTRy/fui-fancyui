@@ -1,3 +1,4 @@
+import { ReactElement } from 'react';
 import { CSSProp } from 'styled-components';
 
 import { TextAvatar } from '@/components/molecules/TextAvatar';
@@ -10,6 +11,8 @@ export type TFancyProfilePicture = {
   sizeC?: TSize | string;
   externalStyle?: CSSProp;
   textAvatarSettings?: Omit<TtextAvatarSettings, 'text'>;
+  nickname?: string;
 };
 
-export type TFancyProfilePictureWithHTMLAttrs = TFancyProfilePicture & React.ImgHTMLAttributes<HTMLImageElement>;
+export type TFancyProfilePictureWithHTMLAttrs = TFancyProfilePicture &
+  React.HtmlHTMLAttributes<HTMLElement> & { children?: React.ReactNode };
