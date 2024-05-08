@@ -83,7 +83,9 @@ export const Primary: Story = {
           alignImage="left"
           title="@TobiTRy"
           subTitle="Tobias TRy "
-          src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
+          Image={
+            <img src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg" />
+          }
         />
       </div>
     </Header>
@@ -143,7 +145,9 @@ export const Advancedheader: Story = {
                 <FancyMiniProfile
                   sizeC={'sm'}
                   title="mooin"
-                  src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
+                  Image={
+                    <img src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg" />
+                  }
                 />
               }
             ></FancyPopover>
@@ -185,7 +189,9 @@ export const OutlinedHeader: Story = {
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', width: '100%' }}>
           <FancyMiniProfile
             title="@TobiTRy"
-            src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg"
+            Image={
+              <img src="https://www.az-online.de/bilder/2019/08/23/12938342/2113799823-tobias-rester-2tyMMSkM2R73.jpg" />
+            }
           />
         </div>
       </div>
