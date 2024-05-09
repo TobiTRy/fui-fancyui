@@ -6,8 +6,8 @@ export default function SkeletonBox(props: TSkeletonBoxWithHTMLAttrs) {
   const {
     themeType = 'primary',
     layer = 0,
-    sizeH,
-    sizeW,
+    sizeH = 'fit',
+    sizeW = 'fit',
     aspectRatio,
     borderRadius,
     externalStyle,
