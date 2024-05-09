@@ -32,7 +32,7 @@ const meta = {
         type: 'select',
       },
       table: {
-        defaultValue: { summary: 'md' },
+        defaultValue: { summary: 'fit' },
       },
     },
     sizeW: {
@@ -42,7 +42,7 @@ const meta = {
         type: 'select',
       },
       table: {
-        defaultValue: { summary: 'md' },
+        defaultValue: { summary: 'fit' },
       },
     },
     borderRadius: {
