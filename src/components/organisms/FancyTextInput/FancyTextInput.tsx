@@ -20,6 +20,8 @@ export default function FancyTextInput(props: TFancyTextInput) {
     icon,
     label,
     onFocus,
+    type = 'text',
+    underline,
     onBlur,
     transparentBackground,
     ...inputProps
@@ -43,6 +45,7 @@ export default function FancyTextInput(props: TFancyTextInput) {
       layer={layer}
       align={align}
       isActive={isActive}
+      underline={underline}
       icon={icon}
       systemMessage={systemMessage}
       transparentBackground={transparentBackground}
@@ -51,6 +54,7 @@ export default function FancyTextInput(props: TFancyTextInput) {
           id={usedId}
           value={value}
           align={align}
+          type={type}
           disabled={disabled}
           onFocus={(e) => {
             onFocus && onFocus(e);

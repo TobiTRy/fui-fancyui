@@ -82,6 +82,12 @@ const meta = {
         type: 'select',
       },
     },
+    underline: {
+      description: 'Underline the input',
+      control: {
+        type: 'boolean',
+      },
+    },
     outlined: {
       description: 'Outlined input',
       control: {
@@ -116,6 +122,7 @@ export const Primary: Story = {
     align: 'left',
     themeType: 'primary',
     layer: 2,
+    underline: true,
     label: 'Password',
     icon: <SVGCheckMark />,
   },

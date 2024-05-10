@@ -34,6 +34,12 @@ const meta = {
         type: 'select',
       },
     },
+    type: {
+      description: 'Type of the input',
+      control: {
+        type: 'select',
+      },
+    },
     disabled: {
       description: 'Disable the input',
       control: {
@@ -98,6 +104,12 @@ const meta = {
         type: 'number',
       },
     },
+    underline: {
+      description: 'Underline the input',
+      control: {
+        type: 'boolean',
+      },
+    },
   },
 } satisfies Meta<typeof FancyTextInput>;
 
@@ -122,6 +134,7 @@ export const Primary: Story = {
   render: (args) => <SateFunction {...args} />,
   args: {
     layer: 2,
+    type: 'text',
     themeType: 'primary',
     align: 'left',
     label: 'Label',

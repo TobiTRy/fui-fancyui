@@ -21,6 +21,7 @@ export default function FancyNumberInput(props: TFancyNumberInput) {
     themeType = 'primary',
     layer = 2,
     autoWidth,
+    underline,
     placeholder,
     onFocus,
     onBlur,
@@ -46,6 +47,7 @@ export default function FancyNumberInput(props: TFancyNumberInput) {
       placeholder={placeholder}
       isActive={isActive}
       icon={icon}
+      underline={underline}
       autoWidth={autoWidth}
       systemMessage={systemMessage}
       themeType={themeType}

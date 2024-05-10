@@ -91,6 +91,12 @@ const meta = {
         type: 'select',
       },
     },
+    underline: {
+      description: 'Underline of the input',
+      control: {
+        type: 'boolean',
+      },
+    },
     outlined: {
       description: 'Outlined input',
       control: {
@@ -131,6 +137,7 @@ export const Primary: Story = {
     label: 'Date',
     align: 'left',
     disabled: false,
+    underline: false,
     placeholder: 'PlaceHolder',
     themeType: 'primary',
     layer: 2,
