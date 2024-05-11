@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import { Typography } from '@/components/atoms/Typography';
 import { RawButton } from '@/components/atoms/RawButton';
-import { SpacingsContainer } from '@/components/atoms/FancySpacingBox';
+import { FancySpacingBox } from '@/components/atoms/FancySpacingBox';
 import { TDescriptionPreview } from '@/components/atoms/DescriptionPreview/DescriptionPreview.model';
 
 export default function DescriptionPreview(props: TDescriptionPreview) {
@@ -14,7 +14,7 @@ export default function DescriptionPreview(props: TDescriptionPreview) {
   return (
     <>
       {description.length < letterLimit || isShowMore ? description : preview}
-      <SpacingsContainer as={'span'} margin={['xxs', 0, 0, 0]}>
+      <FancySpacingBox as={'span'} margin={['xxs', 0, 0, 0]}>
         {description.length > letterLimit && (
           <RawButton onClick={() => setIsShowMore((prev) => !prev)}>
             <Typography
@@ -27,7 +27,7 @@ export default function DescriptionPreview(props: TDescriptionPreview) {
             </Typography>
           </RawButton>
         )}
-      </SpacingsContainer>
+      </FancySpacingBox>
     </>
   );
 }

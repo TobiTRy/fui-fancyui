@@ -1,3 +1,3 @@
-export { default as SpacingsContainer } from './FancySpacingBox';
+export { default as FancySpacingBox } from './FancySpacingBox';
 
-export type { TSpacingsContainerWithHTMLAttrs, TSpacingsContainer } from './TFancySpacingBox.model';
+export type { TFancySpacingBoxWithHTMLAttrs, TFancySpacingBox } from './TFancySpacingBox.model';

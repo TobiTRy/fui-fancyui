@@ -1,9 +1,9 @@
 import { ElementType } from 'react';
 
-import { TSpacingsContainerWithHTMLAttrs } from '@/components/atoms/FancySpacingBox/TFancySpacingBox.model';
+import { TFancySpacingBoxWithHTMLAttrs } from './TFancySpacingBox.model';
 import { StyledSpacingsBox } from '@/components/atoms/FancySpacingBox/FancySpacingBox.style';
 
-export default function FancySpacingBox<T extends ElementType = 'div'>(props: TSpacingsContainerWithHTMLAttrs<T>) {
+export default function FancySpacingBox<T extends ElementType = 'div'>(props: TFancySpacingBoxWithHTMLAttrs<T>) {
   const { children, padding, margin, as, externalStyle, ...htmlProps } = props;
 
   return (

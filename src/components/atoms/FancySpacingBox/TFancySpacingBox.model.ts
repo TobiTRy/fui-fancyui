@@ -3,15 +3,14 @@ import { CSSProp } from 'styled-components';
 
 import { TThemeArrayOrValueCSS } from '@/design/designFunctions/arrayToCssValues';
 
-export type TSpacingsContainer = {
+export type TFancySpacingBox = {
   padding?: TThemeArrayOrValueCSS;
   margin?: TThemeArrayOrValueCSS;
   externalStyle?: CSSProp;
 };
 
-type TSpacingsContainerHTMLProps<T extends ElementType> = {
+type TFancySpacingBoxHTMLProps<T extends ElementType> = {
   as?: React.ElementType;
 } & Omit<React.HTMLAttributes<T>, 'style'>;
 
-export type TSpacingsContainerWithHTMLAttrs<T extends ElementType> = TSpacingsContainer &
-  TSpacingsContainerHTMLProps<T>;
+export type TFancySpacingBoxWithHTMLAttrs<T extends ElementType> = TFancySpacingBox & TFancySpacingBoxHTMLProps<T>;
