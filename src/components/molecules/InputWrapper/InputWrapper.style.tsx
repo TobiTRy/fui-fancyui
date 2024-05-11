@@ -38,8 +38,8 @@ export const generateInputContainerStyle = (hasLabel: boolean, isActive: boolean
   position: relative;
   align-items: center;
   padding: ${hasLabel
-    ? `${theme.spacing.xxs}  ${theme.spacing.xs} ${theme.spacing.xs}`
-    : `2px ${theme.spacing.xs} ${theme.spacing.xxs}`};
+    ? `${theme.spacing.xxs}  ${theme.spacing.md} ${theme.spacing.xs}`
+    : `2px ${theme.spacing.md} ${theme.spacing.xxs}`};
 
   ${isActive
     ? css`
