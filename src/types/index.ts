@@ -19,3 +19,4 @@ export * from './IStatus';
 export * from './TGlobalElementSizes';
 export * from './TBreakPoints';
 export * from './TSizeSettings';
+export * from './TDynamicElement';

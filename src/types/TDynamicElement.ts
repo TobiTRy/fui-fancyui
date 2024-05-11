@@ -1,3 +1,6 @@
-export type TDynamicElementProps<T extends React.ElementType> = {
-  as?: T;
-} & Omit<React.ComponentProps<T>, 'as'>;
+import { ElementType } from 'react';
+
+// Props for dynamic element type
+export type TDynamicElement<T extends ElementType> = {
+  as?: ElementType;
+} & React.HTMLAttributes<T>;
