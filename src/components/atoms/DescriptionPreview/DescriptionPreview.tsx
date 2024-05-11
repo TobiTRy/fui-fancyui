@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import { Typography } from '@/components/atoms/Typography';
 import { RawButton } from '@/components/atoms/RawButton';
-import { SpacingsContainer } from '@/components/atoms/SpacingContainer';
+import { SpacingsContainer } from '@/components/atoms/FancySpacingBox';
 import { TDescriptionPreview } from '@/components/atoms/DescriptionPreview/DescriptionPreview.model';
 
 export default function DescriptionPreview(props: TDescriptionPreview) {

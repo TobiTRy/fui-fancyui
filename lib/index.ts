@@ -49,7 +49,7 @@ export * from '@/components/atoms/RawLI';
 export * from '@/components/atoms/RawUL';
 export * from '@/components/atoms/RawA';
 export * from '@/components/atoms/RawNav';
-export * from '@/components/atoms/SpacingContainer';
+export * from '@/components/atoms/FancySpacingBox';
 export * from '@/components/atoms/DateInput';
 export * from '@/components/atoms/SystemMessage';
 export * from '@/components/atoms/NumberInput';

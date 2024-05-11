@@ -1,6 +1,6 @@
 import { ElementType } from 'react';
 
-import { TSpacingsContainerWithHTMLAttrs } from '@/components/atoms/SpacingContainer';
+import { TSpacingsContainerWithHTMLAttrs } from '@/components/atoms/FancySpacingBox';
 import { FancyAlignBox } from '@/components/templates/FancyAlignBox';
 
 export default function CardSpacing<T extends ElementType>(props: TSpacingsContainerWithHTMLAttrs<T>) {

@@ -1,8 +1,8 @@
 import { Meta, Title, Description, Controls, Canvas } from '@storybook/blocks';
 
-import * as SpacingContainerStories from './SpacingContainer.stories';
+import * as FancySpacingBoxStories from './FancySpacingBox.stories';
 
-<Meta of={SpacingContainerStories} />
+<Meta of={FancySpacingBoxStories} />
 
 <Title />
 
@@ -10,12 +10,12 @@ import * as SpacingContainerStories from './SpacingContainer.stories';
 
 ## Setup Instructions
 
-To use the `SpacingContainer` component in your project, follow these steps:
+To use the `FancySpacingBox` component in your project, follow these steps:
 
-1. Import the `SpacingContainer` component where you intend to use it:
+1. Import the `FancySpacingBox` component where you intend to use it:
 
 ```jsx
-import { SpacingContainer } from 'fui-fancyui';
+import { FancySpacingBox } from 'fui-fancyui';
 ```
 
 2. If using TypeScript, you can import the type definitions for prop validation:
@@ -29,12 +29,12 @@ import { TSpacingsContainerWithHTMLAttrs, TSpacingsContainer } from 'fui-fancyui
 ## Example Usage
 
 ```jsx
-<SpacingContainer padding={['20px', '30px']} margin="10px" as="section">
+<FancySpacingBox padding={['20px', '30px']} margin="10px" as="section">
   <p>Your content here</p>
-</SpacingContainer>
+</FancySpacingBox>
 ```
 
-This example renders a `SpacingContainer` as a `<section>` element, with 20px padding on the top and bottom, 30px padding on the left and right, and a margin of 10px around it. Replace `"Your content here"` with your own content or components.
+This example renders a `FancySpacingBox` as a `<section>` element, with 20px padding on the top and bottom, 30px padding on the left and right, and a margin of 10px around it. Replace `"Your content here"` with your own content or components.
 
 <Canvas />
 

@@ -1,7 +1,7 @@
 import { ElementType } from 'react';
 
 import { FancyFlexBox } from '@/components/templates/FancyFlexBox';
-import { SpacingsContainer } from '@/components/atoms/SpacingContainer';
+import { SpacingsContainer } from '@/components/atoms/FancySpacingBox';
 
 import { TFancyAlignBox } from './TFancyAlignBox.model';
 
