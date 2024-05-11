@@ -33,7 +33,7 @@ export const Container = styled.div<TToastMessage>`
     getBackgroundColor({ $themeType: $messageType, theme, $layer })}; //theme[$messageType]['5']
   border-radius: ${({ theme }) => theme.borderRadius.xs};
   padding: ${({ theme }) => theme.spacing.md};
-  background-color: ${({ theme }) => colorTransparencyCalculator(theme.colors.primary['0'], 0.95)};
+  background-color: ${({ theme }) => colorTransparencyCalculator(theme.color.primary['0'], 0.95)};
   border-left: 4px solid
     ${({ $messageType, theme, $layer = 3 }) => getBackgroundColor({ $themeType: $messageType, theme, $layer })};
   box-sizing: border-box;

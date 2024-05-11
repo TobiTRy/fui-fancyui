@@ -18,7 +18,7 @@ export const Placeholder = styled.div<TPlaceholderProps & { theme: TTheme }>`
   justify-content: center;
   align-items: center;
   background-color: ${({ $backgroundColor, theme, $layer, $themeType }) =>
-    $backgroundColor ? $backgroundColor : theme.colors[$themeType ?? 'primary'][$layer ?? 2]};
+    $backgroundColor ? $backgroundColor : theme.color[$themeType ?? 'primary'][$layer ?? 2]};
   color: ${({ $color, theme, $layer = 1, $themeType = 'primary' }) =>
     getTextColor({ theme, $themeType, $textLayer: $layer, $customTextColor: $color, turnColorTheme: true })};
   font-size: 1.5em;

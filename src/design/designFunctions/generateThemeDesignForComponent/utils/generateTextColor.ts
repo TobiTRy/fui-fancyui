@@ -12,7 +12,7 @@ export const generateTextColor = (
   const theme = themeStore.getState().theme;
 
   // if the userer profides a $textColor use this
-  if ($textColor) return theme.colors[$textColor][$layer ?? 0];
+  if ($textColor) return theme.color[$textColor][$layer ?? 0];
 
   return getBackgroundColor({ theme, $themeType: $textColor ?? $themeType ?? 'secondary', $layer: $layer ?? 0 });
 };

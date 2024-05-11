@@ -18,16 +18,16 @@ export const StyledSingleInput = styled.input<StyledSingleInputProps & { theme: 
   width: 1.5ch;
   font-size: 24px;
   text-align: center;
-  color: ${({ theme }) => theme.colors.secondary[0]};
+  color: ${({ theme }) => theme.color.secondary[0]};
   border: 1.5px solid
     ${({ $hasValue, theme, $themeType = 'secondary', $layer }) =>
-      $hasValue ? theme.colors.accent[0] : getBackgroundColor({ theme, $themeType, $layer })};
+      $hasValue ? theme.color.accent[0] : getBackgroundColor({ theme, $themeType, $layer })};
   border-radius: 5px;
   padding: ${({ theme }) => theme.spacing.xs};
   background-color: transparent;
   appearance: none;
   outline: none;
-  box-shadow: ${({ $isFocused, theme }) => ($isFocused ? `0 0 2px 1px${theme.colors.accent[1]}` : 'none')};
+  box-shadow: ${({ $isFocused, theme }) => ($isFocused ? `0 0 2px 1px${theme.color.accent[1]}` : 'none')};
 
   ${({ $externalStyle }) => $externalStyle}
 `;

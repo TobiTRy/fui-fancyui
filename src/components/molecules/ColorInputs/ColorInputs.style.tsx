@@ -20,6 +20,6 @@ export const ContainerInputs = styled.div<{ theme: TTheme }>`
     padding: 0;
     font-size: 0.8rem;
     text-transform: uppercase;
-    color: ${({ theme }) => theme.colors.secondary[0]};
+    color: ${({ theme }) => theme.color.secondary[0]};
   }
 `;

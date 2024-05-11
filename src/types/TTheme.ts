@@ -7,7 +7,7 @@ import { globalElementsizes } from '@/design/theme/globalSizes';
 
 //the structure for the theme object
 export type TTheme = {
-  colors: TUiColorsTypeObject;
+  color: TUiColorsTypeObject;
   spacing: {
     [key in TSpacings]: string;
   };

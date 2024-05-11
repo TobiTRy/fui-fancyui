@@ -4,7 +4,7 @@ import { themeStore } from '@/design/theme/themeStore';
 import { Typography } from '@/components/atoms/Typography';
 import { TGradientColor } from '@/components/atoms/TextGradient/TTextGradient.model';
 
-const themeColors = themeStore.getState().theme.colors;
+const themeColors = themeStore.getState().theme.color;
 
 const colorsArray: TGradientColor[] = [
   {

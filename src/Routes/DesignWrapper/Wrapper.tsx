@@ -15,7 +15,7 @@ const Area = styled.div<{ $style: CSSProp; theme: TTheme }>`
   width: 90%;
   display: flex;
   flex-direction: column;
-  color: ${({ theme }) => theme.colors.secondary[0]};
+  color: ${({ theme }) => theme.color.secondary[0]};
 
   & > h1 {
     text-align: center;

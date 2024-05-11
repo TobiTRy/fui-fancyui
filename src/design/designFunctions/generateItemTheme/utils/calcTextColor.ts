@@ -8,9 +8,9 @@ export const calcTextColor = ({ $textColor, $themeType, $outlined }: IcalcTextCo
   const theme = themeStore.getState().theme;
 
   //  if the userer profides a $textColor use this
-  if ($textColor) return theme.colors[$textColor][0];
-  if ($themeType === 'transparent') return theme.colors.secondary[0];
-  if ($outlined) return theme.colors[$themeType ?? 'secondary'][0];
+  if ($textColor) return theme.color[$textColor][0];
+  if ($themeType === 'transparent') return theme.color.secondary[0];
+  if ($outlined) return theme.color[$themeType ?? 'secondary'][0];
 
   return flipThemeColor($themeType ?? 'secondary');
 };

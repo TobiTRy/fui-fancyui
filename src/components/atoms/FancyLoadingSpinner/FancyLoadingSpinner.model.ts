@@ -18,9 +18,9 @@ interface IGenerateBorder {
 const generateBorder = ({ $sizeC, theme, $layer, $themeType = 'accent' }: IGenerateBorder): CSSProp => {
   return css`
     border-top: ${$sizeC} solid transparent;
-    border-right: ${$sizeC} solid ${theme.colors[$themeType][$layer || 0]};
+    border-right: ${$sizeC} solid ${theme.color[$themeType][$layer || 0]};
     border-bottom: ${$sizeC} solid transparent;
-    border-left: ${$sizeC} solid ${theme.colors[$themeType][$layer || 0]};
+    border-left: ${$sizeC} solid ${theme.color[$themeType][$layer || 0]};
   `;
 };
 

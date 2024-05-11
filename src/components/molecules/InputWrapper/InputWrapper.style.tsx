@@ -43,7 +43,7 @@ export const generateInputContainerStyle = (hasLabel: boolean, isActive: boolean
 
   ${isActive
     ? css`
-        box-shadow: 0 0 0 1px ${theme.colors.accent[0]};
+        box-shadow: 0 0 0 1px ${theme.color.accent[0]};
       `
     : ''}
 `;

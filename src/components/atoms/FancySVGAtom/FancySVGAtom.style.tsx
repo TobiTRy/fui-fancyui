@@ -18,9 +18,9 @@ interface ICalcIconColor {
 // calculate the color of the icon based on the props and the theme
 const calcIconColor = ({ theme, $isActive, $systemMessage, $themeType, $layer }: ICalcIconColor): string => {
   if (!$systemMessage) {
-    return $isActive ? theme.colors.accent[0] : getBackgroundColor({ theme, $themeType, $layer });
+    return $isActive ? theme.color.accent[0] : getBackgroundColor({ theme, $themeType, $layer });
   } else {
-    return theme.colors[$systemMessage][$layer ?? 0];
+    return theme.color[$systemMessage][$layer ?? 0];
   }
 };
 

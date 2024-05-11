@@ -14,11 +14,11 @@ export const Wrapper = styled.div<{ $value?: number; theme: TTheme }>`
     $value === 100 &&
     css`
       & label {
-        color: ${theme.colors.accent[0]};
+        color: ${theme.color.accent[0]};
       }
 
       & span {
-        color: ${theme.colors.accent[0]};
+        color: ${theme.color.accent[0]};
       }
     `}
 `;

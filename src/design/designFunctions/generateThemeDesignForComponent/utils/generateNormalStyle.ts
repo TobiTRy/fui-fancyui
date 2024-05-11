@@ -24,7 +24,7 @@ export const generateNormalStyle = (props: TGenerateNormalStyle) => {
   return css`
     border: none;
     background-color: ${backgorundColor};
-    color: ${$textColor ? theme.colors[$textColor][0] : getOpositTextColor()};
+    color: ${$textColor ? theme.color[$textColor][0] : getOpositTextColor()};
     /* This generate the hover / active style if its needed */
     ${$backgroundState && generateStateStyle(props)}
   `;

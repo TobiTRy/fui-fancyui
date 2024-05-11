@@ -24,8 +24,8 @@ export const SpeedDialContainer = styled.div`
 
 export const Button = styled.button<{ $isOpen: boolean; theme?: TTheme }>`
   position: relative;
-  background-color: ${({ theme }) => theme.colors.accent[0]};
-  color: ${({ theme }) => theme.colors.secondary[0]};
+  background-color: ${({ theme }) => theme.color.accent[0]};
+  color: ${({ theme }) => theme.color.secondary[0]};
   border: none;
   border-radius: 50%;
   cursor: pointer;
@@ -56,8 +56,8 @@ export const Ring = styled.div<{ $isOpen: boolean; theme?: TTheme }>`
   position: absolute;
   height: ${SpeedDailButtonSize + 'px'};
   width: ${SpeedDailButtonSize + 'px'};
-  border-bottom: 1.5px solid ${({ theme }) => theme.colors.accent[0]};
-  border-top: 1.5px solid ${({ theme }) => theme.colors.accent[0]};
+  border-bottom: 1.5px solid ${({ theme }) => theme.color.accent[0]};
+  border-top: 1.5px solid ${({ theme }) => theme.color.accent[0]};
   border-left: solid transparent;
   border-right: solid transparent;
   border-radius: 50%;

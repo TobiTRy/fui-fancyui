@@ -19,7 +19,7 @@ describe('<SystemMessage />', () => {
   });
 
   it('applies correct style for error state', () => {
-    const errorColor = themeStore.getState().theme.colors.error[0];
+    const errorColor = themeStore.getState().theme.color.error[0];
     const tree = renderer
       .create(
         <MockThemeProvider>
@@ -31,7 +31,7 @@ describe('<SystemMessage />', () => {
     expect(tree).toHaveStyleRule('color', errorColor);
   });
   it('applies correct style for success state', () => {
-    const successColor = themeStore.getState().theme.colors.success[0];
+    const successColor = themeStore.getState().theme.color.success[0];
 
     const tree = renderer
       .create(
@@ -43,7 +43,7 @@ describe('<SystemMessage />', () => {
     expect(tree).toHaveStyleRule('color', successColor);
   });
   it('applies correct style for info state', () => {
-    const infoColor = themeStore.getState().theme.colors.info[0];
+    const infoColor = themeStore.getState().theme.color.info[0];
 
     const tree = renderer
       .create(
@@ -55,7 +55,7 @@ describe('<SystemMessage />', () => {
     expect(tree).toHaveStyleRule('color', infoColor);
   });
   it('applies correct style for warning state', () => {
-    const warningColor = themeStore.getState().theme.colors.warning[0];
+    const warningColor = themeStore.getState().theme.color.warning[0];
 
     const tree = renderer
       .create(
@@ -67,7 +67,7 @@ describe('<SystemMessage />', () => {
     expect(tree).toHaveStyleRule('color', warningColor);
   });
   it('applies correct style for fallback state', () => {
-    const secondaryColor = themeStore.getState().theme.colors.secondary[0];
+    const secondaryColor = themeStore.getState().theme.color.secondary[0];
 
     const tree = renderer
       .create(

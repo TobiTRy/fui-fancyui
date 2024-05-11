@@ -30,7 +30,7 @@ interface IProgressBarFillProps {
 export const ProgressBarFill = styled.div<IProgressBarFillProps>`
   height: 100%;
   width: ${({ width }) => width}%;
-  background-color: ${({ theme }) => theme.colors.accent[0]};
+  background-color: ${({ theme }) => theme.color.accent[0]};
   border-radius: ${({ theme }) => theme.borderRadius.complete} 0 0 ${({ theme }) => theme.borderRadius.complete};
   transition: width 0.2s ease-out;
 `;
