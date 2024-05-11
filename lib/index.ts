@@ -131,6 +131,7 @@ export * from '@/components/templates/FancyInfoCard';
 export * from '@/components/templates/FancyDateDropDown';
 export * from '@/components/templates/FancyMenuItem';
 export * from '@/components/templates/FancyGrid';
+export * from '@/components/templates/FancyGridItem';
 export * from '@/components/templates/FancyRadioList';
 export * from '@/components/templates/FancyFlexBox';
 export * from '@/components/templates/FancyHandyNav';
