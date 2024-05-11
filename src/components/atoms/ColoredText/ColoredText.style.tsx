@@ -8,14 +8,16 @@ import { simpleColorTransition } from '@/design/designFunctions/simpleColorTrans
 
 type TStyledItem = TStyledPrefixAndPicker<TColoredText, 'layer' | 'themeType' | 'hoverLayer' | 'externalStyle'>;
 export const StyledItem = styled.span<TStyledItem & { theme: TTheme }>`
-  color: ${({ theme, $themeType = 'secondary', $layer = 0 }) => getBackgroundColor({ theme, $themeType, $layer })};
+  * {
+    color: ${({ theme, $themeType = 'secondary', $layer = 0 }) => getBackgroundColor({ theme, $themeType, $layer })};
 
-  &:hover {
-    color: ${({ theme, $themeType = 'secondary', $hoverLayer = 2 }) =>
-      getBackgroundColor({ theme, $themeType, $layer: $hoverLayer })};
+    &:hover {
+      color: ${({ theme, $themeType = 'secondary', $hoverLayer = 2 }) =>
+        getBackgroundColor({ theme, $themeType, $layer: $hoverLayer })};
+    }
+
+    ${simpleColorTransition}
+
+    ${({ $externalStyle }) => $externalStyle}
   }
-
-  ${simpleColorTransition}
-
-  ${({ $externalStyle }) => $externalStyle}
 `;
