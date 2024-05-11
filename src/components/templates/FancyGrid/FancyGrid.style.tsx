@@ -2,13 +2,16 @@ import { css, styled } from 'styled-components';
 
 import { FancyGridProps } from '@/components/templates/FancyGrid/FancyGrid.model';
 import { TStyledPrefixAndOmiter } from '@/types/TStyledPrefixAndOmiter';
+import { arrayToCssValues } from '@/design/designFunctions/arrayToCssValues';
 
 type TFancyGridProps = TStyledPrefixAndOmiter<FancyGridProps>;
 export const GridContainer = styled.div<TFancyGridProps & { as: React.ElementType }>`
   display: grid;
-  width: 100%;
-  grid-template-columns: repeat(${(props) => props.$grid}, 1fr);
-  grid-gap: ${(props) => props.$gap};
+  grid-template-columns: repeat(${({ $grid }) => $grid}, 1fr);
+  grid-gap: ${({ $gap }) => $gap};
+  margin: ${({ $margin }) => arrayToCssValues($margin, 'spacing')};
+  padding: ${({ $padding }) => arrayToCssValues($padding, 'spacing')};
+
   ${({ $externalStyle }) => $externalStyle}
 
   ${({ $breakpoints }) =>

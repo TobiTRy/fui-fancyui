@@ -1,3 +1,4 @@
+import { TThemeArrayOrValueCSS } from '@/design/designFunctions/arrayToCssValues';
 import { CSSProp } from 'styled-components';
 
 export interface ICustomBreakpoint {
@@ -9,6 +10,8 @@ export interface ICustomBreakpoint {
 export interface FancyGridProps {
   grid?: number;
   gap?: string;
+  padding?: TThemeArrayOrValueCSS;
+  margin?: TThemeArrayOrValueCSS;
   children?: React.ReactNode;
   externalStyle?: CSSProp;
   breakpoints?: ICustomBreakpoint[];
