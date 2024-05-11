@@ -58,6 +58,7 @@ export * from '@/components/atoms/TextInput';
 export * from '@/components/atoms/SkeletonBox';
 export * from '@/components/atoms/TextGradient';
 export * from '@/components/atoms/TitleForComponent';
+export * from '@/components/atoms/ColoredText';
 
 // ---------- Molecules ------- //
 export * from '@/components/molecules/DateNumberWithStatus';
