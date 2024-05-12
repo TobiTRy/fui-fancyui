@@ -2,12 +2,22 @@ import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
 import FancyInfoCard from '../../components/templates/FancyInfoCard/FancyInfoCard';
 import SVGCheckMark from '../../components/icons/SVGCheckMark/SVGCheckMark';
 import { FancyBox } from '../../components/atoms/FancyBox';
+import FancyInfoText from '@/components/molecules/FancyInfoText/FancyInfoText';
 
 export default function InfoCardRoute() {
   return (
     <DesignWrapper>
       <DesignArea title="InfoCard">
         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+          <FancyInfoText
+            sizeC="md"
+            directionTextGroup="row"
+            align="center"
+            icon={<SVGCheckMark />}
+            title={'Moooin'}
+            description="Mooiin"
+          />
+
           <FancyBox sizeC="sm" themeType="success" />
           <FancyBox sizeC="md" themeType="error" />
           <FancyBox sizeC="lg" themeType="warning" layer={0} />
