@@ -26,8 +26,8 @@ export const Wrapper = styled.span<TWrapper & { theme: TTheme }>`
 
   .content {
     display: flex;
-    flex-direction: column;
-    align-items: ${({ $align }) => $align || 'center'};
+    flex-direction: ${({ $directionTextGroup }) => ($directionTextGroup === 'row' ? $directionTextGroup : 'column')};
+    align-items: ${({ $alignTextGroup }) => $alignTextGroup || 'center'};
     justify-content: flex-start;
     gap: ${({ $gapBetweenIcon }) => arrayToCssValues($gapBetweenIcon ?? 'xxs', 'spacing')};
   }
@@ -49,3 +49,5 @@ export const OnlyTextWrapper = styled.span<TOnlyTextWrapper & { theme: TTheme }>
       color: ${theme.color[$themeType ?? 'secondary'][$layer ?? 0]};
     `};
 `;
+
+const TextContentWrapper = styled.span``;

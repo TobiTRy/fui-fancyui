@@ -20,6 +20,8 @@ function FancyContent(props: TFancyContentHTMLAttrs) {
     layer,
     externalStyle,
     alignIcon = 'left',
+    directionTextGroup = 'column',
+    alignTextGroup = 'flex-start',
     ...htmlProps
   } = props;
 
@@ -43,8 +45,10 @@ function FancyContent(props: TFancyContentHTMLAttrs) {
       $justify={justify}
       $gapBetweenText={gapBetweenText}
       $gapBetweenIcon={gapBetweenIcon}
+      $directionTextGroup={directionTextGroup}
       $themeType={themeType}
       $layer={layer}
+      $alignTextGroup={alignTextGroup}
       $externalStyle={externalStyle}
       {...htmlProps}
     >
