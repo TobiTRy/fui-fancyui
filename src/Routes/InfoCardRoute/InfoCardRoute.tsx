@@ -17,6 +17,7 @@ export default function InfoCardRoute() {
           </FancyBox>
           <FancyInfoCard
             outlined
+            icon={<SVGCheckMark />}
             sizeC="sm"
             themeType="info"
             title="A Vergy good title"

@@ -9,13 +9,13 @@ import { TTheme } from '@/types/TTheme';
 export default function ColorGeneratorRoute() {
   const theme = themeStore((state) => state.theme);
   //get keys of primary
-  const primaryKeys = Object?.keys(theme?.colors.primary);
-  const accentKeys = Object?.keys(theme?.colors.accent);
-  const secondaryKeys = Object?.keys(theme?.colors.secondary);
-  const infoKeys = Object?.keys(theme?.colors.info);
-  const warningKeys = Object?.keys(theme?.colors.warning);
-  const errorKeys = Object?.keys(theme?.colors.error);
-  const successKeys = Object?.keys(theme?.colors.success);
+  const primaryKeys = Object?.keys(theme?.color.primary);
+  const accentKeys = Object?.keys(theme?.color.accent);
+  const secondaryKeys = Object?.keys(theme?.color.secondary);
+  const infoKeys = Object?.keys(theme?.color.info);
+  const warningKeys = Object?.keys(theme?.color.warning);
+  const errorKeys = Object?.keys(theme?.color.error);
+  const successKeys = Object?.keys(theme?.color.success);
 
   return (
     <div style={{ display: 'flex' }}>
@@ -24,7 +24,7 @@ export default function ColorGeneratorRoute() {
           return (
             <div
               key={index}
-              style={{ width: '100px', height: '100px', backgroundColor: theme.colors.primary[color] }}
+              style={{ width: '100px', height: '100px', backgroundColor: theme.color.primary[color] }}
             ></div>
           );
         })}
@@ -34,7 +34,7 @@ export default function ColorGeneratorRoute() {
           return (
             <div
               key={index}
-              style={{ width: '100px', height: '100px', backgroundColor: theme.colors.accent[color] }}
+              style={{ width: '100px', height: '100px', backgroundColor: theme.color.accent[color] }}
             ></div>
           );
         })}
@@ -44,7 +44,7 @@ export default function ColorGeneratorRoute() {
           return (
             <div
               key={index}
-              style={{ width: '100px', height: '100px', backgroundColor: theme.colors.accent[color] }}
+              style={{ width: '100px', height: '100px', backgroundColor: theme.color.accent[color] }}
             ></div>
           );
         })}
@@ -55,7 +55,7 @@ export default function ColorGeneratorRoute() {
           return (
             <div
               key={index}
-              style={{ width: '100px', height: '100px', backgroundColor: theme.colors.secondary[color] }}
+              style={{ width: '100px', height: '100px', backgroundColor: theme.color.secondary[color] }}
             ></div>
           );
         })}
@@ -65,7 +65,7 @@ export default function ColorGeneratorRoute() {
           return (
             <div
               key={index}
-              style={{ width: '100px', height: '100px', backgroundColor: theme.colors.warning[color] }}
+              style={{ width: '100px', height: '100px', backgroundColor: theme.color.warning[color] }}
             ></div>
           );
         })}
@@ -75,7 +75,7 @@ export default function ColorGeneratorRoute() {
           return (
             <div
               key={index}
-              style={{ width: '100px', height: '100px', backgroundColor: theme.colors.error[color] }}
+              style={{ width: '100px', height: '100px', backgroundColor: theme.color.error[color] }}
             ></div>
           );
         })}
@@ -85,7 +85,7 @@ export default function ColorGeneratorRoute() {
           return (
             <div
               key={index}
-              style={{ width: '100px', height: '100px', backgroundColor: theme.colors.success[color] }}
+              style={{ width: '100px', height: '100px', backgroundColor: theme.color.success[color] }}
             ></div>
           );
         })}

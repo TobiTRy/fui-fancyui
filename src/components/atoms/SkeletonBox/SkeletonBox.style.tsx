@@ -10,7 +10,7 @@ type TSyledSkeletonBox = TStyledPrefixAndPicker<TSkeletonBox>;
 export const StyledSkeletonBox = styled.div<TSyledSkeletonBox & { theme: TTheme }>`
   width: ${({ $sizeW }) => $sizeW && ($sizeW === 'fit' ? '100%' : globalElementsizes[$sizeW])};
   height: ${({ $sizeH }) => $sizeH && ($sizeH === 'fit' ? '100%' : globalElementsizes[$sizeH])};
-  background-color: ${({ theme, $themeType = 'primary', $layer }) => theme.colors[$themeType][$layer || 0]};
+  background-color: ${({ theme, $themeType = 'primary', $layer }) => theme.color[$themeType][$layer || 0]};
   animation: ${({ theme, $themeType, $layer }) => createLoadingKeyframes({ theme, $themeType, $layer })} 2s infinite;
   border-radius: ${({ theme, $borderRadius }) => theme.borderRadius[$borderRadius ?? 'xs'] || '0px'};
   ${({ $aspectRatio }) =>
@@ -28,12 +28,12 @@ const createLoadingKeyframes = ({
   $layer,
 }: TLoadingProps & { theme: TTheme }) => keyframes`
   0% {
-    background-color: ${theme.colors[$themeType][$layer ?? 0]};
+    background-color: ${theme.color[$themeType][$layer ?? 0]};
   }
   50% {
-    background-color: ${theme.colors[$themeType][$layer ? clampLayer($layer + 1) : 1]};
+    background-color: ${theme.color[$themeType][$layer ? clampLayer($layer + 1) : 1]};
   }
   100% {
-    background-color: ${theme.colors[$themeType][$layer ?? 0]};
+    background-color: ${theme.color[$themeType][$layer ?? 0]};
   }
 `;

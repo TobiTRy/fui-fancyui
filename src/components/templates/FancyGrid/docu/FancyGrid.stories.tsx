@@ -40,6 +40,18 @@ const meta = {
         type: 'object',
       },
     },
+    margin: {
+      description: 'The margin of the grid',
+      control: {
+        type: 'object',
+      },
+    },
+    padding: {
+      description: 'The padding of the grid',
+      control: {
+        type: 'object',
+      },
+    },
   },
 } satisfies Meta<typeof FancyGrid>;
 
@@ -73,6 +85,8 @@ export const Primary: Story = {
     </FancyGrid>
   ),
   args: {
+    padding: ['sm', 'md', 'lg', 'xl'],
+    margin: ['sm', 'md', 'lg', 'xl'],
     grid: 12,
     gap: '12px',
     breakpoints: [{ breakpoint: '500px', gridSize: 6 }],

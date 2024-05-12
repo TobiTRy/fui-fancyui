@@ -16,6 +16,6 @@ type TStyledInput = {
 export const StyledInput = styled.div<TStyledInput>`
   input {
     ${({ theme, $sizeC }) => theme.fontSizes[sizeSettings[$sizeC].fontSize]};
-    color: ${({ theme, $themeType = 'primary', $layer }) => theme.colors[$themeType][$layer || 0]};
+    color: ${({ theme, $themeType = 'primary', $layer }) => theme.color[$themeType][$layer || 0]};
   }
 `;

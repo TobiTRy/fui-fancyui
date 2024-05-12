@@ -19,6 +19,6 @@ export const WrapperSVG = styled.div<{ theme: TTheme }>`
   svg {
     width: 24px;
     height: 24px;
-    fill: ${({ theme }) => theme.colors.secondary[0]};
+    fill: ${({ theme }) => theme.color.secondary[0]};
   }
 `;

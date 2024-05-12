@@ -16,7 +16,7 @@ type ThemeState = {
 // the store for the theme
 const themeStore = create<ThemeState>((set) => ({
   theme: {
-    colors: uiColors,
+    color: uiColors,
     borderRadius: borderRadius,
     spacing: spacingPx,
     fontSizes: typography,
@@ -31,10 +31,10 @@ const themeStore = create<ThemeState>((set) => ({
         isDarkTheme: !state.isDarkTheme,
         theme: {
           ...state.theme,
-          colors: {
-            ...state.theme.colors,
-            primary: state.theme.colors.secondary,
-            secondary: state.theme.colors.primary,
+          color: {
+            ...state.theme.color,
+            primary: state.theme.color.secondary,
+            secondary: state.theme.color.primary,
           },
         },
       };

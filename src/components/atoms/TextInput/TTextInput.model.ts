@@ -4,6 +4,7 @@ import { TTextAlignLC } from '@/types/TTextAlignLC';
 // the incoming props
 export type TTextInput = {
   align?: TTextAlignLC;
+  type?: 'text' | 'email' | 'tel' | 'url';
 };
 
 // the native props of the input element excluding the type attribute

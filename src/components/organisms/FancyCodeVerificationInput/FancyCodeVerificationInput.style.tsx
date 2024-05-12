@@ -15,7 +15,7 @@ export const MessageContainer = styled.div<{ theme: TTheme }>`
 `;
 
 export const Message = styled.div<{ $isError?: boolean; theme: TTheme }>`
-  color: ${({ theme }) => theme.colors.secondary[0]};
+  color: ${({ theme }) => theme.color.secondary[0]};
   max-height: 0;
   visibility: hidden;
   overflow: hidden;
@@ -24,7 +24,7 @@ export const Message = styled.div<{ $isError?: boolean; theme: TTheme }>`
   ${({ $isError, theme }) =>
     $isError &&
     css`
-      color: ${theme.colors.error[0]};
+      color: ${theme.color.error[0]};
       max-height: 100px;
       visibility: visible;
       opacity: 1;

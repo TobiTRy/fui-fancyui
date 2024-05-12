@@ -23,7 +23,7 @@ export const WrapperAnimated = styled.div`
 
 export const ContentBox = styled.div<{ theme: TTheme }>`
   overflow-y: scroll;
-  color: ${({ theme }) => theme.colors.secondary[0]};
+  color: ${({ theme }) => theme.color.secondary[0]};
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

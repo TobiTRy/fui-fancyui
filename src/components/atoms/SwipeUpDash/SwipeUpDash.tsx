@@ -20,7 +20,7 @@ export default function SwipeUpDash() {
 const StyledSwipeUpDash = styled.div<{ theme: TTheme }>`
   width: 50px;
   height: 3px;
-  background-color: ${({ theme }) => theme.colors.secondary[0]};
+  background-color: ${({ theme }) => theme.color.secondary[0]};
   border-radius: 3px;
 `;
 

@@ -49,7 +49,7 @@ export * from '@/components/atoms/RawLI';
 export * from '@/components/atoms/RawUL';
 export * from '@/components/atoms/RawA';
 export * from '@/components/atoms/RawNav';
-export * from '@/components/atoms/SpacingContainer';
+export * from '@/components/atoms/FancySpacingBox';
 export * from '@/components/atoms/DateInput';
 export * from '@/components/atoms/SystemMessage';
 export * from '@/components/atoms/NumberInput';
@@ -58,6 +58,7 @@ export * from '@/components/atoms/TextInput';
 export * from '@/components/atoms/SkeletonBox';
 export * from '@/components/atoms/TextGradient';
 export * from '@/components/atoms/TitleForComponent';
+export * from '@/components/atoms/ColoredText';
 
 // ---------- Molecules ------- //
 export * from '@/components/molecules/DateNumberWithStatus';
@@ -131,6 +132,7 @@ export * from '@/components/templates/FancyInfoCard';
 export * from '@/components/templates/FancyDateDropDown';
 export * from '@/components/templates/FancyMenuItem';
 export * from '@/components/templates/FancyGrid';
+export * from '@/components/templates/FancyGridItem';
 export * from '@/components/templates/FancyRadioList';
 export * from '@/components/templates/FancyFlexBox';
 export * from '@/components/templates/FancyHandyNav';

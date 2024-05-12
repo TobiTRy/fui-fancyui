@@ -1,4 +1,5 @@
 import { TThemeValueOrCSS } from '@/design/designFunctions/getThemeOrValueAsCss';
+import { TDynamicElement } from '@/types/TDynamicElement';
 import React, { ElementType } from 'react';
 import { CSSProp } from 'styled-components';
 
@@ -17,9 +18,4 @@ export type TFancyFlexBox = {
   fitBox?: boolean;
 } & TStyleProps;
 
-// Props for dynamic element type
-export type TDynamicElementProps<T extends ElementType> = {
-  as?: ElementType;
-} & React.HTMLAttributes<T>;
-
-export type TFancyFlexBoxWithDynamicElAttrs<T extends ElementType = 'div'> = TDynamicElementProps<T> & TFancyFlexBox;
+export type TFancyFlexBoxWithDynamicElAttrs<T extends ElementType = 'div'> = TDynamicElement<T> & TFancyFlexBox;

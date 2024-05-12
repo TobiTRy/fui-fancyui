@@ -30,7 +30,7 @@ export const WrapperSystemMessageAndInput = styled.div`
 
 //the input/label/underline are all wrapped in thid container
 // eslint-disable-next-line react-refresh/only-export-components
-export const generateInputContainerStyle = (hasLabel: boolean, hasSytemMessage?: boolean) => css`
+export const generateInputContainerStyle = (hasLabel: boolean, isActive: boolean, theme: TTheme) => css`
   display: flex;
   gap: 8px;
   grid-column: 2/3;
@@ -38,12 +38,14 @@ export const generateInputContainerStyle = (hasLabel: boolean, hasSytemMessage?:
   position: relative;
   align-items: center;
   padding: ${hasLabel
-    ? hasSytemMessage
-      ? '4px 8px'
-      : '4px 8px 9px'
-    : hasSytemMessage
-      ? '2px 8px 4px'
-      : '2px 8px 4px'}; //
+    ? `${theme.spacing.xxs}  ${theme.spacing.md} ${theme.spacing.xs}`
+    : `2px ${theme.spacing.md} ${theme.spacing.xxs}`};
+
+  ${isActive
+    ? css`
+        box-shadow: 0 0 0 1px ${theme.color.accent[0]};
+      `
+    : ''}
 `;
 
 // Define the styles for the icon

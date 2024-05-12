@@ -8,6 +8,6 @@ export const generateBackgroundColor = (props: Pick<IGenerateThemeItem, '$themeT
   if ($themeType === 'transparent') {
     return 'transparent';
   } else {
-    return theme.colors[$themeType ?? 'primary'][$layer ?? 0];
+    return theme.color[$themeType ?? 'primary'][$layer ?? 0];
   }
 };

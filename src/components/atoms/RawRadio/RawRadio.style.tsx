@@ -34,7 +34,7 @@ export const StyledRadio = styled.span<TStyledRadio & { theme: TTheme }>`
   height: 16px;
   border: 2px solid;
   border-color: ${({ $checked, $layer, $themeType = 'primary', theme }) =>
-    $checked ? theme.colors.accent[2] : getBackgroundColor({ theme, $themeType, $layer })};
+    $checked ? theme.color.accent[2] : getBackgroundColor({ theme, $themeType, $layer })};
   background: ${({ $checked, $layer, $themeType = 'primary', theme }) =>
     $checked ? 'transparent' : getBackgroundColor({ theme, $themeType, $layer })};
   border-radius: 50%;
@@ -54,7 +54,7 @@ export const StyledRadio = styled.span<TStyledRadio & { theme: TTheme }>`
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background: ${({ $checked, theme }) => ($checked ? theme.colors.accent[1] : 'transparent')};
+    background: ${({ $checked, theme }) => ($checked ? theme.color.accent[1] : 'transparent')};
     transition:
       background 0.2s ease,
       border-color 0.2s ease;

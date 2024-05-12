@@ -42,7 +42,7 @@ export const ContentWrapper = styled.div<TContentWrapper & { theme?: TTheme }>`
     css`
       @media (hover: hover) {
         &:hover {
-          color: ${!$disabled && theme.colors.accent[0]};
+          color: ${!$disabled && theme.color.accent[0]};
         }
       }
     `}

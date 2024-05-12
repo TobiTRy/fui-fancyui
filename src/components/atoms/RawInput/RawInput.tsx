@@ -17,6 +17,18 @@ const RawInput = styled.input<TRawInputWith$ & { theme?: TTheme }>`
   font-size: ${({ theme }) => theme.fontSizes.interactiveMd.fontSize};
   padding: 0;
 
+  // Remove the default autofill background color
+  &:-webkit-autofill,
+  &:-webkit-autofill:focus {
+    transition:
+      background-color 600000s 0s,
+      color 600000s 0s;
+  }
+
+  &[data-autocompleted] {
+    background-color: transparent !important;
+  }
+
   ${({ $externalStyle }) => $externalStyle};
 `;
 

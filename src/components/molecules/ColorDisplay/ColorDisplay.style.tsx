@@ -48,7 +48,7 @@ export const Content = styled.div<{ $isBright: boolean; theme: TTheme; $isDarkTh
   &:active,
   &:hover {
     color: ${({ theme, $isBright, $isDarkTheme }) =>
-      $isBright && $isDarkTheme ? theme.colors.primary[4] : theme.colors.secondary[4]};
+      $isBright && $isDarkTheme ? theme.color.primary[4] : theme.color.secondary[4]};
   }
 `;
 
@@ -59,7 +59,7 @@ type TColorCalculation = {
   $isDarkTheme: boolean;
 };
 const colorCalculation = ({ theme, $isBright, $isDarkTheme }: TColorCalculation) => {
-  if ($isDarkTheme) return $isBright ? theme.colors.primary[0] : theme.colors.secondary[0];
+  if ($isDarkTheme) return $isBright ? theme.color.primary[0] : theme.color.secondary[0];
 
-  return $isBright ? theme.colors.secondary[0] : theme.colors.primary[0];
+  return $isBright ? theme.color.secondary[0] : theme.color.primary[0];
 };

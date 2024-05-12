@@ -10,10 +10,10 @@ const filpColor = (isLightColor: boolean) => {
 
   // If the theme is not dark, return the appropriate color based on the isLightColor parameter
   if (!isDarkTheme) {
-    return isLightColor ? theme.colors['secondary'] : theme.colors['primary'];
+    return isLightColor ? theme.color['secondary'] : theme.color['primary'];
   } else {
     // If the theme is dark, return the appropriate color based on the isLightColor parameter
-    return isLightColor ? theme.colors['primary'] : theme.colors['secondary'];
+    return isLightColor ? theme.color['primary'] : theme.color['secondary'];
   }
 };
 
@@ -21,7 +21,7 @@ export default function flipThemeColor(color: TUiColorsNotTransparent, layer?: T
   const theme = themeStore.getState().theme;
 
   // Check if the current color is light or dark
-  const isCurrentColorLight = Color(theme.colors[color][layer || 0]).isLight();
+  const isCurrentColorLight = Color(theme.color[color][layer || 0]).isLight();
 
   // Get the flipped color based on the current color's lightness
   const getFlippedColor = filpColor(isCurrentColorLight);

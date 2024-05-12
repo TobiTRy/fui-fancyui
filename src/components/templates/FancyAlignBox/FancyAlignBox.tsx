@@ -1,7 +1,7 @@
 import { ElementType } from 'react';
 
 import { FancyFlexBox } from '@/components/templates/FancyFlexBox';
-import { SpacingsContainer } from '@/components/atoms/SpacingContainer';
+import { FancySpacingBox } from '@/components/atoms/FancySpacingBox';
 
 import { TFancyAlignBox } from './TFancyAlignBox.model';
 
@@ -21,7 +21,7 @@ export default function FancyAlignBox<T extends ElementType>(props: TFancyAlignB
   } = props;
 
   return (
-    <SpacingsContainer as={as} padding={padding} margin={margin} externalStyle={externalStyle} {...htmlProps}>
+    <FancySpacingBox as={as} padding={padding} margin={margin} externalStyle={externalStyle} {...htmlProps}>
       <FancyFlexBox
         as={as}
         justify={justify}
@@ -32,6 +32,6 @@ export default function FancyAlignBox<T extends ElementType>(props: TFancyAlignB
       >
         {children}
       </FancyFlexBox>
-    </SpacingsContainer>
+    </FancySpacingBox>
   );
 }

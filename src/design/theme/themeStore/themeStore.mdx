@@ -38,7 +38,7 @@ const ExampleComponent = () => {
   const switchTheme = themeStore((state) => state.switchTheme);
 
   return (
-    <div style={{ backgroundColor: theme.colors.primary[0] }}>
+    <div style={{ backgroundColor: theme.color.primary[0] }}>
       <button onClick={switchTheme}>Switch Theme</button>
     </div>
   );

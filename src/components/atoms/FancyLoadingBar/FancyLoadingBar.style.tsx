@@ -34,7 +34,7 @@ export const LoadingBar = styled.div<TLoadingBar & { theme: TTheme }>`
   background-image: linear-gradient(
     90deg,
     transparent,
-    ${({ theme, $layer = 0, $themeType = 'accent' }) => theme.colors[$themeType][$layer]},
+    ${({ theme, $layer = 0, $themeType = 'accent' }) => theme.color[$themeType][$layer]},
     transparent
   );
   animation: ${loadingAnimation} 3s ease-in-out infinite; // Set the animation duration to 3s

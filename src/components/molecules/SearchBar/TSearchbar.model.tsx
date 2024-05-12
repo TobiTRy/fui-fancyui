@@ -14,4 +14,4 @@ export type TSearchBar = {
   sizeC?: TComponentSizes;
 };
 
-export type TSearchBarWithFancyInputAttrs = TSearchBar & TFancyTextInput;
+export type TSearchBarWithFancyInputAttrs = TSearchBar & Omit<TFancyTextInput, 'type'>;

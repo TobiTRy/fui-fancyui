@@ -13,6 +13,7 @@ import {
 } from './InputWrapper.style';
 import { FancyBox } from '@/components/atoms/FancyBox';
 import { SystemMessage } from '@/components/atoms/SystemMessage';
+import { themeStore } from '@/design/theme/themeStore';
 
 // --------------------------------------------------------------------------- //
 // ------ The Wrapper for the inputs that give him some extra features  ------ //
@@ -21,7 +22,7 @@ export default function InputWrapper(props: TInputWrapper) {
   const {
     id,
     hasValue,
-    isActive,
+    isActive = false,
     disabled,
     InputElement,
     systemMessage,
@@ -40,6 +41,8 @@ export default function InputWrapper(props: TInputWrapper) {
     labelVariant,
   } = props;
 
+  const theme = themeStore((state) => state.theme);
+
   // Render the InputWrapper component with the appropriate props
   return (
     <StyledInputWrapper disabled={disabled} $autoWidth={autoWidth}>
@@ -49,7 +52,7 @@ export default function InputWrapper(props: TInputWrapper) {
         outlined={outlined}
         outlinedBackgroundStrength={outlinedBackgroundStrength}
         externalStyle={css`
-          ${generateInputContainerStyle(!!label)}
+          ${generateInputContainerStyle(!!label, isActive, theme)}
           ${externalStyle}
         `}
       >

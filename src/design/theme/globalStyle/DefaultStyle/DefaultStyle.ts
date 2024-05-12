@@ -7,8 +7,8 @@ const DefaultStyle = createGlobalStyle<{ theme?: TTheme }>`
   body {
     margin: 0;
     padding: 0;
-    background: ${({ theme }) => theme.colors.primary[0]};
-    color: ${({ theme }) => theme.colors.secondary[0]};
+    background: ${({ theme }) => theme.color.primary[0]};
+    color: ${({ theme }) => theme.color.secondary[0]};
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     position: relative;
     overflow-y: auto;

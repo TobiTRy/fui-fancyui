@@ -22,6 +22,7 @@ export default function FancyPasswordInput(props: TFancyPasswordInput) {
     icon,
     label,
     onFocus,
+    underline,
     onBlur,
     transparentBackground,
     ...inputProps
@@ -44,6 +45,7 @@ export default function FancyPasswordInput(props: TFancyPasswordInput) {
       label={label}
       disabled={disabled}
       align={align}
+      underline={underline}
       isActive={isActive}
       icon={icon}
       systemMessage={systemMessage}

@@ -21,7 +21,7 @@ export const generateOutlined = (props: IGenerateOutlinedItem) => {
   const backgroundColor = Color(getButtonColor).alpha(0.1).hexa();
 
   const clacHoverColor = () => {
-    if ($textColor) return theme.colors[$textColor][1];
+    if ($textColor) return theme.color[$textColor][1];
     return getButtonColor;
   };
 

@@ -83,6 +83,12 @@ const meta = {
         type: 'select',
       },
     },
+    underline: {
+      description: 'Underline for the input',
+      control: {
+        type: 'boolean',
+      },
+    },
     outlined: {
       description: 'Outlined input',
       control: {
@@ -138,6 +144,7 @@ export const Primary: Story = {
     labelVariant: 'animated',
     icon: <SVGCheckMark />,
     decimalPlaces: 2,
+    underline: true,
     step: 1,
   },
 };

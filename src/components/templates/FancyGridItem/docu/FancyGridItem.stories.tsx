@@ -32,6 +32,18 @@ const meta = {
         type: 'object',
       },
     },
+    gridColumn: {
+      description: 'The column wich the item should take in the grid',
+      control: {
+        type: 'string',
+      },
+    },
+    gridRow: {
+      description: 'The row wich the item should take in the grid',
+      control: {
+        type: 'string',
+      },
+    },
   },
 } satisfies Meta<typeof FancyGridItem>;
 
@@ -49,6 +61,8 @@ export const Primary: Story = {
   ),
   args: {
     gridSpace: 6,
+    gridColumn: '1 / 3',
+    gridRow: '1 / 2',
     breakpoints: [{ breakpoint: '500px', gridSize: 6 }],
   },
 };

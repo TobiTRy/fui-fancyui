@@ -41,7 +41,7 @@ export const StyledButton = styled.button<{ theme: TTheme; $themeType?: TUiColor
 export const SVGDesignCSS = css<{ theme: TTheme }>`
   svg {
     path: {
-      stroke: ${({ theme }) => theme.colors.secondary[0]};
+      stroke: ${({ theme }) => theme.color.secondary[0]};
       stroke-width: 2px;
     }
   }

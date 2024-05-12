@@ -8,7 +8,7 @@ export default function generateSystemIndicatorStyle(systemMessage?: TUiColorsSy
 
   if (systemMessage)
     return css`
-      border: ${`1.5px solid ${theme.colors[systemMessage][0]}`};
+      border: ${`1.5px solid ${theme.color[systemMessage][0]}`};
       transition: border 0.3s ease-in-out;
     `;
 }

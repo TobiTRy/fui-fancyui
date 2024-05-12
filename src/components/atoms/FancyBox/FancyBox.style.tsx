@@ -6,13 +6,12 @@ import { TTheme } from '@/types/TTheme';
 
 import { TFancyBox } from './FancyBox.model';
 import { TThemeArrayOrValueCSS, arrayToCssValues } from '@/design/designFunctions/arrayToCssValues';
-import { calcBorderSizeMinusBoxSize } from '@/design/designFunctions/calcBorderSizeMinusBoxSize';
 
 // the fancy box that gets the style from the theme
 type IStyledFancyBox = TStyledPrefixAndPicker<TFancyBox> & { theme?: TTheme; $padding?: TThemeArrayOrValueCSS };
 export const StyledFancyBox = styled.div<IStyledFancyBox>`
   border-radius: ${({ $borderRadius }) => arrayToCssValues($borderRadius, 'borderRadius')};
-  padding: ${({ $padding }) => calcBorderSizeMinusBoxSize($padding, 4)};
+  padding: ${({ $padding }) => arrayToCssValues($padding, 'spacing')};
   box-sizing: border-box;
   ${({ $themeType, theme, $layer, $outlined, $outlinedBackgroundStrength }) =>
     generateThemeForCard({ $themeType, theme, $outlined, $layer, $outlinedBackgroundStrength })};

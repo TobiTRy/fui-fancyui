@@ -14,16 +14,16 @@ const DragableThumb = css<{ theme: TTheme; $isActive?: boolean }>`
   height: 24px;
   width: 24px;
   border-radius: 50%;
-  background: ${({ theme }) => theme.colors.accent[0]};
+  background: ${({ theme }) => theme.color.accent[0]};
   border: 4px solid transparent;
   transition: box-shadow 0.2s ease-in-out;
   ${boxShadow.sm}
 
   box-shadow: ${({ $isActive, theme }) =>
-    $isActive && `0 0 0 8px ${colorTransparencyCalculator(theme.colors.accent[0], 0.3)}`};
+    $isActive && `0 0 0 8px ${colorTransparencyCalculator(theme.color.accent[0], 0.3)}`};
 
   &:active {
-    background: ${({ theme }) => theme.colors.accent[1]};
+    background: ${({ theme }) => theme.color.accent[1]};
   }
 `;
 
@@ -46,7 +46,7 @@ export const StyledRawSlider = styled.input<TStyledRawSlider & { theme: TTheme }
   ${({ $sizeC }) => generateComponentSize($sizeC)};
   background: ${({ theme, $themeType = 'primary', $layer = 1 }) => getBackgroundColor({ theme, $themeType, $layer })};
   border-radius: ${({ theme }) => theme.borderRadius.complete};
-  background-image: ${({ theme }) => `linear-gradient(90deg, ${theme.colors.accent[0]}, ${theme.colors.accent[0]})`};
+  background-image: ${({ theme }) => `linear-gradient(90deg, ${theme.color.accent[0]}, ${theme.color.accent[0]})`};
   background-size: 70% 100%;
   background-repeat: no-repeat;
   z-index: 1;

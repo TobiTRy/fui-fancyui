@@ -2,17 +2,17 @@
 import { Meta, StoryObj } from '@storybook/react';
 
 // Import the component to be tested
-import SpacingContainer from '../SpacingsContainer';
+import FancySpacingBox from '../FancySpacingBox';
 
 // Define metadata for the story
 const meta = {
-  component: SpacingContainer,
-  title: 'components/atoms/SpacingContainer',
+  component: FancySpacingBox,
+  title: 'components/atoms/FancySpacingBox',
   parameters: {
     docs: {
       description: {
         component:
-          'The `SpacingContainer` component is a versatile wrapper designed to apply consistent spacing around its children through padding and margin properties. It supports dynamic element rendering using the `as` prop, allowing it to adapt to different semantic HTML elements as needed. This component is part of a design system aimed at providing flexible, consistent spacing utilities across an application.',
+          'The `FancySpacingBox` component is a versatile wrapper designed to apply consistent spacing around its children through padding and margin properties. It supports dynamic element rendering using the `as` prop, allowing it to adapt to different semantic HTML elements as needed. This component is part of a design system aimed at providing flexible, consistent spacing utilities across an application.',
       },
     },
   },
@@ -48,7 +48,7 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof SpacingContainer>;
+} satisfies Meta<typeof FancySpacingBox>;
 
 // Export the metadata
 export default meta;
@@ -58,9 +58,9 @@ type Story = StoryObj<typeof meta>;
 // Define the primary story
 export const Primary: Story = {
   render: (args) => (
-    <SpacingContainer {...args}>
+    <FancySpacingBox {...args}>
       <p>Some content</p>
-    </SpacingContainer>
+    </FancySpacingBox>
   ),
   args: {
     padding: '24px',

@@ -23,7 +23,7 @@ export const generateNormal = (props: IGenerateNormalitem) => {
   // generates the hover style for the button
   const hoverBackgroundColorStyle = () => {
     if ($themeType === 'transparent') return 'transparent';
-    if ($hoverColor) return theme.colors[$hoverColor][1];
+    if ($hoverColor) return theme.color[$hoverColor][1];
     return getBackgroundColor({ theme, $themeType: $themeType ?? 'accent', $layer: ($layer && $layer + 1) ?? 1 });
   };
 
@@ -34,7 +34,7 @@ export const generateNormal = (props: IGenerateNormalitem) => {
     color: ${textColor};
 
     &:hover {
-      ${$themeType === 'transparent' ? 'color: ' + theme.colors.secondary[1] : ''};
+      ${$themeType === 'transparent' ? 'color: ' + theme.color.secondary[1] : ''};
       ${$themeType !== 'transparent' && boxShadow.sm};
       background-color: ${hoverBackgroundColorStyle};
     }

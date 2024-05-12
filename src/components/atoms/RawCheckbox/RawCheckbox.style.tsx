@@ -62,7 +62,7 @@ export const FakeCheckbox = styled.div<TFakeCheckbox & { theme: TTheme }>`
     width: 20px;
     height: 20px;
     transform: translate(-50%, -50%);
-    fill: ${({ theme }) => theme.colors.accent[0]};
+    fill: ${({ theme }) => theme.color.accent[0]};
     display: ${({ $checked }) => ($checked ? 'block' : 'none')};
   }
 `;

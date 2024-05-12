@@ -26,8 +26,8 @@ export const StyledDay = styled.button<IStyledDay & { theme: TTheme }>`
   align-items: center;
   border-radius: ${({ theme }) => theme.borderRadius.complete};
   color: ${({ $isCurrentDay, theme, $themeType = 'secondary', $layer }) =>
-    $isCurrentDay ? theme.colors.accent[0] : getTextColor({ $themeType, $textLayer: $layer, theme })};
-  border: ${({ $selected, theme }) => ($selected ? `1px solid ${theme.colors.accent[0]}` : `none`)};
+    $isCurrentDay ? theme.color.accent[0] : getTextColor({ $themeType, $textLayer: $layer, theme })};
+  border: ${({ $selected, theme }) => ($selected ? `1px solid ${theme.color.accent[0]}` : `none`)};
   background-color: transparent;
   padding: 0;
   min-height: 24px;
@@ -47,30 +47,30 @@ export const StyledDay = styled.button<IStyledDay & { theme: TTheme }>`
 
   &:hover,
   &:active {
-    border: 1px solid ${({ theme }) => theme.colors.accent[0]};
+    border: 1px solid ${({ theme }) => theme.color.accent[0]};
   }
 
   ${({ $range, theme }) =>
     $range?.start &&
     css`
       border-radius: 40% 5px 5px 40%;
-      background-color: ${theme.colors.accent[0]};
-      color: ${theme.colors.secondary[0]};
+      background-color: ${theme.color.accent[0]};
+      color: ${theme.color.secondary[0]};
     `}
 
   ${({ $range, theme }) =>
     $range?.inRange &&
     css`
-      background-color: ${theme.colors.accent[0]};
-      color: ${theme.colors.secondary[0]};
+      background-color: ${theme.color.accent[0]};
+      color: ${theme.color.secondary[0]};
     `}
 
   ${({ $range, theme }) =>
     $range?.end &&
     css`
       border-radius: 5px 40% 40% 5px;
-      background-color: ${theme.colors.accent[0]};
-      color: ${theme.colors.secondary[0]};
+      background-color: ${theme.color.accent[0]};
+      color: ${theme.color.secondary[0]};
     `}
 
   &:disabled {

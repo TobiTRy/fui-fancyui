@@ -20,6 +20,7 @@ export default function FancyDateInput(props: TFancyDateInput) {
     themeType = 'primary',
     layer = 2,
     placeholder,
+    underline,
     onChange,
     transparentBackground,
     externalStyle,
@@ -53,6 +54,7 @@ export default function FancyDateInput(props: TFancyDateInput) {
       disabled={disabled}
       themeType={themeType}
       placeholder={placeholder}
+      underline={underline}
       layer={layer}
       align={align}
       isActive={isActiveState}

@@ -19,7 +19,7 @@ export const Wrapper = styled.span<TWrapper & { theme: TTheme }>`
   ${({ theme, $themeType, $layer }) =>
     $themeType &&
     css`
-      color: ${theme.colors[$themeType ?? 'secondary'][$layer ?? 0]};
+      color: ${theme.color[$themeType ?? 'secondary'][$layer ?? 0]};
     `};
 
   ${({ $externalStyle }) => $externalStyle}
@@ -46,6 +46,6 @@ export const OnlyTextWrapper = styled.span<TOnlyTextWrapper & { theme: TTheme }>
   ${({ theme, $themeType, $layer }) =>
     $themeType &&
     css`
-      color: ${theme.colors[$themeType ?? 'secondary'][$layer ?? 0]};
+      color: ${theme.color[$themeType ?? 'secondary'][$layer ?? 0]};
     `};
 `;
