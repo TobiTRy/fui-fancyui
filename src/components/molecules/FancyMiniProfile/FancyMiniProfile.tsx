@@ -16,7 +16,7 @@ export default function FancyMiniProfile(props: TFancyMiniprofileWithHTMLProps) 
 
   return (
     <Chip sizeC={sizeC} themeType={themeType} layer={layer} externalStyle={chipStyle} {...htmlProps}>
-      <FancyProfilePicture className="miniprofile_content-image" sizeC="complete">
+      <FancyProfilePicture className="miniprofile_content-image" sizeC="fit">
         {Image}
       </FancyProfilePicture>
       <Chip.Content className="miniprofile_content" alignIcon={alignImage} gapBetweenText="0">

@@ -20,6 +20,7 @@ export default function FancyProfilePicture(props: TFancyProfilePictureWithHTMLA
     <FancyImageWrapper
       aspectRatio="1/1"
       sizeW={sizeC}
+      sizeH={sizeC}
       externalStyle={externalStyle}
       borderRadius={borderRadius}
       {...htmlProps}

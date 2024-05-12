@@ -18,7 +18,7 @@ export default function SystemMessage(props: TSystemMessage & { textSettings?: T
       $externalStyle={externalStyle}
     >
       {!ownTypographyComponent && (
-        <Typography variant="subTextFootnote" lineHeight={1} {...textSettings}>
+        <Typography variant="subTextFootnote" tabIndex={-1} lineHeight={1} {...textSettings}>
           {children}
         </Typography>
       )}
