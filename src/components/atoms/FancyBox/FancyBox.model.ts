@@ -3,7 +3,7 @@ import { CSSProp } from 'styled-components';
 
 import { TLayer } from '@/types/TLayer';
 import { TUiColorTypes } from '@/types/TUiColorTypes';
-import { TComponentSizes } from '@/types/TComponentSizes';
+import { TComponentSizesExtended } from '@/types/TComponentSizes';
 import { TThemeArrayOrValueCSS } from '@/design/designFunctions/arrayToCssValues';
 
 type TFancyBoxProps = {
@@ -13,8 +13,9 @@ type TFancyBoxProps = {
   children?: React.ReactNode;
   externalStyle?: CSSProp;
   borderRadius?: TThemeArrayOrValueCSS;
-
-  sizeC?: TComponentSizes;
+  padding?: TThemeArrayOrValueCSS;
+  margin?: TThemeArrayOrValueCSS;
+  sizeC?: TComponentSizesExtended;
 };
 
 type TOutlinedFancyBoxProps = {

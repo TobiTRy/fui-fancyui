@@ -12,6 +12,8 @@ type IStyledFancyBox = TStyledPrefixAndPicker<TFancyBox> & { theme?: TTheme; $pa
 export const StyledFancyBox = styled.div<IStyledFancyBox>`
   border-radius: ${({ $borderRadius }) => arrayToCssValues($borderRadius, 'borderRadius')};
   padding: ${({ $padding }) => arrayToCssValues($padding, 'spacing')};
+  margin: ${({ $margin }) => arrayToCssValues($margin, 'spacing')};
+
   box-sizing: border-box;
   ${({ $themeType, theme, $layer, $outlined, $outlinedBackgroundStrength }) =>
     generateThemeForCard({ $themeType, theme, $outlined, $layer, $outlinedBackgroundStrength })};

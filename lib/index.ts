@@ -61,6 +61,7 @@ export * from '@/components/atoms/TitleForComponent';
 export * from '@/components/atoms/ColoredText';
 
 // ---------- Molecules ------- //
+export * from '@/components/molecules/FancyInfoText';
 export * from '@/components/molecules/DateNumberWithStatus';
 export * from '@/components/molecules/DateOutputFromTo';
 export * from '@/components/molecules/DynamicBottomScrollBar';

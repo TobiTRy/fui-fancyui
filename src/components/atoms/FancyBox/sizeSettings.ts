@@ -1,22 +1,38 @@
 import { TThemeArrayOrValueCSS } from '@/design/designFunctions/arrayToCssValues';
-import { TSizeSettings } from '@/types/TSizeSettings';
+import { TSizeSettingsExtended } from '@/types/TSizeSettings';
 
 type TSizeObj = {
   padding: TThemeArrayOrValueCSS;
   borderRadius: TThemeArrayOrValueCSS;
 };
 
-export const sizeSettings: TSizeSettings<TSizeObj> = {
+export const sizeSettings: TSizeSettingsExtended<TSizeObj> = {
+  xxs: {
+    padding: ['xxs'],
+    borderRadius: 'xs',
+  },
+  xs: {
+    padding: ['xs'],
+    borderRadius: 'xs',
+  },
   sm: {
-    padding: ['xs', 'md'],
+    padding: ['sm'],
     borderRadius: 'sm',
   },
   md: {
-    padding: ['md', 'lg'],
+    padding: ['md'],
     borderRadius: 'md',
   },
   lg: {
-    padding: ['md', 'lg'],
+    padding: ['lg'],
     borderRadius: 'lg',
+  },
+  xl: {
+    padding: ['xl'],
+    borderRadius: 'xl',
+  },
+  xxl: {
+    padding: ['xxl'],
+    borderRadius: 'xxl',
   },
 };
