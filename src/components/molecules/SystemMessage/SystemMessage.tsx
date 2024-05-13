@@ -1,12 +1,12 @@
 import { StyledStystemMessage } from './SystemMessage.style';
 import { TSystemMessage } from './TSystemMessage.model';
-import { sizeSettings } from '@/components/atoms/FancyBox/sizeSettings';
+import { sizes } from './sizeSettings';
 
 export default function SystemMessage(props: TSystemMessage) {
-  const { children, layer, sizeC = 'xs', themeType = 'error', padding, borderRadius, margin } = props;
+  const { children, layer, sizeC = 'sm', themeType = 'error', padding, borderRadius, margin } = props;
 
-  const calcBorderRadius = borderRadius ? borderRadius : sizeC ? sizeSettings[sizeC].borderRadius : undefined;
-  const calcPadding = padding ? padding : sizeC ? sizeSettings[sizeC].padding : undefined;
+  const calcBorderRadius = borderRadius ? borderRadius : sizeC ? sizes[sizeC].borderRadius : undefined;
+  const calcPadding = padding ? padding : sizeC ? sizes[sizeC].padding : undefined;
 
   return (
     <StyledStystemMessage
