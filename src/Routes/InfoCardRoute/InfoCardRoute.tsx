@@ -2,7 +2,6 @@ import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
 import FancyInfoCard from '../../components/templates/FancyInfoCard/FancyInfoCard';
 import SVGCheckMark from '../../components/icons/SVGCheckMark/SVGCheckMark';
 import { FancyBox } from '../../components/atoms/FancyBox';
-import FancyInfoText from '@/components/molecules/FancyInfoText/FancyInfoText';
 import SystemMessage from '@/components/molecules/SystemMessage/SystemMessage';
 import FancySystemMessage from '@/components/templates/FancySystemMessage/FancySystemMessage';
 
@@ -15,10 +14,14 @@ export default function InfoCardRoute() {
             <SVGCheckMark />
             <span>Moooiin</span>
           </SystemMessage>
-          <FancySystemMessage sizeC='sm' icon={<SVGCheckMark />} title={'Moooin'} description='Moooiin22' />
-          <FancySystemMessage sizeC='md' icon={<SVGCheckMark />} title={'Moooin'} />
-          <FancySystemMessage sizeC='lg' icon={<SVGCheckMark />} title={'Moooin'} />
-
+          <FancySystemMessage sizeC="sm" title="Tesasas" />
+          <FancySystemMessage sizeC="md" title="Tesasas" />
+          <FancySystemMessage sizeC="lg" themeType="error" title="Tesasas" />
+          <FancySystemMessage sizeC="md" description="Moooiin22" />
+          <FancySystemMessage themeType="success" sizeC="md" icon={<SVGCheckMark />} description="Moooiin22" />
+          <FancySystemMessage themeType="info" sizeC="md" icon={<SVGCheckMark />} description="Moooiin22" />
+          <FancySystemMessage themeType="warning" sizeC="md" description="Moooiin22" />
+          <FancySystemMessage sizeC="lg" icon={<SVGCheckMark />} title={'Moooin'} description="Moooiin22" />
 
           <FancyBox sizeC="sm" themeType="success" />
           <FancyBox sizeC="md" themeType="error" />
