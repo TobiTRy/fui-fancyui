@@ -3,20 +3,22 @@ import FancyInfoCard from '../../components/templates/FancyInfoCard/FancyInfoCar
 import SVGCheckMark from '../../components/icons/SVGCheckMark/SVGCheckMark';
 import { FancyBox } from '../../components/atoms/FancyBox';
 import FancyInfoText from '@/components/molecules/FancyInfoText/FancyInfoText';
+import SystemMessage from '@/components/molecules/SystemMessage/SystemMessage';
+import FancySystemMessage from '@/components/templates/FancySystemMessage/FancySystemMessage';
 
 export default function InfoCardRoute() {
   return (
     <DesignWrapper>
       <DesignArea title="InfoCard">
         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-          <FancyInfoText
-            sizeC="md"
-            directionTextGroup="row"
-            align="center"
-            icon={<SVGCheckMark />}
-            title={'Moooin'}
-            description="Mooiin"
-          />
+          <SystemMessage>
+            <SVGCheckMark />
+            <span>Moooiin</span>
+          </SystemMessage>
+          <FancySystemMessage sizeC='sm' icon={<SVGCheckMark />} title={'Moooin'} description='Moooiin22' />
+          <FancySystemMessage sizeC='md' icon={<SVGCheckMark />} title={'Moooin'} />
+          <FancySystemMessage sizeC='lg' icon={<SVGCheckMark />} title={'Moooin'} />
+
 
           <FancyBox sizeC="sm" themeType="success" />
           <FancyBox sizeC="md" themeType="error" />
