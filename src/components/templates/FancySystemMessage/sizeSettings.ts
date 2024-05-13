@@ -13,21 +13,21 @@ type TSizeObj = {
 // the template for the sizes
 export const sizes: TSizeSettings<TSizeObj> = {
   sm: {
-    iconSize: 'xs',
-    title: 'bodytextSm',
+    iconSize: 'xxs',
+    title: 'subTextCaption',
     descriptionSize: 'subTextFootnote',
-    systemMessageSize: 'xs'
+    systemMessageSize: 'sm',
   },
   md: {
-    iconSize: 'xs',
-    title: 'bodytextMd',
-    descriptionSize: 'bodytextMd',
-    systemMessageSize: 'xs'
+    iconSize: 'xxs',
+    title: 'bodytextSm',
+    descriptionSize: 'subTextCaption',
+    systemMessageSize: 'md',
   },
   lg: {
-    iconSize: 'sm',
-    title: 'bodytextLg',
-    descriptionSize: 'bodytextMd',
-    systemMessageSize: 'md'
+    iconSize: 'xxs',
+    title: 'bodytextMd',
+    descriptionSize: 'bodytextSm',
+    systemMessageSize: 'lg',
   },
 };
