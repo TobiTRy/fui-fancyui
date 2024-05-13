@@ -1,9 +1,8 @@
 import { TThemeArrayOrValueCSS } from '@/design/designFunctions/arrayToCssValues';
-import { TComponentSizes, TComponentSizesExtended } from '@/types/TComponentSizes';
+import { TComponentSizesExtended } from '@/types/TComponentSizes';
 import { TLayer } from '@/types/TLayer';
 import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 import { CSSProp } from 'styled-components';
-
 
 export type TSystemMessage = {
   themeType?: TUiColorsNotTransparent;
@@ -15,4 +14,3 @@ export type TSystemMessage = {
   sizeC?: TComponentSizesExtended;
   externalStyle?: CSSProp;
 };
-

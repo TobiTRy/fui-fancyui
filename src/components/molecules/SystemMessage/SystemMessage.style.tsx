@@ -8,12 +8,9 @@ import { css, styled } from 'styled-components';
 
 // Styled Components
 const sharedStyles = css`
-  padding: 0.5rem 0.75rem;
   border-width: 1px;
-  border-style: solid;
   border-radius: 6px;
   display: flex;
-  gap: 0.5rem;
   align-items: center;
   transition: all 0.2s;
 `;
@@ -33,8 +30,10 @@ export const StyledStystemMessage = styled.div<{ theme: TTheme } & TStyledSystem
 
       return css`
         border-color: oklch(from ${color} l c h / 25%);
+        border-width: 1px;
+        border-style: solid;
         background: oklch(from ${color} calc(l * 1) c h / 20%);
-        color: oklch(from ${color} calc(l * (${isDarkTheme ? 1.3 : 0.5})) c h);
+        color: oklch(from ${color} calc(l * (${isDarkTheme ? 1.3 : 0.7})) c h);
 
         &::selection {
           background: oklch(from ${color} calc(l * 1.1) c h);
