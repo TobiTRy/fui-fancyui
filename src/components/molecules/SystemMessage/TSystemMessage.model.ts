@@ -1,5 +1,5 @@
 import { TThemeArrayOrValueCSS } from '@/design/designFunctions/arrayToCssValues';
-import { TComponentSizesExtended } from '@/types/TComponentSizes';
+import { TComponentSizes } from '@/types/TComponentSizes';
 import { TLayer } from '@/types/TLayer';
 import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 import { CSSProp } from 'styled-components';
@@ -11,6 +11,6 @@ export type TSystemMessage = {
   padding?: TThemeArrayOrValueCSS;
   margin?: TThemeArrayOrValueCSS;
   borderRadius?: TThemeArrayOrValueCSS;
-  sizeC?: TComponentSizesExtended;
+  sizeC?: TComponentSizes;
   externalStyle?: CSSProp;
 };
