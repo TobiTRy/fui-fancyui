@@ -49,5 +49,3 @@ export const OnlyTextWrapper = styled.span<TOnlyTextWrapper & { theme: TTheme }>
       color: ${theme.color[$themeType ?? 'secondary'][$layer ?? 0]};
     `};
 `;
-
-const TextContentWrapper = styled.span``;
