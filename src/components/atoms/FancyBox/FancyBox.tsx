@@ -17,11 +17,13 @@ export default function FancyBox<T extends ElementType = 'div'>(props: TFancyBox
     externalStyle,
     as,
     borderRadius,
+    padding,
+    margin,
     ...htmlProps
   } = props;
 
   const calcBorderRadius = borderRadius ? borderRadius : sizeC ? sizeSettings[sizeC].borderRadius : undefined;
-  const calcPadding = sizeC ? sizeSettings[sizeC].padding : undefined;
+  const calcPadding = padding ? padding : sizeC ? sizeSettings[sizeC].padding : undefined;
 
   return (
     <StyledFancyBox
@@ -31,6 +33,7 @@ export default function FancyBox<T extends ElementType = 'div'>(props: TFancyBox
       $outlined={outlined}
       $padding={calcPadding}
       $themeType={themeType}
+      $margin={margin}
       $outlinedRemoveBorder={outlinedRemoveBorder}
       $borderRadius={calcBorderRadius}
       $externalStyle={externalStyle}

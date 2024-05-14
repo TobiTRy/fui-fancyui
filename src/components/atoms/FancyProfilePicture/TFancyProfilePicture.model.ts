@@ -1,4 +1,3 @@
-import { ReactElement } from 'react';
 import { CSSProp } from 'styled-components';
 
 import { TextAvatar } from '@/components/molecules/TextAvatar';

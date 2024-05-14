@@ -1,19 +1,17 @@
-import React from 'react';
-import SVGCheckMark from '../../../icons/SVGCheckMark/SVGCheckMark';
-
 import type { Meta, StoryObj } from '@storybook/react';
 
-import FancyContent from '../FancyContent';
+import FancyInfoText from '../FancyInfoText';
 import templateThemeType from '@/stories/templateSettingsForStorys/templatesForThemeType';
+import { SVGCheckMark } from '@/components/icons/SVGCheckMark';
 
 const meta = {
-  component: FancyContent,
-  title: 'components/molecules/FancyContent',
+  component: FancyInfoText,
+  title: 'components/molecules/FancyInfoText',
   parameters: {
     docs: {
       description: {
         component:
-          'The `FancyContent` component is a flexible and reusable component designed for displaying content such as titles, descriptions, and icons together in a cohesive layout. It supports customization of alignment, direction, and spacing, making it suitable for various UI elements like buttons, chips, and more. This component is part of a larger system that emphasizes ease of use, aesthetic flexibility, and the ability to integrate seamlessly into different parts of an application´s UI.',
+          'The `FancyInfoText` component is a flexible and reusable component designed for displaying content such as titles, descriptions, and icons together in a cohesive layout. It supports customization of alignment, direction, and spacing, making it suitable for various UI elements like buttons, chips, and more. This component is part of a larger system that emphasizes ease of use, aesthetic flexibility, and the ability to integrate seamlessly into different parts of an application´s UI.',
       },
     },
   },
@@ -55,54 +53,43 @@ const meta = {
       },
     },
     alignTextGroup: {
-      description: 'The align of the text group',
+      description: 'The align of the text',
       control: {
         type: 'radio',
       },
     },
     directionTextGroup: {
-      description: 'The direction of the text group',
+      description: 'The direction of the text',
       control: {
         type: 'radio',
       },
     },
     ...templateThemeType('notTransparent', 'secondary', 0),
   },
-} satisfies Meta<typeof FancyContent>;
+} satisfies Meta<typeof FancyInfoText>;
 
 export default meta;
 
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
-  render: (args) => (
-    <FancyContent {...args}>
-      <FancyContent.Icon>
-        <SVGCheckMark />
-      </FancyContent.Icon>
-      <FancyContent.Title>Text</FancyContent.Title>
-    </FancyContent>
-  ),
-  args: {},
+  render: (args) => <FancyInfoText {...args} />,
+  args: {
+    title: 'Title',
+    description: 'Description',
+    icon: <SVGCheckMark />,
+  },
 };
 
 export const WithAllProps: Story = {
-  render: (args) => (
-    <FancyContent {...args}>
-      <FancyContent.Icon>
-        <SVGCheckMark />
-      </FancyContent.Icon>
-      <FancyContent.Title>Text</FancyContent.Title>
-    </FancyContent>
-  ),
+  render: (args) => <FancyInfoText {...args} />,
   args: {
+    icon: <SVGCheckMark />,
     direction: 'row',
     justify: 'flex-start',
     align: 'flex-start',
     gapBetweenIcon: 'sm',
     gapBetweenText: 'sm',
     alignIcon: 'left',
-    alignTextGroup: 'flex-start',
-    directionTextGroup: 'column',
   },
 };

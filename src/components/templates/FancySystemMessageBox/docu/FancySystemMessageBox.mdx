@@ -1,0 +1,39 @@
+import { Meta, Title, Description, Canvas, Controls } from '@storybook/blocks';
+
+import * as FancySystemMessageBox from './FancySystemMessageBox.stories';
+
+<Meta of={FancySystemMessageBox} />
+
+<Title />
+
+### Brief Description
+
+<Description />
+
+### Example Usage
+
+```jsx
+<FancySystemMessageBox
+  icon={<SVGInfoSign />}
+  title="Information"
+  description="This is an important information message."
+  themeType="info"
+  layer="top"
+  sizeC="md"
+/>
+```
+
+## Component Properties
+
+<Canvas of={FancySystemMessageBox.Success} />
+<Canvas of={FancySystemMessageBox.Error} />
+<Canvas of={FancySystemMessageBox.Warning} />
+<Canvas of={FancySystemMessageBox.Info} />
+
+<Controls />
+
+#### List of Used Components
+
+- **SystemMessageBox**: A basic container for system messages, accommodating various themes and sizes.
+- **FancyContent**: A flexible layout component that manages the orientation and spacing of content and icons within the system message.
+- **Icons (SVGStopSign, SVGInfoSign, SVGWarningSign, SVGCircleCheck)**: Various SVG icons used to represent different message types based on the theme.

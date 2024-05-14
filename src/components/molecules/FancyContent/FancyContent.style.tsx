@@ -26,10 +26,11 @@ export const Wrapper = styled.span<TWrapper & { theme: TTheme }>`
 
   .content {
     display: flex;
-    flex-direction: column;
-    align-items: ${({ $align }) => $align || 'center'};
+    flex-wrap: wrap;
+    flex-direction: ${({ $directionTextGroup }) => ($directionTextGroup === 'row' ? $directionTextGroup : 'column')};
+    align-items: ${({ $alignTextGroup }) => $alignTextGroup || 'center'};
     justify-content: flex-start;
-    gap: ${({ $gapBetweenIcon }) => arrayToCssValues($gapBetweenIcon ?? 'xxs', 'spacing')};
+    gap: ${({ $gapBetweenText }) => arrayToCssValues($gapBetweenText || 'xxs', 'spacing')};
   }
 `;
 

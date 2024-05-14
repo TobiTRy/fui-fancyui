@@ -51,7 +51,7 @@ export * from '@/components/atoms/RawA';
 export * from '@/components/atoms/RawNav';
 export * from '@/components/atoms/FancySpacingBox';
 export * from '@/components/atoms/DateInput';
-export * from '@/components/atoms/SystemMessage';
+export * from '@/components/atoms/SystemMessageBox';
 export * from '@/components/atoms/NumberInput';
 export * from '@/components/atoms/PasswordInput';
 export * from '@/components/atoms/TextInput';
@@ -61,6 +61,7 @@ export * from '@/components/atoms/TitleForComponent';
 export * from '@/components/atoms/ColoredText';
 
 // ---------- Molecules ------- //
+export * from '@/components/molecules/FancyInfoText';
 export * from '@/components/molecules/DateNumberWithStatus';
 export * from '@/components/molecules/DateOutputFromTo';
 export * from '@/components/molecules/DynamicBottomScrollBar';
@@ -141,6 +142,7 @@ export * from '@/components/templates/FancyAlignBox';
 export * from '@/components/templates/FancyGridTemplate';
 export * from '@/components/templates/FancyGridTemplateItem';
 export * from '@/components/templates/FancySkeletonGrid';
+export * from '@/components/templates/FancySystemMessageBox';
 
 // ---------- Utils/Hooks ------- //
 export * from '@/components/shared/FancyPopover';
