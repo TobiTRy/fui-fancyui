@@ -1,13 +1,13 @@
-import { TListDividerWithNativeAttrs } from './ListDivider.model';
+import { TSeperatorWithNativeAttrs } from './TSeperator.model';
 
 import { FancyContent } from '@/components/molecules/FancyContent';
-import { StyledI, StyledTextDiv } from './ListDivider.style';
+import { StyledI, StyledTextDiv } from './Seperator.style';
 import { sizeSettings } from './sizeSettings';
 
 // --------------------------------------------------------------------------- //
 // ------- A Divider that displays only a line or line with informations ----- //
 // --------------------------------------------------------------------------- //
-export default function ListDivider(props: TListDividerWithNativeAttrs) {
+export default function Seperator(props: TSeperatorWithNativeAttrs) {
   const {
     label,
     textAlignment = 'center',

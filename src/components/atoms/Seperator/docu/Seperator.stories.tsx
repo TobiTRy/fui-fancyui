@@ -2,18 +2,18 @@
 import { Meta, StoryObj } from '@storybook/react';
 
 // Import the component to be tested
-import ListDivider from '../ListDivider';
+import Seperator from '../Seperator';
 import templateThemeType from '@/stories/templateSettingsForStorys/templatesForThemeType';
 
 // Define metadata for the story
 const meta = {
-  title: 'components/atoms/ListDivider',
-  component: ListDivider,
+  title: 'components/atoms/Seperator',
+  component: Seperator,
   parameters: {
     docs: {
       description: {
         component:
-          'The `ListDivider` component serves as a customizable separator within your UI, offering options to include a line with or without additional information such as labels or icons. It´s versatile, allowing for theming, alignment, and size customization to fit seamlessly into various design requirements.',
+          'The `Seperator` component serves as a customizable separator within your UI, offering options to include a line with or without additional information such as labels or icons. It´s versatile, allowing for theming, alignment, and size customization to fit seamlessly into various design requirements.',
       },
     },
   },
@@ -59,7 +59,7 @@ const meta = {
       description: 'The icon to be displayed on the divider',
     },
   },
-} satisfies Meta<typeof ListDivider>;
+} satisfies Meta<typeof Seperator>;
 
 // Export the metadata
 export default meta;
@@ -68,11 +68,11 @@ type Story = StoryObj<typeof meta>;
 
 // Define the primary story
 export const Primary: Story = {
-  render: (args) => <ListDivider {...args} />,
+  render: (args) => <Seperator {...args} />,
   args: {},
 };
 export const WithText: Story = {
-  render: (args) => <ListDivider {...args} />,
+  render: (args) => <Seperator {...args} />,
   args: {
     label: 'Some Text',
   },

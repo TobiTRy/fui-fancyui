@@ -2,12 +2,12 @@ import { css, styled } from 'styled-components';
 
 import { TTheme } from '@/types/TTheme';
 import { TStyledPrefixAndPicker } from '@/types/TStyledPrefixAndPicker';
-import { TListDivider } from './ListDivider.model';
+import { TSeperator } from './TSeperator.model';
 
 import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponent';
 
 // only a sepeation line
-type TStyledPrefixAndOmiter = TStyledPrefixAndPicker<TListDivider, 'themeType' | 'layer'> & { theme: TTheme };
+type TStyledPrefixAndOmiter = TStyledPrefixAndPicker<TSeperator, 'themeType' | 'layer'> & { theme: TTheme };
 export const StyledI = styled.div<TStyledPrefixAndOmiter>`
   height: 1px;
   background-color: ${({ theme, $themeType, $layer }) =>
@@ -16,7 +16,7 @@ export const StyledI = styled.div<TStyledPrefixAndOmiter>`
 `;
 
 // the wrapper for the text and the line
-type TStyledTextDiv = TStyledPrefixAndPicker<TListDivider, 'themeType' | 'layer' | 'textAlignment' | 'noLine'> & {
+type TStyledTextDiv = TStyledPrefixAndPicker<TSeperator, 'themeType' | 'layer' | 'textAlignment' | 'noLine'> & {
   theme: TTheme;
 };
 export const StyledTextDiv = styled.div<TStyledTextDiv>`
