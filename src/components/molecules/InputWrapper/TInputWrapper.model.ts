@@ -6,19 +6,13 @@ import { TUiColorsSystemMessage } from '@/types/TUiColorsSystemMessage';
 import { TUiColorsMain } from '@/types/TUiColorsMain';
 import { TFancyBox } from '@/components/atoms/FancyBox/FancyBox.model';
 
-// Define the props for the InputWrapper component
-type TSystemMessage = {
-  message?: string;
-  type: TUiColorsSystemMessage;
-};
-
 export type TInputWrapper = {
   id?: string;
   isActive?: boolean;
   label?: string;
   disabled?: boolean;
   InputElement?: ReactElement<HTMLInputElement>;
-  systemMessage?: TSystemMessage;
+  systemMessage?: TUiColorsSystemMessage;
   icon?: JSX.Element;
   hasValue?: boolean;
   themeType?: Exclude<TUiColorsMain, 'accent'>;

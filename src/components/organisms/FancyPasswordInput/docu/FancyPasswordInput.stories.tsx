@@ -136,7 +136,7 @@ export const WithErrorState: Story = {
     layer: 2,
     label: 'Password',
     icon: <SVGCheckMark />,
-    systemMessage: { type: 'error', message: 'This is an error message' },
+    systemMessage: 'error',
   },
 };
 
@@ -148,7 +148,7 @@ export const WithSuccessState: Story = {
     layer: 2,
     label: 'Password',
     icon: <SVGCheckMark />,
-    systemMessage: { type: 'success', message: 'This is an success message' },
+    systemMessage: 'success',
   },
 };
 
@@ -160,7 +160,7 @@ export const WithInfoState: Story = {
     layer: 2,
     label: 'Password',
     icon: <SVGCheckMark />,
-    systemMessage: { type: 'info', message: 'This is an info message' },
+    systemMessage: 'info',
   },
 };
 

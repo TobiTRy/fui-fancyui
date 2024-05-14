@@ -153,10 +153,7 @@ export const WithErrorState: Story = {
     disabled: false,
     themeType: 'primary',
     layer: 2,
-    systemMessage: {
-      message: 'This is an error message',
-      type: 'error',
-    },
+    systemMessage: 'error',
   },
 };
 
@@ -168,10 +165,7 @@ export const WithSuccessState: Story = {
     disabled: false,
     themeType: 'primary',
     layer: 2,
-    systemMessage: {
-      message: 'This is an success message',
-      type: 'success',
-    },
+    systemMessage: 'success',
   },
 };
 
@@ -183,9 +177,6 @@ export const WithInfoState: Story = {
     disabled: false,
     themeType: 'primary',
     layer: 2,
-    systemMessage: {
-      message: 'This is an info message',
-      type: 'info',
-    },
+    systemMessage: 'info',
   },
 };
