@@ -141,10 +141,7 @@ export const WithErrorState: Story = {
     label: 'Label',
     placeholder: 'Placeholder',
     values: ['test1', 'test2', 'test3'],
-    systemMessage: {
-      type: 'error',
-      message: 'Error',
-    },
+    systemMessage: 'error',
   },
 };
 
@@ -155,10 +152,7 @@ export const WithSuccessState: Story = {
     label: 'Label',
     placeholder: 'Placeholder',
     values: ['test1', 'test2', 'test3'],
-    systemMessage: {
-      type: 'success',
-      message: 'Success',
-    },
+    systemMessage: 'success',
   },
 };
 
@@ -169,9 +163,6 @@ export const WithInfoState: Story = {
     label: 'Label',
     placeholder: 'Placeholder',
     values: ['test1', 'test2', 'test3'],
-    systemMessage: {
-      type: 'info',
-      message: 'Info',
-    },
+    systemMessage: 'info',
   },
 };

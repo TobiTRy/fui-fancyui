@@ -173,9 +173,6 @@ export const WithSystemMessage: Story = {
   render: (args) => <InputWrapper {...args} />,
   args: {
     ...Primary.args,
-    systemMessage: {
-      message: 'System message',
-      type: 'error',
-    },
+    systemMessage: 'error',
   },
 };
