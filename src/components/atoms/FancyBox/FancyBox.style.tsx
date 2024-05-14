@@ -15,8 +15,8 @@ export const StyledFancyBox = styled.div<IStyledFancyBox>`
   margin: ${({ $margin }) => arrayToCssValues($margin, 'spacing')};
 
   box-sizing: border-box;
-  ${({ $themeType, theme, $layer, $outlined, $outlinedBackgroundStrength }) =>
-    generateThemeForCard({ $themeType, theme, $outlined, $layer, $outlinedBackgroundStrength })};
+  ${({ $themeType, theme, $layer, $outlined, $outlinedBackgroundStrength, $outlinedRemoveBorder }) =>
+    generateThemeForCard({ $themeType, theme, $outlined, $layer, $outlinedBackgroundStrength, $outlinedRemoveBorder })};
 
   ${({ $externalStyle }) => $externalStyle};
 `;
