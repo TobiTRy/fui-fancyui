@@ -1,4 +1,4 @@
-import { TSystemMessage } from '@/components/molecules/SystemMessage/TSystemMessage.model';
+import { TSystemMessageBox } from './TSystemMessageBox.model';
 import { arrayToCssValues } from '@/design/designFunctions/arrayToCssValues';
 import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent';
 import { themeStore } from '@/design/theme/themeStore';
@@ -6,19 +6,14 @@ import { TStyledPrefixAndOmiter } from '@/types/TStyledPrefixAndOmiter';
 import { TTheme } from '@/types/TTheme';
 import { css, styled } from 'styled-components';
 
-// Styled Components
-const sharedStyles = css`
+type TStyledSystemMessage = TStyledPrefixAndOmiter<TSystemMessageBox, 'children' | 'sizeC'>;
+
+export const StyledStystemMessage = styled.div<{ theme: TTheme } & TStyledSystemMessage>`
   border-width: 1px;
-  border-radius: 6px;
   display: flex;
   align-items: center;
   transition: all 0.2s;
-`;
 
-type TStyledSystemMessage = TStyledPrefixAndOmiter<TSystemMessage, 'children'>;
-
-export const StyledStystemMessage = styled.div<{ theme: TTheme } & TStyledSystemMessage>`
-  ${sharedStyles}
   border-radius: ${({ $borderRadius }) => arrayToCssValues($borderRadius, 'borderRadius')};
   padding: ${({ $padding }) => arrayToCssValues($padding, 'spacing')};
   margin: ${({ $margin }) => arrayToCssValues($margin, 'spacing')};
