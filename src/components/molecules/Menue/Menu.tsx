@@ -1,7 +1,7 @@
 import { FancyMenuItem } from '@/components/templates/FancyMenuItem';
 import { MenueContainer } from './Menu.style';
 import { TMenuWithHTMLAttributes } from './TMenu.model';
-import { ListDivider } from '@/components/atoms/ListDivider';
+import { Seperator } from '@/components/atoms/Seperator';
 
 // --------------------------------------------------------------------------- //
 // ---------------- A simple Menue that can have any childs --------------- //
@@ -23,6 +23,6 @@ function Menu(props: TMenuWithHTMLAttributes) {
 }
 
 Menu.Item = FancyMenuItem;
-Menu.Divider = ListDivider;
+Menu.Divider = Seperator;
 
 export default Menu;
