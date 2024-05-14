@@ -54,6 +54,18 @@ const meta = {
         type: 'radio',
       },
     },
+    alignTextGroup: {
+      description: 'The align of the text group',
+      control: {
+        type: 'radio',
+      },
+    },
+    directionTextGroup: {
+      description: 'The direction of the text group',
+      control: {
+        type: 'radio',
+      },
+    },
     ...templateThemeType('notTransparent', 'secondary', 0),
   },
 } satisfies Meta<typeof FancyContent>;
@@ -90,5 +102,7 @@ export const WithAllProps: Story = {
     gapBetweenIcon: 'sm',
     gapBetweenText: 'sm',
     alignIcon: 'left',
+    alignTextGroup: 'flex-start',
+    directionTextGroup: 'column',
   },
 };
