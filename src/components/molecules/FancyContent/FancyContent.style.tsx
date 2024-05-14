@@ -26,6 +26,7 @@ export const Wrapper = styled.span<TWrapper & { theme: TTheme }>`
 
   .content {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: ${({ $directionTextGroup }) => ($directionTextGroup === 'row' ? $directionTextGroup : 'column')};
     align-items: ${({ $alignTextGroup }) => $alignTextGroup || 'center'};
     justify-content: flex-start;
