@@ -1,31 +1,43 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { InnerContentWrapper } from './AutoSizingBox.style';
+import { TAutoSizingBox } from './TAutoSizingBox.model';
 
-interface ExpandingBoxProps {
-  children: React.ReactNode;
-}
+// --------------------------------------------------------------------------- //
+// A Box thats adjusts width and height dynamicly from the childs via animation//
+// --------------------------------------------------------------------------- //
+export default function AutoSizingBox(props: TAutoSizingBox) {
+  const { children, startHeight, startWidth, adjustHeight = true, adjustWidth } = props;
 
-export default function AutoSizingBox({ children }: ExpandingBoxProps) {
-  const [boxHeight, setBoxHeight] = useState(0);
+  // State for the height and width of the box
+  const [boxHeight, setBoxHeight] = useState(startHeight || 'auto');
+  const [boxWidth, setBoxWidth] = useState(startWidth || 'auto');
+
+  // Reference to the box element to get the scrollHeight and scrollWidth
   const boxRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Create a new ResizeObserver with a callback that updates the boxHeight state
+    // ResizeObserver to observe the box element
     const resizeObserver = new ResizeObserver(() => {
       if (boxRef.current) {
-        setBoxHeight(boxRef.current.scrollHeight);
+        if (adjustHeight) {
+          setBoxHeight(boxRef.current.scrollHeight);
+        }
+        if (adjustWidth) {
+          setBoxWidth(boxRef.current.scrollWidth);
+        }
       }
     });
-    // Observe the boxRef
+
     if (boxRef.current) {
+      // Start observing the box element for changes
       resizeObserver.observe(boxRef.current);
     }
-
+    // Cleanup the observer on unmount or before re-running this effect
     return () => resizeObserver.disconnect();
-  }, [children]); // Update when children change
+  }, [children, adjustHeight, adjustWidth]);
 
   return (
-    <InnerContentWrapper style={{ height: boxHeight }}>
+    <InnerContentWrapper style={{ height: boxHeight, width: boxWidth }}>
       <div ref={boxRef}>{children}</div>
     </InnerContentWrapper>
   );
