@@ -9,7 +9,7 @@ export default function FancyLine(props: TFancyLineWithHTMLAttributes) {
     direction = 'horizontal',
     thickness,
     margin,
-    themeType,
+    themeType = 'accent',
     layer,
     length,
     externalStyle,

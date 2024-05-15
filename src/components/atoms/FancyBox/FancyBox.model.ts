@@ -33,4 +33,4 @@ type TNonOutlinedFancyBoxPropsFalse = {
 export type TFancyBox = TFancyBoxProps & (TOutlinedFancyBoxProps | TNonOutlinedFancyBoxPropsFalse);
 
 export type TFancyBoxWithHTMLAttrs<T extends ElementType = 'div'> = TFancyBox &
-  Omit<React.DetailedHTMLProps<React.HTMLAttributes<T>, T>, 'style'>;
+  React.DetailedHTMLProps<React.HTMLAttributes<T>, T>;

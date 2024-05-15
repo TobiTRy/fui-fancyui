@@ -18,6 +18,7 @@ import styled from 'styled-components';
 import createMultiIntersectionObserver from '@/utils/hooks/useMiltiIntersectionObserver/multiplyIntersectionObserver';
 import { FancyVirtualScroll } from '@/components/shared/FancyVirtualScroll';
 import ActionItem from '@/components/molecules/ActionItem/ActionItem';
+import { AutoSizingBox } from '@/components/atoms/AutoSizingBox';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -88,7 +89,7 @@ const CustomComponent = ({ children, test }: { children?: React.ReactNode; test?
   return <span>{children}</span>;
 };
 
-const testComps = () => [
+const TestComps = () => [
   <>
     <div>Hiii</div>
     <div>Hiii</div>
@@ -137,12 +138,27 @@ export default function ExperimentalRoute() {
     };
   }, []);
 
+  const addContent = () => {
+    setIsLoading(!isLoading);
+  };
+
   return (
     <>
       <DesignWrapper>
         <DesignArea title="Test">
-          <Button sizeC={undefined}>Mooiin</Button>
-          <FancyNumberInput label="TTTSa" systemMessage={{ type: 'error', message: 'errroor' }} />
+          <AutoSizingBox adjustHeight>
+            <Button sizeC={undefined} onClick={addContent}>
+              Mooiin
+            </Button>
+            {isLoading ? (
+              <TestComps />
+            ) : (
+              <Button sizeC={undefined} onClick={addContent}>
+                Mooiin
+              </Button>
+            )}
+          </AutoSizingBox>
+          <FancyNumberInput label="TTTSa" systemMessage="error" />
           <Card />
           <Card>
             <FancyContent direction="column" justify="center">

@@ -14,7 +14,7 @@ type WithoutLabel = {
   textAlignment?: TTextAlignLRC;
 };
 
-export type TListDivider = {
+export type TSeperator = {
   themeType?: TUiColorsNotTransparent;
   layer?: TLayer;
   noLine?: boolean;
@@ -23,6 +23,6 @@ export type TListDivider = {
   icon?: React.ReactNode;
 } & (WithLabel | WithoutLabel);
 
-export type TListDividerNativeAttrs = HTMLAttributes<HTMLDivElement>;
+export type TSeperatorNativeAttrs = HTMLAttributes<HTMLDivElement>;
 
-export type TListDividerWithNativeAttrs = TListDivider & TListDividerNativeAttrs;
+export type TSeperatorWithNativeAttrs = TSeperator & TSeperatorNativeAttrs;

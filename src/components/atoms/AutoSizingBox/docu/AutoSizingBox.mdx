@@ -1,0 +1,40 @@
+import { Meta, Controls, Title, Description, Canvas } from '@storybook/blocks';
+
+import * as AutoSizingBox from './AutoSizingBox.stories.tsx';
+
+<Meta of={AutoSizingBox} />
+
+<Title />
+
+### Brief Description
+
+<Description />
+
+### Setup Instructions
+
+1. Import the `AutoSizingBox` component where you need to use it:
+
+   ```javascript
+   import { AutoSizingBox } from 'fui-fancyui';
+   ```
+
+2. Make sure to import the `TAutoSizingBox` type definitions if you are using TypeScript:
+   ```javascript
+   import { TAutoSizingBox } from 'fui-fancyui';
+   ```
+
+### Example Usage
+
+Here's how to use the `AutoSizingBox` component in a React component:
+
+```jsx
+<AutoSizingBox startHeight="100px" startWidth="100px" adjustHeight={true} adjustWidth={true}>
+  <div>Dynamic Content Here</div>
+</AutoSizingBox>
+```
+
+<Canvas />
+
+### Component Properties
+
+<Controls />

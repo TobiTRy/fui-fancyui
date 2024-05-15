@@ -150,10 +150,7 @@ export const WithErrorState: Story = {
     align: 'left',
     label: 'Label',
     icon: <SVGCheckMark />,
-    systemMessage: {
-      message: 'This is an error message',
-      type: 'error',
-    },
+    systemMessage: 'error',
   },
 };
 
@@ -165,10 +162,7 @@ export const WithSuccessState: Story = {
     align: 'left',
     label: 'Label',
     icon: <SVGCheckMark />,
-    systemMessage: {
-      message: 'This is an error message',
-      type: 'success',
-    },
+    systemMessage: 'success',
   },
 };
 
@@ -180,9 +174,6 @@ export const WithInfoState: Story = {
     align: 'left',
     label: 'Label',
     icon: <SVGCheckMark />,
-    systemMessage: {
-      message: 'This is an error message',
-      type: 'info',
-    },
+    systemMessage: 'info',
   },
 };

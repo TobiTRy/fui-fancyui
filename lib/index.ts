@@ -1,4 +1,5 @@
 // ---------- atoms ------- //
+export * from '@/components/atoms/AutoSizingBox';
 export * from '@/components/atoms/BackDrop';
 export * from '@/components/atoms/ColorIndicator';
 export * from '@/components/atoms/BackDrop';
@@ -42,7 +43,7 @@ export * from '@/components/atoms/RawRadio';
 export * from '@/components/atoms/LoadingSVGArrows';
 export * from '@/components/atoms/SwitchActiveIndicator';
 export * from '@/components/atoms/FancyActionWrapper';
-export * from '@/components/atoms/ListDivider';
+export * from '@/components/atoms/Seperator';
 export * from '@/components/atoms/MenuItem';
 export * from '@/components/atoms/PageNumberList';
 export * from '@/components/atoms/RawLI';

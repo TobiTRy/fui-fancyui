@@ -158,7 +158,7 @@ export const WithErrorState: Story = {
     label: 'Number',
     labelVariant: 'animated',
     icon: <SVGCheckMark />,
-    systemMessage: { type: 'error', message: 'This is an error message' },
+    systemMessage: 'error',
     decimalPlaces: 2,
   },
 };
@@ -172,7 +172,7 @@ export const WithSuccessState: Story = {
     labelVariant: 'animated',
     label: 'Number',
     icon: <SVGCheckMark />,
-    systemMessage: { type: 'success', message: 'This is an success message' },
+    systemMessage: 'success',
     decimalPlaces: 2,
   },
 };
@@ -186,7 +186,7 @@ export const WithInfoState: Story = {
     label: 'Number',
     labelVariant: 'animated',
     icon: <SVGCheckMark />,
-    systemMessage: { type: 'info', message: 'This is an info message' },
+    systemMessage: 'info',
     decimalPlaces: 2,
   },
 };

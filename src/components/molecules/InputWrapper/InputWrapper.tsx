@@ -1,19 +1,17 @@
-import { css } from 'styled-components';
 import { FancySVGAtom } from '@/components/atoms/FancySVGAtom';
+import { css } from 'styled-components';
 
+import { FancyBox } from '@/components/atoms/FancyBox';
 import { LabeledInput } from '@/components/molecules/LabeledInput';
 import { getOpositMainThemeType } from '@/design/designFunctions/getOpositMainThemeType';
-import { TInputWrapper } from './TInputWrapper.model';
-import {
-  generateInputContainerStyle,
-  StyledInputWrapper,
-  SystemMessageWrapper,
-  generateIconStyle,
-  WrapperSystemMessageAndInput,
-} from './InputWrapper.style';
-import { FancyBox } from '@/components/atoms/FancyBox';
-import { SystemMessage } from '@/components/atoms/SystemMessage';
 import { themeStore } from '@/design/theme/themeStore';
+import {
+  StyledInputWrapper,
+  WrapperSystemMessageAndInput,
+  generateIconStyle,
+  generateInputContainerStyle,
+} from './InputWrapper.style';
+import { TInputWrapper } from './TInputWrapper.model';
 
 // --------------------------------------------------------------------------- //
 // ------ The Wrapper for the inputs that give him some extra features  ------ //
@@ -62,7 +60,7 @@ export default function InputWrapper(props: TInputWrapper) {
             layer={layer}
             isPassive={false}
             externalStyle={generateIconStyle(!!label)}
-            systemMessage={systemMessage?.type}
+            systemMessage={systemMessage}
             sizeC="xs"
             isActive={isActive}
           >
@@ -76,7 +74,7 @@ export default function InputWrapper(props: TInputWrapper) {
             themeType={themeType}
             label={label}
             hasPlaceholder={!!placeholder}
-            systemMessageType={systemMessage?.type}
+            systemMessageType={systemMessage}
             layer={layer}
             hasValue={hasValue}
             underline={underline}
@@ -84,12 +82,6 @@ export default function InputWrapper(props: TInputWrapper) {
             inputElement={InputElement}
             labelVariant={labelVariant ?? 'animated'}
           />
-          {/* Render the error message if an errorMessage prop exists */}
-          {systemMessage && (
-            <SystemMessageWrapper>
-              <SystemMessage systemMessageState={systemMessage.type}>{systemMessage.message}</SystemMessage>
-            </SystemMessageWrapper>
-          )}
         </WrapperSystemMessageAndInput>
         {/* Render the underline for the input field if the underline prop is true */}
       </FancyBox>

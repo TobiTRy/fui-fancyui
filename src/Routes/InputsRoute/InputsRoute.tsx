@@ -98,7 +98,7 @@ export default function InputsRoute() {
             label="Text"
             onChange={testHandler2}
             value={test}
-            systemMessage={{ type: 'error', message: 'This is an error message' }}
+            systemMessage={'error'}
           />
           <FancyNumberInput
             decimalPlaces={4}
@@ -107,7 +107,7 @@ export default function InputsRoute() {
             onChange={testHandler2}
             value={test}
             placeholder="test45454554"
-            systemMessage={{ type: 'success', message: 'This is an error message' }}
+            systemMessage={'success'}
           />
           <FancyNumberInput
             decimalPlaces={4}
@@ -116,7 +116,7 @@ export default function InputsRoute() {
             onChange={testHandler2}
             value={test}
             placeholder="test45454554"
-            systemMessage={{ type: 'info', message: 'This is an error message' }}
+            systemMessage={'info'}
           />
         </DesignArea>
         <DesignArea title="Password Input111">
@@ -135,12 +135,7 @@ export default function InputsRoute() {
             align="center"
             placeholder="test45454554"
           />
-          <FancyTextInput
-            placeholder="Hiiii"
-            systemMessage={{ type: 'success', message: 'moooiin' }}
-            value={text}
-            onChange={testHandler}
-          />
+          <FancyTextInput placeholder="Hiiii" systemMessage={'success'} value={text} onChange={testHandler} />
         </DesignArea>
         <DesignArea title="Number Input">
           <FancyNumberInput icon={svg} label="Text" onChange={testHandler2} value={test} step={0.1} min={0} max={100} />

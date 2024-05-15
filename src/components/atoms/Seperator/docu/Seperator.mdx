@@ -1,0 +1,59 @@
+import { Meta, Title, Description, Controls, Canvas } from '@storybook/blocks';
+import * as SeperatorStories from './Seperator.stories';
+
+<Meta of={SeperatorStories} />
+
+<Title />
+
+<Description />
+
+## Setup Instructions
+
+To use the `Seperator` component in your project, ensure you have imported it along with its model and styled components. Here's a step-by-step guide:
+
+1. **Import the Component**:
+
+   - Import the `Seperator` component into your React file where you intend to use it.
+
+   ```jsx
+   import { Seperator } from 'fui-fancyui';
+   ```
+
+2. **Import Necessary Types**:
+
+   - If you're using TypeScript, import the types to leverage type-checking for the component's props.
+
+   ```tsx
+   import { ISeperator } from 'fui-fancyui';
+   ```
+
+3. **Usage**:
+   - Use the component within your JSX code, passing in the appropriate props as needed.
+
+## Example Usage
+
+Below is an example showcasing how to incorporate the `Seperator` component with some of its key properties:
+
+```jsx
+<Seperator
+  label="Section Title"
+  textAlignment="center"
+  themeType="primary"
+  layer={3}
+  fontWeight="bold"
+  icon={<YourIconComponent />}
+  sizeC="lg"
+/>
+```
+
+This example demonstrates a `Seperator` with a central-aligned label, custom theme, layer styling, bold font weight, an icon, and a larger size setting.
+
+<Canvas />
+
+## Component Properties
+
+The `Seperator` component accepts the following properties:
+
+<Controls />
+
+The component elegantly handles the presence or absence of a label, adjusting its appearance accordingly. Through its props, `Seperator` offers a high degree of customization, enabling developers to match the component's appearance with their application's design system seamlessly.

@@ -100,7 +100,7 @@ export default function FancyRangeSlider(props: TFancyRangeSlider) {
               min={minVal}
               onChange={changeHandler}
               transparentBackground={transparentBackground}
-              systemMessage={systemMessage?.type ? { type: systemMessage?.type } : undefined}
+              systemMessage={systemMessage}
             />
           )}
         </InputElementWrapper>
