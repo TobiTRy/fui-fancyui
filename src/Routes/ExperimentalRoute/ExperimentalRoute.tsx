@@ -146,7 +146,7 @@ export default function ExperimentalRoute() {
     <>
       <DesignWrapper>
         <DesignArea title="Test">
-          <AutoSizingBox>
+          <AutoSizingBox adjustHeight>
             <Button sizeC={undefined} onClick={addContent}>
               Mooiin
             </Button>

@@ -1,4 +1,5 @@
 // ---------- atoms ------- //
+export * from '@/components/atoms/AutoSizingBox';
 export * from '@/components/atoms/BackDrop';
 export * from '@/components/atoms/ColorIndicator';
 export * from '@/components/atoms/BackDrop';
