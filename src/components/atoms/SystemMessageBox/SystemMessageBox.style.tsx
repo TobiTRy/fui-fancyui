@@ -8,7 +8,7 @@ import { css, styled } from 'styled-components';
 
 type TStyledSystemMessage = TStyledPrefixAndOmiter<TSystemMessageBox, 'children' | 'sizeC'>;
 
-export const StyledStystemMessage = styled.div<{ theme: TTheme } & TStyledSystemMessage>`
+export const StyledStystemMessage = styled.aside<{ theme: TTheme } & TStyledSystemMessage>`
   border-width: 1px;
   display: flex;
   align-items: center;
