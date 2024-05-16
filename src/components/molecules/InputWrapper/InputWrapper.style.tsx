@@ -3,12 +3,13 @@ import { styled, css } from 'styled-components';
 import { disabledStyle } from '@/design/designFunctions/disabledStyle';
 import { TTheme } from '@/types/TTheme';
 
-export const StyledInputWrapper = styled.div<{ disabled?: boolean; $autoWidth?: boolean }>`
+export const StyledInputWrapper = styled.div<{ disabled?: boolean; $autoWidth?: boolean; theme: TTheme }>`
   position: relative;
   display: grid;
   grid-template-columns: auto 1fr auto;
   grid-template-rows: 1fr auto;
   width: ${({ $autoWidth }) => ($autoWidth ? 'auto' : '100%')};
+  border-radius: ${({ theme }) => theme.borderRadius.sm};
 
   ${({ disabled }) => (disabled ? disabledStyle : '')};
 `;

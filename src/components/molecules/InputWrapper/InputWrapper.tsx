@@ -33,22 +33,25 @@ export default function InputWrapper(props: TInputWrapper) {
     layer = 2,
     outlined,
     outlinedBackgroundStrength,
+    outlinedRemoveBorder,
     themeType = 'primary',
     transparentBackground,
     externalStyle,
     labelVariant,
+    className,
   } = props;
 
   const theme = themeStore((state) => state.theme);
 
   // Render the InputWrapper component with the appropriate props
   return (
-    <StyledInputWrapper disabled={disabled} $autoWidth={autoWidth}>
+    <StyledInputWrapper disabled={disabled} className={className} $autoWidth={autoWidth}>
       <FancyBox
         themeType={transparentBackground ? 'transparent' : themeType}
         layer={layer}
         outlined={outlined}
         outlinedBackgroundStrength={outlinedBackgroundStrength}
+        outlinedRemoveBorder={outlinedRemoveBorder}
         externalStyle={css`
           ${generateInputContainerStyle(!!label, isActive, theme)}
           ${externalStyle}

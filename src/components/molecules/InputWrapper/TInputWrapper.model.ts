@@ -23,6 +23,7 @@ export type TInputWrapper = {
   placeholder?: string;
   transparentBackground?: boolean;
   labelVariant?: 'static' | 'animated';
+  className?: string;
 } & Exclude<TFancyBox, 'as' | 'themeType' | 'externalStyle' | 'borderRadius' | 'sizeC'>;
 
 export type TInputWrapperUserInputProps = Omit<
