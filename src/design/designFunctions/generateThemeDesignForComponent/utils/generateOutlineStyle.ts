@@ -18,7 +18,7 @@ type TGenerateOutlineStyle = Pick<
 // ------- Generates the style for a outlined box or other compoent ---------- //
 // --------------------------------------------------------------------------- //
 export const generateOutlineStyle = (props: TGenerateOutlineStyle) => {
-  const { $themeType, theme, $layer, $backgroundState, $backgroundStrength = 0.05, $textColor } = props;
+  const { $themeType, theme, $layer, $backgroundState, $backgroundStrength = 0.1, $textColor } = props;
 
   // generates the color for the border
   const borderColor = getBackgroundColor({ theme, $themeType: $themeType ?? 'primary', $layer: $layer ?? 0 });

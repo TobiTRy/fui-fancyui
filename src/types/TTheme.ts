@@ -21,4 +21,7 @@ export type TTheme = {
   globalElementSizes: {
     [key in keyof typeof globalElementsizes]: string;
   };
+  outlined: {
+    backgroundStrength: number;
+  };
 };

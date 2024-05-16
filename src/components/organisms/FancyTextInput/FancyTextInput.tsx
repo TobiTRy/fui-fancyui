@@ -23,7 +23,11 @@ export default function FancyTextInput(props: TFancyTextInput) {
     type = 'text',
     underline,
     onBlur,
+    outlined,
+    outlinedBackgroundStrength,
+    outlinedRemoveBorder,
     transparentBackground,
+    className,
     ...inputProps
   } = props;
 
@@ -47,8 +51,12 @@ export default function FancyTextInput(props: TFancyTextInput) {
       isActive={isActive}
       underline={underline}
       icon={icon}
+      className={className}
       systemMessage={systemMessage}
       transparentBackground={transparentBackground}
+      outlined={outlined}
+      outlinedBackgroundStrength={outlinedBackgroundStrength}
+      outlinedRemoveBorder={outlinedRemoveBorder}
       InputElement={
         <TextInput
           id={usedId}

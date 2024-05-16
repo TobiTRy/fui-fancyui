@@ -23,7 +23,10 @@ export default function FancyDateInput(props: TFancyDateInput) {
     underline,
     onChange,
     transparentBackground,
+    outlinedBackgroundStrength,
+    outlinedRemoveBorder,
     externalStyle,
+    className,
     ...inputProps
   } = props;
 
@@ -57,8 +60,11 @@ export default function FancyDateInput(props: TFancyDateInput) {
       underline={underline}
       layer={layer}
       align={align}
+      className={className}
       isActive={isActiveState}
       icon={icon}
+      outlinedBackgroundStrength={outlinedBackgroundStrength}
+      outlinedRemoveBorder={outlinedRemoveBorder}
       systemMessage={systemMessage}
       transparentBackground={transparentBackground}
       externalStyle={externalStyle}

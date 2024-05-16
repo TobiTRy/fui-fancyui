@@ -4,6 +4,7 @@ import { TStyledPrefixAndPicker } from '../../../types/TStyledPrefixAndPicker';
 import { getBackgroundColor } from '../colorCalculatorForComponent/colorCalculatorForComponent';
 import colorTransparencyCalculator from '../colorTransparencyCalculator/colorTransparencyCalculator';
 import { IGenerateThemeForCardProps } from './IGenerateThemeForCardProps';
+import { themeStore } from '@/design/theme/themeStore';
 
 const generateOutlineStyle = (props: TGenerateColorDesign) => {
   const { $themeType, theme, $layer = 3, $outlinedBackgroundStrength = 0.5, $outlinedRemoveBorder } = props;
@@ -18,8 +19,12 @@ const generateOutlineStyle = (props: TGenerateColorDesign) => {
   );
 
   return css`
-    background-color: ${$outlinedRemoveBorder && generateSlightBackgroundColor};
-    border: 1.5px solid ${backgroundColor};
+    background-color: ${generateSlightBackgroundColor};
+
+    ${!$outlinedRemoveBorder &&
+    css`
+      border: 1.5px solid ${backgroundColor};
+    `};
   `;
 };
 
@@ -30,8 +35,9 @@ type TGenerateColorDesign = TStyledPrefixAndPicker<IGenerateThemeForCardProps> &
   theme: TTheme;
 };
 export default function generateThemeForCard(props: TGenerateColorDesign) {
-  const { $themeType, theme, $outlined, $layer, $outlinedBackgroundStrength, $outlinedRemoveBorder = true } = props;
+  const { $themeType, theme, $outlined, $layer, $outlinedBackgroundStrength, $outlinedRemoveBorder } = props;
   let outlinedStyle, backgroundColor;
+  const getBackgroundStrength = themeStore((state) => state.theme.outlined.backgroundStrength);
 
   // generate the outlined style if the outlined prop is true else generate only the background color
   if ($outlined) {
@@ -40,7 +46,7 @@ export default function generateThemeForCard(props: TGenerateColorDesign) {
       $themeType,
       theme,
       $layer,
-      $outlinedBackgroundStrength,
+      $outlinedBackgroundStrength: $outlinedBackgroundStrength || getBackgroundStrength,
       $outlinedRemoveBorder,
     });
   } else {

@@ -25,6 +25,10 @@ export default function FancyPasswordInput(props: TFancyPasswordInput) {
     underline,
     onBlur,
     transparentBackground,
+    outlined,
+    outlinedBackgroundStrength,
+    outlinedRemoveBorder,
+    className,
     ...inputProps
   } = props;
 
@@ -48,8 +52,12 @@ export default function FancyPasswordInput(props: TFancyPasswordInput) {
       underline={underline}
       isActive={isActive}
       icon={icon}
+      className={className}
       systemMessage={systemMessage}
       transparentBackground={transparentBackground}
+      outlined={outlined}
+      outlinedBackgroundStrength={outlinedBackgroundStrength}
+      outlinedRemoveBorder={outlinedRemoveBorder}
       InputElement={
         <PasswordInput
           id={usedId}

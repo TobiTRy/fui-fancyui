@@ -19,6 +19,7 @@ import createMultiIntersectionObserver from '@/utils/hooks/useMiltiIntersectionO
 import { FancyVirtualScroll } from '@/components/shared/FancyVirtualScroll';
 import ActionItem from '@/components/molecules/ActionItem/ActionItem';
 import { AutoSizingBox } from '@/components/atoms/AutoSizingBox';
+import { FancyBox } from '@/components/atoms/FancyBox';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -146,6 +147,9 @@ export default function ExperimentalRoute() {
     <>
       <DesignWrapper>
         <DesignArea title="Test">
+          <FancyBox themeType="secondary" outlined>
+            Mooiin
+          </FancyBox>
           <AutoSizingBox adjustHeight>
             <Button sizeC={undefined} onClick={addContent}>
               Mooiin
