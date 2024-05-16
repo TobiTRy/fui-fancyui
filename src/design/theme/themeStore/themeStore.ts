@@ -22,6 +22,9 @@ const themeStore = create<ThemeState>((set) => ({
     fontSizes: typography,
     breakpoints: breakpoints,
     globalElementSizes: globalElementsizes,
+    outlined: {
+      backgroundStrength: 0.5,
+    },
   },
   isDarkTheme: true,
   switchTheme: () => {
