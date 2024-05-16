@@ -27,7 +27,11 @@ export default function FancyRangeSlider(props: TFancyRangeSlider) {
     align,
     placeholder,
     themeType,
+    outlined,
+    outlinedBackgroundStrength,
+    outlinedRemoveBorder,
     disabled,
+    className,
     ...sliderProps
   } = props;
 
@@ -65,6 +69,10 @@ export default function FancyRangeSlider(props: TFancyRangeSlider) {
       id={usedId}
       label={label}
       hasValue={toutched}
+      outlined={outlined}
+      outlinedBackgroundStrength={outlinedBackgroundStrength}
+      outlinedRemoveBorder={outlinedRemoveBorder}
+      className={className}
       underline={false}
       isActive={toutched}
       transparentBackground={transparentBackground}

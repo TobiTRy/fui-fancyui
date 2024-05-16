@@ -55,13 +55,13 @@ export default function FancyToastMessage() {
   return (
     <ToastsWrapper>
       {transitions(({ ...style }, item: TToastMessage) => (
-        <animated.div key={item.id} style={style}>
+        <animated.aside role="alert" key={item.id} style={style}>
           <SingleToastMessage
             ref={(ref: HTMLDivElement) => ref && refMap.set(item, ref)}
             toast={item}
             remove={removeToast}
           />
-        </animated.div>
+        </animated.aside>
       ))}
     </ToastsWrapper>
   );

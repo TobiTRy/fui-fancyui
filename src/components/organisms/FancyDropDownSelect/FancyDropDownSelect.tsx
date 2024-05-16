@@ -20,6 +20,8 @@ export default function FancyDropDownSelect(props: TFancyDropDownSelect) {
     themeType,
     outlined,
     outlinedBackgroundStrength,
+    outlinedRemoveBorder,
+    className,
     layer,
     onFocus,
     onBlur,
@@ -44,6 +46,8 @@ export default function FancyDropDownSelect(props: TFancyDropDownSelect) {
       label={label}
       outlined={outlined}
       outlinedBackgroundStrength={outlinedBackgroundStrength}
+      outlinedRemoveBorder={outlinedRemoveBorder}
+      className={className}
       disabled={disabled}
       align={align}
       isActive={isActive}

@@ -26,7 +26,11 @@ export default function FancyNumberInput(props: TFancyNumberInput) {
     onFocus,
     onBlur,
     transparentBackground,
+    outlined,
+    outlinedBackgroundStrength,
+    outlinedRemoveBorder,
     externalStyle,
+    className,
     ...inputProps
   } = props;
 
@@ -52,6 +56,10 @@ export default function FancyNumberInput(props: TFancyNumberInput) {
       systemMessage={systemMessage}
       themeType={themeType}
       layer={layer}
+      className={className}
+      outlined={outlined}
+      outlinedBackgroundStrength={outlinedBackgroundStrength}
+      outlinedRemoveBorder={outlinedRemoveBorder}
       transparentBackground={transparentBackground}
       InputElement={
         <NumberInput
