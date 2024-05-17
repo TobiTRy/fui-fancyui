@@ -5,6 +5,7 @@ import { FancyFlexBox } from '@/components/templates/FancyFlexBox';
 import { ButtonStyle } from './ActionItem.style';
 
 import { sizeSettings } from './sizeSettings';
+import DisabledStyleBox from '@/components/atoms/DisableBox/DisabledBox';
 
 // --------------------------------------------------------------------------- //
 // ---------- The ActionItem is a button that inidacts a action -------------- //
@@ -35,7 +36,11 @@ export default function ActionItem(props: TActionItemWithHTMLProps) {
 
   return (
     <FancyFlexBox direction={calcPostionToFlex(labelAlign ?? 'left')} align="center" gap="8px" {...htmlProps}>
-      {label && <Typography variant={sizeSettings[size].fontSize}>{label}</Typography>}
+      {label && (
+        <DisabledStyleBox disabled={disabled}>
+          <Typography variant={sizeSettings[size].fontSize}>{label}</Typography>
+        </DisabledStyleBox>
+      )}
       <ButtonStyle
         $disabled={disabled}
         $size={size}

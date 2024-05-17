@@ -36,9 +36,9 @@ export default function Stepper(props: TStepper) {
     size = 'md',
     steps = items,
     flexDirection = 'row',
-    layer = 1,
+    layer = 3,
     lineLength,
-    activeStep = 3,
+    activeStep = 4,
     labelAlign = 'bottom',
     gap = 'md',
     thinkness = '2px',
@@ -55,7 +55,7 @@ export default function Stepper(props: TStepper) {
         <React.Fragment key={index}>
           <RawButton>
             <ActionItem
-              layer={layer}
+              layer={index === activeStep - 1 ? 0 : layer}
               labelAlign={labelAlign}
               onClick={step.onClick}
               icon={step.icon}
