@@ -8,7 +8,18 @@ import { TFancyFlexBoxWithDynamicElAttrs } from './TFancyFlexBox.model';
 // ------------ A layout component that helps align with flex box ------------ //
 // --------------------------------------------------------------------------- //
 export default function FancyFlexBox<T extends ElementType = 'div'>(props: TFancyFlexBoxWithDynamicElAttrs<T>) {
-  const { children, separator, externalStyle, align, direction, justify, fitBox, gap, as, ...htmlElProps } = props;
+  const {
+    children,
+    separator,
+    externalStyle,
+    align,
+    direction,
+    justify,
+    fitBox,
+    gap,
+    as = 'div',
+    ...htmlElProps
+  } = props;
 
   // Modify the children components to include a separator if specified.
   const modifiedChilds = separator
@@ -26,7 +37,7 @@ export default function FancyFlexBox<T extends ElementType = 'div'>(props: TFanc
   // Render the flexbox container with the modified children components and flex alignment props.
   return (
     <StyledFlexBox
-      as={as ?? 'div'}
+      as={as}
       $align={align}
       $direction={direction}
       $justify={justify}
