@@ -7,6 +7,7 @@ const RawButton = styled.button`
   padding: 0;
   display: flex;
   align-items: center;
+  color: inherit;
 `;
 
 RawButton.displayName = 'RawButton';
