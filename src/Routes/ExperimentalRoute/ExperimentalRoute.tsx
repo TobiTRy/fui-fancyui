@@ -20,6 +20,7 @@ import { FancyVirtualScroll } from '@/components/shared/FancyVirtualScroll';
 import ActionItem from '@/components/molecules/ActionItem/ActionItem';
 import { AutoSizingBox } from '@/components/atoms/AutoSizingBox';
 import { FancyBox } from '@/components/atoms/FancyBox';
+import Stepper from '@/components/organisms/Stepper/Stepper';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -147,32 +148,6 @@ export default function ExperimentalRoute() {
     <>
       <DesignWrapper>
         <DesignArea title="Test">
-          <FancyBox themeType="secondary" outlined>
-            Mooiin
-          </FancyBox>
-          <AutoSizingBox adjustHeight>
-            <Button sizeC={undefined} onClick={addContent}>
-              Mooiin
-            </Button>
-            {isLoading ? (
-              <TestComps />
-            ) : (
-              <Button sizeC={undefined} onClick={addContent}>
-                Mooiin
-              </Button>
-            )}
-          </AutoSizingBox>
-          <FancyNumberInput label="TTTSa" systemMessage="error" />
-          <Card />
-          <Card>
-            <FancyContent direction="column" justify="center">
-              <FancyContent.Icon sizeC="lg">
-                <SVGCheckMark />
-              </FancyContent.Icon>
-              <FancyContent.Title>Test</FancyContent.Title>
-              <FancyContent.Description>Test fgfg fgfggf fgfgfg sddssd sddsds sddssd sdsdsd </FancyContent.Description>
-            </FancyContent>
-          </Card>
           <FancyButton
             borderRadius="md"
             sizeC="md"
@@ -181,18 +156,8 @@ export default function ExperimentalRoute() {
             onClick={() => switchTheme()}
           />
         </DesignArea>
-        <DesignArea title="Test">
-          <FancyLine direction="horizontal" themeType="accent" />
-          <div style={{ height: '300px', overflow: 'hidden', backgroundColor: 'black', marginBottom: '80px' }}>
-            <FancyVirtualScroll containerHeight="300px" itemHeight={300}>
-              {testArray.map((item, index) => (
-                <div key={index} ref={(ref) => (refs.current[index] = ref)} style={{ height: '300px' }}>
-                  {item}
-                </div>
-              ))}
-            </FancyVirtualScroll>
-          </div>
-        </DesignArea>
+        <Stepper />
+        <FancyLine />
       </DesignWrapper>
     </>
   );

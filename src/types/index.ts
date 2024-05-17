@@ -20,3 +20,4 @@ export * from './TGlobalElementSizes';
 export * from './TBreakPoints';
 export * from './TSizeSettings';
 export * from './TDynamicElement';
+export * from './TFlexDirection';
