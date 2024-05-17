@@ -1,11 +1,11 @@
-import { TLayer } from '@/types/TLayer';
-import { TComponentSizes } from '@/types/TComponentSizes';
-import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 import { TDynamicElementWrapperWithHTMLAttrs } from '@/components/atoms/DynamicElementWrapper';
+import { TComponentSizesExtended } from '@/types/TComponentSizes';
+import { TLayer } from '@/types/TLayer';
+import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 
 export type TActionItemSetting = {
   labelAlign?: 'left' | 'right' | 'top' | 'bottom';
-  size?: TComponentSizes;
+  size?: TComponentSizesExtended;
   layer?: TLayer;
   themeType?: TUiColorsNotTransparent;
   themeTypeActiveHover?: TUiColorsNotTransparent;

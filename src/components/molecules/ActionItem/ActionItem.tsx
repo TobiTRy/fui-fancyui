@@ -1,11 +1,10 @@
+import { Typography } from '@/components/atoms/Typography';
 import { TActionItem } from '@/components/molecules/ActionItem/TActionItem.model';
 import { calcPostionToFlex } from '@/components/molecules/ActionItem/utils/calcPostionToFlex';
-import { Typography } from '@/components/atoms/Typography';
 import { FancyFlexBox } from '@/components/templates/FancyFlexBox';
 import { ButtonStyle } from './ActionItem.style';
 
 import { sizeSettings } from './sizeSettings';
-import { DynamicElementWrapper } from '@/components/atoms/DynamicElementWrapper';
 
 // --------------------------------------------------------------------------- //
 // ---------- The ActionItem is a button that inidacts a action -------------- //
@@ -25,19 +24,17 @@ export default function ActionItem(props: TActionItem) {
   } = props;
 
   return (
-    <DynamicElementWrapper {...htmlProps}>
-      <FancyFlexBox direction={calcPostionToFlex(labelAlign ?? 'left')} align="center" gap="8px">
-        {label && <Typography variant={sizeSettings[size].fontSite}>{label}</Typography>}
-        <ButtonStyle
-          $size={size}
-          $layer={layer}
-          $themeType={isActive ? themeTypeActiveHover : themeType}
-          $hoverColor={isActive ? themeTypeActiveHover : themeType}
-          $backgroundState={isClickable ? 'hover' : 'active'}
-        >
-          {icon}
-        </ButtonStyle>
-      </FancyFlexBox>
-    </DynamicElementWrapper>
+    <FancyFlexBox direction={calcPostionToFlex(labelAlign ?? 'left')} align="center" gap="8px" {...htmlProps}>
+      {label && <Typography variant={sizeSettings[size].fontSize}>{label}</Typography>}
+      <ButtonStyle
+        $size={size}
+        $layer={layer}
+        $themeType={isActive ? themeTypeActiveHover : themeType}
+        $hoverColor={isActive ? themeTypeActiveHover : themeType}
+        $backgroundState={isClickable ? 'hover' : 'active'}
+      >
+        {icon}
+      </ButtonStyle>
+    </FancyFlexBox>
   );
 }
