@@ -1,12 +1,7 @@
 import { StyledDisabledBox } from './DisabledBox.style';
+import { TDisabledBox } from './TDisabled.model';
 
-export type TDisabledStyleBox = {
-  disabled?: boolean;
-  pointerEvents?: 'none' | 'auto';
-  children?: React.ReactNode;
-};
-
-export default function DisabledStyleBox(props: TDisabledStyleBox) {
+export default function DisabledBox(props: TDisabledBox) {
   const { disabled, pointerEvents, children } = props;
 
   return (

@@ -60,6 +60,7 @@ export * from '@/components/atoms/SkeletonBox';
 export * from '@/components/atoms/TextGradient';
 export * from '@/components/atoms/TitleForComponent';
 export * from '@/components/atoms/ColoredText';
+export * from '@/components/atoms/DisableBox';
 
 // ---------- Molecules ------- //
 export * from '@/components/molecules/FancyInfoText';
@@ -105,6 +106,7 @@ export * from '@/components/molecules/SwitchList';
 export * from '@/components/molecules/TabSwitch';
 export * from '@/components/molecules/FancyNavBar';
 export * from '@/components/molecules/LabeledInput';
+export * from '@/components/molecules/Stepper';
 
 // ---------- Organisms ------- //
 export * from '@/components/organisms/FancyButton';

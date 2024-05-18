@@ -1,9 +1,10 @@
 import { css, styled } from 'styled-components';
+
 import { TStyledPrefixAndPicker } from '@/types/TStyledPrefixAndPicker';
-import { TDisabledStyleBox } from '@/components/atoms/DisableBox/DisabledBox';
+import { TDisabledBox } from '@/components/atoms/DisableBox/TDisabled.model';
 import { disabledStyle } from '@/design/designFunctions/disabledStyle';
 
-type TStyledDisabledStyleBox = TStyledPrefixAndPicker<TDisabledStyleBox>;
+type TStyledDisabledStyleBox = TStyledPrefixAndPicker<TDisabledBox>;
 export const StyledDisabledBox = styled.div<TStyledDisabledStyleBox>`
   ${({ $disabled }) =>
     $disabled &&

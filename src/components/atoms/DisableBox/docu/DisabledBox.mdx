@@ -1,0 +1,39 @@
+import { Meta, Controls, Canvas, Title, Description } from '@storybook/blocks';
+
+import * as DisabledBox from './DisabledBox.stories.tsx';
+
+<Meta of={DisabledBox} />
+
+<Title />
+
+<Description />
+
+## Usage
+
+Integrating the `DisabledBox` is straightforward:
+
+```jsx
+import { DisabledBox } from 'fui-fancyui'; // Assuming it's in the same directory
+
+function MyComponent() {
+  const isDisabled = true;
+
+  return (
+    <DisabledBox disabled={isDisabled}>
+      {/* Your content that you want to disable */}
+      <button>This button will be disabled</button>
+    </DisabledBox>
+  );
+}
+```
+
+<Canvas />
+
+## Props
+
+<Controls />
+
+**Key points:**
+
+- When the `disabled` prop is true, `disabledStyle` (imported from another module) is applied.
+- The `pointerEvents` prop directly manipulates the CSS `pointer-events` property.
