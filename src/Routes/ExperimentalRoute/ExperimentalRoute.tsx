@@ -21,6 +21,7 @@ import ActionItem from '@/components/molecules/ActionItem/ActionItem';
 import { AutoSizingBox } from '@/components/atoms/AutoSizingBox';
 import { FancyBox } from '@/components/atoms/FancyBox';
 import Stepper from '@/components/molecules/Stepper/Stepper';
+import { FancyFlexBox } from '@/components/templates/FancyFlexBox';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -107,12 +108,36 @@ const TestComps = () => [
   </>,
 ];
 
+const items = [
+  {
+    icon: <SVGCheckMark />,
+    label: 'Step 1',
+    onClick: () => console.log('clicked 1'),
+  },
+  {
+    icon: <SVGCheckMark />,
+    label: 'Step 2',
+    onClick: () => console.log('clicked 2'),
+  },
+  {
+    icon: <SVGCheckMark />,
+    label: 'Step 3',
+    onClick: () => console.log('clicked 3'),
+  },
+  {
+    icon: <SVGCheckMark />,
+    label: 'Step 3',
+    onClick: () => console.log('clicked 4'),
+  },
+];
+
 export default function ExperimentalRoute() {
   const refs = React.useRef<(HTMLDivElement | null)[]>([]);
   const updateTheme = themeStore((state) => state.updateTheme);
   const switchTheme = themeStore((state) => state.switchTheme);
   const [isActive, setIsActive] = React.useState('');
   const [isLoading, setIsLoading] = React.useState(false);
+  const [currentStep, setCurrentStep] = React.useState(1);
 
   const removeToast = () => {
     console.log('remove');
@@ -156,7 +181,11 @@ export default function ExperimentalRoute() {
             onClick={() => switchTheme()}
           />
         </DesignArea>
-        <Stepper />
+        <Stepper steps={items} activeStep={currentStep} themeType="secondary" />
+        <FancyFlexBox direction="row" gap={'xxl'} justify="center">
+          <FancyButton themeType="secondary" label="<" onClick={() => setCurrentStep((prev) => prev - 1)}></FancyButton>
+          <FancyButton themeType="secondary" label=">" onClick={() => setCurrentStep((prev) => prev + 1)}></FancyButton>
+        </FancyFlexBox>
       </DesignWrapper>
     </>
   );

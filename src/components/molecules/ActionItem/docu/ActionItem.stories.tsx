@@ -57,6 +57,13 @@ const meta = {
       description: 'The click event of the action item',
       action: 'clicked',
     },
+    hoverColor: {
+      description: 'The hover color of the action item',
+      control: { type: 'select' },
+      table: {
+        defaultValue: { summary: 'accent' },
+      },
+    },
   },
 } satisfies Meta<typeof ActionItem>;
 
