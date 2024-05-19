@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import FancyInfoText from '../FancyInfoText';
 import templateThemeType from '@/stories/templateSettingsForStorys/templatesForThemeType';
-import { SVGCheckMark } from '@/components/icons/SVGCheckMark';
+import { SVGCheckMark } from '@/components/icons';
 
 const meta = {
   component: FancyInfoText,

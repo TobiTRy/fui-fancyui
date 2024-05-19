@@ -13,7 +13,7 @@ import { FancyPopover } from '@/components/shared/FancyPopover';
 import logo from '../../../../FancyUI.png';
 import { RawA } from '@/components/atoms/RawA';
 import { Menu } from '@/components/molecules/Menue';
-import { SVGFui } from '@/components/icons/SVGFui';
+import { SVGFui } from '@/components/icons';
 import { FancyLoadingSpinner } from '@/components/atoms/FancyLoadingSpinner';
 
 const meta = {

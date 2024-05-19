@@ -19,9 +19,6 @@ const meta = {
 
   // Define arguments for the story
   argTypes: {},
-
-  // Add tags to the story
-  tags: ['autodocs'],
 } satisfies Meta<typeof DisabledBox>;
 
 // Export the metadata
