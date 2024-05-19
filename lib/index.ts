@@ -155,7 +155,7 @@ export * from '@/components/shared/FancyPortal';
 export * from '@/utils/hooks/useIntersectionObserver';
 export * from '@/utils/hooks/useWindowDimensions';
 export * from '@/design/theme/FancyThemeProvider';
-export * from '@/utils/functions/clampNumbers';
+export * from '@/utils/functions/clampNumber';
 
 // ---------- Design ------- //
 export * from '@/design/designFunctions/calcBorderRadiusOnAlignment';
