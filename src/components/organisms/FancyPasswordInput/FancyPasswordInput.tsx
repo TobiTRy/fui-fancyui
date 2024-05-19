@@ -1,4 +1,4 @@
-import { useId, useState } from 'react';
+import { forwardRef, useId, useState } from 'react';
 
 import { PasswordInput } from '@/components/atoms/PasswordInput';
 import { InputWrapper } from '@/components/molecules/InputWrapper';
@@ -9,7 +9,7 @@ import { getOpositMainThemeType } from '@/design/designFunctions/getOpositMainTh
 // --------------------------------------------------------------------------- //
 // ----The PasswordInput Comonent with surrounding icon, label and underline-- //
 // --------------------------------------------------------------------------- //
-export default function FancyPasswordInput(props: TFancyPasswordInput) {
+const FancyPasswordInput = forwardRef<HTMLInputElement, TFancyPasswordInput>((props, ref) => {
   const {
     id,
     value,
@@ -61,6 +61,7 @@ export default function FancyPasswordInput(props: TFancyPasswordInput) {
       InputElement={
         <PasswordInput
           id={usedId}
+          ref={ref}
           value={value}
           align={align}
           themeType={getOpositMainThemeType(themeType)}
@@ -80,4 +81,6 @@ export default function FancyPasswordInput(props: TFancyPasswordInput) {
       }
     />
   );
-}
+});
+
+export default FancyPasswordInput;
