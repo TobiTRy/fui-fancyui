@@ -1,4 +1,4 @@
-import { useId, useState } from 'react';
+import { forwardRef, useId, useState } from 'react';
 import { css } from 'styled-components';
 
 import { NumberInput } from '@/components/atoms/NumberInput';
@@ -9,7 +9,7 @@ import { getOpositMainThemeType } from '@/design/designFunctions/getOpositMainTh
 // --------------------------------------------------------------------------- //
 // ----The NumberInput Comonent with surrounding icon, label and underline --- //
 // --------------------------------------------------------------------------- //
-export default function FancyNumberInput(props: TFancyNumberInput) {
+const FancyNumberInput = forwardRef<HTMLInputElement, TFancyNumberInput>((props, ref) => {
   const {
     value,
     label,
@@ -87,4 +87,6 @@ export default function FancyNumberInput(props: TFancyNumberInput) {
       }
     />
   );
-}
+});
+
+export default FancyNumberInput;
