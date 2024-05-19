@@ -7,7 +7,7 @@ import { FancyButton } from '@/components/organisms/FancyButton';
 import FancyContent from '../../components/molecules/FancyContent/FancyContent';
 import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
 
-import { SVGCheckMark } from '@/components/icons/SVGCheckMark';
+import { SVGCheckMark } from '@/components/icons';
 import { Card } from '@/components/molecules/Card';
 import { FancyNumberInput } from '@/components/organisms/FancyNumberInput';
 import { FancyAlignBox } from '@/components/templates/FancyAlignBox';
