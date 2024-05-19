@@ -1,14 +1,6 @@
 import { TLayer } from '@/types/TLayer';
+import { clampNumbers } from '@/utils/functions/clampNumbers/clampNumber';
 
 export default function clampLayer(layer: number): TLayer {
-  // limit layer to minimal 0
-  if (layer < 0) {
-    return 0;
-  }
-  // limit layer to maximal 10
-  if (layer > 9) {
-    return 9;
-  }
-  // return layer as TLayer
-  return layer as TLayer;
+  return clampNumbers(layer, 0, 9) as TLayer;
 }
