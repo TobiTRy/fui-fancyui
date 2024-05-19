@@ -199,12 +199,4 @@ export * from '@/design/theme/generateThemeToCssVars';
 export * from '@/design/theme/applyThemeToDomStyleSheet';
 
 // ---------- SVGs ------- //
-export * from '@/components/icons/SVGClipBoardIcon';
-export * from '@/components/icons/SVGClipBoardIconChecked';
-export * from '@/components/icons/SVGEyeCrossed';
-export * from '@/components/icons/SVGEyeOpen';
-export * from '@/components/icons/SVGLoadingArrows';
-export * from '@/components/icons/SVGPlus';
-export * from '@/components/icons/SVGSearch';
-export * from '@/components/icons/SVGFui';
-export * from '@/components/icons/SVGXCircle';
+export * from '@/components/icons/';
