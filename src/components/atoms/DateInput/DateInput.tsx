@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { forwardRef, useState } from 'react';
 
 import { TDateInputPropsWithNativeAttrs } from './TDateInput.model';
 import { StyledDatePicker } from './DateInput.style';
@@ -6,7 +6,7 @@ import { StyledDatePicker } from './DateInput.style';
 // --------------------------------------------------------------------------- //
 // -------------- A simple date input for all kind of types ------------------ //
 // --------------------------------------------------------------------------- //
-export default function DateInput(props: TDateInputPropsWithNativeAttrs) {
+const DateInput = forwardRef<HTMLInputElement, TDateInputPropsWithNativeAttrs>((props, ref) => {
   const {
     value,
     align,
@@ -19,7 +19,6 @@ export default function DateInput(props: TDateInputPropsWithNativeAttrs) {
     ...htmlInputProps
   } = props;
   const [isActive, setIsActive] = useState(false);
-  const inputRef = useRef<HTMLInputElement>(null);
 
   const activeFocusHandler = (isActive: boolean) => {
     setIsActive(isActive);
@@ -27,7 +26,7 @@ export default function DateInput(props: TDateInputPropsWithNativeAttrs) {
 
   return (
     <StyledDatePicker
-      ref={inputRef}
+      ref={ref}
       $align={align}
       $layer={layer}
       $themeType={themeType}
@@ -44,4 +43,6 @@ export default function DateInput(props: TDateInputPropsWithNativeAttrs) {
       {...htmlInputProps}
     />
   );
-}
+});
+
+export default DateInput;
