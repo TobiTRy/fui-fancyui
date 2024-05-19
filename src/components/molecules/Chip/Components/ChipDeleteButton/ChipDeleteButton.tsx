@@ -7,7 +7,7 @@ import { TStyledPrefixAndOmiter } from '@/types/TStyledPrefixAndOmiter';
 import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 
 import { RawButton } from '@/components/atoms/RawButton';
-import { SVGXCircle } from '@/components/icons/SVGXCircle';
+import { SVGXCircle } from '@/components/icons';
 import { sizesSettings } from '@/components/molecules/Chip/sizeSettings';
 import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent';
 

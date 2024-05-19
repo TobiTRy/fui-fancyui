@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { SVGSearch } from '@/components/icons/SVGSearch';
+import { SVGSearch } from '@/components/icons';
 import { FancyTextInput } from '@/components/organisms/FancyTextInput';
 
 import { InputWrapper, SizeWrapper, StyledSearchBar } from '@/components/molecules/SearchBar/SearchBar.style';

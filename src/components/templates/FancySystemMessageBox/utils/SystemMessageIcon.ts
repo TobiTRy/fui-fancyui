@@ -1,8 +1,8 @@
 import { TSystemMessageTypes } from '@/types/TUiColorsSystemMessage';
-import { SVGStopSign } from '@/components/icons/SVGStopSign';
-import { SVGInfoSign } from '@/components/icons/SVGInfoSign';
-import { SVGWarningSign } from '@/components/icons/SVGWarningSign';
-import { SVGCircleCheck } from '@/components/icons/SVGCircleCheck';
+import { SVGStopSign } from '@/components/icons';
+import { SVGInfoSign } from '@/components/icons';
+import { SVGWarningSign } from '@/components/icons';
+import { SVGCircleCheck } from '@/components/icons';
 import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 
 type TSystemMessageIcon = Record<TSystemMessageTypes, () => JSX.Element>;

@@ -3,7 +3,7 @@ import Color from 'color';
 import { useEffect, useMemo, useState } from 'react';
 
 import { FancyButton } from '@/components/organisms/FancyButton';
-import { SVGDoubleChevron } from '@/components/icons/SVGDoubleChevron';
+import { SVGDoubleChevron } from '@/components/icons';
 
 import { Container, WrapperSVG } from './FancyColorInput.style';
 import { TFancyColorInput } from './TFancyColorInput.model';

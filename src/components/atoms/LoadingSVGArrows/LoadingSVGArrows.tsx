@@ -1,6 +1,6 @@
 import styled, { keyframes } from 'styled-components';
 
-import { SVGLoadingArrows } from '@/components/icons/SVGLoadingArrows';
+import { SVGLoadingArrows } from '@/components/icons';
 import { TFancySVGAtomWithNativeAttrs } from '@/components/atoms/FancySVGAtom/TFancySVGAtom.model';
 
 interface ILoadingSVGArrowsProps {

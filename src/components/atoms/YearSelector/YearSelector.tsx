@@ -3,8 +3,8 @@ import { useEffect, useState } from 'react';
 import { FancySVGAtom } from '@/components/atoms/FancySVGAtom';
 import { YearInput } from '@/components/atoms/YearInput';
 import { TYearSelectorWithHTMLAttributes } from '@/components/atoms/YearSelector/TYearSelector.model';
-import { SVGChevronLeft } from '@/components/icons/SVGChevronLeft';
-import { SVGChevronRight } from '@/components/icons/SVGChevronRight';
+import { SVGChevronLeft } from '@/components/icons';
+import { SVGChevronRight } from '@/components/icons';
 import { SVGDesignCSS, StyledButton, StyledYearSelector } from './YearSelector.style';
 import { sizeSettings } from './sizeSettings';
 
@@ -67,7 +67,7 @@ export default function YearSelector(props: TYearSelectorWithHTMLAttributes) {
         $layer={secondaryLayer}
       >
         <FancySVGAtom isPassive={true} sizeC={sizeSettings[sizeC].iconSize} externalStyle={SVGDesignCSS}>
-          {SVGChevronLeft}
+          <SVGChevronLeft />
         </FancySVGAtom>
       </StyledButton>
       <YearInput
@@ -85,7 +85,7 @@ export default function YearSelector(props: TYearSelectorWithHTMLAttributes) {
         $layer={secondaryLayer}
       >
         <FancySVGAtom isPassive={true} sizeC={sizeSettings[sizeC].iconSize} externalStyle={SVGDesignCSS}>
-          {SVGChevronRight}
+          <SVGChevronRight />
         </FancySVGAtom>
       </StyledButton>
     </StyledYearSelector>

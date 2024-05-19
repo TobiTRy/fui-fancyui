@@ -1,6 +1,6 @@
 import { FancySVGAtom } from '@/components/atoms/FancySVGAtom';
 import { SVGClipBoardIcon } from '@/components/icons/SVGClipBoardIcon';
-import { SVGClipBoardIconChecked } from '@/components/icons/SVGClipBoardIconChecked';
+import { SVGClipBoardIconChecked } from '@/components/icons';
 import { WrapperSVG } from './ClipBoardIcon.style';
 
 import { sizeSettings } from './sizeSettings';

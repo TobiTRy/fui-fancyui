@@ -1,7 +1,6 @@
 import { useMemo } from 'react';
 
-import { SVGChevronLeft } from '@/components/icons/SVGChevronLeft';
-import { SVGChevronRight } from '@/components/icons/SVGChevronRight';
+import { SVGChevronLeft, SVGChevronRight } from '@/components/icons';
 
 import { PageNumberList } from '@/components/atoms/PageNumberList';
 import { TPaginatorWithHTMLAttrs } from '@/components/molecules/Paginator/TPaginator.model';
@@ -40,7 +39,11 @@ export default function Paginator(props: TPaginatorWithHTMLAttrs) {
         outlined={outlinedButton}
         wide={false}
         oneToOne
-        icon={<IconWrapper $align="left">{SVGChevronLeft}</IconWrapper>}
+        icon={
+          <IconWrapper $align="left">
+            <SVGChevronLeft />
+          </IconWrapper>
+        }
         onClick={() => onPageChange?.(currentPage - 1)}
         disabled={currentPage === 1}
       />
@@ -52,7 +55,11 @@ export default function Paginator(props: TPaginatorWithHTMLAttrs) {
         oneToOne
         themeType={themeType ?? 'accent'}
         outlined={outlinedButton}
-        icon={<IconWrapper $align="right">{SVGChevronRight}</IconWrapper>}
+        icon={
+          <IconWrapper $align="right">
+            <SVGChevronRight />
+          </IconWrapper>
+        }
         sizeC="md"
         onClick={() => onPageChange?.(currentPage + 1)}
         disabled={currentPage === pageLimits}
