@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 
 import { HiddenRadio, RadioWrapper, StyledRadio } from './RawRadio.style';
 import { TUiColorsMain } from '@/types/TUiColorsMain';
@@ -12,13 +12,15 @@ export type TRawRadio = {
 // --------------------------------------------------------------------------- //
 // ---------- The Raw Radio is only a styled Radio input  -------------------- //
 // --------------------------------------------------------------------------- //
-export default function RawRadio(props: TRawRadio) {
+const RawRadio = forwardRef<HTMLInputElement, TRawRadio>((props, ref) => {
   const { checked, tabIndex, themeType = 'primary', layer = 2, ...inputProps } = props;
 
   return (
     <RadioWrapper tabIndex={tabIndex} role="radio">
       <StyledRadio $checked={checked} $themeType={themeType} $layer={layer} />
-      <HiddenRadio aria-hidden={true} checked={checked} {...inputProps} />
+      <HiddenRadio aria-hidden={true} ref={ref} checked={checked} {...inputProps} />
     </RadioWrapper>
   );
-}
+});
+
+export default RawRadio;
