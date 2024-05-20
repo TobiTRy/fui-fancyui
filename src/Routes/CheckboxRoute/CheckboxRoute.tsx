@@ -38,63 +38,65 @@ export default function CheckboxRoute() {
   };
 
   return (
-    <Card>
-      <DesignWrapper>
-        <DesignArea title="checkbox" style={{ alignItems: 'flex-start' }}>
-          <FancyCheckbox
-            id="ihuddwjkwjkna"
-            defaultChecked={checked}
-            onChange={handleCheckboxChange}
-            description="There is some description in this checkbox"
-            label="Testt ttets sakjkas akllaksa klaas lllksaks askklalks ajdssjkadjsk ajkkjsajk jkkjsa jkjaksj kka jalw "
-          />
-          <FancyCheckbox
-            description="There is some description in this checkbox"
-            label="Testt ttets sakjkas sdosodo a sdsdsdsjalw "
-          />
-          <FancyCheckbox label="Testt ttets sakjkas sdosodo a sdsdsdsjalw " />
-          <FancyCheckbox label="Testt ttets sakjkas sdosodo a sdsdsdsjalw " alignCheckbox="right" />
-          <FancyCheckbox />
-        </DesignArea>
-        <DesignArea title="Radio">
-          <FancyRadio
-            id="radio2"
-            name="customRadio"
-            description="asasassaasasas sadsdsdds"
-            value="option2"
-            label="Option 2"
-            checked={selectedValue === 'option2'}
-            onChange={handleChange}
-          ></FancyRadio>
-          <FancyRadio
-            id="radio3"
-            name="customRadio"
-            value="option3"
-            label="Option 3"
-            checked={selectedValue === 'option3'}
-            onChange={handleChange}
-          ></FancyRadio>
-
-          <div>
-            <RawRadio
-              id="radio1"
-              name="customRadio"
-              value="option1"
-              checked={selectedValue === 'option1'}
-              onChange={handleChange}
+    <>
+      <Card>
+        <DesignWrapper>
+          <DesignArea title="checkbox" style={{ alignItems: 'flex-start' }}>
+            <FancyCheckbox
+              id="ihuddwjkwjkna"
+              defaultChecked={checked}
+              onChange={handleCheckboxChange}
+              description="There is some description in this checkbox"
+              label="Testt ttets sakjkas akllaksa klaas lllksaks askklalks ajdssjkadjsk ajkkjsajk jkkjsa jkjaksj kka jalw "
             />
-            <CustomRadio
+            <FancyCheckbox
+              description="There is some description in this checkbox"
+              label="Testt ttets sakjkas sdosodo a sdsdsdsjalw "
+            />
+            <FancyCheckbox label="Testt ttets sakjkas sdosodo a sdsdsdsjalw " />
+            <FancyCheckbox label="Testt ttets sakjkas sdosodo a sdsdsdsjalw " alignCheckbox="right" />
+            <FancyCheckbox />
+          </DesignArea>
+          <DesignArea title="Radio">
+            <FancyRadio
               id="radio2"
               name="customRadio"
+              description="asasassaasasas sadsdsdds"
               value="option2"
+              label="Option 2"
               checked={selectedValue === 'option2'}
               onChange={handleChange}
-            />
-          </div>
-          <FancyRadioList label="YAAAA MOOIIIN" name="hii" layer={2} items={itemList} />
-          <FancyButton label="Test" />
-        </DesignArea>
-      </DesignWrapper>
-    </Card>
+            ></FancyRadio>
+            <FancyRadio
+              id="radio3"
+              name="customRadio"
+              value="option3"
+              label="Option 3"
+              checked={selectedValue === 'option3'}
+              onChange={handleChange}
+            ></FancyRadio>
+
+            <div>
+              <RawRadio
+                id="radio1"
+                name="customRadio"
+                value="option1"
+                checked={selectedValue === 'option1'}
+                onChange={handleChange}
+              />
+              <CustomRadio
+                id="radio2"
+                name="customRadio"
+                value="option2"
+                checked={selectedValue === 'option2'}
+                onChange={handleChange}
+              />
+            </div>
+            <FancyButton label="Test" />
+          </DesignArea>
+        </DesignWrapper>
+      </Card>
+      <FancyRadioList label="YAAAA MOOIIIN" name="hii" items={itemList} />
+    </>
   );
 }
