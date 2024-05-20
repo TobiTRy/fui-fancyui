@@ -38,6 +38,7 @@ import Typogrphy from './Routes/Typography/Typogrphy';
 import FancyListBoxRoute from '@/Routes/FancyListBoxRoute/FancyListBoxRoute';
 import SkeletonRoute from '@/Routes/SkeletonRoute/SkeletonRoute';
 import TextGradientRoute from '@/Routes/TextGradientRoute/TextGradientRoute';
+import StepperRoute from '@/Routes/StepperRoute/StepperRoute';
 
 // const Icon = (
 //   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -219,6 +220,7 @@ function App() {
               <Route path="/skeleton" element={<SkeletonRoute />} />
               <Route path="/FancyListBox" element={<FancyListBoxRoute />} />
               <Route path="/TextGradient" element={<TextGradientRoute />} />
+              <Route path="/Stepper" element={<StepperRoute />} />
               <Route path="/" element={<SwipeUpModalRoute />} />
             </Routes>
           </div>

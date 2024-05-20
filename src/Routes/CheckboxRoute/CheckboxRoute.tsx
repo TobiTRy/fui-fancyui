@@ -11,10 +11,10 @@ import FancyRadioList from '@/components/templates/FancyRadioList/FancyRadioList
 import { FancyButton } from '@/components/organisms/FancyButton';
 
 const itemList = [
-  { title: 'Test1', description: 'Test1', itemKey: '1' },
-  { title: 'Test2', description: 'Test2', itemKey: '2' },
-  { title: 'Test3', description: 'Test3', itemKey: '3' },
-  { title: 'Test4', description: 'Test4', itemKey: '4' },
+  { title: 'Test1', description: 'Test1', itemKey: '1jdasdsjkTest1' },
+  { title: 'Test2', description: 'Test2', itemKey: '2dlsöalödsaTest2' },
+  { title: 'Test3', description: 'Test3', itemKey: '3smnadnkdsTest3' },
+  { title: 'Test4', description: 'Test4', itemKey: '4jnsjnkjnkcTest4' },
 ];
 
 export default function CheckboxRoute() {
@@ -42,6 +42,7 @@ export default function CheckboxRoute() {
       <DesignWrapper>
         <DesignArea title="checkbox" style={{ alignItems: 'flex-start' }}>
           <FancyCheckbox
+            id="ihuddwjkwjkna"
             defaultChecked={checked}
             onChange={handleCheckboxChange}
             description="There is some description in this checkbox"
