@@ -6,11 +6,12 @@ import { TTextAlignLR } from '@/types/TTextAlignLR';
 
 // this wraps the label and the description
 // handle the order of the checkbox and label/description
-export const LabelWrapper = styled.label<{
-  theme: TTheme;
+type TLabelWrapper = {
   $align?: TTextAlignLRC;
   $externalStyle: CSSProp;
-}>`
+  theme: TTheme;
+};
+export const LabelWrapper = styled.label<TLabelWrapper>`
   display: flex;
 
   gap: ${({ theme }) => theme.spacing.xxs};
