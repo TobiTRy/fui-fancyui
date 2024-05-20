@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 
 import { TTheme } from '@/types/TTheme';
-import { TRawRadio } from './RawRadio';
+import { TRawRadio } from './TRawRadio.model';
 import { TStyledPrefixAndPicker } from '@/types/TStyledPrefixAndPicker';
 import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent';
 
