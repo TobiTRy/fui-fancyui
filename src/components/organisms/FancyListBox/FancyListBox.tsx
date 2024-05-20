@@ -15,7 +15,7 @@ export default function FancyListBox(props: TFancyListBoxWithListBoxAttrs) {
     children,
     sizeC = 'md',
     seperator = {},
-    layer,
+    layer = 1,
     themeType = 'primary',
     borderRadius,
     boxTitle,
