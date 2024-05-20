@@ -63,6 +63,7 @@ const FancyNumberInput = forwardRef<HTMLInputElement, TFancyNumberInput>((props,
       transparentBackground={transparentBackground}
       InputElement={
         <NumberInput
+          ref={ref}
           id={usedId}
           value={value}
           align={align}
