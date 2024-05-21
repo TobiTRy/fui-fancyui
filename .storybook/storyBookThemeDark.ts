@@ -1,5 +1,5 @@
 import { create } from '@storybook/theming';
-import { rawTheme } from '../src/design/theme/rawTheme';
+import { theme } from '../src/design/theme/theme';
 
 const storyBookThemeDark = create({
   base: 'dark',
@@ -9,21 +9,21 @@ const storyBookThemeDark = create({
   brandImage: 'https://tobitry.de/bilder/fui/FancyUI%20-02FITStorybookWide.png',
   brandTarget: '_blank',
 
-  textColor: rawTheme.colors.secondary[0],
-  appBg: rawTheme.colors.primary[1],
-  colorPrimary: rawTheme.colors.accent[0],
-  colorSecondary: rawTheme.colors.accent[0],
-  appContentBg: rawTheme.colors.primary[0],
-  barBg: rawTheme.colors.primary[1],
+  textColor: theme.color.secondary[0],
+  appBg: theme.color.primary[1],
+  colorPrimary: theme.color.accent[0],
+  colorSecondary: theme.color.accent[0],
+  appContentBg: theme.color.primary[0],
+  barBg: theme.color.primary[1],
 
-  inputBg: rawTheme.colors.primary[1],
-  buttonBg: rawTheme.colors.primary[2],
-  booleanBg: rawTheme.colors.primary[1],
-  booleanSelectedBg: rawTheme.colors.accent[1],
-  appBorderColor: rawTheme.colors.primary[2],
+  inputBg: theme.color.primary[1],
+  buttonBg: theme.color.primary[2],
+  booleanBg: theme.color.primary[1],
+  booleanSelectedBg: theme.color.accent[1],
+  appBorderColor: theme.color.primary[2],
   appBorderRadius: 18,
-  inputTextColor: rawTheme.colors.secondary[0],
-  barHoverColor: rawTheme.colors.accent[0],
+  inputTextColor: theme.color.secondary[0],
+  barHoverColor: theme.color.accent[0],
 });
 
 export default storyBookThemeDark;
