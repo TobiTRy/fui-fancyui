@@ -180,6 +180,7 @@ export * from '@/design/designFunctions/checkThemeValue';
 export * from '@/design/designFunctions/leftRightCenterToFlexJustify';
 export * from '@/design/designFunctions/getThemeOrValueAsCss';
 export * from '@/design/designFunctions/calcBorderRadiusWithPadding';
+export * from '@/design/theme/theme';
 
 // ---------- Interfaces ------- //
 export * from '@/types';
