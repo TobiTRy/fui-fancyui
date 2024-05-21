@@ -6,6 +6,7 @@ import { disabledStyle } from '@/design/designFunctions/disabledStyle';
 export const StepperContainer = styled(FancyFlexBox)`
   justify-content: center;
   width: 100%;
+  align-items: flex-start;
 `;
 
 type ModifiedLineProps = {

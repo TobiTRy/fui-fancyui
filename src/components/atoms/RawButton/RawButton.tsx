@@ -6,6 +6,7 @@ const RawButton = styled.button`
   cursor: pointer;
   padding: 0;
   display: flex;
+  flex: 1;
   align-items: center;
   color: inherit;
 `;

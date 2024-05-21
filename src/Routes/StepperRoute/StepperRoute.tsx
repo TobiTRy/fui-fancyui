@@ -12,12 +12,12 @@ const items = [
   },
   {
     icon: <SVGCheckMark />,
-    label: 'Step 2',
+    label: 'Step 2 asas sasaas',
     onClick: () => console.log('clicked 2'),
   },
   {
     icon: <SVGCheckMark />,
-    label: 'Step 3',
+    label: 'Step 3 asas ',
     onClick: () => console.log('clicked 3'),
   },
   {
