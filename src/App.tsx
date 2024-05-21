@@ -179,6 +179,9 @@ function App() {
                   <Link to="/TextGradient">TextGradient</Link>
                 </li>
                 <li>
+                  <Link to="/stepper">Stepper</Link>
+                </li>
+                <li>
                   <Link to="/experimental">Experimental</Link>
                 </li>
               </OwnUl>
@@ -220,7 +223,7 @@ function App() {
               <Route path="/skeleton" element={<SkeletonRoute />} />
               <Route path="/FancyListBox" element={<FancyListBoxRoute />} />
               <Route path="/TextGradient" element={<TextGradientRoute />} />
-              <Route path="/Stepper" element={<StepperRoute />} />
+              <Route path="/stepper" element={<StepperRoute />} />
               <Route path="/" element={<SwipeUpModalRoute />} />
             </Routes>
           </div>
