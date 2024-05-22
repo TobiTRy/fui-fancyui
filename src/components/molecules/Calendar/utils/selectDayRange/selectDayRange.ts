@@ -56,7 +56,7 @@ export function selectDayRange(props: TSelectDayRange) {
       newSelectedDates[1] = undefined;
     }
   }
-  return newSelectedDates as TDateOnlyArray;
+  return newSelectedDates;
 }
 
 // Check if both dates are entered

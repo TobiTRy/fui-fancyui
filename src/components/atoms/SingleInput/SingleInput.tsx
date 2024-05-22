@@ -19,7 +19,6 @@ const SingleInput = forwardRef<HTMLInputElement, TSingleInputAtomWithHTMLAttrs>(
       value={value}
       onKeyDown={onKeyDown}
       ref={ref}
-      // eslint-disable-next-line @typescript-eslint/no-empty-function
       onChange={() => {}}
       onFocus={(e) => {
         setIsFocused(true);

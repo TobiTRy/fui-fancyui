@@ -22,6 +22,7 @@ export default function FancyDropDownUL({
   // This useEffect hook animates the height of the UL element
   useEffect(() => {
     if (!listRef.current) return;
+    // eslint-disable-next-line @typescript-eslint/no-floating-promises
     animate.start({
       height: (isOpen ? listRef?.current.offsetHeight : 0) + 'px',
     });
