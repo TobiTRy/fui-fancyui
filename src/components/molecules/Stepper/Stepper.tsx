@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { RawButton } from '@/components/atoms/RawButton';
 import { ActionItem } from '@/components/molecules/ActionItem';
 import { globalElementsizes } from '@/design/theme/globalSizes';
 
 import { ModifiedLine, StepperContainer } from './Stepper.style';
 import { FlexToDirectionMapper, TStepper } from './TStepper.model';
+import { StepperButton } from './utils/StepperButton';
 
 export default function Stepper(props: TStepper) {
   const {
@@ -29,7 +29,7 @@ export default function Stepper(props: TStepper) {
     <StepperContainer direction={flexDirection} align="center" gap={gap}>
       {steps.map((step, index) => (
         <React.Fragment key={index}>
-          <RawButton>
+          <StepperButton>
             <ActionItem
               themeType={themeType}
               outlined={index > activeStep - 1}
@@ -42,7 +42,7 @@ export default function Stepper(props: TStepper) {
               disabled={index < activeStep - 1}
               {...actionItemProps}
             />
-          </RawButton>
+          </StepperButton>
           {index < steps.length - 1 && (
             <ModifiedLine
               direction={FlexToDirectionMapper[flexDirection]}
