@@ -9,6 +9,8 @@ export default function FancyContentTitle(props: TTextProps) {
   const { sizeC, fontWeight, fontVariant, type, children, lineHeight, className, themeType, layer, externalStyle } =
     props;
 
+  console.log(layer);
+
   return (
     <Typography
       elType={type ?? 'span'}

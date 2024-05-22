@@ -4,12 +4,12 @@ import React, { useState } from 'react';
 import themeStore from '../../design/theme/themeStore/themeStore';
 
 import { FancyButton } from '@/components/organisms/FancyButton';
-import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
 import { FancyRadio } from '@/components/organisms/FancyRadio';
+import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
 
+import PasswordStrengthMeter from '@/components/atoms/PasswordStrengthMeter/PasswordStrengthMeter';
+import Content from '@/components/molecules/Content/Content';
 import styled from 'styled-components';
-import { RawRadio } from '@/components/atoms/RawRadio';
-import { FancySelectWrapper } from '@/components/molecules/FancySelectWrapper';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -56,6 +56,7 @@ export default function ExperimentalRoute() {
   const refs = React.useRef<(HTMLDivElement | null)[]>([]);
   const updateTheme = themeStore((state) => state.updateTheme);
   const switchTheme = themeStore((state) => state.switchTheme);
+  const [password, setPassword] = useState('');
 
   const [selectedValue, setSelectedValue] = useState(null);
 
@@ -68,6 +69,11 @@ export default function ExperimentalRoute() {
   return (
     <>
       <DesignWrapper>
+        <Content>
+          <Content.Icon layer={5}>{svg}</Content.Icon>
+          <Content.Title layer={5}>Title</Content.Title>
+        </Content>
+
         <DesignArea title="Test">
           <FancyButton
             borderRadius="md"
@@ -77,6 +83,8 @@ export default function ExperimentalRoute() {
             onClick={() => switchTheme()}
           />
         </DesignArea>
+        <input type="text" value={password} onChange={(e) => setPassword(e.target.value)} />
+        <PasswordStrengthMeter password={password} />
         <FancyRadio value={'moooiinn'} label={'mooiin'} checked={false} />
       </DesignWrapper>
     </>

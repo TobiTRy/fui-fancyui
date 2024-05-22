@@ -4,11 +4,11 @@ import { FancySVGAtom } from '@/components/atoms/FancySVGAtom';
 import { TFancySVGAtomWithNativeAttrs } from '@/components/atoms/FancySVGAtom/TFancySVGAtom.model';
 
 export default function FancyContentIcon(props: TFancySVGAtomWithNativeAttrs) {
-  const { children, sizeC = 'xxs', externalStyle, ...SVGProps } = props;
+  const { children, sizeC = 'xxs', externalStyle, layer, ...SVGProps } = props;
 
   return (
     <FancySVGAtom
-      isPassive
+      layer={layer}
       externalStyle={css`
         flex-shrink: 0;
         ${externalStyle}

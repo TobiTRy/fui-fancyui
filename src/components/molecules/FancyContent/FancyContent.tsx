@@ -1,9 +1,10 @@
 import React, { ReactElement } from 'react';
 
-import { FancyContentIcon } from './utils/FancyContentIcon';
-import { FancyContentDescription, FancyContentTitle } from './utils/FancyContentText';
 import { OnlyTextWrapper, Wrapper } from './FancyContent.style';
 import { TFancyContentHTMLAttrs } from './FancyContent.model';
+import FancyContentIcon from '@/components/molecules/FancyContent/utils/FancyContentIcon';
+import FancyContentTitle from '@/components/molecules/FancyContent/utils/FancyContentText';
+import FancyContentDescription from '@/components/molecules/FancyContent/utils/FancyContentDescription';
 
 // --------------------------------------------------------------------------- //
 // ------- The conent Components handles the Content of The componets -------- //
