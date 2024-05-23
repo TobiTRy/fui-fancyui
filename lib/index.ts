@@ -61,6 +61,7 @@ export * from '@/components/atoms/TextGradient';
 export * from '@/components/atoms/TitleForComponent';
 export * from '@/components/atoms/ColoredText';
 export * from '@/components/atoms/DisableBox';
+export * from '@/components/atoms/PasswordStrengthMeter';
 
 // ---------- Molecules ------- //
 export * from '@/components/molecules/FancyInfoText';
