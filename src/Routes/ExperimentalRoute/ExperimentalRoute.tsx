@@ -8,7 +8,6 @@ import { FancyRadio } from '@/components/organisms/FancyRadio';
 import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
 
 import PasswordStrengthMeter from '@/components/atoms/PasswordStrengthMeter/PasswordStrengthMeter';
-import Content from '@/components/molecules/Content/Content';
 import styled from 'styled-components';
 
 const Icon = (
@@ -69,11 +68,6 @@ export default function ExperimentalRoute() {
   return (
     <>
       <DesignWrapper>
-        <Content>
-          <Content.Icon layer={5}>{svg}</Content.Icon>
-          <Content.Title layer={5}>Title</Content.Title>
-        </Content>
-
         <DesignArea title="Test">
           <FancyButton
             borderRadius="md"

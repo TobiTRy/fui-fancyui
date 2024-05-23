@@ -4,12 +4,13 @@ import FancyContent from '../../components/molecules/FancyContent/FancyContent';
 
 import SVGCheckMark from '../../components/icons/SVGCheckMark/SVGCheckMark';
 import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
+import { disabledStyle } from '@/design/designFunctions/disabledStyle';
 
 export default function FancyContentRoute() {
   return (
     <DesignWrapper>
       <DesignArea title="FancyContent">
-        <FancyContent align="flex-start" justify="center">
+        <FancyContent align="flex-start" justify="center" externalStyle={disabledStyle}>
           <FancyContent.Icon sizeC="xs" themeType="primary">
             <SVGCheckMark />
           </FancyContent.Icon>
