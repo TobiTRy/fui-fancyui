@@ -65,6 +65,7 @@ function FancyContent(props: TFancyContentHTMLAttrs) {
       $direction={direction}
       $justify={justify}
       $gapBetweenText={gapBetweenText}
+      $externalStyle={externalStyle}
       {...htmlProps}
     >
       {children}
