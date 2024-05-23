@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { InnerContentWrapper } from './AutoSizingBox.style';
 import { TAutoSizingBox } from './TAutoSizingBox.model';
 
