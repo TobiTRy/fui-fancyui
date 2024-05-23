@@ -37,6 +37,7 @@ export default function InputWrapper(props: TInputWrapper) {
     themeType = 'primary',
     transparentBackground,
     externalStyle,
+    focusStyle = true,
     labelVariant,
     className,
   } = props;
@@ -53,7 +54,7 @@ export default function InputWrapper(props: TInputWrapper) {
         outlinedBackgroundStrength={outlinedBackgroundStrength}
         outlinedRemoveBorder={outlinedRemoveBorder}
         externalStyle={css`
-          ${generateInputContainerStyle(!!label, isActive, theme)}
+          ${generateInputContainerStyle(!!label, isActive, theme, focusStyle)}
           ${externalStyle}
         `}
       >
