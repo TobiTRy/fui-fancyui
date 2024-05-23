@@ -8,6 +8,7 @@ export default function FancyContentIcon(props: TFancySVGAtomWithNativeAttrs) {
 
   return (
     <FancySVGAtom
+      isPassive
       externalStyle={css`
         flex-shrink: 0;
         ${externalStyle}

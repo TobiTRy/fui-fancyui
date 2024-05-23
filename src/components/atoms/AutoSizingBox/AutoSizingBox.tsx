@@ -6,7 +6,8 @@ import { TAutoSizingBox } from './TAutoSizingBox.model';
 // A Box thats adjusts width and height dynamicly from the childs via animation//
 // --------------------------------------------------------------------------- //
 export default function AutoSizingBox(props: TAutoSizingBox) {
-  const { children, startHeight, startWidth, adjustHeight = true, adjustWidth } = props;
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+  const { children, startHeight, startWidth, adjustHeight = true, adjustWidth, changeTrigger } = props;
 
   // State for the height and width of the box
   const [boxHeight, setBoxHeight] = useState(startHeight || 'auto');
@@ -34,7 +35,7 @@ export default function AutoSizingBox(props: TAutoSizingBox) {
     }
     // Cleanup the observer on unmount or before re-running this effect
     return () => resizeObserver.disconnect();
-  }, [children, adjustHeight, adjustWidth]);
+  }, [children, adjustHeight, adjustWidth, changeTrigger]);
 
   return (
     <InnerContentWrapper style={{ height: boxHeight, width: boxWidth }}>
