@@ -47,7 +47,7 @@ export default function Button(props: TButtonWithNativeAttrs) {
       {notAButton ? (
         <Button {...htmlProps} />
       ) : (
-        <StyledButton $wide={wide} {...htmlProps}>
+        <StyledButton $wide={wide} {...htmlProps} disabled={disabled}>
           <Button />
         </StyledButton>
       )}

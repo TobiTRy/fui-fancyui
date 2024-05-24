@@ -23,7 +23,13 @@ export default function ButtonRoute() {
   return (
     <DesignWrapper>
       <DesignArea title="Buttons sizes" style={backgroundColor}>
-        <FancyButton label="Button" themeType="primary" sizeC="sm" />
+        <FancyButton
+          label="Button"
+          themeType="primary"
+          sizeC="sm"
+          disabled
+          onClick={() => console.log('Trigger me Dadddy')}
+        />
         <FancyButton label="Button" themeType="primary" sizeC="md" />
         <FancyButton label="Button" themeType="primary" sizeC="lg" />
 
