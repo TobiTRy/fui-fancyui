@@ -20,6 +20,8 @@ const RawInput = styled.input<TRawInputWith$ & { theme?: TTheme }>`
   // Remove the default autofill background color
   &:-webkit-autofill,
   &:-webkit-autofill:focus {
+    -webkit-text-fill-color: ${({ theme, $themeType = 'secondary', $layer }) =>
+      getBackgroundColor({ theme, $themeType, $layer })} !important; // Change the text color of autofill
     transition:
       background-color 600000s 0s,
       color 600000s 0s;
