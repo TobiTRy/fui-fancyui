@@ -61,6 +61,7 @@ const FancyNumberInput = forwardRef<HTMLInputElement, TFancyNumberInput>((props,
       outlinedBackgroundStrength={outlinedBackgroundStrength}
       outlinedRemoveBorder={outlinedRemoveBorder}
       transparentBackground={transparentBackground}
+      externalStyle={externalStyle}
       InputElement={
         <NumberInput
           ref={ref}
@@ -80,7 +81,6 @@ const FancyNumberInput = forwardRef<HTMLInputElement, TFancyNumberInput>((props,
           placeholder={placeholder}
           autoWidth={autoWidth}
           externalStyle={css`
-            ${externalStyle}
             transition: width 0.3s ease-in-out;
           `}
           {...inputProps}
