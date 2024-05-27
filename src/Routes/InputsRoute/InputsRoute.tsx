@@ -126,7 +126,7 @@ export default function InputsRoute() {
           <FancyPasswordInput icon={svg} align={'center'} value={password} onChange={testHandler5} />
         </DesignArea>
         <DesignArea title="Text Input">
-          <FancyTextInput label="Text" value={text} onChange={testHandler} />
+          <FancyTextInput label="Text" underline={false} value={text} onChange={testHandler} />
           <FancyTextInput
             icon={svg}
             label="Text"
@@ -138,7 +138,16 @@ export default function InputsRoute() {
           <FancyTextInput placeholder="Hiiii" systemMessage={'success'} value={text} onChange={testHandler} />
         </DesignArea>
         <DesignArea title="Number Input">
-          <FancyNumberInput icon={svg} label="Text" onChange={testHandler2} value={test} step={0.1} min={0} max={100} />
+          <FancyNumberInput
+            icon={svg}
+            underline={false}
+            label="Text"
+            onChange={testHandler2}
+            value={test}
+            step={0.1}
+            min={0}
+            max={100}
+          />
           <FancyNumberInput
             icon={svg}
             label="Text"
