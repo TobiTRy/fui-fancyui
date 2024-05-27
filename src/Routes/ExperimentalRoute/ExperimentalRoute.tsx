@@ -9,6 +9,8 @@ import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
 
 import PasswordStrengthMeter from '@/components/atoms/PasswordStrengthMeter/PasswordStrengthMeter';
 import styled from 'styled-components';
+import { FancyNumberInput } from '@/components/organisms/FancyNumberInput';
+import { FancyFlexBox } from '@/components/templates/FancyFlexBox';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -77,9 +79,17 @@ export default function ExperimentalRoute() {
             onClick={() => switchTheme()}
           />
         </DesignArea>
-        <input type="text" value={password} onChange={(e) => setPassword(e.target.value)} />
-        <PasswordStrengthMeter password={password} />
-        <FancyRadio value={'moooiinn'} label={'mooiin'} checked={false} />
+        <FancyFlexBox align="flex-start" justify="flex-start">
+          <FancyNumberInput
+            underline={false}
+            label="Day"
+            placeholder="DD"
+            maxLength={2}
+            externalStyle={{ maxWidth: '6ch !important' }}
+          />
+          <FancyNumberInput label="Month" placeholder="MM" maxLength={2} externalStyle={{ width: '6ch !important' }} />
+          <FancyNumberInput label="Year" placeholder="YYYY" maxLength={4} externalStyle={{ width: '7ch !important' }} />
+        </FancyFlexBox>
       </DesignWrapper>
     </>
   );
