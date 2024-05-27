@@ -30,6 +30,7 @@ export const SelectField = styled.select<ISelectField & { theme: TTheme }>`
   appearance: none;
   padding: 0px 0px ${({ theme }) => theme.spacing.xs};
   background-color: transparent;
+  font-size: ${({ theme }) => theme.fontSizes.interactiveMd.fontSize};
 
   &:disabled {
     ${disabledStyle}
