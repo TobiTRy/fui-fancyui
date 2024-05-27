@@ -44,7 +44,6 @@ const NumberInput = forwardRef<HTMLInputElement, TNumberInputWithNativeAttrs>((p
     <StyledNumberInput
       id={id}
       ref={ref}
-      autoComplete={'off'}
       type="text"
       value={inputValue !== null ? inputValue : ''}
       step={step}
