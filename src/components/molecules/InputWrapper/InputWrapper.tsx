@@ -1,16 +1,8 @@
 import { FancySVGAtom } from '@/components/atoms/FancySVGAtom';
-import { css } from 'styled-components';
 
-import { FancyBox } from '@/components/atoms/FancyBox';
 import { LabeledInput } from '@/components/molecules/LabeledInput';
 import { getOpositMainThemeType } from '@/design/designFunctions/getOpositMainThemeType';
-import { themeStore } from '@/design/theme/themeStore';
-import {
-  StyledInputWrapper,
-  WrapperSystemMessageAndInput,
-  generateIconStyle,
-  generateInputContainerStyle,
-} from './InputWrapper.style';
+import { ExtendedFancyBox, generateIconStyle } from './InputWrapper.style';
 import { TInputWrapper } from './TInputWrapper.model';
 
 // --------------------------------------------------------------------------- //
@@ -42,53 +34,50 @@ export default function InputWrapper(props: TInputWrapper) {
     className,
   } = props;
 
-  const theme = themeStore((state) => state.theme);
-
   // Render the InputWrapper component with the appropriate props
   return (
-    <StyledInputWrapper disabled={disabled} className={className} $autoWidth={autoWidth}>
-      <FancyBox
-        themeType={transparentBackground ? 'transparent' : themeType}
+    <ExtendedFancyBox
+      className={className}
+      themeType={transparentBackground ? 'transparent' : themeType}
+      layer={layer}
+      outlined={outlined}
+      outlinedBackgroundStrength={outlinedBackgroundStrength}
+      outlinedRemoveBorder={outlinedRemoveBorder}
+      $hasLabel={!!label}
+      $isActive={isActive}
+      $boxShadow={focusStyle}
+      $autoWidth={autoWidth}
+      $isDisabled={disabled}
+      externalStyle={externalStyle}
+    >
+      {icon && (
+        <FancySVGAtom
+          themeType={getOpositMainThemeType(themeType)}
+          layer={layer}
+          isPassive={false}
+          externalStyle={generateIconStyle(!!label)}
+          systemMessage={systemMessage}
+          sizeC="xs"
+          isActive={isActive}
+        >
+          {icon}
+        </FancySVGAtom>
+      )}
+
+      <LabeledInput
+        id={id}
+        align={align}
+        themeType={themeType}
+        label={label}
+        hasPlaceholder={!!placeholder}
+        systemMessageType={systemMessage}
         layer={layer}
-        outlined={outlined}
-        outlinedBackgroundStrength={outlinedBackgroundStrength}
-        outlinedRemoveBorder={outlinedRemoveBorder}
-        externalStyle={css`
-          ${generateInputContainerStyle(!!label, isActive, theme, focusStyle)}
-          ${externalStyle}
-        `}
-      >
-        {icon && (
-          <FancySVGAtom
-            themeType={getOpositMainThemeType(themeType)}
-            layer={layer}
-            isPassive={false}
-            externalStyle={generateIconStyle(!!label)}
-            systemMessage={systemMessage}
-            sizeC="xs"
-            isActive={isActive}
-          >
-            {icon}
-          </FancySVGAtom>
-        )}
-        <WrapperSystemMessageAndInput>
-          <LabeledInput
-            id={id}
-            align={align}
-            themeType={themeType}
-            label={label}
-            hasPlaceholder={!!placeholder}
-            systemMessageType={systemMessage}
-            layer={layer}
-            hasValue={hasValue}
-            underline={underline}
-            isActive={isActive}
-            inputElement={InputElement}
-            labelVariant={labelVariant ?? 'animated'}
-          />
-        </WrapperSystemMessageAndInput>
-        {/* Render the underline for the input field if the underline prop is true */}
-      </FancyBox>
-    </StyledInputWrapper>
+        hasValue={hasValue}
+        underline={underline}
+        isActive={isActive}
+        inputElement={InputElement}
+        labelVariant={labelVariant ?? 'animated'}
+      />
+    </ExtendedFancyBox>
   );
 }
