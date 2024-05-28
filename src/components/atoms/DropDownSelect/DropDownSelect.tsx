@@ -1,14 +1,15 @@
 import { TDropDownSelect, TDropDownSelectNativeAttrs } from '@/components/atoms/DropDownSelect/TDropDownSelect.model';
 import { SelectField } from './DropDownSelect.style';
+import { forwardRef } from 'react';
 
 // ------------------------------------------------------------------ //
 // ---------------- the blank drop down select ---------------------- //
 // ------------------------------------------------------------------ //
-export default function DropDownSelect(props: TDropDownSelect & TDropDownSelectNativeAttrs) {
+const DropDownSelect = forwardRef<HTMLSelectElement, TDropDownSelect & TDropDownSelectNativeAttrs>((props, ref) => {
   const { values, value, placeholder, children, align = 'left', emptySelect = true, ...htmlInputProps } = props;
 
   return (
-    <SelectField $align={align} $labelAlign={align} value={value || ''} {...htmlInputProps}>
+    <SelectField ref={ref} $align={align} $labelAlign={align} value={value || ''} {...htmlInputProps}>
       {/* Placeholder option */}
       {/* Empty Select Option  */}
       {emptySelect && (
@@ -42,4 +43,6 @@ export default function DropDownSelect(props: TDropDownSelect & TDropDownSelectN
       {children}
     </SelectField>
   );
-}
+});
+
+export default DropDownSelect;
