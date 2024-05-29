@@ -2,7 +2,8 @@ import { TInputLabelWithNAtiveAttrs } from './TInputLabel.model';
 import { StyledInputLabel } from './InputLabel.style';
 
 export default function InputLabel(props: TInputLabelWithNAtiveAttrs) {
-  const { children, isActive, systemMessageType, themeType, layer, align, lableVariant, externalStyle } = props;
+  const { children, isActive, systemMessageType, themeType, layer, align, lableVariant, externalStyle, isMovedUp } =
+    props;
 
   return (
     <StyledInputLabel
@@ -10,6 +11,7 @@ export default function InputLabel(props: TInputLabelWithNAtiveAttrs) {
       $systemMessageType={systemMessageType}
       $themeType={themeType}
       $layer={layer}
+      $isMovedUp={isMovedUp}
       $align={align}
       $lableVariant={lableVariant}
       $externalStyle={externalStyle}
