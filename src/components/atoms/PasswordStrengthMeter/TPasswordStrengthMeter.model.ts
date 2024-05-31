@@ -10,6 +10,7 @@ export type TPasswordStrengthMeter = {
   layer?: TLayer;
   themeType?: TUiColorsMain;
   padding?: TThemeArrayOrValueCSS;
+  margin?: TThemeArrayOrValueCSS;
   height?: TThemeValueOrCSS;
   compareWith?: string[];
   notABar?: boolean;

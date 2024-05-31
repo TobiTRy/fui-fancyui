@@ -8,5 +8,7 @@ export const StyledSpacingsBox = styled.div<TStyledPrefixAndPicker<TFancySpacing
   display: block;
   padding: ${({ $padding }) => $padding && arrayToCssValues($padding, 'spacing')};
   margin: ${({ $margin }) => $margin && arrayToCssValues($margin, 'spacing')};
+  box-sizing: border-box;
+  width: 100%;
   ${({ $externalStyle }) => $externalStyle};
 `;

@@ -15,6 +15,7 @@ export default function PasswordStrengthMeter(props: TPasswordStrengthMeter) {
     themeType,
     height = 'xxs',
     padding,
+    margin,
     notABar = false,
     compareWith,
     onChangeStrength,
@@ -35,14 +36,15 @@ export default function PasswordStrengthMeter(props: TPasswordStrengthMeter) {
       borderRadius={borderRadius}
       themeType={themeType}
       padding={padding}
+      margin={margin}
       layer={layer}
       externalStyle={{ width: '100%', overflow: 'hidden' }}
     >
       {!notABar ? (
         <StyledMeter
           $borderRadius={borderRadiusBar}
-          low={33}
           $height={height}
+          low={33}
           min={0}
           high={66}
           optimum={100}
