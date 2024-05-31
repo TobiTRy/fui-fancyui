@@ -30,7 +30,7 @@ export default function LabeledInput(props: TLabeledInput) {
           lableVariant={labelVariant}
           align={align}
           themeType={getOpositMainThemeType(themeType)}
-          id={id}
+          htmlFor={id}
           isMovedUp={hasPlaceholder || hasValue}
           isActive={isActive || hasValue}
           systemMessageType={systemMessageType}
