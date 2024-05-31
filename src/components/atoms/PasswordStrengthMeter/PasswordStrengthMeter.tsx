@@ -4,6 +4,7 @@ import { arrayToCssValues } from '@/design/designFunctions/arrayToCssValues';
 import { TUiColorsSystemMessage } from '@/types/TUiColorsSystemMessage';
 import { calculatePasswordStrength } from '@/utils/functions/passwordStrengthCalculator';
 import { StyledMeter } from './PasswordSrengthMeter.style';
+import { useEffect, useMemo } from 'react';
 
 export default function PasswordStrengthMeter(props: TPasswordStrengthMeter) {
   const {
@@ -15,19 +16,19 @@ export default function PasswordStrengthMeter(props: TPasswordStrengthMeter) {
     height = 'xxs',
     padding,
     notABar = false,
+    compareWith,
+    onChangeStrength,
   } = props;
 
-  const passwordStrength = calculatePasswordStrength(password);
+  const passwordStrength = useMemo(() => {
+    return calculatePasswordStrength(password, compareWith);
+  }, [password, compareWith]);
 
-  const calcStengthInThemeType = (strength: number): TUiColorsSystemMessage => {
-    if (strength < 33) {
-      return 'error';
+  useEffect(() => {
+    if (onChangeStrength) {
+      onChangeStrength(passwordStrength);
     }
-    if (strength < 66) {
-      return 'warning';
-    }
-    return 'success';
-  };
+  }, [passwordStrength, onChangeStrength]);
 
   return (
     <FancyBox
@@ -62,3 +63,13 @@ export default function PasswordStrengthMeter(props: TPasswordStrengthMeter) {
     </FancyBox>
   );
 }
+
+const calcStengthInThemeType = (strength: number): TUiColorsSystemMessage => {
+  if (strength < 33) {
+    return 'error';
+  }
+  if (strength < 66) {
+    return 'warning';
+  }
+  return 'success';
+};

@@ -11,5 +11,7 @@ export type TPasswordStrengthMeter = {
   themeType?: TUiColorsMain;
   padding?: TThemeArrayOrValueCSS;
   height?: TThemeValueOrCSS;
+  compareWith?: string[];
   notABar?: boolean;
+  onChangeStrength?: (strength: number) => void;
 };
