@@ -1,25 +1,16 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
 
 import themeStore from '../../design/theme/themeStore/themeStore';
 
 import { FancyButton } from '@/components/organisms/FancyButton';
-import FancyContent from '../../components/molecules/FancyContent/FancyContent';
+import { FancyRadio } from '@/components/organisms/FancyRadio';
 import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
 
-import { SVGCheckMark } from '@/components/icons/SVGCheckMark';
-import { Card } from '@/components/molecules/Card';
-import { FancyNumberInput } from '@/components/organisms/FancyNumberInput';
-import { FancyAlignBox } from '@/components/templates/FancyAlignBox';
-import { Button } from '@/components/molecules/Button';
-import { FancyLine } from '@/components/atoms/FancyLine';
-import { useThrottledCallback } from '@/utils/hooks/useThrottle/useThrottle';
+import PasswordStrengthMeter from '@/components/atoms/PasswordStrengthMeter/PasswordStrengthMeter';
 import styled from 'styled-components';
-import createMultiIntersectionObserver from '@/utils/hooks/useMiltiIntersectionObserver/multiplyIntersectionObserver';
-import { FancyVirtualScroll } from '@/components/shared/FancyVirtualScroll';
-import ActionItem from '@/components/molecules/ActionItem/ActionItem';
-import { AutoSizingBox } from '@/components/atoms/AutoSizingBox';
-import { FancyBox } from '@/components/atoms/FancyBox';
+import { FancyNumberInput } from '@/components/organisms/FancyNumberInput';
+import { FancyFlexBox } from '@/components/templates/FancyFlexBox';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -62,117 +53,24 @@ const values = [
   { label: 'test4', icon: Icon, itemKey: '4' },
 ];
 
-//array with many strings
-const testArray = [
-  '1',
-  '2',
-  '3',
-  '4',
-  '5',
-  '6',
-  '7',
-  '8',
-  '9',
-  '10',
-  '11',
-  '12',
-  '13',
-  '14',
-  '15',
-  '16',
-  '17',
-  '18',
-  '19',
-  '20',
-];
-
-const CustomComponent = ({ children, test }: { children?: React.ReactNode; test?: string }) => {
-  return <span>{children}</span>;
-};
-
-const TestComps = () => [
-  <>
-    <div>Hiii</div>
-    <div>Hiii</div>
-    <div>Hiii</div>
-    <div>Hiii</div>
-    <div>Hiii</div>
-    <div>Hiii</div>
-    <div>Hiii</div>
-    <div>Hiii</div>
-    <div>Hiii</div>
-    <div>Hiii</div>
-    <div>Hiii</div>
-  </>,
-];
-
 export default function ExperimentalRoute() {
   const refs = React.useRef<(HTMLDivElement | null)[]>([]);
   const updateTheme = themeStore((state) => state.updateTheme);
   const switchTheme = themeStore((state) => state.switchTheme);
-  const [isActive, setIsActive] = React.useState('');
-  const [isLoading, setIsLoading] = React.useState(false);
+  const [password, setPassword] = useState('');
 
-  const removeToast = () => {
-    console.log('remove');
-  };
+  const [selectedValue, setSelectedValue] = useState(null);
 
-  const daysInMonth = Array.from({ length: 30 }, (_, i) => `Day ${i + 1}`);
-
-  const throttledAction = useThrottledCallback(removeToast, 1000);
-
-  useEffect(() => {
-    // Initialize the intersection observer and store the cleanup function
-    const cleanupObserver = createMultiIntersectionObserver({
-      elements: refs.current.filter(Boolean), // Convert monthRefs to a format suitable for the observer
-      callback: (el) => {
-        console.log('in view', el);
-      },
-      options: { threshold: 0.81 },
-    });
-
-    // Call the cleanup function on component unmount or before re-running this effect
-    return () => {
-      if (cleanupObserver) {
-        cleanupObserver();
-      }
-    };
-  }, []);
-
-  const addContent = () => {
-    setIsLoading(!isLoading);
-  };
+  const options = [
+    { value: 'option1', label: 'Option 1' },
+    { value: 'option2', label: 'Option 2' },
+    { value: 'option3', label: 'Option 3' },
+  ];
 
   return (
     <>
       <DesignWrapper>
         <DesignArea title="Test">
-          <FancyBox themeType="secondary" outlined>
-            Mooiin
-          </FancyBox>
-          <AutoSizingBox adjustHeight>
-            <Button sizeC={undefined} onClick={addContent}>
-              Mooiin
-            </Button>
-            {isLoading ? (
-              <TestComps />
-            ) : (
-              <Button sizeC={undefined} onClick={addContent}>
-                Mooiin
-              </Button>
-            )}
-          </AutoSizingBox>
-          <FancyNumberInput label="TTTSa" systemMessage="error" />
-          <Card />
-          <Card>
-            <FancyContent direction="column" justify="center">
-              <FancyContent.Icon sizeC="lg">
-                <SVGCheckMark />
-              </FancyContent.Icon>
-              <FancyContent.Title>Test</FancyContent.Title>
-              <FancyContent.Description>Test fgfg fgfggf fgfgfg sddssd sddsds sddssd sdsdsd </FancyContent.Description>
-            </FancyContent>
-          </Card>
           <FancyButton
             borderRadius="md"
             sizeC="md"
@@ -181,32 +79,28 @@ export default function ExperimentalRoute() {
             onClick={() => switchTheme()}
           />
         </DesignArea>
-        <DesignArea title="Test">
-          <FancyLine direction="horizontal" themeType="accent" />
-          <div style={{ height: '300px', overflow: 'hidden', backgroundColor: 'black', marginBottom: '80px' }}>
-            <FancyVirtualScroll containerHeight="300px" itemHeight={300}>
-              {testArray.map((item, index) => (
-                <div key={index} ref={(ref) => (refs.current[index] = ref)} style={{ height: '300px' }}>
-                  {item}
-                </div>
-              ))}
-            </FancyVirtualScroll>
-          </div>
-        </DesignArea>
+        <FancyFlexBox align="flex-start" justify="flex-start">
+          <FancyNumberInput
+            underline={false}
+            label="Day"
+            placeholder="DD"
+            maxLength={2}
+            externalStyle={{ maxWidth: '6ch !important' }}
+          />
+          <FancyNumberInput label="Month" placeholder="MM" maxLength={2} externalStyle={{ width: '6ch !important' }} />
+          <FancyNumberInput label="Year" placeholder="YYYY" maxLength={4} externalStyle={{ width: '7ch !important' }} />
+        </FancyFlexBox>
       </DesignWrapper>
     </>
   );
 }
 
-const defaultProps = {
-  buttons: [
-    { label: 'hi', icon: svg, id: '1' },
-    { label: 'hi', icon: svg, id: '2' },
-    { label: 'hi', icon: svg, id: '3' },
-    { label: 'hi', icon: svg, id: '4' },
-    { label: 'hi', icon: svg, id: '4' },
-  ],
-};
+const defaultProps = [
+  { label: 'hi1', value: 'hi1', id: '1' },
+  { label: 'hi2', value: 'hi2', id: '2' },
+  { label: 'hi3', value: 'hi3', id: '3' },
+  { label: 'hi4', value: 'hi4', id: '4' },
+];
 
 const Box = styled.div`
   height: 270px;

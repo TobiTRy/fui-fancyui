@@ -1,14 +1,13 @@
-import { useMemo } from 'react';
+import { forwardRef, useMemo } from 'react';
 
 import { useNumberInput } from '@/components/atoms/NumberInput/useNumberInput.hook';
-import StyledNumberInput from './NumberInput.styled';
+import { StyledNumberInput } from './NumberInput.styled';
 import { TNumberInputWithNativeAttrs } from '@/components/atoms/NumberInput/TNumberInput.model';
 
 // --------------------------------------------------------------------------- //
 // Advanced Text imput that acts like a number input to have more versatelity  //
 // --------------------------------------------------------------------------- //
-export default function NumberInput(props: TNumberInputWithNativeAttrs) {
-  //dont remove the value/onchange else its provided in the element and you can have letters in the input
+const NumberInput = forwardRef<HTMLInputElement, TNumberInputWithNativeAttrs>((props, ref) => {
   const {
     value,
     onChange,
@@ -26,7 +25,6 @@ export default function NumberInput(props: TNumberInputWithNativeAttrs) {
     ...moreHTMLProps
   } = props;
 
-  // use the hook for the number input to handle the input
   const { inputValue, handleChange, handleKeyDown } = useNumberInput({
     value,
     onChange,
@@ -45,7 +43,7 @@ export default function NumberInput(props: TNumberInputWithNativeAttrs) {
   return (
     <StyledNumberInput
       id={id}
-      autoComplete={'off'}
+      ref={ref}
       type="text"
       value={inputValue !== null ? inputValue : ''}
       step={step}
@@ -63,4 +61,6 @@ export default function NumberInput(props: TNumberInputWithNativeAttrs) {
       {...moreHTMLProps}
     />
   );
-}
+});
+
+export default NumberInput;

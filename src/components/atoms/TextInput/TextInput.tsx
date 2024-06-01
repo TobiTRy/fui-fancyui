@@ -1,9 +1,12 @@
 import { RawInput } from '@/components/atoms/RawInput';
 import { TTextInput, TTextInputNativeAttrs } from '@/components/atoms/TextInput/TTextInput.model';
+import { forwardRef } from 'react';
 
 // a simple text input with no styling
-export default function TextInput(props: TTextInput & TTextInputNativeAttrs) {
+const TextInput = forwardRef<HTMLInputElement, TTextInput & TTextInputNativeAttrs>((props, ref) => {
   const { align, ...htmlInputProps } = props;
 
-  return <RawInput type="text" $align={align} {...htmlInputProps} />;
-}
+  return <RawInput ref={ref} type="text" $align={align} {...htmlInputProps} />;
+});
+
+export default TextInput;

@@ -1,4 +1,4 @@
-import { useId, useState } from 'react';
+import { forwardRef, useId, useState } from 'react';
 
 import { TextInput } from '@/components/atoms/TextInput';
 import { InputWrapper } from '@/components/molecules/InputWrapper';
@@ -7,7 +7,7 @@ import { TFancyTextInput } from '@/components/organisms/FancyTextInput/TFancyTex
 // --------------------------------------------------------------------------- //
 // ----The TextInput Comonent with surrounding icon, label and underline ----- //
 // --------------------------------------------------------------------------- //
-export default function FancyTextInput(props: TFancyTextInput) {
+const FancyTextInpUtWithForWardRef = forwardRef<HTMLInputElement, TFancyTextInput>((props, ref) => {
   const {
     id,
     value,
@@ -59,6 +59,7 @@ export default function FancyTextInput(props: TFancyTextInput) {
       outlinedRemoveBorder={outlinedRemoveBorder}
       InputElement={
         <TextInput
+          ref={ref}
           id={usedId}
           value={value}
           align={align}
@@ -78,4 +79,6 @@ export default function FancyTextInput(props: TFancyTextInput) {
       }
     />
   );
-}
+});
+
+export default FancyTextInpUtWithForWardRef;

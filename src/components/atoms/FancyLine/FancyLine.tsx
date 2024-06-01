@@ -7,7 +7,7 @@ import { StyledFancyLine } from '@/components/atoms/FancyLine/FancyLine.style';
 export default function FancyLine(props: TFancyLineWithHTMLAttributes) {
   const {
     direction = 'horizontal',
-    thickness,
+    thickness = '1px',
     margin,
     themeType = 'accent',
     layer,

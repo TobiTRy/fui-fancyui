@@ -60,6 +60,8 @@ export * from '@/components/atoms/SkeletonBox';
 export * from '@/components/atoms/TextGradient';
 export * from '@/components/atoms/TitleForComponent';
 export * from '@/components/atoms/ColoredText';
+export * from '@/components/atoms/DisableBox';
+export * from '@/components/atoms/PasswordStrengthMeter';
 
 // ---------- Molecules ------- //
 export * from '@/components/molecules/FancyInfoText';
@@ -105,6 +107,7 @@ export * from '@/components/molecules/SwitchList';
 export * from '@/components/molecules/TabSwitch';
 export * from '@/components/molecules/FancyNavBar';
 export * from '@/components/molecules/LabeledInput';
+export * from '@/components/molecules/Stepper';
 
 // ---------- Organisms ------- //
 export * from '@/components/organisms/FancyButton';
@@ -153,6 +156,7 @@ export * from '@/components/shared/FancyPortal';
 export * from '@/utils/hooks/useIntersectionObserver';
 export * from '@/utils/hooks/useWindowDimensions';
 export * from '@/design/theme/FancyThemeProvider';
+export * from '@/utils/functions/clampNumber';
 
 // ---------- Design ------- //
 export * from '@/design/designFunctions/calcBorderRadiusOnAlignment';
@@ -177,6 +181,7 @@ export * from '@/design/designFunctions/checkThemeValue';
 export * from '@/design/designFunctions/leftRightCenterToFlexJustify';
 export * from '@/design/designFunctions/getThemeOrValueAsCss';
 export * from '@/design/designFunctions/calcBorderRadiusWithPadding';
+export * from '@/design/theme/theme';
 
 // ---------- Interfaces ------- //
 export * from '@/types';
@@ -197,12 +202,4 @@ export * from '@/design/theme/generateThemeToCssVars';
 export * from '@/design/theme/applyThemeToDomStyleSheet';
 
 // ---------- SVGs ------- //
-export * from '@/components/icons/SVGClipBoardIcon';
-export * from '@/components/icons/SVGClipBoardIconChecked';
-export * from '@/components/icons/SVGEyeCrossed';
-export * from '@/components/icons/SVGEyeOpen';
-export * from '@/components/icons/SVGLoadingArrows';
-export * from '@/components/icons/SVGPlus';
-export * from '@/components/icons/SVGSearch';
-export * from '@/components/icons/SVGFui';
-export * from '@/components/icons/SVGXCircle';
+export * from '@/components/icons/';

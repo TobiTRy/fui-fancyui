@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, forwardRef } from 'react';
 
 import { FakeCheckbox, HidenCheckBox, InputContainer } from './RawCheckbox.style';
 import { TRawCheckbox } from './TRawCheckbox.model';
-import { SVGCheckMark } from '@/components/icons/SVGCheckMark';
+import { SVGCheckMark } from '@/components/icons';
 
 // --------------------------------------------------------------------------- //
 // -------------------- A simple Checkbox with a Label ----------------------- //
 // --------------------------------------------------------------------------- //
-export default function RawCheckbox(props: TRawCheckbox) {
+const RawCheckbox = forwardRef<HTMLInputElement, TRawCheckbox>((props, ref) => {
   const { onChange, defaultChecked, themeType = 'primary', layer = 3, id, ...htmlProps } = props;
   const [checked, setChecked] = useState(false);
 
@@ -34,7 +34,16 @@ export default function RawCheckbox(props: TRawCheckbox) {
         <SVGCheckMark />
       </FakeCheckbox>
       {/* The real checkbox but this hidden */}
-      <HidenCheckBox id={id} type="checkbox" defaultChecked={checked} onChange={handleChange} {...htmlProps} />
+      <HidenCheckBox
+        id={id}
+        ref={ref}
+        type="checkbox"
+        onChange={handleChange}
+        defaultChecked={checked}
+        {...htmlProps}
+      />
     </InputContainer>
   );
-}
+});
+
+export default RawCheckbox;

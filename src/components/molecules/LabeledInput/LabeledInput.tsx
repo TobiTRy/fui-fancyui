@@ -22,9 +22,6 @@ export default function LabeledInput(props: TLabeledInput) {
     align,
   } = props;
 
-  // Check if the label should move up
-  const labelShouldMoveUp = hasValue || !!hasPlaceholder;
-
   return (
     <Wrapper>
       {/* The Labled thats animated and adjusts the padding with the type of the Input */}
@@ -33,15 +30,19 @@ export default function LabeledInput(props: TLabeledInput) {
           lableVariant={labelVariant}
           align={align}
           themeType={getOpositMainThemeType(themeType)}
-          id={id}
-          isActive={labelShouldMoveUp}
+          htmlFor={id}
+          isMovedUp={hasPlaceholder || hasValue}
+          isActive={isActive || hasValue}
           systemMessageType={systemMessageType}
         >
           {label}
         </InputLabel>
       )}
       {/* The wrapper for the input field to style and align the input*/}
-      <InputWrapper $isActive={labelVariant !== 'static' && labelShouldMoveUp} $isLabelProvided={!!label}>
+      <InputWrapper
+        $isActive={labelVariant !== 'static' && (!!hasPlaceholder || !!hasValue || !!isActive)}
+        $isLabelProvided={!!label}
+      >
         {inputElement}
       </InputWrapper>
       {underline && (

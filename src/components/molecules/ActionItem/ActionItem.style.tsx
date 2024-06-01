@@ -7,7 +7,7 @@ import { disabledStyle } from '@/design/designFunctions/disabledStyle';
 import { generateThemeDesignForComponent } from '@/design/designFunctions/generateThemeDesignForComponent';
 import { IGenerateThemeDesignForComponent } from '@/design/designFunctions/generateThemeDesignForComponent/generateThemeDesignForComponent';
 
-type TWrapper = TStyledPrefixAndPicker<TActionItem, 'size'>;
+type TWrapper = TStyledPrefixAndPicker<TActionItem, 'size' | 'disabled'>;
 export const Wrapper = styled.div`
   position: relative;
 `;
@@ -27,7 +27,5 @@ export const ButtonStyle = styled.span<IGenerateThemeDesignForComponent & TWrapp
 
   transition: background-color 0.125s ease-in-out;
 
-  &:disabled {
-    ${disabledStyle}
-  }
+  ${({ $disabled }) => $disabled && disabledStyle}
 `;

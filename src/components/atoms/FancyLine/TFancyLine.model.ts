@@ -6,8 +6,10 @@ import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 import { TUiColorsSystemMessage } from '@/types/TUiColorsSystemMessage';
 import { CSSProp } from 'styled-components';
 
+export type TDirection = 'horizontal' | 'vertical';
+
 export type TFancyLine = {
-  direction?: 'horizontal' | 'vertical';
+  direction?: TDirection;
   thickness?: string;
   length?: string;
   margin?: TThemeArrayOrValueCSS;

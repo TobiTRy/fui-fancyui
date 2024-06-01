@@ -3,7 +3,7 @@ import { Meta, StoryObj } from '@storybook/react';
 
 // Import the component to be tested
 import FancyDateInput from '../FancyDateInput';
-import { SVGCheckMark } from '@/components/icons/SVGCheckMark';
+import { SVGCheckMark } from '@/components/icons';
 import { useState } from 'react';
 import templateThemeType from '@/stories/templateSettingsForStorys/templatesForThemeType';
 

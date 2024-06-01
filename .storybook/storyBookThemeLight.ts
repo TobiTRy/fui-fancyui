@@ -1,7 +1,7 @@
 // Import the necessary function and variables from @storybook/theming
 import { create } from '@storybook/theming';
 
-import { rawTheme } from '../src/design/theme/rawTheme';
+import { theme } from '../src/design/theme/theme';
 
 // Create a custom theme
 
@@ -13,21 +13,21 @@ const storyBookThemeLight = create({
   brandImage: 'https://tobitry.de/bilder/fui/FancyUI%20-01FITStorybookWide.png',
   brandTarget: '_blank',
 
-  textColor: rawTheme.colors.primary[0],
-  appBg: rawTheme.colors.secondary[1],
-  colorPrimary: rawTheme.colors.accent[0],
-  colorSecondary: rawTheme.colors.accent[1],
-  appContentBg: rawTheme.colors.secondary[0],
-  barBg: rawTheme.colors.secondary[1],
+  textColor: theme.color.primary[0],
+  appBg: theme.color.secondary[1],
+  colorPrimary: theme.color.accent[0],
+  colorSecondary: theme.color.accent[1],
+  appContentBg: theme.color.secondary[0],
+  barBg: theme.color.secondary[1],
 
-  inputBg: rawTheme.colors.secondary[1],
-  buttonBg: rawTheme.colors.secondary[6],
-  booleanBg: rawTheme.colors.secondary[1],
-  booleanSelectedBg: rawTheme.colors.accent[1],
-  appBorderColor: rawTheme.colors.secondary[4],
+  inputBg: theme.color.secondary[1],
+  buttonBg: theme.color.secondary[6],
+  booleanBg: theme.color.secondary[1],
+  booleanSelectedBg: theme.color.accent[1],
+  appBorderColor: theme.color.secondary[4],
   appBorderRadius: 18,
-  inputTextColor: rawTheme.colors.primary[0],
-  barHoverColor: rawTheme.colors.accent[0],
+  inputTextColor: theme.color.primary[0],
+  barHoverColor: theme.color.accent[0],
 });
 
 export default storyBookThemeLight;

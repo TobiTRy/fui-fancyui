@@ -1,0 +1,31 @@
+# clampNumber
+
+Clamp a numeric value between a minimum and maximum, ensuring it stays within the defined range.
+
+## Introduction
+
+The `clampNumber` function is a utility for constraining a number. It's helpful for UI elements, calculations, and data normalization.
+
+## Usage
+
+```javascript
+import { clampNumber } from 'fui-fancyui';
+
+const clampedValue = clampNumber(25, 10, 20); // Returns 20
+```
+
+## Props (Arguments)
+
+| Prop Name | Type   | Description                |
+| :-------- | :----- | :------------------------- |
+| `value`   | number | The value to clamp.        |
+| `min`     | number | The minimum allowed value. |
+| `max`     | number | The maximum allowed value. |
+
+## Example (Using clamped value in JSX):
+
+```jsx
+const clampedWidth = clampNumber(userInputWidth, 50, 200);
+
+return <div style={{ width: `${clampedWidth}px` }}>...</div>;
+```

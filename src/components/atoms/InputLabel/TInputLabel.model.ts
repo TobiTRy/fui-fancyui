@@ -7,6 +7,7 @@ import { TTextAlignLRC } from '@/types/TTextAlignLRC';
 
 export type TInputLabel = {
   isActive?: boolean;
+  isMovedUp?: boolean;
   systemMessageType?: TUiColorsSystemMessage;
   themeType?: TUiColorsMain;
   layer?: TLayer;

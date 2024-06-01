@@ -1,15 +1,16 @@
+import { TFancyFlexBoxWithDynamicElAttrs } from '@/components/templates/FancyFlexBox';
+import { TGenerateThemeDesignForComponentProps } from '@/design/designFunctions/generateThemeDesignForComponent';
+import { TComponentSizesExtended } from '@/types/TComponentSizes';
 import { TLayer } from '@/types/TLayer';
-import { TComponentSizes } from '@/types/TComponentSizes';
 import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
-import { TDynamicElementWrapperWithHTMLAttrs } from '@/components/atoms/DynamicElementWrapper';
 
 export type TActionItemSetting = {
   labelAlign?: 'left' | 'right' | 'top' | 'bottom';
-  size?: TComponentSizes;
+  size?: TComponentSizesExtended;
   layer?: TLayer;
   themeType?: TUiColorsNotTransparent;
   themeTypeActiveHover?: TUiColorsNotTransparent;
-} & TDynamicElementWrapperWithHTMLAttrs;
+};
 
 export type TActionItemButton = {
   label?: string;
@@ -17,6 +18,9 @@ export type TActionItemButton = {
   onClick?: () => void;
   isActive?: boolean;
   isClickable?: boolean;
+  disabled?: boolean;
 };
 
-export type TActionItem = TActionItemSetting & TActionItemButton;
+export type TActionItem = TActionItemSetting & TActionItemButton & TGenerateThemeDesignForComponentProps;
+
+export type TActionItemWithHTMLProps = TActionItem & TFancyFlexBoxWithDynamicElAttrs;

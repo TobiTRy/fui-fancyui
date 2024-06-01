@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { SVGChevronRight } from '@/components/icons/SVGChevronRight';
+import { SVGChevronRight } from '@/components/icons';
 import templateThemeType from '@/stories/templateSettingsForStorys/templatesForThemeType';
 import FancyButton from '../FancyButton';
 
@@ -142,7 +142,7 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   render: (args) => <FancyButton {...args} />,
   args: {
-    icon: SVGChevronRight,
+    icon: <SVGChevronRight />,
     themeType: 'accent',
     label: 'Button',
     sizeC: 'md',
@@ -158,7 +158,7 @@ export const Primary: Story = {
 export const Outlined: Story = {
   render: (args) => <FancyButton {...args} />,
   args: {
-    icon: SVGChevronRight,
+    icon: <SVGChevronRight />,
     themeType: 'accent',
     label: 'Button',
     sizeC: 'md',
@@ -173,7 +173,7 @@ export const Outlined: Story = {
 export const OneToOne: Story = {
   render: (args) => <FancyButton {...args} />,
   args: {
-    icon: SVGChevronRight,
+    icon: <SVGChevronRight />,
     themeType: 'accent',
     sizeC: 'md',
     align: 'center',
@@ -187,7 +187,7 @@ export const OneToOne: Story = {
 export const Loading: Story = {
   render: (args) => <FancyButton {...args} />,
   args: {
-    icon: SVGChevronRight,
+    icon: <SVGChevronRight />,
     themeType: 'accent',
     label: 'Button',
     sizeC: 'md',
@@ -202,7 +202,7 @@ export const Loading: Story = {
 export const Disabled: Story = {
   render: (args) => <FancyButton {...args} />,
   args: {
-    icon: SVGChevronRight,
+    icon: <SVGChevronRight />,
     themeType: 'accent',
     label: 'Button',
     sizeC: 'md',
@@ -218,7 +218,7 @@ export const Disabled: Story = {
 export const Wide: Story = {
   render: (args) => <FancyButton {...args} />,
   args: {
-    icon: SVGChevronRight,
+    icon: <SVGChevronRight />,
     themeType: 'accent',
     label: 'Button',
     sizeC: 'md',
@@ -233,7 +233,7 @@ export const Wide: Story = {
 export const NoSize: Story = {
   render: (args) => <FancyButton {...args} />,
   args: {
-    icon: SVGChevronRight,
+    icon: <SVGChevronRight />,
     themeType: 'accent',
     label: 'Button',
     sizeC: 'md',
@@ -249,7 +249,7 @@ export const NoSize: Story = {
 export const Transparent: Story = {
   render: (args) => <FancyButton {...args} />,
   args: {
-    icon: SVGChevronRight,
+    icon: <SVGChevronRight />,
     themeType: 'transparent',
     label: 'Button',
     sizeC: 'md',
@@ -265,7 +265,7 @@ export const Transparent: Story = {
 export const Secondary: Story = {
   render: (args) => <FancyButton {...args} />,
   args: {
-    icon: SVGChevronRight,
+    icon: <SVGChevronRight />,
     themeType: 'secondary',
     label: 'Button',
     sizeC: 'md',
@@ -280,7 +280,7 @@ export const Secondary: Story = {
 export const PrimaryStyled: Story = {
   render: (args) => <FancyButton {...args} />,
   args: {
-    icon: SVGChevronRight,
+    icon: <SVGChevronRight />,
     themeType: 'primary',
     label: 'Button',
     sizeC: 'md',

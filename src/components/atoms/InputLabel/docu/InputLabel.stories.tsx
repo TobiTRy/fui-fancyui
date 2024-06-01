@@ -53,6 +53,13 @@ const meta = {
     externalStyle: {
       description: 'Allows for additional external styling to be applied to the label.',
     },
+    isMovedUp: {
+      description: 'Indicates whether the label has been moved up, typically used when the input is focused.',
+      control: { type: 'boolean' },
+      table: {
+        defaultValue: { summary: false },
+      },
+    },
   },
 } satisfies Meta<typeof InputLabel>;
 

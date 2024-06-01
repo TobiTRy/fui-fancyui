@@ -1,4 +1,4 @@
-import { useId, useState } from 'react';
+import { forwardRef, useId, useState } from 'react';
 
 import { DropDownSelect } from '@/components/atoms/DropDownSelect';
 import { InputWrapper } from '@/components/molecules/InputWrapper';
@@ -7,7 +7,7 @@ import { TFancyDropDownSelect } from '@/components/organisms/FancyDropDownSelect
 // --------------------------------------------------------------------------- //
 // ----The Dropdown Comonent with surrounding icon, label and underline ------ //
 // --------------------------------------------------------------------------- //
-export default function FancyDropDownSelect(props: TFancyDropDownSelect) {
+const FancyDropDownSelect = forwardRef<HTMLSelectElement, TFancyDropDownSelect>((props, ref) => {
   const {
     id,
     value,
@@ -24,6 +24,7 @@ export default function FancyDropDownSelect(props: TFancyDropDownSelect) {
     className,
     layer,
     onFocus,
+    underline,
     onBlur,
     transparentBackground,
     ...inputProps
@@ -49,6 +50,7 @@ export default function FancyDropDownSelect(props: TFancyDropDownSelect) {
       outlinedRemoveBorder={outlinedRemoveBorder}
       className={className}
       disabled={disabled}
+      underline={underline}
       align={align}
       isActive={isActive}
       icon={icon}
@@ -57,6 +59,7 @@ export default function FancyDropDownSelect(props: TFancyDropDownSelect) {
       InputElement={
         <DropDownSelect
           id={usedId}
+          ref={ref}
           value={value}
           align={align}
           disabled={disabled}
@@ -74,4 +77,6 @@ export default function FancyDropDownSelect(props: TFancyDropDownSelect) {
       }
     />
   );
-}
+});
+
+export default FancyDropDownSelect;

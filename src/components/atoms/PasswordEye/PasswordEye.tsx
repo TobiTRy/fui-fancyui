@@ -1,5 +1,5 @@
-import { SVGEyeCrossed } from '@/components/icons/SVGEyeCrossed';
-import { SVGEyeOpen } from '@/components/icons/SVGEyeOpen';
+import { SVGEyeCrossed } from '@/components/icons';
+import { SVGEyeOpen } from '@/components/icons';
 import { FancySVGAtom } from '@/components/atoms/FancySVGAtom';
 import { TPasswordEye } from '@/components/atoms/PasswordEye/TPasswordEye.model';
 

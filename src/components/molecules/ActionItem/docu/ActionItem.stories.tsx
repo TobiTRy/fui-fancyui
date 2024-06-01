@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import templateThemeType from '@/stories/templateSettingsForStorys/templatesForThemeType';
 import ActionItem from '../ActionItem';
-import { SVGPlus } from '@/components/icons/SVGPlus';
+import { SVGPlus } from '@/components/icons';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta = {
@@ -56,6 +56,13 @@ const meta = {
     onClick: {
       description: 'The click event of the action item',
       action: 'clicked',
+    },
+    hoverColor: {
+      description: 'The hover color of the action item',
+      control: { type: 'select' },
+      table: {
+        defaultValue: { summary: 'accent' },
+      },
     },
   },
 } satisfies Meta<typeof ActionItem>;

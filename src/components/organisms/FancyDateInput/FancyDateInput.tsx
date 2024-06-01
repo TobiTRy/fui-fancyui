@@ -1,4 +1,4 @@
-import { useId, useState } from 'react';
+import { forwardRef, useId, useState } from 'react';
 
 import { DateInput } from '@/components/atoms/DateInput';
 import { InputWrapper } from '@/components/molecules/InputWrapper';
@@ -8,7 +8,7 @@ import { getOpositMainThemeType } from '@/design/designFunctions/getOpositMainTh
 // --------------------------------------------------------------------------- //
 // ----The TextInput Comonent with surrounding icon, label and underline ----- //
 // --------------------------------------------------------------------------- //
-export default function FancyDateInput(props: TFancyDateInput) {
+const FancyDateInput = forwardRef<HTMLInputElement, TFancyDateInput>((props, ref) => {
   const {
     id,
     value,
@@ -70,6 +70,7 @@ export default function FancyDateInput(props: TFancyDateInput) {
       externalStyle={externalStyle}
       InputElement={
         <DateInput
+          ref={ref}
           id={usedId}
           placeholder={placeholder}
           themeType={getOpositMainThemeType(themeType)}
@@ -94,4 +95,6 @@ export default function FancyDateInput(props: TFancyDateInput) {
       }
     />
   );
-}
+});
+
+export default FancyDateInput;

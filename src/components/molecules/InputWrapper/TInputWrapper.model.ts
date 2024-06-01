@@ -20,6 +20,7 @@ export type TInputWrapper = {
   align?: TTextAlignLC;
   autoWidth?: boolean;
   underline?: boolean;
+  focusStyle?: boolean;
   placeholder?: string;
   transparentBackground?: boolean;
   labelVariant?: 'static' | 'animated';

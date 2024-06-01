@@ -36,7 +36,7 @@ export const Wrapper = styled.span<TWrapper & { theme: TTheme }>`
 
 type TOnlyTextWrapper = TStyledPrefixAndPicker<
   TFancyContent,
-  'direction' | 'gapBetweenText' | 'align' | 'justify' | 'themeType' | 'layer'
+  'direction' | 'gapBetweenText' | 'align' | 'justify' | 'themeType' | 'layer' | 'externalStyle'
 >;
 export const OnlyTextWrapper = styled.span<TOnlyTextWrapper & { theme: TTheme }>`
   display: flex;
@@ -49,4 +49,5 @@ export const OnlyTextWrapper = styled.span<TOnlyTextWrapper & { theme: TTheme }>
     css`
       color: ${theme.color[$themeType ?? 'secondary'][$layer ?? 0]};
     `};
+  ${({ $externalStyle }) => $externalStyle}
 `;

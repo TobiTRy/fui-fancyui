@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { SVGPlus } from '@/components/icons/SVGPlus';
+import { SVGPlus } from '@/components/icons';
 import {
   Button,
   MenueItemContainer,

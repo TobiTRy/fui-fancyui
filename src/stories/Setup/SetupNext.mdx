@@ -67,15 +67,17 @@ Finally, update your layout component to include the `StyledComponentsRegistry` 
 "use client" // This is important to ensure the component is only rendered on the client-side else you'll get an error
 import ThemeStoreProvider from 'path-to-your-theme-store-provider'; // Adjust the path as necessary
 import StyledComponentsRegistry from 'path-to-your-styled-components-registry'; // Adjust the path as necessary
-import GlobalStyle from 'path-to-your-global-style'; // If you have a global style
+import GlobalStyle from 'fui-fancyui'; // If you have a global style
 
 const MyPage = ({ children }: {children: React.ReactNode}) => {
+  const theme = themeStore(state => state.theme)
+
   return (
     <StyledComponentsRegistry>
-      <ThemeStoreProvider>
+      <FancyThemeProvider theme={theme}>
         <GlobalStyle />
         {children}
-      </ThemeStoreProvider>
+      </FancyThemeProvider>
     </StyledComponentsRegistry>
   );
 };
@@ -84,3 +86,37 @@ export default MyApp;
 ```
 
 By following these steps, you'll have `Fancy UI Library` seamlessly integrated into your Next.js project. Happy coding! 🎉
+
+### When you use CSS instead of Styled-Components you need to add the following Propvider
+
+This provider dynamically generates and applies CSS variables to the :root element of your Next.js application. It does this based on a theme object, which is presumably provided by a separate "fui-fancyui" library. The main purpose is to streamline the application of a dynamic theme system using CSS custom properties (variables).
+
+This is needed because the CSS variables are not applied on the server-side rendering of Next.js. This provider ensures that the CSS variables are applied correctly on the client-side, preventing any flickering or incorrect theme application.
+
+```jsx
+'use client';
+
+import React, { useRef } from 'react';
+import { generateCssVariables, themeStore } from 'fui-fancyui';
+import { useServerInsertedHTML } from 'next/navigation';
+
+export default function ThemeObjectToCSSVars({ children }: { children: React.ReactNode }) {
+  const themeState = themeStore((state) => state.theme); // Assuming your provider has a 'useTheme' hook
+
+  // fix next.js to apply the css not twice
+  const isStyleInserted = useRef(false);
+
+  // Server-Side Insertion (Initial)
+  useServerInsertedHTML(() => {
+    if (!isStyleInserted.current) {
+      isStyleInserted.current = true;
+      const cssVars = generateCssVariables(themeState);
+
+      return <style id="fui-theme" dangerouslySetInnerHTML={{ __html: `:root {\n${cssVars}\n}` }} />;
+    }
+  });
+
+  return <>{children}</>;
+}
+
+```

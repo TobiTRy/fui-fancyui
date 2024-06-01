@@ -5,7 +5,7 @@ import { TStyledPrefixAndPicker } from '@/types/TStyledPrefixAndPicker';
 import { TNumberInput } from '@/components/atoms/NumberInput/TNumberInput.model';
 
 type IStyledNumberInput = TStyledPrefixAndPicker<TNumberInput, 'align' | 'externalStyle'>;
-const StyledNumberInput = styled(RawInput)<IStyledNumberInput & { $width: string }>`
+export const StyledNumberInput = styled(RawInput)<IStyledNumberInput & { $width: string }>`
   border-radius: 0;
   width: ${({ $width }) => ($width ? $width : '2ch')};
   background-color: transparent;
@@ -23,5 +23,3 @@ const StyledNumberInput = styled(RawInput)<IStyledNumberInput & { $width: string
 
   ${({ $externalStyle }) => $externalStyle}
 `;
-
-export default StyledNumberInput;

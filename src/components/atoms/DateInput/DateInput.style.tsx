@@ -14,7 +14,7 @@ type IRawInputWrapper = {
 export const StyledDatePicker = styled(RawInput)<IRawInputWrapper & { theme: TTheme }>`
   color: ${({ $isActive, $themeType = 'secondary', $layer, theme }) =>
     $isActive ? getBackgroundColor({ theme, $themeType, $layer }) : 'transparent'};
-
+  height: ${({ theme }) => theme.globalElementSizes.md};
   transition: color 0.3s ease-in;
   font-family: inherit;
 

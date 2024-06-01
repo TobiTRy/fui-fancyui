@@ -8,7 +8,7 @@ import { getOpositMainThemeType } from '@/design/designFunctions/getOpositMainTh
 // --------------------------------------------------------------------------- //
 // --- The FancyRadio is a RadioInput with a Label and description porp   ---- //
 // --------------------------------------------------------------------------- //
-const FancyRadio = React.forwardRef<HTMLDivElement, TFancyRadio>((props, ref) => {
+const FancyRadio = React.forwardRef<HTMLInputElement, TFancyRadio>((props, ref) => {
   const {
     align = 'left',
     alignInput,
@@ -23,6 +23,7 @@ const FancyRadio = React.forwardRef<HTMLDivElement, TFancyRadio>((props, ref) =>
     layer = 2,
     layerTitle = 0,
     layerDescription = 2,
+    className,
     ...HTMLProps
   } = props;
 
@@ -31,30 +32,30 @@ const FancyRadio = React.forwardRef<HTMLDivElement, TFancyRadio>((props, ref) =>
   const pickedId = idExternal ? idExternal : id;
 
   return (
-    <div ref={ref} {...HTMLProps}>
-      <FancySelectWrapper
-        externalStyle={externalStyle}
-        id={pickedId}
-        label={label}
-        description={description}
-        align={align}
-        alignInput={alignInput}
-        themeType={getOpositMainThemeType(themeType)}
-        layer={layerTitle}
-        layerDescription={layerDescription}
-        inputElement={
-          <RawRadio
-            themeType={themeType}
-            layer={layer}
-            name={name}
-            checked={checked}
-            value={value}
-            id={pickedId}
-            readOnly
-          />
-        }
-      />
-    </div>
+    <FancySelectWrapper
+      externalStyle={externalStyle}
+      id={pickedId}
+      label={label}
+      description={description}
+      align={align}
+      alignInput={alignInput}
+      themeType={getOpositMainThemeType(themeType)}
+      layer={layerTitle}
+      layerDescription={layerDescription}
+      className={className}
+      inputElement={
+        <RawRadio
+          ref={ref}
+          themeType={themeType}
+          layer={layer}
+          name={name}
+          checked={checked}
+          value={value}
+          id={pickedId}
+          {...HTMLProps}
+        />
+      }
+    />
   );
 });
 

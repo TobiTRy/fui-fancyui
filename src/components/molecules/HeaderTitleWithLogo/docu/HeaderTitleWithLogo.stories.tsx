@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import HeaderTitleWithLogo from '../HeaderTitleWithLogo';
 import templateThemeType from '@/stories/templateSettingsForStorys/templatesForThemeType';
-import { SVGFui } from '@/components/icons/SVGFui';
+import { SVGFui } from '@/components/icons';
 
 const meta = {
   component: HeaderTitleWithLogo,

@@ -2,7 +2,7 @@ import { useId } from 'react';
 
 import { FancyContent } from '@/components/molecules/FancyContent';
 import { TFancySelectWrapperWithHTMLProps } from './TFancySelectWrapper.model';
-import { InputWrapper, LabelWrapper, Wrapper } from './FancySelectWrapper.style';
+import { InputWrapper, LabelWrapper } from './FancySelectWrapper.style';
 import { leftRightCenterToFlexJustify } from '@/design/designFunctions/leftRightCenterToFlexJustify';
 
 // --------------------------------------------------------------------------- //
@@ -26,10 +26,10 @@ export default function FancySelectWrapper(props: TFancySelectWrapperWithHTMLPro
   const pickedId = props.id ? props.id : id;
 
   return (
-    <Wrapper $align={align} $externalStyle={externalStyle} {...htmlProps}>
+    <>
       {/* The label and description */}
       {(label || description) && (
-        <LabelWrapper $align={alignInput} htmlFor={pickedId}>
+        <LabelWrapper $align={align} htmlFor={pickedId} $externalStyle={externalStyle} {...htmlProps}>
           <FancyContent align={leftRightCenterToFlexJustify[alignInput]}>
             {label && (
               <FancyContent.Title fontVariant="interactiveLg" themeType={themeType} layer={layer} fontWeight={'bold'}>
@@ -47,10 +47,10 @@ export default function FancySelectWrapper(props: TFancySelectWrapperWithHTMLPro
               </FancyContent.Description>
             )}
           </FancyContent>
+          {/* The check box */}
+          <InputWrapper $alignInput={alignInput}>{inputElement}</InputWrapper>
         </LabelWrapper>
       )}
-      {/* The check box */}
-      <InputWrapper>{inputElement}</InputWrapper>
-    </Wrapper>
+    </>
   );
 }

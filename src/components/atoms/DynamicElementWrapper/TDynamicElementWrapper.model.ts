@@ -7,4 +7,4 @@ export type TDynamicElementWrapper = {
 };
 
 export type TDynamicElementWrapperWithHTMLAttrs<T extends ElementType = 'div'> = TDynamicElementWrapper &
-  Omit<React.DetailedHTMLProps<React.HTMLAttributes<T>, T>, 'style'>;
+  React.DetailedHTMLProps<React.HTMLAttributes<T>, T>;

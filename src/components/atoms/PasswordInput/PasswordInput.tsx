@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { forwardRef, useEffect, useState } from 'react';
 
 import { PasswordEye } from '@/components/atoms/PasswordEye';
 import { Wrapper, WrapperEye } from '@/components/atoms/PasswordInput/PasswordInput.style';
@@ -9,7 +9,7 @@ import { TNativePassowrdInputAttrs, TPasswordInputProps } from '@/components/ato
 // --------------------------------------------------------------------------- //
 // --------------- The passwordInputcomponent for only the input ------------- //
 // --------------------------------------------------------------------------- //
-export default function PasswordInput(props: TPasswordInputProps & TNativePassowrdInputAttrs) {
+const PasswordInput = forwardRef<HTMLInputElement, TPasswordInputProps & TNativePassowrdInputAttrs>((props, ref) => {
   const {
     align,
     themeType = 'secondary',
@@ -19,7 +19,6 @@ export default function PasswordInput(props: TPasswordInputProps & TNativePassow
     showPassword,
     ...HTMLInputProps
   } = props;
-  // the state for the password visibility icon to show the password
   const [isShowPassword, setIsShowPassword] = useState(false);
 
   useEffect(() => {
@@ -36,7 +35,9 @@ export default function PasswordInput(props: TPasswordInputProps & TNativePassow
           onClick={() => setIsShowPassword(!isShowPassword)}
         />
       </WrapperEye>
-      <RawInput type={isShowPassword ? 'text' : 'password'} $align={align} {...HTMLInputProps} />
+      <RawInput type={isShowPassword ? 'text' : 'password'} $align={align} ref={ref} {...HTMLInputProps} />
     </Wrapper>
   );
-}
+});
+
+export default PasswordInput;

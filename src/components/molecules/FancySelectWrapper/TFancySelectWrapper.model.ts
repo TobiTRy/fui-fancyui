@@ -17,4 +17,4 @@ export type TFancySelectWrapper = {
   layerDescription?: TLayer;
 };
 
-export type TFancySelectWrapperWithHTMLProps = TFancySelectWrapper & React.HTMLProps<HTMLDivElement>;
+export type TFancySelectWrapperWithHTMLProps = TFancySelectWrapper & React.HTMLProps<HTMLLabelElement>;

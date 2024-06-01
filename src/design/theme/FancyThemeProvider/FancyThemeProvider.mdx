@@ -36,7 +36,12 @@ function App() {
   - **Required**
 
 - **`theme`**: `object`
+
   - An optional theme object that overrides the default theme settings. It should match the structure expected by your application's theme store and `styled-components` `ThemeProvider`.
   - **Optional**, default value is the default theme from `themeStore` if not provided.
+
+- **`applyCssVars`**: `boolean`
+  - A flag indicating whether to apply the theme settings as CSS variables. If set to `true`, the theme settings will be applied as CSS variables to the document root element.
+  - **Optional**, default value is `true`.
 
 The component integrates with a theme store (e.g., `themeStore`) to manage theme states and ensure that theme updates are consistently applied across the application. It uses React's `useEffect` hook to set the initial theme and manage the initialization state, facilitating the dynamic application of themes and ensuring that all child components can access the current theme context.

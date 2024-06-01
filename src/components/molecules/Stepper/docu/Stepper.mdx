@@ -1,0 +1,53 @@
+import { Meta, Title, Description, Canvas, Controls } from '@storybook/blocks';
+
+import * as StepperStorie from './Stepper.stories';
+
+<Meta of={StepperStorie} />
+
+<Title />
+
+## Overview
+
+<Description />
+
+## Integration & Usage
+
+```jsx
+import { Stepper, TStepper, TSteperItem } from 'fui-fancyui';
+
+const steps:TSteperItem[] = [
+  { label: 'Step 1', icon: <YourIconComponent />, onClick: () => yourStep1Function() },
+  { label: 'Step 2', icon: <YourIconComponent /> },
+  { label: 'Step 3', icon: <YourIconComponent /> },
+];
+
+const MyComponent = () => (
+  <Stepper
+    steps={steps}
+    activeStep={2} // Make the 2nd step active (optional)
+  />
+);
+```
+
+<Canvas />
+
+## Props
+
+<Controls />
+
+### `TSteperItem` Type
+
+```typescript
+type TSteperItem = {
+  label: string;
+  icon: React.ReactNode;
+  onClick?: () => void; // Optional click handler
+};
+```
+
+## Dependencies
+
+- **`RawButton`:** (atom) Used to wrap each step's content.
+- **`ActionItem`:** (molecule) The primary component for rendering each step's icon, label, and interaction.
+- **`FancyFlexBox`:** (template) A layout component for the Stepper container.
+- **`FancyLine`:** (atom) The base line component, customized within `ModifiedLine`.

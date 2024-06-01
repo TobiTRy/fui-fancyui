@@ -1,23 +1,39 @@
 import { globalElementsizes } from '@/design/theme/globalSizes';
-import { TSizeSettings } from '@/types/TSizeSettings';
+import { TSizeSettingsExtended } from '@/types/TSizeSettings';
 import { TTypographyVariants } from '@/types/TTypographyVariants';
 
 type TSizeObj = {
   size: keyof typeof globalElementsizes;
-  fontSite: TTypographyVariants;
+  fontSize: TTypographyVariants;
 };
 
-export const sizeSettings: TSizeSettings<TSizeObj> = {
+export const sizeSettings: TSizeSettingsExtended<TSizeObj> = {
+  xxs: {
+    size: 'xxs',
+    fontSize: 'interactiveSm',
+  },
+  xs: {
+    size: 'xs',
+    fontSize: 'interactiveSm',
+  },
   sm: {
     size: 'sm',
-    fontSite: 'interactiveSm',
+    fontSize: 'interactiveSm',
   },
   md: {
     size: 'md',
-    fontSite: 'interactiveMd',
+    fontSize: 'interactiveMd',
   },
   lg: {
     size: 'lg',
-    fontSite: 'interactiveLg',
+    fontSize: 'interactiveLg',
+  },
+  xl: {
+    size: 'xl',
+    fontSize: 'interactiveLg',
+  },
+  xxl: {
+    size: 'xxl',
+    fontSize: 'interactiveLg',
   },
 };
