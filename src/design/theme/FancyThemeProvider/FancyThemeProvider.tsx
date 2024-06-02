@@ -4,7 +4,7 @@ import { ThemeProvider } from 'styled-components';
 import { themeStore } from '@/design/theme/themeStore';
 
 import { TFancyThemeProvider } from './TFancyThemeProvider.model';
-import { generateCssVariables } from '@/design/theme/generateThemeToCssVars';
+import { generateObjectToCssVariables } from '@/design/theme/generateObjectToCssVariables';
 import { applyThemeToDomStyleSheet } from '@/design/theme/applyThemeToDomStyleSheet';
 
 // --------------------------------------------------------------------------- //
@@ -27,7 +27,7 @@ export default function FancyThemeProvider(props: TFancyThemeProvider) {
   useEffect(() => {
     // if the theme is not initialized we don't need to apply the css vars
     if (!applyCssVars && !isInitialized) return;
-    const cssVars = generateCssVariables(themeState);
+    const cssVars = generateObjectToCssVariables(themeState);
     applyThemeToDomStyleSheet(cssVars);
   }, [theme, themeState, applyCssVars, isInitialized]);
 
@@ -37,7 +37,7 @@ export default function FancyThemeProvider(props: TFancyThemeProvider) {
     const getStyle = document.getElementById('fui-theme');
     if (!getStyle) return;
     getStyle.innerHTML = `:root {
-      ${generateCssVariables(themeState)}
+      ${generateObjectToCssVariables(themeState)}
     }`;
   }, [themeState, isDarkMode, applyCssVars]);
 

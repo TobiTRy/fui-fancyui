@@ -1,4 +1,4 @@
-export default function validateColorSteps(colorSteps: object) {
+export default function validateThemeColorSteps(colorSteps: object) {
   const colorStepsKeys = Object.keys(colorSteps);
   if (colorStepsKeys.length !== 10) return false;
 

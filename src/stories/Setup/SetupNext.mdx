@@ -97,7 +97,7 @@ This is needed because the CSS variables are not applied on the server-side rend
 'use client';
 
 import React, { useRef } from 'react';
-import { generateCssVariables, themeStore } from 'fui-fancyui';
+import { generateObjectToCssVariables, themeStore } from 'fui-fancyui';
 import { useServerInsertedHTML } from 'next/navigation';
 
 export default function ThemeObjectToCSSVars({ children }: { children: React.ReactNode }) {
@@ -110,7 +110,7 @@ export default function ThemeObjectToCSSVars({ children }: { children: React.Rea
   useServerInsertedHTML(() => {
     if (!isStyleInserted.current) {
       isStyleInserted.current = true;
-      const cssVars = generateCssVariables(themeState);
+      const cssVars = generateObjectToCssVariables(themeState);
 
       return <style id="fui-theme" dangerouslySetInnerHTML={{ __html: `:root {\n${cssVars}\n}` }} />;
     }
