@@ -11,7 +11,7 @@ import { applyThemeToDomStyleSheet } from '@/design/theme/applyThemeToDomStyleSh
 // ---- The FancyThemeProvider handles the themeState and provided theme ----- //
 // --------------------------------------------------------------------------- //
 export default function FancyThemeProvider(props: TFancyThemeProvider) {
-  const { children, theme, applyCssVars = true } = props;
+  const { children, theme, applyCssVars = true, styleSheetId = 'fui-theme' } = props;
   const [isInitialized, setIsInitialized] = useState(false);
 
   const themeState = themeStore((state) => state.theme);
@@ -34,12 +34,12 @@ export default function FancyThemeProvider(props: TFancyThemeProvider) {
   // if the theme changes we update the css variables
   useEffect(() => {
     if (!applyCssVars) return;
-    const getStyle = document.getElementById('fui-theme');
+    const getStyle = document.getElementById(styleSheetId);
     if (!getStyle) return;
     getStyle.innerHTML = `:root {
       ${generateObjectToCssVariables(themeState)}
     }`;
-  }, [themeState, isDarkMode, applyCssVars]);
+  }, [themeState, isDarkMode, applyCssVars, styleSheetId]);
 
   // theme gets provided to all components
   //the theme gets saved in the theme store and can be accessed from there but first on the first render

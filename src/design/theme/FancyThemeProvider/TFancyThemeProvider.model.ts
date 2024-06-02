@@ -4,4 +4,5 @@ export type TFancyThemeProvider = {
   children?: React.ReactNode;
   theme?: TTheme;
   applyCssVars?: boolean;
+  styleSheetId?: string;
 };
