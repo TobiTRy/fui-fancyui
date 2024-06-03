@@ -108,6 +108,7 @@ export * from '@/components/molecules/TabSwitch';
 export * from '@/components/molecules/FancyNavBar';
 export * from '@/components/molecules/LabeledInput';
 export * from '@/components/molecules/Stepper';
+export * from '@/components/atoms/RawButton';
 
 // ---------- Organisms ------- //
 export * from '@/components/organisms/FancyButton';
