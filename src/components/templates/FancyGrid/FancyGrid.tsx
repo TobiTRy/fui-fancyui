@@ -10,7 +10,21 @@ import { FancyGridItem } from '@/components/templates/FancyGridItem';
 // ------- The FancyGrid to allocate the grid and give the items space ------- //
 // --------------------------------------------------------------------------- //
 function FancyGrid<T extends React.ElementType = 'div'>(props: TDynamicElement<T> & FancyGridProps) {
-  const { children, grid = 12, gap, as, breakpoints, margin, padding, externalStyle } = props;
+  const {
+    children,
+    simpleGrid,
+    gap,
+    as,
+    breakpoints,
+    margin,
+    padding,
+    externalStyle,
+    gridTemplateColumns,
+    gridTemplateRows,
+    rowGap,
+    columnGap,
+    ...htmlProps
+  } = props;
 
   return (
     <GridContainer
@@ -19,8 +33,13 @@ function FancyGrid<T extends React.ElementType = 'div'>(props: TDynamicElement<T
       $margin={margin}
       $padding={padding}
       $externalStyle={externalStyle}
-      $grid={grid}
+      $simplesimpleGrid={simpleGrid}
+      $gridTemplateColumns={gridTemplateColumns}
+      $gridTemplateRows={gridTemplateRows}
+      $gridRowGap={rowGap}
+      $gridColumnGap={columnGap}
       $gap={gap}
+      {...htmlProps}
     >
       {children}
     </GridContainer>

@@ -122,7 +122,7 @@ export default function HeaderRoute() {
     <section>
       <FancyFlexBox className="hii"></FancyFlexBox>
       <Header externalStyle={{ height: '44px', padding: '0 12px' }}>
-        <FancyGrid grid={8} gap="12px">
+        <FancyGrid simpleGrid={8} gap="12px">
           <FancyGrid.Item gridSpace={1}>
             <FancyGrid.Item.FlexBox
               align="center"

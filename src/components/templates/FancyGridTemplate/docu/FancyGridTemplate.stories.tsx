@@ -82,24 +82,24 @@ export const Primary: Story = {
   render: (args) => (
     <FancyGridTemplate {...args}>
       {/* Header */}
-      <FancyGridTemplate.GridItem gridArea="header">
+      <FancyGridTemplate.Item gridArea="header">
         <div style={{ backgroundColor: '#ffcc00', height: '100%' }}>Header</div>
-      </FancyGridTemplate.GridItem>
+      </FancyGridTemplate.Item>
 
       {/* Sidebar */}
-      <FancyGridTemplate.GridItem gridArea="sidebar">
+      <FancyGridTemplate.Item gridArea="sidebar">
         <div style={{ backgroundColor: '#00ccff', height: '100%' }}>Sidebar</div>
-      </FancyGridTemplate.GridItem>
+      </FancyGridTemplate.Item>
 
       {/* Content */}
-      <FancyGridTemplate.GridItem gridArea="content">
+      <FancyGridTemplate.Item gridArea="content">
         <div style={{ backgroundColor: '#cccccc', height: '100%' }}>Content</div>
-      </FancyGridTemplate.GridItem>
+      </FancyGridTemplate.Item>
 
       {/* Footer */}
-      <FancyGridTemplate.GridItem gridArea="footer">
+      <FancyGridTemplate.Item gridArea="footer">
         <div style={{ backgroundColor: '#ff6699', height: '100%' }}>Footer</div>
-      </FancyGridTemplate.GridItem>
+      </FancyGridTemplate.Item>
     </FancyGridTemplate>
   ),
   args: {

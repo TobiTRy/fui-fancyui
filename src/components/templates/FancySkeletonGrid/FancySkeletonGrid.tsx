@@ -18,9 +18,9 @@ export default function FancySkeletonGrid(props: TFancySkeletonGrid) {
   return (
     <FancyGridTemplate gridAreas={gridAreas} gridAreasBreakPoints={gridAreasBreakPoints} {...gridProps}>
       {[...set].map((item, i) => (
-        <FancyGridTemplate.GridItem key={i} gridArea={item}>
+        <FancyGridTemplate.Item key={i} gridArea={item}>
           <SkeletonBox sizeH="fit" sizeW="fit" borderRadius={borderRadius} themeType={themeType} layer={layer} />
-        </FancyGridTemplate.GridItem>
+        </FancyGridTemplate.Item>
       ))}
     </FancyGridTemplate>
   );

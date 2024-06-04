@@ -25,7 +25,7 @@ import FancyGrid from './FancyGrid';
 
 const MyComponent = () => {
   return (
-    <FancyGrid grid={12} gap="10px">
+    <FancyGrid simpleGrid={12} gap="10px">
       {/* Place grid items here */}
     </FancyGrid>
   );
@@ -48,7 +48,7 @@ import FancyGrid, { FancyGridItem } from './FancyGrid';
 
 const MyComponent = () => {
   return (
-    <FancyGrid grid={12} gap="10px">
+    <FancyGrid simpleGrid={12} gap="10px">
       <FancyGridItem gridSpace={4}>{/* Content for the first item */}</FancyGridItem>
       <FancyGridItem gridSpace={4}>{/* Content for the second item */}</FancyGridItem>
       {/* More items... */}
@@ -72,7 +72,7 @@ const MyComponent = () => {
   const itemBreakpoints = [{ breakpoint: '768px', gridSize: 1 }];
 
   return (
-    <FancyGrid grid={12} gap="10px" breakpoints={gridBreakpoints}>
+    <FancyGrid simpleGrid={12} gap="10px" breakpoints={gridBreakpoints}>
       <FancyGridItem gridSpace={3} breakpoints={itemBreakpoints}>
         {/* Content for an item */}
       </FancyGridItem>
