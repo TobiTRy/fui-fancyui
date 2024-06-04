@@ -14,7 +14,7 @@ export type TFancySVGAtom = {
   isPassive?: boolean;
   isActive?: boolean;
   systemMessage?: TUiColorsSystemMessage;
-  themeType?: TUiColorsNotTransparent;
+  themeType?: TUiColorsNotTransparent | 'inherit';
   layer?: TLayer;
 };
 
