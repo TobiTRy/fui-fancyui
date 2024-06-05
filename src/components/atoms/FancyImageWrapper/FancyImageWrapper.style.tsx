@@ -46,6 +46,7 @@ export const ImageWrapper = styled.div<TStyledImage & { theme: TTheme }>`
   filter: ${({ $filter }) => $filter && createCssFilterString($filter)};
   aspect-ratio: ${({ $aspectRatio }) => ($aspectRatio ? `${$aspectRatio};` : '')};
   line-height: 0;
+  position: relative; // is needed for NextImage to work properly with fill
 
   img {
     width: 100%;
