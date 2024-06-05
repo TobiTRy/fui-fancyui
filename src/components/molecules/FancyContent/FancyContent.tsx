@@ -5,6 +5,7 @@ import { TFancyContentHTMLAttrs } from './FancyContent.model';
 import FancyContentIcon from '@/components/molecules/FancyContent/utils/FancyContentIcon';
 import FancyContentTitle from '@/components/molecules/FancyContent/utils/FancyContentText';
 import FancyContentDescription from '@/components/molecules/FancyContent/utils/FancyContentDescription';
+import FancyContentImage from '@/components/molecules/FancyContent/utils/FancyContentImage';
 
 // --------------------------------------------------------------------------- //
 // ------- The conent Components handles the Content of The componets -------- //
@@ -74,6 +75,7 @@ function FancyContent(props: TFancyContentHTMLAttrs) {
 }
 
 // Link the subcomponents to the main component
+FancyContent.Image = FancyContentImage;
 FancyContent.Icon = FancyContentIcon;
 FancyContent.Title = FancyContentTitle;
 FancyContent.Description = FancyContentDescription;
