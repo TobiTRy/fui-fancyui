@@ -32,7 +32,7 @@ function FancyContent(props: TFancyContentHTMLAttrs) {
 
   React.Children.forEach(children, (child) => {
     if (React.isValidElement(child)) {
-      if (child.type === FancyContent.Icon) {
+      if (child.type === FancyContent.Icon || child.type === FancyContent.Image) {
         iconElement = child;
       } else {
         contentGroup.push(child);

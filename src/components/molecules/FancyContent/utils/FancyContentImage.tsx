@@ -4,7 +4,7 @@ export default function FancyContentImage(props: TFancyImageWrapperWithNativeAtt
   const {
     aspectRatio,
     borderRadius = 'complete',
-    sizeH = 'fit',
+    sizeH = 'sm',
     children,
     objectFit = 'cover',
     ...wrapperProps
