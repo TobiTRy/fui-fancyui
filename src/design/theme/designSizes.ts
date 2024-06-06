@@ -6,6 +6,8 @@ export const spacingPx = {
   lg: 24 + 'px',
   xl: 32 + 'px',
   xxl: 40 + 'px',
+  xxxl: 48 + 'px',
+  xxxxl: 56 + 'px',
 };
 
 // export const fontSizes = {

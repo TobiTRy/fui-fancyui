@@ -115,6 +115,8 @@ export const theme = {
     lg: '24px',
     xl: '32px',
     xxl: '40px',
+    xxxl: '48px',
+    xxxxl: '56px',
   },
   fontSizes: {
     displayHero: {
