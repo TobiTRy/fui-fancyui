@@ -5,7 +5,7 @@ import { TModal } from '@/components/molecules/Modal';
 
 type TModalConfig = Omit<TModal, 'id' | 'children' | 'status' | 'isOpen'>;
 
-type IModals = {
+export type TFancyModals = {
   id: string;
   children: React.ReactNode;
   status: TModalStatus;
@@ -18,7 +18,7 @@ type IModals = {
 // --------------------- The state for the ModalModuel ----------------------- //
 // --------------------------------------------------------------------------- //
 interface IModalModule {
-  modals: IModals[];
+  modals: TFancyModals[];
   openModal: (id: string, content: React.ReactNode, config: TModalConfig) => void;
   removeModal: (id: string) => void;
   closeModal: (id: string) => void;

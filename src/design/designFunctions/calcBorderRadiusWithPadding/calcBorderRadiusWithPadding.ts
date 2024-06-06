@@ -7,8 +7,22 @@ const calcBorderRadiusWithPadding = (
   inset = true
 ) => {
   // check if they are arrays or single values
-  const splitBorderRadius = Array.isArray(borderRadius) ? borderRadius : [borderRadius];
-  const splitPadding = Array.isArray(padding) ? padding : [padding];
+  let splitBorderRadius;
+
+  //handleborderRadius when its too an object
+  if (typeof borderRadius === 'object' && !Array.isArray(borderRadius)) {
+    splitBorderRadius = [borderRadius.t, borderRadius.r, borderRadius.b, borderRadius.l];
+  } else {
+    splitBorderRadius = Array.isArray(borderRadius) ? borderRadius : [borderRadius];
+  }
+
+  //handle padding when its too an object
+  let splitPadding;
+  if (typeof padding === 'object' && !Array.isArray(padding)) {
+    splitPadding = [padding.t, padding.r, padding.b, padding.l];
+  } else {
+    splitPadding = Array.isArray(padding) ? padding : [padding];
+  }
 
   // define empty arrays
   const paddingArray: string[] = [];
