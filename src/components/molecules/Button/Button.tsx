@@ -20,6 +20,7 @@ export default function Button(props: TButtonWithNativeAttrs) {
     textHover,
     notAButton,
     noSize,
+    className,
     ...htmlProps
   } = props;
 
@@ -37,6 +38,7 @@ export default function Button(props: TButtonWithNativeAttrs) {
       $textHover={textHover}
       $disabled={disabled}
       $noSize={noSize}
+      className={className}
     >
       {children}
     </ButtonStyle>
