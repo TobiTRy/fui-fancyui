@@ -1,7 +1,10 @@
+import { TSpacings } from '@/types/TSpacings';
+
 export type TFancyModalHeadLine = {
-  title?: string;
-  subTitle?: string;
+  title?: string | React.ReactNode;
+  subTitle?: string | React.ReactNode;
   alignCenter?: boolean;
+  gap?: TSpacings;
   hr?: boolean;
 };
 

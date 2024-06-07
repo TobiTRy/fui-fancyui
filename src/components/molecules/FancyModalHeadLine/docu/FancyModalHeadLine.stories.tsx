@@ -22,13 +22,15 @@ const meta = {
       },
     },
     title: {
-      description: 'The main title text to be displayed. If not provided, no title will be shown.',
+      description:
+        'The main title text to be displayed. If not provided, no title will be shown. It Supports React nodes, we recomend to use the Typography as prop.',
       control: {
         type: 'text',
       },
     },
     subTitle: {
-      description: 'The subtitle text to be displayed beneath the title. If not provided, no subtitle will be shown.',
+      description:
+        'The subtitle text to be displayed beneath the title. If not provided, no subtitle will be shown. It Supports React nodes, we recomend to use the Typography as prop',
       control: {
         type: 'text',
       },
