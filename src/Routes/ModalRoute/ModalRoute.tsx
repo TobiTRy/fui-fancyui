@@ -4,6 +4,8 @@ import React from 'react';
 import FancyModal from '../../components/organisms/FancyModal/FancyModal';
 import { useFancyModalStore } from '../../components/organisms/FancyModal/FancyModal.state';
 import FancyButton from '../../components/organisms/FancyButton/FancyButton';
+import { FancyModalHeadLine } from '@/components/molecules/FancyModalHeadLine';
+import { Typography } from '@/components/atoms/Typography';
 
 export default function ModalRoute() {
   const createModal = useFancyModalStore((state) => state.openModal);
@@ -13,7 +15,7 @@ export default function ModalRoute() {
     createModal(
       'hi',
       <div>
-        hi
+        <FancyModalHeadLine title={'Test'} subTitle={<Typography variant="bodytextSm">Test</Typography>} />
         <FancyButton />
       </div>,
       { isCloseable: true }

@@ -14,14 +14,23 @@ export default function Modal(props: TModalWithHTMLAttributes) {
   // close the modal when the user clicks on the backdrop
   const closeModalHanlder = () => {
     if (isCloseable === false) return;
+    // enable the scroll on the body when the modal is closed
+    document.body.style.overflow = 'auto';
     //if a components needs controle from outside
     if (onClose && id) onClose(id);
     setModalVisible(false);
   };
 
   useEffect(() => {
-    if (isOpen) setModalVisible(true);
-    else setModalVisible(false);
+    if (isOpen) {
+      // disable the scroll on the body when the modal is open
+      document.body.style.overflow = 'hidden';
+      setModalVisible(true);
+    } else {
+      // enable the scroll on the body when the modal is closed
+      document.body.style.overflow = 'auto';
+      setModalVisible(false);
+    }
   }, [isOpen]);
 
   return (

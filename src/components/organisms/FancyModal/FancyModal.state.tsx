@@ -19,7 +19,7 @@ export type TFancyModals = {
 // --------------------------------------------------------------------------- //
 interface IModalModule {
   modals: TFancyModals[];
-  openModal: (id: string, content: React.ReactNode, config: TModalConfig) => void;
+  openModal: (id: string, content: React.ReactNode, config?: TModalConfig) => void;
   removeModal: (id: string) => void;
   closeModal: (id: string) => void;
 }
