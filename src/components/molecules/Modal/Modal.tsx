@@ -24,11 +24,11 @@ export default function Modal(props: TModalWithHTMLAttributes) {
   useEffect(() => {
     if (isOpen) {
       // disable the scroll on the body when the modal is open
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflowY = 'hidden';
       setModalVisible(true);
     } else {
       // enable the scroll on the body when the modal is closed
-      document.body.style.overflow = 'auto';
+      document.body.style.overflowY = 'auto';
       setModalVisible(false);
     }
   }, [isOpen]);
