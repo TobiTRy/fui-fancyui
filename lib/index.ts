@@ -158,6 +158,7 @@ export * from '@/utils/hooks/useIntersectionObserver';
 export * from '@/utils/hooks/useWindowDimensions';
 export * from '@/design/theme/FancyThemeProvider';
 export * from '@/utils/functions/clampNumber';
+export * from '@/utils/functions/copyToClipBoard';
 
 // ---------- Design ------- //
 export * from '@/design/designFunctions/calcBorderRadiusOnAlignment';
