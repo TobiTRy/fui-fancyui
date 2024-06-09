@@ -15,14 +15,14 @@ type TStyledDialog = {
 
 export const StyledDialog = styled(animated.div)<TStyledDialog>`
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: calc(50vh + env(safe-area-inset-bottom));
+  left: 50vw;
+  transform: translate(-50vh, -50vw);
   padding: ${({ theme }) => theme.spacing.xl};
   border-radius: ${({ theme }) => theme.borderRadius.lg};
   border: none;
   width: 70%;
-  max-height: 85%;
   ${({ theme, $themeType, $layer = 1 }) => getColorsForComponent({ theme, $themeType, $layer })}
   z-index: 1000;
+  outline: none;
 `;

@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react';
 
-import FancyModal from '../../components/organisms/FancyModal/FancyModal';
 import { useFancyModalStore } from '../../components/organisms/FancyModal/FancyModal.state';
 import FancyButton from '../../components/organisms/FancyButton/FancyButton';
 import { FancyModalHeadLine } from '@/components/molecules/FancyModalHeadLine';
