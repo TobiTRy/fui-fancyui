@@ -7,11 +7,11 @@ import { SVGXlg } from '@/components/icons/';
 // --------------- The main Component for the X Close Button------- ---------- //
 // --------------------------------------------------------------------------- //
 export default function FancyXButton(props: TFancyXButtonWithHTMLAttrs) {
-  const { themeType, layer, ...htmlProps } = props;
+  const { themeType, layer, externalStyle, sizeC, ...htmlProps } = props;
   //check wich design comes in and add the right color object uiColor or systemMessages  to the button
   return (
-    <StyledFancyXButton $themeType={themeType} $layer={layer} {...htmlProps}>
-      <FancySVGAtom themeType={themeType} layer={layer}>
+    <StyledFancyXButton $themeType={themeType} $layer={layer} $externalStyle={externalStyle} {...htmlProps}>
+      <FancySVGAtom themeType={themeType} layer={layer} sizeC={sizeC}>
         <SVGXlg />
       </FancySVGAtom>
     </StyledFancyXButton>

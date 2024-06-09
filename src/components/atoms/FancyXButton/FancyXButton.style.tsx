@@ -1,4 +1,4 @@
-import { styled } from 'styled-components';
+import { CSSProp, styled } from 'styled-components';
 
 import { TLayer } from '@/types/TLayer';
 import { TTheme } from '@/types/TTheme';
@@ -11,6 +11,7 @@ interface IStyledFancyXButton {
   $themeType?: TUiColorsNotTransparent;
   $layer?: TLayer;
   theme: TTheme;
+  $externalStyle?: CSSProp;
 }
 export const StyledFancyXButton = styled.button<IStyledFancyXButton>`
   padding: 0;
@@ -25,4 +26,6 @@ export const StyledFancyXButton = styled.button<IStyledFancyXButton>`
     color: ${({ $themeType = 'accent', $layer, theme }) =>
       Color(getBackgroundColor({ $themeType, $layer, theme })).darken(0.5).hex()};
   }
+
+  ${({ $externalStyle }) => $externalStyle}
 `;
