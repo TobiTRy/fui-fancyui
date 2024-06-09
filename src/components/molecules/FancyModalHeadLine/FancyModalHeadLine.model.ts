@@ -1,11 +1,15 @@
+import React from 'react';
+import { TFancyLine } from '@/components/atoms/FancyLine';
 import { TSpacings } from '@/types/TSpacings';
 
 export type TFancyModalHeadLine = {
+  alignCenter?: boolean;
   title?: string | React.ReactNode;
   subTitle?: string | React.ReactNode;
-  alignCenter?: boolean;
-  gap?: TSpacings;
-  hr?: boolean;
+  gapBetweenText?: TSpacings;
+  hr?: TFancyLine;
+  onXButtonClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 };
 
-export type TFancyModalHeadLineWithHTMLProps = TFancyModalHeadLine & React.HTMLProps<HTMLDivElement>;
+export type TFancyModalHeadLineWithHTMLProps = TFancyModalHeadLine &
+  Omit<React.HTMLAttributes<HTMLDivElement>, 'title'>;

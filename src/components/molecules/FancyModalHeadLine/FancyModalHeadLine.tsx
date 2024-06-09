@@ -1,23 +1,31 @@
+import React from 'react';
 import { Typography } from '@/components/atoms/Typography';
 import { FancyLine } from '@/components/atoms/FancyLine';
 
-import { TFancyModalHeadLine } from './FancyModalHeadLine.model';
-import { StyledHeadLine } from './FancyModalHeadLine.style';
-import React from 'react';
+import { TFancyModalHeadLine, TFancyModalHeadLineWithHTMLProps } from './FancyModalHeadLine.model';
+import { HeadLineWrapper, StyledHeadLine, StyledHeadLineTitles, IconWrapper } from './FancyModalHeadLine.style';
+import { FancyXButton } from '@/components/atoms/FancyXButton';
 
 // --------------------------------------------------------------------------- //
 // -------- The main HeadLineComponent for the heading for the modals -------- //
 // --------------------------------------------------------------------------- //
-export default function FancyModalHeadLine(props: TFancyModalHeadLine) {
-  const { title, subTitle, alignCenter = true, hr = true, gap = 'xxs', ...htmlProps } = props;
+export default function FancyModalHeadLine(props: TFancyModalHeadLineWithHTMLProps) {
+  const { title, subTitle, alignCenter = false, hr = {}, gapBetweenText = 'xxs', onXButtonClick, ...htmlProps } = props;
 
   const TitleReactNode = createTitleNode(title);
   const SubTitleReactNode = createSubtitleNode(subTitle);
 
   return (
-    <StyledHeadLine $alignCenter={alignCenter} $gap={gap} {...htmlProps}>
-      {title && TitleReactNode}
-      {subTitle && SubTitleReactNode}
+    <StyledHeadLine {...htmlProps}>
+      <HeadLineWrapper>
+        <StyledHeadLineTitles $gapBetweenText={gapBetweenText} $alignCenter={alignCenter}>
+          {title && TitleReactNode}
+          {subTitle && SubTitleReactNode}
+        </StyledHeadLineTitles>
+        <IconWrapper>
+          <FancyXButton onClick={onXButtonClick && onXButtonClick} />
+        </IconWrapper>
+      </HeadLineWrapper>
       {hr && (title || subTitle) && <FancyLine direction="horizontal" />}
     </StyledHeadLine>
   );

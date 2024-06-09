@@ -1,24 +1,41 @@
-import { TSpacings } from '@/types/TSpacings';
-import { TTheme } from '@/types/TTheme';
-
 import { styled } from 'styled-components';
 
-type TFancyModalHeadLine = {
-  $alignCenter?: boolean;
-  theme: TTheme;
-  $gap?: TSpacings;
-};
+import { TSpacings } from '@/types/TSpacings';
+import { TTheme } from '@/types/TTheme';
+import { TFancyModalHeadLine } from './FancyModalHeadLine.model';
+import { TStyledPrefixAndPicker } from '@/types/TStyledPrefixAndPicker';
 
-export const StyledHeadLine = styled.div<TFancyModalHeadLine>`
+export const StyledHeadLine = styled.div<{ theme: TTheme; $gap?: TSpacings }>`
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 100%;
-  gap: ${({ theme, $gap }) => ($gap ? theme.spacing[$gap || 'xxs'] : '')};
-  align-items: ${({ $alignCenter }) => ($alignCenter ? 'center' : 'flex-start')};
 
   hr {
     margin-top: ${({ theme }) => theme.spacing.xs};
     width: 100%;
   }
+`;
+
+type TStyledHeadLineTitles = TStyledPrefixAndPicker<TFancyModalHeadLine, 'alignCenter' | 'gapBetweenText'>;
+export const StyledHeadLineTitles = styled.span<TStyledHeadLineTitles & { theme: TTheme }>`
+  display: flex;
+  flex-direction: column;
+  align-items: ${({ $alignCenter }) => ($alignCenter ? 'center' : 'flex-start')};
+  gap: ${({ theme, $gapBetweenText }) => $gapBetweenText && theme.spacing[$gapBetweenText || 'xxs']};
+  padding: ${({ $alignCenter, theme }) => ($alignCenter ? `0 ${theme.spacing.xl}` : `0 ${theme.spacing.xl} 0 0 `)};
+  width: 100%;
+  box-sizing: border-box;
+`;
+
+export const HeadLineWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  position: relative;
+`;
+
+export const IconWrapper = styled.span`
+  position: absolute;
+  right: 12px;
+  top: 12px;
 `;

@@ -37,9 +37,23 @@ const meta = {
     },
     hr: {
       description:
-        'Determines whether a decorative horizontal rule (`<hr>`) should be displayed beneath the title and subtitle. Defaults to `true`.',
+        'Determines whether a decorative horizontal rule (`<hr>`) should be displayed beneath the title and subtitle. FancyLine Props can be passed here.',
       control: {
-        type: 'boolean',
+        type: 'object',
+      },
+    },
+    onXButtonClick: {
+      description:
+        'Callback function that is triggered when the X button is clicked. If not provided, the X button will not be displayed.',
+      control: {
+        type: 'function',
+      },
+    },
+    gapBetweenText: {
+      description:
+        'The amount of space between the title and subtitle. This can be set to any of the predefined spacings in the theme. Defaults to `xxs`.',
+      control: {
+        type: 'select',
       },
     },
   },
@@ -55,6 +69,6 @@ export const Primary: Story = {
     alignCenter: true,
     title: 'Title',
     subTitle: 'SubTitle',
-    hr: true,
+    hr: {},
   },
 };
