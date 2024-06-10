@@ -34,8 +34,8 @@ export const HeadLineWrapper = styled.div`
   position: relative;
 `;
 
-export const IconWrapper = styled.span`
+export const IconWrapper = styled.span<{ theme: TTheme }>`
   position: absolute;
-  right: 12px;
-  top: 12px;
+  right: ${({ theme }) => theme.spacing.xs};
+  top: ${({ theme }) => theme.spacing.xs};
 `;
