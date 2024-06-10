@@ -21,3 +21,4 @@ export * from './TBreakPoints';
 export * from './TSizeSettings';
 export * from './TDynamicElement';
 export * from './TFlexDirection';
+export * from './TBreakPoint';
