@@ -1,11 +1,8 @@
-import { TThemeArrayOrValueCSS } from '@/design/designFunctions/arrayToCssValues';
+import { TcalcBorderRadiusWithPadding } from '@/design/designFunctions/calcBorderRadiusWithPadding/TcalcBorderRadiusWithPadding.model';
 import { getThemeOrValueAsCSS } from '@/design/designFunctions/getThemeOrValueAsCss';
 
-const calcBorderRadiusWithPadding = (
-  borderRadius: TThemeArrayOrValueCSS,
-  padding: TThemeArrayOrValueCSS,
-  inset = true
-) => {
+const calcBorderRadiusWithPadding = (props: TcalcBorderRadiusWithPadding) => {
+  const { borderRadius, padding, inset = false, offset } = props;
   // check if they are arrays or single values
   let splitBorderRadius;
 
@@ -70,8 +67,9 @@ const calcBorderRadiusWithPadding = (
     // check if the border radius / padding is a valid css value
     const borderIsValid = borderRadius ? borderRadius : '0px';
     const formatPaddingAdd = paddingArray[index] ? `(${operator}${paddingArray[index]})` : '0px';
+    const offsetValue = offset ? ` + ${offset}` : '';
 
-    return `calc(${borderIsValid} + ${formatPaddingAdd})`;
+    return `calc(${borderIsValid} + ${formatPaddingAdd} ${offsetValue})`;
   });
 
   // return the new border radius as a string
