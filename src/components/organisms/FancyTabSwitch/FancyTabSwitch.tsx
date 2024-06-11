@@ -36,11 +36,12 @@ export default function FancyTabSwitch(props: FancyTabSwitchWithTabSwitchAtts) {
     <Fieldset label={label} disabled={disabled} className={className}>
       <FancyBox
         outlined={outlined}
+        outlinedRemoveBorder={outlined ? false : true}
         themeType={themeType}
         layer={layer}
         borderRadius={generateBorderRadiusForComponentOnlyValue({ borderRadius, sizeC })}
         externalStyle={css`
-          padding: ${arrayToCssValues(spacingToEdge, 'borderRadius')};
+          padding: ${arrayToCssValues(spacingToEdge, 'spacing')};
           overflow: hidden;
           background-color: ${themeType === 'transparent' && 'transparent'};
           border: ${themeType === 'transparent' && 'solid 1.5px transparent'};
@@ -53,10 +54,10 @@ export default function FancyTabSwitch(props: FancyTabSwitchWithTabSwitchAtts) {
           outlined={outlined}
           activeTextThemeType={activeTextColor}
           switchIndicatorThemeType={switchIndicatorThemeType}
-          borderRadius={calcBorderRadiusWithPadding(
-            generateBorderRadiusForComponentOnlyValue({ borderRadius, sizeC }) ?? '0',
-            spacingToEdge ?? '0'
-          )}
+          borderRadius={calcBorderRadiusWithPadding({
+            borderRadius: generateBorderRadiusForComponentOnlyValue({ borderRadius, sizeC }) ?? '0',
+            padding: spacingToEdge ?? '0',
+          })}
           textColor={getOpositMainThemeType(themeType)}
           wide={wide}
           sizeC={sizeC}

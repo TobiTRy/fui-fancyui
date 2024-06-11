@@ -81,16 +81,7 @@ export default function ExperimentalRoute() {
           />
         </DesignArea>
 
-        <FancyTabSwitch
-          wide
-          outlined
-          direction="vertical"
-          sizeC="lg"
-          label="test"
-          borderRadius={'xl'}
-          layer={5}
-          values={defaultProps}
-        />
+        <FancyTabSwitch wide label="test" layer={1} values={defaultProps} />
       </DesignWrapper>
     </>
   );
