@@ -36,7 +36,6 @@ export default function FancyTabSwitch(props: FancyTabSwitchWithTabSwitchAtts) {
     <Fieldset label={label} disabled={disabled} className={className}>
       <FancyBox
         outlined={outlined}
-        outlinedRemoveBorder={true}
         themeType={themeType}
         layer={layer}
         borderRadius={generateBorderRadiusForComponentOnlyValue({ borderRadius, sizeC })}

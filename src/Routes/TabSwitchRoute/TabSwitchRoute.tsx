@@ -141,14 +141,14 @@ export default function TabSwitchRoute() {
             />
 
             <FancyTabSwitch
+              direction="vertical"
               sizeC="lg"
               label="test"
               wide
               outlined
-              direction="vertical"
               values={switchValues}
               borderRadius={'xl'}
-              layer={3}
+              layer={5}
               currentSelect={test}
               handler={(id: string) => setTest(id)}
             />

@@ -4,6 +4,8 @@ import { CSSProp } from 'styled-components';
 import { TComponentSizes } from '@/types/TComponentSizes';
 import { TLayer } from '@/types/TLayer';
 import { TUiColorsMain } from '@/types/TUiColorsMain';
+import { TUiColorsMainAndAccent } from '@/types/TUiColorsMainAndAccent';
+import { TTextAlignLR } from '@/types/TTextAlignLR';
 
 export type TTabSwitchDetailsLabelIcon = {
   itemKey: string;
@@ -21,9 +23,9 @@ export type TTabSwitchButton = {
   selected: boolean;
   onClick?: (key: string) => void;
   themeType?: TUiColorsMain;
-  activeTextThemeType?: TUiColorsMain;
+  activeTextThemeType?: TUiColorsMainAndAccent;
   layer?: TLayer;
-  iconAlign?: 'left' | 'right';
+  iconAlign?: TTextAlignLR;
   sizeC?: TComponentSizes;
   externalStyle?: CSSProp;
 };

@@ -11,6 +11,7 @@ import PasswordStrengthMeter from '@/components/atoms/PasswordStrengthMeter/Pass
 import styled from 'styled-components';
 import { FancyNumberInput } from '@/components/organisms/FancyNumberInput';
 import { FancyFlexBox } from '@/components/templates/FancyFlexBox';
+import { FancyTabSwitch } from '@/components/organisms/FancyTabSwitch';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -79,27 +80,27 @@ export default function ExperimentalRoute() {
             onClick={() => switchTheme()}
           />
         </DesignArea>
-        <FancyFlexBox align="flex-start" justify="flex-start">
-          <FancyNumberInput
-            underline={false}
-            label="Day"
-            placeholder="DD"
-            maxLength={2}
-            externalStyle={{ maxWidth: '6ch !important' }}
-          />
-          <FancyNumberInput label="Month" placeholder="MM" maxLength={2} externalStyle={{ width: '6ch !important' }} />
-          <FancyNumberInput label="Year" placeholder="YYYY" maxLength={4} externalStyle={{ width: '7ch !important' }} />
-        </FancyFlexBox>
+
+        <FancyTabSwitch
+          wide
+          outlined
+          direction="vertical"
+          sizeC="lg"
+          label="test"
+          borderRadius={'xl'}
+          layer={5}
+          values={defaultProps}
+        />
       </DesignWrapper>
     </>
   );
 }
 
 const defaultProps = [
-  { label: 'hi1', value: 'hi1', id: '1' },
-  { label: 'hi2', value: 'hi2', id: '2' },
-  { label: 'hi3', value: 'hi3', id: '3' },
-  { label: 'hi4', value: 'hi4', id: '4' },
+  { label: 'hi1', value: 'hi1', itemKey: '1' },
+  { label: 'hi2', value: 'hi2', itemKey: '2' },
+  { label: 'hi3', value: 'hi3', itemKey: '3' },
+  { label: 'hi4', value: 'hi4', itemKey: '4' },
 ];
 
 const Box = styled.div`

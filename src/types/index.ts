@@ -22,3 +22,4 @@ export * from './TSizeSettings';
 export * from './TDynamicElement';
 export * from './TFlexDirection';
 export * from './TBreakPoint';
+export * from './TUiColorsMainAndAccent';
