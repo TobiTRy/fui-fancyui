@@ -125,7 +125,7 @@ export const WithMoreApplyedProps: Story = {
         variant: 'bodytextLg',
         children: 'Title',
       },
-      titleAlign: 'left',
+      align: 'left',
     },
     outlined: false,
     itemSettings: {

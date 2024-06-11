@@ -10,7 +10,7 @@ export type TFancyListBox = {
   children?: ReactNode;
   seperator?: TFancyLineWithHTMLAttributes;
   boxTitle?: {
-    titleAlign?: TTitleForComponent['titleAlign'];
+    align?: TTitleForComponent['align'];
     title: TTitleForComponent['title'];
   };
   themeType?: Exclude<TUiColorsMain, 'accent'>;
