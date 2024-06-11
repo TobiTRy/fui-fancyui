@@ -132,6 +132,7 @@ export * from '@/components/organisms/FancyNumberInput';
 export * from '@/components/organisms/FancyPasswordInput';
 export * from '@/components/organisms/FancyTextInput';
 export * from '@/components/organisms/FancyColorInput';
+export * from '@/components/organisms/FancyListBox';
 
 // ---------- Templates ------- //
 export * from '@/components/templates/FancyInfoCard';
