@@ -109,6 +109,7 @@ export * from '@/components/molecules/FancyNavBar';
 export * from '@/components/molecules/LabeledInput';
 export * from '@/components/molecules/Stepper';
 export * from '@/components/atoms/RawButton';
+export * from '@/components/molecules/Fieldset';
 
 // ---------- Organisms ------- //
 export * from '@/components/organisms/FancyButton';

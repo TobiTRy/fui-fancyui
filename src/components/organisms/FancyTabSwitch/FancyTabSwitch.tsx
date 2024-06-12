@@ -33,7 +33,7 @@ export default function FancyTabSwitch(props: FancyTabSwitchWithTabSwitchAtts) {
   } = props;
 
   return (
-    <Fieldset label={label} disabled={disabled} className={className}>
+    <Fieldset legend={label} disabled={disabled} className={className}>
       <FancyBox
         outlined={outlined}
         outlinedRemoveBorder={outlined ? false : true}
