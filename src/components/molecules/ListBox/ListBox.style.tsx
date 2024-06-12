@@ -18,6 +18,7 @@ export const generateFancyBoxStyle = (props: TgenerateFancyBoxStyle) => {
     flex-direction: column;
     justify-content: space-between;
     width: 100%;
+    overflow: hidden;
     ${$boxShadow && boxShadow.md};
 
     ${$externalStyle}
