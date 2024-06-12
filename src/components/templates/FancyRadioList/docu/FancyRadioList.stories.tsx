@@ -47,8 +47,8 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   render: (args) => <FancyRadioList {...args} />,
   args: {
-    label: 'FancyRadioList',
-    alignLabel: 'left',
+    legend: 'FancyRadioList',
+    alignLegend: 'left',
     disabled: false,
     themeType: 'primary',
     layer: 1,
