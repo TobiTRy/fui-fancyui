@@ -28,7 +28,7 @@ const meta = {
         type: 'array',
       },
     },
-    label: {
+    legend: {
       description: 'The Label of the ChipList',
       control: {
         type: 'text',
@@ -80,7 +80,7 @@ export const Primary: Story = {
       { id: '2', label: 'Chip 2' },
     ],
     sizeC: 'md',
-    label: 'ChipList',
+    legend: 'ChipList',
     themeType: 'primary',
     layer: 1,
     outlined: false,
@@ -94,7 +94,7 @@ export const WithoutChips: Story = {
   args: {
     chips: [],
     sizeC: 'md',
-    label: 'ChipList',
+    legend: 'ChipList',
     themeType: 'primary',
     layer: 1,
     outlined: false,

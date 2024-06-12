@@ -19,7 +19,7 @@ export default function FancyChipList(props: TFancyChipList) {
     chips = [],
     inputPlaceholder,
     outlined,
-    label,
+    legend,
     sizeC = 'md',
     editable,
     systemInformation,
@@ -66,7 +66,7 @@ export default function FancyChipList(props: TFancyChipList) {
   };
 
   return (
-    <Fieldset label={label} typographySettings={{ variant: 'interactiveLg' }}>
+    <Fieldset legend={legend} typographySettings={{ variant: 'interactiveLg' }}>
       <ChipList themeType={themeType} layer={layer} outlined={outlined} sizeC={sizeC} systemMessage={systemInformation}>
         {/* // Mapping through each chip in the state to render a FancyChip */}
         {chipState.map((chip, index) => (
