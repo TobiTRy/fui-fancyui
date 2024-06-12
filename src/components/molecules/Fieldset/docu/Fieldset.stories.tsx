@@ -19,14 +19,14 @@ const meta = {
 
   // Define arguments for the story
   argTypes: {
-    alignLabel: {
+    alignLegend: {
       description: 'The alignment of the label relative to the fieldset.',
       control: {
         type: 'select',
         options: ['left', 'center'],
       },
     },
-    label: {
+    legend: {
       description: 'The label to be displayed for the fieldset.',
       control: {
         type: 'text',
@@ -61,8 +61,8 @@ export const Primary: Story = {
     </Fieldset>
   ),
   args: {
-    alignLabel: 'left',
-    label: 'This is a label',
+    alignLegend: 'left',
+    legend: 'This is a label',
     typographySettings: {
       variant: 'interactiveLg',
       fontWeight: 'bold',
