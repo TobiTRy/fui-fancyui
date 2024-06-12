@@ -100,6 +100,26 @@ export const Primary: Story = {
   },
 };
 
+export const WithHoverStyle: Story = {
+  render: (args) => (
+    <FancyListBox {...args}>
+      <p>Hi</p>
+      <p>Hi</p>
+      <p>Hi</p>
+      <p>Hi</p>
+      <p>Hi</p>
+      <p>Hi</p>
+    </FancyListBox>
+  ),
+  args: {
+    itemSettings: {
+      themeType: 'primary',
+      layer: 1,
+      hoverLayer: 3,
+    },
+  },
+};
+
 export const WithMoreApplyedProps: Story = {
   render: (args) => (
     <FancyListBox {...args}>
