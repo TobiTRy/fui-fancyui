@@ -1,6 +1,6 @@
 import { HTMLAttributes } from 'react';
 
-type TItem = {
+export type TDropDownSelectItem = {
   value: string;
   key: string;
 };
@@ -8,7 +8,7 @@ type TItem = {
 // the incoming props
 export type TDropDownSelect = {
   align?: 'left' | 'center';
-  values?: TItem[] | string[];
+  values?: TDropDownSelectItem[] | string[];
   value?: string;
   disabled?: boolean;
   placeholder?: string;
