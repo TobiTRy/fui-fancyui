@@ -17,6 +17,7 @@ export const generateFancyButton = (props: IGenerateFancyButton) => {
   const { $sizeC, $oneToOne, $justifyContent, $iconAlign, $icon } = props;
 
   return css`
+    display: inline-flex;
     justify-content: ${$justifyContent ?? 'center'};
     ${$oneToOne && generate1To1Button($sizeC)};
     ${!$oneToOne && generateSize($sizeC, $icon, $iconAlign)};

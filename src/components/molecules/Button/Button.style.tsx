@@ -12,7 +12,6 @@ import { RawButton } from '@/components/atoms/RawButton';
 import { sizeSettings } from '@/components/molecules/Button/sizeSettings';
 
 export const ButtonStyle = styled.span<IGenerateThemeDesignForComponent & TStyledPrefixAndPicker<TButton>>`
-  display: inline-flex;
   height: fit-content;
   border: none;
   cursor: pointer;
