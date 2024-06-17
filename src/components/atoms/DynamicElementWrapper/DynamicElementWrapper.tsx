@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { TDynamicElementWrapperWithHTMLAttrs } from './TDynamicElementWrapper.model';
 import { StyledDynamicElementWrapper } from './DynamicElementWrapper.style';
 
