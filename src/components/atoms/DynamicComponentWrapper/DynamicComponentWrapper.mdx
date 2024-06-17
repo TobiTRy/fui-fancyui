@@ -1,0 +1,48 @@
+import DynamicComponentWrapper from './DynamicComponentWrapper'; // Assuming component file is in the same directory
+
+# DynamicComponentWrapper
+
+Wrap React children with a dynamically specified component.
+
+## Overview
+
+This component provides a simple way to encapsulate each child element within a React component that you define. This is particularly useful for adding consistent styling or behavior across a group of children.
+
+## Props
+
+| Prop               | Type                 | Description                                                                                                     |
+| :----------------- | :------------------- | :-------------------------------------------------------------------------------------------------------------- |
+| `children`         | `React.ReactNode`    | The children elements to be wrapped.                                                                            |
+| `wrapperComponent` | `React.ReactElement` | The component to wrap each child. This must be a valid React element (e.g., `<div>`, a custom component, etc.). |
+
+## Usage
+
+```jsx
+import React from 'react';
+import DynamicComponentWrapper from 'fui-fancyui';
+
+const ExampleComponent = () => (
+  <DynamicComponentWrapper WrapperComponent={<Link href="http://fui.cool" />}>Click me!</DynamicComponentWrapper>
+);
+
+export default ExampleComponent;
+```
+
+In the above example:
+
+1. Each child (`<p>Child 1</p>` and `<p>Child 2</p>`) will be wrapped in an `<li>` element.
+2. The `<li>` element has a blue text color style applied to it.
+
+## Example
+
+```jsx
+<DynamicComponentWrapper wrapperComponent={<div style={{ border: '1px solid gray', padding: '10px' }}>}>
+  <h2>This is wrapped text</h2>
+  <p>Another wrapped paragraph.</p>
+</DynamicComponentWrapper>
+```
+
+## Considerations
+
+- **Valid React Elements:** Ensure `wrapperComponent` is a valid React element (not a component function).
+- **Deeply Nested Children:** This component works well for children at a single level. If your children have deep nesting, consider refactoring your child structure or using a more complex recursive approach.
