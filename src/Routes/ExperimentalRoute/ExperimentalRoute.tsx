@@ -12,6 +12,7 @@ import styled from 'styled-components';
 import { FancyNumberInput } from '@/components/organisms/FancyNumberInput';
 import { FancyFlexBox } from '@/components/templates/FancyFlexBox';
 import { FancyTabSwitch } from '@/components/organisms/FancyTabSwitch';
+import DynamicComponentWrapper from '@/components/atoms/DynamicComponentWrapper/DynamicComponentWrapper';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -80,6 +81,9 @@ export default function ExperimentalRoute() {
             onClick={() => switchTheme()}
           />
         </DesignArea>
+        <DynamicComponentWrapper wrapperComponent={<a href="https://fui.cool" />}>
+          <p>Test</p>
+        </DynamicComponentWrapper>
 
         <FancyTabSwitch wide label="test" layer={1} values={defaultProps} />
       </DesignWrapper>

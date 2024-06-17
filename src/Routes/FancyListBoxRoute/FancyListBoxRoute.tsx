@@ -7,10 +7,12 @@ export default function FancyListBoxRoute() {
       <DesignArea title="FancyListBox">
         <FancyListBox
           layer={2}
+          sizeC="md"
           itemSettings={{
             hoverLayer: 3,
             layer: 1,
             themeType: 'primary',
+            sizeC: undefined,
           }}
         >
           <span>Moooiin</span>

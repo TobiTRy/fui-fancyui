@@ -10,11 +10,12 @@ import { generateBackgroundColor } from '@/design/designFunctions/generateItemTh
 // ------- The List Item for The ListBox to handle the distances -------- //
 // --------------------------------------------------------------------------- //
 function ListBoxItem(props: TListBoxItemProps) {
-  const { children, externalStyle, sizeC = 'md', layer = 0, themeType = 'transparent', hoverLayer } = props;
+  const { children, externalStyle, sizeC, layer = 0, themeType = 'transparent', hoverLayer } = props;
+
   return (
     <FancyBox
       as={'li'}
-      padding={arrayToCssValues(sizeSettings[sizeC ?? 'md'].padding, 'spacing')}
+      padding={sizeC ? arrayToCssValues(sizeSettings[sizeC].padding, 'spacing') : undefined}
       themeType={themeType}
       layer={layer}
       externalStyle={css`
