@@ -38,7 +38,7 @@ export default function Button(props: TButtonWithNativeAttrs) {
       $textHover={textHover}
       $disabled={disabled}
       $noSize={noSize}
-      className={className}
+      className={notAButton ? className : undefined}
     >
       {children}
     </ButtonStyle>
@@ -49,7 +49,7 @@ export default function Button(props: TButtonWithNativeAttrs) {
       {notAButton ? (
         <Button {...htmlProps} />
       ) : (
-        <StyledButton $wide={wide} {...htmlProps} disabled={disabled}>
+        <StyledButton $wide={wide} className={className} {...htmlProps} disabled={disabled}>
           <Button />
         </StyledButton>
       )}

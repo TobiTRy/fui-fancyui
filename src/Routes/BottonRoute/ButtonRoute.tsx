@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';
 import FancyButton from '../../components/organisms/FancyButton/FancyButton';
 import { css } from 'styled-components';
+import { SVGChevronLeft } from '@/components/icons';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -99,6 +100,13 @@ export default function ButtonRoute() {
         />
       </DesignArea>
       <DesignArea title="1:1 Buttons" style={backgroundColor}>
+        <FancyButton
+          icon={
+            <span style={{ marginRight: '2px' }}>
+              <SVGChevronLeft />
+            </span>
+          }
+        />
         <FancyButton
           icon={Icon}
           sizeC="md"
