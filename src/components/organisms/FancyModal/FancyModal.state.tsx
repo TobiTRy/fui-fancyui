@@ -20,25 +20,27 @@ export type TFancyModals = {
 interface IModalModule {
   modals: TFancyModals[];
   openModal: (id: string, content: React.ReactNode, config?: TModalConfig) => void;
-  removeModal: (id: string) => void;
   closeModal: (id: string) => void;
 }
-export const useFancyModalStore = create<IModalModule>((set) => ({
-  // the state array for the modals
-  modals: [],
-  // add a new modal to the state array
-  openModal: (id, children, config) =>
-    set((state) => ({
-      modals: [...state.modals, { id, children, status: 'open', config }],
-    })),
-  // change the status of the modal to closing
-  closeModal: (id) =>
-    set((state) => ({
-      modals: state.modals.map((modal) => (modal.id === id ? { ...modal, status: 'closing' } : modal)),
-    })),
-  // remove the modal from the state array
-  removeModal: (id) =>
-    set((state) => ({
-      modals: state.modals.filter((modal) => modal.id !== id),
-    })),
-}));
+
+export function createFancyModalStore() {
+  return create<IModalModule>((set) => ({
+    modals: [],
+    openModal: (id, children, config) =>
+      set((state) => ({
+        modals: [...state.modals, { id, children, status: 'open', config }],
+      })),
+    closeModal: (id) => {
+      set((state) => ({
+        modals: state.modals.map((modal) => (modal.id === id ? { ...modal, status: 'closing' } : modal)),
+      }));
+
+      setTimeout(() => {
+        // After animation duration (if applicable)
+        set((state) => ({
+          modals: state.modals.filter((modal) => modal.id !== id),
+        }));
+      }, 300); // Adjust delay if using a different transition time
+    },
+  }));
+}

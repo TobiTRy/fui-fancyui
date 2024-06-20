@@ -3,10 +3,11 @@ import { Meta, StoryObj } from '@storybook/react';
 
 // Import the component to be tested
 import FancyModal from '../FancyModal';
-import { useFancyModalStore } from '../FancyModal.state';
+import { createFancyModalStore } from '../FancyModal.state';
 import { FancyButton } from '../../FancyButton';
 import { TModal } from '../../../molecules/Modal';
 import { FancyTextInput } from '../../FancyTextInput';
+import { TFancyModal } from '@/components/organisms/FancyModal';
 
 // Define metadata for the story
 const meta = {
@@ -24,17 +25,39 @@ const meta = {
     },
   },
   // Define arguments for the story
-  argTypes: {},
+  argTypes: {
+    appendToDomID: {
+      description: 'The ID of the DOM element to which the modal should be appended.',
+      control: {
+        type: 'text',
+      },
+    },
+    modals: {
+      description: 'An array of modals to be displayed by the FancyModal component.',
+      control: {
+        type: 'object',
+      },
+    },
+    closeModal: {
+      description: 'A function to close the modal with the specified ID.',
+      control: {
+        type: 'function',
+      },
+    },
+  },
   // Add tags to the story
-} satisfies Meta<typeof HelperComponent>;
+} satisfies Meta<TFancyModal>;
 
 // Export the metadata
 export default meta;
 // Define the story object
 type Story = StoryObj<typeof meta>;
 
+const useFancyModalStore = createFancyModalStore();
+
 function HelperComponent(props: React.ComponentProps<typeof FancyModal> & Omit<TModal, 'onClose' | 'isOpen'>) {
   const { appendToDomID, children, ...configProps } = props;
+  const modals = useFancyModalStore((state) => state.modals);
   const openModal = useFancyModalStore((state) => state.openModal);
   const closeModal = useFancyModalStore((state) => state.closeModal);
 
@@ -54,7 +77,7 @@ function HelperComponent(props: React.ComponentProps<typeof FancyModal> & Omit<T
   };
   return (
     <>
-      <FancyModal appendToDomID="modal" />
+      <FancyModal appendToDomID="modal" modals={modals} closeModal={closeModal} />
       <FancyButton label="Open Modal" onClick={() => openModalHandler()} />
     </>
   );
@@ -71,7 +94,9 @@ export const Primary: Story = {
     </>
   ),
   args: {
+    modals: [],
     appendToDomID: '',
     children: <></>,
+    closeModal: () => {},
   },
 };

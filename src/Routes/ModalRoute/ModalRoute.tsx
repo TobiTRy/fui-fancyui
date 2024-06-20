@@ -1,10 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React from 'react';
-
-import { useFancyModalStore } from '../../components/organisms/FancyModal/FancyModal.state';
+import { createFancyModalStore } from '../../components/organisms/FancyModal/FancyModal.state';
 import FancyButton from '../../components/organisms/FancyButton/FancyButton';
 import { FancyModalHeadLine } from '@/components/molecules/FancyModalHeadLine';
 import { Typography } from '@/components/atoms/Typography';
+
+// eslint-disable-next-line react-refresh/only-export-components
+export const useFancyModalStore = createFancyModalStore();
 
 export default function ModalRoute() {
   const createModal = useFancyModalStore((state) => state.openModal);
