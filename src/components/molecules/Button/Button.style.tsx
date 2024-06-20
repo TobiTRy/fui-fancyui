@@ -31,7 +31,7 @@ export const ButtonStyle = styled.span<IGenerateThemeDesignForComponent & TStyle
   ${({ $sizeC, $borderRadius }) =>
     $borderRadius !== false && generateBorderRadiusForComponent({ sizeC: $sizeC, borderRadius: $borderRadius })};
 
-  ${({ $sizeC, $noSize }) => !$noSize && generateButtonSizeAndPadding($sizeC ?? 'md', true)}
+  ${({ $sizeC, $noSize, $outlined }) => !$noSize && generateButtonSizeAndPadding($sizeC ?? 'md', true, $outlined)}
 
   font-size: ${({ $sizeC, theme }) => theme.fontSizes[sizeSettings[$sizeC ?? 'md'].fontSize].fontSize};
   font-weight: bold;

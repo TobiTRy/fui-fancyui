@@ -5,6 +5,7 @@ import { TLeftRightCenterToFlexJustify } from '@/design/designFunctions/leftRigh
 import { TComponentSizes } from '@/types/TComponentSizes';
 import { sizeSettings } from './sizeSettings';
 import { arrayToCssValues } from '@/design/designFunctions/arrayToCssValues';
+import { calcCSSValuesWithOffset } from '@/utils/functions/calcCSSValuesWithOffset';
 
 interface IGenerateFancyButton {
   $sizeC: TComponentSizes;
@@ -12,15 +13,16 @@ interface IGenerateFancyButton {
   $justifyContent?: TLeftRightCenterToFlexJustify;
   $iconAlign?: 'left' | 'right';
   $icon?: boolean;
+  $outlined?: boolean;
 }
 export const generateFancyButton = (props: IGenerateFancyButton) => {
-  const { $sizeC, $oneToOne, $justifyContent, $iconAlign, $icon } = props;
+  const { $sizeC, $oneToOne, $justifyContent, $iconAlign, $icon, $outlined } = props;
 
   return css`
     display: inline-flex;
     justify-content: ${$justifyContent ?? 'center'};
     ${$oneToOne && generate1To1Button($sizeC)};
-    ${!$oneToOne && generateSize($sizeC, $icon, $iconAlign)};
+    ${!$oneToOne && generateSize($sizeC, $icon, $iconAlign, $outlined)};
   `;
 };
 
@@ -35,7 +37,12 @@ const generate1To1Button = ($sizeC: TComponentSizes) => {
   `;
 };
 
-const generateSize = ($sizeC: TComponentSizes, $icon?: boolean, $iconAlign?: IGenerateFancyButton['$iconAlign']) => {
+const generateSize = (
+  $sizeC: TComponentSizes,
+  $icon?: boolean,
+  $iconAlign?: IGenerateFancyButton['$iconAlign'],
+  outlined?: boolean
+) => {
   let padding = sizeSettings[$sizeC].padding;
 
   // if there is an icon, we need to adjust the padding
@@ -54,7 +61,19 @@ const generateSize = ($sizeC: TComponentSizes, $icon?: boolean, $iconAlign?: IGe
     padding = sizeSettings[$sizeC].padding;
   }
 
+  const cssValues = arrayToCssValues(padding, 'spacing');
+
+  // clac offset for outlined buttons
+  if (outlined && cssValues) {
+    const shrinkedPaddingWithBorder = calcCSSValuesWithOffset(cssValues, -2);
+
+    return css`
+      padding: ${shrinkedPaddingWithBorder};
+    `;
+  }
+
+  // return the padding
   return css`
-    padding: ${arrayToCssValues(padding, 'spacing')};
+    padding: ${cssValues};
   `;
 };

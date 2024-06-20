@@ -55,8 +55,8 @@ export default function ButtonRoute() {
       </DesignArea>
       <DesignArea title="Button Types in wide" style={backgroundColor}>
         <FancyButton icon={Icon} label="Button" themeType="primary" align="left" iconAlign="left" wide />
-        <FancyButton icon={Icon} label="Button" themeType="secondary" align="right" />
-        <FancyButton icon={Icon} label="Button" themeType="accent" />
+        <FancyButton icon={Icon} outlined sizeC="sm" label="Button" themeType="secondary" align="right" />
+        <FancyButton icon={Icon} label="Button" sizeC="sm" themeType="accent" />
         <FancyButton icon={Icon} label="Button" themeType="transparent" align="left" />
       </DesignArea>
       <DesignArea title="Outlined Buttons" style={backgroundColor}>
