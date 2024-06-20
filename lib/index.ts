@@ -162,6 +162,7 @@ export * from '@/utils/hooks/useWindowDimensions';
 export * from '@/design/theme/FancyThemeProvider';
 export * from '@/utils/functions/clampNumber';
 export * from '@/utils/functions/copyToClipBoard';
+export * from '@/utils/functions/calcCSSValuesWithOffset';
 
 // ---------- Design ------- //
 export * from '@/design/designFunctions/calcBorderRadiusOnAlignment';
