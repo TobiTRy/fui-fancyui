@@ -18,10 +18,10 @@ export const StyledDialog = styled(animated.div)<TStyledDialog>`
   top: calc(50vh + env(safe-area-inset-bottom));
   left: 50vw;
   transform: translate(-50vh, -50vw);
-  padding: ${({ theme }) => theme.spacing.xl};
+  padding: ${({ theme }) => theme.spacing.lg};
   border-radius: ${({ theme }) => theme.borderRadius.lg};
   border: none;
-  width: 70%;
+  width: 80%;
   ${({ theme, $themeType, $layer = 1 }) => getColorsForComponent({ theme, $themeType, $layer })}
   z-index: 1000;
   outline: none;
