@@ -3,13 +3,13 @@ import React, { useRef, useState } from 'react';
 import { SwitchActiveIndicator } from '@/components/atoms/SwitchActiveIndicator';
 import { FancyTabSwitchButton } from '@/components/molecules/FancyTabSwitchButton';
 import { generateBorderRadiusForComponentOnlyValue } from '@/design/designFunctions/generateBorderRadiusForComponent';
-import { TTabSwitch } from './TTabSwitch.model';
+import { TTabSwitchWithHTMLAtts } from './TTabSwitch.model';
 import { ItemWrapper, ULButtonSwitchList } from './TabSwitch.style';
 
 // --------------------------------------------------------------------------- //
 // ------------ The tap SwitchComponent to slect specifc values -------------- //
 // --------------------------------------------------------------------------- //
-export default function TabSwitch(props: TTabSwitch) {
+export default function TabSwitch(props: TTabSwitchWithHTMLAtts) {
   const {
     values,
     textColor = 'secondary',
@@ -27,6 +27,7 @@ export default function TabSwitch(props: TTabSwitch) {
     activeTextThemeType,
     switchIndicatorThemeType,
     indicatorType,
+    ...htmlProps
   } = props;
 
   // Define the state for the currently selected tab
@@ -65,6 +66,7 @@ export default function TabSwitch(props: TTabSwitch) {
       $direction={direction}
       $disabled={disabled}
       role="radiogroup"
+      {...htmlProps}
     >
       {/* Generate a list item for each switch value */}
       {values.map((item, i) => (

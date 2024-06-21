@@ -57,6 +57,7 @@ export default function FancyTabSwitch(props: FancyTabSwitchWithTabSwitchAtts) {
           borderRadius={calcBorderRadiusWithPadding({
             borderRadius: generateBorderRadiusForComponentOnlyValue({ borderRadius, sizeC }) ?? '0',
             padding: spacingToEdge ?? '0',
+            inset: true,
           })}
           textColor={getOpositMainThemeType(themeType)}
           wide={wide}

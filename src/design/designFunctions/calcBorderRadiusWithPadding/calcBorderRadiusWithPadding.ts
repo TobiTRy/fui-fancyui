@@ -54,26 +54,33 @@ const calcBorderRadiusWithPadding = (props: TcalcBorderRadiusWithPadding) => {
   }
 
   // define the operator for the css calc
-  const operator = inset ? '-' : '+';
+  const offsetValue = offset ? ` + ${offset}px` : '';
 
-  // generate the new border radius array with the padding in css calc
   const newBorderRadiusArray = borderRadiusArray.map((borderRadius, index) => {
-    // check if they have a unit when they are a number they doesn't have a unit
-    if (Number(borderRadius) || Number(paddingArray[index])) {
-      console.error('borderRadius and padding should have a unit');
-      return '';
+    const validBorderRadius = isValidCSSValue(borderRadius) ? borderRadius : '0px';
+    const padding = paddingArray[index];
+
+    // Handle negative padding for inset
+    const validPadding = isValidCSSValue(padding) ? padding : '0px';
+    const paddingValue =
+      inset && parseFloat(validPadding) < 0
+        ? ` + ${Math.abs(parseFloat(validPadding))}px` // Add for negative inset
+        : ` ${inset ? '-' : '+'} ${validPadding}`; // Correct spacing
+
+    // Use borderRadius if no padding needed
+    if (paddingValue.trim() === '+' || paddingValue.trim() === '-') {
+      return `${validBorderRadius}${offsetValue}`;
     }
 
-    // check if the border radius / padding is a valid css value
-    const borderIsValid = borderRadius ? borderRadius : '0px';
-    const formatPaddingAdd = paddingArray[index] ? `(${operator}${paddingArray[index]})` : '0px';
-    const offsetValue = offset ? ` + ${offset}` : '';
-
-    return `calc(${borderIsValid} + ${formatPaddingAdd} ${offsetValue})`;
+    return `calc(${validBorderRadius}${paddingValue}${offsetValue})`;
   });
-
   // return the new border radius as a string
   return newBorderRadiusArray.join(' ');
 };
+
+function isValidCSSValue(value: string) {
+  // This is a basic check. More comprehensive validation might be needed for production code.
+  return typeof value === 'string' && value.trim() !== '';
+}
 
 export default calcBorderRadiusWithPadding;

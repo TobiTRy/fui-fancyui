@@ -27,4 +27,4 @@ export type TTabSwitch = {
   handler?: (value: string) => void;
 };
 
-export type TTabSwitchWithHTMLAtts = TTabSwitch & React.HTMLAttributes<HTMLDivElement>;
+export type TTabSwitchWithHTMLAtts = TTabSwitch & React.HTMLAttributes<HTMLUListElement>;

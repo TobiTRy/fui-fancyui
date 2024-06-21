@@ -6,7 +6,7 @@ import { css } from 'styled-components';
 import { Card } from '@/components/molecules/Card';
 
 const switchValues = [
-  { itemKey: '1', value: 'Tab 1', label: 'Tab 1 djkjk dklkdd' },
+  { itemKey: '1', value: 'Tab 1', label: 'Tab 1 ' },
   { itemKey: '2', value: 'Tab 2', label: 'Tab 2' },
   { itemKey: '3', value: 'Tab 3', label: 'Tab 3' },
 ];
@@ -50,19 +50,20 @@ export default function TabSwitchRoute() {
 
   return (
     <>
-      <FancyTabSwitch
+      {/* <FancyTabSwitch
         label="test"
         sizeC="sm"
         values={switchValues1}
         borderRadius={'xxl'}
         currentSelect={test}
         handler={(id: string) => setTest(id)}
-      />
+      /> */}
       <Card layer={1}>
         <DesignWrapper>
           <DesignArea
             title="TabSwitch"
             style={css`
+              width: 500px;
               flex-direction: column;
             `}
           >
@@ -142,12 +143,11 @@ export default function TabSwitchRoute() {
 
             <FancyTabSwitch
               direction="vertical"
-              sizeC="lg"
+              sizeC="sm"
               label="test"
               wide
               outlined
               values={switchValues}
-              borderRadius={'xl'}
               layer={5}
               currentSelect={test}
               handler={(id: string) => setTest(id)}
@@ -156,8 +156,9 @@ export default function TabSwitchRoute() {
               label="test"
               wide
               values={switchValues}
+              spacingToEdge="xxs"
+              borderRadius={'md'}
               layer={2}
-              borderRadius={'xl'}
               currentSelect={test}
               handler={(id: string) => setTest(id)}
             />
