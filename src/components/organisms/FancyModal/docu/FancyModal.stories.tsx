@@ -3,7 +3,7 @@ import { Meta, StoryObj } from '@storybook/react';
 
 // Import the component to be tested
 import FancyModal from '../FancyModal';
-import { createFancyModalStore } from '../FancyModal.state';
+import { createFancyModalStore } from '../createFancyModalStore';
 import { FancyButton } from '../../FancyButton';
 import { TModal } from '../../../molecules/Modal';
 import { FancyTextInput } from '../../FancyTextInput';

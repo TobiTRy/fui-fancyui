@@ -1,4 +1,4 @@
-import { TFancyModals } from '@/components/organisms/FancyModal/FancyModal.state';
+import { TFancyModals } from '@/components/organisms/FancyModal/createFancyModalStore';
 
 export type TFancyModal = {
   appendToDomID: string;

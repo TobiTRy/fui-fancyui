@@ -1,5 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { createFancyModalStore } from '../../components/organisms/FancyModal/FancyModal.state';
+import { createFancyModalStore } from '../../components/organisms/FancyModal/createFancyModalStore';
 import FancyButton from '../../components/organisms/FancyButton/FancyButton';
 import { FancyModalHeadLine } from '@/components/molecules/FancyModalHeadLine';
 import { Typography } from '@/components/atoms/Typography';
@@ -15,7 +14,11 @@ export default function ModalRoute() {
     createModal(
       'hi',
       <div>
-        <FancyModalHeadLine title={'Test'} subTitle={<Typography variant="bodytextSm">Test</Typography>} />
+        <FancyModalHeadLine
+          onXButtonClick={() => closeModal('hi')}
+          title={'Test'}
+          subTitle={<Typography variant="bodytextSm">Test</Typography>}
+        />
         <FancyButton />
       </div>,
       { isCloseable: true }
