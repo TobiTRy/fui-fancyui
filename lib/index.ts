@@ -52,6 +52,7 @@ export * from '@/components/atoms/RawA';
 export * from '@/components/atoms/RawNav';
 export * from '@/components/atoms/FancySpacingBox';
 export * from '@/components/atoms/DateInput';
+export * from '@/components/atoms/SystemMessage';
 export * from '@/components/atoms/SystemMessageBox';
 export * from '@/components/atoms/NumberInput';
 export * from '@/components/atoms/PasswordInput';

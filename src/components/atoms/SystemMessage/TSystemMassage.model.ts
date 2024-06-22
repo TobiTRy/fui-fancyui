@@ -12,3 +12,7 @@ export type TSystemMessage = {
   ownTypographyComponent?: boolean;
   externalStyle?: CSSProp;
 };
+
+export type TSystemMessageHTMLAttrs = React.HTMLAttributes<HTMLSpanElement>;
+
+export type TSystemMessageWithHTMLAttrs = TSystemMessage & TSystemMessageHTMLAttrs;
