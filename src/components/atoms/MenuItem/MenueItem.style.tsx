@@ -14,7 +14,7 @@ import { TMenueItem } from './TMenueItem.model';
 import { getOpositMainThemeType } from '@/design/designFunctions/getOpositMainThemeType';
 
 type IStyledMenuItem = TStyledPrefixAndOmiter<TMenueItem, 'children'> & { theme?: TTheme; $padding?: TSpacingArray };
-export const StyledMenuItem = styled.button<IStyledMenuItem>`
+export const StyledMenuItem = styled.div<IStyledMenuItem>`
   display: flex;
   box-sizing: border-box;
   padding: ${({ $padding }) => arrayToCssValues($padding, 'spacing')};

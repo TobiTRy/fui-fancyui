@@ -1,13 +1,18 @@
+import { TSizeSettings } from '@/types/TSizeSettings';
 import { TSpacingArray } from '@/types/TSpacings';
 
-export const sizeSettings = {
+type TSizeObj = {
+  padding: TSpacingArray;
+};
+
+export const sizeSettings: TSizeSettings<TSizeObj> = {
   sm: {
-    padding: ['xs', 'sm'] as TSpacingArray,
+    padding: ['sm', 'sm'],
   },
   md: {
-    padding: ['sm', 'md'] as TSpacingArray,
+    padding: ['sm', 'md'],
   },
   lg: {
-    padding: ['md', 'lg'] as TSpacingArray,
+    padding: ['md', 'lg'],
   },
 };
