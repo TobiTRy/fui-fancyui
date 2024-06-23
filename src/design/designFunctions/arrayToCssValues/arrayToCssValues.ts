@@ -9,7 +9,8 @@ const arrayToCssValues = <T extends keyof TThemeValueMap = 'default'>(
   values?: TThemeArrayOrValueCSS,
   themeSetting?: T
 ) => {
-  if (!values || !values.toString().length) return '';
+  if (!values || (typeof values !== 'object' && !values.toString().length) || Object.keys(values).length === 0)
+    return '';
 
   // Initialize an empty array for the cleaned values
   let cleanedValues: (string | number | TThemeValueMap[T])[] = [];
@@ -17,6 +18,11 @@ const arrayToCssValues = <T extends keyof TThemeValueMap = 'default'>(
   // Handle the case where values is a single value
   if (typeof values === 'string' || typeof values === 'number') {
     cleanedValues.push(values);
+  } else if (typeof values === 'object' && Array.isArray(values) === false) {
+    // Handle the case where values is an object
+    const { t = 0, r = 0, b = 0, l = 0 } = values;
+
+    cleanedValues = [t, r, b, l].filter((value): value is string | number | TThemeValueMap[T] => value !== undefined);
   } else if (Array.isArray(values)) {
     // Filter out undefined values and assert the type to exclude 'undefined'
     cleanedValues = values.filter((value): value is string | number | TThemeValueMap[T] => value !== undefined);

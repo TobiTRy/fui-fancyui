@@ -3,7 +3,7 @@ import { ICustomBreakpoint } from '@/components/templates/FancyGrid/FancyGrid.mo
 import { TDynamicElement } from 'lib';
 
 export type TFancyGridItemProps = {
-  gridSpace: number;
+  gridSpace?: number;
   gridColumn?: string | number;
   gridRow?: string | number;
   children?: React.ReactNode;

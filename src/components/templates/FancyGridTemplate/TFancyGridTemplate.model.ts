@@ -1,8 +1,8 @@
+import { TBreakpoint } from '@/types/TBreakPoint';
 import { TSpacings } from '@/types/TSpacings';
-import { TBreakPoints } from '@/types/TBreakPoints';
 
 export type TGridAreasBreakpoints = {
-  [key in TBreakPoints]?: string[];
+  [key: string]: string[];
 };
 
 // Define types for the props
@@ -14,4 +14,5 @@ export type TFancyGridTemplate = {
   gapRow?: TSpacings;
   width?: string;
   height?: string;
+  breakPoints?: TBreakpoint[];
 };

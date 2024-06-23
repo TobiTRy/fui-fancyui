@@ -7,5 +7,5 @@ export type TTitleForComponent = {
   children?: ReactNode;
   gap?: TSpacings;
   title?: TTypography | ReactNode;
-  titleAlign?: TTextAlignLC;
+  align?: TTextAlignLC;
 };

@@ -19,7 +19,7 @@ const meta = {
   },
   // Define arguments for the story
   argTypes: {
-    grid: {
+    simpleGrid: {
       description: 'The value of the input',
       defaultValue: '12',
       control: {
@@ -50,6 +50,30 @@ const meta = {
       description: 'The padding of the grid',
       control: {
         type: 'object',
+      },
+    },
+    gridTemplateColumns: {
+      description: 'The grid template columns',
+      control: {
+        type: 'object',
+      },
+    },
+    gridTemplateRows: {
+      description: 'The grid template rows',
+      control: {
+        type: 'object',
+      },
+    },
+    rowGap: {
+      description: 'The row gap',
+      control: {
+        type: 'select',
+      },
+    },
+    columnGap: {
+      description: 'The column gap',
+      control: {
+        type: 'select',
       },
     },
   },
@@ -87,8 +111,41 @@ export const Primary: Story = {
   args: {
     padding: ['sm', 'md', 'lg', 'xl'],
     margin: ['sm', 'md', 'lg', 'xl'],
-    grid: 12,
+    simpleGrid: 12,
     gap: '12px',
     breakpoints: [{ breakpoint: '500px', gridSize: 6 }],
+  },
+};
+
+// Define the secondary story with row and column grid
+export const Secondary: Story = {
+  render: (args) => (
+    <FancyGrid {...args}>
+      <FancyGrid.Item gridColumn={1} gridRow={1}>
+        <FancyButton label="Ji" wide />
+      </FancyGrid.Item>
+      <FancyGrid.Item gridColumn={2} gridRow={1}>
+        <FancyButton label="Ji" wide />
+      </FancyGrid.Item>
+      <FancyGrid.Item gridColumn={3} gridRow={1}>
+        <FancyButton label="Ji" wide />
+      </FancyGrid.Item>
+      <FancyGrid.Item gridColumn={1} gridRow={2}>
+        <FancyButton label="Ji" wide />
+      </FancyGrid.Item>
+      <FancyGrid.Item gridColumn={2} gridRow={2}>
+        <FancyButton label="Ji" wide />
+      </FancyGrid.Item>
+      <FancyGrid.Item gridColumn={3} gridRow={2}>
+        <FancyButton label="Ji" wide />
+      </FancyGrid.Item>
+    </FancyGrid>
+  ),
+  args: {
+    padding: ['sm', 'md', 'lg', 'xl'],
+    margin: ['sm', 'md', 'lg', 'xl'],
+    gap: 'sm',
+    gridTemplateColumns: ['1fr', '1fr', '1fr'],
+    gridTemplateRows: ['1fr', '1fr'],
   },
 };

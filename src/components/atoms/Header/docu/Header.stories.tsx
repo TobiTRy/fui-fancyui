@@ -101,7 +101,7 @@ export const Primary: Story = {
 export const Advancedheader: Story = {
   render: (args) => (
     <Header {...args} externalStyle={{ height: '44px', padding: '0 12px' }}>
-      <FancyGrid grid={8} gap="12px">
+      <FancyGrid simpleGrid={8} gap="12px">
         <FancyGrid.Item gridSpace={2}>
           <FancyGrid.Item.FlexBox align="center" justify="flex-start" className={'mooiiin'}>
             <RawA style={{ height: '100%' }} href="https://fui.cool">

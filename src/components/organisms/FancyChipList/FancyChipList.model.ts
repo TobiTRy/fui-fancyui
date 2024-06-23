@@ -11,7 +11,7 @@ export type TFancyChipList = {
   outlined?: boolean;
   chips?: TChip[];
   inputPlaceholder?: string;
-  label?: string;
+  legend?: string;
   sizeC?: 'sm' | 'md' | 'lg';
   editable?: boolean;
   handler?: (chips: TChip[]) => void;

@@ -10,9 +10,15 @@ import * as FancyModalStoies from './FancyModal.stories';
 
 ### Setting Up FancyModal
 
-1. **Render the Main Component in the Base File**:
+1. **Create the Store:**
 
-   Ensure that the `<FancyModal />` component is added to a suitable location in your main file for correct modal behavior.
+   Begin by creating an instance of your modal store:
+
+   ```javascript
+   import { createFancyModalStore } from 'fui-fancyui';
+
+   const useFancyModalStore = createFancyModalStore();
+   ```
 
 2. **Specify the DOM Element for Rendering**:
 
@@ -22,57 +28,89 @@ import * as FancyModalStoies from './FancyModal.stories';
    <div id="modalTest"></div>
    ```
 
-### Implementing the Modal
+3. **Render the FancyModal Component:**
 
-1. **Import the Store in the Component**:
-
-   Within the component where you plan to initiate the modal, start by importing the `useFancyModalStore`.
+   In your desired location, render the `<FancyModal />` component. Provide it with the necessary props:
 
    ```jsx
-   const openModal = useFancyModalStore((state) => state.openModal);
+   import { FancyModal } from 'fui-fancyui';
+
+   const useFancyModalStore = createFancyModalStore();
+
+   function MyComponent() {
+     const closeModal = useFancyModalStore((state) => state.closeModal);
+     const modals = useFancyModalStore((state) => state.modals);
+
+     return (
+       <body>
+         {/* ...other components */}
+         <FancyModal modals={modals} closeModal={closeModal} />
+       </body>
+     );
+   }
    ```
 
-2. **Open the Modal**:
+### Implementing the Modal
 
-   To display the modal, employ the `openModal` function. This function requires the following parameters:
+1. **Use the Store in Your Component:**
 
-   - `appendToDomID`: The ID corresponding to the DOM element where the modal will appear.
-   - Child components: The specific content or components you want to show within the modal.
-   - Configuration object: This sets various modal properties.
+   Access the `openModal` and `closeModal` functions from the store you created:
+
+   ```javascript
+   const openModal = useFancyModalStore((state) => state.openModal);
+   const closeModal = useFancyModalStore((state) => state.closeModal);
+   ```
+
+2. **Open the Modal:**
+
+   Call the `openModal` function to trigger the modal. It requires the following:
+
+   - `id`: A unique identifier for your modal.
+   - `children`: The content you want to display inside the modal (JSX).
+   - `config` (optional): An object for customization (e.g., `isCloseAble`).
 
    ```jsx
+   const openMoal = useFancyModalStore((state) => state.openModal);
+   const closeModal = useFancyModalStore((state) => state.closeModal);
+
    const openModalHandler = () => {
      openModal(
-       'modalTest',
-       <div style={{ display: 'flex', direction: 'column', gap: '18px' }}>
+       'myUniqueModalId',
+       <div>
          <FancyTextInput label="Email" />
-         <FancyButton onClick={() => closeModal('modalTest')} label="Close Modal"></FancyButton>
+         <FancyButton onClick={() => closeModal('myUniqueModalId')} label="Close Modal" />
        </div>,
-       {
-         isCloseAble: false,
-       }
+       { isCloseAble: false } // Example configuration
      );
    };
    ```
 
-3. **Close the Modal**:
+3. **Close the Modal:**
 
-   To terminate an active modal, use the `closeModal` method from the `useFancyModalStore`.
-
-   ```jsx
-   const closeModal = useFancyModalStore((state) => state.closeModal);
-   ```
-
-   Subsequently, invoke `closeModal` using the ID of the modal you wish to shut, as depicted in the `openModalHandler` example.
+   Invoke `closeModal` with the unique `id` of the modal you want to close. (This is already handled within the button in the example above.)
 
 <Canvas />
 
 ### Configuration Options
 
-The FancyModal's adaptability is showcased through the configuration object provided during modal initiation. One available option is:
+You can still customize the `FancyModal` using the `config` object passed to `openModal`. For example:
 
-- `isCloseAble`: A boolean that denotes whether users can manually terminate the modal.
+- `isCloseAble`: Determines if users can manually close the modal.
+
+  ```jsx
+  const config = {
+  backDrop?: boolean; // default is true
+  onClose?: (id: string) => void;
+  isCloseable?: boolean; // is the modal closeable by the user
+  themeType?: TUiColorsNotTransparent;
+  layer?: TLayer;
+  }
+  ```
 
 ### Conclusion
 
-The evolved FancyModal, bolstered by `useFancyModalStore`, offers developers a smoother and more intuitive modal management experience. This refurbished framework undeniably simplifies the modal integration process, ensuring both efficient development and streamlined user interactions.
+The `createFancyModalStore` function now gives you more flexibility to manage multiple modal instances within your application. This enhanced architecture simplifies modal implementation and provides a cleaner, more scalable approach.
+
+```
+
+```

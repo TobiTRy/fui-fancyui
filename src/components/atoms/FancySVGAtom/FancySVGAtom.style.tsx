@@ -33,7 +33,9 @@ export const StyledSVG = styled.i<IStyledSVGAtom & { theme: TTheme }>`
   width: ${({ $sizeC }) => sizes[$sizeC ?? 'xxs']};
   aspect-ratio: 1/1;
   color: ${({ $isActive, $systemMessage, $isPassive, theme, $themeType = 'secondary', $layer = 0 }) =>
-    !$isPassive && calcIconColor({ theme, $isActive, $systemMessage, $layer, $themeType })};
+    $themeType === 'inherit'
+      ? 'inherit'
+      : !$isPassive && calcIconColor({ theme, $isActive, $systemMessage, $layer, $themeType })};
   ${({ $externalStyle }) => $externalStyle};
   will-change: transform;
 

@@ -24,6 +24,7 @@ export default function FancyButton(props: TFancyButtonWithHTMLAttrs) {
     externalStyle,
     oneToOne,
     gap,
+    outlined,
     ...buttonProps
   } = props;
   // handle icon alignment
@@ -35,12 +36,14 @@ export default function FancyButton(props: TFancyButtonWithHTMLAttrs) {
     $sizeC: sizeC,
     $oneToOne: oneToOne ?? (Boolean(!label) && Boolean(icon)),
     $justifyContent: leftRightCenterToFlexJustify[align ?? 'center'],
+    $outlined: outlined,
   });
 
   return (
     <Button
       sizeC={sizeC}
       noSize={true}
+      outlined={outlined}
       externalStyle={css`
         ${generateFancyStyle};
         ${externalStyle};

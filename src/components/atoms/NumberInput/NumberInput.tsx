@@ -52,9 +52,7 @@ const NumberInput = forwardRef<HTMLInputElement, TNumberInputWithNativeAttrs>((p
       $layer={layer}
       max={max}
       onChange={handleChange}
-      onKeyDown={(e) => {
-        handleKeyDown(e);
-      }}
+      onKeyDown={handleKeyDown}
       $externalStyle={externalStyle}
       $width={inputWidth}
       $align={align}

@@ -19,7 +19,7 @@ const meta = {
   },
   // Define arguments for the story
   argTypes: {
-    titleAlign: {
+    align: {
       description: 'The alignment of the Title.',
       control: { type: 'select' },
       type: { name: 'string', required: false },
@@ -68,6 +68,6 @@ export const Primary: Story = {
       children: 'This is a text input',
     },
     gap: 'xs',
-    titleAlign: 'left',
+    align: 'left',
   },
 };

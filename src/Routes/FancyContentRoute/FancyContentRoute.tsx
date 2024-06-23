@@ -14,12 +14,19 @@ export default function FancyContentRoute() {
           <FancyContent.Icon sizeC="xs" themeType="primary">
             <SVGCheckMark />
           </FancyContent.Icon>
-          <FancyContent.Title themeType="primary">Hiii</FancyContent.Title>
+          <FancyContent.Title>Hiii</FancyContent.Title>
           <FancyContent.Description>Hiii</FancyContent.Description>
         </FancyContent>
 
         <FancyContent align="flex-start" justify="center" gapBetweenIcon="12px">
           <FancyContent.Description>Hiii</FancyContent.Description>
+          <FancyContent.Title>Hiii</FancyContent.Title>
+        </FancyContent>
+
+        <FancyContent align="center" justify="center" gapBetweenIcon="12px">
+          <FancyContent.Image sizeH="sm">
+            <img src="https://via.placeholder.com/150" alt="placeholder" />
+          </FancyContent.Image>
           <FancyContent.Title>Hiii</FancyContent.Title>
         </FancyContent>
       </DesignArea>

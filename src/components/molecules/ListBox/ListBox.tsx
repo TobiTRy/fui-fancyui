@@ -1,6 +1,6 @@
 import { FancyBox } from '@/components/atoms/FancyBox';
 import { generateFancyBoxStyle } from './ListBox.style';
-import { ListBoxItem } from './ListBoxItem';
+import { ListBoxItem } from './ListBoxItem/ListBoxItem';
 import { TListBoxWithFancyBoxAttrs } from './TListBox.model';
 
 // --------------------------------------------------------------------------- //

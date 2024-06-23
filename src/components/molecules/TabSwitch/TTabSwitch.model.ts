@@ -6,11 +6,13 @@ import { TTabSwitchDetailsChildren, TTabSwitchDetailsLabelIcon } from '@/compone
 import { TLayer } from '@/types/TLayer';
 import { TUiColorsMain } from '@/types/TUiColorsMain';
 import { TThemeArrayOrValueCSS } from '@/design/designFunctions/arrayToCssValues';
+import { TUiColorsMainAndAccent } from '@/types/TUiColorsMainAndAccent';
 
 export type TTabSwitch = {
   wide?: boolean;
   sizeC?: TComponentSizes;
   textColor?: TUiColorsMain;
+  activeTextThemeType?: TUiColorsMainAndAccent;
   textLayer?: TLayer;
   disabled?: boolean;
   tabSpacing?: TSpacings;
@@ -22,8 +24,7 @@ export type TTabSwitch = {
   currentSelect?: string;
   iconAlign?: 'left' | 'right';
   switchIndicatorThemeType?: TUiColorsNotTransparent;
-  activeTextThemeType?: TUiColorsMain;
   handler?: (value: string) => void;
 };
 
-export type TTabSwitchWithHTMLAtts = TTabSwitch & React.HTMLAttributes<HTMLDivElement>;
+export type TTabSwitchWithHTMLAtts = TTabSwitch & React.HTMLAttributes<HTMLUListElement>;

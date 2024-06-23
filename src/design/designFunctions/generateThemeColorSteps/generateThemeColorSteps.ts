@@ -59,7 +59,7 @@ interface IGenerateColorSteps {
   color: string;
   pimaryColor: string;
 }
-export default function generateColorSteps({ themeType, color, pimaryColor }: IGenerateColorSteps): ColorSteps {
+export default function generateThemeColorSteps({ themeType, color, pimaryColor }: IGenerateColorSteps): ColorSteps {
   const lightColors = lightenColors({ color, themeType, pimaryColor }); //generate the colors
   const obj: ColorSteps = {} as ColorSteps;
 

@@ -5,7 +5,16 @@ export default function FancyListBoxRoute() {
   return (
     <DesignWrapper>
       <DesignArea title="FancyListBox">
-        <FancyListBox>
+        <FancyListBox
+          layer={2}
+          sizeC="md"
+          itemSettings={{
+            hoverLayer: 3,
+            layer: 1,
+            themeType: 'primary',
+            sizeC: undefined,
+          }}
+        >
           <span>Moooiin</span>
 
           <span>Moooiin</span>

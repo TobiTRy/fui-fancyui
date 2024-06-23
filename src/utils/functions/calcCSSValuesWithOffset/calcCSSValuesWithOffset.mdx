@@ -1,0 +1,60 @@
+# `calcCSSValuesWithOffset`
+
+This utility function adjusts CSS values (like padding or margins) by a specified offset. It's designed to handle values containing multiple space-separated parts, such as "12px 15px".
+
+## Description
+
+`calcCSSValuesWithOffset` parses a string of CSS values, identifies numerical values with "px" units, adds the offset to those values, and returns a new string with the modified values.
+
+## Setup
+
+Ensure the function is imported into your component:
+
+```javascript
+import { calcCSSValuesWithOffset } from 'fui-fancyui';
+```
+
+## Usage
+
+```javascript
+const originalCSS = '12px 15px';
+const offsetAmount = 2;
+
+const newCSS = calcCSSValuesWithOffset(originalCSS, offsetAmount);
+console.log(newCSS); // Output: "14px 17px"
+```
+
+### Props
+
+| Prop        | Type     | Description                                               | Default |
+| :---------- | :------- | :-------------------------------------------------------- | :------ |
+| `cssValues` | `string` | The original CSS value string (e.g., "12px 15px")         | -       |
+| `offset`    | `number` | The amount to add to each numerical value with "px" units | -       |
+
+### Example with Dynamic CSS
+
+```jsx
+import { useState } from 'react';
+
+function MyComponent() {
+  const [padding, setPadding] = useState('10px 20px');
+  const [offset, setOffset] = useState(3);
+
+  const handleClick = () => {
+    const newPadding = calcCSSValuesWithOffset(padding, offset);
+    setPadding(newPadding);
+  };
+
+  return (
+    <div>
+      <div style={{ padding }}>This div's padding will change</div>
+      <button onClick={handleClick}>Increase Padding</button>
+    </div>
+  );
+}
+```
+
+### Key Points
+
+- **Non-px Units:** Values without "px" units (e.g., percentages, em) are left untouched.
+- **Error Handling:** Currently, there is no explicit error handling for invalid input (like "10px abc"). You might consider adding checks in a production environment.

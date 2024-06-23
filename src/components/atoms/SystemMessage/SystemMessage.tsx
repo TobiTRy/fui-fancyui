@@ -1,14 +1,23 @@
 import { StyledSystemMessageWrapper } from '@/components/atoms/SystemMessage/SystemMessage.style';
 import { Typography } from '@/components/atoms/Typography';
 
-import { TSystemMessage } from '@/components/atoms/SystemMessage/TSystemMassage.model';
+import { TSystemMessageWithHTMLAttrs } from '@/components/atoms/SystemMessage/TSystemMassage.model';
 import { TTypography } from '@/components/atoms/Typography/Typography.model';
 
 // --------------------------------------------------------------------------- //
 // ------- Only a SystemMessage(Text) that renders in different colors ------- //
 // --------------------------------------------------------------------------- //
-export default function SystemMessage(props: TSystemMessage & { textSettings?: TTypography }) {
-  const { themeType, layer, systemMessageState, children, textSettings, ownTypographyComponent, externalStyle } = props;
+export default function SystemMessage(props: TSystemMessageWithHTMLAttrs & { textSettings?: TTypography }) {
+  const {
+    themeType,
+    layer,
+    systemMessageState,
+    children,
+    textSettings,
+    ownTypographyComponent,
+    externalStyle,
+    ...htmlProps
+  } = props;
 
   return (
     <StyledSystemMessageWrapper
@@ -16,6 +25,7 @@ export default function SystemMessage(props: TSystemMessage & { textSettings?: T
       $layer={layer}
       $systemMessageState={systemMessageState}
       $externalStyle={externalStyle}
+      {...htmlProps}
     >
       {!ownTypographyComponent && (
         <Typography variant="subTextFootnote" tabIndex={-1} lineHeight={1} {...textSettings}>

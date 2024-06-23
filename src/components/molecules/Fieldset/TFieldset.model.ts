@@ -4,8 +4,8 @@ import { TTextAlignLC } from '@/types/TTextAlignLC';
 import { TTypography } from '@/components/atoms/Typography';
 
 export type TFieldset = {
-  label?: string;
-  alignLabel?: TTextAlignLC;
+  legend?: string;
+  alignLegend?: TTextAlignLC;
   typographySettings?: TTypography;
   disabled?: boolean;
 };

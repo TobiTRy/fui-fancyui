@@ -9,11 +9,11 @@ import { TTitleForComponent } from './TTitleForComponent.model';
 // ------ This Component Wrapps only the component and adds a Wrapper -------- //
 // --------------------------------------------------------------------------- //
 export default function TitleForComponent(props: TTitleForComponent) {
-  const { children, title, titleAlign, gap = 'xs' } = props;
+  const { children, title, align, gap = 'xs' } = props;
 
   return (
     <Wrapper $spacing={gap}>
-      {title && <TitleWrapper $align={titleAlign}>{getCorrectTitle(title)}</TitleWrapper>}
+      {title && <TitleWrapper $align={align}>{getCorrectTitle(title)}</TitleWrapper>}
       {children}
     </Wrapper>
   );

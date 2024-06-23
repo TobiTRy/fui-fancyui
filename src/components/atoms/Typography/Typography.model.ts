@@ -13,6 +13,7 @@ export type TTypography = {
   externalStyle?: CSSProp;
   htmlFor?: string;
   themeType?: TUiColorsNotTransparent;
+  textAlign?: 'left' | 'center' | 'right';
   layer?: TLayer;
 } & Omit<React.HTMLAttributes<HTMLElement>, 'style'> &
   Omit<TgenerateFontVariants, 'themeFonts'>;

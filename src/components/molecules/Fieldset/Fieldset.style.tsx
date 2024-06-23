@@ -11,6 +11,6 @@ export const StyledFieldset = styled.fieldset<{ $disabled?: boolean }>`
   ${({ $disabled }) => $disabled && disabledStyle}
 `;
 
-export const StyledLegend = styled.legend<{ alignLabel?: TTextAlignLC; theme: TTheme }>`
-  margin: 0 ${({ alignLabel }) => (alignLabel === 'center' ? 'auto' : '0')} ${({ theme }) => theme.spacing.xxs};
+export const StyledLegend = styled.legend<{ $alignLegend?: TTextAlignLC; theme: TTheme }>`
+  margin: 0 ${({ $alignLegend }) => ($alignLegend === 'center' ? 'auto' : '0')} ${({ theme }) => theme.spacing.xxs};
 `;

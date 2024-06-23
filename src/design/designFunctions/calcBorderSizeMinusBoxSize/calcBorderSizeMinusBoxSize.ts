@@ -17,9 +17,15 @@ export default function calcBorderSizeMinusBoxSize(padding?: TThemeArrayOrValueC
     return cssValues.join(' ');
   }
 
-  // if padding is a single value
-  const cssValue = getThemeOrValueAsCSS(padding, 'spacing');
-  return calcBorderMinusBox(parseInt(cssValue), borderSize);
+  if (typeof padding === 'object') {
+    const { t = 0, r = 0, b = 0, l = 0 } = padding;
+    const cssValues = [t, r, b, l].map((value) => {
+      const cssValue = getThemeOrValueAsCSS(value, 'spacing');
+      return calcBorderMinusBox(parseInt(cssValue), borderSize);
+    });
+
+    return cssValues.join(' ');
+  }
 }
 
 const calcBorderMinusBox = (padding: number, borderSize: number) => {

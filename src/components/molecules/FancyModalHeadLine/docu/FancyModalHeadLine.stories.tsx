@@ -22,22 +22,38 @@ const meta = {
       },
     },
     title: {
-      description: 'The main title text to be displayed. If not provided, no title will be shown.',
+      description:
+        'The main title text to be displayed. If not provided, no title will be shown. It Supports React nodes, we recomend to use the Typography as prop.',
       control: {
         type: 'text',
       },
     },
     subTitle: {
-      description: 'The subtitle text to be displayed beneath the title. If not provided, no subtitle will be shown.',
+      description:
+        'The subtitle text to be displayed beneath the title. If not provided, no subtitle will be shown. It Supports React nodes, we recomend to use the Typography as prop',
       control: {
         type: 'text',
       },
     },
     hr: {
       description:
-        'Determines whether a decorative horizontal rule (`<hr>`) should be displayed beneath the title and subtitle. Defaults to `true`.',
+        'Determines whether a decorative horizontal rule (`<hr>`) should be displayed beneath the title and subtitle. FancyLine Props can be passed here.',
       control: {
-        type: 'boolean',
+        type: 'object',
+      },
+    },
+    onXButtonClick: {
+      description:
+        'Callback function that is triggered when the X button is clicked. If not provided, the X button will not be displayed.',
+      control: {
+        type: 'function',
+      },
+    },
+    gapBetweenText: {
+      description:
+        'The amount of space between the title and subtitle. This can be set to any of the predefined spacings in the theme. Defaults to `xxs`.',
+      control: {
+        type: 'select',
       },
     },
   },
@@ -53,6 +69,6 @@ export const Primary: Story = {
     alignCenter: true,
     title: 'Title',
     subTitle: 'SubTitle',
-    hr: true,
+    hr: {},
   },
 };

@@ -19,14 +19,12 @@ export default function FancyColorDisplay(props: TFancyColorDisplay) {
 
   // Function to copy the color to the clipboard
   const copyValue = () => {
-    copyToClipBoard(colorValue.toString())
-      .then(() => {
-        setCopyd(true);
-        setTimeout(() => setCopyd(false), 1000);
-      })
-      .catch((err) => {
-        console.error('Failed to copy: ', err);
-      });
+    setCopyd(true);
+    copyToClipBoard(colorValue.toString());
+
+    setTimeout(() => {
+      setCopyd(false);
+    }, 500);
   };
 
   return (

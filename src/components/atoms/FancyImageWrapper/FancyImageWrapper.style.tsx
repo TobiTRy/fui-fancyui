@@ -7,8 +7,7 @@ import { TStyledPrefixAndPicker } from '@/types/TStyledPrefixAndPicker';
 import { globalSizes } from '@/design/theme/globalSizes';
 import { TComponentSizesExtended } from '@/types/TComponentSizes';
 import { createCssFilterString } from '@/design/designFunctions/createCssFilterString';
-import { checkThemeValue } from '@/design/designFunctions/checkThemeValue';
-import { TBorderRadiusSizes } from '@/types/TBorderRadiusSizes';
+import { arrayToCssValues } from '@/design/designFunctions/arrayToCssValues';
 
 type TStyledImage = TStyledPrefixAndPicker<
   TFancyImageWrapper,
@@ -47,13 +46,13 @@ export const ImageWrapper = styled.div<TStyledImage & { theme: TTheme }>`
   filter: ${({ $filter }) => $filter && createCssFilterString($filter)};
   aspect-ratio: ${({ $aspectRatio }) => ($aspectRatio ? `${$aspectRatio};` : '')};
   line-height: 0;
+  position: relative; // is needed for NextImage to work properly with fill
 
   img {
     width: 100%;
     height: 100%;
     object-fit: ${({ $objectFit }) => ($objectFit ? $objectFit : 'cover')};
-    border-radius: ${({ $borderRadius, theme }) =>
-      checkThemeValue($borderRadius) ? theme.borderRadius[$borderRadius as TBorderRadiusSizes] : $borderRadius};
+    border-radius: ${({ $borderRadius }) => arrayToCssValues($borderRadius, 'borderRadius')};
   }
 
   ${({ $externalStyle }) => $externalStyle};

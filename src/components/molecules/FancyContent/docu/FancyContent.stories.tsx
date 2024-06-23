@@ -106,3 +106,15 @@ export const WithAllProps: Story = {
     directionTextGroup: 'column',
   },
 };
+
+export const WithImage: Story = {
+  render: (args) => (
+    <FancyContent {...args} align="center" justify="center">
+      <FancyContent.Image>
+        <img src="https://via.placeholder.com/150" alt="placeholder" />
+      </FancyContent.Image>
+      <FancyContent.Title>Text</FancyContent.Title>
+    </FancyContent>
+  ),
+  args: {},
+};

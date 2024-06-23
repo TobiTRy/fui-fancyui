@@ -1,0 +1,68 @@
+# useActiveBreakpoint Hook
+
+## Overview
+
+The `useActiveBreakpoint` hook simplifies responsive design in your React applications by dynamically determining the current active breakpoint based on user-defined media queries. It allows you to easily adjust layouts, styles, or content based on the screen size, making your components adaptable to different devices.
+
+## Importing the Hook
+
+Begin by importing the hook into your component file:
+
+```javascript
+import { useActiveBreakpoint } from 'fui-fancyui';
+```
+
+## Usage
+
+Here's how you utilize the hook in a functional component:
+
+```javascript
+import React from 'react';
+import { useActiveBreakpoint } from 'fui-fancyui';
+
+const MyComponent = () => {
+  // Define your breakpoints (adjust these as needed)
+  const breakpoints: Breakpoint[] = [
+    { identifier: 'xs', query: '(max-width: 575.98px)' },
+    { identifier: 'sm', query: '(min-width: 576px) and (max-width: 767.98px)' },
+    { identifier: 'md', query: '(min-width: 768px) and (max-width: 991.98px)' },
+    { identifier: 'lg', query: '(min-width: 992px) and (max-width: 1199.98px)' },
+    { identifier: 'xl', query: '(min-width: 1200px)' }
+  ];
+
+  const activeBreakpoint = useActiveBreakpoint(breakpoints);
+
+  return (
+    <div>
+      Current breakpoint: {activeBreakpoint || 'None'}
+    </div>
+  );
+};
+
+export default MyComponent;
+```
+
+**Explanation:**
+
+1. **Define Breakpoints:** Create an array of `Breakpoint` objects, each specifying an identifier (e.g., 'sm', 'md') and a corresponding media query string.
+2. **Call the Hook:** Pass your `breakpoints` array to the `useActiveBreakpoint` hook.
+3. **Access Active Breakpoint:** The hook returns the identifier of the active breakpoint (e.g., 'md') or `null` if no breakpoint matches.
+
+## Hook Definition
+
+- **Purpose:** To determine the currently active breakpoint from the provided user-defined breakpoints.
+- **Arguments:**
+  - `breakpoints` (required): An array of `Breakpoint` objects, where each object has an `identifier` (string) and a `query` (string).
+- **Return Value:**
+  - The identifier (string) of the active breakpoint if a match is found.
+  - `null` if none of the provided breakpoints match the current screen size.
+
+**How It Works:**
+
+- The hook uses `useState` to store the active breakpoint and `useEffect` to monitor window resize events.
+- On resize, it evaluates the media queries you provided and updates the state with the matching breakpoint identifier.
+
+## Important Considerations
+
+- **Breakpoint Definition:** Carefully define your breakpoints to match your design requirements. Consider standard breakpoints (xs, sm, md, lg, xl) or create custom ones.
+- **Null Handling:** Always handle the case where `null` is returned (e.g., on initial render or when no breakpoints match).

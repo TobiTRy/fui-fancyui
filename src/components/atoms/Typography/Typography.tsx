@@ -20,6 +20,7 @@ export default function Typography(props: TTypography) {
     lineHeight,
     fontWeight,
     letterSpacing,
+    textAlign,
     ...htmlProps
   } = props;
   // get the theme font sizes
@@ -33,6 +34,7 @@ export default function Typography(props: TTypography) {
 
   return (
     <ComponentElement
+      $textAlign={textAlign}
       $variant={fontVariants[variant]}
       $themeType={themeType}
       $layer={layer}

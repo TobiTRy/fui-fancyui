@@ -13,10 +13,14 @@ export type TStyledComponentProps = {
 };
 
 // Base styled component for common styles
-export type TGenerateStyle = TStyledPrefixAndPicker<TTypography, 'themeType' | 'layer' | 'externalStyle'> &
+export type TGenerateStyle = TStyledPrefixAndPicker<
+  TTypography,
+  'themeType' | 'layer' | 'externalStyle' | 'textAlign'
+> &
   TStyledComponentProps;
 const BaseStyledComponent = styled.span<TStyledComponentProps & TGenerateStyle & { theme: TTheme }>`
   color: ${({ theme, $themeType, $layer = 0 }) => $themeType && getBackgroundColor({ theme, $themeType, $layer })};
+  ${({ $textAlign }) => $textAlign && `text-align: ${$textAlign};`}
   ${({ $variant }) => $variant};
   ${({ $externalStyle }) => $externalStyle}
 `;

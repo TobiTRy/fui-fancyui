@@ -96,7 +96,7 @@ export default function CheckboxRoute() {
           </DesignArea>
         </DesignWrapper>
       </Card>
-      <FancyRadioList label="YAAAA MOOIIIN" name="hii" items={itemList} />
+      <FancyRadioList legend="YAAAA MOOIIIN" name="hii" items={itemList} />
     </>
   );
 }

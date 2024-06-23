@@ -10,7 +10,7 @@ import { TDynamicElement } from '@/types/TDynamicElement';
 // ------------ The FancyGrid Item to get the space for the item - ----------- //
 // ------------------------------------------------<--------------------------- //
 function FancyGridItem<T extends React.ElementType = 'div'>(props: TFancyGridItemProps & TDynamicElement<T>) {
-  const { gridSpace, children, breakpoints, gridColumn, gridRow, as } = props;
+  const { gridSpace, children, breakpoints, gridColumn, gridRow, as, ...htmlProps } = props;
 
   return (
     <GridItem
@@ -19,6 +19,7 @@ function FancyGridItem<T extends React.ElementType = 'div'>(props: TFancyGridIte
       $gridColumn={gridColumn}
       $gridRow={gridRow}
       $breakpoints={breakpoints}
+      {...htmlProps}
     >
       {children}
     </GridItem>
