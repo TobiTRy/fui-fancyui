@@ -4,6 +4,7 @@ import { Meta, StoryObj } from '@storybook/react';
 // Import the component to be tested
 import FancyLoadingSpinner from './FancyLoadingSpinner';
 import templateThemeType from '@/stories/templateSettingsForStorys/templatesForThemeType';
+
 // Define metadata for the story
 const meta = {
   component: FancyLoadingSpinner,
@@ -11,7 +12,7 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component: 'FancyLooadingSpinner that indicates loading and can be dynamicly adjusted in the sizeC.',
+        component: 'FancyLoadingSpinner that indicates loading and can be dynamicly adjusted in the sizeC.',
       },
     },
   },
