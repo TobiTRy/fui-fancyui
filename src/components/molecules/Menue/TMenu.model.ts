@@ -8,6 +8,7 @@ export type TMenu = {
   layer?: TLayer;
   outlined?: boolean;
   outlinedBackgroundStrength?: number;
+  outlinedRemoveBorder?: boolean;
   externalStyle?: CSSProp;
 };
 

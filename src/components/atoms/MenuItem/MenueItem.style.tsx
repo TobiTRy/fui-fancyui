@@ -23,6 +23,7 @@ export const StyledMenuItem = styled.div<IStyledMenuItem>`
   background-color: transparent;
   border: none;
   text-decoration: none;
+  width: 100%;
   color: ${({ theme, $themeType }) =>
     getTextColor({ theme, $themeType: getOpositMainThemeType($themeType), $textLayer: 1 })};
 
