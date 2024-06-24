@@ -1,5 +1,5 @@
 import { FancyMenuItem } from '@/components/templates/FancyMenuItem';
-import { MenueContainer } from './Menu.style';
+import { MenuContainer } from './Menu.style';
 import { TMenuWithHTMLAttributes } from './TMenu.model';
 import { Seperator } from '@/components/atoms/Seperator';
 
@@ -10,7 +10,7 @@ function Menu(props: TMenuWithHTMLAttributes) {
   const { children, themeType = 'primary', layer = 2, outlined, outlinedBackgroundStrength, ...htmlProps } = props;
 
   return (
-    <MenueContainer
+    <MenuContainer
       $themeType={themeType}
       $layer={layer}
       $outlined={outlined}
@@ -18,7 +18,7 @@ function Menu(props: TMenuWithHTMLAttributes) {
       {...htmlProps}
     >
       {children}
-    </MenueContainer>
+    </MenuContainer>
   );
 }
 

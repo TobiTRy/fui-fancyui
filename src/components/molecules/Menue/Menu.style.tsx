@@ -8,7 +8,7 @@ import { TTheme } from '@/types/TTheme';
 
 type StyledMenuProps = TStyledPrefixAndOmiter<TMenu> & { theme: TTheme };
 
-export const MenueContainer = styled.div<StyledMenuProps>`
+export const MenuContainer = styled.div<StyledMenuProps>`
   display: flex;
   flex-direction: column;
   padding: 8px 0;
