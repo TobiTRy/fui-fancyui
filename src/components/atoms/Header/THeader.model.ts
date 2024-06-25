@@ -1,7 +1,7 @@
-import { IGenerateThemeForCardProps } from '@/design/designFunctions/generateThemeForCard';
+import { TGenerateThemeForCardProps } from '@/design/designFunctions/generateThemeForCard';
 import { CSSProp } from 'styled-components';
 
-export type THeader = IGenerateThemeForCardProps & {
+export type THeader = TGenerateThemeForCardProps & {
   children?: React.ReactNode;
   externalStyle?: CSSProp;
 };

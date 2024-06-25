@@ -4,9 +4,9 @@ import { generateThemeForCard } from '@/design/designFunctions/generateThemeForC
 
 import { TTheme } from '@/types/TTheme';
 import { TStyledPrefixAndPicker } from '@/types/TStyledPrefixAndPicker';
-import { IGenerateThemeForCardProps } from '@/design/designFunctions/generateThemeForCard';
+import { TGenerateThemeForCardProps } from '@/design/designFunctions/generateThemeForCard';
 
-type TStyledHeader = TStyledPrefixAndPicker<IGenerateThemeForCardProps> & { theme: TTheme; $externalStyle?: CSSProp };
+type TStyledHeader = TStyledPrefixAndPicker<TGenerateThemeForCardProps> & { theme: TTheme; $externalStyle?: CSSProp };
 export const StyledHeader = styled.header<TStyledHeader>`
   box-sizing: border-box;
   display: flex;

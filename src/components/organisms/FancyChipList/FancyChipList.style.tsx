@@ -4,9 +4,9 @@ import { TStyledPrefixAndPicker } from '@/types/TStyledPrefixAndPicker';
 import { getTextColor } from '@/design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponent';
 
 import { TTheme } from '@/types/TTheme';
-import { IGenerateThemeForCardProps } from '@/design/designFunctions/generateThemeForCard';
+import { TGenerateThemeForCardProps } from '@/design/designFunctions/generateThemeForCard';
 
-type IChipContainer = TStyledPrefixAndPicker<IGenerateThemeForCardProps> & { theme: TTheme };
+type IChipContainer = TStyledPrefixAndPicker<TGenerateThemeForCardProps> & { theme: TTheme };
 export const InputLi = styled.li<IChipContainer>`
   display: flex;
   flex: 1 0 auto;
