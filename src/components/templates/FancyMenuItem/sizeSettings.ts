@@ -9,12 +9,12 @@ type TSizeObj = {
 
 export const sizeSettings: TSizeSettings<TSizeObj> = {
   sm: {
-    fontSizeTitle: 'bodytextSm',
+    fontSizeTitle: 'interactiveSm',
     iconSize: 'xxs',
   },
   md: {
-    fontSizeTitle: 'bodytextMd',
-    iconSize: 'xxs',
+    fontSizeTitle: 'interactiveMd',
+    iconSize: 'xs',
   },
   lg: {
     fontSizeTitle: 'bodytextLg',

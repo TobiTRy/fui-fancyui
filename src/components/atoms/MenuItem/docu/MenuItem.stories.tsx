@@ -36,6 +36,24 @@ const meta = {
         defaultValue: { summary: 'center' },
       },
     },
+    externalStyle: {
+      description: 'Add some external styles',
+      control: { type: 'object' },
+    },
+    outlined: {
+      description: 'Add an outline',
+      control: { type: 'boolean' },
+      table: {
+        defaultValue: { summary: false },
+      },
+    },
+    outlinedBackgroundStrength: {
+      description: 'The strength of the outline',
+      control: { type: 'number' },
+      table: {
+        defaultValue: { summary: 1 },
+      },
+    },
     as: {
       description: 'The HTML tag to use',
       control: { type: 'select' },

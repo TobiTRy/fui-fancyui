@@ -37,7 +37,7 @@ export default function SpeedDailRoute() {
     <Card>
       <DesignWrapper>
         <DesignArea title="SpeedDail" style={style}>
-          <FancySpeedDialButton items={items} />
+          <FancySpeedDialButton themeType="primary" items={items} />
         </DesignArea>
       </DesignWrapper>
     </Card>

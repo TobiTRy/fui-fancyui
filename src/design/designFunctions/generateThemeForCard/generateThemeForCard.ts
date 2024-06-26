@@ -3,7 +3,7 @@ import { css } from 'styled-components';
 import { TStyledPrefixAndPicker } from '../../../types/TStyledPrefixAndPicker';
 import { getBackgroundColor } from '../colorCalculatorForComponent/colorCalculatorForComponent';
 import colorTransparencyCalculator from '../colorTransparencyCalculator/colorTransparencyCalculator';
-import { IGenerateThemeForCardProps } from './IGenerateThemeForCardProps';
+import { TGenerateThemeForCardProps } from './TGenerateThemeForCardProps';
 import { themeStore } from '@/design/theme/themeStore';
 
 const generateOutlineStyle = (props: TGenerateColorDesign) => {
@@ -31,7 +31,7 @@ const generateOutlineStyle = (props: TGenerateColorDesign) => {
 // --------------------------------------------------------------------------- //
 // -----------  The Main generator function to create a the square  ---------- //
 // --------------------------------------------------------------------------- //
-type TGenerateColorDesign = TStyledPrefixAndPicker<IGenerateThemeForCardProps> & {
+type TGenerateColorDesign = TStyledPrefixAndPicker<TGenerateThemeForCardProps> & {
   theme: TTheme;
 };
 export default function generateThemeForCard(props: TGenerateColorDesign) {

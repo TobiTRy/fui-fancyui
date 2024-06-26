@@ -8,10 +8,10 @@ import { TTheme } from '@/types/TTheme';
 
 type StyledMenuProps = TStyledPrefixAndOmiter<TMenu> & { theme: TTheme };
 
-export const MenueContainer = styled.div<StyledMenuProps>`
+export const MenuContainer = styled.div<StyledMenuProps>`
   display: flex;
   flex-direction: column;
-  padding: 8px 0;
+  padding: ${({ theme }) => `${theme.spacing.sm} 0`};
   ${({ theme, $themeType, $layer, $outlined, $outlinedBackgroundStrength }) =>
     generateThemeForCard({
       theme,
@@ -19,6 +19,7 @@ export const MenueContainer = styled.div<StyledMenuProps>`
       $layer: $layer ?? 2,
       $outlined,
       $outlinedBackgroundStrength: $outlinedBackgroundStrength ?? 1,
+      $outlinedRemoveBorder: true,
     })}
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
   border-radius: ${({ theme }) => theme.borderRadius.md};

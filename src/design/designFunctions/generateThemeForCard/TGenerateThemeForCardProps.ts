@@ -1,7 +1,7 @@
 import { TLayer } from '@/types/TLayer';
 import { TUiColorTypes } from '@/types/TUiColorTypes';
 
-export interface IGenerateThemeForCardProps {
+export interface TGenerateThemeForCardProps {
   outlined?: boolean;
   layer?: TLayer;
   themeType?: TUiColorTypes;
@@ -9,4 +9,4 @@ export interface IGenerateThemeForCardProps {
   outlinedRemoveBorder?: boolean;
 }
 
-export default IGenerateThemeForCardProps;
+export default TGenerateThemeForCardProps;

@@ -16,7 +16,7 @@ export default function ActionItem(props: TActionItemWithHTMLProps) {
     icon,
     layer = 0,
     size = 'md',
-    isActive = true,
+    isActive = false,
     isClickable = true,
     labelAlign = 'left',
     themeType = 'primary',
