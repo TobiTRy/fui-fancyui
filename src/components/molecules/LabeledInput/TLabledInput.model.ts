@@ -1,5 +1,3 @@
-import { ReactElement } from 'react';
-
 import { TLayer } from '@/types/TLayer';
 import { TTextAlignLC } from '@/types/TTextAlignLC';
 import { TUiColorsMain } from '@/types/TUiColorsMain';
@@ -9,7 +7,7 @@ export type TLabeledInput = {
   id?: string;
   label?: string;
   hasPlaceholder?: boolean;
-  inputElement?: ReactElement<HTMLInputElement>;
+  inputElement?: React.ReactNode;
   systemMessageType?: TUiColorsSystemMessage;
   hasValue?: boolean;
   themeType?: Exclude<TUiColorsMain, 'accent'>;

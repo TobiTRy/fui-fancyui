@@ -22,7 +22,8 @@ export const InputWrapper = styled.div<TInputWrapper & { theme: TTheme }>`
   box-sizing: border-box; /* Added to include padding in the width */
 
   input:not([type='range']),
-  select {
+  select,
+  textarea {
     ${({ $isActive, $isLabelProvided }) => calcInputPadding({ $isActive, $isLabelProvided })}
   }
 
