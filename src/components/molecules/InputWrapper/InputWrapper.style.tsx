@@ -4,14 +4,14 @@ import { TTheme } from '@/types/TTheme';
 import { FancyBox } from '@/components/atoms/FancyBox';
 import { disabledStyle } from '@/design/designFunctions/disabledStyle';
 
-const PositionWithLabel = css<{ theme: TTheme }>`
-  padding: ${({ theme }) => `${theme.spacing.xxs} ${theme.spacing.sm} ${theme.spacing.xs}`};
-  height: ${({ theme }) => theme.globalElementSizes.lg};
+const PositionWithLabel = (theme: TTheme, $isTextArea: boolean) => css`
+  padding: ${theme.spacing.xxs} ${theme.spacing.sm} ${theme.spacing.xs};
+  height: ${!$isTextArea ? theme.globalElementSizes.lg : ''};
 `;
 
-const PositionWithoutLabel = css<{ theme: TTheme }>`
-  padding: ${({ theme }) => `2px ${theme.spacing.sm} ${theme.spacing.xxs}`};
-  height: ${({ theme }) => theme.globalElementSizes.sm};
+const PositionWithoutLabel = (theme: TTheme, $isTextArea: boolean) => css`
+  padding: ${`2px ${theme.spacing.sm} ${theme.spacing.xxs}`};
+  height: ${!$isTextArea ? theme.globalElementSizes.sm : ''};
 `;
 
 type TExtendedFancyBox = {
@@ -28,7 +28,7 @@ export const ExtendedFancyBox = styled(FancyBox)<TExtendedFancyBox>`
   border-radius: 12px;
   position: relative;
   align-items: center;
-  ${({ $hasLabel }) => ($hasLabel ? PositionWithLabel : PositionWithoutLabel)};
+  ${({ $hasLabel, theme }) => ($hasLabel ? PositionWithLabel(theme, true) : PositionWithoutLabel(theme, true))};
 
   width: ${({ $autoWidth }) => ($autoWidth ? 'auto' : '100%')};
   ${({ $boxShadow, $isActive, theme }) =>

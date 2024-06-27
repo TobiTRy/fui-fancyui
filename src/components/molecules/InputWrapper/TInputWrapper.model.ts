@@ -9,6 +9,7 @@ import { TFancyBox } from '@/components/atoms/FancyBox/FancyBox.model';
 export type TInputWrapper = {
   id?: string;
   isActive?: boolean;
+  isTextArea?: boolean;
   label?: string;
   disabled?: boolean;
   InputElement?: ReactElement<HTMLInputElement>;
