@@ -78,7 +78,7 @@ export default function InputsRoute() {
 
   return (
     <>
-      <FancyTextArea label="MMoooiiin" value={textArea} onChange={handleTextArea} />
+      <FancyTextArea label="MMoooiiin" rows={2} value={textArea} onChange={handleTextArea} />
       <FancyTextArea icon={svg} />
       <Card>
         <DesignWrapper>
@@ -138,7 +138,7 @@ export default function InputsRoute() {
             <FancyPasswordInput icon={svg} align={'center'} value={password} onChange={testHandler5} />
           </DesignArea>
           <DesignArea title="Text Input">
-            <FancyTextInput label="Text" underline={false} value={text} onChange={testHandler} />
+            <FancyTextInput label="Text" underline={true} value={text} onChange={testHandler} />
             <FancyTextInput
               icon={svg}
               label="Text"
