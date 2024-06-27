@@ -5,7 +5,7 @@ import { FancyBox } from '@/components/atoms/FancyBox';
 import { disabledStyle } from '@/design/designFunctions/disabledStyle';
 
 const PositionWithLabel = (theme: TTheme, $isTextArea: boolean) => css`
-  padding: ${theme.spacing.xxs} ${theme.spacing.sm} ${theme.spacing.xs};
+  padding: ${theme.spacing.xxs} ${theme.spacing.sm} ${theme.spacing.xxs};
   height: ${!$isTextArea ? theme.globalElementSizes.lg : ''};
 `;
 
@@ -45,7 +45,7 @@ export const ExtendedFancyBox = styled(FancyBox)<TExtendedFancyBox>`
 // eslint-disable-next-line react-refresh/only-export-components
 export const generateIconStyle = (hasLabel: boolean) => css<{ theme: TTheme }>`
   flex-shrink: 0;
-  margin-top: ${hasLabel ? '10px' : '3px'};
+  margin-top: ${hasLabel ? '10px' : '5px'};
   transition: 0.25s;
   align-self: self-start;
 `;
