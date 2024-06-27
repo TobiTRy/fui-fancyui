@@ -19,7 +19,12 @@ const RawTextArea = styled.textarea<TRawTextAreaWith$ & { theme: TTheme }>`
   border: none;
   box-sizing: border-box;
   appearance: none;
+  outline: none;
+  width: 100%;
+  font-family: inherit;
+  font-size: ${({ theme }) => theme.fontSizes.interactiveMd.fontSize};
   background-color: transparent;
+  resize: vertical;
   color: ${({ theme, $themeType = 'secondary', $layer }) => getBackgroundColor({ theme, $themeType, $layer })};
 `;
 
