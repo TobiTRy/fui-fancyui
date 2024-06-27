@@ -1,10 +1,11 @@
-import RawTextArea, { TRawTextAreaWithHTMLAttrs } from '@/components/atoms/RawTextArea/RawTextArea';
-import { InputWrapper, TInputWrapperUserInputProps } from '@/components/molecules/InputWrapper';
-
 import { forwardRef, useId, useState } from 'react';
+import RawTextArea from '@/components/atoms/RawTextArea/RawTextArea';
+import { InputWrapper } from '@/components/molecules/InputWrapper';
+import { TFancyTextArea } from '@/components/organisms/FancyTextArea/FancyTextArea.model';
 
-type TFancyTextArea = Omit<TInputWrapperUserInputProps, 'InputElement'> & TRawTextAreaWithHTMLAttrs;
-
+// --------------------------------------------------------------------------- //
+// ---------- A FancyTextArea with a Background underline and Icon  ---------- //
+// --------------------------------------------------------------------------- //
 const FancyTextArea = forwardRef<HTMLTextAreaElement, TFancyTextArea>((props, ref) => {
   const {
     id,
@@ -36,11 +37,6 @@ const FancyTextArea = forwardRef<HTMLTextAreaElement, TFancyTextArea>((props, re
   const usedId = id ? id : useid;
 
   return (
-    // <LabeledInput
-    //   label='Moooiin'
-    //   inputElement={<RawTextArea/>}
-    // />
-
     <InputWrapper
       id={usedId}
       isTextArea
