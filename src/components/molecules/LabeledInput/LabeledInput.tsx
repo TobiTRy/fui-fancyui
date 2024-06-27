@@ -14,6 +14,7 @@ export default function LabeledInput(props: TLabeledInput) {
     label,
     hasValue,
     hasPlaceholder,
+    isTextArea,
     themeType = 'primary',
     layer = 3,
     underline,
@@ -23,7 +24,7 @@ export default function LabeledInput(props: TLabeledInput) {
   } = props;
 
   return (
-    <Wrapper>
+    <Wrapper $hasLabel={!!label} $isTextArea={isTextArea}>
       {/* The Labled thats animated and adjusts the padding with the type of the Input */}
       {label && (
         <InputLabel
@@ -52,7 +53,7 @@ export default function LabeledInput(props: TLabeledInput) {
           thickness="2px"
           layer={layer ? clampLayer(layer + 2) : 3}
           isActive={isActive}
-          externalStyle={{ position: 'absolute', bottom: '-2px', left: 0, width: '100%' }}
+          externalStyle={{ position: 'absolute', bottom: 0, left: 0, width: '100%' }}
         />
       )}
     </Wrapper>

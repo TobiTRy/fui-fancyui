@@ -3,10 +3,24 @@ import { styled } from 'styled-components';
 import { calcInputPadding } from '@/components/molecules/LabeledInput/utils/calcInputPadding';
 import { getTextColor } from '@/design/designFunctions/colorCalculatorForComponent';
 import { TTheme } from '@/types/TTheme';
+import { globalElementsizes } from '@/design/theme/globalSizes';
 
-export const Wrapper = styled.div`
+const handleHeight = ({ $hasLabel = false, $isTextArea = false }) => {
+  if (!$isTextArea) {
+    if ($hasLabel) {
+      return globalElementsizes.md;
+    } else {
+      return globalElementsizes.sm;
+    }
+  }
+  return '';
+};
+export const Wrapper = styled.div<{ $hasLabel?: boolean; $isTextArea?: boolean }>`
   position: relative;
   width: 100%;
+  display: flex;
+  align-items: center;
+  height: ${({ $hasLabel, $isTextArea }) => handleHeight({ $hasLabel, $isTextArea })};
 `;
 
 type TInputWrapper = {
@@ -18,6 +32,7 @@ export const InputWrapper = styled.div<TInputWrapper & { theme: TTheme }>`
   color: ${({ theme }) => getTextColor({ theme, $themeType: 'secondary', $textLayer: 4 })};
   border-radius: 3px;
   outline: none;
+  width: 100%;
   background-color: transparent;
   box-sizing: border-box; /* Added to include padding in the width */
 

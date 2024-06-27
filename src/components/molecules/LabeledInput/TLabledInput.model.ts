@@ -12,6 +12,7 @@ export type TLabeledInput = {
   hasValue?: boolean;
   themeType?: Exclude<TUiColorsMain, 'accent'>;
   layer?: TLayer;
+  isTextArea?: boolean;
   underline?: boolean;
   isActive?: boolean;
   align?: TTextAlignLC;
