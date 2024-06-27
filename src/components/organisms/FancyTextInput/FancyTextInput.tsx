@@ -7,7 +7,7 @@ import { TFancyTextInput } from '@/components/organisms/FancyTextInput/TFancyTex
 // --------------------------------------------------------------------------- //
 // ----The TextInput Comonent with surrounding icon, label and underline ----- //
 // --------------------------------------------------------------------------- //
-const FancyTextInpUtWithForWardRef = forwardRef<HTMLInputElement, TFancyTextInput>((props, ref) => {
+const FancyTextInput = forwardRef<HTMLInputElement, TFancyTextInput>((props, ref) => {
   const {
     id,
     value,
@@ -81,4 +81,4 @@ const FancyTextInpUtWithForWardRef = forwardRef<HTMLInputElement, TFancyTextInpu
   );
 });
 
-export default FancyTextInpUtWithForWardRef;
+export default FancyTextInput;
