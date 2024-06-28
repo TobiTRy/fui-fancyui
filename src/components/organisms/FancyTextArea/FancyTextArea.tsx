@@ -1,13 +1,12 @@
 import { forwardRef, useId, useState } from 'react';
-
-import { TextInput } from '@/components/atoms/TextInput';
+import RawTextArea from '@/components/atoms/RawTextArea/RawTextArea';
 import { InputWrapper } from '@/components/molecules/InputWrapper';
-import { TFancyTextInput } from '@/components/organisms/FancyTextInput/TFancyTextInput.model';
+import { TFancyTextArea } from '@/components/organisms/FancyTextArea/FancyTextArea.model';
 
 // --------------------------------------------------------------------------- //
-// ----The TextInput Comonent with surrounding icon, label and underline ----- //
+// ---------- A FancyTextArea with a Background underline and Icon  ---------- //
 // --------------------------------------------------------------------------- //
-const FancyTextInput = forwardRef<HTMLInputElement, TFancyTextInput>((props, ref) => {
+const FancyTextArea = forwardRef<HTMLTextAreaElement, TFancyTextArea>((props, ref) => {
   const {
     id,
     value,
@@ -20,7 +19,6 @@ const FancyTextInput = forwardRef<HTMLInputElement, TFancyTextInput>((props, ref
     icon,
     label,
     onFocus,
-    type = 'text',
     underline,
     onBlur,
     outlined,
@@ -41,6 +39,7 @@ const FancyTextInput = forwardRef<HTMLInputElement, TFancyTextInput>((props, ref
   return (
     <InputWrapper
       id={usedId}
+      isTextArea
       hasValue={!!value}
       label={label}
       disabled={disabled}
@@ -58,12 +57,10 @@ const FancyTextInput = forwardRef<HTMLInputElement, TFancyTextInput>((props, ref
       outlinedBackgroundStrength={outlinedBackgroundStrength}
       outlinedRemoveBorder={outlinedRemoveBorder}
       InputElement={
-        <TextInput
+        <RawTextArea
           ref={ref}
           id={usedId}
           value={value}
-          align={align}
-          type={type}
           disabled={disabled}
           onFocus={(e) => {
             onFocus && onFocus(e);
@@ -81,4 +78,4 @@ const FancyTextInput = forwardRef<HTMLInputElement, TFancyTextInput>((props, ref
   );
 });
 
-export default FancyTextInput;
+export default FancyTextArea;

@@ -12,6 +12,7 @@ import { Card } from '@/components/molecules/Card';
 import LabeledInput from '@/components/molecules/LabeledInput/LabeledInput';
 import { TextInput } from '@/components/atoms/TextInput';
 import FancyRange from '@/components/organisms/FancyRangeSlider/FancyRangeSlider';
+import FancyTextArea from '@/components/organisms/FancyTextArea/FancyTextArea';
 
 const svg = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -28,6 +29,11 @@ export default function InputsRoute() {
   const [dropDown2, setDropDown2] = useState<string>('test');
   const [password, setPassword] = useState<string>('');
   const [newInput, setNewInput] = useState<string>('');
+  const [textArea, setTextArea] = useState<string>('');
+
+  const handleTextArea = (value: ChangeEvent<HTMLTextAreaElement>) => {
+    setTextArea(value.target.value);
+  };
 
   const newInputHandler = (value: ChangeEvent<HTMLInputElement>) => {
     setNewInput(value.target.value);
@@ -71,134 +77,142 @@ export default function InputsRoute() {
   `;
 
   return (
-    <Card>
-      <DesignWrapper>
-        <FancyRange
-          id="hi"
-          layer={2}
-          label="HIii"
-          min={10}
-          max={100}
-          onChange={testHandler4}
-          displayNumberInput
-          align="left"
-        />
-        <DesignArea title="Password Input">
-          <LabeledInput
-            label="Password"
-            inputElement={<TextInput id="Hi" onChange={newInputHandler} value={newInput} />}
-          />
-        </DesignArea>
-
-        <DesignArea title="Password Input">
-          <FancyNumberInput
-            decimalPlaces={4}
-            layer={1}
-            step={0.001}
-            label="Text"
-            onChange={testHandler2}
-            value={test}
-            systemMessage={'error'}
-          />
-          <FancyNumberInput
-            decimalPlaces={4}
-            step={0.001}
-            label="Text"
-            onChange={testHandler2}
-            value={test}
-            placeholder="test45454554"
-            systemMessage={'success'}
-          />
-          <FancyNumberInput
-            decimalPlaces={4}
-            step={0.001}
-            label="Text"
-            onChange={testHandler2}
-            value={test}
-            placeholder="test45454554"
-            systemMessage={'info'}
-          />
-        </DesignArea>
-        <DesignArea title="Password Input111">
-          <FancyPasswordInput icon={svg} align={'center'} value={password} onChange={testHandler5} />
-        </DesignArea>
-        <DesignArea title="Password Input111">
-          <FancyPasswordInput icon={svg} align={'center'} value={password} onChange={testHandler5} />
-        </DesignArea>
-        <DesignArea title="Text Input">
-          <FancyTextInput label="Text" underline={false} value={text} onChange={testHandler} />
-          <FancyTextInput
-            icon={svg}
-            label="Text"
-            value={text}
-            onChange={testHandler}
-            align="center"
-            placeholder="test45454554"
-          />
-          <FancyTextInput placeholder="Hiiii" systemMessage={'success'} value={text} onChange={testHandler} />
-        </DesignArea>
-        <DesignArea title="Number Input">
-          <FancyNumberInput
-            icon={svg}
-            underline={false}
-            label="Text"
-            onChange={testHandler2}
-            value={test}
-            step={0.1}
-            min={0}
+    <>
+      <FancyTextArea label="MMoooiiin" rows={2} value={textArea} onChange={handleTextArea} />
+      <FancyTextArea icon={svg} />
+      <Card>
+        <DesignWrapper>
+          <FancyRange
+            id="hi"
+            layer={2}
+            label="HIii"
+            min={10}
             max={100}
+            onChange={testHandler4}
+            displayNumberInput
+            align="left"
           />
-          <FancyNumberInput
-            icon={svg}
-            label="Text"
-            onChange={testHandler2}
-            value={test}
-            align="center"
-            disabled={true}
-            placeholder="Hiii"
-          />
-        </DesignArea>
-        <DesignArea title="Number Input AutoWidth" style={row}>
-          <FancyNumberInput label="Test" min={10} max={100} onChange={testHandler2} value={test} autoWidth={true} />
-          <FancyNumberInput
-            icon={svg}
-            label="Test"
-            onChange={testHandler2}
-            align="center"
-            value={test}
-            autoWidth={true}
-          />
-        </DesignArea>
-        <DesignArea title="DropDown Input">
-          <FancyDropDownSelect
-            label="DropDown"
-            onChange={testHandler3}
-            value={dropDown}
-            values={['Test', 'Test2', 'Test3', 'Test3', 'Test3', 'Test3']}
-          />
-          <FancyDropDownSelect icon={svg} label="DropDown" value={dropDown2} onChange={testHandler33} align="center">
-            <option value="test">Test</option>
-            <option value="test2">Test2</option>
-            <option value="test3">Test3</option>
-            <option value="test4">Test4</option>
-            <optgroup label="test">
-              <option value="test5">Test5</option>
-              <option value="test6">Test6</option>
-              <option value="test7">Test7</option>
-              <option value="test8">Test8</option>
-            </optgroup>
-          </FancyDropDownSelect>
-        </DesignArea>
-        <DesignArea title="Date Input">
-          <FancyDateInput value={date} label="Date" onChange={dateHandler} />
-          <FancyDateInput value={date} icon={svg} label="Date" onChange={dateHandler} />
-        </DesignArea>
-        <DesignArea title="DateDropDown Input">
-          <FancyDateDropDown type="day" label="Day" onChange={testHandler3} />
-          <FancyDateDropDown type="month" label="Month" onChange={testHandler3} />
-          <FancyDateDropDown type="year" label="Year" onChange={testHandler3} />
-        </DesignArea>
-      </DesignWrapper>
-    </Card>
+          <DesignArea title="TextArea">
+            <FancyTextArea />
+          </DesignArea>
+          <DesignArea title="Password Input">
+            <LabeledInput
+              label="Password"
+              inputElement={<TextInput id="Hi" onChange={newInputHandler} value={newInput} />}
+            />
+            <FancyPasswordInput label="Password" onChange={testHandler5} value={password} icon={svg} />
+          </DesignArea>
+
+          <DesignArea title="Password Input">
+            <FancyNumberInput
+              decimalPlaces={4}
+              layer={1}
+              step={0.001}
+              label="Text"
+              onChange={testHandler2}
+              value={test}
+              systemMessage={'error'}
+            />
+            <FancyNumberInput
+              decimalPlaces={4}
+              step={0.001}
+              label="Text"
+              onChange={testHandler2}
+              value={test}
+              placeholder="test45454554"
+              systemMessage={'success'}
+            />
+            <FancyNumberInput
+              decimalPlaces={4}
+              step={0.001}
+              label="Text"
+              onChange={testHandler2}
+              value={test}
+              placeholder="test45454554"
+              systemMessage={'info'}
+            />
+          </DesignArea>
+          <DesignArea title="Password Input111">
+            <FancyPasswordInput icon={svg} align={'center'} value={password} onChange={testHandler5} />
+          </DesignArea>
+          <DesignArea title="Password Input111">
+            <FancyPasswordInput icon={svg} align={'center'} value={password} onChange={testHandler5} />
+          </DesignArea>
+          <DesignArea title="Text Input">
+            <FancyTextInput label="Text" underline={true} value={text} onChange={testHandler} />
+            <FancyTextInput
+              icon={svg}
+              label="Text"
+              value={text}
+              onChange={testHandler}
+              align="center"
+              placeholder="test45454554"
+            />
+            <FancyTextInput placeholder="Hiiii" systemMessage={'success'} value={text} onChange={testHandler} />
+          </DesignArea>
+          <DesignArea title="Number Input">
+            <FancyNumberInput
+              icon={svg}
+              underline={false}
+              label="Text"
+              onChange={testHandler2}
+              value={test}
+              step={0.1}
+              min={0}
+              max={100}
+            />
+            <FancyNumberInput
+              icon={svg}
+              label="Text"
+              onChange={testHandler2}
+              value={test}
+              align="center"
+              disabled={true}
+              placeholder="Hiii"
+            />
+          </DesignArea>
+          <DesignArea title="Number Input AutoWidth" style={row}>
+            <FancyNumberInput label="Test" min={10} max={100} onChange={testHandler2} value={test} autoWidth={true} />
+            <FancyNumberInput
+              icon={svg}
+              label="Test"
+              onChange={testHandler2}
+              align="center"
+              value={test}
+              autoWidth={true}
+            />
+          </DesignArea>
+          <DesignArea title="DropDown Input">
+            <FancyDropDownSelect
+              label="DropDown"
+              onChange={testHandler3}
+              value={dropDown}
+              values={['Test', 'Test2', 'Test3', 'Test3', 'Test3', 'Test3']}
+            />
+            <FancyDropDownSelect icon={svg} label="DropDown" value={dropDown2} onChange={testHandler33} align="center">
+              <option value="test">Test</option>
+              <option value="test2">Test2</option>
+              <option value="test3">Test3</option>
+              <option value="test4">Test4</option>
+              <optgroup label="test">
+                <option value="test5">Test5</option>
+                <option value="test6">Test6</option>
+                <option value="test7">Test7</option>
+                <option value="test8">Test8</option>
+              </optgroup>
+            </FancyDropDownSelect>
+          </DesignArea>
+          <DesignArea title="Date Input">
+            <FancyDateInput value={date} label="Date" onChange={dateHandler} />
+            <FancyDateInput value={date} icon={svg} label="Date" onChange={dateHandler} />
+          </DesignArea>
+          <DesignArea title="DateDropDown Input">
+            <FancyDateDropDown type="day" label="Day" onChange={testHandler3} />
+            <FancyDateDropDown type="month" label="Month" onChange={testHandler3} />
+            <FancyDateDropDown type="year" label="Year" onChange={testHandler3} />
+          </DesignArea>
+        </DesignWrapper>
+      </Card>
+    </>
   );
 }

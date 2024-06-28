@@ -1,0 +1,53 @@
+import { Meta, Title, Description, Canvas, Controls } from '@storybook/blocks';
+
+import * as FancyTextAreaStories from './FancyTextArea.stories';
+
+<Meta of={FancyTextAreaStories} />
+
+<Title />
+
+<Description />
+
+## Setup Instructions
+
+To use the `FancyTextArea` component:
+
+1. **Import the Component:**
+
+   ```jsx
+   import FancyTextArea from 'fui-fancyui';
+   ```
+
+   (or wherever your component is located)
+
+2. **(Optional) Import Type Definitions (TypeScript):**
+   ```typescript
+   import { TFancyTextArea } from 'fui-fancyui';
+   ```
+
+## Example Usage
+
+```jsx
+<FancyTextArea
+  id="description-input"
+  label="Description"
+  placeholder="Enter a detailed description..."
+  value={descriptionText}
+  onChange={handleDescriptionChange}
+  themeType="secondary"
+  layer={3}
+  systemMessage={validationError ? 'error' : ''}
+  icon={<InfoIcon />}
+/>
+```
+
+<Canvas />
+
+## Component Properties
+
+<Controls />
+
+## List of Used Components
+
+- **RawTextArea:** The foundational text area component.
+- **InputWrapper:** Provides structure and styling for the text area, including labels and system messages.

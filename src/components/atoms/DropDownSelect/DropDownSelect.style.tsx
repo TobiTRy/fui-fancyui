@@ -20,7 +20,7 @@ export const SelectField = styled.select<ISelectField & { theme: TTheme }>`
   `}
 
   background-repeat: no-repeat;
-  background-position: right ${({ theme }) => theme.spacing.xxs} bottom 30%;
+  background-position: right ${({ theme }) => theme.spacing.xxs} bottom 70%;
   text-align-last: ${({ $align }) => ($align !== 'center' ? 'left' : 'center')};
   color: ${({ theme }) => theme.color.secondary[0]};
   border: none;

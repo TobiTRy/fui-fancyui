@@ -13,6 +13,7 @@ export default function InputWrapper(props: TInputWrapper) {
     id,
     hasValue,
     isActive = false,
+    isTextArea,
     disabled,
     InputElement,
     systemMessage,
@@ -66,6 +67,7 @@ export default function InputWrapper(props: TInputWrapper) {
 
       <LabeledInput
         id={id}
+        isTextArea={isTextArea}
         align={align}
         themeType={themeType}
         label={label}
