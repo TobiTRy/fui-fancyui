@@ -22,6 +22,7 @@ const RawTextArea = styled.textarea<TRawTextAreaWith$ & { theme: TTheme }>`
   outline: none;
   width: 100%;
   font-family: inherit;
+  min-height: ${({ theme }) => theme.globalElementSizes.xs};
   font-size: ${({ theme }) => theme.fontSizes.interactiveMd.fontSize};
   background-color: transparent;
   resize: vertical;

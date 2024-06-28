@@ -7,9 +7,9 @@ import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForC
 
 export const WrapperEye = styled.div<{ theme: TTheme; $themeType?: TUiColorsNotTransparent; $layer?: TLayer }>`
   position: absolute;
-  bottom: 0px;
+  bottom: 50%;
+  transform: translateY(65%);
   right: 0;
-  padding: ${({ theme }) => `${theme.spacing.xs} 0 ${theme.spacing.xxs} ${theme.spacing.xs}`};
   box-sizing: border-box;
 
   svg {

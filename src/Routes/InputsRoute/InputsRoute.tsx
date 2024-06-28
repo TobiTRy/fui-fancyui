@@ -100,6 +100,7 @@ export default function InputsRoute() {
               label="Password"
               inputElement={<TextInput id="Hi" onChange={newInputHandler} value={newInput} />}
             />
+            <FancyPasswordInput label="Password" onChange={testHandler5} value={password} icon={svg} />
           </DesignArea>
 
           <DesignArea title="Password Input">
