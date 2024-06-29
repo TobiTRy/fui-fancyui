@@ -16,6 +16,7 @@ type TFancyBoxProps = {
   padding?: TThemeArrayOrValueCSS;
   margin?: TThemeArrayOrValueCSS;
   sizeC?: TComponentSizesExtended;
+  hoverLayer?: TLayer;
 };
 
 type TOutlinedFancyBoxProps = {
