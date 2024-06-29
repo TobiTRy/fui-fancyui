@@ -81,6 +81,13 @@ const meta = {
         type: 'boolean',
       },
     },
+    appendClassNameOnStyle: {
+      description:
+        'This prop will append the class name on the style, the button is separated from the style and the button is a wrapper around the style',
+      control: {
+        type: 'boolean',
+      },
+    },
   },
 } satisfies Meta<typeof Button>;
 

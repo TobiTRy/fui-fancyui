@@ -13,6 +13,7 @@ export type TButton = {
   notAButton?: boolean;
   noSize?: boolean;
   borderRadius?: TThemeArrayOrValueCSS | false;
+  appendClassNameOnStyle?: boolean;
 } & TGenerateThemeDesignForComponentProps;
 
 type ButtonHTML = React.ButtonHTMLAttributes<HTMLButtonElement>;
