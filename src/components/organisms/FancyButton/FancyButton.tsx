@@ -25,8 +25,10 @@ export default function FancyButton(props: TFancyButtonWithHTMLAttrs) {
     oneToOne,
     gap,
     outlined,
+    noSize,
     ...buttonProps
   } = props;
+
   // handle icon alignment
   const alignIcon = iconAlign === 'left' ? 'row' : 'row-reverse';
 
@@ -37,6 +39,7 @@ export default function FancyButton(props: TFancyButtonWithHTMLAttrs) {
     $oneToOne: oneToOne ?? (Boolean(!label) && Boolean(icon)),
     $justifyContent: leftRightCenterToFlexJustify[align ?? 'center'],
     $outlined: outlined,
+    $noSize: noSize,
   });
 
   return (

@@ -14,15 +14,16 @@ interface IGenerateFancyButton {
   $iconAlign?: 'left' | 'right';
   $icon?: boolean;
   $outlined?: boolean;
+  $noSize?: boolean;
 }
 export const generateFancyButton = (props: IGenerateFancyButton) => {
-  const { $sizeC, $oneToOne, $justifyContent, $iconAlign, $icon, $outlined } = props;
+  const { $sizeC, $oneToOne, $justifyContent, $iconAlign, $icon, $outlined, $noSize = false } = props;
 
   return css`
     display: inline-flex;
     justify-content: ${$justifyContent ?? 'center'};
     ${$oneToOne && generate1To1Button($sizeC)};
-    ${!$oneToOne && generateSize($sizeC, $icon, $iconAlign, $outlined)};
+    ${!$oneToOne && !$noSize && generateSize($sizeC, $icon, $iconAlign, $outlined)};
   `;
 };
 
