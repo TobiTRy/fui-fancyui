@@ -13,6 +13,7 @@ import { FancyNumberInput } from '@/components/organisms/FancyNumberInput';
 import { FancyFlexBox } from '@/components/templates/FancyFlexBox';
 import { FancyTabSwitch } from '@/components/organisms/FancyTabSwitch';
 import DynamicComponentWrapper from '@/components/atoms/DynamicComponentWrapper/DynamicComponentWrapper';
+import { FancyBox } from '@/components/atoms/FancyBox';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -86,6 +87,10 @@ export default function ExperimentalRoute() {
         </DynamicComponentWrapper>
 
         <FancyTabSwitch wide label="test" layer={1} values={defaultProps} />
+
+        <FancyBox hoverLayer={4}>
+          <p>Test</p>
+        </FancyBox>
       </DesignWrapper>
     </>
   );
