@@ -3,7 +3,7 @@ import { styled, css } from 'styled-components';
 import { spacingPx } from '@/design/theme/designSizes';
 import { TActiveSwitchIndicator } from './TSwitchActiveindicator.model';
 import { generateBlob } from './utils/generateBlob';
-import { generateTopline, generateUnderline } from './utils/generateLines';
+import { generateLeftLine, generateRightLine, generateTopline, generateUnderline } from './utils/generateLines';
 import { TTheme } from '@/types/TTheme';
 import { TStyledPrefixAndPicker } from '@/types/TStyledPrefixAndPicker';
 
@@ -42,7 +42,7 @@ const clacCurrentPosition = (props: IClacCurrentPosition) => {
 // --------------------------------------------------------------------------- //
 type ActiveSwitchIndicatorGenerator = TStyledPrefixAndPicker<
   TActiveSwitchIndicator,
-  'layer' | 'borderRadius' | 'outlined' | 'themeType' | 'type' | 'indicatorWidth'
+  'layer' | 'borderRadius' | 'outlined' | 'themeType' | 'type' | 'indicatorWidth' | 'indicatorHeight'
 >;
 export const ActiveSwitchIndicator = styled.span<ActiveSwitchIndicatorGenerator & { theme?: TTheme }>`
   position: absolute;
@@ -55,6 +55,10 @@ export const ActiveSwitchIndicator = styled.span<ActiveSwitchIndicatorGenerator 
         return generateUnderline({ ...props });
       case 'topline':
         return generateTopline({ ...props });
+      case 'leftline':
+        return generateLeftLine({ ...props });
+      case 'rightline':
+        return generateRightLine({ ...props });
       case 'bolb':
       default:
         return generateBlob({ ...props });

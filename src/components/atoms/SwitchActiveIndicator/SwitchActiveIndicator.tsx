@@ -14,6 +14,7 @@ export default function SwitchActiveIndicator(props: TActiveSwitchIndicatorWithH
     layer,
     outlined,
     borderRadius,
+    indicatorHeight,
     type,
     externalStyle,
     ...htmlProps
@@ -29,6 +30,7 @@ export default function SwitchActiveIndicator(props: TActiveSwitchIndicatorWithH
     >
       <ActiveSwitchIndicator
         $indicatorWidth={indicatorWidth}
+        $indicatorHeight={indicatorHeight}
         $themeType={themeType}
         $layer={layer}
         $outlined={outlined}
