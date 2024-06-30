@@ -29,18 +29,44 @@ import { TSwipeUpContainer, TSwipeUpContainerWithHTMLAttrs } from 'fui-fancyui';
 ## Example Usage
 
 ```jsx
-<SwitchActiveIndicator
-  itemNumber={2}
-  tabSpacing="md"
-  direction="horizontal"
-  type="underline"
-  themeType="primary"
-  layer={1}
-  borderRadius="md"
-  outlined={true}
-  indicatorWidth="50%"
-  className="custom-class-name"
-/>
+const HelperFunction = (props: TActiveSwitchIndicator) => {
+  const { itemNumber, direction, ...args } = props;
+
+  const [active, setActive] = useState(0);
+  const handleActive = (index: number) => {
+    setActive(index);
+  };
+
+
+  useEffect(() => {
+    setActive(itemNumber ?? 0);
+  }, [itemNumber]);
+
+  return (
+    <RawUL style={{
+      display: 'flex',
+      flexDirection: direction === 'horizontal' ? 'row' : 'column',
+    }}>
+      {/* The active indicator will be placed on the first item in the list */}
+      {/* The container need to be relative, because the Indictator is position absolute*/}
+
+      <RawLI style={{ position: 'relative', width: '100px' }} onClick={() => handleActive(0)}>
+        <div >Moooinn</div>
+        <SwitchActiveIndicator
+          direction={direction}
+          externalStyle={
+            { zIndex: -1 } // needs to be behind the item
+          } itemNumber={active} {...args} />
+      </RawLI>
+      <RawLI style={{ position: 'relative', width: '100px' }} onClick={() => handleActive(1)}>
+        <div>Moooinn</div>
+      </RawLI>
+      <RawLI style={{ position: 'relative', width: '100px' }} onClick={() => handleActive(2)}>
+        <div>Moooinn</div>
+      </RawLI>
+    </RawUL>
+  );
+}
 ```
 
 This example sets up an active indicator for the second item in a horizontal list, with medium spacing between tabs, an underline style, primary theme color, a specific layer, medium rounded corners, an outline, a custom width for the indicator, and a custom class name for additional styling.
