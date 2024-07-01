@@ -7,8 +7,15 @@ export default function SideBarRoute() {
 
   return (
     <DesignWrapper style={{ height: '100%' }}>
-      <DesignArea title="Sidebbar">
+      <DesignArea title="Sidebbar" style={{ display: 'flex', flexDirection: 'column' }}>
         <button onClick={() => setIsOpen(!isOpen)}>Toggle SideBar</button>
+
+        <div style={{ height: '400px' }}>
+          <SideBar isOpen={isOpen} openWidth="200px">
+            <p>Mooin</p>
+          </SideBar>
+        </div>
+
         <div style={{ height: '400px' }}>
           <SideBar isOpen={isOpen} openWidth="200px">
             <p>Mooin</p>
