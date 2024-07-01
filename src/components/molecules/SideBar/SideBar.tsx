@@ -5,7 +5,7 @@ export default function SideBar(props: TSideBarWithAllAttrs) {
   const { isOpen, openWidth, children } = props;
 
   return (
-    <StyledSideBar $isOpen={isOpen} $openWidth={openWidth} layer={3} borderRadius={'md'}>
+    <StyledSideBar $isOpen={isOpen} $openWidth={openWidth} layer={2} borderRadius={'md'}>
       <InnerContainer>{children}</InnerContainer>
     </StyledSideBar>
   );
