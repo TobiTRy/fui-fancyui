@@ -1,15 +1,14 @@
-import styled, { css } from 'styled-components';
+import { styled, css } from 'styled-components';
 import { FancyBox } from '@/components/atoms/FancyBox';
 import { TTheme } from '@/types/TTheme';
+import { TStyledPrefixAndOmiter } from '@/types/TStyledPrefixAndOmiter';
+import { TSideBar } from '@/components/molecules/SideBar/TSideBar.model';
+import { sizeSettings } from './sizeSettings';
 
-type TStyledSideBar = {
-  $isOpen?: boolean;
-  $openWidth?: string;
-};
-
+type TStyledSideBar = TStyledPrefixAndOmiter<TSideBar, 'children'>;
 export const StyledSideBar = styled(FancyBox)<TStyledSideBar & { theme: TTheme }>`
   height: 100%;
-  width: 56px;
+  width: ${({ theme, $sizeC = 'sm' }) => theme.globalElementSizes[sizeSettings[$sizeC].width]};
   position: relative;
   z-index: 100;
   display: flex;
