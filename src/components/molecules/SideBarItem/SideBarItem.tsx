@@ -1,29 +1,27 @@
-import { TFancyBoxWithHTMLAttrs } from '@/components/atoms/FancyBox/FancyBox.model';
-import { FancySVGAtom } from '@/components/atoms/FancySVGAtom';
-import { Typography } from '@/components/atoms/Typography';
-import { StyledSideBarItem } from './SideBarItem.style';
 import { FancyFlexBox } from '@/components/templates/FancyFlexBox';
+import { StyledSideBarItem, Wrapper } from './SideBarItem.style';
 
-import { ReactNode } from 'react';
+import { Icon } from './SubComponents/Icon';
+import { Label } from './SubComponents/Label';
+import { TSideBarItem } from './TSideBarItem.model';
 
-type TSideBarItem = {
-  icon: ReactNode;
-  label: string;
-} & TFancyBoxWithHTMLAttrs;
+import { sizeSettings } from './sizeSettings';
 
-export default function SideBarItem(props: TSideBarItem) {
-  const { icon, label, ...FancyBoxProps } = props;
+function SideBarItem(props: TSideBarItem) {
+  const { children, sizeC = 'sm', ...FancyBoxProps } = props;
 
   return (
-    <StyledSideBarItem padding={'xxs'} borderRadius={'xs'} {...FancyBoxProps}>
-      <FancyFlexBox align="center" gap={'sm'}>
-        <FancySVGAtom sizeC="sm" externalStyle={{ flexShrink: 0 }}>
-          {icon}
-        </FancySVGAtom>
-        <Typography variant="bodytextMd" externalStyle={{ overflow: 'hidden', flex: '1', whiteSpace: 'nowrap' }}>
-          {label}
-        </Typography>
-      </FancyFlexBox>
-    </StyledSideBarItem>
+    <Wrapper $sizeC={sizeC}>
+      <StyledSideBarItem sizeC={sizeSettings[sizeC].boxSize} {...FancyBoxProps}>
+        <FancyFlexBox align="center" gap={'sm'}>
+          {children}
+        </FancyFlexBox>
+      </StyledSideBarItem>
+    </Wrapper>
   );
 }
+
+SideBarItem.Icon = Icon;
+SideBarItem.Label = Label;
+
+export default SideBarItem;
