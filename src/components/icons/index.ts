@@ -16,3 +16,5 @@ export { default as SVGStopSign } from './SVGStopSign/SVGStopSign';
 export { default as SVGWarningSign } from './SVGWarningSign/SVGWarningSign';
 export { default as SVGXCircle } from './SVGXCircle/SVGXCircle';
 export { default as SVGXlg } from './SVGXlg/SVGXlg';
+export { SVGDoubleChevronLeft } from './SVGDoubleChevronLeft/SVGDoubleChevronLeft';
+export { SVGDoubleChevronRight } from './SVGDoubleChevronRight/SVGDoubleChevronRight';
