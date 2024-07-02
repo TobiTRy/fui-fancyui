@@ -1,5 +1,5 @@
 import { SideBar, TSideBarWithAllAttrs } from '@/components/molecules/SideBar';
-import { Item, ItemWrapper, SlotBottom, SlotTop } from './FancySideBar.style';
+import { ItemWrapper, SlotBottom, SlotTop } from './FancySideBar.style';
 import { Children, ReactNode, useEffect, useState } from 'react';
 import { SwitchActiveIndicator } from '@/components/atoms/SwitchActiveIndicator';
 import { TTextAlignLR } from '@/types/TTextAlignLR';
@@ -29,7 +29,7 @@ export default function FancySideBar(props: TFancySideBar) {
         {Children.map(slotContent, (child, index) => {
           return (
             <ItemWrapper key={index} onClick={() => setActiveItem(index)}>
-              <Item>{child}</Item>
+              {child}
               {index === 0 && (
                 <SwitchActiveIndicator
                   itemNumber={activeItem}

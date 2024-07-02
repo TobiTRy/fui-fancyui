@@ -5,10 +5,6 @@ export const ItemWrapper = styled.div<{ theme: TTheme }>`
   position: relative;
 `;
 
-export const Item = styled.div<{ theme: TTheme }>`
-  margin: ${({ theme }) => `0 ${theme.spacing.xs}`};
-`;
-
 export const SlotTop = styled.div<{ theme: TTheme }>`
   display: flex;
   flex-direction: column;
