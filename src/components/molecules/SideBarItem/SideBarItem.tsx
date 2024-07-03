@@ -1,23 +1,28 @@
 import { FancyFlexBox } from '@/components/templates/FancyFlexBox';
-import { StyledSideBarItem, Wrapper } from './SideBarItem.style';
+import { StyledSideBarItem } from './SideBarItem.style';
 
 import { Icon } from './SubComponents/Icon';
 import { Label } from './SubComponents/Label';
 import { TSideBarItem } from './TSideBarItem.model';
 
 import { sizeSettings } from './sizeSettings';
+import { leftRightToFlex } from '@/utils/functions/leftRightToFlex';
+import { leftRightCenterToFlexJustify } from '@/design/designFunctions/leftRightCenterToFlexJustify';
 
 function SideBarItem(props: TSideBarItem) {
-  const { children, sizeC = 'sm', ...FancyBoxProps } = props;
+  const { children, sizeC = 'sm', direction = 'left', justify = 'left', noMargin, ...FancyBoxProps } = props;
 
   return (
-    <Wrapper $sizeC={sizeC}>
-      <StyledSideBarItem sizeC={sizeSettings[sizeC].boxSize} {...FancyBoxProps}>
-        <FancyFlexBox align="center" gap={'sm'}>
-          {children}
-        </FancyFlexBox>
-      </StyledSideBarItem>
-    </Wrapper>
+    <StyledSideBarItem $sizeC={sizeC} sizeC={sizeSettings[sizeC].boxSize} $noMargin={noMargin} {...FancyBoxProps}>
+      <FancyFlexBox
+        justify={leftRightCenterToFlexJustify[justify]}
+        direction={leftRightToFlex(direction)}
+        align="center"
+        gap={sizeSettings[sizeC].gapBetweenItems}
+      >
+        {children}
+      </FancyFlexBox>
+    </StyledSideBarItem>
   );
 }
 
