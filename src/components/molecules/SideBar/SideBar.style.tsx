@@ -13,7 +13,6 @@ export const StyledSideBar = styled(FancyBox)<TStyledSideBar & { theme: TTheme }
   z-index: 100;
   display: flex;
   flex-direction: column;
-  border-radius: ${({ theme }) => theme.borderRadius.sm};
   transition: width 0.2s ease-in-out;
 
   ${({ $isOpen, $openWidth }) =>
@@ -23,12 +22,12 @@ export const StyledSideBar = styled(FancyBox)<TStyledSideBar & { theme: TTheme }
     `}
 `;
 
-export const InnerContainer = styled.div<{ theme: TTheme }>`
+export const InnerContainer = styled.div<{ theme: TTheme; $sizeC: TSideBar['sizeC'] }>`
   position: absolute;
   box-sizing: border-box;
   display: flex;
-  gap: ${({ theme }) => theme.spacing.sm};
-  padding: ${({ theme }) => theme.spacing.xs} 0;
+  gap: ${({ theme, $sizeC = 'sm' }) => theme.spacing[sizeSettings[$sizeC].gapBetweenItems]};
+  padding: ${({ theme, $sizeC = 'sm' }) => theme.spacing[sizeSettings[$sizeC].paddingBottomTop]} 0;
   flex-direction: column;
   height: 100%;
   width: 100%;
