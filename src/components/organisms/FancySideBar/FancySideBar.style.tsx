@@ -1,21 +1,30 @@
 import { TTheme } from '@/types/TTheme';
 import styled from 'styled-components';
+import { TFancySideBar } from './TFancySideBar.model';
+import { sizeSettings as sideBarSizeSettings } from '@/components/molecules/SideBar/sizeSettings';
+import { sizeSettings as originalSizeSettings } from './sizeSetting';
 
 export const ItemWrapper = styled.div<{ theme: TTheme }>`
   position: relative;
 `;
 
-export const SlotTop = styled.div<{ theme: TTheme }>`
-  display: flex;
-  flex-direction: column;
-  margin: ${({ theme }) => `0 ${theme.spacing.xs} 0 ${theme.spacing.xs}`};
-  gap: ${({ theme }) => theme.spacing.xs};
+export const ChildWrapper = styled.div<{ theme: TTheme; $sizeC: TFancySideBar['sizeC'] }>`
+  margin: ${({ theme, $sizeC = 'sm' }) =>
+    `0 ${theme.spacing[originalSizeSettings[$sizeC].margin]} 0 ${theme.spacing[originalSizeSettings[$sizeC].margin]}`};
 `;
 
-export const SlotBottom = styled.div<{ theme: TTheme }>`
+export const SlotTop = styled.div<{ theme: TTheme; $sizeC: TFancySideBar['sizeC'] }>`
   display: flex;
   flex-direction: column;
+  margin: ${({ theme, $sizeC = 'sm' }) =>
+    `0 ${theme.spacing[originalSizeSettings[$sizeC].margin]} 0 ${theme.spacing[originalSizeSettings[$sizeC].margin]}`};
+  gap: ${({ $sizeC = 'sm' }) => `${sideBarSizeSettings[$sizeC].gapBetweenItems}`};
+`;
+
+export const SlotBottom = styled.div<{ theme: TTheme; $sizeC: TFancySideBar['sizeC'] }>`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
   margin-top: auto;
-  margin: ${({ theme }) => `auto ${theme.spacing.xs} 0 ${theme.spacing.xs}`};
   gap: ${({ theme }) => theme.spacing.xs};
 `;
