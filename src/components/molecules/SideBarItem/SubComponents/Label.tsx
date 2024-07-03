@@ -13,7 +13,6 @@ export function Label(props: TLabel) {
     <Typography
       variant={sizeSettings[sizeC].labelSize}
       lineHeight={1}
-      fontWeight={'bold'}
       externalStyle={css`
         overflow: hidden;
         flex: 1;

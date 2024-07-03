@@ -3,10 +3,8 @@ import { DesignArea, DesignWrapper } from '@/Routes/DesignWrapper/Wrapper';
 import { FancySideBar } from '@/components/organisms/FancySideBar';
 import { useState } from 'react';
 import SVGCheckMark from '@/components/icons/SVGCheckMark/SVGCheckMark';
-import { FancyButton } from '@/components/organisms/FancyButton';
-import { SVGDoubleChevronLeft } from '@/components/icons/SVGDoubleChevronLeft/SVGDoubleChevronLeft';
-import { SVGDoubleChevronRight } from '@/components/icons/SVGDoubleChevronRight/SVGDoubleChevronRight';
 import { FancySideBarItem } from '@/components/templates/FancySideBarItem';
+import FancySideBarOpenButton from '@/components/templates/FancySideBarOpenButton/FancySideBarOpenButton';
 
 export default function SideBarRoute() {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,24 +19,12 @@ export default function SideBarRoute() {
             isOpen={isOpen}
             openWidth="200px"
             slotContent={[
-              <FancySideBarItem label="Test" hoverLayer={4} icon={<SVGCheckMark />} />,
-              <FancySideBarItem label="Test" hoverLayer={4} icon={<SVGCheckMark />} />,
-              <FancySideBarItem label="Test" hoverLayer={4} icon={<SVGCheckMark />} />,
+              <FancySideBarItem noMargin sizeC="sm" label="Test" hoverLayer={4} icon={<SVGCheckMark />} />,
+              <FancySideBarItem noMargin label="Test" hoverLayer={4} icon={<SVGCheckMark />} />,
+              <FancySideBarItem noMargin label="Test" hoverLayer={4} icon={<SVGCheckMark />} />,
             ]}
             slotBottom={
-              <FancyButton
-                wide
-                noSize
-                layer={0}
-                themeType="primary"
-                externalStyle={{
-                  padding: '8px',
-                }}
-                appendClassNameOnStyle
-                onClick={() => setIsOpen(!isOpen)}
-                oneToOne={false}
-                icon={isOpen ? <SVGDoubleChevronLeft /> : <SVGDoubleChevronRight />}
-              />
+              <FancySideBarOpenButton onClick={() => setIsOpen(!isOpen)} sizeC="sm" justify="right" isOpen={isOpen} />
             }
           />
         </div>
@@ -46,6 +32,7 @@ export default function SideBarRoute() {
         <div style={{ height: '400px' }}>
           <SideBar sizeC="md" isOpen={isOpen} openWidth="200px">
             <FancySideBarItem sizeC="md" label="Test" hoverLayer={4} icon={<SVGCheckMark />} />
+
             <FancySideBarItem
               sizeC="md"
               label="Test"
@@ -63,23 +50,14 @@ export default function SideBarRoute() {
               }
             />
             <FancySideBarItem sizeC="md" label="Test" hoverLayer={4} icon={<SVGCheckMark />} />
-            <FancyButton
-              wide
-              noSize
-              layer={0}
-              themeType="primary"
-              externalStyle={{
-                padding: '8px',
-              }}
-              appendClassNameOnStyle
-              onClick={() => setIsOpen(!isOpen)}
-              oneToOne={false}
-              icon={isOpen ? <SVGDoubleChevronLeft /> : <SVGDoubleChevronRight />}
-            />
+
+            <FancySideBarOpenButton onClick={() => setIsOpen(!isOpen)} justify="center" sizeC="md" isOpen={isOpen} />
           </SideBar>
         </div>
         <div style={{ height: '400px' }}>
-          <SideBar isOpen={isOpen} openWidth="200px"></SideBar>
+          <SideBar isOpen={isOpen} openWidth="200px">
+            <p>AJjk</p>
+          </SideBar>
         </div>
       </DesignArea>
     </DesignWrapper>
