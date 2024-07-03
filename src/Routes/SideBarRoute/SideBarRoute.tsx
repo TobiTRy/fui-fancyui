@@ -44,10 +44,25 @@ export default function SideBarRoute() {
         </div>
 
         <div style={{ height: '400px' }}>
-          <SideBar isOpen={isOpen} openWidth="200px">
-            <FancySideBarItem label="Test" hoverLayer={4} icon={<SVGCheckMark />} />
-            <FancySideBarItem label="Test" hoverLayer={4} icon={<SVGCheckMark />} />
-            <FancySideBarItem label="Test" hoverLayer={4} icon={<SVGCheckMark />} />
+          <SideBar sizeC="md" isOpen={isOpen} openWidth="200px">
+            <FancySideBarItem sizeC="md" label="Test" hoverLayer={4} icon={<SVGCheckMark />} />
+            <FancySideBarItem
+              sizeC="md"
+              label="Test"
+              hoverLayer={4}
+              icon={
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="24px"
+                  viewBox="0 -960 960 960"
+                  width="24px"
+                  fill="#e8eaed"
+                >
+                  <path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z" />
+                </svg>
+              }
+            />
+            <FancySideBarItem sizeC="md" label="Test" hoverLayer={4} icon={<SVGCheckMark />} />
             <FancyButton
               wide
               noSize

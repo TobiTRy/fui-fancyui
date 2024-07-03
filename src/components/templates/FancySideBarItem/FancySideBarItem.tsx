@@ -7,12 +7,12 @@ type TFancySideBarItem = {
 } & TSideBarItem;
 
 export default function FancySideBarItem(props: TFancySideBarItem) {
-  const { icon, label, ...sideBarItemProps } = props;
+  const { icon, label, sizeC, ...sideBarItemProps } = props;
 
   return (
-    <SideBarItem {...sideBarItemProps}>
-      <SideBarItem.Icon sizeC="xs">{icon}</SideBarItem.Icon>
-      <SideBarItem.Label>{label}</SideBarItem.Label>
+    <SideBarItem sizeC={sizeC} {...sideBarItemProps}>
+      <SideBarItem.Icon sizeC={sizeC}>{icon}</SideBarItem.Icon>
+      <SideBarItem.Label sizeC={sizeC}>{label}</SideBarItem.Label>
     </SideBarItem>
   );
 }
