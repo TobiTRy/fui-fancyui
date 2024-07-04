@@ -7,7 +7,7 @@ import { TSpacings } from '@/types/TSpacings';
 export type TSideBar = {
   isOpen?: boolean;
   openWidth?: string;
-  children: ReactNode;
+  children?: ReactNode;
   borderRadius?: TBorderRadiusSizes;
   sizeC?: TComponentSizes;
   gapBetweenItems?: TSpacings;
