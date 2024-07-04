@@ -13,27 +13,35 @@ type TSizeObj = {
   iconSize: TGlobalElementSizes;
   labelSize: TTypographyVariants;
   wrapperMargin: TThemeArrayOrValueCSS;
+  padding: TThemeArrayOrValueCSS;
+  paddingWide?: TThemeArrayOrValueCSS;
 };
 
 export const sizeSettings: TSizeSettings<TSizeObj> = {
   sm: {
-    boxSize: 'xs',
     wrapperMargin: [0, 'xxs'],
+    boxSize: 'xs',
+    padding: 'xs',
+    paddingWide: ['xs', 'md'],
     gapBetweenItems: 'xs',
-    borderRadius: 'xs',
+    borderRadius: 'xxs',
     iconSize: 'xxs',
     labelSize: 'subTextCaption',
   },
   md: {
     wrapperMargin: [0, 'xs'],
+    padding: 'xs',
+    paddingWide: ['xs', 'md'],
     boxSize: 'xs',
     gapBetweenItems: 'sm',
-    borderRadius: 'sm',
+    borderRadius: 'xxs',
     iconSize: 'xxs',
     labelSize: 'bodytextSm',
   },
   lg: {
     wrapperMargin: [0, 'xs'],
+    padding: 'xs',
+    paddingWide: ['xs', 'md'],
     boxSize: 'xs',
     gapBetweenItems: 'md',
     borderRadius: 'md',

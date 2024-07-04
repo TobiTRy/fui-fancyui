@@ -10,10 +10,17 @@ import { leftRightToFlex } from '@/utils/functions/leftRightToFlex';
 import { leftRightCenterToFlexJustify } from '@/design/designFunctions/leftRightCenterToFlexJustify';
 
 function SideBarItem(props: TSideBarItem) {
-  const { children, sizeC = 'sm', direction = 'left', justify = 'left', noMargin, ...FancyBoxProps } = props;
+  const { children, sizeC = 'sm', direction = 'left', justify = 'left', wide, noMargin, ...FancyBoxProps } = props;
 
   return (
-    <StyledSideBarItem $sizeC={sizeC} sizeC={sizeSettings[sizeC].boxSize} $noMargin={noMargin} {...FancyBoxProps}>
+    <StyledSideBarItem
+      $sizeC={sizeC}
+      sizeC={sizeSettings[sizeC].boxSize}
+      borderRadius={wide ? '0' : sizeSettings[sizeC].borderRadius}
+      padding={wide ? sizeSettings[sizeC].paddingWide : sizeSettings[sizeC].padding}
+      $noMargin={noMargin}
+      {...FancyBoxProps}
+    >
       <FancyFlexBox
         justify={leftRightCenterToFlexJustify[justify]}
         direction={leftRightToFlex(direction)}

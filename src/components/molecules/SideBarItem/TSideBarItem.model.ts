@@ -9,5 +9,6 @@ export type TSideBarItem = Omit<TFancyBoxWithHTMLAttrs, 'siceC'> & {
   direction?: TTextAlignLR;
   justify?: TTextAlignLRC;
   gap?: TSpacings;
+  wide?: boolean;
   noMargin?: boolean;
 };
