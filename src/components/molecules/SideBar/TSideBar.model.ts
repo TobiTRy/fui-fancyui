@@ -1,7 +1,8 @@
+import { ReactNode } from 'react';
 import { TFancyBox } from '@/components/atoms/FancyBox';
 import { TBorderRadiusSizes } from '@/types/TBorderRadiusSizes';
 import { TComponentSizes } from '@/types/TComponentSizes';
-import { ReactNode } from 'react';
+import { TSpacings } from '@/types/TSpacings';
 
 export type TSideBar = {
   isOpen?: boolean;
@@ -9,6 +10,7 @@ export type TSideBar = {
   children: ReactNode;
   borderRadius?: TBorderRadiusSizes;
   sizeC?: TComponentSizes;
+  gapBetweenItems?: TSpacings;
 };
 
 export type TSideBarWithAllAttrs = TSideBar & TFancyBox;
