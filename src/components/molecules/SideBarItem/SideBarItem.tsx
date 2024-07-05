@@ -9,6 +9,10 @@ import { sizeSettings } from './sizeSettings';
 import { leftRightToFlex } from '@/utils/functions/leftRightToFlex';
 import { leftRightCenterToFlexJustify } from '@/design/designFunctions/leftRightCenterToFlexJustify';
 
+// --------------------------------------------------------------------------- //
+// ------- The SideBarItem is a Item for the Sidebar menue wich can  --------- //
+// ------- costumed styled with the icon and label                   --------- //
+// --------------------------------------------------------------------------- //
 function SideBarItem(props: TSideBarItem) {
   const { children, sizeC = 'sm', direction = 'left', justify = 'left', wide, noMargin, ...FancyBoxProps } = props;
 

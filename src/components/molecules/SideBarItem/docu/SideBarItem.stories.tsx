@@ -70,7 +70,7 @@ const meta = {
       },
     },
     noMargin: {
-      description: 'The SideBarItem has no margin.',
+      description: 'Deactivates the margin of the SideBarItem (Is needed turned on the FancySideBar.)',
       control: {
         type: 'boolean',
       },
@@ -107,5 +107,29 @@ export const Primary: Story = {
     sizeC: 'sm',
     direction: 'left',
     justify: 'left',
+  },
+};
+
+export const BarFormat: Story = {
+  render: (args) => (
+    <SideBarItem {...args}>
+      <SideBarItem.Icon sizeC={'sm'}>
+        <SVGCheckMark />
+      </SideBarItem.Icon>
+      <SideBarItem.Label sizeC={'sm'}>Home</SideBarItem.Label>
+    </SideBarItem>
+  ),
+  args: {
+    themeType: 'primary',
+    layer: 2,
+    hoverLayer: 4,
+    outlined: false,
+    noMargin: true,
+    wide: true,
+    outlinedBackgroundStrength: 0.5,
+    sizeC: 'sm',
+    direction: 'left',
+    justify: 'left',
+    borderRadius: '0',
   },
 };
