@@ -16,20 +16,36 @@ export default function SideBarRoute() {
 
         <div style={{ height: '400px', display: 'flex', justifyContent: 'flex-end' }}>
           <FancySideBar
-            sizeC="md"
+            sizeC="lg"
             isOpen={isOpen}
             openWidth="200px"
             align="right"
             slotContent={[
-              <FancySideBarItem noMargin sizeC="md" label="Test" hoverLayer={4} icon={<SVGCheckMark />} />,
-              <FancySideBarItem noMargin sizeC="md" label="Test" hoverLayer={4} icon={<SVGCheckMark />} />,
-              <FancySideBarItem noMargin sizeC="md" label="Test" hoverLayer={4} icon={<SVGCheckMark />} />,
+              <FancySideBarItem noMargin sizeC="lg" label="Test" hoverLayer={4} icon={<SVGCheckMark />} />,
+              <FancySideBarItem noMargin sizeC="lg" label="Test" hoverLayer={4} icon={<SVGCheckMark />} />,
+              <FancySideBarItem noMargin sizeC="lg" label="Test" hoverLayer={4} icon={<SVGCheckMark />} />,
+              <FancySideBarItem noMargin sizeC="lg" label="Test" hoverLayer={4} icon={<SVGCheckMark />} />,
+              <FancySideBarItem noMargin sizeC="lg" label="Test" hoverLayer={4} icon={<SVGCheckMark />} />,
+              <FancySideBarItem noMargin sizeC="lg" label="Test" hoverLayer={4} icon={<SVGCheckMark />} />,
+              <FancySideBarItem noMargin sizeC="lg" label="Test" hoverLayer={4} icon={<SVGCheckMark />} />,
+              <FancySideBarItem noMargin sizeC="lg" label="Test" hoverLayer={4} icon={<SVGCheckMark />} />,
             ]}
             slotBottom={
               <FancySideBarOpenButton
                 arrowDirectionClosed="right"
                 onClick={() => setIsOpen(!isOpen)}
-                sizeC="sm"
+                sizeC="lg"
+                justify="left"
+                noMargin
+                isOpen={isOpen}
+              />
+            }
+            slotTop={
+              <FancySideBarOpenButton
+                arrowDirectionClosed="right"
+                onClick={() => setIsOpen(!isOpen)}
+                sizeC="lg"
+                noMargin
                 justify="left"
                 isOpen={isOpen}
               />

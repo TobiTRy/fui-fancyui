@@ -10,9 +10,9 @@ export const sizeSettings: TSizeSettings<TSizeObj> = {
     margin: 'xxs',
   },
   md: {
-    margin: 'xxs',
+    margin: 'xs',
   },
   lg: {
-    margin: 'sm',
+    margin: 'xs',
   },
 };

@@ -44,7 +44,7 @@ export const sizeSettings: TSizeSettings<TSizeObj> = {
     paddingWide: ['xs', 'md'],
     boxSize: 'xs',
     gapBetweenItems: 'md',
-    borderRadius: 'md',
+    borderRadius: 'sm',
     iconSize: 'xs',
     labelSize: 'bodytextMd',
   },

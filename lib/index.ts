@@ -112,6 +112,8 @@ export * from '@/components/molecules/LabeledInput';
 export * from '@/components/molecules/Stepper';
 export * from '@/components/atoms/RawButton';
 export * from '@/components/molecules/Fieldset';
+export * from '@/components/molecules/SideBar';
+export * from '@/components/molecules/SideBarItem';
 
 // ---------- Organisms ------- //
 export * from '@/components/organisms/FancyButton';
@@ -137,6 +139,7 @@ export * from '@/components/organisms/FancyTextInput';
 export * from '@/components/organisms/FancyColorInput';
 export * from '@/components/organisms/FancyListBox';
 export * from '@/components/organisms/FancyTextArea';
+export * from '@/components/organisms/FancySideBar';
 
 // ---------- Templates ------- //
 export * from '@/components/templates/FancyInfoCard';
@@ -153,6 +156,8 @@ export * from '@/components/templates/FancyGridTemplate';
 export * from '@/components/templates/FancyGridTemplateItem';
 export * from '@/components/templates/FancySkeletonGrid';
 export * from '@/components/templates/FancySystemMessageBox';
+export * from '@/components/templates/FancySideBarItem';
+export * from '@/components/templates/FancySideBarOpenButton';
 
 // ---------- Utils/Hooks ------- //
 export * from '@/components/shared/FancyPopover';
