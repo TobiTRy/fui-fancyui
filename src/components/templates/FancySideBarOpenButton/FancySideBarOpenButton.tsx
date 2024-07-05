@@ -1,13 +1,12 @@
 import { SVGDoubleChevronLeft } from '@/components/icons/SVGDoubleChevronLeft/SVGDoubleChevronLeft';
 import { SVGDoubleChevronRight } from '@/components/icons/SVGDoubleChevronRight/SVGDoubleChevronRight';
-import { SideBarItem, TSideBarItem } from '@/components/molecules/SideBarItem';
-import { TTextAlignLR } from '@/types/TTextAlignLR';
+import { SideBarItem } from '@/components/molecules/SideBarItem';
+import { TFancySideBarOpenButton } from '@/components/templates/FancySideBarOpenButton/TFancySideBarOpenButton.model';
 
-type TFancySideBarOpenButton = Omit<TSideBarItem, 'children'> & {
-  isOpen?: boolean;
-  arrowDirectionClosed: TTextAlignLR;
-};
-
+// --------------------------------------------------------------------------- //
+// ------- The FancySideBarOpenButton is template of the SideBarItem --------- //
+// ------- wich indicates if a modal open and closing button         --------- //
+// --------------------------------------------------------------------------- //
 export default function FancySideBarOpenButton(props: TFancySideBarOpenButton) {
   const { isOpen, hoverLayer, arrowDirectionClosed = 'left', ...SideBarItemProps } = props;
 
