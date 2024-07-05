@@ -54,6 +54,15 @@ const meta = {
         defaultValue: { summary: 'sm' },
       },
     },
+    wichItemIsActive: {
+      description: 'The index of the active item in the sidebar.',
+      control: {
+        type: 'number',
+      },
+      table: {
+        defaultValue: { summary: 0 },
+      },
+    },
   },
 } satisfies Meta<typeof FancySideBar>;
 
@@ -69,6 +78,7 @@ export const Primary: Story = {
   ),
   args: {
     themeType: 'primary',
+    wichItemIsActive: 0,
     sizeC: 'sm',
     isOpen: false,
     openWidth: '40%',

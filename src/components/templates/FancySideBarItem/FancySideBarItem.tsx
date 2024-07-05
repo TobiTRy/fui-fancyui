@@ -1,18 +1,20 @@
-import { TSideBarItem } from '@/components/molecules/SideBarItem';
-import SideBarItem from '@/components/molecules/SideBarItem/SideBarItem';
+import { SideBarItem } from '@/components/molecules/SideBarItem';
+import { TFancySideBarItem } from './TFancySideBarItem.model';
 
-type TFancySideBarItem = {
-  icon: React.ReactNode;
-  label: string;
-} & TSideBarItem;
-
+// --------------------------------------------------------------------------- //
+// ---------- The FancySideBarItem is template of the SideBarItem ------------ //
+// --------------------------------------------------------------------------- //
 export default function FancySideBarItem(props: TFancySideBarItem) {
-  const { icon, label, sizeC, ...sideBarItemProps } = props;
+  const { icon, label, sizeC, iconSettings, typographySettings, ...sideBarItemProps } = props;
 
   return (
     <SideBarItem sizeC={sizeC} {...sideBarItemProps}>
-      <SideBarItem.Icon sizeC={sizeC}>{icon}</SideBarItem.Icon>
-      <SideBarItem.Label sizeC={sizeC}>{label}</SideBarItem.Label>
+      <SideBarItem.Icon sizeC={sizeC} {...iconSettings}>
+        {icon}
+      </SideBarItem.Icon>
+      <SideBarItem.Label sizeC={sizeC} {...typographySettings}>
+        {label}
+      </SideBarItem.Label>
     </SideBarItem>
   );
 }
