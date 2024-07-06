@@ -24,8 +24,10 @@ export default function FancySideBar(props: TFancySideBar) {
       <MainItemsWrapper $gap={sizeSettings[sizeC].gapBetweenItems}>
         {Children.map(slotContent, (child, index) => {
           return (
-            <ItemWrapper key={index} onClick={() => setActiveItem(index)}>
-              <ChildWrapper $sizeC={sizeC}>{child}</ChildWrapper>
+            <ItemWrapper key={index}>
+              <ChildWrapper $sizeC={sizeC} onClick={() => setActiveItem(index)}>
+                {child}
+              </ChildWrapper>
               {index === 0 && (
                 <SwitchActiveIndicator
                   itemNumber={activeItem}
