@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react';
-import { TBreakpoint } from '@/types/TBreakPoint';
-import { TBreakPoints } from '@/types/TBreakPoints';
+import { TBreakPoints, TBreakPointsSizes } from '@/types/TBreakPoints';
 
-export const useActiveBreakpoint = (breakpoints?: TBreakpoint[]) => {
-  const [activeBreakpoint, setActiveBreakpoint] = useState<TBreakPoints | null>(null);
+export const useActiveBreakpoint = (breakpoints?: TBreakPoints) => {
+  const [activeBreakpoint, setActiveBreakpoint] = useState<TBreakPointsSizes | null>(null);
 
   useEffect(() => {
     const handleResize = () => {
@@ -18,13 +17,14 @@ export const useActiveBreakpoint = (breakpoints?: TBreakpoint[]) => {
 };
 
 // Helper to get the active breakpoint based on media query matches
-const getActiveBreakpoint = (breakpoints?: TBreakpoint[]) => {
+const getActiveBreakpoint = (breakpoints?: TBreakPoints) => {
   if (!breakpoints) return null;
 
-  for (const breakpoint of breakpoints) {
-    if (window.matchMedia(breakpoint.query).matches) {
-      return breakpoint.id;
+  Object.entries(breakpoints).map(([id, query]) => {
+    if (window.matchMedia(query).matches) {
+      return id;
     }
-  }
+  });
+
   return null; // No match found
 };

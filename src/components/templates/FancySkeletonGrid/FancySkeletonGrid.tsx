@@ -13,12 +13,7 @@ export default function FancySkeletonGrid(props: TFancySkeletonGrid) {
   const { gridAreas, gridAreasBreakPoints, layer, themeType, borderRadius, ...gridProps } = props;
   const themeBreakPoints = themeStore((state) => state.theme.breakpoints);
 
-  const breakPointsArray = Object.keys(themeBreakPoints).map((key) => ({
-    id: key,
-    query: themeBreakPoints[key as keyof typeof themeBreakPoints],
-  }));
-
-  const activeBreakPoint = useActiveBreakpoint(breakPointsArray);
+  const activeBreakPoint = useActiveBreakpoint(themeBreakPoints);
 
   // Generate a set of grid areas based on the gridAreas and gridAreasBreakPoints
   const set = generateGridSet({ gridAreas, gridAreasBreakPoints, activeBreakPoint });

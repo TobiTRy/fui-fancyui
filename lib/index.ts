@@ -171,7 +171,7 @@ export * from '@/utils/functions/clampNumber';
 export * from '@/utils/functions/copyToClipBoard';
 export * from '@/utils/functions/calcCSSValuesWithOffset';
 export * from '@/utils/hooks/useActiveBreakpoint';
-export * from '@/utils/hooks/useActiveBreakpoint';
+export * from '@/utils/hooks/useBreakpointComparison';
 
 // ---------- Design ------- //
 export * from '@/design/designFunctions/calcBorderRadiusOnAlignment';

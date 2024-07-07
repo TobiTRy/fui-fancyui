@@ -1,7 +1,6 @@
-import { TBreakpoint } from '@/types/TBreakPoint';
-import { TBreakPoints } from '@/types/TBreakPoints';
+import { TBreakPoints, TBreakPointsSizes } from '@/types/TBreakPoints';
 
 export type TuseBreakpointComparison = {
-  breakpointId: TBreakPoints;
-  breakPoints: TBreakpoint[];
+  breakpointId: TBreakPointsSizes;
+  breakPoints: TBreakPoints;
 };

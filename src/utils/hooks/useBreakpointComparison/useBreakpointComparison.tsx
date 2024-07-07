@@ -11,13 +11,14 @@ export function useBreakpointComparison(props: TuseBreakpointComparison) {
   const activeBreakpoint = useActiveBreakpoint(breakPoints);
 
   // If no active breakpoint is found, return null
-  if (!activeBreakpoint) {
-    return null; // Or throw an error, depending on your error handling strategy
-  }
+  if (!activeBreakpoint) return null;
+
+  // Get the breakpoint keys
+  const BPArray = Object.keys(breakPoints);
 
   // Compare the active breakpoint with the target breakpoint
-  const activeIndex = breakPoints.findIndex((bp) => bp.id === activeBreakpoint);
-  const targetIndex = breakPoints.findIndex((bp) => bp.id === breakpointId);
+  const activeIndex = BPArray.findIndex((id) => id === activeBreakpoint);
+  const targetIndex = BPArray.findIndex((id) => id === breakpointId);
 
   // Return the comparison result
   if (activeIndex === -1 || targetIndex === -1) {
