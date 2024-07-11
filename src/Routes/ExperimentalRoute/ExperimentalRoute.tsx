@@ -61,6 +61,7 @@ export default function ExperimentalRoute() {
   const updateTheme = themeStore((state) => state.updateTheme);
   const switchTheme = themeStore((state) => state.switchTheme);
   const [password, setPassword] = useState('');
+  const [isHover, setIsHover] = useState(false);
 
   const [selectedValue, setSelectedValue] = useState(null);
 
@@ -87,6 +88,22 @@ export default function ExperimentalRoute() {
         </DynamicComponentWrapper>
 
         <FancyTabSwitch wide label="test" layer={1} values={defaultProps} />
+
+        <div
+          onMouseEnter={() => setIsHover(true)}
+          onMouseLeave={() => setIsHover(false)}
+          style={{
+            position: 'fixed',
+            bottom: '0',
+            padding: '20px',
+            backgroundColor: 'black',
+            display: 'grid',
+            gridTemplateRows: isHover ? '1fr' : '0fr',
+            transition: 'grid-template-rows 0.5s ease-out',
+          }}
+        >
+          <div style={{ overflow: 'hidden' }}>Expandable content</div>
+        </div>
 
         <FancyBox hoverLayer={4}>
           <p>Test</p>

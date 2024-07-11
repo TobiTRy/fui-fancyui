@@ -140,9 +140,7 @@ export default function SwipeUpModal(props: TSwipeUpModal) {
                   {/*// ---------- The top of the modal is used for the scaling ---------- //*/}
                   {isScalable && isCloseAble && (
                     <ScalingSection
-                      touchMove={(e) => {
-                        moveModalHandler(e);
-                      }}
+                      touchMove={moveModalHandler}
                       touchEnd={toutchEnd}
                       onClick={() => closeModal('intercation')}
                     />
