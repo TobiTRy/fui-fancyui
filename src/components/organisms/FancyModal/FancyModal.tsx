@@ -7,16 +7,20 @@ import { TFancyModal } from './TFancyModal.modal';
 // ----------------- The modalModule to build up a Moadal  ------------------- //
 // --------------------------------------------------------------------------- //
 export default function FancyModal({ appendToDomID, modals, closeModal }: TFancyModal) {
+  /* ----- The FancModal Ports the Modal out of the root div in the spearte "modal" div ----- */
   return (
-    <>
-      {/* ----- The FancModal Ports the Modal out of the root div in the spearte "modal" div ----- */}
-      <FancyPortal appendToID={appendToDomID}>
-        {modals?.map((modal, key) => (
-          <Modal key={key} isOpen={modal.status === 'open'} onClose={() => closeModal(modal.id)} {...modal.config}>
-            {modal.children}
-          </Modal>
-        ))}
-      </FancyPortal>
-    </>
+    <FancyPortal appendToID={appendToDomID}>
+      {modals?.map((modal) => (
+        <Modal
+          key={modal.id}
+          id={modal.id}
+          isOpen={modal.status === 'open'}
+          onClose={() => closeModal(modal.id)}
+          {...modal.config}
+        >
+          {modal.children}
+        </Modal>
+      ))}
+    </FancyPortal>
   );
 }
