@@ -24,6 +24,7 @@ export default function ModalRoute() {
       { isCloseable: true }
     );
   };
+
   return (
     <section>
       <FancyButton onClick={handleModalCreation} sizeC="sm" label="open modal"></FancyButton>
