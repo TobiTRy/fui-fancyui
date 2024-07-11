@@ -102,7 +102,9 @@ export default function ExperimentalRoute() {
             transition: 'grid-template-rows 0.5s ease-out',
           }}
         >
-          <div style={{ overflow: 'hidden' }}>Expandable content</div>
+          <div style={{ overflow: 'hidden' }}>
+            <div style={{ height: '100px' }}>Expandable content</div>
+          </div>
         </div>
 
         <FancyBox hoverLayer={4}>
