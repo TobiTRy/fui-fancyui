@@ -9,12 +9,15 @@ import { FancyTextInput } from '../../components/organisms/FancyTextInput';
 import SwipeUpModal from '../../components/molecules/SwipeUpModal/SwipeUpModal';
 
 import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';
-import { useFancySwipeUpModalStore } from '../../components/organisms/FancySwipeUpModal/FancySwipeUpModal.state';
+import { createFancySwipeUpModalStore } from '../../components/organisms/FancySwipeUpModal/createFancySwipeUpModal.state';
+
+const useFancySwipeUpModalStore = createFancySwipeUpModalStore();
 
 export default function SwipeUpModalRoute() {
   const [isVisible, setIsVisible] = React.useState(false);
   const openModal = useFancySwipeUpModalStore((state) => state.openSwipeUpModal);
   const closeModal = useFancySwipeUpModalStore((state) => state.closeSwipeUpModal);
+  const modals = useFancySwipeUpModalStore((state) => state.modals);
 
   const [stateSwipeUp, setStateSwipeUp] = React.useState(false);
 
@@ -39,6 +42,7 @@ export default function SwipeUpModalRoute() {
   return (
     <DesignWrapper>
       <DesignArea title="Swipe Up Modals">
+        <FancySwipeUpModal modals={modals} closeModal={closeModal} appendToDomID="modal" />
         <FancyButton onClick={() => openModalHandler()} label="Open Modal"></FancyButton>
         <FancyButton onClick={() => setIsVisible(false)} label="Close Modal "></FancyButton>
         <FancyButton onClick={toggleModal} label="Open Swipe Up Modal"></FancyButton>
