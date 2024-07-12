@@ -8,7 +8,7 @@ export const WrapperModal = styled.div`
   align-items: flex-end;
   position: fixed;
   width: 100%;
-  height: 100vh;
+  height: 100svh;
   top: 0;
   left: 50%;
   z-index: 100;
