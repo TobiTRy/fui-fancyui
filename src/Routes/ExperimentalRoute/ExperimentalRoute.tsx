@@ -14,6 +14,7 @@ import { FancyFlexBox } from '@/components/templates/FancyFlexBox';
 import { FancyTabSwitch } from '@/components/organisms/FancyTabSwitch';
 import DynamicComponentWrapper from '@/components/atoms/DynamicComponentWrapper/DynamicComponentWrapper';
 import { FancyBox } from '@/components/atoms/FancyBox';
+import { SwipeUpContainer } from '@/components/atoms/SwipeUpContainer';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -62,6 +63,7 @@ export default function ExperimentalRoute() {
   const switchTheme = themeStore((state) => state.switchTheme);
   const [password, setPassword] = useState('');
   const [isHover, setIsHover] = useState(false);
+  const [modalPosition, setModalPosition] = useState({ height: '100%' });
 
   const [selectedValue, setSelectedValue] = useState(null);
 
@@ -103,8 +105,33 @@ export default function ExperimentalRoute() {
           }}
         >
           <div style={{ overflow: 'hidden' }}>
-            <div style={{ height: '100px' }}>Expandable content</div>
+            <div style={{ height: '100px' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
+                <FancyNumberInput label="Email" />
+                <FancyButton label="Close Modal" />
+              </div>
+            </div>
           </div>
+        </div>
+
+        <div
+          style={{
+            position: 'fixed',
+            left: '0',
+            bottom: '0',
+            padding: '20px',
+            backgroundColor: 'black',
+            display: 'grid',
+            gridTemplateRows: isHover ? '1fr' : '0fr',
+            transition: 'grid-template-rows 0.5s ease-out',
+          }}
+        >
+          <SwipeUpContainer isOpen={isHover}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
+              <FancyNumberInput label="Email" />
+              <FancyButton label="Close Modal" />
+            </div>
+          </SwipeUpContainer>
         </div>
 
         <FancyBox hoverLayer={4}>

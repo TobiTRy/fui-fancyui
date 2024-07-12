@@ -1,15 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { animated, useTransition } from '@react-spring/web';
 
-import { useWindowDimensions } from '@/utils/hooks/useWindowDimensions';
-import { SwipeUpContainer } from '@/components/atoms/SwipeUpContainer';
 import { BackDrop } from '@/components/atoms/BackDrop';
-import { Delay } from '@/components/shared/Delay';
 import { ScalingSection } from '@/components/atoms/ScalingSection';
+import { SwipeUpContainer } from '@/components/atoms/SwipeUpContainer';
+import { useWindowDimensions } from '@/utils/hooks/useWindowDimensions';
 
-import { Content, ContentBox, WrapperAnimated, WrapperContent, WrapperModal } from './SwipeUpModal.style';
-import { TSwipeUpModal } from './TSwipeUpModal.model';
 import { TModalStatus } from '@/types/TModalStatus';
+import { Content, ContentBox, WrapperContent, WrapperModal } from './SwipeUpModal.style';
+import { TSwipeUpModal } from './TSwipeUpModal.model';
 
 // --------------------------------------------------------------------------- //
 // ----------- The Modal Molecule the displays the complete modal - ---------- //
@@ -31,7 +29,7 @@ export default function SwipeUpModal(props: TSwipeUpModal) {
   const lastFocusedElement = useRef<HTMLElement | null>(null);
 
   const [statusModal, setStatusModal] = useState<TModalStatus>('closed');
-  const [modalPosition, setModalPosition] = useState({ height: '100%' });
+  const [modalPosition, setModalPosition] = useState({ height: 'auto' });
   const [initialHeight, setInitialHeight] = useState<number | undefined>();
   const { height } = useWindowDimensions();
 
@@ -64,6 +62,7 @@ export default function SwipeUpModal(props: TSwipeUpModal) {
   //the closedBy is needed is needed to prevent the modal from closing -->
   //when the user is interacting with the modal and the modal is not closeable
   const closeModal = (cloesedBy: 'status' | 'intercation') => {
+    console.log('cloesedBy', cloesedBy);
     if (cloesedBy === 'intercation' && !isCloseAble) return;
 
     //close the gobal modal state
@@ -86,13 +85,6 @@ export default function SwipeUpModal(props: TSwipeUpModal) {
       closeModal('intercation');
     }
   };
-
-  // the open transition for the modal via react-spring
-  const openTransition = useTransition(statusModal === 'open', {
-    from: { height: '0%' },
-    enter: { height: '100%' },
-    leave: { height: '0%' },
-  });
 
   // if the modal is open, open the modal else close it
   useEffect(() => {
@@ -123,41 +115,35 @@ export default function SwipeUpModal(props: TSwipeUpModal) {
   }, [statusModal]);
 
   return (
-    <Delay externalStateBool={statusModal === 'open'}>
+    <>
       <WrapperModal {...htmlProps}>
-        {openTransition(
-          (styles, item) =>
-            item && (
-              <WrapperAnimated as={animated.div} style={styles}>
-                <SwipeUpContainer
-                  ref={dialogRef}
-                  tabIndex={-1}
-                  style={modalPosition}
-                  isScalable={isScalable}
-                  themeType={themeType}
-                  layer={layer}
-                >
-                  {/*// ---------- The top of the modal is used for the scaling ---------- //*/}
-                  {isScalable && isCloseAble && (
-                    <ScalingSection
-                      touchMove={moveModalHandler}
-                      touchEnd={toutchEnd}
-                      onClick={() => closeModal('intercation')}
-                    />
-                  )}
-                  {/*// ---------- Content Area ---------- //*/}
-                  <ContentBox>
-                    {/*// ---------- Header ---------- //*/}
-                    <WrapperContent>
-                      <Content>{children}</Content>
-                    </WrapperContent>
-                  </ContentBox>
-                </SwipeUpContainer>
-              </WrapperAnimated>
-            )
-        )}
-        {backdrop && <BackDrop isOpen={statusModal === 'open'} onClick={() => closeModal('intercation')} />}
+        <SwipeUpContainer
+          isOpen={statusModal === 'open'}
+          ref={dialogRef}
+          style={modalPosition}
+          tabIndex={-1}
+          isScalable={isScalable}
+          themeType={themeType}
+          layer={layer}
+        >
+          {/*// ---------- The top of the modal is used for the scaling ---------- //*/}
+          {isScalable && isCloseAble && (
+            <ScalingSection
+              touchMove={moveModalHandler}
+              touchEnd={toutchEnd}
+              onClick={() => closeModal('intercation')}
+            />
+          )}
+          {/*// ---------- Content Area ---------- //*/}
+          <ContentBox>
+            {/*// ---------- Header ---------- //*/}
+            <WrapperContent>
+              <Content>{children}</Content>
+            </WrapperContent>
+          </ContentBox>
+        </SwipeUpContainer>
       </WrapperModal>
-    </Delay>
+      {backdrop && <BackDrop isOpen={statusModal === 'open'} onClick={() => closeModal('intercation')} />}
+    </>
   );
 }

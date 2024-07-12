@@ -8,10 +8,11 @@ export const WrapperModal = styled.div`
   align-items: flex-end;
   position: fixed;
   width: 100%;
-  height: 100%;
-  top: 50%;
+  height: 100vh;
+  top: 0;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%);
+  pointer-events: none;
   z-index: 101;
 `;
 
@@ -19,6 +20,7 @@ export const WrapperAnimated = styled.div`
   display: flex;
   align-items: flex-end;
   width: 100%;
+  height: 100%;
 `;
 
 export const ContentBox = styled.div<{ theme: TTheme }>`

@@ -47,14 +47,14 @@ export default function SwipeUpModalRoute() {
         <FancyButton onClick={() => setIsVisible(false)} label="Close Modal "></FancyButton>
         <FancyButton onClick={toggleModal} label="Open Swipe Up Modal"></FancyButton>
 
-        <SwipeUpModal isOpen={stateSwipeUp}>
+        {/* <SwipeUpModal isOpen={isVisible}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
             <FancyTextInput label="Email" />
             <FancyTextInput label="Email" />
             <FancyTextInput label="Email" />
             <FancyButton onClick={() => setIsVisible(false)} label="Close Modal"></FancyButton>
           </div>
-        </SwipeUpModal>
+        </SwipeUpModal> */}
       </DesignArea>
     </DesignWrapper>
   );
