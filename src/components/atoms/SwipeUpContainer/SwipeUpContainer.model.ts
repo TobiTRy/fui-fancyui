@@ -7,6 +7,7 @@ export type TSwipeUpContainer = {
   isScalable?: boolean;
   themeType?: TUiColorsNotTransparent;
   layer?: TLayer;
+  isOpen?: boolean;
 };
 
 export type TSwipeUpContainerWithHTMLAttrs = TSwipeUpContainer & React.HTMLAttributes<HTMLDivElement>;

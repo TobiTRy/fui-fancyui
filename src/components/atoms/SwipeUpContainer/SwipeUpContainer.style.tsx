@@ -9,17 +9,20 @@ interface IStyledSwipeUpContainer {
   theme: TTheme;
   $themeType?: TUiColorsNotTransparent;
   $layer?: TLayer;
+  $isOpen?: boolean;
 }
 export const StyledSwipeUpContainer = styled.div<IStyledSwipeUpContainer>`
+  overflow: hidden;
   width: 100%;
   max-height: 90%;
   border-radius: ${({ theme }) => theme.borderRadius.xl} ${({ theme }) => theme.borderRadius.xl} 0 0;
   position: sticky;
   top: 0;
   box-shadow: unset;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  align-items: flex-start;
+  grid-template-rows: ${({ $isOpen }) => ($isOpen ? '1fr' : '0fr')};
+  transition: grid-template-rows 0.3s ease-in-out;
   padding-top: ${({ $giveSpace }) => ($giveSpace ? ({ theme }) => theme.spacing.lg : '0')};
   z-index: 101;
   backdrop-filter: blur(4px);
