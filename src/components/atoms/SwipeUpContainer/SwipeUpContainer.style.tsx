@@ -14,7 +14,7 @@ interface IStyledSwipeUpContainer {
 export const StyledSwipeUpContainer = styled.div<IStyledSwipeUpContainer>`
   overflow: hidden;
   width: 100%;
-  max-height: 90%;
+  max-height: 100%;
   border-radius: ${({ theme }) => theme.borderRadius.xl} ${({ theme }) => theme.borderRadius.xl} 0 0;
   position: sticky;
   top: 0;

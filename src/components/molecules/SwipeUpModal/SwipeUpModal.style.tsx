@@ -11,9 +11,8 @@ export const WrapperModal = styled.div`
   height: 100vh;
   top: 0;
   left: 50%;
+  z-index: 100;
   transform: translate(-50%);
-  pointer-events: none;
-  z-index: 101;
 `;
 
 export const WrapperAnimated = styled.div`

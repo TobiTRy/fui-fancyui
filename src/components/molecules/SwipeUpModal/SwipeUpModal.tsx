@@ -48,21 +48,22 @@ export default function SwipeUpModal(props: TSwipeUpModal) {
     // this is used for the close calculation
     if (!initialHeight) setInitialHeight(height - getToutch);
 
+    console.log('height', height - getToutch);
+
     //from the to 100% = 0px to the buttom 0% 844px
     //height = 100% 844
-    const onePercent = height / 100;
-    const getPosition = getToutch / onePercent;
-    const turnValue = 100 - getPosition;
+    // const onePercent = height / 100;
+    // const getPosition = getToutch / onePercent;
+    // const turnValue = 100 - getPosition;
 
     // update the modal position
-    setModalPosition({ height: turnValue + '%' });
+    setModalPosition({ height: height - getToutch + 'px' });
   };
 
   //Close the modal via the specific event and set the overflow  back
   //the closedBy is needed is needed to prevent the modal from closing -->
   //when the user is interacting with the modal and the modal is not closeable
   const closeModal = (cloesedBy: 'status' | 'intercation') => {
-    console.log('cloesedBy', cloesedBy);
     if (cloesedBy === 'intercation' && !isCloseAble) return;
 
     //close the gobal modal state
@@ -120,7 +121,6 @@ export default function SwipeUpModal(props: TSwipeUpModal) {
         <SwipeUpContainer
           isOpen={statusModal === 'open'}
           ref={dialogRef}
-          style={modalPosition}
           tabIndex={-1}
           isScalable={isScalable}
           themeType={themeType}
@@ -135,15 +135,15 @@ export default function SwipeUpModal(props: TSwipeUpModal) {
             />
           )}
           {/*// ---------- Content Area ---------- //*/}
-          <ContentBox>
+          <ContentBox style={modalPosition}>
             {/*// ---------- Header ---------- //*/}
             <WrapperContent>
               <Content>{children}</Content>
             </WrapperContent>
           </ContentBox>
         </SwipeUpContainer>
+        {backdrop && <BackDrop isOpen={statusModal === 'open'} onClick={() => closeModal('intercation')} />}
       </WrapperModal>
-      {backdrop && <BackDrop isOpen={statusModal === 'open'} onClick={() => closeModal('intercation')} />}
     </>
   );
 }
