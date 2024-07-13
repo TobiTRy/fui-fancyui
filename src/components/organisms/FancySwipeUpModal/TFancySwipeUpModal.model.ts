@@ -1,7 +1,7 @@
 import { TModalStatus } from '@/types/TModalStatus';
-import { TSwipeUpModal } from '@/components/molecules/SwipeUpModal';
+import { TSwipeUpModalWithHTMLAttrs } from '@/components/molecules/SwipeUpModal';
 
-export type TModalSettings = Omit<TSwipeUpModal, 'isOpen' | 'children' | 'onClose'>;
+export type TModalSettings = Omit<TSwipeUpModalWithHTMLAttrs, 'isOpen' | 'children' | 'onClose'>;
 
 export type TFancySwipeUpModal = {
   id: string;
