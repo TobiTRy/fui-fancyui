@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, TouchEvent } from 'react';
 
 import { BackDrop } from '@/components/atoms/BackDrop';
 import { ScalingSection } from '@/components/atoms/ScalingSection';
@@ -7,12 +7,12 @@ import { useWindowDimensions } from '@/utils/hooks/useWindowDimensions';
 
 import { TModalStatus } from '@/types/TModalStatus';
 import { Content, ContentBox, WrapperContent, WrapperModal } from './SwipeUpModal.style';
-import { TSwipeUpModal } from './TSwipeUpModal.model';
+import { TSwipeUpModalWithHTMLAttrs } from './TSwipeUpModal.model';
 
 // --------------------------------------------------------------------------- //
 // ----------- The Modal Molecule the displays the complete modal - ---------- //
 // --------------------------------------------------------------------------- //
-export default function SwipeUpModal(props: TSwipeUpModal) {
+export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
   const {
     children,
     isOpen = true,
@@ -22,6 +22,7 @@ export default function SwipeUpModal(props: TSwipeUpModal) {
     themeType = 'primary',
     layer = 1,
     backdrop = true,
+    externalStyle,
     ...htmlProps
   } = props;
 
@@ -40,21 +41,13 @@ export default function SwipeUpModal(props: TSwipeUpModal) {
     setStatusModal('open');
   };
 
-  const moveModalHandler = (e: React.TouchEvent<HTMLDivElement>) => {
+  const moveModalHandler = (e: TouchEvent<HTMLDivElement>) => {
     document.body.style.overflowY = 'hidden';
     const getToutch = e.changedTouches[0].clientY;
 
     // sets the initial height of the modal on the auto height
     // this is used for the close calculation
     if (!initialHeight) setInitialHeight(height - getToutch);
-
-    console.log('height', height - getToutch);
-
-    //from the to 100% = 0px to the buttom 0% 844px
-    //height = 100% 844
-    // const onePercent = height / 100;
-    // const getPosition = getToutch / onePercent;
-    // const turnValue = 100 - getPosition;
 
     // update the modal position
     setModalPosition({ height: height - getToutch + 'px' });
@@ -79,7 +72,7 @@ export default function SwipeUpModal(props: TSwipeUpModal) {
   };
 
   // when the touchevent is active, can calucalte the height of the modal and close it
-  const toutchEnd = (e: React.TouchEvent<HTMLDivElement>) => {
+  const toutchEnd = (e: TouchEvent<HTMLDivElement>) => {
     const getToutch = e.changedTouches[0].clientY;
     // this calulation is for good user experience
     if (initialHeight !== undefined && height - getToutch < initialHeight * 0.85) {
@@ -116,34 +109,28 @@ export default function SwipeUpModal(props: TSwipeUpModal) {
   }, [statusModal]);
 
   return (
-    <>
-      <WrapperModal {...htmlProps}>
-        <SwipeUpContainer
-          isOpen={statusModal === 'open'}
-          ref={dialogRef}
-          tabIndex={-1}
-          isScalable={isScalable}
-          themeType={themeType}
-          layer={layer}
-        >
-          {/*// ---------- The top of the modal is used for the scaling ---------- //*/}
-          {isScalable && isCloseAble && (
-            <ScalingSection
-              touchMove={moveModalHandler}
-              touchEnd={toutchEnd}
-              onClick={() => closeModal('intercation')}
-            />
-          )}
-          {/*// ---------- Content Area ---------- //*/}
-          <ContentBox style={modalPosition}>
-            {/*// ---------- Header ---------- //*/}
-            <WrapperContent>
-              <Content>{children}</Content>
-            </WrapperContent>
-          </ContentBox>
-        </SwipeUpContainer>
-        {backdrop && <BackDrop isOpen={statusModal === 'open'} onClick={() => closeModal('intercation')} />}
-      </WrapperModal>
-    </>
+    <WrapperModal externalStyle={externalStyle} {...htmlProps}>
+      <SwipeUpContainer
+        isOpen={statusModal === 'open'}
+        ref={dialogRef}
+        tabIndex={-1}
+        isScalable={isScalable}
+        themeType={themeType}
+        layer={layer}
+      >
+        {/*// ---------- The top of the modal is used for the scaling ---------- //*/}
+        {isScalable && isCloseAble && (
+          <ScalingSection touchMove={moveModalHandler} touchEnd={toutchEnd} onClick={() => closeModal('intercation')} />
+        )}
+        {/*// ---------- Content Area ---------- //*/}
+        <ContentBox style={modalPosition}>
+          {/*// ---------- Header ---------- //*/}
+          <WrapperContent>
+            <Content>{children}</Content>
+          </WrapperContent>
+        </ContentBox>
+      </SwipeUpContainer>
+      {backdrop && <BackDrop isOpen={statusModal === 'open'} onClick={() => closeModal('intercation')} />}
+    </WrapperModal>
   );
 }
