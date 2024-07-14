@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, TouchEvent } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import { BackDrop } from '@/components/atoms/BackDrop';
 import { ScalingSection } from '@/components/atoms/ScalingSection';
@@ -31,7 +31,7 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
 
   const [statusModal, setStatusModal] = useState<TModalStatus>('closed');
   const [modalPosition, setModalPosition] = useState({ height: 'auto' });
-  const [initialHeight, setInitialHeight] = useState<number | undefined>();
+  const initialHeightRef = useRef(0);
   const { height } = useWindowDimensions();
 
   //Opens the modal and set the overfolw to hidden
@@ -39,18 +39,6 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
     document.body.style.overflow = 'hidden';
     setModalPosition({ height: 'auto' });
     setStatusModal('open');
-  };
-
-  const moveModalHandler = (e: TouchEvent<HTMLDivElement>) => {
-    document.body.style.overflowY = 'hidden';
-    const getToutch = e.changedTouches[0].clientY;
-
-    // sets the initial height of the modal on the auto height
-    // this is used for the close calculation
-    if (!initialHeight) setInitialHeight(height - getToutch);
-
-    // update the modal position
-    setModalPosition({ height: height - getToutch + 'px' });
   };
 
   //Close the modal via the specific event and set the overflow  back
@@ -69,15 +57,6 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
     }, 250);
 
     document.body.style.overflow = 'overlay';
-  };
-
-  // when the touchevent is active, can calucalte the height of the modal and close it
-  const toutchEnd = (e: TouchEvent<HTMLDivElement>) => {
-    const getToutch = e.changedTouches[0].clientY;
-    // this calulation is for good user experience
-    if (initialHeight !== undefined && height - getToutch < initialHeight * 0.85) {
-      closeModal('intercation');
-    }
   };
 
   // if the modal is open, open the modal else close it
@@ -108,6 +87,23 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
     }
   }, [statusModal]);
 
+  const handleScaling = (state: 'move' | 'end', currentPos: number) => {
+    if (state === 'move') {
+      // sets the initial height of the modal on the auto height
+      // this is used for the close calculation
+      if (!initialHeightRef.current) initialHeightRef.current = height - currentPos;
+
+      document.body.style.overflowY = 'hidden';
+
+      setModalPosition({ height: height - currentPos + 'px' });
+    } else if (state === 'end') {
+      // this calulation is for good user experience
+      if (initialHeightRef.current !== 0 && height - currentPos < initialHeightRef.current * 0.85) {
+        closeModal('intercation');
+      }
+    }
+  };
+
   return (
     <WrapperModal externalStyle={externalStyle} {...htmlProps}>
       <SwipeUpContainer
@@ -120,7 +116,7 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
       >
         {/*// ---------- The top of the modal is used for the scaling ---------- //*/}
         {isScalable && isCloseAble && (
-          <ScalingSection touchMove={moveModalHandler} touchEnd={toutchEnd} onClick={() => closeModal('intercation')} />
+          <ScalingSection handleScaling={handleScaling} onClick={() => closeModal('intercation')} />
         )}
         {/*// ---------- Content Area ---------- //*/}
         <ContentBox style={modalPosition}>

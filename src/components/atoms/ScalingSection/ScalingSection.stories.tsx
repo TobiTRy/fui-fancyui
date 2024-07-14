@@ -13,21 +13,11 @@ const meta = {
     },
   },
   argTypes: {
-    touchStart: {
-      description: 'A function to handle the touchStart event.',
-      type: { name: 'function' },
-    },
-    touchMove: {
-      description: 'A function to handle the touchMove event.',
-      type: { name: 'function' },
-    },
-    touchEnd: {
-      description: 'A function to handle the touchEnd event.',
-      type: { name: 'function' },
+    handleScaling: {
+      description: 'This is the function that is used to control the scaling of the modal.',
     },
     onClick: {
-      description: 'A function to handle the click event.',
-      type: { name: 'function' },
+      description: 'This is the function that is used to control the click event of the modal.',
     },
   },
   tags: ['autodocs'],
@@ -39,5 +29,12 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   render: (args) => <ScalingSection {...args} />,
-  args: {},
+  args: {
+    handleScaling(state: 'move' | 'end', currentPos: number) {
+      console.log(state, currentPos);
+    },
+    onClick() {
+      console.log('click');
+    },
+  },
 };
