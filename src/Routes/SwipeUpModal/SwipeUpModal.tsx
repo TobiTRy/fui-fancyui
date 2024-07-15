@@ -10,6 +10,7 @@ import SwipeUpModal from '../../components/molecules/SwipeUpModal/SwipeUpModal';
 
 import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';
 import { createFancySwipeUpModalStore } from '../../components/organisms/FancySwipeUpModal/createFancySwipeUpModal.state';
+import { FancyTextArea } from '@/components/organisms/FancyTextArea';
 
 const useFancySwipeUpModalStore = createFancySwipeUpModalStore();
 
@@ -24,10 +25,11 @@ export default function SwipeUpModalRoute() {
   const openModalHandler = () => {
     openModal(
       'modalTest',
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
+      <>
         <FancyTextInput label="Email" />
+        <FancyTextArea />
         <FancyButton onClick={() => closeModal('modalTest')} label="Close Modal"></FancyButton>
-      </div>,
+      </>,
       {
         isCloseAble: true,
         isScalable: true,

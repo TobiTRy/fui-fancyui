@@ -8,8 +8,8 @@ export const WrapperModal = styled.div<{ externalStyle: CSSProp }>`
   align-items: flex-end;
   position: fixed;
   width: 100%;
-  height: 100svh;
-  top: 0;
+  height: 100dvh;
+  bottom: 0;
   left: 50%;
   z-index: 100;
   transform: translate(-50%);
@@ -40,7 +40,6 @@ export const WrapperContent = styled.div`
   display: flex;
   flex-direction: column;
   gap: 24px;
-  margin-bottom: 24px;
 `;
 
 export const Content = styled.div`
@@ -48,4 +47,5 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   gap: 24px;
+  padding-bottom: 24px;
 `;

@@ -33,6 +33,7 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
   const [modalPosition, setModalPosition] = useState({ height: 'auto' });
   const initialHeightRef = useRef(0);
   const { height } = useWindowDimensions();
+  const containerRef = useRef<HTMLDivElement>(null);
 
   //Opens the modal and set the overfolw to hidden
   const openModal = () => {
@@ -77,7 +78,8 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
     if (statusModal === 'open') {
       const timer = setTimeout(() => {
         if (dialogRef.current) dialogRef.current.focus();
-      }, 10);
+        if (containerRef.current) setModalPosition({ height: (dialogRef?.current?.clientHeight ?? 0) - 24 + 'px' });
+      }, 300);
       return () => clearTimeout(timer);
     } else {
       // Return focus to the last focused element when modal closes
@@ -98,7 +100,7 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
       setModalPosition({ height: height - currentPos + 'px' });
     } else if (state === 'end') {
       // this calulation is for good user experience
-      if (initialHeightRef.current !== 0 && height - currentPos < initialHeightRef.current * 0.85) {
+      if (initialHeightRef.current !== 0 && height - currentPos < initialHeightRef.current * 0.6) {
         closeModal('intercation');
       }
     }
@@ -119,7 +121,7 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
           <ScalingSection handleScaling={handleScaling} onClick={() => closeModal('intercation')} />
         )}
         {/*// ---------- Content Area ---------- //*/}
-        <ContentBox style={modalPosition}>
+        <ContentBox ref={containerRef} style={modalPosition}>
           {/*// ---------- Header ---------- //*/}
           <WrapperContent>
             <Content>{children}</Content>
