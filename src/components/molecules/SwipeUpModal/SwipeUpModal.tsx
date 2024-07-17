@@ -49,8 +49,6 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
   const closeModal = (cloesedBy: 'status' | 'intercation') => {
     if (cloesedBy === 'intercation' && !isCloseAble) return;
 
-    //close the gobal modal state
-    if (onClose) onClose();
     setStatusModal('closing');
 
     document.body.style.overflow = 'overlay';
@@ -74,10 +72,12 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
     // Focus the dialog when it is rendered
     if (statusModal === 'open') {
       if (dialogRef.current) dialogRef.current.focus();
-      if (containerRef.current) setModalPosition({ height: (dialogRef?.current?.clientHeight ?? 0) - 29 + 'px' });
+      if (containerRef.current) setModalPosition({ height: (dialogRef?.current?.clientHeight ?? 0) + 'px' });
     } else {
       if (statusModal === 'closing') {
         setStatusModal('closed');
+        //close the gobal modal state
+        if (onClose) onClose();
       }
       // Return focus to the last focused element when modal closes
       if (lastFocusedElement.current) {
