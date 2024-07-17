@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useId, useRef, useState } from 'react';
 
 import { BackDrop } from '@/components/atoms/BackDrop';
 import { ScalingSection } from '@/components/atoms/ScalingSection';
@@ -28,6 +28,7 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
 
   const dialogRef = useRef<HTMLDivElement>(null);
   const lastFocusedElement = useRef<HTMLElement | null>(null);
+  const modalId = useId();
 
   const [statusModal, setStatusModal] = useState<TModalStatus>('closed');
   const [modalPosition, setModalPosition] = useState({ height: 'auto' });
@@ -67,12 +68,17 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isOpen]);
 
-  const handleOpeningAndClosing = () => {
+  const handleOpeningAndClosing = (e: React.TransitionEvent<HTMLDivElement>) => {
+    const targetElement = e.target as HTMLDivElement;
+    if (targetElement.id !== modalId) return;
     // Focus the dialog when it is rendered
     if (statusModal === 'open') {
       if (dialogRef.current) dialogRef.current.focus();
       if (containerRef.current) setModalPosition({ height: (dialogRef?.current?.clientHeight ?? 0) - 29 + 'px' });
     } else {
+      if (statusModal === 'closing') {
+        setStatusModal('closed');
+      }
       // Return focus to the last focused element when modal closes
       if (lastFocusedElement.current) {
         lastFocusedElement.current.focus();
@@ -100,12 +106,8 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
   return (
     <WrapperModal $externalStyle={externalStyle} {...htmlProps}>
       <SwipeUpContainer
-        onTransitionEnd={() => {
-          handleOpeningAndClosing();
-          if (statusModal === 'closing') {
-            setStatusModal('closed');
-          }
-        }}
+        id={modalId}
+        onTransitionEnd={handleOpeningAndClosing}
         isOpen={statusModal === 'open'}
         ref={dialogRef}
         tabIndex={-1}
