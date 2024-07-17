@@ -52,11 +52,6 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
     if (onClose) onClose();
     setStatusModal('closing');
 
-    //wait for the animation and remove the modal from the store
-    setTimeout(() => {
-      setStatusModal('closed');
-    }, 250);
-
     document.body.style.overflow = 'overlay';
   };
 
@@ -72,22 +67,18 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isOpen]);
 
-  // Handle the focus of the modal
-  useEffect(() => {
+  const handleOpeningAndClosing = () => {
     // Focus the dialog when it is rendered
     if (statusModal === 'open') {
-      const timer = setTimeout(() => {
-        if (dialogRef.current) dialogRef.current.focus();
-        if (containerRef.current) setModalPosition({ height: (dialogRef?.current?.clientHeight ?? 0) - 24 + 'px' });
-      }, 300);
-      return () => clearTimeout(timer);
+      if (dialogRef.current) dialogRef.current.focus();
+      if (containerRef.current) setModalPosition({ height: (dialogRef?.current?.clientHeight ?? 0) - 29 + 'px' });
     } else {
       // Return focus to the last focused element when modal closes
       if (lastFocusedElement.current) {
         lastFocusedElement.current.focus();
       }
     }
-  }, [statusModal]);
+  };
 
   const handleScaling = (state: 'move' | 'end', currentPos: number) => {
     if (state === 'move') {
@@ -107,8 +98,14 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
   };
 
   return (
-    <WrapperModal externalStyle={externalStyle} {...htmlProps}>
+    <WrapperModal $externalStyle={externalStyle} {...htmlProps}>
       <SwipeUpContainer
+        onTransitionEnd={() => {
+          handleOpeningAndClosing();
+          if (statusModal === 'closing') {
+            setStatusModal('closed');
+          }
+        }}
         isOpen={statusModal === 'open'}
         ref={dialogRef}
         tabIndex={-1}

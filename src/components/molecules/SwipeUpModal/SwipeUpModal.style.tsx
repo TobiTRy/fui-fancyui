@@ -2,7 +2,7 @@ import { CSSProp, styled } from 'styled-components';
 
 import { TTheme } from '@/types/TTheme';
 
-export const WrapperModal = styled.div<{ externalStyle: CSSProp }>`
+export const WrapperModal = styled.div<{ $externalStyle: CSSProp }>`
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -14,7 +14,7 @@ export const WrapperModal = styled.div<{ externalStyle: CSSProp }>`
   z-index: 100;
   transform: translate(-50%);
 
-  ${({ externalStyle }) => externalStyle}
+  ${({ $externalStyle }) => $externalStyle}
 `;
 
 export const WrapperAnimated = styled.div`
