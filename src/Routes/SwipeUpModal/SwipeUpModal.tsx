@@ -38,15 +38,7 @@ export default function SwipeUpModalRoute() {
         <FancyTextArea />
         <FancyTextArea />
         <FancyTextArea />
-        <FancyTextArea />
-        <FancyTextArea />
-        <FancyTextArea />
-        <FancyTextArea />
-        <FancyTextArea />
-        <FancyTextArea />
-        <FancyTextArea />
-        <FancyTextArea />
-        <FancyTextArea />
+
         <FancyButton onClick={() => closeModal('modalTest')} label="Close Modal"></FancyButton>
       </>,
       {
