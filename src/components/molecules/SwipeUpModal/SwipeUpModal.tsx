@@ -34,12 +34,18 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
   const [modalPosition, setModalPosition] = useState({ height: 'auto' });
   const initialHeightRef = useRef(0);
   const { height } = useWindowDimensions();
-  const containerRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
 
   //Opens the modal and set the overfolw to hidden
   const openModal = () => {
+    // if the content is higher than the window height, set the height to the window
+    // fixes safari bug where the modal jumps back wehn it reaches the top
+    const contentHeight = contentRef?.current?.offsetHeight ?? 0; // Get content height, defaulting to 0
+    const maxHeight = window.innerHeight - 30; // Calculate max allowable height
+    const minHeight = Math.min(contentHeight, maxHeight); // Return the smaller of the two
+
     document.body.style.overflow = 'hidden';
-    setModalPosition({ height: 'auto' });
+    setModalPosition({ height: minHeight + 'px' });
     setStatusModal('open');
   };
 
@@ -50,8 +56,6 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
     if (cloesedBy === 'intercation' && !isCloseAble) return;
 
     setStatusModal('closing');
-
-    document.body.style.overflow = 'overlay';
   };
 
   // if the modal is open, open the modal else close it
@@ -72,9 +76,9 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
     // Focus the dialog when it is rendered
     if (statusModal === 'open') {
       if (dialogRef.current) dialogRef.current.focus();
-      if (containerRef.current) setModalPosition({ height: (dialogRef?.current?.clientHeight ?? 0) + 'px' });
     } else {
       if (statusModal === 'closing') {
+        document.body.style.overflow = 'overlay';
         setStatusModal('closed');
         //close the gobal modal state
         if (onClose) onClose();
@@ -88,12 +92,7 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
 
   const handleScaling = (state: 'move' | 'end', currentPos: number) => {
     if (state === 'move') {
-      // sets the initial height of the modal on the auto height
-      // this is used for the close calculation
-      if (!initialHeightRef.current) initialHeightRef.current = height - currentPos;
-
       document.body.style.overflowY = 'hidden';
-
       setModalPosition({ height: height - currentPos + 'px' });
     } else if (state === 'end') {
       // this calulation is for good user experience
@@ -120,10 +119,10 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
           <ScalingSection handleScaling={handleScaling} onClick={() => closeModal('intercation')} />
         )}
         {/*// ---------- Content Area ---------- //*/}
-        <ContentBox ref={containerRef} style={modalPosition}>
+        <ContentBox style={modalPosition}>
           {/*// ---------- Header ---------- //*/}
           <WrapperContent>
-            <Content>{children}</Content>
+            <Content ref={contentRef}>{children}</Content>
           </WrapperContent>
         </ContentBox>
       </SwipeUpContainer>
