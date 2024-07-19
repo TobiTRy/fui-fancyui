@@ -1,4 +1,12 @@
-import { useEffect, useRef, useState, forwardRef, useId } from 'react';
+import {
+  useEffect,
+  useRef,
+  useState,
+  forwardRef,
+  useId,
+  TouchEvent as ReactTouchEvent,
+  MouseEvent as ReactMouseEvent,
+} from 'react';
 import { styled } from 'styled-components';
 
 import { SwipeUpDash } from '@/components/atoms/SwipeUpDash';
@@ -18,30 +26,40 @@ const ScalingSection = forwardRef<HTMLDivElement, IScalingSection>((props, ref) 
   const touchStartTime = useRef<number>(0);
   const id = useId();
 
-  const handleStart = () => {
+  const handleStart = (elementId: string) => {
+    if (elementId !== id) return;
     setIsDragging(true);
     touchStartTime.current = Date.now();
   };
 
-  const handleMoveMouse = (event: MouseEvent) => {
+  const handleStartMouse = (event: ReactMouseEvent<HTMLDivElement>) => {
     const element = event.target as HTMLElement;
-    if (!isDragging || element.id !== id) return;
+    handleStart(element.id);
+  };
+
+  const handleStartTouch = (event: ReactTouchEvent<HTMLDivElement>) => {
+    const element = event.target as HTMLElement;
+    handleStart(element.id);
+  };
+
+  const handleMoveMouse = (event: MouseEvent) => {
+    if (!isDragging) return;
+
     const currentY = event.clientY;
     const deltaY = currentY + 15;
     handleScaling('move', deltaY);
   };
 
   const handleMoveTouch = (event: TouchEvent) => {
-    const element = event.target as HTMLElement;
-    if (!isDragging || element.id !== id) return;
+    if (!isDragging) return;
+
     const currentY = event.touches[0].clientY;
     const deltaY = currentY;
     handleScaling('move', deltaY);
   };
 
   const handleEnd = (event: MouseEvent | TouchEvent) => {
-    const element = event.target as HTMLElement;
-    if (element.id !== id) return;
+    if (!isDragging) return;
     setIsDragging(false);
 
     const touchDuration = Date.now() - touchStartTime.current;
@@ -70,7 +88,7 @@ const ScalingSection = forwardRef<HTMLDivElement, IScalingSection>((props, ref) 
   }, [isDragging]);
 
   return (
-    <SytledScalingSection id={id} ref={ref} onTouchStart={handleStart} onMouseDown={handleStart}>
+    <SytledScalingSection id={id} ref={ref} onTouchStart={handleStartTouch} onMouseDown={handleStartMouse}>
       <SwipeUpDash />
     </SytledScalingSection>
   );
