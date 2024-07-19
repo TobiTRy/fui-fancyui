@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, forwardRef } from 'react';
 import { styled } from 'styled-components';
 
 import { SwipeUpDash } from '@/components/atoms/SwipeUpDash';
@@ -11,7 +11,9 @@ interface IScalingSection {
 // --------------------------------------------------------------------------- //
 //the ScalingSection is for conroling events on the swipe up dash for better UX //
 // --------------------------------------------------------------------------- //
-export default function ScalingSection({ handleScaling, onClick }: IScalingSection) {
+const ScalingSection = forwardRef<HTMLDivElement, IScalingSection>((props, ref) => {
+  const { handleScaling, onClick } = props;
+
   const [isDragging, setIsDragging] = useState(false);
   const touchStartTime = useRef<number>(0);
 
@@ -63,11 +65,11 @@ export default function ScalingSection({ handleScaling, onClick }: IScalingSecti
   }, [isDragging]);
 
   return (
-    <SytledScalingSection onTouchStart={handleStart} onMouseDown={handleStart}>
+    <SytledScalingSection ref={ref} onTouchStart={handleStart} onMouseDown={handleStart}>
       <SwipeUpDash />
     </SytledScalingSection>
   );
-}
+});
 
 // ------------------------------------------- //
 // ------- The style for the component ------- //
@@ -87,3 +89,5 @@ const SytledScalingSection = styled.div`
 const isTouchEvent = (e: MouseEvent | TouchEvent): e is TouchEvent => {
   return 'changedTouches' in e;
 };
+
+export default ScalingSection;
