@@ -30,8 +30,8 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
   const lastFocusedElement = useRef<HTMLElement | null>(null);
   const modalId = useId();
 
-  const [statusModal, setStatusModal] = useState<TModalStatus>('closed');
-  const [modalPosition, setModalPosition] = useState('100%');
+  const [statusModal, setStatusModal] = useState<TModalStatus | 'opening'>('closed');
+  const [modalPosition, setModalPosition] = useState(100);
   const initialHeightRef = useRef(0);
   const { height } = useWindowDimensions();
   const contentRef = useRef<HTMLDivElement>(null);
@@ -44,13 +44,14 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
     // fixes safari bug where the modal jumps back wehn it reaches the top
 
     const contentHeight = contentRef?.current?.offsetHeight ?? 0; // Get content height, defaulting to 0
-    const maxHeight = window.innerHeight; // reduce the height of the scaling section
-    const minHeight = Math.min(contentHeight, maxHeight); // Return the smaller of the two
+    const maxHeight = height; // reduce the height of the scaling section
+    const minHeight = Math.min(contentHeight + 30, maxHeight); // Return the smaller of the two
+    const position = calcPositionInPercent(minHeight, height);
 
     document.body.style.overflow = 'hidden';
     initialHeightRef.current = minHeight;
-    setModalPosition(minHeight + 'px');
-    setStatusModal('open');
+    setModalPosition(position);
+    setStatusModal('opening');
   };
 
   //Close the modal via the specific event and set the overflow  back
@@ -58,7 +59,6 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
   //when the user is interacting with the modal and the modal is not closeable
   const closeModal = (cloesedBy: 'status' | 'intercation') => {
     if (cloesedBy === 'intercation' && !isCloseAble) return;
-
     setStatusModal('closing');
   };
 
@@ -77,9 +77,11 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
   const handleOpeningAndClosing = (e: React.TransitionEvent<HTMLDivElement>) => {
     const targetElement = e.target as HTMLDivElement;
     if (targetElement.id !== modalId) return;
+
     // Focus the dialog when it is rendered
-    if (statusModal === 'open') {
+    if (statusModal === 'opening') {
       if (dialogRef.current) dialogRef.current.focus();
+      setStatusModal('open');
     } else {
       if (statusModal === 'closing') {
         document.body.style.overflow = 'overlay';
@@ -95,12 +97,20 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
   };
 
   const handleScaling = (state: 'move' | 'end', currentPos: number) => {
+    const flipedPosition = height - currentPos + scalingSectionHeight / 2;
+
+    const position = calcPositionInPercent(flipedPosition, height);
+
     if (state === 'move') {
       document.body.style.overflowY = 'hidden';
-      setModalPosition(window.innerHeight - currentPos - scalingSectionHeight + 'px');
+
+      setModalPosition(position);
     } else if (state === 'end') {
+      const inititialHeight = calcPositionInPercent(initialHeightRef.current, height) + 100;
       // this calulation is for good user experience
-      if (initialHeightRef.current !== 0 && height - currentPos < initialHeightRef.current * 0.6) {
+      console.log('position', position, inititialHeight * 0.4);
+
+      if (initialHeightRef.current !== 0 && position > inititialHeight * 0.4) {
         closeModal('intercation');
       }
     }
@@ -111,7 +121,7 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
       <SwipeUpContainer
         id={modalId}
         onTransitionEnd={handleOpeningAndClosing}
-        isOpen={statusModal === 'open'}
+        isOpen={statusModal === 'opening'}
         ref={dialogRef}
         tabIndex={-1}
         isScalable={isScalable}
@@ -119,7 +129,11 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
         layer={layer}
         style={{
           height: '100%',
-          transform: `translateY(${modalPosition})`,
+          transform:
+            statusModal === 'open' || statusModal === 'opening'
+              ? `translateY(${Math.max(modalPosition, 0)}%)`
+              : 'translateY(100%)',
+          transition: statusModal === 'open' ? '' : 'transform 0.3s ease-in-out',
         }}
       >
         {/*// ---------- The top of the modal is used for the scaling ---------- //*/}
@@ -142,3 +156,9 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
     </WrapperModal>
   );
 }
+
+const calcPositionInPercent = (currentPos: number, height: number) => {
+  const windowHeight = height;
+  const position = windowHeight - currentPos;
+  return (position / windowHeight) * 100;
+};

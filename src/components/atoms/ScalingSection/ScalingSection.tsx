@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, forwardRef } from 'react';
+import { useEffect, useRef, useState, forwardRef, useId } from 'react';
 import { styled } from 'styled-components';
 
 import { SwipeUpDash } from '@/components/atoms/SwipeUpDash';
@@ -16,6 +16,7 @@ const ScalingSection = forwardRef<HTMLDivElement, IScalingSection>((props, ref) 
 
   const [isDragging, setIsDragging] = useState(false);
   const touchStartTime = useRef<number>(0);
+  const id = useId();
 
   const handleStart = () => {
     setIsDragging(true);
@@ -23,20 +24,24 @@ const ScalingSection = forwardRef<HTMLDivElement, IScalingSection>((props, ref) 
   };
 
   const handleMoveMouse = (event: MouseEvent) => {
-    if (!isDragging) return;
+    const element = event.target as HTMLElement;
+    if (!isDragging || element.id !== id) return;
     const currentY = event.clientY;
     const deltaY = currentY + 15;
     handleScaling('move', deltaY);
   };
 
   const handleMoveTouch = (event: TouchEvent) => {
-    if (!isDragging) return;
+    const element = event.target as HTMLElement;
+    if (!isDragging || element.id !== id) return;
     const currentY = event.touches[0].clientY;
     const deltaY = currentY;
     handleScaling('move', deltaY);
   };
 
   const handleEnd = (event: MouseEvent | TouchEvent) => {
+    const element = event.target as HTMLElement;
+    if (element.id !== id) return;
     setIsDragging(false);
 
     const touchDuration = Date.now() - touchStartTime.current;
@@ -65,7 +70,7 @@ const ScalingSection = forwardRef<HTMLDivElement, IScalingSection>((props, ref) 
   }, [isDragging]);
 
   return (
-    <SytledScalingSection ref={ref} onTouchStart={handleStart} onMouseDown={handleStart}>
+    <SytledScalingSection id={id} ref={ref} onTouchStart={handleStart} onMouseDown={handleStart}>
       <SwipeUpDash />
     </SytledScalingSection>
   );

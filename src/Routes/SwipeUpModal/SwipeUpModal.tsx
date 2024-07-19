@@ -29,6 +29,9 @@ export default function SwipeUpModalRoute() {
         <FancyTextInput label="Email" />
         <FancyTextArea />
         <FancyTextArea />
+        <FancyTextArea />
+        <FancyTextArea />
+        <FancyTextArea />
 
         <FancyTextArea />
 

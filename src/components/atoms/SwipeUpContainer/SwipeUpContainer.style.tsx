@@ -21,10 +21,6 @@ export const StyledSwipeUpContainer = styled.div<IStyledSwipeUpContainer>`
   box-shadow: unset;
   display: grid;
   align-items: flex-start;
-  grid-template-rows: ${({ $isOpen }) => ($isOpen ? '1fr' : '0fr')};
-  transition:
-    grid-template-rows 0.4s ease-in-out,
-    transform 0.4s ease-in-out;
   padding-top: ${({ $giveSpace }) => ($giveSpace ? ({ theme }) => theme.spacing.lg : '0')};
   z-index: 101;
   backdrop-filter: blur(4px);
