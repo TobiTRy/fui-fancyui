@@ -31,21 +31,25 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
   const modalId = useId();
 
   const [statusModal, setStatusModal] = useState<TModalStatus>('closed');
-  const [modalPosition, setModalPosition] = useState({ height: 'auto' });
+  const [modalPosition, setModalPosition] = useState('100%');
   const initialHeightRef = useRef(0);
   const { height } = useWindowDimensions();
   const contentRef = useRef<HTMLDivElement>(null);
+  const scalingSection = useRef<HTMLDivElement>(null);
+  const scalingSectionHeight = scalingSection.current?.offsetHeight ?? 0;
 
   //Opens the modal and set the overfolw to hidden
   const openModal = () => {
     // if the content is higher than the window height, set the height to the window
     // fixes safari bug where the modal jumps back wehn it reaches the top
+
     const contentHeight = contentRef?.current?.offsetHeight ?? 0; // Get content height, defaulting to 0
-    const maxHeight = window.innerHeight - 30; // Calculate max allowable height
+    const maxHeight = window.innerHeight; // reduce the height of the scaling section
     const minHeight = Math.min(contentHeight, maxHeight); // Return the smaller of the two
 
     document.body.style.overflow = 'hidden';
-    setModalPosition({ height: minHeight + 'px' });
+    initialHeightRef.current = minHeight;
+    setModalPosition(minHeight + 'px');
     setStatusModal('open');
   };
 
@@ -93,7 +97,7 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
   const handleScaling = (state: 'move' | 'end', currentPos: number) => {
     if (state === 'move') {
       document.body.style.overflowY = 'hidden';
-      setModalPosition({ height: height - currentPos + 'px' });
+      setModalPosition(window.innerHeight - currentPos - scalingSectionHeight + 'px');
     } else if (state === 'end') {
       // this calulation is for good user experience
       if (initialHeightRef.current !== 0 && height - currentPos < initialHeightRef.current * 0.6) {
@@ -113,13 +117,21 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
         isScalable={isScalable}
         themeType={themeType}
         layer={layer}
+        style={{
+          height: '100%',
+          transform: `translateY(${modalPosition})`,
+        }}
       >
         {/*// ---------- The top of the modal is used for the scaling ---------- //*/}
         {isScalable && isCloseAble && (
-          <ScalingSection handleScaling={handleScaling} onClick={() => closeModal('intercation')} />
+          <ScalingSection
+            ref={scalingSection}
+            handleScaling={handleScaling}
+            onClick={() => closeModal('intercation')}
+          />
         )}
         {/*// ---------- Content Area ---------- //*/}
-        <ContentBox style={modalPosition}>
+        <ContentBox>
           {/*// ---------- Header ---------- //*/}
           <WrapperContent>
             <Content ref={contentRef}>{children}</Content>
