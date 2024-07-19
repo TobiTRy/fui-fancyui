@@ -87,6 +87,7 @@ const SytledScalingSection = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: ns-resize;
   z-index: 100;
 `;
 

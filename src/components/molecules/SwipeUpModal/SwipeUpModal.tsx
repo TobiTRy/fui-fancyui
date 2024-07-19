@@ -18,11 +18,11 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
     isOpen = true,
     isCloseAble = true,
     isScalable = true,
-    onClose,
     themeType = 'primary',
     layer = 1,
     backdrop = true,
     externalStyle,
+    onClose,
     ...htmlProps
   } = props;
 
@@ -97,7 +97,7 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
   };
 
   const handleScaling = (state: 'move' | 'end', currentPos: number) => {
-    const flipedPosition = height - currentPos + scalingSectionHeight / 2;
+    const flipedPosition = height - currentPos + 15 + scalingSectionHeight / 2;
 
     const position = calcPositionInPercent(flipedPosition, height);
 
@@ -108,7 +108,6 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
     } else if (state === 'end') {
       const inititialHeight = calcPositionInPercent(initialHeightRef.current, height) + 100;
       // this calulation is for good user experience
-      console.log('position', position, inititialHeight * 0.4);
 
       if (initialHeightRef.current !== 0 && position > inititialHeight * 0.4) {
         closeModal('intercation');
@@ -133,7 +132,7 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
             statusModal === 'open' || statusModal === 'opening'
               ? `translateY(${Math.max(modalPosition, 0)}%)`
               : 'translateY(100%)',
-          transition: statusModal === 'open' ? '' : 'transform 0.3s ease-in-out',
+          transition: statusModal !== 'open' ? 'transform 0.3s ease-in-out' : '',
         }}
       >
         {/*// ---------- The top of the modal is used for the scaling ---------- //*/}
