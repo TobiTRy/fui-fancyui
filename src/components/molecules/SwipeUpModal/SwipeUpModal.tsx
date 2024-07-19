@@ -26,12 +26,12 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
     ...htmlProps
   } = props;
 
+  const modalId = useId();
   const dialogRef = useRef<HTMLDivElement>(null);
   const lastFocusedElement = useRef<HTMLElement | null>(null);
-  const modalId = useId();
 
   const [statusModal, setStatusModal] = useState<TModalStatus | 'opening'>('closed');
-  const [modalPosition, setModalPosition] = useState(100);
+  const [modalPosition, setModalPosition] = useState(120);
   const initialHeightRef = useRef(0);
   const { height } = useWindowDimensions();
   const contentRef = useRef<HTMLDivElement>(null);
@@ -42,10 +42,9 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
   const openModal = () => {
     // if the content is higher than the window height, set the height to the window
     // fixes safari bug where the modal jumps back wehn it reaches the top
-
     const contentHeight = contentRef?.current?.offsetHeight ?? 0; // Get content height, defaulting to 0
     const maxHeight = height; // reduce the height of the scaling section
-    const minHeight = Math.min(contentHeight + 30, maxHeight); // Return the smaller of the two
+    const minHeight = Math.min(contentHeight + scalingSectionHeight, maxHeight); // Return the smaller of the two
     const position = calcPositionInPercent(minHeight, height);
 
     document.body.style.overflow = 'hidden';
@@ -99,16 +98,18 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
   const handleScaling = (state: 'move' | 'end', currentPos: number) => {
     const flipedPosition = height - currentPos + 15 + scalingSectionHeight / 2;
 
+    // calculate the position in percent
     const position = calcPositionInPercent(flipedPosition, height);
 
+    // if the user is moving the modal
     if (state === 'move') {
       document.body.style.overflowY = 'hidden';
 
       setModalPosition(position);
+      // if the user is done moving the modal
     } else if (state === 'end') {
       const inititialHeight = calcPositionInPercent(initialHeightRef.current, height) + 100;
       // this calulation is for good user experience
-
       if (initialHeightRef.current !== 0 && position > inititialHeight * 0.4) {
         closeModal('intercation');
       }
@@ -127,11 +128,10 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
         themeType={themeType}
         layer={layer}
         style={{
-          height: '100%',
           transform:
             statusModal === 'open' || statusModal === 'opening'
               ? `translateY(${Math.max(modalPosition, 0)}%)`
-              : 'translateY(100%)',
+              : 'translateY(120%)', // 120% to make sure the modal is not visible iphone searchbar is transparent ...
           transition: statusModal !== 'open' ? 'transform 0.3s ease-in-out' : '',
         }}
       >
@@ -144,7 +144,7 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
           />
         )}
         {/*// ---------- Content Area ---------- //*/}
-        <ContentBox>
+        <ContentBox $spaceTop={scalingSectionHeight}>
           {/*// ---------- Header ---------- //*/}
           <WrapperContent>
             <Content ref={contentRef}>{children}</Content>
