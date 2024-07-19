@@ -24,11 +24,12 @@ export const WrapperAnimated = styled.div`
   height: 100%;
 `;
 
-export const ContentBox = styled.div<{ theme: TTheme }>`
+export const ContentBox = styled.div<{ theme: TTheme; $spaceTop: number }>`
   overflow-y: scroll;
   color: ${({ theme }) => theme.color.secondary[0]};
   display: flex;
   flex-direction: column;
+  height: calc(100dvh - ${({ $spaceTop }) => $spaceTop}px);
   justify-content: flex-start;
   align-items: center;
   width: 100%;
