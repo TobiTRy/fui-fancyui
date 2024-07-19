@@ -151,7 +151,12 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
           </WrapperContent>
         </ContentBox>
       </SwipeUpContainer>
-      {backdrop && <BackDrop isOpen={statusModal === 'open'} onClick={() => closeModal('intercation')} />}
+      {backdrop && (
+        <BackDrop
+          isOpen={statusModal === 'opening' || statusModal === 'open'}
+          onClick={() => closeModal('intercation')}
+        />
+      )}
     </WrapperModal>
   );
 }
