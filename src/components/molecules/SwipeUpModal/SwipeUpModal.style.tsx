@@ -29,7 +29,7 @@ export const ContentBox = styled.div<{ theme: TTheme; $spaceTop: number }>`
   color: ${({ theme }) => theme.color.secondary[0]};
   display: flex;
   flex-direction: column;
-  height: calc(100dvh - ${({ $spaceTop }) => $spaceTop}px);
+  max-height: calc(100dvh - ${({ $spaceTop }) => $spaceTop}px);
   justify-content: flex-start;
   align-items: center;
   width: 100%;
