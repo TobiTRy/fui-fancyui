@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 
 interface IBackDrop {
@@ -9,14 +9,10 @@ interface IBackDrop {
 // ------- Only a backdrop for some components with a onclick listener ------- //
 // --------------------------------------------------------------------------- //
 export default function BackDrop({ isOpen, onClick }: IBackDrop) {
-  const [shouldRender, setRender] = useState(isOpen);
   const backdropRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    let timeoutId: NodeJS.Timeout;
-
     if (isOpen) {
-      setRender(true);
       // Trigger the animation after the component has mounted
       requestAnimationFrame(() => {
         if (backdropRef.current) {
@@ -28,13 +24,10 @@ export default function BackDrop({ isOpen, onClick }: IBackDrop) {
       if (backdropRef.current) {
         backdropRef.current.style.opacity = '0';
       }
-      timeoutId = setTimeout(() => setRender(false), 300);
     }
-
-    return () => clearTimeout(timeoutId);
   }, [isOpen]);
 
-  return shouldRender ? <BackdropContainer ref={backdropRef} onClick={onClick} /> : null;
+  return <BackdropContainer ref={backdropRef} onClick={onClick} />;
 }
 
 // ------------------------------------------- //
