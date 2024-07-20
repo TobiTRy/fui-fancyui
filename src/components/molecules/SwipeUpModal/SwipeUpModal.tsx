@@ -36,7 +36,7 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
   const { height } = useWindowDimensions();
   const contentRef = useRef<HTMLDivElement>(null);
   const scalingSection = useRef<HTMLDivElement>(null);
-  const contentHeight = useRef(0);
+  const [contentHeight, setContentHeight] = useState(0);
 
   //Opens the modal and set the overfolw to hidden
   const openModal = () => {
@@ -82,6 +82,8 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
     // Focus the dialog when it is rendered
     if (statusModal === 'opening') {
       if (dialogRef.current) dialogRef.current.focus();
+
+      setContentHeight(height - (contentRef?.current?.offsetHeight ?? 0));
       setStatusModal('open');
     } else {
       if (statusModal === 'closing') {
@@ -108,8 +110,8 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
     // if the user is moving the modal
     if (state === 'move') {
       document.body.style.overflowY = 'hidden';
-      contentHeight.current = height - flipedPosition + scalingSectionHeight;
-      console.log(contentHeight.current);
+      setContentHeight(height - flipedPosition + scalingSectionHeight);
+
       setModalPosition(position);
       // if the user is done moving the modal
     } else if (state === 'end') {
@@ -150,7 +152,7 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
         )}
         {/*// ---------- Content Area ---------- //*/}
         <ContentBox
-          style={{ height: height - contentHeight.current ?? 0 + 'px' }}
+          style={{ height: height - contentHeight ?? 0 + 'px' }}
           $spaceTop={scalingSection.current?.offsetHeight ?? 0}
         >
           {/*// ---------- Header ---------- //*/}
