@@ -36,14 +36,15 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
   const { height } = useWindowDimensions();
   const contentRef = useRef<HTMLDivElement>(null);
   const scalingSection = useRef<HTMLDivElement>(null);
-  const scalingSectionHeight = scalingSection.current?.offsetHeight ?? 0;
 
   //Opens the modal and set the overfolw to hidden
   const openModal = () => {
     // if the content is higher than the window height, set the height to the window
     // fixes safari bug where the modal jumps back wehn it reaches the top
     const contentHeight = contentRef?.current?.offsetHeight ?? 0; // Get content height, defaulting to 0
+    const scalingSectionHeight = scalingSection.current?.offsetHeight ?? 0; // Get the height of the scaling section
     const maxHeight = height; // reduce the height of the scaling section
+
     const minHeight = Math.min(contentHeight + scalingSectionHeight, maxHeight); // Return the smaller of the two
     const position = calcPositionInPercent(minHeight, height);
 
@@ -96,6 +97,8 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
   };
 
   const handleScaling = (state: 'move' | 'end', currentPos: number) => {
+    const scalingSectionHeight = scalingSection.current?.offsetHeight ?? 0;
+
     const flipedPosition = height - currentPos + 15 + scalingSectionHeight / 2;
 
     // calculate the position in percent
@@ -144,7 +147,7 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
           />
         )}
         {/*// ---------- Content Area ---------- //*/}
-        <ContentBox $spaceTop={scalingSectionHeight}>
+        <ContentBox $spaceTop={scalingSection.current?.offsetHeight ?? 0}>
           {/*// ---------- Header ---------- //*/}
           <WrapperContent>
             <Content ref={contentRef}>{children}</Content>
