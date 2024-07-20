@@ -112,7 +112,7 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
       // if the user is done moving the modal
     } else if (state === 'end') {
       const inititialHeight = calcPositionInPercent(initialHeightRef.current, height) + 100;
-      // this calulation is for good user experience
+      // this calulation is for good user experience.  Its closes the modal when the user is moving the modal down a specific amount
       if (initialHeightRef.current !== 0 && position > inititialHeight * 0.4) {
         closeModal('intercation');
       }
