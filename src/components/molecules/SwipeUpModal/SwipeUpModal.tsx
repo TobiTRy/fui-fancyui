@@ -1,4 +1,4 @@
-import { useEffect, useId, useLayoutEffect, useRef, useState } from 'react';
+import { useEffect, useId, useRef, useState } from 'react';
 
 import { BackDrop } from '@/components/atoms/BackDrop';
 import { ScalingSection } from '@/components/atoms/ScalingSection';
@@ -39,20 +39,6 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
   const [contentHeight, setContentHeight] = useState(0);
   const scrollY = useRef(0);
 
-  // Set the overflow to hidden when the modal is open
-  useLayoutEffect(() => {
-    if (statusModal === 'opening' || statusModal === 'open') {
-      if (window.scrollY > 0) {
-        scrollY.current = window.scrollY;
-        document.body.style.top = `-${scrollY.current}px`; // Store the scroll position
-      }
-
-      // Apply styles to prevent scrolling
-      document.body.style.position = 'fixed'; // Prevent scrolling on the body in iOS Safari
-      document.body.style.overflow = 'hidden'; // you need this (NOT Y) to stop safari from entering refresh section
-    }
-  }, [statusModal]);
-
   //Opens the modal and set the overfolw to hidden
   const openModal = () => {
     // if the content is higher than the window height, set the height to the window
@@ -61,7 +47,8 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
     const scalingSectionHeight = scalingSection.current?.offsetHeight ?? 0; // Get the height of the scaling section
     const maxHeight = height; // reduce the height of the scaling section
 
-    const minHeight = Math.min(contentHeight + scalingSectionHeight, maxHeight); // Return the smaller of the two
+    // Set the height of the modal to the content height + the scaling section height
+    const minHeight = Math.min(contentHeight + scalingSectionHeight, maxHeight);
     const position = calcPositionInPercent(minHeight, height);
 
     initialHeightRef.current = minHeight;
@@ -69,7 +56,6 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
     setStatusModal('opening');
   };
 
-  //Close the modal via the specific event and set the overflow  back
   //the closedBy is needed is needed to prevent the modal from closing -->
   //when the user is interacting with the modal and the modal is not closeable
   const closeModal = (cloesedBy: 'status' | 'intercation') => {
@@ -89,6 +75,18 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isOpen]);
 
+  // sets the overflow to hidden when the modal is opening
+  const setOverflowHidden = () => {
+    if (window.scrollY > 0) {
+      scrollY.current = window.scrollY;
+      document.body.style.top = `-${scrollY.current}px`; // Store the scroll position
+    }
+
+    // Apply styles to prevent scrolling
+    document.body.style.position = 'fixed'; // Prevent scrolling on the body in iOS Safari
+    document.body.style.overflow = 'hidden'; // you need this (NOT Y) to stop safari from entering refresh section
+  };
+
   const handleOpeningAndClosing = (e: React.TransitionEvent<HTMLDivElement>) => {
     const targetElement = e.target as HTMLDivElement;
     if (targetElement.id !== modalId) return;
@@ -96,6 +94,9 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
     // Focus the dialog when it is rendered
     if (statusModal === 'opening') {
       if (dialogRef.current) dialogRef.current.focus();
+
+      // Set the overflow of the body to hidden
+      setOverflowHidden();
 
       setContentHeight(height - (contentRef?.current?.offsetHeight ?? 0));
       setStatusModal('open');
@@ -119,7 +120,7 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
   const handleScaling = (state: 'move' | 'end', currentPos: number) => {
     const scalingSectionHeight = scalingSection.current?.offsetHeight ?? 0;
 
-    const flipedPosition = height - currentPos + 15 + scalingSectionHeight / 2;
+    const flipedPosition = height - currentPos + scalingSectionHeight;
 
     // calculate the position in percent
     const position = calcPositionInPercent(flipedPosition, height);
