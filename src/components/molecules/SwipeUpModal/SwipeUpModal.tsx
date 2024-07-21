@@ -39,32 +39,19 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
   const [contentHeight, setContentHeight] = useState(0);
   const scrollY = useRef(0);
 
+  // Set the overflow to hidden when the modal is open
   useLayoutEffect(() => {
     if (statusModal === 'opening' || statusModal === 'open') {
       if (window.scrollY > 0) {
         scrollY.current = window.scrollY;
-        document.body.style.top = `-${scrollY.current}px`;
+        document.body.style.top = `-${scrollY.current}px`; // Store the scroll position
       }
 
       // Apply styles to prevent scrolling
-      document.body.style.position = 'fixed';
-      document.body.style.overflow = 'hidden'; // Prevent vertical scroll specifically
+      document.body.style.position = 'fixed'; // Prevent scrolling on the body in iOS Safari
+      document.body.style.overflow = 'hidden'; // you need this (NOT Y) to stop safari from entering refresh section
     }
   }, [statusModal]);
-
-  useEffect(() => {
-    if (statusModal === 'closing') {
-      // Small delay to ensure styles are reset after the modal's animation is complete
-      document.body.style.top = '';
-      document.body.style.position = '';
-
-      window.scrollTo(0, scrollY.current); // Restore scroll position
-
-      document.body.style.overflow = ''; // Restore vertical scroll
-    }
-  }, [statusModal]);
-
-  // ... your componen
 
   //Opens the modal and set the overfolw to hidden
   const openModal = () => {
@@ -114,6 +101,10 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
       setStatusModal('open');
     } else {
       if (statusModal === 'closing') {
+        // Reset the overflow of the body to its initial state
+        resetOverflow(scrollY.current);
+
+        // Close the modal
         setStatusModal('closed');
         //close the gobal modal state
         if (onClose) onClose();
@@ -200,4 +191,14 @@ const calcPositionInPercent = (currentPos: number, height: number) => {
   const windowHeight = height;
   const position = windowHeight - currentPos;
   return (position / windowHeight) * 100;
+};
+
+// Reset the overflow of the body to its initial state
+const resetOverflow = (scrollY: number) => {
+  document.body.style.top = '';
+  document.body.style.position = '';
+
+  window.scrollTo(0, scrollY); // Restore scroll position
+
+  document.body.style.overflow = ''; // Restore vertical scroll
 };
