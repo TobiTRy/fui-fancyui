@@ -55,7 +55,14 @@ export default function SwipeUpModalRoute() {
         <FancyButton onClick={() => openModalHandler()} label="Open Modal"></FancyButton>
         <FancyButton onClick={() => setIsVisible(false)} label="Close Modal "></FancyButton>
         <FancyButton onClick={toggleModal} label="Open Swipe Up Modal"></FancyButton>
-
+        <div
+          style={{
+            width: '100%',
+            height: '2000px',
+          }}
+        >
+          Mooiin
+        </div>
         {/* <SwipeUpModal isOpen={isVisible}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
             <FancyTextInput label="Email" />

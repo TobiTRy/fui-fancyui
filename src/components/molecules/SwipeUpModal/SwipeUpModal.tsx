@@ -1,4 +1,4 @@
-import { useEffect, useId, useRef, useState } from 'react';
+import { useEffect, useId, useLayoutEffect, useRef, useState } from 'react';
 
 import { BackDrop } from '@/components/atoms/BackDrop';
 import { ScalingSection } from '@/components/atoms/ScalingSection';
@@ -37,6 +37,34 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
   const contentRef = useRef<HTMLDivElement>(null);
   const scalingSection = useRef<HTMLDivElement>(null);
   const [contentHeight, setContentHeight] = useState(0);
+  const scrollY = useRef(0);
+
+  useLayoutEffect(() => {
+    if (statusModal === 'opening' || statusModal === 'open') {
+      if (window.scrollY > 0) {
+        scrollY.current = window.scrollY;
+        document.body.style.top = `-${scrollY.current}px`;
+      }
+
+      // Apply styles to prevent scrolling
+      document.body.style.position = 'fixed';
+      document.body.style.overflowY = 'hidden'; // Prevent vertical scroll specifically
+    }
+  }, [statusModal]);
+
+  useEffect(() => {
+    if (statusModal === 'closing') {
+      // Small delay to ensure styles are reset after the modal's animation is complete
+      document.body.style.top = '';
+      document.body.style.position = '';
+
+      window.scrollTo(0, scrollY.current); // Restore scroll position
+
+      document.body.style.overflowY = ''; // Restore vertical scroll
+    }
+  }, [statusModal]);
+
+  // ... your componen
 
   //Opens the modal and set the overfolw to hidden
   const openModal = () => {
@@ -49,7 +77,6 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
     const minHeight = Math.min(contentHeight + scalingSectionHeight, maxHeight); // Return the smaller of the two
     const position = calcPositionInPercent(minHeight, height);
 
-    document.body.style.overflow = 'hidden';
     initialHeightRef.current = minHeight;
     setModalPosition(position);
     setStatusModal('opening');
@@ -87,7 +114,6 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
       setStatusModal('open');
     } else {
       if (statusModal === 'closing') {
-        document.body.style.overflow = 'overlay';
         setStatusModal('closed');
         //close the gobal modal state
         if (onClose) onClose();
@@ -109,7 +135,6 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
 
     // if the user is moving the modal
     if (state === 'move') {
-      document.body.style.overflowY = 'hidden';
       setContentHeight(height - flipedPosition + scalingSectionHeight);
 
       setModalPosition(position);
@@ -152,7 +177,7 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
         )}
         {/*// ---------- Content Area ---------- //*/}
         <ContentBox
-          style={{ height: height - contentHeight ?? 0 + 'px' }}
+          style={{ height: height - (contentHeight ?? 0) + 'px' }}
           $spaceTop={scalingSection.current?.offsetHeight ?? 0}
         >
           {/*// ---------- Header ---------- //*/}
