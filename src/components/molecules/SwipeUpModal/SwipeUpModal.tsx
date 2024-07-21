@@ -48,7 +48,7 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
 
       // Apply styles to prevent scrolling
       document.body.style.position = 'fixed';
-      document.body.style.overflowY = 'hidden'; // Prevent vertical scroll specifically
+      document.body.style.overflow = 'hidden'; // Prevent vertical scroll specifically
     }
   }, [statusModal]);
 
@@ -60,7 +60,7 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
 
       window.scrollTo(0, scrollY.current); // Restore scroll position
 
-      document.body.style.overflowY = ''; // Restore vertical scroll
+      document.body.style.overflow = ''; // Restore vertical scroll
     }
   }, [statusModal]);
 
