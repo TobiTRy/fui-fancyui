@@ -57,9 +57,12 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
   };
 
   //the closedBy is needed is needed to prevent the modal from closing -->
-  //when the user is interacting with the modal and the modal is not closeable
+  //when the user is interacting with the %modal and the modal is not closeable
   const closeModal = (cloesedBy: 'status' | 'intercation') => {
     if (cloesedBy === 'intercation' && !isCloseAble) return;
+    // Reset the overflow of the body to its initial state
+    resetOverflow(scrollY.current);
+
     setStatusModal('closing');
   };
 
@@ -102,10 +105,6 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
       setStatusModal('open');
     } else {
       if (statusModal === 'closing') {
-        // Reset the overflow of the body to its initial state
-        resetOverflow(scrollY.current);
-
-        // Close the modal
         setStatusModal('closed');
         //close the gobal modal state
         if (onClose) onClose();
