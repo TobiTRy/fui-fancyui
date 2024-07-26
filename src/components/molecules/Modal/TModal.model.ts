@@ -1,8 +1,7 @@
 import { TSimpleDialog } from '@/components/atoms/SimpleDialog';
 
 export type TModal = {
-  id?: string;
-  onClose?: (id: string) => void;
+  onClose?: () => void;
   isCloseable?: boolean;
   backDrop?: boolean;
 } & TSimpleDialog;

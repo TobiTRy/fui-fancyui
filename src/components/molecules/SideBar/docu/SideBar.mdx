@@ -1,0 +1,49 @@
+import { Meta, Title, Description, Controls, Canvas } from '@storybook/blocks';
+import * as SideBarStories from './SideBar.stories';
+
+<Meta of={SideBarStories} />
+
+<Title />
+
+<Description />
+
+## Setup Instructions
+
+1. **Import the Component:**
+
+```jsx
+import { SideBar } from 'FUI-FancyUI';
+```
+
+2. **(Optional) Import Types:** If using TypeScript, import the type definitions:
+
+```jsx
+import { TSideBar, TSideBarWithAllAttrs } from 'FUI-FancyUI';
+```
+
+## Example Usage
+
+```jsx
+<SideBar isOpen={true} sizeC="md" gapBetweenItems="lg" openWidth="300px">
+  {/* Your navigation items here */}
+  <SideBarItem sizeC="md" direction="left" justify="left" wide={false} noMargin={false} onClick={handleClick}>
+    <SideBarItem.Icon sizeC={'sm'}>
+      <SVGIcon />
+    </SideBarItem.Icon>
+    <SideBarItem.Label sizeC={'sm'}>Home</SideBarItem.Label>
+  </SideBarItem>
+</SideBar>
+```
+
+<Canvas />
+
+## Component Properties
+
+<Controls />
+
+## Additional Notes
+
+- **FancyBox Inheritance:** The SideBar inherits all properties and behaviors of the `FancyBox` component, providing extensive customization options.
+- **Responsiveness:** The SideBar's width can be set using either the `sizeC` prop (for predefined sizes) or the `openWidth` prop (for custom pixel or percentage values).
+
+Let me know if you'd like any adjustments or further elaboration on specific aspects of the documentation!

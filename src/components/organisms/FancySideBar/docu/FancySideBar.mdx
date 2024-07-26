@@ -1,0 +1,54 @@
+import { Meta, Title, Description, Controls, Canvas } from '@storybook/blocks';
+import * as FancySideBarStories from './FancySideBar.stories';
+
+<Meta of={FancySideBarStories} />
+
+<Title />
+
+<Description />
+
+## FancySideBar
+
+The `FancySideBar` component is a customizable sidebar that allows for flexible content placement and active item indication.
+
+### Setup Instructions
+
+1. **Import Component:**
+
+   ```javascript
+   import { FancySideBar } from 'FUI-FancyUI';
+   ```
+
+2. **(Optional) Import Types:** If using TypeScript, import the type definitions:
+
+```jsx
+import { TFancySideBar } from 'FUI-FancyUI';
+```
+
+### Example Usage
+
+```jsx
+<FancySideBar
+  slotTop={<SVGCheckMark />}
+  slotBottom={<SVGCheckMark />}
+  slotContent={[
+    <FancySideBarItem sizeC="sm" label={'Test'} icon={<SVGCheckMark />} />,
+    <FancySideBarItem sizeC="sm" label={'Test'} icon={<SVGCheckMark />} />,
+  ]}
+  sizeC="sm"
+  align="left"
+  wichItemIsActive={0}
+/>
+```
+
+<Canvas />
+
+### Component Properties
+
+<Controls />
+
+### List of Used Components
+
+- **SwitchActiveIndicator:** Displays an indicator for the active item.
+- **SideBar:** Base sidebar component.
+- **FancyFlexBox:** Flexbox container with customizable direction and gap.

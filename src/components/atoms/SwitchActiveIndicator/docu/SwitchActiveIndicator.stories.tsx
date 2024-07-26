@@ -4,6 +4,10 @@ import { Meta, StoryObj } from '@storybook/react';
 // Import the component to be tested
 import SwitchActiveIndicator from '../SwitchActiveIndicator';
 import templateThemeType from '@/stories/templateSettingsForStorys/templatesForThemeType';
+import { RawUL } from '@/components/atoms/RawUL';
+import { RawLI } from '@/components/atoms/RawLI';
+import { useEffect, useState } from 'react';
+import { TActiveSwitchIndicator } from '@/components/atoms/SwitchActiveIndicator';
 
 // Define metadata for the story
 const meta = {
@@ -82,25 +86,50 @@ export default meta;
 // Define the story object
 type Story = StoryObj<typeof meta>;
 
+const HelperFunction = (props: TActiveSwitchIndicator) => {
+  const { itemNumber, direction, ...args } = props;
+
+  const [active, setActive] = useState(0);
+  const handleActive = (index: number) => {
+    setActive(index);
+  };
+
+  useEffect(() => {
+    setActive(itemNumber ?? 0);
+  }, [itemNumber]);
+
+  return (
+    <RawUL
+      style={{
+        display: 'flex',
+        flexDirection: direction === 'horizontal' ? 'row' : 'column',
+      }}
+    >
+      <RawLI style={{ position: 'relative', width: '100px' }} onClick={() => handleActive(0)}>
+        <div>Moooinn</div>
+        <SwitchActiveIndicator direction={direction} externalStyle={{ zIndex: -1 }} itemNumber={active} {...args} />
+      </RawLI>
+      <RawLI style={{ position: 'relative', width: '100px' }} onClick={() => handleActive(1)}>
+        <div>Moooinn</div>
+      </RawLI>
+      <RawLI style={{ position: 'relative', width: '100px' }} onClick={() => handleActive(2)}>
+        <div>Moooinn</div>
+      </RawLI>
+    </RawUL>
+  );
+};
+
 // Define the primary story
 export const Primary: Story = {
-  render: (args) => (
-    <div style={{ position: 'relative' }}>
-      <SwitchActiveIndicator {...args} />
-    </div>
-  ),
+  render: (args) => <HelperFunction {...args} />,
   args: {
     itemNumber: 0,
-    tabSpacing: 'md',
-    type: 'bolb',
+    tabSpacing: undefined,
+    type: 'leftline',
     borderRadius: 'md',
     outlined: false,
-    direction: 'horizontal',
+    direction: 'vertical',
     themeType: 'accent',
     layer: 0,
-    externalStyle: {
-      height: '10px',
-      width: '10px',
-    },
   },
 };

@@ -9,6 +9,7 @@ import { styled } from 'styled-components';
 type TRawTextArea = {
   themeType?: TUiColorsNotTransparent;
   layer?: TLayer;
+  startHeight?: string;
 };
 
 export type TRawTextAreaWithHTMLAttrs = TRawTextArea & React.TextareaHTMLAttributes<HTMLTextAreaElement>;
@@ -22,7 +23,7 @@ const RawTextArea = styled.textarea<TRawTextAreaWith$ & { theme: TTheme }>`
   outline: none;
   width: 100%;
   font-family: inherit;
-  min-height: ${({ theme }) => theme.globalElementSizes.xs};
+  min-height: ${({ theme, $startHeight }) => $startHeight ?? theme.globalElementSizes.xs};
   font-size: ${({ theme }) => theme.fontSizes.interactiveMd.fontSize};
   background-color: transparent;
   resize: vertical;

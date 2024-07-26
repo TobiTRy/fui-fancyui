@@ -93,6 +93,15 @@ const meta = {
         defaultValue: { summary: undefined },
       },
     },
+    hoverLayer: {
+      layer: {
+        description: 'The hoverlayer of the component',
+        control: { type: 'range', min: 0, max: 9 },
+        table: {
+          defaultValue: { summary: undefined },
+        },
+      },
+    },
   },
 } satisfies Meta<typeof FancyBox>;
 

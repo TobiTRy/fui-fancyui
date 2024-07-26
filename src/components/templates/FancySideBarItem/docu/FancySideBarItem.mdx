@@ -1,0 +1,57 @@
+import { Meta, Title, Description, Canvas, Controls } from '@storybook/blocks';
+
+import * as FancySideBarItemStories from './FancySideBarItem.stories';
+
+<Meta of={FancySideBarItemStories} />
+
+<Title />
+
+<Description />
+
+## Setup Instructions
+
+1. Ensure you have the `SideBarItem` component available in your project.
+2. Import the `FancySideBarItem` component where you intend to use it.
+
+```javascript
+import { FancySideBarItem } from 'fui-fancyui';
+```
+
+2. If using TypeScript, you can import the type definitions for prop validation:
+
+```jsx
+import { TFancySideBarItem } from 'fui-fancyui';
+```
+
+### Example Usage
+
+```jsx
+import FancySideBarItem from 'fui-fancyui';
+
+function MyApp() {
+  return (
+    <div>
+      <FancySideBarItem
+        icon={<MyIcon />}
+        label="Dashboard"
+        sizeC="lg"
+        // additional SideBarItem props
+      />
+    </div>
+  );
+}
+```
+
+<Canvas />
+
+### Component Properties
+
+The `FancySideBarItem` component accepts the following properties:
+
+<Controls />
+
+### List of Used Components
+
+- **SideBarItem**: A component used to render individual items within a sidebar.
+  - **SideBarItem.Icon**: Sub-component for rendering the icon within the sidebar item inherited from the FancySVGAtom.
+  - **SideBarItem.Label**: Sub-component for rendering the label within the sidebar item inherited from the Typography.

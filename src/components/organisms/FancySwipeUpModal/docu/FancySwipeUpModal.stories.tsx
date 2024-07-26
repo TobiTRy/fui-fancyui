@@ -5,7 +5,7 @@ import { Meta, StoryObj } from '@storybook/react';
 // Import the component to be tested
 import FancySwipeUpModal from '../FancySwipeUpModal';
 import { FancyButton } from '../../FancyButton';
-import { useFancySwipeUpModalStore } from '../FancySwipeUpModal.state';
+import { createFancySwipeUpModalStore } from '../createFancySwipeUpModal.state';
 import { FancyTextInput } from '../../FancyTextInput';
 import { TSwipeUpModal } from '@/components/molecules/SwipeUpModal/TSwipeUpModal.model';
 
@@ -19,7 +19,7 @@ const meta = {
     docs: {
       description: {
         component:
-          'The FancySwipeUpModal component provides a dynamic and adaptable modal experience, enhanced with the use of the `useFancySwipeUpStore` for simplified integration into applications. This update eliminates the need for manual prop configurations, allowing developers to easily create modals with various features and adaptability options.',
+          'The FancySwipeUpModal component provides a dynamic and adaptable modal experience, enhanced with the use of the `createFancySwipeUpStore` for simplified integration into applications. This update eliminates the need for manual prop configurations, allowing developers to easily create modals with various features and adaptability options.',
       },
       story: {
         height: '300px',
@@ -64,6 +64,23 @@ const meta = {
         defaultValue: { summary: true },
       },
     },
+    modals: {
+      description:
+        'The array of modals to display should come from the store `const useFancySwipeUpModalStore  = createFancySwipeUpModalStore()ƒ`',
+      control: {
+        type: 'object',
+      },
+      table: {
+        defaultValue: { summary: [] },
+      },
+    },
+    closeModal: {
+      description:
+        'The function to close the modal should come from the store `const useFancySwipeUpModalStore  = createFancySwipeUpModalStore()ƒ`',
+      control: {
+        type: 'function',
+      },
+    },
     ...templateThemeType('mainThemeTypes', 'primary', 1),
   },
   // Add tags to the story
@@ -74,8 +91,13 @@ export default meta;
 // Define the story object
 type Story = StoryObj<typeof meta>;
 
-function HelperComponent(props: React.ComponentProps<typeof FancySwipeUpModal> & Omit<TSwipeUpModal, 'onClose'>) {
+const useFancySwipeUpModalStore = createFancySwipeUpModalStore();
+
+function HelperComponent(
+  props: Partial<React.ComponentProps<typeof FancySwipeUpModal>> & Omit<TSwipeUpModal, 'onClose'>
+) {
   const { appendToDomID, children, ...configProps } = props;
+  const modals = useFancySwipeUpModalStore((state) => state.modals);
   const openModal = useFancySwipeUpModalStore((state) => state.openSwipeUpModal);
   const closeModal = useFancySwipeUpModalStore((state) => state.closeSwipeUpModal);
 
@@ -97,7 +119,7 @@ function HelperComponent(props: React.ComponentProps<typeof FancySwipeUpModal> &
 
   return (
     <>
-      <FancySwipeUpModal appendToDomID="modal" />
+      <FancySwipeUpModal appendToDomID="modal" modals={modals} closeModal={closeModal} />
       <FancyButton label="Open Modal" onClick={() => openModalHandler()} />
     </>
   );

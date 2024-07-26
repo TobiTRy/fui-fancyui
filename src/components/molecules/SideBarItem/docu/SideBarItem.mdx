@@ -1,0 +1,66 @@
+import { Meta, Title, Description, Controls, Canvas } from '@storybook/blocks';
+
+import * as SideBarItemStories from './SideBarItem.stories';
+
+<Meta of={SideBarItemStories} />
+
+<Title />
+
+<Description />
+
+## Setup Instructions
+
+To use the `SideBarItem` in your project, follow these steps:
+
+1. Import the `SideBarItem` component:
+
+```jsx
+import { SideBarItem } from 'fui-fancy';
+```
+
+2. If using TypeScript, import the type definitions for prop validation:
+
+```jsx
+import { TSideBarItem } from 'fui-fancy';
+```
+
+3.  Import the subcomponents `Icon` and `Label` for use within the `SideBarItem`:
+
+```jsx
+import { SideBarItem } from 'fui-fancy';
+
+const MySideBarItem = () => (
+  <SideBarItem sizeC={'sm'}>
+    <SideBarItem.Icon sizeC={'sm'}>
+      <SVGIcon />
+    </SideBarItem.Icon>
+    <SideBarItem.Label sizeC={'sm'}>Home</SideBarItem.Label>
+  </SideBarItem>
+);
+```
+
+## Example Usage
+
+```jsx
+<SideBarItem sizeC="md" direction="left" justify="left" wide={false} noMargin={false} onClick={handleClick}>
+  <SideBarItem.Icon sizeC={'sm'}>
+    <SVGIcon />
+  </SideBarItem.Icon>
+  <SideBarItem.Label sizeC={'sm'}>Home</SideBarItem.Label>
+</SideBarItem>
+```
+
+This example creates a basic `SideBarItem` with an icon on the left, a label on the right, and a medium size.
+
+<Canvas of={SideBarItemStories.Primary} />
+
+<Canvas of={SideBarItemStories.BarFormat} />
+
+## Component Properties
+
+<Controls />
+
+### Subcomponents
+
+- `SideBarItem.Icon`: Used to display an icon within the `SideBarItem`.
+- `SideBarItem.Label`: Used to display text within the `SideBarItem`.

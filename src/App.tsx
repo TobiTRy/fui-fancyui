@@ -3,7 +3,7 @@ import { Link, Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import FancyThemeProvider from '@/design/theme/FancyThemeProvider/FancyThemeProvider';
 import { TTheme } from '@/types/TTheme';
 import { styled } from 'styled-components';
-import { DefaultStyle, FancyModal, FancySwipeUpModal } from '../lib';
+import { DefaultStyle, FancyModal } from '../lib';
 import ButtonRoute from './Routes/BottonRoute/ButtonRoute';
 import CradRoute from './Routes/CardRoute/CradRoute';
 import CheckboxRoute from './Routes/CheckboxRoute/CheckboxRoute';
@@ -36,10 +36,12 @@ import ToastMessageRoute from './Routes/ToastMessageRoute/ToastMessageRoute';
 import Typogrphy from './Routes/Typography/Typogrphy';
 
 import FancyListBoxRoute from '@/Routes/FancyListBoxRoute/FancyListBoxRoute';
-import SkeletonRoute from '@/Routes/SkeletonRoute/SkeletonRoute';
-import TextGradientRoute from '@/Routes/TextGradientRoute/TextGradientRoute';
-import StepperRoute from '@/Routes/StepperRoute/StepperRoute';
 import PasswordStrengthMeterRoute from '@/Routes/PasswordStrengthMeterRoute/PasswordStrengthMeterRoute';
+import SideBarRoute from '@/Routes/SideBarRoute/SideBarRoute';
+import SkeletonRoute from '@/Routes/SkeletonRoute/SkeletonRoute';
+import StepperRoute from '@/Routes/StepperRoute/StepperRoute';
+import SwitchActiveIndicatorRoute from '@/Routes/SwitchActiveIndicatorRoute/SwitchActiveIndicatorRoute';
+import TextGradientRoute from '@/Routes/TextGradientRoute/TextGradientRoute';
 import { useFancyModalStore } from './Routes/ModalRoute/ModalRoute';
 // const Icon = (
 //   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -78,9 +80,16 @@ function App() {
       <Router>
         <FancyThemeProvider>
           <DefaultStyle />
-          <FancySwipeUpModal appendToDomID="modal" />
-          <FancyModal appendToDomID="modal" closeModal={closeModal} modals={modals} />
-          <div>
+
+          <FancyModal
+            appendToDomID="modal"
+            closeModal={(id) => {
+              console.log(id);
+              closeModal(id);
+            }}
+            modals={modals}
+          />
+          <div style={{ height: '100vh' }}>
             <nav>
               <OwnUl>
                 <li>
@@ -189,6 +198,13 @@ function App() {
                   <Link to="/passwordstrengthmeter">PasswordStrengthMeter</Link>
                 </li>
                 <li>
+                  <Link to="/switchactiveindicator">SwitchActiveIndicator</Link>
+                </li>
+                <li>
+                  <Link to="/sidebar">SideBar</Link>
+                </li>
+
+                <li>
                   <Link to="/experimental">Experimental</Link>
                 </li>
               </OwnUl>
@@ -232,6 +248,8 @@ function App() {
               <Route path="/TextGradient" element={<TextGradientRoute />} />
               <Route path="/stepper" element={<StepperRoute />} />
               <Route path="/passwordstrengthmeter" element={<PasswordStrengthMeterRoute />} />
+              <Route path="/switchactiveindicator" element={<SwitchActiveIndicatorRoute />} />
+              <Route path="/sidebar" element={<SideBarRoute />} />
               <Route path="/" element={<SwipeUpModalRoute />} />
             </Routes>
           </div>

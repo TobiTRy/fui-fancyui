@@ -1,5 +1,6 @@
 import { TLayer } from '@/types/TLayer';
 import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
+import { CSSProp } from 'styled-components';
 
 export type TSwipeUpModal = {
   isOpen?: boolean;
@@ -10,6 +11,7 @@ export type TSwipeUpModal = {
   layer?: TLayer;
   backdrop?: boolean;
   onClose?: () => void;
+  externalStyle?: CSSProp;
 };
 
 export type TSwipeUpModalWithHTMLAttrs = TSwipeUpModal & React.HTMLAttributes<HTMLDivElement>;

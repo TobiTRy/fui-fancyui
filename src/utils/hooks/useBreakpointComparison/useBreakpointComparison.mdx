@@ -1,0 +1,53 @@
+## `useBreakpointComparison` Hook
+
+### Brief Description
+
+The `useBreakpointComparison` hook compares the current active breakpoint with a specified target breakpoint to determine their relative sizes.
+
+### Setup Instructions
+
+1. Ensure you have the necessary dependencies and hooks installed and imported.
+2. Import the `useBreakpointComparison` hook from its module.
+
+```javascript
+import { useBreakpointComparison } from 'fui-fancyui';
+```
+
+### Example Usage
+
+Here is an example of how to use the `useBreakpointComparison` hook in a component:
+
+```javascript
+import { useBreakpointComparison } from 'fui-fancyui';
+
+const MyComponent = () => {
+  const comparison = useBreakpointComparison({
+    breakpointId: 'md',
+    breakPoints: [
+      { id: 'sm', value: '640px' },
+      { id: 'md', value: '768px' },
+      { id: 'lg', value: '1024px' },
+    ],
+  });
+
+  return (
+    <div>
+      {comparison === 'isEqual' && <p>The current breakpoint is equal to the target breakpoint.</p>}
+      {comparison === 'isBigger' && <p>The current breakpoint is larger than the target breakpoint.</p>}
+      {comparison === 'isSmaller' && <p>The current breakpoint is smaller than the target breakpoint.</p>}
+    </div>
+  );
+};
+
+export default MyComponent;
+```
+
+### Component Properties
+
+- `props: TuseBreakpointComparison`: The properties for configuring the hook.
+  - `breakpointId` (string): The ID of the target breakpoint to compare with. **Required**.
+  - `breakPoints` (Array): An array of breakpoints, each having an `id` and `value` property. **Required**.
+
+### List of Used Components
+
+- **`useActiveBreakpoint`**: A hook that retrieves the currently active breakpoint based on a provided list of breakpoints.

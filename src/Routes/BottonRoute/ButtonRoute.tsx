@@ -11,6 +11,8 @@ const Icon = (
   </svg>
 );
 
+import style from './ButtonRoute.module.css';
+
 export default function ButtonRoute() {
   const [isLoading, setIsLoading] = useState(false);
 
@@ -133,6 +135,9 @@ export default function ButtonRoute() {
           outlined
           borderRadius="sm"
         />
+      </DesignArea>
+      <DesignArea title="Buttons" style={backgroundColor}>
+        <FancyButton className={style.test} appendClassNameOnStyle={true} noSize label="Test" themeType="primary" />
       </DesignArea>
     </DesignWrapper>
   );

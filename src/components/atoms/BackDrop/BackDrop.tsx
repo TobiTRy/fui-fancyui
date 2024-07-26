@@ -1,6 +1,5 @@
-import { useEffect, useState } from 'react';
-import { animated, useSpring } from '@react-spring/web';
-import { styled } from 'styled-components';
+import { useEffect, useRef } from 'react';
+import styled from 'styled-components';
 
 interface IBackDrop {
   isOpen: boolean;
@@ -10,18 +9,25 @@ interface IBackDrop {
 // ------- Only a backdrop for some components with a onclick listener ------- //
 // --------------------------------------------------------------------------- //
 export default function BackDrop({ isOpen, onClick }: IBackDrop) {
-  const [shouldRender, setRender] = useState(isOpen);
-
-  const fade = useSpring({
-    opacity: isOpen ? 0.5 : 0,
-    onRest: () => setRender(isOpen),
-  });
+  const backdropRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (isOpen) setRender(true);
+    if (isOpen) {
+      // Trigger the animation after the component has mounted
+      requestAnimationFrame(() => {
+        if (backdropRef.current) {
+          backdropRef.current.style.opacity = '0.5';
+        }
+      });
+    } else {
+      // Fade out before unmounting
+      if (backdropRef.current) {
+        backdropRef.current.style.opacity = '0';
+      }
+    }
   }, [isOpen]);
 
-  return shouldRender ? <BackdropContainer as={animated.div} style={fade} onClick={onClick} /> : null;
+  return <BackdropContainer ref={backdropRef} onClick={onClick} />;
 }
 
 // ------------------------------------------- //
@@ -35,4 +41,6 @@ const BackdropContainer = styled.div`
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
   z-index: 100;
+  opacity: 0; // Start with opacity 0
+  transition: opacity 0.3s ease 0s;
 `;

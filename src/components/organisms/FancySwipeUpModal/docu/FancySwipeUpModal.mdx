@@ -34,9 +34,13 @@ After installing the required library, you can import and use the `FancySwipeUpM
 
 ### Example Usage
 
-- **Store Importation**: Import `useFancySwipeUpModalStore` within your component to use the modal.
+- **Store Importation**: Import `createFancySwipeUpModalStore` within your component to use the modal.
 
   ```jsx
+  // should not be in a component, you can define it in a separate file to use it globally
+  const useFancySwipeUpModalStore = createFancySwipeUpModalStore();
+
+  // should be in a component
   const openModal = useFancySwipeUpModalStore((state) => state.openSwipeUpModal);
   ```
 
@@ -77,6 +81,6 @@ After installing the required library, you can import and use the `FancySwipeUpM
 
 ### List of Used Components
 
-- **useFancySwipeUpModalStore**: A store hook for managing the opening, closing, and removing of modals dynamically.
+- **createFancySwipeUpModalStore**: A store hook for managing the opening, closing, and removing of modals dynamically.
 - **SwipeUpModal**: A component that displays a modal with a swipe-up animation.
 - **FancyPortal**: A component that renders children in a separate DOM node.

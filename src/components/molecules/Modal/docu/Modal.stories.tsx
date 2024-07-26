@@ -68,8 +68,8 @@ export const Primary: Story = {
     themeType: 'primary',
     layer: 1,
     id: 'Modal',
-    onClose: (id) => {
-      console.log('closeModal', id);
+    onClose: () => {
+      console.log('closeModal');
     },
   },
 };

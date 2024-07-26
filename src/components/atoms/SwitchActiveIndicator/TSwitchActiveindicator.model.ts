@@ -10,11 +10,12 @@ export type TActiveSwitchIndicator = {
   themeType?: TUiColorsNotTransparent;
   layer?: TLayer;
   tabSpacing?: TSpacings;
-  type?: 'bolb' | 'underline' | 'topline';
+  type?: 'bolb' | 'underline' | 'topline' | 'leftline' | 'rightline';
   borderRadius?: TThemeArrayOrValueCSS;
   outlined?: boolean;
   direction?: 'horizontal' | 'vertical';
   indicatorWidth?: string;
+  indicatorHeight?: string;
   externalStyle?: CSSProp;
 };
 
