@@ -1,3 +1,5 @@
+'use client';
+
 import { SVGEyeCrossed } from '@/components/icons';
 import { SVGEyeOpen } from '@/components/icons';
 import { FancySVGAtom } from '@/components/atoms/FancySVGAtom';

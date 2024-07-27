@@ -1,3 +1,5 @@
+'use client';
+
 import { TProgressBarWithHTMLAttrs } from './ProgressBar.model';
 import { ProgressBarContainer, ProgressBarFill } from './ProgressBar.style';
 

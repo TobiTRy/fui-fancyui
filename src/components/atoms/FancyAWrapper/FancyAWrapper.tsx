@@ -1,3 +1,5 @@
+'use client';
+
 import { FancyAWrapperStyle } from './FancyAWrpper.style';
 import { TFancyAWrapperWithHTMLAttrs } from './TFancyAWrapper.model';
 

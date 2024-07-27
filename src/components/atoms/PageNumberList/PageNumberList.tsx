@@ -1,3 +1,5 @@
+'use client';
+
 import { FancyButton } from '@/components/organisms/FancyButton';
 import { Wrapper } from './PageNumberList.style';
 import { generateNumbers } from './utils/generateNumbers';
@@ -43,8 +45,8 @@ export default function PageNumberList(props: TPageNumberList) {
           key={index}
           textColor={
             item !== currentPage
-              ? numberButtonStyle?.textColor ?? 'secondary'
-              : numberButtonStyle?.textColorActive ?? 'accent'
+              ? (numberButtonStyle?.textColor ?? 'secondary')
+              : (numberButtonStyle?.textColorActive ?? 'accent')
           }
           label={`${item}`}
           onClick={(e) => handleClicked(e, index)}

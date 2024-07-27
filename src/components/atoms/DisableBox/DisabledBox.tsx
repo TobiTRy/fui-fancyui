@@ -1,3 +1,5 @@
+'use client';
+
 import { StyledDisabledBox } from './DisabledBox.style';
 import { TDisabledBox } from './TDisabled.model';
 

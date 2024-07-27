@@ -1,3 +1,5 @@
+'use client';
+
 import { TFancyLoadingSpinner } from '@/components/atoms/FancyLoadingSpinner/IFancyLoadingSpinner.model';
 import { SpinnerContainer, StyledFancyLoadingSpinner, StyledInnerSpinner } from './FancyLoadingSpinner.model';
 

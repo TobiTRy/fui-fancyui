@@ -1,3 +1,5 @@
+'use client';
+
 import { TDynamicElement } from '@/types/TDynamicElement';
 import { StyledItem } from './ColoredText.style';
 import { TColoredText } from './TColoredText.model';

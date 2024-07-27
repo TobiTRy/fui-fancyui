@@ -1,3 +1,5 @@
+'use client';
+
 import { TFancyTextOverlay } from '@/components/atoms/FancyTextOverlay/FancyTextOverlay.model';
 import { Gradient, TextWrapper, Wrapper } from './FancyTextOverlay.style';
 

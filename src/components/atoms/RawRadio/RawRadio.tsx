@@ -1,3 +1,5 @@
+'use client';
+
 import { forwardRef } from 'react';
 
 import { TRawRadioWithHTMLAttrs } from '@/components/atoms/RawRadio/TRawRadio.model';

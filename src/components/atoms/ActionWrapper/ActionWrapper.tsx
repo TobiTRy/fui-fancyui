@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 
 // Define specific prop types for 'a' and 'button'

@@ -1,3 +1,5 @@
+'use client';
+
 import { TFancySVGAtomWithNativeAttrs } from './TFancySVGAtom.model';
 import { StyledSVG } from './FancySVGAtom.style';
 

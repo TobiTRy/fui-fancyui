@@ -1,3 +1,5 @@
+'use client';
+
 import { RawInput } from '@/components/atoms/RawInput';
 import { TTextInput, TTextInputNativeAttrs } from '@/components/atoms/TextInput/TTextInput.model';
 import { forwardRef } from 'react';

@@ -1,3 +1,5 @@
+'use client';
+
 import { StyledStystemMessage } from './SystemMessageBox.style';
 import { TSystemMessageBoxWithHTMLAttrs } from './TSystemMessageBox.model';
 import { sizes } from './sizeSettings';

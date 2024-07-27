@@ -1,3 +1,5 @@
+'use client';
+
 import { NumberInput } from '@/components/atoms/NumberInput';
 import { StyledInput } from './YearInput.style';
 import { TYearInputWithNativeAttrs } from '@/components/atoms/YearInput/YearInput.model';

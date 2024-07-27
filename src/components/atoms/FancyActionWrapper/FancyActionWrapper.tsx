@@ -1,3 +1,5 @@
+'use client';
+
 import ComponentAsWrapper from '@/components/shared/ComponentAsWrapper/ComponentAsWrapper';
 import { StyledAnchor, StyledButton } from './FancyActionWrapper.style';
 import { TFancyActionWrapper } from '@/components/atoms/FancyActionWrapper/TFancyActionWrapper.model';

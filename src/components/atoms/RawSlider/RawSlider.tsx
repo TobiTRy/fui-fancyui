@@ -1,3 +1,5 @@
+'use client';
+
 import { useEffect, useState } from 'react';
 
 import { TRawSliderWithNativeAttrs } from '@/components/atoms/RawSlider/TRawSlider.model';

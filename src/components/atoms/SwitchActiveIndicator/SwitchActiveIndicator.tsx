@@ -1,3 +1,5 @@
+'use client';
+
 import { TActiveSwitchIndicatorWithHTMLAttrs } from './TSwitchActiveindicator.model';
 import { ActiveSwitchIndicator, Wrapper } from './SwitchActiveIndicator.style';
 

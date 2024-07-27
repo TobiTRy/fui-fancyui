@@ -1,3 +1,5 @@
+'use client';
+
 import { TextAvatar } from '@/components/molecules/TextAvatar';
 import { TFancyProfilePictureWithHTMLAttrs } from './TFancyProfilePicture.model';
 import { FancyImageWrapper } from '@/components/atoms/FancyImageWrapper';

@@ -1,3 +1,5 @@
+'use client';
+
 import { TSeperatorWithNativeAttrs } from './TSeperator.model';
 
 import { FancyContent } from '@/components/molecules/FancyContent';

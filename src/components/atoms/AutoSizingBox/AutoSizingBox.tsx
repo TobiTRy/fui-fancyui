@@ -1,3 +1,4 @@
+'use client';
 import { useEffect, useRef, useState } from 'react';
 import { InnerContentWrapper } from './AutoSizingBox.style';
 import { TAutoSizingBox } from './TAutoSizingBox.model';

@@ -1,3 +1,5 @@
+'use client';
+
 import { THeaderWithHTMLAttributes } from '@/components/atoms/Header/THeader.model';
 import { StyledHeader } from './Header.style';
 import { FancyNavBar } from '@/components/molecules/FancyNavBar';

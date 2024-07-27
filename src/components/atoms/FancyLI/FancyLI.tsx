@@ -1,3 +1,5 @@
+'use client';
+
 import { FancyLiItem } from '@/components/atoms/FancyLI/FancyLI.style';
 import { TFancyLIWithHTMLAttrs } from './TFancyLI.model';
 

@@ -1,3 +1,5 @@
+'use client';
+
 import { StyledMenuItem } from './MenueItem.style';
 import { sizeSettings } from './sizeSettings';
 

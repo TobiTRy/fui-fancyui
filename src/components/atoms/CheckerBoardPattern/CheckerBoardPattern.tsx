@@ -1,3 +1,5 @@
+'use client';
+
 import { StyledCheckerBoardPattern } from './CheckerBoardPattern.style';
 import { TCheckerBoardPattern } from './TCheckerBoardPattern.model';
 

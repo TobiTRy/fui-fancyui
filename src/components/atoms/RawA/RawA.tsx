@@ -1,3 +1,5 @@
+'use client';
+
 import { StyledRawA } from '@/components/atoms/RawA/RawA.style';
 import { TRawA } from './TRawA.model';
 

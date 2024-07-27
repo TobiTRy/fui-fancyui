@@ -1,3 +1,5 @@
+'use client';
+
 import { forwardRef, useMemo } from 'react';
 
 import { useNumberInput } from '@/components/atoms/NumberInput/useNumberInput.hook';

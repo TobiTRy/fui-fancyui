@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 
 import { TTypography } from '@/components/atoms/Typography/Typography.model';

@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState, useEffect, forwardRef } from 'react';
 
 import { FakeCheckbox, HidenCheckBox, InputContainer } from './RawCheckbox.style';

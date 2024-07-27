@@ -1,3 +1,5 @@
+'use client';
+
 import { StyledAlignedLabel } from './AlignedLabel.style';
 import { Typography } from '@/components/atoms/Typography';
 
