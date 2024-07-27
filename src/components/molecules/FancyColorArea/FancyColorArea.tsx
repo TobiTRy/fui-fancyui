@@ -1,3 +1,5 @@
+'use client';
+
 import Color from 'color';
 import { useMemo } from 'react';
 

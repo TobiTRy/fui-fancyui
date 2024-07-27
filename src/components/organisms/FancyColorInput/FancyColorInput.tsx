@@ -1,3 +1,5 @@
+'use client';
+
 import Color from 'color';
 
 import { useEffect, useMemo, useState } from 'react';

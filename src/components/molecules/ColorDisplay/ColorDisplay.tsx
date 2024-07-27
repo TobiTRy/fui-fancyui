@@ -1,3 +1,5 @@
+'use client';
+
 import Color from 'color';
 
 import { themeStore } from '@/design/theme/themeStore';

@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState, useLayoutEffect, useRef } from 'react';
 
 import { PopoverContainer } from './Popover.style';

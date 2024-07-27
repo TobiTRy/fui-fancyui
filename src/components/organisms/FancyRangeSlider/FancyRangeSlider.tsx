@@ -1,3 +1,5 @@
+'use client';
+
 import React, { ChangeEvent, useEffect, useId, useState } from 'react';
 
 import { InputWrapper } from '@/components/molecules/InputWrapper';

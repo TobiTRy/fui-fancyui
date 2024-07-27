@@ -1,3 +1,5 @@
+'use client';
+
 import { Children, useEffect, useState } from 'react';
 
 import { SwitchActiveIndicator } from '@/components/atoms/SwitchActiveIndicator';

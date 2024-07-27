@@ -1,3 +1,5 @@
+'use client';
+
 import { useMemo } from 'react';
 import { useTransition, animated } from '@react-spring/web';
 

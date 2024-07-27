@@ -1,3 +1,5 @@
+'use client';
+
 import { Typography } from '@/components/atoms/Typography';
 import { TFieldsetWithHTMLAttributes } from '@/components/molecules/Fieldset';
 import { StyledFieldset, StyledLegend } from './Fieldset.style';

@@ -1,3 +1,5 @@
+'use client';
+
 import { Typography } from '@/components/atoms/Typography';
 import { Placeholder } from '@/components/molecules/TextAvatar/TextAvatar.style';
 

@@ -1,3 +1,5 @@
+'use client';
+
 import { TButtonWithNativeAttrs } from './Button.model';
 import { ButtonStyle, StyledButton } from './Button.style';
 

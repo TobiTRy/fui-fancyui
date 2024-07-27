@@ -1,3 +1,5 @@
+'use client';
+
 import React, { KeyboardEvent, useEffect, useState } from 'react';
 
 import { TLayer } from '@/types/TLayer';

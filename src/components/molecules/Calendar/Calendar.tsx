@@ -1,3 +1,5 @@
+'use client';
+
 import { RefObject, useEffect, useMemo, useRef, useState } from 'react';
 
 import { MonthContainer, StyledCalendar } from './Calendar.style';

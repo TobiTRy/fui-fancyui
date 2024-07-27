@@ -1,3 +1,5 @@
+'use client';
+
 import { StyledChip } from '@/components/molecules/Chip/Chip.style';
 import { FancyContent } from '@/components/molecules/FancyContent';
 

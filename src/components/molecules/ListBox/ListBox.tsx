@@ -1,3 +1,5 @@
+'use client';
+
 import { FancyBox } from '@/components/atoms/FancyBox';
 import { generateFancyBoxStyle } from './ListBox.style';
 import { ListBoxItem } from './ListBoxItem/ListBoxItem';

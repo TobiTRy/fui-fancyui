@@ -1,3 +1,5 @@
+'use client';
+
 import { TLabeledInput } from '@/components/molecules/LabeledInput/TLabledInput.model';
 import { clampLayer } from '@/utils/functions/clampLayer';
 

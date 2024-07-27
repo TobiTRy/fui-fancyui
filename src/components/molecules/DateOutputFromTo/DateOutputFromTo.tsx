@@ -1,3 +1,5 @@
+'use client';
+
 import { DateOutput } from '@/components/atoms/DateOutput';
 import { FancyLine } from '@/components/atoms/FancyLine';
 

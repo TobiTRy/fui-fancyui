@@ -1,3 +1,5 @@
+'use client';
+
 import { useSlider } from '@/utils/hooks/useSlider';
 import { SliderMarker } from '@/components/atoms/SliderMarker';
 import { ColorIndicator } from '@/components/atoms/ColorIndicator';

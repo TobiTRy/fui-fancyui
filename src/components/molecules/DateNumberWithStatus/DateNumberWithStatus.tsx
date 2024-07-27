@@ -1,3 +1,5 @@
+'use client';
+
 import { AvilableDot } from '@/components/atoms/AvilableDot';
 import { DateNumberAtom } from '@/components/atoms/DateNumberAtom';
 

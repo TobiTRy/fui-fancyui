@@ -1,3 +1,5 @@
+'use client';
+
 import { SwipeUpModal } from '@/components/molecules/SwipeUpModal';
 import { FancyPortal } from '@/components/shared/FancyPortal';
 
