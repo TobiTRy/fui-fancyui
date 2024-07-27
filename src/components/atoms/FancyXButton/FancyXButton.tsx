@@ -1,3 +1,5 @@
+'use client';
+
 import { FancySVGAtom } from '@/components/atoms/FancySVGAtom';
 import { TFancyXButtonWithHTMLAttrs } from '@/components/atoms/FancyXButton/FancyXButton.model';
 import { StyledFancyXButton } from '@/components/atoms/FancyXButton/FancyXButton.style';

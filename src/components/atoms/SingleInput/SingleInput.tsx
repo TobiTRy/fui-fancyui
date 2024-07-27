@@ -1,3 +1,5 @@
+'use client';
+
 import { forwardRef, useState } from 'react';
 
 import { TSingleInputAtomWithHTMLAttrs } from '@/components/atoms/SingleInput/TSingleInput.model';

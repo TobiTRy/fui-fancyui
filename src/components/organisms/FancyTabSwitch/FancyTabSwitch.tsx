@@ -1,3 +1,5 @@
+'use client';
+
 import { css } from 'styled-components';
 
 import { Fieldset } from '@/components/molecules/Fieldset';

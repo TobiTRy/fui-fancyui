@@ -1,3 +1,5 @@
+'use client';
+
 import { TInputLabelWithNAtiveAttrs } from './TInputLabel.model';
 import { StyledInputLabel } from './InputLabel.style';
 

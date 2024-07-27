@@ -1,3 +1,5 @@
+'use client';
+
 import { Typography } from '@/components/atoms/Typography';
 import { TActionItemWithHTMLProps } from '@/components/molecules/ActionItem/TActionItem.model';
 import { calcPostionToFlex } from '@/components/molecules/ActionItem/utils/calcPostionToFlex';

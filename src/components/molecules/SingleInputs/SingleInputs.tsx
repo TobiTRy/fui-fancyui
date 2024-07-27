@@ -1,3 +1,5 @@
+'use client';
+
 import React, { createRef, useEffect, useState } from 'react';
 
 import { SingleInput } from '@/components/atoms/SingleInput';

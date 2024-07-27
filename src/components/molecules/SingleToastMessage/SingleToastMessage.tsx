@@ -1,3 +1,5 @@
+'use client';
+
 import { forwardRef, useEffect } from 'react';
 
 import { FancyXButton } from '@/components/atoms/FancyXButton';

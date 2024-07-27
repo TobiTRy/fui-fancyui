@@ -1,3 +1,5 @@
+'use client';
+
 import { TDropDownSelect, TDropDownSelectNativeAttrs } from '@/components/atoms/DropDownSelect/TDropDownSelect.model';
 import { SelectField } from './DropDownSelect.style';
 import { forwardRef } from 'react';

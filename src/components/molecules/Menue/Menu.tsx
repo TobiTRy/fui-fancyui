@@ -1,3 +1,5 @@
+'use client';
+
 import { FancyMenuItem } from '@/components/templates/FancyMenuItem';
 import { MenuContainer } from './Menu.style';
 import { TMenuWithHTMLAttributes } from './TMenu.model';

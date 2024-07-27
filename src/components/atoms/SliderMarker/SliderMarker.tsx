@@ -1,3 +1,5 @@
+'use client';
+
 import { TSliderMarkerWithHTMLAttrs } from '@/components/atoms/SliderMarker/TSlidermarker.model';
 import { Marker, WrapperMarker } from './SliderMarker.style';
 

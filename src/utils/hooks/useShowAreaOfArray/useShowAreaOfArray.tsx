@@ -1,3 +1,5 @@
+'use client';
+
 import { useMemo } from 'react';
 
 import { TuseShowAreaOfArray } from '@/utils/hooks/useShowAreaOfArray/TuseShowAreaOfArray.model';

@@ -1,3 +1,5 @@
+'use client';
+
 import { css } from 'styled-components';
 
 import { LoadingSVGArrows } from '@/components/atoms/LoadingSVGArrows';

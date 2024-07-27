@@ -1,3 +1,5 @@
+'use client';
+
 import { useState } from 'react';
 
 import { Typography } from '@/components/atoms/Typography';
@@ -23,7 +25,7 @@ export default function DescriptionPreview(props: TDescriptionPreview) {
               layer={buttonText?.layer ?? 0}
               fontWeight={'bold'}
             >
-              {isShowMore ? buttonText?.showLess ?? 'Show less' : buttonText?.showMore ?? 'Show more'}
+              {isShowMore ? (buttonText?.showLess ?? 'Show less') : (buttonText?.showMore ?? 'Show more')}
             </Typography>
           </RawButton>
         )}

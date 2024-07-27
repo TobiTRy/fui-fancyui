@@ -1,3 +1,5 @@
+'use client';
+
 import React, { ReactElement } from 'react';
 
 import { OnlyTextWrapper, Wrapper } from './FancyContent.style';

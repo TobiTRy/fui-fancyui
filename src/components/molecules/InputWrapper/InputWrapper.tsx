@@ -1,3 +1,5 @@
+'use client';
+
 import { FancySVGAtom } from '@/components/atoms/FancySVGAtom';
 
 import { LabeledInput } from '@/components/molecules/LabeledInput';

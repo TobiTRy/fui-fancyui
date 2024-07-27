@@ -1,3 +1,5 @@
+'use client';
+
 import { FancyBox } from '@/components/atoms/FancyBox';
 import { TPasswordStrengthMeter } from '@/components/atoms/PasswordStrengthMeter/TPasswordStrengthMeter.model';
 import { arrayToCssValues } from '@/design/designFunctions/arrayToCssValues';

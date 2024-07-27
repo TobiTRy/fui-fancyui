@@ -1,3 +1,5 @@
+'use client';
+
 import { useState } from 'react';
 
 import { ColorDisplay } from '@/components/molecules/ColorDisplay';

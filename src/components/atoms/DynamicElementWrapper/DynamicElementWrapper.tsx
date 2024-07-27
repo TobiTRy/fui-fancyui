@@ -1,3 +1,5 @@
+'use client';
+
 import { TDynamicElementWrapperWithHTMLAttrs } from './TDynamicElementWrapper.model';
 import { StyledDynamicElementWrapper } from './DynamicElementWrapper.style';
 

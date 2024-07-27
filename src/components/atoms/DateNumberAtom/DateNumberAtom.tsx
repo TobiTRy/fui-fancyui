@@ -1,3 +1,5 @@
+'use client';
+
 import { Typography } from '@/components/atoms/Typography';
 import { StyledDay } from './DateNumberAtom.style';
 import { IDateNumberAtom } from './IDateNumberAtom.model';

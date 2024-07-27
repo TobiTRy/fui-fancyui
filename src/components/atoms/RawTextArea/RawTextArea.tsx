@@ -1,3 +1,5 @@
+'use client';
+
 import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent';
 import { TLayer } from '@/types/TLayer';
 import { TStyledPrefixAndPicker } from '@/types/TStyledPrefixAndPicker';

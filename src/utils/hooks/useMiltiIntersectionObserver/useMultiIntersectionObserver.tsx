@@ -1,3 +1,5 @@
+'use client';
+
 import { TuseMultiIntersectionObserver } from '@/utils/hooks/useMiltiIntersectionObserver/TuseMultiIntersectionObserver.model';
 import { useRef, useEffect } from 'react';
 

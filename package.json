@@ -5,7 +5,7 @@
     "name": "TobiTRy"
   },
   "private": false,
-  "version": "0.5.4",
+  "version": "0.5.6",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -49,6 +49,7 @@
     "@types/react-router-dom": "5.3.3",
     "@types/react-test-renderer": "^18.3.0",
     "react-router-dom": "^6.23.0",
+    "rollup-preserve-directives": "^1.1.1",
     "vite-plugin-dts": "^3.9.0"
   },
   "devDependencies": {

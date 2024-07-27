@@ -1,3 +1,5 @@
+'use client';
+
 import { cloneElement } from 'react';
 import { TDynamicComponentWrapper } from './TDynamicComponentWrapper.model';
 

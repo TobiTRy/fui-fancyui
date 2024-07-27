@@ -1,3 +1,5 @@
+'use client';
+
 import { useState } from 'react';
 
 import { SVGSearch } from '@/components/icons';

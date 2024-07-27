@@ -1,3 +1,5 @@
+'use client';
+
 import { LoadingBar, LoadingContainer } from '@/components/atoms/FancyLoadingBar/FancyLoadingBar.style';
 import { TFancyLoadingBar } from '@/components/atoms/FancyLoadingBar/TFancyLoadingBar.model';
 

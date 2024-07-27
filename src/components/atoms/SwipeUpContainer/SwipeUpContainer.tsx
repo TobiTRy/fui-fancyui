@@ -1,3 +1,5 @@
+'use client';
+
 import { forwardRef } from 'react';
 import { TSwipeUpContainerWithHTMLAttrs } from './SwipeUpContainer.model';
 import { StyledSwipeUpContainer } from './SwipeUpContainer.style';

@@ -1,3 +1,5 @@
+'use client';
+
 import { Typography } from '@/components/atoms/Typography';
 
 import { LogoWrapper, StyledHeading } from './HeaderTitleWithLogo.style';

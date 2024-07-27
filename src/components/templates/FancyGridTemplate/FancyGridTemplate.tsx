@@ -1,3 +1,5 @@
+'use client';
+
 import { StyledFancyGridTemplate } from '@/components/templates/FancyGridTemplate/FancyGridTemplate.style';
 import FancyGridTemplateItem from '@/components/templates/FancyGridTemplateItem/FancyGridTemplateItem';
 import { TFancyGridTemplate } from './TFancyGridTemplate.model';

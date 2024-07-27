@@ -1,3 +1,5 @@
+'use client';
+
 import { TFancyLineWithHTMLAttributes } from './TFancyLine.model';
 import { StyledFancyLine } from '@/components/atoms/FancyLine/FancyLine.style';
 

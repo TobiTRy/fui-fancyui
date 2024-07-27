@@ -1,3 +1,5 @@
+'use client';
+
 import { BottomBarIcon } from '@/components/molecules/BottomBarIcon';
 import ComponentAndActionWrapper from '@/components/molecules/ComponentAndActionWrapper/ComponentAndActionWrapper';
 

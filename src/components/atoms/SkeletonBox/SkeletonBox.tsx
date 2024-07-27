@@ -1,3 +1,5 @@
+'use client';
+
 import { StyledSkeletonBox } from '@/components/atoms/SkeletonBox/SkeletonBox.style';
 import { TSkeletonBoxWithHTMLAttrs } from '@/components/atoms/SkeletonBox/TSkeleton.model';
 import { isAspectRatioValid } from '@/utils/validations/isAspectRatioValid';

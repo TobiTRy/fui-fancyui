@@ -1,3 +1,5 @@
+'use client';
+
 import { SVGDoubleChevronLeft } from '@/components/icons/SVGDoubleChevronLeft/SVGDoubleChevronLeft';
 import { SVGDoubleChevronRight } from '@/components/icons/SVGDoubleChevronRight/SVGDoubleChevronRight';
 import { SideBarItem } from '@/components/molecules/SideBarItem';

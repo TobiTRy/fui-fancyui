@@ -1,3 +1,5 @@
+'use client';
+
 import { ElementType } from 'react';
 import { TFancyBoxWithHTMLAttrs } from './FancyBox.model';
 import { StyledFancyBox } from './FancyBox.style';

@@ -1,3 +1,5 @@
+'use client';
+
 import { FancyImageWrapper } from '@/components/atoms/FancyImageWrapper';
 import CardDescription from '@/components/molecules/Card/Components/CardDescription';
 import CardIcon from '@/components/molecules/Card/Components/CardIcon';

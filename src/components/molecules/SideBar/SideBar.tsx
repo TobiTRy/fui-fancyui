@@ -1,3 +1,5 @@
+'use client';
+
 import { InnerContainer, StyledSideBar } from './SideBar.style';
 import { TSideBarWithAllAttrs } from './TSideBar.model';
 import { sizeSettings } from './sizeSettings';

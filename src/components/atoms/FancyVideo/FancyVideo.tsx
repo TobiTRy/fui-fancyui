@@ -1,3 +1,5 @@
+'use client';
+
 import { isAspectRatioValid } from '@/utils/validations/isAspectRatioValid';
 import { FancyVideoSource } from '@/components/atoms/FancyVideoSource';
 import { StyledVideo } from '@/components/atoms/FancyVideo/FancyVideo.style';

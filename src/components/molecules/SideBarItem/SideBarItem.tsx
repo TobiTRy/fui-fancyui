@@ -1,3 +1,5 @@
+'use client';
+
 import { FancyFlexBox } from '@/components/templates/FancyFlexBox';
 import { StyledSideBarItem } from './SideBarItem.style';
 

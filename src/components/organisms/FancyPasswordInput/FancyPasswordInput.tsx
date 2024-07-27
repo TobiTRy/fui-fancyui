@@ -1,3 +1,5 @@
+'use client';
+
 import { forwardRef, useId, useState } from 'react';
 
 import { PasswordInput } from '@/components/atoms/PasswordInput';

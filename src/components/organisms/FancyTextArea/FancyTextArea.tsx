@@ -1,3 +1,5 @@
+'use client';
+
 import { forwardRef, useId, useState } from 'react';
 import RawTextArea from '@/components/atoms/RawTextArea/RawTextArea';
 import { InputWrapper } from '@/components/molecules/InputWrapper';

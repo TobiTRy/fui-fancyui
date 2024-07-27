@@ -1,3 +1,5 @@
+'use client';
+
 import { Chip } from '@/components/molecules/Chip';
 import { FancyProfilePicture } from '@/components/atoms/FancyProfilePicture';
 

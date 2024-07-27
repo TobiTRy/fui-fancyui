@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useRef, useState } from 'react';
 
 import { SwitchActiveIndicator } from '@/components/atoms/SwitchActiveIndicator';

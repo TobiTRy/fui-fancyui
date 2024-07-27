@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 
 import { Paginator } from '@/components/molecules/Paginator';

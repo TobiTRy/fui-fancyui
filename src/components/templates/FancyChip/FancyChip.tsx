@@ -1,3 +1,5 @@
+'use client';
+
 import { css } from 'styled-components';
 
 import { Chip } from '@/components/molecules/Chip';

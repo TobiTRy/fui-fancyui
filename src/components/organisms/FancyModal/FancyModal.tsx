@@ -1,3 +1,5 @@
+'use client';
+
 import { Modal } from '@/components/molecules/Modal';
 import { FancyPortal } from '@/components/shared/FancyPortal';
 

@@ -1,3 +1,5 @@
+'use client';
+
 import { FancyContent } from '@/components/molecules/FancyContent';
 import { ContentWrapper } from './BottomBarIcon.style';
 import { TBottomBarIconWithHTMLAttributes } from './TBottomBarIcon.model';

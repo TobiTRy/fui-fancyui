@@ -1,3 +1,5 @@
+'use client';
+
 import { StyledSystemMessageWrapper } from '@/components/atoms/SystemMessage/SystemMessage.style';
 import { Typography } from '@/components/atoms/Typography';
 

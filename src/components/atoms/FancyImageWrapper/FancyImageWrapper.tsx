@@ -1,3 +1,5 @@
+'use client';
+
 import { TFancyImageWrapperWithNativeAttrs } from '@/components/atoms/FancyImageWrapper/FancyImageWrapper.model';
 import { isAspectRatioValid } from '@/utils/validations/isAspectRatioValid';
 import { ImageWrapper } from './FancyImageWrapper.style';

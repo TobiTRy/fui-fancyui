@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { Typography } from '@/components/atoms/Typography';
 import { FancyLine } from '@/components/atoms/FancyLine';

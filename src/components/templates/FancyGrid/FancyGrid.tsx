@@ -1,4 +1,5 @@
-// FancyGrid.tsx
+'use client';
+
 import React from 'react';
 
 import { FancyGridProps } from '@/components/templates/FancyGrid/FancyGrid.model';

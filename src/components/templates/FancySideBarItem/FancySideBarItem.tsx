@@ -1,3 +1,5 @@
+'use client';
+
 import { SideBarItem } from '@/components/molecules/SideBarItem';
 import { TFancySideBarItem } from './TFancySideBarItem.model';
 

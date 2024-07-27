@@ -1,3 +1,5 @@
+'use client';
+
 import DynamicElementWrapper from '@/components/atoms/DynamicElementWrapper/DynamicElementWrapper';
 import { ChipContainer, StyledChipList } from './ChipList.style';
 import { TChipListWithHTMLAtrrs } from './TChipList.model';

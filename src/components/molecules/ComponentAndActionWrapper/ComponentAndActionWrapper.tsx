@@ -1,3 +1,5 @@
+'use client';
+
 import { ComponentAsWrapper } from '@/components/shared/ComponentAsWrapper';
 import { FancyActionWrapper } from '@/components/atoms/FancyActionWrapper';
 import { TComponentAndActionWrapper } from './TComponentAndActionWrapper.model';

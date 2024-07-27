@@ -1,3 +1,5 @@
+'use client';
+
 import { FancyContent } from '@/components/molecules/FancyContent';
 
 import { sizes } from './sizeSettings';

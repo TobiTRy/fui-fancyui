@@ -1,3 +1,5 @@
+'use client';
+
 import { TFancyPillWithHTMLAttrs } from './TFancyPill.model';
 import { StyledFancyPill } from './FancyPill.styled';
 

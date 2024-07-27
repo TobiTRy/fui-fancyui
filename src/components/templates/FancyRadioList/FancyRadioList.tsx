@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+'use client';
+
+import { useState } from 'react';
 
 import { Fieldset } from '@/components/molecules/Fieldset';
 import { FancyListBox } from '@/components/organisms/FancyListBox';
