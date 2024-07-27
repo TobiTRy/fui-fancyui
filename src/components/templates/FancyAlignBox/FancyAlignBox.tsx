@@ -1,3 +1,5 @@
+'use client';
+
 import { ElementType } from 'react';
 
 import { FancyFlexBox } from '@/components/templates/FancyFlexBox';

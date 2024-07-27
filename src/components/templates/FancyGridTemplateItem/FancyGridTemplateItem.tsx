@@ -1,3 +1,5 @@
+'use client';
+
 import { GridItem } from './FancyGridTemplateItem.style';
 import { TFancyGridTemplateItemWithHTMlAttrs } from './TFancyGridTemplateItem.model';
 

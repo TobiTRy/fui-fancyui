@@ -1,3 +1,5 @@
+'use client';
+
 import { FancyDropDownSelect } from '@/components/organisms/FancyDropDownSelect';
 import generateDayNumbers from '@/utils/functions/generateFunctions/generateDayNumbers';
 import generateMonthNames from '@/utils/functions/generateFunctions/generateMonthNames';

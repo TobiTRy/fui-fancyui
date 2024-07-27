@@ -1,3 +1,5 @@
+'use client';
+
 import { TFancyItemCard } from './TFancyItemCard.model';
 import { Card } from '@/components/molecules/Card';
 

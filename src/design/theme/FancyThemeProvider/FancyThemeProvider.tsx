@@ -1,3 +1,5 @@
+'use client';
+
 import { useEffect, useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 
@@ -49,5 +51,5 @@ export default function FancyThemeProvider(props: TFancyThemeProvider) {
   // we use the themestore when the theme is initialized to make sure that the theme is always up to date
 
   //if no theme is provided we use the default theme
-  return <ThemeProvider theme={isInitialized ? themeState : theme ?? themeState}>{children}</ThemeProvider>;
+  return <ThemeProvider theme={isInitialized ? themeState : (theme ?? themeState)}>{children}</ThemeProvider>;
 }

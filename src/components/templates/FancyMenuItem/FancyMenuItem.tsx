@@ -1,3 +1,5 @@
+'use client';
+
 import { MenueItem } from '@/components/atoms/MenuItem';
 import { FancyContent } from '@/components/molecules/FancyContent';
 

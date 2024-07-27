@@ -1,3 +1,5 @@
+'use client';
+
 import { useActiveBreakpoint } from '@/utils/hooks/useActiveBreakpoint';
 
 import { SkeletonBox } from '@/components/atoms/SkeletonBox';

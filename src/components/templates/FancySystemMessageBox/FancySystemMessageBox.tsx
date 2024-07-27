@@ -1,3 +1,5 @@
+'use client';
+
 import { FancyContent } from '@/components/molecules/FancyContent';
 import { SystemMessageBox } from '@/components/atoms/SystemMessageBox';
 import { TFancySystemMessageWithFancyContent } from './TFancySystemMessageBox.model';
