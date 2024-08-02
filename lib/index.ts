@@ -172,6 +172,7 @@ export * from '@/utils/functions/copyToClipBoard';
 export * from '@/utils/functions/calcCSSValuesWithOffset';
 export * from '@/utils/hooks/useActiveBreakpoint';
 export * from '@/utils/hooks/useBreakpointComparison';
+export * from '@/utils/validations/isColorValid';
 
 // ---------- Design ------- //
 export * from '@/design/designFunctions/calcBorderRadiusOnAlignment';
