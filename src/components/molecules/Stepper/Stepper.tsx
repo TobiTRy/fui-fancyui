@@ -33,6 +33,7 @@ export default function Stepper(props: TStepper) {
         <React.Fragment key={index}>
           <StepperButton>
             <ActionItem
+              size={size}
               themeType={themeType}
               outlined={index > activeStep - 1}
               layer={index === activeStep - 1 ? 0 : layer}
