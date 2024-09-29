@@ -81,11 +81,7 @@ export const globalElementSizes = {
   xxl: globalSizes.xxl.elementSize,
 };
 
-export type TglobalElementSizes = keyof typeof globalElementSizes;
-
 export const globalElementSizesWithFit = {
   ...globalElementSizes,
   fit: '100%',
 };
-
-export type TglobalElementSizesWithFit = keyof typeof globalElementSizesWithFit;

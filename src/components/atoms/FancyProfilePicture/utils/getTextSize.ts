@@ -1,5 +1,5 @@
+import { TglobalElementSizesWithFit } from '@/types/TglobalElementSizes';
 import { TTypographyVariants } from '@/types/TTypographyVariants';
-import { TglobalElementSizesWithFit } from '@/design/theme/globalSizes';
 
 // generate the text sizeC based on the sizeC prop
 export const getTextSize = (sizeC: TglobalElementSizesWithFit | (string & {})): TTypographyVariants => {

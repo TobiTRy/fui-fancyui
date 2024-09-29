@@ -1,3 +1,4 @@
+import { HTMLAttributes } from 'react';
 import { CSSProp } from 'styled-components';
 
 import { TLayer } from '@/types/TLayer';
@@ -5,7 +6,7 @@ import { TLayer } from '@/types/TLayer';
 import { TgetBorderRadiusViaSize } from '@/design/designFunctions/getBorderRadiusViaSize';
 import { TTypographyVariants } from '@/types/TTypographyVariants';
 import { TUiColorsMain } from '@/types/TUiColorsMain';
-import { TglobalElementSizesWithFit } from '@/design/theme/globalSizes';
+import { TglobalElementSizesWithFit } from '@/types/TglobalElementSizes';
 
 export type TTextAvatar = {
   text?: string;
@@ -21,4 +22,4 @@ export type TTextAvatar = {
   casing?: 'uppercase' | 'lowercase' | 'capitalize';
 };
 
-export type TTTextAvatarWithHTMLAttrs = TTextAvatar & React.HTMLAttributes<HTMLDivElement>;
+export type TTTextAvatarWithHTMLAttrs = TTextAvatar & HTMLAttributes<HTMLDivElement>;
