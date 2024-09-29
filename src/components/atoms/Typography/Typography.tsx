@@ -14,7 +14,7 @@ export default function Typography(props: TTypography) {
   const {
     elType,
     variant = 'bodytextMd',
-    themeType = 'secondary',
+    themeType, // dont use a default color it should inherit from the parent
     children,
     externalStyle,
     layer,
