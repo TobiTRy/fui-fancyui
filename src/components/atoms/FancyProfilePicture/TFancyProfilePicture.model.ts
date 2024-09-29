@@ -1,13 +1,13 @@
 import { CSSProp } from 'styled-components';
 
 import { TextAvatar } from '@/components/molecules/TextAvatar';
-import { TSize } from '@/components/molecules/TextAvatar/utils/getSize';
+import { TglobalElementSizes } from '@/design/theme/globalSizes';
 
 type TtextAvatarSettings = React.ComponentProps<typeof TextAvatar>;
 
 export type TFancyProfilePicture = {
   borderRadius?: 'sm' | 'md' | 'lg' | 'complete' | 'none';
-  sizeC?: TSize | string;
+  sizeC?: TglobalElementSizes | string;
   externalStyle?: CSSProp;
   textAvatarSettings?: Omit<TtextAvatarSettings, 'text'>;
   nickname?: string;

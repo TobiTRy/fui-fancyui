@@ -71,7 +71,7 @@ export const globalSizes = {
   },
 };
 
-export const globalElementsizes = {
+export const globalElementSizes = {
   xxs: globalSizes.xxs.elementSize,
   xs: globalSizes.xs.elementSize,
   sm: globalSizes.sm.elementSize,
@@ -81,11 +81,11 @@ export const globalElementsizes = {
   xxl: globalSizes.xxl.elementSize,
 };
 
-export type TGlobalElementsizes = keyof typeof globalElementsizes;
+export type TglobalElementSizes = keyof typeof globalElementSizes;
 
-export const globalElementsizesWithFit = {
-  ...globalElementsizes,
+export const globalElementSizesWithFit = {
+  ...globalElementSizes,
   fit: '100%',
 };
 
-export type TglobalElementsizesWithFit = keyof typeof globalElementsizesWithFit;
+export type TglobalElementSizesWithFit = keyof typeof globalElementSizesWithFit;

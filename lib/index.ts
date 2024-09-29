@@ -115,6 +115,7 @@ export * from '@/components/atoms/RawButton';
 export * from '@/components/molecules/Fieldset';
 export * from '@/components/molecules/SideBar';
 export * from '@/components/molecules/SideBarItem';
+export * from '@/components/molecules/TextAvatar';
 
 // ---------- Organisms ------- //
 export * from '@/components/organisms/FancyButton';

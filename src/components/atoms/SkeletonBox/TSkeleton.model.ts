@@ -1,5 +1,5 @@
 import { TBorderRadiusSizes } from '@/types/TBorderRadiusSizes';
-import { TGlobalElementSizes } from '@/types/TGlobalElementSizes';
+import { TglobalElementSizes } from '@/types/TglobalElementSizes';
 import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 import { TLayer } from '@/types/TLayer';
 import { CSSProp } from 'styled-components';
@@ -7,8 +7,8 @@ import { CSSProp } from 'styled-components';
 export type TSkeletonBox = {
   themeType?: TUiColorsNotTransparent;
   layer?: TLayer;
-  sizeW?: TGlobalElementSizes | 'fit';
-  sizeH?: TGlobalElementSizes | 'fit';
+  sizeW?: TglobalElementSizes | 'fit';
+  sizeH?: TglobalElementSizes | 'fit';
   borderRadius?: TBorderRadiusSizes;
   aspectRatio?: string;
   externalStyle?: CSSProp;

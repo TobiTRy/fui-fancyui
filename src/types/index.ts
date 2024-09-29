@@ -16,7 +16,7 @@ export * from './TTextAlignLR';
 export * from './TTextAlignLC';
 export * from './TTextAlignLRC';
 export * from './IStatus';
-export * from './TGlobalElementSizes';
+export * from './TglobalElementSizes';
 export * from './TBreakPoints';
 export * from './TSizeSettings';
 export * from './TDynamicElement';

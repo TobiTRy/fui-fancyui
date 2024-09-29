@@ -4,7 +4,7 @@ import Color from 'color';
 
 import { themeStore } from '@/design/theme/themeStore';
 import { CheckerBoardPattern } from '@/components/atoms/CheckerBoardPattern';
-import { globalElementsizes } from '@/design/theme/globalSizes';
+import { globalElementSizes } from '@/design/theme/globalSizes';
 
 import { ColorDisplayContainer, Content, Wrapper } from './ColorDisplay.style';
 import { TColorDisplayWithHTMLAttrs } from './TColorDisplay.model';
@@ -29,7 +29,7 @@ function ColorDisplay(props: TColorDisplayWithHTMLAttrs) {
   return (
     <Wrapper
       $fullHeight={fullHeight}
-      $height={globalElementsizes[sizeSettings[sizeC].height]}
+      $height={globalElementSizes[sizeSettings[sizeC].height]}
       $borderRadius={borderRadius ? borderRadius : sizeSettings[sizeC].borderRadius}
       {...htmlProps}
     >

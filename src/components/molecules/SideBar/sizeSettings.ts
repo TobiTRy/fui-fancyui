@@ -1,10 +1,10 @@
 import { TBorderRadiusSizes } from '@/types/TBorderRadiusSizes';
-import { TGlobalElementSizes } from '@/types/TGlobalElementSizes';
+import { TglobalElementSizes } from '@/types/TglobalElementSizes';
 import { TSizeSettings } from '@/types/TSizeSettings';
 import { TSpacings } from '@/types/TSpacings';
 
 type TSizeObj = {
-  width: TGlobalElementSizes;
+  width: TglobalElementSizes;
   borderRadius: TBorderRadiusSizes;
   gapBetweenItems: TSpacings;
   paddingBottomTop: TSpacings;

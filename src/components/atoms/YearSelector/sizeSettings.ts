@@ -1,13 +1,13 @@
 import { TFancySVGAtomSizes } from '@/components/atoms/FancySVGAtom';
 import { TSizeSettings } from '@/types/TSizeSettings';
-import { TGlobalElementSizes } from '@/types/TGlobalElementSizes';
+import { TglobalElementSizes } from '@/types/TglobalElementSizes';
 import { TBorderRadiusSizes } from '@/types/TBorderRadiusSizes';
 import { TSpacingArray } from '@/types/TSpacings';
 
 type TSizeObj = {
   padding: TSpacingArray;
   iconSize: TFancySVGAtomSizes;
-  height?: TGlobalElementSizes;
+  height?: TglobalElementSizes;
   borderRadius?: TBorderRadiusSizes;
 };
 

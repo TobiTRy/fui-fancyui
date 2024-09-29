@@ -2,7 +2,7 @@ import { styled } from 'styled-components';
 
 import { TStyledPrefixAndPicker } from '@/types/TStyledPrefixAndPicker';
 import { TActionItem } from '@/components/molecules/ActionItem/TActionItem.model';
-import { globalElementsizes } from '@/design/theme/globalSizes';
+import { globalElementSizes } from '@/design/theme/globalSizes';
 import { disabledStyle } from '@/design/designFunctions/disabledStyle';
 import { generateThemeDesignForComponent } from '@/design/designFunctions/generateThemeDesignForComponent';
 import { IGenerateThemeDesignForComponent } from '@/design/designFunctions/generateThemeDesignForComponent/generateThemeDesignForComponent';
@@ -17,7 +17,7 @@ export const ButtonStyle = styled.span<IGenerateThemeDesignForComponent & TWrapp
   align-items: center;
   justify-content: center;
 
-  height: ${({ $size }) => globalElementsizes[$size ?? 'md']};
+  height: ${({ $size }) => globalElementSizes[$size ?? 'md']};
   cursor: pointer;
 
   ${(props: IGenerateThemeDesignForComponent) => generateThemeDesignForComponent({ ...props })};

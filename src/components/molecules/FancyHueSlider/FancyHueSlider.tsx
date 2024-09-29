@@ -9,7 +9,7 @@ import { colorToPositionHue, positionToColorHue } from './utils/calcPosition';
 import { THueSlider } from './TFancyHueSlider.model';
 
 import { sizeSettings } from '@/components/molecules/FancyOpacitySlider/sizeSettings';
-import { globalElementsizes } from '@/design/theme/globalSizes';
+import { globalElementSizes } from '@/design/theme/globalSizes';
 
 // --------------------------------------------------------------------------- //
 // --------  The main HueSlider Component to calulates the hue --------------- //
@@ -29,7 +29,7 @@ export default function FancyHueSlider(props: THueSlider) {
   });
 
   return (
-    <SliderWrapper $height={globalElementsizes[sizeSettings[sizeC].height]}>
+    <SliderWrapper $height={globalElementSizes[sizeSettings[sizeC].height]}>
       <SliderContainer
         ref={sliderRef}
         onMouseDown={handleInteractionStart}

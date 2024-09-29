@@ -3,7 +3,7 @@
 import React from 'react';
 
 import { ActionItem } from '@/components/molecules/ActionItem';
-import { globalElementsizes } from '@/design/theme/globalSizes';
+import { globalElementSizes } from '@/design/theme/globalSizes';
 
 import { ModifiedLine, StepperContainer } from './Stepper.style';
 import { FlexToDirectionMapper, TStepper } from './TStepper.model';
@@ -25,7 +25,7 @@ export default function Stepper(props: TStepper) {
   } = props;
 
   // needs to align the line to the center of the action item
-  const getGloablSize = globalElementsizes[size];
+  const getGloablSize = globalElementSizes[size];
 
   return (
     <StepperContainer direction={flexDirection} align="center" gap={gap}>

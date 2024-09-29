@@ -3,7 +3,7 @@ import { updateThemeColors, uiColors, IUiColorPops } from '../generateThemeColor
 import { spacingPx, borderRadius, typography } from '../designSizes';
 import { TTheme } from '@/types/TTheme';
 import { breakpoints } from '@/design/theme/brakePoints';
-import { globalElementsizes } from '@/design/theme/globalSizes';
+import { globalElementSizes } from '@/design/theme/globalSizes';
 
 type ThemeState = {
   theme: TTheme;
@@ -21,7 +21,7 @@ const themeStore = create<ThemeState>((set) => ({
     spacing: spacingPx,
     fontSizes: typography,
     breakpoints: breakpoints,
-    globalElementSizes: globalElementsizes,
+    globalElementSizes: globalElementSizes,
     outlined: {
       backgroundStrength: 0.5,
     },

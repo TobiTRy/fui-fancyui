@@ -3,14 +3,14 @@ import { styled } from 'styled-components';
 import { calcInputPadding } from '@/components/molecules/LabeledInput/utils/calcInputPadding';
 import { getTextColor } from '@/design/designFunctions/colorCalculatorForComponent';
 import { TTheme } from '@/types/TTheme';
-import { globalElementsizes } from '@/design/theme/globalSizes';
+import { globalElementSizes } from '@/design/theme/globalSizes';
 
 const handleHeight = ({ $hasLabel = false, $isTextArea = false }) => {
   if (!$isTextArea) {
     if ($hasLabel) {
-      return globalElementsizes.md;
+      return globalElementSizes.md;
     } else {
-      return globalElementsizes.sm;
+      return globalElementSizes.sm;
     }
   }
   return '';

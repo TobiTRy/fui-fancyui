@@ -1,16 +1,16 @@
 import { CSSProp } from 'styled-components';
 
-import { TSize } from '@/components/molecules/TextAvatar/utils/getSize';
 import { TLayer } from '@/types/TLayer';
 
 import { TgetBorderRadiusViaSize } from '@/design/designFunctions/getBorderRadiusViaSize';
 import { TTypographyVariants } from '@/types/TTypographyVariants';
 import { TUiColorsMain } from '@/types/TUiColorsMain';
+import { TglobalElementSizesWithFit } from '@/design/theme/globalSizes';
 
 export type TTextAvatar = {
   text?: string;
   borderRadius?: TgetBorderRadiusViaSize;
-  sizeC?: TSize | string;
+  sizeC?: TglobalElementSizesWithFit | (string & {});
   color?: string;
   backgroundColor?: string;
   themeType?: TUiColorsMain;
