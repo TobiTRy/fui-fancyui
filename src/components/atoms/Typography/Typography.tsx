@@ -14,9 +14,9 @@ export default function Typography(props: TTypography) {
   const {
     elType,
     variant = 'bodytextMd',
+    themeType = 'secondary',
     children,
     externalStyle,
-    themeType,
     layer,
     lineHeight,
     fontWeight,
