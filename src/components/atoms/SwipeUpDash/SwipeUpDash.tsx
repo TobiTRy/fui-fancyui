@@ -1,5 +1,6 @@
 'use client';
 
+import React from 'react';
 import { styled } from 'styled-components';
 
 import { TTheme } from '@/types/TTheme';
@@ -8,9 +9,9 @@ import simpleColorTransition from '@/design/designFunctions/simpleColorTransitio
 // --------------------------------------------------------------------------- //
 // ---- The SwipeUpDash component is a simple horizontal line as Button ------ //
 // --------------------------------------------------------------------------- //
-export default function SwipeUpDash() {
+export default function SwipeUpDash(props: React.HTMLAttributes<HTMLButtonElement>) {
   return (
-    <StyledButton>
+    <StyledButton {...props}>
       <StyledSwipeUpDash />
     </StyledButton>
   );
