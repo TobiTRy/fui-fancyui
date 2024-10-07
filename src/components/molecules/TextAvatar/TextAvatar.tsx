@@ -28,7 +28,6 @@ export default function TextAvatar(props: TTTextAvatarWithHTMLAttrs) {
 
   return (
     <Placeholder
-      tabIndex={htmlProps.tabIndex ?? 0}
       $borderRadius={borderRadius}
       $sizeC={sizeC}
       $color={color}
