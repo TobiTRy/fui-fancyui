@@ -146,11 +146,13 @@ const items = [
     icon: <SVGCheckMark />,
     label: 'Step 3',
     onClick: () => console.log('clicked 3'),
+    disabled: true,
   },
   {
     icon: <SVGCheckMark />,
     label: 'Step 3',
     onClick: () => console.log('clicked 4'),
+    disabled: true,
   },
 ];
 

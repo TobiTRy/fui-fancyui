@@ -31,18 +31,17 @@ export default function Stepper(props: TStepper) {
     <StepperContainer direction={flexDirection} align="center" gap={gap}>
       {steps.map((step, index) => (
         <React.Fragment key={index}>
-          <StepperButton>
+          <StepperButton onClick={step.onClick} disabled={step.disabled}>
             <ActionItem
               size={size}
               themeType={themeType}
               outlined={index > activeStep - 1}
               layer={index === activeStep - 1 ? 0 : layer}
               labelAlign={labelAlign}
-              onClick={step.onClick}
               icon={step.icon}
               label={step.label}
               isActive={index === activeStep - 1}
-              disabled={index < activeStep - 1}
+              disabled={index < activeStep - 1 || step.disabled}
               {...actionItemProps}
             />
           </StepperButton>
