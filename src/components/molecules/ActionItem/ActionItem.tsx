@@ -31,6 +31,7 @@ export default function ActionItem(props: TActionItemWithHTMLProps) {
     textColor,
     textHover,
     useSimpleTextColor,
+    hideLabel,
     ...htmlProps
   } = props;
 
@@ -38,12 +39,13 @@ export default function ActionItem(props: TActionItemWithHTMLProps) {
 
   return (
     <FancyFlexBox direction={calcPostionToFlex(labelAlign ?? 'left')} align="center" gap="8px" {...htmlProps}>
-      {label && (
+      {label && !hideLabel && (
         <DisabledStyleBox disabled={disabled}>
           <Typography variant={sizeSettings[size].fontSize}>{label}</Typography>
         </DisabledStyleBox>
       )}
       <ButtonStyle
+        aria-label={hideLabel ? label : undefined}
         $disabled={disabled}
         $size={size}
         $layer={layer}

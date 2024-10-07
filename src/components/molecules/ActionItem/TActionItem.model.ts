@@ -6,6 +6,7 @@ import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 
 export type TActionItemSetting = {
   labelAlign?: 'left' | 'right' | 'top' | 'bottom';
+  hideLabel?: boolean;
   size?: TComponentSizesExtended;
   layer?: TLayer;
   themeType?: TUiColorsNotTransparent;
@@ -13,7 +14,7 @@ export type TActionItemSetting = {
 };
 
 export type TActionItemButton = {
-  label?: string;
+  label: string;
   icon: string | number | JSX.Element;
   onClick?: () => void;
   isActive?: boolean;
