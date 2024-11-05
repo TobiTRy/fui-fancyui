@@ -1,5 +1,5 @@
 import { TSizeSettings } from '@/types/TSizeSettings';
-import { TglobalElementSizes } from '@/types/TglobalElementSizes';
+import { TglobalElementSizes } from '@/types/TGlobalElementSizes';
 
 type TSizeObj = {
   sizeIcon: TglobalElementSizes;

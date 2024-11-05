@@ -1,6 +1,6 @@
 import { TFancySVGAtomSizes } from '@/components/atoms/FancySVGAtom';
 import { TBorderRadiusSizes } from '@/types/TBorderRadiusSizes';
-import { TglobalElementSizes } from '@/types/TglobalElementSizes';
+import { TglobalElementSizes } from '@/types/TGlobalElementSizes';
 import { TSizeSettings } from '@/types/TSizeSettings';
 import { TTypographyVariants } from '@/types/TTypographyVariants';
 

@@ -1,5 +1,5 @@
 import { TBorderRadiusSizes } from '@/types/TBorderRadiusSizes';
-import { TglobalElementSizes } from '@/types/TglobalElementSizes';
+import { TglobalElementSizes } from '@/types/TGlobalElementSizes';
 import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 import { TLayer } from '@/types/TLayer';
 import { CSSProp } from 'styled-components';

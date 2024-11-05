@@ -6,7 +6,7 @@ import { TLayer } from '@/types/TLayer';
 import { TgetBorderRadiusViaSize } from '@/design/designFunctions/getBorderRadiusViaSize';
 import { TTypographyVariants } from '@/types/TTypographyVariants';
 import { TUiColorsMain } from '@/types/TUiColorsMain';
-import { TglobalElementSizesWithFit } from '@/types/TglobalElementSizes';
+import { TglobalElementSizesWithFit } from '@/types/TGlobalElementSizes';
 
 export type TTextAvatar = {
   text?: string;

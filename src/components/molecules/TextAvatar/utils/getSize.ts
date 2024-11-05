@@ -1,6 +1,6 @@
 import { themeStore } from '@/design/theme/themeStore';
 import { globalElementSizesWithFit } from '@/design/theme/globalSizes';
-import { TglobalElementSizesWithFit } from '@/types/TglobalElementSizes';
+import { TglobalElementSizesWithFit } from '@/types/TGlobalElementSizes';
 
 export const getSize = (sizeC: TglobalElementSizesWithFit | string) => {
   const theme = themeStore.getState().theme.spacing;

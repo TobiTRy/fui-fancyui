@@ -1,7 +1,7 @@
 import { TFancyBox } from '@/components/atoms/FancyBox';
 import { TThemeArrayOrValueCSS } from '@/design/designFunctions/arrayToCssValues';
 import { TBorderRadiusSizes } from '@/types/TBorderRadiusSizes';
-import { TglobalElementSizes } from '@/types/TglobalElementSizes';
+import { TglobalElementSizes } from '@/types/TGlobalElementSizes';
 import { TSizeSettings } from '@/types/TSizeSettings';
 import { TSpacings } from '@/types/TSpacings';
 import { TTypographyVariants } from '@/types/TTypographyVariants';

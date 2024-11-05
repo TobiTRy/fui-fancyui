@@ -1,7 +1,7 @@
 import { CSSProp } from 'styled-components';
 
 import { TextAvatar } from '@/components/molecules/TextAvatar';
-import { TglobalElementSizes } from '@/types/TglobalElementSizes';
+import { TglobalElementSizes } from '@/types/TGlobalElementSizes';
 
 type TtextAvatarSettings = React.ComponentProps<typeof TextAvatar>;
 

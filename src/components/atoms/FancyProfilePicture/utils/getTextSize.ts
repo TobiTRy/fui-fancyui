@@ -1,4 +1,4 @@
-import { TglobalElementSizesWithFit } from '@/types/TglobalElementSizes';
+import { TglobalElementSizesWithFit } from '@/types/TGlobalElementSizes';
 import { TTypographyVariants } from '@/types/TTypographyVariants';
 
 // generate the text sizeC based on the sizeC prop
