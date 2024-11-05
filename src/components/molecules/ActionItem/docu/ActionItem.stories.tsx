@@ -53,6 +53,10 @@ const meta = {
       description: 'The theme type of the action item when it is active or hovered',
       control: { type: 'select' },
     },
+    hideLabel: {
+      description: 'The hide label state of the action item',
+      control: { type: 'boolean' },
+    },
     onClick: {
       description: 'The click event of the action item',
       action: 'clicked',

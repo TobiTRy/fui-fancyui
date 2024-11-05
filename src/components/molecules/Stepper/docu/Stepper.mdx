@@ -17,7 +17,7 @@ import { Stepper, TStepper, TSteperItem } from 'fui-fancyui';
 
 const steps:TSteperItem[] = [
   { label: 'Step 1', icon: <YourIconComponent />, onClick: () => yourStep1Function() },
-  { label: 'Step 2', icon: <YourIconComponent /> },
+  { label: 'Step 2', icon: <YourIconComponent />, disabled: true },
   { label: 'Step 3', icon: <YourIconComponent /> },
 ];
 
@@ -42,6 +42,7 @@ type TSteperItem = {
   label: string;
   icon: React.ReactNode;
   onClick?: () => void; // Optional click handler
+  disabled?: boolean; // Optional disabled state
 };
 ```
 

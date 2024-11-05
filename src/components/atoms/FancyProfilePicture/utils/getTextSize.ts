@@ -1,8 +1,8 @@
-import { TSize } from '@/components/molecules/TextAvatar/utils/getSize';
+import { TglobalElementSizesWithFit } from '@/types/TGlobalElementSizes';
 import { TTypographyVariants } from '@/types/TTypographyVariants';
 
 // generate the text sizeC based on the sizeC prop
-export const getTextSize = (sizeC: TSize | string): TTypographyVariants => {
+export const getTextSize = (sizeC: TglobalElementSizesWithFit | (string & {})): TTypographyVariants => {
   switch (sizeC) {
     case 'xxs':
     case 'xs':

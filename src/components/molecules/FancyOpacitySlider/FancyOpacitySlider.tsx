@@ -13,7 +13,7 @@ import { colorToPositionOpacity, positionToColorOpacity } from './utils/calcPosi
 import { Wrapper, SliderContainer, OpacityGradient } from './FancyOpacitySlider.style';
 
 import { TFancyOpacitySliderWithHTMLProps } from './TFancyOpacitySlider.model';
-import { globalElementsizes } from '@/design/theme/globalSizes';
+import { globalElementSizes } from '@/design/theme/globalSizes';
 import { sizeSettings } from './sizeSettings';
 
 // --------------------------------------------------------------------------- //
@@ -36,7 +36,7 @@ export default function FancyOpacitySlider(props: TFancyOpacitySliderWithHTMLPro
   });
 
   return (
-    <Wrapper $height={globalElementsizes[sizeSettings[sizeC].height]} {...htmlProps}>
+    <Wrapper $height={globalElementSizes[sizeSettings[sizeC].height]} {...htmlProps}>
       <SliderContainer ref={sliderRef} onMouseDown={handleInteractionStart} onTouchStart={handleInteractionStart}>
         {/* the sliders marker with the color indicator which displays the opacity of the current color */}
         <SliderMarker position={markerPosition.x + '%'}>

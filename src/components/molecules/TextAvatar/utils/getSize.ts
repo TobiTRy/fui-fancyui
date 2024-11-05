@@ -1,21 +1,15 @@
-// Set sizeC based on prop
-export type TSize = 'sm' | 'md' | 'lg' | 'xxs' | 'xs' | 'xl' | 'xxl' | 'complete';
-const sizeConfig: Record<TSize | string, string> = {
-  xxs: '16px',
-  xs: '24px',
-  sm: '32px',
-  md: '40px',
-  lg: '48px',
-  xl: '56px',
-  xxl: '64px',
-  complete: '100%',
-  default: '40px',
-};
+import { themeStore } from '@/design/theme/themeStore';
+import { globalElementSizesWithFit } from '@/design/theme/globalSizes';
+import { TglobalElementSizesWithFit } from '@/types/TGlobalElementSizes';
 
-export const getSize = (sizeC: TSize | string) => {
+export const getSize = (sizeC: TglobalElementSizesWithFit | string) => {
+  const theme = themeStore.getState().theme.spacing;
   // Check if the sizeC is a percentage value
   if (typeof sizeC === 'string' && sizeC.endsWith('%')) return sizeC;
+  const themeSize = sizeC as TglobalElementSizesWithFit;
+
+  if (themeSize === 'fit') return '100%';
 
   // Return the sizeC from the config or default if not found
-  return sizeConfig[sizeC] || sizeConfig['default'];
+  return theme[themeSize] || globalElementSizesWithFit['md'];
 };

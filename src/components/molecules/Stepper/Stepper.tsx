@@ -3,7 +3,7 @@
 import React from 'react';
 
 import { ActionItem } from '@/components/molecules/ActionItem';
-import { globalElementsizes } from '@/design/theme/globalSizes';
+import { globalElementSizes } from '@/design/theme/globalSizes';
 
 import { ModifiedLine, StepperContainer } from './Stepper.style';
 import { FlexToDirectionMapper, TStepper } from './TStepper.model';
@@ -25,23 +25,23 @@ export default function Stepper(props: TStepper) {
   } = props;
 
   // needs to align the line to the center of the action item
-  const getGloablSize = globalElementsizes[size];
+  const getGloablSize = globalElementSizes[size];
 
   return (
     <StepperContainer direction={flexDirection} align="center" gap={gap}>
       {steps.map((step, index) => (
         <React.Fragment key={index}>
-          <StepperButton>
+          <StepperButton onClick={step.onClick} disabled={step.disabled}>
             <ActionItem
+              size={size}
               themeType={themeType}
               outlined={index > activeStep - 1}
               layer={index === activeStep - 1 ? 0 : layer}
               labelAlign={labelAlign}
-              onClick={step.onClick}
               icon={step.icon}
               label={step.label}
               isActive={index === activeStep - 1}
-              disabled={index < activeStep - 1}
+              disabled={index < activeStep - 1 || step.disabled}
               {...actionItemProps}
             />
           </StepperButton>

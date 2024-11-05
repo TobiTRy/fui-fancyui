@@ -31,6 +31,7 @@ export default function FancyProfilePicture(props: TFancyProfilePictureWithHTMLA
     </FancyImageWrapper>
   ) : (
     <TextAvatar
+      {...htmlProps}
       {...textAvatarSettings}
       borderRadius={borderRadius}
       sizeC={sizeC}

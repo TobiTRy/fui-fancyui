@@ -3,7 +3,7 @@ import { TStyledPrefixAndPicker } from '@/types/TStyledPrefixAndPicker';
 import { TDateOutput } from './TDateOutput.model';
 import { TTheme } from '@/types/TTheme';
 import { getBackgroundColor, getTextColor } from '@/design/designFunctions/colorCalculatorForComponent';
-import { globalElementsizes } from '@/design/theme/globalSizes';
+import { globalElementSizes } from '@/design/theme/globalSizes';
 import { sizeSettings } from './sizeSettings';
 
 type TDateOutputButton = TStyledPrefixAndPicker<
@@ -21,7 +21,7 @@ export const DateOutputButton = styled.button<TDateOutputButton & { theme: TThem
     getTextColor({ theme, $themeType, $textLayer: $layer, turnColorTheme: true })};
   border: none;
   cursor: pointer;
-  height: ${({ $sizeC = 'md' }) => globalElementsizes[sizeSettings[$sizeC].height]};
+  height: ${({ $sizeC = 'md' }) => globalElementSizes[sizeSettings[$sizeC].height]};
   border-radius: ${({ theme, $borderRadius, $sizeC = 'md' }) =>
     $borderRadius ? theme.borderRadius[$borderRadius] : theme.borderRadius[sizeSettings[$sizeC].borderRadius]};
 `;

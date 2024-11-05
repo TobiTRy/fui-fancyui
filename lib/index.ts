@@ -50,6 +50,7 @@ export * from '@/components/atoms/RawLI';
 export * from '@/components/atoms/RawUL';
 export * from '@/components/atoms/RawA';
 export * from '@/components/atoms/RawNav';
+export * from '@/components/atoms/RawButton';
 export * from '@/components/atoms/FancySpacingBox';
 export * from '@/components/atoms/DateInput';
 export * from '@/components/atoms/SystemMessage';
@@ -114,6 +115,7 @@ export * from '@/components/atoms/RawButton';
 export * from '@/components/molecules/Fieldset';
 export * from '@/components/molecules/SideBar';
 export * from '@/components/molecules/SideBarItem';
+export * from '@/components/molecules/TextAvatar';
 
 // ---------- Organisms ------- //
 export * from '@/components/organisms/FancyButton';
@@ -172,6 +174,7 @@ export * from '@/utils/functions/copyToClipBoard';
 export * from '@/utils/functions/calcCSSValuesWithOffset';
 export * from '@/utils/hooks/useActiveBreakpoint';
 export * from '@/utils/hooks/useBreakpointComparison';
+export * from '@/utils/validations/isColorValid';
 
 // ---------- Design ------- //
 export * from '@/design/designFunctions/calcBorderRadiusOnAlignment';

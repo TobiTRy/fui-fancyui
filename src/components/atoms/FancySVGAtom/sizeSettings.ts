@@ -1,7 +1,7 @@
-import { globalElementsizes } from '@/design/theme/globalSizes';
+import { globalElementSizes } from '@/design/theme/globalSizes';
 
 export const sizes = {
   xxxs: '12px',
-  ...globalElementsizes,
+  ...globalElementSizes,
   full: '100%',
 };

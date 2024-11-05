@@ -71,7 +71,7 @@ export const globalSizes = {
   },
 };
 
-export const globalElementsizes = {
+export const globalElementSizes = {
   xxs: globalSizes.xxs.elementSize,
   xs: globalSizes.xs.elementSize,
   sm: globalSizes.sm.elementSize,
@@ -79,4 +79,9 @@ export const globalElementsizes = {
   lg: globalSizes.lg.elementSize,
   xl: globalSizes.xl.elementSize,
   xxl: globalSizes.xxl.elementSize,
+};
+
+export const globalElementSizesWithFit = {
+  ...globalElementSizes,
+  fit: '100%',
 };

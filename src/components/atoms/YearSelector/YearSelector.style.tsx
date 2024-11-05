@@ -6,7 +6,7 @@ import { TTheme } from '@/types/TTheme';
 import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 import { TStyledPrefixAndPicker } from '@/types/TStyledPrefixAndPicker';
 import { TYearSelector } from '@/components/atoms/YearSelector/TYearSelector.model';
-import { globalElementsizes } from '@/design/theme/globalSizes';
+import { globalElementSizes } from '@/design/theme/globalSizes';
 import { generateBorderRadiusForComponent } from '@/design/designFunctions/generateBorderRadiusForComponent';
 import { sizeSettings } from './sizeSettings';
 import { arrayToCssValues } from '@/design/designFunctions/arrayToCssValues';
@@ -24,7 +24,7 @@ export const StyledYearSelector = styled.div<TStyledYearSelector>`
   ${({ $borderRadius, $sizeC }) => generateBorderRadiusForComponent({ borderRadius: $borderRadius, sizeC: $sizeC })};
   background-color: ${({ theme, $layer = 2, $themeType = 'primary' }) =>
     getBackgroundColor({ theme, $themeType, $layer })};
-  height: ${({ $sizeC = 'md' }) => globalElementsizes[$sizeC]};
+  height: ${({ $sizeC = 'md' }) => globalElementSizes[$sizeC]};
 `;
 
 export const StyledButton = styled.button<{ theme: TTheme; $themeType?: TUiColorsNotTransparent; $layer?: TLayer }>`

@@ -8,7 +8,7 @@ export type TActionItemModified = Omit<
   'items' | 'icon' | 'label' | 'isClickable' | 'isActive' | 'onClick' | 'disabled'
 >;
 
-export type TSteperItem = Omit<TActionItemButton, 'isClickable' | 'isActive' | 'disabled'>;
+export type TSteperItem = Omit<TActionItemButton, 'isClickable' | 'isActive'>;
 
 export type TStepper = {
   steps: TSteperItem[];

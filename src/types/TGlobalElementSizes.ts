@@ -1,3 +1,5 @@
-import { globalElementsizes } from '@/design/theme/globalSizes';
+import { globalElementSizes, globalElementSizesWithFit } from '@/design/theme/globalSizes';
 
-export type TGlobalElementSizes = keyof typeof globalElementsizes;
+export type TglobalElementSizes = keyof typeof globalElementSizes;
+
+export type TglobalElementSizesWithFit = keyof typeof globalElementSizesWithFit;

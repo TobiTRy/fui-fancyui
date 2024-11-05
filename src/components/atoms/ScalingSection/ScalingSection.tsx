@@ -91,7 +91,7 @@ const ScalingSection = forwardRef<HTMLDivElement, IScalingSection>((props, ref) 
 
   return (
     <SytledScalingSection id={id} ref={ref} onTouchStart={handleStartTouch} onMouseDown={handleStartMouse}>
-      <SwipeUpDash />
+      <SwipeUpDash onClick={onClick}/>
     </SytledScalingSection>
   );
 });

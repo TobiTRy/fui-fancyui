@@ -4,7 +4,7 @@ import { boxShadow } from '@/design/designFunctions/shadows/shadows';
 import { TTheme } from '@/types/TTheme';
 import { RawUL } from '@/components/atoms/RawUL';
 import { TComponentSizes } from '@/types/TComponentSizes';
-import { globalElementsizes } from '@/design/theme/globalSizes';
+import { globalElementSizes } from '@/design/theme/globalSizes';
 
 const SpeedDailButtonSize = 60;
 
@@ -78,11 +78,11 @@ export const MenueItemWrapper = styled.div<{ theme: TTheme; $textAlign?: 'left' 
     $textAlign === 'right'
       ? css`
           align-items: flex-start;
-          margin-left: ${'-' + parseInt(globalElementsizes.md) / 2 + 'px'};
+          margin-left: ${'-' + parseInt(globalElementSizes.md) / 2 + 'px'};
         `
       : css`
           align-items: flex-end;
-          margin-left: ${parseInt(globalElementsizes.md) / 2 + 'px'};
+          margin-left: ${parseInt(globalElementSizes.md) / 2 + 'px'};
         `}
 
   position: absolute;

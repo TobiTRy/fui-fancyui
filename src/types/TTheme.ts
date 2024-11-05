@@ -3,7 +3,7 @@ import { TUiColorsTypeObject } from './TUiColorsTypeObject';
 import { TSpacings } from './TSpacings';
 import { breakpoints } from '@/design/theme/brakePoints';
 import { TTypographyObj } from '@/components/atoms/Typography/Typography.model';
-import { globalElementsizes } from '@/design/theme/globalSizes';
+import { globalElementSizes } from '@/design/theme/globalSizes';
 
 //the structure for the theme object
 export type TTheme = {
@@ -19,7 +19,7 @@ export type TTheme = {
     [key in keyof typeof breakpoints]: string;
   };
   globalElementSizes: {
-    [key in keyof typeof globalElementsizes]: string;
+    [key in keyof typeof globalElementSizes]: string;
   };
   outlined: {
     backgroundStrength: number;

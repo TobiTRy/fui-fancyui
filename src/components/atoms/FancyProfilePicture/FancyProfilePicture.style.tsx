@@ -1,12 +1,13 @@
 import { CSSProp, styled } from 'styled-components';
 
+import { getSize } from '@/components/molecules/TextAvatar/utils/getSize';
 import { TgetBorderRadiusViaSize, getBorderRadiusViaSize } from '@/design/designFunctions/getBorderRadiusViaSize';
-import { TSize, getSize } from '@/components/molecules/TextAvatar/utils/getSize';
+import { TglobalElementSizesWithFit } from '@/types/TGlobalElementSizes';
 
 // Styled img component
 type TStyledImageProps = {
   $rounded: TgetBorderRadiusViaSize | 'none';
-  $sizeC: TSize | string;
+  $sizeC: TglobalElementSizesWithFit | string;
   $externalStyle?: CSSProp;
 };
 export const StyledImage = styled.img<TStyledImageProps>`

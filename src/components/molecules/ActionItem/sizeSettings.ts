@@ -1,9 +1,9 @@
-import { globalElementsizes } from '@/design/theme/globalSizes';
+import { globalElementSizes } from '@/design/theme/globalSizes';
 import { TSizeSettingsExtended } from '@/types/TSizeSettings';
 import { TTypographyVariants } from '@/types/TTypographyVariants';
 
 type TSizeObj = {
-  size: keyof typeof globalElementsizes;
+  size: keyof typeof globalElementSizes;
   fontSize: TTypographyVariants;
 };
 

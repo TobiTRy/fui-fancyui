@@ -14,7 +14,7 @@ type TLabelWrapper = {
 export const LabelWrapper = styled.label<TLabelWrapper>`
   display: flex;
 
-  gap: ${({ theme }) => theme.spacing.xxs};
+  gap: ${({ theme }) => theme.spacing.sm};
 
   justify-content: ${({ $align }) => {
     switch ($align) {
@@ -34,17 +34,15 @@ export const LabelWrapper = styled.label<TLabelWrapper>`
 `;
 
 export const InputWrapper = styled.div<{ $alignInput?: TTextAlignLR; theme: TTheme }>`
-  margin-top: 4px;
+  margin-top: ${({ theme }) => parseInt(theme.spacing.xxs) - 2 + 'px'};
   height: fit-content;
 
-  ${({ $alignInput, theme }) =>
+  ${({ $alignInput }) =>
     $alignInput === 'right'
       ? css`
           order: 1;
-          gap: ${theme.spacing.xs};
         `
       : css`
           order: -1;
-          gap: ${theme.spacing.xs};
         `};
 `;

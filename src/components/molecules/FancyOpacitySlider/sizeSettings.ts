@@ -1,9 +1,9 @@
 import { TBorderRadiusSizes } from '@/types/TBorderRadiusSizes';
-import { TGlobalElementSizes } from '@/types/TGlobalElementSizes';
+import { TglobalElementSizes } from '@/types/TGlobalElementSizes';
 import { TSizeSettings } from '@/types/TSizeSettings';
 
 type TSizeObj = {
-  height: TGlobalElementSizes;
+  height: TglobalElementSizes;
   borderRadius: TBorderRadiusSizes;
 };
 
