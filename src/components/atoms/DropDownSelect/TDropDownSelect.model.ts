@@ -1,4 +1,4 @@
-import { HTMLAttributes } from 'react';
+import { SelectHTMLAttributes } from 'react';
 
 export type TDropDownSelectItem = {
   value: string;
@@ -17,7 +17,7 @@ export type TDropDownSelect = {
 };
 
 // the native props of the input element excluding the type attribute
-export type TDropDownSelectNativeAttrs = Omit<HTMLAttributes<HTMLSelectElement>, 'type'>;
+export type TDropDownSelectNativeAttrs = Omit<SelectHTMLAttributes<HTMLSelectElement>, 'type'>;
 
 // the props of the input element with the native props
 export type TDropDownSelectWithNativeAttrs = TDropDownSelect & TDropDownSelectNativeAttrs;
