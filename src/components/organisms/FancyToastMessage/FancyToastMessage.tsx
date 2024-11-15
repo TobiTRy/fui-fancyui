@@ -8,6 +8,7 @@ import { SingleToastMessage } from '@/components/molecules/SingleToastMessage';
 import { TToastMessage } from '@/components/molecules/SingleToastMessage';
 
 import { ToastsWrapper } from './FancyToastMessage.style';
+import { TFancyToastMessages } from '@/components/organisms/FancyToastMessage/TFancyToastMessage.model';
 //this comonent should be used as overlay in the application to make sure the toast messages are always displaey on top
 
 // to use this component in the application you have to add this component to the dom (Main Component) of the application
@@ -22,7 +23,8 @@ import { ToastsWrapper } from './FancyToastMessage.style';
 // --------------------------------------------------------------------------- //
 // ------- The Main Toast Message Module to displayed multible messages ------ //
 // --------------------------------------------------------------------------- //
-export default function FancyToastMessage() {
+export default function FancyToastMessage(props: TFancyToastMessages) {
+  const { externalStyle, ...htmlProps } = props;
   const toastQueue = useFancyToastMessageStore((state) => state.toastQueue);
   const removeToast = useFancyToastMessageStore((state) => state.removeToast);
 
@@ -55,7 +57,7 @@ export default function FancyToastMessage() {
   });
 
   return (
-    <ToastsWrapper>
+    <ToastsWrapper $externalStyle={externalStyle} {...htmlProps}>
       {transitions(({ ...style }, item: TToastMessage) => (
         <animated.aside role="alert" key={item.id} style={style}>
           <SingleToastMessage

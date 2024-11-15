@@ -1,8 +1,8 @@
-import { styled } from 'styled-components';
+import { CSSProp, styled } from 'styled-components';
 
 import { TTheme } from '@/types/TTheme';
 
-export const ToastsWrapper = styled.div<{ theme: TTheme }>`
+export const ToastsWrapper = styled.div<{ theme: TTheme; $externalStyle: CSSProp }>`
   position: fixed;
   z-index: 1000;
   top: ${({ theme }) => theme.spacing.md};
@@ -11,4 +11,5 @@ export const ToastsWrapper = styled.div<{ theme: TTheme }>`
   max-width: 350px;
   display: flex;
   flex-direction: column;
+  ${({ $externalStyle }) => $externalStyle};
 `;
