@@ -10,7 +10,17 @@ import { TModalWithHTMLAttributes } from './TModal.model';
 // ------  The main Modal Component to comstomize the Head/Bottomline  ------- //
 // --------------------------------------------------------------------------- //
 export default function Modal(props: TModalWithHTMLAttributes) {
-  const { children, isOpen, onClose, isCloseable, themeType, layer, backDrop = true, ...htmlProps } = props;
+  const {
+    children,
+    isOpen,
+    onClose,
+    isCloseable,
+    themeType,
+    layer,
+    backDrop = true,
+    extenalStyle,
+    ...htmlProps
+  } = props;
   const [modalVisible, setModalVisible] = useState(false);
 
   // close the modal when the user clicks on the backdrop
@@ -37,7 +47,13 @@ export default function Modal(props: TModalWithHTMLAttributes) {
 
   return (
     <>
-      <SimpleDialog isOpen={modalVisible} themeType={themeType} layer={layer} {...htmlProps}>
+      <SimpleDialog
+        isOpen={modalVisible}
+        themeType={themeType}
+        layer={layer}
+        extenalStyle={extenalStyle}
+        {...htmlProps}
+      >
         {children}
       </SimpleDialog>
       {backDrop && <BackDrop isOpen={modalVisible} onClick={closeModalHanlder} />}

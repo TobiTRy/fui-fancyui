@@ -6,4 +6,6 @@ export type TModal = {
   backDrop?: boolean;
 } & TSimpleDialog;
 
+export type TModalHTMLAttributes = React.HTMLAttributes<HTMLDivElement>;
+
 export type TModalWithHTMLAttributes = TModal & React.HTMLAttributes<HTMLDivElement>;

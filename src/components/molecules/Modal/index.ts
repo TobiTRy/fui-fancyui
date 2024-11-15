@@ -1,3 +1,3 @@
 export { default as Modal } from './Modal';
 
-export type { TModal, TModalWithHTMLAttributes } from './TModal.model';
+export type { TModal, TModalHTMLAttributes, TModalWithHTMLAttributes } from './TModal.model';
