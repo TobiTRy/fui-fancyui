@@ -42,7 +42,7 @@ const BackdropContainer = styled.div`
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
-  z-index: 100;
+  z-index: 99;
   opacity: 0; // Start with opacity 0
   transition: opacity 0.3s ease 0s;
 `;
