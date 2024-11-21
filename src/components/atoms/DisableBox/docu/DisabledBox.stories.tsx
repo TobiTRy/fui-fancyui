@@ -18,7 +18,12 @@ const meta = {
   },
 
   // Define arguments for the story
-  argTypes: {},
+  argTypes: {
+    disabled: {
+      description: 'Disables the child elements within the `DisabledBox` component.',
+      type: 'boolean',
+    },
+  },
 } satisfies Meta<typeof DisabledBox>;
 
 // Export the metadata
@@ -28,6 +33,12 @@ type Story = StoryObj<typeof meta>;
 
 // Define the primary story
 export const Primary: Story = {
-  render: (args) => <DisabledBox {...args} />,
-  args: {},
+  render: (args) => (
+    <DisabledBox {...args}>
+      <button>This button will be disabled</button>
+    </DisabledBox>
+  ),
+  args: {
+    disabled: true,
+  },
 };
