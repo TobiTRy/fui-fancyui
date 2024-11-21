@@ -8,7 +8,8 @@ import { TUiColorTypes } from '@/types/TUiColorTypes';
 import { themeStore } from '@/design/theme/themeStore';
 
 // Define the types for the arguments that will be passed to the getBackgroundColor function
-type IGetBackgroundColor = Pick<IGetColorForComponent, '$themeType' | '$customColor' | '$layer' | 'theme'>;
+type IGetBackgroundColor = Pick<IGetColorForComponent, '$customColor' | '$layer' | 'theme'> &
+  Partial<Pick<IGetColorForComponent, '$themeType'>>;
 
 // Define the getBackgroundColor function
 export function getBackgroundColor({ theme, $themeType, $customColor, $layer }: IGetBackgroundColor) {
@@ -28,7 +29,7 @@ export function getBackgroundColor({ theme, $themeType, $customColor, $layer }: 
   }
 
   // Return the background color as a styled-component CSS string
-  return proviedColor || theme.color.primary[0];
+  return proviedColor || '';
 }
 
 // --------------------------------------------------------------------------- //
