@@ -10,6 +10,7 @@ import { useWindowDimensions } from '@/utils/hooks/useWindowDimensions';
 import { TModalStatus } from '@/types/TModalStatus';
 import { Content, ContentBox, WrapperContent, WrapperModal } from './SwipeUpModal.style';
 import { TSwipeUpModalWithHTMLAttrs } from './TSwipeUpModal.model';
+import { useBodyOverflow } from '@/utils/hooks/useBodyOverflow';
 
 // --------------------------------------------------------------------------- //
 // ----------- The Modal Molecule the displays the complete modal - ---------- //
@@ -40,6 +41,8 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
   const scalingSection = useRef<HTMLDivElement>(null);
   const [contentHeight, setContentHeight] = useState(0);
   const scrollY = useRef(0);
+  // Prevent scrolling on the body in iOS Safari
+  useBodyOverflow('hidden');
 
   //Opens the modal and set the overfolw to hidden
   const openModal = () => {
@@ -63,7 +66,10 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
   const closeModal = (cloesedBy: 'status' | 'intercation') => {
     if (cloesedBy === 'intercation' && !isCloseAble) return;
     // Reset the overflow of the body to its initial state
-    resetOverflow(scrollY.current);
+    document.body.style.top = '';
+    document.body.style.position = '';
+
+    window.scrollTo(0, scrollY.current); // Restore scroll position
 
     setStatusModal('closing');
   };
@@ -80,18 +86,6 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isOpen]);
 
-  // sets the overflow to hidden when the modal is opening
-  const setOverflowHidden = () => {
-    if (window.scrollY > 0) {
-      scrollY.current = window.scrollY;
-      document.body.style.top = `-${scrollY.current}px`; // Store the scroll position
-    }
-
-    // Apply styles to prevent scrolling
-    document.body.style.position = 'fixed'; // Prevent scrolling on the body in iOS Safari
-    document.body.style.overflow = 'hidden'; // you need this (NOT Y) to stop safari from entering refresh section
-  };
-
   const handleOpeningAndClosing = (e: React.TransitionEvent<HTMLDivElement>) => {
     const targetElement = e.target as HTMLDivElement;
     if (targetElement.id !== modalId) return;
@@ -100,8 +94,14 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
     if (statusModal === 'opening') {
       if (dialogRef.current) dialogRef.current.focus();
 
-      // Set the overflow of the body to hidden
-      setOverflowHidden();
+      // Set the opening position
+      if (window.scrollY > 0) {
+        scrollY.current = window.scrollY;
+        document.body.style.top = `-${scrollY.current}px`; // Store the scroll position
+      }
+
+      // Apply styles to prevent scrolling
+      document.body.style.position = 'fixed'; // Prevent scrolling on the body in iOS Safari
 
       setContentHeight(height - (contentRef?.current?.offsetHeight ?? 0));
       setStatusModal('open');
@@ -193,14 +193,4 @@ const calcPositionInPercent = (currentPos: number, height: number) => {
   const windowHeight = height;
   const position = windowHeight - currentPos;
   return (position / windowHeight) * 100;
-};
-
-// Reset the overflow of the body to its initial state
-const resetOverflow = (scrollY: number) => {
-  document.body.style.top = '';
-  document.body.style.position = '';
-
-  window.scrollTo(0, scrollY); // Restore scroll position
-
-  document.body.style.overflow = ''; // Restore vertical scroll
 };
