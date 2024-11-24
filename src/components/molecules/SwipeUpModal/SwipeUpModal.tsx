@@ -12,9 +12,6 @@ import { Content, ContentBox, WrapperContent, WrapperModal } from './SwipeUpModa
 import { TSwipeUpModalWithHTMLAttrs } from './TSwipeUpModal.model';
 import { useBodyOverflow } from '@/utils/hooks/useBodyOverflow';
 
-// --------------------------------------------------------------------------- //
-// ----------- The Modal Molecule the displays the complete modal - ---------- //
-// --------------------------------------------------------------------------- //
 export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
   const {
     children,
@@ -41,77 +38,95 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
   const scalingSection = useRef<HTMLDivElement>(null);
   const [contentHeight, setContentHeight] = useState(0);
   const scrollY = useRef(0);
-  // Prevent scrolling on the body in iOS Safari
   useBodyOverflow('hidden');
+  // Store initial window height
+  const initialWindowHeight = useRef(window.innerHeight);
 
-  //Opens the modal and set the overfolw to hidden
+  // Add visual viewport change handler
+  useEffect(() => {
+    const handleVisualViewportResize = () => {
+      if (window.visualViewport) {
+        const viewportHeight = window.visualViewport.height;
+        const heightDiff = initialWindowHeight.current - viewportHeight;
+
+        if (contentRef.current && heightDiff > 0) {
+          // Adjust content container height when keyboard or search bar appears
+          contentRef.current.style.height = `${viewportHeight - (scalingSection.current?.offsetHeight ?? 0)}px`;
+          contentRef.current.style.maxHeight = `${viewportHeight - (scalingSection.current?.offsetHeight ?? 0)}px`;
+        }
+      }
+    };
+
+    window.visualViewport?.addEventListener('resize', handleVisualViewportResize);
+    return () => {
+      window.visualViewport?.removeEventListener('resize', handleVisualViewportResize);
+    };
+  }, []);
+
   const openModal = () => {
-    // if the content is higher than the window height, set the height to the window
-    // fixes safari bug where the modal jumps back wehn it reaches the top
-    const contentHeight = contentRef?.current?.offsetHeight ?? 0; // Get content height, defaulting to 0
-    const scalingSectionHeight = scalingSection.current?.offsetHeight ?? 0; // Get the height of the scaling section
-    const maxHeight = height; // reduce the height of the scaling section
+    // Store initial window height when opening
+    initialWindowHeight.current = window.innerHeight;
 
-    // Set the height of the modal to the content height + the scaling section height
+    const contentHeight = contentRef?.current?.offsetHeight ?? 0;
+    const scalingSectionHeight = scalingSection.current?.offsetHeight ?? 0;
+    const maxHeight = initialWindowHeight.current;
+
     const minHeight = Math.min(contentHeight + scalingSectionHeight, maxHeight);
-    const position = calcPositionInPercent(minHeight, height);
+    const position = calcPositionInPercent(minHeight, maxHeight);
 
     initialHeightRef.current = minHeight;
     setModalPosition(position);
     setStatusModal('opening');
   };
 
-  //the closedBy is needed is needed to prevent the modal from closing -->
-  //when the user is interacting with the %modal and the modal is not closeable
-  const closeModal = (cloesedBy: 'status' | 'intercation') => {
-    if (cloesedBy === 'intercation' && !isCloseAble) return;
-    // Reset the overflow of the body to its initial state
-    document.body.style.top = '';
+  const closeModal = (closedBy: 'status' | 'interaction') => {
+    if (closedBy === 'interaction' && !isCloseAble) return;
+
+    // Reset any viewport-specific styles
+    if (contentRef.current) {
+      contentRef.current.style.height = '';
+      contentRef.current.style.maxHeight = '';
+    }
+
+    // Remove fixed positioning
     document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.width = '';
 
-    window.scrollTo(0, scrollY.current); // Restore scroll position
-
+    window.scrollTo(0, scrollY.current);
     setStatusModal('closing');
   };
 
-  // if the modal is open, open the modal else close it
   useEffect(() => {
     if (isOpen) {
-      // Store the currently focused element (before modal opens)
       lastFocusedElement.current = document.activeElement as HTMLElement;
       openModal();
     } else {
       closeModal('status');
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isOpen]);
 
   const handleOpeningAndClosing = (e: React.TransitionEvent<HTMLDivElement>) => {
     const targetElement = e.target as HTMLDivElement;
     if (targetElement.id !== modalId) return;
 
-    // Focus the dialog when it is rendered
     if (statusModal === 'opening') {
       if (dialogRef.current) dialogRef.current.focus();
 
-      // Set the opening position
-      if (window.scrollY > 0) {
-        scrollY.current = window.scrollY;
-        document.body.style.top = `-${scrollY.current}px`; // Store the scroll position
-      }
+      // Store scroll position before fixing position
+      scrollY.current = window.scrollY;
 
-      // Apply styles to prevent scrolling
-      document.body.style.position = 'fixed'; // Prevent scrolling on the body in iOS Safari
+      // Apply fixed positioning in a way that works better with iOS
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY.current}px`;
+      document.body.style.width = '100%'; // Prevent horizontal shift
 
-      setContentHeight(height - (contentRef?.current?.offsetHeight ?? 0));
+      setContentHeight(initialWindowHeight.current - (contentRef?.current?.offsetHeight ?? 0));
       setStatusModal('open');
-    } else {
-      if (statusModal === 'closing') {
-        setStatusModal('closed');
-        //close the gobal modal state
-        if (onClose) onClose();
-      }
-      // Return focus to the last focused element when modal closes
+    } else if (statusModal === 'closing') {
+      setStatusModal('closed');
+      if (onClose) onClose();
+
       if (lastFocusedElement.current) {
         lastFocusedElement.current.focus();
       }
@@ -120,23 +135,18 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
 
   const handleScaling = (state: 'move' | 'end', currentPos: number) => {
     const scalingSectionHeight = scalingSection.current?.offsetHeight ?? 0;
+    const currentHeight = window.visualViewport?.height ?? initialWindowHeight.current;
 
-    const flipedPosition = height - currentPos + scalingSectionHeight;
+    const flippedPosition = currentHeight - currentPos + scalingSectionHeight;
+    const position = calcPositionInPercent(flippedPosition, currentHeight);
 
-    // calculate the position in percent
-    const position = calcPositionInPercent(flipedPosition, height);
-
-    // if the user is moving the modal
     if (state === 'move') {
-      setContentHeight(height - flipedPosition + scalingSectionHeight);
-
+      setContentHeight(currentHeight - flippedPosition + scalingSectionHeight);
       setModalPosition(position);
-      // if the user is done moving the modal
     } else if (state === 'end') {
-      const inititialHeight = calcPositionInPercent(initialHeightRef.current, height) + 100;
-      // this calulation is for good user experience.  Its closes the modal when the user is moving the modal down a specific amount
-      if (initialHeightRef.current !== 0 && position > inititialHeight * 0.4) {
-        closeModal('intercation');
+      const initialHeight = calcPositionInPercent(initialHeightRef.current, currentHeight) + 100;
+      if (initialHeightRef.current !== 0 && position > initialHeight * 0.4) {
+        closeModal('interaction');
       }
     }
   };
@@ -156,24 +166,24 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
           transform:
             statusModal === 'open' || statusModal === 'opening'
               ? `translateY(${Math.max(modalPosition, 0)}%)`
-              : 'translateY(120%)', // 120% to make sure the modal is not visible iphone searchbar is transparent ...
+              : 'translateY(120%)',
           transition: statusModal !== 'open' ? 'transform 0.3s ease-in-out' : '',
         }}
       >
-        {/*// ---------- The top of the modal is used for the scaling ---------- //*/}
         {isScalable && isCloseAble && (
           <ScalingSection
             ref={scalingSection}
             handleScaling={handleScaling}
-            onClick={() => closeModal('intercation')}
+            onClick={() => closeModal('interaction')}
           />
         )}
-        {/*// ---------- Content Area ---------- //*/}
         <ContentBox
-          style={{ height: height - (contentHeight ?? 0) + 'px' }}
+          style={{
+            height: `${height - (contentHeight ?? 0)}px`,
+            maxHeight: `${window.visualViewport?.height ?? height}px`,
+          }}
           $spaceTop={scalingSection.current?.offsetHeight ?? 0}
         >
-          {/*// ---------- Header ---------- //*/}
           <WrapperContent>
             <Content ref={contentRef}>{children}</Content>
           </WrapperContent>
@@ -182,7 +192,7 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
       {backdrop && (
         <BackDrop
           isOpen={statusModal === 'opening' || statusModal === 'open'}
-          onClick={() => closeModal('intercation')}
+          onClick={() => closeModal('interaction')}
         />
       )}
     </WrapperModal>
@@ -190,7 +200,5 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
 }
 
 const calcPositionInPercent = (currentPos: number, height: number) => {
-  const windowHeight = height;
-  const position = windowHeight - currentPos;
-  return (position / windowHeight) * 100;
+  return ((height - currentPos) / height) * 100;
 };
