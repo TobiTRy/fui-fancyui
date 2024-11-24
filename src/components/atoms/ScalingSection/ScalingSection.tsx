@@ -65,7 +65,7 @@ const ScalingSection = forwardRef<HTMLDivElement, IScalingSection>((props, ref) 
     setIsDragging(false);
 
     const touchDuration = Date.now() - touchStartTime.current;
-    if (touchDuration < 200) {
+    if (touchDuration < 150) {
       // Threshold for short tap (adjust as needed)
       onClick?.(); // Call onClick if it's a short tap
     }
@@ -91,7 +91,7 @@ const ScalingSection = forwardRef<HTMLDivElement, IScalingSection>((props, ref) 
 
   return (
     <SytledScalingSection id={id} ref={ref} onTouchStart={handleStartTouch} onMouseDown={handleStartMouse}>
-      <SwipeUpDash onClick={onClick}/>
+      <SwipeUpDash onClick={onClick} />
     </SytledScalingSection>
   );
 });
