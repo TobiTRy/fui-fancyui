@@ -1,10 +1,11 @@
 'use client';
-
 import { useState, useEffect } from 'react';
 
 // This function gets the current window dimensions
-function getWindowDimensions() {
-  const { innerWidth: width, innerHeight: height } = window;
+function getWindowDimensions(vp?: VisualViewport | null) {
+  const width = vp ? vp.width : window.innerWidth;
+  const height = vp ? vp.height : window.innerHeight;
+
   return {
     width,
     height,
@@ -15,14 +16,21 @@ function getWindowDimensions() {
 export default function useWindowDimensions() {
   const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
 
+  const viewport = window.visualViewport;
+
   // This useEffect hook adds a window resize event listener and removes it on cleanup
   useEffect(() => {
     function handleResize() {
-      setWindowDimensions(getWindowDimensions());
+      setWindowDimensions(getWindowDimensions(viewport));
     }
 
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    if (!viewport) return;
+    viewport.addEventListener('scroll', handleResize);
+    viewport.addEventListener('resize', handleResize);
+    return () => {
+      viewport.removeEventListener('resize', handleResize);
+      viewport.removeEventListener('scroll', handleResize);
+    };
   }, []);
 
   return windowDimensions;
