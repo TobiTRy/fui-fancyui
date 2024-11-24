@@ -1,5 +1,4 @@
 'use client';
-
 import { useEffect, useId, useRef, useState } from 'react';
 
 import { BackDrop } from '@/components/atoms/BackDrop';
@@ -27,52 +26,27 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
   } = props;
 
   const modalId = useId();
+  const initialHeightRef = useRef(0);
+  const contentRef = useRef<HTMLDivElement>(null);
   const dialogRef = useRef<HTMLDivElement>(null);
   const lastFocusedElement = useRef<HTMLElement | null>(null);
+  const wrapperModal = useRef<HTMLDivElement>(null);
+  const scalingSection = useRef<HTMLDivElement>(null);
 
+  const { height: windowHeight } = useWindowDimensions();
+  const [contentHeight, setContentHeight] = useState(0);
   const [statusModal, setStatusModal] = useState<TModalStatus | 'opening'>('closed');
   const [modalPosition, setModalPosition] = useState(120);
-  const initialHeightRef = useRef(0);
-  const { height } = useWindowDimensions();
-  const contentRef = useRef<HTMLDivElement>(null);
-  const scalingSection = useRef<HTMLDivElement>(null);
-  const [contentHeight, setContentHeight] = useState(0);
   const scrollY = useRef(0);
   useBodyOverflow('hidden');
-  // Store initial window height
-  const initialWindowHeight = useRef(window.innerHeight);
-
-  // Add visual viewport change handler
-  useEffect(() => {
-    const handleVisualViewportResize = () => {
-      if (window.visualViewport) {
-        const viewportHeight = window.visualViewport.height;
-        const heightDiff = initialWindowHeight.current - viewportHeight;
-
-        if (contentRef.current && heightDiff > 0) {
-          // Adjust content container height when keyboard or search bar appears
-          contentRef.current.style.height = `${viewportHeight - (scalingSection.current?.offsetHeight ?? 0)}px`;
-          contentRef.current.style.maxHeight = `${viewportHeight - (scalingSection.current?.offsetHeight ?? 0)}px`;
-        }
-      }
-    };
-
-    window.visualViewport?.addEventListener('resize', handleVisualViewportResize);
-    return () => {
-      window.visualViewport?.removeEventListener('resize', handleVisualViewportResize);
-    };
-  }, []);
 
   const openModal = () => {
     // Store initial window height when opening
-    initialWindowHeight.current = window.innerHeight;
-
     const contentHeight = contentRef?.current?.offsetHeight ?? 0;
     const scalingSectionHeight = scalingSection.current?.offsetHeight ?? 0;
-    const maxHeight = initialWindowHeight.current;
 
-    const minHeight = Math.min(contentHeight + scalingSectionHeight, maxHeight);
-    const position = calcPositionInPercent(minHeight, maxHeight);
+    const minHeight = Math.min(contentHeight + scalingSectionHeight, windowHeight);
+    const position = calcPositionInPercent(minHeight, windowHeight);
 
     initialHeightRef.current = minHeight;
     setModalPosition(position);
@@ -109,6 +83,8 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
   const handleOpeningAndClosing = (e: React.TransitionEvent<HTMLDivElement>) => {
     const targetElement = e.target as HTMLDivElement;
     if (targetElement.id !== modalId) return;
+    const contentHeight = contentRef?.current?.offsetHeight ?? 0;
+    const scalingSectionHeight = scalingSection.current?.offsetHeight ?? 0;
 
     if (statusModal === 'opening') {
       if (dialogRef.current) dialogRef.current.focus();
@@ -121,44 +97,48 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
       document.body.style.top = `-${scrollY.current}px`;
       document.body.style.width = '100%'; // Prevent horizontal shift
 
-      setContentHeight(initialWindowHeight.current - (contentRef?.current?.offsetHeight ?? 0));
+      setContentHeight(windowHeight - (contentHeight + scalingSectionHeight));
       setStatusModal('open');
     } else if (statusModal === 'closing') {
       setStatusModal('closed');
-      if (onClose) onClose();
 
-      if (lastFocusedElement.current) {
-        lastFocusedElement.current.focus();
-      }
+      if (onClose) onClose();
+      lastFocusedElement?.current?.focus();
     }
   };
 
   const handleScaling = (state: 'move' | 'end', currentPos: number) => {
     const scalingSectionHeight = scalingSection.current?.offsetHeight ?? 0;
-    const currentHeight = window.visualViewport?.height ?? initialWindowHeight.current;
 
-    const flippedPosition = currentHeight - currentPos + scalingSectionHeight;
-    const position = calcPositionInPercent(flippedPosition, currentHeight);
+    const flippedPosition = windowHeight - currentPos + scalingSectionHeight;
+    const position = calcPositionInPercent(flippedPosition, windowHeight);
 
     if (state === 'move') {
-      setContentHeight(currentHeight - flippedPosition + scalingSectionHeight);
+      setContentHeight(windowHeight - flippedPosition + scalingSectionHeight);
       setModalPosition(position);
     } else if (state === 'end') {
-      const initialHeight = calcPositionInPercent(initialHeightRef.current, currentHeight) + 100;
+      const initialHeight = calcPositionInPercent(initialHeightRef.current, windowHeight) + 100;
       if (initialHeightRef.current !== 0 && position > initialHeight * 0.4) {
         closeModal('interaction');
       }
     }
   };
 
+  useEffect(() => {
+    // recalculate content height when window height changes
+    setContentHeight(
+      windowHeight - ((contentRef?.current?.offsetHeight ?? 0) + (scalingSection.current?.offsetHeight ?? 0))
+    );
+  }, [windowHeight]);
+
   return (
-    <WrapperModal $externalStyle={externalStyle} {...htmlProps}>
+    <WrapperModal ref={wrapperModal} $externalStyle={externalStyle} {...htmlProps}>
       <SwipeUpContainer
-        id={modalId}
-        onTransitionEnd={handleOpeningAndClosing}
-        isOpen={statusModal === 'opening'}
         ref={dialogRef}
         tabIndex={-1}
+        id={modalId}
+        isOpen={statusModal === 'opening'}
+        onTransitionEnd={handleOpeningAndClosing}
         isScalable={isScalable}
         themeType={themeType}
         layer={layer}
@@ -178,11 +158,10 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
           />
         )}
         <ContentBox
-          style={{
-            height: `${height - (contentHeight ?? 0)}px`,
-            maxHeight: `${window.visualViewport?.height ?? height}px`,
-          }}
           $spaceTop={scalingSection.current?.offsetHeight ?? 0}
+          style={{
+            height: `${windowHeight - (contentHeight ?? 0)}px`,
+          }}
         >
           <WrapperContent>
             <Content ref={contentRef}>{children}</Content>
