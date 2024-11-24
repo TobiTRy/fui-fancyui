@@ -48,7 +48,7 @@ const ScalingSection = forwardRef<HTMLDivElement, IScalingSection>((props, ref) 
     if (!isDragging) return;
 
     const currentY = event.clientY;
-    const deltaY = currentY + 15;
+    const deltaY = currentY;
     handleScaling('move', deltaY);
   };
 
