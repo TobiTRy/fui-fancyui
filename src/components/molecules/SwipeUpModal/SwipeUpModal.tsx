@@ -120,8 +120,6 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
       const flippedPosition = windowHeight - currentPos + scalingSectionHeight / 2;
       const position = calcPositionInPercent(flippedPosition, windowHeight);
 
-      console.log('calc', 'windowHeight', windowHeight, 'flippedPosition', flippedPosition, 'position', position);
-
       if (state === 'move') {
         setContentHeight(windowHeight - (flippedPosition + scalingSectionHeight));
         setModalPosition(position);
