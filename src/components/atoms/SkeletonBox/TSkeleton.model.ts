@@ -12,6 +12,7 @@ export type TSkeletonBox = {
   borderRadius?: TBorderRadiusSizes;
   aspectRatio?: string;
   externalStyle?: CSSProp;
+  index?: number;
 };
 
 export type TSkeletonBoxWithHTMLAttrs = TSkeletonBox & React.HTMLAttributes<HTMLDivElement>;
