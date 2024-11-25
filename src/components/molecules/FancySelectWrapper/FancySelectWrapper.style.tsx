@@ -13,9 +13,7 @@ type TLabelWrapper = {
 };
 export const LabelWrapper = styled.label<TLabelWrapper>`
   display: flex;
-
-  gap: ${({ theme }) => theme.spacing.sm};
-
+  gap: ${({ theme }) => theme.spacing.xs};
   justify-content: ${({ $align }) => {
     switch ($align) {
       case 'left':
