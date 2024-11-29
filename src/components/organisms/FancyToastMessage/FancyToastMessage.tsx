@@ -3,7 +3,6 @@
 import { useMemo } from 'react';
 import { useTransition, animated } from '@react-spring/web';
 
-import { useFancyToastMessageStore } from './FancyToastMessage.state';
 import { SingleToastMessage } from '@/components/molecules/SingleToastMessage';
 import { TToastMessage } from '@/components/molecules/SingleToastMessage';
 
@@ -24,15 +23,13 @@ import { TFancyToastMessages } from '@/components/organisms/FancyToastMessage/TF
 // ------- The Main Toast Message Module to displayed multible messages ------ //
 // --------------------------------------------------------------------------- //
 export default function FancyToastMessage(props: TFancyToastMessages) {
-  const { externalStyle, ...htmlProps } = props;
-  const toastQueue = useFancyToastMessageStore((state) => state.toastQueue);
-  const removeToast = useFancyToastMessageStore((state) => state.removeToast);
+  const { toastMessages, closeToast, externalStyle, ...htmlProps } = props;
 
   // create a refMap to store the height of each toast message
   const refMap = useMemo(() => new WeakMap(), []);
 
   // create the transitions for the toast messages
-  const transitions = useTransition(toastQueue, {
+  const transitions = useTransition(toastMessages, {
     from: { opacity: 0, height: '0px', transform: 'translateX(200%)', marginBottom: '0px' },
     keys: (item: TToastMessage) => item.id,
     enter: (item: TToastMessage) => async (next) => {
@@ -53,7 +50,7 @@ export default function FancyToastMessage(props: TFancyToastMessages) {
       },
       { height: '0px', marginBottom: '0px', config: { duration: 265, tension: 250, friction: 125, precision: 0.8 } },
     ],
-    onDestroyed: (item: TToastMessage) => removeToast(item.id),
+    onDestroyed: (item: TToastMessage) => closeToast(item.id),
   });
 
   return (
@@ -63,7 +60,7 @@ export default function FancyToastMessage(props: TFancyToastMessages) {
           <SingleToastMessage
             ref={(ref: HTMLDivElement) => ref && refMap.set(item, ref)}
             toast={item}
-            remove={removeToast}
+            remove={closeToast}
           />
         </animated.aside>
       ))}

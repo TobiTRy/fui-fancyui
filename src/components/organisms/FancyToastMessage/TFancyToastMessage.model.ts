@@ -4,6 +4,8 @@ import { CSSProp } from 'styled-components';
 
 export type TFancyToastMessages = {
   externalStyle?: CSSProp;
+  toastMessages: TToastMessage[];
+  closeToast: (id: number) => void;
 } & HTMLAttributes<HTMLDivElement>;
 
 //omit id from TToastMessage because the store will add the id
