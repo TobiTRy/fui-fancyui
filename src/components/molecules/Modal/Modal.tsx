@@ -6,6 +6,7 @@ import { BackDrop } from '@/components/atoms/BackDrop';
 import { SimpleDialog } from '@/components/atoms/SimpleDialog';
 import { TModalWithHTMLAttributes } from './TModal.model';
 import { useBodyOverflow } from '@/utils/hooks/useBodyOverflow';
+import { CSSObject } from 'styled-components';
 
 // ----------------------------- ---------------------------------------------- //
 // ------  The main Modal Component to comstomize the Head/Bottomline  ------- //
@@ -15,11 +16,12 @@ export default function Modal(props: TModalWithHTMLAttributes) {
     children,
     isOpen,
     onClose,
-    isCloseable,
+    isCloseable = true,
     themeType,
     layer,
     backDrop = true,
-    extenalStyle,
+    externalStyle,
+    zIndex = 100,
     ...htmlProps
   } = props;
   const [modalVisible, setModalVisible] = useState(false);
@@ -44,12 +46,15 @@ export default function Modal(props: TModalWithHTMLAttributes) {
         isOpen={modalVisible}
         themeType={themeType}
         layer={layer}
-        extenalStyle={extenalStyle}
+        externalStyle={{
+          zIndex: zIndex + 1,
+          ...(externalStyle as CSSObject),
+        }}
         {...htmlProps}
       >
         {children}
       </SimpleDialog>
-      {backDrop && <BackDrop isOpen={modalVisible} onClick={closeModalHanlder} />}
+      {backDrop && <BackDrop isOpen={modalVisible} externalStyle={{ zIndex: zIndex }} onClick={closeModalHanlder} />}
     </>
   );
 }

@@ -9,7 +9,7 @@ import { TFancyModal } from './TFancyModal.modal';
 // ----------------- The modalModule to build up a Moadal  ------------------- //
 // --------------------------------------------------------------------------- //
 export default function FancyModal(props: TFancyModal) {
-  const { appendToDomID, modals, closeModal, externalStyle, ...htmlProps } = props;
+  const { appendToDomID, modals, closeModal, externalStyle, zIndex, ...htmlProps } = props;
 
   /* ----- The FancModal Ports the Modal out of the root div in the spearte "modal" div ----- */
   return (
@@ -20,7 +20,8 @@ export default function FancyModal(props: TFancyModal) {
           id={modal.id}
           isOpen={modal.status === 'open'}
           onClose={() => closeModal(modal.id)}
-          extenalStyle={externalStyle}
+          zIndex={zIndex}
+          externalStyle={externalStyle}
           {...htmlProps}
           {...modal.config}
         >

@@ -38,6 +38,12 @@ const meta = {
         type: 'object',
       },
     },
+    zIndex: {
+      description: 'The z-index value for the modal and backdrop.',
+      control: {
+        type: 'number',
+      },
+    },
     closeModal: {
       description: 'A function to close the modal with the specified ID.',
       control: {
@@ -96,6 +102,7 @@ export const Primary: Story = {
   args: {
     modals: [],
     appendToDomID: '',
+    zIndex: 100,
     children: <></>,
     closeModal: () => {},
   },
