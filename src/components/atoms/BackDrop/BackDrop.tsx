@@ -1,16 +1,16 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import styled from 'styled-components';
+import { TStyledPrefixAndPicker } from '@/types';
+import { styled } from 'styled-components';
 
-interface IBackDrop {
-  isOpen: boolean;
-  onClick?: () => void;
-}
+import { TBackDrop } from './TBackdrop.model';
+
 // --------------------------------------------------------------------------- //
 // ------- Only a backdrop for some components with a onclick listener ------- //
 // --------------------------------------------------------------------------- //
-export default function BackDrop({ isOpen, onClick }: IBackDrop) {
+export default function BackDrop(props: TBackDrop) {
+  const { isOpen, onClick, externalStyle } = props;
   const backdropRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -29,13 +29,13 @@ export default function BackDrop({ isOpen, onClick }: IBackDrop) {
     }
   }, [isOpen]);
 
-  return <BackdropContainer ref={backdropRef} onClick={onClick} />;
+  return <BackdropContainer ref={backdropRef} onClick={onClick} $externalStyle={externalStyle} />;
 }
 
 // ------------------------------------------- //
 // ------- The style for the component ------- //
 // ------------------------------------------- //
-const BackdropContainer = styled.div`
+const BackdropContainer = styled.div<TStyledPrefixAndPicker<TBackDrop, 'externalStyle'>>`
   position: fixed;
   top: 0;
   left: 0;
@@ -45,4 +45,5 @@ const BackdropContainer = styled.div`
   z-index: 99;
   opacity: 0; // Start with opacity 0
   transition: opacity 0.3s ease 0s;
+  ${({ $externalStyle }) => $externalStyle}
 `;
