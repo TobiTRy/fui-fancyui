@@ -8,7 +8,7 @@ export type TSimpleDialog = {
   children?: React.ReactNode;
   themeType?: TUiColorsNotTransparent;
   layer?: TLayer;
-  extenalStyle?: CSSProp;
+  externalStyle?: CSSProp;
 };
 
 export type TSimpleDialogHTMLAttrs = React.HTMLAttributes<HTMLDivElement>;

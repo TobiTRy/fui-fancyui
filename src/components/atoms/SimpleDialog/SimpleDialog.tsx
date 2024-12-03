@@ -10,7 +10,7 @@ import { TSimpleDialogWithHTMLAttrs } from '@/components/atoms/SimpleDialog/Simp
 // -------  A container that can filld with everythin and acts as a dialog --- //
 // --------------------------------------------------------------------------- //
 export default function SimpleDialog(props: TSimpleDialogWithHTMLAttrs) {
-  const { isOpen = false, children, themeType = 'primary', layer = 1, extenalStyle, ...htmlProps } = props;
+  const { isOpen = false, children, themeType = 'primary', layer = 1, externalStyle, ...htmlProps } = props;
 
   const dialogRef = useRef<HTMLDivElement>(null);
   const [shouldRender, setRender] = useState(isOpen);
@@ -59,7 +59,7 @@ export default function SimpleDialog(props: TSimpleDialogWithHTMLAttrs) {
       style={fade}
       $themeType={themeType}
       $layer={layer}
-      $externalStyle={extenalStyle}
+      $externalStyle={externalStyle}
       {...htmlProps}
     >
       {children}
