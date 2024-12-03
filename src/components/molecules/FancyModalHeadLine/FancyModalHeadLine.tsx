@@ -24,9 +24,11 @@ export default function FancyModalHeadLine(props: TFancyModalHeadLineWithHTMLPro
           {title && TitleReactNode}
           {subTitle && SubTitleReactNode}
         </StyledHeadLineTitles>
-        <IconWrapper>
-          <FancyXButton onClick={onXButtonClick && onXButtonClick} />
-        </IconWrapper>
+        {onXButtonClick && (
+          <IconWrapper>
+            <FancyXButton onClick={onXButtonClick} />
+          </IconWrapper>
+        )}
       </HeadLineWrapper>
       {hr && (title || subTitle) && <FancyLine direction="horizontal" />}
     </StyledHeadLine>
