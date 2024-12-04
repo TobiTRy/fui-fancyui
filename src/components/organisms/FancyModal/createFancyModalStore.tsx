@@ -1,9 +1,9 @@
 import { create } from 'zustand';
 
 import { TModalStatus } from '@/types/TModalStatus';
-import { TModal } from '@/components/molecules/Modal';
+import { TModalWithHTMLAttributes } from '@/components/molecules/Modal';
 
-type TModalConfig = Omit<TModal, 'id' | 'children' | 'status' | 'isOpen'>;
+export type TModalConfig = Omit<TModalWithHTMLAttributes, 'id' | 'children' | 'status' | 'isOpen'>;
 
 export type TFancyModals = {
   id: string;
