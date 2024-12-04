@@ -20,6 +20,7 @@ export const StyledDialog = styled(animated.div)<TStyledDialog>`
   left: 50vw;
   transform: translate(-50dvh, -50vw);
   padding: ${({ theme }) => theme.spacing.lg};
+  box-sizing: border-box;
   border-radius: ${({ theme }) => theme.borderRadius.lg};
   border: none;
   width: 80%;
