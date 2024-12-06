@@ -1,0 +1,50 @@
+# VisuallyHidden
+
+A utility component that visually hides content while keeping it accessible to screen readers. This is particularly useful for accessibility labels that shouldn't be visible on screen but need to be announced by screen readers.
+
+## Installation
+
+```bash
+npm install fui-fancyui
+```
+
+## Usage
+
+```jsx
+import { VisuallyHidden } from 'fui-fancyui';
+
+function Example() {
+  return (
+    <button>
+      <span aria-hidden="true">×</span>
+      <VisuallyHidden>Close modal</VisuallyHidden>
+    </button>
+  );
+}
+```
+
+## Best Practices
+
+- Use for content that should be announced by screen readers but hidden visually
+- Prefer this over `display: none` or `visibility: hidden` which hide content from screen readers
+- Ideal for close buttons, icon-only buttons, or form labels that need screen reader context
+
+## Common Use Cases
+
+1. Icon buttons with screen reader labels
+2. Skip navigation links
+3. Form input descriptions
+4. Additional context for interactive elements
+
+## Accessibility
+
+The component uses established CSS techniques to hide content visually while ensuring:
+
+- Content remains accessible to screen readers
+- The element doesn't create a tab stop
+- The content doesn't affect document flow
+- The content isn't affected by viewport resizing
+
+## Props
+
+Accepts all standard HTML `span` element props.
