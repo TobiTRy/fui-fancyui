@@ -4,6 +4,7 @@ import { isColorValid } from '@/utils//validations/isColorValid';
 import { TUiColorTypes } from '@/types/TUiColorTypes';
 import validateThemeColorSteps from '@/design/designFunctions/generateThemeColorSteps/validateThemeColorSteps';
 import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
+import { generateMaterialColorPalette } from '@/design/designFunctions/generateMaterialColorPalette/generateMaterialColorPalette';
 
 const themeColors = {
   primary: '#131825',
@@ -40,6 +41,24 @@ export function initialGenerateUiColors() {
   }
   // add the color steps to the generatedColors object
 }
+
+export let testColors = {} as TUiColorsTypeObject;
+
+function generateMaterialColorSteps() {
+  for (const color in themeColors) {
+    // generate the color steps for the color
+    const generatedColor = generateMaterialColorPalette({
+      baseHex: themeColors[color as TUiColorsNotTransparent],
+      isLightTheme: true,
+    });
+    testColors = {
+      ...testColors,
+      [color]: generatedColor,
+    };
+  }
+}
+
+generateMaterialColorSteps();
 
 initialGenerateUiColors();
 
@@ -87,7 +106,7 @@ export const updateThemeColors = (colorObject: IUiColorPops) => {
         // update the theme color with the new color
         const generatedColorSteps = generateThemeColorSteps({
           themeType: colorTypedkey,
-          color: colorObject[colorTypedkey]! as string,
+          color: colorObject[colorTypedkey],
           pimaryColor: themeColors.secondary,
         });
         // update the themeColors with the new color
@@ -97,7 +116,7 @@ export const updateThemeColors = (colorObject: IUiColorPops) => {
       // if the user provides a object with the color steps
       // than we need to update the themeColors with the new color steps
       // and generate the new uiColors
-      const colorSteps = colorObject[colorTypedkey]! as object;
+      const colorSteps = colorObject[colorTypedkey];
 
       //Validate ColorSteps object (check if the object has the correct keys)
       // and then update the themeColor with the new color steps
