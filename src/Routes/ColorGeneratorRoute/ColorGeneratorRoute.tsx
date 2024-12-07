@@ -2,20 +2,20 @@
 import React from 'react';
 
 import styled, { css } from 'styled-components';
-
+import { testColors } from '@/design/theme/generateThemeColor/generateThemeColor';
 import themeStore from '../../design/theme/themeStore/themeStore';
 import { TTheme } from '@/types/TTheme';
 
 export default function ColorGeneratorRoute() {
   const theme = themeStore((state) => state.theme);
   //get keys of primary
-  const primaryKeys = Object?.keys(theme?.color.primary);
-  const accentKeys = Object?.keys(theme?.color.accent);
-  const secondaryKeys = Object?.keys(theme?.color.secondary);
-  const infoKeys = Object?.keys(theme?.color.info);
-  const warningKeys = Object?.keys(theme?.color.warning);
-  const errorKeys = Object?.keys(theme?.color.error);
-  const successKeys = Object?.keys(theme?.color.success);
+  const primaryKeys = Object?.keys(testColors.primary);
+  const accentKeys = Object?.keys(testColors.accent);
+  const secondaryKeys = Object?.keys(testColors.secondary);
+  const infoKeys = Object?.keys(testColors.info);
+  const warningKeys = Object?.keys(testColors.warning);
+  const errorKeys = Object?.keys(testColors.error);
+  const successKeys = Object?.keys(testColors.success);
 
   return (
     <div style={{ display: 'flex' }}>
@@ -24,7 +24,7 @@ export default function ColorGeneratorRoute() {
           return (
             <div
               key={index}
-              style={{ width: '100px', height: '100px', backgroundColor: theme.color.primary[color] }}
+              style={{ width: '100px', height: '100px', backgroundColor: testColors.primary[color] }}
             ></div>
           );
         })}
@@ -34,7 +34,7 @@ export default function ColorGeneratorRoute() {
           return (
             <div
               key={index}
-              style={{ width: '100px', height: '100px', backgroundColor: theme.color.accent[color] }}
+              style={{ width: '100px', height: '100px', backgroundColor: testColors.accent[color] }}
             ></div>
           );
         })}
@@ -44,7 +44,7 @@ export default function ColorGeneratorRoute() {
           return (
             <div
               key={index}
-              style={{ width: '100px', height: '100px', backgroundColor: theme.color.accent[color] }}
+              style={{ width: '100px', height: '100px', backgroundColor: testColors.accent[color] }}
             ></div>
           );
         })}
@@ -55,7 +55,7 @@ export default function ColorGeneratorRoute() {
           return (
             <div
               key={index}
-              style={{ width: '100px', height: '100px', backgroundColor: theme.color.secondary[color] }}
+              style={{ width: '100px', height: '100px', backgroundColor: testColors.secondary[color] }}
             ></div>
           );
         })}
@@ -65,7 +65,7 @@ export default function ColorGeneratorRoute() {
           return (
             <div
               key={index}
-              style={{ width: '100px', height: '100px', backgroundColor: theme.color.warning[color] }}
+              style={{ width: '100px', height: '100px', backgroundColor: testColors.warning[color] }}
             ></div>
           );
         })}
@@ -75,7 +75,7 @@ export default function ColorGeneratorRoute() {
           return (
             <div
               key={index}
-              style={{ width: '100px', height: '100px', backgroundColor: theme.color.error[color] }}
+              style={{ width: '100px', height: '100px', backgroundColor: testColors.error[color] }}
             ></div>
           );
         })}
@@ -85,7 +85,7 @@ export default function ColorGeneratorRoute() {
           return (
             <div
               key={index}
-              style={{ width: '100px', height: '100px', backgroundColor: theme.color.success[color] }}
+              style={{ width: '100px', height: '100px', backgroundColor: testColors.success[color] }}
             ></div>
           );
         })}
