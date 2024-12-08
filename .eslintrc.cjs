@@ -23,6 +23,7 @@ module.exports = {
     '@typescript-eslint/restrict-plus-operands': 'off',
     '@typescript-eslint/no-non-null-asserted-optional-chain': 'off',
     '@typescript-eslint/no-redundant-type-constituents': 'off',
+    '@typescript-eslint/no-unused-vars': 'warn',
     '@typescript-eslint/ban-types': [
       'error',
       {
