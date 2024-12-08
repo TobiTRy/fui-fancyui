@@ -5,6 +5,7 @@ import { TUiColorTypes } from '@/types/TUiColorTypes';
 import validateThemeColorSteps from '@/design/designFunctions/generateThemeColorSteps/validateThemeColorSteps';
 import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 import { generateMaterialColorPalette } from '@/design/designFunctions/generateMaterialColorPalette/generateMaterialColorPalette';
+import { TLayer } from '@/types/TLayer';
 
 const themeColors = {
   primary: '#131825',
@@ -21,7 +22,7 @@ themeColors.accentDarken = themeColors.accent;
 
 export { themeColors };
 
-export type TthemeColorGroup = { [key: string]: string };
+export type TthemeColorGroup = Record<TLayer, string>;
 
 export let uiColors: TUiColorsTypeObject = {} as TUiColorsTypeObject;
 
@@ -42,8 +43,6 @@ export function initialGenerateUiColors() {
   // add the color steps to the generatedColors object
 }
 
-export let testColors = {} as TUiColorsTypeObject;
-
 function generateMaterialColorSteps() {
   for (const color in themeColors) {
     // generate the color steps for the color
@@ -51,16 +50,16 @@ function generateMaterialColorSteps() {
       baseHex: themeColors[color as TUiColorsNotTransparent],
       isLightTheme: true,
     });
-    testColors = {
-      ...testColors,
+    uiColors = {
+      ...uiColors,
       [color]: generatedColor,
     };
   }
 }
 
-generateMaterialColorSteps();
-
 initialGenerateUiColors();
+generateMaterialColorSteps();
+console.log('testColors', uiColors);
 
 export const regenerateUiColors = (isDarkTheme: boolean) => {
   for (const color in uiColors) {
