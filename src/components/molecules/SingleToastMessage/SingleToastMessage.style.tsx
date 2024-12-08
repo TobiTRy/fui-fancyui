@@ -1,10 +1,10 @@
 import { styled, keyframes } from 'styled-components';
 
-import colorTransparencyCalculator from '../../../design/designFunctions/colorTransparencyCalculator/colorTransparencyCalculator';
 import { boxShadow } from '../../../design/designFunctions/shadows/shadows';
 import { TLayer } from '@/types/TLayer';
 import { getBackgroundColor } from '../../../design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponent';
 import { TTheme } from '@/types/TTheme';
+import { colorTransparencyCalculator } from '@/design/designFunctions/colorTransparencyCalculator';
 
 type ToastMessageProps = 'success' | 'warning' | 'error' | 'info';
 
@@ -29,13 +29,13 @@ export const Container = styled.div<TToastMessage>`
   position: relative;
   flex-direction: column;
   align-items: left;
-  color: ${({ $messageType, theme, $layer = 5 }) =>
+  color: ${({ $messageType, theme, $layer = 3 }) =>
     getBackgroundColor({ $themeType: $messageType, theme, $layer })}; //theme[$messageType]['5']
   border-radius: ${({ theme }) => theme.borderRadius.xs};
   padding: ${({ theme }) => theme.spacing.md};
   background-color: ${({ theme }) => colorTransparencyCalculator(theme.color.primary['0'], 0.95)};
   border-left: 4px solid
-    ${({ $messageType, theme, $layer = 3 }) => getBackgroundColor({ $themeType: $messageType, theme, $layer })};
+    ${({ $messageType, theme, $layer = 2 }) => getBackgroundColor({ $themeType: $messageType, theme, $layer })};
   box-sizing: border-box;
   ${boxShadow.md}
 `;
@@ -67,7 +67,7 @@ export const TimerLine = styled.div<TimerLineProps>`
   left: 0;
   height: 2px;
   width: 100%;
-  background-color: ${({ $messageType, theme, $layer = 3 }) =>
+  background-color: ${({ $messageType, theme, $layer = 2 }) =>
     getBackgroundColor({ $themeType: $messageType, theme, $layer })};
   animation: ${() => timerAnimation} ${({ $time }) => $time - 300}ms linear forwards;
 `;
