@@ -27,7 +27,7 @@ const SingleToastMessage = forwardRef<HTMLDivElement, TSingleToastMessageWithHTM
         <Typography variant="interactiveMd" fontWeight={'bold'}>
           {title}
         </Typography>
-        <FancyXButton onClick={() => remove?.(id)} themeType={themeType} layer={layer || 5} />
+        <FancyXButton onClick={() => remove?.(id)} themeType={themeType} layer={layer || 0} />
       </Headline>
       <Typography variant="bodytextSm">{message}</Typography>
       <TimerLine $time={time!} $messageType={themeType} />
