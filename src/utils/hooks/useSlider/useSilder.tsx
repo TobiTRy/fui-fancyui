@@ -22,7 +22,7 @@ const useSlider = ({
 }: IUseSlider): IUseSliderReturn => {
   const [markerPosition, setMarkerPosition] = useState<IMarkerPosition>({ x: 0, y: 0 });
   const [isInteracting, setIsInteracting] = useState<boolean>(false);
-  const sliderRef = useRef<HTMLDivElement>();
+  const sliderRef = useRef<HTMLDivElement>(null);
 
   //updates the marker position when the color changes
   const updateMarkerPosition = useCallback(
