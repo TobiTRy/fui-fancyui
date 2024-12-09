@@ -43,22 +43,22 @@ export function initialGenerateUiColors() {
   // add the color steps to the generatedColors object
 }
 
-function generateMaterialColorSteps() {
-  for (const color in themeColors) {
-    // generate the color steps for the color
-    const generatedColor = generateMaterialColorPalette({
-      baseHex: themeColors[color as TUiColorsNotTransparent],
-      isLightTheme: true,
-    });
-    uiColors = {
-      ...uiColors,
-      [color]: generatedColor,
-    };
-  }
-}
+// function generateMaterialColorSteps() {
+//   for (const color in themeColors) {
+//     // generate the color steps for the color
+//     const generatedColor = generateMaterialColorPalette({
+//       baseHex: themeColors[color as TUiColorsNotTransparent],
+//       isLightTheme: true,
+//     });
+//     uiColors = {
+//       ...uiColors,
+//       [color]: generatedColor,
+//     };
+//   }
+// }
 
 initialGenerateUiColors();
-generateMaterialColorSteps();
+//generateMaterialColorSteps();
 console.log('testColors', uiColors);
 
 export const regenerateUiColors = (isDarkTheme: boolean) => {
