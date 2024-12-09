@@ -5,9 +5,7 @@ import { SVGWarningSign } from '@/components/icons';
 import { SVGCircleCheck } from '@/components/icons';
 import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 
-type TSystemMessageIcon = Record<TSystemMessageTypes, () => JSX.Element>;
-
-export const SystemMessageIcon: TSystemMessageIcon = {
+export const SystemMessageIcon = {
   success: SVGCircleCheck,
   error: SVGStopSign,
   info: SVGInfoSign,
