@@ -4,7 +4,7 @@ import { forwardRef, useEffect } from 'react';
 
 import { FancyXButton } from '@/components/atoms/FancyXButton';
 import { Typography } from '@/components/atoms/Typography';
-import { Container, Headline, TimerLine } from './SingleToastMessage.style';
+import { Background, Container, Headline, TimerLine } from './SingleToastMessage.style';
 import { TSingleToastMessageWithHTMLAttrs } from './TToastMessage.model';
 
 // A Single Toast Message Component wich
@@ -31,6 +31,7 @@ const SingleToastMessage = forwardRef<HTMLDivElement, TSingleToastMessageWithHTM
       </Headline>
       <Typography variant="bodytextSm">{message}</Typography>
       <TimerLine $time={time!} $messageType={themeType} />
+      <Background />
     </Container>
   );
 });
