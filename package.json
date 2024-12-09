@@ -50,7 +50,9 @@
     "@types/react-test-renderer": "^18.3.0",
     "react-router-dom": "^6.23.0",
     "rollup-preserve-directives": "^1.1.1",
-    "vite-plugin-dts": "^3.9.0"
+    "vite-plugin-dts": "^3.9.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "8.0.5",
@@ -67,8 +69,6 @@
     "@swc/core": "^1.4.17",
     "@testing-library/jest-dom": "^6.4.5",
     "@testing-library/react": "^15.0.6",
-    "@types/react": "^18.3.1",
-    "@types/react-dom": "^18.3.0",
     "@typescript-eslint/eslint-plugin": "^7.2.0",
     "@typescript-eslint/parser": "^7.2.0",
     "@vitejs/plugin-react-swc": "^3.6.0",
@@ -82,8 +82,6 @@
     "json": "11.0.0",
     "lint-staged": "^15.2.2",
     "prettier": "^3.2.5",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
     "react-test-renderer": "^18.3.1",
     "rollup-plugin-visualizer": "^5.12.0",
     "storybook": "8.0.5",
@@ -142,5 +140,9 @@
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
+  },
+  "resolutions": {
+    "@types/react": "18.3.1",
+    "@types/react-dom": "18.3.1"
   }
 }
