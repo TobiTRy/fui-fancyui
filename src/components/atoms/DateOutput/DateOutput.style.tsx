@@ -5,6 +5,7 @@ import { TTheme } from '@/types/TTheme';
 import { getBackgroundColor, getTextColor } from '@/design/designFunctions/colorCalculatorForComponent';
 import { globalElementSizes } from '@/design/theme/globalSizes';
 import { sizeSettings } from './sizeSettings';
+import { clampLayer } from '@/utils/functions/clampLayer';
 
 type TDateOutputButton = TStyledPrefixAndPicker<
   TDateOutput,
@@ -15,8 +16,8 @@ export const DateOutputButton = styled.button<TDateOutputButton & { theme: TThem
   width: 100%;
   background-color: ${({ theme, $isActive, $themeType = 'primary', $layer = 2 }) =>
     $isActive
-      ? getBackgroundColor({ theme, $themeType, $layer: $layer ? $layer + 1 : 3 })
-      : getBackgroundColor({ theme, $themeType, $layer: $layer ? $layer : 2 })};
+      ? getBackgroundColor({ theme, $themeType, $layer: clampLayer($layer ? $layer + 1 : 3) })
+      : getBackgroundColor({ theme, $themeType, $layer: clampLayer($layer ? $layer : 2) })};
   color: ${({ theme, $themeType = 'secondary', $layer = 1 }) =>
     getTextColor({ theme, $themeType, $textLayer: $layer, turnColorTheme: true })};
   border: none;
