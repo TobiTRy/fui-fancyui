@@ -29,7 +29,7 @@ export const Background = styled.div<{ theme: TTheme }>`
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: ${({ theme }) => colorTransparencyCalculator(theme.color.primary['0'], 0.9)};
+  background-color: ${({ theme }) => colorTransparencyCalculator(theme.color.primary['0'], 0.95)};
   z-index: -1;
 `;
 
@@ -41,8 +41,7 @@ export const Container = styled.div<TToastMessage>`
   position: relative;
   flex-direction: column;
   align-items: left;
-  color: ${({ $messageType, theme, $layer = 3 }) =>
-    getBackgroundColor({ $themeType: $messageType, theme, $layer })}; //theme[$messageType]['5']
+  color: ${({ $messageType, theme, $layer = 3 }) => getBackgroundColor({ $themeType: $messageType, theme, $layer })};
   border-radius: ${({ theme }) => theme.borderRadius.xs};
   padding: ${({ theme }) => theme.spacing.md};
 
@@ -51,26 +50,21 @@ export const Container = styled.div<TToastMessage>`
   box-sizing: border-box;
   ${boxShadow.md}
 
-  @supports (color: rgb(from white r g b)) {
-    ${({ theme, $messageType = 'error', $layer = 0 }) => {
-      const color = getBackgroundColor({ theme, $themeType: $messageType, $layer: $layer });
-      const isDarkTheme = themeStore((state) => state.isDarkTheme);
+  ${({ theme, $messageType = 'error', $layer = 0 }) => {
+    const color = getBackgroundColor({ theme, $themeType: $messageType, $layer: $layer });
+    const isDarkTheme = themeStore((state) => state.isDarkTheme);
 
-      return css`
-        border-color: oklch(from ${color} l c h / 25%);
-        border-width: 1px;
-        border-style: solid;
-        background: oklch(from ${color} calc(l * 1) c h / 30%);
-        color: oklch(from ${color} calc(l * (${isDarkTheme ? 1.3 : 0.5})) c h);
-        border-left: 4px solid;
-
-        &::selection {
-          background: oklch(from ${color} calc(l * 1.1) c h);
-          color: oklch(from ${color} 1 c h);
-        }
-      `;
-    }}
-  }
+    return css`
+      border-width: 1px;
+      border-style: solid;
+      background: hsla(from ${color} h s l / ${isDarkTheme ? '15%' : '5%'});
+      color: ${isDarkTheme
+        ? `hsla(from ${color} h s calc(l * 1.4) / 100%)`
+        : `hsla(from ${color} h s calc(l * 0.6) / 100%)`};
+      border-left: 4px solid;
+      border-color: hsla(from ${color} h s calc(l * 1.1) / 100%);
+    `;
+  }}
 `;
 
 export const Headline = styled.div`
@@ -100,7 +94,11 @@ export const TimerLine = styled.div<TimerLineProps>`
   left: 0;
   height: 2px;
   width: 100%;
-  background-color: ${({ $messageType, theme, $layer = 2 }) =>
-    getBackgroundColor({ $themeType: $messageType, theme, $layer })};
+  background-color: ${({ $messageType, theme, $layer = 2 }) => {
+    const color = getBackgroundColor({ $themeType: $messageType, theme, $layer });
+    const isDarkTheme = themeStore((state) => state.isDarkTheme);
+
+    return ` hsla(from ${color} h s calc(l * 1.1) / 100%)`;
+  }};
   animation: ${() => timerAnimation} ${({ $time }) => $time - 300}ms linear forwards;
 `;
