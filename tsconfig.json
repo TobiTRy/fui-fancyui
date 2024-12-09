@@ -7,8 +7,13 @@
     "skipLibCheck": true,
     "rootDir": ".",
     "baseUrl": "./src",
+    "typeRoots": ["./node_modules/@types", "../../node_modules/@types", "vitest/globals"],
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "react": ["./node_modules/react"],
+      "react-dom": ["./node_modules/react-dom"],
+      "react/*": ["./node_modules/react/*"],
+      "*": ["./node_modules/*", "../../node_modules/*"]
     },
 
     /* Bundler mode */
@@ -19,7 +24,7 @@
     "noEmit": true,
     "outDir": "dist",
     "jsx": "react-jsx",
-    "types": ["vitest/globals"],
+
     /* Linting */
     "strict": true,
     "noUnusedLocals": false,
