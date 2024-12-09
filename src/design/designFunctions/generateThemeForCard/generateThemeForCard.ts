@@ -5,6 +5,7 @@ import { getBackgroundColor } from '../colorCalculatorForComponent/colorCalculat
 import colorTransparencyCalculator from '../colorTransparencyCalculator/colorTransparencyCalculator';
 import { TGenerateThemeForCardProps } from './TGenerateThemeForCardProps';
 import { themeStore } from '@/design/theme/themeStore';
+import { clampLayer } from '@/utils/functions/clampLayer';
 
 const generateOutlineStyle = (props: TGenerateColorDesign) => {
   const { $themeType, theme, $layer = 3, $outlinedBackgroundStrength = 0.5, $outlinedRemoveBorder } = props;
@@ -14,7 +15,7 @@ const generateOutlineStyle = (props: TGenerateColorDesign) => {
 
   // generate the background color with a transparency of the background color
   const generateSlightBackgroundColor = colorTransparencyCalculator(
-    getBackgroundColor({ theme, $themeType: $themeType || 'primary', $layer: Math.max(1, $layer - 3) }),
+    getBackgroundColor({ theme, $themeType: $themeType || 'primary', $layer: clampLayer($layer - 3) }),
     $outlinedBackgroundStrength
   );
 
