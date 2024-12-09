@@ -6,6 +6,7 @@ import { TthemeColorGroup } from '../../theme/generateThemeColor/generateThemeCo
 import { TTheme } from '@/types/TTheme';
 import { TUiColorTypes } from '@/types/TUiColorTypes';
 import { themeStore } from '@/design/theme/themeStore';
+import { TLayer } from '@/types';
 
 // Define the types for the arguments that will be passed to the getBackgroundColor function
 type IGetBackgroundColor = Pick<IGetColorForComponent, '$customColor' | '$layer' | 'theme'> &
@@ -89,8 +90,8 @@ type IGetColorForComponent = {
   $themeType: TUiColorTypes;
   $customColor?: string | TthemeColorGroup;
   $customTextColor?: string | TthemeColorGroup;
-  $layer?: number;
-  $textLayer?: number;
+  $layer?: TLayer;
+  $textLayer?: TLayer;
 };
 
 // Define the getColorsForComponent function
