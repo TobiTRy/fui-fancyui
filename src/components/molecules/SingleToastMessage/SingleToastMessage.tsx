@@ -24,7 +24,7 @@ const SingleToastMessage = forwardRef<HTMLDivElement, TSingleToastMessageWithHTM
   }, [id, time, remove]);
 
   return (
-    <SystemMessageBox ref={ref} themeType={themeType} {...htmlProps}>
+    <SystemMessageBox ref={ref} themeType={themeType} layer={layer} {...htmlProps}>
       <Headline>
         <Typography variant="interactiveMd" fontWeight={'bold'}>
           {title}
