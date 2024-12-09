@@ -7,6 +7,7 @@ import { boxShadow } from '@/design/designFunctions/shadows';
 import { calcTextColor } from './calcTextColor';
 import { generateBackgroundColor } from './generateBackgroundColor';
 import { IGenerateThemeItem } from '../IGenerateThemeItemProps.model';
+import { clampLayer } from '@/utils/functions/clampLayer';
 
 //-----this funktion generates a button that looks like a normal button-----//
 type IGenerateNormalitem = Pick<
@@ -23,8 +24,12 @@ export const generateNormal = (props: IGenerateNormalitem) => {
   // generates the hover style for the button
   const hoverBackgroundColorStyle = () => {
     if ($themeType === 'transparent') return 'transparent';
-    if ($hoverColor) return theme.color[$hoverColor][1];
-    return getBackgroundColor({ theme, $themeType: $themeType ?? 'accent', $layer: ($layer && $layer + 1) ?? 1 });
+    if ($hoverColor) return theme.color[$hoverColor]['1'];
+    return getBackgroundColor({
+      theme,
+      $themeType: $themeType ?? 'accent',
+      $layer: clampLayer(($layer && $layer + 1) ?? 1),
+    });
   };
 
   const generatedBackgroundColor = generateBackgroundColor({ $themeType, $layer });
