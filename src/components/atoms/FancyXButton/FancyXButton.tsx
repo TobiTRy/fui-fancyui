@@ -13,7 +13,7 @@ export default function FancyXButton(props: TFancyXButtonWithHTMLAttrs) {
   //check wich design comes in and add the right color object uiColor or systemMessages  to the button
   return (
     <StyledFancyXButton $themeType={themeType} $layer={layer} $externalStyle={externalStyle} {...htmlProps}>
-      <FancySVGAtom themeType={themeType} layer={layer} sizeC={sizeC}>
+      <FancySVGAtom isPassive={false} themeType={themeType} layer={layer} sizeC={sizeC}>
         <SVGXlg />
       </FancySVGAtom>
     </StyledFancyXButton>
