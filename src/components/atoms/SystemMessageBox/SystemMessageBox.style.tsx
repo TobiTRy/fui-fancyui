@@ -5,13 +5,13 @@ import { colorTransparencyCalculator } from '@/design/designFunctions/colorTrans
 import { themeStore } from '@/design/theme/themeStore';
 import { TStyledPrefixAndOmiter } from '@/types/TStyledPrefixAndOmiter';
 import { TTheme } from '@/types/TTheme';
+import { adjustSystemMessageColor } from '@/utils/functions/adjustSystemMessageColor';
 import { css, styled } from 'styled-components';
 
 type TStyledSystemMessage = TStyledPrefixAndOmiter<TSystemMessageBox, 'children' | 'sizeC'>;
 
 export const StyledStystemMessage = styled.aside<{ theme: TTheme } & TStyledSystemMessage>`
   border-width: 1px;
-  display: flex;
   align-items: center;
   transition: all 0.2s;
   padding: ${({ $padding }) => arrayToCssValues($padding, 'spacing')};
@@ -26,12 +26,10 @@ export const StyledStystemMessage = styled.aside<{ theme: TTheme } & TStyledSyst
     return css`
       border-width: 1px;
       border-style: solid;
-      background: hsla(from ${color} h s l / ${isDarkTheme ? '15%' : '5%'});
-      color: ${isDarkTheme
-        ? `hsla(from ${color} h s calc(l * 1.4) / 100%)`
-        : `hsla(from ${color} h s calc(l * 0.6) / 100%)`};
+      background: hsla(from ${color} h s l / ${isDarkTheme ? '15%' : '3%'});
+      color: ${adjustSystemMessageColor(color)};
       border-left: 4px solid;
-      border-color: hsla(from ${color} h s calc(l * 1.1) / 100%);
+      border-color: ${adjustSystemMessageColor(color)};
     `;
   }}
 
@@ -42,7 +40,7 @@ export const StyledStystemMessage = styled.aside<{ theme: TTheme } & TStyledSyst
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: ${({ theme }) => colorTransparencyCalculator(theme.color.primary['0'], 0.95)};
+    background-color: ${({ theme }) => colorTransparencyCalculator(theme.color.primary['0'], 0.8)};
     z-index: -1;
   }
 
