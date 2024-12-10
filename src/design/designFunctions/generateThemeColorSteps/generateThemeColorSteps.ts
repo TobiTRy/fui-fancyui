@@ -59,7 +59,7 @@ type ColorSteps = {
 interface IGenerateColorSteps {
   themeType: TUiColorTypes;
   color: string;
-  pimaryColor: string;
+  pimaryColor: string; // primary color of the theme to calculate if the color is dark or light
 }
 export default function generateThemeColorSteps({ themeType, color, pimaryColor }: IGenerateColorSteps): ColorSteps {
   const lightColors = lightenColors({ color, themeType, pimaryColor }); //generate the colors
