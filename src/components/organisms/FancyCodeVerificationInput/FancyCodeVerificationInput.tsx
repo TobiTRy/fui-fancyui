@@ -14,7 +14,7 @@ import { TFancySingleInputs } from './TFancyCodeVerificationInput.model';
 export default function FancyCodeVerificationInput(props: TFancySingleInputs) {
   const { length = 6, errorMessage, isSuccess, handler, automaticCase, debounceTime, ...htmlProps } = props;
   const [inputValue, setInputValue] = useState('');
-  const debounceTimeoutRef = useRef<NodeJS.Timeout>(null);
+  const debounceTimeoutRef = useRef<NodeJS.Timeout>();
 
   // hanldes the input value change and validate it with the api
   useEffect(() => {
