@@ -2,7 +2,7 @@ import React from 'react';
 import FancyToastMessage from '../../components/organisms/FancyToastMessage/FancyToastMessage';
 import FancyButton from '../../components/organisms/FancyButton/FancyButton';
 
-import { createFancyToastMessageStore } from '../../components/organisms/FancyToastMessage/FancyToastMessage.state';
+import { createFancyToastMessageStore } from '../../components/organisms/FancyToastMessage/createFancyToastMessageStore.state';
 
 const useFancyToastMessageStore = createFancyToastMessageStore();
 
