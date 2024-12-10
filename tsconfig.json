@@ -7,13 +7,10 @@
     "skipLibCheck": true,
     "rootDir": ".",
     "baseUrl": "./src",
-    "typeRoots": ["./node_modules/@types", "../../node_modules/@types", "vitest/globals"],
+
+    "typeRoots": ["./node_modules/@types", "../../node_modules/@types"],
     "paths": {
-      "@/*": ["./*"],
-      "react": ["./node_modules/react"],
-      "react-dom": ["./node_modules/react-dom"],
-      "react/*": ["./node_modules/react/*"],
-      "*": ["./node_modules/*", "../../node_modules/*"]
+      "@/*": ["./*"]
     },
 
     /* Bundler mode */
@@ -31,6 +28,7 @@
     "noUnusedParameters": false,
     "noFallthroughCasesInSwitch": true
   },
+  "types": ["vitest/globals"],
   "include": [
     "src/**/*",
     "dist/index.d.ts",
