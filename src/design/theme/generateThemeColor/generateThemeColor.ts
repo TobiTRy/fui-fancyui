@@ -1,16 +1,14 @@
-import { TUiColorsTypeObject } from '@/types/TUiColorsTypeObject';
-import generateThemeColorSteps from '../../designFunctions/generateThemeColorSteps/generateThemeColorSteps';
-import { isColorValid } from '@/utils//validations/isColorValid';
-import { TUiColorTypes } from '@/types/TUiColorTypes';
 import validateThemeColorSteps from '@/design/designFunctions/generateThemeColorSteps/validateThemeColorSteps';
-import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
-import { generateMaterialColorPalette } from '@/design/designFunctions/generateMaterialColorPalette/generateMaterialColorPalette';
 import { TLayer } from '@/types/TLayer';
+import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
+import { TUiColorsTypeObject } from '@/types/TUiColorsTypeObject';
+import { TUiColorTypes } from '@/types/TUiColorTypes';
+import { isColorValid } from '@/utils//validations/isColorValid';
+import generateThemeColorSteps from '../../designFunctions/generateThemeColorSteps/generateThemeColorSteps';
 
 const themeColors = {
   primary: '#131825',
   accent: '#F17C12',
-  accentDarken: '',
   secondary: '#f0f0ef',
   info: '#287fd7',
   success: '#009688',
@@ -18,7 +16,6 @@ const themeColors = {
   error: '#D21414',
 };
 // success: '#22C390',
-themeColors.accentDarken = themeColors.accent;
 
 export { themeColors };
 
@@ -43,23 +40,7 @@ export function initialGenerateUiColors() {
   // add the color steps to the generatedColors object
 }
 
-// function generateMaterialColorSteps() {
-//   for (const color in themeColors) {
-//     // generate the color steps for the color
-//     const generatedColor = generateMaterialColorPalette({
-//       baseHex: themeColors[color as TUiColorsNotTransparent],
-//       isLightTheme: true,
-//     });
-//     uiColors = {
-//       ...uiColors,
-//       [color]: generatedColor,
-//     };
-//   }
-// }
-
 initialGenerateUiColors();
-//generateMaterialColorSteps();
-console.log('testColors', uiColors);
 
 export const regenerateUiColors = (isDarkTheme: boolean) => {
   for (const color in uiColors) {
@@ -100,8 +81,7 @@ export const updateThemeColors = (colorObject: IUiColorPops) => {
         break;
       }
 
-      // accentDarken should not provided by the user%
-      if (colorType !== 'accentDarken' && colorObject[colorTypedkey] !== undefined) {
+      if (colorObject[colorTypedkey] !== undefined) {
         // update the theme color with the new color
         const generatedColorSteps = generateThemeColorSteps({
           themeType: colorTypedkey,
