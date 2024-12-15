@@ -2,7 +2,6 @@ import { styled } from 'styled-components';
 
 export const RefContainer = styled.div`
   position: relative;
-  display: inline-flex;
 `;
 
 export const ContentContainer = styled.div`
