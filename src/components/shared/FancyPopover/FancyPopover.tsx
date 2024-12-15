@@ -1,17 +1,12 @@
 'use client';
 
-import React, { useState, useRef, useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
-import { ContentContainer, RefContainer } from './Popover.style';
+import { TFancyPopoverWithHTMLAttrs } from './FancyPopover.model';
+import { ContentContainer, RefContainer } from './FancyPopover.style';
 
-interface FancyPopoverProps {
-  refComponent: React.ReactElement;
-  contentComponent: React.ReactElement;
-  offsetX?: number; // horizontal offset
-  offsetY?: number; // vertical offset
-}
-export default function FancyPopover(props: FancyPopoverProps) {
-  const { refComponent, contentComponent, offsetX = 0, offsetY = 0 } = props;
+export default function FancyPopover(props: TFancyPopoverWithHTMLAttrs) {
+  const { refComponent, contentComponent, offsetX = 0, offsetY = 0, ...htmlProps } = props;
   const [isContentVisible, setContentVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
@@ -70,7 +65,7 @@ export default function FancyPopover(props: FancyPopoverProps) {
   };
 
   return (
-    <RefContainer ref={ref} onClick={handleClick}>
+    <RefContainer ref={ref} onClick={handleClick} {...htmlProps}>
       {refComponent}
       {isContentVisible && <ContentContainer ref={contentRef}>{contentComponent}</ContentContainer>}
     </RefContainer>
