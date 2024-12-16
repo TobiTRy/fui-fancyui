@@ -18,6 +18,7 @@ export const StyledStystemMessage = styled.aside<{ theme: TTheme } & TStyledSyst
   margin: ${({ $margin }) => arrayToCssValues($margin, 'spacing')};
   position: relative;
   border-radius: ${({ $borderRadius }) => arrayToCssValues($borderRadius, 'borderRadius')};
+  overflow: hidden;
 
   ${({ theme, $themeType = 'error', $layer = 0 }) => {
     const color = getBackgroundColor({ theme, $themeType, $layer: $layer });
