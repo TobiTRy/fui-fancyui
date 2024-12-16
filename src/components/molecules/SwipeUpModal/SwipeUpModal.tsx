@@ -81,7 +81,7 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
     } else {
       closeModal('status');
     }
-  }, [isOpen]);
+  }, [isOpen, openModal, closeModal]);
 
   const handleOpeningAndClosing = useCallback(
     (e: React.TransitionEvent<HTMLDivElement>) => {
