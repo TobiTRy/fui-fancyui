@@ -30,7 +30,7 @@ export const StyledFancyLine = styled.hr<TStyledFancyLine>`
     background-color: ${({ $systemMessageType, theme, $isActive, $themeType = 'secondary', $layer }) =>
       getBackgroundColor({
         theme,
-        $themeType: $isActive ? $systemMessageType ?? 'accent' : $themeType,
+        $themeType: $isActive ? ($systemMessageType ?? 'accent') : $themeType,
         $layer: $isActive ? 0 : $layer,
       })};
     border: 0;
