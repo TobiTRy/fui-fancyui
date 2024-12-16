@@ -2,18 +2,24 @@
 
 import { useEffect, useState } from 'react';
 import { TBreakPoints, TBreakPointsSizes } from '@/types/TBreakPoints';
+import { themeStore } from '@/design/theme/themeStore';
 
 export const useActiveBreakpoint = (breakpoints?: TBreakPoints) => {
   const [activeBreakpoint, setActiveBreakpoint] = useState<TBreakPointsSizes | null>(null);
+  const theme = themeStore((state) => state.theme);
 
   useEffect(() => {
     const handleResize = () => {
-      setActiveBreakpoint(getActiveBreakpoint(breakpoints));
+      setActiveBreakpoint(getActiveBreakpoint(breakpoints || theme.breakpoints));
     };
 
     window.addEventListener('resize', handleResize);
+
+    // Call once to set initial breakpoint
+    handleResize();
+
     return () => window.removeEventListener('resize', handleResize);
-  }, [breakpoints]); // Re-evaluate on breakpoints change
+  }, [breakpoints, theme]); // Re-evaluate on breakpoints change
 
   return activeBreakpoint;
 };
@@ -22,11 +28,12 @@ export const useActiveBreakpoint = (breakpoints?: TBreakPoints) => {
 const getActiveBreakpoint = (breakpoints?: TBreakPoints) => {
   if (!breakpoints) return null;
 
-  Object.entries(breakpoints).map(([id, query]) => {
-    if (window.matchMedia(query).matches) {
-      return id;
-    }
+  // Using find instead of map
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const match = Object.entries(breakpoints).find(([_, query]) => {
+    return window.matchMedia(query).matches;
   });
 
-  return null; // No match found
+  // Return the id if found, null otherwise
+  return match ? (match[0] as TBreakPointsSizes) : null;
 };
