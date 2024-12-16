@@ -1,24 +1,15 @@
-import { styled, keyframes, css } from 'styled-components';
+import { keyframes, styled } from 'styled-components';
 
-import { boxShadow } from '../../../design/designFunctions/shadows/shadows';
-import { TLayer } from '@/types/TLayer';
-import { getBackgroundColor } from '../../../design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponent';
-import { TTheme } from '@/types/TTheme';
 import { colorTransparencyCalculator } from '@/design/designFunctions/colorTransparencyCalculator';
-import { themeStore } from '@/design/theme/themeStore';
+import { TLayer } from '@/types/TLayer';
+import { TTheme } from '@/types/TTheme';
 import { adjustSystemMessageColor } from '@/utils/functions/adjustSystemMessageColor';
+import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent';
 
 type ToastMessageProps = 'success' | 'warning' | 'error' | 'info';
 
-interface TToastMessage {
-  $messageType: ToastMessageProps;
-  $layer?: TLayer;
-  theme: TTheme;
-}
-
 interface TimerLineProps {
   $messageType: ToastMessageProps;
-
   $layer?: TLayer;
   theme: TTheme;
   $time: number;
