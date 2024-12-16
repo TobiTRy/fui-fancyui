@@ -42,7 +42,14 @@ export default function SpeedDailRoute() {
       <DesignWrapper>
         <DesignArea title="SpeedDail" style={style}>
           <FancySpeedDialButton themeType="primary" items={items} />
-          <FloatingButton label="HIii" isOpen={false} onClick={() => {}} icon={SVGSearch} />
+          <FloatingButton
+            label="HIii"
+            isOpen={false}
+            onClick={() => {
+              console.log('Hii');
+            }}
+            icon={SVGSearch}
+          />
         </DesignArea>
       </DesignWrapper>
     </Card>
