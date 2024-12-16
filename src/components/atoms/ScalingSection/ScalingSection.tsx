@@ -12,16 +12,12 @@ import {
 import { styled } from 'styled-components';
 
 import { SwipeUpDash } from '@/components/atoms/SwipeUpDash';
-
-interface IScalingSection {
-  handleScaling: (state: 'move' | 'end', currentPos: number) => void;
-  onClick?: () => void;
-}
+import { TScalingSection } from '@/components/atoms/ScalingSection/TScalingSection.model';
 
 // --------------------------------------------------------------------------- //
 //the ScalingSection is for conroling events on the swipe up dash for better UX //
 // --------------------------------------------------------------------------- //
-const ScalingSection = forwardRef<HTMLDivElement, IScalingSection>((props, ref) => {
+const ScalingSection = forwardRef<HTMLDivElement, TScalingSection>((props, ref) => {
   const { handleScaling, onClick } = props;
 
   const [isDragging, setIsDragging] = useState(false);
@@ -87,6 +83,7 @@ const ScalingSection = forwardRef<HTMLDivElement, IScalingSection>((props, ref) 
       document.removeEventListener('touchmove', handleMoveTouch);
       document.removeEventListener('touchend', handleEnd);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isDragging]);
 
   return (
