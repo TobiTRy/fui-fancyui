@@ -16,10 +16,10 @@ function getWindowDimensions(vp?: VisualViewport | null) {
 export default function useWindowDimensions() {
   const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
 
-  const viewport = window.visualViewport;
-
   // This useEffect hook adds a window resize event listener and removes it on cleanup
   useEffect(() => {
+    const viewport = window.visualViewport;
+
     function handleResize() {
       setWindowDimensions(getWindowDimensions(viewport));
     }
