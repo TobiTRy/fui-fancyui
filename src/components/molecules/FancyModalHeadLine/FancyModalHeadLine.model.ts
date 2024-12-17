@@ -7,7 +7,7 @@ export type TFancyModalHeadLine = {
   title?: string | React.ReactNode;
   subTitle?: string | React.ReactNode;
   gapBetweenText?: TSpacings;
-  hr?: TFancyLine;
+  hr?: TFancyLine | boolean;
   onXButtonClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 };
 

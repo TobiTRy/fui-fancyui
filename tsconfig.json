@@ -5,9 +5,12 @@
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "skipLibCheck": true,
-    "baseUrl": ".",
+    "rootDir": ".",
+    "baseUrl": "./src",
+
+    "typeRoots": ["./node_modules/@types", "../../node_modules/@types"],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./*"]
     },
 
     /* Bundler mode */
@@ -18,13 +21,14 @@
     "noEmit": true,
     "outDir": "dist",
     "jsx": "react-jsx",
-    "types": ["vitest/globals"],
+
     /* Linting */
     "strict": true,
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "noFallthroughCasesInSwitch": true
   },
+  "types": ["vitest/globals"],
   "include": [
     "src/**/*",
     "dist/index.d.ts",

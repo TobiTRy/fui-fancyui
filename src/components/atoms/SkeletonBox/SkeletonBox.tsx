@@ -13,6 +13,7 @@ export default function SkeletonBox(props: TSkeletonBoxWithHTMLAttrs) {
     aspectRatio,
     borderRadius,
     externalStyle,
+    index,
     ...htmlProps
   } = props;
 
@@ -24,6 +25,7 @@ export default function SkeletonBox(props: TSkeletonBoxWithHTMLAttrs) {
       $sizeH={sizeH}
       $sizeW={sizeW}
       $layer={layer}
+      $index={index}
       $aspectRatio={aspectRatio}
       $borderRadius={borderRadius}
       $externalStyle={externalStyle}

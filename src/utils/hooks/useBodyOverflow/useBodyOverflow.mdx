@@ -1,0 +1,46 @@
+# useBodyOverflow Hook
+
+The `useBodyOverflow` hook is a custom React hook that manages the document body's overflow property. It allows you to control the scrolling behavior of the page by setting and resetting the overflow style of the body element.
+
+## Parameters
+
+- `overflow`: `string` (optional)
+  - The desired overflow value to be applied to the document body
+  - Default value: `'hidden'`
+
+## Return Value
+
+This hook doesn't return any value. It performs side effects on the document body's overflow style.
+
+## Usage
+
+```jsx
+import React from 'react';
+import { useBodyOverflow } from 'fui-fancyui';
+
+function Modal() {
+  // Prevent body scrolling when modal is open
+  useBodyOverflow('hidden');
+
+  return <div className="modal">Modal content</div>;
+}
+```
+
+In this example, the hook is used in a modal component to prevent the body from scrolling when the modal is open. When the modal is unmounted, the original overflow value is restored.
+
+## Implementation Details
+
+- The hook takes an optional `overflow` parameter that defaults to `'hidden'`
+- On component mount, it stores the original overflow value of the document body
+- It then sets the new overflow value specified by the parameter
+- When the component unmounts, it restores the original overflow value using the cleanup function
+- The effect is re-run whenever the `overflow` parameter changes
+
+## Notes
+
+- This hook is particularly useful for modal windows, overlays, or other UI components where you want to temporarily disable page scrolling
+- The hook maintains the previous overflow state and restores it on cleanup, ensuring proper behavior when components unmount
+- The cleanup function prevents memory leaks and ensures the body overflow style is properly restored
+- The hook's dependency array includes the `overflow` parameter, so it will update if the desired overflow value changes
+
+This hook provides a simple and effective way to manage document body scrolling behavior in React applications, particularly useful for creating modal interfaces and overlay components.ƒ

@@ -2,7 +2,9 @@ import React from 'react';
 import FancyToastMessage from '../../components/organisms/FancyToastMessage/FancyToastMessage';
 import FancyButton from '../../components/organisms/FancyButton/FancyButton';
 
-import { useFancyToastMessageStore } from '../../components/organisms/FancyToastMessage/FancyToastMessage.state';
+import { createFancyToastMessageStore } from '../../components/organisms/FancyToastMessage/createFancyToastMessageStore.state';
+
+const useFancyToastMessageStore = createFancyToastMessageStore();
 
 const messageType = ['success', 'warning', 'error'];
 
@@ -18,9 +20,12 @@ const handler = () => {
 };
 
 export default function ToastMessageRoute() {
+  const removeToast = useFancyToastMessageStore((state) => state.removeToast);
+  const toastMessages = useFancyToastMessageStore((state) => state.toastQueue);
+
   return (
     <section>
-      <FancyToastMessage />
+      <FancyToastMessage toastMessages={toastMessages} closeToast={removeToast} />
       <FancyButton onClick={handler} label="Add Message" />
     </section>
   );

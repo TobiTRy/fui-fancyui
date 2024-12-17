@@ -3,11 +3,11 @@
 import { useMemo } from 'react';
 import { useTransition, animated } from '@react-spring/web';
 
-import { useFancyToastMessageStore } from './FancyToastMessage.state';
 import { SingleToastMessage } from '@/components/molecules/SingleToastMessage';
 import { TToastMessage } from '@/components/molecules/SingleToastMessage';
 
 import { ToastsWrapper } from './FancyToastMessage.style';
+import { TFancyToastMessages } from '@/components/organisms/FancyToastMessage/TFancyToastMessage.model';
 //this comonent should be used as overlay in the application to make sure the toast messages are always displaey on top
 
 // to use this component in the application you have to add this component to the dom (Main Component) of the application
@@ -22,15 +22,14 @@ import { ToastsWrapper } from './FancyToastMessage.style';
 // --------------------------------------------------------------------------- //
 // ------- The Main Toast Message Module to displayed multible messages ------ //
 // --------------------------------------------------------------------------- //
-export default function FancyToastMessage() {
-  const toastQueue = useFancyToastMessageStore((state) => state.toastQueue);
-  const removeToast = useFancyToastMessageStore((state) => state.removeToast);
+export default function FancyToastMessage(props: TFancyToastMessages) {
+  const { toastMessages, closeToast, externalStyle, ...htmlProps } = props;
 
   // create a refMap to store the height of each toast message
   const refMap = useMemo(() => new WeakMap(), []);
 
   // create the transitions for the toast messages
-  const transitions = useTransition(toastQueue, {
+  const transitions = useTransition(toastMessages, {
     from: { opacity: 0, height: '0px', transform: 'translateX(200%)', marginBottom: '0px' },
     keys: (item: TToastMessage) => item.id,
     enter: (item: TToastMessage) => async (next) => {
@@ -51,17 +50,17 @@ export default function FancyToastMessage() {
       },
       { height: '0px', marginBottom: '0px', config: { duration: 265, tension: 250, friction: 125, precision: 0.8 } },
     ],
-    onDestroyed: (item: TToastMessage) => removeToast(item.id),
+    onDestroyed: (item: TToastMessage) => closeToast(item.id),
   });
 
   return (
-    <ToastsWrapper>
+    <ToastsWrapper $externalStyle={externalStyle} {...htmlProps}>
       {transitions(({ ...style }, item: TToastMessage) => (
         <animated.aside role="alert" key={item.id} style={style}>
           <SingleToastMessage
             ref={(ref: HTMLDivElement) => ref && refMap.set(item, ref)}
             toast={item}
-            remove={removeToast}
+            remove={closeToast}
           />
         </animated.aside>
       ))}

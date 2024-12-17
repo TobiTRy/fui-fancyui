@@ -7,13 +7,14 @@ import { TStyledPrefixAndOmiter } from '@/types/TStyledPrefixAndOmiter';
 import { TFancySVGAtom } from '@/components/atoms/FancySVGAtom/TFancySVGAtom.model';
 import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 import { TUiColorsSystemMessage } from '@/types/TUiColorsSystemMessage';
+import { TLayer } from '@/types';
 
 interface ICalcIconColor {
   theme: TTheme;
   $isActive?: boolean;
   $systemMessage?: TUiColorsSystemMessage;
   $themeType: TUiColorsNotTransparent;
-  $layer?: number;
+  $layer?: TLayer;
 }
 // calculate the color of the icon based on the props and the theme
 const calcIconColor = ({ theme, $isActive, $systemMessage, $themeType, $layer }: ICalcIconColor): string => {

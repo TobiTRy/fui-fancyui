@@ -1,6 +1,7 @@
-import { TThemeArrayOrValueCSS } from '@/design/designFunctions/arrayToCssValues';
-import { TThemeValueOrCSS } from 'lib';
 import { CSSProp } from 'styled-components';
+
+import { TThemeArrayOrValueCSS } from '@/design/designFunctions/arrayToCssValues';
+import { TThemeValueOrCSS } from '@/design/designFunctions/getThemeOrValueAsCss';
 
 export interface ICustomBreakpoint {
   breakpoint: string; // Breakpoint-Größe, z.B. '768px'

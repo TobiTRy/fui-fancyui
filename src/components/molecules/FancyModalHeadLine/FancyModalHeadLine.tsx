@@ -12,7 +12,7 @@ import { FancyXButton } from '@/components/atoms/FancyXButton';
 // -------- The main HeadLineComponent for the heading for the modals -------- //
 // --------------------------------------------------------------------------- //
 export default function FancyModalHeadLine(props: TFancyModalHeadLineWithHTMLProps) {
-  const { title, subTitle, alignCenter = false, hr = {}, gapBetweenText = 'xxs', onXButtonClick, ...htmlProps } = props;
+  const { title, subTitle, alignCenter = false, hr, gapBetweenText = 'xxs', onXButtonClick, ...htmlProps } = props;
 
   const TitleReactNode = createTitleNode(title);
   const SubTitleReactNode = createSubtitleNode(subTitle);
@@ -24,9 +24,11 @@ export default function FancyModalHeadLine(props: TFancyModalHeadLineWithHTMLPro
           {title && TitleReactNode}
           {subTitle && SubTitleReactNode}
         </StyledHeadLineTitles>
-        <IconWrapper>
-          <FancyXButton onClick={onXButtonClick && onXButtonClick} />
-        </IconWrapper>
+        {onXButtonClick && (
+          <IconWrapper>
+            <FancyXButton onClick={onXButtonClick} />
+          </IconWrapper>
+        )}
       </HeadLineWrapper>
       {hr && (title || subTitle) && <FancyLine direction="horizontal" />}
     </StyledHeadLine>

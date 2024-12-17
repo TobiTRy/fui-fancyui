@@ -61,6 +61,12 @@ const meta = {
         type: 'object',
       },
     },
+    index: {
+      description: 'The index can be used to delay the animation of the skeleton box e.g. in a list',
+      control: {
+        type: 'number',
+      },
+    },
     ...templateThemeType('allThemeTypes', 'primary', 0),
   },
 } satisfies Meta<typeof SkeletonBox>;
@@ -78,6 +84,27 @@ export const Primary: Story = {
     themeType: 'primary',
     sizeH: 'md',
     sizeW: 'md',
+    borderRadius: 'xs',
+    layer: 0,
+    index: 0,
+  },
+};
+
+export const List: Story = {
+  render: (args) => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+      <SkeletonBox {...args} index={0} />
+      <SkeletonBox {...args} index={1} />
+      <SkeletonBox {...args} index={2} />
+      <SkeletonBox {...args} index={3} />
+      <SkeletonBox {...args} index={4} />
+    </div>
+  ),
+  args: {
+    aspectRatio: '1:1',
+    themeType: 'primary',
+    sizeH: 'md',
+    sizeW: 'fit',
     borderRadius: 'xs',
     layer: 0,
   },

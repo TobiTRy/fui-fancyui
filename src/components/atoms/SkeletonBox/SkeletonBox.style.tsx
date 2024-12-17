@@ -12,12 +12,16 @@ export const StyledSkeletonBox = styled.div<TSyledSkeletonBox & { theme: TTheme 
   height: ${({ $sizeH }) => $sizeH && ($sizeH === 'fit' ? '100%' : globalElementSizes[$sizeH])};
   background-color: ${({ theme, $themeType = 'primary', $layer }) => theme.color[$themeType][$layer || 0]};
   animation: ${({ theme, $themeType, $layer }) => createLoadingKeyframes({ theme, $themeType, $layer })} 2s infinite;
+  animation-delay: ${({ $index = 0 }) => $index * 0.1}s;
   border-radius: ${({ theme, $borderRadius }) => theme.borderRadius[$borderRadius ?? 'xs'] || '0px'};
+  overflow: hidden;
+  position: relative;
   ${({ $aspectRatio }) =>
     $aspectRatio &&
     css`
       aspect-ratio: ${$aspectRatio};
     `}
+
   ${({ $externalStyle }) => $externalStyle};
 `;
 

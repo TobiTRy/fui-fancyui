@@ -3,10 +3,10 @@ import { Meta, StoryObj } from '@storybook/react';
 
 // Import the component to be tested
 import FancyToastMessage from '../FancyToastMessage';
-import { useFancyToastMessageStore } from '../FancyToastMessage.state';
+import { createFancyToastMessageStore } from '../createFancyToastMessageStore.state';
 import { FancyButton } from '../../FancyButton';
 import { TFancyToastMessage } from '@/components/organisms/FancyToastMessage';
-import templateThemeType from '@/stories/templateSettingsForStorys/templatesForThemeType';
+import { TFancyToastMessages } from '@/components/organisms/FancyToastMessage/TFancyToastMessage.model';
 
 // Define metadata for the story
 const meta = {
@@ -25,33 +25,36 @@ const meta = {
   },
   // Define arguments for the story
   argTypes: {
-    ...templateThemeType('systemMessage', 'success', 0),
-    title: {
-      description: 'The title of the toast.',
-      control: { type: 'text' },
-    },
-    message: {
-      description: 'The message to be displayed in the toast.',
-      control: { type: 'text' },
-    },
-    time: {
-      description: 'The time in milliseconds the toast will be displayed.',
-      control: { type: 'number' },
+    toastMessages: {
+      description: 'Queue of toast messages to be displayed',
+      control: { type: 'object' },
       table: {
-        defaultValue: { summary: '5000' },
+        type: { summary: 'TFancyToastMessage[]' },
+        defaultValue: { summary: '[]' },
+      },
+    },
+    closeToast: {
+      description: 'Function to close a specific toast message',
+      control: { type: 'function' },
+      table: {
+        type: { summary: '(id: string) => void' },
+        defaultValue: { summary: 'undefined' },
       },
     },
   },
-} satisfies Meta<TFancyToastMessage>;
+} satisfies Meta<TFancyToastMessages>;
 
 // Export the metadata
 export default meta;
 // Define the story object
 type Story = StoryObj<typeof meta>;
 
+const useFancyToastMessageStore = createFancyToastMessageStore();
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const HelperComponent = (props: any) => {
   const addToast = useFancyToastMessageStore((state) => state.addToast);
+  const toastMessages = useFancyToastMessageStore((state) => state.toastQueue);
   const { title, message, time, themeType } = props as TFancyToastMessage;
 
   const hanldeAddToast = () => {
@@ -65,7 +68,7 @@ const HelperComponent = (props: any) => {
 
   return (
     <>
-      <FancyToastMessage {...props} />
+      <FancyToastMessage toastMessages={toastMessages} {...props} />
       <FancyButton label="Open" onClick={hanldeAddToast} />
     </>
   );
@@ -75,9 +78,7 @@ const HelperComponent = (props: any) => {
 export const Primary: Story = {
   render: (args) => <HelperComponent {...args} />,
   args: {
-    title: 'My Title of the titel ',
-    message: 'This is my toast message hjsadhjgdshjag.',
-    time: 50500,
-    themeType: 'error',
+    closeToast: (id) => useFancyToastMessageStore.getState().removeToast(id),
+    toastMessages: useFancyToastMessageStore.getState().toastQueue,
   },
 };

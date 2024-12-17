@@ -1,6 +1,6 @@
-import { TInputLabel } from '@/components/atoms/InputLabel/TInputLabel.model';
-import { TTextAlignLRC } from 'lib';
 import { css } from 'styled-components';
+import { TInputLabel } from '@/components/atoms/InputLabel/TInputLabel.model';
+import { TTextAlignLRC } from '@/types/TTextAlignLRC';
 
 type TgenerateLableVariant = {
   $lableVariant: TInputLabel['lableVariant'];

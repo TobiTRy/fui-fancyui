@@ -1,6 +1,6 @@
 import { CSSProp } from 'styled-components';
 import { ICustomBreakpoint } from '@/components/templates/FancyGrid/FancyGrid.model';
-import { TDynamicElement } from 'lib';
+import { TDynamicElement } from '@/types/TDynamicElement';
 
 export type TFancyGridItemProps = {
   gridSpace?: number;

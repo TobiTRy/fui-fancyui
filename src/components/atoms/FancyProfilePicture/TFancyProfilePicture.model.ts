@@ -7,7 +7,7 @@ type TtextAvatarSettings = React.ComponentProps<typeof TextAvatar>;
 
 export type TFancyProfilePicture = {
   borderRadius?: 'sm' | 'md' | 'lg' | 'complete' | 'none';
-  sizeC?: TglobalElementSizes | (string & {});
+  sizeC?: TglobalElementSizes | 'fit' | (string & {});
   externalStyle?: CSSProp;
   textAvatarSettings?: Omit<TtextAvatarSettings, 'text'>;
   nickname?: string;

@@ -19,20 +19,23 @@ import { FancyToastMessage } from 'fui-fancyui';
 2. If using TypeScript, you can import the type definitions for prop validation:
 
 ```jsx
-import { TFancyToastMessageStore, TFancyToastMessage } from 'fui-fancyui';
+import { createFancyToastMessageStore, TFancyToastMessage } from 'fui-fancyui';
 ```
 
 ### Integration
 
 1. Place the `FancyToastMessage` component in your application's main component to allow toast messages to overlay other content.
-2. Utilize the `useFancyToastMessageStore` to add or remove toast messages. Import `useFancyToastMessageStore` and call `addToast` with the desired toast message properties.
+2. Utilize the `createFancyToastMessageStore` to add or remove toast messages. Import `createFancyToastMessageStore` and call `addToast` with the desired toast message properties.
 
 ## Example Usage
 
 ```jsx
 import React from 'react';
-import { useFancyToastMessageStore } from 'fui-fancyui';
+import { createFancyToastMessageStore } from 'fui-fancyui';
 import { FancyToastMessage } from 'fui-fancyui';
+
+// you can create the store in a separate file and import it where needed
+export const useFancyToastMessageStore = createFancyToastMessageStore();
 
 function App() {
   const addToast = useFancyToastMessageStore((state) => state.addToast);

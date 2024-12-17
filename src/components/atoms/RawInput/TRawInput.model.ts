@@ -1,7 +1,7 @@
 import { TLayer } from '@/types/TLayer';
+import { TStyledPrefixAndPicker } from '@/types/TStyledPrefixAndPicker';
 import { TTextAlignLC } from '@/types/TTextAlignLC';
 import { TUiColorsMain } from '@/types/TUiColorsMain';
-import { TStyledPrefixAndPicker } from 'lib';
 
 import { CSSProp } from 'styled-components';
 

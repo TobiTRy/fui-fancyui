@@ -1,14 +1,14 @@
-import { TUiColorsTypeObject } from '@/types/TUiColorsTypeObject';
-import generateThemeColorSteps from '../../designFunctions/generateThemeColorSteps/generateThemeColorSteps';
-import { isColorValid } from '@/utils//validations/isColorValid';
-import { TUiColorTypes } from '@/types/TUiColorTypes';
 import validateThemeColorSteps from '@/design/designFunctions/generateThemeColorSteps/validateThemeColorSteps';
+import { TLayer } from '@/types/TLayer';
 import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
+import { TUiColorsTypeObject } from '@/types/TUiColorsTypeObject';
+import { TUiColorTypes } from '@/types/TUiColorTypes';
+import { isColorValid } from '@/utils//validations/isColorValid';
+import generateThemeColorSteps from '../../designFunctions/generateThemeColorSteps/generateThemeColorSteps';
 
 const themeColors = {
   primary: '#131825',
   accent: '#F17C12',
-  accentDarken: '',
   secondary: '#f0f0ef',
   info: '#287fd7',
   success: '#009688',
@@ -16,11 +16,10 @@ const themeColors = {
   error: '#D21414',
 };
 // success: '#22C390',
-themeColors.accentDarken = themeColors.accent;
 
 export { themeColors };
 
-export type TthemeColorGroup = { [key: string]: string };
+export type TthemeColorGroup = Record<TLayer, string>;
 
 export let uiColors: TUiColorsTypeObject = {} as TUiColorsTypeObject;
 
@@ -82,12 +81,11 @@ export const updateThemeColors = (colorObject: IUiColorPops) => {
         break;
       }
 
-      // accentDarken should not provided by the user%
-      if (colorType !== 'accentDarken' && colorObject[colorTypedkey] !== undefined) {
+      if (colorObject[colorTypedkey] !== undefined) {
         // update the theme color with the new color
         const generatedColorSteps = generateThemeColorSteps({
           themeType: colorTypedkey,
-          color: colorObject[colorTypedkey]! as string,
+          color: colorObject[colorTypedkey],
           pimaryColor: themeColors.secondary,
         });
         // update the themeColors with the new color
@@ -97,7 +95,7 @@ export const updateThemeColors = (colorObject: IUiColorPops) => {
       // if the user provides a object with the color steps
       // than we need to update the themeColors with the new color steps
       // and generate the new uiColors
-      const colorSteps = colorObject[colorTypedkey]! as object;
+      const colorSteps = colorObject[colorTypedkey];
 
       //Validate ColorSteps object (check if the object has the correct keys)
       // and then update the themeColor with the new color steps

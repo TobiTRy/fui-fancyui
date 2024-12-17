@@ -1,18 +1,12 @@
-import { styled, keyframes } from 'styled-components';
+import { keyframes, styled } from 'styled-components';
 
-import colorTransparencyCalculator from '../../../design/designFunctions/colorTransparencyCalculator/colorTransparencyCalculator';
-import { boxShadow } from '../../../design/designFunctions/shadows/shadows';
+import { colorTransparencyCalculator } from '@/design/designFunctions/colorTransparencyCalculator';
 import { TLayer } from '@/types/TLayer';
-import { getBackgroundColor } from '../../../design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponent';
 import { TTheme } from '@/types/TTheme';
+import { adjustSystemMessageColor } from '@/utils/functions/adjustSystemMessageColor';
+import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent';
 
 type ToastMessageProps = 'success' | 'warning' | 'error' | 'info';
-
-interface TToastMessage {
-  $messageType: ToastMessageProps;
-  $layer?: TLayer;
-  theme: TTheme;
-}
 
 interface TimerLineProps {
   $messageType: ToastMessageProps;
@@ -21,23 +15,14 @@ interface TimerLineProps {
   $time: number;
 }
 
-// styles for single toast message
-export const Container = styled.div<TToastMessage>`
-  z-index: 99;
-  overflow: hidden;
-  display: flex;
-  position: relative;
-  flex-direction: column;
-  align-items: left;
-  color: ${({ $messageType, theme, $layer = 5 }) =>
-    getBackgroundColor({ $themeType: $messageType, theme, $layer })}; //theme[$messageType]['5']
-  border-radius: ${({ theme }) => theme.borderRadius.xs};
-  padding: ${({ theme }) => theme.spacing.md};
+export const Background = styled.div<{ theme: TTheme }>`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background-color: ${({ theme }) => colorTransparencyCalculator(theme.color.primary['0'], 0.95)};
-  border-left: 4px solid
-    ${({ $messageType, theme, $layer = 3 }) => getBackgroundColor({ $themeType: $messageType, theme, $layer })};
-  box-sizing: border-box;
-  ${boxShadow.md}
+  z-index: -1;
 `;
 
 export const Headline = styled.div`
@@ -67,7 +52,10 @@ export const TimerLine = styled.div<TimerLineProps>`
   left: 0;
   height: 2px;
   width: 100%;
-  background-color: ${({ $messageType, theme, $layer = 3 }) =>
-    getBackgroundColor({ $themeType: $messageType, theme, $layer })};
+  background-color: ${({ $messageType, theme, $layer = 2 }) => {
+    const color = getBackgroundColor({ $themeType: $messageType, theme, $layer });
+
+    return adjustSystemMessageColor(color);
+  }};
   animation: ${() => timerAnimation} ${({ $time }) => $time - 300}ms linear forwards;
 `;

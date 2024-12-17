@@ -4,7 +4,6 @@ import React, { useRef, useState } from 'react';
 import { FancyButton } from '../../../lib';
 
 import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
-import Popover from '../../components/shared/FancyPopover/Popover';
 import FancyPopover from '../../components/shared/FancyPopover/FancyPopover';
 import FancyMenueItem from '../../components/templates/FancyMenuItem/FancyMenuItem';
 import { Menu } from '@/components/molecules/Menue';

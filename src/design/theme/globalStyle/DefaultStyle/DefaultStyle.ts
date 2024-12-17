@@ -13,6 +13,11 @@ const DefaultStyle = createGlobalStyle<{ theme?: TTheme }>`
     position: relative;
     overflow-y: auto;
     width: 100%;
+
+    &::selection {
+      background: ${({ theme }) => theme.color.accent[0]};
+      color: ${({ theme }) => theme.color.primary[0]};
+    }
   }
   
   ${scrollbar};

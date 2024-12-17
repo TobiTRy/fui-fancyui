@@ -20,6 +20,7 @@ export const StyledFancyXButton = styled.button<IStyledFancyXButton>`
   font-weight: bolder;
   cursor: pointer;
   outline: none;
+  color: inherit;
   ${simpleColorTransition}
 
   &:hover {

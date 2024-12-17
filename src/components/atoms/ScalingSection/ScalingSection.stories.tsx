@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import ScalingSection from './ScalingSection';
+import type { TScalingSection } from './TScalingSection.model';
 
 const meta = {
   component: ScalingSection,
@@ -21,7 +22,7 @@ const meta = {
     },
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof ScalingSection>;
+} satisfies Meta<TScalingSection>;
 
 export default meta;
 

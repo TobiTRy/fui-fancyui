@@ -8,21 +8,30 @@ import { forwardRef } from 'react';
 // ---------------- the blank drop down select ---------------------- //
 // ------------------------------------------------------------------ //
 const DropDownSelect = forwardRef<HTMLSelectElement, TDropDownSelect & TDropDownSelectNativeAttrs>((props, ref) => {
-  const { values, value, placeholder, children, align = 'left', emptySelect = true, ...htmlInputProps } = props;
+  const {
+    values,
+    value,
+    placeholder,
+    children,
+    align = 'left',
+    emptySelect = true,
+    required,
+    ...htmlInputProps
+  } = props;
 
   return (
     <SelectField ref={ref} $align={align} $labelAlign={align} value={value || ''} {...htmlInputProps}>
       {/* Placeholder option */}
       {/* Empty Select Option  */}
-      {emptySelect && (
-        <option key="-1" value="" disabled>
-          {''}
+      {placeholder && (
+        <option key="-2" value="" disabled={required && true}>
+          {placeholder}
         </option>
       )}
 
-      {placeholder && (
-        <option key="-2" value="">
-          {placeholder}
+      {emptySelect && (
+        <option key="-1" value="" disabled={required && true}>
+          {''}
         </option>
       )}
 

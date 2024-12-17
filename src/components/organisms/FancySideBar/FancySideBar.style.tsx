@@ -19,7 +19,7 @@ export const SlotTop = styled.div<{ theme: TTheme; $sizeC: TFancySideBar['sizeC'
   flex-direction: column;
   margin: ${({ theme, $sizeC = 'sm' }) =>
     `0 ${theme.spacing[originalSizeSettings[$sizeC].margin]} 0 ${theme.spacing[originalSizeSettings[$sizeC].margin]}`};
-  gap: ${({ $sizeC = 'sm' }) => `${sideBarSizeSettings[$sizeC].gapBetweenItems}`};
+  gap: ${({ $sizeC = 'sm', theme }) => `${theme.spacing[sideBarSizeSettings[$sizeC].gapBetweenItems]}`};
 `;
 
 export const SlotBottom = styled.div<{ theme: TTheme; $sizeC: TFancySideBar['sizeC'] }>`
@@ -28,6 +28,7 @@ export const SlotBottom = styled.div<{ theme: TTheme; $sizeC: TFancySideBar['siz
   margin-top: auto;
   margin: ${({ theme, $sizeC = 'sm' }) =>
     `auto ${theme.spacing[originalSizeSettings[$sizeC].margin]} 0 ${theme.spacing[originalSizeSettings[$sizeC].margin]}`};
+  gap: ${({ $sizeC = 'sm', theme }) => `${theme.spacing[sideBarSizeSettings[$sizeC].gapBetweenItems]}`};
 `;
 
 export const MainItemsWrapper = styled.div<{ theme: TTheme; $gap: TSpacings }>`

@@ -1,4 +1,4 @@
-import { styled } from 'styled-components';
+import { CSSProp, styled } from 'styled-components';
 import { getColorsForComponent } from '@/design/designFunctions/colorCalculatorForComponent';
 
 import { TLayer } from '@/types/TLayer';
@@ -11,6 +11,7 @@ type TStyledDialog = {
   theme: TTheme;
   $themeType: TUiColorsNotTransparent;
   $layer?: TLayer;
+  $externalStyle?: CSSProp;
 };
 
 export const StyledDialog = styled(animated.div)<TStyledDialog>`
@@ -19,11 +20,13 @@ export const StyledDialog = styled(animated.div)<TStyledDialog>`
   left: 50vw;
   transform: translate(-50dvh, -50vw);
   padding: ${({ theme }) => theme.spacing.lg};
+  box-sizing: border-box;
   border-radius: ${({ theme }) => theme.borderRadius.lg};
   border: none;
   width: 80%;
   ${({ theme, $themeType, $layer = 1 }) => getColorsForComponent({ theme, $themeType, $layer })}
-  z-index: 1000;
+  z-index: 100;
   outline: none;
   max-height: 80dvh;
+  ${({ $externalStyle }) => $externalStyle};
 `;

@@ -1,10 +1,12 @@
 'use client';
 
+import { forwardRef } from 'react';
+
 import { StyledStystemMessage } from './SystemMessageBox.style';
 import { TSystemMessageBoxWithHTMLAttrs } from './TSystemMessageBox.model';
 import { sizes } from './sizeSettings';
 
-export default function SystemMessageBox(props: TSystemMessageBoxWithHTMLAttrs) {
+const SystemMessageBox = forwardRef<HTMLDivElement, TSystemMessageBoxWithHTMLAttrs>((props, ref) => {
   const {
     children,
     layer,
@@ -22,6 +24,7 @@ export default function SystemMessageBox(props: TSystemMessageBoxWithHTMLAttrs) 
 
   return (
     <StyledStystemMessage
+      ref={ref}
       role={role ?? 'alert'}
       $padding={calcPadding}
       $margin={margin}
@@ -33,4 +36,8 @@ export default function SystemMessageBox(props: TSystemMessageBoxWithHTMLAttrs) 
       {children}
     </StyledStystemMessage>
   );
-}
+});
+
+SystemMessageBox.displayName = 'SystemMessageBox';
+
+export default SystemMessageBox;
