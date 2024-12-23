@@ -33,7 +33,7 @@ export default function Calendar(props: TCalendar) {
   } = props;
 
   // the ref to the container of the calendar
-  const ContainerRef: RefObject<HTMLDivElement> = useRef(null);
+  const ContainerRef: RefObject<HTMLDivElement> | null = useRef(null);
 
   // handle the selection of the date or date range
   const { selectedDates, handleDateClick } = useSelectedDates({
