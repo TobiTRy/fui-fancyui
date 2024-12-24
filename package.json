@@ -147,7 +147,7 @@
   "homepage": "https://fui.cool/",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/TobiTRy/FUI-FancyUI.git"
+    "url": "git+https://github.com/TobiTRy/fui-fancyui.git"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
