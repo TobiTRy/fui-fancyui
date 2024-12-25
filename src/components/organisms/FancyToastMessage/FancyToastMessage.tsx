@@ -58,7 +58,11 @@ export default function FancyToastMessage(props: TFancyToastMessages) {
       {transitions(({ ...style }, item: TToastMessage) => (
         <animated.aside role="alert" key={item.id} style={style}>
           <SingleToastMessage
-            ref={(ref: HTMLDivElement) => ref && refMap.set(item, ref)}
+            ref={(ref: HTMLDivElement | null) => {
+              if (ref) {
+                refMap.set(item, ref);
+              }
+            }}
             toast={item}
             remove={closeToast}
           />
