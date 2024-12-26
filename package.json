@@ -46,8 +46,8 @@
     }
   },
   "dependencies": {
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
     "react-router-dom": "^6.23.0",
     "rollup-preserve-directives": "^1.1.1",
     "vite-plugin-dts": "^3.9.0"
@@ -72,8 +72,8 @@
     "@types/color": "^3.0.6",
     "@types/jest": "^29.5.14",
     "@types/mocha": "^10.0.10",
-    "@types/react": "19.0.0",
-    "@types/react-dom": "19.0.0",
+    "@types/react": "18.3.1",
+    "@types/react-dom": "18.3.1",
     "@types/react-test-renderer": "^18.3.0",
     "@types/uuid": "^9.0.8",
     "@typescript-eslint/eslint-plugin": "^7.2.0",
@@ -106,8 +106,8 @@
     "@types/color": "^3.0.6",
     "@types/uuid": "^9.0.8",
     "color": "4.2.3",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
     "styled-components": "6.1.13",
     "uuid": "9.0.1",
     "zustand": "^4.5.2"
