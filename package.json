@@ -10,7 +10,7 @@
   "scripts": {
     "dev": "vite",
     "dev-network": "vite --host",
-    "build": "tsc --p ./tsconfig-build.json && vite build",
+    "build": "tsc && vite build",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
@@ -97,7 +97,7 @@
     "styled-components": "^6.1.13",
     "typescript": "^5.0.2",
     "uuid": "^9.0.1",
-    "vite": "^5.2.11",
+    "vite": "^6.0.6",
     "vitest": "2.1.5",
     "zustand": "^4.5.2"
   },
@@ -137,9 +137,10 @@
   ],
   "exports": {
     ".": {
+      "types": "./dist/lib/index.d.ts",
       "import": "./dist/lib/index.js",
       "require": "./dist/lib/index.js",
-      "types": "./dist/index.d.ts"
+      "default": "./dist/lib/index.js"
     },
     "./package.json": "./package.json"
   },
