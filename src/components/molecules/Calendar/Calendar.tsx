@@ -33,7 +33,7 @@ export default function Calendar(props: TCalendar) {
   } = props;
 
   // the ref to the container of the calendar
-  const ContainerRef: RefObject<HTMLDivElement | null> = useRef(null);
+  const ContainerRef: RefObject<HTMLDivElement> = useRef(null);
 
   // handle the selection of the date or date range
   const { selectedDates, handleDateClick } = useSelectedDates({
@@ -78,7 +78,7 @@ export default function Calendar(props: TCalendar) {
 
   // debounce the scrolling
   // we need to debounce the scrolling because the scroll event is triggered multiple times
-  // it also triggers wehn it is scrolling automaticly
+  // it also triggers when it is scrolling automaticly
   // it also triggers when the user is not scrolling but the scroll position is changing (like a long fast scroll on iphone)
   // wee need the debounce becasue it needs time to stop the scrolling (like on a longscroll it slowly speeds down)
   const [debounceScrolling, cancleScrollDebounce] = useDebounce(() => {
