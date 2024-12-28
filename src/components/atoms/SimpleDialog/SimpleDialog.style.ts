@@ -3,22 +3,24 @@ import { getColorsForComponent } from '@/design/designFunctions/colorCalculatorF
 
 import { TLayer } from '@/types/TLayer';
 import { TTheme } from '@/types/TTheme';
-import { animated } from '@react-spring/web';
 import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 
 // Define the styled component for the dialog
+
 type TStyledDialog = {
   theme: TTheme;
   $themeType: TUiColorsNotTransparent;
   $layer?: TLayer;
   $externalStyle?: CSSProp;
+  $isAnimating: boolean;
 };
 
-export const StyledDialog = styled(animated.div)<TStyledDialog>`
+export const StyledDialog = styled.div<TStyledDialog>`
   position: fixed;
   top: 50dvh;
   left: 50vw;
-  transform: translate(-50dvh, -50vw);
+  transform: translate(-50%, ${({ $isAnimating }) => ($isAnimating ? '-50%' : '-40%')});
+  opacity: ${({ $isAnimating }) => ($isAnimating ? 1 : 0)};
   padding: ${({ theme }) => theme.spacing.lg};
   box-sizing: border-box;
   border-radius: ${({ theme }) => theme.borderRadius.lg};
@@ -28,5 +30,8 @@ export const StyledDialog = styled(animated.div)<TStyledDialog>`
   z-index: 100;
   outline: none;
   max-height: 80dvh;
+  transition:
+    transform 300ms ease-out,
+    opacity 300ms ease-out;
   ${({ $externalStyle }) => $externalStyle};
 `;
