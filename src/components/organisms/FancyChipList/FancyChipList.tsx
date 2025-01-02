@@ -25,7 +25,7 @@ export default function FancyChipList(props: TFancyChipList) {
     sizeC = 'md',
     editable,
     systemInformation,
-    handler,
+    onChange,
   } = props;
 
   // State to hold chips with unique identifiers and input values
@@ -51,7 +51,6 @@ export default function FancyChipList(props: TFancyChipList) {
       setInputValue('');
     } else if (event.key === 'Backspace' && !val && chipState.length) {
       // On backspace, if input is empty, remove the last chip and add its label to the input
-
       const lastChip = chipState[chipState.length - 1];
       setInputValue(lastChip.label + ' '); // Add a space to prevent cursor from immediately jumping back into the chip input
       removeLastChip();
@@ -59,8 +58,8 @@ export default function FancyChipList(props: TFancyChipList) {
   };
 
   useEffect(() => {
-    handler && handler(chipState);
-  }, [chipState, handler]);
+    onChange && onChange(chipState);
+  }, [chipState, onChange]);
 
   // Function to handle changes in the input field
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
