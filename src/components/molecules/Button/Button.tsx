@@ -24,6 +24,7 @@ export default function Button(props: TButtonWithNativeAttrs) {
     noSize,
     className,
     appendClassNameOnStyle,
+    outlinedRemoveBorder,
     ...htmlProps
   } = props;
 
@@ -41,6 +42,7 @@ export default function Button(props: TButtonWithNativeAttrs) {
       $textHover={textHover}
       $disabled={disabled}
       $noSize={noSize}
+      $outlinedRemoveBorder={outlinedRemoveBorder}
       className={notAButton || appendClassNameOnStyle ? className : undefined}
     >
       {children}
