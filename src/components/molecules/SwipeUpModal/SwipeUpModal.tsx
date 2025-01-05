@@ -38,9 +38,10 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
   const [statusModal, setStatusModal] = useState<TModalStatus | 'opening'>('closed');
   const [modalPosition, setModalPosition] = useState(120);
   const scrollY = useRef(0);
+
   useBodyOverflow('hidden');
 
-  const openModal = () => {
+  const openModal = useCallback(() => {
     // Store initial window height when opening
     const contentHeight = contentRef?.current?.offsetHeight ?? 0;
     const scalingSectionHeight = scalingSection.current?.offsetHeight ?? 0;
@@ -51,7 +52,7 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
     initialHeightRef.current = minHeight;
     setModalPosition(position);
     setStatusModal('opening');
-  };
+  }, [windowHeight]);
 
   const closeModal = useCallback(
     (closedBy: 'status' | 'interaction') => {
@@ -116,13 +117,11 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
   const handleScaling = useCallback(
     (state: 'move' | 'end', currentPos: number) => {
       const scalingSectionHeight = scalingSection.current?.offsetHeight ?? 0;
-
       const flippedPosition = windowHeight - currentPos + scalingSectionHeight / 2;
       const position = calcPositionInPercent(flippedPosition, windowHeight);
 
       if (state === 'move') {
         setContentHeight(windowHeight - (flippedPosition + scalingSectionHeight));
-        setModalPosition(position);
       } else if (state === 'end') {
         const initialHeight = calcPositionInPercent(initialHeightRef.current, windowHeight) + 100;
         if (initialHeightRef.current !== 0 && position > initialHeight * 0.4) {
