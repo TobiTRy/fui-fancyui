@@ -27,7 +27,7 @@ const meta = {
         defaultValue: { summary: false },
       },
     },
-    isCloseAble: {
+    isCloseable: {
       description: 'If `true`, allows the modal to be closed by user interaction.',
       type: { name: 'boolean' },
       table: {
@@ -93,7 +93,7 @@ export const Primary: Story = {
   render: (args) => <HelperComponent {...args} />,
   args: {
     isOpen: true,
-    isCloseAble: true,
+    isCloseable: true,
     isScalable: true,
     themeType: 'primary',
     layer: 1,

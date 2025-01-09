@@ -55,7 +55,7 @@ const meta = {
         defaultValue: { summary: true },
       },
     },
-    isCloseAble: {
+    isCloseable: {
       description: 'Is the modal closeable by the user',
       control: {
         type: 'boolean',
@@ -111,7 +111,7 @@ function HelperComponent(
         </div>
       ),
       configProps || {
-        isCloseAble: false,
+        isCloseable: false,
         isScalable: true,
       }
     );
@@ -138,6 +138,6 @@ export const Primary: Story = {
   args: {
     layer: 1,
     themeType: 'primary',
-    isCloseAble: true,
+    isCloseable: true,
   },
 };

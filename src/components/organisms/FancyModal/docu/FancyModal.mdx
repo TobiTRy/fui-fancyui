@@ -67,7 +67,7 @@ import * as FancyModalStoies from './FancyModal.stories';
 
    - `id`: A unique identifier for your modal.
    - `children`: The content you want to display inside the modal (JSX).
-   - `config` (optional): An object for customization (e.g., `isCloseAble`).
+   - `config` (optional): An object for customization (e.g., `isCloseable`).
 
    ```jsx
    const openMoal = useFancyModalStore((state) => state.openModal);
@@ -80,7 +80,7 @@ import * as FancyModalStoies from './FancyModal.stories';
          <FancyTextInput label="Email" />
          <FancyButton onClick={() => closeModal('myUniqueModalId')} label="Close Modal" />
        </div>,
-       { isCloseAble: false } // Example configuration
+       { isCloseable: false } // Example configuration
      );
    };
    ```
@@ -95,7 +95,7 @@ import * as FancyModalStoies from './FancyModal.stories';
 
 You can still customize the `FancyModal` using the `config` object passed to `openModal`. For example:
 
-- `isCloseAble`: Determines if users can manually close the modal.
+- `isCloseable`: Determines if users can manually close the modal.
 
   ```jsx
   const config = {

@@ -15,7 +15,7 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
   const {
     children,
     isOpen = true,
-    isCloseAble = true,
+    isCloseable = true,
     isScalable = true,
     themeType = 'primary',
     layer = 1,
@@ -56,7 +56,7 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
 
   const closeModal = useCallback(
     (closedBy: 'status' | 'interaction') => {
-      if (closedBy === 'interaction' && !isCloseAble) return;
+      if (closedBy === 'interaction' && !isCloseable) return;
 
       // Reset any viewport-specific styles
       if (contentRef.current) {
@@ -72,7 +72,7 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
       window.scrollTo(0, scrollY.current);
       setStatusModal('closing');
     },
-    [isCloseAble]
+    [isCloseable]
   );
 
   useEffect(() => {
@@ -158,7 +158,7 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
           transition: statusModal !== 'open' ? 'transform 0.3s ease-in-out' : '',
         }}
       >
-        {isScalable && isCloseAble && (
+        {isScalable && isCloseable && (
           <ScalingSection
             ref={scalingSection}
             handleScaling={handleScaling}
