@@ -176,6 +176,7 @@ export * from '@/utils/hooks/useActiveBreakpoint';
 export * from '@/utils/hooks/useBreakpointComparison';
 export * from '@/utils/hooks/useBodyOverflow';
 export * from '@/utils/validations/isColorValid';
+export * from '@/utils/functions/clampLayer';
 
 // ---------- Design ------- //
 export * from '@/design/designFunctions/calcBorderRadiusOnAlignment';
