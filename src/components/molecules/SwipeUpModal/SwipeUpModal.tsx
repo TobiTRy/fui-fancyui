@@ -122,6 +122,7 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
 
       if (state === 'move') {
         setContentHeight(windowHeight - (flippedPosition + scalingSectionHeight));
+        setModalPosition(position);
       } else if (state === 'end') {
         const initialHeight = calcPositionInPercent(initialHeightRef.current, windowHeight) + 100;
         if (initialHeightRef.current !== 0 && position > initialHeight * 0.4) {
