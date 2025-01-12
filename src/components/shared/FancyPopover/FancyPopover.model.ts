@@ -1,6 +1,8 @@
 import React from 'react';
 
 export type TFancyPopover = {
+  isOpen?: boolean;
+  onOutsideClick?: (event: MouseEvent) => void;
   refComponent: React.ReactElement;
   contentComponent: React.ReactElement;
   offsetX?: number; // horizontal offset

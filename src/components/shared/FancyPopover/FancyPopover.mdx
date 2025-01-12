@@ -10,6 +10,8 @@ The `FancyPopover` component is a flexible and easy-to-use popover that can be a
 
 - `refComponent`: React.ReactElement - The reference component that the popover will be attached to.
 - `contentComponent`: React.ReactElement - The content to display inside the popover.
+- `isOpen`: boolean - Whether the popover is open or closed.
+- `onOutsideClick`: () => void - A callback function that is called when the user clicks outside the popover to close it.
 - `offsetX`: number (optional) - The horizontal offset from the reference component. Default is `0`.
 - `offsetY`: number (optional) - The vertical offset from the reference component. Default is `0`.
 
@@ -19,13 +21,21 @@ Here's an example of how to use the `FancyPopover`:
 
 ```jsx
 import React from 'react';
-import FancyPopover from 'path-to-FancyPopover';
+import FancyPopover from 'fui-fancyui';
 
 const App = () => {
+  const [isOpen, setIsOpen] = React.useState(false);
+
   return (
     <div>
       <FancyPopover
-        refComponent={<button>Hover over me</button>}
+        isOpen={isOpen}
+        onOutsideClick={() => setIsOpen(false)}
+        refComponent={
+          <button className={style.button} onClick={() => setIsOpen((prev) => !prev)}>
+            Click Me
+          </button>
+        }
         contentComponent={<div>This is the popover content!</div>}
         offsetX={10}
         offsetY={15}

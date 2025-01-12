@@ -1,13 +1,12 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 
 import { TFancyPopoverWithHTMLAttrs } from './FancyPopover.model';
 import { ContentContainer, RefContainer } from './FancyPopover.style';
 
 export default function FancyPopover(props: TFancyPopoverWithHTMLAttrs) {
-  const { refComponent, contentComponent, offsetX = 0, offsetY = 0, ...htmlProps } = props;
-  const [isContentVisible, setContentVisible] = useState(false);
+  const { refComponent, contentComponent, offsetX = 0, offsetY = 0, isOpen, onOutsideClick, ...htmlProps } = props;
   const ref = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
@@ -15,13 +14,13 @@ export default function FancyPopover(props: TFancyPopoverWithHTMLAttrs) {
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (ref.current && !ref.current.contains(event.target as Node)) {
-        setContentVisible(false);
+        isOpen && onOutsideClick?.(event);
       }
     }
 
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
+  }, [onOutsideClick, isOpen]);
 
   useEffect(() => {
     // this is the function that will position the content element relative to the ref element
@@ -57,17 +56,12 @@ export default function FancyPopover(props: TFancyPopoverWithHTMLAttrs) {
 
     // Remove event listener on cleanup
     return () => window.removeEventListener('resize', handleWindowResize);
-  }, [isContentVisible, offsetX, offsetY]); // Added dependencies
-
-  // hanldeClick on the ref toggles the visibility of the content element
-  const handleClick = () => {
-    setContentVisible(!isContentVisible);
-  };
+  }, [isOpen, offsetX, offsetY]); // Added dependencies
 
   return (
-    <RefContainer ref={ref} onClick={handleClick} {...htmlProps}>
+    <RefContainer ref={ref} {...htmlProps}>
       {refComponent}
-      {isContentVisible && <ContentContainer ref={contentRef}>{contentComponent}</ContentContainer>}
+      {isOpen && <ContentContainer ref={contentRef}>{contentComponent}</ContentContainer>}
     </RefContainer>
   );
 }
