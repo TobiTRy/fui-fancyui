@@ -11,8 +11,8 @@ export type TFancyImageWrapper = {
   filter?: TCssFiltersTypes;
   externalStyle?: CSSProp;
   borderRadius?: TThemeArrayOrValueCSS;
-  sizeW?: TComponentSizesExtended | 'fit' | string;
-  sizeH?: TComponentSizesExtended | 'fit' | string;
+  sizeW?: TComponentSizesExtended | 'fit' | (string & {});
+  sizeH?: TComponentSizesExtended | 'fit' | (string & {});
   objectFit?: 'cover' | 'contain' | 'fill' | 'none' | 'scale-down';
 };
 
