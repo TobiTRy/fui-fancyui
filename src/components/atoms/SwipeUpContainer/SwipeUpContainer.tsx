@@ -2,25 +2,35 @@
 
 import { forwardRef } from 'react';
 import { TSwipeUpContainerWithHTMLAttrs } from './SwipeUpContainer.model';
-import { StyledSwipeUpContainer } from './SwipeUpContainer.style';
+import { OverflowHidden, StyledSwipeUpContainer } from './SwipeUpContainer.style';
 
 // --------------------------------------------------------------------------- //
 // ----------- The Modal Atom the displays a simple Mobile Modal ------------- //
 // --------------------------------------------------------------------------- //
 const SwipeUpContainer = forwardRef<HTMLDivElement, TSwipeUpContainerWithHTMLAttrs>((props, ref) => {
-  const { children, style, isScalable = false, themeType = 'primary', layer = 0, isOpen, ...htmlAttrs } = props;
+  const {
+    children,
+    style,
+    isScalable = false,
+    themeType = 'primary',
+    layer = 0,
+    isOpen,
+    externalStyle,
+    ...htmlAttrs
+  } = props;
 
   return (
     <StyledSwipeUpContainer
+      ref={ref}
       style={isScalable ? style : { ...style }}
       $giveSpace={!isScalable}
       $themeType={themeType}
       $layer={layer}
-      ref={ref}
       $isOpen={isOpen}
+      $externalStyle={externalStyle}
       {...htmlAttrs}
     >
-      <div style={{ overflow: 'hidden' }}>{children}</div>
+      <OverflowHidden>{children}</OverflowHidden>
     </StyledSwipeUpContainer>
   );
 });

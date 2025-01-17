@@ -141,7 +141,7 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
   }, [windowHeight]);
 
   return (
-    <WrapperModal ref={wrapperModal} $externalStyle={externalStyle} {...htmlProps}>
+    <WrapperModal ref={wrapperModal} {...htmlProps}>
       <SwipeUpContainer
         ref={dialogRef}
         tabIndex={-1}
@@ -158,6 +158,8 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
               : 'translateY(120%)',
           transition: statusModal !== 'open' ? 'transform 0.3s ease-in-out' : '',
         }}
+        externalStyle={externalStyle}
+        {...htmlProps}
       >
         {isScalable && isCloseable && (
           <ScalingSection
