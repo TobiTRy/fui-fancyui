@@ -141,7 +141,7 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
   }, [windowHeight]);
 
   return (
-    <WrapperModal ref={wrapperModal} {...htmlProps}>
+    <WrapperModal ref={wrapperModal}>
       <SwipeUpContainer
         ref={dialogRef}
         tabIndex={-1}

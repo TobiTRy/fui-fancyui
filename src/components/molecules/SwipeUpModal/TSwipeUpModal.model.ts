@@ -12,7 +12,7 @@ export type TSwipeUpModal = {
   layer?: TLayer;
   backdrop?: boolean;
   onClose?: () => void;
-  externalStyle: CSSProp;
+  externalStyle?: CSSProp;
 };
 
 export type TSwipeUpModalWithHTMLAttrs = TSwipeUpModal & Omit<HTMLAttributes<HTMLDivElement>, 'style'>;
