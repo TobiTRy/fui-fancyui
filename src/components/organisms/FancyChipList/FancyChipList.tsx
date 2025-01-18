@@ -75,7 +75,7 @@ export default function FancyChipList(props: TFancyChipList) {
               label={chip.label}
               aria-readonly={!editable}
               contentEditable={editabledChip === chip.id}
-              layer={Math.min((layer ?? 1) + 2, 10) as TLayer}
+              layer={Math.min((layer ?? 1) + 1, 10) as TLayer}
               outlined={outlined}
               onBlur={() => handleChipFocus(chip.id)}
               onFocus={() => handleChipFocus(chip.id)}
