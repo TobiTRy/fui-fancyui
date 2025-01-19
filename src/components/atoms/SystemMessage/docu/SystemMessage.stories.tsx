@@ -19,7 +19,7 @@ const meta = {
   // Define arguments for the story
   argTypes: {
     ...templateThemeType('notTransparent', 'primary', 0),
-    systemMessageState: {
+    systemMessageType: {
       description: 'The system message type',
       type: { name: 'string', required: false },
       options: ['error', 'warning', 'info', 'success', undefined],
@@ -31,8 +31,8 @@ const meta = {
         type: 'object',
       },
     },
-    ownTypographyComponent: {
-      description: 'The flag to use own typography component.',
+    showMessage: {
+      description: 'The flag to show or hide the message. We use this to prevent Jumping of the content.',
       control: {
         type: 'boolean',
       },
@@ -56,14 +56,13 @@ export const Primary: Story = {
   render: (args) => <SystemMessage {...args} />,
   args: {
     children: 'This is a system message',
-    systemMessageState: 'error',
+    systemMessageType: 'error',
     themeType: 'secondary',
     layer: 0,
     textSettings: {
       variant: 'subTextFootnote',
       lineHeight: 1,
     },
-    ownTypographyComponent: false,
     externalStyle: {
       marginTop: '10px',
     },

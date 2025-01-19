@@ -48,7 +48,7 @@ const meta = {
       },
     },
     ...templateThemeType('mainThemeTypes', 'primary', 1),
-    handler: {
+    onChange: {
       description: 'Callback function that handles the current state of chips',
       control: {
         type: 'function',

@@ -1,8 +1,8 @@
-import { CSSProp, styled } from 'styled-components';
+import { styled } from 'styled-components';
 
 import { TTheme } from '@/types/TTheme';
 
-export const WrapperModal = styled.div<{ $externalStyle: CSSProp }>`
+export const WrapperModal = styled.div`
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -13,8 +13,6 @@ export const WrapperModal = styled.div<{ $externalStyle: CSSProp }>`
   left: 50%;
   z-index: 100;
   transform: translate(-50%);
-
-  ${({ $externalStyle }) => $externalStyle}
 `;
 
 export const WrapperAnimated = styled.div`

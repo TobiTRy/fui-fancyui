@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite';
+import { defineConfig, type Plugin } from 'vite';
 
 import react from '@vitejs/plugin-react-swc';
 import { visualizer } from 'rollup-plugin-visualizer';
@@ -15,7 +15,7 @@ export default defineConfig({
     dts({
       insertTypesEntry: true,
     }),
-    preserveDirectives(), // This plugin is used to preserve the directives in the output files (e.g. "use client")
+    preserveDirectives() as Plugin, // This plugin is used to preserve the directives in the output files (e.g. "use client")
     visualizer(),
   ],
   build: {

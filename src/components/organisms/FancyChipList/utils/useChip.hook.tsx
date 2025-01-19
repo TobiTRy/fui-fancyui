@@ -1,30 +1,24 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { TChip } from '@/components/organisms/FancyChipList/FancyChipList.model';
 import { setLastLetterPositionContentEditable } from '@/utils/functions/setLastLetterPositionContentEditable';
 
-export const useChip = (chips?: TChip[]) => {
-  const [chipState, setChipState] = useState<TChip[]>([]);
+export const useChip = (chips: TChip[] = [], onChange?: (chips: TChip[]) => void) => {
   const [focusedChip, setFocusedChip] = useState('');
   const [editabledChip, setEditabledChip] = useState('');
 
-  // Effect to initialize chipsWithKeys state when the chips prop changes
-  useEffect(() => {
-    setChipState(chips || []);
-  }, [chips]);
-
   // Function to add a new chip
   const addChip = (label: string) => {
-    setChipState((prev) => [...prev, { id: uuidv4(), label }]);
+    onChange?.([...chips, { id: uuidv4(), label }]);
   };
 
   // Function to delete a chip, curried to provide the chip id
   const deleteChip = (chipToDelete: string) => () => {
-    setChipState(chipState.filter((chip) => chip.id !== chipToDelete));
+    onChange?.(chips.filter((chip) => chip.id !== chipToDelete));
   };
 
   const removeLastChip = () => {
-    setChipState((prev) => prev.slice(0, -1));
+    onChange?.(chips.slice(0, -1));
   };
 
   // Function to set the focused chip
@@ -49,7 +43,7 @@ export const useChip = (chips?: TChip[]) => {
 
   // Function to update the label of a chip
   const updateChipLabel = (chipId: string, newLabel: string) => {
-    setChipState((prev) => prev.map((chip) => (chip.id === chipId ? { ...chip, label: newLabel } : chip)));
+    onChange?.(chips.map((chip) => (chip.id === chipId ? { ...chip, label: newLabel } : chip)));
   };
 
   // Function to handle editing of a chip label through keyboard events
@@ -77,7 +71,7 @@ export const useChip = (chips?: TChip[]) => {
     handleChipFocus,
     focusedChip,
     editabledChip,
-    chipState,
+    chips,
     removeLastChip,
     handleClick,
   };

@@ -25,13 +25,12 @@ export default function FancyChipList(props: TFancyChipList) {
     sizeC = 'md',
     editable,
     systemInformation,
-    handler,
+    onChange,
   } = props;
 
   // State to hold chips with unique identifiers and input values
   const [inputValue, setInputValue] = useState('');
   const {
-    chipState,
     addChip,
     handleChipEdit,
     deleteChip,
@@ -40,7 +39,7 @@ export default function FancyChipList(props: TFancyChipList) {
     handleClick,
     editabledChip,
     removeLastChip,
-  } = useChip(chips);
+  } = useChip(chips, onChange);
 
   // Function to handle input keydown events for adding and removing chips
   const handleInputKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
@@ -49,18 +48,13 @@ export default function FancyChipList(props: TFancyChipList) {
       event.preventDefault();
       addChip(val);
       setInputValue('');
-    } else if (event.key === 'Backspace' && !val && chipState.length) {
+    } else if (event.key === 'Backspace' && !val && chips.length) {
       // On backspace, if input is empty, remove the last chip and add its label to the input
-
-      const lastChip = chipState[chipState.length - 1];
+      const lastChip = chips[chips.length - 1];
       setInputValue(lastChip.label + ' '); // Add a space to prevent cursor from immediately jumping back into the chip input
       removeLastChip();
     }
   };
-
-  useEffect(() => {
-    handler && handler(chipState);
-  }, [chipState, handler]);
 
   // Function to handle changes in the input field
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -71,7 +65,7 @@ export default function FancyChipList(props: TFancyChipList) {
     <Fieldset legend={legend} typographySettings={{ variant: 'interactiveLg' }}>
       <ChipList themeType={themeType} layer={layer} outlined={outlined} sizeC={sizeC} systemMessage={systemInformation}>
         {/* // Mapping through each chip in the state to render a FancyChip */}
-        {chipState.map((chip, index) => (
+        {chips.map((chip, index) => (
           <li key={index}>
             <FancyChip
               isHoverable
@@ -81,7 +75,7 @@ export default function FancyChipList(props: TFancyChipList) {
               label={chip.label}
               aria-readonly={!editable}
               contentEditable={editabledChip === chip.id}
-              layer={Math.min((layer ?? 1) + 2, 10) as TLayer}
+              layer={Math.min((layer ?? 1) + 1, 10) as TLayer}
               outlined={outlined}
               onBlur={() => handleChipFocus(chip.id)}
               onFocus={() => handleChipFocus(chip.id)}

@@ -38,7 +38,7 @@ export default function SwipeUpModalRoute() {
         <FancyButton onClick={() => closeModal('modalTest')} label="Close Modal"></FancyButton>
       </>,
       {
-        isCloseAble: true,
+        isCloseable: true,
         isScalable: true,
       }
     );

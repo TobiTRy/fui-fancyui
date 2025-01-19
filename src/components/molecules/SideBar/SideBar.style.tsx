@@ -18,7 +18,7 @@ export const StyledSideBar = styled(FancyBox)<TStyledSideBar & { theme: TTheme }
   ${({ $isOpen, $openWidth }) =>
     $isOpen &&
     css`
-      width: ${$openWidth ?? '40%'};
+      width: ${$openWidth ?? '40%'} !important;
     `}
 `;
 

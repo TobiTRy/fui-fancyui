@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { animated, useSpring } from '@react-spring/web';
 
 import { StyledDialog } from './SimpleDialog.style';
 import { TSimpleDialogWithHTMLAttrs } from '@/components/atoms/SimpleDialog/SimpleDialog.model';
@@ -13,50 +12,49 @@ export default function SimpleDialog(props: TSimpleDialogWithHTMLAttrs) {
   const { isOpen = false, children, themeType = 'primary', layer = 1, externalStyle, ...htmlProps } = props;
 
   const dialogRef = useRef<HTMLDivElement>(null);
-  const [shouldRender, setRender] = useState(isOpen);
+  const [shouldRender, setRender] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
   const lastFocusedElement = useRef<HTMLElement | null>(null);
-
-  // Define the fade animation for the dialog
-  const fade = useSpring({
-    transform: isOpen ? 'translate(-50%, -50%)' : 'translate(-50%, -40%)',
-    opacity: isOpen ? 1 : 0,
-    onRest: () => setRender(isOpen),
-  });
 
   useEffect(() => {
     if (isOpen) {
-      // Update the shouldRender state variable when the isOpen prop changes
-      if (isOpen) setRender(true);
-      // Store the currently focused element (before modal opens)
+      setRender(true);
+      // Trigger animation in the next frame after render
+      requestAnimationFrame(() => {
+        setIsAnimating(true);
+      });
       lastFocusedElement.current = document.activeElement as HTMLElement;
     } else {
-      // Return focus to the last focused element when modal closes
+      setIsAnimating(false);
+      // Wait for animation to complete before removing from DOM
+      const timer = setTimeout(() => {
+        setRender(false);
+      }, 300); // Match this with your CSS transition duration
+
       if (lastFocusedElement.current) {
         lastFocusedElement.current.focus();
       }
+
+      return () => clearTimeout(timer);
     }
   }, [isOpen]);
 
-  // Focus the dialog when it is rendered
   useEffect(() => {
     if (shouldRender && dialogRef.current) {
-      // Delay focusing until after the animation might have completed
       const timer = setTimeout(() => {
         dialogRef?.current?.focus();
-      }, 10); // Adjust the delay to match your animation duration
+      }, 10);
 
       return () => clearTimeout(timer);
     }
   }, [shouldRender]);
 
-  // Render the SimpleDialog component with the appropriate props
   return shouldRender ? (
     <StyledDialog
       ref={dialogRef}
       tabIndex={-1}
-      as={animated.div}
-      role={'dialog'}
-      style={fade}
+      role="dialog"
+      $isAnimating={isAnimating}
       $themeType={themeType}
       $layer={layer}
       $externalStyle={externalStyle}

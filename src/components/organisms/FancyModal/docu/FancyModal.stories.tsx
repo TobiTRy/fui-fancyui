@@ -77,7 +77,7 @@ function HelperComponent(props: React.ComponentProps<typeof FancyModal> & Omit<T
         </div>
       ),
       configProps || {
-        isCloseAble: false,
+        isCloseable: false,
       }
     );
   };

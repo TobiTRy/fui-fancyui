@@ -33,7 +33,7 @@ export default function TabSwitch(props: TTabSwitchWithHTMLAtts) {
   } = props;
 
   // Define the state for the currently selected tab
-  const buttonRefs = useRef<React.RefObject<HTMLDivElement>[]>(values.map(() => React.createRef<HTMLDivElement>()));
+  const buttonRefs = useRef(values.map(() => React.createRef<HTMLDivElement>()));
   const [currentSelected, setCurrentSelect] = useState(currentSelect);
 
   // Define the function to handle the selection of a tab

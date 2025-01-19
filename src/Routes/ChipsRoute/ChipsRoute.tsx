@@ -6,6 +6,7 @@ import { Card } from '@/components/molecules/Card';
 import ChipList from '../../components/molecules/ChipList/ChipList';
 import FancyChipList from '../../components/organisms/FancyChipList/FancyChipList';
 import FancyChip from '@/components/templates/FancyChip/FancyChip';
+import { TChip } from '@/components/organisms/FancyChipList';
 
 const chipList = [
   { label: 'Item 1', id: '1' },
@@ -17,6 +18,11 @@ const chipList = [
 
 export default function ChipsRoute() {
   const [isActive, setIsActive] = React.useState(false);
+  const [chipList, setChipList] = React.useState<TChip[]>([]);
+
+  const handleChipChange = (chips: TChip[]) => {
+    setChipList(chips);
+  };
 
   const clickHandler = (id: string) => {
     console.log(id);
@@ -28,7 +34,7 @@ export default function ChipsRoute() {
       <DesignWrapper>
         <DesignArea title="ChipList">
           <ChipList />
-          <FancyChipList sizeC="sm" layer={2} chips={chipList} />
+          <FancyChipList sizeC="sm" layer={2} chips={chipList} onChange={handleChipChange} />
         </DesignArea>
         <DesignArea title="FancyChip">
           <FancyChip

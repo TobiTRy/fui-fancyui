@@ -8,6 +8,7 @@ export type TGenerateThemeDesignForComponentProps = {
   hoverColor?: TUiColorsNotTransparent;
   textColor?: TUiColorsNotTransparent;
   textHover?: TUiColorsNotTransparent;
+  outlinedRemoveBorder?: boolean;
   layer?: TLayer;
   outlined?: boolean;
   backgroundStrength?: number;

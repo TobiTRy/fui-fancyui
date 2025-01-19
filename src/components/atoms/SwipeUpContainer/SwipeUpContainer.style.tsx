@@ -1,4 +1,4 @@
-import { styled } from 'styled-components';
+import { CSSProp, styled } from 'styled-components';
 import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent';
 import { TLayer } from '@/types/TLayer';
 import { TTheme } from '@/types/TTheme';
@@ -10,6 +10,7 @@ interface IStyledSwipeUpContainer {
   $themeType?: TUiColorsNotTransparent;
   $layer?: TLayer;
   $isOpen?: boolean;
+  $externalStyle?: CSSProp;
 }
 export const StyledSwipeUpContainer = styled.div<IStyledSwipeUpContainer>`
   overflow: hidden;
@@ -27,4 +28,9 @@ export const StyledSwipeUpContainer = styled.div<IStyledSwipeUpContainer>`
   backdrop-filter: blur(4px);
   background-color: ${({ theme, $themeType = 'primary', $layer = 0 }) =>
     getBackgroundColor({ theme, $themeType, $layer })};
+  ${({ $externalStyle }) => $externalStyle}
+`;
+
+export const OverflowHidden = styled.div`
+  overflow: hidden;
 `;

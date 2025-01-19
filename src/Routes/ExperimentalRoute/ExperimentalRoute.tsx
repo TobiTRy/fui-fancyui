@@ -15,6 +15,8 @@ import { FancyTabSwitch } from '@/components/organisms/FancyTabSwitch';
 import DynamicComponentWrapper from '@/components/atoms/DynamicComponentWrapper/DynamicComponentWrapper';
 import { FancyBox } from '@/components/atoms/FancyBox';
 import { SwipeUpContainer } from '@/components/atoms/SwipeUpContainer';
+import { useActiveBreakpoint } from '@/utils/hooks/useActiveBreakpoint';
+import { SystemMessage } from '@/components/atoms/SystemMessage';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -64,6 +66,9 @@ export default function ExperimentalRoute() {
   const [password, setPassword] = useState('');
   const [isHover, setIsHover] = useState(false);
   const [modalPosition, setModalPosition] = useState({ height: '100%' });
+  const activeBP = useActiveBreakpoint();
+
+  console.log(activeBP);
 
   const [selectedValue, setSelectedValue] = useState(null);
 
@@ -77,14 +82,23 @@ export default function ExperimentalRoute() {
     <>
       <DesignWrapper>
         <DesignArea title="Test">
-          <FancyButton
-            borderRadius="md"
-            sizeC="md"
+          <SystemMessage
             themeType="secondary"
-            icon={reloadIcon}
-            onClick={() => switchTheme()}
-          />
+            showMessage={true}
+            textSettings={{
+              variant: 'interactiveLg',
+            }}
+          >
+            Mooiin
+          </SystemMessage>
         </DesignArea>
+        <FancyButton
+          borderRadius="md"
+          sizeC="md"
+          themeType="secondary"
+          icon={reloadIcon}
+          onClick={() => switchTheme()}
+        />
         <DynamicComponentWrapper wrapperComponent={<a href="https://fui.cool" />}>
           <p>Test</p>
         </DynamicComponentWrapper>
