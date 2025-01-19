@@ -61,7 +61,7 @@
     "@storybook/addon-themes": "8.0.5",
     "@storybook/blocks": "8.0.5",
     "@storybook/react": "8.0.5",
-    "@storybook/react-vite": "8.5.0",
+    "@storybook/react-vite": "8.0.5",
     "@storybook/testing-library": "0.2.2",
     "@storybook/theming": "8.0.5",
     "@swc/cli": "^0.3.12",
@@ -97,7 +97,7 @@
     "styled-components": "^6.1.13",
     "typescript": "^5.0.2",
     "uuid": "^9.0.1",
-    "vite": "^6.0.6",
+    "vite": "^5.4.11",
     "vitest": "2.1.5",
     "zustand": "^4.5.2"
   },
