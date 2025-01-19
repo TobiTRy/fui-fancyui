@@ -12,7 +12,7 @@ describe('<SystemMessage />', () => {
   it('renders the component with text', () => {
     const { getByText } = render(
       <MockThemeProvider>
-        <SystemMessage systemMessageState="error">Error message</SystemMessage>
+        <SystemMessage systemMessageType="error">Error message</SystemMessage>
       </MockThemeProvider>
     );
     expect(getByText('Error message')).toBeInTheDocument();
@@ -23,7 +23,7 @@ describe('<SystemMessage />', () => {
     const tree = renderer
       .create(
         <MockThemeProvider>
-          <SystemMessage systemMessageState="error">Submit</SystemMessage>
+          <SystemMessage systemMessageType="error">Submit</SystemMessage>
         </MockThemeProvider>
       )
 
@@ -36,7 +36,7 @@ describe('<SystemMessage />', () => {
     const tree = renderer
       .create(
         <MockThemeProvider>
-          <SystemMessage systemMessageState="success">Submit</SystemMessage>
+          <SystemMessage systemMessageType="success">Submit</SystemMessage>
         </MockThemeProvider>
       )
       .toJSON();
@@ -48,7 +48,7 @@ describe('<SystemMessage />', () => {
     const tree = renderer
       .create(
         <MockThemeProvider>
-          <SystemMessage systemMessageState="info">Submit</SystemMessage>
+          <SystemMessage systemMessageType="info">Submit</SystemMessage>
         </MockThemeProvider>
       )
       .toJSON();
@@ -60,7 +60,7 @@ describe('<SystemMessage />', () => {
     const tree = renderer
       .create(
         <MockThemeProvider>
-          <SystemMessage systemMessageState="warning">Submit</SystemMessage>
+          <SystemMessage systemMessageType="warning">Submit</SystemMessage>
         </MockThemeProvider>
       )
       .toJSON();

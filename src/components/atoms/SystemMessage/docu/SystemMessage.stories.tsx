@@ -32,7 +32,7 @@ const meta = {
       },
     },
     showMessage: {
-      description: 'The flag to show or hide the message.',
+      description: 'The flag to show or hide the message. We use this to prevent Jumping of the content.',
       control: {
         type: 'boolean',
       },
