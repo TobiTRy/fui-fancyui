@@ -16,6 +16,7 @@ import DynamicComponentWrapper from '@/components/atoms/DynamicComponentWrapper/
 import { FancyBox } from '@/components/atoms/FancyBox';
 import { SwipeUpContainer } from '@/components/atoms/SwipeUpContainer';
 import { useActiveBreakpoint } from '@/utils/hooks/useActiveBreakpoint';
+import { SystemMessage } from '@/components/atoms/SystemMessage';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -81,14 +82,23 @@ export default function ExperimentalRoute() {
     <>
       <DesignWrapper>
         <DesignArea title="Test">
-          <FancyButton
-            borderRadius="md"
-            sizeC="md"
+          <SystemMessage
             themeType="secondary"
-            icon={reloadIcon}
-            onClick={() => switchTheme()}
-          />
+            showMessage={true}
+            textSettings={{
+              variant: 'interactiveLg',
+            }}
+          >
+            Mooiin
+          </SystemMessage>
         </DesignArea>
+        <FancyButton
+          borderRadius="md"
+          sizeC="md"
+          themeType="secondary"
+          icon={reloadIcon}
+          onClick={() => switchTheme()}
+        />
         <DynamicComponentWrapper wrapperComponent={<a href="https://fui.cool" />}>
           <p>Test</p>
         </DynamicComponentWrapper>

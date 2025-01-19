@@ -1,23 +1,22 @@
 'use client';
 
 import { StyledSystemMessageWrapper } from '@/components/atoms/SystemMessage/SystemMessage.style';
-import { Typography } from '@/components/atoms/Typography';
+import { Typography, TTypography } from '@/components/atoms/Typography';
 
 import { TSystemMessageWithHTMLAttrs } from '@/components/atoms/SystemMessage/TSystemMassage.model';
-import { TTypography } from '@/components/atoms/Typography/Typography.model';
 
 // --------------------------------------------------------------------------- //
 // ------- Only a SystemMessage(Text) that renders in different colors ------- //
 // --------------------------------------------------------------------------- //
 export default function SystemMessage(props: TSystemMessageWithHTMLAttrs & { textSettings?: TTypography }) {
   const {
-    themeType,
+    themeType = 'error',
     layer,
-    systemMessageState,
+    systemMessageType,
     children,
     textSettings,
-    ownTypographyComponent,
     externalStyle,
+    showMessage = true,
     ...htmlProps
   } = props;
 
@@ -25,16 +24,17 @@ export default function SystemMessage(props: TSystemMessageWithHTMLAttrs & { tex
     <StyledSystemMessageWrapper
       $themeType={themeType}
       $layer={layer}
-      $systemMessageState={systemMessageState}
+      $systemMessageType={systemMessageType}
       $externalStyle={externalStyle}
+      $fontVariant={textSettings?.variant ?? 'subTextFootnote'}
+      role="alert"
       {...htmlProps}
     >
-      {!ownTypographyComponent && (
+      {!!showMessage && (
         <Typography variant="subTextFootnote" tabIndex={-1} lineHeight={1} {...textSettings}>
           {children}
         </Typography>
       )}
-      {ownTypographyComponent && children}
     </StyledSystemMessageWrapper>
   );
 }
