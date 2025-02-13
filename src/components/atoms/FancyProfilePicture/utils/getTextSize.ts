@@ -5,6 +5,7 @@ import { TTypographyVariants } from '@/types/TTypographyVariants';
 export const getTextSize = (sizeC: TglobalElementSizesWithFit | (string & {})): TTypographyVariants => {
   switch (sizeC) {
     case 'xxs':
+      return 'subTextLegal';
     case 'xs':
       return 'subTextFootnote';
     case 'sm':

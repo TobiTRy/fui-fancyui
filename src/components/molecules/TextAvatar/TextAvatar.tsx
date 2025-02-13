@@ -12,7 +12,7 @@ import { generateText } from './utils/generateText';
 // --------------------------------------------------------------------------- //
 export default function TextAvatar(props: TTTextAvatarWithHTMLAttrs) {
   const {
-    borderRadius,
+    borderRadius = 'complete',
     sizeC = 'md',
     color,
     backgroundColor,
