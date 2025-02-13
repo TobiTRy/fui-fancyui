@@ -1,5 +1,4 @@
 import { TFancySVGAtomSizes } from '@/components/atoms/FancySVGAtom';
-import { TComponentSizes } from '@/types';
 import { TSizeSettings } from '@/types/TSizeSettings';
 
 type TSizeObj = {
