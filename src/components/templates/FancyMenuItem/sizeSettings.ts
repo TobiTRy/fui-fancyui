@@ -14,10 +14,10 @@ export const sizeSettings: TSizeSettings<TSizeObj> = {
   },
   md: {
     fontSizeTitle: 'interactiveMd',
-    iconSize: 'sm',
+    iconSize: 'md',
   },
   lg: {
     fontSizeTitle: 'bodytextLg',
-    iconSize: 'md',
+    iconSize: 'lg',
   },
 };
