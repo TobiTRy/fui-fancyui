@@ -88,12 +88,6 @@ const meta = {
         type: 'boolean',
       },
     },
-    gap: {
-      description: 'This prop will change the gap between the icon and the label',
-      control: {
-        type: 'text',
-      },
-    },
     externalStyle: {
       description: 'This prop will change the style of the button',
       control: {

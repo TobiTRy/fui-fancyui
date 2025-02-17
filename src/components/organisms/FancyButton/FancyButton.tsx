@@ -25,7 +25,6 @@ export default function FancyButton(props: TFancyButtonWithHTMLAttrs) {
     align = 'center',
     externalStyle,
     oneToOne,
-    gap,
     outlined,
     noSize,
     ...buttonProps
@@ -55,7 +54,7 @@ export default function FancyButton(props: TFancyButtonWithHTMLAttrs) {
       `}
       {...(buttonProps as TButton)}
     >
-      <FancyContent direction={alignIcon} gapBetweenIcon={gap}>
+      <FancyContent direction={alignIcon} gapBetweenIcon={sizeSettings[sizeC].gap}>
         {label && (
           <FancyContent.Title fontVariant={sizeSettings[sizeC ?? 'md'].fontSize} themeType={buttonProps.textColor}>
             {label}

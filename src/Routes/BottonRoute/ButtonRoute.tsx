@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';
 import FancyButton from '../../components/organisms/FancyButton/FancyButton';
 import { css } from 'styled-components';
-import { SVGChevronLeft } from '@/components/icons';
+import { SVGChevronLeft, SVGChevronRight } from '@/components/icons';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -26,17 +26,17 @@ export default function ButtonRoute() {
   return (
     <DesignWrapper>
       <DesignArea title="Buttons sizes" style={backgroundColor}>
-        <FancyButton themeType="primary" icon={<SVGChevronLeft />} label="Hhdsds" sizeC="lg" layer={2} />
+        <FancyButton themeType="primary" label="Hhdsds" sizeC="lg" layer={2} />
+        <FancyButton themeType="primary" icon={<SVGChevronRight />} label="Hhdsds" sizeC="lg" layer={2} />
         <FancyButton
           label="Button"
           themeType="primary"
           sizeC="sm"
-          icon={<SVGChevronLeft />}
-          disabled
+          icon={<SVGChevronRight />}
           onClick={() => console.log('Trigger me Dadddy')}
         />
-        <FancyButton label="Button" icon={<SVGChevronLeft />} themeType="primary" sizeC="md" />
-        <FancyButton label="ButtonLG" icon={<SVGChevronLeft />} themeType="primary" sizeC="lg" />
+        <FancyButton label="Button" icon={<SVGChevronRight />} themeType="primary" sizeC="md" />
+        <FancyButton label="ButtonLG" icon={<SVGChevronRight />} themeType="primary" sizeC="lg" />
       </DesignArea>
       {/* <FancyButton
           label="Button"

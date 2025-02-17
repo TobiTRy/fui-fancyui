@@ -24,14 +24,14 @@ export const sizes: TSizeSettings<TSizeObj> = {
     fontSizeTitle: 'bodytextMd',
     fontSizeDescription: 'interactiveMd',
     padding: 'sm',
-    iconPadding: 'xxs',
+    iconPadding: 'xxxs',
     iconSize: 'xxs',
   },
   lg: {
     fontSizeTitle: 'bodytextLg',
     fontSizeDescription: 'interactiveLg',
     padding: 'md',
-    iconPadding: 'xxs',
+    iconPadding: undefined,
     iconSize: 'xs',
   },
 };
