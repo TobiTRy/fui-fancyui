@@ -36,7 +36,14 @@ export default function ButtonRoute() {
           onClick={() => console.log('Trigger me Dadddy')}
         />
         <FancyButton label="Button" icon={<SVGChevronRight />} themeType="primary" sizeC="md" />
-        <FancyButton label="ButtonLG" icon={<SVGChevronRight />} themeType="primary" sizeC="lg" />
+        <FancyButton
+          outlined
+          label="ButtonLG"
+          icon={<SVGChevronRight />}
+          backgroundState="hover"
+          themeType="primary"
+          sizeC="lg"
+        />
       </DesignArea>
       {/* <FancyButton
           label="Button"
