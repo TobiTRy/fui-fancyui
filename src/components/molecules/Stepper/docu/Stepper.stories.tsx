@@ -115,7 +115,7 @@ const meta = {
       description: 'The background state of the component',
       control: { type: 'select' },
     },
-    backgroundStrength: {
+    outlinedBackgroundStrength: {
       description: 'The background strength of the component',
       control: { type: 'number' },
       min: 0,

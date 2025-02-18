@@ -6,13 +6,13 @@ import { clampLayer } from '@/utils/functions/clampLayer';
 
 type TGenerateOutlinedHoverStyle = Pick<
   IGenerateThemeDesignForComponent,
-  '$themeType' | 'theme' | '$layer' | '$backgroundStrength' | '$hoverColor'
+  '$themeType' | 'theme' | '$layer' | '$outlinedBackgroundStrength' | '$hoverColor'
 >;
 // --------------------------------------------------------------------------- //
 // ---- this function generates the color for the background ----------------- //
 // --------------------------------------------------------------------------- //
 const generateHoverColor = (props: TGenerateOutlinedHoverStyle & { isActiveSate?: boolean }) => {
-  const { theme, $layer = 0, $themeType, $backgroundStrength = 1, $hoverColor, isActiveSate } = props;
+  const { theme, $layer = 0, $themeType, $outlinedBackgroundStrength = 1, $hoverColor, isActiveSate } = props;
 
   // generate the background color with a transparency of the background color
   const generateSlightBackgroundColor = colorTransparencyCalculator(
@@ -21,7 +21,7 @@ const generateHoverColor = (props: TGenerateOutlinedHoverStyle & { isActiveSate?
       $themeType: $hoverColor ?? $themeType ?? 'primary',
       $layer: isActiveSate ? $layer : clampLayer($layer + 2),
     }),
-    $backgroundStrength
+    $outlinedBackgroundStrength
   );
 
   return generateSlightBackgroundColor;
@@ -32,7 +32,7 @@ type TGenerateStateStyle = Pick<
   | '$themeType'
   | 'theme'
   | '$layer'
-  | '$backgroundStrength'
+  | '$outlinedBackgroundStrength'
   | '$hoverColor'
   | '$backgroundState'
   | '$outlined'

@@ -11,7 +11,7 @@ type TGenerateOutlineStyle = Pick<
   | '$themeType'
   | 'theme'
   | '$layer'
-  | '$backgroundStrength'
+  | '$outlinedBackgroundStrength'
   | '$backgroundState'
   | '$hoverColor'
   | '$textColor'
@@ -26,7 +26,7 @@ export const generateOutlineStyle = (props: TGenerateOutlineStyle) => {
     theme,
     $layer = 0,
     $backgroundState,
-    $backgroundStrength = 0.1,
+    $outlinedBackgroundStrength = 0.1,
     $textColor,
     $outlinedRemoveBorder,
   } = props;
@@ -36,7 +36,7 @@ export const generateOutlineStyle = (props: TGenerateOutlineStyle) => {
 
   const generateSlightBackgroundColor = colorTransparencyCalculator(
     getBackgroundColor({ theme, $themeType: $themeType || 'primary', $layer: clampLayer($layer - 3) }),
-    $backgroundStrength
+    $outlinedBackgroundStrength
   );
 
   return css`
@@ -47,6 +47,6 @@ export const generateOutlineStyle = (props: TGenerateOutlineStyle) => {
 
     /* This generate the hover / active style if its needed */
     ${$backgroundState &&
-    generateStateStyle({ ...props, $outlined: true, $backgroundStrength: $backgroundStrength + 0.1 })}
+    generateStateStyle({ ...props, $outlined: true, $outlinedBackgroundStrength: $outlinedBackgroundStrength + 0.1 })}
   `;
 };

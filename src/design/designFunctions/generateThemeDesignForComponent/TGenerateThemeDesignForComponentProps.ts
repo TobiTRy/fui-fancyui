@@ -11,7 +11,7 @@ export type TGenerateThemeDesignForComponentProps = {
   outlinedRemoveBorder?: boolean;
   layer?: TLayer;
   outlined?: boolean;
-  backgroundStrength?: number;
+  outlinedBackgroundStrength?: number;
   backgroundState?: 'hover' | 'active';
   useSimpleTextColor?: boolean;
 };

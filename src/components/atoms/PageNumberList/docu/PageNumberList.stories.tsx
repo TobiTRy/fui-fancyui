@@ -61,7 +61,7 @@ const meta = {
         defaultValue: {
           summary: {
             textColorActive: 'accent',
-            backgroundStrength: 0.1,
+            outlinedBackgroundStrength: 0.1,
             outlines: false,
             textColor: 'secondary',
             hoverColor: 'secondary',
@@ -87,7 +87,7 @@ export const Primary: Story = {
     pageLimits: 99,
     pageHandler: (page: number) => console.log(page),
     numberButtonStyle: {
-      backgroundStrength: 0.1,
+      outlinedBackgroundStrength: 0.1,
       textColor: 'secondary',
       textColorActive: 'accent',
     },

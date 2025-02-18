@@ -216,6 +216,6 @@ export const theme = {
     xxl: '64px',
   },
   outlined: {
-    backgroundStrength: 0.5,
+    outlinedBackgroundStrength: 0.5,
   },
 };

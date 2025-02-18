@@ -10,7 +10,7 @@ type TGenerateTransparentStyle = Pick<
   | '$outlined'
   | 'theme'
   | '$layer'
-  | '$backgroundStrength'
+  | '$outlinedBackgroundStrength'
   | '$backgroundState'
   | '$hoverColor'
   | '$textColor'
@@ -20,9 +20,9 @@ type TGenerateTransparentStyle = Pick<
 // ---------- generates a transparent background ---------- //
 // --------------------------------------------------------- //
 export const generateTransparentStyle = (props: TGenerateTransparentStyle) => {
-  const { $backgroundState, $textColor, $backgroundStrength = 0.3, $layer, $textHover } = props;
+  const { $backgroundState, $textColor, $outlinedBackgroundStrength = 0.3, $layer, $textHover } = props;
 
-  const getBackgroundStrength = themeStore((state) => state.theme.outlined.backgroundStrength);
+  const getBackgroundStrength = themeStore((state) => state.theme.outlined.outlinedBackgroundStrength);
 
   return css`
     color: ${generateTextColor({ $layer, $themeType: $textColor })};
@@ -31,7 +31,7 @@ export const generateTransparentStyle = (props: TGenerateTransparentStyle) => {
     ${$backgroundState &&
     generateStateStyle({
       ...props,
-      $backgroundStrength: $backgroundStrength || getBackgroundStrength,
+      $outlinedBackgroundStrength: $outlinedBackgroundStrength || getBackgroundStrength,
       $textHover: $textHover,
       $textColor: $textColor,
     })}

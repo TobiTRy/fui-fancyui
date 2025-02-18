@@ -24,7 +24,7 @@ export default function ActionItem(props: TActionItemWithHTMLProps) {
     themeType = 'primary',
     themeTypeActiveHover = 'accent',
     backgroundState,
-    backgroundStrength,
+    outlinedBackgroundStrength,
     hoverColor,
     outlined,
     disabled,
@@ -53,7 +53,7 @@ export default function ActionItem(props: TActionItemWithHTMLProps) {
         $textColor={textColor}
         $textHover={textHover}
         $useSimpleTextColor={useSimpleTextColor}
-        $backgroundStrength={backgroundStrength}
+        $outlinedBackgroundStrength={outlinedBackgroundStrength}
         $themeType={isActive ? themeTypeActiveHover : themeType}
         $hoverColor={hoverColor || isActive ? themeTypeActiveHover : themeType}
         $backgroundState={backgroundState || (isClickable ? unHoverActive : 'active')}

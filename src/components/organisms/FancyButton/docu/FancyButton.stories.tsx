@@ -115,7 +115,7 @@ const meta = {
         type: 'boolean',
       },
     },
-    backgroundStrength: {
+    outlinedBackgroundStrength: {
       description: 'This prop will change the background strength of the button',
       control: {
         type: 'text',
