@@ -26,7 +26,10 @@ export const ButtonStyle = styled.span<IGenerateThemeDesignForComponent & TStyle
     color 0.125s ease-in-out;
 
   ${(props: IGenerateThemeDesignForComponent & { $disabled?: boolean }) =>
-    generateThemeDesignForComponent({ ...props, $backgroundState: props.$disabled ? 'active' : 'hover' })}
+    generateThemeDesignForComponent({
+      ...props,
+      $backgroundState: props.$disabled ? 'active' : (props.$backgroundState ?? 'hover'),
+    })}
 
   ${({ $sizeC, $borderRadius }) =>
     $borderRadius !== false && generateBorderRadiusForComponent({ sizeC: $sizeC, borderRadius: $borderRadius })};

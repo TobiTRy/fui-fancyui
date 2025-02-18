@@ -26,11 +26,12 @@ export default function ButtonRoute() {
   return (
     <DesignWrapper>
       <DesignArea title="Buttons sizes" style={backgroundColor}>
-        <FancyButton themeType="primary" outlined label="Hhdsds" sizeC="lg" layer={2} />
+        <FancyButton themeType="primary" backgroundState="active" label="Hhdsds" sizeC="lg" layer={2} />
         <FancyButton
           outlinedRemoveBorder
           themeType="primary"
           outlined
+          backgroundState="active"
           icon={<SVGChevronRight />}
           label="Hhdsds"
           sizeC="lg"
