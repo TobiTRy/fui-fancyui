@@ -15,15 +15,16 @@ interface IGenerateFancyButton {
   $icon?: boolean;
   $outlined?: boolean;
   $noSize?: boolean;
+  $removeBorder?: boolean;
 }
 export const generateFancyButton = (props: IGenerateFancyButton) => {
-  const { $sizeC, $oneToOne, $justifyContent, $iconAlign, $icon, $outlined, $noSize = false } = props;
+  const { $sizeC, $oneToOne, $justifyContent, $iconAlign, $icon, $outlined, $noSize = false, $removeBorder } = props;
 
   return css`
     display: inline-flex;
     justify-content: ${$justifyContent ?? 'center'};
     ${$oneToOne && generate1To1Button($sizeC)};
-    ${!$oneToOne && !$noSize && generateSize($sizeC, $icon, $iconAlign, $outlined)};
+    ${!$oneToOne && !$noSize && generateSize($sizeC, $icon, $iconAlign, $outlined, $removeBorder)};
   `;
 };
 
@@ -42,7 +43,8 @@ const generateSize = (
   $sizeC: TComponentSizes,
   $icon?: boolean,
   $iconAlign?: IGenerateFancyButton['$iconAlign'],
-  outlined?: boolean
+  outlined?: boolean,
+  $removeBorder?: boolean
 ) => {
   let padding = sizeSettings[$sizeC].padding;
 
@@ -65,7 +67,7 @@ const generateSize = (
   const cssValues = arrayToCssValues(padding, 'spacing');
 
   // clac offset for outlined buttons
-  if (outlined && cssValues) {
+  if (!$removeBorder && outlined && cssValues) {
     const shrinkedPaddingWithBorder = calcCSSValuesWithOffset(cssValues, -2);
 
     return css`

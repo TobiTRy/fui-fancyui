@@ -27,6 +27,7 @@ export default function FancyButton(props: TFancyButtonWithHTMLAttrs) {
     oneToOne,
     outlined,
     noSize,
+    outlinedRemoveBorder,
     ...buttonProps
   } = props;
 
@@ -41,6 +42,7 @@ export default function FancyButton(props: TFancyButtonWithHTMLAttrs) {
     $justifyContent: leftRightCenterToFlexJustify[align ?? 'center'],
     $outlined: outlined,
     $noSize: noSize,
+    $removeBorder: outlinedRemoveBorder,
   });
 
   return (
@@ -48,6 +50,7 @@ export default function FancyButton(props: TFancyButtonWithHTMLAttrs) {
       sizeC={sizeC}
       noSize={true}
       outlined={outlined}
+      outlinedRemoveBorder={outlinedRemoveBorder}
       externalStyle={css`
         ${generateFancyStyle};
         ${externalStyle};
