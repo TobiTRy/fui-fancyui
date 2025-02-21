@@ -21,7 +21,7 @@ export const HiddenRadio = styled.input.attrs({ type: 'radio' })`
   cursor: pointer;
   opacity: 1;
   background-color: transparent;
-  z-index: 0;
+  z-index: 1;
   appearance: none;
   outline: none;
   width: 16px;
@@ -41,6 +41,7 @@ export const StyledRadio = styled.span<TStyledRadio & { theme: TTheme }>`
   display: inline-block;
   position: relative;
   flex-shrink: 0;
+  z-index: 0;
   transition:
     background 0.2s ease,
     border-color 0.2s ease;
