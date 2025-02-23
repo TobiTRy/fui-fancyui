@@ -168,6 +168,7 @@ export * from '@/components/shared/ComponentAsWrapper';
 export * from '@/components/shared/FancyPortal';
 export * from '@/utils/hooks/useIntersectionObserver';
 export * from '@/utils/hooks/useWindowDimensions';
+export * from '@/utils/hooks/useMergeRefs';
 export * from '@/design/theme/FancyThemeProvider';
 export * from '@/utils/functions/clampNumber';
 export * from '@/utils/functions/copyToClipBoard';
