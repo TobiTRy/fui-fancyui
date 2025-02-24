@@ -6,6 +6,8 @@ import { CSSProp } from 'styled-components';
 export type TSimpleDialog = {
   isOpen?: boolean;
   children?: React.ReactNode;
+  header?: React.ReactNode;
+  footer?: React.ReactNode;
   themeType?: TUiColorsNotTransparent;
   layer?: TLayer;
   externalStyle?: CSSProp;

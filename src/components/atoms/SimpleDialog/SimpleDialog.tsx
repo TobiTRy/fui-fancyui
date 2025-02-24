@@ -2,14 +2,23 @@
 
 import { useEffect, useRef, useState } from 'react';
 
-import { StyledDialog } from './SimpleDialog.style';
+import { StyledContent, StyledDialog, StyledHeader, StyledFooter } from './SimpleDialog.style';
 import { TSimpleDialogWithHTMLAttrs } from '@/components/atoms/SimpleDialog/SimpleDialog.model';
 
 // --------------------------------------------------------------------------- //
 // -------  A container that can filld with everythin and acts as a dialog --- //
 // --------------------------------------------------------------------------- //
 export default function SimpleDialog(props: TSimpleDialogWithHTMLAttrs) {
-  const { isOpen = false, children, themeType = 'primary', layer = 1, externalStyle, ...htmlProps } = props;
+  const {
+    isOpen = false,
+    children,
+    header,
+    footer,
+    themeType = 'primary',
+    layer = 1,
+    externalStyle,
+    ...htmlProps
+  } = props;
 
   const dialogRef = useRef<HTMLDivElement>(null);
   const [shouldRender, setRender] = useState(false);
@@ -60,7 +69,9 @@ export default function SimpleDialog(props: TSimpleDialogWithHTMLAttrs) {
       $externalStyle={externalStyle}
       {...htmlProps}
     >
-      {children}
+      <StyledHeader>{header}</StyledHeader>
+      <StyledContent>{children}</StyledContent>
+      <StyledFooter>{footer}</StyledFooter>
     </StyledDialog>
   ) : null;
 }
