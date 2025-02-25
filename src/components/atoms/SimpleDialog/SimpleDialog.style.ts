@@ -35,7 +35,7 @@ export const StyledDialog = styled.div<TStyledDialog>`
 `;
 
 export const StyledHeader = styled.div<{ theme: TTheme }>`
-  padding: ${({ theme }) => `${theme.spacing.lg} ${theme.spacing.lg}  ${theme.spacing.lg} `};
+  padding: ${({ theme }) => `${theme.spacing.lg} ${theme.spacing.lg} 0`};
 `;
 
 export const StyledContent = styled.div<{ theme: TTheme }>`

@@ -12,7 +12,7 @@ export default function ModalRoute() {
   const handleModalCreation = () => {
     createModal({
       id: 'modal',
-      header: <FancyModalHeadLine title="Modal Title" />,
+      header: <p>Modal Footer</p>,
       content: (
         <>
           <FancyButton onClick={() => closeModal('modal')} sizeC="sm" label="close modal"></FancyButton>
