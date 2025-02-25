@@ -71,7 +71,7 @@ function HelperComponent(props: React.ComponentProps<typeof FancyModal> & Omit<T
     openModal({
       id: 'modal',
       header: <p>Modal Header</p>,
-      content: (
+      children: (
         <>
           <FancyTextInput label="Name" />
           <FancyTextInput label="Email" />

@@ -14,7 +14,7 @@ export type TFancyModal = {
 export type TFancyModalOpen = {
   id: string;
   header?: React.ReactNode;
-  content: React.ReactNode;
+  children: React.ReactNode;
   footer?: React.ReactNode;
   config?: TModalConfig;
 };

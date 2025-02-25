@@ -13,7 +13,7 @@ export default function ModalRoute() {
     createModal({
       id: 'modal',
       header: <p>Modal Footer</p>,
-      content: (
+      children: (
         <>
           <FancyButton onClick={() => closeModal('modal')} sizeC="sm" label="close modal"></FancyButton>
           <FancyButton onClick={() => closeModal('modal')} sizeC="sm" label="close modal"></FancyButton>

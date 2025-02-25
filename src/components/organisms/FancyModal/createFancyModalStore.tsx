@@ -15,9 +15,9 @@ interface IModalModule {
 export function createFancyModalStore() {
   return create<IModalModule>((set) => ({
     modals: [],
-    openModal: ({ id, content, footer, header, config }) =>
+    openModal: ({ id, children, footer, header, config }) =>
       set((state) => ({
-        modals: [...state.modals, { id, children: content, status: 'open', config, footer, header }],
+        modals: [...state.modals, { id, children, status: 'open', config, footer, header }],
       })),
     closeModal: (id) => {
       set((state) => ({
