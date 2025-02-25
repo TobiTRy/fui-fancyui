@@ -68,18 +68,18 @@ function HelperComponent(props: React.ComponentProps<typeof FancyModal> & Omit<T
   const closeModal = useFancyModalStore((state) => state.closeModal);
 
   const openModalHandler = () => {
-    openModal(
-      appendToDomID || 'modalTest',
-      children || (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
+    openModal({
+      id: 'modal',
+      header: <p>Modal Header</p>,
+      content: (
+        <>
+          <FancyTextInput label="Name" />
           <FancyTextInput label="Email" />
-          <FancyButton onClick={() => closeModal('modalTest')} label="Close Modal"></FancyButton>
-        </div>
+          <FancyTextInput label="Phone" />
+        </>
       ),
-      configProps || {
-        isCloseable: false,
-      }
-    );
+      footer: <FancyButton label="Submit" />,
+    });
   };
   return (
     <>
