@@ -226,3 +226,10 @@ export * from '@/design/theme/applyThemeToDomStyleSheet';
 
 // ---------- SVGs ------- //
 export * from '@/components/icons/';
+
+// ---------- Logo Images ------- //
+import Logo from '../assets/FancyUI.png';
+import LogoWithTextLight from '../assets/FancyUILogo_With_Text_Light.png';
+import LogoWithTextDark from '../assets/FancyUILogo_With_Text_Dark.png';
+
+export { Logo, LogoWithTextLight, LogoWithTextDark };
