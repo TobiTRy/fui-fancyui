@@ -15,7 +15,7 @@ export const sizeSettings: TSizeSettings<TSizeObj> = {
   sm: {
     padding: ['xxs', 'xs'],
     height: 'sm',
-    iconSize: 'xxxs',
+    iconSize: 'xxs',
     borderRadius: 'sm',
   },
   md: {

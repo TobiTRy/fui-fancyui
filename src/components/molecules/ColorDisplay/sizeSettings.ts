@@ -16,7 +16,7 @@ export const sizeSettings: TSizeSettings<TSizeObj> = {
     height: 'xxs',
     borderRadius: 'xxs',
     typographyVariant: 'subTextFootnote',
-    iconSize: 'xxxs',
+    iconSize: '3xs',
   },
   md: {
     height: 'xs',
