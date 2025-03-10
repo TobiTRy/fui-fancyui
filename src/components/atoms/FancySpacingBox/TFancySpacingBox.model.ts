@@ -2,10 +2,13 @@ import { ElementType } from 'react';
 import { CSSProp } from 'styled-components';
 
 import { TThemeArrayOrValueCSS } from '@/design/designFunctions/arrayToCssValues';
+import { TglobalElementSizesWithFit } from '@/types';
 
 export type TFancySpacingBox = {
   padding?: TThemeArrayOrValueCSS;
   margin?: TThemeArrayOrValueCSS;
+  width?: TglobalElementSizesWithFit;
+  height?: TglobalElementSizesWithFit;
   externalStyle?: CSSProp;
 };
 

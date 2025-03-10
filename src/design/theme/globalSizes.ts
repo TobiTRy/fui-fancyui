@@ -78,7 +78,11 @@ export const globalElementSizes = {
   md: globalSizes.md.elementSize,
   lg: globalSizes.lg.elementSize,
   xl: globalSizes.xl.elementSize,
-  xxl: globalSizes.xxl.elementSize,
+  '2xl': globalSizes.xxl.elementSize,
+  '3xl': parseInt(globalSizes.xxl.elementSize) * 2 + 'px',
+  '4xl': parseInt(globalSizes.xxl.elementSize) * 3 + 'px',
+  '5xl': parseInt(globalSizes.xxl.elementSize) * 4 + 'px',
+  '6xl': parseInt(globalSizes.xxl.elementSize) * 5 + 'px',
 };
 
 export const globalElementSizesWithFit = {
