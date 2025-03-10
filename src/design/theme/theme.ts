@@ -96,7 +96,7 @@ export const theme = {
     complete: '200px',
   },
   spacing: {
-    xxxs: '2px',
+    '3xs': '2px',
     xxs: '4px',
     xs: '8px',
     sm: '12px',
@@ -104,8 +104,8 @@ export const theme = {
     lg: '24px',
     xl: '32px',
     xxl: '40px',
-    xxxl: '48px',
-    xxxxl: '56px',
+    '3xl': '48px',
+    '4xl': '56px',
   },
   fontSizes: {
     displayHero: {
