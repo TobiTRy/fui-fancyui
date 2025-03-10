@@ -8,6 +8,7 @@ import { ButtonStyle } from './ActionItem.style';
 
 import { sizeSettings } from './sizeSettings';
 import DisabledStyleBox from '@/components/atoms/DisableBox/DisabledBox';
+import { FancySVGAtom } from '@/components/atoms/FancySVGAtom';
 
 // --------------------------------------------------------------------------- //
 // ---------- The ActionItem is a button that inidacts a action -------------- //
@@ -47,7 +48,7 @@ export default function ActionItem(props: TActionItemWithHTMLProps) {
       <ButtonStyle
         aria-label={hideLabel ? label : undefined}
         $disabled={disabled}
-        $size={size}
+        $size={sizeSettings[size].size}
         $layer={layer}
         $outlined={outlined}
         $textColor={textColor}
@@ -58,7 +59,9 @@ export default function ActionItem(props: TActionItemWithHTMLProps) {
         $hoverColor={hoverColor || isActive ? themeTypeActiveHover : themeType}
         $backgroundState={backgroundState || (isClickable ? unHoverActive : 'active')}
       >
-        {icon}
+        <FancySVGAtom isPassive sizeC={sizeSettings[size].iconSize}>
+          {icon}
+        </FancySVGAtom>
       </ButtonStyle>
     </FancyFlexBox>
   );

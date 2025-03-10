@@ -40,7 +40,7 @@ export default function BottomBarIcon(props: TBottomBarIconWithHTMLAttributes) {
       $externalStyle={externalStyle}
       {...htmlProps}
     >
-      <FancyFlexBox direction="column" align="center" gap={'xxxs'}>
+      <FancyFlexBox direction="column" align="center" gap={'3xs'}>
         <FancySVGAtom sizeC={sizeSettings[sizeC].sizeIcon} isPassive aria-label={hideLabel ? label : undefined}>
           {icon}
         </FancySVGAtom>

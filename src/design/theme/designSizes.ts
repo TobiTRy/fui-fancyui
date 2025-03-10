@@ -1,5 +1,5 @@
 export const spacingPx = {
-  xxxs: 2 + 'px',
+  '3xs': 2 + 'px',
   xxs: 4 + 'px',
   xs: 8 + 'px',
   sm: 12 + 'px',
@@ -7,8 +7,8 @@ export const spacingPx = {
   lg: 24 + 'px',
   xl: 32 + 'px',
   xxl: 40 + 'px',
-  xxxl: 48 + 'px',
-  xxxxl: 56 + 'px',
+  '3xl': 48 + 'px',
+  '4xl': 56 + 'px',
 };
 
 // export const fontSizes = {

@@ -35,7 +35,7 @@ export default function FancySystemMessageBox(props: TFancySystemMessageWithFanc
         align={align ?? 'flex-start'}
         justify={justify ?? 'center'}
         gapBetweenText={gapBetweenText}
-        gapBetweenIcon={gapBetweenIcon ?? 'xxxs'}
+        gapBetweenIcon={gapBetweenIcon ?? '3xs'}
       >
         {(icon || useFuiIcons) && <FancyContent.Icon sizeC={sizeC}> {icon ?? <Icon />}</FancyContent.Icon>}
         {title && <FancyContent.Title sizeC={sizeC}>{title}</FancyContent.Title>}

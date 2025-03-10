@@ -9,7 +9,7 @@ type TSizeObj = {
 
 export const sizeSettings: TSizeSettings<TSizeObj> = {
   sm: {
-    iconSize: 'xxxs',
+    iconSize: 'xxs',
     spaceRight: 'xxs',
   },
   md: {
