@@ -26,11 +26,10 @@ export default function ButtonRoute() {
   return (
     <DesignWrapper>
       <DesignArea title="Buttons sizes" style={backgroundColor}>
-        <FancyButton themeType="primary" backgroundState="active" label="Hhdsds" sizeC="lg" layer={2} />
+        <FancyButton themeType="primary" label="Hhdsds" sizeC="lg" layer={2} />
         <FancyButton
           outlinedRemoveBorder
           themeType="primary"
-          outlined
           backgroundState="active"
           icon={<SVGChevronRight />}
           label="Hhdsds"
@@ -44,15 +43,28 @@ export default function ButtonRoute() {
           icon={<SVGChevronRight />}
           onClick={() => console.log('Trigger me Dadddy')}
         />
-        <FancyButton label="Button" outlined icon={<SVGChevronRight />} themeType="primary" sizeC="md" />
+        <FancyButton label="Button" icon={<SVGChevronRight />} themeType="primary" sizeC="md" />
         <FancyButton
-          outlined
           label="ButtonLG"
           icon={<SVGChevronRight />}
           backgroundState="hover"
           themeType="primary"
           sizeC="lg"
         />
+      </DesignArea>
+      <DesignArea title="Buttons sizes" style={backgroundColor}>
+        <FancyButton themeType="primary" backgroundState="active" label="Hhdsds" sizeC="lg" layer={2} />
+        <FancyButton
+          outlinedRemoveBorder
+          themeType="primary"
+          backgroundState="active"
+          label="Hhdsds"
+          sizeC="lg"
+          layer={2}
+        />
+        <FancyButton label="Button" themeType="primary" sizeC="sm" onClick={() => console.log('Trigger me Dadddy')} />
+        <FancyButton label="Button" themeType="primary" sizeC="md" />
+        <FancyButton label="ButtonLG" backgroundState="hover" themeType="primary" sizeC="lg" />
       </DesignArea>
       {/* <FancyButton
           label="Button"
