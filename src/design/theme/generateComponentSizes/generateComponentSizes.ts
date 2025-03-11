@@ -1,0 +1,64 @@
+/**
+ * Size calculator that follows an alternating ratio pattern:
+ * - Even steps use a 1.5x multiplier
+ * - Odd steps use a 1.33x multiplier
+ * Starting with a base size of 16px at level 1
+ */
+
+/**
+ * Calculates the size at a given level using alternating ratios
+ * @param level - The level number (1-based index)
+ * @param baseSize - The starting size (default: 16)
+ * @returns The calculated size for the given level
+ */
+export function generateComponentSizes(level: number, baseSize: number = 16): number {
+  // Return the base size for level 1
+  if (level === 1) {
+    return baseSize;
+  }
+
+  // Initialize with base size
+  let currentSize = baseSize;
+
+  // Calculate size based on alternating multipliers
+  for (let i = 2; i <= level; i++) {
+    // Apply 1.5x multiplier for even steps in the pattern (2->3, 4->5, etc.)
+    // Apply 1.33x multiplier for odd steps in the pattern (3->4, 5->6, etc.)
+    const multiplier = i % 2 === 0 ? 1.5 : 1.33;
+    currentSize = currentSize * multiplier;
+  }
+
+  // Round to nearest integer to avoid decimal pixels
+  return Math.round(currentSize);
+}
+
+/**
+ * Get a mapping of level numbers to their corresponding sizes
+ * @param maxLevel - The maximum level to calculate
+ * @param baseSize - The starting size (default: 16)
+ * @returns An object mapping level numbers to sizes
+ */
+export function getComponentSizeMap(maxLevel: number, baseSize: number = 16): Record<number, number> {
+  const sizeMap: Record<number, number> = {};
+
+  for (let level = 1; level <= maxLevel; level++) {
+    sizeMap[level] = generateComponentSizes(level, baseSize);
+  }
+
+  return sizeMap;
+}
+
+/**
+ * Example usage
+ */
+// Generate sizes for levels 1-8
+// const sizes = getComponentSizeMap(8);
+// console.log('Sizes by level:', sizes);
+
+// // Calculate specific levels
+// console.log('Level 1 =', generateComponentSizes(1)); // 16
+// console.log('Level 2 =', generateComponentSizes(2)); // 24
+// console.log('Level 3 =', generateComponentSizes(3)); // 32
+// console.log('Level 4 =', generateComponentSizes(4)); // 48
+// console.log('Level 5 =', generateComponentSizes(5)); // 64
+// console.log('Level 6 =', generateComponentSizes(6)); // 96

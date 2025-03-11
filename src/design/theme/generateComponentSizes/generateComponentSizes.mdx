@@ -1,0 +1,58 @@
+## Component Size Utilities
+
+A utility module for calculating component sizes using an alternating ratio pattern.
+
+## Setup
+
+```tsx
+import { generateComponentSizes, getComponentSizeMap } from 'fui-fancyui';
+```
+
+## Functions
+
+### `generateComponentSizes`
+
+Calculates the size at a given level using alternating multipliers.
+
+#### Parameters
+
+| Name       | Type   | Default | Required | Description                         |
+| ---------- | ------ | ------- | -------- | ----------------------------------- |
+| `level`    | number | -       | ✅       | The level number (1-based index).   |
+| `baseSize` | number | `16`    | ❌       | The starting size for calculations. |
+
+#### Returns
+
+- `number` - The calculated size for the given level.
+
+#### Example Usage
+
+```tsx
+const size = generateComponentSizes(3); // Returns 32
+console.log(size);
+```
+
+---
+
+### `getComponentSizeMap`
+
+Generates a mapping of level numbers to their corresponding sizes.
+
+#### Parameters
+
+| Name       | Type   | Default | Required | Description                         |
+| ---------- | ------ | ------- | -------- | ----------------------------------- |
+| `maxLevel` | number | -       | ✅       | The maximum level to calculate.     |
+| `baseSize` | number | `16`    | ❌       | The starting size for calculations. |
+
+#### Returns
+
+- `Record<number, number>` - An object mapping level numbers to sizes.
+
+#### Example Usage
+
+```tsx
+const sizeMap = getComponentSizeMap(5);
+console.log(sizeMap);
+// Output: { 1: 16, 2: 24, 3: 32, 4: 48, 5: 64 }
+```
