@@ -11,7 +11,7 @@
  * @param baseSize - The starting size (default: 16)
  * @returns The calculated size for the given level
  */
-export function generateComponentSizes(level: number, baseSize: number = 16): number {
+export function generateComponentSize(level: number, baseSize: number = 16): number {
   // Return the base size for level 1
   if (level === 1) {
     return baseSize;
@@ -42,7 +42,7 @@ export function getComponentSizeMap(maxLevel: number, baseSize: number = 16): Re
   const sizeMap: Record<number, number> = {};
 
   for (let level = 1; level <= maxLevel; level++) {
-    sizeMap[level] = generateComponentSizes(level, baseSize);
+    sizeMap[level] = generateComponentSize(level, baseSize);
   }
 
   return sizeMap;
@@ -56,9 +56,9 @@ export function getComponentSizeMap(maxLevel: number, baseSize: number = 16): Re
 // console.log('Sizes by level:', sizes);
 
 // // Calculate specific levels
-// console.log('Level 1 =', generateComponentSizes(1)); // 16
-// console.log('Level 2 =', generateComponentSizes(2)); // 24
-// console.log('Level 3 =', generateComponentSizes(3)); // 32
-// console.log('Level 4 =', generateComponentSizes(4)); // 48
-// console.log('Level 5 =', generateComponentSizes(5)); // 64
-// console.log('Level 6 =', generateComponentSizes(6)); // 96
+// console.log('Level 1 =', generateComponentSize(1)); // 16
+// console.log('Level 2 =', generateComponentSize(2)); // 24
+// console.log('Level 3 =', generateComponentSize(3)); // 32
+// console.log('Level 4 =', generateComponentSize(4)); // 48
+// console.log('Level 5 =', generateComponentSize(5)); // 64
+// console.log('Level 6 =', generateComponentSize(6)); // 96

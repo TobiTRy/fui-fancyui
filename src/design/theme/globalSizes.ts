@@ -1,3 +1,5 @@
+import { generateComponentSize } from '@/design/theme/generateComponentSize/generateComponentSize';
+
 // - **XXS (Extra Extra Small)**
 //   - **Padding/Margin**: 4px (0.5x base unit)
 //   - **Font Size**: 10px or 12px
@@ -72,17 +74,19 @@ export const globalSizes = {
 };
 
 export const globalElementSizes = {
-  xxs: globalSizes.xxs.elementSize,
-  xs: globalSizes.xs.elementSize,
-  sm: globalSizes.sm.elementSize,
-  md: globalSizes.md.elementSize,
-  lg: globalSizes.lg.elementSize,
-  xl: globalSizes.xl.elementSize,
-  xxl: globalSizes.xxl.elementSize,
-  '3xl': parseInt(globalSizes.xxl.elementSize) * 2 + 'px',
-  '4xl': parseInt(globalSizes.xxl.elementSize) * 3 + 'px',
-  '5xl': parseInt(globalSizes.xxl.elementSize) * 4 + 'px',
-  '6xl': parseInt(globalSizes.xxl.elementSize) * 5 + 'px',
+  xxs: generateComponentSize(1, true),
+  xs: generateComponentSize(2, true),
+  sm: generateComponentSize(3, true),
+  md: generateComponentSize(4, true),
+  lg: generateComponentSize(5, true),
+  xl: generateComponentSize(6, true),
+  xxl: generateComponentSize(7, true),
+  '3xl': generateComponentSize(8, true),
+  '4xl': generateComponentSize(9, true),
+  '5xl': generateComponentSize(10, true),
+  '6xl': generateComponentSize(11, true),
+  '7xl': generateComponentSize(12, true),
+  '8xl': generateComponentSize(13, true),
 };
 
 export const globalElementSizesWithFit = {

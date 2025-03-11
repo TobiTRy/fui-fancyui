@@ -204,7 +204,7 @@ export * from '@/design/designFunctions/leftRightCenterToFlexJustify';
 export * from '@/design/designFunctions/getThemeOrValueAsCss';
 export * from '@/design/designFunctions/calcBorderRadiusWithPadding';
 export * from '@/design/theme/theme';
-export * from '@/design/theme/generateComponentSizes';
+export * from '@/design/theme/generateComponentSize';
 export * from '@/design/designFunctions/generateThemeColorSteps';
 
 // ---------- Interfaces ------- //
