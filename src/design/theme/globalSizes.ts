@@ -73,20 +73,37 @@ export const globalSizes = {
   },
 };
 
+// TODO: build in new sizes
+// export const globalElementSizes = {
+//   xxs: generateComponentSize(1, true),
+//   xs: generateComponentSize(2, true),
+//   sm: generateComponentSize(3, true),
+//   md: generateComponentSize(4, true),
+//   lg: generateComponentSize(5, true),
+//   xl: generateComponentSize(6, true),
+//   xxl: generateComponentSize(7, true),
+//   '3xl': generateComponentSize(8, true),
+//   '4xl': generateComponentSize(9, true),
+//   '5xl': generateComponentSize(10, true),
+//   '6xl': generateComponentSize(11, true),
+//   '7xl': generateComponentSize(12, true),
+//   '8xl': generateComponentSize(13, true),
+// };
+
 export const globalElementSizes = {
-  xxs: generateComponentSize(1, true),
-  xs: generateComponentSize(2, true),
-  sm: generateComponentSize(3, true),
-  md: generateComponentSize(4, true),
-  lg: generateComponentSize(5, true),
-  xl: generateComponentSize(6, true),
-  xxl: generateComponentSize(7, true),
-  '3xl': generateComponentSize(8, true),
-  '4xl': generateComponentSize(9, true),
-  '5xl': generateComponentSize(10, true),
-  '6xl': generateComponentSize(11, true),
-  '7xl': generateComponentSize(12, true),
-  '8xl': generateComponentSize(13, true),
+  xxs: globalSizes.xxs.elementSize,
+  xs: globalSizes.xs.elementSize,
+  sm: globalSizes.sm.elementSize,
+  md: globalSizes.md.elementSize,
+  lg: globalSizes.lg.elementSize,
+  xl: globalSizes.xl.elementSize,
+  xxl: globalSizes.xxl.elementSize,
+  '3xl': generateComponentSize(5, true),
+  '4xl': generateComponentSize(6, true),
+  '5xl': generateComponentSize(7, true),
+  '6xl': generateComponentSize(8, true),
+  '7xl': generateComponentSize(9, true),
+  '8xl': generateComponentSize(10, true),
 };
 
 export const globalElementSizesWithFit = {
