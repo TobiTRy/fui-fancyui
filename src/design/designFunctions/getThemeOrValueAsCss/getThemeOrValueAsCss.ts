@@ -12,11 +12,9 @@ export default function getThemeOrValueAsCSS<T extends keyof TThemeValueMap = 'd
   themeSetting?: T
 ) {
   if (value === undefined) return '';
-
   // Check if the themeSetting is set and not 'default'
   if (themeSetting && themeSetting !== 'default') {
     let themeValue: string | undefined;
-
     // Get the theme from the store
     const theme = themeStore.getState().theme;
     if (checkForNumberValue(value)) return `${value}`;
@@ -46,7 +44,10 @@ export default function getThemeOrValueAsCSS<T extends keyof TThemeValueMap = 'd
 }
 
 const checkForNumberValue = (value: TThemeValueOrCSS) => {
-  const numberValue = typeof value === 'string' ? parseInt(value) : value;
-
-  return isNaN(numberValue) ? false : true;
+  if (typeof value === 'number') return true;
+  if (typeof value === 'string') {
+    // Check if the string contains only digits (and optionally decimal point)
+    return /^-?\d*\.?\d+$/.test(value);
+  }
+  return false;
 };

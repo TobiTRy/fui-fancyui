@@ -1,7 +1,7 @@
 'use client';
 
-import React, { ElementType } from 'react';
 import { css } from 'styled-components';
+import React, { ElementType } from 'react';
 
 import { StyledFlexBox } from './FancyFlexBox.style';
 import { TFancyFlexBoxWithDynamicElAttrs } from './TFancyFlexBox.model';
