@@ -15,10 +15,10 @@ export default function FancyChip(props: TFancyChipWithFancyPillAttrs) {
     label,
     icon,
     image,
-    onDelete,
     layer = 2,
     themeType,
     sizeC = 'sm',
+    onDelete,
     externalStyle,
     textColor,
     ...htmlProps

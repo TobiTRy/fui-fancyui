@@ -1,20 +1,20 @@
 'use client';
 
 import { StyledSystemMessageWrapper } from '@/components/atoms/SystemMessage/SystemMessage.style';
-import { Typography, TTypography } from '@/components/atoms/Typography';
+import { Typography } from '@/components/atoms/Typography';
 
 import { TSystemMessageWithHTMLAttrs } from '@/components/atoms/SystemMessage/TSystemMassage.model';
 
 // --------------------------------------------------------------------------- //
 // ------- Only a SystemMessage(Text) that renders in different colors ------- //
 // --------------------------------------------------------------------------- //
-export default function SystemMessage(props: TSystemMessageWithHTMLAttrs & { textSettings?: TTypography }) {
+export default function SystemMessage(props: TSystemMessageWithHTMLAttrs) {
   const {
     themeType = 'error',
     layer,
     systemMessageType,
     children,
-    textSettings,
+    textSettings = { textAlign: 'left' },
     externalStyle,
     showMessage = true,
     ...htmlProps

@@ -10,7 +10,7 @@ import { FancyGrid } from '@/components/templates/FancyGrid';
 import { SwitchList } from '@/components/molecules/SwitchList';
 import { Typography } from '@/components/atoms/Typography';
 import { FancyPopover } from '@/components/shared/FancyPopover';
-import logo from '../../../../FancyUI.png';
+import logo from '../../../../../assets/FancyUI.png';
 import { RawA } from '@/components/atoms/RawA';
 import { Menu } from '@/components/molecules/Menue';
 import { SVGFui } from '@/components/icons';

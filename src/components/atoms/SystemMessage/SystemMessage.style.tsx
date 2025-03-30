@@ -9,6 +9,7 @@ type TSystemMessageWrapper = TStyledPrefixAndOmiter<TSystemMessage, 'children'>;
 export const StyledSystemMessageWrapper = styled.span<
   TSystemMessageWrapper & { theme: TTheme; $fontVariant: keyof TTheme['fontSizes'] }
 >`
+  display: block;
   width: 100%;
   height: ${({ theme, $fontVariant }) => theme.fontSizes[$fontVariant].fontSize};
   line-height: 1;

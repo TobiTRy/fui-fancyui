@@ -2,6 +2,8 @@ import { css } from 'styled-components';
 import { getBackgroundColor } from '../../colorCalculatorForComponent/colorCalculatorForComponent';
 import { IGenerateThemeDesignForComponent } from '../generateThemeDesignForComponent';
 import { generateStateStyle } from './generateHoverActiveColor';
+import { colorTransparencyCalculator } from '@/design/designFunctions/colorTransparencyCalculator';
+import { clampLayer } from '@/utils/functions/clampLayer';
 
 type TGenerateOutlineStyle = Pick<
   IGenerateThemeDesignForComponent,
@@ -9,7 +11,7 @@ type TGenerateOutlineStyle = Pick<
   | '$themeType'
   | 'theme'
   | '$layer'
-  | '$backgroundStrength'
+  | '$outlinedBackgroundStrength'
   | '$backgroundState'
   | '$hoverColor'
   | '$textColor'
@@ -22,9 +24,9 @@ export const generateOutlineStyle = (props: TGenerateOutlineStyle) => {
   const {
     $themeType,
     theme,
-    $layer,
+    $layer = 0,
     $backgroundState,
-    $backgroundStrength = 0.1,
+    $outlinedBackgroundStrength = 0.1,
     $textColor,
     $outlinedRemoveBorder,
   } = props;
@@ -32,12 +34,19 @@ export const generateOutlineStyle = (props: TGenerateOutlineStyle) => {
   // generates the color for the border
   const borderColor = getBackgroundColor({ theme, $themeType: $themeType ?? 'primary', $layer: $layer ?? 0 });
 
+  const generateSlightBackgroundColor = colorTransparencyCalculator(
+    getBackgroundColor({ theme, $themeType: $themeType || 'primary', $layer: clampLayer($layer - 3) }),
+    $outlinedBackgroundStrength
+  );
+
   return css`
     box-sizing: border-box;
-    ${$outlinedRemoveBorder ? 'border: none' : `border: 1.5px solid ${borderColor};`};
+    ${$outlinedRemoveBorder ? 'border: none' : `border: 2px solid ${borderColor};`};
     color: ${getBackgroundColor({ $themeType: $textColor ?? $themeType ?? 'secondary', theme, $layer: 0 })};
-    ${$backgroundState !== 'active' && 'background-color: transparent'};
+    background-color: ${generateSlightBackgroundColor};
+
     /* This generate the hover / active style if its needed */
-    ${$backgroundState && generateStateStyle({ ...props, $outlined: true, $backgroundStrength })}
+    ${$backgroundState &&
+    generateStateStyle({ ...props, $outlined: true, $outlinedBackgroundStrength: $outlinedBackgroundStrength + 0.1 })}
   `;
 };

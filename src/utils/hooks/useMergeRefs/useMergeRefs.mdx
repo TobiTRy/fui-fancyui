@@ -1,0 +1,42 @@
+# useMergeRefs Hook
+
+## useMergeRefs
+
+A custom React hook that merges multiple refs into a single ref callback.
+
+### Setup Instructions
+
+Import and use `useMergeRefs`:
+
+```tsx
+import { useMergeRefs } from 'fui-fancyui';
+```
+
+### Example Usage
+
+```tsx
+import { useRef } from 'react';
+import { useMergeRefs } from 'fui-fancyui';
+
+const MyComponent = () => {
+  const firstRef = useRef<HTMLDivElement>(null);
+  const secondRef = useRef<HTMLDivElement>(null);
+  const mergedRef = useMergeRefs([firstRef, secondRef]);
+
+  return <div ref={mergedRef}>Content</div>;
+};
+```
+
+### Hook Parameters
+
+| Parameter | Type                                                             | Description                                                                                                 |
+| --------- | ---------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| `refs`    | `(MutableRefObject<T> \| RefCallback<T> \| null \| undefined)[]` | An array of refs to be merged. It can contain mutable object refs, callback refs, or null/undefined values. |
+
+### Return Value
+
+The `useMergeRefs` hook returns a callback function that updates all provided refs with the given value.
+
+### List of Used Components
+
+This hook does not use any external components but relies on React's `MutableRefObject` and `RefCallback`.

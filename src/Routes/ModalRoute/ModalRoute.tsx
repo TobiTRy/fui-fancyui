@@ -1,7 +1,6 @@
 import { createFancyModalStore } from '../../components/organisms/FancyModal/createFancyModalStore';
 import FancyButton from '../../components/organisms/FancyButton/FancyButton';
 import { FancyModalHeadLine } from '@/components/molecules/FancyModalHeadLine';
-import { Typography } from '@/components/atoms/Typography';
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const useFancyModalStore = createFancyModalStore();
@@ -11,18 +10,41 @@ export default function ModalRoute() {
   const closeModal = useFancyModalStore((state) => state.closeModal);
 
   const handleModalCreation = () => {
-    createModal(
-      'hi',
-      <div>
-        <FancyModalHeadLine
-          onXButtonClick={() => closeModal('hi')}
-          title={'Test'}
-          subTitle={<Typography variant="bodytextSm">Test</Typography>}
-        />
-        <FancyButton />
-      </div>,
-      { isCloseable: true }
-    );
+    createModal({
+      id: 'modal',
+      header: <p>Modal Footer</p>,
+      children: (
+        <>
+          <FancyButton onClick={() => closeModal('modal')} sizeC="sm" label="close modal"></FancyButton>
+          <FancyButton onClick={() => closeModal('modal')} sizeC="sm" label="close modal"></FancyButton>
+          <FancyButton onClick={() => closeModal('modal')} sizeC="sm" label="close modal"></FancyButton>
+          <FancyButton onClick={() => closeModal('modal')} sizeC="sm" label="close modal"></FancyButton>
+          <FancyButton onClick={() => closeModal('modal')} sizeC="sm" label="close modal"></FancyButton>
+          <FancyButton onClick={() => closeModal('modal')} sizeC="sm" label="close modal"></FancyButton>
+          <FancyButton onClick={() => closeModal('modal')} sizeC="sm" label="close modal"></FancyButton>
+          <FancyButton onClick={() => closeModal('modal')} sizeC="sm" label="close modal"></FancyButton>
+          <FancyButton onClick={() => closeModal('modal')} sizeC="sm" label="close modal"></FancyButton>
+          <FancyButton onClick={() => closeModal('modal')} sizeC="sm" label="close modal"></FancyButton>
+          <FancyButton onClick={() => closeModal('modal')} sizeC="sm" label="close modal"></FancyButton>
+          <FancyButton onClick={() => closeModal('modal')} sizeC="sm" label="close modal"></FancyButton>
+          <FancyButton onClick={() => closeModal('modal')} sizeC="sm" label="close modal"></FancyButton>
+          <FancyButton onClick={() => closeModal('modal')} sizeC="sm" label="close modal"></FancyButton>
+          <FancyButton onClick={() => closeModal('modal')} sizeC="sm" label="close modal"></FancyButton>
+          <FancyButton onClick={() => closeModal('modal')} sizeC="sm" label="close modal"></FancyButton>
+          <FancyButton onClick={() => closeModal('modal')} sizeC="sm" label="close modal"></FancyButton>
+          <FancyButton onClick={() => closeModal('modal')} sizeC="sm" label="close modal"></FancyButton>
+          <FancyButton onClick={() => closeModal('modal')} sizeC="sm" label="close modal"></FancyButton>
+          <FancyButton onClick={() => closeModal('modal')} sizeC="sm" label="close modal"></FancyButton>
+          <FancyButton onClick={() => closeModal('modal')} sizeC="sm" label="close modal"></FancyButton>
+        </>
+      ),
+      footer: (
+        <>
+          <p>Modal Footer</p>
+          <p>Modal Footer</p> <p>Modal Footer</p>
+        </>
+      ),
+    });
   };
 
   return (

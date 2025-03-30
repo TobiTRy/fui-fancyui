@@ -16,7 +16,7 @@ The `generateThemeDesignForComponent` function is a dynamic styling utility for 
 - **textHover** (`TThemeTypesNotTrasparent`, optional): Hover text color.
 - **layer** (`TLayer`, optional): Layer depth for styling.
 - **outlined** (`boolean`, optional): Flag to apply outline style.
-- **backgroundStrength** (`number`, optional): Intensity of background color.
+- **outlinedBackgroundStrength** (`number`, optional): Intensity of background color.
 - **backgroundState** (`'hover' | 'active'`, optional): State of the background (hover or active).
 - **useSimpleTextColor** (`boolean`, optional): Toggle for simple text color mode.
 
@@ -35,7 +35,7 @@ const ExampleComponent = () => {
   const styleProps = {
     themeType: 'accent', // accent is default
     outlined: false, // false is default
-    backgroundStrength: 0.5, // 0.05 is default
+    outlinedBackgroundStrength: 0.5, // 0.05 is default
     backgroundState: 'hover', // hover is default
   };
 

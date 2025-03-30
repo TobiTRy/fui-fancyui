@@ -25,7 +25,7 @@ export default function Button(props: TButtonWithNativeAttrs) {
     className,
     appendClassNameOnStyle,
     outlinedRemoveBorder,
-    backgroundStrength,
+    outlinedBackgroundStrength,
     backgroundState,
     ...htmlProps
   } = props;
@@ -43,7 +43,7 @@ export default function Button(props: TButtonWithNativeAttrs) {
       $externalStyle={externalStyle}
       $textHover={textHover}
       $disabled={disabled}
-      $backgroundStrength={backgroundStrength}
+      $outlinedBackgroundStrength={outlinedBackgroundStrength}
       $backgroundState={backgroundState}
       $noSize={noSize}
       $outlinedRemoveBorder={outlinedRemoveBorder}

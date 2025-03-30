@@ -23,7 +23,7 @@ const themeStore = create<ThemeState>((set) => ({
     breakpoints: breakpoints,
     globalElementSizes: globalElementSizes,
     outlined: {
-      backgroundStrength: 0.5,
+      outlinedBackgroundStrength: 0.5,
     },
   },
   isDarkTheme: true,

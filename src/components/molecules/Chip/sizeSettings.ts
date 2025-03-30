@@ -1,20 +1,26 @@
-import { globalElementSizes } from '@/design/theme/globalSizes';
-import { TFancySVGAtomSizes } from '@/components/atoms/FancySVGAtom/TFancySVGAtom.model';
+import { TComponentSizes, TglobalElementSizes, TSizeSettings } from '@/types';
 
-export const sizesSettings = {
+type TSizeObj = {
+  iconSize: TComponentSizes;
+  deleteButtonSize: TComponentSizes;
+  height: TglobalElementSizes;
+};
+
+// the template for the sizes
+export const sizesSettings: TSizeSettings<TSizeObj> = {
   sm: {
-    height: globalElementSizes.xs,
-    deleteButtonSize: 'xxxs' as TFancySVGAtomSizes,
-    iconSize: 'xxs' as TFancySVGAtomSizes,
+    height: 'xs',
+    deleteButtonSize: 'sm',
+    iconSize: 'sm',
   },
   md: {
-    height: globalElementSizes.sm,
-    deleteButtonSize: 'xxxs' as TFancySVGAtomSizes,
-    iconSize: 'xxs' as TFancySVGAtomSizes,
+    height: 'sm',
+    deleteButtonSize: 'sm',
+    iconSize: 'md',
   },
   lg: {
-    height: globalElementSizes.md,
-    deleteButtonSize: 'xxxs' as TFancySVGAtomSizes,
-    iconSize: 'xs' as TFancySVGAtomSizes,
+    height: 'md',
+    deleteButtonSize: 'md',
+    iconSize: 'lg',
   },
 };

@@ -21,7 +21,6 @@ export const StyledDialog = styled.div<TStyledDialog>`
   left: 50vw;
   transform: translate(-50%, ${({ $isAnimating }) => ($isAnimating ? '-50%' : '-40%')});
   opacity: ${({ $isAnimating }) => ($isAnimating ? 1 : 0)};
-  padding: ${({ theme }) => theme.spacing.lg};
   box-sizing: border-box;
   border-radius: ${({ theme }) => theme.borderRadius.lg};
   border: none;
@@ -29,9 +28,24 @@ export const StyledDialog = styled.div<TStyledDialog>`
   ${({ theme, $themeType, $layer = 1 }) => getColorsForComponent({ theme, $themeType, $layer })}
   z-index: 100;
   outline: none;
-  max-height: 80dvh;
   transition:
     transform 300ms ease-out,
     opacity 300ms ease-out;
   ${({ $externalStyle }) => $externalStyle};
+`;
+
+export const StyledHeader = styled.div<{ theme: TTheme }>`
+  padding: ${({ theme }) => `${theme.spacing.lg} ${theme.spacing.lg} 0`};
+`;
+
+export const StyledContent = styled.div<{ theme: TTheme }>`
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: calc(80dvh - ${({ theme }) => `${theme.spacing.lg} * 4`});
+  padding: ${({ theme }) => `0 ${theme.spacing.lg}`};
+  box-sizing: border-box;
+`;
+
+export const StyledFooter = styled.div<{ theme: TTheme }>`
+  padding: ${({ theme }) => `0 ${theme.spacing.lg}  ${theme.spacing.lg}  ${theme.spacing.lg}`};
 `;

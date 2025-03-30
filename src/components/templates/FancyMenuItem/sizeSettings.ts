@@ -1,23 +1,23 @@
-import { TComponentSizesExtended } from '@/types/TComponentSizes';
+import { TComponentSizes } from '@/types/TComponentSizes';
 import { TSizeSettings } from '@/types/TSizeSettings';
 import { TTypographyVariants } from '@/types/TTypographyVariants';
 
 type TSizeObj = {
   fontSizeTitle: TTypographyVariants;
-  iconSize: TComponentSizesExtended;
+  iconSize: TComponentSizes;
 };
 
 export const sizeSettings: TSizeSettings<TSizeObj> = {
   sm: {
     fontSizeTitle: 'interactiveSm',
-    iconSize: 'xxs',
+    iconSize: 'sm',
   },
   md: {
     fontSizeTitle: 'interactiveMd',
-    iconSize: 'xs',
+    iconSize: 'md',
   },
   lg: {
     fontSizeTitle: 'bodytextLg',
-    iconSize: 'xs',
+    iconSize: 'lg',
   },
 };

@@ -1,0 +1,1 @@
+export { generateSpacingSize } from './generateSpacingSize';

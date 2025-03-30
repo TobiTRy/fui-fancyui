@@ -57,7 +57,7 @@ export const Primary: Story = {
   render: (args) => (
     <Chip {...args}>
       <Chip.Content>
-        <Chip.Content.Icon sizeC="xs">
+        <Chip.Content.Icon sizeC="sm">
           <SVGCheckMark />
         </Chip.Content.Icon>
         <Chip.Content.Description>Content</Chip.Content.Description>

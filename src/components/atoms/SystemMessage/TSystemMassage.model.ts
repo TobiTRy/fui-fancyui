@@ -11,7 +11,7 @@ export type TSystemMessage = {
   layer?: TLayer;
   children?: React.ReactNode;
   externalStyle?: CSSProp;
-  textSettings?: TTypography;
+  textSettings?: Partial<TTypography>;
   showMessage?: boolean;
 };
 

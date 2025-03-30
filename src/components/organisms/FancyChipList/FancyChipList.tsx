@@ -1,8 +1,6 @@
 'use client';
+import React, { KeyboardEvent, useState } from 'react';
 
-import React, { KeyboardEvent, useEffect, useState } from 'react';
-
-import { TLayer } from '@/types/TLayer';
 import { ChipList } from '@/components/molecules/ChipList';
 import { Fieldset } from '@/components/molecules/Fieldset';
 
@@ -11,6 +9,7 @@ import { useChip } from '@/components/organisms/FancyChipList/utils/useChip.hook
 import { FancyChip } from '@/components/templates/FancyChip';
 import { InputLi } from './FancyChipList.style';
 import { TFancyChipList } from './FancyChipList.model';
+import { clampLayer } from '@/utils/functions/clampLayer';
 
 // The FancyChipList component definition
 export default function FancyChipList(props: TFancyChipList) {
@@ -26,6 +25,7 @@ export default function FancyChipList(props: TFancyChipList) {
     editable,
     systemInformation,
     onChange,
+    disabled,
   } = props;
 
   // State to hold chips with unique identifiers and input values
@@ -63,7 +63,14 @@ export default function FancyChipList(props: TFancyChipList) {
 
   return (
     <Fieldset legend={legend} typographySettings={{ variant: 'interactiveLg' }}>
-      <ChipList themeType={themeType} layer={layer} outlined={outlined} sizeC={sizeC} systemMessage={systemInformation}>
+      <ChipList
+        themeType={themeType}
+        layer={layer}
+        outlined={outlined}
+        sizeC={sizeC}
+        systemMessage={systemInformation}
+        disabled={disabled}
+      >
         {/* // Mapping through each chip in the state to render a FancyChip */}
         {chips.map((chip, index) => (
           <li key={index}>
@@ -73,21 +80,22 @@ export default function FancyChipList(props: TFancyChipList) {
               isActive={focusedChip === chip.id}
               role="textbox"
               label={chip.label}
-              aria-readonly={!editable}
+              aria-readonly={disabled || !editable}
               contentEditable={editabledChip === chip.id}
-              layer={Math.min((layer ?? 1) + 1, 10) as TLayer}
+              layer={clampLayer((layer ?? 1) + 1)}
               outlined={outlined}
               onBlur={() => handleChipFocus(chip.id)}
               onFocus={() => handleChipFocus(chip.id)}
-              onClick={(e) => handleClick(e, chip.id)}
-              onKeyDown={(e) => handleChipEdit(chip.id, e)}
-              onDelete={deleteChip(chip.id)}
+              onClick={(e) => !disabled && handleClick(e, chip.id)}
+              onKeyDown={(e) => !disabled && handleChipEdit(chip.id, e)}
+              onDelete={disabled ? undefined : deleteChip(chip.id)}
             />
           </li>
         ))}
         <InputLi>
           <input
             value={inputValue}
+            disabled={disabled}
             onChange={handleInputChange}
             onKeyDown={handleInputKeyDown}
             placeholder={inputPlaceholder}

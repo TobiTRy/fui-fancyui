@@ -9,4 +9,5 @@ type NativeAttrs = Omit<HTMLAttributes<HTMLInputElement>, 'type'>;
 export type TRawCheckbox = {
   themeType?: TUiColorsMain;
   layer?: TLayer;
+  checked?: boolean;
 } & NativeAttrs;

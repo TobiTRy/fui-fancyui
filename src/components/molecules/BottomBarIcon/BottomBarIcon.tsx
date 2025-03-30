@@ -4,6 +4,9 @@ import { FancyContent } from '@/components/molecules/FancyContent';
 import { ContentWrapper } from './BottomBarIcon.style';
 import { TBottomBarIconWithHTMLAttributes } from './TBottomBarIcon.model';
 import { sizeSettings } from './sizeSettings';
+import { FancySVGAtom } from '@/components/atoms/FancySVGAtom';
+import { FancyFlexBox } from '@/components/templates/FancyFlexBox';
+import { Typography } from '@/components/atoms/Typography';
 
 // --------------------------------------------------------------------------- //
 // -------------------- Only a Bottombar Icon with Text  --------------------- //
@@ -37,16 +40,16 @@ export default function BottomBarIcon(props: TBottomBarIconWithHTMLAttributes) {
       $externalStyle={externalStyle}
       {...htmlProps}
     >
-      <FancyContent direction="column" gapBetweenIcon="">
-        <FancyContent.Icon sizeC={sizeSettings[sizeC].sizeIcon} aria-label={hideLabel ? label : undefined}>
+      <FancyFlexBox direction="column" align="center" gap={'3xs'}>
+        <FancySVGAtom sizeC={sizeSettings[sizeC].sizeIcon} isPassive aria-label={hideLabel ? label : undefined}>
           {icon}
-        </FancyContent.Icon>
+        </FancySVGAtom>
         {!hideLabel && (
-          <FancyContent.Description fontVariant={'subTextCaption'} lineHeight={1}>
+          <Typography variant={'subTextCaption'} lineHeight={1}>
             {label}
-          </FancyContent.Description>
+          </Typography>
         )}
-      </FancyContent>
+      </FancyFlexBox>
     </ContentWrapper>
   );
 }

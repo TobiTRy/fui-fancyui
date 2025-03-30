@@ -28,6 +28,12 @@ const items2: TFancyBottomBarIcon[] = [
   { icon: svg, type: 'button', label: 'myButton', href: 'http://google.de' },
   { icon: svg, type: 'button', label: 'myButton', href: 'http://google.de' },
 ];
+const items3: TFancyBottomBarIcon[] = [
+  { sizeC: 'lg', icon: svg, type: 'button', onClick: () => clickHandler('asas') },
+  { sizeC: 'lg', icon: svg, type: 'button', href: 'http://google.de' },
+  { sizeC: 'lg', icon: svg, type: 'button', href: 'http://google.de' },
+  { sizeC: 'lg', icon: svg, type: 'button', href: 'http://google.de' },
+];
 
 const NavBarStyle = css`
   position: fixed;
@@ -47,7 +53,12 @@ export default function NavBarHandy() {
         <FancyHandyNav outlined items={items} />
       </DesignArea>
       <DesignArea title="FancyHandyNav">
-        <BottomBarIcon icon={svg} />
+        <BottomBarIcon sizeC="sm" icon={svg} />
+        <BottomBarIcon sizeC="md" icon={svg} />
+        <BottomBarIcon sizeC="lg" icon={svg} />
+      </DesignArea>
+      <DesignArea title="FancyHandyNav">
+        <FancyHandyNav outlined outlinedBackgroundStrength={0.9} items={items3} />
       </DesignArea>
       <DesignArea title="FancyHandyNav">
         <FancyHandyNav outlined outlinedBackgroundStrength={0.9} externalStyle={NavBarStyle} items={items2} />

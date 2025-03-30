@@ -15,7 +15,7 @@ export const Wrapper = styled.span<TWrapper & { theme: TTheme }>`
   flex-direction: ${({ $direction }) => $direction || 'row'};
   justify-content: ${({ $justify }) => $justify || 'center'};
   align-items: ${({ $align }) => $align || 'center'};
-  gap: ${({ $gapBetweenIcon }) => arrayToCssValues($gapBetweenIcon ?? 'xxs', 'spacing')};
+  gap: ${({ $gapBetweenIcon }) => arrayToCssValues($gapBetweenIcon, 'spacing')};
   ${({ theme, $themeType, $layer }) =>
     $themeType &&
     css`
@@ -30,7 +30,7 @@ export const Wrapper = styled.span<TWrapper & { theme: TTheme }>`
     flex-direction: ${({ $directionTextGroup }) => ($directionTextGroup === 'row' ? $directionTextGroup : 'column')};
     align-items: ${({ $alignTextGroup }) => $alignTextGroup || 'center'};
     justify-content: flex-start;
-    gap: ${({ $gapBetweenText }) => arrayToCssValues($gapBetweenText || 'xxs', 'spacing')};
+    gap: ${({ $gapBetweenText }) => arrayToCssValues($gapBetweenText, 'spacing')};
   }
 `;
 
@@ -43,7 +43,7 @@ export const OnlyTextWrapper = styled.span<TOnlyTextWrapper & { theme: TTheme }>
   flex-direction: ${({ $direction }) => $direction || 'column'};
   justify-content: ${({ $justify }) => $justify || 'center'};
   align-items: ${({ $align }) => $align || 'flex-start'};
-  gap: ${({ $gapBetweenText, theme }) => $gapBetweenText ?? parseInt(theme.spacing.xxs) - 2 + 'px'};
+  gap: ${({ $gapBetweenText }) => arrayToCssValues($gapBetweenText, 'spacing')};
   ${({ theme, $themeType, $layer }) =>
     $themeType &&
     css`

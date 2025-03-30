@@ -1,7 +1,5 @@
 import { CSSProp, styled } from 'styled-components';
 
-import { spacingPx } from '@/design/theme/designSizes';
-
 import { TTheme } from '@/types/TTheme';
 import { TSpacings } from '@/types/TSpacings';
 import { disabledStyle } from '@/design/designFunctions/disabledStyle';
@@ -23,7 +21,7 @@ export const ULButtonSwitchList = styled.ul<IFancyTabSwitchStyle & { theme: TThe
   grid-auto-flow: ${({ $direction }) => ($direction === 'vertical' ? 'row' : 'column')};
   grid-auto-rows: 1fr;
   grid-auto-columns: 1fr;
-  gap: ${({ $tabSpacing }) => ($tabSpacing ? spacingPx[$tabSpacing] : '0')};
+  gap: ${({ $tabSpacing, theme }) => ($tabSpacing ? theme.spacing[$tabSpacing] : '0')};
   ${({ $wide }) => $wide && `justify-content: space-between`};
   align-items: center;
   margin: 0;

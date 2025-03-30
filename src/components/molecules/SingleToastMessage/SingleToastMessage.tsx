@@ -32,7 +32,7 @@ const SingleToastMessage = forwardRef<HTMLDivElement, TSingleToastMessageWithHTM
         <FancyXButton onClick={() => remove?.(id)} themeType={themeType} />
       </Headline>
       <Typography variant="bodytextSm">{message}</Typography>
-      <TimerLine $time={time!} $messageType={themeType} />
+      <TimerLine $time={time!} $messageType={themeType} $layer={layer} />
       <Background />
     </SystemMessageBox>
   );

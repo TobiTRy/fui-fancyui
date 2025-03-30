@@ -25,9 +25,9 @@ export default function FancyButton(props: TFancyButtonWithHTMLAttrs) {
     align = 'center',
     externalStyle,
     oneToOne,
-    gap,
     outlined,
     noSize,
+    outlinedRemoveBorder,
     ...buttonProps
   } = props;
 
@@ -42,6 +42,7 @@ export default function FancyButton(props: TFancyButtonWithHTMLAttrs) {
     $justifyContent: leftRightCenterToFlexJustify[align ?? 'center'],
     $outlined: outlined,
     $noSize: noSize,
+    $removeBorder: outlinedRemoveBorder,
   });
 
   return (
@@ -49,21 +50,22 @@ export default function FancyButton(props: TFancyButtonWithHTMLAttrs) {
       sizeC={sizeC}
       noSize={true}
       outlined={outlined}
+      outlinedRemoveBorder={outlinedRemoveBorder}
       externalStyle={css`
         ${generateFancyStyle};
         ${externalStyle};
       `}
       {...(buttonProps as TButton)}
     >
-      <FancyContent direction={alignIcon} gapBetweenIcon={gap}>
+      <FancyContent direction={alignIcon} gapBetweenIcon={sizeSettings[sizeC].gap}>
         {label && (
           <FancyContent.Title fontVariant={sizeSettings[sizeC ?? 'md'].fontSize} themeType={buttonProps.textColor}>
             {label}
           </FancyContent.Title>
         )}
         {(isLoading || icon) && (
-          <FancyContent.Icon>
-            {isLoading ? <LoadingSVGArrows isLoading={isLoading} sizeC={sizeC} /> : icon}
+          <FancyContent.Icon sizeC={sizeC}>
+            {isLoading ? <LoadingSVGArrows isLoading={isLoading} /> : icon}
           </FancyContent.Icon>
         )}
       </FancyContent>

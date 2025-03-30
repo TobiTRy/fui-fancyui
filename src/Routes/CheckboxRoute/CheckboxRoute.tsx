@@ -9,6 +9,7 @@ import FancyRadio from '@/components/organisms/FancyRadio/FancyRadio';
 import CustomRadio from '@/components/atoms/RawRadio/RawRadio';
 import FancyRadioList from '@/components/templates/FancyRadioList/FancyRadioList';
 import { FancyButton } from '@/components/organisms/FancyButton';
+import { RawCheckbox } from '@/components/atoms/RawCheckbox';
 
 const itemList = [
   { title: 'Test1', description: 'Test1', itemKey: '1jdasdsjkTest1' },
@@ -42,6 +43,7 @@ export default function CheckboxRoute() {
       <Card>
         <DesignWrapper>
           <DesignArea title="checkbox" style={{ alignItems: 'flex-start' }}>
+            <RawCheckbox />
             <FancyCheckbox
               id="ihuddwjkwjkna"
               defaultChecked={checked}
@@ -96,6 +98,7 @@ export default function CheckboxRoute() {
           </DesignArea>
         </DesignWrapper>
       </Card>
+      <FancyRadioList legend="YAAAA MOOIIIN" name="hii" items={itemList} />
       <FancyRadioList legend="YAAAA MOOIIIN" name="hii" items={itemList} />
     </>
   );

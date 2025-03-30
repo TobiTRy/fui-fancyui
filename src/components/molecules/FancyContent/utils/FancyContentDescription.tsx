@@ -12,7 +12,7 @@ export default function FancyContentDescription(props: TTextProps) {
   return (
     <Typography
       elType={type ?? 'span'}
-      variant={fontVariant ?? sizes[sizeC || 'sm'].fontSizeTitle}
+      variant={fontVariant ?? sizes[sizeC || 'sm'].fontSizeDescription}
       layer={layer}
       themeType={themeType}
       fontWeight={fontWeight}

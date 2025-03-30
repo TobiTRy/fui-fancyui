@@ -16,16 +16,12 @@ export const ButtonStyle = styled.span<IGenerateThemeDesignForComponent & TWrapp
   display: flex;
   align-items: center;
   justify-content: center;
-
   height: ${({ $size }) => globalElementSizes[$size ?? 'md']};
   cursor: pointer;
-
-  ${(props: IGenerateThemeDesignForComponent) => generateThemeDesignForComponent({ ...props })};
-
   aspect-ratio: 1/1;
   border-radius: 50%;
-
   transition: background-color 0.125s ease-in-out;
+  ${(props: IGenerateThemeDesignForComponent) => generateThemeDesignForComponent({ ...props })};
 
   ${({ $disabled }) => $disabled && disabledStyle}
 `;

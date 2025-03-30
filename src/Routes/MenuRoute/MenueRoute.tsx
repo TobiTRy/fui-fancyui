@@ -10,7 +10,7 @@ import { Menu } from '@/components/molecules/Menue';
 import SVGCheckMark from '@/components/icons/SVGCheckMark/SVGCheckMark';
 
 export default function MenueRoute() {
-  const [isPopoverVisible, setPopoverVisible] = useState(false);
+  const [isPopoverVisible, setPopoverVisible] = useState(true);
   const buttonRef = useRef<HTMLDivElement>(null);
 
   return (
@@ -18,7 +18,9 @@ export default function MenueRoute() {
       <DesignArea title="Teststs" style={{ justifyContent: 'flex-end' }}>
         <FancyPopover
           offsetY={10}
-          refComponent={<FancyButton label="Hi 2" />}
+          onOutsideClick={() => setPopoverVisible(false)}
+          refComponent={<FancyButton label="Hi 2" onClick={() => setPopoverVisible(!isPopoverVisible)} />}
+          isOpen={isPopoverVisible}
           contentComponent={
             <Menu outlined>
               <Menu.Item label="Muuusettingshhh" icon={<>⚙️</>} />

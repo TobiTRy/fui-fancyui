@@ -33,6 +33,7 @@ const FancyNumberInput = forwardRef<HTMLInputElement, TFancyNumberInput>((props,
     outlinedRemoveBorder,
     externalStyle,
     className,
+    readOnly,
     ...inputProps
   } = props;
 
@@ -48,7 +49,7 @@ const FancyNumberInput = forwardRef<HTMLInputElement, TFancyNumberInput>((props,
       id={usedId}
       hasValue={!!((value === 0 ? undefined : value) || value === 0)} // 0 is a valid value for a number input
       label={label}
-      disabled={disabled}
+      disabled={disabled || readOnly}
       align={align}
       placeholder={placeholder}
       isActive={isActive}
@@ -72,6 +73,7 @@ const FancyNumberInput = forwardRef<HTMLInputElement, TFancyNumberInput>((props,
           align={align}
           themeType={getOpositMainThemeType(themeType)}
           disabled={disabled}
+          readOnly={readOnly}
           onFocus={(e) => {
             onFocus && onFocus(e);
             setIsActive(true);

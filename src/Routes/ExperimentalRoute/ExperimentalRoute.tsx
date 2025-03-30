@@ -17,6 +17,7 @@ import { FancyBox } from '@/components/atoms/FancyBox';
 import { SwipeUpContainer } from '@/components/atoms/SwipeUpContainer';
 import { useActiveBreakpoint } from '@/utils/hooks/useActiveBreakpoint';
 import { SystemMessage } from '@/components/atoms/SystemMessage';
+import { FancyTextInput } from '@/components/organisms/FancyTextInput';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -81,16 +82,14 @@ export default function ExperimentalRoute() {
   return (
     <>
       <DesignWrapper>
-        <DesignArea title="Test">
-          <SystemMessage
-            themeType="secondary"
-            showMessage={true}
-            textSettings={{
-              variant: 'interactiveLg',
-            }}
-          >
+        <div>
+          <FancyTextInput />
+          <SystemMessage themeType="secondary" showMessage={true}>
             Mooiin
           </SystemMessage>
+        </div>
+        <DesignArea title="Test">
+          <p>Test</p>
         </DesignArea>
         <FancyButton
           borderRadius="md"

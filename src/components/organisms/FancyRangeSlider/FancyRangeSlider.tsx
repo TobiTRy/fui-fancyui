@@ -34,6 +34,7 @@ export default function FancyRangeSlider(props: TFancyRangeSlider) {
     outlinedRemoveBorder,
     disabled,
     className,
+    readOnly,
     ...sliderProps
   } = props;
 
@@ -79,7 +80,7 @@ export default function FancyRangeSlider(props: TFancyRangeSlider) {
       isActive={toutched}
       transparentBackground={transparentBackground}
       externalStyle={generateInputWrapperStyles({ hasNumberInput: displayNumberInput })}
-      disabled={disabled}
+      disabled={disabled || readOnly}
       placeholder={placeholder}
       themeType={themeType}
       layer={layer}
@@ -94,6 +95,7 @@ export default function FancyRangeSlider(props: TFancyRangeSlider) {
             value={value}
             max={maxVal}
             min={minVal}
+            readOnly={readOnly}
             onChange={changeHandler}
             themeType={themeType}
             layer={layer ? clampLayer(layer - 2) : 1}

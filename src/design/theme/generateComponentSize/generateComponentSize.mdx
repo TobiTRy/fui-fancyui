@@ -1,0 +1,71 @@
+---
+Component Size Utilities
+---
+
+## Component Size Utilities
+
+A utility module for calculating component sizes using an alternating ratio pattern.
+
+## Setup
+
+```tsx
+import { generateComponentSize, getComponentSizeMap } from 'fui-fancyui';
+```
+
+## Functions
+
+### `generateComponentSize`
+
+Calculates the size at a given level using alternating multipliers, with an optional `px` suffix.
+
+#### Parameters
+
+| Name       | Type    | Default | Required | Description                                          |
+| ---------- | ------- | ------- | -------- | ---------------------------------------------------- |
+| `level`    | number  | -       | ✅       | The level number (1-based index).                    |
+| `withPx`   | boolean | -       | ❌       | Whether to return the value as a string with `'px'`. |
+| `baseSize` | number  | `16`    | ❌       | The starting size for calculations.                  |
+
+#### Returns
+
+- `number | string` - The calculated size for the given level, as a number or a string with `'px'`.
+
+#### Example Usage
+
+```tsx
+const size = generateComponentSize(3, false); // Returns 32
+console.log(size);
+
+const sizeWithPx = generateComponentSize(3, true); // Returns '32px'
+console.log(sizeWithPx);
+```
+
+---
+
+### `getComponentSizeMap`
+
+Generates a mapping of level numbers to their corresponding sizes, with an optional `px` suffix.
+
+#### Parameters
+
+| Name       | Type    | Default | Required | Description                                     |
+| ---------- | ------- | ------- | -------- | ----------------------------------------------- |
+| `maxLevel` | number  | -       | ✅       | The maximum level to calculate.                 |
+| `withPx`   | boolean | -       | ✅       | Whether to return sizes as strings with `'px'`. |
+| `baseSize` | number  | `16`    | ❌       | The starting size for calculations.             |
+
+#### Returns
+
+- `Record<number, number | string>` - An object mapping level numbers to sizes.
+
+#### Example Usage
+
+```tsx
+const sizeMap = getComponentSizeMap(5, false);
+console.log(sizeMap);
+// Output: { 1: 16, 2: 24, 3: 32, 4: 48, 5: 64 }
+
+const sizeMapWithPx = getComponentSizeMap(5, true);
+console.log(sizeMapWithPx);
+// Output: { 1: '16px', 2: '24px', 3: '32px', 4: '48px', 5: '64px' }
+```

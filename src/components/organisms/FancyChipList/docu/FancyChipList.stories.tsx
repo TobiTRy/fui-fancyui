@@ -66,6 +66,12 @@ const meta = {
         type: 'text',
       },
     },
+    disabled: {
+      description: 'If the ChipList should be disabled an read only',
+      control: {
+        type: 'boolean',
+      },
+    },
   },
 } satisfies Meta<typeof FancyChipList>;
 

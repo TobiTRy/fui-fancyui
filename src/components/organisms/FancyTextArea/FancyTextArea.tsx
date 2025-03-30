@@ -28,6 +28,7 @@ const FancyTextArea = forwardRef<HTMLTextAreaElement, TFancyTextArea>((props, re
     outlinedRemoveBorder,
     transparentBackground,
     className,
+    readOnly,
     ...inputProps
   } = props;
 
@@ -44,7 +45,7 @@ const FancyTextArea = forwardRef<HTMLTextAreaElement, TFancyTextArea>((props, re
       isTextArea
       hasValue={!!value}
       label={label}
-      disabled={disabled}
+      disabled={disabled || readOnly}
       placeholder={placeholder}
       themeType={themeType}
       layer={layer}
@@ -63,6 +64,7 @@ const FancyTextArea = forwardRef<HTMLTextAreaElement, TFancyTextArea>((props, re
           ref={ref}
           id={usedId}
           value={value}
+          readOnly={readOnly}
           disabled={disabled}
           onFocus={(e) => {
             onFocus && onFocus(e);

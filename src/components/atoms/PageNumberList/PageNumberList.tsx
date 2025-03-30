@@ -52,7 +52,7 @@ export default function PageNumberList(props: TPageNumberList) {
           onClick={(e) => handleClicked(e, index)}
           sizeC="sm"
           oneToOne
-          backgroundStrength={numberButtonStyle?.backgroundStrength}
+          outlinedBackgroundStrength={numberButtonStyle?.outlinedBackgroundStrength}
           hoverColor={numberButtonStyle?.hoverColor ?? 'secondary'}
           layer={numberButtonStyle?.layer}
           outlined={numberButtonStyle?.outlined ?? false}

@@ -168,6 +168,7 @@ export * from '@/components/shared/ComponentAsWrapper';
 export * from '@/components/shared/FancyPortal';
 export * from '@/utils/hooks/useIntersectionObserver';
 export * from '@/utils/hooks/useWindowDimensions';
+export * from '@/utils/hooks/useMergeRefs';
 export * from '@/design/theme/FancyThemeProvider';
 export * from '@/utils/functions/clampNumber';
 export * from '@/utils/functions/copyToClipBoard';
@@ -177,6 +178,7 @@ export * from '@/utils/hooks/useBreakpointComparison';
 export * from '@/utils/hooks/useBodyOverflow';
 export * from '@/utils/validations/isColorValid';
 export * from '@/utils/functions/clampLayer';
+export * from '@/utils/functions/debounce';
 
 // ---------- Design ------- //
 export * from '@/design/designFunctions/calcBorderRadiusOnAlignment';
@@ -202,6 +204,7 @@ export * from '@/design/designFunctions/leftRightCenterToFlexJustify';
 export * from '@/design/designFunctions/getThemeOrValueAsCss';
 export * from '@/design/designFunctions/calcBorderRadiusWithPadding';
 export * from '@/design/theme/theme';
+export * from '@/design/theme/generateComponentSize';
 export * from '@/design/designFunctions/generateThemeColorSteps';
 
 // ---------- Interfaces ------- //
@@ -224,3 +227,10 @@ export * from '@/design/theme/applyThemeToDomStyleSheet';
 
 // ---------- SVGs ------- //
 export * from '@/components/icons/';
+
+// ---------- Logo Images ------- //
+import Logo from '../assets/FancyUI.png';
+import LogoWithTextLight from '../assets/FancyUILogo_With_Text_Light.png';
+import LogoWithTextDark from '../assets/FancyUILogo_With_Text_Dark.png';
+
+export { Logo, LogoWithTextLight, LogoWithTextDark };

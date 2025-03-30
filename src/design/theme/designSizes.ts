@@ -1,13 +1,16 @@
+import { generateSpacingSize } from '@/design/theme/generateSpacingSize';
+
 export const spacingPx = {
-  xxs: 4 + 'px',
-  xs: 8 + 'px',
-  sm: 12 + 'px',
-  md: 16 + 'px',
-  lg: 24 + 'px',
-  xl: 32 + 'px',
-  xxl: 40 + 'px',
-  xxxl: 48 + 'px',
-  xxxxl: 56 + 'px',
+  '3xs': generateSpacingSize(1, true),
+  xxs: generateSpacingSize(2, true),
+  xs: generateSpacingSize(3, true),
+  sm: generateSpacingSize(4, true),
+  md: generateSpacingSize(5, true),
+  lg: generateSpacingSize(6, true),
+  xl: generateSpacingSize(7, true),
+  xxl: generateSpacingSize(8, true),
+  '3xl': generateSpacingSize(9, true),
+  '4xl': generateSpacingSize(10, true),
 };
 
 // export const fontSizes = {
@@ -86,19 +89,19 @@ export const typography = {
   },
   bodytextLg: {
     fontSize: '24px',
-    lineHeight: '34px',
+    lineHeight: '32px',
     letterSpacing: 'normal',
     fontWeight: '400', // Regular
   },
   bodytextMd: {
     fontSize: '18px',
-    lineHeight: '26px',
+    lineHeight: '24px',
     letterSpacing: 'normal',
     fontWeight: '400', // Regular
   },
   bodytextSm: {
     fontSize: '16px',
-    lineHeight: '23px',
+    lineHeight: '18px',
     letterSpacing: 'normal',
     fontWeight: '400', // Regular
   },

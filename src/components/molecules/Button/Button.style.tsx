@@ -21,12 +21,12 @@ export const ButtonStyle = styled.span<IGenerateThemeDesignForComponent & TStyle
   text-align: center;
   width: ${({ $wide }) => ($wide ? '100%' : 'fit-content')};
   min-width: fit-content;
-  transition:
-    background-color 0.125s ease-in-out,
-    color 0.125s ease-in-out;
 
   ${(props: IGenerateThemeDesignForComponent & { $disabled?: boolean }) =>
-    generateThemeDesignForComponent({ ...props, $backgroundState: props.$disabled ? 'active' : 'hover' })}
+    generateThemeDesignForComponent({
+      ...props,
+      $backgroundState: props.$disabled ? 'active' : (props.$backgroundState ?? 'hover'),
+    })}
 
   ${({ $sizeC, $borderRadius }) =>
     $borderRadius !== false && generateBorderRadiusForComponent({ sizeC: $sizeC, borderRadius: $borderRadius })};
@@ -36,9 +36,14 @@ export const ButtonStyle = styled.span<IGenerateThemeDesignForComponent & TStyle
   font-size: ${({ $sizeC, theme }) => theme.fontSizes[sizeSettings[$sizeC ?? 'md'].fontSize].fontSize};
   font-weight: bold;
 
-  ${({ $externalStyle }) => $externalStyle && $externalStyle}
-
   ${({ $disabled }) => $disabled && disabledStyle}
+  ${({ $externalStyle }) => $externalStyle && $externalStyle}
+  
+  transition:
+    background-color 0.125s ease-in-out,
+    color 0.125s ease-in-out,
+    border-color 0.125s ease-in-out,
+    filter 0.125s ease-in-out
 `;
 
 // the button wrapper is used to make the button full width

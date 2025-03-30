@@ -26,24 +26,23 @@ const RawCheckbox = forwardRef<HTMLInputElement, TRawCheckbox>((props, ref) => {
 
   // Set default incomming checked value
   useEffect(() => {
-    if (defaultChecked) setChecked(defaultChecked);
-  }, [defaultChecked]);
+    setChecked(props.checked ?? false);
+  }, [props.checked]);
 
   return (
     <InputContainer>
       {/* The Fakecheckbox for the styling */}
-      <FakeCheckbox $checked={checked} $themeType={themeType} $layer={layer} onClick={handleClick}>
+      <FakeCheckbox
+        $checked={checked}
+        defaultChecked={defaultChecked}
+        $themeType={themeType}
+        $layer={layer}
+        onClick={handleClick}
+      >
         <SVGCheckMark />
       </FakeCheckbox>
       {/* The real checkbox but this hidden */}
-      <HidenCheckBox
-        id={id}
-        ref={ref}
-        type="checkbox"
-        onChange={handleChange}
-        defaultChecked={checked}
-        {...htmlProps}
-      />
+      <HidenCheckBox id={id} ref={ref} type="checkbox" onChange={handleChange} {...htmlProps} />
     </InputContainer>
   );
 });

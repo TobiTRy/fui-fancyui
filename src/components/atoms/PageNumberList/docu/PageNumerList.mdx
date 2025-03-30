@@ -37,13 +37,12 @@ Below is an example demonstrating how to use the `PageNumberList` component with
   pageHandler={(page) => console.log(`Navigating to page ${page}`)}
   pageLimits={10}
   numberButtonStyle={{
-    textColor: 'gray',
-    textColorActive: 'blue',
-    hoverColor: 'lightgray',
-    backgroundStrength: 'medium',
-    layer: 'front',
+    textColor: 'primary',
+    hoverColor: 'secondary',
+    outlinedBackgroundStrength: 0.5,
+    layer: 0,
     outlined: true,
-    themeType: 'dark',
+    themeType: 'accent',
   }}
 />
 ```

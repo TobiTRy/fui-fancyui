@@ -2,7 +2,6 @@ import { DesignArea, DesignWrapper } from '../DesignWrapper/Wrapper';
 import FancyInfoCard from '../../components/templates/FancyInfoCard/FancyInfoCard';
 import SVGCheckMark from '../../components/icons/SVGCheckMark/SVGCheckMark';
 import { FancyBox } from '../../components/atoms/FancyBox';
-import { SystemMessageBox } from '@/components/atoms/SystemMessageBox';
 import FancySystemMessageBox from '@/components/templates/FancySystemMessageBox/FancySystemMessageBox';
 
 export default function InfoCardRoute() {
@@ -10,12 +9,12 @@ export default function InfoCardRoute() {
     <DesignWrapper>
       <DesignArea title="InfoCard">
         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-          <SystemMessageBox>
+          {/* <SystemMessageBox>
             <SVGCheckMark />
-            <span>Moooiin</span>
-          </SystemMessageBox>
-          <FancySystemMessageBox sizeC="sm" title="Tesasas" description="Mooiin" icon={<SVGCheckMark />} />
-          <FancySystemMessageBox sizeC="md" title="Tesasas" />
+            <span>Mooo2iin</span>
+          </SystemMessageBox> */}
+          <FancySystemMessageBox sizeC="sm" title="Tesasas" description="Mooiin" />
+          <FancySystemMessageBox sizeC="md" title="Tesasas" description="Moooiin22" />
           <FancySystemMessageBox sizeC="lg" themeType="error" title="Tesasas" />
           <FancySystemMessageBox sizeC="md" description="Moooiin22" />
           <FancySystemMessageBox themeType="success" sizeC="md" icon={<SVGCheckMark />} description="Moooiin22" />

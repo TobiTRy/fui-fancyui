@@ -74,14 +74,19 @@ import * as FancyModalStoies from './FancyModal.stories';
    const closeModal = useFancyModalStore((state) => state.closeModal);
 
    const openModalHandler = () => {
-     openModal(
-       'myUniqueModalId',
-       <div>
-         <FancyTextInput label="Email" />
-         <FancyButton onClick={() => closeModal('myUniqueModalId')} label="Close Modal" />
-       </div>,
-       { isCloseable: false } // Example configuration
-     );
+     openModal({
+       id: 'myUniqueModalId',
+       header: <p>My Modal Header</p>,
+       content: (
+         <>
+           <FancyTextInput label="Name" />
+           <FancyTextInput label="Email" />
+           <FancyTextInput label="Phone" />
+         </>
+       ),
+       footer: <button onClick={() => closeModal('myUniqueModalId')}>Close</button>,
+       config: { isCloseable: false },
+     });
    };
    ```
 

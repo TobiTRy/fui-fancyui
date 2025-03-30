@@ -2,10 +2,16 @@
 // ------------------- da function that handles a debounce ------------------- //
 // --------------------------------------------------------------------------- //
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-function debounce<T extends (...args: any[]) => void>(func: T, delay: number): (...args: Parameters<T>) => void {
+function debounce<T extends (...args: any[]) => void>(
+  func: T,
+  delay: number
+): {
+  (...args: Parameters<T>): void;
+  cancel: () => void;
+} {
   let timerId: number | undefined;
 
-  return function (...args: Parameters<T>) {
+  const debouncedFn = function (...args: Parameters<T>) {
     if (timerId !== undefined) {
       clearTimeout(timerId);
     }
@@ -14,6 +20,15 @@ function debounce<T extends (...args: any[]) => void>(func: T, delay: number): (
       func(...args);
     }, delay);
   };
+
+  // Add cancel method to clear the timeout
+  debouncedFn.cancel = () => {
+    if (timerId !== undefined) {
+      clearTimeout(timerId);
+    }
+  };
+
+  return debouncedFn;
 }
 
 export default debounce;

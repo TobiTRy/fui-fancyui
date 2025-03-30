@@ -34,6 +34,7 @@ export default function ChipDeleteButton(props: IXButtonProps & React.ButtonHTML
       $themeType={themeType}
       $layer={layer}
       $sizeC={sizeC}
+      type="button"
       onKeyDown={handleKeyDown}
       onClick={onDelete}
       {...htmlProps}

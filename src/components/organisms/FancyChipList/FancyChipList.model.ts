@@ -14,6 +14,7 @@ export type TFancyChipList = {
   legend?: string;
   sizeC?: 'sm' | 'md' | 'lg';
   editable?: boolean;
+  disabled?: boolean;
   onChange?: (chips: TChip[]) => void;
 };
 

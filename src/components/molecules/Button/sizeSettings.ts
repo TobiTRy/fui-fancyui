@@ -17,7 +17,7 @@ export const sizeSettings: TSizeSettings<TSizeObj> = {
     fontSize: 'interactiveMd',
   },
   lg: {
-    padding: ['sm', 'xl'],
+    padding: ['sm', 'lg'],
     fontSize: 'interactiveLg',
   },
 };

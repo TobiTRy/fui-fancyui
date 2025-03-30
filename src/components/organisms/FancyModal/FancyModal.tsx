@@ -21,6 +21,8 @@ export default function FancyModal(props: TFancyModal) {
           isOpen={modal.status === 'open'}
           onClose={() => closeModal(modal.id)}
           zIndex={zIndex}
+          footer={modal.footer}
+          header={modal.header}
           externalStyle={externalStyle}
           {...htmlProps}
           {...modal.config}

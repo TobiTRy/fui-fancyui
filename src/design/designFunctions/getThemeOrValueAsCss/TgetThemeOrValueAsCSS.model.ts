@@ -1,8 +1,10 @@
+import { TglobalElementSizes } from '@/types';
 import { TBorderRadiusSizes } from '@/types/TBorderRadiusSizes';
 import { TSpacings } from '@/types/TSpacings';
 
 // Define a type that maps your inputs to the desired output types
 export type TThemeValueMap = {
+  elementSize: TglobalElementSizes;
   borderRadius: TBorderRadiusSizes;
   spacing: TSpacings;
   default: string | number;

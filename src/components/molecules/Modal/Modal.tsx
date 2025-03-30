@@ -22,6 +22,8 @@ export default function Modal(props: TModalWithHTMLAttributes) {
     backDrop = true,
     externalStyle,
     zIndex = 100,
+    header,
+    footer,
     ...htmlProps
   } = props;
   const [modalVisible, setModalVisible] = useState(false);
@@ -46,6 +48,8 @@ export default function Modal(props: TModalWithHTMLAttributes) {
         isOpen={modalVisible}
         themeType={themeType}
         layer={layer}
+        footer={footer}
+        header={header}
         externalStyle={{
           zIndex: zIndex + 1,
           ...(externalStyle as CSSObject),

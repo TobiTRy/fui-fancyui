@@ -31,6 +31,7 @@ const FancyPasswordInput = forwardRef<HTMLInputElement, TFancyPasswordInput>((pr
     outlinedBackgroundStrength,
     outlinedRemoveBorder,
     className,
+    readOnly,
     ...inputProps
   } = props;
 
@@ -49,7 +50,7 @@ const FancyPasswordInput = forwardRef<HTMLInputElement, TFancyPasswordInput>((pr
       hasValue={!!value}
       placeholder={placeholder}
       label={label}
-      disabled={disabled}
+      disabled={disabled || readOnly}
       align={align}
       underline={underline}
       isActive={isActive}
@@ -69,6 +70,7 @@ const FancyPasswordInput = forwardRef<HTMLInputElement, TFancyPasswordInput>((pr
           themeType={getOpositMainThemeType(themeType)}
           layer={layer}
           disabled={disabled}
+          readOnly={readOnly}
           onFocus={(e) => {
             onFocus && onFocus(e);
             setIsActive(true);

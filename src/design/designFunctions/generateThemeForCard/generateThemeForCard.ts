@@ -38,7 +38,7 @@ type TGenerateColorDesign = TStyledPrefixAndPicker<TGenerateThemeForCardProps> &
 export default function generateThemeForCard(props: TGenerateColorDesign) {
   const { $themeType, theme, $outlined, $layer, $outlinedBackgroundStrength, $outlinedRemoveBorder } = props;
   let outlinedStyle, backgroundColor;
-  const getBackgroundStrength = themeStore((state) => state.theme.outlined.backgroundStrength);
+  const getBackgroundStrength = themeStore((state) => state.theme.outlined.outlinedBackgroundStrength);
 
   // generate the outlined style if the outlined prop is true else generate only the background color
   if ($outlined) {

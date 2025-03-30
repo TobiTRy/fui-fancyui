@@ -1,10 +1,11 @@
 import { styled } from 'styled-components';
 
-import { borderRadius, spacingPx } from '@/design/theme/designSizes';
+import { borderRadius } from '@/design/theme/designSizes';
 import { TLayer } from '@/types/TLayer';
 import { TTheme } from '@/types/TTheme';
 import { TBorderRadiusSizes } from '@/types/TBorderRadiusSizes';
 import { TSpacings } from '@/types/TSpacings';
+import { theme } from '@/design/theme/theme';
 
 // Define the interface for the styled-component
 export interface IFancyTabSwitchStyle {
@@ -28,7 +29,7 @@ export const ULButtonSwitchList = styled.ul<IFancyTabSwitchStyle & { theme: TThe
   grid-auto-flow: ${({ $direction }) => ($direction === 'vertical' ? 'row' : 'column')};
   grid-auto-rows: 1fr;
   grid-auto-columns: 1fr;
-  gap: ${({ $tabSpacing }) => ($tabSpacing ? spacingPx[$tabSpacing] : '0')};
+  gap: ${({ $tabSpacing }) => ($tabSpacing ? theme.spacing[$tabSpacing] : '0')};
   border-radius: ${({ $rounded }) => ($rounded ? borderRadius[$rounded] : '0')};
   ${({ $wide }) => $wide && `justify-content: space-between`};
   align-items: center;

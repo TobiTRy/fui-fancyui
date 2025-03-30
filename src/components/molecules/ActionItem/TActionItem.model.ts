@@ -1,13 +1,13 @@
 import { TFancyFlexBoxWithDynamicElAttrs } from '@/components/templates/FancyFlexBox';
 import { TGenerateThemeDesignForComponentProps } from '@/design/designFunctions/generateThemeDesignForComponent';
-import { TComponentSizesExtended } from '@/types/TComponentSizes';
+import { TComponentSizesMid } from '@/types/TComponentSizes';
 import { TLayer } from '@/types/TLayer';
 import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 
 export type TActionItemSetting = {
   labelAlign?: 'left' | 'right' | 'top' | 'bottom';
   hideLabel?: boolean;
-  size?: TComponentSizesExtended;
+  size?: TComponentSizesMid;
   layer?: TLayer;
   themeType?: TUiColorsNotTransparent;
   themeTypeActiveHover?: TUiColorsNotTransparent;

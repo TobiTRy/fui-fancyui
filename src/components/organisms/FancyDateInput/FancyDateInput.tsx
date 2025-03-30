@@ -29,6 +29,7 @@ const FancyDateInput = forwardRef<HTMLInputElement, TFancyDateInput>((props, ref
     outlinedRemoveBorder,
     externalStyle,
     className,
+    readOnly,
     ...inputProps
   } = props;
 
@@ -56,7 +57,7 @@ const FancyDateInput = forwardRef<HTMLInputElement, TFancyDateInput>((props, ref
       id={usedId}
       hasValue={!!value || !!hasValue || isActiveState} // if the input has a value or is active, the placeholder should be shown
       label={label}
-      disabled={disabled}
+      disabled={disabled || readOnly}
       themeType={themeType}
       placeholder={placeholder}
       underline={underline}
@@ -75,6 +76,7 @@ const FancyDateInput = forwardRef<HTMLInputElement, TFancyDateInput>((props, ref
           ref={ref}
           id={usedId}
           placeholder={placeholder}
+          readOnly={readOnly}
           themeType={getOpositMainThemeType(themeType)}
           layer={layer}
           onChange={(e) => {
@@ -92,6 +94,7 @@ const FancyDateInput = forwardRef<HTMLInputElement, TFancyDateInput>((props, ref
             props.onBlur && props.onBlur(e);
           }}
           align={align}
+          disabled={disabled}
           {...inputProps}
         />
       }

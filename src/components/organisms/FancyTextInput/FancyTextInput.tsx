@@ -30,6 +30,7 @@ const FancyTextInput = forwardRef<HTMLInputElement, TFancyTextInput>((props, ref
     outlinedRemoveBorder,
     transparentBackground,
     className,
+    readOnly,
     ...inputProps
   } = props;
 
@@ -45,7 +46,7 @@ const FancyTextInput = forwardRef<HTMLInputElement, TFancyTextInput>((props, ref
       id={usedId}
       hasValue={!!value}
       label={label}
-      disabled={disabled}
+      disabled={disabled || readOnly}
       placeholder={placeholder}
       themeType={themeType}
       layer={layer}
@@ -67,6 +68,7 @@ const FancyTextInput = forwardRef<HTMLInputElement, TFancyTextInput>((props, ref
           align={align}
           type={type}
           disabled={disabled}
+          readOnly={readOnly}
           onFocus={(e) => {
             onFocus && onFocus(e);
             setIsActive(true);

@@ -16,6 +16,7 @@ export default function ChipList(props: TChipListWithHTMLAtrrs) {
     sizeC = 'md',
     borderRadius,
     systemMessage,
+    disabled,
     ...htmlDivAttrs
   } = props;
 
@@ -28,6 +29,7 @@ export default function ChipList(props: TChipListWithHTMLAtrrs) {
         layer={layer}
         outlined={outlined}
         $sytemMessage={systemMessage}
+        $disabled={disabled}
       >
         <ChipContainer>{children}</ChipContainer>
       </StyledChipList>

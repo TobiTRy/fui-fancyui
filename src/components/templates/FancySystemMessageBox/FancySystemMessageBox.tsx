@@ -32,18 +32,14 @@ export default function FancySystemMessageBox(props: TFancySystemMessageWithFanc
         direction={direction ?? 'row'}
         directionTextGroup={directionTextGroup ?? 'column'}
         alignTextGroup={alignTextGroup}
-        align={align ?? 'center'}
-        justify={justify ?? 'flex-start'}
-        gapBetweenText={gapBetweenText ?? '0px'}
-        gapBetweenIcon={gapBetweenIcon ?? sizes[sizeC].gap}
+        align={align ?? 'flex-start'}
+        justify={justify ?? 'center'}
+        gapBetweenText={gapBetweenText}
+        gapBetweenIcon={gapBetweenIcon ?? '3xs'}
       >
-        {(icon || useFuiIcons) && (
-          <FancyContent.Icon sizeC={sizes[sizeC].iconSize}> {useFuiIcons ? <Icon /> : icon}</FancyContent.Icon>
-        )}
-        {title && <FancyContent.Title fontVariant={sizes[sizeC].title}>{title}</FancyContent.Title>}
-        {description && (
-          <FancyContent.Description fontVariant={sizes[sizeC].descriptionSize}>{description}</FancyContent.Description>
-        )}
+        {(icon || useFuiIcons) && <FancyContent.Icon sizeC={sizeC}> {icon ?? <Icon />}</FancyContent.Icon>}
+        {title && <FancyContent.Title sizeC={sizeC}>{title}</FancyContent.Title>}
+        {description && <FancyContent.Description sizeC={sizeC}>{description}</FancyContent.Description>}
       </FancyContent>
     </SystemMessageBox>
   );

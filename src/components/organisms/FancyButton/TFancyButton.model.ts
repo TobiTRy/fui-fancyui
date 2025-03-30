@@ -8,7 +8,6 @@ export type TFancyButton = {
   iconAlign?: 'left' | 'right';
   oneToOne?: boolean;
   icon?: ReactNode;
-  gap?: string;
 };
 
 export type TFancyButtonWithHTMLAttrs = TFancyButton & TButtonWithNativeAttrs;
