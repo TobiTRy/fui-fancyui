@@ -1,4 +1,7 @@
-export const theme = {
+import { globalElementSizes } from '@/design/theme/globalSizes';
+import { TTheme } from '@/types/TTheme';
+
+export const theme: TTheme = {
   color: {
     primary: {
       '0': '#131825FF',
@@ -204,16 +207,9 @@ export const theme = {
     md: '(min-width: 768px)',
     lg: '(min-width: 992px)',
     xl: '(min-width: 1200px)',
-    xxl: '(min-width: 1600px)',
   },
   globalElementSizes: {
-    xxs: '16px',
-    xs: '24px',
-    sm: '32px',
-    md: '40px',
-    lg: '48px',
-    xl: '56px',
-    xxl: '64px',
+    ...globalElementSizes,
   },
   outlined: {
     outlinedBackgroundStrength: 0.5,
