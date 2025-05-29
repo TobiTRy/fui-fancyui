@@ -15,6 +15,8 @@ export default function FancyProfilePicture(props: TFancyProfilePictureWithHTMLA
     externalStyle,
     textAvatarSettings,
     children,
+    themeType = 'primary',
+    layer = 2,
     ...htmlProps
   } = props;
 
@@ -31,12 +33,14 @@ export default function FancyProfilePicture(props: TFancyProfilePictureWithHTMLA
     </FancyImageWrapper>
   ) : (
     <TextAvatar
-      {...htmlProps}
-      {...textAvatarSettings}
       borderRadius={borderRadius}
       sizeC={sizeC}
       text={nickname}
       externalStyle={externalStyle}
+      themeType={themeType}
+      layer={layer}
+      {...htmlProps}
+      {...textAvatarSettings}
     />
   );
 }
