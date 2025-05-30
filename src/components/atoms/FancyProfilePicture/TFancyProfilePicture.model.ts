@@ -1,15 +1,14 @@
 import { CSSProp } from 'styled-components';
 
 import { TextAvatar } from '@/components/molecules/TextAvatar';
-import { TglobalElementSizes } from '@/types/TGlobalElementSizes';
+import { TBorderRadiusSizes, TComponentSizesExtended, TLayer } from '@/types';
 import { TUiColorsMain } from '@/types/TUiColorsMain';
-import { TLayer } from '@/types';
 
 type TtextAvatarSettings = React.ComponentProps<typeof TextAvatar>;
 
 export type TFancyProfilePicture = {
-  borderRadius?: 'sm' | 'md' | 'lg' | 'complete' | 'none';
-  sizeC?: TglobalElementSizes | 'fit' | (string & {});
+  borderRadius?: TBorderRadiusSizes | 'none';
+  sizeC?: TComponentSizesExtended | 'fit' | (string & {});
   externalStyle?: CSSProp;
   textAvatarSettings?: Omit<TtextAvatarSettings, 'text'>;
   nickname?: string;

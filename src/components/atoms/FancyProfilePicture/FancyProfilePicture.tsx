@@ -3,6 +3,7 @@
 import { TextAvatar } from '@/components/molecules/TextAvatar';
 import { TFancyProfilePictureWithHTMLAttrs } from './TFancyProfilePicture.model';
 import { FancyImageWrapper } from '@/components/atoms/FancyImageWrapper';
+import { getBorderRadiusViaSize } from '@/design/designFunctions/getBorderRadiusViaSize';
 
 // --------------------------------------------------------------------------- //
 //  ProfilePicture component to render with  different sizes and border radius //
