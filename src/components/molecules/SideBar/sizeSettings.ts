@@ -26,7 +26,7 @@ export const sizeSettings: TSizeSettings<TSizeObj> = {
   lg: {
     width: 'xl',
     borderRadius: 'md',
-    gapBetweenItems: 'sm',
+    gapBetweenItems: 'xs',
     paddingBottomTop: 'xs',
   },
 };
