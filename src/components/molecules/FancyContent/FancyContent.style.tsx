@@ -12,6 +12,7 @@ type TWrapper = TStyledPrefixAndOmiter<TFancyContent, 'children'>;
 // Define the Wrapper component
 export const Wrapper = styled.span<TWrapper & { theme: TTheme }>`
   display: inline-flex;
+  width: 100%;
   flex-direction: ${({ $direction }) => $direction || 'row'};
   justify-content: ${({ $justify }) => $justify || 'center'};
   align-items: ${({ $align }) => $align || 'center'};

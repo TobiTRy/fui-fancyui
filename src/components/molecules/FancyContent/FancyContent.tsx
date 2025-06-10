@@ -48,7 +48,7 @@ function FancyContent(props: TFancyContentHTMLAttrs) {
       $direction={direction}
       $justify={justify}
       $gapBetweenText={gapBetweenText}
-      $gapBetweenIcon={gapBetweenIcon ?? '3xs'}
+      $gapBetweenIcon={gapBetweenIcon ?? '2xs'}
       $directionTextGroup={directionTextGroup}
       $themeType={themeType}
       $layer={layer}
