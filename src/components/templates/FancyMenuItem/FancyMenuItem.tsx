@@ -14,7 +14,7 @@ export default function FancyMenueItem(props: TFancyMenueItemWithMenuAttrs) {
 
   return (
     <MenueItem sizeC={sizeC} {...menuItemProps}>
-      <FancyContent align="center" gapBetweenIcon={gapBetweenIcon}>
+      <FancyContent align="center" justify="flex-start" gapBetweenIcon={gapBetweenIcon}>
         {label && (
           <FancyContent.Title fontVariant={sizeSettings[sizeC].fontSizeTitle} fontWeight={'normal'}>
             {label}
