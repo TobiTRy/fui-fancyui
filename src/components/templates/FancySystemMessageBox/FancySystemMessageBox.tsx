@@ -33,7 +33,7 @@ export default function FancySystemMessageBox(props: TFancySystemMessageWithFanc
         directionTextGroup={directionTextGroup ?? 'column'}
         alignTextGroup={alignTextGroup}
         align={align ?? 'flex-start'}
-        justify={justify ?? 'center'}
+        justify={justify ?? 'flex-start'}
         gapBetweenText={gapBetweenText}
         gapBetweenIcon={gapBetweenIcon ?? '3xs'}
       >

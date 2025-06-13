@@ -17,7 +17,7 @@ function FancyContent(props: TFancyContentHTMLAttrs) {
     children,
     align,
     direction,
-    justify,
+    justify = 'center',
     gapBetweenText = '',
     gapBetweenIcon,
     themeType,
