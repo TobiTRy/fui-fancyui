@@ -21,7 +21,7 @@ export default function FancyMiniProfile(props: TFancyMiniprofileWithHTMLProps) 
       <FancyProfilePicture className="miniprofile_content-image" sizeC="fit">
         {Image}
       </FancyProfilePicture>
-      <Chip.Content className="miniprofile_content" alignIcon={alignImage} gapBetweenText="0">
+      <Chip.Content className="miniprofile_content" alignIcon={alignImage} justify="center" gapBetweenText="0">
         {title && (
           <Chip.Content.Title lineHeight={1.2} fontVariant={sizeSettings[sizeC].titleSize}>
             {title}

@@ -18,7 +18,7 @@ export default function FancyContentRoute() {
           <FancyContent.Description sizeC="sm">Hiii</FancyContent.Description>
         </FancyContent>
 
-        <FancyContent align="flex-start" justify="center">
+        <FancyContent align="flex-start">
           <FancyContent.Icon sizeC="md" themeType="primary">
             <SVGCheckMark />
           </FancyContent.Icon>
