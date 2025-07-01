@@ -20,20 +20,20 @@ const meta = {
     outlined: {
       description: 'This prop will change the Nutton to outlined',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
     },
     sizeC: {
       description: 'This prop will change the size of the button',
       options: ['sm', 'md', 'lg', undefined],
       control: {
-        type: 'select',
+        type: 'select' as const,
       },
     },
     iconAlign: {
       description: 'This prop will align the icon inside the button to the left or right from the text',
       control: {
-        type: 'radio',
+        type: 'radio' as const,
       },
       table: {
         defaultValue: { summary: 'left' },
@@ -42,89 +42,89 @@ const meta = {
     borderRadius: {
       description: 'This prop will change the borderRadius of the button',
       control: {
-        type: 'object',
+        type: 'object' as const,
       },
     },
     isLoading: {
       description: 'Indicates if the button is in a loading state.',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
     },
     textColor: {
       description: 'This prop will change the color of the text',
       control: {
-        type: 'select',
+        type: 'select' as const,
       },
     },
     hoverColor: {
       description: 'This prop will change the color of the hover',
       control: {
-        type: 'select',
+        type: 'select' as const,
       },
     },
     wide: {
       description: 'This prop will change the width of the button',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
     },
     as: {
       description:
         'This prop will change the tag of the button to a different tag it can be used to get only the style as span an wrapp it like example with a next/link',
       control: {
-        type: 'select',
+        type: 'select' as const,
       },
     },
     label: {
       description: 'The label of the button',
       control: {
-        type: 'text',
+        type: 'text' as const,
       },
     },
     oneToOne: {
       description: 'This prop will make the button a square (1/1) if there is no label and a icon',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
     },
     externalStyle: {
       description: 'This prop will change the style of the button',
       control: {
-        type: 'object',
+        type: 'object' as const,
       },
     },
     disabled: {
       description: 'If true, the component will be disabled.',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
       table: {
-        defaultValue: { summary: false },
+        defaultValue: { summary: 'false' },
       },
     },
     notAButton: {
       description: 'This prop will change the button to a span to use a own wapper like next link',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
     },
     noSize: {
       description: 'This prop will remove the size of the button like padding and size',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
     },
     outlinedBackgroundStrength: {
       description: 'This prop will change the background strength of the button',
       control: {
-        type: 'text',
+        type: 'text' as const,
       },
     },
     textHover: {
       description: 'This prop will change the text hover color of the button',
       control: {
-        type: 'text',
+        type: 'text' as const,
       },
     },
   },

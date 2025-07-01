@@ -25,7 +25,7 @@ const meta = {
     align: {
       description: 'The align of the input.',
       control: {
-        type: 'radio',
+        type: 'radio' as const,
       },
       table: {
         defaultValue: { summary: 'left' },

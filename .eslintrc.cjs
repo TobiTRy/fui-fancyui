@@ -24,15 +24,15 @@ module.exports = {
     '@typescript-eslint/no-non-null-asserted-optional-chain': 'off',
     '@typescript-eslint/no-redundant-type-constituents': 'off',
     '@typescript-eslint/no-unused-vars': 'warn',
-    '@typescript-eslint/ban-types': [
-      'error',
-      {
-        extendDefaults: true,
-        types: {
-          '{}': false,
-        },
-      },
-    ],
+    // '@typescript-eslint/ban-types': [
+    //   'error',
+    //   {
+    //     extendDefaults: true,
+    //     types: {
+    //       '{}': false,
+    //     },
+    //   },
+    // ],
   },
   ignorePatterns: ['vite.config.ts', 'vitest.config.ts', '.eslintrc.cjs'],
 };

@@ -36,10 +36,10 @@ const meta = {
     isVisible: {
       description: 'Is the nav visible',
       table: {
-        defaultValue: { summary: true },
+        defaultValue: { summary: 'true' },
       },
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
     },
     wichIndexIsActive: {
@@ -48,14 +48,14 @@ const meta = {
         defaultValue: { summary: '0' },
       },
       control: {
-        type: 'text',
+        type: 'text' as const,
       },
     },
     items: {
       description: 'The items of the nav',
       defaultValue: '',
       control: {
-        type: 'object',
+        type: 'object' as const,
       },
     },
     themeType: {
@@ -64,7 +64,7 @@ const meta = {
         defaultValue: { summary: 'primary' },
       },
       control: {
-        type: 'select',
+        type: 'select' as const,
       },
     },
     themeTypeSwitchList: {
@@ -73,16 +73,16 @@ const meta = {
         defaultValue: { summary: 'accent' },
       },
       control: {
-        type: 'select',
+        type: 'select' as const,
       },
     },
     layer: {
       description: 'The layer of the nav',
       table: {
-        defaultValue: { summary: 1 },
+        defaultValue: { summary: '1' },
       },
       control: {
-        type: 'range',
+        type: 'range' as const,
         min: 0,
         max: 9,
         step: 1,
@@ -91,10 +91,10 @@ const meta = {
     switchListLayer: {
       description: 'The layer of the switchlist',
       table: {
-        defaultValue: { summary: 1 },
+        defaultValue: { summary: '1' },
       },
       control: {
-        type: 'range',
+        type: 'range' as const,
         min: 0,
         max: 9,
         step: 1,
@@ -106,25 +106,25 @@ const meta = {
         defaultValue: { summary: '' },
       },
       control: {
-        type: 'object',
+        type: 'object' as const,
       },
     },
     outlined: {
       description: 'Is the nav outlined',
       table: {
-        defaultValue: { summary: false },
+        defaultValue: { summary: 'false' },
       },
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
     },
     outlinedBackgroundStrength: {
       description: 'The background strength of the nav',
       table: {
-        defaultValue: { summary: 0.9 },
+        defaultValue: { summary: '0.9' },
       },
       control: {
-        type: 'range',
+        type: 'range' as const,
         min: 0,
         max: 1,
         step: 0.1,

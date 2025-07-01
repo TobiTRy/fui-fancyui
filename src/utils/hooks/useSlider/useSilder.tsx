@@ -6,6 +6,8 @@ import Color from 'color';
 import { IMarkerPosition, IUseSlider, IUseSliderReturn } from './IUseSlider.model';
 import throttle from '@/utils/functions/throttle/throttle';
 
+type ColorType = ReturnType<typeof Color>;
+
 // --------------------------------------------------------------------------- //
 // ------------------ Define the main useSlider Hoook function --------------- //
 // --------------------------------------------------------------------------- //
@@ -26,7 +28,7 @@ const useSlider = ({
 
   //updates the marker position when the color changes
   const updateMarkerPosition = useCallback(
-    (color: Color) => {
+    (color: ColorType) => {
       if (!sliderRef.current) return;
       const rect = sliderRef.current.getBoundingClientRect();
       const newPosition = colorToPositionFunc(color, rect);
@@ -42,19 +44,25 @@ const useSlider = ({
       const rect = sliderRef.current.getBoundingClientRect();
       if (type === 'hue') {
         const newColor = sliderPositionToColorFunc && sliderPositionToColorFunc(clientX, rect);
-        handlerSlider && handlerSlider(Math.floor(newColor!) ?? 0);
+        if (handlerSlider && newColor !== undefined) {
+          handlerSlider(Math.floor(newColor) ?? 0);
+        }
         const createColor = Color({ h: newColor, s: 100, l: 50 });
         updateMarkerPosition(createColor);
       } else if (type === 'opacity') {
         const newColor = sliderPositionToColorFunc && sliderPositionToColorFunc(clientX, rect);
         const alpha = Math.max(0, Math.min(newColor as number, 1));
-        handlerSlider && handlerSlider(alpha ?? 1);
+        if (handlerSlider) {
+          handlerSlider(alpha ?? 1);
+        }
         const createColor = Color({ r: 255, g: 255, b: 255 }).alpha(alpha);
         updateMarkerPosition(createColor);
       } else {
         const newColor = positionToColorFunc && positionToColorFunc(hue ?? 0, clientX, clientY, rect);
         const createColor = Color(newColor);
-        handlerColor && handlerColor(createColor);
+        if (handlerColor) {
+          handlerColor(createColor);
+        }
         updateMarkerPosition(createColor);
       }
     },
@@ -130,14 +138,13 @@ const useSlider = ({
   useEffect(() => {
     if (!sliderRef.current) return;
 
-    if (!color)
-      type === 'hue'
-        ? // eslint-disable-next-line react-hooks/exhaustive-deps
-          (color = Color({ h: hue, s: 100, l: 50 }))
-        : (color = Color({ r: 255, g: 255, b: 255 }).alpha(1));
+    let actualColor = color;
+    if (!actualColor) {
+      actualColor = type === 'hue' ? Color({ h: hue, s: 100, l: 50 }) : Color({ r: 255, g: 255, b: 255 }).alpha(1);
+    }
 
     const rect = sliderRef.current.getBoundingClientRect();
-    const initialPosition = colorToPositionFunc(color, rect);
+    const initialPosition = colorToPositionFunc(actualColor, rect);
     setMarkerPosition(initialPosition);
   }, []);
 

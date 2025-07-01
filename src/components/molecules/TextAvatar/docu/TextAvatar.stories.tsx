@@ -22,38 +22,38 @@ const meta = {
   argTypes: {
     borderRadius: {
       description: 'Determines the border-radius of the avatar',
-      control: { type: 'select' },
+      control: { type: 'select' as const },
     },
     casing: {
       description: 'Determines the casing of the text inside the avatar.',
-      control: { type: 'select' },
+      control: { type: 'select' as const },
     },
     sizeC: {
       description: 'The size of the image.',
-      control: { type: 'select' },
+      control: { type: 'select' as const },
     },
     text: {
-      control: { type: 'text' },
+      control: { type: 'text' as const },
       description: 'The text to display inside the avatar. Usually initials.',
     },
     letterLength: {
-      control: { type: 'number' },
+      control: { type: 'number' as const },
       description: 'The amount of letters to be displayed.',
     },
     fontSizes: {
-      control: { type: 'select' },
+      control: { type: 'select' as const },
       description: 'Variant for the text font size. It overrides the default size determined by the avatar size.',
     },
     externalStyle: {
-      control: { type: 'text' },
+      control: { type: 'text' as const },
       description: 'External styles to be applied to the avatar.',
     },
     color: {
-      control: { type: 'color' },
+      control: { type: 'color' as const },
       description: 'Color of the text inside the avatar.',
     },
     backgroundColor: {
-      control: { type: 'color' },
+      control: { type: 'color' as const },
       description: 'Background color of the avatar.',
     },
     ...templateThemeType('mainThemeTypes', 'primary', 2),

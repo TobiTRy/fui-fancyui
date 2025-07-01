@@ -18,31 +18,31 @@ const meta = {
     label: {
       description: 'The text to display alongside the checkbox.',
       control: {
-        type: 'text',
+        type: 'text' as const,
       },
     },
     description: {
       description: 'Provides additional context or information below the label.',
       control: {
-        type: 'text',
+        type: 'text' as const,
       },
     },
     align: {
       description: 'Aligns the entire component (checkbox, label, and description).',
       control: {
-        type: 'select',
+        type: 'select' as const,
       },
     },
     alignCheckbox: {
       description: ' Aligns the checkbox relative to the label and description.',
       control: {
-        type: 'select',
+        type: 'select' as const,
       },
     },
     defaultChecked: {
       description: 'Sets the initial state of the checkbox.',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
     },
     ...templateThemeType('mainThemeTypes', 'primary', 3),

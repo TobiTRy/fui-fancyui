@@ -22,19 +22,19 @@ const meta = {
     opacity: {
       description: 'The opacity of the pattern',
       control: {
-        type: 'range',
+        type: 'range' as const,
         min: 0,
         max: 1,
         step: 0.1,
       },
       table: {
-        defaultValue: { summary: 1 },
+        defaultValue: { summary: '1' },
       },
     },
     color: {
       description: 'The color of the pattern',
       control: {
-        type: 'color',
+        type: 'color' as const,
       },
       table: {
         defaultValue: { summary: '#808080' },
@@ -43,7 +43,7 @@ const meta = {
     externalStyle: {
       description: 'The external style of the pattern',
       control: {
-        type: 'object',
+        type: 'object' as const,
       },
     },
   },

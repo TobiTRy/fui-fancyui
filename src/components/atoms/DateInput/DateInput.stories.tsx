@@ -20,20 +20,20 @@ const meta = {
       description: 'The type of the input.',
       defaultValue: 'date',
       control: {
-        type: 'select',
+        type: 'select' as const,
       },
     },
     align: {
       description: 'The alignment of the input.',
       defaultValue: 'center',
       control: {
-        type: 'select',
+        type: 'select' as const,
       },
     },
     value: {
       description: 'The value of the input.',
       control: {
-        type: 'text',
+        type: 'text' as const,
       },
     },
   },
@@ -48,7 +48,7 @@ export const Primary: Story = {
   args: {
     value: '2021-01-01',
     align: 'center',
-    type: 'date',
+    type: 'date' as const,
     themeType: 'secondary',
     layer: 0,
   },

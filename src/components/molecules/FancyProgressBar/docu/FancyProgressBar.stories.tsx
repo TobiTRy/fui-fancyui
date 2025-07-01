@@ -21,13 +21,13 @@ const meta = {
     },
     labelAlign: {
       control: {
-        type: 'radio',
+        type: 'radio' as const,
       },
       description: 'The alignment of the label',
     },
     progressAlign: {
       control: {
-        type: 'radio',
+        type: 'radio' as const,
       },
       description: 'The alignment of the progress',
     },
@@ -37,7 +37,7 @@ const meta = {
     },
     themeTypeText: {
       description: 'The theme type of the component',
-      control: { type: 'select' },
+      control: { type: 'select' as const },
       options: ['primary', 'secondary', 'accent', 'info', 'success', 'warning', 'error', undefined],
       table: {
         defaultValue: { summary: 'secondary' },
@@ -45,9 +45,9 @@ const meta = {
     },
     textLayer: {
       description: 'The layer of the component',
-      control: { type: 'range', min: 0, max: 9 },
+      control: { type: 'range' as const, min: 0, max: 9 },
       table: {
-        defaultValue: { summary: 0 },
+        defaultValue: { summary: '0' },
       },
     },
     progress: {

@@ -21,7 +21,7 @@ const meta = {
     sizeC: {
       description: 'The size of the search bar.',
       control: {
-        type: 'select',
+        type: 'select' as const,
       },
       table: {
         defaultValue: { summary: 'sm' },
@@ -30,16 +30,16 @@ const meta = {
     isOpen: {
       description: 'The state of the sidebar.',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
       table: {
-        defaultValue: { summary: false },
+        defaultValue: { summary: 'false' },
       },
     },
     openWidth: {
       description: 'The width of the sidebar when it is open.',
       control: {
-        type: 'text',
+        type: 'text' as const,
       },
       table: {
         defaultValue: { summary: '400px' },
@@ -48,7 +48,7 @@ const meta = {
     gapBetweenItems: {
       description: 'The gap between items in the sidebar.',
       control: {
-        type: 'select',
+        type: 'select' as const,
       },
       table: {
         defaultValue: { summary: 'sm' },

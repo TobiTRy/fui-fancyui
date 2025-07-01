@@ -22,10 +22,10 @@ const meta = {
     isShow: {
       description: 'Define if the password is shown',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
       table: {
-        defaultValue: { summary: false },
+        defaultValue: { summary: 'false' },
       },
     },
     onClick: {
@@ -35,26 +35,26 @@ const meta = {
     customEyeOpen: {
       description: 'Define the custom eye open icon',
       control: {
-        type: 'object',
+        type: 'object' as const,
       },
     },
     customEyeCrossed: {
       description: 'Define the custom eye crossed icon',
       control: {
-        type: 'object',
+        type: 'object' as const,
       },
     },
     ...templateThemeType('notTransparent', 'secondary', 0),
     externalStyle: {
       description: 'Define the external style',
       control: {
-        type: 'object',
+        type: 'object' as const,
       },
     },
     sizeC: {
       description: 'Define the size of the icon',
       control: {
-        type: 'select',
+        type: 'select' as const,
         options: ['xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl'],
       },
       table: {
@@ -64,7 +64,7 @@ const meta = {
     systemMessage: {
       description: 'Define the system message',
       control: {
-        type: 'select',
+        type: 'select' as const,
         options: ['success', 'error', 'warning', 'info'],
       },
     },

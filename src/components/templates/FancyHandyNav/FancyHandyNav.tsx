@@ -78,7 +78,7 @@ export default function FancyHandyNav(props: TFancyHandyNavWithHTMLAttrs) {
                     {...item}
                     onClick={() => {
                       setWhichIsActiveState(index.toString());
-                      item.onClick && item.onClick();
+                      if (item.onClick) item.onClick();
                     }}
                   />
                 </ButtonWrapper>

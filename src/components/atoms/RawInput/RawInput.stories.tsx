@@ -21,19 +21,19 @@ const meta = {
     placeholder: {
       description: 'Define the placeholder of the input field',
       control: {
-        type: 'text',
+        type: 'text' as const,
       },
     },
     value: {
       description: 'Define the value of the input field',
       control: {
-        type: 'text',
+        type: 'text' as const,
       },
     },
     $externalStyle: {
       description: 'Define the external style of the input field',
       control: {
-        type: 'object',
+        type: 'object' as const,
       },
     },
     $align: {
@@ -43,7 +43,7 @@ const meta = {
         required: false,
       },
       control: {
-        type: 'radio',
+        type: 'radio' as const,
         options: ['left', 'center'],
       },
       table: {

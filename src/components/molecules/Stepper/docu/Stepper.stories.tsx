@@ -19,7 +19,7 @@ const meta = {
   argTypes: {
     size: {
       description: 'The size of the component',
-      control: { type: 'select' },
+      control: { type: 'select' as const },
       table: {
         defaultValue: { summary: 'md' },
       },
@@ -27,13 +27,13 @@ const meta = {
     steps: {
       description: 'The steps of the Stepper component',
       control: {
-        type: 'object',
+        type: 'object' as const,
       },
     },
     flexDirection: {
       description: 'The direction of the Stepper component',
       control: {
-        type: 'select',
+        type: 'select' as const,
       },
       table: {
         defaultValue: { summary: 'row' },
@@ -42,16 +42,16 @@ const meta = {
     activeStep: {
       description: 'Which step is activet',
       control: {
-        type: 'number',
+        type: 'number' as const,
       },
       table: {
-        defaultValue: { summary: 1 },
+        defaultValue: { summary: '1' },
       },
     },
     thinkness: {
       description: 'The thickness of the line',
       control: {
-        type: 'text',
+        type: 'text' as const,
       },
       table: {
         defaultValue: { summary: '2px' },
@@ -60,13 +60,13 @@ const meta = {
     lineLength: {
       description: 'The length of the line',
       control: {
-        type: 'text',
+        type: 'text' as const,
       },
     },
     gap: {
       description: 'The gap between the steps',
       control: {
-        type: 'select',
+        type: 'select' as const,
       },
       table: {
         defaultValue: { summary: 'md' },
@@ -75,7 +75,7 @@ const meta = {
     labelAlign: {
       description: 'The alignment of the label',
       control: {
-        type: 'select',
+        type: 'select' as const,
       },
       table: {
         defaultValue: { summary: 'bottom' },
@@ -84,40 +84,40 @@ const meta = {
     textColor: {
       description: 'The color of the text',
       control: {
-        type: 'select',
+        type: 'select' as const,
       },
     },
     hoverColor: {
       description: 'The color of the hover',
       control: {
-        type: 'select',
+        type: 'select' as const,
       },
     },
     outlined: {
       description: 'The outline of the component',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
     },
     themeTypeActiveHover: {
       description: 'The theme type of the action item when it is active or hovered',
-      control: { type: 'select' },
+      control: { type: 'select' as const },
     },
     textHover: {
       description: 'The color of the text when hovered',
-      control: { type: 'select' },
+      control: { type: 'select' as const },
     },
     useSimpleTextColor: {
       description: 'The color of the text when hovered',
-      control: { type: 'boolean' },
+      control: { type: 'boolean' as const },
     },
     backgroundState: {
       description: 'The background state of the component',
-      control: { type: 'select' },
+      control: { type: 'select' as const },
     },
     outlinedBackgroundStrength: {
       description: 'The background strength of the component',
-      control: { type: 'number' },
+      control: { type: 'number' as const },
       min: 0,
       max: 1,
       step: 0.1,

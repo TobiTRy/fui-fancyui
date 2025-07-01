@@ -2,6 +2,8 @@
 
 import Color from 'color';
 
+type ColorType = ReturnType<typeof Color>;
+
 import { useEffect, useMemo, useState } from 'react';
 
 import { FancyButton } from '@/components/organisms/FancyButton';
@@ -32,7 +34,7 @@ export default function FancyColorInput(props: TFancyColorInput) {
   } = props;
 
   const [colorFormatIndex, setColorFormatIndex] = useState(0);
-  const [currentPicketColor, setCurrentPickedColor] = useState<Color>(Color(pickedColor));
+  const [currentPicketColor, setCurrentPickedColor] = useState<ColorType>(Color(pickedColor));
 
   //memoized the current color object
   const transformedColorObject = useMemo(
@@ -64,9 +66,9 @@ export default function FancyColorInput(props: TFancyColorInput) {
       //indentify the inputletter is a color or alpha value
       if (inputLetter !== 'a') {
         colorWhitoutAlpha[inputLetter] = parseInt(value);
-        handler && handler(Color(colorWhitoutAlpha).hsl());
+        if (handler) handler(Color(colorWhitoutAlpha).hsl());
       } else {
-        handler && handler(Color(colorWhitoutAlpha).hsl());
+        if (handler) handler(Color(colorWhitoutAlpha).hsl());
         handlerOpacity?.(parseFloat(value));
       }
     } else {

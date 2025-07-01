@@ -21,7 +21,7 @@ const meta = {
       description: 'Size of the chip list, with `md` as the default size.',
       options: ['sm', 'md', 'lg'],
       control: {
-        type: 'select',
+        type: 'select' as const,
       },
       table: {
         defaultValue: { summary: 'md' },
@@ -30,20 +30,20 @@ const meta = {
     outlined: {
       description: 'If the ChipList should be outlined',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
     },
     systemMessage: {
       description: 'The SystemMessage of the ChipList',
       options: ['error', 'warning', 'info', 'success', undefined],
       control: {
-        type: 'select',
+        type: 'select' as const,
       },
     },
     borderRadius: {
       description: 'The border radius of the ChipList',
       control: {
-        type: 'object',
+        type: 'object' as const,
       },
     },
   },

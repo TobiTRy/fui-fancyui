@@ -18,58 +18,58 @@ const meta = {
     sizeC: {
       description: 'Size of the ChipList/Chips',
       control: {
-        type: 'select',
+        type: 'select' as const,
         options: ['sm', 'md', 'lg'],
       },
     },
     chips: {
       description: 'The Chips that should be displayed',
       control: {
-        type: 'array',
+        type: 'object' as const,
       },
     },
     legend: {
       description: 'The Label of the ChipList',
       control: {
-        type: 'text',
+        type: 'text' as const,
       },
     },
     systemInformation: {
       description: 'The SystemInformation that should be displayed',
       options: ['success', 'error', 'warning', 'info', undefined],
       control: {
-        type: 'select',
+        type: 'select' as const,
       },
     },
     outlined: {
       description: 'If the ChipList should be outlined',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
     },
     ...templateThemeType('mainThemeTypes', 'primary', 1),
     onChange: {
       description: 'Callback function that handles the current state of chips',
       control: {
-        type: 'function',
+        type: 'object' as const,
       },
     },
     editable: {
       description: 'If the ChipList should be editable',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
     },
     inputPlaceholder: {
       description: 'The Placeholder of the ChipList',
       control: {
-        type: 'text',
+        type: 'text' as const,
       },
     },
     disabled: {
       description: 'If the ChipList should be disabled an read only',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
     },
   },

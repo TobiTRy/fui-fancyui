@@ -25,7 +25,9 @@ export default function FancyPageList(props: TFancyPageList) {
     <Wrapper>
       {/* The List with the items to display */}
       <StyledList $spacing={spacingBetweenItems}>
-        {currentItems?.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}
+        {currentItems?.map((item, i) => (
+          <React.Fragment key={i}>{item}</React.Fragment>
+        ))}
       </StyledList>
       {/* The Paginator for the Page switches*/}
       <Paginator

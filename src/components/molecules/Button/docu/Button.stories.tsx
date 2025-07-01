@@ -19,7 +19,7 @@ const meta = {
     sizeC: {
       description: 'The size of the component.',
       control: {
-        type: 'select',
+        type: 'select' as const,
         options: ['sm', 'md', 'lg'],
       },
       table: {
@@ -29,63 +29,63 @@ const meta = {
     wide: {
       description: 'If true, the component will be full-width.',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
       table: {
-        defaultValue: { summary: false },
+        defaultValue: { summary: 'false' },
       },
     },
     borderRadius: {
       description: 'The border radius of the component.',
       control: {
-        type: 'select',
+        type: 'select' as const,
       },
     },
 
     outlined: {
       description: 'This prop will change the Nutton to outlined',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
     },
     textColor: {
       description: 'This prop will change the color of the text',
       control: {
-        type: 'select',
+        type: 'select' as const,
       },
     },
     hoverColor: {
       description: 'This prop will change the color of the hover',
       control: {
-        type: 'select',
+        type: 'select' as const,
       },
     },
     noSize: {
       description: 'This prop will remove the size of the button like padding and size',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
     },
     disabled: {
       description: 'If true, the component will be disabled.',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
       table: {
-        defaultValue: { summary: false },
+        defaultValue: { summary: 'false' },
       },
     },
     notAButton: {
       description: 'This prop will change the button to a span to use a own wapper like next link',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
     },
     appendClassNameOnStyle: {
       description:
         'This prop will append the class name on the style, the button is separated from the style and the button is a wrapper around the style',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
     },
   },

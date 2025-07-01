@@ -21,25 +21,25 @@ const meta = {
   argTypes: {
     muted: {
       description: 'Specifies whether the video should play automatically on load.',
-      control: { type: 'boolean' },
+      control: { type: 'boolean' as const },
       table: {
-        defaultValue: { summary: false },
+        defaultValue: { summary: 'false' },
       },
     },
     autoPlay: {
-      control: { type: 'boolean' },
+      control: { type: 'boolean' as const },
       description:
         'Controls whether the video is muted. When autoPlay is true, muted defaults to true to comply with browser autoplay policies.',
       table: {
-        defaultValue: { summary: false },
+        defaultValue: { summary: 'false' },
       },
     },
     aspectRatio: {
       description: 'The aspect ratio of the video. This should be a string in the format "16/9".',
-      control: { type: 'text' },
+      control: { type: 'text' as const },
     },
     darken: {
-      control: { type: 'range', min: 0, max: 1, step: 0.1 },
+      control: { type: 'range' as const, min: 0, max: 1, step: 0.1 },
       description:
         'Applies a darkening filter over the video to reduce brightness by 50%. Useful for overlay text or creating a moody atmosphere.',
     },

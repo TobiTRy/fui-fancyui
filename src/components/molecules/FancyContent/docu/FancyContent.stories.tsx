@@ -21,49 +21,49 @@ const meta = {
     direction: {
       description: 'The flex direction of the component',
       control: {
-        type: 'select',
+        type: 'select' as const,
       },
     },
     justify: {
       description: 'The flex justify of the component',
       control: {
-        type: 'select',
+        type: 'select' as const,
       },
     },
     align: {
       description: 'The flex align of the component',
       control: {
-        type: 'select',
+        type: 'select' as const,
       },
     },
     gapBetweenIcon: {
       description: 'The gap between the icon and the content',
       control: {
-        type: 'text',
+        type: 'text' as const,
       },
     },
     gapBetweenText: {
       description: 'The gap between the content',
       control: {
-        type: 'text',
+        type: 'text' as const,
       },
     },
     alignIcon: {
       description: 'The align of the icon',
       control: {
-        type: 'radio',
+        type: 'radio' as const,
       },
     },
     alignTextGroup: {
       description: 'The align of the text group',
       control: {
-        type: 'radio',
+        type: 'radio' as const,
       },
     },
     directionTextGroup: {
       description: 'The direction of the text group',
       control: {
-        type: 'radio',
+        type: 'radio' as const,
       },
     },
     ...templateThemeType('notTransparent', 'secondary', 0),

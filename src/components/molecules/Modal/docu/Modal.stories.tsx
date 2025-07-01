@@ -21,37 +21,37 @@ const meta = {
       description:
         ' A unique identifier for the modal, useful for handling closures or any specific identification needs.',
       control: {
-        type: 'text',
+        type: 'text' as const,
       },
     },
     isOpen: {
       description: 'ontrols the visibility of the modal. `true` to show the modal, `false` to hide it.',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
     },
     onClose: {
       description:
         'A callback function that gets called when the modal is requested to be closed. Receives the `id` of the modal as an argument if provided.',
       control: {
-        type: 'function',
+        type: 'object' as const,
       },
     },
     backDrop: {
       description:
         ' Whether to show a backdrop behind the modal. Clicking on the backdrop will close the modal if `isCloseable` is `true`. Defaults to `true`',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
     },
     isCloseable: {
       description:
         'Determines whether the modal can be closed by the user (e.g., clicking the backdrop). Defaults to `true` if not specified.',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
       table: {
-        defaultValue: { summary: true },
+        defaultValue: { summary: 'true' },
       },
     },
   },

@@ -21,7 +21,7 @@ const meta = {
   argTypes: {
     disabled: {
       description: 'Disables the child elements within the `DisabledBox` component.',
-      type: 'boolean',
+      type: 'boolean' as const,
     },
   },
 } satisfies Meta<typeof DisabledBox>;

@@ -18,42 +18,42 @@ const meta = {
       description:
         'Determines whether the content (title, subtitle, and the horizontal rule) should be centered. Defaults to `true`.',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
     },
     title: {
       description:
         'The main title text to be displayed. If not provided, no title will be shown. It Supports React nodes, we recomend to use the Typography as prop.',
       control: {
-        type: 'text',
+        type: 'text' as const,
       },
     },
     subTitle: {
       description:
         'The subtitle text to be displayed beneath the title. If not provided, no subtitle will be shown. It Supports React nodes, we recomend to use the Typography as prop',
       control: {
-        type: 'text',
+        type: 'text' as const,
       },
     },
     hr: {
       description:
         'Determines whether a decorative horizontal rule (`<hr>`) should be displayed beneath the title and subtitle. FancyLine Props can be passed here.',
       control: {
-        type: 'object',
+        type: 'object' as const,
       },
     },
     onXButtonClick: {
       description:
         'Callback function that is triggered when the X button is clicked. If not provided, the X button will not be displayed.',
       control: {
-        type: 'function',
+        type: 'object' as const,
       },
     },
     gapBetweenText: {
       description:
         'The amount of space between the title and subtitle. This can be set to any of the predefined spacings in the theme. Defaults to `xxs`.',
       control: {
-        type: 'select',
+        type: 'select' as const,
       },
     },
   },

@@ -18,13 +18,13 @@ const meta = {
     currentColorObject: {
       description: 'The current color object',
       control: {
-        type: 'object',
+        type: 'object' as const,
       },
     },
     handler: {
       description: 'The handler for the color',
       control: {
-        type: 'function',
+        type: 'object' as const,
       },
     },
     ...templateThemeType('mainThemeTypes', 'primary', 0),

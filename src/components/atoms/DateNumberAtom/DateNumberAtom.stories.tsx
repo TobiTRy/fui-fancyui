@@ -20,39 +20,39 @@ const meta = {
   // Define arguments for the story
   argTypes: {
     dateNumber: {
-      control: { type: 'number' },
+      control: { type: 'number' as const },
     },
     selected: {
       description: 'is the day selected',
-      control: { type: 'boolean' },
+      control: { type: 'boolean' as const },
       table: {
-        defaultValue: { summary: false },
+        defaultValue: { summary: 'false' },
       },
     },
     disabled: {
-      control: { type: 'boolean' },
+      control: { type: 'boolean' as const },
       description: 'is the day disabled, like a day in the previous month or next month, or the weekend',
       table: {
-        defaultValue: { summary: false },
+        defaultValue: { summary: 'false' },
       },
     },
     onClick: {
-      control: { type: 'function' },
+      control: { type: 'object' as const },
       description: 'is the function to call when the day is clicked',
       table: {
         defaultValue: { summary: undefined },
       },
     },
     range: {
-      control: { type: 'object' },
+      control: { type: 'object' as const },
       description:
         'is the day in a range, you can pass an object with the following properties: <br> - start: is the day the start of the range <br> - end: is the day the end of the range <br> - inRange: is the day in the range',
     },
     isCurrentDay: {
       description: 'is the day the current day it gets a different color',
-      control: { type: 'boolean' },
+      control: { type: 'boolean' as const },
       table: {
-        defaultValue: { summary: false },
+        defaultValue: { summary: 'false' },
       },
     },
     ...templateThemeType('allThemeTypes', 'secondary', 0),

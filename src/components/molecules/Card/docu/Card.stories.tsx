@@ -26,37 +26,37 @@ const meta = {
     borderRadius: {
       description: 'Defines the border radius of the card. Accepts a value or an array of values from the theme.',
       control: {
-        type: 'object',
+        type: 'object' as const,
       },
     },
     padding: {
       description: 'Defines the padding of the card. Accepts a value or an array of values from the theme.',
       control: {
-        type: 'object',
+        type: 'object' as const,
       },
     },
     shadow: {
       description: 'Defines whether the card has a shadow.',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
     },
     externalStyle: {
       description: 'Defines the external style of the card.',
       control: {
-        type: 'object',
+        type: 'object' as const,
       },
     },
     outlined: {
       description: 'Defines whether the card is outlined.',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
     },
     outlinedBackgroundStrength: {
       description: 'Defines the background strength of the outlined card.',
       control: {
-        type: 'range',
+        type: 'range' as const,
         min: 0,
         max: 1,
         step: 0.1,

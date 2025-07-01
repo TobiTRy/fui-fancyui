@@ -26,10 +26,10 @@ export function selectDayRange(props: TSelectDayRange) {
 
     if (newSelectedDates[1] && newDate > newSelectedDates[1]) {
       newSelectedDates[1] = undefined; // Swap dates if "from" date is later than "to" date
-      handleSwitchFromTo && handleSwitchFromTo('to');
+      if (handleSwitchFromTo) handleSwitchFromTo('to');
     }
 
-    handleSwitchFromTo && handleSwitchFromTo('to');
+    if (handleSwitchFromTo) handleSwitchFromTo('to');
   } else if (selectFromTo === 'to') {
     newSelectedDates = [selectedDates[0], newDate];
   }
@@ -43,7 +43,7 @@ export function selectDayRange(props: TSelectDayRange) {
   ) {
     // Reset the selection to start a new range from the clicked date
     newSelectedDates = [newDate, undefined];
-    handleSwitchFromTo && handleSwitchFromTo('to');
+    if (handleSwitchFromTo) handleSwitchFromTo('to');
   } else if (checkForValidDatesEnterd(newSelectedDates)) {
     if (checkDateIsSame(newSelectedDates)) {
       const identifySecondAsDate = newSelectedDates[1] as Date;

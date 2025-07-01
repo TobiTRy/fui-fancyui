@@ -21,79 +21,79 @@ const meta = {
     isActive: {
       description: 'The state of the component',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
     },
     outlined: {
       description: 'The state of the component',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
     },
     disabled: {
       description: 'The state of the component',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
     },
     align: {
       description: 'The align of the component',
       control: {
-        type: 'select',
+        type: 'select' as const,
       },
     },
     label: {
       description: 'The label of the component',
       control: {
-        type: 'text',
+        type: 'text' as const,
       },
     },
     systemMessage: {
       description: 'The systemMessage of the component',
       control: {
-        type: 'object',
+        type: 'object' as const,
       },
     },
     hasValue: {
       description: 'The hasValue of the component',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
     },
     autoWidth: {
       description: 'The autoWidth of the component',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
     },
     underline: {
       description: 'The underline of the component',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
     },
     placeholder: {
       description: 'The placeholder of the component',
       control: {
-        type: 'text',
+        type: 'text' as const,
       },
     },
     as: {
       description: 'The as of the component',
       control: {
-        type: 'text',
+        type: 'text' as const,
       },
     },
     externalStyle: {
       description: 'The externalStyle of the component',
       control: {
-        type: 'object',
+        type: 'object' as const,
       },
     },
     outlinedBackgroundStrength: {
       description: 'The outlinedBackgroundStrength of the component',
       control: {
-        type: 'number',
+        type: 'number' as const,
         min: 0,
         max: 1,
         step: 0.1,
@@ -102,31 +102,31 @@ const meta = {
     transparentBackground: {
       description: 'The transparentBackground of the component',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
     },
     InputElement: {
       description: 'The InputElement of the component',
       control: {
-        type: 'object',
+        type: 'object' as const,
       },
     },
     icon: {
       description: 'The icon of the component',
       control: {
-        type: 'object',
+        type: 'object' as const,
       },
     },
     labelVariant: {
       description: 'The labelVariant of the component in static or animated',
       control: {
-        type: 'select',
+        type: 'select' as const,
       },
     },
     layer: {
       description: 'The layer of the component',
       control: {
-        type: 'number',
+        type: 'number' as const,
       },
     },
   },

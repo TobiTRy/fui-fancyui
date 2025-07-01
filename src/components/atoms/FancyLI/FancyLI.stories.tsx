@@ -18,11 +18,11 @@ const meta = {
   // Define arguments for the story
   argTypes: {
     sizeC: {
-      control: { type: 'select' },
+      control: { type: 'select' as const },
       options: ['xxs', 'xs', 'sm', 'md', 'lg', 'xl'],
     },
     aligned: {
-      control: { type: 'select' },
+      control: { type: 'select' as const },
       options: ['left', 'center', 'right'],
     },
   },

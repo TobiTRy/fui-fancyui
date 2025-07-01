@@ -81,17 +81,17 @@ const FancyDateInput = forwardRef<HTMLInputElement, TFancyDateInput>((props, ref
           layer={layer}
           onChange={(e) => {
             changeHandler(e);
-            onChange && onChange(e);
+            if (onChange) onChange(e);
           }}
           value={value}
           onKeyDown={() => activeFocusHandler(true)}
           onFocus={(e) => {
             activeFocusHandler(true);
-            props.onFocus && props.onFocus(e);
+            if (props.onFocus) props.onFocus(e);
           }}
           onBlur={(e) => {
             activeFocusHandler(false);
-            props.onBlur && props.onBlur(e);
+            if (props.onBlur) props.onBlur(e);
           }}
           align={align}
           disabled={disabled}

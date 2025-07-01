@@ -26,7 +26,7 @@ export default function SearchBar(props: TSearchBarWithFancyInputAttrs) {
 
   // Function to handle changes to the isActive state
   const focusHandler = (isFocused: boolean) => {
-    activeHandler && activeHandler(isFocused);
+    if (activeHandler) activeHandler(isFocused);
     setIsActive(isFocused);
   };
 
@@ -45,11 +45,11 @@ export default function SearchBar(props: TSearchBarWithFancyInputAttrs) {
             aria-label="Searchbar"
             onFocus={(e) => {
               focusHandler(true);
-              props.onFocus && props.onFocus(e);
+              if (props.onFocus) props.onFocus(e);
             }}
             onBlur={(e) => {
               focusHandler(false);
-              props.onBlur && props.onBlur(e);
+              if (props.onBlur) props.onBlur(e);
             }}
             {...htmlProps}
           />

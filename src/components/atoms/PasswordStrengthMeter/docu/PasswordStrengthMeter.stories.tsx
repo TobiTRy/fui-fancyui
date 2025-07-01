@@ -23,31 +23,31 @@ const meta = {
       description: 'Compare the password with other strings',
       control: {
         // controll array
-        type: 'object',
+        type: 'object' as const,
       },
     },
     password: {
       description: 'The password to be checked',
       control: {
-        type: 'text',
+        type: 'text' as const,
       },
     },
     borderRadius: {
       description: 'The border radius of the component',
       control: {
-        type: 'select',
+        type: 'select' as const,
       },
     },
     borderRadiusBar: {
       description: 'The border radius of the progress bar',
       control: {
-        type: 'select',
+        type: 'select' as const,
       },
     },
     notABar: {
       description: 'If true, the component will not be a bar',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
     },
     ...templateThemeType('notTransparent', 'primary', 3),

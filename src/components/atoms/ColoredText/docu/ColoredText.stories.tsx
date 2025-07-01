@@ -21,26 +21,26 @@ const meta = {
     hoverLayer: {
       description: 'The active state of the color indicator',
       control: {
-        type: 'range',
+        type: 'range' as const,
         min: 0,
         max: 9,
         step: 1,
       },
       table: {
-        defaultValue: { summary: 2 },
+        defaultValue: { summary: '2' },
       },
     },
     ...templateThemeType('allThemeTypes', 'secondary', 0),
     externalStyle: {
       description: 'External style for the component',
       control: {
-        type: 'object',
+        type: 'object' as const,
       },
     },
     as: {
       description: 'The element type to render (all types)',
       control: {
-        type: 'select',
+        type: 'select' as const,
         options: ['span', 'div', 'p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
       },
       table: {

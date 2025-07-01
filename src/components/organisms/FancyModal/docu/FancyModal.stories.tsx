@@ -29,25 +29,25 @@ const meta = {
     appendToDomID: {
       description: 'The ID of the DOM element to which the modal should be appended.',
       control: {
-        type: 'text',
+        type: 'text' as const,
       },
     },
     modals: {
       description: 'An array of modals to be displayed by the FancyModal component.',
       control: {
-        type: 'object',
+        type: 'object' as const,
       },
     },
     zIndex: {
       description: 'The z-index value for the modal and backdrop.',
       control: {
-        type: 'number',
+        type: 'number' as const,
       },
     },
     closeModal: {
       description: 'A function to close the modal with the specified ID.',
       control: {
-        type: 'function',
+        type: 'object' as const,
       },
     },
   },

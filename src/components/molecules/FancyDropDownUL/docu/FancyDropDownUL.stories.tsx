@@ -21,23 +21,23 @@ const meta = {
     ...templateThemeType('notTransparent', 'primary', 0),
     isOpen: {
       description: 'This prop is used to open and close the dropdown list.',
-      control: { type: 'boolean' },
+      control: { type: 'boolean' as const },
     },
     width: {
       description: 'This prop is used to set the width of the dropdown list.',
-      control: { type: 'text' },
+      control: { type: 'text' as const },
     },
     alignHorizontal: {
       description: 'This prop is used to set the horizontal alignment of the dropdown list.',
-      control: { type: 'select', options: ['left', 'center', 'right'] },
+      control: { type: 'select' as const, options: ['left', 'center', 'right'] },
     },
     alignVertical: {
       description: 'This prop is used to set the vertical alignment of the dropdown list.',
-      control: { type: 'select', options: ['top', 'center', 'bottom'] },
+      control: { type: 'select' as const, options: ['top', 'center', 'bottom'] },
     },
     borderRadius: {
       description: 'This prop is used to set the border radius of the dropdown list.',
-      control: { type: 'select' },
+      control: { type: 'select' as const },
     },
   },
 } satisfies Meta<typeof FancyDropDownUL>;

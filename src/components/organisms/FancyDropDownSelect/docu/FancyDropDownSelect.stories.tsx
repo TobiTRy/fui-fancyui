@@ -25,68 +25,68 @@ const meta = {
     label: {
       description: 'Label for the input',
       control: {
-        type: 'text',
+        type: 'text' as const,
       },
     },
     placeholder: {
       description: 'Placeholder for the input',
       control: {
-        type: 'text',
+        type: 'text' as const,
       },
     },
     disabled: {
       description: 'Disable the input',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
       table: {
-        defaultValue: { summary: false },
+        defaultValue: { summary: 'false' },
       },
     },
     align: {
       description: 'Alignment of the label',
       control: {
-        type: 'radio',
+        type: 'radio' as const,
       },
     },
     ...templateThemeType('mainThemeTypes', 'primary', 2),
     systemMessage: {
       description: 'Systemmessage to be displayed',
       control: {
-        type: 'object',
+        type: 'object' as const,
       },
     },
     values: {
       description: 'Values for the dropdown',
       control: {
-        type: 'array',
+        type: 'object' as const,
       },
     },
     value: {
       description: 'The picked value of the dropdown',
       control: {
-        type: 'text',
+        type: 'text' as const,
       },
     },
     emptySelect: {
       description: 'A Empty Item that is selectable',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
     },
     transparentBackground: {
       description: 'Transparent Background',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
       table: {
-        defaultValue: { summary: false },
+        defaultValue: { summary: 'false' },
       },
     },
     outlined: {
       description: 'Is the dropdown outlined',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
     },
   },

@@ -21,34 +21,34 @@ const meta = {
     values: {
       description:
         'The values to be displayed in the dropdown as an array of strings or an array of objects with a value and key property',
-      control: { type: 'array' },
+      control: { type: 'object' as const },
     },
     onChange: {
       description: 'Function to be called when the value is changed',
-      control: { type: 'function' },
+      control: { type: 'object' as const },
     },
     placeholder: {
       description: 'The placeholder text to be displayed when no value is selected',
-      control: { type: 'text' },
+      control: { type: 'text' as const },
     },
     value: {
       description: 'The value to be displayed in the dropdown selected by default',
-      control: { type: 'text' },
+      control: { type: 'text' as const },
     },
     emptySelect: {
       description: 'Is the select empty by default',
-      control: { type: 'boolean' },
+      control: { type: 'boolean' as const },
       table: {
-        defaultValue: { summary: true },
+        defaultValue: { summary: 'true' },
       },
     },
     disabled: {
       description: 'Is the select disabled by default',
-      control: { type: 'boolean' },
+      control: { type: 'boolean' as const },
     },
     align: {
       description: 'The alignment of the text in the dropdown',
-      control: { type: 'select', options: ['left', 'center'] },
+      control: { type: 'select' as const, options: ['left', 'center'] },
       table: {
         defaultValue: { summary: 'left' },
       },

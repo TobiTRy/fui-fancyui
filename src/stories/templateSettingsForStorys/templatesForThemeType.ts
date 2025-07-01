@@ -60,7 +60,7 @@ function templateThemeType<Cat extends ThemeTypeCategory, Default extends ThemeO
   return {
     themeType: {
       description: 'The theme type of the component',
-      control: { type: 'select' },
+      control: { type: 'select' as const },
       options: [...options, undefined],
       table: {
         defaultValue: { summary: effectiveDefaultValue },
@@ -68,9 +68,9 @@ function templateThemeType<Cat extends ThemeTypeCategory, Default extends ThemeO
     },
     layer: {
       description: 'The layer of the component',
-      control: { type: 'range', min: 0, max: 9 },
+      control: { type: 'range' as const, min: 0, max: 9 },
       table: {
-        defaultValue: { summary: layer || 0 },
+        defaultValue: { summary: String(layer || 0) },
       },
     },
   };

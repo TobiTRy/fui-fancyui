@@ -22,26 +22,26 @@ const meta = {
       description: 'The space wich the item should take in the grid',
       defaultValue: '12',
       control: {
-        type: 'number',
+        type: 'number' as const,
       },
     },
     breakpoints: {
       description: 'The breakpoints for the grid',
       defaultValue: [],
       control: {
-        type: 'object',
+        type: 'object' as const,
       },
     },
     gridColumn: {
       description: 'The column wich the item should take in the grid',
       control: {
-        type: 'string',
+        type: 'text' as const,
       },
     },
     gridRow: {
       description: 'The row wich the item should take in the grid',
       control: {
-        type: 'string',
+        type: 'text' as const,
       },
     },
   },

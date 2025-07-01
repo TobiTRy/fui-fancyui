@@ -30,19 +30,19 @@ const meta = {
     },
     externalStyle: {
       description: 'The external style of the SwitchList.',
-      control: { type: 'object' },
+      control: { type: 'object' as const },
     },
     switchIndicator: {
       description: 'The switch indicator of the SwitchList. The Props of the SwitchActiveIndicator.',
-      control: { type: 'object' },
+      control: { type: 'object' as const },
     },
     flexBoxProps: {
       description: 'The flex box props of the SwitchList. The Props of the FancyFlexBox.',
-      control: { type: 'object' },
+      control: { type: 'object' as const },
     },
     gap: {
       description: 'The gap of the SwitchList.',
-      control: { type: 'select' },
+      control: { type: 'select' as const },
     },
   },
 } satisfies Meta<typeof SwitchList>;

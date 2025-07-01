@@ -19,13 +19,13 @@ const meta = {
     scrollable: {
       description: 'If true, the bar will be scrollable.',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
     },
     activateScrollbar: {
       description: 'If true, the scrollbar will be activated.',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
     },
     children: {

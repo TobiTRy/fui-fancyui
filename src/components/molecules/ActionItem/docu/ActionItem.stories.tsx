@@ -20,22 +20,22 @@ const meta = {
   argTypes: {
     icon: {
       description: 'The icon of the action item',
-      control: { type: 'object' },
+      control: { type: 'object' as const },
     },
     size: {
       description: 'The size of the component',
-      control: { type: 'select' },
+      control: { type: 'select' as const },
       table: {
         defaultValue: { summary: 'md' },
       },
     },
     label: {
       description: 'The label of the action item',
-      control: { type: 'text' },
+      control: { type: 'text' as const },
     },
     labelAlign: {
       description: 'The alignment of the label',
-      control: { type: 'radio' },
+      control: { type: 'radio' as const },
       table: {
         defaultValue: { summary: 'left' },
       },
@@ -43,19 +43,19 @@ const meta = {
     ...templateThemeType('notTransparent', 'primary', 0),
     isActive: {
       description: 'The active state of the action item',
-      control: { type: 'boolean' },
+      control: { type: 'boolean' as const },
     },
     isClickable: {
       description: 'The clickable state of the action item',
-      control: { type: 'boolean' },
+      control: { type: 'boolean' as const },
     },
     themeTypeActiveHover: {
       description: 'The theme type of the action item when it is active or hovered',
-      control: { type: 'select' },
+      control: { type: 'select' as const },
     },
     hideLabel: {
       description: 'The hide label state of the action item',
-      control: { type: 'boolean' },
+      control: { type: 'boolean' as const },
     },
     onClick: {
       description: 'The click event of the action item',
@@ -63,7 +63,7 @@ const meta = {
     },
     hoverColor: {
       description: 'The hover color of the action item',
-      control: { type: 'select' },
+      control: { type: 'select' as const },
       table: {
         defaultValue: { summary: 'accent' },
       },

@@ -23,13 +23,13 @@ const meta = {
     outlined: {
       description: 'The SideBarItem is outlined.',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
     },
     outlinedBackgroundStrength: {
       description: 'The strength of the background color when the SideBarItem is outlined.',
       control: {
-        type: 'number',
+        type: 'number' as const,
         min: 0,
         max: 1,
         step: 0.1,
@@ -38,13 +38,13 @@ const meta = {
     externalStyle: {
       description: 'External style for the SideBarItem list.',
       control: {
-        type: 'object',
+        type: 'object' as const,
       },
     },
     sizeC: {
       description: 'The size of the SideBarItem.',
       control: {
-        type: 'select',
+        type: 'select' as const,
         options: ['sm', 'md', 'lg'],
       },
       table: {
@@ -54,7 +54,7 @@ const meta = {
     direction: {
       description: 'The direction of the SideBarItem.',
       control: {
-        type: 'select',
+        type: 'select' as const,
       },
       table: {
         defaultValue: { summary: 'left' },
@@ -63,7 +63,7 @@ const meta = {
     justify: {
       description: 'The justify of the SideBarItem.',
       control: {
-        type: 'select',
+        type: 'select' as const,
       },
       table: {
         defaultValue: { summary: 'left' },
@@ -72,13 +72,13 @@ const meta = {
     noMargin: {
       description: 'Deactivates the margin of the SideBarItem (Is needed turned on the FancySideBar.)',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
     },
     wide: {
       description: 'The SideBarItem is wide.',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
     },
   },

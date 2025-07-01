@@ -23,13 +23,13 @@ const meta = {
     outlined: {
       description: 'The FancySideBarItem is outlined.',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
     },
     outlinedBackgroundStrength: {
       description: 'The strength of the background color when the FancySideBarItem is outlined.',
       control: {
-        type: 'number',
+        type: 'number' as const,
         min: 0,
         max: 1,
         step: 0.1,
@@ -38,13 +38,13 @@ const meta = {
     externalStyle: {
       description: 'External style for the FancySideBarItem list.',
       control: {
-        type: 'object',
+        type: 'object' as const,
       },
     },
     sizeC: {
       description: 'The size of the FancySideBarItem.',
       control: {
-        type: 'select',
+        type: 'select' as const,
         options: ['sm', 'md', 'lg'],
       },
       table: {
@@ -54,7 +54,7 @@ const meta = {
     direction: {
       description: 'The direction of the FancySideBarItem.',
       control: {
-        type: 'select',
+        type: 'select' as const,
       },
       table: {
         defaultValue: { summary: 'left' },
@@ -63,7 +63,7 @@ const meta = {
     justify: {
       description: 'The justify of the FancySideBarItem.',
       control: {
-        type: 'select',
+        type: 'select' as const,
       },
       table: {
         defaultValue: { summary: 'left' },
@@ -72,19 +72,19 @@ const meta = {
     noMargin: {
       description: 'Deactivates the margin of the FancySideBarItem. (Is needed for the FancySideBar too look good.)',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
     },
     wide: {
       description: 'The FancySideBarItem is wide.',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
     },
     hoverLayer: {
       description: 'The layer of the hover effect.',
       control: {
-        type: 'number',
+        type: 'number' as const,
         min: 0,
         max: 9,
         step: 1,
@@ -93,13 +93,13 @@ const meta = {
     typographySettings: {
       description: 'Typography settings for the label inherit from the typography component.',
       control: {
-        type: 'object',
+        type: 'object' as const,
       },
     },
     iconSettings: {
       description: 'Icon settings inherit from the FancySVGAtom component.',
       control: {
-        type: 'object',
+        type: 'object' as const,
       },
     },
   },

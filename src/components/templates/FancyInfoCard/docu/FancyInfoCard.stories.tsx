@@ -17,13 +17,13 @@ const meta = {
     themeType: {
       description: 'The theme type of the component',
       control: {
-        type: 'select',
+        type: 'select' as const,
       },
     },
     layer: {
       description: 'The layer of the component',
       control: {
-        type: 'range',
+        type: 'range' as const,
         min: 0,
         max: 9,
         step: 1,
@@ -32,22 +32,22 @@ const meta = {
     outlined: {
       description: 'The component has a outline style',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
       table: {
-        defaultValue: { summary: false },
+        defaultValue: { summary: 'false' },
       },
     },
     outlinedBackgroundStrength: {
       description: 'The background strength of the outline',
       control: {
-        type: 'range',
+        type: 'range' as const,
         min: 0,
         max: 1,
         step: 0.01,
       },
       table: {
-        defaultValue: { summary: 10 },
+        defaultValue: { summary: '10' },
       },
     },
   },

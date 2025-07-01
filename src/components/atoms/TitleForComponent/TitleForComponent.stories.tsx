@@ -21,7 +21,7 @@ const meta = {
   argTypes: {
     align: {
       description: 'The alignment of the Title.',
-      control: { type: 'select' },
+      control: { type: 'select' as const },
       type: { name: 'string', required: false },
       options: ['left', 'center', undefined],
       table: {
@@ -30,15 +30,15 @@ const meta = {
     },
     children: {
       description: 'The children to be wrapped by the Label.',
-      control: { type: 'object' },
+      control: { type: 'object' as const },
     },
     title: {
       description: 'The title of the input.',
-      control: { type: 'object' },
+      control: { type: 'object' as const },
     },
     gap: {
       description: 'The gap between the title and the children.',
-      control: { type: 'select' },
+      control: { type: 'select' as const },
       options: ['xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl'],
       table: {
         defaultValue: { summary: 'xs' },

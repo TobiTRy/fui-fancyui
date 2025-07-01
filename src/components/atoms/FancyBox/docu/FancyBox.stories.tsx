@@ -32,7 +32,7 @@ const meta = {
       description:
         'This property allows developers to change the HTML tag of the component. For example, if you want to use a div instead of',
       control: {
-        type: 'text',
+        type: 'text' as const,
       },
       table: {
         defaultValue: { summary: 'div' },
@@ -41,44 +41,44 @@ const meta = {
     outlined: {
       description: 'A boolean indicating whether the bar is styled with an outline.',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
       table: {
-        defaultValue: { summary: false },
+        defaultValue: { summary: 'false' },
       },
     },
     outlinedRemoveBorder: {
       description: 'A boolean indicating whether the border should be removed when outlined is true.',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
       table: {
-        defaultValue: { summary: false },
+        defaultValue: { summary: 'false' },
       },
     },
     outlinedBackgroundStrength: {
       description: 'Controls the background intensity when outlined is true.',
       control: {
-        type: 'range',
+        type: 'range' as const,
         min: 0,
         max: 1,
         step: 0.1,
       },
       table: {
-        defaultValue: { summary: 0.5 },
+        defaultValue: { summary: '0.5' },
       },
     },
     externalStyle: {
       description:
         'The style of the card can porvieed with the styled-component css and react style={{width: "100px"}}',
       control: {
-        type: 'object',
+        type: 'object' as const,
       },
     },
     sizeC: {
       description: 'The size of the component.',
       control: {
-        type: 'select',
+        type: 'select' as const,
       },
       table: {
         defaultValue: { summary: undefined },
@@ -87,7 +87,7 @@ const meta = {
     borderRadius: {
       description: 'The border radius of the component.',
       control: {
-        type: 'text',
+        type: 'text' as const,
       },
       table: {
         defaultValue: { summary: undefined },
@@ -96,7 +96,7 @@ const meta = {
     hoverLayer: {
       layer: {
         description: 'The hoverlayer of the component',
-        control: { type: 'range', min: 0, max: 9 },
+        control: { type: 'range' as const, min: 0, max: 9 },
         table: {
           defaultValue: { summary: undefined },
         },

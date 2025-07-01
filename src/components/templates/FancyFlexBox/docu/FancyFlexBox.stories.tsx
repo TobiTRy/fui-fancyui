@@ -25,46 +25,46 @@ const meta = {
         defaultValue: { summary: 'div' },
       },
       control: {
-        type: 'text',
+        type: 'text' as const,
       },
     },
     direction: {
       description: 'The direction of the flex box.',
       control: {
-        type: 'select',
+        type: 'select' as const,
         options: ['row', 'row-reverse', 'column', 'column-reverse', undefined],
       },
     },
     justify: {
       description: 'The justify content of the flex box.',
       control: {
-        type: 'select',
+        type: 'select' as const,
         options: ['flex-start', 'flex-end', 'center', 'space-between', 'space-around', 'space-evenly', undefined],
       },
     },
     align: {
       description: 'The align items of the flex box.',
       control: {
-        type: 'select',
+        type: 'select' as const,
         options: ['flex-start', 'flex-end', 'center', 'stretch', 'baseline', undefined],
       },
     },
     gap: {
       description: 'The gap between the flex items.',
       control: {
-        type: 'text',
+        type: 'text' as const,
       },
     },
     fitBox: {
       description: 'If the flex box should fill the entire container.',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
     },
     separator: {
       description: 'A separator to be rendered between the flex items.',
       control: {
-        type: 'object',
+        type: 'object' as const,
       },
     },
   },
