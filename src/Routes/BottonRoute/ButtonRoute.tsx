@@ -106,7 +106,7 @@ export default function ButtonRoute() {
           wide={false}
           onClick={() => console.log('moooinn')}
         />
-        <FancyButton label="Button" themeType="secondary" sizeC="md" wide={false} />
+        <FancyButton label="Button" themeType="secondary" sizeC="md" wide={true} />
         <FancyButton label="Button" themeType="accent" sizeC="lg" wide={false} />
         <FancyButton label="Button" themeType="secondary" wide={false} />
         <FancyButton label="Button" themeType="primary" sizeC="sm" wide={false} borderRadius={'lg'} />

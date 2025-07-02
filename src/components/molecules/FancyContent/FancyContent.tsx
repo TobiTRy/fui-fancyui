@@ -23,6 +23,7 @@ function FancyContent(props: TFancyContentHTMLAttrs) {
     layer,
     externalStyle,
     alignIcon = 'left',
+    alignContent,
     ...htmlProps
   } = props;
 
@@ -73,7 +74,33 @@ function FancyContent(props: TFancyContentHTMLAttrs) {
     });
   }
 
-  // If there's an icon or structured content, use the grid wrapper
+  // Check if only a single element is present (no need for complex grid layout)
+  const hasOnlyIcon = hasIcon && !titleElement && !descriptionElement && otherElements.length === 0;
+  const hasOnlyTitle = titleElement && !hasIcon && !descriptionElement && otherElements.length === 0;
+  const hasOnlyDescription = descriptionElement && !hasIcon && !titleElement && otherElements.length === 0;
+  const hasSingleElement = hasOnlyIcon || hasOnlyTitle || hasOnlyDescription;
+
+  // If only a single element is present, use simple wrapper without gaps
+  if (hasSingleElement) {
+    return (
+      <OnlyTextWrapper
+        $themeType={themeType}
+        $layer={layer}
+        $gap={gap}
+        $gapBetweenText={gapBetweenText}
+        $layoutMode={layoutMode}
+        $externalStyle={externalStyle}
+        $alignContent={alignContent}
+        {...htmlProps}
+      >
+        {iconElement}
+        {titleElement}
+        {descriptionElement}
+      </OnlyTextWrapper>
+    );
+  }
+
+  // If there's an icon with structured content, use the grid wrapper
   if (hasIcon || titleElement || descriptionElement) {
     return (
       <Wrapper
@@ -88,6 +115,7 @@ function FancyContent(props: TFancyContentHTMLAttrs) {
         $layer={layer}
         $externalStyle={externalStyle}
         $alignIcon={alignIcon}
+        $alignContent={alignContent}
         {...htmlProps}
       >
         {alignIcon === 'left' && iconElement}
@@ -108,6 +136,7 @@ function FancyContent(props: TFancyContentHTMLAttrs) {
       $gapBetweenText={gapBetweenText}
       $layoutMode={layoutMode}
       $externalStyle={externalStyle}
+      $alignContent={alignContent}
       {...htmlProps}
     >
       {children}

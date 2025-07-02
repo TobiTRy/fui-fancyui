@@ -110,11 +110,26 @@ export const Wrapper = styled.span<TWrapper & { theme: TTheme }>`
       color: ${theme.color[$themeType ?? 'secondary'][$layer ?? 0]};
     `};
 
+  ${({ $alignContent }) =>
+    $alignContent &&
+    css`
+      justify-items: ${$alignContent === 'left' ? 'start' : $alignContent === 'right' ? 'end' : 'center'};
+    `};
+
   ${({ $externalStyle }) => $externalStyle}
 
   .icon {
     grid-area: icon;
-    justify-self: ${({ $layoutMode }) => ($layoutMode === 'stack' ? 'center' : 'start')};
+    justify-self: ${({ $layoutMode, $alignContent }) =>
+      $alignContent
+        ? $alignContent === 'left'
+          ? 'start'
+          : $alignContent === 'right'
+            ? 'end'
+            : 'center'
+        : $layoutMode === 'stack'
+          ? 'center'
+          : 'start'};
     align-self: ${({ $layoutMode }) => ($layoutMode === 'stack' ? 'start' : 'center')};
   }
 
@@ -125,12 +140,30 @@ export const Wrapper = styled.span<TWrapper & { theme: TTheme }>`
   .title {
     grid-area: title;
     align-self: ${({ $layoutMode }) => ($layoutMode === 'stack' ? 'start' : 'center')};
-    justify-self: ${({ $layoutMode }) => ($layoutMode === 'stack' ? 'center' : 'start')};
+    justify-self: ${({ $layoutMode, $alignContent }) =>
+      $alignContent
+        ? $alignContent === 'left'
+          ? 'start'
+          : $alignContent === 'right'
+            ? 'end'
+            : 'center'
+        : $layoutMode === 'stack'
+          ? 'center'
+          : 'start'};
   }
 
   .description {
     grid-area: description;
-    justify-self: ${({ $layoutMode }) => ($layoutMode === 'stack' ? 'center' : 'start')};
+    justify-self: ${({ $layoutMode, $alignContent }) =>
+      $alignContent
+        ? $alignContent === 'left'
+          ? 'start'
+          : $alignContent === 'right'
+            ? 'end'
+            : 'center'
+        : $layoutMode === 'stack'
+          ? 'center'
+          : 'start'};
     margin-top: ${({ $gapBetweenText, $layoutMode }) =>
       $layoutMode === 'stack' ? '0' : arrayToCssValues($gapBetweenText, 'spacing')};
   }
@@ -139,13 +172,21 @@ export const Wrapper = styled.span<TWrapper & { theme: TTheme }>`
 type TOnlyTextWrapper = TStyledPrefixAndPicker<
   TFancyContent,
   'themeType' | 'layer' | 'externalStyle' | 'layoutMode' | 'gap' | 'gapBetweenText'
->;
+> & {
+  $alignContent?: 'left' | 'center' | 'right';
+};
 
 export const OnlyTextWrapper = styled.span<TOnlyTextWrapper & { theme: TTheme }>`
   display: grid;
   grid-template-columns: 1fr;
   gap: ${({ $gap, $gapBetweenText }) => arrayToCssValues($gap || $gapBetweenText, 'spacing')};
   align-items: start;
+
+  ${({ $alignContent }: { $alignContent?: 'left' | 'center' | 'right' }) =>
+    $alignContent &&
+    css`
+      justify-items: ${$alignContent === 'left' ? 'start' : $alignContent === 'right' ? 'end' : 'center'};
+    `};
 
   ${({ theme, $themeType, $layer }) =>
     $themeType &&
