@@ -12,61 +12,66 @@ const Icon = (
 );
 
 import style from './ButtonRoute.module.css';
+import { FancySVGAtom } from '@/components/atoms/FancySVGAtom';
+
+const backgroundColor = css`
+  background-color: #235179;
+  padding: 1rem;
+  border-radius: 1rem;
+  align-items: center;
+`;
 
 export default function ButtonRoute() {
   const [isLoading, setIsLoading] = useState(false);
 
-  const backgroundColor = css`
-    background-color: #235179;
-    padding: 1rem;
-    border-radius: 1rem;
-    align-items: center;
-  `;
-
   return (
-    <DesignWrapper>
-      <DesignArea title="Buttons sizes" style={backgroundColor}>
-        <FancyButton themeType="primary" label="Hhdsds" sizeC="lg" layer={2} />
-        <FancyButton
-          outlinedRemoveBorder
-          themeType="primary"
-          backgroundState="active"
-          icon={<SVGChevronRight />}
-          label="Hhdsds"
-          sizeC="lg"
-          layer={2}
-        />
-        <FancyButton
-          label="Button"
-          themeType="primary"
-          sizeC="sm"
-          icon={<SVGChevronRight />}
-          onClick={() => console.log('Trigger me Dadddy')}
-        />
-        <FancyButton label="Button" icon={<SVGChevronRight />} themeType="primary" sizeC="md" />
-        <FancyButton
-          label="ButtonLG"
-          icon={<SVGChevronRight />}
-          backgroundState="hover"
-          themeType="primary"
-          sizeC="lg"
-        />
-      </DesignArea>
-      <DesignArea title="Buttons sizes" style={backgroundColor}>
-        <FancyButton themeType="primary" backgroundState="active" label="Hhdsds" sizeC="lg" layer={2} />
-        <FancyButton
-          outlinedRemoveBorder
-          themeType="primary"
-          backgroundState="active"
-          label="Hhdsds"
-          sizeC="lg"
-          layer={2}
-        />
-        <FancyButton label="Button" themeType="primary" sizeC="sm" onClick={() => console.log('Trigger me Dadddy')} />
-        <FancyButton label="Button" themeType="primary" sizeC="md" />
-        <FancyButton label="ButtonLG" backgroundState="hover" themeType="primary" sizeC="lg" />
-      </DesignArea>
-      {/* <FancyButton
+    <>
+      <FancySVGAtom sizeC="lg" themeType="secondary">
+        <SVGChevronRight />
+      </FancySVGAtom>
+      <DesignWrapper>
+        <DesignArea title="Buttons sizes" style={backgroundColor}>
+          <FancyButton themeType="primary" label="Hhdsds" sizeC="lg" layer={2} />
+          <FancyButton
+            outlinedRemoveBorder
+            themeType="primary"
+            backgroundState="active"
+            icon={<SVGChevronRight />}
+            label="Hhdsds"
+            sizeC="lg"
+            layer={2}
+          />
+          <FancyButton
+            label="Button"
+            themeType="primary"
+            sizeC="sm"
+            icon={<SVGChevronRight />}
+            onClick={() => console.log('Trigger me Dadddy')}
+          />
+          <FancyButton label="Button" icon={<SVGChevronRight />} themeType="primary" sizeC="md" />
+          <FancyButton
+            label="ButtonLG"
+            icon={<SVGChevronRight />}
+            backgroundState="hover"
+            themeType="primary"
+            sizeC="lg"
+          />
+        </DesignArea>
+        <DesignArea title="Buttons sizes" style={backgroundColor}>
+          <FancyButton themeType="primary" backgroundState="active" label="Hhdsds" sizeC="lg" layer={2} />
+          <FancyButton
+            outlinedRemoveBorder
+            themeType="primary"
+            backgroundState="active"
+            label="Hhdsds"
+            sizeC="lg"
+            layer={2}
+          />
+          <FancyButton label="Button" themeType="primary" sizeC="sm" onClick={() => console.log('Trigger me Dadddy')} />
+          <FancyButton label="Button" themeType="primary" sizeC="md" />
+          <FancyButton label="ButtonLG" backgroundState="hover" themeType="primary" sizeC="lg" />
+        </DesignArea>
+        {/* <FancyButton
           label="Button"
           themeType="primary"
           sizeC="sm"
@@ -169,6 +174,7 @@ export default function ButtonRoute() {
       <DesignArea title="Buttons" style={backgroundColor}>
         <FancyButton className={style.test} appendClassNameOnStyle={true} noSize label="Test" themeType="primary" />
       </DesignArea> */}
-    </DesignWrapper>
+      </DesignWrapper>
+    </>
   );
 }

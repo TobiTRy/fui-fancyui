@@ -7,16 +7,103 @@ import { TStyledPrefixAndOmiter } from '@/types/TStyledPrefixAndOmiter';
 import { arrayToCssValues } from '@/design/designFunctions/arrayToCssValues';
 
 // Define the types for the Wrapper component
-type TWrapper = TStyledPrefixAndOmiter<TFancyContent, 'children'>;
+type TWrapper = TStyledPrefixAndOmiter<TFancyContent, 'children'> & {
+  $hasDescription?: boolean;
+  $hasIcon?: boolean;
+  $hasTitle?: boolean;
+};
+
+// Helper function to determine grid template based on layout mode
+const getGridTemplate = (
+  layoutMode: string,
+  hasDescription: boolean,
+  hasIcon: boolean,
+  hasTitle: boolean,
+  alignIcon: string = 'left'
+) => {
+  switch (layoutMode) {
+    case 'stack':
+      return css`
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(
+          ${hasIcon && (hasTitle || hasDescription) ? (hasTitle && hasDescription ? 3 : 2) : 1},
+          auto
+        );
+        grid-template-areas: ${hasIcon && hasTitle && hasDescription
+          ? '"icon" "title" "description"'
+          : hasIcon && (hasTitle || hasDescription)
+            ? '"icon" "title"'
+            : '"title"'};
+        justify-items: center;
+        text-align: center;
+      `;
+    case 'normal':
+      // If no title but has description, use description in title position
+      if (!hasTitle && hasDescription) {
+        return css`
+          grid-template-columns: ${alignIcon === 'right' && hasIcon ? '1fr auto' : 'auto 1fr'};
+          grid-template-rows: auto;
+          grid-template-areas: ${hasIcon ? (alignIcon === 'right' ? '"title icon"' : '"icon title"') : '"title title"'};
+        `;
+      }
+      // If no description or description in title position
+      if (!hasDescription || (!hasTitle && hasDescription)) {
+        return css`
+          grid-template-columns: ${alignIcon === 'right' && hasIcon ? '1fr auto' : 'auto 1fr'};
+          grid-template-rows: auto;
+          grid-template-areas: ${hasIcon ? (alignIcon === 'right' ? '"title icon"' : '"icon title"') : '"title title"'};
+        `;
+      }
+      // Normal case with both title and description
+      return css`
+        grid-template-columns: ${alignIcon === 'right' && hasIcon ? '1fr auto' : 'auto 1fr'};
+        grid-template-rows: auto auto;
+        grid-template-areas: ${hasIcon
+          ? alignIcon === 'right'
+            ? '"title icon" "description ."'
+            : '"icon title" ". description"'
+          : '"title title" "description description"'};
+      `;
+    default: // 'auto'
+      // If no title but has description, use description in title position
+      if (!hasTitle && hasDescription) {
+        return css`
+          grid-template-columns: ${alignIcon === 'right' && hasIcon ? '1fr auto' : 'auto 1fr'};
+          grid-template-rows: auto;
+          grid-template-areas: ${hasIcon ? (alignIcon === 'right' ? '"title icon"' : '"icon title"') : '"title title"'};
+        `;
+      }
+      // If no description or description in title position
+      if (!hasDescription || (!hasTitle && hasDescription)) {
+        return css`
+          grid-template-columns: ${alignIcon === 'right' && hasIcon ? '1fr auto' : 'auto 1fr'};
+          grid-template-rows: auto;
+          grid-template-areas: ${hasIcon ? (alignIcon === 'right' ? '"title icon"' : '"icon title"') : '"title title"'};
+        `;
+      }
+      // Normal case with both title and description
+      return css`
+        grid-template-columns: ${alignIcon === 'right' && hasIcon ? '1fr auto' : 'auto 1fr'};
+        grid-template-rows: auto auto;
+        grid-template-areas: ${hasIcon
+          ? alignIcon === 'right'
+            ? '"title icon" "description ."'
+            : '"icon title" ". description"'
+          : '"title title" "description description"'};
+      `;
+  }
+};
 
 // Define the Wrapper component
 export const Wrapper = styled.span<TWrapper & { theme: TTheme }>`
-  display: inline-flex;
+  display: grid;
   width: 100%;
-  flex-direction: ${({ $direction }) => $direction || 'row'};
-  justify-content: ${({ $justify }) => $justify || 'center'};
-  align-items: ${({ $align }) => $align || 'center'};
-  gap: ${({ $gapBetweenIcon }) => arrayToCssValues($gapBetweenIcon, 'spacing')};
+  gap: ${({ $gap, $gapBetweenIcon }) => arrayToCssValues($gap || $gapBetweenIcon, 'spacing')};
+  align-items: start;
+
+  ${({ $layoutMode = 'auto', $hasDescription = false, $hasIcon = false, $hasTitle = false, $alignIcon = 'left' }) =>
+    getGridTemplate($layoutMode, $hasDescription, $hasIcon, $hasTitle, $alignIcon)}
+
   ${({ theme, $themeType, $layer }) =>
     $themeType &&
     css`
@@ -25,26 +112,41 @@ export const Wrapper = styled.span<TWrapper & { theme: TTheme }>`
 
   ${({ $externalStyle }) => $externalStyle}
 
+  .icon {
+    grid-area: icon;
+    justify-self: ${({ $layoutMode }) => ($layoutMode === 'stack' ? 'center' : 'start')};
+    align-self: ${({ $layoutMode }) => ($layoutMode === 'stack' ? 'start' : 'center')};
+  }
+
   .content {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: ${({ $directionTextGroup }) => ($directionTextGroup === 'row' ? $directionTextGroup : 'column')};
-    align-items: ${({ $alignTextGroup }) => $alignTextGroup || 'center'};
-    justify-content: flex-start;
-    gap: ${({ $gapBetweenText }) => arrayToCssValues($gapBetweenText, 'spacing')};
+    display: contents;
+  }
+
+  .title {
+    grid-area: title;
+    align-self: ${({ $layoutMode }) => ($layoutMode === 'stack' ? 'start' : 'center')};
+    justify-self: ${({ $layoutMode }) => ($layoutMode === 'stack' ? 'center' : 'start')};
+  }
+
+  .description {
+    grid-area: description;
+    justify-self: ${({ $layoutMode }) => ($layoutMode === 'stack' ? 'center' : 'start')};
+    margin-top: ${({ $gapBetweenText, $layoutMode }) =>
+      $layoutMode === 'stack' ? '0' : arrayToCssValues($gapBetweenText, 'spacing')};
   }
 `;
 
 type TOnlyTextWrapper = TStyledPrefixAndPicker<
   TFancyContent,
-  'direction' | 'gapBetweenText' | 'align' | 'justify' | 'themeType' | 'layer' | 'externalStyle'
+  'themeType' | 'layer' | 'externalStyle' | 'layoutMode' | 'gap' | 'gapBetweenText'
 >;
+
 export const OnlyTextWrapper = styled.span<TOnlyTextWrapper & { theme: TTheme }>`
-  display: flex;
-  flex-direction: ${({ $direction }) => $direction || 'column'};
-  justify-content: ${({ $justify }) => $justify || 'center'};
-  align-items: ${({ $align }) => $align || 'flex-start'};
-  gap: ${({ $gapBetweenText }) => arrayToCssValues($gapBetweenText, 'spacing')};
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: ${({ $gap, $gapBetweenText }) => arrayToCssValues($gap || $gapBetweenText, 'spacing')};
+  align-items: start;
+
   ${({ theme, $themeType, $layer }) =>
     $themeType &&
     css`

@@ -33,10 +33,11 @@ export const StyledSVG = styled.i<IStyledSVGAtom & { theme: TTheme }>`
   align-items: center;
   width: ${({ $sizeC }) => sizes[$sizeC ?? 'xxs']};
   aspect-ratio: 1/1;
-  color: ${({ $isActive, $systemMessage, $isPassive, theme, $themeType = 'secondary', $layer = 0 }) =>
-    $themeType === 'inherit'
+  color: ${({ $isActive, $systemMessage, $isPassive, theme, $themeType = 'secondary', $layer = 0 }) => {
+    return $themeType === 'inherit'
       ? 'inherit'
-      : !$isPassive && calcIconColor({ theme, $isActive, $systemMessage, $layer, $themeType })};
+      : !$isPassive && calcIconColor({ theme, $isActive, $systemMessage, $layer, $themeType });
+  }};
   ${({ $externalStyle }) => $externalStyle};
   will-change: transform;
 

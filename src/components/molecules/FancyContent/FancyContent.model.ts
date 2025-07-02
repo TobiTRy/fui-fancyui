@@ -5,13 +5,14 @@ import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 import { TThemeValueOrCSS } from '@/design/designFunctions/getThemeOrValueAsCss';
 
 export type TFancyContent = {
-  direction?: 'row' | 'row-reverse' | 'column' | 'column-reverse';
-  justify?: 'flex-start' | 'flex-end' | 'center' | 'space-between' | 'space-around' | 'space-evenly';
-  align?: 'flex-start' | 'flex-end' | 'center' | 'stretch' | 'baseline';
-  directionTextGroup?: 'row' | 'column';
-  alignTextGroup?: 'flex-start' | 'flex-end' | 'center' | 'stretch' | 'baseline';
+  /** Layout mode for the grid: 'normal' = 2x2 grid, 'stack' = single column, 'auto' = determines based on content */
+  layoutMode?: 'normal' | 'stack' | 'auto';
+  /** Gap between text elements (title and description) */
   gapBetweenText?: TThemeValueOrCSS;
+  /** Gap between icon and content */
   gapBetweenIcon?: TThemeValueOrCSS;
+  /** Overall gap for the grid */
+  gap?: TThemeValueOrCSS;
   children?: React.ReactNode;
   themeType?: TUiColorsNotTransparent;
   layer?: TLayer;

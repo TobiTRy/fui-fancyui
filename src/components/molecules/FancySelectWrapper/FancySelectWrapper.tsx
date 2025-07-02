@@ -32,7 +32,7 @@ export default function FancySelectWrapper(props: TFancySelectWrapperWithHTMLPro
       {/* The label and description */}
       {(label || description) && (
         <LabelWrapper $align={align} htmlFor={pickedId} $externalStyle={externalStyle} {...htmlProps}>
-          <FancyContent align={leftRightCenterToFlexJustify[alignInput]}>
+          <FancyContent layoutMode="normal">
             {label && (
               <FancyContent.Title fontVariant="interactiveLg" themeType={themeType} layer={layer} fontWeight={'bold'}>
                 {label}

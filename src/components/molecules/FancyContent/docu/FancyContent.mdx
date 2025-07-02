@@ -35,9 +35,7 @@ import { FancyContent } from 'fui-fancyui'; // Adjust the import path as needed
 function ExampleComponent() {
   return (
     <FancyContent
-      align="center"
-      direction="row"
-      justify="space-between"
+      layoutMode="normal"
       gapBetweenText="medium"
       gapBetweenIcon="small"
       themeType="primary"
@@ -47,6 +45,28 @@ function ExampleComponent() {
       <FancyContent.Icon {...FancySVGAtomProps} /* icon props */ />
       <FancyContent.Title {...TypographyProps}>Example Title</FancyContent.Title>
       <FancyContent.Description {...TypographyProps}>Example description text goes here.</FancyContent.Description>
+    </FancyContent>
+  );
+}
+
+// Stack layout example
+function StackedExample() {
+  return (
+    <FancyContent layoutMode="stack" gap="xs">
+      <FancyContent.Icon>...</FancyContent.Icon>
+      <FancyContent.Title>Centered Title</FancyContent.Title>
+      <FancyContent.Description>Centered description below</FancyContent.Description>
+    </FancyContent>
+  );
+}
+
+// Right-aligned icon example
+function RightIconExample() {
+  return (
+    <FancyContent layoutMode="normal" alignIcon="right">
+      <FancyContent.Icon>...</FancyContent.Icon>
+      <FancyContent.Title>Title with right icon</FancyContent.Title>
+      <FancyContent.Description>Description text</FancyContent.Description>
     </FancyContent>
   );
 }

@@ -16,7 +16,7 @@ export default function InfoCardRoute() {
           <FancySystemMessageBox sizeC="sm" title="Tesasas" description="Mooiin" />
           <FancySystemMessageBox sizeC="md" title="Tesasas" description="Moooiin22" />
           <FancySystemMessageBox sizeC="lg" themeType="error" title="Tesasas" />
-          <FancySystemMessageBox sizeC="md" description="Moooiin22" />
+          <FancySystemMessageBox sizeC="md" title="Moooiin22" />
           <FancySystemMessageBox themeType="success" sizeC="md" icon={<SVGCheckMark />} description="Moooiin22" />
           <FancySystemMessageBox
             themeType="info"

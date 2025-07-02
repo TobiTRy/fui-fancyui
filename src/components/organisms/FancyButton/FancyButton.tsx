@@ -31,8 +31,8 @@ export default function FancyButton(props: TFancyButtonWithHTMLAttrs) {
     ...buttonProps
   } = props;
 
-  // handle icon alignment
-  const alignIcon = iconAlign === 'left' ? 'row' : 'row-reverse';
+  // handle icon alignment for new grid system
+  const iconPosition = iconAlign === 'left' ? 'left' : 'right';
 
   const generateFancyStyle = generateFancyButton({
     $iconAlign: iconAlign,
@@ -57,7 +57,7 @@ export default function FancyButton(props: TFancyButtonWithHTMLAttrs) {
       `}
       {...(buttonProps as TButton)}
     >
-      <FancyContent direction={alignIcon} gapBetweenIcon={sizeSettings[sizeC].gap}>
+      <FancyContent layoutMode="normal" alignIcon={iconPosition} gapBetweenIcon={sizeSettings[sizeC].gap}>
         {label && (
           <FancyContent.Title fontVariant={sizeSettings[sizeC ?? 'md'].fontSize} themeType={buttonProps.textColor}>
             {label}

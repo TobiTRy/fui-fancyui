@@ -15,59 +15,98 @@ import FancyContentImage from '@/components/molecules/FancyContent/utils/FancyCo
 function FancyContent(props: TFancyContentHTMLAttrs) {
   const {
     children,
-    align,
-    direction,
-    justify = 'flex-start',
+    layoutMode = 'auto',
+    gap,
     gapBetweenText = '',
     gapBetweenIcon,
     themeType,
     layer,
     externalStyle,
     alignIcon = 'left',
-    directionTextGroup = 'column',
-    alignTextGroup = 'flex-start',
     ...htmlProps
   } = props;
 
   let iconElement: ReactElement | null = null;
-  const contentGroup: ReactElement[] = [];
+  let titleElement: ReactElement | null = null;
+  let descriptionElement: ReactElement | null = null;
+  const otherElements: ReactElement[] = [];
 
+  // Classify children into icon, title, description, and others
   React.Children.forEach(children, (child) => {
     if (React.isValidElement(child)) {
+      const childProps = child.props as { className?: string };
+
       if (child.type === FancyContent.Icon || child.type === FancyContent.Image) {
-        iconElement = child;
+        iconElement = React.cloneElement(child as ReactElement<{ className?: string }>, {
+          ...childProps,
+          className: `${childProps.className || ''} icon`.trim(),
+        });
+      } else if (child.type === FancyContent.Title) {
+        titleElement = React.cloneElement(child as ReactElement<{ className?: string }>, {
+          ...childProps,
+          className: `${childProps.className || ''} title`.trim(),
+        });
+      } else if (child.type === FancyContent.Description) {
+        descriptionElement = React.cloneElement(child as ReactElement<{ className?: string }>, {
+          ...childProps,
+          className: `${childProps.className || ''} description`.trim(),
+        });
       } else {
-        contentGroup.push(child);
+        otherElements.push(child);
       }
     }
   });
 
-  return iconElement ? (
-    <Wrapper
-      $align={align}
-      $direction={direction}
-      $justify={justify}
-      $gapBetweenText={gapBetweenText}
-      $gapBetweenIcon={gapBetweenIcon ?? '2xs'}
-      $directionTextGroup={directionTextGroup}
-      $themeType={themeType}
-      $layer={layer}
-      $alignTextGroup={alignTextGroup}
-      $externalStyle={externalStyle}
-      {...htmlProps}
-    >
-      {alignIcon === 'left' ? iconElement : ''}
-      {contentGroup.length > 0 && <span className="content">{contentGroup}</span>}
-      {alignIcon === 'right' ? iconElement : ''}
-    </Wrapper>
-  ) : (
+  const hasIcon = iconElement !== null;
+  const hasTitle = titleElement !== null;
+  const hasDescription = descriptionElement !== null;
+
+  // Handle case where description should take the place of title (no title, but has description)
+  const descriptionAsTitle = !hasTitle && hasDescription;
+
+  // If description should be used as title, update its class
+  if (descriptionAsTitle && descriptionElement) {
+    const element = descriptionElement as React.ReactElement<{ className?: string }>;
+    descriptionElement = React.cloneElement(element, {
+      ...element.props,
+      className: `${element.props.className || ''} title`.replace('description', '').trim(),
+    });
+  }
+
+  // If there's an icon or structured content, use the grid wrapper
+  if (hasIcon || titleElement || descriptionElement) {
+    return (
+      <Wrapper
+        $layoutMode={layoutMode}
+        $hasIcon={hasIcon}
+        $hasTitle={hasTitle || descriptionAsTitle}
+        $hasDescription={hasDescription && !descriptionAsTitle}
+        $gap={gap}
+        $gapBetweenText={gapBetweenText}
+        $gapBetweenIcon={gapBetweenIcon ?? '2xs'}
+        $themeType={themeType}
+        $layer={layer}
+        $externalStyle={externalStyle}
+        $alignIcon={alignIcon}
+        {...htmlProps}
+      >
+        {alignIcon === 'left' && iconElement}
+        {titleElement}
+        {descriptionElement}
+        {alignIcon === 'right' && iconElement}
+        {otherElements.length > 0 && otherElements}
+      </Wrapper>
+    );
+  }
+
+  // Fallback to text-only wrapper for simple content
+  return (
     <OnlyTextWrapper
       $themeType={themeType}
       $layer={layer}
-      $align={align}
-      $direction={direction}
-      $justify={justify}
+      $gap={gap}
       $gapBetweenText={gapBetweenText}
+      $layoutMode={layoutMode}
       $externalStyle={externalStyle}
       {...htmlProps}
     >

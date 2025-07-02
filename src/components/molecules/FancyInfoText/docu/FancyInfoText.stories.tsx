@@ -17,22 +17,11 @@ const meta = {
   },
   argTypes: {
     direction: {
-      description: 'The flex direction of the component',
+      description: 'Layout direction: row = normal grid, column = stack layout',
       control: {
         type: 'select' as const,
       },
-    },
-    justify: {
-      description: 'The flex justify of the component',
-      control: {
-        type: 'select' as const,
-      },
-    },
-    align: {
-      description: 'The flex align of the component',
-      control: {
-        type: 'select' as const,
-      },
+      options: ['row', 'column'],
     },
     gapBetweenIcon: {
       description: 'The gap between the icon and the content',
@@ -44,24 +33,6 @@ const meta = {
       description: 'The gap between the content',
       control: {
         type: 'text' as const,
-      },
-    },
-    alignIcon: {
-      description: 'The align of the icon',
-      control: {
-        type: 'radio' as const,
-      },
-    },
-    alignTextGroup: {
-      description: 'The align of the text',
-      control: {
-        type: 'radio' as const,
-      },
-    },
-    directionTextGroup: {
-      description: 'The direction of the text',
-      control: {
-        type: 'radio' as const,
       },
     },
     ...templateThemeType('notTransparent', 'secondary', 0),
@@ -81,15 +52,14 @@ export const Primary: Story = {
   },
 };
 
-export const WithAllProps: Story = {
+export const StackLayout: Story = {
   render: (args) => <FancyInfoText {...args} />,
   args: {
     icon: <SVGCheckMark />,
-    direction: 'row',
-    justify: 'flex-start',
-    align: 'flex-start',
+    direction: 'column',
+    title: 'Stacked Layout',
+    description: 'Text and icon are stacked vertically',
     gapBetweenIcon: 'sm',
     gapBetweenText: 'sm',
-    alignIcon: 'left',
   },
 };

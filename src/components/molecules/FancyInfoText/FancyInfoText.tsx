@@ -5,30 +5,10 @@ import { TFancyInfoTextWithFancyBoxAndFlex } from './FancyInfoText.model';
 import { sizes } from './sizeSettings';
 
 export default function FancyInfoText(props: TFancyInfoTextWithFancyBoxAndFlex) {
-  const {
-    title,
-    description,
-    icon,
-    justify = 'flex-start',
-    sizeC = 'md',
-    align = 'center',
-    direction = 'row',
-    themeType = 'error',
-    directionTextGroup = 'row',
-    alignTextGroup = 'flex-end',
-    layer,
-  } = props;
+  const { title, description, icon, sizeC = 'md', direction = 'row', themeType = 'error', layer } = props;
 
   return (
-    <FancyContent
-      themeType={themeType}
-      layer={layer}
-      direction={direction}
-      directionTextGroup={directionTextGroup}
-      align={align}
-      alignTextGroup={alignTextGroup}
-      justify={justify}
-    >
+    <FancyContent themeType={themeType} layer={layer} layoutMode={direction === 'column' ? 'stack' : 'normal'}>
       {icon && <FancyContent.Icon sizeC={sizes[sizeC].iconSize}>{icon}</FancyContent.Icon>}
       {title && <FancyContent.Title fontVariant={sizes[sizeC].title}>{title}</FancyContent.Title>}
       {description && (

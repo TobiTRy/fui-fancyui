@@ -43,24 +43,6 @@ const meta = {
         type: 'text' as const,
       },
     },
-    direction: {
-      description: 'The flex direction of the component',
-      control: {
-        type: 'select' as const,
-      },
-    },
-    justify: {
-      description: 'The flex justify of the component',
-      control: {
-        type: 'select' as const,
-      },
-    },
-    align: {
-      description: 'The flex align of the component',
-      control: {
-        type: 'select' as const,
-      },
-    },
     gapBetweenIcon: {
       description: 'The gap between the icon and the content',
       control: {
@@ -71,24 +53,6 @@ const meta = {
       description: 'The gap between the content',
       control: {
         type: 'text' as const,
-      },
-    },
-    alignIcon: {
-      description: 'The align of the icon',
-      control: {
-        type: 'radio' as const,
-      },
-    },
-    alignTextGroup: {
-      description: 'The align of the text group',
-      control: {
-        type: 'radio' as const,
-      },
-    },
-    directionTextGroup: {
-      description: 'The direction of the text group',
-      control: {
-        type: 'radio' as const,
       },
     },
   },
@@ -102,73 +66,50 @@ export const Error: Story = {
   render: (args) => <FancySystemMessageBox {...args} />,
   args: {
     icon: <> 🌇 </>,
-    title: 'This is a InfoCard',
-    description: 'This is a InfoCard',
+    title: 'This is a Error Message',
+    description: 'Something went wrong, please try again',
     themeType: 'error',
     layer: 0,
     sizeC: 'sm',
-    direction: 'row',
-    directionTextGroup: 'column',
-    alignTextGroup: 'flex-start',
-    justify: 'flex-start',
-    align: 'center',
     gapBetweenText: '0px',
-    alignIcon: 'left',
   },
 };
 
 export const Info: Story = {
   render: (args) => <FancySystemMessageBox {...args} />,
   args: {
-    icon: <> 🌇 </>,
-    title: 'This is a InfoCard',
-    description: 'This is a InfoCard',
+    icon: <> ℹ️ </>,
+    title: 'Information Message',
+    description: 'Here is some helpful information',
     themeType: 'info',
     layer: 0,
     sizeC: 'sm',
-    direction: 'row',
-    directionTextGroup: 'column',
-    alignTextGroup: 'flex-start',
-    justify: 'flex-start',
-    align: 'center',
     gapBetweenText: '0px',
-    alignIcon: 'left',
   },
 };
+
 export const Success: Story = {
   render: (args) => <FancySystemMessageBox {...args} />,
   args: {
-    icon: <> 🌇 </>,
-    title: 'This is a InfoCard',
-    description: 'This is a InfoCard',
+    icon: <> ✅ </>,
+    title: 'Success Message',
+    description: 'Operation completed successfully',
     themeType: 'success',
     layer: 0,
     sizeC: 'sm',
-    direction: 'row',
-    directionTextGroup: 'column',
-    alignTextGroup: 'flex-start',
-    justify: 'flex-start',
-    align: 'center',
     gapBetweenText: '0px',
-    alignIcon: 'left',
   },
 };
 
 export const Warning: Story = {
   render: (args) => <FancySystemMessageBox {...args} />,
   args: {
-    icon: <> 🌇 </>,
-    title: 'This is a InfoCard',
-    description: 'This is a InfoCard',
+    icon: <> ⚠️ </>,
+    title: 'Warning Message',
+    description: 'Please pay attention to this warning',
     themeType: 'warning',
     layer: 0,
     sizeC: 'sm',
-    direction: 'row',
-    directionTextGroup: 'column',
-    alignTextGroup: 'flex-start',
-    justify: 'flex-start',
-    align: 'center',
     gapBetweenText: '0px',
-    alignIcon: 'left',
   },
 };
