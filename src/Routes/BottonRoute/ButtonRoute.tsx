@@ -13,6 +13,8 @@ const Icon = (
 
 import style from './ButtonRoute.module.css';
 import { FancySVGAtom } from '@/components/atoms/FancySVGAtom';
+import { Button } from '@/components/molecules/Button';
+import { FancyContent } from '@/components/molecules/FancyContent';
 
 const backgroundColor = css`
   background-color: #235179;
@@ -72,6 +74,29 @@ export default function ButtonRoute() {
           <FancyButton label="ButtonLG" backgroundState="hover" themeType="primary" sizeC="lg" />
         </DesignArea>
         {/* <FancyButton
+        <DesignArea title="Buttons sizes" style={backgroundColor}>
+          <Button themeType="primary" backgroundState="active" sizeC="lg" layer={2}>
+            <FancyContent.Title>Hhdsds</FancyContent.Title>
+          </Button>
+          <Button
+            outlinedRemoveBorder
+            themeType="primary"
+            backgroundState="active"
+            sizeC="lg"
+            layer={2}
+          >
+            <FancyContent.Description fontWeight="bold" sizeC="sm">Hhdsds</FancyContent.Description>
+          </Button>
+          <Button themeType="primary" sizeC="sm" onClick={() => console.log('Trigger me Dadddy')}>
+            <FancyContent.Description fontWeight="bold" sizeC="sm">Hhdsds</FancyContent.Description>
+          </Button>
+          <Button themeType="primary" sizeC="md">
+            <FancyContent.Description fontWeight="bold" sizeC="md">Hhdsds</FancyContent.Description>
+          </Button>
+          <Button themeType="primary" sizeC="lg" backgroundState="hover">
+            <FancyContent.Description fontWeight="bold" sizeC="lg">Hhdsds</FancyContent.Description>
+          </Button>
+        </DesignArea>
           label="Button"
           themeType="primary"
           sizeC="sm"
