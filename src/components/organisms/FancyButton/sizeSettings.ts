@@ -15,7 +15,7 @@ type TSizeObj = {
 export const sizeSettings: TSizeSettings<TSizeObj> = {
   sm: {
     padding: ['xs', 'md'],
-    gap: '3xs',
+    gap: 'xxs',
     paddingIconAlignLeft: ['xs', 'md', 'xs', 'sm'],
     paddingIconAlignRight: ['xs', 'sm', 'xs', 'md'],
     fontSize: 'interactiveSm',
@@ -23,7 +23,7 @@ export const sizeSettings: TSizeSettings<TSizeObj> = {
   },
   md: {
     padding: ['xs', 'lg'],
-    gap: '3xs',
+    gap: 'xxs',
     paddingIconAlignLeft: ['xs', 'lg', 'xs', 'md'],
     paddingIconAlignRight: ['xs', 'md', 'xs', 'lg'],
     fontSize: 'interactiveMd',

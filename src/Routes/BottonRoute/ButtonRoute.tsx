@@ -73,30 +73,33 @@ export default function ButtonRoute() {
           <FancyButton label="Button" themeType="primary" sizeC="md" />
           <FancyButton label="ButtonLG" backgroundState="hover" themeType="primary" sizeC="lg" />
         </DesignArea>
-        {/* <FancyButton
+
         <DesignArea title="Buttons sizes" style={backgroundColor}>
           <Button themeType="primary" backgroundState="active" sizeC="lg" layer={2}>
             <FancyContent.Title>Hhdsds</FancyContent.Title>
           </Button>
-          <Button
-            outlinedRemoveBorder
-            themeType="primary"
-            backgroundState="active"
-            sizeC="lg"
-            layer={2}
-          >
-            <FancyContent.Description fontWeight="bold" sizeC="sm">Hhdsds</FancyContent.Description>
+          <Button outlinedRemoveBorder themeType="primary" backgroundState="active" sizeC="lg" layer={2}>
+            <FancyContent.Description fontWeight="bold" sizeC="sm">
+              Hhdsds
+            </FancyContent.Description>
           </Button>
           <Button themeType="primary" sizeC="sm" onClick={() => console.log('Trigger me Dadddy')}>
-            <FancyContent.Description fontWeight="bold" sizeC="sm">Hhdsds</FancyContent.Description>
+            <FancyContent.Description fontWeight="bold" sizeC="sm">
+              Hhdsds
+            </FancyContent.Description>
           </Button>
           <Button themeType="primary" sizeC="md">
-            <FancyContent.Description fontWeight="bold" sizeC="md">Hhdsds</FancyContent.Description>
+            <FancyContent.Description fontWeight="bold" sizeC="md">
+              Hhdsds
+            </FancyContent.Description>
           </Button>
           <Button themeType="primary" sizeC="lg" backgroundState="hover">
-            <FancyContent.Description fontWeight="bold" sizeC="lg">Hhdsds</FancyContent.Description>
+            <FancyContent.Description fontWeight="bold" sizeC="lg">
+              Hhdsds
+            </FancyContent.Description>
           </Button>
         </DesignArea>
+        <FancyButton
           label="Button"
           themeType="primary"
           sizeC="sm"
@@ -107,7 +110,7 @@ export default function ButtonRoute() {
         <FancyButton label="Button" themeType="accent" sizeC="lg" wide={false} />
         <FancyButton label="Button" themeType="secondary" wide={false} />
         <FancyButton label="Button" themeType="primary" sizeC="sm" wide={false} borderRadius={'lg'} />
-      </DesignArea>
+      </DesignWrapper>
       <DesignArea title="Button Types in wide" style={backgroundColor}>
         <FancyButton label="Button" sizeC="sm" themeType="primary" wide />
         <FancyButton label="Button" sizeC="md" themeType="primary" wide />
@@ -198,8 +201,7 @@ export default function ButtonRoute() {
       </DesignArea>
       <DesignArea title="Buttons" style={backgroundColor}>
         <FancyButton className={style.test} appendClassNameOnStyle={true} noSize label="Test" themeType="primary" />
-      </DesignArea> */}
-      </DesignWrapper>
+      </DesignArea>
     </>
   );
 }
