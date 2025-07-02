@@ -1,4 +1,4 @@
-import { TSizeSettings } from '@/types/TSizeSettings';
+import { TSizeSettingsMid } from '@/types/TSizeSettings';
 import { TSpacingArray, TSpacings } from '@/types/TSpacings';
 import { TTypographyVariants } from '@/types/TTypographyVariants';
 
@@ -8,7 +8,12 @@ type TSizeObj = {
   lineHeight: TSpacings;
 };
 
-export const sizeSettings: TSizeSettings<TSizeObj> = {
+export const sizeSettings: TSizeSettingsMid<TSizeObj> = {
+  xs: {
+    padding: ['sm', 'sm'],
+    fontSize: 'interactiveXs',
+    lineHeight: 'sm',
+  },
   sm: {
     padding: ['xs', 'md'],
     fontSize: 'interactiveSm',
@@ -23,5 +28,10 @@ export const sizeSettings: TSizeSettings<TSizeObj> = {
     padding: ['sm', 'lg'],
     fontSize: 'interactiveLg',
     lineHeight: 'md',
+  },
+  xl: {
+    padding: ['md', 'xl'],
+    fontSize: 'interactiveXl',
+    lineHeight: 'lg',
   },
 };

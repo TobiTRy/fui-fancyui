@@ -3,10 +3,10 @@ import { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from 'react';
 
 import { TThemeArrayOrValueCSS } from '@/design/designFunctions/arrayToCssValues';
 import { TGenerateThemeDesignForComponentProps } from '@/design/designFunctions/generateThemeDesignForComponent';
-import { TComponentSizes } from '@/types/TComponentSizes';
+import { TComponentSizesMid } from '@/types/TComponentSizes';
 
 export type TButton = {
-  sizeC?: TComponentSizes;
+  sizeC?: TComponentSizesMid;
   wide?: boolean;
   children?: ReactNode;
   externalStyle?: CSSProp;

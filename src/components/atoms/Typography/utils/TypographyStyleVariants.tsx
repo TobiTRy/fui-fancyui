@@ -88,9 +88,19 @@ export const generateFontVariants = (props: TgenerateFontVariants) => {
       ${themeFonts.interactiveLg};
       ${providedStyle};
     `,
+    interactiveXl: css`
+      ${nullifyStyle};
+      ${themeFonts.interactiveXl};
+      ${providedStyle};
+    `,
     interactiveMd: css`
       ${nullifyStyle};
       ${themeFonts.interactiveMd};
+      ${providedStyle};
+    `,
+    interactiveXs: css`
+      ${nullifyStyle};
+      ${themeFonts.interactiveXs};
       ${providedStyle};
     `,
     interactiveSm: css`

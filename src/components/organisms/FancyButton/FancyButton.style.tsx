@@ -2,13 +2,13 @@ import { css } from 'styled-components';
 
 import { generateButtonSizeAndPadding } from '@/components/molecules/Button/utils/generateButtonSizeAndPadding';
 import { TLeftRightCenterToFlexJustify } from '@/design/designFunctions/leftRightCenterToFlexJustify';
-import { TComponentSizes } from '@/types/TComponentSizes';
+import { TComponentSizesMid } from '@/types/TComponentSizes';
 import { sizeSettings } from './sizeSettings';
 import { arrayToCssValues } from '@/design/designFunctions/arrayToCssValues';
 import { calcCSSValuesWithOffset } from '@/utils/functions/calcCSSValuesWithOffset';
 
 interface IGenerateFancyButton {
-  $sizeC: TComponentSizes;
+  $sizeC: TComponentSizesMid;
   $oneToOne?: boolean;
   $justifyContent?: TLeftRightCenterToFlexJustify;
   $iconAlign?: 'left' | 'right';
@@ -28,7 +28,7 @@ export const generateFancyButton = (props: IGenerateFancyButton) => {
   `;
 };
 
-const generate1To1Button = ($sizeC: TComponentSizes) => {
+const generate1To1Button = ($sizeC: TComponentSizesMid) => {
   //this makes the button a square (1/1) if there is no $label and a $icon
   const padding = generateButtonSizeAndPadding($sizeC, false);
 
@@ -40,7 +40,7 @@ const generate1To1Button = ($sizeC: TComponentSizes) => {
 };
 
 const generateSize = (
-  $sizeC: TComponentSizes,
+  $sizeC: TComponentSizesMid,
   $icon?: boolean,
   $iconAlign?: IGenerateFancyButton['$iconAlign'],
   outlined?: boolean,

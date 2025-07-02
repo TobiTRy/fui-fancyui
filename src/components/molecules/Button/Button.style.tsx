@@ -29,7 +29,11 @@ export const ButtonStyle = styled.span<IGenerateThemeDesignForComponent & TStyle
     })}
 
   ${({ $sizeC, $borderRadius }) =>
-    $borderRadius !== false && generateBorderRadiusForComponent({ sizeC: $sizeC, borderRadius: $borderRadius })};
+    $borderRadius !== false &&
+    generateBorderRadiusForComponent({
+      sizeC: $sizeC === 'xs' ? 'sm' : $sizeC === 'xl' ? 'lg' : $sizeC,
+      borderRadius: $borderRadius,
+    })};
 
   ${({ $sizeC, $noSize, $outlined }) => !$noSize && generateButtonSizeAndPadding($sizeC ?? 'md', true, $outlined)}
 

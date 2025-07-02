@@ -183,6 +183,12 @@ export const theme: TTheme = {
       letterSpacing: '0.01em',
       fontWeight: '400',
     },
+    interactiveXs: {
+      fontSize: '12px',
+      lineHeight: '14px',
+      letterSpacing: '0.01em',
+      fontWeight: '500',
+    },
     interactiveSm: {
       fontSize: '14px',
       lineHeight: '16px',
@@ -198,6 +204,12 @@ export const theme: TTheme = {
     interactiveLg: {
       fontSize: '18px',
       lineHeight: '24px',
+      letterSpacing: '0.01em',
+      fontWeight: '500',
+    },
+    interactiveXl: {
+      fontSize: '20px',
+      lineHeight: '28px',
       letterSpacing: '0.01em',
       fontWeight: '500',
     },

@@ -124,6 +124,12 @@ export const typography = {
     fontWeight: '400', // Regular
   },
 
+  interactiveXs: {
+    fontSize: '12px',
+    lineHeight: '14px',
+    letterSpacing: '0.01em',
+    fontWeight: '500', // Medium
+  },
   interactiveSm: {
     fontSize: '14px',
     lineHeight: '16px',
@@ -139,6 +145,12 @@ export const typography = {
   interactiveLg: {
     fontSize: '18px',
     lineHeight: '24px',
+    letterSpacing: '0.01em',
+    fontWeight: '500', // Medium
+  },
+  interactiveXl: {
+    fontSize: '20px',
+    lineHeight: '28px',
     letterSpacing: '0.01em',
     fontWeight: '500', // Medium
   },

@@ -33,16 +33,7 @@ export default function ButtonRoute() {
       </FancySVGAtom>
       <DesignWrapper>
         <DesignArea title="Buttons sizes" style={backgroundColor}>
-          <FancyButton themeType="primary" label="Hhdsds" sizeC="lg" layer={2} />
-          <FancyButton
-            outlinedRemoveBorder
-            themeType="primary"
-            backgroundState="active"
-            icon={<SVGChevronRight />}
-            label="Hhdsds"
-            sizeC="lg"
-            layer={2}
-          />
+          <FancyButton themeType="primary" label="Hhdsds" sizeC="xs" layer={2} />
           <FancyButton
             label="Button"
             themeType="primary"
@@ -50,7 +41,15 @@ export default function ButtonRoute() {
             icon={<SVGChevronRight />}
             onClick={() => console.log('Trigger me Dadddy')}
           />
-          <FancyButton label="Button" icon={<SVGChevronRight />} themeType="primary" sizeC="md" />
+          <FancyButton
+            outlinedRemoveBorder
+            themeType="primary"
+            backgroundState="active"
+            icon={<SVGChevronRight />}
+            label="Hhdsds"
+            sizeC="md"
+            layer={2}
+          />
           <FancyButton
             label="ButtonLG"
             icon={<SVGChevronRight />}
@@ -58,6 +57,7 @@ export default function ButtonRoute() {
             themeType="primary"
             sizeC="lg"
           />
+          <FancyButton label="Button" icon={<SVGChevronRight />} themeType="primary" sizeC="xl" />
         </DesignArea>
         <DesignArea title="Buttons sizes" style={backgroundColor}>
           <FancyButton themeType="primary" backgroundState="active" label="Hhdsds" sizeC="lg" layer={2} />
@@ -75,11 +75,11 @@ export default function ButtonRoute() {
         </DesignArea>
 
         <DesignArea title="Buttons sizes" style={backgroundColor}>
-          <Button themeType="primary" backgroundState="active" sizeC="lg" layer={2}>
+          <Button themeType="primary" backgroundState="active" sizeC="sm" layer={2}>
             <FancyContent.Title>Hhdsds</FancyContent.Title>
           </Button>
           <Button outlinedRemoveBorder themeType="primary" backgroundState="active" sizeC="lg" layer={2}>
-            <FancyContent.Description fontWeight="bold" sizeC="sm">
+            <FancyContent.Description fontWeight="bold" sizeC="md">
               Hhdsds
             </FancyContent.Description>
           </Button>
