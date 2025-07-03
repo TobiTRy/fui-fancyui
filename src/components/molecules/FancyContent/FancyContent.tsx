@@ -23,7 +23,8 @@ function FancyContent(props: TFancyContentHTMLAttrs) {
     layer,
     externalStyle,
     alignIcon = 'left',
-    alignContent,
+    justify,
+    align,
     ...htmlProps
   } = props;
 
@@ -90,7 +91,8 @@ function FancyContent(props: TFancyContentHTMLAttrs) {
         $gapBetweenText={gapBetweenText}
         $layoutMode={layoutMode}
         $externalStyle={externalStyle}
-        $alignContent={alignContent}
+        $justify={justify}
+        $align={align}
         {...htmlProps}
       >
         {iconElement}
@@ -115,7 +117,8 @@ function FancyContent(props: TFancyContentHTMLAttrs) {
         $layer={layer}
         $externalStyle={externalStyle}
         $alignIcon={alignIcon}
-        $alignContent={alignContent}
+        $justify={justify}
+        $align={align}
         {...htmlProps}
       >
         {alignIcon === 'left' && iconElement}
@@ -136,7 +139,8 @@ function FancyContent(props: TFancyContentHTMLAttrs) {
       $gapBetweenText={gapBetweenText}
       $layoutMode={layoutMode}
       $externalStyle={externalStyle}
-      $alignContent={alignContent}
+      $justify={justify}
+      $align={align}
       {...htmlProps}
     >
       {children}

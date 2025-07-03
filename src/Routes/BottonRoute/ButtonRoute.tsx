@@ -28,7 +28,7 @@ export default function ButtonRoute() {
 
   return (
     <>
-      <FancySVGAtom sizeC="lg" themeType="secondary">
+      {/* <FancySVGAtom sizeC="lg" themeType="secondary">
         <SVGChevronRight />
       </FancySVGAtom>
       <DesignWrapper>
@@ -163,14 +163,23 @@ export default function ButtonRoute() {
           themeType="secondary"
           outlined
         />
-      </DesignArea>
+      </DesignArea> */}
       <DesignArea title="1:1 Buttons" style={backgroundColor}>
         <FancyButton
-          icon={
-            <span style={{ marginRight: '2px' }}>
-              <SVGChevronLeft />
-            </span>
-          }
+          icon={Icon}
+          sizeC="xs"
+          isLoading={isLoading}
+          onClick={() => setIsLoading(true)}
+          themeType="primary"
+          borderRadius="complete"
+        />
+        <FancyButton
+          icon={Icon}
+          sizeC="sm"
+          isLoading={isLoading}
+          onClick={() => setIsLoading(true)}
+          themeType="primary"
+          borderRadius="complete"
         />
         <FancyButton
           icon={Icon}
@@ -182,7 +191,7 @@ export default function ButtonRoute() {
         />
         <FancyButton
           icon={Icon}
-          sizeC="sm"
+          sizeC="lg"
           isLoading={isLoading}
           onClick={() => setIsLoading(false)}
           themeType="secondary"
@@ -191,7 +200,7 @@ export default function ButtonRoute() {
         />
         <FancyButton
           icon={Icon}
-          sizeC="lg"
+          sizeC="xl"
           isLoading={isLoading}
           onClick={() => setIsLoading(false)}
           themeType="secondary"

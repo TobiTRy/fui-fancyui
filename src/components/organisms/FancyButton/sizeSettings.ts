@@ -19,7 +19,7 @@ export const sizeSettings: TSizeSettingsMid<TSizeObj> = {
     paddingIconAlignLeft: ['xs', 'sm', 'xs', 'xs'],
     paddingIconAlignRight: ['xs', 'xs', 'xs', 'sm'],
     fontSize: 'interactiveXs',
-    iconSize: 'xs',
+    iconSize: 'sm',
   },
   sm: {
     padding: ['xs', 'md'],

@@ -1,4 +1,6 @@
 import { globalElementSizes } from '@/design/theme/globalSizes';
+import { spacingPx, borderRadius, typography } from '@/design/theme/designSizes';
+import { breakpoints } from '@/design/theme/brakePoints';
 import { TTheme } from '@/types/TTheme';
 
 export const theme: TTheme = {
@@ -88,138 +90,10 @@ export const theme: TTheme = {
       '9': '#F8BABAFF',
     },
   },
-  borderRadius: {
-    xxs: '4px',
-    xs: '8px',
-    sm: '12px',
-    md: '16px',
-    lg: '24px',
-    xl: '32px',
-    xxl: '40px',
-    complete: '200px',
-  },
-  spacing: {
-    '3xs': '2px',
-    xxs: '4px',
-    xs: '8px',
-    sm: '12px',
-    md: '16px',
-    lg: '24px',
-    xl: '32px',
-    xxl: '40px',
-    '3xl': '48px',
-    '4xl': '56px',
-  },
-  fontSizes: {
-    displayHero: {
-      fontSize: '84px',
-      lineHeight: '96px',
-      letterSpacing: '-0.02em',
-      fontWeight: '700',
-    },
-    displayHeadline: {
-      fontSize: '72px',
-      lineHeight: '86px',
-      letterSpacing: '-0.02em',
-      fontWeight: '700',
-    },
-    displayTitle: {
-      fontSize: '60px',
-      lineHeight: '72px',
-      letterSpacing: '-0.015em',
-      fontWeight: '700',
-    },
-    sectionTitle: {
-      fontSize: '48px',
-      lineHeight: '58px',
-      letterSpacing: '-0.015em',
-      fontWeight: '600',
-    },
-    sectionSubtitle: {
-      fontSize: '36px',
-      lineHeight: '43px',
-      letterSpacing: '-0.01em',
-      fontWeight: '500',
-    },
-    sectionSubsectionTitle: {
-      fontSize: '30px',
-      lineHeight: '36px',
-      letterSpacing: '-0.01em',
-      fontWeight: '500',
-    },
-    bodytextLg: {
-      fontSize: '24px',
-      lineHeight: '34px',
-      letterSpacing: 'normal',
-      fontWeight: '400',
-    },
-    bodytextMd: {
-      fontSize: '18px',
-      lineHeight: '26px',
-      letterSpacing: 'normal',
-      fontWeight: '400',
-    },
-    bodytextSm: {
-      fontSize: '16px',
-      lineHeight: '23px',
-      letterSpacing: 'normal',
-      fontWeight: '400',
-    },
-    subTextCaption: {
-      fontSize: '14px',
-      lineHeight: '20px',
-      letterSpacing: '0.005em',
-      fontWeight: '400',
-    },
-    subTextFootnote: {
-      fontSize: '12px',
-      lineHeight: '17px',
-      letterSpacing: '0.01em',
-      fontWeight: '400',
-    },
-    subTextLegal: {
-      fontSize: '10px',
-      lineHeight: '14px',
-      letterSpacing: '0.01em',
-      fontWeight: '400',
-    },
-    interactiveXs: {
-      fontSize: '12px',
-      lineHeight: '14px',
-      letterSpacing: '0.01em',
-      fontWeight: '500',
-    },
-    interactiveSm: {
-      fontSize: '14px',
-      lineHeight: '16px',
-      letterSpacing: '0.01em',
-      fontWeight: '500',
-    },
-    interactiveMd: {
-      fontSize: '16px',
-      lineHeight: '24px',
-      letterSpacing: '0.01em',
-      fontWeight: '500',
-    },
-    interactiveLg: {
-      fontSize: '18px',
-      lineHeight: '24px',
-      letterSpacing: '0.01em',
-      fontWeight: '500',
-    },
-    interactiveXl: {
-      fontSize: '20px',
-      lineHeight: '28px',
-      letterSpacing: '0.01em',
-      fontWeight: '500',
-    },
-  },
-  breakpoints: {
-    sm: '(min-width: 576px)',
-    md: '(min-width: 768px)',
-    lg: '(min-width: 992px)',
-    xl: '(min-width: 1200px)',
-  },
+  borderRadius,
+  spacing: spacingPx,
+  fontSizes: typography,
+  breakpoints,
   globalElementSizes: {
     ...globalElementSizes,
   },

@@ -19,7 +19,9 @@ export type TFancyContent = {
   externalStyle?: CSSProp;
   alignIcon?: 'left' | 'right';
   /** Horizontal alignment of all content */
-  alignContent?: 'left' | 'center' | 'right';
+  justify?: 'left' | 'center' | 'right';
+  /** Vertical alignment of all content */
+  align?: 'start' | 'center' | 'end' | 'stretch' | 'baseline';
 };
 
 export type TFancyContentHTMLAttrs = TFancyContent & React.HTMLAttributes<HTMLSpanElement>;

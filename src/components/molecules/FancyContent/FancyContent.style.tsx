@@ -11,6 +11,8 @@ type TWrapper = TStyledPrefixAndOmiter<TFancyContent, 'children'> & {
   $hasDescription?: boolean;
   $hasIcon?: boolean;
   $hasTitle?: boolean;
+  $align?: 'start' | 'center' | 'end' | 'stretch' | 'baseline';
+  $justify?: 'left' | 'center' | 'right';
 };
 
 // Helper function to determine grid template based on layout mode
@@ -99,7 +101,7 @@ export const Wrapper = styled.span<TWrapper & { theme: TTheme }>`
   display: grid;
   width: 100%;
   gap: ${({ $gap, $gapBetweenIcon }) => arrayToCssValues($gap || $gapBetweenIcon, 'spacing')};
-  align-items: start;
+  align-items: ${({ $align }) => $align || 'start'};
 
   ${({ $layoutMode = 'auto', $hasDescription = false, $hasIcon = false, $hasTitle = false, $alignIcon = 'left' }) =>
     getGridTemplate($layoutMode, $hasDescription, $hasIcon, $hasTitle, $alignIcon)}
@@ -110,21 +112,21 @@ export const Wrapper = styled.span<TWrapper & { theme: TTheme }>`
       color: ${theme.color[$themeType ?? 'secondary'][$layer ?? 0]};
     `};
 
-  ${({ $alignContent }) =>
-    $alignContent &&
+  ${({ $justify }) =>
+    $justify &&
     css`
-      justify-items: ${$alignContent === 'left' ? 'start' : $alignContent === 'right' ? 'end' : 'center'};
+      justify-items: ${$justify === 'left' ? 'start' : $justify === 'right' ? 'end' : 'center'};
     `};
 
   ${({ $externalStyle }) => $externalStyle}
 
   .icon {
     grid-area: icon;
-    justify-self: ${({ $layoutMode, $alignContent }) =>
-      $alignContent
-        ? $alignContent === 'left'
+    justify-self: ${({ $layoutMode, $justify }) =>
+      $justify
+        ? $justify === 'left'
           ? 'start'
-          : $alignContent === 'right'
+          : $justify === 'right'
             ? 'end'
             : 'center'
         : $layoutMode === 'stack'
@@ -140,11 +142,11 @@ export const Wrapper = styled.span<TWrapper & { theme: TTheme }>`
   .title {
     grid-area: title;
     align-self: ${({ $layoutMode }) => ($layoutMode === 'stack' ? 'start' : 'center')};
-    justify-self: ${({ $layoutMode, $alignContent }) =>
-      $alignContent
-        ? $alignContent === 'left'
+    justify-self: ${({ $layoutMode, $justify }) =>
+      $justify
+        ? $justify === 'left'
           ? 'start'
-          : $alignContent === 'right'
+          : $justify === 'right'
             ? 'end'
             : 'center'
         : $layoutMode === 'stack'
@@ -154,11 +156,11 @@ export const Wrapper = styled.span<TWrapper & { theme: TTheme }>`
 
   .description {
     grid-area: description;
-    justify-self: ${({ $layoutMode, $alignContent }) =>
-      $alignContent
-        ? $alignContent === 'left'
+    justify-self: ${({ $layoutMode, $justify }) =>
+      $justify
+        ? $justify === 'left'
           ? 'start'
-          : $alignContent === 'right'
+          : $justify === 'right'
             ? 'end'
             : 'center'
         : $layoutMode === 'stack'
@@ -173,19 +175,20 @@ type TOnlyTextWrapper = TStyledPrefixAndPicker<
   TFancyContent,
   'themeType' | 'layer' | 'externalStyle' | 'layoutMode' | 'gap' | 'gapBetweenText'
 > & {
-  $alignContent?: 'left' | 'center' | 'right';
+  $justify?: 'left' | 'center' | 'right';
+  $align?: 'start' | 'center' | 'end' | 'stretch' | 'baseline';
 };
 
 export const OnlyTextWrapper = styled.span<TOnlyTextWrapper & { theme: TTheme }>`
   display: grid;
   grid-template-columns: 1fr;
   gap: ${({ $gap, $gapBetweenText }) => arrayToCssValues($gap || $gapBetweenText, 'spacing')};
-  align-items: start;
+  align-items: ${({ $align }) => $align || 'start'};
 
-  ${({ $alignContent }: { $alignContent?: 'left' | 'center' | 'right' }) =>
-    $alignContent &&
+  ${({ $justify }: { $justify?: 'left' | 'center' | 'right' }) =>
+    $justify &&
     css`
-      justify-items: ${$alignContent === 'left' ? 'start' : $alignContent === 'right' ? 'end' : 'center'};
+      justify-items: ${$justify === 'left' ? 'start' : $justify === 'right' ? 'end' : 'center'};
     `};
 
   ${({ theme, $themeType, $layer }) =>
