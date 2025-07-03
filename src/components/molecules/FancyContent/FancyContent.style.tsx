@@ -4,6 +4,7 @@ import { TStyledPrefixAndPicker } from '@/types/TStyledPrefixAndPicker';
 import { TTheme } from '@/types/TTheme';
 import { TFancyContent } from '@/components/molecules/FancyContent/FancyContent.model';
 import { TStyledPrefixAndOmiter } from '@/types/TStyledPrefixAndOmiter';
+import { TTextAlignLRC, TAlignItemsValues } from '@/types';
 import { arrayToCssValues } from '@/design/designFunctions/arrayToCssValues';
 
 // Define the types for the Wrapper component
@@ -11,8 +12,21 @@ type TWrapper = TStyledPrefixAndOmiter<TFancyContent, 'children'> & {
   $hasDescription?: boolean;
   $hasIcon?: boolean;
   $hasTitle?: boolean;
-  $align?: 'start' | 'center' | 'end' | 'stretch' | 'baseline';
-  $justify?: 'left' | 'center' | 'right';
+  $align?: TAlignItemsValues;
+  $justify?: TTextAlignLRC;
+};
+
+// Helper function to get justify-self value
+const getJustifySelf = (justify?: TTextAlignLRC, layoutMode?: string, defaultValue: string = 'start') => {
+  if (justify) {
+    return justify === 'left' ? 'start' : justify === 'right' ? 'end' : 'center';
+  }
+  return layoutMode === 'stack' ? 'center' : defaultValue;
+};
+
+// Helper function to convert justify values to CSS values
+const justifyToCss = (justify?: TTextAlignLRC) => {
+  return justify === 'left' ? 'start' : justify === 'right' ? 'end' : 'center';
 };
 
 // Helper function to determine grid template based on layout mode
@@ -38,6 +52,29 @@ const getGridTemplate = (
             : '"title"'};
         justify-items: center;
         text-align: center;
+      `;
+    case 'row':
+      // Text in row mode: ICON | Title | Description
+      if (hasTitle && hasDescription) {
+        if (hasIcon) {
+          return css`
+            grid-template-columns: ${alignIcon === 'right' ? 'auto auto auto' : 'auto auto auto'};
+            grid-template-rows: auto;
+            grid-template-areas: ${alignIcon === 'right' ? '"title description icon"' : '"icon title description"'};
+          `;
+        } else {
+          return css`
+            grid-template-columns: auto auto;
+            grid-template-rows: auto;
+            grid-template-areas: 'title description';
+          `;
+        }
+      }
+      // Fallback to normal layout if not both title and description
+      return css`
+        grid-template-columns: ${alignIcon === 'right' && hasIcon ? '1fr auto' : 'auto 1fr'};
+        grid-template-rows: auto;
+        grid-template-areas: ${hasIcon ? (alignIcon === 'right' ? '"title icon"' : '"icon title"') : '"title title"'};
       `;
     case 'normal':
       // If no title but has description, use description in title position
@@ -122,16 +159,7 @@ export const Wrapper = styled.span<TWrapper & { theme: TTheme }>`
 
   .icon {
     grid-area: icon;
-    justify-self: ${({ $layoutMode, $justify }) =>
-      $justify
-        ? $justify === 'left'
-          ? 'start'
-          : $justify === 'right'
-            ? 'end'
-            : 'center'
-        : $layoutMode === 'stack'
-          ? 'center'
-          : 'start'};
+    justify-self: ${({ $layoutMode, $justify }) => getJustifySelf($justify, $layoutMode, 'start')};
     align-self: ${({ $layoutMode }) => ($layoutMode === 'stack' ? 'start' : 'center')};
   }
 
@@ -142,32 +170,14 @@ export const Wrapper = styled.span<TWrapper & { theme: TTheme }>`
   .title {
     grid-area: title;
     align-self: ${({ $layoutMode }) => ($layoutMode === 'stack' ? 'start' : 'center')};
-    justify-self: ${({ $layoutMode, $justify }) =>
-      $justify
-        ? $justify === 'left'
-          ? 'start'
-          : $justify === 'right'
-            ? 'end'
-            : 'center'
-        : $layoutMode === 'stack'
-          ? 'center'
-          : 'start'};
+    justify-self: ${({ $layoutMode, $justify }) => getJustifySelf($justify, $layoutMode, 'start')};
   }
 
   .description {
     grid-area: description;
-    justify-self: ${({ $layoutMode, $justify }) =>
-      $justify
-        ? $justify === 'left'
-          ? 'start'
-          : $justify === 'right'
-            ? 'end'
-            : 'center'
-        : $layoutMode === 'stack'
-          ? 'center'
-          : 'start'};
+    justify-self: ${({ $layoutMode, $justify }) => getJustifySelf($justify, $layoutMode, 'start')};
     margin-top: ${({ $gapBetweenText, $layoutMode }) =>
-      $layoutMode === 'stack' ? '0' : arrayToCssValues($gapBetweenText, 'spacing')};
+      $layoutMode === 'stack' || $layoutMode === 'row' ? '0' : arrayToCssValues($gapBetweenText, 'spacing')};
   }
 `;
 
@@ -175,8 +185,8 @@ type TOnlyTextWrapper = TStyledPrefixAndPicker<
   TFancyContent,
   'themeType' | 'layer' | 'externalStyle' | 'layoutMode' | 'gap' | 'gapBetweenText'
 > & {
-  $justify?: 'left' | 'center' | 'right';
-  $align?: 'start' | 'center' | 'end' | 'stretch' | 'baseline';
+  $justify?: TTextAlignLRC;
+  $align?: TAlignItemsValues;
 };
 
 export const OnlyTextWrapper = styled.span<TOnlyTextWrapper & { theme: TTheme }>`
@@ -185,10 +195,10 @@ export const OnlyTextWrapper = styled.span<TOnlyTextWrapper & { theme: TTheme }>
   gap: ${({ $gap, $gapBetweenText }) => arrayToCssValues($gap || $gapBetweenText, 'spacing')};
   align-items: ${({ $align }) => $align || 'start'};
 
-  ${({ $justify }: { $justify?: 'left' | 'center' | 'right' }) =>
+  ${({ $justify }: { $justify?: TTextAlignLRC }) =>
     $justify &&
     css`
-      justify-items: ${$justify === 'left' ? 'start' : $justify === 'right' ? 'end' : 'center'};
+      justify-items: ${justifyToCss($justify)};
     `};
 
   ${({ theme, $themeType, $layer }) =>

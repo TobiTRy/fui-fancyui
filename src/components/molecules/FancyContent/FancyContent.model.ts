@@ -3,10 +3,11 @@ import { CSSProp } from 'styled-components';
 import { TLayer } from '@/types/TLayer';
 import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 import { TThemeValueOrCSS } from '@/design/designFunctions/getThemeOrValueAsCss';
+import { TTextAlignLRC, TAlignItemsValues } from '@/types';
 
 export type TFancyContent = {
-  /** Layout mode for the grid: 'normal' = 2x2 grid, 'stack' = single column, 'auto' = determines based on content */
-  layoutMode?: 'normal' | 'stack' | 'auto';
+  /** Layout mode for the grid: 'normal' = 2x2 grid, 'stack' = single column, 'row' = horizontal row, 'auto' = determines based on content */
+  layoutMode?: 'normal' | 'stack' | 'row' | 'auto';
   /** Gap between text elements (title and description) */
   gapBetweenText?: TThemeValueOrCSS;
   /** Gap between icon and content */
@@ -19,9 +20,9 @@ export type TFancyContent = {
   externalStyle?: CSSProp;
   alignIcon?: 'left' | 'right';
   /** Horizontal alignment of all content */
-  justify?: 'left' | 'center' | 'right';
+  justify?: TTextAlignLRC;
   /** Vertical alignment of all content */
-  align?: 'start' | 'center' | 'end' | 'stretch' | 'baseline';
+  align?: TAlignItemsValues;
 };
 
 export type TFancyContentHTMLAttrs = TFancyContent & React.HTMLAttributes<HTMLSpanElement>;
