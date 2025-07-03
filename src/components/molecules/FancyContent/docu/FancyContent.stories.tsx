@@ -4,7 +4,7 @@ import SVGInfoSign from '../../../icons/SVGInfoSign/SVGInfoSign';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
-import FancyContent from '../FancyContent';
+import { FancyContent } from '../index';
 import templateThemeType from '@/stories/templateSettingsForStorys/templatesForThemeType';
 
 const meta = {
@@ -14,18 +14,18 @@ const meta = {
     docs: {
       description: {
         component:
-          'The `FancyContent` component is a flexible and reusable component designed for displaying content such as titles, descriptions, and icons together using CSS Grid layout. It supports three main layout modes: normal (2x2 grid), stack (single column), and auto (smart detection). The component emphasizes ease of use, aesthetic flexibility, and seamless integration into various UI elements like buttons, chips, and more.',
+          'The `FancyContent` component is a flexible and reusable component designed for displaying content such as titles, descriptions, and icons together using CSS Grid layout. It supports four main layout modes: normal (2x2 grid), stack (single column), row (horizontal), and auto (smart detection). The component emphasizes ease of use, aesthetic flexibility, and seamless integration into various UI elements like buttons, chips, and more.',
       },
     },
   },
   argTypes: {
     layoutMode: {
       description:
-        'Layout mode for the grid: normal = 2x2 grid, stack = single column, auto = determines based on content',
+        'Layout mode for the grid: normal = 2x2 grid, stack = single column, row = horizontal row, auto = determines based on content',
       control: {
         type: 'select' as const,
       },
-      options: ['normal', 'stack', 'auto'],
+      options: ['normal', 'stack', 'row', 'auto'],
     },
     alignIcon: {
       description: 'Position of the icon relative to content',
@@ -51,6 +51,20 @@ const meta = {
       control: {
         type: 'text' as const,
       },
+    },
+    justify: {
+      description: 'Horizontal alignment of all content',
+      control: {
+        type: 'select' as const,
+      },
+      options: ['left', 'center', 'right'],
+    },
+    align: {
+      description: 'Vertical alignment of all content',
+      control: {
+        type: 'select' as const,
+      },
+      options: ['flex-start', 'center', 'flex-end', 'stretch'],
     },
     ...templateThemeType('notTransparent', 'secondary', 0),
   },
@@ -122,6 +136,31 @@ export const StackLayout: Story = {
   args: {
     layoutMode: 'stack',
     gap: 'xs',
+  },
+};
+
+export const RowLayout: Story = {
+  render: (args) => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+      <FancyContent {...args}>
+        <FancyContent.Icon>
+          <SVGCheckMark />
+        </FancyContent.Icon>
+        <FancyContent.Title>Row Layout</FancyContent.Title>
+        <FancyContent.Description>Everything arranged horizontally in a row</FancyContent.Description>
+      </FancyContent>
+
+      <FancyContent {...args}>
+        <FancyContent.Icon>
+          <SVGInfoSign />
+        </FancyContent.Icon>
+        <FancyContent.Title>Row without Description</FancyContent.Title>
+      </FancyContent>
+    </div>
+  ),
+  args: {
+    layoutMode: 'row',
+    gap: 'sm',
   },
 };
 
@@ -216,16 +255,18 @@ export const CustomSpacing: Story = {
   },
 };
 
-export const OnlyIconAndDescription: StoryObj<typeof FancyContent> = {
-  args: {
-    children: [
-      <FancyContent.Icon key="icon" className="icon">
+export const OnlyIconAndDescription: Story = {
+  render: (args) => (
+    <FancyContent {...args}>
+      <FancyContent.Icon>
         <SVGInfoSign />
-      </FancyContent.Icon>,
-      <FancyContent.Description key="description" className="description">
+      </FancyContent.Icon>
+      <FancyContent.Description>
         This description takes the title position since there's no title
-      </FancyContent.Description>,
-    ],
+      </FancyContent.Description>
+    </FancyContent>
+  ),
+  args: {
     layoutMode: 'normal',
     themeType: 'primary',
   },
@@ -239,16 +280,16 @@ export const OnlyIconAndDescription: StoryObj<typeof FancyContent> = {
   },
 };
 
-export const OnlyIconAndDescriptionRightAligned: StoryObj<typeof FancyContent> = {
-  args: {
-    children: [
-      <FancyContent.Icon key="icon" className="icon">
+export const OnlyIconAndDescriptionRightAligned: Story = {
+  render: (args) => (
+    <FancyContent {...args}>
+      <FancyContent.Icon>
         <SVGCheckMark />
-      </FancyContent.Icon>,
-      <FancyContent.Description key="description" className="description">
-        Success message with right-aligned icon
-      </FancyContent.Description>,
-    ],
+      </FancyContent.Icon>
+      <FancyContent.Description>Success message with right-aligned icon</FancyContent.Description>
+    </FancyContent>
+  ),
+  args: {
     layoutMode: 'normal',
     alignIcon: 'right',
     themeType: 'success',
@@ -262,16 +303,18 @@ export const OnlyIconAndDescriptionRightAligned: StoryObj<typeof FancyContent> =
   },
 };
 
-export const OnlyIconAndDescriptionStack: StoryObj<typeof FancyContent> = {
-  args: {
-    children: [
-      <FancyContent.Icon key="icon" className="icon">
+export const OnlyIconAndDescriptionStack: Story = {
+  render: (args) => (
+    <FancyContent {...args}>
+      <FancyContent.Icon>
         <SVGInfoSign />
-      </FancyContent.Icon>,
-      <FancyContent.Description key="description" className="description">
+      </FancyContent.Icon>
+      <FancyContent.Description>
         This is a longer description that should be centered below the icon in stack mode
-      </FancyContent.Description>,
-    ],
+      </FancyContent.Description>
+    </FancyContent>
+  ),
+  args: {
     layoutMode: 'stack',
     themeType: 'warning',
   },
@@ -279,6 +322,69 @@ export const OnlyIconAndDescriptionStack: StoryObj<typeof FancyContent> = {
     docs: {
       description: {
         story: 'Stack layout with only icon and description - description takes the title position and gets centered.',
+      },
+    },
+  },
+};
+
+export const AlignmentVariations: Story = {
+  render: (args) => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+      <FancyContent {...args} justify="left">
+        <FancyContent.Icon>
+          <SVGCheckMark />
+        </FancyContent.Icon>
+        <FancyContent.Title>Left Aligned</FancyContent.Title>
+        <FancyContent.Description>Content aligned to the left</FancyContent.Description>
+      </FancyContent>
+
+      <FancyContent {...args} justify="center">
+        <FancyContent.Icon>
+          <SVGCheckMark />
+        </FancyContent.Icon>
+        <FancyContent.Title>Center Aligned</FancyContent.Title>
+        <FancyContent.Description>Content centered horizontally</FancyContent.Description>
+      </FancyContent>
+
+      <FancyContent {...args} justify="right">
+        <FancyContent.Icon>
+          <SVGCheckMark />
+        </FancyContent.Icon>
+        <FancyContent.Title>Right Aligned</FancyContent.Title>
+        <FancyContent.Description>Content aligned to the right</FancyContent.Description>
+      </FancyContent>
+    </div>
+  ),
+  args: {
+    layoutMode: 'normal',
+  },
+};
+
+export const SingleElements: Story = {
+  render: (args) => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+      <FancyContent {...args}>
+        <FancyContent.Icon>
+          <SVGCheckMark />
+        </FancyContent.Icon>
+      </FancyContent>
+
+      <FancyContent {...args}>
+        <FancyContent.Title>Only Title</FancyContent.Title>
+      </FancyContent>
+
+      <FancyContent {...args}>
+        <FancyContent.Description>Only Description</FancyContent.Description>
+      </FancyContent>
+    </div>
+  ),
+  args: {
+    layoutMode: 'auto',
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Examples showing single elements - these automatically use simplified layout without grid structure.',
       },
     },
   },
