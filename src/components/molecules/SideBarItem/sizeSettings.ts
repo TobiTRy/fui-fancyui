@@ -2,7 +2,7 @@ import { TFancyBox } from '@/components/atoms/FancyBox';
 import { TThemeArrayOrValueCSS } from '@/design/designFunctions/arrayToCssValues';
 import { TBorderRadiusSizes } from '@/types/TBorderRadiusSizes';
 import { TglobalElementSizes } from '@/types/TGlobalElementSizes';
-import { TSizeSettings } from '@/types/TSizeSettings';
+import { TSizeSettingsMid } from '@/types/TSizeSettings';
 import { TSpacings } from '@/types/TSpacings';
 import { TTypographyVariants } from '@/types/TTypographyVariants';
 
@@ -17,7 +17,17 @@ type TSizeObj = {
   paddingWide?: TThemeArrayOrValueCSS;
 };
 
-export const sizeSettings: TSizeSettings<TSizeObj> = {
+export const sizeSettings: TSizeSettingsMid<TSizeObj> = {
+  xs: {
+    wrapperMargin: [0, 0],
+    boxSize: 'xxs',
+    padding: 'xxs',
+    paddingWide: ['xxs', 'xxs'],
+    gapBetweenItems: 'xxs',
+    borderRadius: 'xxs',
+    iconSize: 'xxs',
+    labelSize: 'subTextCaption',
+  },
   sm: {
     wrapperMargin: [0, 0],
     boxSize: 'xxs',
@@ -47,5 +57,15 @@ export const sizeSettings: TSizeSettings<TSizeObj> = {
     borderRadius: 'sm',
     iconSize: 'xs',
     labelSize: 'bodytextMd',
+  },
+  xl: {
+    wrapperMargin: [0, 0],
+    padding: 'sm',
+    paddingWide: ['sm', 'md'],
+    boxSize: 'sm',
+    gapBetweenItems: 'lg',
+    borderRadius: 'md',
+    iconSize: 'sm',
+    labelSize: 'bodytextLg',
   },
 };

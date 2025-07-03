@@ -55,19 +55,21 @@ export default function SideBarRoute() {
 
         <div style={{ height: '400px', display: 'flex', justifyContent: 'flex-end' }}>
           <FancySideBar
-            sizeC="md"
+            sizeC="xs"
             isOpen={isOpen}
             openWidth="200px"
             align="right"
             slotContent={[
-              <FancySideBarItem noMargin sizeC="md" label="Test" hoverLayer={4} icon={<SVGCheckMark />} />,
-              <FancySideBarItem noMargin sizeC="md" label="Test" hoverLayer={4} icon={<SVGCheckMark />} />,
+              <FancySideBarItem noMargin sizeC="xs" label="Test" hoverLayer={4} icon={<SVGCheckMark />} />,
+              <FancySideBarItem noMargin sizeC="xs" label="Test" hoverLayer={4} icon={<SVGCheckMark />} />,
+              <FancySideBarItem noMargin sizeC="xs" label="Test" hoverLayer={4} icon={<SVGCheckMark />} />,
+              <FancySideBarItem noMargin sizeC="xs" label="Test" hoverLayer={4} icon={<SVGCheckMark />} />,
             ]}
             slotBottom={
               <FancySideBarOpenButton
                 arrowDirectionClosed="right"
                 onClick={() => setIsOpen(!isOpen)}
-                sizeC="sm"
+                sizeC="xs"
                 justify="left"
                 noMargin
                 isOpen={isOpen}
@@ -77,7 +79,7 @@ export default function SideBarRoute() {
               <FancySideBarOpenButton
                 arrowDirectionClosed="right"
                 onClick={() => setIsOpen(!isOpen)}
-                sizeC="sm"
+                sizeC="xs"
                 noMargin
                 justify="left"
                 isOpen={isOpen}
@@ -93,10 +95,8 @@ export default function SideBarRoute() {
             openWidth="200px"
             align="right"
             slotContent={[
-              <FancySideBarItem noMargin sizeC="sm" label="Test" hoverLayer={4} icon={<SVGCheckMark />} />,
-              <FancySideBarItem noMargin sizeC="sm" label="Test" hoverLayer={4} icon={<SVGCheckMark />} />,
-              <FancySideBarItem noMargin sizeC="sm" label="Test" hoverLayer={4} icon={<SVGCheckMark />} />,
-              <FancySideBarItem noMargin sizeC="sm" label="Test" hoverLayer={4} icon={<SVGCheckMark />} />,
+              <FancySideBarItem noMargin sizeC="md" label="Test" hoverLayer={4} icon={<SVGCheckMark />} />,
+              <FancySideBarItem noMargin sizeC="md" label="Test" hoverLayer={4} icon={<SVGCheckMark />} />,
             ]}
             slotBottom={
               <FancySideBarOpenButton
@@ -120,6 +120,71 @@ export default function SideBarRoute() {
             }
           />
         </div>
+        <div style={{ height: '400px', display: 'flex', justifyContent: 'flex-end' }}>
+          <FancySideBar
+            sizeC="md"
+            isOpen={isOpen}
+            openWidth="200px"
+            align="right"
+            slotContent={[
+              <FancySideBarItem noMargin sizeC="md" label="Test" hoverLayer={4} icon={<SVGCheckMark />} />,
+              <FancySideBarItem noMargin sizeC="md" label="Test" hoverLayer={4} icon={<SVGCheckMark />} />,
+            ]}
+            slotBottom={
+              <FancySideBarOpenButton
+                arrowDirectionClosed="right"
+                onClick={() => setIsOpen(!isOpen)}
+                sizeC="md"
+                justify="left"
+                noMargin
+                isOpen={isOpen}
+              />
+            }
+            slotTop={
+              <FancySideBarOpenButton
+                arrowDirectionClosed="right"
+                onClick={() => setIsOpen(!isOpen)}
+                sizeC="md"
+                noMargin
+                justify="left"
+                isOpen={isOpen}
+              />
+            }
+          />
+        </div>
+        <div style={{ height: '400px', display: 'flex', justifyContent: 'flex-end' }}>
+          <FancySideBar
+            sizeC="lg"
+            isOpen={isOpen}
+            openWidth="200px"
+            align="right"
+            slotContent={[
+              <FancySideBarItem noMargin sizeC="lg" label="Test" hoverLayer={4} icon={<SVGCheckMark />} />,
+              <FancySideBarItem noMargin sizeC="lg" label="Test" hoverLayer={4} icon={<SVGCheckMark />} />,
+            ]}
+            slotBottom={
+              <FancySideBarOpenButton
+                arrowDirectionClosed="right"
+                onClick={() => setIsOpen(!isOpen)}
+                sizeC="lg"
+                justify="left"
+                noMargin
+                isOpen={isOpen}
+              />
+            }
+            slotTop={
+              <FancySideBarOpenButton
+                arrowDirectionClosed="right"
+                onClick={() => setIsOpen(!isOpen)}
+                sizeC="lg"
+                noMargin
+                justify="left"
+                isOpen={isOpen}
+              />
+            }
+          />
+        </div>
+
         <div style={{ height: '400px' }}>
           <SideBar sizeC="md" isOpen={isOpen} openWidth="200px">
             <FancySideBarItem
