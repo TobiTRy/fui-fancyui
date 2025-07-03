@@ -19,19 +19,19 @@ type TSizeObj = {
 
 export const sizeSettings: TSizeSettings<TSizeObj> = {
   sm: {
-    wrapperMargin: [0, 'xxs'],
-    boxSize: 'xs',
+    wrapperMargin: [0, 0],
+    boxSize: 'xxs',
     padding: 'xs',
-    paddingWide: ['xs', 'md'],
+    paddingWide: ['xxs', 'xs'],
     gapBetweenItems: 'xs',
     borderRadius: 'xxs',
     iconSize: 'xxs',
     labelSize: 'subTextCaption',
   },
   md: {
-    wrapperMargin: [0, 'xs'],
+    wrapperMargin: [0, 0],
     padding: 'xs',
-    paddingWide: ['xs', 'md'],
+    paddingWide: ['sm', 'sm'],
     boxSize: 'xs',
     gapBetweenItems: 'sm',
     borderRadius: 'xxs',
@@ -39,9 +39,9 @@ export const sizeSettings: TSizeSettings<TSizeObj> = {
     labelSize: 'bodytextSm',
   },
   lg: {
-    wrapperMargin: [0, 'xs'],
+    wrapperMargin: [0, 0],
     padding: 'xs',
-    paddingWide: ['xs', 'md'],
+    paddingWide: ['xs', 'sm'],
     boxSize: 'xs',
     gapBetweenItems: 'md',
     borderRadius: 'sm',
