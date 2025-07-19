@@ -17,6 +17,8 @@ export default function FancyLine(props: TFancyLineWithHTMLAttributes) {
     externalStyle,
     isActive,
     systemMessageType,
+    fadingOut,
+    fadeDirection = 'end',
     ...htmlProps
   } = props;
 
@@ -31,6 +33,8 @@ export default function FancyLine(props: TFancyLineWithHTMLAttributes) {
       $isActive={isActive}
       $systemMessageType={systemMessageType}
       $externalStyle={externalStyle}
+      $fadingOut={fadingOut}
+      $fadeDirection={fadeDirection}
       {...htmlProps}
     />
   );
