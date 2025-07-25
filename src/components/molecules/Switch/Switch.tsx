@@ -25,9 +25,9 @@ const Switch = forwardRef<HTMLInputElement, TSwitchWithNativeAttrs>((props, ref)
   } = props;
 
   const handleChange = useCallback(
-    (event: React.ChangeEvent<HTMLInputElement>) => {
+    (e: React.ChangeEvent<HTMLInputElement>) => {
       if (disabled) return;
-      onChange?.(event.target.checked);
+      onChange?.(e);
     },
     [onChange, disabled]
   );
