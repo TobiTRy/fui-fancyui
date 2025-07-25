@@ -31,14 +31,14 @@ export const SwitchTrack = styled.div<TSwitchTrack & { theme: TTheme }>`
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    left: ${(props) => {
-      const padding = `calc((${getThemeOrValueAsCSS(sizeSettings[props.$sizeC || 'md'].height, 'elementSize')} - ${getThemeOrValueAsCSS(sizeSettings[props.$sizeC || 'md'].thumbSize, 'elementSize')}) / 2)`;
-      return props.$checked
-        ? `calc(100% - ${getThemeOrValueAsCSS(sizeSettings[props.$sizeC || 'md'].thumbSize, 'elementSize')} - ${padding})`
+    left: ${({ $checked, $sizeC }) => {
+      const padding = `calc((${getThemeOrValueAsCSS(sizeSettings[$sizeC || 'md'].height, 'elementSize')} - ${getThemeOrValueAsCSS(sizeSettings[$sizeC || 'md'].thumbSize, 'elementSize')}) / 2)`;
+      return $checked
+        ? `calc(100% - ${getThemeOrValueAsCSS(sizeSettings[$sizeC || 'md'].thumbSize, 'elementSize')} - ${padding})`
         : padding;
     }};
-    width: ${(props) => getThemeOrValueAsCSS(sizeSettings[props.$sizeC || 'md'].thumbSize, 'elementSize')};
-    height: ${(props) => getThemeOrValueAsCSS(sizeSettings[props.$sizeC || 'md'].thumbSize, 'elementSize')};
+    width: ${({ $sizeC }) => getThemeOrValueAsCSS(sizeSettings[$sizeC || 'md'].thumbSize, 'elementSize')};
+    height: ${({ $sizeC }) => getThemeOrValueAsCSS(sizeSettings[$sizeC || 'md'].thumbSize, 'elementSize')};
     background-color: ${({ theme }) => getBackgroundColor({ theme, $themeType: 'secondary', $layer: 0 })};
     border-radius: 50%;
     transition: all 0.2s ease-in-out;
@@ -57,15 +57,15 @@ export const SwitchTrack = styled.div<TSwitchTrack & { theme: TTheme }>`
   }
 
   &:has(input:focus-visible) {
-    box-shadow: 0 0 0 3px ${(props) => props.theme.color.accent[0]}40;
-    outline: 2px solid ${(props) => props.theme.color.accent[0]};
+    box-shadow: 0 0 0 3px ${({ theme }) => theme.color.accent[0]}40;
+    outline: 2px solid ${({ theme }) => theme.color.accent[0]};
     outline-offset: 2px;
   }
 
   ${(props) => props.$externalStyle}
 `;
 
-type TIconContainer = TStyledPrefixAndPicker<TSwitch, 'checked' | 'sizeC'>;
+type TIconContainer = TStyledPrefixAndPicker<TSwitch, 'checked' | 'sizeC'> & { theme: TTheme };
 
 export const IconContainer = styled.div<TIconContainer>`
   position: absolute;
@@ -82,9 +82,10 @@ export const IconContainer = styled.div<TIconContainer>`
   gap: ${getThemeOrValueAsCSS('xs', 'spacing')};
 
   svg {
-    width: calc(${(props) => getThemeOrValueAsCSS(sizeSettings[props.$sizeC || 'md'].thumbSize, 'elementSize')} / 1.5);
-    height: calc(${(props) => getThemeOrValueAsCSS(sizeSettings[props.$sizeC || 'md'].thumbSize, 'elementSize')} / 1.5);
-    color: ${(props) => (props.$checked ? 'white' : '#666')};
+    width: calc(${({ $sizeC }) => getThemeOrValueAsCSS(sizeSettings[$sizeC || 'md'].thumbSize, 'elementSize')} / 1.5);
+    height: calc(${({ $sizeC }) => getThemeOrValueAsCSS(sizeSettings[$sizeC || 'md'].thumbSize, 'elementSize')} / 1.5);
+    color: ${({ $checked, theme }) =>
+      $checked ? getBackgroundColor({ theme, $themeType: 'secondary', $layer: 0 }) : theme.color.secondary[7]};
     transition: all 0.2s ease-in-out;
   }
 `;
