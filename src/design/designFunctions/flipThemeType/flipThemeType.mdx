@@ -1,0 +1,37 @@
+# `flipThemeType` Function
+
+The `flipThemeType` function is designed to flip between primary and secondary theme types based on the current theme setting (light or dark). It utilizes the `themeStore` to access the current theme and returns the opposite theme type.
+
+## Input/Output
+
+### Input
+
+- **currentThemeType** (`TUiColorsNotTransparent`): The current theme type to be flipped ('primary' or 'secondary').
+
+### Output
+
+- **Return Value**: A `TUiColorsNotTransparent` representing the flipped theme type ('primary' or 'secondary').
+
+## Example Usage
+
+```jsx
+import React from 'react';
+import flipThemeTypeFunction from 'path-to-flipThemeType';
+
+const ExampleComponent = () => {
+  const flippedThemeType = flipThemeTypeFunction('primary');
+
+  return <div>Flipped Theme Type: {flippedThemeType}</div>;
+};
+
+export default ExampleComponent;
+```
+
+This example demonstrates how to use the `flipThemeTypeFunction` in a React component. It takes a current theme type and returns the opposite theme type based on the current theme setting.
+
+## Behavior
+
+- **Light Theme**: `primary` → `secondary`, `secondary` → `primary`
+- **Dark Theme**: `primary` → `secondary`, `secondary` → `primary`
+
+The function maintains consistent flipping behavior regardless of the current theme setting.
