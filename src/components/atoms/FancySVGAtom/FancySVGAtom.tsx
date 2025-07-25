@@ -16,6 +16,8 @@ export default function FancySVGAtom(props: TFancySVGAtomWithNativeAttrs) {
     externalStyle,
     themeType,
     layer,
+    hoverLayer,
+    hoverThemeType,
     ...htmlProps
   } = props;
 
@@ -28,6 +30,8 @@ export default function FancySVGAtom(props: TFancySVGAtomWithNativeAttrs) {
       $externalStyle={externalStyle}
       $themeType={themeType}
       $layer={layer}
+      $hoverLayer={hoverLayer ?? undefined}
+      $hoverThemeType={hoverThemeType ?? undefined}
       {...htmlProps}
     >
       {children}

@@ -19,49 +19,49 @@ const meta = {
     monthIdx: {
       description: 'The index of the month to display, starting from 0 for January',
       control: {
-        type: 'number',
+        type: 'number' as const,
       },
     },
     startWeekOn: {
       description: 'The day of the week on which the week starts. 0 is Sunday, 1 is Monday, etc.',
       control: {
-        type: 'number',
+        type: 'number' as const,
       },
     },
     year: {
       description: 'The year for which the month is displayed.',
       control: {
-        type: 'number',
+        type: 'number' as const,
       },
     },
     handleDateClick: {
       description: 'Click handler for when a date is clicked.',
       control: {
-        type: 'function',
+        type: 'object' as const,
       },
     },
     selectedDates: {
       description: 'An array of dates to be marked as selected.',
       control: {
-        type: 'object',
+        type: 'object' as const,
       },
     },
     isRangePicking: {
       description: 'Flag to indicate if the component should support range picking.',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
     },
     disabledDateSetting: {
       description: 'Settings to disable specific dates.',
       control: {
-        type: 'object',
+        type: 'object' as const,
       },
     },
     externalMonthWithDays: {
       description: 'Dates you can modify to integrate with the component for dynamic date management.',
       control: {
-        type: 'object',
+        type: 'object' as const,
       },
     },
   },

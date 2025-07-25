@@ -24,10 +24,10 @@ const meta = {
       description: 'Determines if the container`s style can be scaled.',
       type: { name: 'boolean' },
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
       table: {
-        defaultValue: { summary: false },
+        defaultValue: { summary: 'false' },
       },
     },
     children: {

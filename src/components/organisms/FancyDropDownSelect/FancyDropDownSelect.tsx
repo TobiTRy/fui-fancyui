@@ -66,11 +66,11 @@ const FancyDropDownSelect = forwardRef<HTMLSelectElement, TFancyDropDownSelect>(
           align={align}
           disabled={disabled}
           onFocus={(e) => {
-            onFocus && onFocus(e);
+            if (onFocus) onFocus(e);
             setIsActive(true);
           }}
           onBlur={(e) => {
-            onBlur && onBlur(e);
+            if (onBlur) onBlur(e);
             setIsActive(false);
           }}
           placeholder={placeholder}

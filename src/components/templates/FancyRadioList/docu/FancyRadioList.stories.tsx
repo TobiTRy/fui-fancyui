@@ -19,22 +19,22 @@ const meta = {
     outlined: {
       description: 'The component has a outline style',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
       table: {
-        defaultValue: { summary: false },
+        defaultValue: { summary: 'false' },
       },
     },
     outlinedBackgroundStrength: {
       description: 'The background strength of the outline',
       control: {
-        type: 'range',
+        type: 'range' as const,
         min: 0,
         max: 1,
         step: 0.01,
       },
       table: {
-        defaultValue: { summary: 1 },
+        defaultValue: { summary: '1' },
       },
     },
   },

@@ -34,7 +34,7 @@ export default function Seperator(props: TSeperatorWithNativeAttrs) {
           $layer={layer}
           {...htmlProps}
         >
-          <FancyContent>
+          <FancyContent justify={textAlignment}>
             {label && (
               <FancyContent.Title fontVariant={sizeSettings[sizeC].fontVariant} fontWeight={fontWeight ?? 'normal'}>
                 {label}

@@ -24,13 +24,13 @@ const meta = {
     label: {
       description: 'The label for the slider',
       control: {
-        type: 'text',
+        type: 'text' as const,
       },
     },
     align: {
       description: 'Text alignment within the input wrapper.',
       control: {
-        type: 'select',
+        type: 'select' as const,
       },
       table: {
         defaultValue: { summary: 'left' },
@@ -46,61 +46,61 @@ const meta = {
     disabled: {
       description: 'Whether the slider is disabled.',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
       table: {
-        defaultValue: { summary: false },
+        defaultValue: { summary: 'false' },
       },
     },
     min: {
       description: 'The minimum value of the slider',
       control: {
-        type: 'number',
+        type: 'number' as const,
       },
       table: {
-        defaultValue: { summary: 0 },
+        defaultValue: { summary: '0' },
       },
     },
     max: {
       description: 'The maximum value of the slider',
       control: {
-        type: 'number',
+        type: 'number' as const,
       },
       table: {
-        defaultValue: { summary: 100 },
+        defaultValue: { summary: '100' },
       },
     },
     value: {
       description: 'The current value of the input',
       control: {
-        type: 'number',
+        type: 'number' as const,
       },
     },
     transparentBackground: {
       description: 'Whether the input has a transparent background',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
       table: {
-        defaultValue: { summary: false },
+        defaultValue: { summary: 'false' },
       },
     },
     displayNumberInput: {
       description: 'Whether to display an input for direct number entry.',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
       table: {
-        defaultValue: { summary: false },
+        defaultValue: { summary: 'false' },
       },
     },
     outlined: {
       description: 'Whether the input is outlined',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
       table: {
-        defaultValue: { summary: false },
+        defaultValue: { summary: 'false' },
       },
     },
   },

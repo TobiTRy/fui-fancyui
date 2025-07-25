@@ -1,6 +1,6 @@
 import { TBorderRadiusSizes } from '@/types/TBorderRadiusSizes';
 import { TglobalElementSizes } from '@/types/TGlobalElementSizes';
-import { TSizeSettings } from '@/types/TSizeSettings';
+import { TSizeSettingsMid } from '@/types/TSizeSettings';
 import { TSpacings } from '@/types/TSpacings';
 
 type TSizeObj = {
@@ -10,7 +10,13 @@ type TSizeObj = {
   paddingBottomTop: TSpacings;
 };
 
-export const sizeSettings: TSizeSettings<TSizeObj> = {
+export const sizeSettings: TSizeSettingsMid<TSizeObj> = {
+  xs: {
+    width: 'sm',
+    borderRadius: 'xxs',
+    gapBetweenItems: 'xxs',
+    paddingBottomTop: 'xxs',
+  },
   sm: {
     width: 'md',
     borderRadius: 'xs',
@@ -26,7 +32,13 @@ export const sizeSettings: TSizeSettings<TSizeObj> = {
   lg: {
     width: 'xl',
     borderRadius: 'md',
-    gapBetweenItems: 'sm',
+    gapBetweenItems: 'xs',
     paddingBottomTop: 'xs',
+  },
+  xl: {
+    width: 'xxl',
+    borderRadius: 'lg',
+    gapBetweenItems: 'sm',
+    paddingBottomTop: 'sm',
   },
 };

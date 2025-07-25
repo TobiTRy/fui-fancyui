@@ -31,7 +31,7 @@ const meta = {
     },
     buttonDesign: {
       control: {
-        type: 'select',
+        type: 'select' as const,
       },
       description: 'Defines the design theme for pagination buttons.',
     },

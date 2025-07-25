@@ -37,10 +37,12 @@ const DateInput = forwardRef<HTMLInputElement, TDateInputPropsWithNativeAttrs>((
       type={type}
       value={value}
       onFocus={(e) => {
-        onFocus && onFocus(e), activeFocusHandler(true);
+        if (onFocus) onFocus(e);
+        activeFocusHandler(true);
       }}
       onBlur={(e) => {
-        onBlur && onBlur(e), activeFocusHandler(false);
+        if (onBlur) onBlur(e);
+        activeFocusHandler(false);
       }}
       {...htmlInputProps}
     />

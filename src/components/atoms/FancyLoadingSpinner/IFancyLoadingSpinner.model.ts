@@ -7,3 +7,7 @@ export type TFancyLoadingSpinner = {
   themeType?: TUiColorsNotTransparent;
   layer?: TLayer;
 };
+
+export type TFancyLoadingSpinnerHTMLAttributes = React.HTMLAttributes<HTMLDivElement>;
+
+export type TFancyLoadingSpinnerWithHTMLProps = TFancyLoadingSpinner & TFancyLoadingSpinnerHTMLAttributes;

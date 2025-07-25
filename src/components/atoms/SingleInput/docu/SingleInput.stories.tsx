@@ -27,13 +27,13 @@ const meta = {
     value: {
       description: 'The value of the input, with a maximum length of 1',
       control: {
-        type: 'text',
+        type: 'text' as const,
       },
     },
     externalStyle: {
       description: 'External styling for the input field',
       control: {
-        type: 'object',
+        type: 'object' as const,
       },
     },
   },

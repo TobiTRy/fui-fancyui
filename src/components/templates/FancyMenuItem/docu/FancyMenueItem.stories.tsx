@@ -22,7 +22,7 @@ const meta = {
     label: {
       description: 'The label of the item',
       control: {
-        type: 'text',
+        type: 'text' as const,
       },
       table: {
         defaultValue: { summary: 'Logout' },
@@ -31,7 +31,7 @@ const meta = {
     as: {
       description: 'The as of the item',
       control: {
-        type: 'text',
+        type: 'text' as const,
       },
       table: {
         defaultValue: { summary: 'button' },
@@ -40,7 +40,7 @@ const meta = {
     icon: {
       description: 'The icon of the item',
       control: {
-        type: 'text',
+        type: 'text' as const,
       },
       table: {
         defaultValue: { summary: '' },
@@ -49,7 +49,7 @@ const meta = {
     gapBetweenIcon: {
       description: 'The gap between the icon and the label',
       control: {
-        type: 'text',
+        type: 'text' as const,
       },
       table: {
         defaultValue: { summary: 'sm' },

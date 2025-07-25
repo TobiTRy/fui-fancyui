@@ -21,14 +21,14 @@ const meta = {
     position: {
       description: 'The position of the marker on the slider',
       control: {
-        type: 'text',
+        type: 'text' as const,
       },
     },
     children: {
       description:
         'the children can use to display something in the marker like the color indicator that moves with the marker',
       control: {
-        type: 'text',
+        type: 'text' as const,
       },
     },
   },

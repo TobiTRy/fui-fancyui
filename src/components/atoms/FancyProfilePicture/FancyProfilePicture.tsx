@@ -3,6 +3,7 @@
 import { TextAvatar } from '@/components/molecules/TextAvatar';
 import { TFancyProfilePictureWithHTMLAttrs } from './TFancyProfilePicture.model';
 import { FancyImageWrapper } from '@/components/atoms/FancyImageWrapper';
+import { getBorderRadiusViaSize } from '@/design/designFunctions/getBorderRadiusViaSize';
 
 // --------------------------------------------------------------------------- //
 //  ProfilePicture component to render with  different sizes and border radius //
@@ -15,6 +16,8 @@ export default function FancyProfilePicture(props: TFancyProfilePictureWithHTMLA
     externalStyle,
     textAvatarSettings,
     children,
+    themeType = 'primary',
+    layer = 2,
     ...htmlProps
   } = props;
 
@@ -31,12 +34,14 @@ export default function FancyProfilePicture(props: TFancyProfilePictureWithHTMLA
     </FancyImageWrapper>
   ) : (
     <TextAvatar
-      {...htmlProps}
-      {...textAvatarSettings}
       borderRadius={borderRadius}
       sizeC={sizeC}
       text={nickname}
       externalStyle={externalStyle}
+      themeType={themeType}
+      layer={layer}
+      {...htmlProps}
+      {...textAvatarSettings}
     />
   );
 }

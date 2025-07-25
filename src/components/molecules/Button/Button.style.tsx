@@ -29,12 +29,19 @@ export const ButtonStyle = styled.span<IGenerateThemeDesignForComponent & TStyle
     })}
 
   ${({ $sizeC, $borderRadius }) =>
-    $borderRadius !== false && generateBorderRadiusForComponent({ sizeC: $sizeC, borderRadius: $borderRadius })};
+    $borderRadius !== false &&
+    generateBorderRadiusForComponent({
+      sizeC: $sizeC === 'xs' ? 'sm' : $sizeC === 'xl' ? 'lg' : $sizeC,
+      borderRadius: $borderRadius,
+    })};
 
   ${({ $sizeC, $noSize, $outlined }) => !$noSize && generateButtonSizeAndPadding($sizeC ?? 'md', true, $outlined)}
 
-  font-size: ${({ $sizeC, theme }) => theme.fontSizes[sizeSettings[$sizeC ?? 'md'].fontSize].fontSize};
-  font-weight: bold;
+  * {
+    font-size: ${({ $sizeC, theme }) => theme.fontSizes[sizeSettings[$sizeC ?? 'md'].fontSize].fontSize};
+    line-height: ${({ $sizeC, theme }) => theme.spacing[sizeSettings[$sizeC ?? 'md'].lineHeight]} !important;
+    font-weight: bold;
+  }
 
   ${({ $disabled }) => $disabled && disabledStyle}
   ${({ $externalStyle }) => $externalStyle && $externalStyle}

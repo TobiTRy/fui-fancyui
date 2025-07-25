@@ -22,7 +22,7 @@ const meta = {
   argTypes: {
     $available: {
       options: ['completly', 'partially', 'not', 'transparent'],
-      control: { type: 'radio' },
+      control: { type: 'radio' as const },
     },
   },
 

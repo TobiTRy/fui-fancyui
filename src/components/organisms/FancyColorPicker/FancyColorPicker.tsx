@@ -1,6 +1,9 @@
 'use client';
 
 import Color from 'color';
+
+type ColorType = ReturnType<typeof Color>;
+
 import { useCallback, useEffect, useState } from 'react';
 
 import { IColorFormat } from '@/utils/variables/colorFormat/colorFormats';
@@ -31,7 +34,7 @@ export default function FanyColorPicker(props: TFancyColorPickerWithHTMLAttrs) {
     ...htmlProps
   } = props;
 
-  const [displayColorValue, setDisplayColorValue] = useState<Color | string>(
+  const [displayColorValue, setDisplayColorValue] = useState<ColorType | string>(
     Color(inputColor ? inputColor : 'hsl(0, 100%, 50%)')
   );
   const [rawColor, setRawColor] = useState(Color('hsl(0, 100%, 50%)'));
@@ -45,7 +48,7 @@ export default function FanyColorPicker(props: TFancyColorPickerWithHTMLAttrs) {
     return emitSelectedColorChange({ color: rawColor, opacity, outputFormat });
   }, [rawColor, opacity, outputFormat]);
 
-  handler && handler(calculateGiveBackColor());
+  if (handler) handler(calculateGiveBackColor());
 
   //this function is handle the color change in the child FancyColorInput component
   useEffect(() => {
@@ -66,7 +69,7 @@ export default function FanyColorPicker(props: TFancyColorPickerWithHTMLAttrs) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const handleColorOutputChange = (color: Color) => {
+  const handleColorOutputChange = (color: ColorType) => {
     const getHue = color.hue();
     if (hue !== getHue) setHue(getHue);
     setRawColor(color);

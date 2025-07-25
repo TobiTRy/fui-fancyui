@@ -75,11 +75,11 @@ const FancyNumberInput = forwardRef<HTMLInputElement, TFancyNumberInput>((props,
           disabled={disabled}
           readOnly={readOnly}
           onFocus={(e) => {
-            onFocus && onFocus(e);
+            if (onFocus) onFocus(e);
             setIsActive(true);
           }}
           onBlur={(e) => {
-            onBlur && onBlur(e);
+            if (onBlur) onBlur(e);
             setIsActive(false);
           }}
           placeholder={placeholder}

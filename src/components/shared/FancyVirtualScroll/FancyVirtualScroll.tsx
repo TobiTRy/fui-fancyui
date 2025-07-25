@@ -24,6 +24,7 @@ export default function FancyVirtualScroll(props: TVirtualScrollProps) {
   const [firstItemIndexInViewState, setfirstItemIndexInViewState] = useState(firstItemIndexInView);
   const [indexChange, setIndexChange] = useState(false);
   const [isScrolling, setIsScrolling] = useState(false);
+  const [currentIndexToReport, setCurrentIndexToReport] = useState(firstItemIndexInView);
 
   const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -35,8 +36,8 @@ export default function FancyVirtualScroll(props: TVirtualScrollProps) {
     const startIdx = Math.max(0, indexToUse - preRenderCount);
     const endIdx = Math.min(children.length - 1, indexToUse + preRenderCount);
 
-    // give the index of the item that is currently in view to the parent component
-    currentFirstItemsInViewHandler?.(indexToUse);
+    // Track the index to report to parent (moved callback to useEffect)
+    setCurrentIndexToReport(indexToUse);
     setIndexChange(false);
 
     return children.slice(startIdx, endIdx + 1).map((content, index) => ({
@@ -44,7 +45,12 @@ export default function FancyVirtualScroll(props: TVirtualScrollProps) {
       originalIndex: startIdx + index,
     }));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [children, preRenderCount, firstItemIndexInViewState, currentFirstItemsInViewHandler, indexChange]);
+  }, [children, preRenderCount, firstItemIndexInViewState, indexChange]);
+
+  // Report current index to parent component via useEffect to avoid render-phase updates
+  useEffect(() => {
+    currentFirstItemsInViewHandler?.(currentIndexToReport);
+  }, [currentIndexToReport, currentFirstItemsInViewHandler]);
 
   // Calculate the index of the item that is currently in view and update the state
   const calculateVisibleItemIdx = useCallback(() => {

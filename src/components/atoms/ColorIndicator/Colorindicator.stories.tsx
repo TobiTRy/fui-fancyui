@@ -24,7 +24,7 @@ const meta = {
     color: {
       description: 'The color to display',
       control: {
-        type: 'color',
+        type: 'color' as const,
       },
       table: {
         defaultValue: { summary: 'red' },
@@ -33,19 +33,19 @@ const meta = {
     isActive: {
       description: 'The active state of the color indicator',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
       table: {
-        defaultValue: { summary: false },
+        defaultValue: { summary: 'false' },
       },
     },
     position: {
       description: 'The position of the color indicator',
       control: {
-        type: 'object',
+        type: 'object' as const,
       },
       table: {
-        defaultValue: { summary: { x: '50%', y: '50%' } },
+        defaultValue: { summary: '{ x: "50%", y: "50%" }' },
       },
     },
   },

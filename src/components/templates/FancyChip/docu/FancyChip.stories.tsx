@@ -19,62 +19,62 @@ const meta = {
     image: {
       description: 'The image as El to be displayed.',
       control: {
-        type: 'object',
+        type: 'object' as const,
       },
     },
     label: {
       description: 'The label to be displayed.',
       control: {
-        type: '^',
+        type: 'text' as const,
       },
     },
     icon: {
       description: 'The icon as El to be displayed.',
       control: {
-        type: 'object',
+        type: 'object' as const,
       },
     },
     textColor: {
       description: 'The text color of the button.',
       control: {
-        type: 'select',
+        type: 'select' as const,
       },
     },
     ...templateThemeType('notTransparent', 'primary', 0),
     sizeC: {
       description: 'The sizeC of the button.',
       control: {
-        type: 'select',
+        type: 'select' as const,
       },
     },
     isActive: {
       description: 'The active state of the button.',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
     },
     outlined: {
       description: 'The outlined state of the button.',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
     },
     onClick: {
       description: 'The onClick event of the button.',
       control: {
-        type: 'function',
+        type: 'object' as const,
       },
     },
     externalStyle: {
       description: 'The externalStyle of the button.',
       control: {
-        type: 'object',
+        type: 'object' as const,
       },
     },
     isHoverable: {
       description: 'The hoverable state of the button.',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
     },
     outlinedBackgroundStrength: {
@@ -82,7 +82,7 @@ const meta = {
       control: {
         min: 0,
         max: 1,
-        type: 'range',
+        type: 'range' as const,
       },
       tabel: {
         summary: {

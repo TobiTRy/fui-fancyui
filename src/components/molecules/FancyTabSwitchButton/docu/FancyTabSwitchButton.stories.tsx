@@ -37,7 +37,7 @@ const meta = {
     },
     icon: {
       description: 'The icon to be displayed in the button.',
-      control: { type: 'object' },
+      control: { type: 'object' as const },
     },
     selected: {
       description: 'If true, the button will be selected.',
@@ -49,26 +49,26 @@ const meta = {
     },
     themeType: {
       description: 'The theme type of the button.',
-      control: { type: 'radio' },
+      control: { type: 'radio' as const },
     },
     iconAlign: {
       description: 'The alignment of the icon.',
-      control: { type: 'select' },
+      control: { type: 'select' as const },
     },
     sizeC: {
       description: 'The size of the button.',
-      control: { type: 'select' },
+      control: { type: 'select' as const },
       table: {
         defaultValue: { summary: 'sm' },
       },
     },
     activeTextThemeType: {
       description: 'The theme type of the text when the button is selected.',
-      control: { type: 'select' },
+      control: { type: 'select' as const },
     },
     externalStyle: {
       description: 'The external style of the button.',
-      control: { type: 'object' },
+      control: { type: 'object' as const },
     },
   },
 } satisfies Meta<typeof FancyTabSwitchButton>;

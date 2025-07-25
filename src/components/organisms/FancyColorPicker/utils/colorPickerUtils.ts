@@ -1,7 +1,9 @@
 import Color from 'color';
 
+type ColorType = ReturnType<typeof Color>;
+
 interface IColorPickerUtils {
-  color: Color;
+  color: ColorType;
   opacity: number;
   outputFormat?: 'hex' | 'hexa' | 'rgb' | 'rgba' | 'hsl' | 'hsla';
 }

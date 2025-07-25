@@ -23,7 +23,7 @@ const meta = {
     opacity: {
       description: 'The opacity for the opacity slider',
       control: {
-        type: 'number',
+        type: 'number' as const,
         min: 0,
         max: 1,
         step: 0.01,
@@ -32,13 +32,13 @@ const meta = {
     handler: {
       description: 'The handler for the opacity slider',
       control: {
-        type: 'function',
+        type: 'object' as const,
       },
     },
     sizeC: {
       description: 'The size of the component',
       control: {
-        type: 'select',
+        type: 'select' as const,
       },
     },
   },

@@ -17,63 +17,63 @@ const meta = {
   argTypes: {
     wide: {
       description: 'If true, the component will be wide, using the full width of the parent container.',
-      control: { type: 'boolean' },
+      control: { type: 'boolean' as const },
     },
     sizeC: {
       description: 'The size of the component.',
-      control: { type: 'select', options: ['sm', 'md', 'lg'] },
+      control: { type: 'select' as const, options: ['sm', 'md', 'lg'] },
     },
     textColor: {
       description: 'The color of the text.',
-      control: { type: 'select' },
+      control: { type: 'select' as const },
     },
     textLayer: {
       description: 'The layer of the text.',
-      control: { type: 'number', min: 0, max: 9 },
+      control: { type: 'number' as const, min: 0, max: 9 },
     },
     tabSpacing: {
       description: 'The spacing between tabs.',
-      control: { type: 'select' },
+      control: { type: 'select' as const },
     },
     values: {
       description: 'The list of tabs.',
-      control: { type: 'object' },
+      control: { type: 'object' as const },
     },
     borderRadius: {
       description: 'If true, the component will be rounded.',
-      control: { type: 'select' },
+      control: { type: 'select' as const },
     },
     direction: {
       description: 'The direction of the component.',
-      control: { type: 'select' },
+      control: { type: 'select' as const },
     },
     indicatorType: {
       description: 'The type of indicator.',
-      control: { type: 'select' },
+      control: { type: 'select' as const },
     },
     outlined: {
       description: 'If true, the component will be outlined.',
-      control: { type: 'boolean' },
+      control: { type: 'boolean' as const },
     },
     currentSelect: {
       description: 'The current selected tab.',
-      control: { type: 'text' },
+      control: { type: 'text' as const },
     },
     iconAlign: {
       description: 'The alignment of the icon.',
-      control: { type: 'select' },
+      control: { type: 'select' as const },
     },
     activeTextThemeType: {
       description: 'The color of the active tab.',
-      control: { type: 'select' },
+      control: { type: 'select' as const },
     },
     handler: {
       description: 'The handler of the component.',
-      control: { type: 'function' },
+      control: { type: 'object' as const },
     },
     disabled: {
       description: 'If true, the component will be disabled.',
-      control: { type: 'boolean' },
+      control: { type: 'boolean' as const },
     },
   },
 } satisfies Meta<typeof TabSwitch>;

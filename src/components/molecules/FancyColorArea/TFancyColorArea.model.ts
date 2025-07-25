@@ -2,11 +2,13 @@ import { TThemeArrayOrValueCSS } from '@/design/designFunctions/arrayToCssValues
 import Color from 'color';
 import { CSSProp } from 'styled-components';
 
+type ColorType = ReturnType<typeof Color>;
+
 export type TColorArea = {
-  colorValue?: Color | string;
+  colorValue?: ColorType | string;
   borderRadius?: TThemeArrayOrValueCSS;
   hue?: number;
-  handler?: (color: Color) => void;
+  handler?: (color: ColorType) => void;
   externalStyle?: CSSProp;
 };
 

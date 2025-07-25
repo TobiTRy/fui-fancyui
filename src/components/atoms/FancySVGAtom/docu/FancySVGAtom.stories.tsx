@@ -27,24 +27,24 @@ const meta = {
       table: {
         defaultValue: { summary: 'xxs' },
       },
-      control: { type: 'select' },
+      control: { type: 'select' as const },
     },
     systemMessage: {
       description: 'Optional prop to specify system message color theming',
-      control: { type: 'select' },
+      control: { type: 'select' as const },
       defaultValue: undefined,
       options: ['error', 'warning', 'success', 'info', undefined],
     },
     isActive: {
       description: 'Is the SVG active, gives it the accent color',
-      control: { type: 'boolean' },
+      control: { type: 'boolean' as const },
       table: {
-        defaultValue: { summary: false },
+        defaultValue: { summary: 'false' },
       },
     },
     isPassive: {
       description: 'Is the SVG passive, the active and systemMessage colors are not applied',
-      control: { type: 'boolean' },
+      control: { type: 'boolean' as const },
       defaultValue: false,
       default: {
         summary: false,

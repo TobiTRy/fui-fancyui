@@ -12,13 +12,8 @@ export default function FancySystemMessageBox(props: TFancySystemMessageWithFanc
     layer,
     sizeC = 'sm',
     themeType = 'error',
-    direction,
-    justify,
-    align,
     title,
     description,
-    directionTextGroup,
-    alignTextGroup,
     gapBetweenText,
     gapBetweenIcon,
     useFuiIcons = true,
@@ -28,15 +23,7 @@ export default function FancySystemMessageBox(props: TFancySystemMessageWithFanc
 
   return (
     <SystemMessageBox themeType={themeType} layer={layer} sizeC={sizes[sizeC].systemMessageSize}>
-      <FancyContent
-        direction={direction ?? 'row'}
-        directionTextGroup={directionTextGroup ?? 'column'}
-        alignTextGroup={alignTextGroup}
-        align={align ?? 'flex-start'}
-        justify={justify ?? 'center'}
-        gapBetweenText={gapBetweenText}
-        gapBetweenIcon={gapBetweenIcon ?? '3xs'}
-      >
+      <FancyContent layoutMode="normal" gapBetweenText={gapBetweenText} gapBetweenIcon={gapBetweenIcon ?? '3xs'}>
         {(icon || useFuiIcons) && <FancyContent.Icon sizeC={sizeC}> {icon ?? <Icon />}</FancyContent.Icon>}
         {title && <FancyContent.Title sizeC={sizeC}>{title}</FancyContent.Title>}
         {description && <FancyContent.Description sizeC={sizeC}>{description}</FancyContent.Description>}

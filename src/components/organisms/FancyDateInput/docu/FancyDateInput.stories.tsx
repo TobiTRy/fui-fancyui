@@ -24,32 +24,32 @@ const meta = {
     label: {
       description: 'Label for the input',
       control: {
-        type: 'text',
+        type: 'text' as const,
       },
     },
     align: {
       description: 'Alignment of the label',
       control: {
-        type: 'select',
+        type: 'select' as const,
       },
     },
     disabled: {
       description: 'Disable the input',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
     },
     ...templateThemeType('mainThemeTypes', 'primary', 2),
     systemMessage: {
       description: 'Error message to be displayed',
       control: {
-        type: 'object',
+        type: 'object' as const,
       },
     },
     placeholder: {
       description: 'Placeholder for the input',
       control: {
-        type: 'text',
+        type: 'text' as const,
       },
     },
     icon: {
@@ -58,13 +58,13 @@ const meta = {
     value: {
       description: 'Value of the input',
       control: {
-        type: 'text',
+        type: 'text' as const,
       },
     },
     type: {
       description: 'Type of the input',
       control: {
-        type: 'select',
+        type: 'select' as const,
       },
       table: {
         defaultValue: { summary: 'date' },
@@ -73,34 +73,34 @@ const meta = {
     transparentBackground: {
       description: 'Transparent background of the input',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
       table: {
-        defaultValue: { summary: false },
+        defaultValue: { summary: 'false' },
       },
     },
     externalStyle: {
       description: 'External style for the input',
       control: {
-        type: 'object',
+        type: 'object' as const,
       },
     },
     labelVariant: {
       description: 'Variant of the label',
       control: {
-        type: 'select',
+        type: 'select' as const,
       },
     },
     underline: {
       description: 'Underline of the input',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
     },
     outlined: {
       description: 'Outlined input',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
     },
     outlinedBackgroundStrength: {
@@ -109,7 +109,7 @@ const meta = {
         min: 0,
         max: 1,
         step: 0.1,
-        type: 'number',
+        type: 'number' as const,
       },
     },
   },

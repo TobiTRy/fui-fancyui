@@ -1,12 +1,12 @@
 import { css } from 'styled-components';
 
 import { arrayToCssValues } from '@/design/designFunctions/arrayToCssValues';
-import { TComponentSizes } from '@/types/TComponentSizes';
+import { TComponentSizesMid } from '@/types/TComponentSizes';
 import { sizeSettings } from '../sizeSettings';
 import { calcCSSValuesWithOffset } from '@/utils/functions/calcCSSValuesWithOffset';
 
 export const generateButtonSizeAndPadding = (
-  sizeC: TComponentSizes,
+  sizeC: TComponentSizesMid,
   spacingLeftRightx2?: boolean,
   outlined?: boolean
 ) => {

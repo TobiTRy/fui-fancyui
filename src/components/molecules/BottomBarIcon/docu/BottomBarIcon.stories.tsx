@@ -20,59 +20,59 @@ const meta = {
   argTypes: {
     disabled: {
       description: 'If true, the component will be disabled.',
-      control: { type: 'boolean' },
+      control: { type: 'boolean' as const },
       table: {
-        defaultValue: { summary: false },
+        defaultValue: { summary: 'false' },
       },
     },
     label: {
-      control: { type: 'text' },
+      control: { type: 'text' as const },
       table: {
         defaultValue: { summary: 'Label' },
       },
     },
     icon: {
       description: 'The icon to be displayed.',
-      control: { type: 'object' },
+      control: { type: 'object' as const },
     },
     isActive: {
       description: 'If true, the component will be active.',
-      control: { type: 'boolean' },
+      control: { type: 'boolean' as const },
       table: {
-        defaultValue: { summary: false },
+        defaultValue: { summary: 'false' },
       },
     },
     hideLabel: {
       description: 'If true, the label will be hidden.',
-      control: { type: 'boolean' },
+      control: { type: 'boolean' as const },
     },
     sizeC: {
       description: 'The size of the component.',
-      control: { type: 'select', options: ['sm', 'md', 'lg'] },
+      control: { type: 'select' as const, options: ['sm', 'md', 'lg'] },
       table: {
         defaultValue: { summary: 'sm' },
       },
     },
     hoverStyle: {
       description: 'If true, the component will have hover style.',
-      control: { type: 'boolean' },
+      control: { type: 'boolean' as const },
     },
     externalStyle: {
       description: 'External style for the component.',
-      control: { type: 'object' },
+      control: { type: 'object' as const },
     },
     activeThemeType: {
       description: 'The theme type of the active state.',
-      control: { type: 'select' },
+      control: { type: 'select' as const },
       table: {
         defaultValue: { summary: 'accent' },
       },
     },
     activeLayer: {
       description: 'The layer of the active state.',
-      control: { type: 'number' },
+      control: { type: 'number' as const },
       table: {
-        defaultValue: { summary: 0 },
+        defaultValue: { summary: '0' },
       },
     },
     ...templateThemeType('notTransparent', 'secondary'),

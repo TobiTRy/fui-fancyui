@@ -14,6 +14,8 @@ export type TFancySVGAtom = {
   systemMessage?: TUiColorsSystemMessage;
   themeType?: TUiColorsNotTransparent | 'inherit';
   layer?: TLayer;
+  hoverLayer?: TLayer;
+  hoverThemeType?: TUiColorsNotTransparent | 'inherit';
 };
 
 export type TFancySVGAtomWithNativeAttrs = TFancySVGAtom & Omit<React.HTMLAttributes<HTMLElement>, 'style'>;

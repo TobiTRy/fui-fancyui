@@ -24,74 +24,74 @@ const meta = {
     label: {
       description: 'Label for the input',
       control: {
-        type: 'text',
+        type: 'text' as const,
       },
     },
     align: {
       description: 'Alignment of the label',
       control: {
-        type: 'select',
+        type: 'select' as const,
       },
     },
     disabled: {
       description: 'Disable the input',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
     },
     ...templateThemeType('mainThemeTypes', 'primary', 2),
     systemMessage: {
       description: 'Error message to be displayed',
       control: {
-        type: 'object',
+        type: 'object' as const,
       },
     },
     placeholder: {
       description: 'Placeholder for the input',
       control: {
-        type: 'text',
+        type: 'text' as const,
       },
     },
     icon: {
       description: 'Icon for the input',
       control: {
-        type: 'object',
+        type: 'object' as const,
       },
     },
     value: {
       description: 'Value of the input',
       control: {
-        type: 'text',
+        type: 'text' as const,
       },
     },
     transparentBackground: {
       description: 'The input has a transparent background',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
     },
     externalStyle: {
       description: 'External style for the input',
       control: {
-        type: 'object',
+        type: 'object' as const,
       },
     },
     labelVariant: {
       description: 'Variant of the label',
       control: {
-        type: 'select',
+        type: 'select' as const,
       },
     },
     underline: {
       description: 'Underline the input',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
     },
     outlined: {
       description: 'Outlined input',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
     },
     outlinedBackgroundStrength: {
@@ -100,7 +100,7 @@ const meta = {
         min: 0,
         max: 1,
         step: 0.1,
-        type: 'number',
+        type: 'number' as const,
       },
     },
     step: {

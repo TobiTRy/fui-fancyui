@@ -19,38 +19,38 @@ const meta = {
     whichIsSelecting: {
       description: 'A string, indicating which date is currently being selected. It can be either "from" or "to".',
       control: {
-        type: 'radio',
+        type: 'radio' as const,
       },
     },
     dateFrom: {
       description: 'The date object representing the start date of the range.',
       control: {
-        type: 'date',
+        type: 'date' as const,
       },
     },
     dateTo: {
       description: 'The date object representing the end date of the range.',
       control: {
-        type: 'date',
+        type: 'date' as const,
       },
     },
     handleFromTo: {
       description: 'The function that handles the selection of the start and end dates.',
       control: {
-        type: 'function',
+        type: 'object' as const,
       },
     },
     textCustom: {
       description: 'An object containing custom text for the `DateOutput` component.',
       control: {
-        type: 'object',
+        type: 'object' as const,
       },
     },
     sizeC: {
       description: 'The size of the component.',
       options: ['sm', 'md', 'lg'],
       control: {
-        type: 'select',
+        type: 'select' as const,
       },
     },
   },

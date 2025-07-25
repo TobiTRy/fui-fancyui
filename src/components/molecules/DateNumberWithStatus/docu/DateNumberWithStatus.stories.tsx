@@ -18,44 +18,44 @@ const meta = {
     dateNumber: {
       description: 'A number representing the date to be displayed.',
       control: {
-        type: 'number',
+        type: 'number' as const,
       },
     },
     isAvailable: {
       description: 'A boolean or undefined, indicating the availability status to be shown by the `AvilableDot`',
       control: {
-        type: 'select',
+        type: 'select' as const,
       },
     },
     disabled: {
       description:
         'A boolean, indicating if the date is disabled. When disabled, the availability dot will be transparent.',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
     },
     isSelected: {
       description: 'A boolean, indicating if the date is selected.',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
     },
     isCurrentDay: {
       description: 'A boolean, indicating if the date is the current day.',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
     },
     range: {
       description: ' An `IRange` object specifying the range. Used by `DateNumberAtom`.',
       control: {
-        type: 'object',
+        type: 'object' as const,
       },
     },
     onClick: {
       description: 'The onClick function of the day.',
       control: {
-        type: 'function',
+        type: 'object' as const,
       },
     },
     ...templateThemeType('notTransparent', 'secondary', 0),

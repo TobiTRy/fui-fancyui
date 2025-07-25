@@ -23,7 +23,7 @@ const meta = {
     align: {
       description: 'The alignment of the input',
       control: {
-        type: 'select',
+        type: 'select' as const,
       },
       table: {
         defaultValue: { summary: 'left' },
@@ -32,7 +32,7 @@ const meta = {
     layerTitle: {
       description: 'The layer of the title',
       control: {
-        type: 'range',
+        type: 'range' as const,
         min: 0,
         max: 9,
         step: 1,
@@ -41,7 +41,7 @@ const meta = {
     layerDescription: {
       description: 'The layer of the description',
       control: {
-        type: 'range',
+        type: 'range' as const,
         min: 0,
         max: 9,
         step: 1,
@@ -50,43 +50,43 @@ const meta = {
     label: {
       description: 'The label of the input',
       control: {
-        type: 'text',
+        type: 'text' as const,
       },
     },
     description: {
       description: 'The description of the input',
       control: {
-        type: 'text',
+        type: 'text' as const,
       },
     },
     checked: {
       description: 'The checked state of the input',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
     },
     name: {
       description: 'The name of the input',
       control: {
-        type: 'text',
+        type: 'text' as const,
       },
     },
     id: {
       description: 'The id of the input',
       control: {
-        type: 'text',
+        type: 'text' as const,
       },
     },
     externalStyle: {
       description: 'The externalStyle of the input',
       control: {
-        type: 'object',
+        type: 'object' as const,
       },
     },
     alignInput: {
       description: 'The alignInput of the input',
       control: {
-        type: 'select',
+        type: 'select' as const,
       },
 
       table: {

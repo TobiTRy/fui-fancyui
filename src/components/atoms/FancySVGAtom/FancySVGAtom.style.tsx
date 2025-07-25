@@ -1,4 +1,4 @@
-import { styled } from 'styled-components';
+import { css, styled } from 'styled-components';
 
 import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent';
 import { TTheme } from '@/types/TTheme';
@@ -8,6 +8,56 @@ import { TFancySVGAtom } from '@/components/atoms/FancySVGAtom/TFancySVGAtom.mod
 import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 import { TUiColorsSystemMessage } from '@/types/TUiColorsSystemMessage';
 import { TLayer } from '@/types';
+import { simpleColorTransition } from '@/design/designFunctions/simpleColorTransition';
+
+type IStyledSVGAtom = TStyledPrefixAndOmiter<TFancySVGAtom, 'children'>;
+
+export const StyledSVG = styled.i<IStyledSVGAtom & { theme: TTheme }>`
+  display: flex;
+  justify-content: center;
+  font-style: normal;
+  align-items: center;
+  width: ${({ $sizeC }) => sizes[$sizeC ?? 'xxs']};
+  aspect-ratio: 1/1;
+  color: ${({ $isActive, $systemMessage, $isPassive, theme, $themeType = 'secondary', $layer = 0 }) => {
+    return $themeType === 'inherit'
+      ? 'inherit'
+      : !$isPassive && calcIconColor({ theme, $isActive, $systemMessage, $layer, $themeType });
+  }};
+  ${({ $externalStyle }) => $externalStyle};
+  will-change: transform;
+  ${simpleColorTransition}
+
+  &:hover {
+    ${({ $hoverLayer, $hoverThemeType, $isPassive, theme, $systemMessage, $isActive, $themeType, $layer }) => {
+      if ($isPassive) return '';
+
+      const activeHoverThemeType = $hoverThemeType ?? $themeType;
+      const activeHoverLayer = $hoverLayer ?? $layer;
+
+      if (activeHoverThemeType === 'inherit') {
+        return 'color: inherit;';
+      }
+
+      const hoverColor = calcIconColor({
+        theme,
+        $isActive,
+        $systemMessage,
+        $layer: activeHoverLayer ?? 0,
+        $themeType: activeHoverThemeType ?? 'secondary',
+      });
+
+      return css`
+        color: ${hoverColor};
+      `;
+    }}
+  }
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+`;
 
 interface ICalcIconColor {
   theme: TTheme;
@@ -24,24 +74,3 @@ const calcIconColor = ({ theme, $isActive, $systemMessage, $themeType, $layer }:
     return theme.color[$systemMessage][$layer ?? 0];
   }
 };
-
-type IStyledSVGAtom = TStyledPrefixAndOmiter<TFancySVGAtom, 'children'>;
-export const StyledSVG = styled.i<IStyledSVGAtom & { theme: TTheme }>`
-  display: flex;
-  justify-content: center;
-  font-style: normal;
-  align-items: center;
-  width: ${({ $sizeC }) => sizes[$sizeC ?? 'xxs']};
-  aspect-ratio: 1/1;
-  color: ${({ $isActive, $systemMessage, $isPassive, theme, $themeType = 'secondary', $layer = 0 }) =>
-    $themeType === 'inherit'
-      ? 'inherit'
-      : !$isPassive && calcIconColor({ theme, $isActive, $systemMessage, $layer, $themeType })};
-  ${({ $externalStyle }) => $externalStyle};
-  will-change: transform;
-
-  svg {
-    width: 100%;
-    height: 100%;
-  }
-`;

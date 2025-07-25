@@ -20,7 +20,7 @@ const meta = {
     description: {
       description: 'The description to be displayed',
       type: { required: true, name: 'string' },
-      control: { type: 'text' },
+      control: { type: 'text' as const },
     },
     letterLimit: {
       description: 'The letter limit for the preview',
@@ -28,14 +28,14 @@ const meta = {
         name: 'number',
         required: false,
       },
-      control: { type: 'number' },
+      control: { type: 'number' as const },
       table: {
-        defaultValue: { summary: 150 },
+        defaultValue: { summary: '150' },
       },
     },
     buttonText: {
       description: 'The text for the button',
-      control: { type: 'object' },
+      control: { type: 'object' as const },
       defaultValue: {
         typographyVariant: 'interactiveMd',
         showLess: 'Show less',

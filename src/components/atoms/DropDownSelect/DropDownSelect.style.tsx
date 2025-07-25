@@ -22,7 +22,7 @@ export const SelectField = styled.select<ISelectField & { theme: TTheme }>`
   background-repeat: no-repeat;
   background-position: right ${({ theme }) => theme.spacing.xxs} bottom 70%;
   text-align-last: ${({ $align }) => ($align !== 'center' ? 'left' : 'center')};
-  color: ${({ theme }) => theme.color.secondary[0]};
+  color: ${({ theme, value }) => (value ? theme.color.secondary[0] : theme.color.secondary[7])};
   border: none;
   width: 100%;
   font-weight: 500;
@@ -63,6 +63,7 @@ export const SelectField = styled.select<ISelectField & { theme: TTheme }>`
 
     &:disabled {
       background: ${({ theme }) => theme.color.secondary[9]};
+      color: ${({ theme }) => theme.color.secondary[7]};
     }
   }
 `;

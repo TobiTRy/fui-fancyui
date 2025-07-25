@@ -23,46 +23,46 @@ const meta = {
     isActive: {
       description: 'Is the component active.',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
       table: {
-        defaultValue: { summary: false },
+        defaultValue: { summary: 'false' },
       },
     },
     isHoverable: {
       description: 'Enables hover effects on the pill.',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
       table: {
-        defaultValue: { summary: false },
+        defaultValue: { summary: 'false' },
       },
     },
     outlined: {
       description: 'A boolean that styles the pill with an outline.',
       control: {
-        type: 'boolean',
+        type: 'boolean' as const,
       },
       table: {
-        defaultValue: { summary: false },
+        defaultValue: { summary: 'false' },
       },
     },
     outlinedBackgroundStrength: {
       description: 'The background strength of the outlined component.',
       control: {
-        type: 'range',
+        type: 'range' as const,
         min: 0,
         max: 1,
         step: 0.1,
       },
       table: {
-        defaultValue: { summary: 0.5 },
+        defaultValue: { summary: '0.5' },
       },
     },
     externalStyle: {
       description: 'The external style of the component.',
       control: {
-        type: 'object',
+        type: 'object' as const,
       },
     },
     children: {

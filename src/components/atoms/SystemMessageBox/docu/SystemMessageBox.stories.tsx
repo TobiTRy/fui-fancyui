@@ -20,13 +20,13 @@ const meta = {
       description:
         'The style of the card can porvieed with the styled-component css and react style={{width: "100px"}}',
       control: {
-        type: 'object',
+        type: 'object' as const,
       },
     },
     sizeC: {
       description: 'The size of the component.',
       control: {
-        type: 'select',
+        type: 'select' as const,
       },
       table: {
         defaultValue: { summary: 'sm' },
@@ -35,7 +35,7 @@ const meta = {
     borderRadius: {
       description: 'The border radius of the component.',
       control: {
-        type: 'text',
+        type: 'text' as const,
       },
       table: {
         defaultValue: { summary: undefined },
@@ -44,7 +44,7 @@ const meta = {
     padding: {
       description: 'The padding of the component.',
       control: {
-        type: 'text',
+        type: 'text' as const,
       },
       table: {
         defaultValue: { summary: undefined },
@@ -53,7 +53,7 @@ const meta = {
     margin: {
       description: 'The margin of the component.',
       control: {
-        type: 'text',
+        type: 'text' as const,
       },
       table: {
         defaultValue: { summary: undefined },

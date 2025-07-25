@@ -22,32 +22,32 @@ const meta = {
   argTypes: {
     children: {
       description: 'This is the content of the box',
-      control: { type: 'object' },
+      control: { type: 'object' as const },
       table: {
         category: 'Content',
       },
     },
     startHeight: {
       description: 'This is the initial height of the box',
-      control: { type: 'number' },
+      control: { type: 'number' as const },
     },
     startWidth: {
       description: 'This is the initial width of the box',
-      control: { type: 'number' },
+      control: { type: 'number' as const },
       table: {
         defaultValue: { summary: 'number' },
       },
     },
     adjustHeight: {
       description: 'This is the flag to adjust the height of the box',
-      control: { type: 'boolean' },
+      control: { type: 'boolean' as const },
       table: {
         defaultValue: { summary: 'true' },
       },
     },
     adjustWidth: {
       description: 'This is the flag to adjust the width of the box',
-      control: { type: 'boolean' },
+      control: { type: 'boolean' as const },
       table: {
         defaultValue: { summary: 'false' },
       },

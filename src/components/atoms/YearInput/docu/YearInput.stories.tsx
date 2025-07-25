@@ -23,7 +23,7 @@ const meta = {
     sizeC: {
       description: 'The size of the week days',
       control: {
-        type: 'select',
+        type: 'select' as const,
       },
       table: {
         defaultValue: { summary: 'md' },
@@ -32,7 +32,7 @@ const meta = {
     year: {
       description: 'The year value to be inputted',
       control: {
-        type: 'number',
+        type: 'number' as const,
       },
       table: {
         defaultValue: { summary: '2024' },
@@ -41,7 +41,7 @@ const meta = {
     placeholder: {
       description: 'The placeholder text for the input',
       control: {
-        type: 'text',
+        type: 'text' as const,
       },
     },
   },
