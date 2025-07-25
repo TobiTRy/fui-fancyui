@@ -22,6 +22,7 @@ export default function FancyBox<T extends ElementType = 'div'>(props: TFancyBox
     padding,
     margin,
     hoverLayer,
+    wide,
     ...htmlProps
   } = props;
 
@@ -30,6 +31,7 @@ export default function FancyBox<T extends ElementType = 'div'>(props: TFancyBox
 
   return (
     <StyledFancyBox
+      $wide={wide}
       $sizeC={sizeC}
       $layer={layer}
       as={as || 'div'}

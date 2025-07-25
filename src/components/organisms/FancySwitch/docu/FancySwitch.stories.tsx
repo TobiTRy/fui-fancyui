@@ -55,16 +55,6 @@ const meta = {
         defaultValue: { summary: 'left' },
       },
     },
-    align: {
-      description: 'This prop will align the entire component',
-      options: ['left', 'right', 'center'],
-      control: {
-        type: 'radio' as const,
-      },
-      table: {
-        defaultValue: { summary: 'center' },
-      },
-    },
     description: {
       description: 'Description text for the switch',
       control: {
@@ -81,6 +71,18 @@ const meta = {
       description: 'Icon to display when switch is checked',
       control: {
         type: 'object' as const,
+      },
+    },
+    wide: {
+      description: 'This prop will make the switch wider',
+      control: {
+        type: 'boolean' as const,
+      },
+    },
+    borderRadius: {
+      description: 'This prop will change the border radius of the switch',
+      control: {
+        type: 'text' as const,
       },
     },
     externalStyle: {

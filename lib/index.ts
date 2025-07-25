@@ -191,6 +191,7 @@ export * from '@/design/designFunctions/focusStyle';
 export * from '@/design/designFunctions/colorTransparencyCalculator';
 export * from '@/design/designFunctions/disabledStyle';
 export * from '@/design/designFunctions/flipThemeColor';
+export * from '@/design/designFunctions/flipThemeType';
 export * from '@/design/designFunctions/generateBorderRadiusForComponent';
 export * from '@/design/designFunctions/generateItemTheme';
 export * from '@/design/designFunctions/generateSystemIndicatorStyle';

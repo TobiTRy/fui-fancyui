@@ -13,8 +13,11 @@ export default function FancySwitchRoute() {
   const [iconSwitch, setIconSwitch] = useState(false);
   const [descriptionSwitch, setDescriptionSwitch] = useState(false);
 
+  const [testSwitch, setTestSwitch] = useState(false);
+
   return (
     <>
+      <button onClick={() => setTestSwitch(!testSwitch)}>Toggle</button>
       <Card>
         <DesignWrapper>
           <DesignArea title="Basic Switch (Molecule)" style={{ alignItems: 'flex-start' }}>
@@ -25,13 +28,7 @@ export default function FancySwitchRoute() {
           </DesignArea>
 
           <DesignArea title="FancySwitch with Labels" style={{ alignItems: 'flex-start' }}>
-            <FancySwitch
-              label="Enable notifications"
-              checked={labelSwitch}
-              onChange={setLabelSwitch}
-              sizeC="md"
-              themeType="primary"
-            />
+            <FancySwitch label="Enable notifications" checked={testSwitch} onChange={setLabelSwitch} sizeC="md" />
 
             <FancySwitch
               label="Dark mode"
@@ -39,7 +36,6 @@ export default function FancySwitchRoute() {
               checked={labelSwitch}
               onChange={setLabelSwitch}
               sizeC="md"
-              themeType="secondary"
             />
 
             <FancySwitch
@@ -53,29 +49,11 @@ export default function FancySwitchRoute() {
           </DesignArea>
 
           <DesignArea title="Different Sizes" style={{ alignItems: 'flex-start' }}>
-            <FancySwitch
-              label="Extra Small"
-              checked={labelSwitch}
-              onChange={setLabelSwitch}
-              sizeC="xs"
-              themeType="primary"
-            />
+            <FancySwitch label="Extra Small" checked={labelSwitch} onChange={setLabelSwitch} sizeC="xs" />
             <FancySwitch label="Small" checked={labelSwitch} onChange={setLabelSwitch} sizeC="sm" themeType="primary" />
-            <FancySwitch
-              label="Medium"
-              checked={labelSwitch}
-              onChange={setLabelSwitch}
-              sizeC="md"
-              themeType="primary"
-            />
+            <FancySwitch label="Medium" checked={labelSwitch} onChange={setLabelSwitch} sizeC="md" />
             <FancySwitch label="Large" checked={labelSwitch} onChange={setLabelSwitch} sizeC="lg" themeType="primary" />
-            <FancySwitch
-              label="Extra Large"
-              checked={labelSwitch}
-              onChange={setLabelSwitch}
-              sizeC="xl"
-              themeType="primary"
-            />
+            <FancySwitch label="Extra Large" checked={labelSwitch} onChange={setLabelSwitch} sizeC="xl" />
           </DesignArea>
 
           <DesignArea title="Different Themes" style={{ alignItems: 'flex-start' }}>

@@ -13,6 +13,7 @@ export const StyledFancyBox = styled.div<IStyledFancyBox & { theme?: TTheme }>`
   border-radius: ${({ $borderRadius }) => arrayToCssValues($borderRadius, 'borderRadius')};
   padding: ${({ $padding }) => arrayToCssValues($padding, 'spacing')};
   margin: ${({ $margin }) => arrayToCssValues($margin, 'spacing')};
+  width: ${({ $wide }) => ($wide ? '100%' : 'auto')};
 
   box-sizing: border-box;
   ${({ $themeType, theme, $layer, $outlined, $outlinedBackgroundStrength, $outlinedRemoveBorder }) =>
