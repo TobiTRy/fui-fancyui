@@ -25,74 +25,74 @@ const meta = {
     label: {
       description: 'Label for the input',
       control: {
-        type: 'text' as const,
+        type: 'text',
       },
     },
     align: {
       description: 'Alignment of the label',
       control: {
-        type: 'select' as const,
+        type: 'select',
       },
     },
     disabled: {
       description: 'Disable the input',
       control: {
-        type: 'boolean' as const,
+        type: 'boolean',
       },
     },
     ...templateThemeType('mainThemeTypes', 'primary', 2),
     systemMessage: {
       description: 'Error message to be displayed',
       control: {
-        type: 'object' as const,
+        type: 'object',
       },
     },
     placeholder: {
       description: 'Placeholder for the input',
       control: {
-        type: 'text' as const,
+        type: 'text',
       },
     },
     icon: {
       description: 'Icon for the input',
       control: {
-        type: 'object' as const,
+        type: 'object',
       },
     },
     value: {
       description: 'Value of the input',
       control: {
-        type: 'text' as const,
+        type: 'text',
       },
     },
     transparentBackground: {
       description: 'The input has a transparent background',
       control: {
-        type: 'boolean' as const,
+        type: 'boolean',
       },
     },
     externalStyle: {
       description: 'External style for the input',
       control: {
-        type: 'object' as const,
+        type: 'object',
       },
     },
     labelVariant: {
       description: 'Variant of the label',
       control: {
-        type: 'select' as const,
+        type: 'select',
       },
     },
     underline: {
       description: 'Underline for the input',
       control: {
-        type: 'boolean' as const,
+        type: 'boolean',
       },
     },
     outlined: {
       description: 'Outlined input',
       control: {
-        type: 'boolean' as const,
+        type: 'boolean',
       },
     },
     outlinedBackgroundStrength: {
@@ -101,13 +101,13 @@ const meta = {
         min: 0,
         max: 1,
         step: 0.1,
-        type: 'number' as const,
+        type: 'number',
       },
     },
     autoWidth: {
       description: 'If the Input should fit the content',
       control: {
-        type: 'boolean' as const,
+        type: 'boolean',
       },
     },
     step: {

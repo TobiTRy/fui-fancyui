@@ -23,14 +23,14 @@ const meta = {
         'Array of strings defining the grid layout. Each string represents a row in the grid, and each space-separated value within the string defines a grid area.',
       defaultValue: [],
       control: {
-        type: 'object' as const,
+        type: 'object',
       },
     },
     gridAreasBreakPoints: {
       description: 'The breakpoints for the grid areas',
       defaultValue: [],
       control: {
-        type: 'object' as const,
+        type: 'object',
       },
     },
     gapColumn: {
@@ -39,7 +39,7 @@ const meta = {
         defaultValue: { summary: 'sm' },
       },
       control: {
-        type: 'number' as const,
+        type: 'number',
       },
     },
     gapRow: {
@@ -48,7 +48,7 @@ const meta = {
         defaultValue: { summary: 'sm' },
       },
       control: {
-        type: 'number' as const,
+        type: 'number',
       },
     },
     width: {
@@ -57,7 +57,7 @@ const meta = {
         defaultValue: { summary: '100%' },
       },
       control: {
-        type: 'text' as const,
+        type: 'text',
       },
     },
     height: {
@@ -66,7 +66,7 @@ const meta = {
         defaultValue: { summary: '100%' },
       },
       control: {
-        type: 'text' as const,
+        type: 'text',
       },
     },
   },

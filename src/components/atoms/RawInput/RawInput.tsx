@@ -33,10 +33,6 @@ const RawInput = styled.input<TRawInputWith$ & { theme?: TTheme }>`
     background-color: transparent !important;
   }
 
-  &::placeholder {
-    color: ${({ theme }) => theme.color.secondary[7]};
-  }
-
   ${({ $externalStyle }) => $externalStyle};
 `;
 

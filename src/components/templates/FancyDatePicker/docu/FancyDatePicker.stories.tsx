@@ -22,53 +22,53 @@ const meta = {
     rangeCalendar: {
       description: 'Is Pickinga range of dates',
       control: {
-        type: 'boolean' as const,
+        type: 'boolean',
       },
       table: {
-        defaultValue: { summary: 'false' },
+        defaultValue: { summary: false },
       },
     },
     ...templateThemeType('mainThemeTypes', 'secondary', 2),
     startWeekOn: {
       description: 'The day the week starts on.',
       control: {
-        type: 'select' as const,
+        type: 'select',
       },
       table: {
-        defaultValue: { summary: '1' },
+        defaultValue: { summary: 1 },
       },
     },
     externalData: {
       description: 'The external months with days.',
       control: {
-        type: 'object' as const,
+        type: 'object',
       },
     },
     dateSelectHandler: {
       description: 'The function that handles the date selection',
       control: {
-        type: 'object' as const,
+        type: 'function',
       },
     },
     monthYearInView: {
       description: 'The month and year in view',
       control: {
-        type: 'object' as const,
+        type: 'object',
       },
       table: {
-        defaultValue: { summary: `{ year: ${new Date().getFullYear()}, month: ${new Date().getMonth()} }` },
+        defaultValue: { summary: { year: new Date().getFullYear(), month: new Date().getMonth() } },
       },
     },
     disabledDateSetting: {
       description: 'The disabled date settings',
       control: {
-        type: 'object' as const,
+        type: 'object',
       },
     },
     yearSelector: {
       description: 'The year selector settings',
       control: {
-        type: 'object' as const,
+        type: 'object',
       },
     },
   },

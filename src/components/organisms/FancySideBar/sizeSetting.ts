@@ -1,14 +1,11 @@
-import { TSizeSettingsMid } from '@/types/TSizeSettings';
+import { TSizeSettings } from '@/types/TSizeSettings';
 import { TSpacings } from '@/types/TSpacings';
 
 type TSizeObj = {
   margin: TSpacings;
 };
 
-export const sizeSettings: TSizeSettingsMid<TSizeObj> = {
-  xs: {
-    margin: 'xxs',
-  },
+export const sizeSettings: TSizeSettings<TSizeObj> = {
   sm: {
     margin: 'xxs',
   },
@@ -17,8 +14,5 @@ export const sizeSettings: TSizeSettingsMid<TSizeObj> = {
   },
   lg: {
     margin: 'xs',
-  },
-  xl: {
-    margin: 'sm',
   },
 };

@@ -22,13 +22,13 @@ const meta = {
     handler: {
       description: 'Callback function for the search value',
       control: {
-        type: 'object' as const,
+        type: 'function',
       },
     },
     length: {
       description: 'The expected length of the verification code.',
       control: {
-        type: 'number' as const,
+        type: 'number',
       },
       table: {
         defaultValue: { summary: '6' },
@@ -37,7 +37,7 @@ const meta = {
     automaticCase: {
       description: 'If the input should automaticly inputed in upper or lower case',
       control: {
-        type: 'radio' as const,
+        type: 'radio',
         options: ['upper', 'lower', undefined],
       },
       table: {
@@ -47,25 +47,25 @@ const meta = {
     debounceTime: {
       description: 'The debounce time for the handler',
       control: {
-        type: 'number' as const,
+        type: 'number',
       },
       table: {
-        defaultValue: { summary: '700' },
+        defaultValue: { summary: 700 },
       },
     },
     isSuccess: {
       description: 'A flag indicating whether the code verification was successful.',
       control: {
-        type: 'boolean' as const,
+        type: 'boolean',
       },
       table: {
-        defaultValue: { summary: 'false' },
+        defaultValue: { summary: false },
       },
     },
     errorMessage: {
       description: 'The message to display if the code verification fails.',
       control: {
-        type: 'text' as const,
+        type: 'text',
       },
     },
   },

@@ -20,7 +20,7 @@ const meta = {
     sizeC: {
       description: 'The size of the component.',
       control: {
-        type: 'select' as const,
+        type: 'select',
         options: ['sm', 'md', 'lg'],
       },
       table: {
@@ -30,19 +30,19 @@ const meta = {
     externalStyle: {
       description: 'The external style of the component.',
       control: {
-        type: 'object' as const,
+        type: 'object',
       },
     },
     borderRadius: {
       description: 'The border radius of the component.',
       control: {
-        type: 'object' as const,
+        type: 'object',
       },
     },
     boxShadow: {
       description: 'The box shadow of the component.',
       control: {
-        type: 'boolean' as const,
+        type: 'boolean',
       },
       table: {
         defaultValue: { summary: 'false' },
@@ -51,7 +51,7 @@ const meta = {
     outlined: {
       description: 'The outlined style of the component.',
       control: {
-        type: 'boolean' as const,
+        type: 'boolean',
       },
       table: {
         defaultValue: { summary: 'false' },
@@ -60,13 +60,13 @@ const meta = {
     outlinedBackgroundStrength: {
       description: 'The background strength of the outlined component.',
       control: {
-        type: 'number' as const,
+        type: 'number',
         min: 0,
         max: 1,
         step: 0.01,
       },
       table: {
-        defaultValue: { summary: '0.5' },
+        defaultValue: { summary: 0.5 },
       },
     },
   },

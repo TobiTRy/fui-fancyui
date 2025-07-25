@@ -21,63 +21,63 @@ const meta = {
   argTypes: {
     disabled: {
       description: 'If true, the component will be disabled.',
-      control: { type: 'boolean' as const },
+      control: { type: 'boolean' },
       table: {
-        defaultValue: { summary: 'false' },
+        defaultValue: { summary: false },
       },
     },
     label: {
-      control: { type: 'text' as const },
+      control: { type: 'text' },
       table: {
         defaultValue: { summary: 'Label' },
       },
     },
     icon: {
       description: 'The icon to be displayed.',
-      control: { type: 'object' as const },
+      control: { type: 'object' },
     },
     isActive: {
       description: 'If true, the component will be active.',
-      control: { type: 'boolean' as const },
+      control: { type: 'boolean' },
       table: {
-        defaultValue: { summary: 'false' },
+        defaultValue: { summary: false },
       },
     },
     hideLabel: {
       description: 'If true, the label will be hidden.',
-      control: { type: 'boolean' as const },
+      control: { type: 'boolean' },
     },
     sizeC: {
       description: 'The size of the component.',
-      control: { type: 'select' as const, options: ['sm', 'md', 'lg'] },
+      control: { type: 'select', options: ['sm', 'md', 'lg'] },
       table: {
         defaultValue: { summary: 'sm' },
       },
     },
     hoverStyle: {
       description: 'If true, the component will have hover style.',
-      control: { type: 'boolean' as const },
+      control: { type: 'boolean' },
     },
     externalStyle: {
       description: 'External style for the component.',
-      control: { type: 'object' as const },
+      control: { type: 'object' },
     },
     ...templateThemeType('notTransparent', 'secondary'),
     type: {
       description: 'The type of the component.',
       options: ['a', 'button'],
-      control: { type: 'radio' as const },
+      control: { type: 'radio' },
       table: {
         defaultValue: { summary: 'a' },
       },
     },
     href: {
       description: 'The href of the component.',
-      control: { type: 'text' as const },
+      control: { type: 'text' },
     },
     onClick: {
       description: 'The function to be called when the component is clicked.',
-      control: { type: 'object' as const },
+      control: { type: 'function' },
     },
   },
   // Add tags to the story

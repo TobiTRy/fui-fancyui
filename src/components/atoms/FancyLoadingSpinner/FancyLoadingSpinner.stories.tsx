@@ -23,7 +23,7 @@ const meta = {
     sizeC: {
       description: 'The sizeC of the component.',
       control: {
-        type: 'select' as const,
+        type: 'select',
         options: ['xs', 'sm', 'md', 'lg', 'xl'],
       },
     },

@@ -1,16 +1,16 @@
 import { generateSpacingSize } from '@/design/theme/generateSpacingSize';
 
 export const spacingPx = {
-  '3xs': generateSpacingSize(1, true), // 2px
-  xxs: generateSpacingSize(2, true), // 4px
-  xs: generateSpacingSize(3, true), // 8px
-  sm: generateSpacingSize(4, true), // 16px
-  md: generateSpacingSize(5, true), // 24px
-  lg: generateSpacingSize(6, true), // 32px
-  xl: generateSpacingSize(7, true), // 48px
-  xxl: generateSpacingSize(8, true), // 64px
-  '3xl': generateSpacingSize(9, true), // 80px
-  '4xl': generateSpacingSize(10, true), // 96px
+  '3xs': generateSpacingSize(1, true),
+  xxs: generateSpacingSize(2, true),
+  xs: generateSpacingSize(3, true),
+  sm: generateSpacingSize(4, true),
+  md: generateSpacingSize(5, true),
+  lg: generateSpacingSize(6, true),
+  xl: generateSpacingSize(7, true),
+  xxl: generateSpacingSize(8, true),
+  '3xl': generateSpacingSize(9, true),
+  '4xl': generateSpacingSize(10, true),
 };
 
 // export const fontSizes = {
@@ -124,12 +124,6 @@ export const typography = {
     fontWeight: '400', // Regular
   },
 
-  interactiveXs: {
-    fontSize: '12px',
-    lineHeight: '14px',
-    letterSpacing: '0.01em',
-    fontWeight: '500', // Medium
-  },
   interactiveSm: {
     fontSize: '14px',
     lineHeight: '16px',
@@ -145,12 +139,6 @@ export const typography = {
   interactiveLg: {
     fontSize: '18px',
     lineHeight: '24px',
-    letterSpacing: '0.01em',
-    fontWeight: '500', // Medium
-  },
-  interactiveXl: {
-    fontSize: '20px',
-    lineHeight: '28px',
     letterSpacing: '0.01em',
     fontWeight: '500', // Medium
   },

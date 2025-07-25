@@ -1,5 +1,8 @@
-import { TComponentSizes } from '@/types';
+import { TTypographyVariants } from '@/types/TTypographyVariants';
 import { TSizeSettings } from '@/types/TSizeSettings';
+import { TSystemMessageBox } from '@/components/atoms/SystemMessageBox/TSystemMessageBox.model';
+import { TSpacings } from '@/types/TSpacings';
+import { TComponentSizes } from '@/types';
 
 type TSizeObj = {
   systemMessageSize: TComponentSizes;
@@ -14,6 +17,6 @@ export const sizes: TSizeSettings<TSizeObj> = {
     systemMessageSize: 'md',
   },
   lg: {
-    systemMessageSize: 'md',
+    systemMessageSize: 'lg',
   },
 };

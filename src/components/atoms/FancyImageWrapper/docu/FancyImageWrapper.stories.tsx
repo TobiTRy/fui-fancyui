@@ -21,26 +21,26 @@ const meta = {
       description:
         'Defines the aspect ratio of the image, e.g., "16/9". If provided, it must be in the format "width/height"',
       control: {
-        type: 'text' as const,
+        type: 'text',
       },
     },
     children: {
       description: 'The image element to be wrapped by the `FancyImageWrapper`.',
       control: {
-        type: 'object' as const,
+        type: 'object',
       },
     },
     filter: {
       description:
         'Applies CSS filter effects to the image. Accepts an object with properties corresponding to CSS filter functions, such as `blur` and `brightness`.',
       control: {
-        type: 'object' as const,
+        type: 'object',
       },
     },
     externalStyle: {
       description: 'Allows for custom CSS to be applied directly to the image wrapper.',
       control: {
-        type: 'object' as const,
+        type: 'object',
       },
     },
     borderRadius: {
@@ -49,14 +49,14 @@ const meta = {
         defaultValue: { summary: '' },
       },
       control: {
-        type: 'select' as const,
+        type: 'select',
       },
     },
     sizeH: {
       description:
         'Sets the width of the image. Can be a predefined size, "fit" for 100% width, or a custom CSS value.',
       control: {
-        type: 'text' as const,
+        type: 'text',
       },
       defaultValue: 'size of the image',
     },
@@ -64,14 +64,14 @@ const meta = {
       description:
         'Sets the height of the image. Can be a predefined size, "fit" for 100% height, or a custom CSS value.',
       control: {
-        type: 'text' as const,
+        type: 'text',
       },
       defaultValue: 'size of the image',
     },
     objectFit: {
       description: ' Defines how the content of the replaced element should be resized to fit its container.',
       control: {
-        type: 'select' as const,
+        type: 'select',
       },
       defaultValue: 'cover',
     },

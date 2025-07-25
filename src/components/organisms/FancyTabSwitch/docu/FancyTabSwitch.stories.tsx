@@ -26,19 +26,19 @@ const meta = {
     sizeC: {
       description: 'The sizeC of the component.',
       control: {
-        type: 'select' as const,
+        type: 'select',
       },
     },
     iconAlign: {
       description: 'The icon alignment.',
       control: {
-        type: 'radio' as const,
+        type: 'radio',
       },
     },
     textColor: {
       description: 'The color of the component.',
       control: {
-        type: 'select' as const,
+        type: 'select',
       },
     },
     ...templateThemeType('mainThemeTypes', 'primary', 0),
@@ -48,13 +48,13 @@ const meta = {
     switchIndicatorThemeType: {
       description: 'The active color of the component.',
       control: {
-        type: 'select' as const,
+        type: 'select',
       },
     },
     activeTextThemeType: {
       description: 'The active text color of the component.',
       control: {
-        type: 'select' as const,
+        type: 'select',
       },
       table: {
         summary: 'secondary',
@@ -67,26 +67,26 @@ const meta = {
     borderRadius: {
       description: 'The rounded of the component.',
       control: {
-        type: 'object' as const,
+        type: 'object',
       },
     },
     label: {
       description: 'The label of the component.',
       type: { name: 'string' },
       control: {
-        type: 'text' as const,
+        type: 'text',
       },
     },
     spacingToEdge: {
       description: 'The spacing to the edge of the component.',
       control: {
-        type: 'select' as const,
+        type: 'select',
       },
     },
     textLayer: {
       description: 'The text layer of the component.',
       control: {
-        type: 'range' as const,
+        type: 'range',
         min: 0,
         max: 9,
         step: 1,

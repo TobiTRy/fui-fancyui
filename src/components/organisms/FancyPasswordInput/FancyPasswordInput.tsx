@@ -72,11 +72,11 @@ const FancyPasswordInput = forwardRef<HTMLInputElement, TFancyPasswordInput>((pr
           disabled={disabled}
           readOnly={readOnly}
           onFocus={(e) => {
-            if (onFocus) onFocus(e);
+            onFocus && onFocus(e);
             setIsActive(true);
           }}
           onBlur={(e) => {
-            if (onBlur) onBlur(e);
+            onBlur && onBlur(e);
             setIsActive(false);
           }}
           placeholder={placeholder}

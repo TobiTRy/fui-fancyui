@@ -8,10 +8,8 @@ import {
 } from '@/components/molecules/ColorInputs/TColorInputs.model';
 import { colorFormats } from '@/utils/variables/colorFormat';
 
-type ColorType = ReturnType<typeof Color>;
-
 //this function transforms a color to the desired format of the color output switch
-const colorTransformator = (color: ColorType, opacity: number, formatIdx: number): TColorTypes => {
+const colorTransformator = (color: Color, opacity: number, formatIdx: number): TColorTypes => {
   const colorObject = Color(color);
   const currentColorFormat = colorFormats[formatIdx];
 

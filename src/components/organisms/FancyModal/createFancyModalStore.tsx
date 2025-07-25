@@ -6,7 +6,7 @@ import { TFancyModalOpen, TFancyModals } from './TFancyModal.modal';
 // --------------------------------------------------------------------------- //
 // --------------------- The state for the ModalModuel ----------------------- //
 // --------------------------------------------------------------------------- //
-export interface IModalModule {
+interface IModalModule {
   modals: TFancyModals[];
   openModal: (props: TFancyModalOpen) => void;
   closeModal: (id: string) => void;

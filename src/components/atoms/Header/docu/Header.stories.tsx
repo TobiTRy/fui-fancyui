@@ -35,13 +35,13 @@ const meta = {
     outlined: {
       description: 'If true, the header will have an outline',
       control: {
-        type: 'boolean' as const,
+        type: 'boolean',
       },
     },
     outlinedBackgroundStrength: {
       description: 'The strength of the background when the header is outlined',
       control: {
-        type: 'range' as const,
+        type: 'range',
         min: 0,
         max: 1,
         step: 0.1,
@@ -50,7 +50,7 @@ const meta = {
     externalStyle: {
       description: 'External style for the header.',
       control: {
-        type: 'object' as const,
+        type: 'object',
       },
     },
   },

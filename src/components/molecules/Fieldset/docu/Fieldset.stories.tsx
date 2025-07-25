@@ -22,26 +22,26 @@ const meta = {
     alignLegend: {
       description: 'The alignment of the label relative to the fieldset.',
       control: {
-        type: 'select' as const,
+        type: 'select',
         options: ['left', 'center'],
       },
     },
     legend: {
       description: 'The label to be displayed for the fieldset.',
       control: {
-        type: 'text' as const,
+        type: 'text',
       },
     },
     typographySettings: {
       description: 'The typography settings for the label.',
       control: {
-        type: 'object' as const,
+        type: 'object',
       },
     },
     disabled: {
       description: 'The disabled state of the fieldset.',
       control: {
-        type: 'boolean' as const,
+        type: 'boolean',
       },
     },
   },

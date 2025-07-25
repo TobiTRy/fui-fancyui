@@ -21,46 +21,52 @@ const meta = {
     pageLimits: {
       description: 'The maximum number of pages to display',
       control: {
-        type: 'number' as const,
+        type: 'number',
       },
       table: {
-        defaultValue: { summary: '99' },
+        defaultValue: { summary: 99 },
       },
     },
     currentPage: {
       description: 'The current page number',
       control: {
-        type: 'number' as const,
+        type: 'number',
       },
       table: {
-        defaultValue: { summary: '1' },
+        defaultValue: { summary: 1 },
       },
     },
     pageHandler: {
       description: 'The function to handle the page number',
       control: {
-        type: 'object' as const,
+        type: 'function',
       },
     },
     showPages: {
       description: 'The number of pages to display',
       control: {
-        type: 'number' as const,
+        type: 'number',
       },
       table: {
-        defaultValue: { summary: '3' },
+        defaultValue: { summary: 3 },
       },
     },
     numberButtonStyle: {
       description:
         'The style for the number button it inherits  `TGenerateThemeDesignForComponentProps` and adds `textColorActive` for the active page number and color.',
       control: {
-        type: 'object' as const,
+        type: 'object',
       },
       table: {
         defaultValue: {
-          summary:
-            '{ textColorActive: "accent", outlinedBackgroundStrength: 0.1, outlines: false, textColor: "secondary", hoverColor: "secondary", themeType: "transparent" }',
+          summary: {
+            textColorActive: 'accent',
+            outlinedBackgroundStrength: 0.1,
+            outlines: false,
+            textColor: 'secondary',
+            hoverColor: 'secondary',
+            themeType: 'transparent',
+          },
         },
       },
     },

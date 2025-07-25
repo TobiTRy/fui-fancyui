@@ -15,7 +15,7 @@ export default function SingleInputs(props: TSingleInputsWithHTMLInputAttrs) {
   //when the values are filled, call the handler
   useEffect(() => {
     if (values.every((value) => value !== '')) {
-      if (handler) handler(values.join(''));
+      handler && handler(values.join(''));
     }
   }, [values, handler]);
 

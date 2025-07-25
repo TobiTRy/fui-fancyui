@@ -18,7 +18,7 @@ const meta = {
     hue: {
       description: 'The current hue value of the slider',
       control: {
-        type: 'number' as const,
+        type: 'number',
         min: 0,
         max: 359,
       },
@@ -30,13 +30,13 @@ const meta = {
     borderRadius: {
       description: 'The border radius of the slider',
       control: {
-        type: 'object' as const,
+        type: 'object',
       },
     },
     sizeC: {
       description: 'The size of the component',
       control: {
-        type: 'select' as const,
+        type: 'select',
       },
     },
   },

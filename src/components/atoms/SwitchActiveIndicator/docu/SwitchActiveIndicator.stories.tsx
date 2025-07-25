@@ -27,7 +27,7 @@ const meta = {
     type: {
       description: 'The type of the indicator, it can be a bolb or a underline',
       control: {
-        type: 'radio' as const,
+        type: 'radio',
       },
       options: ['bolb', 'underline', 'topline'],
       table: {
@@ -37,7 +37,7 @@ const meta = {
     direction: {
       description: 'The direction of the indicator where it should be moved horizontal or vertical',
       control: {
-        type: 'radio' as const,
+        type: 'radio',
       },
       options: ['horizontal', 'vertical'],
       table: {
@@ -47,13 +47,13 @@ const meta = {
     itemNumber: {
       description: 'The itemnumber is to calc the position of the indicator for each item',
       control: {
-        type: 'number' as const,
+        type: 'number',
       },
     },
     borderRadius: {
       description: 'The rounded is to set the border-radius of the indicator',
       control: {
-        type: 'select' as const,
+        type: 'select',
       },
       options: ['sm', 'md', 'lg', 'xl', 'xxl', 'xxxl', 'complete'],
       table: {
@@ -63,7 +63,7 @@ const meta = {
     tabSpacing: {
       description: 'The spacing is to calc with the offset the position of the indicator for each item',
       control: {
-        type: 'select' as const,
+        type: 'select',
       },
       table: {
         defaultValue: { summary: '' },
@@ -72,10 +72,10 @@ const meta = {
     outlined: {
       description: 'The outlined is to set the border of the indicator',
       control: {
-        type: 'boolean' as const,
+        type: 'boolean',
       },
       table: {
-        defaultValue: { summary: 'false' },
+        defaultValue: { summary: false },
       },
     },
   },

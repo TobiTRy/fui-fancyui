@@ -22,13 +22,13 @@ const meta = {
     gridArea: {
       description: 'The grid area to place the item in',
       control: {
-        type: 'text' as const,
+        type: 'text',
       },
     },
     externalStyle: {
       description: 'External styles to be injected into the component',
       control: {
-        type: 'object' as const,
+        type: 'object',
       },
     },
   },

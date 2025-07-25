@@ -1,7 +1,5 @@
 import Color from 'color';
 
-type ColorType = ReturnType<typeof Color>;
-
 import type { Meta, StoryObj } from '@storybook/react';
 
 import FancyColorInput from '../FancyColorInput';
@@ -22,7 +20,7 @@ const meta = {
     opacity: {
       description: 'The opacity value of the color',
       control: {
-        type: 'number' as const,
+        type: 'number',
         min: 0,
         max: 1,
         step: 0.01,
@@ -31,31 +29,31 @@ const meta = {
     pickedColor: {
       description: 'The color that is picked',
       control: {
-        type: 'object' as const,
+        type: 'object',
       },
     },
     colorTypeHandler: {
       description: ' A callback function that is invoked when the color format type changes.',
       control: {
-        type: 'object' as const,
+        type: 'function',
       },
     },
     handler: {
       description: 'A callback function that is invoked when the color value changes.',
       control: {
-        type: 'object' as const,
+        type: 'function',
       },
     },
     handlerOpacity: {
       description: 'A callback function that is invoked when the opacity value changes.',
       control: {
-        type: 'object' as const,
+        type: 'function',
       },
     },
     currentColorType: {
       description: 'The current color type',
       control: {
-        type: 'select' as const,
+        type: 'select',
       },
     },
     ...templateThemeType('mainThemeTypes', 'primary', 3),
@@ -74,7 +72,7 @@ export const Primary: Story = {
     themeType: 'primary',
     layer: 2,
     colorTypeHandler: (colorType: string) => console.log(colorType),
-    handler: (color: ColorType) => console.log(color),
+    handler: (color: Color) => console.log(color),
     handlerOpacity: (opacity: number) => console.log(opacity),
   },
 };

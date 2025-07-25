@@ -26,7 +26,7 @@ const meta = {
     isOpen: {
       description: 'Define if the dialog is open or not',
       control: {
-        type: 'boolean' as const,
+        type: 'boolean',
       },
       defaultValue: false,
     },

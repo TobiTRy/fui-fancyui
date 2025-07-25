@@ -1,10 +1,10 @@
 import { TTypography, Typography } from '@/components/atoms/Typography';
 import { css } from 'styled-components';
 import { sizeSettings } from '../sizeSettings';
-import { TComponentSizesMid } from '@/types/TComponentSizes';
+import { TComponentSizes } from '@/types/TComponentSizes';
 
 type TLabel = Partial<TTypography> & {
-  sizeC?: TComponentSizesMid;
+  sizeC?: TComponentSizes;
 };
 
 export function Label(props: TLabel) {

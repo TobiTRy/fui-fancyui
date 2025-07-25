@@ -3,8 +3,6 @@ import type { Meta, StoryObj } from '@storybook/react';
 import FancyColorArea from '../FancyColorArea';
 import Color from 'color';
 
-type ColorType = ReturnType<typeof Color>;
-
 const meta = {
   component: FancyColorArea,
   title: 'components/molecules/FancyColorArea',
@@ -19,13 +17,13 @@ const meta = {
   argTypes: {
     colorValue: {
       control: {
-        type: 'color' as const,
+        type: 'color',
       },
       description: 'The color that is used to display the color indicator, and sets the correct position of the marker',
     },
     hue: {
       control: {
-        type: 'range' as const,
+        type: 'range',
         min: 0,
         max: 359,
         step: 1,
@@ -41,7 +39,7 @@ const meta = {
     borderRadius: {
       description: 'The border radius that can be used to style the area `TThemeArrayOrValueCSS`',
       control: {
-        type: 'object' as const,
+        type: 'object',
       },
     },
   },
@@ -55,7 +53,7 @@ export const Primary: Story = {
   args: {
     colorValue: '#f00',
     hue: 0,
-    handler: (color: ColorType) => console.log(color),
+    handler: (color: Color) => console.log(color),
     borderRadius: ['md'],
     externalStyle: {},
   },

@@ -21,23 +21,23 @@ const meta = {
   argTypes: {
     isActive: {
       control: {
-        type: 'boolean' as const,
+        type: 'boolean',
       },
     },
     isLoading: {
       control: {
-        type: 'boolean' as const,
+        type: 'boolean',
       },
     },
     themeType: {
       control: {
-        type: 'select' as const,
+        type: 'select',
       },
       options: ['primary', 'secondary', 'accent'],
     },
     layer: {
       control: {
-        type: 'range' as const,
+        type: 'range',
         min: 0,
         max: 10,
         step: 1,
@@ -45,7 +45,7 @@ const meta = {
     },
     sizeC: {
       control: {
-        type: 'select' as const,
+        type: 'select',
       },
     },
     systemMessage: {
@@ -54,7 +54,7 @@ const meta = {
         required: false,
       },
       control: {
-        type: 'select' as const,
+        type: 'select',
       },
       options: ['error', 'warning', 'success', 'info', undefined],
     },
@@ -62,7 +62,7 @@ const meta = {
       description:
         'Passive mode is when when the color should adapt from the parent component, otherwise it can used interative with (active, error, colors) ',
       control: {
-        type: 'boolean' as const,
+        type: 'boolean',
       },
     },
   },

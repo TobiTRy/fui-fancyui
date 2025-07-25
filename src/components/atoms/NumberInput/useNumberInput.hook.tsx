@@ -86,7 +86,7 @@ export const useNumberInput = (props: TNumberInputWithNativeAttrs): UseNumberInp
       } as any;
 
       updateValue(newValue.toString(), fakeEvent);
-      if (onKeyDown) onKeyDown(e);
+      onKeyDown && onKeyDown(e);
     }
   };
 

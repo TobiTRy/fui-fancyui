@@ -18,17 +18,17 @@ const meta = {
       description: 'The number of items to render outside the visible area, above and below. Defaults to `1`',
       type: { name: 'number', required: false },
       control: {
-        type: 'number' as const,
+        type: 'number',
       },
       table: {
-        defaultValue: { summary: '1' },
+        defaultValue: { summary: 1 },
       },
     },
     containerHeight: {
       description: 'The height of the container.',
       type: { name: 'string', required: false },
       control: {
-        type: 'text' as const,
+        type: 'text',
       },
       table: {
         defaultValue: { summary: '300px' },
@@ -38,37 +38,37 @@ const meta = {
       description: 'The height of each item.',
       type: { name: 'number', required: false },
       control: {
-        type: 'number' as const,
+        type: 'number',
       },
       table: {
-        defaultValue: { summary: '300' },
+        defaultValue: { summary: 300 },
       },
     },
     itemGap: {
       description: 'The gap between each item. It only adds spacte to the bottom of the item.',
       type: { name: 'number', required: false },
       control: {
-        type: 'number' as const,
+        type: 'number',
       },
       table: {
-        defaultValue: { summary: '0' },
+        defaultValue: { summary: 0 },
       },
     },
     firstItemIndexInView: {
       description: 'The index of the first item to render.',
       type: { name: 'number', required: false },
       control: {
-        type: 'number' as const,
+        type: 'number',
       },
       table: {
-        defaultValue: { summary: '0' },
+        defaultValue: { summary: 0 },
       },
     },
     scrollSnap: {
       description: 'Controls the scroll snapping behavior. Defaults to `none`.',
       type: { name: 'string', required: false },
       control: {
-        type: 'select' as const,
+        type: 'select',
         options: ['mandatory', 'proximity', 'none', undefined],
       },
       table: {

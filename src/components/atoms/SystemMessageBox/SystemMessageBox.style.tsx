@@ -11,8 +11,6 @@ import { css, styled } from 'styled-components';
 type TStyledSystemMessage = TStyledPrefixAndOmiter<TSystemMessageBox, 'children' | 'sizeC'>;
 
 export const StyledStystemMessage = styled.aside<{ theme: TTheme } & TStyledSystemMessage>`
-  box-sizing: border-box;
-  width: 100%;
   border-width: 1px;
   align-items: center;
   transition: all 0.2s;

@@ -20,31 +20,31 @@ const meta = {
     sizeC: {
       description: 'The sizeC of the button.',
       control: {
-        type: 'select' as const,
+        type: 'select',
       },
     },
     isActive: {
       description: 'The active state of the button.',
       control: {
-        type: 'boolean' as const,
+        type: 'boolean',
       },
     },
     outlined: {
       description: 'The outlined state of the button.',
       control: {
-        type: 'boolean' as const,
+        type: 'boolean',
       },
     },
     onClick: {
       description: 'The onClick event of the button.',
       control: {
-        type: 'object' as const,
+        type: 'function',
       },
     },
     externalStyle: {
       description: 'The externalStyle of the button.',
       control: {
-        type: 'object' as const,
+        type: 'object',
       },
     },
   },

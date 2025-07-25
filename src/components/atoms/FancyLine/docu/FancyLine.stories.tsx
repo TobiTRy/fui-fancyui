@@ -20,7 +20,7 @@ const meta = {
     direction: {
       description: 'Determines the orientation of the line. "horizontal" or "vertical"',
       control: {
-        type: 'select' as const,
+        type: 'select',
       },
       table: {
         defaultValue: { summary: 'horizontal' },
@@ -33,21 +33,21 @@ const meta = {
         defaultValue: { summary: '1px' },
       },
       control: {
-        type: 'text' as const,
+        type: 'text',
       },
     },
     margin: {
       description:
         'This prop works like the margin in css. you can use a array with values like ["sm", "md"]. or an normal spacing like "xs"',
       control: {
-        type: 'text' as const,
+        type: 'text',
       },
     },
     length: {
       description:
         'Specifies the length of the line. Accepts CSS size units. Default is `auto`, allowing the line to fill its container.',
       control: {
-        type: 'text' as const,
+        type: 'text',
       },
       table: {
         defaultValue: { summary: '100%' },
@@ -56,16 +56,16 @@ const meta = {
     isActive: {
       description: 'Is the Line active, gives it the accent color',
       control: {
-        type: 'boolean' as const,
+        type: 'boolean',
       },
       table: {
-        defaultValue: { summary: 'false' },
+        defaultValue: { summary: false },
       },
     },
     systemMessageType: {
       description: 'Optional prop to specify system message color theming',
       control: {
-        type: 'select' as const,
+        type: 'select',
       },
       defaultValue: undefined,
       options: ['error', 'warning', 'success', 'info', undefined],

@@ -1,13 +1,13 @@
 import { css, styled } from 'styled-components';
 
 import { TFancyImageWrapper } from '@/components/atoms/FancyImageWrapper/FancyImageWrapper.model';
-import { TStyledPrefixAndPicker } from '@/types/TStyledPrefixAndPicker';
 import { TTheme } from '@/types/TTheme';
+import { TStyledPrefixAndPicker } from '@/types/TStyledPrefixAndPicker';
 
-import { arrayToCssValues } from '@/design/designFunctions/arrayToCssValues';
+import { globalSizes } from '@/design/theme/globalSizes';
+import { TComponentSizesExtended } from '@/types/TComponentSizes';
 import { createCssFilterString } from '@/design/designFunctions/createCssFilterString';
-import { globalElementSizes } from '@/design/theme/globalSizes';
-import { TglobalElementSizesWithFit } from '@/types';
+import { arrayToCssValues } from '@/design/designFunctions/arrayToCssValues';
 
 type TStyledImage = TStyledPrefixAndPicker<
   TFancyImageWrapper,
@@ -17,7 +17,7 @@ type TStyledImage = TStyledPrefixAndPicker<
 // ------------------------- Helper Functions -------------------------------- //
 // --------------------------------------------------------------------------- //
 // Generate the sizes for the image based on the provided sizeC
-const generateSize = (sizeC: TglobalElementSizesWithFit | string, direction: 'height' | 'width') => {
+const generateSize = (sizeC: TComponentSizesExtended | 'fit' | string, direction: 'height' | 'width') => {
   if (sizeC === 'fit') {
     return css`
       ${direction}: 100%;
@@ -25,9 +25,9 @@ const generateSize = (sizeC: TglobalElementSizesWithFit | string, direction: 'he
   }
 
   // Check if the sizeC is a theme sizeC
-  if (sizeC !== 'fit' && globalElementSizes[sizeC as Exclude<TglobalElementSizesWithFit, 'fit'>]) {
+  if (globalSizes[sizeC as TComponentSizesExtended]) {
     return css`
-      ${direction + ': ' + globalElementSizes[sizeC as Exclude<TglobalElementSizesWithFit, 'fit'>]};
+      ${direction + ': ' + globalSizes[sizeC as TComponentSizesExtended].elementSize};
     `;
   }
 

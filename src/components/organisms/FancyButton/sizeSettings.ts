@@ -1,6 +1,6 @@
 import { TThemeArrayOrValueCSS } from '@/design/designFunctions/arrayToCssValues';
-import { TComponentSizesMid, TSpacings } from '@/types';
-import { TSizeSettingsMid } from '@/types/TSizeSettings';
+import { TglobalElementSizes, TSpacings } from '@/types';
+import { TSizeSettings } from '@/types/TSizeSettings';
 import { TTypographyVariants } from '@/types/TTypographyVariants';
 
 type TSizeObj = {
@@ -9,21 +9,13 @@ type TSizeObj = {
   gap: TSpacings;
   paddingIconAlignLeft: TThemeArrayOrValueCSS;
   paddingIconAlignRight: TThemeArrayOrValueCSS;
-  iconSize: TComponentSizesMid;
+  iconSize: TglobalElementSizes;
 };
 
-export const sizeSettings: TSizeSettingsMid<TSizeObj> = {
-  xs: {
-    padding: ['xs', 'sm'],
-    gap: 'xxs',
-    paddingIconAlignLeft: ['xs', 'sm', 'xs', 'xs'],
-    paddingIconAlignRight: ['xs', 'xs', 'xs', 'sm'],
-    fontSize: 'interactiveXs',
-    iconSize: 'sm',
-  },
+export const sizeSettings: TSizeSettings<TSizeObj> = {
   sm: {
     padding: ['xs', 'md'],
-    gap: 'xxs',
+    gap: '3xs',
     paddingIconAlignLeft: ['xs', 'md', 'xs', 'sm'],
     paddingIconAlignRight: ['xs', 'sm', 'xs', 'md'],
     fontSize: 'interactiveSm',
@@ -31,7 +23,7 @@ export const sizeSettings: TSizeSettingsMid<TSizeObj> = {
   },
   md: {
     padding: ['xs', 'lg'],
-    gap: 'xxs',
+    gap: '3xs',
     paddingIconAlignLeft: ['xs', 'lg', 'xs', 'md'],
     paddingIconAlignRight: ['xs', 'md', 'xs', 'lg'],
     fontSize: 'interactiveMd',
@@ -44,13 +36,5 @@ export const sizeSettings: TSizeSettingsMid<TSizeObj> = {
     paddingIconAlignRight: ['sm', 'lg', 'sm', 'xl'],
     fontSize: 'interactiveLg',
     iconSize: 'xs',
-  },
-  xl: {
-    padding: ['sm', 'xl'],
-    gap: 'xxs',
-    paddingIconAlignLeft: ['sm', 'xl', 'sm', 'lg'],
-    paddingIconAlignRight: ['sm', 'lg', 'sm', 'xl'],
-    fontSize: 'interactiveXl',
-    iconSize: 'md',
   },
 };

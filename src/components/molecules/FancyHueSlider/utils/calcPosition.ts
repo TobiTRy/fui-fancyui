@@ -1,7 +1,5 @@
 import Color from 'color';
 
-type ColorType = ReturnType<typeof Color>;
-
 //define the min and max hue value for the slider
 const minHue = 0;
 const maxHue = 359.9; // 360 is red again, 360degree is the same as 0 degree
@@ -15,7 +13,7 @@ export const positionToColorHue = (clientX: number, rect: DOMRect) => {
 };
 
 //calculate the position of the slider from the hue value
-export const colorToPositionHue = (color: ColorType) => {
+export const colorToPositionHue = (color: Color) => {
   if (!color) return { x: 0, y: 0 };
   //get the hue value from the current color
   const hue = Color(color).hsl().object().h;

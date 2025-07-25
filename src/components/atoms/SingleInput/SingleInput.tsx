@@ -24,11 +24,11 @@ const SingleInput = forwardRef<HTMLInputElement, TSingleInputAtomWithHTMLAttrs>(
       onChange={() => {}}
       onFocus={(e) => {
         setIsFocused(true);
-        if (onFocus) onFocus(e);
+        onFocus && onFocus(e);
       }}
       onBlur={(e) => {
         setIsFocused(false);
-        if (onBlur) onBlur(e);
+        onBlur && onBlur(e);
       }}
       $hasValue={value.length > 0}
       $isFocused={isFocused}

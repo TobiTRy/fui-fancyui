@@ -25,19 +25,19 @@ const meta = {
     isActive: {
       description: 'Is the link active',
       control: {
-        type: 'boolean' as const,
+        type: 'boolean',
       },
     },
     isHoverable: {
       description: 'Is the link hoverable',
       control: {
-        type: 'boolean' as const,
+        type: 'boolean',
       },
     },
     externalStyle: {
       description: 'External styles to be injected into the component',
       control: {
-        type: 'object' as const,
+        type: 'object',
       },
     },
   },

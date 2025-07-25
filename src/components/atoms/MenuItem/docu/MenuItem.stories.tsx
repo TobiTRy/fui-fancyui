@@ -22,7 +22,7 @@ const meta = {
     ...templateThemeType('notTransparent', 'primary', 3),
     sizeC: {
       description: 'The size of the divider',
-      control: { type: 'select' as const },
+      control: { type: 'select' },
       options: ['sm', 'md', 'lg'],
       table: {
         defaultValue: { summary: 'md' },
@@ -30,7 +30,7 @@ const meta = {
     },
     align: {
       description: 'The alignment of the content',
-      control: { type: 'select' as const },
+      control: { type: 'select' },
       options: ['left', 'center', 'right'],
       table: {
         defaultValue: { summary: 'center' },
@@ -38,25 +38,25 @@ const meta = {
     },
     externalStyle: {
       description: 'Add some external styles',
-      control: { type: 'object' as const },
+      control: { type: 'object' },
     },
     outlined: {
       description: 'Add an outline',
-      control: { type: 'boolean' as const },
+      control: { type: 'boolean' },
       table: {
-        defaultValue: { summary: 'false' },
+        defaultValue: { summary: false },
       },
     },
     outlinedBackgroundStrength: {
       description: 'The strength of the outline',
-      control: { type: 'number' as const },
+      control: { type: 'number' },
       table: {
-        defaultValue: { summary: '1' },
+        defaultValue: { summary: 1 },
       },
     },
     as: {
       description: 'The HTML tag to use',
-      control: { type: 'select' as const },
+      control: { type: 'select' },
       options: ['button', 'a'],
       table: {
         defaultValue: { summary: 'button' },

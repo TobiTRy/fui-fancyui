@@ -21,7 +21,7 @@ const meta = {
     ...templateThemeType('allThemeTypes', 'secondary'),
     align: {
       description: 'This is the alignment of the label with flex',
-      control: { type: 'radio' as const },
+      control: { type: 'radio' },
       options: ['left', 'center', 'right', undefined],
       type: { name: 'string' },
       table: {
@@ -32,24 +32,24 @@ const meta = {
       description: 'The system message type',
       type: { name: 'string', required: false },
       options: ['error', 'warning', 'info', 'success', undefined],
-      control: { type: 'select' as const },
+      control: { type: 'select' },
     },
     typography: {
       description: 'the props wich a typography component can get',
-      control: { type: 'object' as const },
+      control: { type: 'object' },
     },
     size: {
       description: 'The size of the component',
-      control: { type: 'select' as const },
+      control: { type: 'select' },
       table: {
         defaultValue: { summary: 'md' },
       },
     },
     ownTypographyComponent: {
       description: 'If you want to use your own typography component or other component as a child',
-      control: { type: 'boolean' as const },
+      control: { type: 'boolean' },
       table: {
-        defaultValue: { summary: 'false' },
+        defaultValue: { summary: false },
       },
     },
   },

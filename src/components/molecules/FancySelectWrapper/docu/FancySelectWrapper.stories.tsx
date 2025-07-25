@@ -19,39 +19,39 @@ const meta = {
     align: {
       description: 'The alignment of the label and the input element.',
       control: {
-        type: 'select' as const,
+        type: 'select',
         options: ['center', 'left', 'right'],
       },
     },
     alignInput: {
       description: 'The alignment of the input element.',
       control: {
-        type: 'select' as const,
+        type: 'select',
         options: ['left', 'right'],
       },
     },
     externalStyle: {
       description: 'External styling for the component.',
       control: {
-        type: 'object' as const,
+        type: 'object',
       },
     },
     label: {
       description: 'The label for the input element.',
       control: {
-        type: 'text' as const,
+        type: 'text',
       },
     },
     description: {
       description: 'The description for the input element.',
       control: {
-        type: 'text' as const,
+        type: 'text',
       },
     },
     layerDescription: {
       description: 'The layer of the description.',
       control: {
-        type: 'range' as const,
+        type: 'range',
         min: 0,
         max: 9,
       },

@@ -62,7 +62,7 @@ const FancyTabSwitchButton = React.forwardRef<HTMLDivElement, TFancyTabSwitchBut
         externalStyle={{ zIndex: 1 }}
       >
         {(icon || label) && (
-          <FancyContent layoutMode="normal" alignIcon={iconAlign === 'right' ? 'right' : 'left'}>
+          <FancyContent direction={leftRightToFlex(iconAlign)}>
             {icon && <FancyContent.Icon>{icon}</FancyContent.Icon>}
             {label && <FancyContent.Title fontVariant={sizeSettings[sizeC].fontSize}>{label}</FancyContent.Title>}
           </FancyContent>

@@ -19,7 +19,7 @@ const meta = {
     borderRadius: {
       description: 'The border radius of the component',
       control: {
-        type: 'select' as const,
+        type: 'select',
       },
       table: {
         defaultValue: { summary: 'xs' },
@@ -28,7 +28,7 @@ const meta = {
     gapColumn: {
       description: 'The gap column of the component',
       control: {
-        type: 'select' as const,
+        type: 'select',
       },
       table: {
         defaultValue: { summary: 'sm' },
@@ -37,7 +37,7 @@ const meta = {
     gapRow: {
       description: 'The gap row of the component',
       control: {
-        type: 'select' as const,
+        type: 'select',
       },
       table: {
         defaultValue: { summary: 'sm' },
@@ -46,26 +46,26 @@ const meta = {
     gridAreas: {
       description: 'The grid areas of the component',
       control: {
-        type: 'object' as const,
+        type: 'object',
       },
       table: {
-        defaultValue: { summary: "['']" },
+        defaultValue: { summary: [''] },
       },
     },
     gridAreasBreakPoints: {
       description:
         'The grid areas breakpoints of the component uses the breakpoints from the theme like sm, md, lg...)',
       control: {
-        type: 'object' as const,
+        type: 'object',
       },
       table: {
-        defaultValue: { summary: '{}' },
+        defaultValue: { summary: {} },
       },
     },
     height: {
       description: 'The height of the component',
       control: {
-        type: 'text' as const,
+        type: 'text',
       },
       table: {
         defaultValue: { summary: '100%' },
@@ -74,7 +74,7 @@ const meta = {
     width: {
       description: 'The width of the component',
       control: {
-        type: 'text' as const,
+        type: 'text',
       },
       table: {
         defaultValue: { summary: '100%' },

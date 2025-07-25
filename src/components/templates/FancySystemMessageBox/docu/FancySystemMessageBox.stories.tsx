@@ -19,7 +19,7 @@ const meta = {
     sizeC: {
       description: 'The size of the component.',
       control: {
-        type: 'select' as const,
+        type: 'select',
       },
       table: {
         defaultValue: { summary: 'sm' },
@@ -28,31 +28,67 @@ const meta = {
     icon: {
       description: 'The icon to be displayed in the system message box.',
       control: {
-        type: 'object' as const,
+        type: 'object',
       },
     },
     title: {
       description: 'The title of the system message box.',
       control: {
-        type: 'text' as const,
+        type: 'text',
       },
     },
     description: {
       description: 'The description of the system message box.',
       control: {
-        type: 'text' as const,
+        type: 'text',
+      },
+    },
+    direction: {
+      description: 'The flex direction of the component',
+      control: {
+        type: 'select',
+      },
+    },
+    justify: {
+      description: 'The flex justify of the component',
+      control: {
+        type: 'select',
+      },
+    },
+    align: {
+      description: 'The flex align of the component',
+      control: {
+        type: 'select',
       },
     },
     gapBetweenIcon: {
       description: 'The gap between the icon and the content',
       control: {
-        type: 'text' as const,
+        type: 'text',
       },
     },
     gapBetweenText: {
       description: 'The gap between the content',
       control: {
-        type: 'text' as const,
+        type: 'text',
+      },
+    },
+    alignIcon: {
+      description: 'The align of the icon',
+      control: {
+        type: 'radio',
+      },
+    },
+    alignTextGroup: {
+      description: 'The align of the text group',
+      control: {
+        type: 'radio',
+      },
+    },
+    directionTextGroup: {
+      description: 'The direction of the text group',
+      control: {
+        type: 'radio',
       },
     },
   },
@@ -66,50 +102,73 @@ export const Error: Story = {
   render: (args) => <FancySystemMessageBox {...args} />,
   args: {
     icon: <> 🌇 </>,
-    title: 'This is a Error Message',
-    description: 'Something went wrong, please try again',
+    title: 'This is a InfoCard',
+    description: 'This is a InfoCard',
     themeType: 'error',
     layer: 0,
     sizeC: 'sm',
+    direction: 'row',
+    directionTextGroup: 'column',
+    alignTextGroup: 'flex-start',
+    justify: 'flex-start',
+    align: 'center',
     gapBetweenText: '0px',
+    alignIcon: 'left',
   },
 };
 
 export const Info: Story = {
   render: (args) => <FancySystemMessageBox {...args} />,
   args: {
-    icon: <> ℹ️ </>,
-    title: 'Information Message',
-    description: 'Here is some helpful information',
+    icon: <> 🌇 </>,
+    title: 'This is a InfoCard',
+    description: 'This is a InfoCard',
     themeType: 'info',
     layer: 0,
     sizeC: 'sm',
+    direction: 'row',
+    directionTextGroup: 'column',
+    alignTextGroup: 'flex-start',
+    justify: 'flex-start',
+    align: 'center',
     gapBetweenText: '0px',
+    alignIcon: 'left',
   },
 };
-
 export const Success: Story = {
   render: (args) => <FancySystemMessageBox {...args} />,
   args: {
-    icon: <> ✅ </>,
-    title: 'Success Message',
-    description: 'Operation completed successfully',
+    icon: <> 🌇 </>,
+    title: 'This is a InfoCard',
+    description: 'This is a InfoCard',
     themeType: 'success',
     layer: 0,
     sizeC: 'sm',
+    direction: 'row',
+    directionTextGroup: 'column',
+    alignTextGroup: 'flex-start',
+    justify: 'flex-start',
+    align: 'center',
     gapBetweenText: '0px',
+    alignIcon: 'left',
   },
 };
 
 export const Warning: Story = {
   render: (args) => <FancySystemMessageBox {...args} />,
   args: {
-    icon: <> ⚠️ </>,
-    title: 'Warning Message',
-    description: 'Please pay attention to this warning',
+    icon: <> 🌇 </>,
+    title: 'This is a InfoCard',
+    description: 'This is a InfoCard',
     themeType: 'warning',
     layer: 0,
     sizeC: 'sm',
+    direction: 'row',
+    directionTextGroup: 'column',
+    alignTextGroup: 'flex-start',
+    justify: 'flex-start',
+    align: 'center',
     gapBetweenText: '0px',
+    alignIcon: 'left',
   },
 };

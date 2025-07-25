@@ -1,13 +1,13 @@
 'use client';
 
 import { StyledDisabledBox } from './DisabledBox.style';
-import { TDisabledBoxProps } from './TDisabled.model';
+import { TDisabledBox } from './TDisabled.model';
 
-export default function DisabledBox(props: TDisabledBoxProps) {
-  const { disabled, pointerEvents, children, ...rest } = props;
+export default function DisabledBox(props: TDisabledBox) {
+  const { disabled, pointerEvents, children } = props;
 
   return (
-    <StyledDisabledBox $disabled={disabled} $pointerEvents={pointerEvents} {...rest}>
+    <StyledDisabledBox $disabled={disabled} $pointerEvents={pointerEvents}>
       {children}
     </StyledDisabledBox>
   );

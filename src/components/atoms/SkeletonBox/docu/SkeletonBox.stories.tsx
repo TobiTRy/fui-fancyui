@@ -22,14 +22,14 @@ const meta = {
       description:
         'A string representing the width-to-height ratio (e.g., `16:9`). This prop triggers a validation function to ensure the ratio is correctly formatted. ',
       control: {
-        type: 'text' as const,
+        type: 'text',
       },
     },
     sizeH: {
       description:
         'Specifies the height of the skeleton box. Can be a predefined size or `fit` to stretch to the container`s height.',
       control: {
-        type: 'select' as const,
+        type: 'select',
       },
       table: {
         defaultValue: { summary: 'fit' },
@@ -39,7 +39,7 @@ const meta = {
       description:
         'Defines the width of the skeleton box. Can be a predefined size or `fit` to stretch to the container`s width',
       control: {
-        type: 'select' as const,
+        type: 'select',
       },
       table: {
         defaultValue: { summary: 'fit' },
@@ -49,7 +49,7 @@ const meta = {
       description:
         'A string representing the width-to-height ratio (e.g., `16:9`). This prop triggers a validation function to ensure the ratio is correctly formatted.',
       control: {
-        type: 'select' as const,
+        type: 'select',
       },
       table: {
         defaultValue: { summary: 'xs' },
@@ -58,13 +58,13 @@ const meta = {
     externalStyle: {
       description: 'External styles to be applied to the component',
       control: {
-        type: 'object' as const,
+        type: 'object',
       },
     },
     index: {
       description: 'The index can be used to delay the animation of the skeleton box e.g. in a list',
       control: {
-        type: 'number' as const,
+        type: 'number',
       },
     },
     ...templateThemeType('allThemeTypes', 'primary', 0),

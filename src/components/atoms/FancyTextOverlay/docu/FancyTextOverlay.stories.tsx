@@ -27,7 +27,7 @@ const meta = {
     position: {
       description: 'Specifies the position of the text overlay relative to the media content.',
       control: {
-        type: 'select' as const,
+        type: 'select',
       },
       table: {
         defaultValue: { summary: 'top-left' },

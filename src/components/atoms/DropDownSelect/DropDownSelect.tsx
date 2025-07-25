@@ -22,13 +22,13 @@ const DropDownSelect = forwardRef<HTMLSelectElement, TDropDownSelect & TDropDown
   return (
     <SelectField ref={ref} $align={align} $labelAlign={align} value={value || ''} {...htmlInputProps}>
       {/* Placeholder option */}
+      {/* Empty Select Option  */}
       {placeholder && (
-        <option key="-2" value="" style={{ color: 'red' }} disabled={required && true}>
+        <option key="-2" value="" disabled={required && true}>
           {placeholder}
         </option>
       )}
 
-      {/* Empty Select Option  */}
       {emptySelect && (
         <option key="-1" value="" disabled={required && true}>
           {''}

@@ -21,11 +21,11 @@ const meta = {
   argTypes: {
     type: {
       description: 'The type of the video source. This should be a valid MIME type. For example, "video/mp4".',
-      control: { type: 'text' as const },
+      control: { type: 'text' },
     },
     src: {
       description: 'The source URL for the video.',
-      control: { type: 'text' as const },
+      control: { type: 'text' },
     },
   },
 } satisfies Meta<typeof FancyVideoSource>;

@@ -16,7 +16,7 @@ const meta = {
   argTypes: {
     labelAlign: {
       description: 'The alignment of the label',
-      control: { type: 'radio' as const },
+      control: { type: 'radio' },
     },
   },
   tags: ['autodocs'],

@@ -28,7 +28,7 @@ const meta = {
     searchListWidth: {
       description: 'The width of the search list',
       control: {
-        type: 'text' as const,
+        type: 'text',
       },
       table: {
         defaultValue: { summary: '100%' },
@@ -37,14 +37,14 @@ const meta = {
     value: {
       description: 'The search value',
       control: {
-        type: 'text' as const,
+        type: 'text',
       },
     },
     ...templateThemeType('mainThemeTypes', 'primary', 2),
     sizeC: {
       description: 'The size of the input',
       control: {
-        type: 'select' as const,
+        type: 'select',
       },
       table: {
         defaultValue: { summary: 'md' },
@@ -53,16 +53,16 @@ const meta = {
     openListWhenFocused: {
       description: 'Whether the list is open when focused',
       control: {
-        type: 'boolean' as const,
+        type: 'boolean',
       },
       table: {
-        defaultValue: { summary: 'false' },
+        defaultValue: { summary: false },
       },
     },
     borderRadius: {
       description: 'The border radius of the search list',
       control: {
-        type: 'object' as const,
+        type: 'object',
       },
     },
   },

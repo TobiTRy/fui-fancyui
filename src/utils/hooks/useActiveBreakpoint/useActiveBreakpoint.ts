@@ -29,7 +29,7 @@ const getActiveBreakpoint = (breakpoints?: TBreakPoints) => {
   if (!breakpoints) return null;
 
   // Using find instead of map
-
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const match = Object.entries(breakpoints)
     .reverse()
     .find(([_, query]) => {

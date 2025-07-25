@@ -21,24 +21,24 @@ const meta = {
   argTypes: {
     colors: {
       description: 'An array of colors or objects defining the gradient colors and their respective stop positions.',
-      control: { type: 'object' as const },
+      control: { type: 'object' },
     },
     orientation: {
       description: 'Specifies the type of gradient (linear, radial, etc.).',
-      control: { type: 'select' as const },
+      control: { type: 'select' },
     },
     position: {
       description:
         'he position of the gradient for radial or elliptical gradients. This prop is mutually exclusive with `degree`',
-      control: { type: 'select' as const },
+      control: { type: 'select' },
     },
     degree: {
       description: 'The degree angle for linear gradients. Only wehn `orientation` is not set.',
-      control: { type: 'number' as const },
+      control: { type: 'number' },
     },
     children: {
       description: 'The children to be wrapped by the gradient.',
-      control: { type: 'object' as const },
+      control: { type: 'object' },
     },
   },
 } satisfies Meta<typeof TextGradient>;

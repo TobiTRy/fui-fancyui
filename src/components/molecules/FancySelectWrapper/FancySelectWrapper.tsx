@@ -30,9 +30,9 @@ export default function FancySelectWrapper(props: TFancySelectWrapperWithHTMLPro
   return (
     <>
       {/* The label and description */}
-      {label || description ? (
+      {(label || description) && (
         <LabelWrapper $align={align} htmlFor={pickedId} $externalStyle={externalStyle} {...htmlProps}>
-          <FancyContent layoutMode="normal">
+          <FancyContent align={leftRightCenterToFlexJustify[alignInput]}>
             {label && (
               <FancyContent.Title fontVariant="interactiveLg" themeType={themeType} layer={layer} fontWeight={'bold'}>
                 {label}
@@ -52,9 +52,6 @@ export default function FancySelectWrapper(props: TFancySelectWrapperWithHTMLPro
           {/* The check box */}
           <InputWrapper $alignInput={alignInput}>{inputElement}</InputWrapper>
         </LabelWrapper>
-      ) : (
-        /* Render just the input element when no label/description */
-        <div>{inputElement}</div>
       )}
     </>
   );

@@ -23,14 +23,14 @@ const meta = {
     value: {
       description: 'Define the value of the slider',
       control: {
-        type: 'number' as const,
+        type: 'number',
       },
     },
     sizeC: {
       description: 'Define the size of the slider',
       options: ['sm', 'md', 'lg'],
       control: {
-        type: 'select' as const,
+        type: 'select',
       },
       table: {
         defaultValue: { summary: 'sm' },
@@ -39,7 +39,7 @@ const meta = {
     ref: {
       description: 'A ref object for accessing the DOM element',
       control: {
-        type: 'object' as const,
+        type: 'object',
       },
     },
   },

@@ -18,14 +18,14 @@ const meta = {
       description: 'If true, automatically adjusts the width of the input based on its value.',
       type: { name: 'boolean' },
       table: {
-        defaultValue: { summary: 'false' },
+        defaultValue: { summary: false },
       },
     },
     align: {
       description: 'Aligns the text within the input.',
       type: { name: 'string' },
       control: {
-        type: 'select' as const,
+        type: 'select',
       },
       table: {
         defaultValue: { summary: 'left' },
@@ -35,7 +35,7 @@ const meta = {
       description: 'The step size for the input´s value, used when incrementing or decrementing with arrow keys.',
       type: { name: 'number' },
       table: {
-        defaultValue: { summary: '1' },
+        defaultValue: { summary: 1 },
       },
     },
     value: {
@@ -46,7 +46,7 @@ const meta = {
       description: 'The maximum number of decimal places allowed in the input',
       type: { name: 'number' },
       table: {
-        defaultValue: { summary: '0' },
+        defaultValue: { summary: 0 },
       },
     },
     min: {

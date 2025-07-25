@@ -39,7 +39,7 @@ export default function DateOutput(props: TDateOutputWithNativeAtrrs) {
 
   const handleOpenCalendar = () => {
     setActive(true);
-    if (onClick) onClick();
+    onClick && onClick();
   };
 
   useEffect(() => {

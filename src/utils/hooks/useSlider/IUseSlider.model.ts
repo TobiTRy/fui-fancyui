@@ -1,17 +1,15 @@
 import Color from 'color';
 
-type ColorType = ReturnType<typeof Color>;
-
 // --------------------------------------------------------------------------- //
 // ---------------- Define the interfaces for the useSlider Hook ------------- //
 // --------------------------------------------------------------------------- //
 export interface IUseSlider {
-  color?: ColorType | null;
+  color?: Color | null;
   hue?: number;
   opacity?: number;
   type: 'hue' | 'opacity' | 'color';
   handlerSlider?: (value: number) => void;
-  handlerColor?: (color: ColorType) => void;
+  handlerColor?: (color: Color) => void;
   sliderPositionToColorFunc?: (clientX: number, rect: DOMRect) => number;
   positionToColorFunc?: (
     hue: number,
@@ -19,7 +17,7 @@ export interface IUseSlider {
     clientY: number,
     rect: DOMRect
   ) => { h: number; s: number; v: number } | number;
-  colorToPositionFunc: (color: ColorType, rect: DOMRect) => { x: number; y: number };
+  colorToPositionFunc: (color: Color, rect: DOMRect) => { x: number; y: number };
 }
 
 export interface IMarkerPosition {

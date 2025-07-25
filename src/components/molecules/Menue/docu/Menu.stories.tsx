@@ -23,13 +23,13 @@ const meta = {
     outlined: {
       description: 'If true, the menu list will have an outline',
       control: {
-        type: 'boolean' as const,
+        type: 'boolean',
       },
     },
     outlinedBackgroundStrength: {
       description: 'The strength of the background color when the menu list is outlined.',
       control: {
-        type: 'number' as const,
+        type: 'number',
         min: 0,
         max: 1,
         step: 0.1,
@@ -38,7 +38,7 @@ const meta = {
     externalStyle: {
       description: 'External style for the menu list.',
       control: {
-        type: 'object' as const,
+        type: 'object',
       },
     },
   },

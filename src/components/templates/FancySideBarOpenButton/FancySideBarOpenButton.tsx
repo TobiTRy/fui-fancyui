@@ -10,11 +10,11 @@ import { TFancySideBarOpenButton } from '@/components/templates/FancySideBarOpen
 // ------- wich indicates if a modal open and closing button         --------- //
 // --------------------------------------------------------------------------- //
 export default function FancySideBarOpenButton(props: TFancySideBarOpenButton) {
-  const { isOpen, hoverLayer, arrowDirectionClosed = 'left', sizeC = 'sm', ...SideBarItemProps } = props;
+  const { isOpen, hoverLayer, arrowDirectionClosed = 'left', ...SideBarItemProps } = props;
 
   return (
-    <SideBarItem sizeC={sizeC} hoverLayer={hoverLayer ?? 4} {...SideBarItemProps}>
-      <SideBarItem.Icon sizeC={sizeC}>
+    <SideBarItem hoverLayer={hoverLayer ?? 4} {...SideBarItemProps}>
+      <SideBarItem.Icon sizeC={props.sizeC}>
         {arrowDirectionClosed === 'left' && (isOpen ? <SVGDoubleChevronLeft /> : <SVGDoubleChevronRight />)}
         {arrowDirectionClosed === 'right' && (isOpen ? <SVGDoubleChevronRight /> : <SVGDoubleChevronLeft />)}
       </SideBarItem.Icon>

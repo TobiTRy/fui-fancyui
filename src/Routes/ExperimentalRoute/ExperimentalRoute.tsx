@@ -18,7 +18,6 @@ import { SwipeUpContainer } from '@/components/atoms/SwipeUpContainer';
 import { useActiveBreakpoint } from '@/utils/hooks/useActiveBreakpoint';
 import { SystemMessage } from '@/components/atoms/SystemMessage';
 import { FancyTextInput } from '@/components/organisms/FancyTextInput';
-import { FancyDropDownSelect } from '@/components/organisms/FancyDropDownSelect';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -69,27 +68,20 @@ export default function ExperimentalRoute() {
   const [isHover, setIsHover] = useState(false);
   const [modalPosition, setModalPosition] = useState({ height: '100%' });
   const activeBP = useActiveBreakpoint();
-  const [selectedValue, setSelectedValue] = useState<string>('');
 
   console.log(activeBP);
 
+  const [selectedValue, setSelectedValue] = useState(null);
+
   const options = [
-    { key: 'option1', value: 'Option 1' },
-    { key: 'option2', value: 'Option 2' },
-    { key: 'option3', value: 'Option 3' },
+    { value: 'option1', label: 'Option 1' },
+    { value: 'option2', label: 'Option 2' },
+    { value: 'option3', label: 'Option 3' },
   ];
 
   return (
     <>
       <DesignWrapper>
-        <FancyDropDownSelect
-          required
-          value={selectedValue}
-          placeholder="Hiii"
-          emptySelect
-          values={options}
-          onChange={(e) => setSelectedValue(e.target.value)}
-        />
         <div>
           <FancyTextInput />
           <SystemMessage themeType="secondary" showMessage={true}>

@@ -8,8 +8,8 @@ const RawButton = styled.button<{ disabled?: boolean }>`
   background-color: transparent;
   cursor: pointer;
   padding: 0;
+  display: flex;
   color: inherit;
-  text-decoration: none;
 
   ${(props) => props.disabled && disabledStyle}
 `;

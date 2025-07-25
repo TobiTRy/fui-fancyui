@@ -23,7 +23,7 @@ const meta = {
     sizeC: {
       description: 'The size of the week days',
       control: {
-        type: 'select' as const,
+        type: 'select',
       },
       table: {
         defaultValue: { summary: 'md' },
@@ -32,7 +32,7 @@ const meta = {
     border: {
       description: 'Determines the placement of a border line, if any.',
       control: {
-        type: 'select' as const,
+        type: 'select',
       },
       options: ['none', 'top', 'bottom', undefined],
       table: {
@@ -42,7 +42,7 @@ const meta = {
     startWeekOn: {
       description: 'Specifies the day the week starts on (0 for Sunday, 1 for Monday, etc.)',
       control: {
-        type: 'select' as const,
+        type: 'select',
       },
       table: {
         defaultValue: { summary: '1' },

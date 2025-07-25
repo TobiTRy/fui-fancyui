@@ -34,6 +34,7 @@ For a detailed exploration, visit [FancyUI Storybook](https://fancyui.net). Whet
 ## 🚀 Getting Started (Upon Release)
 
 1. **Explore the Storybook**:
+
    - Once released, run `npm run storybook` to launch the Storybook interface.
    - Discover how to set up and utilize FUI components in your project.
    - Browse through interactive examples and detailed documentation.

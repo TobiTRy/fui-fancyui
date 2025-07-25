@@ -25,17 +25,17 @@ const meta = {
     isOpen: {
       description: 'Determines if the dropdown is open or closed',
       control: {
-        type: 'boolean' as const,
+        type: 'boolean',
       },
       table: {
-        defaultValue: { summary: 'false' },
+        defaultValue: { summary: false },
       },
     },
     ...templateThemeType('mainThemeTypes', 'primary', 2),
     width: {
       description: 'Width of the dropdown',
       control: {
-        type: 'text' as const,
+        type: 'text',
       },
       table: {
         defaultValue: { summary: '50%' },
@@ -44,7 +44,7 @@ const meta = {
     alignHorizontal: {
       description: 'Horizontal alignment of the dropdown',
       control: {
-        type: 'select' as const,
+        type: 'select',
       },
       table: {
         defaultValue: { summary: 'center' },
@@ -53,7 +53,7 @@ const meta = {
     alignVertical: {
       description: 'Vertical alignment of the dropdown',
       control: {
-        type: 'select' as const,
+        type: 'select',
       },
       table: {
         defaultValue: { summary: 'top' },

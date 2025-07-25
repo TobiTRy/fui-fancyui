@@ -20,30 +20,30 @@ const meta = {
     colorValue: {
       description: 'The color to be displayed. Accepts a Color object or a color string.',
       type: { name: 'string', required: true },
-      control: { type: 'color' as const },
+      control: { type: 'color' },
     },
     opacity: {
       description: 'The opacity level of the color, with `1` being fully opaque and `0` being fully transparent.',
-      control: { type: 'range' as const, min: 0, max: 1, step: 0.1 },
+      control: { type: 'range', min: 0, max: 1, step: 0.1 },
     },
     fullHeight: {
       description: 'When `true`, the component fills the height of its parent container.',
-      control: { type: 'boolean' as const },
+      control: { type: 'boolean' },
     },
     borderRadius: {
       description: 'Specifies the border radius of the color display, accepting predefined size values.',
-      control: { type: 'object' as const },
+      control: { type: 'object' },
     },
     sizeC: {
       description:
         'Determines the size of the component, affecting its height and potentially other size-related properties.',
-      control: { type: 'select' as const },
+      control: { type: 'select' },
       options: ['sm', 'md', 'lg'],
     },
     children: {
       description:
         'The children of the component, typically used for displaying additional components such as the color value.',
-      control: { type: 'object' as const },
+      control: { type: 'object' },
     },
   },
 } satisfies Meta<typeof ColorDisplay>;

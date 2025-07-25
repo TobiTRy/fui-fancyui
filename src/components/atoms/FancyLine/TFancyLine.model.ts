@@ -7,7 +7,6 @@ import { TUiColorsSystemMessage } from '@/types/TUiColorsSystemMessage';
 import { CSSProp } from 'styled-components';
 
 export type TDirection = 'horizontal' | 'vertical';
-export type TFadeDirection = 'start' | 'end' | 'both';
 
 export type TFancyLine = {
   direction?: TDirection;
@@ -19,8 +18,6 @@ export type TFancyLine = {
   isActive?: boolean;
   layer?: TLayer;
   externalStyle?: CSSProp;
-  fadingOut?: boolean;
-  fadeDirection?: TFadeDirection;
 };
 
 export type TFancyLineWithHTMLAttributes = TFancyLine & HTMLAttributes<HTMLHRElement>;

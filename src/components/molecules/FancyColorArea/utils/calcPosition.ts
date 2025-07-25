@@ -2,8 +2,6 @@
 
 import Color from 'color';
 
-type ColorType = ReturnType<typeof Color>;
-
 //HSV can be better used for merging Lightness and Saturation (L: 100 and S:100) = Full Color
 export const positionToColor = (hue: number, clientX: number, clientY: number, rect: DOMRect) => {
   //calculate the position of the mouse in the color area(rect)
@@ -22,7 +20,7 @@ export const positionToColor = (hue: number, clientX: number, clientY: number, r
 };
 
 //this function calculates the color to the position on the area using the HSV Color Type
-export const colorToPosition = (color: ColorType, rect: DOMRect) => {
+export const colorToPosition = (color: Color, rect: DOMRect) => {
   //get the saturation and lightness(value) from the color
   const hsvColor = color.hsv().object();
   const saturation = hsvColor.s;

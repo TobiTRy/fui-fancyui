@@ -22,13 +22,13 @@ const meta = {
     maxValue: {
       description: 'Define the max value of the progress bar',
       control: {
-        type: 'number' as const,
+        type: 'number',
       },
     },
     progress: {
       description: 'Define the progress of the progress bar',
       control: {
-        type: 'number' as const,
+        type: 'number',
       },
     },
     ...templateThemeType('notTransparent', 'primary', 3),

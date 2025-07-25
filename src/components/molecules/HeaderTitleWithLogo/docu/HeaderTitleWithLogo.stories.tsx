@@ -20,13 +20,13 @@ const meta = {
     title: {
       description: 'The title text to be displayed.',
       control: {
-        type: 'text' as const,
+        type: 'text',
       },
     },
     logo: {
       description: 'The logo to be displayed.',
       control: {
-        type: 'object' as const,
+        type: 'object',
       },
     },
   },

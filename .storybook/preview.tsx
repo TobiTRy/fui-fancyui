@@ -14,9 +14,6 @@ const preview: Preview = {
   parameters: {
     docs: {
       container: DocsContainer,
-      canvas: {
-        sourceState: 'shown',
-      },
     },
     options: {
       storySort: {
@@ -30,7 +27,6 @@ const preview: Preview = {
           '*',
         ],
       },
-      enableShortcuts: false,
     },
     controls: {
       matchers: {
@@ -41,13 +37,6 @@ const preview: Preview = {
     darkMode: {
       dark: storyBookThemeDark,
       light: storyBookThemeLight,
-    },
-    // Disable editing features
-    toolbar: {
-      'storybook/save-story': { hidden: true },
-      'storybook/new-story': { hidden: true },
-      'storybook/edit-story': { hidden: true },
-      'storybook/duplicate-story': { hidden: true },
     },
   },
 };

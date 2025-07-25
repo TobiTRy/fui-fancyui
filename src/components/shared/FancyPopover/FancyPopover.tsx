@@ -14,7 +14,7 @@ export default function FancyPopover(props: TFancyPopoverWithHTMLAttrs) {
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (ref.current && !ref.current.contains(event.target as Node)) {
-        if (isOpen && onOutsideClick) onOutsideClick(event);
+        isOpen && onOutsideClick?.(event);
       }
     }
 

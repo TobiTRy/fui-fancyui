@@ -23,7 +23,7 @@ const meta = {
     align: {
       description: 'The alignment of the text.',
       control: {
-        type: 'select' as const,
+        type: 'select',
       },
       table: {
         defaultValue: { summary: 'center' },
@@ -39,7 +39,7 @@ const meta = {
     sizeC: {
       description: 'The size of the search bar.',
       control: {
-        type: 'select' as const,
+        type: 'select',
       },
       table: {
         defaultValue: { summary: 'sm' },

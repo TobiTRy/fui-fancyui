@@ -31,7 +31,7 @@ const meta = {
     appendToDomID: {
       description: 'The ID of the DOM element to append the modal to',
       control: {
-        type: 'text' as const,
+        type: 'text',
       },
       table: {
         defaultValue: { summary: 'body' },
@@ -40,45 +40,45 @@ const meta = {
     isOpen: {
       description: 'The state of the modal',
       control: {
-        type: 'boolean' as const,
+        type: 'boolean',
       },
       table: {
-        defaultValue: { summary: 'false' },
+        defaultValue: { summary: false },
       },
     },
     isScalable: {
       description: 'Is the modal scalable by the user',
       control: {
-        type: 'boolean' as const,
+        type: 'boolean',
       },
       table: {
-        defaultValue: { summary: 'true' },
+        defaultValue: { summary: true },
       },
     },
     isCloseable: {
       description: 'Is the modal closeable by the user',
       control: {
-        type: 'boolean' as const,
+        type: 'boolean',
       },
       table: {
-        defaultValue: { summary: 'true' },
+        defaultValue: { summary: true },
       },
     },
     modals: {
       description:
         'The array of modals to display should come from the store `const useFancySwipeUpModalStore  = createFancySwipeUpModalStore()ƒ`',
       control: {
-        type: 'object' as const,
+        type: 'object',
       },
       table: {
-        defaultValue: { summary: '[]' },
+        defaultValue: { summary: [] },
       },
     },
     closeModal: {
       description:
         'The function to close the modal should come from the store `const useFancySwipeUpModalStore  = createFancySwipeUpModalStore()ƒ`',
       control: {
-        type: 'object' as const,
+        type: 'function',
       },
     },
     ...templateThemeType('mainThemeTypes', 'primary', 1),

@@ -1,10 +1,10 @@
 import { FancySVGAtom, TFancySVGAtom } from '@/components/atoms/FancySVGAtom';
 import { css } from 'styled-components';
 import { sizeSettings } from '../sizeSettings';
-import { TComponentSizesMid } from '@/types/TComponentSizes';
+import { TComponentSizes } from '@/types/TComponentSizes';
 
 type TSideBarItemIcon = Omit<TFancySVGAtom, 'sizeC'> & {
-  sizeC?: TComponentSizesMid;
+  sizeC?: TComponentSizes;
 };
 export function Icon(props: TSideBarItemIcon) {
   const { children, sizeC = 'sm', externalStyle } = props;

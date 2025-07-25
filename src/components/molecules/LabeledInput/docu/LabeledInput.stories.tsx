@@ -19,13 +19,13 @@ const meta = {
     themeType: {
       description: 'The theme type of the component',
       control: {
-        type: 'select' as const,
+        type: 'select',
       },
     },
     layer: {
       description: 'The layer of the component',
       control: {
-        type: 'range' as const,
+        type: 'range',
         min: 0,
         max: 9,
         step: 1,
@@ -34,37 +34,37 @@ const meta = {
     isActive: {
       description: 'The state of the component',
       control: {
-        type: 'boolean' as const,
+        type: 'boolean',
       },
     },
     align: {
       description: 'The align of the component',
       control: {
-        type: 'select' as const,
+        type: 'select',
       },
     },
     label: {
       description: 'The label of the component',
       control: {
-        type: 'text' as const,
+        type: 'text',
       },
     },
     systemMessageType: {
       description: 'The systemMessage of the component',
       control: {
-        type: 'object' as const,
+        type: 'object',
       },
     },
     hasValue: {
       description: 'The hasValue of the component',
       control: {
-        type: 'boolean' as const,
+        type: 'boolean',
       },
     },
     underline: {
       description: 'The underline of the component',
       control: {
-        type: 'boolean' as const,
+        type: 'boolean',
       },
     },
   },

@@ -22,7 +22,7 @@ export default function SwitchList(props: TSwitchList) {
 
   const activeHandler = (uniqueKey: string) => {
     setCurrentActive(uniqueKey);
-    if (activeItemHandler) activeItemHandler(Number(uniqueKey));
+    activeItemHandler && activeItemHandler(Number(uniqueKey));
   };
 
   // Set the current active item if the whichIndexIsSelected prop changes

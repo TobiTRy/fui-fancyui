@@ -20,36 +20,36 @@ const meta = {
   argTypes: {
     colorArea: {
       description: 'Enables or disables the color area component.',
-      control: { type: 'boolean' as const },
+      control: { type: 'boolean' },
     },
     hueSlider: {
       description: 'Enables or disables the hue slider component.',
-      control: { type: 'boolean' as const },
+      control: { type: 'boolean' },
     },
     opacitySlider: {
       description: 'Enables or disables the opacity slider component.',
-      control: { type: 'boolean' as const },
+      control: { type: 'boolean' },
     },
     colorOutput: {
       description: 'Enables or disables the color output component.',
-      control: { type: 'boolean' as const },
+      control: { type: 'boolean' },
     },
     colorDisplay: {
       description: 'Enables or disables the display color component.',
-      control: { type: 'boolean' as const },
+      control: { type: 'boolean' },
     },
     inputColor: {
       description: 'The initial color value for the color picker.',
-      control: { type: 'text' as const },
+      control: { type: 'text' },
     },
     outputFormat: {
       description: 'The output color format',
-      control: { type: 'radio' as const },
+      control: { type: 'radio' },
       options: ['hsl', 'hex', 'rgb', 'rgba', 'hsla', 'hexa'],
     },
     handler: {
       description: 'A callback function that is invoked when the color value changes.',
-      control: { type: 'object' as const },
+      control: { type: 'function' },
     },
   },
 } satisfies Meta<typeof FancyColorPicker>;

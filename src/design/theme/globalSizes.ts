@@ -98,12 +98,12 @@ export const globalElementSizes = {
   lg: globalSizes.lg.elementSize,
   xl: globalSizes.xl.elementSize,
   xxl: globalSizes.xxl.elementSize,
-  '3xl': generateComponentSize(6, true),
-  '4xl': generateComponentSize(7, true),
-  '5xl': generateComponentSize(8, true),
-  '6xl': generateComponentSize(9, true),
-  '7xl': generateComponentSize(10, true),
-  '8xl': generateComponentSize(11, true),
+  '3xl': generateComponentSize(5, true),
+  '4xl': generateComponentSize(6, true),
+  '5xl': generateComponentSize(7, true),
+  '6xl': generateComponentSize(8, true),
+  '7xl': generateComponentSize(9, true),
+  '8xl': generateComponentSize(10, true),
 };
 
 export const globalElementSizesWithFit = {

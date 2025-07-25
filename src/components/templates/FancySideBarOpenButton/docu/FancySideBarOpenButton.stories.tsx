@@ -20,13 +20,13 @@ const meta = {
     isOpen: {
       description: 'The FancySideBarOpenButton is open.',
       control: {
-        type: 'boolean' as const,
+        type: 'boolean',
       },
     },
     arrowDirectionClosed: {
       description: 'The direction of the FancySideBarOpenButton when it is closed.',
       control: {
-        type: 'select' as const,
+        type: 'select',
         options: ['left', 'right'],
       },
       table: {
@@ -37,13 +37,13 @@ const meta = {
     outlined: {
       description: 'The FancySideBarOpenButton is outlined.',
       control: {
-        type: 'boolean' as const,
+        type: 'boolean',
       },
     },
     outlinedBackgroundStrength: {
       description: 'The strength of the background color when the FancySideBarOpenButton is outlined.',
       control: {
-        type: 'number' as const,
+        type: 'number',
         min: 0,
         max: 1,
         step: 0.1,
@@ -52,13 +52,13 @@ const meta = {
     externalStyle: {
       description: 'External style for the FancySideBarOpenButton list.',
       control: {
-        type: 'object' as const,
+        type: 'object',
       },
     },
     sizeC: {
       description: 'The size of the FancySideBarOpenButton.',
       control: {
-        type: 'select' as const,
+        type: 'select',
         options: ['sm', 'md', 'lg'],
       },
       table: {
@@ -68,7 +68,7 @@ const meta = {
     direction: {
       description: 'The direction of the FancySideBarOpenButton.',
       control: {
-        type: 'select' as const,
+        type: 'select',
       },
       table: {
         defaultValue: { summary: 'left' },
@@ -77,7 +77,7 @@ const meta = {
     justify: {
       description: 'The justify of the FancySideBarOpenButton.',
       control: {
-        type: 'select' as const,
+        type: 'select',
       },
       table: {
         defaultValue: { summary: 'left' },
@@ -86,13 +86,13 @@ const meta = {
     noMargin: {
       description: 'Deactivates the margin of the FancySideBarOpenButton (Is needed turned on the FancySideBar.)',
       control: {
-        type: 'boolean' as const,
+        type: 'boolean',
       },
     },
     wide: {
       description: 'The FancySideBarOpenButton is wide.',
       control: {
-        type: 'boolean' as const,
+        type: 'boolean',
       },
     },
   },

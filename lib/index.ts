@@ -106,7 +106,6 @@ export * from '@/components/molecules/BottomBarIcon';
 export * from '@/components/molecules/ListBox';
 export * from '@/components/molecules/FancyTabSwitchButton';
 export * from '@/components/molecules/Menue';
-export * from '@/components/molecules/Switch';
 export * from '@/components/molecules/SwitchList';
 export * from '@/components/molecules/TabSwitch';
 export * from '@/components/molecules/FancyNavBar';
@@ -143,7 +142,6 @@ export * from '@/components/organisms/FancyColorInput';
 export * from '@/components/organisms/FancyListBox';
 export * from '@/components/organisms/FancyTextArea';
 export * from '@/components/organisms/FancySideBar';
-export * from '@/components/organisms/FancySwitch';
 
 // ---------- Templates ------- //
 export * from '@/components/templates/FancyInfoCard';

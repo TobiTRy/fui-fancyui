@@ -20,7 +20,7 @@ const meta = {
   argTypes: {
     themeType: {
       description: 'The theme type of the component',
-      control: { type: 'select' as const },
+      control: { type: 'select' },
       options: ['primary', 'secondary', 'accent', 'transparent', undefined],
       table: {
         defaultValue: { summary: 'primary' },
@@ -28,7 +28,7 @@ const meta = {
     },
     themeTypeSecondary: {
       description: 'The secondary theme color type, typically used for the text and button elements.',
-      control: { type: 'select' as const },
+      control: { type: 'select' },
       options: ['primary', 'accent', 'secondary'],
       table: {
         defaultValue: { summary: 'secondary' },
@@ -36,9 +36,9 @@ const meta = {
     },
     layer: {
       description: 'The layer of the component',
-      control: { type: 'range' as const, min: 0, max: 9 },
+      control: { type: 'range', min: 0, max: 9 },
       table: {
-        defaultValue: { summary: '0' },
+        defaultValue: { summary: 0 },
       },
     },
     selectedYear: {
@@ -47,25 +47,25 @@ const meta = {
         defaultValue: { summary: 'new Date().getFullYear() (current year)' },
       },
       control: {
-        type: 'number' as const,
+        type: 'number',
       },
     },
     sizeC: {
       description: 'Specifies the size of the component, affecting dimensions and spacing.',
       control: {
-        type: 'select' as const,
+        type: 'select',
       },
     },
     borderRadius: {
       description: 'The border radius of the year selector',
       control: {
-        type: 'select' as const,
+        type: 'select',
       },
     },
     ariaTextLeftArrow: {
       description: 'The aria label for the left arrow',
       control: {
-        type: 'text' as const,
+        type: 'text',
       },
       table: {
         defaultValue: { summary: 'a year back' },
@@ -74,7 +74,7 @@ const meta = {
     ariaTextRightArrow: {
       description: 'The aria label for the right arrow',
       control: {
-        type: 'text' as const,
+        type: 'text',
       },
       table: {
         defaultValue: { summary: 'one year forward' },
@@ -83,19 +83,19 @@ const meta = {
     yearChangeHandler: {
       description: 'The handler for the year selector',
       control: {
-        type: 'object' as const,
+        type: 'function',
       },
     },
     maxYear: {
       description: 'The maximum year that can be selected.',
       control: {
-        type: 'number' as const,
+        type: 'number',
       },
     },
     minYear: {
       description: 'The minimum year that can be selected.',
       control: {
-        type: 'number' as const,
+        type: 'number',
       },
     },
   },

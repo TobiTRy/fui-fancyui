@@ -21,7 +21,7 @@ const meta = {
     checked: {
       description: 'The checked state of the radio button',
       control: {
-        type: 'boolean' as const,
+        type: 'boolean',
       },
     },
   },

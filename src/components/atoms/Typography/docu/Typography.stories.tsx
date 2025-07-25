@@ -23,7 +23,7 @@ const meta = {
     variant: {
       description: 'The variant how the typography should look like',
       control: {
-        type: 'select' as const,
+        type: 'select',
       },
       table: {
         defaultValue: { summary: 'bodytextMd' },
@@ -32,7 +32,7 @@ const meta = {
     elType: {
       description: 'The element type of the typography',
       control: {
-        type: 'select' as const,
+        type: 'select',
       },
       type: {
         name: 'string',
@@ -46,7 +46,7 @@ const meta = {
     fontWeight: {
       description: 'The fontWeight for the typography',
       control: {
-        type: 'text' as const,
+        type: 'text',
       },
       table: {
         defaultValue: { summary: 'depends on the theme' },
@@ -55,7 +55,7 @@ const meta = {
     lineHeight: {
       description: 'The lineHeight for the typography',
       control: {
-        type: 'text' as const,
+        type: 'text',
       },
       table: {
         defaultValue: { summary: 'depends on the theme' },
@@ -64,7 +64,7 @@ const meta = {
     letterSpacing: {
       description: 'The letterSpacing for the typography',
       control: {
-        type: 'text' as const,
+        type: 'text',
       },
       table: {
         defaultValue: { summary: 'depends on the theme' },
@@ -73,13 +73,13 @@ const meta = {
     className: {
       description: 'The className for the typography',
       control: {
-        type: 'text' as const,
+        type: 'text',
       },
     },
     htmlFor: {
       description: 'The htmlFor for the typography if its a label',
       control: {
-        type: 'text' as const,
+        type: 'text',
       },
     },
   },

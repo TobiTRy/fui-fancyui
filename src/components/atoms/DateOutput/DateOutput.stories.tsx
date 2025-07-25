@@ -21,22 +21,22 @@ const meta = {
   argTypes: {
     ...templateThemeType('mainThemeTypes', 'primary', 2),
     date: {
-      control: { type: 'date' as const },
+      control: { type: 'date' },
       description: 'The date to display',
       table: {
         defaultValue: { summary: undefined },
       },
     },
     isActive: {
-      control: { type: 'boolean' as const },
+      control: { type: 'boolean' },
       description: 'The active state of the box',
     },
     onClick: {
       description: 'The function to call when the box is clicked',
-      control: { type: 'object' as const },
+      control: { type: 'function' },
     },
     sizeC: {
-      control: { type: 'radio' as const },
+      control: { type: 'radio' },
       description: 'The size of the box',
       options: ['sm', 'md', 'lg', undefined],
       table: {
@@ -44,7 +44,7 @@ const meta = {
       },
     },
     textCustom: {
-      control: { type: 'object' as const },
+      control: { type: 'object' },
       description: 'The text to display',
       table: {
         defaultValue: { summary: 'text' },

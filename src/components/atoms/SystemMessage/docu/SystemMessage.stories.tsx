@@ -23,24 +23,24 @@ const meta = {
       description: 'The system message type',
       type: { name: 'string', required: false },
       options: ['error', 'warning', 'info', 'success', undefined],
-      control: { type: 'select' as const },
+      control: { type: 'select' },
     },
     textSettings: {
       description: 'The props for the typography component.',
       control: {
-        type: 'object' as const,
+        type: 'object',
       },
     },
     showMessage: {
       description: 'The flag to show or hide the message. We use this to prevent Jumping of the content.',
       control: {
-        type: 'boolean' as const,
+        type: 'boolean',
       },
     },
     externalStyle: {
       description: 'The external style for the component.',
       control: {
-        type: 'object' as const,
+        type: 'object',
       },
     },
   },

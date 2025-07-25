@@ -22,21 +22,21 @@ const meta = {
     isActive: {
       description:
         'Indicates whether the label is in an active state, typically used to highlight when the associated input is focused.',
-      control: { type: 'boolean' as const },
+      control: { type: 'boolean' },
       table: {
-        defaultValue: { summary: 'false' },
+        defaultValue: { summary: false },
       },
     },
     systemMessageType: {
       description: ' Specifies the system message type for styling, such as error, warning, or success messages.',
-      control: { type: 'select' as const },
+      control: { type: 'select' },
       defaultValue: undefined,
       options: ['error', 'warning', 'success', 'info', undefined],
     },
     lableVariant: {
       description:
         'Chooses between a static or animated label variant, with animated offering dynamic styling changes based on the active state.',
-      control: { type: 'select' as const },
+      control: { type: 'select' },
       table: {
         defaultValue: { summary: 'animated' },
       },
@@ -44,7 +44,7 @@ const meta = {
     },
     align: {
       description: 'Sets the text alignment within the label. Can be left, right, or center',
-      control: { type: 'radio' as const },
+      control: { type: 'radio' },
       table: {
         defaultValue: { summary: 'left' },
       },
@@ -55,9 +55,9 @@ const meta = {
     },
     isMovedUp: {
       description: 'Indicates whether the label has been moved up, typically used when the input is focused.',
-      control: { type: 'boolean' as const },
+      control: { type: 'boolean' },
       table: {
-        defaultValue: { summary: 'false' },
+        defaultValue: { summary: false },
       },
     },
   },

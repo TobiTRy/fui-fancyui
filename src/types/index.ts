@@ -15,7 +15,6 @@ export * from './TUiColorsTypeObject';
 export * from './TTextAlignLR';
 export * from './TTextAlignLC';
 export * from './TTextAlignLRC';
-export * from './TAlignItemsValues';
 export * from './IStatus';
 export * from './TGlobalElementSizes';
 export * from './TBreakPoints';

@@ -17,24 +17,24 @@ const meta = {
     borderRadius: {
       description: 'The border radius of the color display.',
       control: {
-        type: 'object' as const,
+        type: 'object',
       },
     },
     colorValue: {
       description: 'The color to be displayed. Accepts a Color object or a color string.',
       type: { name: 'string', required: true },
-      control: { type: 'color' as const },
+      control: { type: 'color' },
     },
     fullHeight: {
       description: 'Whether the chip should take up the full height.',
       control: {
-        type: 'boolean' as const,
+        type: 'boolean',
       },
     },
     opacity: {
       description: 'The opacity of the chip.',
       control: {
-        type: 'range' as const,
+        type: 'range',
         min: 0,
         max: 1,
         step: 0.1,
@@ -43,19 +43,19 @@ const meta = {
     showClipboard: {
       description: 'Whether to display the clipboard icon.',
       control: {
-        type: 'boolean' as const,
+        type: 'boolean',
       },
     },
     showText: {
       description: 'Whether to display the color value text.',
       control: {
-        type: 'boolean' as const,
+        type: 'boolean',
       },
     },
     sizeC: {
       description: 'The size of the color display.',
       control: {
-        type: 'select' as const,
+        type: 'select',
       },
     },
   },

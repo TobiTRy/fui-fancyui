@@ -23,57 +23,57 @@ const meta = {
       description: 'The value of the input',
       defaultValue: '12',
       control: {
-        type: 'number' as const,
+        type: 'number',
       },
     },
     gap: {
       description: 'The layer of the modal',
       defaultValue: '0',
       control: {
-        type: 'text' as const,
+        type: 'text',
       },
     },
     breakpoints: {
       description: 'The breakpoints for the grid',
       defaultValue: [],
       control: {
-        type: 'object' as const,
+        type: 'object',
       },
     },
     margin: {
       description: 'The margin of the grid',
       control: {
-        type: 'object' as const,
+        type: 'object',
       },
     },
     padding: {
       description: 'The padding of the grid',
       control: {
-        type: 'object' as const,
+        type: 'object',
       },
     },
     gridTemplateColumns: {
       description: 'The grid template columns',
       control: {
-        type: 'object' as const,
+        type: 'object',
       },
     },
     gridTemplateRows: {
       description: 'The grid template rows',
       control: {
-        type: 'object' as const,
+        type: 'object',
       },
     },
     rowGap: {
       description: 'The row gap',
       control: {
-        type: 'select' as const,
+        type: 'select',
       },
     },
     columnGap: {
       description: 'The column gap',
       control: {
-        type: 'select' as const,
+        type: 'select',
       },
     },
   },

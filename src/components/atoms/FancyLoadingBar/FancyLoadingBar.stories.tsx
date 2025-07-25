@@ -22,7 +22,7 @@ const meta = {
     externalStyle: {
       description: 'Allows for custom CSS to be applied directly to the loading bar.',
       control: {
-        type: 'object' as const,
+        type: 'object',
       },
     },
   },

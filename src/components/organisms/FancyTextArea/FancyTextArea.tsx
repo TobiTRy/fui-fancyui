@@ -67,11 +67,11 @@ const FancyTextArea = forwardRef<HTMLTextAreaElement, TFancyTextArea>((props, re
           readOnly={readOnly}
           disabled={disabled}
           onFocus={(e) => {
-            if (onFocus) onFocus(e);
+            onFocus && onFocus(e);
             setIsActive(true);
           }}
           onBlur={(e) => {
-            if (onBlur) onBlur(e);
+            onBlur && onBlur(e);
             setIsActive(false);
           }}
           placeholder={placeholder}

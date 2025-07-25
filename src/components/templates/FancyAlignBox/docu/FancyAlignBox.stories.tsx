@@ -22,26 +22,26 @@ const meta = {
       description:
         'The padding of the container, can be defined as a string or an array of strings, like `["12px2, "24px"] or only 12px` you can use too the types like `["sm", "md"]`.',
       control: {
-        type: 'text' as const,
+        type: 'text',
       },
     },
     margin: {
       description:
         'The margin of the container, can be defined as a string or an array of strings, like `["12px2, "24px"] or only 12px` you can use too the types like `["sm", "md"]`.',
       control: {
-        type: 'text' as const,
+        type: 'text',
       },
     },
     externalStyle: {
       description: 'The external style of the container',
       control: {
-        type: 'object' as const,
+        type: 'object',
       },
     },
     as: {
       description: 'The tag of the container',
       control: {
-        type: 'text' as const,
+        type: 'text',
       },
       table: {
         defaultValue: { summary: 'div' },
@@ -50,16 +50,16 @@ const meta = {
     gap: {
       description: 'The gap between the children',
       control: {
-        type: 'text' as const,
+        type: 'text',
       },
     },
     fitBox: {
       description: 'The container will fit the content',
       control: {
-        type: 'boolean' as const,
+        type: 'boolean',
       },
       table: {
-        defaultValue: { summary: 'false' },
+        defaultValue: { summary: false },
       },
     },
   },

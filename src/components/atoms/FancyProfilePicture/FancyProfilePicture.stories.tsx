@@ -22,33 +22,33 @@ const meta = {
         name: 'string',
         required: false,
       },
-      control: { type: 'select' as const },
+      control: { type: 'select' },
       options: ['sm', 'md', 'lg', 'complete', undefined, 'none'],
       table: {
         defaultValue: { summary: 'complete' },
       },
     },
     sizeC: {
-      control: { type: 'select' as const },
+      control: { type: 'select' },
       options: ['xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl'],
     },
     children: {
-      control: { type: 'object' as const },
+      control: { type: 'object' },
       description: 'The children of the image.',
     },
     nickname: {
-      control: { type: 'text' as const },
+      control: { type: 'text' },
       description: 'The alt text of the image is used as a placeholder if no image is provided.',
       table: {
         defaultValue: { summary: 'User' },
       },
     },
     externalStyle: {
-      control: { type: 'text' as const },
+      control: { type: 'text' },
       description: 'The externalStyle of the image.',
     },
     textAvatarSettings: {
-      control: { type: 'object' as const },
+      control: { type: 'object' },
       description: 'The textAvatarSettings of the image, the props of the AvatarTextImage component.',
     },
   },

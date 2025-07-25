@@ -18,14 +18,14 @@ const meta = {
     WrapperComponent: {
       description: 'The component to use as a wrapper',
       control: {
-        type: 'object' as const,
+        type: 'object',
       },
     },
     as: {
       description: 'The element type to render',
       options: ['button', 'a'],
       control: {
-        type: 'select' as const,
+        type: 'select',
       },
       table: {
         defaultValue: { summary: 'button' },
@@ -34,7 +34,7 @@ const meta = {
     children: {
       description: 'The content of the component',
       control: {
-        type: 'object' as const,
+        type: 'object',
       },
     },
   },

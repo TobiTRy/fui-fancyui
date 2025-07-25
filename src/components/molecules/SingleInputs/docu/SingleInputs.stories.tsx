@@ -19,16 +19,16 @@ const meta = {
     length: {
       description: 'The number of input fields to render.',
       control: {
-        type: 'number' as const,
+        type: 'number',
       },
       table: {
-        defaultValue: { summary: '6' },
+        defaultValue: { summary: 6 },
       },
     },
     automaticCase: {
       description: 'Specifies whether the input should automatically convert characters to upper or lower case.',
       control: {
-        type: 'select' as const,
+        type: 'select',
         options: ['upper', 'lower', undefined],
       },
     },
@@ -36,7 +36,7 @@ const meta = {
       description:
         ' An object indicating the input´s status, which can modify the input´s border color based on the theme.',
       control: {
-        type: 'object' as const,
+        type: 'object',
       },
       table: {
         defaultValue: {

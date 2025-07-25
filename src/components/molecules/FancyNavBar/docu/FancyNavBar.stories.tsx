@@ -17,7 +17,7 @@ const meta = {
     externalStyle: {
       description: 'The external style of the component',
       control: {
-        type: 'object' as const,
+        type: 'object',
       },
     },
   },

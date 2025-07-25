@@ -25,8 +25,6 @@ export default function FancyHandyNav(props: TFancyHandyNavWithHTMLAttrs) {
     themeTypeSwitchList = 'accent',
     switchListLayer = 1,
     layer = 1,
-    outlined,
-    outlinedBackgroundStrength,
     externalStyle,
     ...htmlProps
   } = props;
@@ -54,10 +52,10 @@ export default function FancyHandyNav(props: TFancyHandyNavWithHTMLAttrs) {
         // The Navbar container
         <RawNav $externalStyle={externalStyle} {...htmlProps}>
           <FancyBox
-            outlined={outlined}
+            outlined={props.outlined}
             themeType={themeType}
             layer={layer}
-            outlinedBackgroundStrength={outlinedBackgroundStrength}
+            outlinedBackgroundStrength={props.outlinedBackgroundStrength}
             externalStyle={fancyBarStyle}
           >
             {/* The List with the items  */}
@@ -80,7 +78,7 @@ export default function FancyHandyNav(props: TFancyHandyNavWithHTMLAttrs) {
                     {...item}
                     onClick={() => {
                       setWhichIsActiveState(index.toString());
-                      if (item.onClick) item.onClick();
+                      item.onClick && item.onClick();
                     }}
                   />
                 </ButtonWrapper>

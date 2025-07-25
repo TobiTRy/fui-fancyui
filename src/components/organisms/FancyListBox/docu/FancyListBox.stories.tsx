@@ -22,7 +22,7 @@ const meta = {
     sizeC: {
       description: 'The sizeC of the list',
       control: {
-        type: 'select' as const,
+        type: 'select',
       },
       table: {
         defaultValue: { summary: 'md' },
@@ -32,43 +32,43 @@ const meta = {
     borderRadius: {
       description: 'The border radius of the list',
       control: {
-        type: 'object' as const,
+        type: 'object',
       },
     },
     seperator: {
       description: 'The seperator of the list',
       control: {
-        type: 'object' as const,
+        type: 'object',
       },
     },
     boxTitle: {
       description: 'The title of the list',
       control: {
-        type: 'object' as const,
+        type: 'object',
       },
     },
     outlined: {
       description: 'The outlined of the list',
       control: {
-        type: 'boolean' as const,
+        type: 'boolean',
       },
     },
     itemSettings: {
       description: 'The item settings of the list',
       control: {
-        type: 'object' as const,
+        type: 'object',
       },
     },
     boxShadow: {
       description: 'The boxShadow of the list',
       control: {
-        type: 'boolean' as const,
+        type: 'boolean',
       },
     },
     outlinedBackgroundStrength: {
       description: 'The outlinedBackgroundStrength of the list',
       control: {
-        type: 'range' as const,
+        type: 'range',
         min: 0,
         max: 1,
         step: 0.1,

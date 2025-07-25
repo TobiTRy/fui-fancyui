@@ -1,7 +1,5 @@
 import Color from 'color';
 
-type ColorType = ReturnType<typeof Color>;
-
 //define the min and max value for the opacity
 const minOpacity = 0;
 const maxOpacity = 1;
@@ -16,7 +14,7 @@ export const positionToColorOpacity = (clientX: number, rect: DOMRect) => {
 };
 
 // calculate the position from the color on the slider
-export const colorToPositionOpacity = (color: ColorType) => {
+export const colorToPositionOpacity = (color: Color) => {
   const alpha = color.alpha(); // alpha values are set from 0.01 to 1
   const x = alpha * 100;
 

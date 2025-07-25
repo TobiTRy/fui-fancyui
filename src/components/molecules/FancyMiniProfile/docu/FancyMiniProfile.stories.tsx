@@ -19,39 +19,39 @@ const meta = {
     sizeC: {
       description: 'The sizeC of the component',
       control: {
-        type: 'select' as const,
+        type: 'select',
       },
       options: ['sm', 'md', 'lg'],
     },
     title: {
       description: 'The title text displayed in the profile card.',
       control: {
-        type: 'text' as const,
+        type: 'text',
       },
     },
     subTitle: {
       description: 'The subtitle text displayed below the title.',
       control: {
-        type: 'text' as const,
+        type: 'text',
       },
     },
     alignImage: {
       description: 'The alignment of the image',
       control: {
-        type: 'select' as const,
+        type: 'select',
       },
       options: ['left', 'right'],
     },
     Image: {
       description: 'The image to be displayed in the profile card.',
       control: {
-        type: 'object' as const,
+        type: 'object',
       },
     },
     shadow: {
       description: 'If true, applies a shadow effect to the component.',
       control: {
-        type: 'boolean' as const,
+        type: 'boolean',
       },
     },
   },

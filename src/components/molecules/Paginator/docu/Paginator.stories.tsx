@@ -20,14 +20,14 @@ const meta = {
       description: ' Specifies the current active page. Defaults to 1 if not provided.',
       type: { name: 'number' },
       table: {
-        defaultValue: { summary: '1' },
+        defaultValue: { summary: 1 },
       },
     },
     showPages: {
       description: 'Determines the number of page numbers to display.',
       type: { name: 'number' },
       table: {
-        defaultValue: { summary: '3' },
+        defaultValue: { summary: 3 },
       },
     },
     onPageChange: {
@@ -38,7 +38,7 @@ const meta = {
       description: 'If true, the buttons will be outlined.',
       type: { name: 'boolean' },
       table: {
-        defaultValue: { summary: 'false' },
+        defaultValue: { summary: false },
       },
     },
     numberButtonStyle: {
@@ -52,7 +52,7 @@ const meta = {
       description: 'The limit of the pages Numbers.',
       type: { name: 'number' },
       table: {
-        defaultValue: { summary: '3' },
+        defaultValue: { summary: 3 },
       },
     },
   },

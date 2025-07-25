@@ -23,11 +23,11 @@ const meta = {
     label: {
       description:
         'A text label to be displayed alongside the divider line. If `label` is provided, the divider will include this label; otherwise, it will render as a simple line.',
-      control: { type: 'text' as const },
+      control: { type: 'text' },
     },
     textAlignment: {
       description: 'Determines the alignment of the text label. Defaults to `center`',
-      control: { type: 'select' as const },
+      control: { type: 'select' },
       table: {
         defaultValue: { summary: 'center' },
       },
@@ -35,21 +35,21 @@ const meta = {
     },
     noLine: {
       description: 'If set to `true`, the divider line will not be rendered, only the content (if any) will be shown.',
-      control: { type: 'boolean' as const },
+      control: { type: 'boolean' },
       table: {
-        defaultValue: { summary: 'false' },
+        defaultValue: { summary: false },
       },
     },
     fontWeight: {
       description: 'The font weight of the label',
-      control: { type: 'text' as const },
+      control: { type: 'text' },
       table: {
         defaultValue: { summary: undefined },
       },
     },
     sizeC: {
       description: 'The size of the divider',
-      control: { type: 'select' as const },
+      control: { type: 'select' },
       options: ['sm', 'md', 'lg'],
       table: {
         defaultValue: { summary: 'md' },

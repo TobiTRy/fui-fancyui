@@ -18,11 +18,14 @@ const meta = {
     selectedYearMonth: {
       description: 'The selected year and month.',
       control: {
-        type: 'object' as const,
+        type: 'object',
       },
       table: {
         defaultValue: {
-          summary: `{ year: ${new Date().getFullYear()}, month: ${new Date().getMonth()} }`,
+          summary: {
+            year: new Date().getFullYear(),
+            month: new Date().getMonth(),
+          },
         },
       },
     },
@@ -30,7 +33,7 @@ const meta = {
       description: 'If the Calendar a Rangepicker or SingelDate.',
       type: { name: 'boolean' },
       table: {
-        defaultValue: { summary: 'false' },
+        defaultValue: { summary: false },
       },
     },
     handleDates: {
@@ -40,7 +43,7 @@ const meta = {
       description:
         'If the Calendar a Rangepicker that you can select set wich date is currently selected the from - to.',
       control: {
-        type: 'radio' as const,
+        type: 'radio',
       },
       table: {
         defaultValue: { summary: 'from' },
@@ -53,29 +56,29 @@ const meta = {
     startWeekOnDay: {
       description: 'The day the week starts on.',
       control: {
-        type: 'select' as const,
+        type: 'select',
       },
       table: {
-        defaultValue: { summary: '1' },
+        defaultValue: { summary: 1 },
       },
     },
     externalMonthsWithDays: {
       description: 'The external months with days.',
       control: {
-        type: 'object' as const,
+        type: 'object',
       },
     },
     startCalendarDate: {
       description: 'The start calendar.',
       control: {
-        type: 'object' as const,
+        type: 'object',
       },
       defaultValue: { summary: { year: new Date().getFullYear(), month: 0 } },
     },
     endCalendarDate: {
       description: 'The end calendar.',
       control: {
-        type: 'object' as const,
+        type: 'object',
       },
       defaultValue: { summary: { year: new Date().getFullYear() + 5, month: new Date().getMonth() } },
     },

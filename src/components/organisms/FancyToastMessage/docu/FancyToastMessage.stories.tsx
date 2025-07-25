@@ -27,7 +27,7 @@ const meta = {
   argTypes: {
     toastMessages: {
       description: 'Queue of toast messages to be displayed',
-      control: { type: 'object' as const },
+      control: { type: 'object' },
       table: {
         type: { summary: 'TFancyToastMessage[]' },
         defaultValue: { summary: '[]' },
@@ -35,7 +35,7 @@ const meta = {
     },
     closeToast: {
       description: 'Function to close a specific toast message',
-      control: { type: 'object' as const },
+      control: { type: 'function' },
       table: {
         type: { summary: '(id: string) => void' },
         defaultValue: { summary: 'undefined' },

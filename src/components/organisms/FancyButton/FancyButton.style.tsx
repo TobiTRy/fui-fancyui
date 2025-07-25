@@ -1,15 +1,14 @@
 import { css } from 'styled-components';
 
+import { generateButtonSizeAndPadding } from '@/components/molecules/Button/utils/generateButtonSizeAndPadding';
 import { TLeftRightCenterToFlexJustify } from '@/design/designFunctions/leftRightCenterToFlexJustify';
-import { TComponentSizesMid } from '@/types/TComponentSizes';
+import { TComponentSizes } from '@/types/TComponentSizes';
 import { sizeSettings } from './sizeSettings';
-import { sizeSettings as buttonSizeSettings } from '@/components/molecules/Button/sizeSettings';
-import arrayToCssValues from '@/design/designFunctions/arrayToCssValues/arrayToCssValues';
+import { arrayToCssValues } from '@/design/designFunctions/arrayToCssValues';
 import { calcCSSValuesWithOffset } from '@/utils/functions/calcCSSValuesWithOffset';
-import getThemeOrValueAsCSS from '@/design/designFunctions/getThemeOrValueAsCss/getThemeOrValueAsCss';
 
 interface IGenerateFancyButton {
-  $sizeC: TComponentSizesMid;
+  $sizeC: TComponentSizes;
   $oneToOne?: boolean;
   $justifyContent?: TLeftRightCenterToFlexJustify;
   $iconAlign?: 'left' | 'right';
@@ -29,26 +28,19 @@ export const generateFancyButton = (props: IGenerateFancyButton) => {
   `;
 };
 
-const generate1To1Button = ($sizeC: TComponentSizesMid) => {
+const generate1To1Button = ($sizeC: TComponentSizes) => {
   //this makes the button a square (1/1) if there is no $label and a $icon
-  // Calculate height to match normal buttons: padding + line-height
-  const padding = sizeSettings[$sizeC].padding;
-  const verticalPadding = Array.isArray(padding) ? padding[0] : padding;
-  const verticalPaddingValue = arrayToCssValues(verticalPadding, 'spacing');
-  const lineHeightValue = getThemeOrValueAsCSS(buttonSizeSettings[$sizeC].lineHeight, 'spacing');
+  const padding = generateButtonSizeAndPadding($sizeC, false);
 
   return css`
     aspect-ratio: 1/1;
     justify-content: center;
-    /* Use calc to match normal button height: (2 * vertical padding) + line-height */
-    height: calc(2 * ${verticalPaddingValue} + ${lineHeightValue});
-    width: calc(2 * ${verticalPaddingValue} + ${lineHeightValue});
-    padding: ${verticalPaddingValue};
+    ${padding}
   `;
 };
 
 const generateSize = (
-  $sizeC: TComponentSizesMid,
+  $sizeC: TComponentSizes,
   $icon?: boolean,
   $iconAlign?: IGenerateFancyButton['$iconAlign'],
   outlined?: boolean,
