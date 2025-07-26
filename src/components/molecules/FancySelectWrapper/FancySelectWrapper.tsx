@@ -21,11 +21,12 @@ export default function FancySelectWrapper(props: TFancySelectWrapperWithHTMLPro
     layerDescription = 2,
     layer = 0,
     gap = 'xs',
+    id: idProp,
     ...htmlProps
   } = props;
 
   const id = useId();
-  const pickedId = props.id ? props.id : id;
+  const pickedId = idProp ? idProp : id;
 
   return (
     <>
