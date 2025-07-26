@@ -5,6 +5,7 @@ import { TTextAlignLRC } from '@/types/TTextAlignLRC';
 import { TTextAlignLR } from '@/types/TTextAlignLR';
 import { TLeftRightCenterToFlexJustify } from '@/design/designFunctions/leftRightCenterToFlexJustify';
 import { TSpacings } from '@/types';
+import { disabledStyle } from '@/design/designFunctions/disabledStyle';
 
 // this wraps the label and the description
 // handle the order of the checkbox and label/description
@@ -14,6 +15,7 @@ type TLabelWrapper = {
   $externalStyle: CSSProp;
   $gap?: TSpacings;
   theme: TTheme;
+  $disabled?: boolean;
 };
 export const LabelWrapper = styled.label<TLabelWrapper>`
   display: flex;
@@ -31,6 +33,7 @@ export const LabelWrapper = styled.label<TLabelWrapper>`
     }
   }};
   ${({ $externalStyle }) => $externalStyle}
+  ${({ $disabled }) => $disabled && disabledStyle}
 
   .description {
     margin-left: ${({ theme }) => parseInt(theme.spacing.xxs) - 2 + 'px'};

@@ -46,7 +46,7 @@ const Switch = forwardRef<HTMLInputElement, TSwitchWithNativeAttrs>((props, ref)
       <input
         ref={ref}
         type="checkbox"
-        checked={checked}
+        defaultChecked={checked}
         onChange={handleChange}
         disabled={disabled}
         id={id}

@@ -6,6 +6,7 @@ import getThemeOrValueAsCSS from '@/design/designFunctions/getThemeOrValueAsCss/
 import { TStyledPrefixAndPicker } from '@/types';
 import { TTheme } from '@/types/TTheme';
 import { sizeSettings } from './sizeSettings';
+import { focusStyle } from '@/design/designFunctions/focusStyle';
 
 type TSwitchTrack = TStyledPrefixAndPicker<
   TSwitch,
@@ -57,9 +58,7 @@ export const SwitchTrack = styled.div<TSwitchTrack & { theme: TTheme }>`
   }
 
   &:has(input:focus-visible) {
-    box-shadow: 0 0 0 3px ${({ theme }) => theme.color.accent[0]}40;
-    outline: 2px solid ${({ theme }) => theme.color.accent[0]};
-    outline-offset: 2px;
+    ${focusStyle}
   }
 
   ${(props) => props.$externalStyle}

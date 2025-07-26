@@ -1,13 +1,12 @@
 'use client';
 
-import { forwardRef, useId, useRef, useState } from 'react';
+import { forwardRef, useId } from 'react';
 
 import { FancySelectWrapper } from '@/components/molecules/FancySelectWrapper';
 import { Switch } from '@/components/molecules/Switch';
 
 import { FancyBoxWrapper } from '@/components/organisms/FancySwitch/FancySwitch.style';
 import { flipThemeType } from '@/design/designFunctions/flipThemeType';
-import { useMergeRefs } from '@/utils/hooks/useMergeRefs';
 import { TFancySwitch } from './TFancySwitch.model';
 
 // --------------------------------------------------------------------------- //
@@ -31,22 +30,6 @@ const FancySwitch = forwardRef<HTMLInputElement, TFancySwitch>((props, ref) => {
   const id = useId();
   const pickedId = props.id ? props.id : id;
 
-  const checkBoxRef = useRef<HTMLInputElement>(null);
-  // Merge the forwarded ref and local ref
-  const mergedRef = useMergeRefs([ref, checkBoxRef]);
-
-  const [checked, setChecked] = useState(checkedProp || false);
-
-  const hanldeClick = () => {
-    setChecked(!checked);
-    checkBoxRef.current?.click();
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setChecked(e.target.checked);
-    onChange?.(e);
-  };
-
   return (
     <FancyBoxWrapper borderRadius={borderRadius} themeType={themeTypeBox} layer={layerBox} wide={wide}>
       <FancySelectWrapper
@@ -57,18 +40,18 @@ const FancySwitch = forwardRef<HTMLInputElement, TFancySwitch>((props, ref) => {
         align={'space-between'}
         alignInput={alignSwitch}
         gap={'sm'}
-        onClick={hanldeClick}
+        disabled={rest.disabled}
         externalStyle={{
           alignItems: 'center',
         }}
         inputElement={
           <Switch
+            ref={ref}
             themeType={themeType}
             layer={layer}
-            ref={mergedRef}
             id={pickedId}
-            onChange={handleChange}
-            checked={checked}
+            onChange={onChange}
+            checked={checkedProp}
             {...rest}
           />
         }

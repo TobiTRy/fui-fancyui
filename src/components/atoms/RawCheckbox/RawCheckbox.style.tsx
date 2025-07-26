@@ -4,6 +4,8 @@ import { TTheme } from '@/types/TTheme';
 import { TUiColorsMain } from '@/types/TUiColorsMain';
 import { TLayer } from '@/types/TLayer';
 import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent';
+import { disabledStyle } from '@/design/designFunctions/disabledStyle';
+import { focusStyle } from '@/design/designFunctions/focusStyle';
 
 // a consistant style for the checkbox and the fake checkbox
 const checkboxStyles = css`
@@ -13,7 +15,7 @@ const checkboxStyles = css`
 `;
 
 // the real chekbox but its hidden and the fake one is shown
-export const HidenCheckBox = styled.input`
+export const HidenCheckBox = styled.input<{ theme: TTheme }>`
   margin: 0;
   position: absolute;
   cursor: pointer;
@@ -30,7 +32,7 @@ export const HidenCheckBox = styled.input`
   }
 
   &:focus-visible {
-    box-shadow: 0 0 0px 1px white;
+    ${focusStyle}
   }
 `;
 
@@ -39,6 +41,7 @@ type TFakeCheckbox = {
   $checked: boolean;
   $themeType: TUiColorsMain;
   $layer: TLayer;
+  $disabled?: boolean;
 };
 export const FakeCheckbox = styled.div<TFakeCheckbox & { theme: TTheme }>`
   position: absolute;
@@ -51,9 +54,6 @@ export const FakeCheckbox = styled.div<TFakeCheckbox & { theme: TTheme }>`
   width: 20px;
   height: 20px;
 
-  &:focus-visible {
-    outline: none; /* Remove default outline */
-  }
   /* the checkmark svg */
   svg {
     position: absolute;
@@ -65,6 +65,8 @@ export const FakeCheckbox = styled.div<TFakeCheckbox & { theme: TTheme }>`
     fill: ${({ theme }) => theme.color.accent[0]};
     display: ${({ $checked }) => ($checked ? 'block' : 'none')};
   }
+
+  ${({ $disabled }) => $disabled && disabledStyle}
 `;
 
 // the container for the checkbox and the fake checkbox

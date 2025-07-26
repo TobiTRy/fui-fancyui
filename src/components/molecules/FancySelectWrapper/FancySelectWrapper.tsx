@@ -22,6 +22,7 @@ export default function FancySelectWrapper(props: TFancySelectWrapperWithHTMLPro
     layer = 0,
     gap = 'xs',
     id: idProp,
+    disabled,
     ...htmlProps
   } = props;
 
@@ -32,7 +33,14 @@ export default function FancySelectWrapper(props: TFancySelectWrapperWithHTMLPro
     <>
       {/* The label and description */}
       {label || description ? (
-        <LabelWrapper $align={align} htmlFor={pickedId} $externalStyle={externalStyle} $gap={gap} {...htmlProps}>
+        <LabelWrapper
+          $align={align}
+          $disabled={disabled}
+          htmlFor={pickedId}
+          $externalStyle={externalStyle}
+          $gap={gap}
+          {...htmlProps}
+        >
           <FancyContent layoutMode="normal">
             {label && (
               <FancyContent.Title fontVariant="interactiveLg" themeType={themeType} layer={layer} fontWeight={'bold'}>
