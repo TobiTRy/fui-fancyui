@@ -102,6 +102,15 @@ const meta = {
         },
       },
     },
+    wide: {
+      description: 'The width of the component. If false, the component will not be 100% width.',
+      control: {
+        type: 'boolean' as const,
+      },
+      table: {
+        defaultValue: { summary: 'true' },
+      },
+    },
   },
 } satisfies Meta<typeof FancyBox>;
 

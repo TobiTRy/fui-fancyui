@@ -22,7 +22,7 @@ export default function FancyBox<T extends ElementType = 'div'>(props: TFancyBox
     padding,
     margin,
     hoverLayer,
-    wide,
+    wide = true,
     ...htmlProps
   } = props;
 
