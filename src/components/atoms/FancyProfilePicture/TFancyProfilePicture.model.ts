@@ -17,4 +17,4 @@ export type TFancyProfilePicture = {
 };
 
 export type TFancyProfilePictureWithHTMLAttrs = TFancyProfilePicture &
-  React.HtmlHTMLAttributes<HTMLElement> & { children?: React.ReactNode };
+  React.HTMLAttributes<HTMLElement> & { children?: React.ReactNode };
