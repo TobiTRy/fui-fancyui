@@ -23,6 +23,7 @@ export default function FancyBox<T extends ElementType = 'div'>(props: TFancyBox
     margin,
     hoverLayer,
     wide = true,
+    isFocused,
     ...htmlProps
   } = props;
 
@@ -44,6 +45,7 @@ export default function FancyBox<T extends ElementType = 'div'>(props: TFancyBox
       $externalStyle={externalStyle}
       $outlinedBackgroundStrength={outlinedBackgroundStrength}
       $hoverLayer={hoverLayer}
+      $isFocused={isFocused}
       {...htmlProps}
     >
       {props.children}
