@@ -7,6 +7,7 @@ export type TFancyModal = {
   appendToDomID: string;
   modals: TFancyModals[];
   closeModal: (id: string) => void;
+  heightRecalculationTrigger?: Record<string, number>;
   zIndex?: number;
   externalStyle?: CSSObject;
 } & TModalHTMLAttributes;

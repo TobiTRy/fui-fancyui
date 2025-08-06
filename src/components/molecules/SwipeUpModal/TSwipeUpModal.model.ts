@@ -13,6 +13,7 @@ export type TSwipeUpModal = {
   backdrop?: boolean;
   onClose?: () => void;
   externalStyle?: CSSProp;
+  heightRecalculationTrigger?: number;
 };
 
 export type TSwipeUpModalWithHTMLAttrs = TSwipeUpModal & Omit<HTMLAttributes<HTMLDivElement>, 'style'>;

@@ -14,4 +14,6 @@ export type TFancySwipeUpModalStore = {
   modals: TFancySwipeUpModal[];
   openSwipeUpModal: (id: string, children: React.ReactNode, config?: TModalSettings) => void;
   closeSwipeUpModal: (id: string) => void;
+  recalculateHeight: (id: string) => void;
+  heightRecalculationTrigger: Record<string, number>;
 };
