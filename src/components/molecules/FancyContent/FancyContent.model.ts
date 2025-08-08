@@ -23,6 +23,8 @@ export type TFancyContent = {
   justify?: TTextAlignLRC;
   /** Vertical alignment of all content */
   align?: TAlignItemsValues;
+  /** If true, the content will be wide */
+  wide?: boolean;
 };
 
 export type TFancyContentHTMLAttrs = TFancyContent & React.HTMLAttributes<HTMLSpanElement>;

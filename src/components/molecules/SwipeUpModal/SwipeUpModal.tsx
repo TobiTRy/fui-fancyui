@@ -5,6 +5,8 @@ import { BackDrop } from '@/components/atoms/BackDrop';
 import { ScalingSection } from '@/components/atoms/ScalingSection';
 import { SwipeUpContainer } from '@/components/atoms/SwipeUpContainer';
 import { useWindowDimensions } from '@/utils/hooks/useWindowDimensions';
+import { useSwipeUpModalHeightAnimation } from '@/hooks/useSwipeUpModalHeightAnimation';
+import { calcPositionInPercent } from '@/utils/functions/calcPositionInPercent';
 
 import { TModalStatus } from '@/types/TModalStatus';
 import { Content, ContentBox, WrapperContent, WrapperModal } from './SwipeUpModal.style';
@@ -22,6 +24,7 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
     backdrop = true,
     externalStyle,
     onClose,
+    heightRecalculationTrigger,
     ...htmlProps
   } = props;
 
@@ -38,6 +41,19 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
   const [statusModal, setStatusModal] = useState<TModalStatus | 'opening'>('closed');
   const [modalPosition, setModalPosition] = useState(120);
   const scrollY = useRef(0);
+
+  // Use custom hook for height animation logic
+  const { isHeightTransitioning } = useSwipeUpModalHeightAnimation({
+    heightRecalculationTrigger,
+    statusModal,
+    windowHeight,
+    contentRef,
+    scalingSection,
+    initialHeightRef,
+    setModalPosition,
+    setContentHeight,
+    modalPosition,
+  });
 
   useBodyOverflow('hidden');
 
@@ -156,7 +172,12 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
             statusModal === 'open' || statusModal === 'opening'
               ? `translateY(${Math.max(modalPosition, 0)}%)`
               : 'translateY(120%)',
-          transition: statusModal !== 'open' ? 'transform 0.3s ease-in-out' : '',
+          transition:
+            statusModal !== 'open'
+              ? 'transform 0.3s ease-in-out'
+              : isHeightTransitioning
+                ? 'transform 0.3s ease-out'
+                : '',
         }}
         externalStyle={externalStyle}
         {...htmlProps}
@@ -172,6 +193,7 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
           $spaceTop={scalingSection.current?.offsetHeight ?? 0}
           style={{
             height: `${windowHeight - (contentHeight ?? 0)}px`,
+            transition: isHeightTransitioning ? 'height 0.3s ease-out' : '',
           }}
         >
           <WrapperContent>
@@ -188,7 +210,3 @@ export default function SwipeUpModal(props: TSwipeUpModalWithHTMLAttrs) {
     </WrapperModal>
   );
 }
-
-const calcPositionInPercent = (currentPos: number, height: number) => {
-  return ((height - currentPos) / height) * 100;
-};

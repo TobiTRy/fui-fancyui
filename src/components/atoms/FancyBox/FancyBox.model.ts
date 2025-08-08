@@ -17,6 +17,7 @@ type TFancyBoxProps = {
   margin?: TThemeArrayOrValueCSS;
   sizeC?: TComponentSizesExtended;
   hoverLayer?: TLayer;
+  isFocused?: boolean;
   wide?: boolean;
 };
 

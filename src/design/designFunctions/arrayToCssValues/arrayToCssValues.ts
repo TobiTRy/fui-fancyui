@@ -32,22 +32,22 @@ const arrayToCssValues = <T extends keyof TThemeValueMap = 'default'>(
     // if one value is given, all edges are the same
     case 1: {
       const singleValue = getThemeOrValueAsCSS(cleanedValues[0], themeSetting);
-      return ` ${singleValue} `;
+      return `${singleValue}`;
     }
     // if two values are given, top/bottom and left/right are the same
     case 2: {
       const [topBottomValue, leftRightValue] = cleanedValues.map((item) => getThemeOrValueAsCSS(item, themeSetting));
-      return ` ${topBottomValue} ${leftRightValue} `;
+      return `${topBottomValue} ${leftRightValue}`;
     }
     // if three values are given, top, left/right and bottom are the same
     case 3: {
       const [top, leftRight, bottom] = cleanedValues.map((item) => getThemeOrValueAsCSS(item, themeSetting));
-      return ` ${top} ${leftRight} ${bottom} ${leftRight} `;
+      return `${top} ${leftRight} ${bottom} ${leftRight}`;
     }
     // if four values are given, all edges are different
     case 4: {
       const [top, right, bottom, left] = cleanedValues.map((item) => getThemeOrValueAsCSS(item, themeSetting));
-      return ` ${top} ${right} ${bottom} ${left} `;
+      return `${top} ${right} ${bottom} ${left}`;
     }
   }
 };
