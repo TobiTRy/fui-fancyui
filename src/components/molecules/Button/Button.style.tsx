@@ -37,7 +37,7 @@ export const ButtonStyle = styled.span<IGenerateThemeDesignForComponent & TStyle
 
   ${({ $sizeC, $noSize, $outlined }) => !$noSize && generateButtonSizeAndPadding($sizeC ?? 'md', true, $outlined)}
 
-  * {
+  > span {
     font-size: ${({ $sizeC, theme }) => theme.fontSizes[sizeSettings[$sizeC ?? 'md'].fontSize].fontSize};
     line-height: ${({ $sizeC, theme }) => theme.spacing[sizeSettings[$sizeC ?? 'md'].lineHeight]} !important;
     font-weight: bold;
