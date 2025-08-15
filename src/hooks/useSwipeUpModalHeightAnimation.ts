@@ -34,8 +34,6 @@ export function useSwipeUpModalHeightAnimation({
   // Recalculate height when heightRecalculationTrigger changes
   useEffect(() => {
     if (heightRecalculationTrigger && heightRecalculationTrigger > 0 && statusModal === 'open') {
-      console.log('🎬 Modal height animating:', modalPosition.toFixed(1) + '%');
-
       // Enable smooth transition
       setIsHeightTransitioning(true);
 

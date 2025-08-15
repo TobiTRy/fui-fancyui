@@ -19,6 +19,7 @@ import { useActiveBreakpoint } from '@/utils/hooks/useActiveBreakpoint';
 import { SystemMessage } from '@/components/atoms/SystemMessage';
 import { FancyTextInput } from '@/components/organisms/FancyTextInput';
 import { FancyDropDownSelect } from '@/components/organisms/FancyDropDownSelect';
+import { FancyFloatingInfoButton } from '@/components/organisms/FancyFloatingInfoButton';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -158,6 +159,7 @@ export default function ExperimentalRoute() {
         <FancyBox hoverLayer={4}>
           <p>Test</p>
         </FancyBox>
+        <FancyFloatingInfoButton position="top-right" />
       </DesignWrapper>
     </>
   );
