@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { persist } from 'zustand/middleware';
 import { updateThemeColors, uiColors, IUiColorPops } from '../generateThemeColor/generateThemeColor';
 import { spacingPx, borderRadius, typography } from '../designSizes';
 import { TTheme } from '@/types/TTheme';
@@ -14,51 +15,59 @@ type ThemeState = {
 };
 
 // the store for the theme
-const themeStore = create<ThemeState>((set) => ({
-  theme: {
-    color: uiColors,
-    borderRadius: borderRadius,
-    spacing: spacingPx,
-    fontSizes: typography,
-    breakpoints: breakpoints,
-    globalElementSizes: globalElementSizes,
-    outlined: {
-      outlinedBackgroundStrength: 0.5,
-    },
-  },
-  isDarkTheme: true,
-  switchTheme: () => {
-    set((state) => {
-      // Assuming regenerateUiColors updates the uiColors object
-      return {
-        isDarkTheme: !state.isDarkTheme,
-        theme: {
-          ...state.theme,
-          color: {
-            ...state.theme.color,
-            primary: state.theme.color.secondary,
-            secondary: state.theme.color.primary,
-          },
+const themeStore = create<ThemeState>()(
+  persist(
+    (set) => ({
+      theme: {
+        color: uiColors,
+        borderRadius: borderRadius,
+        spacing: spacingPx,
+        fontSizes: typography,
+        breakpoints: breakpoints,
+        globalElementSizes: globalElementSizes,
+        outlined: {
+          outlinedBackgroundStrength: 0.5,
         },
-      };
-    });
-  },
-  updateTheme: (colors) => {
-    updateThemeColors(colors);
-    set((state) => ({
-      theme: {
-        ...state.theme,
-        colors: uiColors,
       },
-    }));
-  },
-  setTheme: (theme) => {
-    set(() => ({
-      theme: {
-        ...theme,
+      isDarkTheme: true,
+      switchTheme: () => {
+        set((state) => {
+          // Assuming regenerateUiColors updates the uiColors object
+          return {
+            isDarkTheme: !state.isDarkTheme,
+            theme: {
+              ...state.theme,
+              color: {
+                ...state.theme.color,
+                primary: state.theme.color.secondary,
+                secondary: state.theme.color.primary,
+              },
+            },
+          };
+        });
       },
-    }));
-  },
-}));
+      updateTheme: (colors) => {
+        updateThemeColors(colors);
+        set((state) => ({
+          theme: {
+            ...state.theme,
+            colors: uiColors,
+          },
+        }));
+      },
+      setTheme: (theme) => {
+        set(() => ({
+          theme: {
+            ...theme,
+          },
+        }));
+      },
+    }),
+    {
+      name: 'theme-storage',
+      partialize: (state) => ({ isDarkTheme: state.isDarkTheme }),
+    }
+  )
+);
 
 export default themeStore;
