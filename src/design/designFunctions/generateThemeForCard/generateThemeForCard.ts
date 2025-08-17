@@ -15,7 +15,7 @@ const generateOutlineStyle = (props: TGenerateColorDesign) => {
 
   // generate the background color with a transparency of the background color
   const generateSlightBackgroundColor = colorTransparencyCalculator(
-    getBackgroundColor({ theme, $themeType: $themeType || 'primary', $layer: clampLayer($layer - 3) }),
+    getBackgroundColor({ theme, $themeType: $themeType || 'primary', $layer: $layer }),
     $outlinedBackgroundStrength
   );
 
