@@ -61,6 +61,15 @@ export default function FancyChipList(props: TFancyChipList) {
     setInputValue(event.target.value);
   };
 
+  // Function to handle input blur event for adding chips
+  const handleInputBlur = () => {
+    const val = inputValue.trim();
+    if (val) {
+      addChip(val);
+      setInputValue('');
+    }
+  };
+
   return (
     <Fieldset legend={legend} typographySettings={{ variant: 'interactiveLg' }}>
       <ChipList
@@ -98,6 +107,7 @@ export default function FancyChipList(props: TFancyChipList) {
             disabled={disabled}
             onChange={handleInputChange}
             onKeyDown={handleInputKeyDown}
+            onBlur={handleInputBlur}
             placeholder={inputPlaceholder}
           />
         </InputLi>
