@@ -24,7 +24,7 @@ export const StyledHeadLineTitles = styled.span<TStyledHeadLineTitles & { theme:
   align-items: ${({ $alignCenter }) => ($alignCenter ? 'center' : 'flex-start')};
   text-align: ${({ $alignCenter }) => ($alignCenter ? 'center' : 'start')};
   gap: ${({ theme, $gapBetweenText }) => $gapBetweenText && theme.spacing[$gapBetweenText || 'xxs']};
-  padding: ${({ $alignCenter, theme }) => ($alignCenter ? `0 ${theme.spacing.xl}` : `0 ${theme.spacing.xl} 0 0 `)};
+  padding: ${({ $alignCenter, theme }) => ($alignCenter ? `0 ${theme.spacing.lg}` : `0 ${theme.spacing.lg} 0 0 `)};
   width: 100%;
   box-sizing: border-box;
 `;
