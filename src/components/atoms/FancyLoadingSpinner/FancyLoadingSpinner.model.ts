@@ -4,6 +4,7 @@ import { sizes } from './sizeSettings';
 import { TTheme } from '@/types/TTheme';
 import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 import { TLayer } from '@/types/TLayer';
+import { TglobalElementSizes } from '@/types/TGlobalElementSizes';
 
 // ------------------------------------------------- //
 // ------- The helperfunctions for the style ------- //
@@ -39,7 +40,7 @@ const reverseSpinner = keyframes`
 // ------- The style for the component ------- //
 // ------------------------------------------- //
 // Define a styled component for the spinner container
-export const SpinnerContainer = styled.div<{ $sizeC?: keyof typeof sizes }>`
+export const SpinnerContainer = styled.div<{ $sizeC?: TglobalElementSizes }>`
   position: relative;
   width: ${({ $sizeC }) => ($sizeC ? sizes[$sizeC].width : sizes.md.width)};
   height: ${({ $sizeC }) => ($sizeC ? sizes[$sizeC].width : sizes.md.width)};
@@ -49,7 +50,7 @@ export const SpinnerContainer = styled.div<{ $sizeC?: keyof typeof sizes }>`
 `;
 
 interface IStyledFancyLoadingSpinner {
-  $sizeC: keyof typeof sizes;
+  $sizeC: TglobalElementSizes;
   theme: TTheme;
   $themeType?: TUiColorsNotTransparent;
   $layer?: TLayer;
