@@ -25,6 +25,7 @@ function FancyContent(props: TFancyContentHTMLAttrs) {
     alignIcon = 'left',
     justify,
     align,
+    wide = true,
     ...htmlProps
   } = props;
 
@@ -93,6 +94,7 @@ function FancyContent(props: TFancyContentHTMLAttrs) {
         $externalStyle={externalStyle}
         $justify={justify}
         $align={align}
+        $wide={wide}
         {...htmlProps}
       >
         {iconElement}

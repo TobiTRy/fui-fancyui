@@ -4,7 +4,6 @@ import React, { useId } from 'react';
 
 import { Typography } from '@/components/atoms/Typography';
 import { FancyContent } from '@/components/molecules/FancyContent';
-import { leftRightToFlex } from '@/utils/functions/leftRightToFlex';
 import { SwitchButtonStyle } from './FancyTabSwitchButton.style';
 import { TFancyTabSwitchButton } from './TFancyTabSwitchButton.model';
 import { sizeSettings } from './sizeSettings';
@@ -62,7 +61,7 @@ const FancyTabSwitchButton = React.forwardRef<HTMLDivElement, TFancyTabSwitchBut
         externalStyle={{ zIndex: 1 }}
       >
         {(icon || label) && (
-          <FancyContent layoutMode="normal" alignIcon={iconAlign === 'right' ? 'right' : 'left'}>
+          <FancyContent wide={false} layoutMode="normal" alignIcon={iconAlign === 'right' ? 'right' : 'left'}>
             {icon && <FancyContent.Icon>{icon}</FancyContent.Icon>}
             {label && <FancyContent.Title fontVariant={sizeSettings[sizeC].fontSize}>{label}</FancyContent.Title>}
           </FancyContent>

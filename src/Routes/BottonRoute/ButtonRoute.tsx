@@ -28,7 +28,7 @@ export default function ButtonRoute() {
 
   return (
     <>
-      {/* <FancySVGAtom sizeC="lg" themeType="secondary">
+      <FancySVGAtom sizeC="lg" themeType="secondary">
         <SVGChevronRight />
       </FancySVGAtom>
       <DesignWrapper>
@@ -163,7 +163,7 @@ export default function ButtonRoute() {
           themeType="secondary"
           outlined
         />
-      </DesignArea> */}
+      </DesignArea>
       <DesignArea title="1:1 Buttons" style={backgroundColor}>
         <FancyButton
           icon={Icon}

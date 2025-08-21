@@ -26,7 +26,15 @@ export default defineConfig({
     },
     rollupOptions: {
       treeshake: true,
-      external: ['react', 'react-dom', 'styled-components', '@react-spring/web', 'react/jsx-runtime', 'color'],
+      external: [
+        'react',
+        'react-dom',
+        'react/jsx-runtime',
+        'react/jsx-dev-runtime',
+        'styled-components',
+        '@react-spring/web',
+        'color',
+      ],
       output: {
         preserveModulesRoot: '.',
         preserveModules: true,

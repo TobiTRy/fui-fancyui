@@ -52,7 +52,7 @@ const meta = {
         type: 'object' as const,
       },
       table: {
-        type: { summary: '(checked: boolean) => void' },
+        type: { summary: '(e: React.ChangeEvent<HTMLInputElement>) => void' },
       },
     },
     icon: {
@@ -104,7 +104,7 @@ type Story = StoryObj<typeof meta>;
 const ControlledTemplate = (args: { checked?: boolean } & Record<string, unknown>) => {
   const [checked, setChecked] = useState(args.checked || false);
 
-  return <Switch {...args} checked={checked} onChange={setChecked} />;
+  return <Switch {...args} checked={checked} onChange={(e) => setChecked(e.target.checked)} />;
 };
 
 export const Default: Story = {
@@ -168,8 +168,8 @@ export const Sizes: Story = {
       xl: false,
     });
 
-    const handleChange = (size: keyof typeof states) => (checked: boolean) => {
-      setStates((prev) => ({ ...prev, [size]: checked }));
+    const handleChange = (size: keyof typeof states) => (e: React.ChangeEvent<HTMLInputElement>) => {
+      setStates((prev) => ({ ...prev, [size]: e.target.checked }));
     };
 
     return (
@@ -209,8 +209,8 @@ export const ThemeVariants: Story = {
       error: true,
     });
 
-    const handleChange = (theme: keyof typeof states) => (checked: boolean) => {
-      setStates((prev) => ({ ...prev, [theme]: checked }));
+    const handleChange = (theme: keyof typeof states) => (e: React.ChangeEvent<HTMLInputElement>) => {
+      setStates((prev) => ({ ...prev, [theme]: e.target.checked }));
     };
 
     return (
@@ -249,8 +249,8 @@ export const WithIconsAndStates: Story = {
       iconCheckedDisabled: true,
     });
 
-    const handleChange = (key: keyof typeof states) => (checked: boolean) => {
-      setStates((prev) => ({ ...prev, [key]: checked }));
+    const handleChange = (key: keyof typeof states) => (e: React.ChangeEvent<HTMLInputElement>) => {
+      setStates((prev) => ({ ...prev, [key]: e.target.checked }));
     };
 
     return (

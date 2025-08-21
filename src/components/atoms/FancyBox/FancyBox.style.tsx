@@ -6,13 +6,15 @@ import { TTheme } from '@/types/TTheme';
 
 import { TFancyBox } from './FancyBox.model';
 import { TThemeArrayOrValueCSS, arrayToCssValues } from '@/design/designFunctions/arrayToCssValues';
+import { focusStyle } from '@/design/designFunctions/focusStyle';
 
 // the fancy box that gets the style from the theme
 type IStyledFancyBox = TStyledPrefixAndPicker<TFancyBox> & { $padding?: TThemeArrayOrValueCSS };
-export const StyledFancyBox = styled.div<IStyledFancyBox & { theme?: TTheme }>`
+export const StyledFancyBox = styled.div<IStyledFancyBox & { theme: TTheme }>`
   border-radius: ${({ $borderRadius }) => arrayToCssValues($borderRadius, 'borderRadius')};
   padding: ${({ $padding }) => arrayToCssValues($padding, 'spacing')};
   margin: ${({ $margin }) => arrayToCssValues($margin, 'spacing')};
+  width: ${({ $wide }) => ($wide ? '100%' : 'fit-content')};
 
   box-sizing: border-box;
   ${({ $themeType, theme, $layer, $outlined, $outlinedBackgroundStrength, $outlinedRemoveBorder }) =>
@@ -36,6 +38,9 @@ export const StyledFancyBox = styled.div<IStyledFancyBox & { theme?: TTheme }>`
         }
       }
     `}
+
+  ${({ $isFocused }) => $isFocused && focusStyle}
+
 
   ${({ $externalStyle }) => $externalStyle};
 `;

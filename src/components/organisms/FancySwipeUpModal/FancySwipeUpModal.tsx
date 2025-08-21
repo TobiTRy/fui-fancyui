@@ -13,8 +13,15 @@ interface IFancySwipeUpModal {
   modals: TFancySwipeUpModal[];
   modalConfig?: TModalSettings;
   closeModal: (id: string) => void;
+  heightRecalculationTrigger?: Record<string, number>;
 }
-export default function FancySwipeUpModal({ appendToDomID, modals, modalConfig, closeModal }: IFancySwipeUpModal) {
+export default function FancySwipeUpModal({
+  appendToDomID,
+  modals,
+  modalConfig,
+  closeModal,
+  heightRecalculationTrigger,
+}: IFancySwipeUpModal) {
   /* ----- The FancModal Ports the Modal out of the root div in the spearte "modal" div ----- */
   return (
     <FancyPortal appendToID={appendToDomID}>
@@ -26,6 +33,7 @@ export default function FancySwipeUpModal({ appendToDomID, modals, modalConfig, 
           {...modal.config}
           onClose={() => closeModal(modal.id)}
           isOpen={modal.status === 'open'}
+          heightRecalculationTrigger={heightRecalculationTrigger?.[modal.id] || 0}
         >
           {/* render the content of the modal  */}
           {modal.children}

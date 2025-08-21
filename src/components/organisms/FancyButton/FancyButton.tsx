@@ -60,6 +60,7 @@ export default function FancyButton(props: TFancyButtonWithHTMLAttrs) {
       <FancyContent
         justify={align}
         layoutMode="normal"
+        wide={false}
         alignIcon={iconPosition}
         gapBetweenIcon={sizeSettings[sizeC].gap}
       >

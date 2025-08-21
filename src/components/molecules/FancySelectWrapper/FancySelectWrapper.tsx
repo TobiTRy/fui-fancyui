@@ -5,7 +5,6 @@ import { useId } from 'react';
 import { FancyContent } from '@/components/molecules/FancyContent';
 import { TFancySelectWrapperWithHTMLProps } from './TFancySelectWrapper.model';
 import { InputWrapper, LabelWrapper } from './FancySelectWrapper.style';
-import { leftRightCenterToFlexJustify } from '@/design/designFunctions/leftRightCenterToFlexJustify';
 
 // --------------------------------------------------------------------------- //
 // - A simple Checkbox/Radio Wrapper  that provides a label and description -- //
@@ -21,17 +20,27 @@ export default function FancySelectWrapper(props: TFancySelectWrapperWithHTMLPro
     themeType = 'secondary',
     layerDescription = 2,
     layer = 0,
+    gap = 'xs',
+    id: idProp,
+    disabled,
     ...htmlProps
   } = props;
 
   const id = useId();
-  const pickedId = props.id ? props.id : id;
+  const pickedId = idProp ? idProp : id;
 
   return (
     <>
       {/* The label and description */}
       {label || description ? (
-        <LabelWrapper $align={align} htmlFor={pickedId} $externalStyle={externalStyle} {...htmlProps}>
+        <LabelWrapper
+          $align={align}
+          $disabled={disabled}
+          htmlFor={pickedId}
+          $externalStyle={externalStyle}
+          $gap={gap}
+          {...htmlProps}
+        >
           <FancyContent layoutMode="normal">
             {label && (
               <FancyContent.Title fontVariant="interactiveLg" themeType={themeType} layer={layer} fontWeight={'bold'}>

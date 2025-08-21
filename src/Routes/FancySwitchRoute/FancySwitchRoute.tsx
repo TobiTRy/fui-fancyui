@@ -13,40 +13,56 @@ export default function FancySwitchRoute() {
   const [iconSwitch, setIconSwitch] = useState(false);
   const [descriptionSwitch, setDescriptionSwitch] = useState(false);
 
+  const [testSwitch, setTestSwitch] = useState(false);
+
   return (
     <>
+      <button onClick={() => setTestSwitch(!testSwitch)}>Toggle</button>
       <Card>
         <DesignWrapper>
           <DesignArea title="Basic Switch (Molecule)" style={{ alignItems: 'flex-start' }}>
-            <Switch checked={basicSwitch} onChange={setBasicSwitch} sizeC="sm" themeType="primary" />
-            <Switch checked={basicSwitch} onChange={setBasicSwitch} sizeC="md" themeType="secondary" />
-            <Switch checked={basicSwitch} onChange={setBasicSwitch} sizeC="lg" themeType="success" />
+            <Switch
+              checked={basicSwitch}
+              onChange={(e) => setBasicSwitch(e.target.checked)}
+              sizeC="sm"
+              themeType="primary"
+            />
+            <Switch
+              checked={basicSwitch}
+              onChange={(e) => setBasicSwitch(e.target.checked)}
+              sizeC="md"
+              themeType="secondary"
+            />
+            <Switch
+              checked={basicSwitch}
+              onChange={(e) => setBasicSwitch(e.target.checked)}
+              sizeC="lg"
+              themeType="success"
+            />
             <Switch checked={true} disabled sizeC="md" themeType="primary" />
           </DesignArea>
 
           <DesignArea title="FancySwitch with Labels" style={{ alignItems: 'flex-start' }}>
             <FancySwitch
               label="Enable notifications"
-              checked={labelSwitch}
-              onChange={setLabelSwitch}
+              checked={testSwitch}
+              onChange={(e) => setTestSwitch(e.target.checked)}
               sizeC="md"
-              themeType="primary"
             />
 
             <FancySwitch
               label="Dark mode"
               description="Toggle between light and dark theme"
               checked={labelSwitch}
-              onChange={setLabelSwitch}
+              onChange={(e) => setLabelSwitch(e.target.checked)}
               sizeC="md"
-              themeType="secondary"
             />
 
             <FancySwitch
               label="Auto-save"
               alignSwitch="right"
               checked={labelSwitch}
-              onChange={setLabelSwitch}
+              onChange={(e) => setLabelSwitch(e.target.checked)}
               sizeC="lg"
               themeType="success"
             />
@@ -56,41 +72,80 @@ export default function FancySwitchRoute() {
             <FancySwitch
               label="Extra Small"
               checked={labelSwitch}
-              onChange={setLabelSwitch}
+              onChange={(e) => setLabelSwitch(e.target.checked)}
               sizeC="xs"
+            />
+            <FancySwitch
+              label="Small"
+              checked={labelSwitch}
+              onChange={(e) => setLabelSwitch(e.target.checked)}
+              sizeC="sm"
               themeType="primary"
             />
-            <FancySwitch label="Small" checked={labelSwitch} onChange={setLabelSwitch} sizeC="sm" themeType="primary" />
             <FancySwitch
               label="Medium"
               checked={labelSwitch}
-              onChange={setLabelSwitch}
+              onChange={(e) => setLabelSwitch(e.target.checked)}
               sizeC="md"
+            />
+            <FancySwitch
+              label="Large"
+              checked={labelSwitch}
+              onChange={(e) => setLabelSwitch(e.target.checked)}
+              sizeC="lg"
               themeType="primary"
             />
-            <FancySwitch label="Large" checked={labelSwitch} onChange={setLabelSwitch} sizeC="lg" themeType="primary" />
             <FancySwitch
               label="Extra Large"
               checked={labelSwitch}
-              onChange={setLabelSwitch}
+              onChange={(e) => setLabelSwitch(e.target.checked)}
               sizeC="xl"
-              themeType="primary"
             />
           </DesignArea>
 
           <DesignArea title="Different Themes" style={{ alignItems: 'flex-start' }}>
-            <FancySwitch label="Primary" checked={true} onChange={setLabelSwitch} sizeC="md" themeType="primary" />
-            <FancySwitch label="Secondary" checked={true} onChange={setLabelSwitch} sizeC="md" themeType="secondary" />
-            <FancySwitch label="Success" checked={true} onChange={setLabelSwitch} sizeC="md" themeType="success" />
-            <FancySwitch label="Warning" checked={true} onChange={setLabelSwitch} sizeC="md" themeType="warning" />
-            <FancySwitch label="Error" checked={true} onChange={setLabelSwitch} sizeC="md" themeType="error" />
+            <FancySwitch
+              label="Primary"
+              checked={true}
+              onChange={(e) => setLabelSwitch(e.target.checked)}
+              sizeC="md"
+              themeType="primary"
+            />
+            <FancySwitch
+              label="Secondary"
+              checked={true}
+              onChange={(e) => setLabelSwitch(e.target.checked)}
+              sizeC="md"
+              themeType="secondary"
+            />
+            <FancySwitch
+              label="Success"
+              checked={true}
+              onChange={(e) => setLabelSwitch(e.target.checked)}
+              sizeC="md"
+              themeType="success"
+            />
+            <FancySwitch
+              label="Warning"
+              checked={true}
+              onChange={(e) => setLabelSwitch(e.target.checked)}
+              sizeC="md"
+              themeType="warning"
+            />
+            <FancySwitch
+              label="Error"
+              checked={true}
+              onChange={(e) => setLabelSwitch(e.target.checked)}
+              sizeC="md"
+              themeType="error"
+            />
           </DesignArea>
 
           <DesignArea title="With Icons" style={{ alignItems: 'flex-start' }}>
             <FancySwitch
               label="Toggle with icons"
               checked={iconSwitch}
-              onChange={setIconSwitch}
+              onChange={(e) => setIconSwitch(e.target.checked)}
               icon={<SVGXlg />}
               checkedIcon={<SVGCheckMark />}
               sizeC="md"
@@ -99,7 +154,7 @@ export default function FancySwitchRoute() {
 
             <Switch
               checked={iconSwitch}
-              onChange={setIconSwitch}
+              onChange={(e) => setIconSwitch(e.target.checked)}
               icon={<SVGXlg />}
               checkedIcon={<SVGCheckMark />}
               sizeC="lg"
@@ -114,27 +169,26 @@ export default function FancySwitchRoute() {
 
             <FancySwitch
               label="Left aligned"
-              align="left"
+              alignSwitch="left"
               checked={descriptionSwitch}
-              onChange={setDescriptionSwitch}
+              onChange={(e) => setDescriptionSwitch(e.target.checked)}
               sizeC="md"
               themeType="primary"
             />
 
             <FancySwitch
               label="Center aligned"
-              align="center"
               checked={descriptionSwitch}
-              onChange={setDescriptionSwitch}
+              onChange={(e) => setDescriptionSwitch(e.target.checked)}
               sizeC="md"
               themeType="primary"
             />
 
             <FancySwitch
               label="Right aligned"
-              align="right"
+              alignSwitch="right"
               checked={descriptionSwitch}
-              onChange={setDescriptionSwitch}
+              onChange={(e) => setDescriptionSwitch(e.target.checked)}
               sizeC="md"
               themeType="primary"
             />
@@ -145,7 +199,7 @@ export default function FancySwitchRoute() {
               label="Email notifications"
               description="Receive email updates about your account activity and important changes"
               checked={descriptionSwitch}
-              onChange={setDescriptionSwitch}
+              onChange={(e) => setDescriptionSwitch(e.target.checked)}
               sizeC="md"
               themeType="primary"
             />
@@ -155,7 +209,7 @@ export default function FancySwitchRoute() {
               description="Add an extra layer of security to your account"
               alignSwitch="right"
               checked={descriptionSwitch}
-              onChange={setDescriptionSwitch}
+              onChange={(e) => setDescriptionSwitch(e.target.checked)}
               sizeC="md"
               themeType="success"
             />

@@ -136,7 +136,7 @@ const getGridTemplate = (
 // Define the Wrapper component
 export const Wrapper = styled.span<TWrapper & { theme: TTheme }>`
   display: grid;
-  width: 100%;
+  width: ${({ $wide }) => ($wide ? '100%' : 'fit-content')};
   gap: ${({ $gap, $gapBetweenIcon }) => arrayToCssValues($gap || $gapBetweenIcon, 'spacing')};
   align-items: ${({ $align }) => $align || 'start'};
 
@@ -187,6 +187,7 @@ type TOnlyTextWrapper = TStyledPrefixAndPicker<
 > & {
   $justify?: TTextAlignLRC;
   $align?: TAlignItemsValues;
+  $wide?: boolean;
 };
 
 export const OnlyTextWrapper = styled.span<TOnlyTextWrapper & { theme: TTheme }>`
@@ -194,7 +195,7 @@ export const OnlyTextWrapper = styled.span<TOnlyTextWrapper & { theme: TTheme }>
   grid-template-columns: 1fr;
   gap: ${({ $gap, $gapBetweenText }) => arrayToCssValues($gap || $gapBetweenText, 'spacing')};
   align-items: ${({ $align }) => $align || 'start'};
-
+  width: ${({ $wide }) => ($wide ? '100%' : 'fit-content')};
   ${({ $justify }: { $justify?: TTextAlignLRC }) =>
     $justify &&
     css`

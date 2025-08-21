@@ -1,9 +1,9 @@
 import { TLayer } from '@/types/TLayer';
-import { sizes } from './sizeSettings';
 import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
+import { TglobalElementSizes } from '@/types/TGlobalElementSizes';
 
 export type TFancyLoadingSpinner = {
-  sizeC?: keyof typeof sizes;
+  sizeC?: TglobalElementSizes;
   themeType?: TUiColorsNotTransparent;
   layer?: TLayer;
 };

@@ -6,7 +6,7 @@ import { CSSProp } from 'styled-components';
 
 export type TSwitch = {
   checked?: boolean;
-  onChange?: (checked: boolean) => void;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   disabled?: boolean;
   sizeC?: TComponentSizesMid;
   themeType?: TUiColorsNotTransparent;

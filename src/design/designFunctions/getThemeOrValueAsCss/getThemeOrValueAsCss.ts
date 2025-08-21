@@ -17,7 +17,9 @@ export default function getThemeOrValueAsCSS<T extends keyof TThemeValueMap = 'd
     let themeValue: string | undefined;
     // Get the theme from the store
     const theme = themeStore.getState().theme;
-    if (checkForNumberValue(value)) return `${value}`;
+    if (checkForNumberValue(value)) {
+      return `${value}`;
+    }
 
     // Check if the themeSetting is 'borderRadius' or 'spacing' and access the value using the key
     switch (themeSetting) {
@@ -46,8 +48,8 @@ export default function getThemeOrValueAsCSS<T extends keyof TThemeValueMap = 'd
 const checkForNumberValue = (value: TThemeValueOrCSS) => {
   if (typeof value === 'number') return true;
   if (typeof value === 'string') {
-    // Check if the string contains only digits (and optionally decimal point)
-    return /^-?\d*\.?\d+$/.test(value);
+    // Check if the string contains only digits (and optionally decimal point) or CSS units
+    return /^-?\d*\.?\d+(px|rem|em|%|vh|vw|vmin|vmax|ch|ex)?$/.test(value);
   }
   return false;
 };
