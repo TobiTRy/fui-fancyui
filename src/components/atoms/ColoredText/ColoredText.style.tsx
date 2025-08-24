@@ -9,7 +9,6 @@ import { simpleColorTransition } from '@/design/designFunctions/simpleColorTrans
 type TStyledItem = TStyledPrefixAndPicker<TColoredText, 'layer' | 'themeType' | 'hoverLayer' | 'externalStyle'>;
 export const StyledItem = styled.span<TStyledItem & { theme: TTheme }>`
   * {
-    height: fit-content;
     color: ${({ theme, $themeType = 'secondary', $layer = 0 }) => getBackgroundColor({ theme, $themeType, $layer })};
 
     &:hover {
