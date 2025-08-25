@@ -10,7 +10,7 @@ const PositionWithLabel = (theme: TTheme, $isTextArea: boolean) => css`
 `;
 
 const PositionWithoutLabel = (theme: TTheme, $isTextArea: boolean) => css`
-  padding: ${`2px ${theme.spacing.sm} ${theme.spacing.xxs}`};
+  padding: ${`${theme.spacing.xxs} ${theme.spacing.sm} ${theme.spacing.xxs}`};
   height: ${!$isTextArea ? theme.globalElementSizes.sm : ''};
 `;
 
