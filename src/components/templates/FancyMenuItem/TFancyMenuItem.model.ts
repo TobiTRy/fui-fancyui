@@ -2,13 +2,13 @@ import { TMenueItemWithHTMLAttrs } from '@/components/atoms/MenuItem/TMenueItem.
 import { TFancyContent } from '@/components/molecules/FancyContent';
 
 import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
-import { TComponentSizes } from '@/types/TComponentSizes';
+import { TComponentSizesMid } from '@/types/TComponentSizes';
 import { TLayer } from '@/types/TLayer';
 
 export type TFancyMenuItem = {
   label?: string;
   icon?: React.ReactNode;
-  sizeC?: TComponentSizes;
+  sizeC?: TComponentSizesMid;
   themeTypeText?: TUiColorsNotTransparent;
   layerText?: TLayer;
 };

@@ -4,18 +4,23 @@ import { arrayToCssValues } from '@/design/designFunctions/arrayToCssValues';
 import { getTextColor } from '@/design/designFunctions/colorCalculatorForComponent/colorCalculatorForComponent';
 import { leftRightCenterToFlexJustify } from '@/design/designFunctions/leftRightCenterToFlexJustify';
 
-import { TSpacingArray } from '@/types/TSpacings';
+import { TSpacingArray, TSpacings } from '@/types/TSpacings';
 import { TStyledPrefixAndOmiter } from '@/types/TStyledPrefixAndOmiter';
 import { TTheme } from '@/types/TTheme';
 import { TMenueItem } from './TMenueItem.model';
 import { getOpositMainThemeType } from '@/design/designFunctions/getOpositMainThemeType';
 import { generateThemeForCard } from '@/design/designFunctions/generateThemeForCard';
 
-type IStyledMenuItem = TStyledPrefixAndOmiter<TMenueItem, 'children'> & { theme?: TTheme; $padding?: TSpacingArray };
+type IStyledMenuItem = TStyledPrefixAndOmiter<TMenueItem, 'children'> & {
+  theme?: TTheme;
+  $padding?: TSpacingArray;
+  $lineHeight?: TSpacings;
+};
 export const StyledMenuItem = styled.div<IStyledMenuItem>`
   display: flex;
   box-sizing: border-box;
   padding: ${({ $padding }) => arrayToCssValues($padding, 'spacing')};
+  line-height: ${({ $lineHeight }) => ($lineHeight ? arrayToCssValues($lineHeight, 'spacing') : 'inherit')};
   justify-content: ${({ $align }) => leftRightCenterToFlexJustify[$align ?? 'left']};
   cursor: pointer;
   background-color: transparent;

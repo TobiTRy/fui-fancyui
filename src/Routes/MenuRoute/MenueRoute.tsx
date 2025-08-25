@@ -28,12 +28,12 @@ export default function MenueRoute() {
               <Menu.Divider label="Test" icon={<SVGCheckMark />} textAlignment="left" noLine />
               <Menu.Divider label="Test" sizeC="md" icon={<SVGCheckMark />} textAlignment="center" />
               <Menu.Divider label="Test" textAlignment="center" />
-              <FancyMenueItem layer={5} outlined sizeC="md" label="Logout" icon={<SVGCheckMark />} />
+              {/* <FancyMenueItem layer={5} outlined sizeC="md" label="Logout" icon={<SVGCheckMark />} /> */}
+              <FancyMenueItem outlined layer={5} sizeC="xs" label="Logout" icon={<SVGCheckMark />} />
+              <FancyMenueItem outlined layer={5} sizeC="sm" label="Logout" icon={<SVGCheckMark />} />
               <FancyMenueItem outlined layer={5} sizeC="md" label="Logout" icon={<SVGCheckMark />} />
-              <FancyMenueItem outlined layer={5} sizeC="md" label="Logout" icon={<SVGCheckMark />} />
-              <FancyMenueItem outlined layer={5} sizeC="md" label="Logout" icon={<SVGCheckMark />} />
-              <FancyMenueItem outlined layer={5} sizeC="md" label="Logout" icon={<SVGCheckMark />} />
-              <FancyMenueItem outlined layer={5} sizeC="md" label="Logout" icon={<SVGCheckMark />} />
+              <FancyMenueItem outlined layer={5} sizeC="lg" label="Logout" icon={<SVGCheckMark />} />
+              <FancyMenueItem outlined layer={5} sizeC="xl" label="Logout" icon={<SVGCheckMark />} />
             </Menu>
           }
         ></FancyPopover>

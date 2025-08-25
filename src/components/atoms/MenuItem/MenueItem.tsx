@@ -30,6 +30,7 @@ export default function MenuItem(props: TMenueItemWithHTMLAttrs) {
       $align={align}
       $layer={layer}
       $padding={sizeSettings[sizeC].padding}
+      $lineHeight={sizeSettings[sizeC].lineHeight}
       $outlined={outlined}
       $outlinedBackgroundStrength={outlinedBackgroundStrength}
       {...HTMLProps}
