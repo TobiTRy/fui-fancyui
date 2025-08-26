@@ -16,8 +16,7 @@ function FancyContent(props: TFancyContentHTMLAttrs) {
   const {
     children,
     layoutMode = 'auto',
-    gap,
-    gapBetweenText = '',
+    gapBetweenText,
     gapBetweenIcon,
     themeType,
     layer,
@@ -88,7 +87,6 @@ function FancyContent(props: TFancyContentHTMLAttrs) {
       <OnlyTextWrapper
         $themeType={themeType}
         $layer={layer}
-        $gap={gap}
         $gapBetweenText={gapBetweenText}
         $layoutMode={layoutMode}
         $externalStyle={externalStyle}
@@ -112,7 +110,6 @@ function FancyContent(props: TFancyContentHTMLAttrs) {
         $hasIcon={hasIcon}
         $hasTitle={hasTitle || descriptionAsTitle}
         $hasDescription={hasDescription && !descriptionAsTitle}
-        $gap={gap}
         $gapBetweenText={gapBetweenText}
         $gapBetweenIcon={gapBetweenIcon ?? '2xs'}
         $themeType={themeType}
@@ -137,7 +134,6 @@ function FancyContent(props: TFancyContentHTMLAttrs) {
     <OnlyTextWrapper
       $themeType={themeType}
       $layer={layer}
-      $gap={gap}
       $gapBetweenText={gapBetweenText}
       $layoutMode={layoutMode}
       $externalStyle={externalStyle}

@@ -6,14 +6,13 @@ import { TThemeValueOrCSS } from '@/design/designFunctions/getThemeOrValueAsCss'
 import { TTextAlignLRC, TAlignItemsValues } from '@/types';
 
 export type TFancyContent = {
-  /** Layout mode for the grid: 'normal' = 2x2 grid, 'stack' = single column, 'row' = horizontal row, 'auto' = determines based on content */
-  layoutMode?: 'normal' | 'stack' | 'row' | 'auto';
+  /** Layout mode for the grid: 'normal' = 2x2 grid, 'stack' = single column, 'row' = horizontal row, 'span' = icon spans both rows, 'auto' = determines based on content */
+  layoutMode?: 'normal' | 'stack' | 'row' | 'span' | 'auto';
   /** Gap between text elements (title and description) */
   gapBetweenText?: TThemeValueOrCSS;
   /** Gap between icon and content */
   gapBetweenIcon?: TThemeValueOrCSS;
   /** Overall gap for the grid */
-  gap?: TThemeValueOrCSS;
   children?: React.ReactNode;
   themeType?: TUiColorsNotTransparent;
   layer?: TLayer;

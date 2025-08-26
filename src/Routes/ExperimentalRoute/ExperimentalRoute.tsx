@@ -20,6 +20,9 @@ import { SystemMessage } from '@/components/atoms/SystemMessage';
 import { FancyTextInput } from '@/components/organisms/FancyTextInput';
 import { FancyDropDownSelect } from '@/components/organisms/FancyDropDownSelect';
 import { FancyFloatingInfoButton } from '@/components/organisms/FancyFloatingInfoButton';
+import { SearchBar } from '@/components/molecules/SearchBar';
+import FancySearchSelect from '@/components/organisms/FancySearchSelect/FancySearchSelect';
+import FancySearchSelectExample from './FancySearchSelectExample';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -83,83 +86,9 @@ export default function ExperimentalRoute() {
   return (
     <>
       <DesignWrapper>
-        <FancyDropDownSelect
-          required
-          value={selectedValue}
-          placeholder="Hiii"
-          emptySelect
-          values={options}
-          onChange={(e) => setSelectedValue(e.target.value)}
-        />
-        <div>
-          <FancyTextInput />
-          <SystemMessage themeType="secondary" showMessage={true}>
-            Mooiin
-          </SystemMessage>
-        </div>
-        <DesignArea title="Test">
-          <p>Test</p>
+        <DesignArea title="FancySearchSelect Examples">
+          <FancySearchSelectExample />
         </DesignArea>
-        <FancyButton
-          borderRadius="md"
-          sizeC="md"
-          themeType="secondary"
-          icon={reloadIcon}
-          onClick={() => switchTheme()}
-        />
-        <DynamicComponentWrapper wrapperComponent={<a href="https://fui.cool" />}>
-          <p>Test</p>
-        </DynamicComponentWrapper>
-
-        <FancyTabSwitch wide label="test" layer={1} values={defaultProps} />
-
-        <div
-          onMouseEnter={() => setIsHover(true)}
-          onMouseLeave={() => setIsHover(false)}
-          style={{
-            position: 'fixed',
-            bottom: '0',
-            padding: '20px',
-            backgroundColor: 'black',
-            display: 'grid',
-            gridTemplateRows: isHover ? '1fr' : '0fr',
-            transition: 'grid-template-rows 0.5s ease-out',
-          }}
-        >
-          <div style={{ overflow: 'hidden' }}>
-            <div style={{ height: '100px' }}>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
-                <FancyNumberInput label="Email" />
-                <FancyButton label="Close Modal" />
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div
-          style={{
-            position: 'fixed',
-            left: '0',
-            bottom: '0',
-            padding: '20px',
-            backgroundColor: 'black',
-            display: 'grid',
-            gridTemplateRows: isHover ? '1fr' : '0fr',
-            transition: 'grid-template-rows 0.5s ease-out',
-          }}
-        >
-          <SwipeUpContainer isOpen={isHover}>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
-              <FancyNumberInput label="Email" />
-              <FancyButton label="Close Modal" />
-            </div>
-          </SwipeUpContainer>
-        </div>
-
-        <FancyBox hoverLayer={4}>
-          <p>Test</p>
-        </FancyBox>
-        <FancyFloatingInfoButton position="top-right" />
       </DesignWrapper>
     </>
   );
