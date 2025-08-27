@@ -24,7 +24,6 @@ export default function FancyItemContent(props: TFancyItemContentWithHTMLProps) 
     gapBetweenText = '0',
     imageSize = 'lg',
     imageBorderRadius = 'xs',
-    iconNoPadding = true,
     ...htmlProps
   } = props;
 
@@ -38,14 +37,18 @@ export default function FancyItemContent(props: TFancyItemContentWithHTMLProps) 
               <img src={item.image} alt={item.title} />
             </FancyContent.Image>
           ) : (
-            <FancyContent.Icon noPadding={iconNoPadding}>{item.icon}</FancyContent.Icon>
+            <FancyContent.Icon sizeC="lg">{item.icon}</FancyContent.Icon>
           ))}
 
         {/* Title */}
-        <FancyContent.Title>{item.title}</FancyContent.Title>
+        <FancyContent.Title fontVariant="subTextCaption">{item.title}</FancyContent.Title>
 
         {/* Description if provided */}
-        {item.description && <FancyContent.Description>{item.description}</FancyContent.Description>}
+        {item.description && (
+          <FancyContent.Description fontVariant="subTextFootnote" themeType="secondary" layer={5}>
+            {item.description}
+          </FancyContent.Description>
+        )}
       </FancyContent>
     </div>
   );

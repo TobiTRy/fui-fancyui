@@ -1,18 +1,41 @@
 import { styled } from 'styled-components';
-import { generateBackgroundColor } from '@/design/designFunctions/generateItemTheme/utils/generateBackgroundColor';
 import { TTheme } from '@/types/TTheme';
-import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
+import { TUiColorTypes } from '@/types/TUiColorTypes';
 import { FancyBox } from '@/components/atoms/FancyBox';
+import { generateBackgroundColor } from '@/design/designFunctions/generateItemTheme/utils/generateBackgroundColor';
 
 export const SearchSelectWrapper = styled.div`
   position: relative;
   width: 100%;
 `;
 
-export const ItemsList = styled.ul<{
+type TDropdownContainerProps = {
+  $isOpen?: boolean;
+  $zIndex?: number;
+  theme: TTheme;
+};
+export const DropdownContainer = styled.div<TDropdownContainerProps>`
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: ${({ $zIndex }) => $zIndex || 1000};
+  background: transparent;
+  opacity: ${({ $isOpen }) => ($isOpen ? 1 : 0)};
+  visibility: ${({ $isOpen }) => ($isOpen ? 'visible' : 'hidden')};
+  transform: ${({ $isOpen }) => ($isOpen ? 'translateY(0)' : 'translateY(-10px)')};
+  transition:
+    opacity 0.2s ease,
+    visibility 0.2s ease,
+    transform 0.2s ease;
+  pointer-events: ${({ $isOpen }) => ($isOpen ? 'auto' : 'none')};
+`;
+
+type TItemsListProps = {
   $maxHeight?: string;
   theme: TTheme;
-}>`
+};
+export const ItemsList = styled.ul<TItemsListProps>`
   display: flex;
   flex-direction: column;
   padding: ${({ theme }) => theme.spacing.xs};
@@ -24,62 +47,33 @@ export const ItemsList = styled.ul<{
   overflow-y: auto;
 `;
 
-export const SearchItem = styled.li<{
-  $isHovered?: boolean;
-  $themeType?: TUiColorsNotTransparent;
-  theme: TTheme;
-}>`
-  padding: ${({ theme }) => theme.spacing.xs};
-  border-radius: ${({ theme }) => theme.borderRadius.sm};
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-
-  &:hover {
-    background-color: ${generateBackgroundColor({ $themeType: 'primary', $layer: 1 })};
-  }
-
-  /* Make text smaller */
-  .title {
-    font-size: 0.875rem; /* 14px */
-    font-weight: 500;
-    line-height: 1.25;
-    margin: 0 !important;
-  }
-
-  .description {
-    font-size: 0.75rem; /* 12px */
-    opacity: 0.7;
-    line-height: 1.2;
-    margin: 0 !important;
-    margin-top: 0 !important;
-  }
-
-  /* Override FancyContent's grid gap */
-  > span {
-    gap: 0 !important;
-  }
-
-  > span > .description {
-    margin-top: 0 !important;
-  }
-
-  /* Make icons/images larger for span layout */
-  .icon {
-    font-size: 1rem;
-    width: 32px;
-    height: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-`;
-
 export const NoItemsText = styled.div<{ theme: TTheme }>`
   padding: ${({ theme }) => theme.spacing.sm};
   text-align: center;
   opacity: 0.6;
   font-style: italic;
   font-size: 0.75rem; /* 12px */
+`;
+
+type TSearchItemProps = {
+  $isHovered?: boolean;
+  $themeType?: TUiColorTypes;
+  theme: TTheme;
+};
+
+export const SearchItem = styled.li<TSearchItemProps>`
+  display: flex;
+  align-items: center;
+  padding: ${({ theme }) => theme.spacing.xs};
+  border-radius: ${({ theme }) => theme.borderRadius.xs};
+  cursor: pointer;
+  transition: all 0.15s ease;
+  background-color: ${({ $isHovered, theme, $themeType = 'primary' }) =>
+    $isHovered ? generateBackgroundColor({ $themeType, $layer: 1 }) : 'transparent'};
+
+  &:hover {
+    background-color: ${({ theme, $themeType = 'primary' }) => generateBackgroundColor({ $themeType, $layer: 1 })};
+  }
 `;
 
 export const SearchSelectBox = styled(FancyBox)`
