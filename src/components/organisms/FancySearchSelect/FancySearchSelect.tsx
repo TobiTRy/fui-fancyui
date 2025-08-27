@@ -35,6 +35,8 @@ export default function FancySearchSelect(props: TFancySearchSelectWithHTMLProps
   const [searchValue, setSearchValue] = useState(String(controlledValue || ''));
   const [hoveredIndex, setHoveredIndex] = useState(-1);
   const [isFocused, setIsFocused] = useState(false);
+  const [wasJustSelected, setWasJustSelected] = useState(false);
+  const [originalSelectedValue, setOriginalSelectedValue] = useState<string>('');
 
   const contentRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -65,13 +67,19 @@ export default function FancySearchSelect(props: TFancySearchSelectWithHTMLProps
 
   // Show dropdown when items are available and input is focused
   const shouldShowDropdown =
-    isFocused && (filteredItems.length > 0 || (openOnFocus && String(searchValue).trim() === ''));
+    isFocused && (filteredItems.length > 0 || (openOnFocus && String(searchValue).trim() === '') || wasJustSelected);
 
   // Handle search input change
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = e.target.value;
     setSearchValue(newValue);
     setHoveredIndex(-1); // Reset selection when search changes
+
+    // Reset selection tracking when user types (but not on backspace which is handled in keyDown)
+    if (wasJustSelected && newValue !== originalSelectedValue) {
+      setWasJustSelected(false);
+    }
+
     if (onChange) onChange(e);
   };
 
@@ -86,6 +94,7 @@ export default function FancySearchSelect(props: TFancySearchSelectWithHTMLProps
     setTimeout(() => {
       setIsFocused(false);
       setHoveredIndex(-1);
+      setWasJustSelected(false);
       if (onBlur) onBlur(e);
     }, 150);
   };
@@ -94,8 +103,12 @@ export default function FancySearchSelect(props: TFancySearchSelectWithHTMLProps
   const handleItemSelect = (item: TSearchSelectItem) => {
     if (clearOnSelect) {
       setSearchValue('');
+      setWasJustSelected(false);
+      setOriginalSelectedValue('');
     } else {
       setSearchValue(item.title);
+      setWasJustSelected(true);
+      setOriginalSelectedValue(item.title);
     }
 
     setIsFocused(false);
@@ -108,6 +121,13 @@ export default function FancySearchSelect(props: TFancySearchSelectWithHTMLProps
 
   // Handle keyboard navigation
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    // Handle backspace for previously selected items
+    if (e.key === 'Backspace' && wasJustSelected) {
+      setIsFocused(true);
+      setWasJustSelected(false);
+      return;
+    }
+
     if (availableItems.length === 0) return;
     switch (e.key) {
       case 'ArrowDown':
@@ -152,6 +172,7 @@ export default function FancySearchSelect(props: TFancySearchSelectWithHTMLProps
       case 'Escape':
         setIsFocused(false);
         setHoveredIndex(-1);
+        setWasJustSelected(false);
         if (inputRef.current) {
           inputRef.current.blur();
         }
