@@ -1,13 +1,12 @@
 'use client';
 
-import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
 import { FancyBox } from '@/components/atoms/FancyBox';
-import { FancyTextInput } from '@/components/organisms/FancyTextInput';
-import { FancyItemContent } from '@/components/molecules/FancyItemContent';
-import { TFancySearchSelectWithHTMLProps, TSearchSelectItem } from './FancySearchSelect.model';
-import { SearchSelectWrapper, DropdownContainer, ItemsList, SearchItem, NoItemsText } from './FancySearchSelect.style';
 import FancySearchSelectItem from '@/components/organisms/FancySearchSelect/FancySearchSelectItem/FancySearchSelectItem';
+import { FancyTextInput } from '@/components/organisms/FancyTextInput';
+import { TFancySearchSelectWithHTMLProps, TSearchSelectItem } from './FancySearchSelect.model';
+import { DropdownContainer, ItemsList, NoItemsText, SearchSelectWrapper } from './FancySearchSelect.style';
 
 /**
  * FancySearchSelect component with search and select functionality using absolute positioned dropdown
@@ -110,7 +109,6 @@ export default function FancySearchSelect(props: TFancySearchSelectWithHTMLProps
   // Handle keyboard navigation
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (availableItems.length === 0) return;
-
     switch (e.key) {
       case 'ArrowDown':
         e.preventDefault();
@@ -147,7 +145,8 @@ export default function FancySearchSelect(props: TFancySearchSelectWithHTMLProps
       case 'Enter':
         e.preventDefault();
         if (hoveredIndex >= 0 && hoveredIndex < availableItems.length) {
-          handleItemSelect(availableItems[hoveredIndex]);
+          const selectedItem = availableItems[hoveredIndex];
+          handleItemSelect(selectedItem);
         }
         break;
       case 'Escape':
@@ -174,7 +173,6 @@ export default function FancySearchSelect(props: TFancySearchSelectWithHTMLProps
       });
     }
   };
-
   // Sync with controlled value
   useEffect(() => {
     if (controlledValue !== undefined) {
@@ -220,9 +218,9 @@ export default function FancySearchSelect(props: TFancySearchSelectWithHTMLProps
                   <li key={item.id}>
                     <FancySearchSelectItem
                       item={item}
+                      layer={index === hoveredIndex ? 1 : 2}
                       itemLayoutMode={itemLayoutMode}
                       outlined={false}
-                      hoverLayer={index === hoveredIndex ? 2 : 1}
                       onClick={() => handleItemSelect(item)}
                       onMouseEnter={() => setHoveredIndex(index)}
                     />
