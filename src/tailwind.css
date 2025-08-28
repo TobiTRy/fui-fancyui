@@ -1,0 +1,394 @@
+@import "tailwindcss";
+
+/* FUI Theme Configuration */
+@theme {
+  /* FUI Color System - Granular 0-9 system */
+  --color-primary-0: var(--primary-0);
+  --color-primary-1: var(--primary-1);
+  --color-primary-2: var(--primary-2);
+  --color-primary-3: var(--primary-3);
+  --color-primary-4: var(--primary-4);
+  --color-primary-5: var(--primary-5);
+  --color-primary-6: var(--primary-6);
+  --color-primary-7: var(--primary-7);
+  --color-primary-8: var(--primary-8);
+  --color-primary-9: var(--primary-9);
+  
+  --color-accent-0: var(--accent-0);
+  --color-accent-1: var(--accent-1);
+  --color-accent-2: var(--accent-2);
+  --color-accent-3: var(--accent-3);
+  --color-accent-4: var(--accent-4);
+  --color-accent-5: var(--accent-5);
+  --color-accent-6: var(--accent-6);
+  --color-accent-7: var(--accent-7);
+  --color-accent-8: var(--accent-8);
+  --color-accent-9: var(--accent-9);
+  
+  --color-secondary-0: var(--secondary-0);
+  --color-secondary-1: var(--secondary-1);
+  --color-secondary-2: var(--secondary-2);
+  --color-secondary-3: var(--secondary-3);
+  --color-secondary-4: var(--secondary-4);
+  --color-secondary-5: var(--secondary-5);
+  --color-secondary-6: var(--secondary-6);
+  --color-secondary-7: var(--secondary-7);
+  --color-secondary-8: var(--secondary-8);
+  --color-secondary-9: var(--secondary-9);
+  
+  --color-info-0: var(--info-0);
+  --color-info-1: var(--info-1);
+  --color-info-2: var(--info-2);
+  --color-info-3: var(--info-3);
+  --color-info-4: var(--info-4);
+  --color-info-5: var(--info-5);
+  --color-info-6: var(--info-6);
+  --color-info-7: var(--info-7);
+  --color-info-8: var(--info-8);
+  --color-info-9: var(--info-9);
+  
+  --color-success-0: var(--success-0);
+  --color-success-1: var(--success-1);
+  --color-success-2: var(--success-2);
+  --color-success-3: var(--success-3);
+  --color-success-4: var(--success-4);
+  --color-success-5: var(--success-5);
+  --color-success-6: var(--success-6);
+  --color-success-7: var(--success-7);
+  --color-success-8: var(--success-8);
+  --color-success-9: var(--success-9);
+  
+  --color-warning-0: var(--warning-0);
+  --color-warning-1: var(--warning-1);
+  --color-warning-2: var(--warning-2);
+  --color-warning-3: var(--warning-3);
+  --color-warning-4: var(--warning-4);
+  --color-warning-5: var(--warning-5);
+  --color-warning-6: var(--warning-6);
+  --color-warning-7: var(--warning-7);
+  --color-warning-8: var(--warning-8);
+  --color-warning-9: var(--warning-9);
+  
+  --color-error-0: var(--error-0);
+  --color-error-1: var(--error-1);
+  --color-error-2: var(--error-2);
+  --color-error-3: var(--error-3);
+  --color-error-4: var(--error-4);
+  --color-error-5: var(--error-5);
+  --color-error-6: var(--error-6);
+  --color-error-7: var(--error-7);
+  --color-error-8: var(--error-8);
+  --color-error-9: var(--error-9);
+  
+  /* FUI Spacing System */
+  --spacing-3xs: 2px;
+  --spacing-xxs: 4px;
+  --spacing-xs: 8px;
+  --spacing-sm: 12px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-xxl: 40px;
+  --spacing-3xl: 48px;
+  --spacing-4xl: 64px;
+  
+  /* FUI Typography System */
+  --font-size-display-hero: 84px;
+  --line-height-display-hero: 96px;
+  --letter-spacing-display-hero: -0.02em;
+  --font-weight-display-hero: 700;
+  
+  --font-size-display-headline: 72px;
+  --line-height-display-headline: 86px;
+  --letter-spacing-display-headline: -0.02em;
+  --font-weight-display-headline: 700;
+  
+  --font-size-display-title: 60px;
+  --line-height-display-title: 72px;
+  --letter-spacing-display-title: -0.015em;
+  --font-weight-display-title: 700;
+  
+  --font-size-section-title: 48px;
+  --line-height-section-title: 58px;
+  --letter-spacing-section-title: -0.015em;
+  --font-weight-section-title: 600;
+  
+  --font-size-section-subtitle: 36px;
+  --line-height-section-subtitle: 43px;
+  --letter-spacing-section-subtitle: -0.01em;
+  --font-weight-section-subtitle: 500;
+  
+  --font-size-section-subsection-title: 30px;
+  --line-height-section-subsection-title: 36px;
+  --letter-spacing-section-subsection-title: -0.01em;
+  --font-weight-section-subsection-title: 500;
+  
+  --font-size-body-lg: 24px;
+  --line-height-body-lg: 32px;
+  --letter-spacing-body-lg: normal;
+  --font-weight-body-lg: 400;
+  
+  --font-size-body-md: 18px;
+  --line-height-body-md: 24px;
+  --letter-spacing-body-md: normal;
+  --font-weight-body-md: 400;
+  
+  --font-size-body-sm: 16px;
+  --line-height-body-sm: 18px;
+  --letter-spacing-body-sm: normal;
+  --font-weight-body-sm: 400;
+  
+  --font-size-sub-caption: 14px;
+  --line-height-sub-caption: 20px;
+  --letter-spacing-sub-caption: 0.005em;
+  --font-weight-sub-caption: 400;
+  
+  --font-size-sub-footnote: 12px;
+  --line-height-sub-footnote: 17px;
+  --letter-spacing-sub-footnote: 0.01em;
+  --font-weight-sub-footnote: 400;
+  
+  --font-size-sub-legal: 10px;
+  --line-height-sub-legal: 14px;
+  --letter-spacing-sub-legal: 0.01em;
+  --font-weight-sub-legal: 400;
+  
+  --font-size-interactive-xs: 12px;
+  --line-height-interactive-xs: 16px;
+  --letter-spacing-interactive-xs: normal;
+  --font-weight-interactive-xs: 500;
+  
+  --font-size-interactive-sm: 14px;
+  --line-height-interactive-sm: 18px;
+  --letter-spacing-interactive-sm: normal;
+  --font-weight-interactive-sm: 500;
+  
+  --font-size-interactive-md: 16px;
+  --line-height-interactive-md: 20px;
+  --letter-spacing-interactive-md: normal;
+  --font-weight-interactive-md: 500;
+  
+  --font-size-interactive-lg: 18px;
+  --line-height-interactive-lg: 22px;
+  --letter-spacing-interactive-lg: normal;
+  --font-weight-interactive-lg: 500;
+  
+  --font-size-interactive-xl: 20px;
+  --line-height-interactive-xl: 24px;
+  --letter-spacing-interactive-xl: normal;
+  --font-weight-interactive-xl: 500;
+  
+  /* FUI Border Radius */
+  --radius-xxs: 4px;
+  --radius-xs: 8px;
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-xxl: 40px;
+  --radius-complete: 200px;
+  
+  /* FUI Element Sizes */
+  --size-element-xxs: 16px;
+  --size-element-xs: 24px;
+  --size-element-sm: 32px;
+  --size-element-md: 40px;
+  --size-element-lg: 48px;
+  --size-element-xl: 56px;
+  --size-element-xxl: 64px;
+  --size-element-3xl: 80px;
+  --size-element-4xl: 96px;
+  --size-element-5xl: 128px;
+  --size-element-6xl: 160px;
+  --size-element-7xl: 192px;
+  --size-element-8xl: 256px;
+  
+  /* Responsive Breakpoints */
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+}
+
+/* FUI CSS Variables - Fallbacks for development */
+/* These will be dynamically generated by the theme provider */
+
+:root {
+  /* Primary colors (dark theme base: #131825) */
+  --primary-0: #131825FF;
+  --primary-1: #1a2030FF;
+  --primary-2: #21273bFF;
+  --primary-3: #282e46FF;
+  --primary-4: #2f3651FF;
+  --primary-5: #363d5cFF;
+  --primary-6: #3d4467FF;
+  --primary-7: #444b72FF;
+  --primary-8: #4b527dFF;
+  --primary-9: #525a88FF;
+
+  /* Accent colors (orange base: #F17C12) */
+  --accent-0: #F17C12FF;
+  --accent-1: #f28829FF;
+  --accent-2: #f39440FF;
+  --accent-3: #f4a057FF;
+  --accent-4: #f5ac6eFF;
+  --accent-5: #f6b885FF;
+  --accent-6: #f7c49cFF;
+  --accent-7: #f8d0b3FF;
+  --accent-8: #f9dccaFF;
+  --accent-9: #fae8e1FF;
+
+  /* Secondary colors (light theme base: #f0f0ef) */
+  --secondary-0: #f0f0efFF;
+  --secondary-1: #e8e8e7FF;
+  --secondary-2: #e0e0dfFF;
+  --secondary-3: #d8d8d7FF;
+  --secondary-4: #d0d0cfFF;
+  --secondary-5: #c8c8c7FF;
+  --secondary-6: #c0c0bfFF;
+  --secondary-7: #b8b8b7FF;
+  --secondary-8: #b0b0afFF;
+  --secondary-9: #a8a8a7FF;
+
+  /* Info colors (blue base: #287fd7) */
+  --info-0: #287fd7FF;
+  --info-1: #3d8bdbFF;
+  --info-2: #5297dfFF;
+  --info-3: #67a3e3FF;
+  --info-4: #7cafe7FF;
+  --info-5: #91bbebFF;
+  --info-6: #a6c7efFF;
+  --info-7: #bbd3f3FF;
+  --info-8: #d0dff7FF;
+  --info-9: #e5ebfbFF;
+
+  /* Success colors (teal base: #009688) */
+  --success-0: #009688FF;
+  --success-1: #1aa196FF;
+  --success-2: #33aca4FF;
+  --success-3: #4db7b2FF;
+  --success-4: #66c2c0FF;
+  --success-5: #80cdceFF;
+  --success-6: #99d8dcFF;
+  --success-7: #b3e3eaFF;
+  --success-8: #cceef8FF;
+  --success-9: #e6f9ffFF;
+
+  /* Warning colors (orange base: #EB8800) */
+  --warning-0: #EB8800FF;
+  --warning-1: #ed951aFF;
+  --warning-2: #efa233FF;
+  --warning-3: #f1af4dFF;
+  --warning-4: #f3bc66FF;
+  --warning-5: #f5c980FF;
+  --warning-6: #f7d699FF;
+  --warning-7: #f9e3b3FF;
+  --warning-8: #fbf0ccFF;
+  --warning-9: #fdfde6FF;
+
+  /* Error colors (red base: #D21414) */
+  --error-0: #D21414FF;
+  --error-1: #d62828FF;
+  --error-2: #da3c3cFF;
+  --error-3: #de5050FF;
+  --error-4: #e26464FF;
+  --error-5: #e67878FF;
+  --error-6: #ea8c8cFF;
+  --error-7: #eea0a0FF;
+  --error-8: #f2b4b4FF;
+  --error-9: #f6c8c8FF;
+}
+
+/* Dark theme overrides - these will be applied when dark theme is active */
+[data-theme="dark"] {
+  /* In dark theme, secondary becomes the light colors for backgrounds */
+  --secondary-0: #1a1a1aFF;
+  --secondary-1: #242424FF;
+  --secondary-2: #2e2e2eFF;
+  --secondary-3: #383838FF;
+  --secondary-4: #424242FF;
+  --secondary-5: #4c4c4cFF;
+  --secondary-6: #565656FF;
+  --secondary-7: #606060FF;
+  --secondary-8: #6a6a6aFF;
+  --secondary-9: #747474FF;
+}
+
+/* FUI Base Styles */
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  
+  html {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.5;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    margin: 0;
+    background-color: var(--secondary-9);
+    color: var(--primary-0);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+}
+
+/* FUI Component Layer */
+@layer components {
+  /* Focus styles for all interactive elements */
+  .fui-focusable:focus-visible {
+    outline: 2px solid var(--accent-5);
+    outline-offset: 2px;
+  }
+
+  /* Smooth transitions for interactive elements */
+  .fui-interactive {
+    transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Disabled state styling */
+  .fui-disabled {
+    opacity: 0.5;
+    pointer-events: none;
+    cursor: not-allowed;
+  }
+}
+
+/* FUI Utility Layer */
+@layer utilities {
+  /* Hide scrollbar while maintaining functionality */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Custom gradient utilities using FUI colors */
+  .gradient-primary {
+    background: linear-gradient(135deg, var(--primary-4), var(--primary-6));
+  }
+  
+  .gradient-accent {
+    background: linear-gradient(135deg, var(--accent-4), var(--accent-6));
+  }
+  
+  .gradient-info {
+    background: linear-gradient(135deg, var(--info-4), var(--info-6));
+  }
+  
+  .gradient-success {
+    background: linear-gradient(135deg, var(--success-4), var(--success-6));
+  }
+  
+  .gradient-warning {
+    background: linear-gradient(135deg, var(--warning-4), var(--warning-6));
+  }
+  
+  .gradient-error {
+    background: linear-gradient(135deg, var(--error-4), var(--error-6));
+  }
+}
