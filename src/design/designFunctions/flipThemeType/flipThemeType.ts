@@ -1,5 +1,5 @@
+import { TUiColorsMain } from '@/types/TUiColorsMain';
 import themeStore from '../../theme/themeStore/themeStore';
-import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 
 const flipThemeType = (isPrimary: boolean) => {
   const isDarkTheme = themeStore.getState().isDarkTheme;
@@ -13,12 +13,12 @@ const flipThemeType = (isPrimary: boolean) => {
   }
 };
 
-export default function flipThemeTypeFunction(currentThemeType: TUiColorsNotTransparent): TUiColorsNotTransparent {
+export default function flipThemeTypeFunction(currentThemeType: TUiColorsMain): TUiColorsMain {
   // Check if the current theme type is primary
   const isCurrentThemePrimary = currentThemeType === 'primary';
 
   // Get the flipped theme type based on the current theme type
   const flippedThemeType = flipThemeType(isCurrentThemePrimary);
 
-  return flippedThemeType as TUiColorsNotTransparent;
+  return flippedThemeType;
 }

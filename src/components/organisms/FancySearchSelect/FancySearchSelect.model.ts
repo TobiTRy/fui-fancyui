@@ -6,7 +6,6 @@ export type TSearchSelectItem = {
   description?: string;
   icon?: React.ReactNode;
   image?: string;
-  data?: any; // eslint-disable-line @typescript-eslint/no-explicit-any
 };
 
 export type TFancySearchSelect = TFancyTextInput & {

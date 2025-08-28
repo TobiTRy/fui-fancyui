@@ -18,7 +18,7 @@ export const sizes: TSizeSettings<TSizeObj> = {
     fontSizeDescription: 'interactiveSm',
     padding: 'xs',
     iconPadding: 'xxs',
-    iconSize: '3xs',
+    iconSize: 'sm',
   },
   md: {
     fontSizeTitle: 'bodytextMd',

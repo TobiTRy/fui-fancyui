@@ -6,13 +6,7 @@ import { FancyBox } from '@/components/atoms/FancyBox';
 import FancySearchSelectItem from '@/components/organisms/FancySearchSelect/FancySearchSelectItem/FancySearchSelectItem';
 import { FancyTextInput } from '@/components/organisms/FancyTextInput';
 import { TFancySearchSelectWithHTMLProps, TSearchSelectItem } from './FancySearchSelect.model';
-import {
-  DropdownContainer,
-  ItemsList,
-  ItemsListBackground,
-  NoItemsText,
-  SearchSelectWrapper,
-} from './FancySearchSelect.style';
+import { DropdownContainer, ItemsList, NoItemsText, SearchSelectWrapper } from './FancySearchSelect.style';
 
 /**
  * FancySearchSelect component with search and select functionality using absolute positioned dropdown
@@ -26,7 +20,6 @@ export default function FancySearchSelect(props: TFancySearchSelectWithHTMLProps
     noItemsText = 'No items found',
     maxHeight = '200px',
     openOnFocus = false,
-
     clearOnSelect = false,
     itemLayoutMode = 'span',
     value: controlledValue,
@@ -277,11 +270,12 @@ export default function FancySearchSelect(props: TFancySearchSelectWithHTMLProps
         <div ref={contentRef}>
           <FancyBox borderRadius={['0', '0', 'sm', 'sm']} padding={'xs'} themeType={themeType} layer={layer}>
             {availableItems.length > 0 ? (
-              <ItemsList ref={listRef} $maxHeight={maxHeight}>
+              <ItemsList ref={listRef} $maxHeight={maxHeight} $themeType={themeType}>
                 {availableItems.map((item, index) => (
                   <li key={item.id}>
                     <FancySearchSelectItem
                       item={item}
+                      themeType={themeType}
                       layer={index === hoveredIndex ? 3 : 1}
                       itemLayoutMode={itemLayoutMode}
                       outlined={false}

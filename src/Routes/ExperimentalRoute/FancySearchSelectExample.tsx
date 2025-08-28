@@ -112,7 +112,7 @@ export default function FancySearchSelectExample() {
           placeholder="Horizontal row layout..."
           label="Row Layout"
           itemLayoutMode="row"
-          themeType="primary"
+          themeType="secondary"
         />
       </div>
 

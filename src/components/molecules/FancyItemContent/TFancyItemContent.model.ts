@@ -1,4 +1,5 @@
-import { TComponentSizesMid } from '@/types/TComponentSizes';
+import { TComponentSizesMid, TComponentSizes } from '@/types/TComponentSizes';
+import { TUiColorsMain } from '@/types/TUiColorsMain';
 
 /**
  * Interface for item data used in FancyItemContent
@@ -20,8 +21,10 @@ export type TFancyItemContent = {
   gapBetweenIcon?: TComponentSizesMid | '0';
   gapBetweenText?: TComponentSizesMid | '0';
   imageSize?: TComponentSizesMid;
+  iconSize?: TComponentSizes;
   imageBorderRadius?: TComponentSizesMid;
   iconNoPadding?: boolean;
+  themeType: TUiColorsMain;
 };
 
 /**

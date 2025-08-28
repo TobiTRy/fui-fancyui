@@ -13,6 +13,7 @@ import { TFancyItemContentWithHTMLProps } from './TFancyItemContent.model';
  * @param props.gapBetweenIcon Gap between icon and text content
  * @param props.gapBetweenText Gap between title and description
  * @param props.imageSize Size of the image
+ * @param props.iconSize Size of the icon
  * @param props.imageBorderRadius Border radius for images
  * @param props.iconNoPadding Whether to remove padding from icons
  */
@@ -23,14 +24,21 @@ export default function FancyItemContent(props: TFancyItemContentWithHTMLProps) 
     gapBetweenIcon,
     gapBetweenText = '0',
     imageSize = 'lg',
+    iconSize = 'lg',
+    themeType,
     imageBorderRadius = 'xs',
-    iconNoPadding,
+    iconNoPadding = false,
     ...htmlProps
   } = props;
 
   return (
     <div {...htmlProps}>
-      <FancyContent layoutMode={layoutMode} gapBetweenIcon={gapBetweenIcon} gapBetweenText={gapBetweenText}>
+      <FancyContent
+        layoutMode={layoutMode}
+        gapBetweenIcon={gapBetweenIcon}
+        gapBetweenText={gapBetweenText}
+        themeType={themeType}
+      >
         {/* Render image or icon if provided */}
         {(item.image || item.icon) &&
           (item.image ? (
@@ -38,7 +46,9 @@ export default function FancyItemContent(props: TFancyItemContentWithHTMLProps) 
               <img src={item.image} alt={item.title} />
             </FancyContent.Image>
           ) : (
-            <FancyContent.Icon sizeC="lg">{item.icon}</FancyContent.Icon>
+            <FancyContent.Icon noPadding={iconNoPadding} sizeC={iconSize}>
+              {item.icon}
+            </FancyContent.Icon>
           ))}
 
         {/* Title */}
@@ -46,7 +56,7 @@ export default function FancyItemContent(props: TFancyItemContentWithHTMLProps) 
 
         {/* Description if provided */}
         {item.description && (
-          <FancyContent.Description fontVariant="subTextFootnote" themeType="secondary" layer={5}>
+          <FancyContent.Description fontVariant="subTextFootnote" themeType={themeType} layer={5}>
             {item.description}
           </FancyContent.Description>
         )}

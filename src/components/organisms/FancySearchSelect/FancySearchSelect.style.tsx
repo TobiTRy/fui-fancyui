@@ -3,6 +3,7 @@ import { TTheme } from '@/types/TTheme';
 import { TUiColorTypes } from '@/types/TUiColorTypes';
 import { FancyBox } from '@/components/atoms/FancyBox';
 import { generateBackgroundColor } from '@/design/designFunctions/generateItemTheme/utils/generateBackgroundColor';
+import { TUiColorsMain } from '@/types/TUiColorsMain';
 
 export const SearchSelectWrapper = styled.div`
   position: relative;
@@ -34,14 +35,15 @@ export const DropdownContainer = styled.div<TDropdownContainerProps>`
 type TItemsListProps = {
   $maxHeight?: string;
   theme: TTheme;
+  $themeType: TUiColorsMain;
 };
 export const ItemsList = styled.ul<TItemsListProps>`
   display: flex;
   flex-direction: column;
-  border-radius: ${({ theme }) => theme.borderRadius.sm};
+  border-radius: ${({ theme }) => theme.borderRadius.xxs};
   margin: 0;
   padding: 0;
-  background-color: ${({ theme }) => generateBackgroundColor({ $themeType: 'primary', $layer: 1 })};
+  background-color: ${({ $themeType }) => generateBackgroundColor({ $themeType, $layer: 1 })};
   list-style: none;
   max-height: ${({ $maxHeight }) => $maxHeight || '200px'};
   overflow: hidden;
@@ -71,11 +73,11 @@ export const SearchItem = styled.li<TSearchItemProps>`
   border-radius: ${({ theme }) => theme.borderRadius.xs};
   cursor: pointer;
   transition: all 0.15s ease;
-  background-color: ${({ $isHovered, theme, $themeType = 'primary' }) =>
+  background-color: ${({ $isHovered, $themeType = 'primary' }) =>
     $isHovered ? generateBackgroundColor({ $themeType, $layer: 1 }) : 'transparent'};
 
   &:hover {
-    background-color: ${({ theme, $themeType = 'primary' }) => generateBackgroundColor({ $themeType, $layer: 1 })};
+    background-color: ${({ $themeType = 'primary' }) => generateBackgroundColor({ $themeType, $layer: 1 })};
   }
 `;
 
