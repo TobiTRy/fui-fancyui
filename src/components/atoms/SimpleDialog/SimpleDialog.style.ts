@@ -41,7 +41,7 @@ export const StyledHeader = styled.div<{ theme: TTheme }>`
 export const StyledContent = styled.div<{ theme: TTheme }>`
   overflow-y: auto;
   overflow-x: hidden;
-  max-height: 85vh;
+  max-height: 85dvh;
   padding: ${({ theme }) => `0 ${theme.spacing.lg}`};
   box-sizing: border-box;
 `;

@@ -127,6 +127,7 @@ export * from '@/components/organisms/FancyDropDownMenue';
 export * from '@/components/organisms/FancyDropDownSelect';
 export * from '@/components/organisms/FancyRangeSlider';
 export * from '@/components/organisms/FancySearchBar';
+export * from '@/components/organisms/FancySearchSelect';
 export * from '@/components/organisms/FancyCheckbox';
 export * from '@/components/organisms/FancyModal';
 export * from '@/components/organisms/FancyCodeVerificationInput';

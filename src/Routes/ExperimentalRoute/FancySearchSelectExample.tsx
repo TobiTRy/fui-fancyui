@@ -112,7 +112,7 @@ export default function FancySearchSelectExample() {
           placeholder="Horizontal row layout..."
           label="Row Layout"
           itemLayoutMode="row"
-          themeType="success"
+          themeType="primary"
         />
       </div>
 
@@ -137,7 +137,7 @@ export default function FancySearchSelectExample() {
           placeholder="Search and clear on select..."
           label="Clear on Select"
           clearOnSelect={true}
-          themeType="success"
+          themeType="primary"
         />
       </div>
 
@@ -151,7 +151,7 @@ export default function FancySearchSelectExample() {
           filterFunction={(items, searchValue) =>
             items.filter((item) => item.title.toLowerCase().includes(searchValue.toLowerCase()))
           }
-          themeType="warning"
+          themeType="secondary"
         />
       </div>
     </div>

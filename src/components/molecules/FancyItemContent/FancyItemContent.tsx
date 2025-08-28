@@ -24,6 +24,7 @@ export default function FancyItemContent(props: TFancyItemContentWithHTMLProps) 
     gapBetweenText = '0',
     imageSize = 'lg',
     imageBorderRadius = 'xs',
+    iconNoPadding,
     ...htmlProps
   } = props;
 

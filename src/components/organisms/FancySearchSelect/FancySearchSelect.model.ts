@@ -30,4 +30,5 @@ export type TFancySearchSelect = TFancyTextInput & {
   itemLayoutMode?: 'normal' | 'span' | 'row';
 };
 
-export type TFancySearchSelectWithHTMLProps = TFancySearchSelect & React.HTMLAttributes<HTMLDivElement>;
+export type TFancySearchSelectWithHTMLProps = TFancySearchSelect &
+  Omit<React.HTMLAttributes<HTMLDivElement>, 'onSelect'>;

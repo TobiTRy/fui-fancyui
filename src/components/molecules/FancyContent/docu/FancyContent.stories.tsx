@@ -34,12 +34,7 @@ const meta = {
       },
       options: ['left', 'right'],
     },
-    gap: {
-      description: 'Overall gap for the grid layout',
-      control: {
-        type: 'text' as const,
-      },
-    },
+
     gapBetweenIcon: {
       description: 'Gap between the icon and content',
       control: {
@@ -135,7 +130,6 @@ export const StackLayout: Story = {
   ),
   args: {
     layoutMode: 'stack',
-    gap: 'xs',
   },
 };
 
@@ -160,7 +154,6 @@ export const RowLayout: Story = {
   ),
   args: {
     layoutMode: 'row',
-    gap: 'sm',
   },
 };
 
@@ -249,7 +242,6 @@ export const CustomSpacing: Story = {
   ),
   args: {
     layoutMode: 'normal',
-    gap: 'lg',
     gapBetweenText: 'xs',
     gapBetweenIcon: 'md',
   },

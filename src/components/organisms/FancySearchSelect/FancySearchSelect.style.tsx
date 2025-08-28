@@ -38,14 +38,17 @@ type TItemsListProps = {
 export const ItemsList = styled.ul<TItemsListProps>`
   display: flex;
   flex-direction: column;
-  padding: ${({ theme }) => theme.spacing.xs};
+  border-radius: ${({ theme }) => theme.borderRadius.sm};
   margin: 0;
+  padding: 0;
+  background-color: ${({ theme }) => generateBackgroundColor({ $themeType: 'primary', $layer: 1 })};
   list-style: none;
   max-height: ${({ $maxHeight }) => $maxHeight || '200px'};
-  gap: 2px;
   overflow: hidden;
   overflow-y: auto;
 `;
+
+export const ItemsListBackground = styled.div<{ theme: TTheme }>``;
 
 export const NoItemsText = styled.div<{ theme: TTheme }>`
   padding: ${({ theme }) => theme.spacing.sm};

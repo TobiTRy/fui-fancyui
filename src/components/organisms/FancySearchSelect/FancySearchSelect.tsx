@@ -6,7 +6,13 @@ import { FancyBox } from '@/components/atoms/FancyBox';
 import FancySearchSelectItem from '@/components/organisms/FancySearchSelect/FancySearchSelectItem/FancySearchSelectItem';
 import { FancyTextInput } from '@/components/organisms/FancyTextInput';
 import { TFancySearchSelectWithHTMLProps, TSearchSelectItem } from './FancySearchSelect.model';
-import { DropdownContainer, ItemsList, NoItemsText, SearchSelectWrapper } from './FancySearchSelect.style';
+import {
+  DropdownContainer,
+  ItemsList,
+  ItemsListBackground,
+  NoItemsText,
+  SearchSelectWrapper,
+} from './FancySearchSelect.style';
 
 /**
  * FancySearchSelect component with search and select functionality using absolute positioned dropdown
@@ -37,6 +43,8 @@ export default function FancySearchSelect(props: TFancySearchSelectWithHTMLProps
   const [isFocused, setIsFocused] = useState(false);
   const [wasJustSelected, setWasJustSelected] = useState(false);
   const [originalSelectedValue, setOriginalSelectedValue] = useState<string>('');
+  const [navigationMode, setNavigationMode] = useState<'mouse' | 'keyboard'>('mouse');
+  const [lastMousePosition, setLastMousePosition] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
 
   const contentRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -65,6 +73,23 @@ export default function FancySearchSelect(props: TFancySearchSelectWithHTMLProps
   // Get available items for display and navigation
   const availableItems = filteredItems.length > 0 ? filteredItems : openOnFocus ? items : [];
 
+  // Mouse movement detection with threshold
+  const handleMouseMovement = useCallback(
+    (e: React.MouseEvent<HTMLElement>) => {
+      const currentPos = { x: e.clientX, y: e.clientY };
+      const distance = Math.sqrt(
+        Math.pow(currentPos.x - lastMousePosition.x, 2) + Math.pow(currentPos.y - lastMousePosition.y, 2)
+      );
+
+      // If mouse moved more than 3 pixels, consider it intentional movement
+      if (distance > 3) {
+        setNavigationMode('mouse');
+        setLastMousePosition(currentPos);
+      }
+    },
+    [lastMousePosition]
+  );
+
   // Show dropdown when items are available and input is focused
   const shouldShowDropdown =
     isFocused && (filteredItems.length > 0 || (openOnFocus && String(searchValue).trim() === '') || wasJustSelected);
@@ -86,6 +111,8 @@ export default function FancySearchSelect(props: TFancySearchSelectWithHTMLProps
   // Handle input focus
   const handleInputFocus = (e: React.FocusEvent<HTMLInputElement>) => {
     setIsFocused(true);
+    // Reset to mouse navigation when gaining focus
+    setNavigationMode('mouse');
     if (onFocus) onFocus(e);
   };
 
@@ -95,6 +122,8 @@ export default function FancySearchSelect(props: TFancySearchSelectWithHTMLProps
       setIsFocused(false);
       setHoveredIndex(-1);
       setWasJustSelected(false);
+      // Reset to mouse navigation when losing focus
+      setNavigationMode('mouse');
       if (onBlur) onBlur(e);
     }, 150);
   };
@@ -113,6 +142,8 @@ export default function FancySearchSelect(props: TFancySearchSelectWithHTMLProps
 
     setIsFocused(false);
     setHoveredIndex(-1);
+    // Reset to mouse navigation after selection
+    setNavigationMode('mouse');
 
     if (onSelect) onSelect(item);
 
@@ -135,6 +166,9 @@ export default function FancySearchSelect(props: TFancySearchSelectWithHTMLProps
         // If not focused, show dropdown first
         if (!isFocused) setIsFocused(true);
 
+        // Switch to keyboard navigation mode
+        setNavigationMode('keyboard');
+
         setHoveredIndex((prev) => {
           const newIndex = prev < availableItems.length - 1 ? prev + 1 : 0;
           scrollToItem(newIndex);
@@ -146,6 +180,9 @@ export default function FancySearchSelect(props: TFancySearchSelectWithHTMLProps
         // If not focused, show dropdown first
         if (!isFocused) setIsFocused(true);
 
+        // Switch to keyboard navigation mode
+        setNavigationMode('keyboard');
+
         setHoveredIndex((prev) => {
           const newIndex = prev > 0 ? prev - 1 : availableItems.length - 1;
           scrollToItem(newIndex);
@@ -156,6 +193,10 @@ export default function FancySearchSelect(props: TFancySearchSelectWithHTMLProps
         // Only handle Tab if dropdown is open
         if (!shouldShowDropdown) return;
         e.preventDefault();
+
+        // Switch to keyboard navigation mode
+        setNavigationMode('keyboard');
+
         setHoveredIndex((prev) => {
           const newIndex = prev < availableItems.length - 1 ? prev + 1 : 0;
           scrollToItem(newIndex);
@@ -173,6 +214,8 @@ export default function FancySearchSelect(props: TFancySearchSelectWithHTMLProps
         setIsFocused(false);
         setHoveredIndex(-1);
         setWasJustSelected(false);
+        // Reset to mouse navigation when escaping
+        setNavigationMode('mouse');
         if (inputRef.current) {
           inputRef.current.blur();
         }
@@ -230,20 +273,26 @@ export default function FancySearchSelect(props: TFancySearchSelectWithHTMLProps
         />
       </FancyBox>
 
-      <DropdownContainer $isOpen={shouldShowDropdown} $zIndex={1000}>
+      <DropdownContainer $isOpen={shouldShowDropdown} $zIndex={1000} onMouseMove={handleMouseMovement}>
         <div ref={contentRef}>
-          <FancyBox borderRadius={['0', '0', 'sm', 'sm']} themeType={themeType} layer={layer}>
+          <FancyBox borderRadius={['0', '0', 'sm', 'sm']} padding={'xs'} themeType={themeType} layer={layer}>
             {availableItems.length > 0 ? (
               <ItemsList ref={listRef} $maxHeight={maxHeight}>
                 {availableItems.map((item, index) => (
                   <li key={item.id}>
                     <FancySearchSelectItem
                       item={item}
-                      layer={index === hoveredIndex ? 1 : 2}
+                      layer={index === hoveredIndex ? 3 : 1}
                       itemLayoutMode={itemLayoutMode}
                       outlined={false}
                       onClick={() => handleItemSelect(item)}
-                      onMouseEnter={() => setHoveredIndex(index)}
+                      onMouseEnter={(e) => {
+                        handleMouseMovement(e as unknown as React.MouseEvent<HTMLElement>);
+                        // Only update hovered index if in mouse navigation mode
+                        if (navigationMode === 'mouse') {
+                          setHoveredIndex(index);
+                        }
+                      }}
                     />
                   </li>
                 ))}

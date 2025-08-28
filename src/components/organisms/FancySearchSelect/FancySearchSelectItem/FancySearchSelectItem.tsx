@@ -10,9 +10,9 @@ type TFancySearchBarItemProps = {
 } & ComponentProps<typeof FancyBox>;
 
 export default function FancySearchSelectItem(props: TFancySearchBarItemProps) {
-  const { item, itemLayoutMode, ...boxProps } = props;
+  const { item, layer = 2, hoverLayer = 3, itemLayoutMode, ...boxProps } = props;
   return (
-    <FancyBox layer={2} hoverLayer={1} padding={'xs'} borderRadius={'sm'} outlined={false} {...boxProps}>
+    <FancyBox layer={layer} hoverLayer={hoverLayer} padding={'xs'} outlined={false} {...boxProps}>
       <FancyItemContent
         item={item}
         layoutMode={itemLayoutMode}
