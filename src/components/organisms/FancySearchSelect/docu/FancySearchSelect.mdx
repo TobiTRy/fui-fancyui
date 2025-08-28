@@ -1,0 +1,192 @@
+import { Meta, Controls, Canvas, Title, Description } from '@storybook/blocks';
+
+import * as FancySearchSelectStories from './FancySearchSelect.stories.tsx';
+
+<Meta of={FancySearchSelectStories} />
+
+<Title />
+
+<Description />
+
+### Overview
+
+The FancySearchSelect component provides a sophisticated search and select interface with dropdown functionality. It combines a text input with a filterable list of items, supporting both keyboard and mouse navigation. This component is perfect for creating searchable dropdowns, auto-complete fields, and advanced selection interfaces.
+
+### Key Features
+
+- **Advanced Search Filtering**: Built-in text matching or custom filter functions
+- **Keyboard Navigation**: Full arrow key, Tab, Enter, and Escape support
+- **Smart Navigation Modes**: Automatic switching between mouse and keyboard navigation
+- **Flexible Item Display**: Multiple layout modes for items with icons, images, and descriptions
+- **Customizable Behavior**: Options for open-on-focus, clear-on-select, and more
+- **Accessibility Ready**: Proper focus management and keyboard interaction patterns
+- **Theme Integration**: Full design system integration with theme types and layers
+
+### Initial Setup
+
+1. **Import the Component**
+
+```tsx
+import { FancySearchSelect } from '@letsfollowme/fui-fancyui';
+import type { TSearchSelectItem } from '@letsfollowme/fui-fancyui';
+```
+
+2. **Use the Component**
+
+```tsx
+const items: TSearchSelectItem[] = [
+  {
+    id: '1',
+    title: 'Option 1',
+    description: 'First option description',
+  },
+  {
+    id: '2',
+    title: 'Option 2',
+    description: 'Second option description',
+  },
+];
+
+<FancySearchSelect items={items} placeholder="Search options..." onSelect={(item) => console.log('Selected:', item)} />;
+```
+
+### Using FancySearchSelect
+
+#### Basic Search and Select
+
+<Canvas of={FancySearchSelectStories.Basic} />
+
+The basic implementation provides search filtering and item selection with minimal configuration.
+
+#### With Icons and Images
+
+<Canvas of={FancySearchSelectStories.WithIcons} />
+
+Items can include icons or images for enhanced visual representation.
+
+#### Custom Filter Function
+
+<Canvas of={FancySearchSelectStories.CustomFilter} />
+
+Implement custom search logic beyond the default title and description matching.
+
+#### Different Layout Modes
+
+<Canvas of={FancySearchSelectStories.LayoutModes} />
+
+Choose between different item layout modes:
+
+- **normal**: Standard 2x2 grid layout
+- **span**: Icon spans both rows for emphasis
+- **row**: Horizontal layout for compact display
+
+### Advanced Features
+
+#### Open on Focus Behavior
+
+<Canvas of={FancySearchSelectStories.OpenOnFocus} />
+
+Configure the dropdown to show all items when the input receives focus, even without typing.
+
+#### Clear on Select
+
+<Canvas of={FancySearchSelectStories.ClearOnSelect} />
+
+Enable automatic clearing of the input field after item selection.
+
+#### Controlled Value
+
+<Canvas of={FancySearchSelectStories.Controlled} />
+
+Use controlled mode for integration with form libraries or state management.
+
+### Navigation Features
+
+The component provides sophisticated navigation capabilities:
+
+- **Keyboard Navigation**: Use arrow keys to navigate, Tab to cycle through items, Enter to select, and Escape to close
+- **Smart Mode Detection**: Automatically switches between mouse and keyboard navigation modes
+- **Scroll Management**: Automatically scrolls highlighted items into view
+- **Focus Management**: Proper focus handling for accessibility
+
+### Styling and Theming
+
+The component supports full design system integration:
+
+```tsx
+<FancySearchSelect items={items} themeType="accent" layer={2} maxHeight="300px" itemLayoutMode="span" />
+```
+
+### TypeScript Support
+
+The component is fully typed with comprehensive interfaces:
+
+```tsx
+import type { TFancySearchSelect, TSearchSelectItem, TFancySearchSelectWithHTMLProps } from '@letsfollowme/fui-fancyui';
+```
+
+### Properties
+
+<Controls />
+
+### Advanced Implementation Example
+
+```tsx
+import React, { useState } from 'react';
+import { FancySearchSelect } from '@letsfollowme/fui-fancyui';
+import type { TSearchSelectItem } from '@letsfollowme/fui-fancyui';
+
+const AdvancedSearchSelect = () => {
+  const [selectedValue, setSelectedValue] = useState('');
+
+  const items: TSearchSelectItem[] = [
+    {
+      id: 'user1',
+      title: 'John Doe',
+      description: 'Senior Developer',
+      icon: <UserIcon />,
+    },
+    {
+      id: 'user2',
+      title: 'Jane Smith',
+      description: 'Product Manager',
+      icon: <UserIcon />,
+    },
+  ];
+
+  const customFilter = (items: TSearchSelectItem[], searchValue: string) => {
+    return items.filter((item) => {
+      const searchLower = searchValue.toLowerCase();
+      return (
+        item.title.toLowerCase().includes(searchLower) ||
+        item.description?.toLowerCase().includes(searchLower) ||
+        item.id.toString().includes(searchLower)
+      );
+    });
+  };
+
+  return (
+    <FancySearchSelect
+      items={items}
+      value={selectedValue}
+      onChange={(e) => setSelectedValue(e.target.value)}
+      onSelect={(item) => {
+        setSelectedValue(item.title);
+        console.log('Selected user:', item);
+      }}
+      filterFunction={customFilter}
+      placeholder="Search users..."
+      noItemsText="No users found"
+      maxHeight="250px"
+      openOnFocus={true}
+      itemLayoutMode="span"
+      themeType="primary"
+      layer={2}
+    />
+  );
+};
+```
+
+### Conclusion
+
+The FancySearchSelect component offers a complete solution for search and select interfaces with advanced features like smart navigation, custom filtering, and flexible styling. Its comprehensive API allows for both simple implementations and complex, highly customized search experiences.
