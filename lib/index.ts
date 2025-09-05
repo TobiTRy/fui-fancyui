@@ -163,6 +163,7 @@ export * from '@/components/templates/FancySkeletonGrid';
 export * from '@/components/templates/FancySystemMessageBox';
 export * from '@/components/templates/FancySideBarItem';
 export * from '@/components/templates/FancySideBarOpenButton';
+export * from '@/components/templates/FancyChip';
 
 // ---------- Utils/Hooks ------- //
 export * from '@/components/shared/FancyPopover';
