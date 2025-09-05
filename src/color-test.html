@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FUI Colors Test</title>
+    <link rel="stylesheet" href="./tailwind.css">
+</head>
+<body class="p-8">
+    <h1 class="text-2xl font-bold mb-6">FUI Tailwind Colors Test</h1>
+    
+    <!-- Test your failing classes -->
+    <div class="mb-8">
+        <h2 class="text-xl font-semibold mb-4">Your Original Test Case</h2>
+        <div class="bg-primary-2 text-secondary-0 p-5 rounded-fui-4 mb-4">
+            <p>bg-primary-2 text-secondary-0 p-5 rounded-fui-4</p>
+            <p class="text-sm mt-2 opacity-70">Should be: Dark blue background, light text, 16px padding, 16px border radius</p>
+        </div>
+    </div>
+
+    <!-- Test all primary colors -->
+    <div class="mb-8">
+        <h2 class="text-xl font-semibold mb-4">Primary Colors (0-9)</h2>
+        <div class="grid grid-cols-5 gap-2">
+            <div class="bg-primary-0 text-white p-4 text-center text-sm">primary-0</div>
+            <div class="bg-primary-1 text-white p-4 text-center text-sm">primary-1</div>
+            <div class="bg-primary-2 text-white p-4 text-center text-sm">primary-2</div>
+            <div class="bg-primary-3 text-white p-4 text-center text-sm">primary-3</div>
+            <div class="bg-primary-4 text-white p-4 text-center text-sm">primary-4</div>
+            <div class="bg-primary-5 text-white p-4 text-center text-sm">primary-5</div>
+            <div class="bg-primary-6 text-white p-4 text-center text-sm">primary-6</div>
+            <div class="bg-primary-7 text-white p-4 text-center text-sm">primary-7</div>
+            <div class="bg-primary-8 text-white p-4 text-center text-sm">primary-8</div>
+            <div class="bg-primary-9 text-black p-4 text-center text-sm">primary-9</div>
+        </div>
+    </div>
+
+    <!-- Test accent colors -->
+    <div class="mb-8">
+        <h2 class="text-xl font-semibold mb-4">Accent Colors (0-9)</h2>
+        <div class="grid grid-cols-5 gap-2">
+            <div class="bg-accent-0 text-white p-4 text-center text-sm">accent-0</div>
+            <div class="bg-accent-1 text-white p-4 text-center text-sm">accent-1</div>
+            <div class="bg-accent-2 text-white p-4 text-center text-sm">accent-2</div>
+            <div class="bg-accent-3 text-white p-4 text-center text-sm">accent-3</div>
+            <div class="bg-accent-4 text-white p-4 text-center text-sm">accent-4</div>
+            <div class="bg-accent-5 text-white p-4 text-center text-sm">accent-5</div>
+            <div class="bg-accent-6 text-white p-4 text-center text-sm">accent-6</div>
+            <div class="bg-accent-7 text-white p-4 text-center text-sm">accent-7</div>
+            <div class="bg-accent-8 text-white p-4 text-center text-sm">accent-8</div>
+            <div class="bg-accent-9 text-white p-4 text-center text-sm">accent-9</div>
+        </div>
+    </div>
+
+    <!-- Test border radius -->
+    <div class="mb-8">
+        <h2 class="text-xl font-semibold mb-4">FUI Border Radius (0-8)</h2>
+        <div class="grid grid-cols-3 gap-4">
+            <div class="bg-info-2 text-white p-4 rounded-fui-0">rounded-fui-0 (0px)</div>
+            <div class="bg-info-2 text-white p-4 rounded-fui-1">rounded-fui-1 (4px)</div>
+            <div class="bg-info-2 text-white p-4 rounded-fui-2">rounded-fui-2 (8px)</div>
+            <div class="bg-info-2 text-white p-4 rounded-fui-3">rounded-fui-3 (12px)</div>
+            <div class="bg-info-2 text-white p-4 rounded-fui-4">rounded-fui-4 (16px)</div>
+            <div class="bg-info-2 text-white p-4 rounded-fui-5">rounded-fui-5 (24px)</div>
+            <div class="bg-info-2 text-white p-4 rounded-fui-6">rounded-fui-6 (32px)</div>
+            <div class="bg-info-2 text-white p-4 rounded-fui-7">rounded-fui-7 (40px)</div>
+            <div class="bg-info-2 text-white p-4 rounded-fui-8">rounded-fui-8 (200px - pill)</div>
+        </div>
+    </div>
+
+    <!-- Test spacing -->
+    <div class="mb-8">
+        <h2 class="text-xl font-semibold mb-4">FUI Spacing (0-10)</h2>
+        <div class="bg-gray-100 p-4">
+            <div class="bg-success-2 text-white p-0 mb-2">p-0 (0px)</div>
+            <div class="bg-success-2 text-white p-1 mb-2">p-1 (2px)</div>
+            <div class="bg-success-2 text-white p-2 mb-2">p-2 (4px)</div>
+            <div class="bg-success-2 text-white p-3 mb-2">p-3 (8px)</div>
+            <div class="bg-success-2 text-white p-4 mb-2">p-4 (12px)</div>
+            <div class="bg-success-2 text-white p-5 mb-2">p-5 (16px)</div>
+            <div class="bg-success-2 text-white p-8 mb-2">p-8 (40px)</div>
+            <div class="bg-success-2 text-white p-10">p-10 (64px)</div>
+        </div>
+    </div>
+
+    <!-- Test all color types -->
+    <div class="mb-8">
+        <h2 class="text-xl font-semibold mb-4">All Color Types (Layer 2)</h2>
+        <div class="grid grid-cols-2 gap-4">
+            <div class="bg-primary-2 text-white p-4">Primary-2</div>
+            <div class="bg-accent-2 text-white p-4">Accent-2</div>
+            <div class="bg-secondary-2 text-black p-4">Secondary-2</div>
+            <div class="bg-info-2 text-white p-4">Info-2</div>
+            <div class="bg-success-2 text-white p-4">Success-2</div>
+            <div class="bg-warning-2 text-black p-4">Warning-2</div>
+            <div class="bg-error-2 text-white p-4">Error-2</div>
+        </div>
+    </div>
+
+    <p class="text-sm text-gray-600 mt-8">
+        If you see colors and proper styling, Tailwind v4 with @theme is working! ✅<br>
+        If boxes are just gray or unstyled, the colors aren't loading. ❌
+    </p>
+</body>
+</html>

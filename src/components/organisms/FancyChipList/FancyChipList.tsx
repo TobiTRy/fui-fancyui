@@ -71,7 +71,7 @@ export default function FancyChipList(props: TFancyChipList) {
   };
 
   return (
-    <Fieldset legend={legend} typographySettings={{ variant: 'interactiveLg' }}>
+    <Fieldset legend={legend} typographySettings={{ variant: 'interactiveMd' }}>
       <ChipList
         themeType={themeType}
         layer={layer}

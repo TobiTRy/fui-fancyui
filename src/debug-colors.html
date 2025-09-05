@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug FUI Colors</title>
+    <link rel="stylesheet" href="./tailwind.css">
+</head>
+<body class="p-8">
+    <h1 class="text-2xl font-bold mb-6">Debug FUI Colors - Exact ExperimentalRoute Test</h1>
+    
+    <!-- Exact replication of Theme Variations section -->
+    <section>
+        <h2 class="text-xl font-bold mb-4">Theme Variations (Layer 1)</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <!-- Primary -->
+            <div class="space-y-2">
+                <h4 class="text-sm font-medium capitalize text-gray-600">primary</h4>
+                <div class="box-border p-4 rounded-fui-3 bg-primary-1 text-secondary-0">
+                    <p class="text-center font-medium">primary</p>
+                    <small class="block text-xs opacity-75">bg-primary-1 text-secondary-0</small>
+                </div>
+            </div>
+            
+            <!-- Accent -->
+            <div class="space-y-2">
+                <h4 class="text-sm font-medium capitalize text-gray-600">accent</h4>
+                <div class="box-border p-4 rounded-fui-3 bg-accent-1 text-secondary-0">
+                    <p class="text-center font-medium">accent</p>
+                    <small class="block text-xs opacity-75">bg-accent-1 text-secondary-0</small>
+                </div>
+            </div>
+            
+            <!-- Secondary -->
+            <div class="space-y-2">
+                <h4 class="text-sm font-medium capitalize text-gray-600">secondary</h4>
+                <div class="box-border p-4 rounded-fui-3 bg-secondary-1 text-primary-0">
+                    <p class="text-center font-medium">secondary</p>
+                    <small class="block text-xs opacity-75">bg-secondary-1 text-primary-0</small>
+                </div>
+            </div>
+            
+            <!-- Info -->
+            <div class="space-y-2">
+                <h4 class="text-sm font-medium capitalize text-gray-600">info</h4>
+                <div class="box-border p-4 rounded-fui-3 bg-info-1 text-secondary-0">
+                    <p class="text-center font-medium">info</p>
+                    <small class="block text-xs opacity-75">bg-info-1 text-secondary-0</small>
+                </div>
+            </div>
+            
+            <!-- Success -->
+            <div class="space-y-2">
+                <h4 class="text-sm font-medium capitalize text-gray-600">success</h4>
+                <div class="box-border p-4 rounded-fui-3 bg-success-1 text-primary-0">
+                    <p class="text-center font-medium">success</p>
+                    <small class="block text-xs opacity-75">bg-success-1 text-primary-0</small>
+                </div>
+            </div>
+            
+            <!-- Warning -->
+            <div class="space-y-2">
+                <h4 class="text-sm font-medium capitalize text-gray-600">warning</h4>
+                <div class="box-border p-4 rounded-fui-3 bg-warning-1 text-primary-0">
+                    <p class="text-center font-medium">warning</p>
+                    <small class="block text-xs opacity-75">bg-warning-1 text-primary-0</small>
+                </div>
+            </div>
+            
+            <!-- Error -->
+            <div class="space-y-2">
+                <h4 class="text-sm font-medium capitalize text-gray-600">error</h4>
+                <div class="box-border p-4 rounded-fui-3 bg-error-1 text-secondary-0">
+                    <p class="text-center font-medium">error</p>
+                    <small class="block text-xs opacity-75">bg-error-1 text-secondary-0</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Test specifically accent colors -->
+    <section class="mt-8">
+        <h2 class="text-xl font-bold mb-4">Accent Color Debug (All Layers)</h2>
+        <div class="grid grid-cols-5 gap-2">
+            <div class="bg-accent-0 text-white p-4 text-center">
+                <div class="font-bold">0</div>
+                <div class="text-xs">#F17C12</div>
+            </div>
+            <div class="bg-accent-1 text-white p-4 text-center">
+                <div class="font-bold">1</div>
+                <div class="text-xs">#DC700D</div>
+            </div>
+            <div class="bg-accent-2 text-white p-4 text-center">
+                <div class="font-bold">2</div>
+                <div class="text-xs">#C4630C</div>
+            </div>
+            <div class="bg-accent-3 text-white p-4 text-center">
+                <div class="font-bold">3</div>
+                <div class="text-xs">#AC570A</div>
+            </div>
+            <div class="bg-accent-4 text-white p-4 text-center">
+                <div class="font-bold">4</div>
+                <div class="text-xs">#944B09</div>
+            </div>
+            <div class="bg-accent-5 text-white p-4 text-center">
+                <div class="font-bold">5</div>
+                <div class="text-xs">#7C3F07</div>
+            </div>
+            <div class="bg-accent-6 text-white p-4 text-center">
+                <div class="font-bold">6</div>
+                <div class="text-xs">#643306</div>
+            </div>
+            <div class="bg-accent-7 text-white p-4 text-center">
+                <div class="font-bold">7</div>
+                <div class="text-xs">#4C2604</div>
+            </div>
+            <div class="bg-accent-8 text-white p-4 text-center">
+                <div class="font-bold">8</div>
+                <div class="text-xs">#341A03</div>
+            </div>
+            <div class="bg-accent-9 text-white p-4 text-center">
+                <div class="font-bold">9</div>
+                <div class="text-xs">#1C0E02</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Test the actual classes that would be generated -->
+    <section class="mt-8">
+        <h2 class="text-xl font-bold mb-4">Direct Class Test</h2>
+        <div class="space-y-4">
+            <div style="background-color: #DC700D; color: #F0F0EF;" class="p-4 rounded">
+                Style attribute: background-color: #DC700D; color: #F0F0EF;
+            </div>
+            <div class="bg-accent-1 text-secondary-0 p-4 rounded">
+                Tailwind classes: bg-accent-1 text-secondary-0
+            </div>
+        </div>
+    </section>
+
+    <div class="mt-8 p-4 bg-yellow-100 rounded">
+        <h3 class="font-bold text-yellow-800">Debugging Info:</h3>
+        <ul class="text-sm text-yellow-700 mt-2">
+            <li>• If you see orange/brown colors for accent, Tailwind is working ✅</li>
+            <li>• If accent boxes are gray/unstyled, the CSS variables aren't loading ❌</li>
+            <li>• Check browser DevTools to see if bg-accent-1 class exists</li>
+            <li>• Verify CSS variables are defined in :root</li>
+        </ul>
+    </div>
+</body>
+</html>

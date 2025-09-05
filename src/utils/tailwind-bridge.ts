@@ -6,9 +6,10 @@
 
 import { TUiColorsNotTransparent } from '../types/TUiColorsNotTransparent';
 import { TLayer } from '../types/TLayer';
-import { TComponentSizes } from '../types/TComponentSizes';
-import { TSpacings } from '../types/TSpacings';
+import { TComponentSizesExtended } from '../types/TComponentSizes';
 import { TBorderRadiusSizes } from '../types/TBorderRadiusSizes';
+import { TUiColorTypes } from '../types/TUiColorTypes';
+import { TComponentSizesMid } from '../types/TComponentSizes';
 
 /**
  * Maps FUI color types to Tailwind CSS color classes
@@ -26,34 +27,19 @@ export function getColorClass(
   return `${property}-${colorType}-${layer}`;
 }
 
-type TSpacingTw = '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '10';
-
 /**
  * Maps FUI spacing tokens to Tailwind spacing classes
  *
- * @param spacing The FUI spacing size
+ * @param spacing The FUI spacing step (0-10)
  * @param property The spacing property type
  * @returns Tailwind CSS class string
  */
 export function getSpacingClass(
-  spacing: TSpacingTw,
+  spacing: number,
   property: 'p' | 'm' | 'px' | 'py' | 'pt' | 'pb' | 'pl' | 'pr' | 'mt' | 'mb' | 'ml' | 'mr' | 'gap' = 'p'
 ): string {
-  // Map FUI spacing names to standard Tailwind spacing scale
-  const spacingMap: Record<TSpacingTw, string> = {
-    '1': '0.5', // 2px
-    '2': '1', // 4px
-    '3': '2', // 8px
-    '4': '3', // 12px
-    '5': '4', // 16px
-    '6': '6', // 24px
-    '7': '8', // 32px
-    '8': '10', // 40px
-    '9': '12', // 48px
-    '10': '16', // 64px
-  };
-
-  return `${property}-${spacingMap[spacing]}`;
+  // Use FUI spacing directly since we configured it in tailwind.config.ts
+  return `${property}-${spacing}`;
 }
 
 /**
@@ -62,10 +48,22 @@ export function getSpacingClass(
  * @param size The FUI component size
  * @returns Object with width and height Tailwind classes
  */
-export function getSizeClasses(size: TComponentSizes): { width: string; height: string } {
+export function getSizeClasses(size: TComponentSizesExtended): { width: string; height: string } {
+  // Map component size names to numbers
+  const sizeMap: Record<TComponentSizesExtended, number> = {
+    xxs: 0,
+    xs: 1,
+    sm: 2,
+    md: 3,
+    lg: 4,
+    xl: 5,
+    xxl: 6,
+  };
+
+  const sizeNumber = sizeMap[size];
   return {
-    width: `w-element-${size}`,
-    height: `h-element-${size}`,
+    width: `w-element-${sizeNumber}`,
+    height: `h-element-${sizeNumber}`,
   };
 }
 
@@ -76,19 +74,19 @@ export function getSizeClasses(size: TComponentSizes): { width: string; height: 
  * @returns Tailwind CSS class string
  */
 export function getBorderRadiusClass(radius: TBorderRadiusSizes): string {
-  // Map FUI radius names to Tailwind radius classes
-  const radiusMap: Record<TBorderRadiusSizes, string> = {
-    xxs: 'sm', // 4px -> rounded-sm
-    xs: 'md', // 8px -> rounded-md
-    sm: 'lg', // 12px -> rounded-lg
-    md: 'xl', // 16px -> rounded-xl
-    lg: '2xl', // 24px -> rounded-2xl
-    xl: '3xl', // 32px -> rounded-3xl
-    xxl: '3xl', // 40px -> rounded-3xl (closest)
-    complete: 'full', // 200px -> rounded-full
+  // Map FUI radius names to numbers
+  const radiusMap: Record<TBorderRadiusSizes, number> = {
+    xxs: 1,
+    xs: 2,
+    sm: 3,
+    md: 4,
+    lg: 5,
+    xl: 6,
+    xxl: 7,
+    complete: 8,
   };
 
-  return `rounded-${radiusMap[radius]}`;
+  return `rounded-fui-${radiusMap[radius]}`;
 }
 
 /**
@@ -269,4 +267,248 @@ export function getAnimationClasses(animation: 'fade' | 'slide' | 'scale' | 'bou
   };
 
   return animationMap[animation] || '';
+}
+
+/**
+ * Converts styled-components theme props to Tailwind classes
+ *
+ * This is the main utility for migrating from styled-components to Tailwind.
+ * Takes common FUI component props and returns appropriate Tailwind classes.
+ *
+ * @param props Component theme props
+ * @returns Combined Tailwind CSS class string
+ */
+export function getThemeClasses(props: {
+  $themeType?: TUiColorTypes;
+  $layer?: TLayer;
+  $outlined?: boolean;
+  $textColor?: TUiColorsNotTransparent;
+  $sizeC?: TComponentSizesMid;
+  $borderRadius?: TBorderRadiusSizes | false;
+  $wide?: boolean;
+  $disabled?: boolean;
+  $backgroundState?: 'hover' | 'active' | 'focus';
+}): string {
+  const {
+    $themeType = 'primary',
+    $layer = 0,
+    $outlined,
+    $textColor,
+    $sizeC,
+    $borderRadius,
+    $wide,
+    $disabled,
+    $backgroundState,
+  } = props;
+
+  const classes: string[] = [];
+
+  // Basic layout classes
+  if ($wide) classes.push('w-full');
+
+  // Size classes
+  if ($sizeC) {
+    const sizeClasses = getSizeClasses($sizeC);
+    if (!$wide) classes.push(sizeClasses.width);
+    classes.push(sizeClasses.height);
+  }
+
+  // Border radius
+  if ($borderRadius !== false && $borderRadius) {
+    classes.push(getBorderRadiusClass($borderRadius));
+  }
+
+  // Theme-based styling
+  if ($themeType !== 'transparent') {
+    if ($outlined) {
+      // Outlined style
+      classes.push('border-2');
+      classes.push(getColorClass($themeType as TUiColorsNotTransparent, $layer, 'border'));
+      classes.push('bg-transparent');
+      classes.push(getColorClass($textColor || ($themeType as TUiColorsNotTransparent), 0, 'text'));
+    } else {
+      // Normal filled style
+      classes.push(getColorClass($themeType as TUiColorsNotTransparent, $layer, 'bg'));
+      const textColor = $textColor || getContrastingColor($themeType as TUiColorsNotTransparent);
+      classes.push(getColorClass(textColor, 0, 'text'));
+    }
+  } else {
+    // Transparent style
+    classes.push('bg-transparent');
+    classes.push(getColorClass($textColor || 'primary', 0, 'text'));
+  }
+
+  // Interactive states
+  if ($backgroundState) {
+    classes.push('transition-fui');
+    if ($backgroundState === 'hover') {
+      classes.push(getHoverClasses($themeType as TUiColorsNotTransparent, $layer));
+    }
+  }
+
+  // Disabled state
+  if ($disabled) {
+    classes.push('disabled:disabled-fui');
+  }
+
+  return combineClasses(...classes);
+}
+
+/**
+ * Gets a contrasting color for better readability
+ *
+ * @param baseColor The base color type
+ * @returns Contrasting color type
+ */
+export function getContrastingColor(baseColor: TUiColorsNotTransparent): TUiColorsNotTransparent {
+  const contrastMap: Record<TUiColorsNotTransparent, TUiColorsNotTransparent> = {
+    primary: 'secondary',
+    secondary: 'primary',
+    accent: 'secondary',
+    info: 'secondary',
+    success: 'primary',
+    warning: 'primary',
+    error: 'secondary',
+  };
+
+  return contrastMap[baseColor];
+}
+
+/**
+ * Utility to migrate component sizing props to Tailwind classes
+ *
+ * @param sizeC Component size
+ * @param wide Whether component should be full width
+ * @param aspectRatio Optional aspect ratio (for square components)
+ * @returns Size-related Tailwind classes
+ */
+export function getSizingClasses(sizeC?: TComponentSizesExtended, wide?: boolean, aspectRatio?: '1/1'): string {
+  const classes: string[] = [];
+
+  if (wide) {
+    classes.push('w-full');
+  } else if (sizeC) {
+    const { width, height } = getSizeClasses(sizeC);
+    classes.push(width);
+    if (aspectRatio === '1/1') {
+      classes.push('aspect-square');
+    } else {
+      classes.push(height);
+    }
+  }
+
+  return combineClasses(...classes);
+}
+
+/**
+ * Utility for padding/spacing based on component size
+ *
+ * @param sizeC Component size
+ * @returns Padding classes
+ */
+export function getPaddingFromSize(sizeC: TComponentSizesMid): string {
+  const paddingMap: Record<TComponentSizesMid, number> = {
+    xs: 2, // 4px
+    sm: 3, // 8px
+    md: 4, // 12px
+    lg: 5, // 16px
+    xl: 6, // 24px
+  };
+
+  const padding = paddingMap[sizeC] || 4;
+  return getSpacingClass(padding, 'p');
+}
+
+/**
+ * Gets component spacing classes with fallback defaults based on size
+ *
+ * @param padding Custom padding number or undefined
+ * @param margin Custom margin number or undefined
+ * @param sizeC Component size for fallback padding
+ * @param sizeSettingsProvider Optional function to get padding from size settings
+ * @returns Array of spacing class strings
+ */
+export function getComponentSpacingClasses(
+  padding?: number,
+  margin?: number,
+  sizeC?: TComponentSizesExtended,
+  sizeSettingsProvider?: (size: TComponentSizesExtended) => number
+): string[] {
+  const spacingClasses: string[] = [];
+
+  if (padding !== undefined) {
+    spacingClasses.push(getSpacingClass(padding, 'p'));
+  } else if (sizeC) {
+    // Use provided size settings or fallback to default mapping
+    const paddingValue = sizeSettingsProvider ? sizeSettingsProvider(sizeC) : getDefaultPaddingForSize(sizeC);
+    spacingClasses.push(getSpacingClass(paddingValue, 'p'));
+  }
+
+  if (margin !== undefined) {
+    spacingClasses.push(getSpacingClass(margin, 'm'));
+  }
+
+  return spacingClasses;
+}
+
+/**
+ * Default padding mapping for component sizes
+ * @param sizeC Component size
+ * @returns Default padding number
+ */
+function getDefaultPaddingForSize(sizeC: TComponentSizesExtended): number {
+  const paddingMap: Record<TComponentSizesExtended, number> = {
+    xxs: 2,
+    xs: 3,
+    sm: 4,
+    md: 5,
+    lg: 6,
+    xl: 7,
+    xxl: 8,
+  };
+  return paddingMap[sizeC];
+}
+
+/**
+ * Gets component border radius classes with fallback defaults based on size
+ *
+ * @param borderRadius Custom border radius or undefined
+ * @param sizeC Component size for fallback radius
+ * @param sizeSettingsProvider Optional function to get border radius from size settings
+ * @returns Array of border radius class strings
+ */
+export function getComponentRadiusClasses(
+  borderRadius?: TBorderRadiusSizes,
+  sizeC?: TComponentSizesExtended,
+  sizeSettingsProvider?: (size: TComponentSizesExtended) => TBorderRadiusSizes
+): string[] {
+  const radiusClasses: string[] = [];
+
+  if (borderRadius) {
+    radiusClasses.push(getBorderRadiusClass(borderRadius));
+  } else if (sizeC) {
+    // Use provided size settings or fallback to default mapping
+    const radiusValue = sizeSettingsProvider ? sizeSettingsProvider(sizeC) : getDefaultRadiusForSize(sizeC);
+    radiusClasses.push(getBorderRadiusClass(radiusValue));
+  }
+
+  return radiusClasses;
+}
+
+/**
+ * Default border radius mapping for component sizes
+ * @param sizeC Component size
+ * @returns Default border radius
+ */
+function getDefaultRadiusForSize(sizeC: TComponentSizesExtended): TBorderRadiusSizes {
+  const radiusMap: Record<TComponentSizesExtended, TBorderRadiusSizes> = {
+    xxs: 'xs',
+    xs: 'xs',
+    sm: 'sm',
+    md: 'md',
+    lg: 'lg',
+    xl: 'xl',
+    xxl: 'xxl',
+  };
+  return radiusMap[sizeC];
 }

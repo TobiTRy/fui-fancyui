@@ -8,6 +8,26 @@ Welcome to FancyUI (FUI), a state-of-the-art UI library meticulously crafted for
 
 FUI is currently a masterpiece in the making. Our team is working diligently to ensure that every component, feature, and line of code meets the highest standards of quality and innovation. While we're putting in the hours to make FUI really, really fancy, we appreciate your patience and excitement for the upcoming release.
 
+## 🔄 Migration Notice: Styled Components → Tailwind CSS
+
+**Important**: FUI is currently undergoing a major architectural migration from Styled Components to Tailwind CSS. This migration brings improved performance, smaller bundle sizes, and better developer experience while maintaining full design system compatibility.
+
+**📋 For detailed migration information, see:** [MIGRATION-TAILWIND.md](./MIGRATION-TAILWIND.md)
+
+**What this means for you:**
+- **New components** will use Tailwind CSS with "Tw" suffix (e.g., `FancyBoxTw`)
+- **Existing components** continue to work unchanged during transition
+- **Full feature parity** maintained between styled-components and Tailwind versions
+- **Design system** remains identical - same colors, spacing, typography, and patterns
+- **Zero breaking changes** for current implementations
+
+**Current Migration Status:**
+- ✅ Core Tailwind configuration and theme system
+- ✅ Migration utilities and bridge functions
+- ✅ First component: `FancyBoxTw` with size settings
+- 🔄 Ongoing: Component-by-component migration
+- 📋 Planned: Complete styled-components deprecation path
+
 ## 🏮 Important Links 🏮
 
 - **StoryBook**: https://fui.cool/

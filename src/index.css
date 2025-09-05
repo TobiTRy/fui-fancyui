@@ -1,3 +1,5 @@
+/* Tailwind CSS imported via tailwind.css with custom variables */
+
 @font-face {
   font-family: 'JakartaSans';
   src: url(./components/design/JakartaSans.ttf) format('truetype');

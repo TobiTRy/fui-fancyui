@@ -3,6 +3,7 @@ import { css, styled } from 'styled-components';
 import { TTheme } from '@/types/TTheme';
 import { FancyBox } from '@/components/atoms/FancyBox';
 import { disabledStyle } from '@/design/designFunctions/disabledStyle';
+import { theme } from '@/design/theme/theme';
 
 const PositionWithLabel = (theme: TTheme, $isTextArea: boolean) => css`
   padding: ${theme.spacing.xxs} ${theme.spacing.sm} ${theme.spacing.xxs};
@@ -45,7 +46,7 @@ export const ExtendedFancyBox = styled(FancyBox)<TExtendedFancyBox>`
 // eslint-disable-next-line react-refresh/only-export-components
 export const generateIconStyle = (hasLabel: boolean) => css<{ theme: TTheme }>`
   flex-shrink: 0;
-  margin-top: ${hasLabel ? '10px' : '5px'};
+  margin-top: ${hasLabel ? theme.spacing.xs : theme.spacing.xxs};
   transition: 0.25s;
   align-self: self-start;
 `;

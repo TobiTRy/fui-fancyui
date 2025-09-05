@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theme Test - Direct HTML</title>
+    <link rel="stylesheet" href="./tailwind.css">
+    <style>
+        /* Add fallback styles to see if CSS variables are loading */
+        .debug-accent {
+            background-color: var(--color-accent-1, red) !important;
+            color: var(--color-secondary-0, blue) !important;
+        }
+        .debug-info {
+            background-color: var(--color-info-1, red) !important;
+            color: var(--color-secondary-0, blue) !important;
+        }
+    </style>
+</head>
+<body class="p-8">
+    <h1 class="text-2xl font-bold mb-6">Direct HTML Theme Test</h1>
+    
+    <!-- Test each theme type with direct HTML (no React component) -->
+    <div class="grid grid-cols-4 gap-4 mb-8">
+        <!-- Primary -->
+        <div class="bg-primary-1 text-secondary-0 p-4 rounded-fui-3 box-border">
+            <p class="text-center font-medium">Primary</p>
+            <small class="block text-xs text-center opacity-75">bg-primary-1</small>
+        </div>
+        
+        <!-- Accent -->
+        <div class="bg-accent-1 text-secondary-0 p-4 rounded-fui-3 box-border">
+            <p class="text-center font-medium">Accent</p>
+            <small class="block text-xs text-center opacity-75">bg-accent-1</small>
+        </div>
+        
+        <!-- Secondary -->
+        <div class="bg-secondary-1 text-primary-0 p-4 rounded-fui-3 box-border">
+            <p class="text-center font-medium">Secondary</p>
+            <small class="block text-xs text-center opacity-75">bg-secondary-1</small>
+        </div>
+        
+        <!-- Info -->
+        <div class="bg-info-1 text-secondary-0 p-4 rounded-fui-3 box-border">
+            <p class="text-center font-medium">Info</p>
+            <small class="block text-xs text-center opacity-75">bg-info-1</small>
+        </div>
+        
+        <!-- Success -->
+        <div class="bg-success-1 text-secondary-0 p-4 rounded-fui-3 box-border">
+            <p class="text-center font-medium">Success</p>
+            <small class="block text-xs text-center opacity-75">bg-success-1</small>
+        </div>
+        
+        <!-- Warning -->
+        <div class="bg-warning-1 text-primary-0 p-4 rounded-fui-3 box-border">
+            <p class="text-center font-medium">Warning</p>
+            <small class="block text-xs text-center opacity-75">bg-warning-1</small>
+        </div>
+        
+        <!-- Error -->
+        <div class="bg-error-1 text-secondary-0 p-4 rounded-fui-3 box-border">
+            <p class="text-center font-medium">Error</p>
+            <small class="block text-xs text-center opacity-75">bg-error-1</small>
+        </div>
+    </div>
+
+    <!-- Test with CSS variable fallbacks -->
+    <div class="grid grid-cols-2 gap-4 mb-8">
+        <div class="debug-accent p-4 rounded">
+            <p class="text-center font-medium">Accent (CSS Var Test)</p>
+            <small class="block text-xs text-center opacity-75">Should be orange if vars work, red if fallback</small>
+        </div>
+        
+        <div class="debug-info p-4 rounded">
+            <p class="text-center font-medium">Info (CSS Var Test)</p>
+            <small class="block text-xs text-center opacity-75">Should be blue if vars work, red if fallback</small>
+        </div>
+    </div>
+
+    <!-- Show computed styles -->
+    <div class="mt-8 p-4 bg-gray-100 rounded">
+        <h3 class="font-bold mb-2">Debugging:</h3>
+        <p class="text-sm">Open DevTools and check:</p>
+        <ul class="text-sm text-gray-600 ml-4">
+            <li>• Do the boxes above have colors?</li>
+            <li>• Inspect element and check if <code>bg-accent-1</code> class exists</li>
+            <li>• Check if CSS variables like <code>--color-accent-1</code> are defined</li>
+            <li>• Look for any CSS loading errors in Console</li>
+        </ul>
+        
+        <div class="mt-4 p-2 bg-yellow-100 rounded text-xs">
+            <strong>Expected colors:</strong><br>
+            • Accent: Orange/brown (#DC700D)<br>
+            • Info: Blue (#3587D9)<br>
+            • Success: Teal (#00A596)<br>
+        </div>
+    </div>
+
+    <script>
+        // Log CSS variable values to console
+        console.log('CSS Variables Test:');
+        const style = getComputedStyle(document.documentElement);
+        console.log('--color-accent-1:', style.getPropertyValue('--color-accent-1'));
+        console.log('--color-info-1:', style.getPropertyValue('--color-info-1'));
+        console.log('--color-primary-1:', style.getPropertyValue('--color-primary-1'));
+        console.log('--color-secondary-0:', style.getPropertyValue('--color-secondary-0'));
+    </script>
+</body>
+</html>
