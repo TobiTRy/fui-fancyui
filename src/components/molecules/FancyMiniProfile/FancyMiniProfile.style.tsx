@@ -13,14 +13,14 @@ export const generateChipStyle = (props: TStyledChip) => {
 
   return css`
     flex-direction: ${$alignImage === 'right' ? 'row-reverse' : 'row'};
-    gap: ${theme.spacing[sizeSettings[sizeC || 'sm'].gap]};
+    gap: ${theme.spacing[sizeSettings[sizeC || 'md'].gap]};
 
     ${$alignImage === 'left'
       ? css`
-          padding-right: ${theme.spacing[sizeSettings[sizeC || 'sm'].paddingToEdge]};
+          padding-right: ${theme.spacing[sizeSettings[sizeC || 'md'].paddingToEdge]};
         `
       : css`
-          padding-left: ${theme.spacing[sizeSettings[sizeC || 'sm'].paddingToEdge]};
+          padding-left: ${theme.spacing[sizeSettings[sizeC || 'md'].paddingToEdge]};
         `};
 
     .miniprofile {

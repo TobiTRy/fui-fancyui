@@ -154,6 +154,39 @@ export const typography = {
     letterSpacing: '0.01em',
     fontWeight: '500', // Medium
   },
+
+  // FancyContent specific variants with matching font size and line height for icon alignment
+  // These are also used by FancyButton since it uses FancyContent internally
+  fancyContentXs: {
+    fontSize: '12px',
+    lineHeight: '12px',
+    letterSpacing: '0.01em',
+    fontWeight: '500', // Medium
+  },
+  fancyContentSm: {
+    fontSize: '14px', // Adjusted to match interactive sizes for buttons
+    lineHeight: '14px',
+    letterSpacing: '0.01em',
+    fontWeight: '500', // Medium
+  },
+  fancyContentMd: {
+    fontSize: '16px', // Adjusted to match interactive sizes for buttons
+    lineHeight: '16px',
+    letterSpacing: '0.01em',
+    fontWeight: '500', // Medium
+  },
+  fancyContentLg: {
+    fontSize: '20px', // Increased for better visual hierarchy
+    lineHeight: '20px',
+    letterSpacing: '0.01em',
+    fontWeight: '500', // Medium
+  },
+  fancyContentXl: {
+    fontSize: '24px', // Increased for better visual hierarchy
+    lineHeight: '24px',
+    letterSpacing: '0.01em',
+    fontWeight: '500', // Medium
+  },
 };
 
 export const borderRadius = {

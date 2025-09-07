@@ -42,6 +42,13 @@ export default function ChipsRoute() {
             <FancyChip
               layer={3}
               icon={<ClipBoardIconCheck />}
+              sizeC="xs"
+              label="Heyyjoo"
+              onClick={() => clickHandler('hi')}
+            />
+            <FancyChip
+              layer={3}
+              icon={<ClipBoardIconCheck />}
               sizeC="sm"
               label="Heyyjoo"
               onClick={() => clickHandler('hi')}
@@ -57,6 +64,13 @@ export default function ChipsRoute() {
               layer={3}
               icon={<ClipBoardIconCheck />}
               sizeC="lg"
+              label="Heyyjoo"
+              onClick={() => clickHandler('hi')}
+            />
+            <FancyChip
+              layer={3}
+              icon={<ClipBoardIconCheck />}
+              sizeC="xl"
               label="Heyyjoo"
               onClick={() => clickHandler('hi')}
             />

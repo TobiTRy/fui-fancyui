@@ -63,6 +63,7 @@ export default function FancyButton(props: TFancyButtonWithHTMLAttrs) {
         wide={false}
         alignIcon={iconPosition}
         gapBetweenIcon={sizeSettings[sizeC].gap}
+        sizeC={sizeC}
       >
         {label && (
           <FancyContent.Title fontVariant={sizeSettings[sizeC ?? 'md'].fontSize} themeType={buttonProps.textColor}>
@@ -70,7 +71,7 @@ export default function FancyButton(props: TFancyButtonWithHTMLAttrs) {
           </FancyContent.Title>
         )}
         {(isLoading || icon) && (
-          <FancyContent.Icon sizeC={sizeC === 'xs' ? 'sm' : sizeC === 'xl' ? 'lg' : sizeC} noPadding>
+          <FancyContent.Icon noPadding>
             {isLoading ? <LoadingSVGArrows isLoading={isLoading} /> : icon}
           </FancyContent.Icon>
         )}

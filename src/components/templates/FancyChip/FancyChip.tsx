@@ -3,7 +3,6 @@
 import { css } from 'styled-components';
 
 import { Chip } from '@/components/molecules/Chip';
-import { sizesSettings } from '@/components/molecules/Chip/sizeSettings';
 import { TFancyChipWithFancyPillAttrs } from '@/components/templates/FancyChip/TFancyChip.model';
 import { TSpacingPosition, generateSpacing } from '@/components/templates/FancyChip/utils/generateSpacings';
 
@@ -17,7 +16,7 @@ export default function FancyChip(props: TFancyChipWithFancyPillAttrs) {
     image,
     layer = 2,
     themeType,
-    sizeC = 'sm',
+    sizeC = 'md',
     onDelete,
     externalStyle,
     textColor,
@@ -51,8 +50,12 @@ export default function FancyChip(props: TFancyChipWithFancyPillAttrs) {
     >
       {image && <Chip.Img>{image}</Chip.Img>}
       {(label || icon) && (
-        <Chip.Content themeType={textColor}>
-          {icon && <Chip.Content.Icon sizeC={sizesSettings[sizeC].iconSize}>{icon}</Chip.Content.Icon>}
+        <Chip.Content themeType={textColor} gapBetweenIcon="3xs">
+          {icon && (
+            <Chip.Content.Icon noPadding sizeC={sizeC}>
+              {icon}
+            </Chip.Content.Icon>
+          )}
           <Chip.Content.Title sizeC={sizeC} fontWeight={'normal'}>
             {label}
           </Chip.Content.Title>

@@ -12,7 +12,7 @@ export default function FancyContentTitle(props: TTextProps) {
   return (
     <Typography
       elType={type ?? 'span'}
-      variant={fontVariant ?? sizes[sizeC || 'lg'].fontSizeTitle}
+      variant={fontVariant ?? sizes[sizeC || 'md'].fontSizeTitle}
       fontWeight={fontWeight ?? 'bold'}
       className={className}
       themeType={themeType}
