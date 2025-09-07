@@ -205,9 +205,6 @@ export default function ButtonRoute() {
           borderRadius="sm"
         />
       </DesignArea>
-      <DesignArea title="Buttons" style={backgroundColor}>
-        <FancyButton className={style.test} appendClassNameOnStyle={true} noSize label="Test" themeType="primary" />
-      </DesignArea>
     </>
   );
 }
