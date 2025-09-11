@@ -28,9 +28,11 @@ export default function SimpleDialog(props: TSimpleDialogWithHTMLAttrs) {
   useEffect(() => {
     if (isOpen) {
       setRender(true);
-      // Trigger animation in the next frame after render
+      // Trigger animation with double requestAnimationFrame to ensure DOM painting
       requestAnimationFrame(() => {
-        setIsAnimating(true);
+        requestAnimationFrame(() => {
+          setIsAnimating(true);
+        });
       });
       lastFocusedElement.current = document.activeElement as HTMLElement;
     } else {

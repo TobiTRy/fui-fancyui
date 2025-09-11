@@ -18,7 +18,7 @@ export default function BackDrop(props: TBackDrop) {
       // Trigger the animation after the component has mounted
       requestAnimationFrame(() => {
         if (backdropRef.current) {
-          backdropRef.current.style.opacity = '0.5';
+          backdropRef.current.style.opacity = '0.8';
         }
       });
     } else {
