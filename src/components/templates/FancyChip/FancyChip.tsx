@@ -50,7 +50,7 @@ export default function FancyChip(props: TFancyChipWithFancyPillAttrs) {
     >
       {image && <Chip.Img>{image}</Chip.Img>}
       {(label || icon) && (
-        <Chip.Content themeType={textColor} gapBetweenIcon="3xs">
+        <Chip.Content themeType={textColor} gapBetweenIcon="xxs">
           {icon && (
             <Chip.Content.Icon noPadding sizeC={sizeC}>
               {icon}

@@ -14,18 +14,18 @@ const meta = {
     docs: {
       description: {
         component:
-          'The `FancyContent` component is a flexible and reusable component designed for displaying content such as titles, descriptions, and icons together using CSS Grid layout. It supports four main layout modes: normal (2x2 grid), stack (single column), row (horizontal), and auto (smart detection). The component emphasizes ease of use, aesthetic flexibility, and seamless integration into various UI elements like buttons, chips, and more.',
+          'The `FancyContent` component is a flexible and reusable component designed for displaying content such as titles, descriptions, and icons together using CSS Grid layout. It supports six main layout modes: normal (2x2 grid), stack (single column), row (horizontal), span (icon spans rows), inline (icon and title on same line), and auto (smart detection). The component emphasizes ease of use, aesthetic flexibility, and seamless integration into various UI elements like buttons, chips, and more.',
       },
     },
   },
   argTypes: {
     layoutMode: {
       description:
-        'Layout mode for the grid: normal = 2x2 grid, stack = single column, row = horizontal row, auto = determines based on content',
+        'Layout mode for the grid: normal = 2x2 grid, stack = single column, row = horizontal row, span = icon spans rows, inline = icon and title on same line, auto = determines based on content',
       control: {
         type: 'select' as const,
       },
-      options: ['normal', 'stack', 'row', 'auto'],
+      options: ['normal', 'stack', 'row', 'span', 'inline', 'auto'],
     },
     alignIcon: {
       description: 'Position of the icon relative to content',
@@ -154,6 +154,88 @@ export const RowLayout: Story = {
   ),
   args: {
     layoutMode: 'row',
+  },
+};
+
+export const InlineLayout: Story = {
+  render: (args) => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+      <FancyContent {...args}>
+        <FancyContent.Icon>
+          <SVGCheckMark />
+        </FancyContent.Icon>
+        <FancyContent.Title>Inline Layout</FancyContent.Title>
+        <FancyContent.Description>Icon and title on same line, description spans below</FancyContent.Description>
+      </FancyContent>
+
+      <FancyContent {...args}>
+        <FancyContent.Icon>
+          <SVGInfoSign />
+        </FancyContent.Icon>
+        <FancyContent.Title>Inline without Description</FancyContent.Title>
+      </FancyContent>
+
+      <FancyContent {...args} alignIcon="right">
+        <FancyContent.Icon>
+          <SVGCheckMark />
+        </FancyContent.Icon>
+        <FancyContent.Title>Right-aligned Inline</FancyContent.Title>
+        <FancyContent.Description>Icon aligned to the right in inline layout</FancyContent.Description>
+      </FancyContent>
+    </div>
+  ),
+  args: {
+    layoutMode: 'inline',
+    gapBetweenIcon: 'sm',
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Inline layout places the icon and title side-by-side on the same row, with the description spanning the full width below. Perfect for compact headers with supporting text.',
+      },
+    },
+  },
+};
+
+export const SpanLayout: Story = {
+  render: (args) => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+      <FancyContent {...args}>
+        <FancyContent.Icon>
+          <SVGCheckMark />
+        </FancyContent.Icon>
+        <FancyContent.Title>Span Layout</FancyContent.Title>
+        <FancyContent.Description>Icon spans both title and description rows vertically</FancyContent.Description>
+      </FancyContent>
+
+      <FancyContent {...args}>
+        <FancyContent.Icon>
+          <SVGInfoSign />
+        </FancyContent.Icon>
+        <FancyContent.Title>Span without Description</FancyContent.Title>
+      </FancyContent>
+
+      <FancyContent {...args} alignIcon="right">
+        <FancyContent.Icon>
+          <SVGCheckMark />
+        </FancyContent.Icon>
+        <FancyContent.Title>Right-aligned Span</FancyContent.Title>
+        <FancyContent.Description>Icon spans vertically on the right side</FancyContent.Description>
+      </FancyContent>
+    </div>
+  ),
+  args: {
+    layoutMode: 'span',
+    gapBetweenIcon: 'sm',
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Span layout makes the icon span across both title and description rows, creating a vertical alignment that works well for larger icons or when emphasizing the visual element.',
+      },
+    },
   },
 };
 

@@ -82,6 +82,62 @@ export default function FancyContentRoute() {
           </FancyContent>
         </div>
 
+        <h3>Inline Layout (Icon and Title Inline)</h3>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginBottom: '2rem' }}>
+          <FancyContent layoutMode="inline">
+            <FancyContent.Icon sizeC="sm" themeType="success">
+              <SVGCheckMark />
+            </FancyContent.Icon>
+            <FancyContent.Title sizeC="sm">Inline Layout</FancyContent.Title>
+            <FancyContent.Description sizeC="sm">
+              Icon and title are on the same line, description spans below
+            </FancyContent.Description>
+          </FancyContent>
+
+          <FancyContent layoutMode="inline">
+            <FancyContent.Icon sizeC="md" themeType="info">
+              <SVGCheckMark />
+            </FancyContent.Icon>
+            <FancyContent.Title sizeC="md">Inline without Description</FancyContent.Title>
+          </FancyContent>
+
+          <FancyContent layoutMode="inline" alignIcon="right">
+            <FancyContent.Icon sizeC="sm" themeType="accent">
+              <SVGCheckMark />
+            </FancyContent.Icon>
+            <FancyContent.Title sizeC="sm">Right-aligned Inline</FancyContent.Title>
+            <FancyContent.Description sizeC="sm">Icon aligned to the right</FancyContent.Description>
+          </FancyContent>
+        </div>
+
+        <h3>Span Layout (Icon Spans Rows)</h3>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginBottom: '2rem' }}>
+          <FancyContent layoutMode="span">
+            <FancyContent.Icon sizeC="lg" themeType="warning">
+              <SVGCheckMark />
+            </FancyContent.Icon>
+            <FancyContent.Title sizeC="sm">Span Layout</FancyContent.Title>
+            <FancyContent.Description sizeC="sm">
+              Icon spans across both title and description rows vertically
+            </FancyContent.Description>
+          </FancyContent>
+
+          <FancyContent layoutMode="span">
+            <FancyContent.Icon sizeC="md" themeType="secondary">
+              <SVGCheckMark />
+            </FancyContent.Icon>
+            <FancyContent.Title sizeC="md">Span without Description</FancyContent.Title>
+          </FancyContent>
+
+          <FancyContent layoutMode="span" alignIcon="right">
+            <FancyContent.Icon sizeC="lg" themeType="error">
+              <SVGCheckMark />
+            </FancyContent.Icon>
+            <FancyContent.Title sizeC="sm">Right-aligned Span</FancyContent.Title>
+            <FancyContent.Description sizeC="sm">Icon spans on the right side</FancyContent.Description>
+          </FancyContent>
+        </div>
+
         <h3>With Images</h3>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
           <FancyContent layoutMode="normal">

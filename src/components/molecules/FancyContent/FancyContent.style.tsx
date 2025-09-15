@@ -120,6 +120,39 @@ const getGridTemplate = (
         grid-template-rows: auto;
         grid-template-areas: ${hasIcon ? (alignIcon === 'right' ? '"title icon"' : '"icon title"') : '"title title"'};
       `;
+    case 'inline':
+      // Icon and title on same line, description below
+      if (hasIcon && hasTitle && hasDescription) {
+        return css`
+          grid-template-columns: ${alignIcon === 'right' ? '1fr auto' : 'auto 1fr'};
+          grid-template-rows: auto auto;
+          grid-template-areas: ${alignIcon === 'right'
+            ? '"title icon" "description description"'
+            : '"icon title" "description description"'};
+        `;
+      }
+      // If no description, just icon and title on same line
+      if (hasIcon && hasTitle && !hasDescription) {
+        return css`
+          grid-template-columns: ${alignIcon === 'right' ? '1fr auto' : 'auto 1fr'};
+          grid-template-rows: auto;
+          grid-template-areas: ${alignIcon === 'right' ? '"title icon"' : '"icon title"'};
+        `;
+      }
+      // If no title but has description, use description in title position
+      if (hasIcon && !hasTitle && hasDescription) {
+        return css`
+          grid-template-columns: ${alignIcon === 'right' ? '1fr auto' : 'auto 1fr'};
+          grid-template-rows: auto;
+          grid-template-areas: ${alignIcon === 'right' ? '"title icon"' : '"icon title"'};
+        `;
+      }
+      // Fallback without icon
+      return css`
+        grid-template-columns: 1fr;
+        grid-template-rows: ${hasTitle && hasDescription ? 'auto auto' : 'auto'};
+        grid-template-areas: ${hasTitle && hasDescription ? '"title" "description"' : '"title"'};
+      `;
     default: // 'auto'
       // If no title but has description, use description in title position
       if (!hasTitle && hasDescription) {

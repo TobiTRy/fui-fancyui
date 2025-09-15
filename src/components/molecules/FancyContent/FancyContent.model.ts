@@ -6,8 +6,8 @@ import { TThemeValueOrCSS } from '@/design/designFunctions/getThemeOrValueAsCss'
 import { TTextAlignLRC, TAlignItemsValues, TComponentSizesMid } from '@/types';
 
 export type TFancyContent = {
-  /** Layout mode for the grid: 'normal' = 2x2 grid, 'stack' = single column, 'row' = horizontal row, 'span' = icon spans both rows, 'auto' = determines based on content */
-  layoutMode?: 'normal' | 'stack' | 'row' | 'span' | 'auto';
+  /** Layout mode for the grid: 'normal' = 2x2 grid, 'stack' = single column, 'row' = horizontal row, 'span' = icon spans both rows, 'inline' = icon and title in one line with description below, 'auto' = determines based on content */
+  layoutMode?: 'normal' | 'stack' | 'row' | 'span' | 'inline' | 'auto';
   /** Gap between text elements (title and description) */
   gapBetweenText?: TThemeValueOrCSS;
   /** Gap between icon and content */
