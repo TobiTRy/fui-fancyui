@@ -18,10 +18,8 @@ type TWrapper = TStyledPrefixAndOmiter<TFancyContent, 'children'> & {
 
 // Helper function to get justify-self value
 const getJustifySelf = (justify?: TTextAlignLRC, layoutMode?: string, defaultValue: string = 'start') => {
-  // When justify is explicitly set, let the grid-level justify-items handle alignment
-  // This prevents conflicts between justify-items and justify-self
   if (justify) {
-    return 'auto'; // Let justify-items from the grid container handle the alignment
+    return justify === 'left' ? 'start' : justify === 'right' ? 'end' : 'center';
   }
   return layoutMode === 'stack' ? 'center' : defaultValue;
 };
@@ -131,6 +129,7 @@ const getGridTemplate = (
           grid-template-areas: ${alignIcon === 'right'
             ? '"title icon" "description description"'
             : '"icon title" "description description"'};
+          text-align: left;
         `;
       }
       // If no description, just icon and title on same line
@@ -139,6 +138,7 @@ const getGridTemplate = (
           grid-template-columns: ${alignIcon === 'right' ? '1fr auto' : 'auto 1fr'};
           grid-template-rows: auto;
           grid-template-areas: ${alignIcon === 'right' ? '"title icon"' : '"icon title"'};
+          text-align: left;
         `;
       }
       // If no title but has description, use description in title position
@@ -147,6 +147,7 @@ const getGridTemplate = (
           grid-template-columns: ${alignIcon === 'right' ? '1fr auto' : 'auto 1fr'};
           grid-template-rows: auto;
           grid-template-areas: ${alignIcon === 'right' ? '"title icon"' : '"icon title"'};
+          text-align: left;
         `;
       }
       // Fallback without icon
@@ -154,6 +155,7 @@ const getGridTemplate = (
         grid-template-columns: 1fr;
         grid-template-rows: ${hasTitle && hasDescription ? 'auto auto' : 'auto'};
         grid-template-areas: ${hasTitle && hasDescription ? '"title" "description"' : '"title"'};
+        text-align: left;
       `;
     default: // 'auto'
       // If no title but has description, use description in title position
