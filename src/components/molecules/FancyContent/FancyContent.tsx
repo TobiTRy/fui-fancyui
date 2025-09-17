@@ -122,7 +122,7 @@ function FancyContent(props: TFancyContentHTMLAttrs) {
         $hasTitle={hasTitle || descriptionAsTitle}
         $hasDescription={hasDescription && !descriptionAsTitle}
         $gapBetweenText={gapBetweenText}
-        $gapBetweenIcon={gapBetweenIcon ?? '2xs'}
+        $gapBetweenIcon={gapBetweenIcon ?? 'xs'}
         $themeType={themeType}
         $layer={layer}
         $externalStyle={externalStyle}

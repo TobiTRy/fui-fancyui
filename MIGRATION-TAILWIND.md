@@ -488,7 +488,7 @@ type TSizeObjTw = {
 export const sizeSettingsTw: TSizeSettingsExtended<TSizeObjTw> = {
   xs: {
     padding: 3,        // Maps to p-3 (8px)
-    borderRadius: 'xs', // Maps to rounded-fui-2
+    borderRadius: 'xs', // Maps to rounded-2
   },
   // ...
 };

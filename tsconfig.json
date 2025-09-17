@@ -36,7 +36,8 @@
     ".eslintrc.cjs",
     "lib",
     "src/test/*.ts",
-    "postcss.config.js"
+    "postcss.config.js",
+    "tailwind.config.ts"
   ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

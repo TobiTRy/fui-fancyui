@@ -123,6 +123,7 @@
   "sideEffects": false,
   "main": "dist/lib/index.js",
   "types": "dist/lib/index.d.ts",
+  "style": "dist/fui-fancyui.css",
   "keywords": [
     "react",
     "react-ui",
@@ -147,6 +148,7 @@
       "require": "./dist/lib/index.js",
       "default": "./dist/lib/index.js"
     },
+    "./style.css": "./dist/fui-fancyui.css",
     "./package.json": "./package.json"
   },
   "license": "MIT",

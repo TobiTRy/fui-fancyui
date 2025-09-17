@@ -7,6 +7,7 @@
 import { TUiColorsNotTransparent } from '../types/TUiColorsNotTransparent';
 import { TLayer } from '../types/TLayer';
 import { TComponentSizesExtended } from '../types/TComponentSizes';
+import { globalElementSizes } from '../design/theme/globalSizes';
 import { TBorderRadiusSizes } from '../types/TBorderRadiusSizes';
 import { TUiColorTypes } from '../types/TUiColorTypes';
 import { TComponentSizesMid } from '../types/TComponentSizes';
@@ -49,21 +50,20 @@ export function getSpacingClass(
  * @returns Object with width and height Tailwind classes
  */
 export function getSizeClasses(size: TComponentSizesExtended): { width: string; height: string } {
-  // Map component size names to numbers
-  const sizeMap: Record<TComponentSizesExtended, number> = {
-    xxs: 0,
-    xs: 1,
-    sm: 2,
-    md: 3,
-    lg: 4,
-    xl: 5,
-    xxl: 6,
+  const rawValue = globalElementSizes[size] ?? globalElementSizes.md;
+  const sizeValue: string = typeof rawValue === 'number' ? rawValue + 'px' : String(rawValue);
+
+  const createDimensionClass = (property: 'w' | 'h', value: string): string => {
+    if (value === '100%') {
+      return property === 'w' ? 'w-full' : 'h-full';
+    }
+
+    return property + '-[' + value + ']';
   };
 
-  const sizeNumber = sizeMap[size];
   return {
-    width: `w-element-${sizeNumber}`,
-    height: `h-element-${sizeNumber}`,
+    width: createDimensionClass('w', sizeValue),
+    height: createDimensionClass('h', sizeValue),
   };
 }
 
@@ -86,7 +86,7 @@ export function getBorderRadiusClass(radius: TBorderRadiusSizes): string {
     complete: 8,
   };
 
-  return `rounded-fui-${radiusMap[radius]}`;
+  return `rounded-${radiusMap[radius]}`;
 }
 
 /**
@@ -154,11 +154,14 @@ export function getDisabledClasses(): string {
 /**
  * Combines multiple Tailwind classes with proper spacing
  *
- * @param classes Array of class strings or conditional classes
+ * @param classes Array of class strings, arrays, or conditional classes
  * @returns Combined class string
  */
-export function combineClasses(...classes: (string | undefined | false)[]): string {
-  return classes.filter(Boolean).join(' ');
+export function combineClasses(...classes: (string | undefined | false | string[])[]): string {
+  return classes
+    .flatMap((cls) => (Array.isArray(cls) ? cls : [cls]))
+    .filter(Boolean)
+    .join(' ');
 }
 
 /**
@@ -457,7 +460,7 @@ export function getComponentSpacingClasses(
  * @returns Default padding number
  */
 function getDefaultPaddingForSize(sizeC: TComponentSizesExtended): number {
-  const paddingMap: Record<TComponentSizesExtended, number> = {
+  const paddingMap: Partial<Record<TComponentSizesExtended, number>> = {
     xxs: 2,
     xs: 3,
     sm: 4,
@@ -466,7 +469,7 @@ function getDefaultPaddingForSize(sizeC: TComponentSizesExtended): number {
     xl: 7,
     xxl: 8,
   };
-  return paddingMap[sizeC];
+  return paddingMap[sizeC] ?? paddingMap.xl ?? 5;
 }
 
 /**
@@ -501,7 +504,7 @@ export function getComponentRadiusClasses(
  * @returns Default border radius
  */
 function getDefaultRadiusForSize(sizeC: TComponentSizesExtended): TBorderRadiusSizes {
-  const radiusMap: Record<TComponentSizesExtended, TBorderRadiusSizes> = {
+  const radiusMap: Partial<Record<TComponentSizesExtended, TBorderRadiusSizes>> = {
     xxs: 'xs',
     xs: 'xs',
     sm: 'sm',
@@ -510,5 +513,5 @@ function getDefaultRadiusForSize(sizeC: TComponentSizesExtended): TBorderRadiusS
     xl: 'xl',
     xxl: 'xxl',
   };
-  return radiusMap[sizeC];
+  return radiusMap[sizeC] ?? 'xxl';
 }

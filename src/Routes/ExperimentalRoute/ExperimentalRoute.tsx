@@ -24,6 +24,7 @@ import { FancyFloatingInfoButton } from '@/components/organisms/FancyFloatingInf
 import { SearchBar } from '@/components/molecules/SearchBar';
 import FancySearchSelect from '@/components/organisms/FancySearchSelect/FancySearchSelect';
 import FancySearchSelectExample from './FancySearchSelectExample';
+import HeaderNavigationWithTitle from '@/components/molecules/HeaderNavigationWithTitle/HeaderNavigationWithTitle';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -90,6 +91,30 @@ export default function ExperimentalRoute() {
         <DesignArea title="FancyBoxTw - Tailwind Migration Showcase">
           {/* Basic Comparison */}
           <div className="space-y-8">
+            <HeaderNavigationWithTitle
+              title="Header Navigation With Title"
+              sizeC="sm"
+              forwardButton={{
+                onClick: () => console.log('forward'),
+              }}
+            />
+            <HeaderNavigationWithTitle
+              title="Header Navigation With Title"
+              sizeC="md"
+              backButton={{
+                onClick: () => console.log('back'),
+              }}
+              forwardButton={{
+                onClick: () => console.log('forward'),
+              }}
+            />
+            <HeaderNavigationWithTitle
+              sizeC="lg"
+              title="Header Navigation With Title lg"
+              backButton={{
+                onClick: () => console.log('back'),
+              }}
+            />
             <section>
               <h2 className="text-xl font-bold mb-4">Basic FancyBox Comparison</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

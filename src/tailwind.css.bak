@@ -1,8 +1,5 @@
 @import "tailwindcss";
 
-@source "./src/**/*.{js,jsx,ts,tsx}";
-@source "./lib/**/*.{js,jsx,ts,tsx}";
-
 @theme {
   /* FUI Color System */
   --color-primary-0: #131825;
@@ -232,7 +229,6 @@
     color: var(--color-error-8);
     color: var(--color-error-9);
   }
-
 }
 
 @keyframes fadeIn {

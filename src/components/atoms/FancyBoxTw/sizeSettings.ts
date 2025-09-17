@@ -40,6 +40,30 @@ export const sizeSettingsTw: TSizeSettingsExtended<TSizeObjTw> = {
     padding: 8, // 40px spacing
     borderRadius: 'xxl',
   },
+  '3xl': {
+    padding: 8,
+    borderRadius: 'xxl',
+  },
+  '4xl': {
+    padding: 8,
+    borderRadius: 'xxl',
+  },
+  '5xl': {
+    padding: 8,
+    borderRadius: 'xxl',
+  },
+  '6xl': {
+    padding: 8,
+    borderRadius: 'xxl',
+  },
+  '7xl': {
+    padding: 8,
+    borderRadius: 'xxl',
+  },
+  '8xl': {
+    padding: 8,
+    borderRadius: 'xxl',
+  },
 };
 
 /**

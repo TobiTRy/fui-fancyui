@@ -18,8 +18,10 @@ type TWrapper = TStyledPrefixAndOmiter<TFancyContent, 'children'> & {
 
 // Helper function to get justify-self value
 const getJustifySelf = (justify?: TTextAlignLRC, layoutMode?: string, defaultValue: string = 'start') => {
+  // When justify is explicitly set, let the grid-level justify-items handle alignment
+  // This prevents conflicts between justify-items and justify-self
   if (justify) {
-    return justify === 'left' ? 'start' : justify === 'right' ? 'end' : 'center';
+    return 'auto'; // Let justify-items from the grid container handle the alignment
   }
   return layoutMode === 'stack' ? 'center' : defaultValue;
 };
