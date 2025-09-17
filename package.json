@@ -10,7 +10,7 @@
   "scripts": {
     "dev": "vite",
     "dev-network": "vite --host",
-    "build": "tsc && NODE_ENV=production vite build --mode=production",
+    "build": "NODE_ENV=production vite build --mode=production",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build:storybook": "storybook build",
