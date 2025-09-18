@@ -8,6 +8,7 @@
     "rootDir": ".",
     "baseUrl": "./src",
 
+    "types": ["node"],
     "typeRoots": ["./node_modules/@types", "../../node_modules/@types"],
     "paths": {
       "@/*": ["./*"]
@@ -28,7 +29,6 @@
     "noUnusedParameters": false,
     "noFallthroughCasesInSwitch": true
   },
-  "types": ["vitest/globals"],
   "include": [
     "src/**/*",
     "dist/index.d.ts",
