@@ -7,7 +7,6 @@ import { TAutoSizingBoxWithHTMLAttrs } from './TAutoSizingBox.model';
 // A Box thats adjusts width and height dynamicly from the childs via animation//
 // --------------------------------------------------------------------------- //
 export default function AutoSizingBox(props: TAutoSizingBoxWithHTMLAttrs) {
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const {
     children,
     startHeight,

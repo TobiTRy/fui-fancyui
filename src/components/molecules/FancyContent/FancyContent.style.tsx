@@ -112,6 +112,7 @@ const getGridTemplate = (
           grid-template-areas: ${alignIcon === 'right'
             ? '"title icon" "description icon"'
             : '"icon title" "icon description"'};
+          text-align: left;
         `;
       }
       // Fallback to normal layout if not both title and description
@@ -119,6 +120,7 @@ const getGridTemplate = (
         grid-template-columns: ${alignIcon === 'right' && hasIcon ? '1fr auto' : 'auto 1fr'};
         grid-template-rows: auto;
         grid-template-areas: ${hasIcon ? (alignIcon === 'right' ? '"title icon"' : '"icon title"') : '"title title"'};
+        text-align: left;
       `;
     case 'inline':
       // Icon and title on same line, description below
@@ -226,6 +228,7 @@ export const Wrapper = styled.span<TWrapper & { theme: TTheme }>`
     grid-area: title;
     align-self: ${({ $layoutMode }) => ($layoutMode === 'stack' ? 'start' : 'center')};
     justify-self: ${({ $layoutMode, $justify }) => getJustifySelf($justify, $layoutMode, 'start')};
+    text-align: left;
   }
 
   .description {
@@ -233,6 +236,7 @@ export const Wrapper = styled.span<TWrapper & { theme: TTheme }>`
     justify-self: ${({ $layoutMode, $justify }) => getJustifySelf($justify, $layoutMode, 'start')};
     margin-top: ${({ $gapBetweenText, $layoutMode }) =>
       $layoutMode === 'stack' || $layoutMode === 'row' ? '0' : arrayToCssValues($gapBetweenText, 'spacing')};
+    text-align: left;
   }
 `;
 

@@ -37,6 +37,8 @@ export const HeadLineWrapper = styled.div`
 
 export const IconWrapper = styled.span<{ theme: TTheme }>`
   position: absolute;
-  right: ${({ theme }) => theme.spacing.xs};
-  top: ${({ theme }) => theme.spacing.xs};
+  right: ${({ theme }) => theme.spacing.sm};
+  height: 100%;
+  display: flex;
+  transform: translateX(50%);
 `;

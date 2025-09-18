@@ -22,6 +22,7 @@ export default function HeaderNavigationWithTitle(props: HeaderNavigationWithTit
       <div className={getIconWrapperClasses(buttonSize)}>
         {backButton && (
           <FancyButton
+            type="button"
             sizeC={backButton?.sizeC ?? buttonSize}
             icon={NAVIGATION_ICONS.back}
             {...defaultButtonProps}
@@ -39,6 +40,7 @@ export default function HeaderNavigationWithTitle(props: HeaderNavigationWithTit
       <div className={getIconWrapperClasses(buttonSize)}>
         {forwardButton && (
           <FancyButton
+            type="button"
             sizeC={forwardButton?.sizeC ?? buttonSize}
             icon={NAVIGATION_ICONS.forward}
             {...defaultButtonProps}
