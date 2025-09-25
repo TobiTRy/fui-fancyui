@@ -18,7 +18,7 @@ export const sizes: TSizeSettingsMid<TSizeObj> = {
     fontSizeTitle: 'fancyContentXs',
     fontSizeDescription: 'interactiveXs',
     padding: 'xxs',
-    iconPadding: 'xxs',
+    iconPadding: '3xs',
     iconSize: 'xxs',
     iconHeight: '12px',
   },
@@ -26,7 +26,7 @@ export const sizes: TSizeSettingsMid<TSizeObj> = {
     fontSizeTitle: 'fancyContentSm',
     fontSizeDescription: 'interactiveSm',
     padding: 'xs',
-    iconPadding: 'xxs',
+    iconPadding: '3xs',
     iconSize: 'xxs',
     iconHeight: '14px', // Matches fancyContentSm font size
   },
@@ -34,7 +34,7 @@ export const sizes: TSizeSettingsMid<TSizeObj> = {
     fontSizeTitle: 'fancyContentMd',
     fontSizeDescription: 'interactiveMd',
     padding: 'sm',
-    iconPadding: 'xxs',
+    iconPadding: '3xs',
     iconSize: 'xxs',
     iconHeight: '16px', // Matches fancyContentMd font size
   },
@@ -42,7 +42,7 @@ export const sizes: TSizeSettingsMid<TSizeObj> = {
     fontSizeTitle: 'fancyContentLg',
     fontSizeDescription: 'interactiveLg',
     padding: 'sm',
-    iconPadding: 'xxs',
+    iconPadding: '3xs',
     iconSize: 'xs',
     iconHeight: '20px', // Updated to match new 20px font size
   },
@@ -50,7 +50,7 @@ export const sizes: TSizeSettingsMid<TSizeObj> = {
     fontSizeTitle: 'fancyContentXl',
     fontSizeDescription: 'interactiveXl',
     padding: 'md',
-    iconPadding: 'xs',
+    iconPadding: '3xs',
     iconSize: 'sm',
     iconHeight: '24px', // Updated to match new 24px font size
   },

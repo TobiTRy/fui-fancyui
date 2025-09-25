@@ -83,3 +83,7 @@ export default function FancyContentNormalTw(props: TFancyContentTwHTMLAttrs) {
     </div>
   );
 }
+
+FancyContentNormalTw.Icon = FancyContentIconTw;
+FancyContentNormalTw.Title = FancyContentTitleTw;
+FancyContentNormalTw.Description = FancyContentDescriptionTw;

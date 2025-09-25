@@ -1,4 +1,4 @@
-import type { TComponentSizes } from '@/types/TComponentSizes';
+import type { TComponentSizesMid } from '@/types/TComponentSizes';
 import type { TLayer } from '@/types/TLayer';
 import type { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 
@@ -10,7 +10,7 @@ import type { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
  */
 export type TFancyContentTwIconProps = {
   /** Component size that determines icon dimensions and padding */
-  sizeC?: TComponentSizes;
+  sizeC?: TComponentSizesMid;
   /** Remove default padding around the icon */
   noPadding?: boolean;
   /** Theme color type for the icon */
