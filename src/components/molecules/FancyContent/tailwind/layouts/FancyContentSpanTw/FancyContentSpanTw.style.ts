@@ -25,8 +25,8 @@ export function getGridClasses(
   hasTitle: boolean,
   hasDescription: boolean,
   alignIcon: 'left' | 'right',
-  gapBetweenIcon: number,
-  gapBetweenText: number
+  gapIconContent: number,
+  gapTitleDescription: number
 ): string {
   const gridClasses = [];
 
@@ -42,14 +42,14 @@ export function getGridClasses(
     }
 
     // Add gap between icon and content
-    const gapClass = getSpacingClass(gapBetweenIcon, 'gap');
+    const gapClass = getSpacingClass(gapIconContent, 'gap');
     gridClasses.push(gapClass);
   } else {
     // No icon, just stack text elements
     gridClasses.push('grid-cols-1');
     if (hasTitle && hasDescription) {
       gridClasses.push('grid-rows-[auto_auto]');
-      const gapClass = getSpacingClass(gapBetweenText, 'gap');
+      const gapClass = getSpacingClass(gapTitleDescription, 'gap');
       gridClasses.push(gapClass);
     } else {
       gridClasses.push('grid-rows-[auto]');
@@ -76,12 +76,12 @@ export function getTitleWrapperClasses(): string {
 /**
  * Get description wrapper classes for span layout
  */
-export function getDescriptionWrapperClasses(hasTitle: boolean, hasIcon: boolean, gapBetweenText: number): string {
+export function getDescriptionWrapperClasses(hasTitle: boolean, hasIcon: boolean, gapTitleDescription: number): string {
   const classes = ['flex', 'items-center'];
 
   // Add top margin if there's both title and description and no icon gap to handle
   if (hasTitle && !hasIcon) {
-    const marginClass = getSpacingClass(gapBetweenText, 'mt');
+    const marginClass = getSpacingClass(gapTitleDescription, 'mt');
     classes.push(marginClass);
   }
 

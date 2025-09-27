@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import { TFancyContentTwHTMLAttrs } from '../../types';
+import { TFancyContentRowTwHTMLAttrs } from '../../types';
 import FancyContentIconTw from '../../components/FancyContentIconTw';
 import FancyContentTitleTw from '../../components/FancyContentTitleTw';
 import FancyContentDescriptionTw from '../../components/FancyContentDescriptionTw';
@@ -13,16 +13,16 @@ import { getContainerClasses, getElementWrapperClasses } from './FancyContentRow
  * - Elements are center-aligned vertically
  * - Icon position can be left or right
  *
- * @param gapBetweenIcon Gap between elements (Tailwind spacing scale)
+ * @param gapBetweenElements Gap between all elements in the row (Tailwind spacing scale)
  * @param alignIcon Position of icon (left or right)
  * @param wide If true, content takes full width
  * @param className Additional CSS classes
  * @param children FancyContentTw.Icon, .Title, and .Description components
  */
-export default function FancyContentRowTw(props: TFancyContentTwHTMLAttrs) {
+export default function FancyContentRowTw(props: TFancyContentRowTwHTMLAttrs) {
   const {
     children,
-    gapBetweenIcon = 2, // Default to gap-2 (8px)
+    gapBetweenElements = 2, // Default to gap-2 (8px)
     alignIcon = 'left',
     wide = true,
     className,
@@ -51,11 +51,11 @@ export default function FancyContentRowTw(props: TFancyContentTwHTMLAttrs) {
   const hasMultipleElements = [iconElement, titleElement, descriptionElement].filter(Boolean).length > 1;
 
   // Get container classes
-  const containerClasses = getContainerClasses(wide, gapBetweenIcon, hasMultipleElements);
+  const containerClasses = getContainerClasses(wide, gapBetweenElements, hasMultipleElements);
   const allClasses = className ? `${containerClasses} ${className}` : containerClasses;
 
   // Create ordered elements array based on icon alignment
-  const orderedElements = [];
+  const orderedElements: ReactElement[] = [];
 
   if (alignIcon === 'left') {
     if (iconElement) orderedElements.push(iconElement);

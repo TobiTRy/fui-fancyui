@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import { TFancyContentTwHTMLAttrs } from '../../types';
+import { TFancyContentNormalTwHTMLAttrs } from '../../types';
 import FancyContentIconTw from '../../components/FancyContentIconTw';
 import FancyContentTitleTw from '../../components/FancyContentTitleTw';
 import FancyContentDescriptionTw from '../../components/FancyContentDescriptionTw';
@@ -19,18 +19,18 @@ import {
  * - Description spans the full width on the second row
  * - If no description, only one row is used
  *
- * @param gapBetweenIcon Gap between icon and text content (Tailwind spacing scale)
- * @param gapBetweenText Gap between title and description (Tailwind spacing scale)
+ * @param gapIconTitle Gap between icon and title (horizontal, Tailwind spacing scale)
+ * @param gapTitleDescription Gap between title and description (vertical, Tailwind spacing scale)
  * @param alignIcon Position of icon (left or right)
  * @param wide If true, content takes full width
  * @param className Additional CSS classes
  * @param children FancyContentTw.Icon, .Title, and .Description components
  */
-export default function FancyContentNormalTw(props: TFancyContentTwHTMLAttrs) {
+export default function FancyContentNormalTw(props: TFancyContentNormalTwHTMLAttrs) {
   const {
     children,
-    gapBetweenIcon = 2, // Default to gap-2 (8px)
-    gapBetweenText = 1, // Default to gap-1 (4px)
+    gapIconTitle = 2, // Default to gap-2 (8px)
+    gapTitleDescription = 1, // Default to gap-1 (4px)
     alignIcon = 'left',
     wide = true,
     className,
@@ -62,7 +62,7 @@ export default function FancyContentNormalTw(props: TFancyContentTwHTMLAttrs) {
 
   // Get all classes
   const containerClasses = getContainerClasses(wide);
-  const gridClasses = getGridClasses(hasIcon, hasTitle, hasDescription, alignIcon, gapBetweenIcon, gapBetweenText);
+  const gridClasses = getGridClasses(hasIcon, hasTitle, hasDescription, alignIcon, gapIconTitle, gapTitleDescription);
   const allClasses = className
     ? `${containerClasses} ${gridClasses} ${className}`
     : `${containerClasses} ${gridClasses}`;

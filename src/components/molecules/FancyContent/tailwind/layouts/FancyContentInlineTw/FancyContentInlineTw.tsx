@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import { TFancyContentTwHTMLAttrs } from '../../types';
+import { TFancyContentInlineTwHTMLAttrs } from '../../types';
 import FancyContentIconTw from '../../components/FancyContentIconTw';
 import FancyContentTitleTw from '../../components/FancyContentTitleTw';
 import FancyContentDescriptionTw from '../../components/FancyContentDescriptionTw';
@@ -18,18 +18,18 @@ import {
  * - Second row: Description spans the full width below
  * - If no description, only one row is used
  *
- * @param gapBetweenIcon Gap between icon and title (Tailwind spacing scale)
- * @param gapBetweenText Gap between title row and description (Tailwind spacing scale)
+ * @param gapIconTitle Gap between icon and title (Tailwind spacing scale)
+ * @param gapTitleDescription Gap between title row and description (Tailwind spacing scale)
  * @param alignIcon Position of icon (left or right)
  * @param wide If true, content takes full width
  * @param className Additional CSS classes
  * @param children FancyContentTw.Icon, .Title, and .Description components
  */
-export default function FancyContentInlineTw(props: TFancyContentTwHTMLAttrs) {
+export default function FancyContentInlineTw(props: TFancyContentInlineTwHTMLAttrs) {
   const {
     children,
-    gapBetweenIcon = 2, // Default to gap-2 (8px)
-    gapBetweenText = 1, // Default to gap-1 (4px)
+    gapIconTitle = 2, // Default to gap-2 (8px)
+    gapTitleDescription = 1, // Default to gap-1 (4px)
     alignIcon = 'left',
     wide = true,
     className,
@@ -59,14 +59,14 @@ export default function FancyContentInlineTw(props: TFancyContentTwHTMLAttrs) {
   const hasDescription = !!descriptionElement;
 
   // Get container classes
-  const containerClasses = getContainerClasses(wide, gapBetweenText, hasContent, hasDescription);
+  const containerClasses = getContainerClasses(wide, gapTitleDescription, hasContent, hasDescription);
   const allClasses = className ? `${containerClasses} ${className}` : containerClasses;
 
   // Get inline row classes
-  const inlineRowClasses = getInlineRowClasses(gapBetweenIcon, !!iconElement, !!titleElement);
+  const inlineRowClasses = getInlineRowClasses(gapIconTitle, !!iconElement, !!titleElement);
 
   // Create ordered elements for the inline row based on icon alignment
-  const inlineElements = [];
+  const inlineElements: ReactElement[] = [];
 
   if (alignIcon === 'left') {
     if (iconElement) inlineElements.push(iconElement);
@@ -81,7 +81,7 @@ export default function FancyContentInlineTw(props: TFancyContentTwHTMLAttrs) {
       {/* First row: Icon and Title inline */}
       {inlineElements.length > 0 && (
         <div className={inlineRowClasses}>
-          {inlineElements.map((element, index) => (
+          {inlineElements.map((element: ReactElement, index: number) => (
             <div key={index} className={getElementWrapperClasses()}>
               {element}
             </div>

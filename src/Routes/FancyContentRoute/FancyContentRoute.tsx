@@ -6,7 +6,6 @@ import { FancySVGAtom } from '../../components/atoms/FancySVGAtom';
 
 import {
   SVGCheckMark,
-  SVGSearch,
   SVGPlus,
   SVGCircleCheck,
   SVGInfoSign,
@@ -206,6 +205,96 @@ export default function FancyContentRoute() {
         </div>
       </DesignArea>
 
+      <DesignArea title="🎉 NEW: Layout-Specific Gap Props">
+        <div
+          style={{
+            backgroundColor: '#fef3f2',
+            padding: '1.5rem',
+            border: '2px solid #f87171',
+            borderRadius: '8px',
+            marginBottom: '1.5rem',
+          }}
+        >
+          <h4 style={{ marginTop: 0, color: '#dc2626' }}>❌ BEFORE: Generic & Confusing</h4>
+          <p style={{ marginBottom: '1rem' }}>All layouts used the same generic props:</p>
+          <div
+            style={{
+              backgroundColor: '#fecaca',
+              padding: '1rem',
+              borderRadius: '6px',
+              fontFamily: 'monospace',
+              fontSize: '0.875rem',
+            }}
+          >
+            {`// 😕 What does gapBetweenIcon control in different layouts?
+<FancyContentTw gapBetweenIcon={2} gapBetweenText={1}>
+  // In Stack: gap between ALL elements?
+  // In Normal: horizontal or vertical gap?
+  // In Span: gap to what exactly?
+  // In Row: same as gapBetweenText?
+</FancyContentTw>`}
+          </div>
+        </div>
+
+        <div
+          style={{
+            backgroundColor: '#f0fdf4',
+            padding: '1.5rem',
+            border: '2px solid #4ade80',
+            borderRadius: '8px',
+            marginBottom: '1.5rem',
+          }}
+        >
+          <h4 style={{ marginTop: 0, color: '#16a34a' }}>✅ AFTER: Intuitive & Clear</h4>
+          <p style={{ marginBottom: '1rem' }}>Each layout has meaningful, specific props:</p>
+          <div
+            style={{
+              backgroundColor: '#bbf7d0',
+              padding: '1rem',
+              borderRadius: '6px',
+              fontFamily: 'monospace',
+              fontSize: '0.875rem',
+            }}
+          >
+            {`// 🎯 Crystal clear what each prop controls!
+<FancyContentStackTw gapIconTitle={3} gapTitleDescription={2} />
+<FancyContentNormalTw gapIconTitle={2} gapTitleDescription={1} />
+<FancyContentRowTw gapBetweenElements={3} />
+<FancyContentSpanTw gapIconContent={4} gapTitleDescription={2} />
+<FancyContentInlineTw gapIconTitle={2} gapTitleDescription={1} />`}
+          </div>
+        </div>
+
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1rem' }}>
+          <div
+            style={{ padding: '1rem', backgroundColor: '#eff6ff', border: '1px solid #60a5fa', borderRadius: '6px' }}
+          >
+            <h5 style={{ marginTop: 0, color: '#1d4ed8' }}>🔍 Better Intellisense</h5>
+            <p style={{ margin: 0, fontSize: '0.875rem' }}>
+              IDE autocomplete shows only relevant props for each layout
+            </p>
+          </div>
+          <div
+            style={{ padding: '1rem', backgroundColor: '#fef3f2', border: '1px solid #f87171', borderRadius: '6px' }}
+          >
+            <h5 style={{ marginTop: 0, color: '#dc2626' }}>🛡️ Type Safety</h5>
+            <p style={{ margin: 0, fontSize: '0.875rem' }}>Each layout has its own TypeScript interface</p>
+          </div>
+          <div
+            style={{ padding: '1rem', backgroundColor: '#f0fdf4', border: '1px solid #4ade80', borderRadius: '6px' }}
+          >
+            <h5 style={{ marginTop: 0, color: '#16a34a' }}>📚 Self-Documenting</h5>
+            <p style={{ margin: 0, fontSize: '0.875rem' }}>Prop names clearly indicate their purpose</p>
+          </div>
+          <div
+            style={{ padding: '1rem', backgroundColor: '#fef7e0', border: '1px solid #fbbf24', borderRadius: '6px' }}
+          >
+            <h5 style={{ marginTop: 0, color: '#d97706' }}>⚡ Independent Control</h5>
+            <p style={{ margin: 0, fontSize: '0.875rem' }}>Fine-grained control over each spacing relationship</p>
+          </div>
+        </div>
+      </DesignArea>
+
       <DesignArea title="Stack Layout (FancyContentStackTw)">
         <div
           style={{
@@ -224,7 +313,7 @@ export default function FancyContentRoute() {
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
           <div style={{ padding: '1rem', border: '1px solid #e5e7eb', borderRadius: '6px' }}>
-            <FancyContentTw layoutMode="stack" wide={true} sizeC="md" gapBetweenIcon={3}>
+            <FancyContentTw layoutMode="stack" wide={true} sizeC="md" gapIconTitle={5} gapTitleDescription={6}>
               <FancyContentTw.Icon>
                 <FancySVGAtom>
                   <SVGCircleCheck />
@@ -238,7 +327,7 @@ export default function FancyContentRoute() {
           </div>
 
           <div style={{ padding: '1rem', border: '1px solid #e5e7eb', borderRadius: '6px' }}>
-            <FancyContentTw layoutMode="stack" wide={false} sizeC="lg" gapBetweenIcon={4}>
+            <FancyContentTw layoutMode="stack" wide={false} sizeC="lg" gapIconTitle={4} gapTitleDescription={1}>
               <FancyContentTw.Icon>
                 <FancySVGAtom>
                   <SVGInfoSign />
@@ -247,6 +336,47 @@ export default function FancyContentRoute() {
               <FancyContentTw.Title>Compact Stack (wide=false)</FancyContentTw.Title>
               <FancyContentTw.Description>
                 Stack layout with width fitting content instead of full width
+              </FancyContentTw.Description>
+            </FancyContentTw>
+          </div>
+
+          {/* New: Gap Comparison Examples */}
+          <div
+            style={{ padding: '1rem', border: '2px solid #3b82f6', borderRadius: '6px', backgroundColor: '#ffffff' }}
+          >
+            <h5 style={{ marginTop: 0, color: '#1e40af' }}>✨ NEW: Individual Gap Controls</h5>
+            <FancyContentTw
+              layoutMode="stack"
+              wide={true}
+              sizeC="md"
+              gapIconTitle={6}
+              gapTitleDescription={4}
+              style={{ color: '#1f2937' }}
+            >
+              <FancyContentTw.Icon>
+                <FancySVGAtom>
+                  <SVGCheckMark />
+                </FancySVGAtom>
+              </FancyContentTw.Icon>
+              <FancyContentTw.Title style={{ color: '#1f2937' }}>Large Icon-Title Gap (6)</FancyContentTw.Title>
+              <FancyContentTw.Description style={{ color: '#4b5563' }}>
+                And Large Title-Description Gap (4) - Notice how each gap is independently controlled!
+              </FancyContentTw.Description>
+            </FancyContentTw>
+          </div>
+
+          <div
+            style={{ padding: '1rem', border: '2px solid #10b981', borderRadius: '6px', backgroundColor: '#ffffff' }}
+          >
+            <FancyContentTw layoutMode="stack" wide={true} sizeC="md" gapIconTitle={1} gapTitleDescription={6}>
+              <FancyContentTw.Icon>
+                <FancySVGAtom>
+                  <SVGPlus />
+                </FancySVGAtom>
+              </FancyContentTw.Icon>
+              <FancyContentTw.Title>Small Icon-Title Gap (1)</FancyContentTw.Title>
+              <FancyContentTw.Description>
+                But Large Title-Description Gap (6) - Perfect for emphasizing text separation!
               </FancyContentTw.Description>
             </FancyContentTw>
           </div>
@@ -276,8 +406,8 @@ export default function FancyContentRoute() {
               alignIcon="left"
               wide={true}
               sizeC="md"
-              gapBetweenIcon={2}
-              gapBetweenText={1}
+              gapIconTitle={2}
+              gapTitleDescription={1}
             >
               <FancyContentTw.Icon>
                 <FancySVGAtom>
@@ -293,7 +423,14 @@ export default function FancyContentRoute() {
           </div>
 
           <div style={{ padding: '1rem', border: '1px solid #e5e7eb', borderRadius: '6px' }}>
-            <FancyContentTw layoutMode="normal" alignIcon="right" wide={true} sizeC="md">
+            <FancyContentTw
+              layoutMode="normal"
+              alignIcon="right"
+              wide={true}
+              sizeC="md"
+              gapIconTitle={3}
+              gapTitleDescription={2}
+            >
               <FancyContentTw.Icon>
                 <FancySVGAtom>
                   <SVGFui />
@@ -302,6 +439,54 @@ export default function FancyContentRoute() {
               <FancyContentTw.Title>Right-aligned Icon</FancyContentTw.Title>
               <FancyContentTw.Description>
                 Same grid layout but with icon positioned on the right side.
+              </FancyContentTw.Description>
+            </FancyContentTw>
+          </div>
+
+          {/* New: Normal Layout Gap Examples */}
+          <div
+            style={{ padding: '1rem', border: '2px solid #f59e0b', borderRadius: '6px', backgroundColor: '#ffffff' }}
+          >
+            <h5 style={{ marginTop: 0, color: '#92400e' }}>✨ NEW: Horizontal vs Vertical Gap Control</h5>
+            <FancyContentTw
+              layoutMode="normal"
+              alignIcon="left"
+              wide={true}
+              sizeC="md"
+              gapIconTitle={5}
+              gapTitleDescription={1}
+            >
+              <FancyContentTw.Icon>
+                <FancySVGAtom>
+                  <SVGCircleCheck />
+                </FancySVGAtom>
+              </FancyContentTw.Icon>
+              <FancyContentTw.Title>Wide Horizontal Gap (gapIconTitle: 5)</FancyContentTw.Title>
+              <FancyContentTw.Description>
+                Small vertical gap (gapTitleDescription: 1) - Perfect for creating visual separation in grid layouts!
+              </FancyContentTw.Description>
+            </FancyContentTw>
+          </div>
+
+          <div
+            style={{ padding: '1rem', border: '2px solid #8b5cf6', borderRadius: '6px', backgroundColor: '#ffffff' }}
+          >
+            <FancyContentTw
+              layoutMode="normal"
+              alignIcon="left"
+              wide={true}
+              sizeC="md"
+              gapIconTitle={1}
+              gapTitleDescription={4}
+            >
+              <FancyContentTw.Icon>
+                <FancySVGAtom>
+                  <SVGStopSign />
+                </FancySVGAtom>
+              </FancyContentTw.Icon>
+              <FancyContentTw.Title>Tight Horizontal Gap (gapIconTitle: 1)</FancyContentTw.Title>
+              <FancyContentTw.Description>
+                Large vertical gap (gapTitleDescription: 4) - Great for emphasizing the description content!
               </FancyContentTw.Description>
             </FancyContentTw>
           </div>
@@ -331,8 +516,8 @@ export default function FancyContentRoute() {
               alignIcon="left"
               wide={true}
               sizeC="lg"
-              gapBetweenIcon={3}
-              gapBetweenText={2}
+              gapIconContent={3}
+              gapTitleDescription={2}
             >
               <FancyContentTw.Icon>
                 <FancySVGAtom>
@@ -348,7 +533,14 @@ export default function FancyContentRoute() {
           </div>
 
           <div style={{ padding: '1rem', border: '1px solid #e5e7eb', borderRadius: '6px' }}>
-            <FancyContentTw layoutMode="span" alignIcon="right" wide={true} sizeC="md" gapBetweenIcon={4}>
+            <FancyContentTw
+              layoutMode="span"
+              alignIcon="right"
+              wide={true}
+              sizeC="md"
+              gapIconContent={4}
+              gapTitleDescription={1}
+            >
               <FancyContentTw.Icon>
                 <FancySVGAtom>
                   <SVGCheckMark />
@@ -357,6 +549,55 @@ export default function FancyContentRoute() {
               <FancyContentTw.Title>Right-aligned Span</FancyContentTw.Title>
               <FancyContentTw.Description>
                 Span layout with icon on the right side, still spanning both text rows
+              </FancyContentTw.Description>
+            </FancyContentTw>
+          </div>
+
+          {/* New: Span Layout Gap Examples */}
+          <div
+            style={{ padding: '1rem', border: '2px solid #06b6d4', borderRadius: '6px', backgroundColor: '#ffffff' }}
+          >
+            <h5 style={{ marginTop: 0, color: '#0e7490' }}>✨ NEW: Icon-Content vs Title-Description Gaps</h5>
+            <FancyContentTw
+              layoutMode="span"
+              alignIcon="left"
+              wide={true}
+              sizeC="md"
+              gapIconContent={6}
+              gapTitleDescription={1}
+            >
+              <FancyContentTw.Icon>
+                <FancySVGAtom>
+                  <SVGWarningSign />
+                </FancySVGAtom>
+              </FancyContentTw.Icon>
+              <FancyContentTw.Title>Wide Icon-Content Gap (gapIconContent: 6)</FancyContentTw.Title>
+              <FancyContentTw.Description>
+                Tight Title-Description gap (gapTitleDescription: 1) - Icon is far from content block!
+              </FancyContentTw.Description>
+            </FancyContentTw>
+          </div>
+
+          <div
+            style={{ padding: '1rem', border: '2px solid #ec4899', borderRadius: '6px', backgroundColor: '#ffffff' }}
+          >
+            <FancyContentTw
+              layoutMode="span"
+              alignIcon="left"
+              wide={true}
+              sizeC="md"
+              gapIconContent={1}
+              gapTitleDescription={5}
+            >
+              <FancyContentTw.Icon>
+                <FancySVGAtom>
+                  <SVGInfoSign />
+                </FancySVGAtom>
+              </FancyContentTw.Icon>
+              <FancyContentTw.Title>Tight Icon-Content Gap (gapIconContent: 1)</FancyContentTw.Title>
+              <FancyContentTw.Description>
+                Large Title-Description gap (gapTitleDescription: 5) - Icon is close, but title and description are far
+                apart!
               </FancyContentTw.Description>
             </FancyContentTw>
           </div>
@@ -381,9 +622,11 @@ export default function FancyContentRoute() {
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
           <div style={{ padding: '1rem', border: '1px solid #e5e7eb', borderRadius: '6px' }}>
-            <FancyContentTw layoutMode="row" alignIcon="left" wide={true} sizeC="md" gapBetweenIcon={2}>
+            <FancyContentTw layoutMode="row" alignIcon="left" wide={true} sizeC="md" gapBetweenElements={2}>
               <FancyContentTw.Icon>
-                <FancySVGAtom>{SVGSearch}</FancySVGAtom>
+                <FancySVGAtom>
+                  <SVGCheckMark />
+                </FancySVGAtom>
               </FancyContentTw.Icon>
               <FancyContentTw.Title>Row Layout</FancyContentTw.Title>
               <FancyContentTw.Description>All elements in single horizontal row</FancyContentTw.Description>
@@ -391,7 +634,7 @@ export default function FancyContentRoute() {
           </div>
 
           <div style={{ padding: '1rem', border: '1px solid #e5e7eb', borderRadius: '6px' }}>
-            <FancyContentTw layoutMode="row" alignIcon="right" wide={false} sizeC="sm" gapBetweenIcon={1}>
+            <FancyContentTw layoutMode="row" alignIcon="right" wide={false} sizeC="sm" gapBetweenElements={1}>
               <FancyContentTw.Icon>
                 <FancySVGAtom>
                   <SVGPlus />
@@ -399,6 +642,50 @@ export default function FancyContentRoute() {
               </FancyContentTw.Icon>
               <FancyContentTw.Title>Compact Row</FancyContentTw.Title>
               <FancyContentTw.Description>Small, right-aligned</FancyContentTw.Description>
+            </FancyContentTw>
+          </div>
+
+          {/* New: Row Layout Gap Examples */}
+          <div
+            style={{ padding: '1rem', border: '2px solid #f97316', borderRadius: '6px', backgroundColor: '#ffffff' }}
+          >
+            <h5 style={{ marginTop: 0, color: '#c2410c' }}>✨ NEW: Uniform Element Spacing Control</h5>
+            <FancyContentTw layoutMode="row" alignIcon="left" wide={true} sizeC="md" gapBetweenElements={6}>
+              <FancyContentTw.Icon>
+                <FancySVGAtom>
+                  <SVGCircleCheck />
+                </FancySVGAtom>
+              </FancyContentTw.Icon>
+              <FancyContentTw.Title>Wide Spacing (gapBetweenElements: 6)</FancyContentTw.Title>
+              <FancyContentTw.Description>Lots of space between all elements!</FancyContentTw.Description>
+            </FancyContentTw>
+          </div>
+
+          <div
+            style={{ padding: '1rem', border: '2px solid #16a34a', borderRadius: '6px', backgroundColor: '#ffffff' }}
+          >
+            <FancyContentTw layoutMode="row" alignIcon="left" wide={true} sizeC="md" gapBetweenElements={0}>
+              <FancyContentTw.Icon>
+                <FancySVGAtom>
+                  <SVGStopSign />
+                </FancySVGAtom>
+              </FancyContentTw.Icon>
+              <FancyContentTw.Title>No Spacing (gapBetweenElements: 0)</FancyContentTw.Title>
+              <FancyContentTw.Description>Elements are tightly packed!</FancyContentTw.Description>
+            </FancyContentTw>
+          </div>
+
+          <div
+            style={{ padding: '1rem', border: '2px solid #dc2626', borderRadius: '6px', backgroundColor: '#ffffff' }}
+          >
+            <FancyContentTw layoutMode="row" alignIcon="right" wide={true} sizeC="lg" gapBetweenElements={4}>
+              <FancyContentTw.Icon>
+                <FancySVGAtom>
+                  <SVGFui />
+                </FancySVGAtom>
+              </FancyContentTw.Icon>
+              <FancyContentTw.Title>Right-aligned with Medium Gap (4)</FancyContentTw.Title>
+              <FancyContentTw.Description>Perfect balance of spacing</FancyContentTw.Description>
             </FancyContentTw>
           </div>
         </div>
@@ -427,8 +714,8 @@ export default function FancyContentRoute() {
               alignIcon="left"
               wide={true}
               sizeC="md"
-              gapBetweenIcon={2}
-              gapBetweenText={1}
+              gapIconTitle={2}
+              gapTitleDescription={1}
             >
               <FancyContentTw.Icon>
                 <FancySVGAtom>
@@ -444,13 +731,93 @@ export default function FancyContentRoute() {
           </div>
 
           <div style={{ padding: '1rem', border: '1px solid #e5e7eb', borderRadius: '6px' }}>
-            <FancyContentTw layoutMode="inline" alignIcon="right" wide={true} sizeC="lg" gapBetweenIcon={3}>
+            <FancyContentTw
+              layoutMode="inline"
+              alignIcon="right"
+              wide={true}
+              sizeC="lg"
+              gapIconTitle={3}
+              gapTitleDescription={2}
+            >
               <FancyContentTw.Icon>
-                <FancySVGAtom>{SVGSearch}</FancySVGAtom>
+                <FancySVGAtom>
+                  <SVGCheckMark />
+                </FancySVGAtom>
               </FancyContentTw.Icon>
               <FancyContentTw.Title>Right-aligned Inline</FancyContentTw.Title>
               <FancyContentTw.Description>
                 Large size with icon positioned on the right of the title
+              </FancyContentTw.Description>
+            </FancyContentTw>
+          </div>
+
+          {/* New: Inline Layout Gap Examples */}
+          <div
+            style={{ padding: '1rem', border: '2px solid #7c3aed', borderRadius: '6px', backgroundColor: '#ffffff' }}
+          >
+            <h5 style={{ marginTop: 0, color: '#5b21b6' }}>✨ NEW: Inline Row vs Description Row Gaps</h5>
+            <FancyContentTw
+              layoutMode="inline"
+              alignIcon="left"
+              wide={true}
+              sizeC="md"
+              gapIconTitle={5}
+              gapTitleDescription={1}
+            >
+              <FancyContentTw.Icon>
+                <FancySVGAtom>
+                  <SVGWarningSign />
+                </FancySVGAtom>
+              </FancyContentTw.Icon>
+              <FancyContentTw.Title>Wide Icon-Title Gap (gapIconTitle: 5)</FancyContentTw.Title>
+              <FancyContentTw.Description>
+                Small gap between title row and description (gapTitleDescription: 1) - Great for menu items!
+              </FancyContentTw.Description>
+            </FancyContentTw>
+          </div>
+
+          <div
+            style={{ padding: '1rem', border: '2px solid #059669', borderRadius: '6px', backgroundColor: '#ffffff' }}
+          >
+            <FancyContentTw
+              layoutMode="inline"
+              alignIcon="left"
+              wide={true}
+              sizeC="md"
+              gapIconTitle={1}
+              gapTitleDescription={4}
+            >
+              <FancyContentTw.Icon>
+                <FancySVGAtom>
+                  <SVGInfoSign />
+                </FancySVGAtom>
+              </FancyContentTw.Icon>
+              <FancyContentTw.Title>Tight Icon-Title Gap (gapIconTitle: 1)</FancyContentTw.Title>
+              <FancyContentTw.Description>
+                Large gap to description (gapTitleDescription: 4) - Perfect for feature descriptions!
+              </FancyContentTw.Description>
+            </FancyContentTw>
+          </div>
+
+          <div
+            style={{ padding: '1rem', border: '2px solid #e11d48', borderRadius: '6px', backgroundColor: '#ffffff' }}
+          >
+            <FancyContentTw
+              layoutMode="inline"
+              alignIcon="right"
+              wide={true}
+              sizeC="md"
+              gapIconTitle={4}
+              gapTitleDescription={3}
+            >
+              <FancyContentTw.Icon>
+                <FancySVGAtom>
+                  <SVGPlus />
+                </FancySVGAtom>
+              </FancyContentTw.Icon>
+              <FancyContentTw.Title>Right-aligned with Balanced Gaps</FancyContentTw.Title>
+              <FancyContentTw.Description>
+                gapIconTitle: 4, gapTitleDescription: 3 - Icon on the right with balanced spacing!
               </FancyContentTw.Description>
             </FancyContentTw>
           </div>
@@ -476,7 +843,14 @@ export default function FancyContentRoute() {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
           {(['sm', 'md', 'lg'] as const).map((size) => (
             <div key={size} style={{ padding: '1rem', border: '1px solid #e5e7eb', borderRadius: '6px' }}>
-              <FancyContentTw layoutMode="normal" alignIcon="left" wide={true} sizeC={size} gapBetweenIcon={2}>
+              <FancyContentTw
+                layoutMode="normal"
+                alignIcon="left"
+                wide={true}
+                sizeC={size}
+                gapIconTitle={2}
+                gapTitleDescription={1}
+              >
                 <FancyContentTw.Icon>
                   <FancySVGAtom>
                     <SVGPlus />
@@ -489,6 +863,90 @@ export default function FancyContentRoute() {
               </FancyContentTw>
             </div>
           ))}
+        </div>
+
+        {/* Add a comprehensive comparison section */}
+        <div
+          style={{
+            marginTop: '2rem',
+            padding: '1.5rem',
+            backgroundColor: '#f8fafc',
+            border: '2px solid #0891b2',
+            borderRadius: '8px',
+          }}
+        >
+          <h4 style={{ marginTop: 0, color: '#0c4a6e', fontSize: '1.25rem' }}>🎯 NEW PROP SUMMARY</h4>
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+              gap: '1rem',
+              marginTop: '1rem',
+            }}
+          >
+            <div
+              style={{ padding: '1rem', backgroundColor: 'white', borderRadius: '6px', border: '1px solid #e2e8f0' }}
+            >
+              <h5 style={{ marginTop: 0, color: '#1e40af' }}>Stack Layout</h5>
+              <ul style={{ margin: 0, paddingLeft: '1rem' }}>
+                <li>
+                  <code>gapIconTitle</code> - Icon → Title
+                </li>
+                <li>
+                  <code>gapTitleDescription</code> - Title → Description
+                </li>
+              </ul>
+            </div>
+            <div
+              style={{ padding: '1rem', backgroundColor: 'white', borderRadius: '6px', border: '1px solid #e2e8f0' }}
+            >
+              <h5 style={{ marginTop: 0, color: '#dc2626' }}>Normal Layout</h5>
+              <ul style={{ margin: 0, paddingLeft: '1rem' }}>
+                <li>
+                  <code>gapIconTitle</code> - Icon ↔ Title (horizontal)
+                </li>
+                <li>
+                  <code>gapTitleDescription</code> - Title ↓ Description (vertical)
+                </li>
+              </ul>
+            </div>
+            <div
+              style={{ padding: '1rem', backgroundColor: 'white', borderRadius: '6px', border: '1px solid #e2e8f0' }}
+            >
+              <h5 style={{ marginTop: 0, color: '#059669' }}>Span Layout</h5>
+              <ul style={{ margin: 0, paddingLeft: '1rem' }}>
+                <li>
+                  <code>gapIconContent</code> - Icon ↔ Content Block
+                </li>
+                <li>
+                  <code>gapTitleDescription</code> - Title → Description
+                </li>
+              </ul>
+            </div>
+            <div
+              style={{ padding: '1rem', backgroundColor: 'white', borderRadius: '6px', border: '1px solid #e2e8f0' }}
+            >
+              <h5 style={{ marginTop: 0, color: '#f59e0b' }}>Row Layout</h5>
+              <ul style={{ margin: 0, paddingLeft: '1rem' }}>
+                <li>
+                  <code>gapBetweenElements</code> - All elements uniformly
+                </li>
+              </ul>
+            </div>
+            <div
+              style={{ padding: '1rem', backgroundColor: 'white', borderRadius: '6px', border: '1px solid #e2e8f0' }}
+            >
+              <h5 style={{ marginTop: 0, color: '#7c3aed' }}>Inline Layout</h5>
+              <ul style={{ margin: 0, paddingLeft: '1rem' }}>
+                <li>
+                  <code>gapIconTitle</code> - Icon ↔ Title (same line)
+                </li>
+                <li>
+                  <code>gapTitleDescription</code> - Title row ↓ Description
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </DesignArea>
     </DesignWrapper>

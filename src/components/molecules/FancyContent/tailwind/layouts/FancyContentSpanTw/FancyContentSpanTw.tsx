@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import { TFancyContentTwHTMLAttrs } from '../../types';
+import { TFancyContentSpanTwHTMLAttrs } from '../../types';
 import FancyContentIconTw from '../../components/FancyContentIconTw';
 import FancyContentTitleTw from '../../components/FancyContentTitleTw';
 import FancyContentDescriptionTw from '../../components/FancyContentDescriptionTw';
@@ -19,18 +19,18 @@ import {
  * - Title and description are stacked in the second column
  * - Icon is vertically centered against the combined height
  *
- * @param gapBetweenIcon Gap between icon and text content (Tailwind spacing scale)
- * @param gapBetweenText Gap between title and description (Tailwind spacing scale)
+ * @param gapIconContent Gap between icon and content block (Tailwind spacing scale)
+ * @param gapTitleDescription Gap between title and description (Tailwind spacing scale)
  * @param alignIcon Position of icon (left or right)
  * @param wide If true, content takes full width
  * @param className Additional CSS classes
  * @param children FancyContentTw.Icon, .Title, and .Description components
  */
-export default function FancyContentSpanTw(props: TFancyContentTwHTMLAttrs) {
+export default function FancyContentSpanTw(props: TFancyContentSpanTwHTMLAttrs) {
   const {
     children,
-    gapBetweenIcon = 2, // Default to gap-2 (8px)
-    gapBetweenText = 1, // Default to gap-1 (4px)
+    gapIconContent = 2, // Default to gap-2 (8px)
+    gapTitleDescription = 1, // Default to gap-1 (4px)
     alignIcon = 'left',
     wide = true,
     className,
@@ -62,7 +62,7 @@ export default function FancyContentSpanTw(props: TFancyContentTwHTMLAttrs) {
 
   // Get all classes
   const containerClasses = getContainerClasses(wide);
-  const gridClasses = getGridClasses(hasIcon, hasTitle, hasDescription, alignIcon, gapBetweenIcon, gapBetweenText);
+  const gridClasses = getGridClasses(hasIcon, hasTitle, hasDescription, alignIcon, gapIconContent, gapTitleDescription);
   const allClasses = className
     ? `${containerClasses} ${gridClasses} ${className}`
     : `${containerClasses} ${gridClasses}`;
@@ -77,7 +77,7 @@ export default function FancyContentSpanTw(props: TFancyContentTwHTMLAttrs) {
 
       {/* Description */}
       {descriptionElement && (
-        <div className={getDescriptionWrapperClasses(hasTitle, hasIcon, gapBetweenText)}>{descriptionElement}</div>
+        <div className={getDescriptionWrapperClasses(hasTitle, hasIcon, gapTitleDescription)}>{descriptionElement}</div>
       )}
 
       {alignIcon === 'right' && iconElement && <div className={getIconWrapperClasses()}>{iconElement}</div>}

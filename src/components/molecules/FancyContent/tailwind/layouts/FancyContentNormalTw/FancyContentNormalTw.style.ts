@@ -24,8 +24,8 @@ export function getGridClasses(
   hasTitle: boolean,
   hasDescription: boolean,
   alignIcon: 'left' | 'right',
-  gapBetweenIcon: number,
-  gapBetweenText: number
+  gapIconTitle: number,
+  gapTitleDescription: number
 ): string {
   const gridClasses = [];
 
@@ -40,11 +40,11 @@ export function getGridClasses(
     }
 
     // Add gap between icon and content
-    const gapClass = getSpacingClass(gapBetweenIcon, 'gap');
+    const gapClass = getSpacingClass(gapIconTitle, 'gap');
     gridClasses.push(gapClass);
 
     // Add gap between text elements
-    const textGapClass = `gap-y-${gapBetweenText}`;
+    const textGapClass = `gap-y-${gapTitleDescription}`;
     gridClasses.push(textGapClass);
   } else if (hasIcon && (hasTitle || hasDescription)) {
     // Single row with icon
@@ -55,14 +55,14 @@ export function getGridClasses(
     }
     gridClasses.push('grid-rows-[auto]');
 
-    const gapClass = getSpacingClass(gapBetweenIcon, 'gap');
+    const gapClass = getSpacingClass(gapIconTitle, 'gap');
     gridClasses.push(gapClass);
   } else if (hasTitle && hasDescription) {
     // Text only, stacked
     gridClasses.push('grid-cols-1');
     gridClasses.push('grid-rows-[auto_auto]');
 
-    const gapClass = getSpacingClass(gapBetweenText, 'gap');
+    const gapClass = getSpacingClass(gapTitleDescription, 'gap');
     gridClasses.push(gapClass);
   } else {
     // Single element

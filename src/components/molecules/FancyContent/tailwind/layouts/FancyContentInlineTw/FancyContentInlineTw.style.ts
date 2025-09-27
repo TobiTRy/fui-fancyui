@@ -6,7 +6,7 @@ import { combineClasses, getSpacingClass } from '@/utils/tailwind-bridge';
  */
 export function getContainerClasses(
   wide: boolean,
-  gapBetweenText: number,
+  gapTitleDescription: number,
   hasContent: boolean,
   hasDescription: boolean
 ): string {
@@ -21,7 +21,7 @@ export function getContainerClasses(
 
   // Add gap between title row and description if both exist
   if (hasContent && hasDescription) {
-    const gapClass = getSpacingClass(gapBetweenText, 'gap');
+    const gapClass = getSpacingClass(gapTitleDescription, 'gap');
     baseClasses.push(gapClass);
   }
 
@@ -31,12 +31,12 @@ export function getContainerClasses(
 /**
  * Get inline row classes for icon + title
  */
-export function getInlineRowClasses(gapBetweenIcon: number, hasIcon: boolean, hasTitle: boolean): string {
+export function getInlineRowClasses(gapIconTitle: number, hasIcon: boolean, hasTitle: boolean): string {
   const inlineRowClasses = ['flex', 'flex-row', 'items-center'];
 
   // Add gap between icon and title if both exist
   if (hasIcon && hasTitle) {
-    const gapClass = getSpacingClass(gapBetweenIcon, 'gap');
+    const gapClass = getSpacingClass(gapIconTitle, 'gap');
     inlineRowClasses.push(gapClass);
   }
 

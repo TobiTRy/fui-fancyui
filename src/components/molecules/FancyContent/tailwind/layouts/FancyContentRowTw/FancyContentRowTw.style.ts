@@ -4,7 +4,7 @@ import { combineClasses, getSpacingClass } from '@/utils/tailwind-bridge';
  * Get container classes for row layout
  * Arranges all elements horizontally in a single row
  */
-export function getContainerClasses(wide: boolean, gapBetweenIcon: number, hasMultipleElements: boolean): string {
+export function getContainerClasses(wide: boolean, gapBetweenElements: number, hasMultipleElements: boolean): string {
   const baseClasses = ['flex', 'flex-row', 'items-center', 'text-left'];
 
   // Add width class
@@ -16,7 +16,7 @@ export function getContainerClasses(wide: boolean, gapBetweenIcon: number, hasMu
 
   // Add gap between elements
   if (hasMultipleElements) {
-    const gapClass = getSpacingClass(gapBetweenIcon, 'gap');
+    const gapClass = getSpacingClass(gapBetweenElements, 'gap');
     baseClasses.push(gapClass);
   }
 
