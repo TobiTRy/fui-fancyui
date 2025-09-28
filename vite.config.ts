@@ -35,6 +35,7 @@ export default defineConfig(() => {
           'styled-components',
           '@react-spring/web',
           'color',
+          'uuid',
         ],
         output: {
           preserveModulesRoot: '.',
