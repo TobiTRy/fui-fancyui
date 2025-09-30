@@ -10,7 +10,7 @@ import { generateObjectToCssVariables } from '@/design/theme/generateObjectToCss
 import { applyThemeToDomStyleSheet } from '@/design/theme/applyThemeToDomStyleSheet';
 
 // --- //
-// ----- The FancyThemeProvider handles the themeState and provided theme ----- --- //
+// ----- The FancyThemeProvider handles the themeState and provided theme --- //
 // --- //
 export default function FancyThemeProvider(props: TFancyThemeProvider) {
   const { children, theme, applyCssVars = true, styleSheetId = 'fui-theme' } = props;

@@ -7,7 +7,7 @@ import { InputWrapper } from '@/components/molecules/InputWrapper';
 import { TFancyDropDownSelect } from '@/components/organisms/FancyDropDownSelect/TFancyDropDown.model';
 
 // --- //
-// ----- The Dropdown Comonent with surrounding icon, label and underline ------ --- //
+// ----- The Dropdown Comonent with surrounding icon, label and underline --- //
 // --- //
 const FancyDropDownSelect = forwardRef<HTMLSelectElement, TFancyDropDownSelect>((props, ref) => {
   const {

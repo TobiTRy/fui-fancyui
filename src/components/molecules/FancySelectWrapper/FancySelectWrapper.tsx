@@ -6,9 +6,9 @@ import { FancyContent } from '@/components/molecules/FancyContent';
 import { TFancySelectWrapperWithHTMLProps } from './TFancySelectWrapper.model';
 import { InputWrapper, LabelWrapper } from './FancySelectWrapper.style';
 
-// --------------------------------------------------------------------------- //
-// - A simple Checkbox/Radio Wrapper  that provides a label and description -- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- A simple Checkbox/Radio Wrapper  that provides a label and description --- //
+// --- //
 export default function FancySelectWrapper(props: TFancySelectWrapperWithHTMLProps) {
   const {
     label,

@@ -8,7 +8,7 @@ import { TFancyDateInput } from '@/components/organisms/FancyDateInput';
 import { getOpositMainThemeType } from '@/design/designFunctions/getOpositMainThemeType';
 
 // --- //
-// ----- The TextInput Comonent with surrounding icon, label and underline ----- --- //
+// ----- The TextInput Comonent with surrounding icon, label and underline --- //
 // --- //
 const FancyDateInput = forwardRef<HTMLInputElement, TFancyDateInput>((props, ref) => {
   const {

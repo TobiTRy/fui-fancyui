@@ -7,7 +7,7 @@ import { TTheme } from '@/types/TTheme';
 import simpleColorTransition from '@/design/designFunctions/simpleColorTransition/simpleTransition';
 
 // --- //
-// ----- The SwipeUpDash component is a simple horizontal line as Button ------ --- //
+// ----- The SwipeUpDash component is a simple horizontal line as Button --- //
 // --- //
 export default function SwipeUpDash(props: React.HTMLAttributes<HTMLButtonElement>) {
   return (

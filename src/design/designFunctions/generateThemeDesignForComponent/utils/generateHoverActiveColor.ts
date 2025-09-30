@@ -9,7 +9,7 @@ type TGenerateOutlinedHoverStyle = Pick<
   '$themeType' | 'theme' | '$layer' | '$outlinedBackgroundStrength' | '$hoverColor'
 >;
 // --- //
-// ----- this function generates the color for the background ----------------- --- //
+// ----- this function generates the color for the background --- //
 // --- //
 const generateHoverColor = (props: TGenerateOutlinedHoverStyle & { isActiveSate?: boolean }) => {
   const { theme, $layer = 0, $themeType, $outlinedBackgroundStrength = 1, $hoverColor, isActiveSate } = props;

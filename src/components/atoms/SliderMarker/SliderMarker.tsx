@@ -4,7 +4,7 @@ import { TSliderMarkerWithHTMLAttrs } from '@/components/atoms/SliderMarker/TSli
 import { Marker, WrapperMarker } from './SliderMarker.style';
 
 // --- //
-// ----- The main Marker Component to display the position on the slider ------ --- //
+// ----- The main Marker Component to display the position on the slider --- //
 // --- //
 export default function SliderMarker(props: TSliderMarkerWithHTMLAttrs) {
   const { position, children, ...htmlProps } = props;
