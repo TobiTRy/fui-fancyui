@@ -11,9 +11,9 @@ import { THueSlider } from './TFancyHueSlider.model';
 import { sizeSettings } from '@/components/molecules/FancyOpacitySlider/sizeSettings';
 import { globalElementSizes } from '@/design/theme/globalSizes';
 
-// --------------------------------------------------------------------------- //
-// --------  The main HueSlider Component to calulates the hue --------------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- The main HueSlider Component to calulates the hue --- //
+// --- //
 export default function FancyHueSlider(props: THueSlider) {
   const { handler, hue = 0, sizeC = 'sm', borderRadius = 'lg' } = props;
   //give back the new hue value to the parent component

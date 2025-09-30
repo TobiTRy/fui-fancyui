@@ -10,9 +10,9 @@ import { TMonthWithDays } from '@/components/molecules/MonthWithDays/TMonthWithD
 import { CalendarWrapper, DateNumber, DaysContainer } from './MonthWithDays.style';
 import createDaysOfMonth from './utils/createDaysOfMonth/createDaysOfMonth';
 
-// --------------------------------------------------------------------------- //
-// --------- This Component generates a single month with the dates ---------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- This Component generates a single month with the dates --- //
+// --- //
 export default function MonthWithDays(props: TMonthWithDays) {
   const {
     monthIdx,
@@ -116,9 +116,9 @@ export default function MonthWithDays(props: TMonthWithDays) {
   );
 }
 
-// --------------------------------------------------------------------------- //
-// ------------------------ Some helperfunctions ----------------------------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- Some helperfunctions --- //
+// --- //
 const getDaysInMonth = (month: number, year: number): number => {
   return new Date(year, month, 0).getDate();
 };

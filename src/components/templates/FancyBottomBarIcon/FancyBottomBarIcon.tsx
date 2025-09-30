@@ -5,9 +5,9 @@ import ComponentAndActionWrapper from '@/components/molecules/ComponentAndAction
 
 import { TFancyBottomBarIcon } from './TFancyBottomBarIcon.model';
 
-// --------------------------------------------------------------------------- //
-// ------ This Component Puts only the content and a wrapper together -------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- This Component Puts only the content and a wrapper together --- //
+// --- //
 export default function FancyBottomBarIcon(props: TFancyBottomBarIcon) {
   const { WrapperComponent, type, href, onClick, ...iconProps } = props;
 

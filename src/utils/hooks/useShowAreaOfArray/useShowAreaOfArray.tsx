@@ -4,9 +4,9 @@ import { useMemo } from 'react';
 
 import { TuseShowAreaOfArray } from '@/utils/hooks/useShowAreaOfArray/TuseShowAreaOfArray.model';
 
-// --------------------------------------------------------------------------- //
-// --------------------- this Hook gives back a part of a array -------------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- this Hook gives back a part of a array --- //
+// --- //
 export default function useShowAreaOfArray<T>(props: TuseShowAreaOfArray<T>) {
   const { array, areaForward, areaBackward, areaStart = 0 } = props;
 

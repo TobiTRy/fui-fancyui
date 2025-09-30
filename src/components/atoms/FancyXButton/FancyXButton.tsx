@@ -5,9 +5,9 @@ import { TFancyXButtonWithHTMLAttrs } from '@/components/atoms/FancyXButton/Fanc
 import { StyledFancyXButton } from '@/components/atoms/FancyXButton/FancyXButton.style';
 import { SVGXlg } from '@/components/icons/';
 
-// --------------------------------------------------------------------------- //
-// --------------- The main Component for the X Close Button------- ---------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- The main Component for the X Close Button------- --- //
+// --- //
 export default function FancyXButton(props: TFancyXButtonWithHTMLAttrs) {
   const { themeType, layer, externalStyle, sizeC, ...htmlProps } = props;
   //check wich design comes in and add the right color object uiColor or systemMessages  to the button

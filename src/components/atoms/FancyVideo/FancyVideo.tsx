@@ -5,9 +5,9 @@ import { FancyVideoSource } from '@/components/atoms/FancyVideoSource';
 import { StyledVideo } from '@/components/atoms/FancyVideo/FancyVideo.style';
 import { TFancyVideoWithHTMLAttrs } from '@/components/atoms/FancyVideo/FancyVideo.model';
 
-// --------------------------------------------------------------------------- //
-// -------------- The Definition for the FancyVideo Component ---------------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- The Definition for the FancyVideo Component --- //
+// --- //
 function FancyVideo(props: TFancyVideoWithHTMLAttrs) {
   const { autoPlay, muted, aspectRatio, darken, children, ...htmlProps } = props;
 

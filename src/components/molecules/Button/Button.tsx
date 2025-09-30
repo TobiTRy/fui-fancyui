@@ -3,9 +3,9 @@
 import { TButtonWithNativeAttrs } from './Button.model';
 import { ButtonStyle, StyledButton } from './Button.style';
 
-// --------------------------------------------------------------------------- //
-// --------------- A normal Button with Style from the Theme ----------------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- A normal Button with Style from the Theme --- //
+// --- //
 export default function Button(props: TButtonWithNativeAttrs) {
   const {
     children,

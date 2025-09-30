@@ -17,9 +17,9 @@ import {
 import { TColorAreaWithHTMLAttrs } from './TFancyColorArea.model';
 import { colorToPosition, positionToColor } from './utils/calcPosition';
 
-// --------------------------------------------------------------------------- //
-// ----------- The main ColorArea Componet to pick a simple color ------------ //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- The main ColorArea Componet to pick a simple color --- //
+// --- //
 export default function FancyColorArea(props: TColorAreaWithHTMLAttrs) {
   const { colorValue = '#f00', hue = 0, handler, borderRadius = 'sm', externalStyle } = props;
 

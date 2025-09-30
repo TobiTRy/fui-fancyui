@@ -2,9 +2,9 @@ import { create } from 'zustand';
 
 import { TFancySwipeUpModalStore } from './TFancySwipeUpModal.model';
 
-// --------------------------------------------------------------------------- //
-// ------------- The globale State to open and close ------------------------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- The globale State to open and close --- //
+// --- //
 export function createFancySwipeUpModalStore() {
   return create<TFancySwipeUpModalStore>((set) => ({
     // the state array for the modals

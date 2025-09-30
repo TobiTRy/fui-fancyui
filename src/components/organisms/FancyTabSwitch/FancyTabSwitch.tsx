@@ -12,9 +12,9 @@ import { generateBorderRadiusForComponentOnlyValue } from '@/design/designFuncti
 import { calcBorderRadiusWithPadding } from '@/design/designFunctions/calcBorderRadiusWithPadding';
 import { arrayToCssValues } from '@/design/designFunctions/arrayToCssValues';
 
-// --------------------------------------------------------------------------- //
-// -----  The FancyTabswich has more advanced features like Label etc. ------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- The FancyTabswich has more advanced features like Label etc. --- //
+// --- //
 export default function FancyTabSwitch(props: FancyTabSwitchWithTabSwitchAtts) {
   const {
     values,

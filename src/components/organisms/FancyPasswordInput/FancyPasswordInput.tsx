@@ -8,9 +8,9 @@ import { InputWrapper } from '@/components/molecules/InputWrapper';
 import { TFancyPasswordInput } from './TFancyPasswordInput.model';
 import { getOpositMainThemeType } from '@/design/designFunctions/getOpositMainThemeType';
 
-// --------------------------------------------------------------------------- //
-// ----The PasswordInput Comonent with surrounding icon, label and underline-- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- The PasswordInput Comonent with surrounding icon, label and underline-- --- //
+// --- //
 const FancyPasswordInput = forwardRef<HTMLInputElement, TFancyPasswordInput>((props, ref) => {
   const {
     id,

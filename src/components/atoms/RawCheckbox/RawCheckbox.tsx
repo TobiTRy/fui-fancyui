@@ -6,9 +6,9 @@ import { FakeCheckbox, HidenCheckBox, InputContainer } from './RawCheckbox.style
 import { TRawCheckbox } from './TRawCheckbox.model';
 import { SVGCheckMark } from '@/components/icons';
 
-// --------------------------------------------------------------------------- //
-// -------------------- A simple Checkbox with a Label ----------------------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- A simple Checkbox with a Label --- //
+// --- //
 const RawCheckbox = forwardRef<HTMLInputElement, TRawCheckbox>((props, ref) => {
   const { onChange, defaultChecked, themeType = 'primary', layer = 3, id, ...htmlProps } = props;
   const [checked, setChecked] = useState(false);

@@ -7,9 +7,9 @@ import { TDateOutputFromToWithNativeAttrs } from '@/components/molecules/DateOut
 import { StyledDateOutputFromTo, VRWrapper } from './DateOutputFromTo.style';
 import { clampLayer } from '@/utils/functions/clampLayer';
 
-// --------------------------------------------------------------------------- //
-// ---------- The dateOutput hanles the date display from and to ------------ //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- The dateOutput hanles the date display from and to --- //
+// --- //
 export default function DateOutputFromTo(props: TDateOutputFromToWithNativeAttrs) {
   const {
     dateFrom,

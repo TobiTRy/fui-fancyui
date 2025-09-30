@@ -4,9 +4,9 @@ import DynamicElementWrapper from '@/components/atoms/DynamicElementWrapper/Dyna
 import { ChipContainer, StyledChipList } from './ChipList.style';
 import { TChipListWithHTMLAtrrs } from './TChipList.model';
 
-// --------------------------------------------------------------------------- //
-// ---------- The Chiplist is a wrapper for the chips to list them  ---------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- The Chiplist is a wrapper for the chips to list them --- //
+// --- //
 export default function ChipList(props: TChipListWithHTMLAtrrs) {
   const {
     themeType = 'primary',

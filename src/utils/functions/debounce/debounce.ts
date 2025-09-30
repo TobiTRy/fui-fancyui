@@ -1,6 +1,6 @@
-// --------------------------------------------------------------------------- //
-// ------------------- da function that handles a debounce ------------------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- da function that handles a debounce --- //
+// --- //
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function debounce<T extends (...args: any[]) => void>(
   func: T,

@@ -8,9 +8,9 @@ import ChipDeleteButton from './Components/ChipDeleteButton/ChipDeleteButton';
 
 import { TChipWithFancyPillAttrs } from './TChip.model';
 
-// --------------------------------------------------------------------------- //
-// --------------- A Simple chip you can put everthing in it  ---------------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- A Simple chip you can put everthing in it --- //
+// --- //
 function Chip(props: TChipWithFancyPillAttrs) {
   const { outlined, themeType, sizeC = 'md', layer, isActive, externalStyle, children, ...htmlProps } = props;
 

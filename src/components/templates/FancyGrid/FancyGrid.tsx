@@ -7,9 +7,9 @@ import { GridContainer } from '@/components/templates/FancyGrid/FancyGrid.style'
 import { TDynamicElement } from '@/types/TDynamicElement';
 import { FancyGridItem } from '@/components/templates/FancyGridItem';
 
-// --------------------------------------------------------------------------- //
-// ------- The FancyGrid to allocate the grid and give the items space ------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- The FancyGrid to allocate the grid and give the items space --- //
+// --- //
 function FancyGrid<T extends React.ElementType = 'div'>(props: TDynamicElement<T> & FancyGridProps) {
   const {
     children,

@@ -7,9 +7,9 @@ import { RawRadio } from '@/components/atoms/RawRadio';
 import { TFancyRadio } from './FancyRadio.model';
 import { getOpositMainThemeType } from '@/design/designFunctions/getOpositMainThemeType';
 
-// --------------------------------------------------------------------------- //
-// --- The FancyRadio is a RadioInput with a Label and description prop   ---- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- The FancyRadio is a RadioInput with a Label and description prop   ---- --- //
+// --- //
 const FancyRadio = React.forwardRef<HTMLInputElement, TFancyRadio>((props, ref) => {
   const {
     align = 'left',

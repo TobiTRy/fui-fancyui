@@ -9,9 +9,9 @@ import { TTheme } from '@/types/TTheme';
 import { IRange } from './IDateNumberAtom.model';
 import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 
-// --------------------------------------------------------------------------- //
-// ----------------- The Style for one Day with diferent sates --------------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- The Style for one Day with diferent sates --- //
+// --- //
 interface IStyledDay {
   $range?: IRange;
   $isCurrentDay?: boolean;

@@ -17,9 +17,9 @@ const generateMonthArray = (start?: number, end?: number) => {
   return months;
 };
 
-// --------------------------------------------------------------------------- //
-// --------------- The main function to generate the Month names  ------------ //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- The main function to generate the Month names --- //
+// --- //
 const generateMonthNames = (start?: number, end?: number): string[] => {
   // the start and end can use to generate a area of months like January - March
   const months = generateMonthArray(start, end);

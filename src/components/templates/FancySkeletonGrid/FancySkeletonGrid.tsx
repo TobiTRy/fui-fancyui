@@ -8,9 +8,9 @@ import { TFancySkeletonGrid } from '@/components/templates/FancySkeletonGrid/TFa
 import { generateGridSet } from '@/components/templates/FancySkeletonGrid/utils/generateGidSet';
 import { themeStore } from '@/design/theme/themeStore';
 
-// --------------------------------------------------------------------------- //
-// -------- The Component generates Skeletonboxes based on the GridArea ------ //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- The Component generates Skeletonboxes based on the GridArea --- //
+// --- //
 export default function FancySkeletonGrid(props: TFancySkeletonGrid) {
   const { gridAreas, gridAreasBreakPoints, layer, themeType, borderRadius, ...gridProps } = props;
   const themeBreakPoints = themeStore((state) => state.theme.breakpoints);

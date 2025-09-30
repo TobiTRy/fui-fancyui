@@ -17,9 +17,9 @@ import ColorInputs from '@/components/molecules/ColorInputs/ColorInputs';
 import colorFormats from '@/utils/variables/colorFormat/colorFormats';
 import colorTransformator from './utils/ColorTransformator';
 
-// --------------------------------------------------------------------------- //
-// -- The main FancyColorInput Component to displays and change the values -- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- The main FancyColorInput Component to displays and change the values -- --- //
+// --- //
 export default function FancyColorInput(props: TFancyColorInput) {
   const {
     themeType = 'primary',

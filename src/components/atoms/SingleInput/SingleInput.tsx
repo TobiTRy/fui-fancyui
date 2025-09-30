@@ -5,9 +5,9 @@ import { forwardRef, useState } from 'react';
 import { TSingleInputAtomWithHTMLAttrs } from '@/components/atoms/SingleInput/TSingleInput.model';
 import { StyledSingleInput } from './SingleInput.style';
 
-// --------------------------------------------------------------------------- //
-// --------- A Single Letter/NumberInput for a Verification process ---------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- A Single Letter/NumberInput for a Verification process --- //
+// --- //
 const SingleInput = forwardRef<HTMLInputElement, TSingleInputAtomWithHTMLAttrs>((props, ref) => {
   const { value, onKeyDown, themeType, layer, onFocus, onBlur, externalStyle } = props;
   const [isFocused, setIsFocused] = useState(false);

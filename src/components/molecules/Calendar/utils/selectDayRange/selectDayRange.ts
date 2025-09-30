@@ -1,9 +1,9 @@
 import { TDateOnlyArray } from '@/components/molecules/Calendar/TCalendar.model';
 import { TSelectDayRange } from './TselectDayRange.model';
 
-// --------------------------------------------------------------------------- //
-// ---------- this function handles the selection from the ranges ------------ //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- this function handles the selection from the ranges --- //
+// --- //
 export function selectDayRange(props: TSelectDayRange) {
   const { day, monthIndex, selectedYear, selectedDates, selectFromTo, handleSwitchFromTo } = props;
 

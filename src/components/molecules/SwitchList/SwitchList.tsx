@@ -9,9 +9,9 @@ import { SwitchActiveIndicator } from '@/components/atoms/SwitchActiveIndicator'
 import { FancyFlexBox } from '@/components/templates/FancyFlexBox';
 import { TSwitchList } from './TSwitchList.model';
 
-// --------------------------------------------------------------------------- //
-// -------------- The Switch List Indicates wich item is active -------------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- The Switch List Indicates wich item is active --- //
+// --- //
 export default function SwitchList(props: TSwitchList) {
   // the incoming props
   const { children, whichIndexIsSelected, activeItemHandler, externalStyle, switchIndicator, flexBoxProps, gap } =

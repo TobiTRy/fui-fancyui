@@ -18,9 +18,9 @@ import { FancyColorInput } from '@/components/organisms/FancyColorInput';
 import { TFancyColorPickerWithHTMLAttrs } from './TFancyColorPicker.model';
 import { Wrapper } from './FancyColorPicker.style';
 
-// --------------------------------------------------------------------------- //
-// ------------------- The main ColorPicker Component ------------------------ //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- The main ColorPicker Component --- //
+// --- //
 export default function FanyColorPicker(props: TFancyColorPickerWithHTMLAttrs) {
   const {
     colorArea = true,

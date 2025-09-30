@@ -6,9 +6,9 @@ import { styled } from 'styled-components';
 
 import { TBackDrop } from './TBackdrop.model';
 
-// --------------------------------------------------------------------------- //
-// ------- Only a backdrop for some components with a onclick listener ------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- Only a backdrop for some components with a onclick listener --- //
+// --- //
 export default function BackDrop(props: TBackDrop) {
   const { isOpen, onClick, externalStyle } = props;
   const backdropRef = useRef<HTMLDivElement>(null);
@@ -32,9 +32,9 @@ export default function BackDrop(props: TBackDrop) {
   return <BackdropContainer ref={backdropRef} onClick={onClick} $externalStyle={externalStyle} />;
 }
 
-// ------------------------------------------- //
-// ------- The style for the component ------- //
-// ------------------------------------------- //
+// --- //
+// ----- The style for the component --- //
+// --- //
 const BackdropContainer = styled.div<TStyledPrefixAndPicker<TBackDrop, 'externalStyle'>>`
   position: fixed;
   top: 0;

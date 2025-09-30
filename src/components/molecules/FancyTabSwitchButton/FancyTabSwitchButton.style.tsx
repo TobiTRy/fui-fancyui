@@ -9,9 +9,9 @@ import { TTheme } from '@/types/TTheme';
 import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 import { sizeSettings } from './sizeSettings';
 
-// ------------------------------------------------------------------ //
-// ----------- the helperfunctions for the style generate ----------- //
-// ------------------------------------------------------------------ //
+// --- //
+// ----- the helperfunctions for the style generate --- //
+// --- //
 //generates the style from the dynamic values of the tab
 interface IListButtonStyle {
   $textColor?: TUiColorsNotTransparent;
@@ -55,9 +55,9 @@ const generateIconAlignment = (props: Pick<IListButtonStyle, '$iconAlign'>) => {
   `;
 };
 
-// ------------------------------------------------------------------ //
-// ------------ the main style generator for the li item ------------ //
-// ------------------------------------------------------------------ //
+// --- //
+// ----- the main style generator for the li item --- //
+// --- //
 export const SwitchButtonStyle = styled.div<IListButtonStyle>`
   list-style: none;
   height: 100%;

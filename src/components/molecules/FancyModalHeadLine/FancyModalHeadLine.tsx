@@ -8,9 +8,9 @@ import { TFancyModalHeadLine, TFancyModalHeadLineWithHTMLProps } from './FancyMo
 import { HeadLineWrapper, StyledHeadLine, StyledHeadLineTitles, IconWrapper } from './FancyModalHeadLine.style';
 import { FancyXButton } from '@/components/atoms/FancyXButton';
 
-// --------------------------------------------------------------------------- //
-// -------- The main HeadLineComponent for the heading for the modals -------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- The main HeadLineComponent for the heading for the modals --- //
+// --- //
 export default function FancyModalHeadLine(props: TFancyModalHeadLineWithHTMLProps) {
   const { title, subTitle, alignCenter = false, hr, gapBetweenText = 'xxs', onXButtonClick, ...htmlProps } = props;
 

@@ -14,9 +14,9 @@ import {
 import { ActionItem } from '@/components/molecules/ActionItem';
 import { TFancySpeedDailButton } from './TFancySpeedDailButton.model';
 
-// --------------------------------------------------------------------------- //
-// ---------- Component that handles the Buttonlist and the opening ---------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- Component that handles the Buttonlist and the opening --- //
+// --- //
 export default function FancySpeedDialButton(props: TFancySpeedDailButton) {
   const { items, labelAlign, themeType = 'primary', layer = 2, ...actionItemProps } = props;
   const [isOpen, setIsOpen] = useState(false);

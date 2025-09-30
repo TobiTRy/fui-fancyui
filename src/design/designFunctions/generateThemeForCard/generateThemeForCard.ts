@@ -29,9 +29,9 @@ const generateOutlineStyle = (props: TGenerateColorDesign) => {
   `;
 };
 
-// --------------------------------------------------------------------------- //
-// -----------  The Main generator function to create a the square  ---------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- The Main generator function to create a the square --- //
+// --- //
 type TGenerateColorDesign = TStyledPrefixAndPicker<TGenerateThemeForCardProps> & {
   theme: TTheme;
 };

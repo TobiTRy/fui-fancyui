@@ -6,9 +6,9 @@ import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 import { TLayer } from '@/types/TLayer';
 import { TglobalElementSizes } from '@/types/TGlobalElementSizes';
 
-// ------------------------------------------------- //
-// ------- The helperfunctions for the style ------- //
-// ------------------------------------------------- //
+// --- //
+// ----- The helperfunctions for the style --- //
+// --- //
 // Define a function to generate the border for the spinner
 interface IGenerateBorder {
   $sizeC: string;
@@ -36,9 +36,9 @@ const reverseSpinner = keyframes`
   100% { transform: rotate(0deg); }
 `;
 
-// ------------------------------------------- //
-// ------- The style for the component ------- //
-// ------------------------------------------- //
+// --- //
+// ----- The style for the component --- //
+// --- //
 // Define a styled component for the spinner container
 export const SpinnerContainer = styled.div<{ $sizeC?: TglobalElementSizes }>`
   position: relative;

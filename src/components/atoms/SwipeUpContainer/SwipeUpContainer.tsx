@@ -4,9 +4,9 @@ import { forwardRef } from 'react';
 import { TSwipeUpContainerWithHTMLAttrs } from './SwipeUpContainer.model';
 import { OverflowHidden, StyledSwipeUpContainer } from './SwipeUpContainer.style';
 
-// --------------------------------------------------------------------------- //
-// ----------- The Modal Atom the displays a simple Mobile Modal ------------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- The Modal Atom the displays a simple Mobile Modal --- //
+// --- //
 const SwipeUpContainer = forwardRef<HTMLDivElement, TSwipeUpContainerWithHTMLAttrs>((props, ref) => {
   const {
     children,

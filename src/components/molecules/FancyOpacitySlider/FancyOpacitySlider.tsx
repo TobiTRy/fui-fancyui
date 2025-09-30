@@ -16,9 +16,9 @@ import { TFancyOpacitySliderWithHTMLProps } from './TFancyOpacitySlider.model';
 import { globalElementSizes } from '@/design/theme/globalSizes';
 import { sizeSettings } from './sizeSettings';
 
-// --------------------------------------------------------------------------- //
-// ----- The main FancyOpacitySlider Component to calclulates the opacity ---- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- The main FancyOpacitySlider Component to calclulates the opacity ---- --- //
+// --- //
 export default function FancyOpacitySlider(props: TFancyOpacitySliderWithHTMLProps) {
   const { colorValue = '#f00', opacity = 1, handler, sizeC = 'sm', borderRadius, ...htmlProps } = props;
   //give the opacity back to the parent component

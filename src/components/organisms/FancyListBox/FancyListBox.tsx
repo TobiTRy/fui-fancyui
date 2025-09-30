@@ -9,9 +9,9 @@ import { TitleForComponent } from '@/components/atoms/TitleForComponent';
 
 import { TFancyListBoxWithListBoxAttrs } from './TFancyListBox.model';
 
-// --------------------------------------------------------------------------- //
-// ---------- This component renders a list with the provided items ---------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- This component renders a list with the provided items --- //
+// --- //
 export default function FancyListBox(props: TFancyListBoxWithListBoxAttrs) {
   const {
     children,

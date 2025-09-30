@@ -3,9 +3,9 @@
 import { TActiveSwitchIndicatorWithHTMLAttrs } from './TSwitchActiveindicator.model';
 import { ActiveSwitchIndicator, Wrapper } from './SwitchActiveIndicator.style';
 
-// --------------------------------------------------------------------------- //
-// -------- Create a Incator for wich Item in a Switch List ist activ  ------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- Create a Incator for wich Item in a Switch List ist activ --- //
+// --- //
 export default function SwitchActiveIndicator(props: TActiveSwitchIndicatorWithHTMLAttrs) {
   const {
     itemNumber,

@@ -7,9 +7,9 @@ type TGenerateNormalStyle = Pick<
   IGenerateThemeDesignForComponent,
   '$themeType' | 'theme' | '$layer' | '$textColor' | '$backgroundState' | '$hoverColor'
 >;
-// --------------------------------------------------------------------------- //
-// ----------- generates a normal style for the specific component  ---------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- generates a normal style for the specific component --- //
+// --- //
 export const generateNormalStyle = (props: TGenerateNormalStyle) => {
   const { $themeType, theme, $layer = 0, $textColor, $backgroundState } = props;
 

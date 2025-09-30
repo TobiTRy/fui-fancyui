@@ -6,9 +6,9 @@ import { FancyContent } from '@/components/molecules/FancyContent';
 import { sizeSettings } from './sizeSettings';
 import { TFancyMenueItemWithMenuAttrs } from './TFancyMenuItem.model';
 
-// --------------------------------------------------------------------------- //
-// ---------- The FancyMenueItem is a template for a finished Item  ---------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- The FancyMenueItem is a template for a finished Item --- //
+// --- //
 export default function FancyMenueItem(props: TFancyMenueItemWithMenuAttrs) {
   const { label, icon, sizeC = 'lg', gapBetweenIcon = 'sm', themeTypeText, layerText, ...menuItemProps } = props;
 

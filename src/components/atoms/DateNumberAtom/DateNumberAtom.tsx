@@ -4,9 +4,9 @@ import { Typography } from '@/components/atoms/Typography';
 import { StyledDay } from './DateNumberAtom.style';
 import { IDateNumberAtom } from './IDateNumberAtom.model';
 
-// --------------------------------------------------------------------------- //
-// -------- The DateNumberAtom Displays the date number of a clendar --------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- The DateNumberAtom Displays the date number of a clendar --- //
+// --- //
 export default function DateNumberAtom(props: IDateNumberAtom) {
   const { dateNumber, selected, disabled, onClick, range, isCurrentDay, themeType, layer } = props;
 

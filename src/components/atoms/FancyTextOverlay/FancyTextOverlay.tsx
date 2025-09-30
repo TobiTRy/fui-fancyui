@@ -3,9 +3,9 @@
 import { TFancyTextOverlay } from '@/components/atoms/FancyTextOverlay/FancyTextOverlay.model';
 import { Gradient, TextWrapper, Wrapper } from './FancyTextOverlay.style';
 
-// --------------------------------------------------------------------------- //
-// ----------- The Definition for the ImageVideoOverlay Component ------------ //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- The Definition for the ImageVideoOverlay Component --- //
+// --- //
 export default function FancyTextOverlay(props: TFancyTextOverlay) {
   const { children, position = 'top-right', textChildren, externalStyle, ...htmlProps } = props;
 

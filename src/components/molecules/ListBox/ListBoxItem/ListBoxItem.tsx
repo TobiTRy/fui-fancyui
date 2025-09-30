@@ -6,9 +6,9 @@ import { arrayToCssValues } from '@/design/designFunctions/arrayToCssValues';
 import { sizeSettings } from '../sizeSettings';
 import { generateBackgroundColor } from '@/design/designFunctions/generateItemTheme/utils/generateBackgroundColor';
 
-// --------------------------------------------------------------------------- //
-// ------- The List Item for The ListBox to handle the distances -------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- The List Item for The ListBox to handle the distances --- //
+// --- //
 function ListBoxItem(props: TListBoxItemProps) {
   const { children, externalStyle, sizeC, layer = 0, themeType = 'transparent', hoverLayer } = props;
 

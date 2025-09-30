@@ -10,9 +10,9 @@ import { SVGChevronRight } from '@/components/icons';
 import { SVGDesignCSS, StyledButton, StyledYearSelector } from './YearSelector.style';
 import { sizeSettings } from './sizeSettings';
 
-// --------------------------------------------------------------------------- //
-// ---------- Here are the design variants for sizing and alignment ---------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- Here are the design variants for sizing and alignment --- //
+// --- //
 export default function YearSelector(props: TYearSelectorWithHTMLAttributes) {
   const {
     selectedYear = new Date().getFullYear(),

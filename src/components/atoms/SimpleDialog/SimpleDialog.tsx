@@ -5,9 +5,9 @@ import { useEffect, useRef, useState } from 'react';
 import { StyledContent, StyledDialog, StyledHeader, StyledFooter } from './SimpleDialog.style';
 import { TSimpleDialogWithHTMLAttrs } from '@/components/atoms/SimpleDialog/SimpleDialog.model';
 
-// --------------------------------------------------------------------------- //
-// -------  A container that can filld with everythin and acts as a dialog --- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- A container that can filld with everythin and acts as a dialog --- --- //
+// --- //
 export default function SimpleDialog(props: TSimpleDialogWithHTMLAttrs) {
   const {
     isOpen = false,

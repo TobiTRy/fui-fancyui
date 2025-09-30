@@ -6,9 +6,9 @@ import { sizes } from './sizeSettings';
 import { FancyBox } from '@/components/atoms/FancyBox';
 import { TFancyInfoCardWithFancyBoxAndFlex } from './TFancyInfoCard.model';
 
-// --------------------------------------------------------------------------- //
-// ------- This is a Template for a Infocard with icon Title und desc. ------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- This is a Template for a Infocard with icon Title und desc. --- //
+// --- //
 export default function FancyInfoCard(props: TFancyInfoCardWithFancyBoxAndFlex) {
   const {
     title,

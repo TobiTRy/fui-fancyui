@@ -20,9 +20,9 @@ export interface IFancyTabSwitchStyle {
   $layer?: TLayer;
 }
 
-// ----------------------------------------------------------- //
-// ---------- The main UL element for the component ---------- //
-// ----------------------------------------------------------- //
+// --- //
+// ----- The main UL element for the component --- //
+// --- //
 // Define the styled-component for the unordered list of the tab switch
 export const ULButtonSwitchList = styled.ul<IFancyTabSwitchStyle & { theme: TTheme }>`
   display: ${({ $wide }) => ($wide ? 'grid' : 'inline-grid')};
@@ -37,9 +37,9 @@ export const ULButtonSwitchList = styled.ul<IFancyTabSwitchStyle & { theme: TThe
   padding: 0;
 `;
 
-// ----------------------------------- //
-// ---------- Other styled  ---------- //
-// ----------------------------------- //
+// --- //
+// ----- Other styled --- //
+// --- //
 // Define the styled-component for the list item wrapper
 export const ItemWrapper = styled.li`
   position: relative;

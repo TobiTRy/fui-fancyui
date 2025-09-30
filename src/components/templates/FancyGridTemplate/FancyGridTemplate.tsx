@@ -5,9 +5,9 @@ import FancyGridTemplateItem from '@/components/templates/FancyGridTemplateItem/
 import { TFancyGridTemplate } from './TFancyGridTemplate.model';
 import { TDynamicElement } from '@/types/TDynamicElement';
 
-// --------------------------------------------------------------------------- //
-// ------------ The FancyGridTemplate Component to define the grid ---------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- The FancyGridTemplate Component to define the grid --- //
+// --- //
 function FancyGridTemplate<T extends React.ElementType = 'div'>(props: TDynamicElement<T> & TFancyGridTemplate) {
   const {
     gridAreas,

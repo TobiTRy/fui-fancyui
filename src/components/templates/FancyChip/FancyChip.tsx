@@ -6,9 +6,9 @@ import { Chip } from '@/components/molecules/Chip';
 import { TFancyChipWithFancyPillAttrs } from '@/components/templates/FancyChip/TFancyChip.model';
 import { TSpacingPosition, generateSpacing } from '@/components/templates/FancyChip/utils/generateSpacings';
 
-// --------------------------------------------------------------------------- //
-// --------------- The FancyChip with predefined Structure ------------------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- The FancyChip with predefined Structure --- //
+// --- //
 export default function FancyChip(props: TFancyChipWithFancyPillAttrs) {
   const {
     label,

@@ -1,9 +1,9 @@
 import { useActiveBreakpoint } from '@/utils/hooks/useActiveBreakpoint';
 import { TuseBreakpointComparison } from '@/utils/hooks/useBreakpointComparison';
 
-// --------------------------------------------------------------------------- //
-// ---------- this hook checks the situation of the breakpointId ------------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- this hook checks the situation of the breakpointId --- //
+// --- //
 export function useBreakpointComparison(props: TuseBreakpointComparison) {
   const { breakpointId, breakPoints } = props;
 

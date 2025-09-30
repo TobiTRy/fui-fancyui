@@ -8,9 +8,9 @@ import { InputWrapper } from '@/components/molecules/InputWrapper';
 import { TFancyNumberInput } from './TFancyNumberInput.model';
 import { getOpositMainThemeType } from '@/design/designFunctions/getOpositMainThemeType';
 
-// --------------------------------------------------------------------------- //
-// ----The NumberInput Comonent with surrounding icon, label and underline --- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- The NumberInput Comonent with surrounding icon, label and underline --- --- //
+// --- //
 const FancyNumberInput = forwardRef<HTMLInputElement, TFancyNumberInput>((props, ref) => {
   const {
     value,

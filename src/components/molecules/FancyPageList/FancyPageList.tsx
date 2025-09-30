@@ -6,9 +6,9 @@ import { Paginator } from '@/components/molecules/Paginator';
 import { Wrapper, StyledList } from './FancyPageList.style';
 import { TFancyPageList } from '@/components/molecules/FancyPageList/TFancyPageList.model';
 
-// --------------------------------------------------------------------------- //
-// ------- This Component renders a Paginator with the specific list --------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- This Component renders a Paginator with the specific list --- //
+// --- //
 export default function FancyPageList(props: TFancyPageList) {
   const { itemsPerPage = 20, elements, spacingBetweenItems, buttonDesign, outlinedButton, showPages = 3 } = props;
 

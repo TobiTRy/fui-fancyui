@@ -93,9 +93,9 @@ const ScalingSection = forwardRef<HTMLDivElement, TScalingSection>((props, ref) 
   );
 });
 
-// ------------------------------------------- //
-// ------- The style for the component ------- //
-// ------------------------------------------- //
+// --- //
+// ----- The style for the component --- //
+// --- //
 const SytledScalingSection = styled.div`
   position: sticky;
   height: 30px;

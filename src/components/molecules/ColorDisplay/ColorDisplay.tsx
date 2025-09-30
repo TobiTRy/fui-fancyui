@@ -12,9 +12,9 @@ import ClipBoardIcon from './components/ClipBoardIcon/ClipBoardIcon';
 import ColorText from './components/ColorText/ColorText';
 import { sizeSettings } from './sizeSettings';
 
-// --------------------------------------------------------------------------- //
-// ----- The main ColorDisplay Component for display the color in a box ------ //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- The main ColorDisplay Component for display the color in a box --- //
+// --- //
 function ColorDisplay(props: TColorDisplayWithHTMLAttrs) {
   const { sizeC = 'sm', colorValue, opacity, fullHeight, borderRadius, children, ...htmlProps } = props;
   const isDarkTheme = themeStore.getState().isDarkTheme;

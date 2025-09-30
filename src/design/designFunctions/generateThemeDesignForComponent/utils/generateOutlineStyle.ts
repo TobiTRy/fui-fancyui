@@ -17,9 +17,9 @@ type TGenerateOutlineStyle = Pick<
   | '$textColor'
   | '$outlinedRemoveBorder'
 >;
-// --------------------------------------------------------------------------- //
-// ------- Generates the style for a outlined box or other compoent ---------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- Generates the style for a outlined box or other compoent --- //
+// --- //
 export const generateOutlineStyle = (props: TGenerateOutlineStyle) => {
   const {
     $themeType,

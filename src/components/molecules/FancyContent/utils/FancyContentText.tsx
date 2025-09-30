@@ -2,9 +2,9 @@ import { Typography } from '@/components/atoms/Typography';
 import { TTextProps } from './TFancyTextVariant.model';
 import { sizes } from '../sizeSettings';
 
-// --------------------------------------------------------------------------- //
-// ----------------- The Title for the FancyContent component ---------------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- The Title for the FancyContent component --- //
+// --- //
 export default function FancyContentTitle(props: TTextProps) {
   const { sizeC, fontWeight, fontVariant, type, children, lineHeight, className, themeType, layer, externalStyle } =
     props;

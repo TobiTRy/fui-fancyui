@@ -3,9 +3,9 @@
 import { TFancyLoadingSpinnerWithHTMLProps } from '@/components/atoms/FancyLoadingSpinner/IFancyLoadingSpinner.model';
 import { SpinnerContainer, StyledFancyLoadingSpinner, StyledInnerSpinner } from './FancyLoadingSpinner.model';
 
-// --------------------------------------------------------------------------- //
-// ------------------ A Loadingspinner with different sizes ------------------ //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- A Loadingspinner with different sizes --- //
+// --- //
 export default function FancyLoadingSpinner(props: TFancyLoadingSpinnerWithHTMLProps) {
   const { sizeC = 'md', themeType = 'accent', layer, ...rest } = props;
 

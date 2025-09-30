@@ -5,9 +5,9 @@ import { generateFancyBoxStyle } from './ListBox.style';
 import { ListBoxItem } from './ListBoxItem/ListBoxItem';
 import { TListBoxWithFancyBoxAttrs } from './TListBox.model';
 
-// --------------------------------------------------------------------------- //
-// ------------- The ListBox is only a Styled list with items  --------------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- The ListBox is only a Styled list with items --- //
+// --- //
 function ListBox(props: TListBoxWithFancyBoxAttrs) {
   const { children, sizeC = 'md', externalStyle, borderRadius, boxShadow, ...htmlProps } = props;
 

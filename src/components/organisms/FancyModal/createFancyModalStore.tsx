@@ -3,9 +3,9 @@ import { create } from 'zustand';
 import { TFancyModalOpen, TFancyModals } from './TFancyModal.modal';
 
 //   openModal(id, <div>hi</div>, {})
-// --------------------------------------------------------------------------- //
-// --------------------- The state for the ModalModuel ----------------------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- The state for the ModalModuel --- //
+// --- //
 export interface IModalModule {
   modals: TFancyModals[];
   openModal: (props: TFancyModalOpen) => void;

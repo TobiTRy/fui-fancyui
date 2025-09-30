@@ -4,9 +4,9 @@ import { TDropDownSelect, TDropDownSelectNativeAttrs } from '@/components/atoms/
 import { SelectField } from './DropDownSelect.style';
 import { forwardRef } from 'react';
 
-// ------------------------------------------------------------------ //
-// ---------------- the blank drop down select ---------------------- //
-// ------------------------------------------------------------------ //
+// --- //
+// ----- the blank drop down select --- //
+// --- //
 const DropDownSelect = forwardRef<HTMLSelectElement, TDropDownSelect & TDropDownSelectNativeAttrs>((props, ref) => {
   const {
     values,

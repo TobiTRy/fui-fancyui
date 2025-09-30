@@ -5,9 +5,9 @@ import { MenuContainer } from './Menu.style';
 import { TMenuWithHTMLAttributes } from './TMenu.model';
 import { Seperator } from '@/components/atoms/Seperator';
 
-// --------------------------------------------------------------------------- //
-// ---------------- A simple Menue that can have any childs --------------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- A simple Menue that can have any childs --- //
+// --- //
 function Menu(props: TMenuWithHTMLAttributes) {
   const {
     children,

@@ -9,9 +9,9 @@ import { TPaginatorWithHTMLAttrs } from '@/components/molecules/Paginator/TPagin
 import { FancyButton } from '@/components/organisms/FancyButton';
 import { IconWrapper, NumberList, StyledPaginator } from './Paginator.style';
 
-// --------------------------------------------------------------------------- //
-// ---------------- The Paginator for a List to siwtch pages ----------------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- The Paginator for a List to siwtch pages --- //
+// --- //
 export default function Paginator(props: TPaginatorWithHTMLAttrs) {
   const {
     currentPage = 1,

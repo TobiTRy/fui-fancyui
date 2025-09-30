@@ -8,9 +8,9 @@ import { FancyRadio } from '@/components/organisms/FancyRadio';
 import { TFancyRadioList } from './TFancyRadioList.model';
 import { FancyFlexBox } from '@/components/templates/FancyFlexBox';
 
-// --------------------------------------------------------------------------- //
-// ------- The FancyRadioList renders a List of RadioButtons dynamicly ------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- The FancyRadioList renders a List of RadioButtons dynamicly --- //
+// --- //
 export default function FancyRadioList(props: TFancyRadioList) {
   const { items, name, handler, themeType, layer, ...fieldSetProps } = props;
   const [currentItem, setCurrentSelect] = useState('1');

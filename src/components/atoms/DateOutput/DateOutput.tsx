@@ -8,9 +8,9 @@ import { sizeSettings } from './sizeSettings';
 import { DateOutputButton } from './DateOutput.style';
 import { TDateOutputWithNativeAtrrs } from './TDateOutput.model';
 
-// --------------------------------------------------------------------------- //
-// -------------- The Dateoutput displays a selected date -------------------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- The Dateoutput displays a selected date --- //
+// --- //
 export default function DateOutput(props: TDateOutputWithNativeAtrrs) {
   const {
     date,

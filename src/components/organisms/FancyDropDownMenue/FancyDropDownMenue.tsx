@@ -6,9 +6,9 @@ import { FancyDropDownUL } from '@/components/molecules/FancyDropDownUL';
 import { Delay } from '@/components/shared/Delay';
 import { TFancyDropDownMenue } from './TFancyDropDownMenue.model';
 
-// --------------------------------------------------------------------------- //
-// ------------ The main component that renders the dropdown menu ------------ //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- The main component that renders the dropdown menu --- //
+// --- //
 export default function FancyDropDownMenue(props: TFancyDropDownMenue) {
   const { isOpen } = props;
   const [isOpenState, setIsOpenState] = useState(isOpen);

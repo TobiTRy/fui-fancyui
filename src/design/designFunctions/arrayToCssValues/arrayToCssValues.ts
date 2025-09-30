@@ -2,9 +2,9 @@ import { getThemeOrValueAsCSS } from '@/design/designFunctions/getThemeOrValueAs
 import { TThemeArrayOrValueCSS } from './TArrayValues.model';
 import { TThemeValueMap } from '@/design/designFunctions/getThemeOrValueAsCss';
 
-// --------------------------------------------------------------------------- //
-// ---------- this function is for the calc wich edege has a radius ---------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- this function is for the calc wich edege has a radius --- //
+// --- //
 const arrayToCssValues = <T extends keyof TThemeValueMap = 'default'>(
   values?: TThemeArrayOrValueCSS,
   themeSetting?: T
