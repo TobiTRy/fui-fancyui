@@ -1,11 +1,16 @@
 import { css } from 'styled-components';
 import { themeStore } from '@/design/theme/themeStore';
-import { TComponentSizes } from '@/types/TComponentSizes';
+import { TComponentSizesMid } from '@/types/TComponentSizes';
 
 export type TSpacingPosition = 'left' | 'right' | 'booth';
 
 const getSpacingFromTheme = themeStore.getState().theme.spacing;
 const sizesSettings = {
+  xs: {
+    padding: getSpacingFromTheme.xxs,
+    paddingRight: getSpacingFromTheme.xxs,
+    paddingLeft: getSpacingFromTheme.xxs,
+  },
   sm: {
     padding: getSpacingFromTheme.xs,
     paddingRight: getSpacingFromTheme.xxs,
@@ -21,12 +26,17 @@ const sizesSettings = {
     paddingRight: getSpacingFromTheme.sm,
     paddingLeft: getSpacingFromTheme.xs,
   },
+  xl: {
+    padding: getSpacingFromTheme.md,
+    paddingRight: getSpacingFromTheme.md,
+    paddingLeft: getSpacingFromTheme.lg,
+  },
 };
 
 // Define a function to generate the spacing based on the spacing position
 interface IGenerateSpacing {
   spacingPosition?: TSpacingPosition;
-  sizeC?: TComponentSizes;
+  sizeC?: TComponentSizesMid;
 }
 export const generateSpacing = ({ spacingPosition, sizeC }: IGenerateSpacing) => {
   const pickedSize = sizeC ? sizeC : 'md';

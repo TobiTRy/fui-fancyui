@@ -4,9 +4,9 @@ import ComponentAsWrapper from '@/components/shared/ComponentAsWrapper/Component
 import { StyledAnchor, StyledButton } from './FancyActionWrapper.style';
 import { TFancyActionWrapper } from '@/components/atoms/FancyActionWrapper/TFancyActionWrapper.model';
 
-// --------------------------------------------------------------------------- //
-// ---- FancyActionWrapper that wrapps the cildren in a "a" tag or button ---- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- FancyActionWrapper that wrapps the cildren in a "a" tag or button ---- --- //
+// --- //
 export default function FancyActionWrapper(props: TFancyActionWrapper) {
   const { children, WrapperComponent, ...HTMLProps } = props;
 

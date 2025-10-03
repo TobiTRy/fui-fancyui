@@ -1,6 +1,6 @@
 'use client';
 
-import { FancyContent } from '@/components/molecules/FancyContent';
+import { FancyContent, FancyContentNormalTw } from '@/components/molecules/FancyContent';
 import { SystemMessageBox } from '@/components/atoms/SystemMessageBox';
 import { TFancySystemMessageWithFancyContent } from './TFancySystemMessageBox.model';
 import { sizes } from './sizeSettings';
@@ -23,11 +23,11 @@ export default function FancySystemMessageBox(props: TFancySystemMessageWithFanc
 
   return (
     <SystemMessageBox themeType={themeType} layer={layer} sizeC={sizes[sizeC].systemMessageSize}>
-      <FancyContent layoutMode="normal" gapBetweenText={gapBetweenText} gapBetweenIcon={gapBetweenIcon ?? '3xs'}>
-        {(icon || useFuiIcons) && <FancyContent.Icon sizeC={sizeC}> {icon ?? <Icon />}</FancyContent.Icon>}
-        {title && <FancyContent.Title sizeC={sizeC}>{title}</FancyContent.Title>}
-        {description && <FancyContent.Description sizeC={sizeC}>{description}</FancyContent.Description>}
-      </FancyContent>
+      <FancyContentNormalTw sizeC={sizes[sizeC].contentSize}>
+        <FancyContentNormalTw.Icon> {icon ?? <Icon />}</FancyContentNormalTw.Icon>
+        <FancyContentNormalTw.Title>{title}</FancyContentNormalTw.Title>
+        <FancyContentNormalTw.Description>{description}</FancyContentNormalTw.Description>
+      </FancyContentNormalTw>
     </SystemMessageBox>
   );
 }

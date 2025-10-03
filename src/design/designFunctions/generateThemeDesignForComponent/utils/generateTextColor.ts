@@ -2,9 +2,9 @@ import { getBackgroundColor } from '../../colorCalculatorForComponent/colorCalcu
 import themeStore from '../../../theme/themeStore/themeStore';
 import { IGenerateThemeDesignForComponent } from '../generateThemeDesignForComponent';
 
-// --------------------------------------------------------------------------- //
-// ------------- generate the text color for the components  ----------------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- generate the text color for the components --- //
+// --- //
 export const generateTextColor = (
   props: Pick<IGenerateThemeDesignForComponent, '$themeType' | '$textColor' | '$layer'>
 ) => {

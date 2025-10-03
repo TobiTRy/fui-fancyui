@@ -8,7 +8,7 @@
     "rootDir": ".",
     "baseUrl": "./src",
 
-    "typeRoots": ["./node_modules/@types", "../../node_modules/@types"],
+    "types": ["node"],
     "paths": {
       "@/*": ["./*"]
     },
@@ -28,7 +28,15 @@
     "noUnusedParameters": false,
     "noFallthroughCasesInSwitch": true
   },
-  "types": ["vitest/globals"],
-  "include": ["src/**/*", "dist/index.d.ts", "vitest.config.ts", ".eslintrc.cjs", "lib", "src/test/*.ts"],
+  "include": [
+    "src/**/*",
+    "dist/index.d.ts",
+    "vitest.config.ts",
+    ".eslintrc.cjs",
+    "lib",
+    "src/test/*.ts",
+    "postcss.config.js",
+    "tailwind.config.ts"
+  ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

@@ -3,9 +3,9 @@
 import { TFancyLineWithHTMLAttributes } from './TFancyLine.model';
 import { StyledFancyLine } from '@/components/atoms/FancyLine/FancyLine.style';
 
-// --------------------------------------------------------------------------- //
-// ------------ A dynamic line (vertical/horizontal) for better UX/UI  ------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- A dynamic line (vertical/horizontal) for better UX/UI --- //
+// --- //
 export default function FancyLine(props: TFancyLineWithHTMLAttributes) {
   const {
     direction = 'horizontal',

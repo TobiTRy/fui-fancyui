@@ -1,18 +1,30 @@
-import { TSizeSettings } from '@/types/TSizeSettings';
-import { TSpacingArray } from '@/types/TSpacings';
+import { TSizeSettingsMid } from '@/types/TSizeSettings';
+import { TSpacingArray, TSpacings } from '@/types/TSpacings';
 
 type TSizeObj = {
   padding: TSpacingArray;
+  lineHeight: TSpacings;
 };
 
-export const sizeSettings: TSizeSettings<TSizeObj> = {
+export const sizeSettings: TSizeSettingsMid<TSizeObj> = {
+  xs: {
+    padding: ['xs', 'sm'],
+    lineHeight: 'md',
+  },
   sm: {
-    padding: ['sm', 'sm'],
+    padding: ['xs', 'md'],
+    lineHeight: 'md',
   },
   md: {
-    padding: ['sm', 'md'],
+    padding: ['xs', 'lg'],
+    lineHeight: 'lg',
   },
   lg: {
-    padding: ['md', 'lg'],
+    padding: ['sm', 'lg'],
+    lineHeight: 'md',
+  },
+  xl: {
+    padding: ['sm', 'lg'],
+    lineHeight: 'md',
   },
 };

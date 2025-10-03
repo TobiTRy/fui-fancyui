@@ -5,9 +5,9 @@ import { FancyPortal } from '@/components/shared/FancyPortal';
 
 import { TFancyModal } from './TFancyModal.modal';
 
-// --------------------------------------------------------------------------- //
-// ----------------- The modalModule to build up a Moadal  ------------------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- The modalModule to build up a Moadal --- //
+// --- //
 export default function FancyModal(props: TFancyModal) {
   const { appendToDomID, modals, closeModal, externalStyle, zIndex, ...htmlProps } = props;
 

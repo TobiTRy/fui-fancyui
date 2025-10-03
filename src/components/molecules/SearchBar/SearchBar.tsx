@@ -9,9 +9,9 @@ import { InputWrapper, SizeWrapper, StyledSearchBar } from '@/components/molecul
 import { TSearchBarWithFancyInputAttrs } from '@/components/molecules/SearchBar/TSearchbar.model';
 import { IconWrapper } from './SearchBar.style';
 
-// --------------------------------------------------------------------------- //
-// ---------- Seachbar like for a header to search something  ---------------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- Seachbar like for a header to search something --- //
+// --- //
 export default function SearchBar(props: TSearchBarWithFancyInputAttrs) {
   const {
     activeHandler,

@@ -11,9 +11,9 @@ import { FancyFlexBox } from '@/components/templates/FancyFlexBox';
 import { StyledCard } from './Card.style';
 import { TCardWithFancyBoxAttrs } from './TCard.model';
 
-// --------------------------------------------------------------------------- //
-// ---------- The card is there to wrapp some content or components ---------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- The card is there to wrapp some content or components --- //
+// --- //
 function Card(props: TCardWithFancyBoxAttrs) {
   const { children, padding, borderRadius = 'lg', shadow = true, layer = 1, ...fancyBox } = props;
 

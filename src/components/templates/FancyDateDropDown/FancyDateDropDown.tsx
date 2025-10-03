@@ -7,9 +7,9 @@ import generateYearZone from '@/utils/functions/generateFunctions/generateYearZo
 
 import { TDateType, TFancyDateDropDownWithFancyDropDownSelect } from './TFancyDateDropDown.model';
 
-// --------------------------------------------------------------------------- //
-// -------------- Fancy Date DropDown to Pick a day/month/year --------------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- Fancy Date DropDown to Pick a day/month/year --- //
+// --- //
 export default function FancyDateDropDown(props: TFancyDateDropDownWithFancyDropDownSelect) {
   const { type = 'year', dateLimits, ...inputProps } = props;
 

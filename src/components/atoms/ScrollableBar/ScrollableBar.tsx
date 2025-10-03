@@ -6,9 +6,9 @@ import { ScollAbleBar } from './SrollableBar.style';
 export interface IScrollableBar {
   children?: React.ReactNode;
 }
-// --------------------------------------------------------------------------- //
-// -------- Handles the overflow in the scrollbar  with mac variation -------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- Handles the overflow in the scrollbar  with mac variation --- //
+// --- //
 export default function ScrollableBar(props: IScrollableBar) {
   const { children } = props;
 

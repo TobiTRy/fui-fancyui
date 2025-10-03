@@ -8,9 +8,9 @@ import { Typography } from '@/components/atoms/Typography';
 import { Container, WarpperComponent, Message, MessageContainer } from './FancyCodeVerificationInput.style';
 import { TFancySingleInputs } from './TFancyCodeVerificationInput.model';
 
-// --------------------------------------------------------------------------- //
-// -The main FancySinlgeInput Componet wich handle the apicall and the sattus- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- The main FancySinlgeInput Componet wich handle the apicall and the sattus- --- //
+// --- //
 export default function FancyCodeVerificationInput(props: TFancySingleInputs) {
   const { length = 6, errorMessage, isSuccess, handler, automaticCase, debounceTime, ...htmlProps } = props;
   const [inputValue, setInputValue] = useState('');

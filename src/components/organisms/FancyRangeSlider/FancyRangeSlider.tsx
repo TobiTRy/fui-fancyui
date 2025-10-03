@@ -11,9 +11,9 @@ import { countNegativLayerUpwards } from '@/design/designFunctions/countNegativL
 import { TFancyRangeSlider } from './TFancyRangeSlider.model';
 import { InputElementWrapper, generateInputWrapperStyles } from './FancyRangeSlider.style';
 
-// --------------------------------------------------------------------------- //
-// ------------ Here is createt the Fancy Range Slider Organism -------------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- Here is createt the Fancy Range Slider Organism --- //
+// --- //
 export default function FancyRangeSlider(props: TFancyRangeSlider) {
   const {
     id,

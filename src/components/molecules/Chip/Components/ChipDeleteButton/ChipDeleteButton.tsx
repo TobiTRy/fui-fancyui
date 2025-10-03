@@ -10,9 +10,10 @@ import { RawButton } from '@/components/atoms/RawButton';
 import { SVGXCircle } from '@/components/icons';
 import { sizesSettings } from '@/components/molecules/Chip/sizeSettings';
 import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent';
+import { TComponentSizesMid } from '@/types/TComponentSizes';
 
 type IXButtonProps = {
-  sizeC?: keyof typeof sizesSettings;
+  sizeC?: TComponentSizesMid;
   children?: React.ReactNode;
   themeType?: TUiColorsNotTransparent;
   layer?: TLayer;

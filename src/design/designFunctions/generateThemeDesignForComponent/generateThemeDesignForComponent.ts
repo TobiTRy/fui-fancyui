@@ -10,9 +10,9 @@ import { TTheme } from '@/types/TTheme';
 export type IGenerateThemeDesignForComponent = TStyledPrefixAndPicker<TGenerateThemeDesignForComponentProps> & {
   theme: TTheme;
 };
-// --------------------------------------------------------------------------- //
-// -------  The main function to generate a style for the components -- ------ //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- The main function to generate a style for the components -- --- //
+// --- //
 export default function generateThemeDesignForComponent(props: IGenerateThemeDesignForComponent) {
   const { $themeType, $outlined, $textColor, $useSimpleTextColor } = props;
 

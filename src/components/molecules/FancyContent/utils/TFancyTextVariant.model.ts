@@ -4,6 +4,7 @@ import { TTypographyElList } from '@/types/TTypographyElList';
 import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 import { TLayer } from '@/types/TLayer';
 import { TTypographyVariants } from '@/types/TTypographyVariants';
+import { TComponentSizesMid } from '@/types/TComponentSizes';
 
 type IFancyContentTextProps = {
   children?: React.ReactNode;
@@ -16,7 +17,7 @@ type IFancyContentTextProps = {
 };
 
 type IFancyContentTextWithSizeProps = IFancyContentTextProps & {
-  sizeC?: 'sm' | 'md' | 'lg';
+  sizeC?: TComponentSizesMid;
   fontVariant?: never;
   type?: never;
 };

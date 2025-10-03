@@ -6,9 +6,9 @@ import { useEffect, useRef } from 'react';
 import { StyledUL, WrapperUL } from './FancyDropDownUL.style';
 import { TFancyDropDownULWithHTMLAttrs } from './TFancyDropDownUL.model';
 
-// --------------------------------------------------------------------------- //
-// ---------- Here are the design variants for sizing and alignment ---------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- Here are the design variants for sizing and alignment --- //
+// --- //
 export default function FancyDropDownUL({
   children,
   isOpen,

@@ -28,9 +28,6 @@ export default function ButtonRoute() {
 
   return (
     <>
-      <FancySVGAtom sizeC="lg" themeType="secondary">
-        <SVGChevronRight />
-      </FancySVGAtom>
       <DesignWrapper>
         <DesignArea title="Buttons sizes" style={backgroundColor}>
           <FancyButton themeType="primary" label="Hhdsds" sizeC="xs" layer={2} />
@@ -60,18 +57,18 @@ export default function ButtonRoute() {
           <FancyButton label="Button" icon={<SVGChevronRight />} themeType="primary" sizeC="xl" />
         </DesignArea>
         <DesignArea title="Buttons sizes" style={backgroundColor}>
-          <FancyButton themeType="primary" backgroundState="active" label="Hhdsds" sizeC="lg" layer={2} />
+          <FancyButton themeType="primary" backgroundState="active" label="Hhdsds" sizeC="xs" layer={2} />
           <FancyButton
             outlinedRemoveBorder
             themeType="primary"
             backgroundState="active"
             label="Hhdsds"
-            sizeC="lg"
+            sizeC="sm"
             layer={2}
           />
-          <FancyButton label="Button" themeType="primary" sizeC="sm" onClick={() => console.log('Trigger me Dadddy')} />
-          <FancyButton label="Button" themeType="primary" sizeC="md" />
-          <FancyButton label="ButtonLG" backgroundState="hover" themeType="primary" sizeC="lg" />
+          <FancyButton label="Button" themeType="primary" sizeC="md" onClick={() => console.log('Trigger me Dadddy')} />
+          <FancyButton label="Button" themeType="primary" sizeC="lg" />
+          <FancyButton label="ButtonLG" backgroundState="hover" themeType="primary" sizeC="xl" />
         </DesignArea>
 
         <DesignArea title="Buttons sizes" style={backgroundColor}>
@@ -207,9 +204,6 @@ export default function ButtonRoute() {
           outlined
           borderRadius="sm"
         />
-      </DesignArea>
-      <DesignArea title="Buttons" style={backgroundColor}>
-        <FancyButton className={style.test} appendClassNameOnStyle={true} noSize label="Test" themeType="primary" />
       </DesignArea>
     </>
   );

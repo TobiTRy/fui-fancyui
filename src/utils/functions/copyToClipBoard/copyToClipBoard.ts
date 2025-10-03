@@ -1,6 +1,6 @@
-// --------------------------------------------------------------------------- //
-// ------------------- function to copy to the Clipboard --------------------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- function to copy to the Clipboard --- //
+// --- //
 // https://stackoverflow.com/a/53951634/938822
 const copyToClipboard = (textToCopyd: string) => {
   let textarea;

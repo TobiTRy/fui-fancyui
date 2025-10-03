@@ -8,9 +8,9 @@ import { RawInput } from '@/components/atoms/RawInput';
 
 import { TNativePassowrdInputAttrs, TPasswordInputProps } from '@/components/atoms/PasswordInput/TPasswordInput.model';
 
-// --------------------------------------------------------------------------- //
-// --------------- The passwordInputcomponent for only the input ------------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- The passwordInputcomponent for only the input --- //
+// --- //
 const PasswordInput = forwardRef<HTMLInputElement, TPasswordInputProps & TNativePassowrdInputAttrs>((props, ref) => {
   const {
     align,

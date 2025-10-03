@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
+import { generateUniqueId } from '@/utils/functions/generateFunctions';
 import { TChip } from '@/components/organisms/FancyChipList/FancyChipList.model';
 import { setLastLetterPositionContentEditable } from '@/utils/functions/setLastLetterPositionContentEditable';
 
@@ -9,7 +9,7 @@ export const useChip = (chips: TChip[] = [], onChange?: (chips: TChip[]) => void
 
   // Function to add a new chip
   const addChip = (label: string) => {
-    onChange?.([...chips, { id: uuidv4(), label }]);
+    onChange?.([...chips, { id: generateUniqueId(), label }]);
   };
 
   // Function to delete a chip, curried to provide the chip id

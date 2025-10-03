@@ -10,9 +10,9 @@ const defaultOptions: IntersectionObserverInit = {
   threshold: 0.5,
 };
 
-// --------------------------------------------------------------------------- //
-// ---------- The multisectionObserver handles multiply elemnts -------------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- The multisectionObserver handles multiply elemnts --- //
+// --- //
 export default function useMultiIntersectionObserver(props: TuseMultiIntersectionObserver) {
   const { elements, callback, options } = props;
 

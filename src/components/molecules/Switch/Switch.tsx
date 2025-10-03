@@ -5,9 +5,9 @@ import { forwardRef, useCallback } from 'react';
 import { SwitchTrack, IconContainer, IconWrapper } from './Switch.style';
 import { TSwitchWithNativeAttrs } from './Switch.model';
 
-// --------------------------------------------------------------------------- //
-// ---------- A basic Switch component that can be used in organisms --------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- A basic Switch component that can be used in organisms --- //
+// --- //
 const Switch = forwardRef<HTMLInputElement, TSwitchWithNativeAttrs>((props, ref) => {
   const {
     checked = false,

@@ -5,9 +5,9 @@ import { forwardRef, useState } from 'react';
 import { TDateInputPropsWithNativeAttrs } from './TDateInput.model';
 import { StyledDatePicker } from './DateInput.style';
 
-// --------------------------------------------------------------------------- //
-// -------------- A simple date input for all kind of types ------------------ //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- A simple date input for all kind of types --- //
+// --- //
 const DateInput = forwardRef<HTMLInputElement, TDateInputPropsWithNativeAttrs>((props, ref) => {
   const {
     value,

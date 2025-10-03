@@ -6,6 +6,7 @@ import { DesignWrapper, DesignArea } from '../DesignWrapper/Wrapper';
 import { styled } from 'styled-components';
 import { Card } from '@/components/molecules/Card';
 
+// User data for search examples
 const users = [
   {
     name: 'John Doe',
@@ -56,6 +57,7 @@ export default function FancySearchBarRoute() {
   const [searchValue, setSearchValue] = useState('Bob');
   const [searchedUsers, setSearchedUsers] = useState(users);
 
+  // Legacy search handler for backward compatibility demo
   const searchHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     const searchValue = e.target.value;
     const lowerSearchValue = searchValue.toLowerCase();
@@ -74,37 +76,67 @@ export default function FancySearchBarRoute() {
   return (
     <Card externalStyle={{ width: '100%', height: '1000px' }}>
       <DesignWrapper>
-        <DesignArea title="Fancy Search Bar" style={{ display: 'flex', flexDirection: 'column' }}>
-          <FancySearchBar onChange={searchHandler} value={searchValue}>
-            <ListWrapper>
-              {searchedUsers.map((user, index) => (
-                <UserWrapper key={index}>
-                  <div>{user.name}</div>
-                  <div>{user.username}</div>
-                </UserWrapper>
-              ))}
-            </ListWrapper>
-          </FancySearchBar>
-          <FancySearchBar onChange={searchHandler} sizeC="md" value={searchValue}>
-            <ListWrapper>
-              {searchedUsers.map((user, index) => (
-                <UserWrapper key={index}>
-                  <div>{user.name}</div>
-                  <div>{user.username}</div>
-                </UserWrapper>
-              ))}
-            </ListWrapper>
-          </FancySearchBar>
-          <FancySearchBar onChange={searchHandler} sizeC="lg" value={searchValue}>
-            <ListWrapper>
-              {searchedUsers.map((user, index) => (
-                <UserWrapper key={index}>
-                  <div>{user.name}</div>
-                  <div>{user.username}</div>
-                </UserWrapper>
-              ))}
-            </ListWrapper>
-          </FancySearchBar>
+        <DesignArea
+          title="Fancy Search Bar - Different Sizes"
+          style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}
+        >
+          {/* Different size examples */}
+          <div>
+            <h3>Small Size</h3>
+            <FancySearchBar onChange={searchHandler} value={searchValue} sizeC="sm">
+              <ListWrapper>
+                {searchedUsers.map((user, index) => (
+                  <UserWrapper key={index}>
+                    <div>{user.name}</div>
+                    <div>{user.username}</div>
+                  </UserWrapper>
+                ))}
+              </ListWrapper>
+            </FancySearchBar>
+          </div>
+
+          <div>
+            <h3>Medium Size</h3>
+            <FancySearchBar onChange={searchHandler} value={searchValue} sizeC="md">
+              <ListWrapper>
+                {searchedUsers.map((user, index) => (
+                  <UserWrapper key={index}>
+                    <div>{user.name}</div>
+                    <div>{user.username}</div>
+                  </UserWrapper>
+                ))}
+              </ListWrapper>
+            </FancySearchBar>
+          </div>
+
+          <div>
+            <h3>Large Size</h3>
+            <FancySearchBar onChange={searchHandler} value={searchValue} sizeC="lg">
+              <ListWrapper>
+                {searchedUsers.map((user, index) => (
+                  <UserWrapper key={index}>
+                    <div>{user.name}</div>
+                    <div>{user.username}</div>
+                  </UserWrapper>
+                ))}
+              </ListWrapper>
+            </FancySearchBar>
+          </div>
+
+          {/* Original example */}
+          <div style={{ marginTop: '40px' }}>
+            <h3>🔧 Original Example</h3>
+            <FancySearchBar onChange={searchHandler} value={searchValue}>
+              <ListWrapper>
+                {searchedUsers.map((user, index) => (
+                  <UserWrapper key={index}>
+                    <div>{user.name}</div>
+                    <div>{user.username}</div>
+                  </UserWrapper>
+                ))}
+              </ListWrapper>
+            </FancySearchBar>
+          </div>
         </DesignArea>
       </DesignWrapper>
     </Card>

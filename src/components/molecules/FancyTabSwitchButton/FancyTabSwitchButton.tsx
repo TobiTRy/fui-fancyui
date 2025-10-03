@@ -8,9 +8,9 @@ import { SwitchButtonStyle } from './FancyTabSwitchButton.style';
 import { TFancyTabSwitchButton } from './TFancyTabSwitchButton.model';
 import { sizeSettings } from './sizeSettings';
 
-// ------------------------------------------------------------------ //
-// ------------- main component for the tab (li item) --------------- //
-// ------------------------------------------------------------------ //
+// --- //
+// ----- main component for the tab (li item) --- //
+// --- //
 const FancyTabSwitchButton = React.forwardRef<HTMLDivElement, TFancyTabSwitchButton>((props, ref) => {
   const {
     sizeC = 'sm',

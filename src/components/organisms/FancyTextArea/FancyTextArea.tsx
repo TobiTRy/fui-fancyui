@@ -5,9 +5,9 @@ import RawTextArea from '@/components/atoms/RawTextArea/RawTextArea';
 import { InputWrapper } from '@/components/molecules/InputWrapper';
 import { TFancyTextArea } from '@/components/organisms/FancyTextArea/FancyTextArea.model';
 
-// --------------------------------------------------------------------------- //
-// ---------- A FancyTextArea with a Background underline and Icon  ---------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- A FancyTextArea with a Background underline and Icon --- //
+// --- //
 const FancyTextArea = forwardRef<HTMLTextAreaElement, TFancyTextArea>((props, ref) => {
   const {
     id,

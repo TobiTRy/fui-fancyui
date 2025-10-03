@@ -5,9 +5,9 @@ import { TFancyProfilePictureWithHTMLAttrs } from './TFancyProfilePicture.model'
 import { FancyImageWrapper } from '@/components/atoms/FancyImageWrapper';
 import { getBorderRadiusViaSize } from '@/design/designFunctions/getBorderRadiusViaSize';
 
-// --------------------------------------------------------------------------- //
-//  ProfilePicture component to render with  different sizes and border radius //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- ProfilePicture component to render with  different sizes and border radius --- //
+// --- //
 export default function FancyProfilePicture(props: TFancyProfilePictureWithHTMLAttrs) {
   const {
     borderRadius = 'complete',

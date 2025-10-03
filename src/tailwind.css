@@ -1,0 +1,312 @@
+@import "tailwindcss";
+
+@source "./src/**/*.{js,jsx,ts,tsx}";
+@source "./lib/**/*.{js,jsx,ts,tsx}";
+
+@theme {
+  /* FUI Color System */
+  --color-primary-0: #131825;
+  --color-primary-1: #181F2F;
+  --color-primary-2: #1F273D;
+  --color-primary-3: #242E47;
+  --color-primary-4: #323F62;
+  --color-primary-5: #3E4F79;
+  --color-primary-6: #4E6298;
+  --color-primary-7: #5A70AA;
+  --color-primary-8: #6B7FB3;
+  --color-primary-9: #9DAACD;
+
+  --color-accent-0: #F17C12;
+  --color-accent-1: #DC700D;
+  --color-accent-2: #C4630C;
+  --color-accent-3: #AC570A;
+  --color-accent-4: #944B09;
+  --color-accent-5: #7C3F07;
+  --color-accent-6: #643306;
+  --color-accent-7: #4C2604;
+  --color-accent-8: #341A03;
+  --color-accent-9: #1C0E02;
+
+  --color-secondary-0: #F0F0EF;
+  --color-secondary-1: #E9E9E7;
+  --color-secondary-2: #DFDFDD;
+  --color-secondary-3: #D7D7D5;
+  --color-secondary-4: #C4C4C0;
+  --color-secondary-5: #B2B2AD;
+  --color-secondary-6: #9C9C96;
+  --color-secondary-7: #8D8D86;
+  --color-secondary-8: #818179;
+  --color-secondary-9: #595954;
+
+  --color-info-0: #287FD7;
+  --color-info-1: #3587D9;
+  --color-info-2: #4691DD;
+  --color-info-3: #5399DF;
+  --color-info-4: #60A0E1;
+  --color-info-5: #75ADE5;
+  --color-info-6: #8BBAE9;
+  --color-info-7: #A9CCEF;
+  --color-info-8: #BFD9F3;
+  --color-info-9: #D4E5F7;
+
+  --color-success-0: #009688;
+  --color-success-1: #00A596;
+  --color-success-2: #00BAA8;
+  --color-success-3: #00C9B6;
+  --color-success-4: #00D8C4;
+  --color-success-5: #00F2DB;
+  --color-success-6: #0CFFE8;
+  --color-success-7: #30FFEC;
+  --color-success-8: #49FFEE;
+  --color-success-9: #63FFF0;
+
+  --color-warning-0: #EB8800;
+  --color-warning-1: #FA9100;
+  --color-warning-2: #FF9A10;
+  --color-warning-3: #FFA11F;
+  --color-warning-4: #FFA72E;
+  --color-warning-5: #FFB248;
+  --color-warning-6: #FFBD61;
+  --color-warning-7: #FFCC85;
+  --color-warning-8: #FFD69F;
+  --color-warning-9: #FFE1B8;
+
+  --color-error-0: #D21414;
+  --color-error-1: #E01515;
+  --color-error-2: #EA2020;
+  --color-error-3: #EB2E2E;
+  --color-error-4: #EC3C3C;
+  --color-error-5: #EF5353;
+  --color-error-6: #F16A6A;
+  --color-error-7: #F48B8B;
+  --color-error-8: #F6A2A2;
+  --color-error-9: #F8BABA;
+
+  /* FUI Spacing System (numbered steps) */
+  --spacing-0: 0px;
+  --spacing-1: 2px;
+  --spacing-2: 4px;
+  --spacing-3: 8px;
+  --spacing-4: 12px;
+  --spacing-5: 16px;
+  --spacing-6: 24px;
+  --spacing-7: 32px;
+  --spacing-8: 40px;
+  --spacing-9: 48px;
+  --spacing-10: 64px;
+
+  /* FUI Border Radius System */
+  --radius-0: 0px;
+  --radius-1: 4px;
+  --radius-2: 8px;
+  --radius-3: 12px;
+  --radius-4: 16px;
+  --radius-5: 24px;
+  --radius-6: 32px;
+  --radius-7: 40px;
+  --radius-8: 200px;
+
+  /* FUI Element Sizes */
+  --size-element-0: 16px;
+  --size-element-1: 20px;
+  --size-element-2: 24px;
+  --size-element-3: 32px;
+  --size-element-4: 40px;
+  --size-element-5: 48px;
+  --size-element-6: 56px;
+  --size-element-7: 64px;
+  --size-element-8: 72px;
+  --size-element-9: 80px;
+  --size-element-10: 96px;
+  --size-element-11: 112px;
+  --size-element-12: 128px;
+
+  /* FUI Typography System */
+  --font-size-display-hero: 4rem;
+  --font-size-display-headline: 3rem;
+  --font-size-display-title: 2.25rem;
+  --font-size-section-title: 1.875rem;
+  --font-size-section-subtitle: 1.5rem;
+  --font-size-section-subsection-title: 1.25rem;
+  --font-size-body-lg: 1.125rem;
+  --font-size-body-md: 1rem;
+  --font-size-body-sm: 0.875rem;
+  --font-size-sub-caption: 0.75rem;
+  --font-size-sub-footnote: 0.625rem;
+  --font-size-sub-legal: 0.5rem;
+  --font-size-interactive-xs: 0.75rem;
+  --font-size-interactive-sm: 0.875rem;
+  --font-size-interactive-md: 1rem;
+  --font-size-interactive-lg: 1.125rem;
+  --font-size-interactive-xl: 1.25rem;
+
+  /* Responsive Breakpoints */
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+
+  /* FUI Transition Properties */
+  --transition-duration-fui: 125ms;
+  --transition-timing-function-fui: ease-in-out;
+}
+
+/* Custom FUI utilities */
+@layer components {
+  .focus-fui {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--color-accent-5);
+  }
+  
+  .disabled-fui {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+  
+  .transition-fui {
+    transition-property: background-color, color, border-color, filter, opacity;
+    transition-duration: var(--transition-duration-fui);
+    transition-timing-function: var(--transition-timing-function-fui);
+  }
+}
+
+@layer utilities {
+  /* Animation utilities for FUI patterns */
+  .animate-fade-in {
+    animation: fadeIn 0.2s ease-in-out;
+  }
+  
+  .animate-slide-in {
+    animation: slideIn 0.3s ease-out;
+  }
+  
+  .animate-scale-in {
+    animation: scaleIn 0.2s ease-out;
+  }
+
+  /* Keep color tokens referenced so minifiers don't drop them */
+  .fui-keep-color-tokens {
+    /* info */
+    color: var(--color-info-0);
+    color: var(--color-info-1);
+    color: var(--color-info-2);
+    color: var(--color-info-3);
+    color: var(--color-info-4);
+    color: var(--color-info-5);
+    color: var(--color-info-6);
+    color: var(--color-info-7);
+    color: var(--color-info-8);
+    color: var(--color-info-9);
+    /* success */
+    color: var(--color-success-0);
+    color: var(--color-success-1);
+    color: var(--color-success-2);
+    color: var(--color-success-3);
+    color: var(--color-success-4);
+    color: var(--color-success-5);
+    color: var(--color-success-6);
+    color: var(--color-success-7);
+    color: var(--color-success-8);
+    color: var(--color-success-9);
+    /* warning */
+    color: var(--color-warning-0);
+    color: var(--color-warning-1);
+    color: var(--color-warning-2);
+    color: var(--color-warning-3);
+    color: var(--color-warning-4);
+    color: var(--color-warning-5);
+    color: var(--color-warning-6);
+    color: var(--color-warning-7);
+    color: var(--color-warning-8);
+    color: var(--color-warning-9);
+    /* error */
+    color: var(--color-error-0);
+    color: var(--color-error-1);
+    color: var(--color-error-2);
+    color: var(--color-error-3);
+    color: var(--color-error-4);
+    color: var(--color-error-5);
+    color: var(--color-error-6);
+    color: var(--color-error-7);
+    color: var(--color-error-8);
+    color: var(--color-error-9);
+  }
+
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { transform: translateY(-10px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Force generation of all spacing utilities for dynamic class names */
+.mt-0 { margin-top: var(--spacing-0); }
+.mt-1 { margin-top: var(--spacing-1); }
+.mt-2 { margin-top: var(--spacing-2); }
+.mt-3 { margin-top: var(--spacing-3); }
+.mt-4 { margin-top: var(--spacing-4); }
+.mt-5 { margin-top: var(--spacing-5); }
+.mt-6 { margin-top: var(--spacing-6); }
+.mt-7 { margin-top: var(--spacing-7); }
+.mt-8 { margin-top: var(--spacing-8); }
+.mt-9 { margin-top: var(--spacing-9); }
+.mt-10 { margin-top: var(--spacing-10); }
+
+.mb-0 { margin-bottom: var(--spacing-0); }
+.mb-1 { margin-bottom: var(--spacing-1); }
+.mb-2 { margin-bottom: var(--spacing-2); }
+.mb-3 { margin-bottom: var(--spacing-3); }
+.mb-4 { margin-bottom: var(--spacing-4); }
+.mb-5 { margin-bottom: var(--spacing-5); }
+.mb-6 { margin-bottom: var(--spacing-6); }
+.mb-7 { margin-bottom: var(--spacing-7); }
+.mb-8 { margin-bottom: var(--spacing-8); }
+.mb-9 { margin-bottom: var(--spacing-9); }
+.mb-10 { margin-bottom: var(--spacing-10); }
+
+.ml-0 { margin-left: var(--spacing-0); }
+.ml-1 { margin-left: var(--spacing-1); }
+.ml-2 { margin-left: var(--spacing-2); }
+.ml-3 { margin-left: var(--spacing-3); }
+.ml-4 { margin-left: var(--spacing-4); }
+.ml-5 { margin-left: var(--spacing-5); }
+.ml-6 { margin-left: var(--spacing-6); }
+.ml-7 { margin-left: var(--spacing-7); }
+.ml-8 { margin-left: var(--spacing-8); }
+.ml-9 { margin-left: var(--spacing-9); }
+.ml-10 { margin-left: var(--spacing-10); }
+
+.mr-0 { margin-right: var(--spacing-0); }
+.mr-1 { margin-right: var(--spacing-1); }
+.mr-2 { margin-right: var(--spacing-2); }
+.mr-3 { margin-right: var(--spacing-3); }
+.mr-4 { margin-right: var(--spacing-4); }
+.mr-5 { margin-right: var(--spacing-5); }
+.mr-6 { margin-right: var(--spacing-6); }
+.mr-7 { margin-right: var(--spacing-7); }
+.mr-8 { margin-right: var(--spacing-8); }
+.mr-9 { margin-right: var(--spacing-9); }
+.mr-10 { margin-right: var(--spacing-10); }
+
+.gap-0 { gap: var(--spacing-0); }
+.gap-1 { gap: var(--spacing-1); }
+.gap-2 { gap: var(--spacing-2); }
+.gap-3 { gap: var(--spacing-3); }
+.gap-4 { gap: var(--spacing-4); }
+.gap-5 { gap: var(--spacing-5); }
+.gap-6 { gap: var(--spacing-6); }
+.gap-7 { gap: var(--spacing-7); }
+.gap-8 { gap: var(--spacing-8); }
+.gap-9 { gap: var(--spacing-9); }
+.gap-10 { gap: var(--spacing-10); }

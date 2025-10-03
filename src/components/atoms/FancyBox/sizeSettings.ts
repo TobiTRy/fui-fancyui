@@ -35,4 +35,28 @@ export const sizeSettings: TSizeSettingsExtended<TSizeObj> = {
     padding: ['xxl'],
     borderRadius: 'xxl',
   },
+  '3xl': {
+    padding: ['xxl'],
+    borderRadius: 'xxl',
+  },
+  '4xl': {
+    padding: ['xxl'],
+    borderRadius: 'xxl',
+  },
+  '5xl': {
+    padding: ['xxl'],
+    borderRadius: 'xxl',
+  },
+  '6xl': {
+    padding: ['xxl'],
+    borderRadius: 'xxl',
+  },
+  '7xl': {
+    padding: ['xxl'],
+    borderRadius: 'xxl',
+  },
+  '8xl': {
+    padding: ['xxl'],
+    borderRadius: 'xxl',
+  },
 };

@@ -1,28 +1,6 @@
-@font-face {
-  font-family: 'JakartaSans';
-  src: url(./components/design/JakartaSans.ttf) format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
+@import './tailwind.css';
 
-@font-face {
-  font-family: 'DMSans';
-  src: url(./components/design/DMSans-Regular.ttf) format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Inter';
-  src: url(./components/design/Inter.ttf) format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Poopins';
-  src: url(./components/design//Poppins-Regular.ttf) format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
+/* Tailwind CSS imported via tailwind.css with custom variables */
 
 body {
   margin: 0;

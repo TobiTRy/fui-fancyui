@@ -3,9 +3,9 @@ import { styled } from 'styled-components';
 import { TComponentSizes } from '@/types/TComponentSizes';
 import { sizeSettings } from './sizeSettings';
 
-// ------------------------------------------- //
-// ------- The style for the component ------- //
-// ------------------------------------------- //
+// --- //
+// ----- The style for the component --- //
+// --- //
 
 // Styled component for the search bar
 export const StyledSearchBar = styled.div<{ $isActive?: boolean; theme: TTheme; $sizeC: TComponentSizes }>`

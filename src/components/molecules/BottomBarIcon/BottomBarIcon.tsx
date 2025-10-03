@@ -8,9 +8,9 @@ import { FancySVGAtom } from '@/components/atoms/FancySVGAtom';
 import { FancyFlexBox } from '@/components/templates/FancyFlexBox';
 import { Typography } from '@/components/atoms/Typography';
 
-// --------------------------------------------------------------------------- //
-// -------------------- Only a Bottombar Icon with Text  --------------------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- Only a Bottombar Icon with Text --- //
+// --- //
 export default function BottomBarIcon(props: TBottomBarIconWithHTMLAttributes) {
   const {
     sizeC = 'sm',

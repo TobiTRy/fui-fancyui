@@ -8,9 +8,9 @@ import { WeekdaysConatiner } from '@/components/atoms/WeekDays/Weekdays.style';
 
 import { sizeSettings } from './sizeSettings';
 
-// --------------------------------------------------------------------------- //
-// ---------- This Atom creates a List of all Weekdas from Mo - Su ----------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- This Atom creates a List of all Weekdas from Mo - Su --- //
+// --- //
 export default function WeekDays(props: TWeekDays) {
   const { themeType, layer, sizeC = 'md', border = 'bottom', startWeekOn = 1 } = props;
 

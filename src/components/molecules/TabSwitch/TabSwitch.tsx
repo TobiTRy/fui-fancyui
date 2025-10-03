@@ -8,9 +8,9 @@ import { generateBorderRadiusForComponentOnlyValue } from '@/design/designFuncti
 import { TTabSwitchWithHTMLAtts } from './TTabSwitch.model';
 import { ItemWrapper, ULButtonSwitchList } from './TabSwitch.style';
 
-// --------------------------------------------------------------------------- //
-// ------------ The tap SwitchComponent to slect specifc values -------------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- The tap SwitchComponent to slect specifc values --- //
+// --- //
 export default function TabSwitch(props: TTabSwitchWithHTMLAtts) {
   const {
     values,

@@ -12,9 +12,9 @@ import { FancyVirtualScroll } from '@/components/shared/FancyVirtualScroll';
 import { useDebounce } from '@/utils/hooks/useDebounce';
 import { generateArrayWithMonthYearRange } from './utils/generateArrayWithMonthYearRange/generateArrayWithMonthYearRange';
 
-// --------------------------------------------------------------------------- //
-// -------- The main calenader wich can select a date, or date range --------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- The main calenader wich can select a date, or date range --- //
+// --- //
 export default function Calendar(props: TCalendar) {
   const {
     selectedYearMonth = { year: new Date().getFullYear() + 5, month: new Date().getMonth() },
@@ -70,9 +70,9 @@ export default function Calendar(props: TCalendar) {
   // the current month in view (the month that is in the middle of the container)
   const [currentMonthInView, setCurrentMonthInView] = useState(toScrolledMonthIdx);
 
-  // --------------------------------------------------------------------------- //
-  // -------- The Logic down there handles the scrolling on the claendar ------- //
-  // --------------------------------------------------------------------------- //
+  // --- //
+  // ----- The Logic down there handles the scrolling on the claendar --- //
+  // --- //
   const [isScrolling, setIsScrolling] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
 

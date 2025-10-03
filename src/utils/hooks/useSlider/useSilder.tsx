@@ -8,9 +8,9 @@ import throttle from '@/utils/functions/throttle/throttle';
 
 type ColorType = ReturnType<typeof Color>;
 
-// --------------------------------------------------------------------------- //
-// ------------------ Define the main useSlider Hoook function --------------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- Define the main useSlider Hoook function --- //
+// --- //
 const useSlider = ({
   color,
   hue,

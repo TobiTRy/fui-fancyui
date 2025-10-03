@@ -3,9 +3,9 @@
 import { LoadingBar, LoadingContainer } from '@/components/atoms/FancyLoadingBar/FancyLoadingBar.style';
 import { TFancyLoadingBarWithHTMLProps } from '@/components/atoms/FancyLoadingBar/TFancyLoadingBar.model';
 
-// ----------------------------------------------------- //
-// -------- A Loadingbar that indicates loading -------- //
-// ----------------------------------------------------- //
+// --- //
+// ----- A Loadingbar that indicates loading --- //
+// --- //
 export default function FancyLoadingBar(props: TFancyLoadingBarWithHTMLProps) {
   const { themeType, layer, externalStyle, ...rest } = props;
 

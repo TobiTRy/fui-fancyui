@@ -6,9 +6,9 @@ import { generateNumbers } from './utils/generateNumbers';
 import { TPageNumberList } from './TPageNumberList.model';
 
 // Define the props for the PageNumberList component
-// --------------------------------------------------------------------------- //
-// ------- This compoennt generate the Page Numbers and the Spacings --------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- This compoennt generate the Page Numbers and the Spacings --- //
+// --- //
 export default function PageNumberList(props: TPageNumberList) {
   const { showPages = 3, currentPage = 1, pageHandler, pageLimits = 99, numberButtonStyle } = props;
 

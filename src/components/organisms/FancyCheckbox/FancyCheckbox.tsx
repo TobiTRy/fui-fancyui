@@ -6,9 +6,9 @@ import { FancySelectWrapper } from '@/components/molecules/FancySelectWrapper';
 
 import { TFancyCheckbox } from './TFancyCheckbox.model';
 
-// --------------------------------------------------------------------------- //
-// -------------------- A simple Checkbox with a Label ----------------------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- A simple Checkbox with a Label --- //
+// --- //
 const FancyCheckbox = forwardRef<HTMLInputElement, TFancyCheckbox>((props, ref) => {
   const { label, onChange, align = 'center', alignCheckbox = 'left', description, checked, ...rest } = props;
   const id = useId();

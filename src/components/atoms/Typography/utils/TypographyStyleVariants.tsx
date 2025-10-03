@@ -108,5 +108,30 @@ export const generateFontVariants = (props: TgenerateFontVariants) => {
       ${themeFonts.interactiveSm};
       ${providedStyle};
     `,
+    fancyContentXs: css`
+      ${nullifyStyle};
+      ${themeFonts.fancyContentXs};
+      ${providedStyle};
+    `,
+    fancyContentSm: css`
+      ${nullifyStyle};
+      ${themeFonts.fancyContentSm};
+      ${providedStyle};
+    `,
+    fancyContentMd: css`
+      ${nullifyStyle};
+      ${themeFonts.fancyContentMd};
+      ${providedStyle};
+    `,
+    fancyContentLg: css`
+      ${nullifyStyle};
+      ${themeFonts.fancyContentLg};
+      ${providedStyle};
+    `,
+    fancyContentXl: css`
+      ${nullifyStyle};
+      ${themeFonts.fancyContentXl};
+      ${providedStyle};
+    `,
   };
 };

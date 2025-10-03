@@ -7,9 +7,9 @@ import { TDateArray, TDateOnlyArray } from '@/components/molecules/Calendar/TCal
 import { selectDayRange } from '../selectDayRange/selectDayRange';
 import { TuseSelectedDates } from './TuseSelectedDates.model';
 
-// --------------------------------------------------------------------------- //
-// -------- this hook handles the selection of one date or range dates ------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- this hook handles the selection of one date or range dates --- //
+// --- //
 export default function useSelectedDates(props: TuseSelectedDates) {
   const { handleDates, rangeCalendar } = props;
 

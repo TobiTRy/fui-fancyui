@@ -10,9 +10,9 @@ import { Typography } from '@/components/atoms/Typography';
 import { Wrapper } from './FancyProgressBar.style';
 import { TFancyProgressBarWithHTMLAttrs } from './TFancyprogressBar.model';
 
-// --------------------------------------------------------------------------- //
-// ---------- The Progressbar with some Items Like Percent and Label --------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- The Progressbar with some Items Like Percent and Label --- //
+// --- //
 export default function FancyProgressBar(props: TFancyProgressBarWithHTMLAttrs) {
   const {
     progress,

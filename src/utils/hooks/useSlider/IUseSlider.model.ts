@@ -2,9 +2,9 @@ import Color from 'color';
 
 type ColorType = ReturnType<typeof Color>;
 
-// --------------------------------------------------------------------------- //
-// ---------------- Define the interfaces for the useSlider Hook ------------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- Define the interfaces for the useSlider Hook --- //
+// --- //
 export interface IUseSlider {
   color?: ColorType | null;
   hue?: number;

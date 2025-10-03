@@ -5,9 +5,9 @@ import { useEffect, useState } from 'react';
 import { TRawSliderWithNativeAttrs } from '@/components/atoms/RawSlider/TRawSlider.model';
 import { StyledRawSlider } from './RawSlider.style';
 
-// --------------------------------------------------------------------------- //
-// ------------ Here is createt the Slider Atom (Range Slider) --------------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- Here is createt the Slider Atom (Range Slider) --- //
+// --- //
 export default function RawSlider(props: TRawSliderWithNativeAttrs) {
   const {
     max,

@@ -8,9 +8,9 @@ import { TFancySVGAtomWithNativeAttrs } from '@/components/atoms/FancySVGAtom/TF
 interface ILoadingSVGArrowsProps {
   isLoading?: boolean;
 }
-// --------------------------------------------------------------------------- //
-//  A loading animation with two arrows thats shown when something is loading  //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- A loading animation with two arrows thats shown when something is loading --- //
+// --- //
 export default function LoadingSVGArrows(props: ILoadingSVGArrowsProps & TFancySVGAtomWithNativeAttrs) {
   const { isLoading, ...SVGAtomProps } = props;
 
@@ -21,9 +21,9 @@ export default function LoadingSVGArrows(props: ILoadingSVGArrowsProps & TFancyS
   ) : null;
 }
 
-// ------------------------------------------- //
-// ------- The style for the component ------- //
-// ------------------------------------------- //
+// --- //
+// ----- The style for the component --- //
+// --- //
 const loadingAnimation = keyframes`
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }

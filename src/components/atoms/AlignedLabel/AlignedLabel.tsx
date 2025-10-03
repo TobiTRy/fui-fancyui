@@ -7,9 +7,9 @@ import { TAlignedLabelWithAllProps } from './TAlinedLabel.model';
 
 import { sizeSettings } from './sizeSettings';
 
-// --------------------------------------------------------------------------- //
-// ---------- The label handles alignment and typography  -------------------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- The label handles alignment and typography --- //
+// --- //
 export default function AlignedLabel(props: TAlignedLabelWithAllProps) {
   const {
     children,

@@ -48,9 +48,9 @@ const colorLettersObject = [
   },
 ];
 
-// --------------------------------------------------------------------------- //
-// --- The AdaptInputs Component creates for each color a specific input ----- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- The AdaptInputs Component creates for each color a specific input --- //
+// --- //
 interface IAdapedInput {
   inputLetter: string;
   value: number;

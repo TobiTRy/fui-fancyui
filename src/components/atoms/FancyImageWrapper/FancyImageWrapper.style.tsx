@@ -13,9 +13,9 @@ type TStyledImage = TStyledPrefixAndPicker<
   TFancyImageWrapper,
   'aspectRatio' | 'externalStyle' | 'borderRadius' | 'sizeH' | 'sizeW' | 'objectFit' | 'filter'
 >;
-// --------------------------------------------------------------------------- //
-// ------------------------- Helper Functions -------------------------------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- Helper Functions --- //
+// --- //
 // Generate the sizes for the image based on the provided sizeC
 const generateSize = (sizeC: TglobalElementSizesWithFit | string, direction: 'height' | 'width') => {
   if (sizeC === 'fit') {

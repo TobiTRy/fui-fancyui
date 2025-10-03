@@ -6,9 +6,9 @@ import { TextInput } from '@/components/atoms/TextInput';
 import { InputWrapper } from '@/components/molecules/InputWrapper';
 import { TFancyTextInput } from '@/components/organisms/FancyTextInput/TFancyTextInput.model';
 
-// --------------------------------------------------------------------------- //
-// ----The TextInput Comonent with surrounding icon, label and underline ----- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- The TextInput Comonent with surrounding icon, label and underline --- //
+// --- //
 const FancyTextInput = forwardRef<HTMLInputElement, TFancyTextInput>((props, ref) => {
   const {
     id,

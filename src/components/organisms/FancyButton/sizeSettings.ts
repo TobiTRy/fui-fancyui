@@ -14,43 +14,43 @@ type TSizeObj = {
 
 export const sizeSettings: TSizeSettingsMid<TSizeObj> = {
   xs: {
-    padding: ['xs', 'sm'],
+    padding: ['6px', 'sm'], // 6px top/bottom + 12px font = 24px total height
     gap: 'xxs',
-    paddingIconAlignLeft: ['xs', 'sm', 'xs', 'xs'],
-    paddingIconAlignRight: ['xs', 'xs', 'xs', 'sm'],
-    fontSize: 'interactiveXs',
-    iconSize: 'sm',
+    paddingIconAlignLeft: ['6px', 'sm', '6px', 'xs'],
+    paddingIconAlignRight: ['6px', 'xs', '6px', 'sm'],
+    fontSize: 'fancyContentXs', // 12px font with 12px line height for matching icon
+    iconSize: 'xs',
   },
   sm: {
-    padding: ['xs', 'md'],
+    padding: ['9px', 'md'], // 9px top/bottom + 14px font = 32px total height
     gap: 'xxs',
-    paddingIconAlignLeft: ['xs', 'md', 'xs', 'sm'],
-    paddingIconAlignRight: ['xs', 'sm', 'xs', 'md'],
-    fontSize: 'interactiveSm',
+    paddingIconAlignLeft: ['9px', 'md', '9px', 'sm'],
+    paddingIconAlignRight: ['9px', 'sm', '9px', 'md'],
+    fontSize: 'fancyContentSm', // 14px font with 14px line height for matching icon
     iconSize: 'sm',
   },
   md: {
-    padding: ['xs', 'lg'],
+    padding: ['sm', 'lg'], // 12px top/bottom + 16px font = 40px total height
     gap: 'xxs',
-    paddingIconAlignLeft: ['xs', 'lg', 'xs', 'md'],
-    paddingIconAlignRight: ['xs', 'md', 'xs', 'lg'],
-    fontSize: 'interactiveMd',
-    iconSize: 'sm',
+    paddingIconAlignLeft: ['sm', 'lg', 'sm', 'md'],
+    paddingIconAlignRight: ['sm', 'md', 'sm', 'lg'],
+    fontSize: 'fancyContentMd', // 16px font with 16px line height for matching icon
+    iconSize: 'md',
   },
   lg: {
-    padding: ['sm', 'lg'],
+    padding: ['14px', 'lg'], // 14px top/bottom + 20px font = 48px total height
     gap: 'xxs',
-    paddingIconAlignLeft: ['sm', 'xl', 'sm', 'lg'],
-    paddingIconAlignRight: ['sm', 'lg', 'sm', 'xl'],
-    fontSize: 'interactiveLg',
-    iconSize: 'xs',
+    paddingIconAlignLeft: ['14px', 'xl', '14px', 'lg'],
+    paddingIconAlignRight: ['14px', 'lg', '14px', 'xl'],
+    fontSize: 'fancyContentLg', // 20px font with 20px line height for matching icon
+    iconSize: 'lg',
   },
   xl: {
-    padding: ['sm', 'xl'],
+    padding: ['16px', 'xl'], // 16px top/bottom + 24px font = 56px total height
     gap: 'xxs',
-    paddingIconAlignLeft: ['sm', 'xl', 'sm', 'lg'],
-    paddingIconAlignRight: ['sm', 'lg', 'sm', 'xl'],
-    fontSize: 'interactiveXl',
-    iconSize: 'md',
+    paddingIconAlignLeft: ['16px', 'xl', '16px', 'lg'],
+    paddingIconAlignRight: ['16px', 'lg', '16px', 'xl'],
+    fontSize: 'fancyContentXl', // 24px font with 24px line height for matching icon
+    iconSize: 'xl',
   },
 };

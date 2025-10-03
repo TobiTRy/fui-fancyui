@@ -7,9 +7,9 @@ import { sizeSettings } from './sizeSettings';
 import { generateChipStyle } from './FancyMiniProfile.style';
 import { TFancyMiniprofileWithHTMLProps } from './TFancyMiniProfile.model';
 
-// --------------------------------------------------------------------------- //
-// ------ The MiniProfile rendes a image with a heading and description ------ //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- The MiniProfile rendes a image with a heading and description --- //
+// --- //
 export default function FancyMiniProfile(props: TFancyMiniprofileWithHTMLProps) {
   const { sizeC = 'sm', Image, title, subTitle, themeType, layer = 3, alignImage = 'right', ...htmlProps } = props;
 

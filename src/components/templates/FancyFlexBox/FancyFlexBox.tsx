@@ -6,9 +6,9 @@ import React, { ElementType } from 'react';
 import { StyledFlexBox } from './FancyFlexBox.style';
 import { TFancyFlexBoxWithDynamicElAttrs } from './TFancyFlexBox.model';
 
-// --------------------------------------------------------------------------- //
-// ------------ A layout component that helps align with flex box ------------ //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- A layout component that helps align with flex box --- //
+// --- //
 export default function FancyFlexBox<T extends ElementType = 'div'>(props: TFancyFlexBoxWithDynamicElAttrs<T>) {
   const {
     children,

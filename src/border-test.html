@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Border Color Test</title>
+    <link rel="stylesheet" href="./tailwind.css">
+</head>
+<body class="p-8">
+    <h1 class="text-2xl font-bold mb-6">Border Color Test</h1>
+    
+    <!-- Test border colors directly -->
+    <section class="mb-8">
+        <h2 class="text-xl font-semibold mb-4">Direct Border Tests</h2>
+        
+        <!-- Standard border classes -->
+        <div class="grid grid-cols-2 gap-4 mb-4">
+            <div class="border-2 border-red-500 p-4 rounded">
+                border-red-500 (should work)
+            </div>
+            <div class="border-2 border-blue-500 p-4 rounded">
+                border-blue-500 (should work)
+            </div>
+        </div>
+        
+        <!-- FUI border classes -->
+        <div class="grid grid-cols-2 gap-4 mb-4">
+            <div class="border-2 border-primary-5 p-4 rounded">
+                border-primary-5 (FUI color)
+            </div>
+            <div class="border-2 border-accent-1 p-4 rounded">
+                border-accent-1 (FUI color)
+            </div>
+        </div>
+        
+        <!-- Test all FUI border colors -->
+        <div class="grid grid-cols-4 gap-2 mb-4">
+            <div class="border-2 border-primary-2 p-2 text-xs">border-primary-2</div>
+            <div class="border-2 border-accent-2 p-2 text-xs">border-accent-2</div>
+            <div class="border-2 border-info-2 p-2 text-xs">border-info-2</div>
+            <div class="border-2 border-success-2 p-2 text-xs">border-success-2</div>
+            <div class="border-2 border-warning-2 p-2 text-xs">border-warning-2</div>
+            <div class="border-2 border-error-2 p-2 text-xs">border-error-2</div>
+            <div class="border-2 border-secondary-2 p-2 text-xs">border-secondary-2</div>
+        </div>
+    </section>
+
+    <!-- Exact replication of outlined style issue -->
+    <section class="mb-8">
+        <h2 class="text-xl font-semibold mb-4">Outlined Style Test (Exact ExperimentalRoute)</h2>
+        
+        <!-- Manual class application -->
+        <div class="border-2 border-primary-5 bg-primary-8 opacity-20 text-primary-0 p-4 rounded-4 mb-4">
+            <p>Manual classes: border-2 border-primary-5 bg-primary-8 opacity-20 text-primary-0</p>
+            <p class="text-xs mt-1">Should have primary-5 border color</p>
+        </div>
+        
+        <!-- Test with CSS variables directly -->
+        <div style="border: 2px solid var(--color-primary-5, red); background: var(--color-primary-8, blue); opacity: 0.2; color: var(--color-primary-0, green); padding: 1rem; border-radius: 16px;" class="mb-4">
+            <p>CSS Variables Direct: border: 2px solid var(--color-primary-5)</p>
+            <p class="text-xs mt-1">Should show actual color or red fallback</p>
+        </div>
+    </section>
+
+    <!-- Debug information -->
+    <section class="mt-8 p-4 bg-gray-100 rounded">
+        <h3 class="font-bold mb-2">Debug Checklist:</h3>
+        <ul class="text-sm space-y-1">
+            <li>✅ Standard Tailwind borders (red-500, blue-500) should work</li>
+            <li>❓ FUI border colors (border-primary-5) - check if they appear</li>
+            <li>❓ CSS variables - check if fallback colors show (red/blue/green)</li>
+        </ul>
+        
+        <div class="mt-4 p-2 bg-yellow-100 rounded text-xs">
+            <strong>Expected:</strong><br>
+            • border-primary-5 should be dark blue (#3E4F79)<br>
+            • If you see red fallback, CSS variable isn't defined<br>
+            • If no border shows, Tailwind class isn't generated
+        </div>
+    </section>
+
+    <script>
+        // Check CSS variable values
+        console.log('Border Color CSS Variables:');
+        const style = getComputedStyle(document.documentElement);
+        console.log('--color-primary-5:', style.getPropertyValue('--color-primary-5'));
+        console.log('--color-accent-1:', style.getPropertyValue('--color-accent-1'));
+        
+        // Check if border classes exist
+        const testEl = document.createElement('div');
+        testEl.className = 'border-primary-5';
+        document.body.appendChild(testEl);
+        const computedStyle = getComputedStyle(testEl);
+        console.log('border-primary-5 computed border-color:', computedStyle.borderColor);
+        document.body.removeChild(testEl);
+    </script>
+</body>
+</html>

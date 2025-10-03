@@ -24,9 +24,9 @@ export const WeekdaysConatiner = styled.div<TWeekdaysConatiner & { theme: TTheme
   }
 `;
 
-// --------------------------------------------------------------------------- //
-// ----------------------------- Helper Functions ---------------------------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- Helper Functions --- //
+// --- //
 const generateBorder = (props: TWeekdaysConatiner & { theme: TTheme }) => {
   const { $border, $layer, theme, $themeType } = props;
   if ($border === 'none') return;

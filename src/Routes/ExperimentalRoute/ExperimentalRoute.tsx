@@ -14,12 +14,17 @@ import { FancyFlexBox } from '@/components/templates/FancyFlexBox';
 import { FancyTabSwitch } from '@/components/organisms/FancyTabSwitch';
 import DynamicComponentWrapper from '@/components/atoms/DynamicComponentWrapper/DynamicComponentWrapper';
 import { FancyBox } from '@/components/atoms/FancyBox';
+import { FancyBoxTw } from '@/components/atoms/FancyBoxTw';
 import { SwipeUpContainer } from '@/components/atoms/SwipeUpContainer';
 import { useActiveBreakpoint } from '@/utils/hooks/useActiveBreakpoint';
 import { SystemMessage } from '@/components/atoms/SystemMessage';
 import { FancyTextInput } from '@/components/organisms/FancyTextInput';
 import { FancyDropDownSelect } from '@/components/organisms/FancyDropDownSelect';
 import { FancyFloatingInfoButton } from '@/components/organisms/FancyFloatingInfoButton';
+import { SearchBar } from '@/components/molecules/SearchBar';
+import FancySearchSelect from '@/components/organisms/FancySearchSelect/FancySearchSelect';
+import FancySearchSelectExample from './FancySearchSelectExample';
+import HeaderNavigationWithTitle from '@/components/molecules/HeaderNavigationWithTitle/HeaderNavigationWithTitle';
 
 const Icon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -83,83 +88,218 @@ export default function ExperimentalRoute() {
   return (
     <>
       <DesignWrapper>
-        <FancyDropDownSelect
-          required
-          value={selectedValue}
-          placeholder="Hiii"
-          emptySelect
-          values={options}
-          onChange={(e) => setSelectedValue(e.target.value)}
-        />
-        <div>
-          <FancyTextInput />
-          <SystemMessage themeType="secondary" showMessage={true}>
-            Mooiin
-          </SystemMessage>
-        </div>
-        <DesignArea title="Test">
-          <p>Test</p>
-        </DesignArea>
-        <FancyButton
-          borderRadius="md"
-          sizeC="md"
-          themeType="secondary"
-          icon={reloadIcon}
-          onClick={() => switchTheme()}
-        />
-        <DynamicComponentWrapper wrapperComponent={<a href="https://fui.cool" />}>
-          <p>Test</p>
-        </DynamicComponentWrapper>
-
-        <FancyTabSwitch wide label="test" layer={1} values={defaultProps} />
-
-        <div
-          onMouseEnter={() => setIsHover(true)}
-          onMouseLeave={() => setIsHover(false)}
-          style={{
-            position: 'fixed',
-            bottom: '0',
-            padding: '20px',
-            backgroundColor: 'black',
-            display: 'grid',
-            gridTemplateRows: isHover ? '1fr' : '0fr',
-            transition: 'grid-template-rows 0.5s ease-out',
-          }}
-        >
-          <div style={{ overflow: 'hidden' }}>
-            <div style={{ height: '100px' }}>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
-                <FancyNumberInput label="Email" />
-                <FancyButton label="Close Modal" />
+        <DesignArea title="FancyBoxTw - Tailwind Migration Showcase">
+          {/* Basic Comparison */}
+          <div className="space-y-8">
+            <HeaderNavigationWithTitle
+              title="Header Navigation With Title"
+              sizeC="sm"
+              forwardButton={{
+                onClick: () => console.log('forward'),
+              }}
+            />
+            <HeaderNavigationWithTitle
+              title="Header Navigation With Title"
+              sizeC="md"
+              backButton={{
+                onClick: () => console.log('back'),
+              }}
+              forwardButton={{
+                onClick: () => console.log('forward'),
+              }}
+            />
+            <HeaderNavigationWithTitle
+              sizeC="lg"
+              title="Header Navigation With Title lg"
+              backButton={{
+                onClick: () => console.log('back'),
+              }}
+            />
+            <section>
+              <h2 className="text-xl font-bold mb-4">Basic FancyBox Comparison</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <h3 className="text-lg font-semibold mb-3 text-gray-700">Styled Components</h3>
+                  <FancyBox themeType="primary" sizeC="md" layer={2}>
+                    <p>Original FancyBox with styled-components</p>
+                    <p className="text-sm mt-2 opacity-70">Using traditional CSS-in-JS approach</p>
+                  </FancyBox>
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold mb-3 text-gray-700">Tailwind CSS</h3>
+                  <FancyBoxTw themeType="primary" sizeC="md" layer={2}>
+                    <p>New FancyBoxTw with Tailwind CSS</p>
+                    <p className="text-sm mt-2 opacity-70">Using utility-first CSS classes</p>
+                  </FancyBoxTw>
+                </div>
               </div>
-            </div>
+            </section>
+
+            {/* Different Theme Types */}
+            <section>
+              <h2 className="text-xl font-bold mb-4">Theme Variations</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                {(['primary', 'accent', 'secondary', 'info', 'success', 'warning', 'error'] as const).map((theme) => (
+                  <div key={theme} className="space-y-2">
+                    <h4 className="text-sm font-medium capitalize text-gray-600">{theme}</h4>
+                    <FancyBoxTw themeType={theme} sizeC="sm" layer={1}>
+                      <p className="text-center font-medium">{theme}</p>
+                    </FancyBoxTw>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            {/* Outlined Variations */}
+            <section>
+              <h2 className="text-xl font-bold mb-4">Outlined Styles</h2>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div>
+                  <h4 className="text-sm font-medium mb-2 text-gray-600">Normal Outlined</h4>
+                  <FancyBoxTw themeType="primary" sizeC="md" layer={5} outlined>
+                    <p>Outlined with border</p>
+                    <p className="text-xs mt-1 opacity-70">Standard outlined style</p>
+                  </FancyBoxTw>
+                </div>
+                <div>
+                  <h4 className="text-sm font-medium mb-2 text-gray-600">No Border</h4>
+                  <FancyBoxTw themeType="info" sizeC="md" layer={0} outlined outlinedRemoveBorder>
+                    <p>Outlined without border</p>
+                    <p className="text-xs mt-1 opacity-70">Subtle background only</p>
+                  </FancyBoxTw>
+                </div>
+                <div>
+                  <h4 className="text-sm font-medium mb-2 text-gray-600">Custom Strength</h4>
+                  <FancyBoxTw themeType="success" sizeC="md" layer={0} outlined outlinedBackgroundStrength={0.3}>
+                    <p>Higher opacity background</p>
+                    <p className="text-xs mt-1 opacity-70">Stronger background</p>
+                  </FancyBoxTw>
+                </div>
+              </div>
+            </section>
+
+            {/* Size Variations */}
+            <section>
+              <h2 className="text-xl font-bold mb-4">Size Variations</h2>
+              <div className="space-y-4">
+                {(['xxs', 'xs', 'sm', 'md', 'lg', 'xl'] as const).map((size) => (
+                  <div key={size} className="flex items-center space-x-4">
+                    <div className="w-12 text-sm font-medium text-gray-600">{size}</div>
+                    <FancyBoxTw themeType="primary" sizeC={size} layer={2} wide={false}>
+                      <p>Size {size}</p>
+                    </FancyBoxTw>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            {/* Custom Spacing */}
+            <section>
+              <h2 className="text-xl font-bold mb-4">Custom Spacing (Numbers)</h2>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div>
+                  <h4 className="text-sm font-medium mb-2 text-gray-600">Small Padding (2)</h4>
+                  <FancyBoxTw themeType="warning" layer={1} padding={2} borderRadius="sm">
+                    <p>Compact padding</p>
+                  </FancyBoxTw>
+                </div>
+                <div>
+                  <h4 className="text-sm font-medium mb-2 text-gray-600">Medium Padding (5)</h4>
+                  <FancyBoxTw themeType="warning" layer={1} padding={5} borderRadius="md">
+                    <p>Standard padding</p>
+                  </FancyBoxTw>
+                </div>
+                <div>
+                  <h4 className="text-sm font-medium mb-2 text-gray-600">Large Padding (8)</h4>
+                  <FancyBoxTw themeType="warning" layer={1} padding={8} borderRadius="lg">
+                    <p>Generous padding</p>
+                  </FancyBoxTw>
+                </div>
+              </div>
+            </section>
+
+            {/* Interactive States */}
+            <section>
+              <h2 className="text-xl font-bold mb-4">Interactive States</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <h4 className="text-sm font-medium mb-2 text-gray-600">Hover Effects</h4>
+                  <FancyBoxTw themeType="accent" layer={3} sizeC="md">
+                    <p>Hover over me!</p>
+                    <p className="text-xs mt-1 opacity-70">Background changes on hover</p>
+                  </FancyBoxTw>
+                </div>
+                <div>
+                  <h4 className="text-sm font-medium mb-2 text-gray-600">Focused State</h4>
+                  <FancyBoxTw themeType="info" layer={2} sizeC="md">
+                    <p>I'm focused!</p>
+                    <p className="text-xs mt-1 opacity-70">Has focus styling applied</p>
+                  </FancyBoxTw>
+                </div>
+              </div>
+            </section>
+
+            {/* Transparent Style */}
+            <section>
+              <h2 className="text-xl font-bold mb-4">Transparent Style</h2>
+              <div className="bg-gray-100 p-4 rounded-lg">
+                <FancyBoxTw themeType="transparent" sizeC="lg" padding={6}>
+                  <p className="text-lg font-semibold">Transparent Background</p>
+                  <p className="text-sm mt-2">Adapts to light/dark themes automatically</p>
+                  <p className="text-xs mt-1 opacity-70">Perfect for overlays and modals</p>
+                </FancyBoxTw>
+              </div>
+            </section>
+
+            {/* As Different Elements */}
+            <section>
+              <h2 className="text-xl font-bold mb-4">Different HTML Elements</h2>
+              <div className="space-y-4">
+                <FancyBoxTw as="article" themeType="primary" sizeC="md" layer={1}>
+                  <h3 className="font-bold">Article Element</h3>
+                  <p className="text-sm mt-1">FancyBoxTw rendered as an article tag</p>
+                </FancyBoxTw>
+                <FancyBoxTw as="section" themeType="secondary" sizeC="md" layer={2}>
+                  <h3 className="font-bold">Section Element</h3>
+                  <p className="text-sm mt-1">FancyBoxTw rendered as a section tag</p>
+                </FancyBoxTw>
+                <FancyBoxTw as="aside" themeType="info" sizeC="md" layer={1} outlined>
+                  <h3 className="font-bold">Aside Element</h3>
+                  <p className="text-sm mt-1">FancyBoxTw rendered as an aside tag with outline</p>
+                </FancyBoxTw>
+              </div>
+            </section>
+
+            {/* Migration Benefits */}
+            <section className="bg-green-50 p-6 rounded-lg">
+              <h2 className="text-xl font-bold mb-4 text-green-800">Migration Benefits</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                <div>
+                  <h4 className="font-semibold text-green-700 mb-2">Performance</h4>
+                  <ul className="space-y-1 text-green-600">
+                    <li>• No runtime CSS generation</li>
+                    <li>• Smaller bundle size</li>
+                    <li>• Better caching</li>
+                    <li>• Faster rendering</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-green-700 mb-2">Developer Experience</h4>
+                  <ul className="space-y-1 text-green-600">
+                    <li>• Better IntelliSense</li>
+                    <li>• Easier debugging</li>
+                    <li>• Consistent spacing system</li>
+                    <li>• Numbered sizing (0-10)</li>
+                  </ul>
+                </div>
+              </div>
+            </section>
           </div>
-        </div>
+        </DesignArea>
 
-        <div
-          style={{
-            position: 'fixed',
-            left: '0',
-            bottom: '0',
-            padding: '20px',
-            backgroundColor: 'black',
-            display: 'grid',
-            gridTemplateRows: isHover ? '1fr' : '0fr',
-            transition: 'grid-template-rows 0.5s ease-out',
-          }}
-        >
-          <SwipeUpContainer isOpen={isHover}>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
-              <FancyNumberInput label="Email" />
-              <FancyButton label="Close Modal" />
-            </div>
-          </SwipeUpContainer>
-        </div>
-
-        <FancyBox hoverLayer={4}>
-          <p>Test</p>
-        </FancyBox>
-        <FancyFloatingInfoButton position="top-right" />
+        <DesignArea title="FancySearchSelect Examples">
+          <FancySearchSelectExample />
+        </DesignArea>
       </DesignWrapper>
     </>
   );

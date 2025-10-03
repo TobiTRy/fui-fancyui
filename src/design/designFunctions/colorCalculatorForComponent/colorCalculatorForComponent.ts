@@ -33,9 +33,9 @@ export function getBackgroundColor({ theme, $themeType, $customColor, $layer }: 
   return proviedColor || '';
 }
 
-// --------------------------------------------------------------------------- //
-// --------------------------------------------------------------------------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- - --- //
+// --- //
 
 // Define the types for the arguments that will be passed to the getTextColor function
 type IGetTextColor = Pick<IGetColorForComponent, '$themeType' | '$customTextColor' | '$textLayer' | 'theme'>;
@@ -80,9 +80,9 @@ export function getTextColor({
   return proviedColor;
 }
 
-// --------------------------------------------------------------------------- //
-// --------------------------------------------------------------------------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- - --- //
+// --- //
 
 // Define the types for the arguments that will be passed to the getColorsForComponent function
 type IGetColorForComponent = {

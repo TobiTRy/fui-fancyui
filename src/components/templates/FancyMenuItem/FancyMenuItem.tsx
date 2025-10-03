@@ -6,11 +6,11 @@ import { FancyContent } from '@/components/molecules/FancyContent';
 import { sizeSettings } from './sizeSettings';
 import { TFancyMenueItemWithMenuAttrs } from './TFancyMenuItem.model';
 
-// --------------------------------------------------------------------------- //
-// ---------- The FancyMenueItem is a template for a finished Item  ---------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- The FancyMenueItem is a template for a finished Item --- //
+// --- //
 export default function FancyMenueItem(props: TFancyMenueItemWithMenuAttrs) {
-  const { label, icon, sizeC = 'sm', gapBetweenIcon = 'sm', themeTypeText, layerText, ...menuItemProps } = props;
+  const { label, icon, sizeC = 'lg', gapBetweenIcon = 'sm', themeTypeText, layerText, ...menuItemProps } = props;
 
   return (
     <MenueItem sizeC={sizeC} {...menuItemProps}>
@@ -20,7 +20,11 @@ export default function FancyMenueItem(props: TFancyMenueItemWithMenuAttrs) {
             {label}
           </FancyContent.Title>
         )}
-        {icon && <FancyContent.Icon sizeC={sizeSettings[sizeC].iconSize}>{icon}</FancyContent.Icon>}
+        {icon && (
+          <FancyContent.Icon noPadding sizeC={sizeC === 'xs' ? 'sm' : sizeC === 'xl' ? 'lg' : sizeC}>
+            {icon}
+          </FancyContent.Icon>
+        )}
       </FancyContent>
     </MenueItem>
   );

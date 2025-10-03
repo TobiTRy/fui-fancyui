@@ -1,16 +1,16 @@
 import { generateSpacingSize } from '@/design/theme/generateSpacingSize';
 
 export const spacingPx = {
-  '3xs': generateSpacingSize(1, true), // 2px
-  xxs: generateSpacingSize(2, true), // 4px
-  xs: generateSpacingSize(3, true), // 8px
-  sm: generateSpacingSize(4, true), // 16px
-  md: generateSpacingSize(5, true), // 24px
-  lg: generateSpacingSize(6, true), // 32px
-  xl: generateSpacingSize(7, true), // 48px
-  xxl: generateSpacingSize(8, true), // 64px
-  '3xl': generateSpacingSize(9, true), // 80px
-  '4xl': generateSpacingSize(10, true), // 96px
+  '3xs': '2px', // 2px
+  xxs: '4px', // 4px
+  xs: '8px', // 8px
+  sm: '12px', // 16px
+  md: '16px', // 24px
+  lg: '24px', // 32px
+  xl: '32px', // 48px
+  xxl: '40px', // 64px
+  '3xl': '48px', // 80px
+  '4xl': '64px', // 96px
 };
 
 // export const fontSizes = {
@@ -151,6 +151,39 @@ export const typography = {
   interactiveXl: {
     fontSize: '20px',
     lineHeight: '28px',
+    letterSpacing: '0.01em',
+    fontWeight: '500', // Medium
+  },
+
+  // FancyContent specific variants with matching font size and line height for icon alignment
+  // These are also used by FancyButton since it uses FancyContent internally
+  fancyContentXs: {
+    fontSize: '12px',
+    lineHeight: '12px',
+    letterSpacing: '0.01em',
+    fontWeight: '500', // Medium
+  },
+  fancyContentSm: {
+    fontSize: '14px', // Adjusted to match interactive sizes for buttons
+    lineHeight: '14px',
+    letterSpacing: '0.01em',
+    fontWeight: '500', // Medium
+  },
+  fancyContentMd: {
+    fontSize: '16px', // Adjusted to match interactive sizes for buttons
+    lineHeight: '16px',
+    letterSpacing: '0.01em',
+    fontWeight: '500', // Medium
+  },
+  fancyContentLg: {
+    fontSize: '20px', // Increased for better visual hierarchy
+    lineHeight: '20px',
+    letterSpacing: '0.01em',
+    fontWeight: '500', // Medium
+  },
+  fancyContentXl: {
+    fontSize: '24px', // Increased for better visual hierarchy
+    lineHeight: '24px',
     letterSpacing: '0.01em',
     fontWeight: '500', // Medium
   },

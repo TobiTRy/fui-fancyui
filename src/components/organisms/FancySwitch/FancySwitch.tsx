@@ -9,9 +9,9 @@ import { FancyBoxWrapper } from '@/components/organisms/FancySwitch/FancySwitch.
 import { flipThemeType } from '@/design/designFunctions/flipThemeType';
 import { TFancySwitch } from './TFancySwitch.model';
 
-// --------------------------------------------------------------------------- //
-// -------------------- A fancy Switch with a Label -------------------------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- A fancy Switch with a Label --- //
+// --- //
 const FancySwitch = forwardRef<HTMLInputElement, TFancySwitch>((props, ref) => {
   const {
     label,

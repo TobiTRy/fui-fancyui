@@ -6,9 +6,9 @@ import { useNumberInput } from '@/components/atoms/NumberInput/useNumberInput.ho
 import { StyledNumberInput } from './NumberInput.styled';
 import { TNumberInputWithNativeAttrs } from '@/components/atoms/NumberInput/TNumberInput.model';
 
-// --------------------------------------------------------------------------- //
-// Advanced Text imput that acts like a number input to have more versatelity  //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- Advanced Text imput that acts like a number input to have more versatelity --- //
+// --- //
 const NumberInput = forwardRef<HTMLInputElement, TNumberInputWithNativeAttrs>((props, ref) => {
   const {
     value,

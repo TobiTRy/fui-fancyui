@@ -7,9 +7,9 @@ import { getTextSize } from '@/components/atoms/FancyProfilePicture/utils/getTex
 import { TTTextAvatarWithHTMLAttrs } from './TextAvatar.model';
 import { generateText } from './utils/generateText';
 
-// --------------------------------------------------------------------------- //
-// ------- The Text Avatar renders a Avatar with background and initials ----- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- The Text Avatar renders a Avatar with background and initials --- //
+// --- //
 export default function TextAvatar(props: TTTextAvatarWithHTMLAttrs) {
   const {
     borderRadius = 'complete',

@@ -8,6 +8,7 @@ import FancyContentIcon from '@/components/molecules/FancyContent/utils/FancyCon
 import FancyContentTitle from '@/components/molecules/FancyContent/utils/FancyContentText';
 import FancyContentDescription from '@/components/molecules/FancyContent/utils/FancyContentDescription';
 import FancyContentImage from '@/components/molecules/FancyContent/utils/FancyContentImage';
+import { TComponentSizesMid } from '@/types/TComponentSizes';
 
 // --------------------------------------------------------------------------- //
 // ------- The conent Components handles the Content of The componets -------- //
@@ -16,8 +17,7 @@ function FancyContent(props: TFancyContentHTMLAttrs) {
   const {
     children,
     layoutMode = 'auto',
-    gap,
-    gapBetweenText = '',
+    gapBetweenText,
     gapBetweenIcon,
     themeType,
     layer,
@@ -26,8 +26,11 @@ function FancyContent(props: TFancyContentHTMLAttrs) {
     justify,
     align,
     wide = true,
+    sizeC: sizeCProps,
     ...htmlProps
   } = props;
+
+  const sizeC: TComponentSizesMid = (sizeCProps as TComponentSizesMid) || 'md';
 
   let iconElement: ReactElement | null = null;
   let titleElement: ReactElement | null = null;
@@ -37,23 +40,29 @@ function FancyContent(props: TFancyContentHTMLAttrs) {
   // Classify children into icon, title, description, and others
   React.Children.forEach(children, (child) => {
     if (React.isValidElement(child)) {
-      const childProps = child.props as { className?: string };
+      const childProps = child.props as { className?: string; sizeC?: TComponentSizesMid };
 
       if (child.type === FancyContent.Icon || child.type === FancyContent.Image) {
-        iconElement = React.cloneElement(child as ReactElement<{ className?: string }>, {
+        iconElement = React.cloneElement(child as ReactElement<{ className?: string; sizeC?: TComponentSizesMid }>, {
           ...childProps,
           className: `${childProps.className || ''} icon`.trim(),
+          sizeC: (childProps.sizeC as TComponentSizesMid) || sizeC,
         });
       } else if (child.type === FancyContent.Title) {
-        titleElement = React.cloneElement(child as ReactElement<{ className?: string }>, {
+        titleElement = React.cloneElement(child as ReactElement<{ className?: string; sizeC?: TComponentSizesMid }>, {
           ...childProps,
           className: `${childProps.className || ''} title`.trim(),
+          sizeC: (childProps.sizeC as TComponentSizesMid) || sizeC,
         });
       } else if (child.type === FancyContent.Description) {
-        descriptionElement = React.cloneElement(child as ReactElement<{ className?: string }>, {
-          ...childProps,
-          className: `${childProps.className || ''} description`.trim(),
-        });
+        descriptionElement = React.cloneElement(
+          child as ReactElement<{ className?: string; sizeC?: TComponentSizesMid }>,
+          {
+            ...childProps,
+            className: `${childProps.className || ''} description`.trim(),
+            sizeC: (childProps.sizeC as TComponentSizesMid) ?? sizeC,
+          }
+        );
       } else {
         otherElements.push(child);
       }
@@ -69,10 +78,11 @@ function FancyContent(props: TFancyContentHTMLAttrs) {
 
   // If description should be used as title, update its class
   if (descriptionAsTitle && descriptionElement) {
-    const element = descriptionElement as React.ReactElement<{ className?: string }>;
+    const element = descriptionElement as React.ReactElement<{ className?: string; sizeC?: TComponentSizesMid }>;
     descriptionElement = React.cloneElement(element, {
       ...element.props,
       className: `${element.props.className || ''} title`.replace('description', '').trim(),
+      sizeC: (element.props.sizeC as TComponentSizesMid) || sizeC,
     });
   }
 
@@ -88,7 +98,6 @@ function FancyContent(props: TFancyContentHTMLAttrs) {
       <OnlyTextWrapper
         $themeType={themeType}
         $layer={layer}
-        $gap={gap}
         $gapBetweenText={gapBetweenText}
         $layoutMode={layoutMode}
         $externalStyle={externalStyle}
@@ -112,9 +121,8 @@ function FancyContent(props: TFancyContentHTMLAttrs) {
         $hasIcon={hasIcon}
         $hasTitle={hasTitle || descriptionAsTitle}
         $hasDescription={hasDescription && !descriptionAsTitle}
-        $gap={gap}
         $gapBetweenText={gapBetweenText}
-        $gapBetweenIcon={gapBetweenIcon ?? '2xs'}
+        $gapBetweenIcon={gapBetweenIcon ?? 'xs'}
         $themeType={themeType}
         $layer={layer}
         $externalStyle={externalStyle}
@@ -137,7 +145,6 @@ function FancyContent(props: TFancyContentHTMLAttrs) {
     <OnlyTextWrapper
       $themeType={themeType}
       $layer={layer}
-      $gap={gap}
       $gapBetweenText={gapBetweenText}
       $layoutMode={layoutMode}
       $externalStyle={externalStyle}

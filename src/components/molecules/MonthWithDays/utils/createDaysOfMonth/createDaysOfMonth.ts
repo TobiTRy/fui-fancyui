@@ -22,9 +22,9 @@ const createDaysOfMonth = (props: TCreateDaysOfMonth): (TDay | null)[][] => {
   const weeks: (TDay | null)[][] = [];
   let week: (TDay | null)[] = [];
 
-  // --------------------------------------------------------------------------- //
-  // - Calculate previous month's overflow days if fillAdjacentMonths is true -- //
-  // --------------------------------------------------------------------------- //
+  // --- //
+  // ----- Calculate previous month's overflow days if fillAdjacentMonths is true -- --- //
+  // --- //
   if (firstDayOfMonth > 0) {
     const prevMonthDays = getDaysInMonth(monthIdx, year); // Get total days of previous month
     for (let i = 0; i < firstDayOfMonth; i++) {
@@ -47,9 +47,9 @@ const createDaysOfMonth = (props: TCreateDaysOfMonth): (TDay | null)[][] => {
     }
   }
 
-  // --------------------------------------------------------------------------- //
-  // --------------------  Create days of the month ---------------------------- //
-  // --------------------------------------------------------------------------- //
+  // --- //
+  // ----- Create days of the month --- //
+  // --- //
   for (let day = 1; day <= daysInMonth; day++) {
     const dayObj = createDay({
       dayNumber: day,
@@ -70,9 +70,9 @@ const createDaysOfMonth = (props: TCreateDaysOfMonth): (TDay | null)[][] => {
     week.push(dayObj);
   }
 
-  // --------------------------------------------------------------------------- //
-  // -----  Adjust the next month's overflow and current month's alignment ----- //
-  // --------------------------------------------------------------------------- //
+  // --- //
+  // ----- Adjust the next month's overflow and current month's alignment --- //
+  // --- //
   const daysNeeded = 7 - week.length;
   if (daysNeeded > 0) {
     if (fillAdjacentMonths) {

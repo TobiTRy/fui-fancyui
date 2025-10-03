@@ -16,9 +16,9 @@ type TGenerateTransparentStyle = Pick<
   | '$textColor'
   | '$textHover'
 >;
-// -------------------------------------------------------- //
-// ---------- generates a transparent background ---------- //
-// --------------------------------------------------------- //
+// --- //
+// ----- generates a transparent background --- //
+// --- //
 export const generateTransparentStyle = (props: TGenerateTransparentStyle) => {
   const { $backgroundState, $textColor, $outlinedBackgroundStrength = 0.3, $layer, $textHover } = props;
 

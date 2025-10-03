@@ -9,9 +9,9 @@ import { TTheme } from '@/types/TTheme';
 import { TUiColorsNotTransparent } from '@/types/TUiColorsNotTransparent';
 import { TFancyDropDownUL } from './TFancyDropDownUL.model';
 
-// --------------------------------------------------------------------------- //
-// ------- the generator function for the Wrapper of the UL ------------------ //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- the generator function for the Wrapper of the UL --- //
+// --- //
 type IStyledUL = TStyledPrefixAndPicker<
   TFancyDropDownUL,
   'width' | 'alignHorizontal' | 'alignVertical' | 'borderRadius'
@@ -26,9 +26,9 @@ export const WrapperUL = styled.div<IStyledUL>`
   z-index: 100;
 `;
 
-// --------------------------------------------------------------------------- //
-// ------------------- the UL for the items and the style -------------------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- the UL for the items and the style --- //
+// --- //
 export const StyledUL = styled.ul<{ theme: TTheme; $themeType?: TUiColorsNotTransparent; $layer?: TLayer }>`
   display: flex;
   flex-direction: column;

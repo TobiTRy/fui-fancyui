@@ -5,9 +5,9 @@ import { css, styled } from 'styled-components';
 import { getBackgroundColor } from '@/design/designFunctions/colorCalculatorForComponent';
 import { arrayToCssValues } from '@/design/designFunctions/arrayToCssValues';
 
-// ------------------------------------------- //
-// ------- The style for the component ------- //
-// ------------------------------------------- //
+// --- //
+// ----- The style for the component --- //
+// --- //
 
 type TStyledFancyLine = TStyledPrefixAndPicker<TFancyLine> & { theme?: TTheme };
 export const StyledFancyLine = styled.hr<TStyledFancyLine>`

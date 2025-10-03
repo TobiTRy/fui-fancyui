@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tailwind Test</title>
+    <link rel="stylesheet" href="./tailwind.css">
+</head>
+<body>
+    <div class="p-4">
+        <h1 class="text-2xl font-bold mb-4">Tailwind CSS Test</h1>
+        
+        <!-- Test basic utilities -->
+        <div class="bg-red-500 text-white p-4 mb-4 rounded">
+            Basic Tailwind classes (should be red background)
+        </div>
+        
+        <!-- Test FUI colors -->
+        <div class="bg-primary-2 text-secondary-0 p-5 rounded-4 mb-4">
+            FUI Primary-2 background with Secondary-0 text and FUI border radius
+        </div>
+        
+        <!-- Test different FUI colors -->
+        <div class="grid grid-cols-2 gap-4 mb-4">
+            <div class="bg-accent-0 text-white p-4 rounded-2">
+                Accent-0
+            </div>
+            <div class="bg-info-1 text-white p-4 rounded-3">
+                Info-1
+            </div>
+            <div class="bg-success-2 text-white p-4 rounded-4">
+                Success-2
+            </div>
+            <div class="bg-warning-3 text-white p-4 rounded-5">
+                Warning-3
+            </div>
+        </div>
+        
+        <!-- Test spacing -->
+        <div class="bg-gray-200 mb-4">
+            <div class="p-1 bg-blue-100 m-2">Spacing 1 (2px)</div>
+            <div class="p-3 bg-blue-200 m-4">Spacing 3 (8px)</div>
+            <div class="p-5 bg-blue-300 m-6">Spacing 5 (16px)</div>
+            <div class="p-8 bg-blue-400 m-10">Spacing 8 (40px)</div>
+        </div>
+        
+        <!-- Test element sizes -->
+        <div class="flex gap-4 items-end mb-4">
+            <div class="w-element-0 h-element-0 bg-purple-500">Size 0</div>
+            <div class="w-element-2 h-element-2 bg-purple-500">Size 2</div>
+            <div class="w-element-4 h-element-4 bg-purple-500">Size 4</div>
+            <div class="w-element-6 h-element-6 bg-purple-500">Size 6</div>
+        </div>
+    </div>
+</body>
+</html>

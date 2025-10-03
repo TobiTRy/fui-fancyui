@@ -5,9 +5,9 @@ import { FancyPortal } from '@/components/shared/FancyPortal';
 
 import { TFancySwipeUpModal, TModalSettings } from '@/components/organisms/FancySwipeUpModal';
 
-// --------------------------------------------------------------------------- //
-// ----------- The main FancySwipeUpModal to handle all everything ----------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- The main FancySwipeUpModal to handle all everything --- //
+// --- //
 interface IFancySwipeUpModal {
   appendToDomID?: string;
   modals: TFancySwipeUpModal[];

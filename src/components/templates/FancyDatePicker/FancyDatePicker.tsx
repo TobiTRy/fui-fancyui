@@ -12,9 +12,9 @@ import { DatePickerContainer, WrapperYearSelector } from './FancyDatePicker.styl
 import { clampLayer } from '@/utils/functions/clampLayer';
 import { useDebounce } from '@/utils/hooks/useDebounce';
 
-// --------------------------------------------------------------------------- //
-// --------- A Datepicker thats really fancy with some advanced logic -------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- A Datepicker thats really fancy with some advanced logic --- //
+// --- //
 export default function FancyDatePicker(props: TFancyDatePicker) {
   const {
     rangeCalendar = false,

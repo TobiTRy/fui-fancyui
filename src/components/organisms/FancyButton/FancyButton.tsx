@@ -12,9 +12,9 @@ import { leftRightCenterToFlexJustify } from '@/design/designFunctions/leftRight
 import { TFancyButtonWithHTMLAttrs } from './TFancyButton.model';
 import { sizeSettings } from './sizeSettings';
 
-// --------------------------------------------------------------------------- //
-// ---------- The Fancy Button has a bit more options than another  ---------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- The Fancy Button has a bit more options than another --- //
+// --- //
 export default function FancyButton(props: TFancyButtonWithHTMLAttrs) {
   const {
     icon,
@@ -63,6 +63,7 @@ export default function FancyButton(props: TFancyButtonWithHTMLAttrs) {
         wide={false}
         alignIcon={iconPosition}
         gapBetweenIcon={sizeSettings[sizeC].gap}
+        sizeC={sizeC}
       >
         {label && (
           <FancyContent.Title fontVariant={sizeSettings[sizeC ?? 'md'].fontSize} themeType={buttonProps.textColor}>
@@ -70,7 +71,7 @@ export default function FancyButton(props: TFancyButtonWithHTMLAttrs) {
           </FancyContent.Title>
         )}
         {(isLoading || icon) && (
-          <FancyContent.Icon sizeC={sizeC === 'xs' ? 'sm' : sizeC === 'xl' ? 'lg' : sizeC} noPadding>
+          <FancyContent.Icon noPadding>
             {isLoading ? <LoadingSVGArrows isLoading={isLoading} /> : icon}
           </FancyContent.Icon>
         )}

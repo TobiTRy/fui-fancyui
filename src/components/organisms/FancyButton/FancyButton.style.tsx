@@ -3,10 +3,9 @@ import { css } from 'styled-components';
 import { TLeftRightCenterToFlexJustify } from '@/design/designFunctions/leftRightCenterToFlexJustify';
 import { TComponentSizesMid } from '@/types/TComponentSizes';
 import { sizeSettings } from './sizeSettings';
-import { sizeSettings as buttonSizeSettings } from '@/components/molecules/Button/sizeSettings';
 import arrayToCssValues from '@/design/designFunctions/arrayToCssValues/arrayToCssValues';
 import { calcCSSValuesWithOffset } from '@/utils/functions/calcCSSValuesWithOffset';
-import getThemeOrValueAsCSS from '@/design/designFunctions/getThemeOrValueAsCss/getThemeOrValueAsCss';
+import { globalElementSizes } from '@/design/theme/globalSizes';
 
 interface IGenerateFancyButton {
   $sizeC: TComponentSizesMid;
@@ -30,19 +29,19 @@ export const generateFancyButton = (props: IGenerateFancyButton) => {
 };
 
 const generate1To1Button = ($sizeC: TComponentSizesMid) => {
-  //this makes the button a square (1/1) if there is no $label and a $icon
-  // Calculate height to match normal buttons: padding + line-height
+  // Use global element sizes from theme store for consistent 1:1 button heights
+  const height = globalElementSizes[$sizeC];
+
+  // Extract vertical padding for consistent spacing
   const padding = sizeSettings[$sizeC].padding;
   const verticalPadding = Array.isArray(padding) ? padding[0] : padding;
   const verticalPaddingValue = arrayToCssValues(verticalPadding, 'spacing');
-  const lineHeightValue = getThemeOrValueAsCSS(buttonSizeSettings[$sizeC].lineHeight, 'spacing');
 
   return css`
     aspect-ratio: 1/1;
     justify-content: center;
-    /* Use calc to match normal button height: (2 * vertical padding) + line-height */
-    height: calc(2 * ${verticalPaddingValue} + ${lineHeightValue});
-    width: calc(2 * ${verticalPaddingValue} + ${lineHeightValue});
+    height: ${height};
+    width: ${height};
     padding: ${verticalPaddingValue};
   `;
 };

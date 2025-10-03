@@ -5,9 +5,9 @@ import { TDay } from './types/TDay.model';
 import { disableDate } from './disableDate';
 import { TDateArray } from '@/components/molecules/Calendar/TCalendar.model';
 
-// --------------------------------------------------------------------------- //
-// ----this function creates a day object based on the following parameters--- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- this function creates a day object based on the following parameters--- --- //
+// --- //
 interface ICreateDay {
   dayNumber: number;
   month: number;

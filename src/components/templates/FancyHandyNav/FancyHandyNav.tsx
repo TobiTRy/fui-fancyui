@@ -13,9 +13,9 @@ import { TFancyHandyNavWithHTMLAttrs } from './TFancyHandyNav.model';
 import { getOpositMainThemeType } from '@/design/designFunctions/getOpositMainThemeType';
 import { clampLayer } from '@/utils/functions/clampLayer';
 
-// --------------------------------------------------------------------------- //
-// ---------- A handyNavBar that can dynamicly generated via objects---------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- A handyNavBar that can dynamicly generated via objects---------- --- //
+// --- //
 export default function FancyHandyNav(props: TFancyHandyNavWithHTMLAttrs) {
   const {
     items,

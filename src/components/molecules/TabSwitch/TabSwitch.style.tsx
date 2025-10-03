@@ -12,9 +12,9 @@ export interface IFancyTabSwitchStyle {
   $disabled?: boolean;
 }
 
-// ----------------------------------------------------------- //
-// ---------- The main UL element for the component ---------- //
-// ----------------------------------------------------------- //
+// --- //
+// ----- The main UL element for the component --- //
+// --- //
 // Define the styled-component for the unordered list of the tab switch
 export const ULButtonSwitchList = styled.ul<IFancyTabSwitchStyle & { theme: TTheme }>`
   display: ${({ $wide }) => ($wide ? 'grid' : 'inline-grid')};
@@ -35,9 +35,9 @@ export const ULButtonSwitchList = styled.ul<IFancyTabSwitchStyle & { theme: TThe
   ${({ $disabled }) => $disabled && disabledStyle}
 `;
 
-// ----------------------------------- //
-// ---------- Other styled  ---------- //
-// ----------------------------------- //
+// --- //
+// ----- Other styled --- //
+// --- //
 // Define the styled-component for the list item wrapper
 export const ItemWrapper = styled.li<{ $externalStyle?: CSSProp }>`
   position: relative;

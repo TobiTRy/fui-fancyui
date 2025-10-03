@@ -7,8 +7,8 @@ export type TTextInput = {
   type?: 'text' | 'email' | 'tel' | 'url';
 };
 
-// the native props of the input element excluding the type attribute
-export type TTextInputNativeAttrs = Omit<InputHTMLAttributes<HTMLInputElement>, 'type'>;
+// the native props of the input element excluding the type attribute and onSelect
+export type TTextInputNativeAttrs = Omit<InputHTMLAttributes<HTMLInputElement>, 'type' | 'onSelect'>;
 
 // the props of the input element with the native props
 export type TTextInputWithNativeAttrs = TTextInput & TTextInputNativeAttrs;

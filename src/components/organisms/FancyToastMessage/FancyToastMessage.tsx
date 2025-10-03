@@ -19,9 +19,9 @@ import { TFancyToastMessages } from '@/components/organisms/FancyToastMessage/TF
 //   type: 'error',
 // });
 
-// --------------------------------------------------------------------------- //
-// ------- The Main Toast Message Module to displayed multible messages ------ //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- The Main Toast Message Module to displayed multible messages --- //
+// --- //
 export default function FancyToastMessage(props: TFancyToastMessages) {
   const { toastMessages, closeToast, externalStyle, ...htmlProps } = props;
 

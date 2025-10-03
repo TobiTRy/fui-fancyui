@@ -37,9 +37,9 @@ const clacCurrentPosition = (props: IClacCurrentPosition) => {
   return currentPosition;
 };
 
-// --------------------------------------------------------------------------- //
-// -------- Here is the main Generator Function of the activ indicator ------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- Here is the main Generator Function of the activ indicator --- //
+// --- //
 type ActiveSwitchIndicatorGenerator = TStyledPrefixAndPicker<
   TActiveSwitchIndicator,
   'layer' | 'borderRadius' | 'outlined' | 'themeType' | 'type' | 'indicatorWidth' | 'indicatorHeight'

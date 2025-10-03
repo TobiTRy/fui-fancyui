@@ -5,9 +5,9 @@ import { StyledHeader } from './Header.style';
 import { FancyNavBar } from '@/components/molecules/FancyNavBar';
 import HeaderLogo from './HeaderLogo/HeaderLogo';
 
-// --------------------------------------------------------------------------- //
-// -------------- A Simple header that can complettly customized ------------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- A Simple header that can complettly customized --- //
+// --- //
 function Header(props: THeaderWithHTMLAttributes) {
   const { themeType = 'primary', layer = 1, outlined, outlinedBackgroundStrength, children, externalStyle } = props;
 

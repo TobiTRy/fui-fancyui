@@ -5,9 +5,9 @@ import { Typography } from '@/components/atoms/Typography';
 
 import { TSystemMessageWithHTMLAttrs } from '@/components/atoms/SystemMessage/TSystemMassage.model';
 
-// --------------------------------------------------------------------------- //
-// ------- Only a SystemMessage(Text) that renders in different colors ------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- Only a SystemMessage(Text) that renders in different colors --- //
+// --- //
 export default function SystemMessage(props: TSystemMessageWithHTMLAttrs) {
   const {
     themeType = 'error',

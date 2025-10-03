@@ -8,9 +8,9 @@ type TGenerateOutlinedHoverStyle = Pick<
   IGenerateThemeDesignForComponent,
   '$themeType' | 'theme' | '$layer' | '$outlinedBackgroundStrength' | '$hoverColor'
 >;
-// --------------------------------------------------------------------------- //
-// ---- this function generates the color for the background ----------------- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- this function generates the color for the background --- //
+// --- //
 const generateHoverColor = (props: TGenerateOutlinedHoverStyle & { isActiveSate?: boolean }) => {
   const { theme, $layer = 0, $themeType, $outlinedBackgroundStrength = 1, $hoverColor, isActiveSate } = props;
 
@@ -39,9 +39,9 @@ type TGenerateStateStyle = Pick<
   | '$textHover'
   | '$textColor'
 >;
-// --------------------------------------------------------------------------- //
-// ---------- this function handles wich style should apply ------------------ //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- this function handles wich style should apply --- //
+// --- //
 export const generateStateStyle = (props: TGenerateStateStyle) => {
   switch (props.$backgroundState) {
     // when the component has a hover state

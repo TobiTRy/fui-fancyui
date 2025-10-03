@@ -5,9 +5,9 @@ import { useEffect, useRef, useState } from 'react';
 import { StyledContent, StyledDialog, StyledHeader, StyledFooter } from './SimpleDialog.style';
 import { TSimpleDialogWithHTMLAttrs } from '@/components/atoms/SimpleDialog/SimpleDialog.model';
 
-// --------------------------------------------------------------------------- //
-// -------  A container that can filld with everythin and acts as a dialog --- //
-// --------------------------------------------------------------------------- //
+// --- //
+// ----- A container that can filld with everythin and acts as a dialog --- --- //
+// --- //
 export default function SimpleDialog(props: TSimpleDialogWithHTMLAttrs) {
   const {
     isOpen = false,
@@ -28,9 +28,11 @@ export default function SimpleDialog(props: TSimpleDialogWithHTMLAttrs) {
   useEffect(() => {
     if (isOpen) {
       setRender(true);
-      // Trigger animation in the next frame after render
+      // Trigger animation with double requestAnimationFrame to ensure DOM painting
       requestAnimationFrame(() => {
-        setIsAnimating(true);
+        requestAnimationFrame(() => {
+          setIsAnimating(true);
+        });
       });
       lastFocusedElement.current = document.activeElement as HTMLElement;
     } else {
