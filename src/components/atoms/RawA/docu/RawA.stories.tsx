@@ -31,6 +31,6 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   render: (args) => <RawA {...args}>Hi iam completly blank</RawA>,
   args: {
-    href: 'https://fui.cool',
+    href: 'https://fancy-ui.com',
   },
 };

@@ -104,7 +104,7 @@ export const Advancedheader: Story = {
       <FancyGrid simpleGrid={8} gap="12px">
         <FancyGrid.Item gridSpace={2}>
           <FancyGrid.Item.FlexBox align="center" justify="flex-start" className={'mooiiin'}>
-            <RawA style={{ height: '100%' }} href="https://fui.cool">
+            <RawA style={{ height: '100%' }} href="https://fancy-ui.com">
               <Header.Logo className="logo">
                 <Header.Logo.Image externalStyle={{ height: '100%' }}>
                   <img src={logo} />

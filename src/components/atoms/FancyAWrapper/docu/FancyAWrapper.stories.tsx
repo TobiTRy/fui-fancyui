@@ -53,7 +53,7 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   render: (args) => (
     <FancyAWrapper {...args}>
-      <RawA href="https://fui.cool">Hi iam in a Wrapper</RawA>
+      <RawA href="https://fancy-ui.com">Hi iam in a Wrapper</RawA>
     </FancyAWrapper>
   ),
   args: {
