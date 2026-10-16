@@ -61,7 +61,7 @@ export const WrapperWithButton: Story = {
 // Define the primary story
 export const WrapperWithCustom: Story = {
   render: (args) => (
-    <FancyActionWrapper {...args} WrapperComponent={<a href="http://fui.cool"></a>}>
+    <FancyActionWrapper {...args} WrapperComponent={<a href="https://fancy-ui.com"></a>}>
       <FancyButton notAButton label={'Click me'} />
     </FancyActionWrapper>
   ),
